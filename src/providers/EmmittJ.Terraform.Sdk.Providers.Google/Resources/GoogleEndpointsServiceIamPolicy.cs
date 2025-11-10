@@ -14,16 +14,19 @@ public class GoogleEndpointsServiceIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("policy_data");
+        SetOutput("service_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,8 +35,8 @@ public class GoogleEndpointsServiceIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
-        set => this.WithProperty("policy_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
+        set => SetProperty("policy_data", value);
     }
 
     /// <summary>
@@ -42,8 +45,8 @@ public class GoogleEndpointsServiceIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>

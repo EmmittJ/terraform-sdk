@@ -17,8 +17,7 @@ public class GoogleAccessContextManagerAccessLevelBasicBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CombiningFunction
     {
-        get => GetProperty<TerraformProperty<string>>("combining_function");
-        set => WithProperty("combining_function", value);
+        set => SetProperty("combining_function", value);
     }
 
 }
@@ -42,8 +41,7 @@ public class GoogleAccessContextManagerAccessLevelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -51,8 +49,7 @@ public class GoogleAccessContextManagerAccessLevelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -60,8 +57,7 @@ public class GoogleAccessContextManagerAccessLevelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -79,24 +75,29 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent");
+        SetOutput("title");
     }
 
     /// <summary>
     /// Description of the AccessLevel and its use. Does not affect behavior.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -107,8 +108,8 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -118,8 +119,8 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -128,8 +129,8 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => this.WithProperty("title", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("title");
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -139,8 +140,7 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Basic block(s) allowed")]
     public List<GoogleAccessContextManagerAccessLevelBasicBlock>? Basic
     {
-        get => GetProperty<List<GoogleAccessContextManagerAccessLevelBasicBlock>>("basic");
-        set => this.WithProperty("basic", value);
+        set => SetProperty("basic", value);
     }
 
     /// <summary>
@@ -150,8 +150,7 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Custom block(s) allowed")]
     public List<GoogleAccessContextManagerAccessLevelCustomBlock>? Custom
     {
-        get => GetProperty<List<GoogleAccessContextManagerAccessLevelCustomBlock>>("custom");
-        set => this.WithProperty("custom", value);
+        set => SetProperty("custom", value);
     }
 
     /// <summary>
@@ -160,8 +159,7 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// </summary>
     public GoogleAccessContextManagerAccessLevelTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerAccessLevelTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,8 +14,7 @@ public class GoogleVertexAiIndexEndpointEncryptionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
     public required TerraformProperty<bool> EnablePrivateServiceConnect
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enable_private_service_connect");
-        set => WithProperty("enable_private_service_connect", value);
+        set => SetProperty("enable_private_service_connect", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock : Terra
     /// </summary>
     public List<TerraformProperty<string>>? ProjectAllowlist
     {
-        get => GetProperty<List<TerraformProperty<string>>>("project_allowlist");
-        set => WithProperty("project_allowlist", value);
+        set => SetProperty("project_allowlist", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class GoogleVertexAiIndexEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class GoogleVertexAiIndexEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class GoogleVertexAiIndexEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,22 +89,30 @@ public class GoogleVertexAiIndexEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("public_endpoint_domain_name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("public_endpoint_domain_name");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("public_endpoint_enabled");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The description of the Index.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -119,17 +121,17 @@ public class GoogleVertexAiIndexEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -138,10 +140,10 @@ public class GoogleVertexAiIndexEndpoint : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -150,37 +152,37 @@ public class GoogleVertexAiIndexEndpoint : TerraformResource
     /// [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert): &#39;projects/{project}/global/networks/{network}&#39;.
     /// Where &#39;{project}&#39; is a project number, as in &#39;12345&#39;, and &#39;{network}&#39; is network name.
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// If true, the deployed index will be accessible through public endpoint.
     /// </summary>
-    public TerraformProperty<bool>? PublicEndpointEnabled
+    public TerraformProperty<bool> PublicEndpointEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_endpoint_enabled");
-        set => this.WithProperty("public_endpoint_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_endpoint_enabled");
+        set => SetProperty("public_endpoint_enabled", value);
     }
 
     /// <summary>
     /// The region of the index endpoint. eg us-central1
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -190,8 +192,7 @@ public class GoogleVertexAiIndexEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     public List<GoogleVertexAiIndexEndpointEncryptionSpecBlock>? EncryptionSpec
     {
-        get => GetProperty<List<GoogleVertexAiIndexEndpointEncryptionSpecBlock>>("encryption_spec");
-        set => this.WithProperty("encryption_spec", value);
+        set => SetProperty("encryption_spec", value);
     }
 
     /// <summary>
@@ -201,8 +202,7 @@ public class GoogleVertexAiIndexEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnectConfig block(s) allowed")]
     public List<GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock>? PrivateServiceConnectConfig
     {
-        get => GetProperty<List<GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock>>("private_service_connect_config");
-        set => this.WithProperty("private_service_connect_config", value);
+        set => SetProperty("private_service_connect_config", value);
     }
 
     /// <summary>
@@ -211,8 +211,7 @@ public class GoogleVertexAiIndexEndpoint : TerraformResource
     /// </summary>
     public GoogleVertexAiIndexEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVertexAiIndexEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

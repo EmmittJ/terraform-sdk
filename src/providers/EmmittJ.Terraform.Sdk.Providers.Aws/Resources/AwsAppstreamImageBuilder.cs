@@ -14,8 +14,7 @@ public class AwsAppstreamImageBuilderAccessEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
-        set => WithProperty("endpoint_type", value);
+        set => SetProperty("endpoint_type", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsAppstreamImageBuilderAccessEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VpceId
     {
-        get => GetProperty<TerraformProperty<string>>("vpce_id");
-        set => WithProperty("vpce_id", value);
+        set => SetProperty("vpce_id", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsAppstreamImageBuilderDomainJoinInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DirectoryName
     {
-        get => GetProperty<TerraformProperty<string>>("directory_name");
-        set => WithProperty("directory_name", value);
+        set => SetProperty("directory_name", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsAppstreamImageBuilderDomainJoinInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OrganizationalUnitDistinguishedName
     {
-        get => GetProperty<TerraformProperty<string>>("organizational_unit_distinguished_name");
-        set => WithProperty("organizational_unit_distinguished_name", value);
+        set => SetProperty("organizational_unit_distinguished_name", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class AwsAppstreamImageBuilderVpcConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AwsAppstreamImageBuilderVpcConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -94,81 +88,94 @@ public class AwsAppstreamImageBuilder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_time");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("created_time");
+        SetOutput("state");
+        SetOutput("appstream_agent_version");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("enable_default_internet_access");
+        SetOutput("iam_role_arn");
+        SetOutput("id");
+        SetOutput("image_arn");
+        SetOutput("image_name");
+        SetOutput("instance_type");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The appstream_agent_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AppstreamAgentVersion
+    public TerraformProperty<string> AppstreamAgentVersion
     {
-        get => GetProperty<TerraformProperty<string>>("appstream_agent_version");
-        set => this.WithProperty("appstream_agent_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("appstream_agent_version");
+        set => SetProperty("appstream_agent_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The enable_default_internet_access attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableDefaultInternetAccess
+    public TerraformProperty<bool> EnableDefaultInternetAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_default_internet_access");
-        set => this.WithProperty("enable_default_internet_access", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_default_internet_access");
+        set => SetProperty("enable_default_internet_access", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRoleArn
+    public TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The image_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageArn
+    public TerraformProperty<string> ImageArn
     {
-        get => GetProperty<TerraformProperty<string>>("image_arn");
-        set => this.WithProperty("image_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_arn");
+        set => SetProperty("image_arn", value);
     }
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageName
+    public TerraformProperty<string> ImageName
     {
-        get => GetProperty<TerraformProperty<string>>("image_name");
-        set => this.WithProperty("image_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
+        set => SetProperty("image_name", value);
     }
 
     /// <summary>
@@ -177,8 +184,8 @@ public class AwsAppstreamImageBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -187,35 +194,35 @@ public class AwsAppstreamImageBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -225,8 +232,7 @@ public class AwsAppstreamImageBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 AccessEndpoint block(s) allowed")]
     public HashSet<AwsAppstreamImageBuilderAccessEndpointBlock>? AccessEndpoint
     {
-        get => GetProperty<HashSet<AwsAppstreamImageBuilderAccessEndpointBlock>>("access_endpoint");
-        set => this.WithProperty("access_endpoint", value);
+        set => SetProperty("access_endpoint", value);
     }
 
     /// <summary>
@@ -236,8 +242,7 @@ public class AwsAppstreamImageBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainJoinInfo block(s) allowed")]
     public List<AwsAppstreamImageBuilderDomainJoinInfoBlock>? DomainJoinInfo
     {
-        get => GetProperty<List<AwsAppstreamImageBuilderDomainJoinInfoBlock>>("domain_join_info");
-        set => this.WithProperty("domain_join_info", value);
+        set => SetProperty("domain_join_info", value);
     }
 
     /// <summary>
@@ -247,8 +252,7 @@ public class AwsAppstreamImageBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     public List<AwsAppstreamImageBuilderVpcConfigBlock>? VpcConfig
     {
-        get => GetProperty<List<AwsAppstreamImageBuilderVpcConfigBlock>>("vpc_config");
-        set => this.WithProperty("vpc_config", value);
+        set => SetProperty("vpc_config", value);
     }
 
     /// <summary>

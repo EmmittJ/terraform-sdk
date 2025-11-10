@@ -13,8 +13,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,9 +46,13 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("domain_controller_ip_addresses");
-        this.WithOutput("external_access_ip_address");
-        this.WithOutput("service_status");
+        SetOutput("domain_controller_ip_addresses");
+        SetOutput("external_access_ip_address");
+        SetOutput("service_status");
+        SetOutput("domain_service_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("subnet_id");
     }
 
     /// <summary>
@@ -60,17 +61,17 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
     public required TerraformProperty<string> DomainServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_service_id");
-        set => this.WithProperty("domain_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_service_id");
+        set => SetProperty("domain_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -79,8 +80,8 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -89,8 +90,8 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -99,8 +100,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     /// </summary>
     public AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

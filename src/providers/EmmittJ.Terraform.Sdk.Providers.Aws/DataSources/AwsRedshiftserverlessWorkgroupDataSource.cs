@@ -14,33 +14,36 @@ public class AwsRedshiftserverlessWorkgroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("endpoint");
-        this.WithOutput("enhanced_vpc_routing");
-        this.WithOutput("namespace_name");
-        this.WithOutput("publicly_accessible");
-        this.WithOutput("security_group_ids");
-        this.WithOutput("subnet_ids");
-        this.WithOutput("track_name");
-        this.WithOutput("workgroup_id");
+        SetOutput("arn");
+        SetOutput("endpoint");
+        SetOutput("enhanced_vpc_routing");
+        SetOutput("namespace_name");
+        SetOutput("publicly_accessible");
+        SetOutput("security_group_ids");
+        SetOutput("subnet_ids");
+        SetOutput("track_name");
+        SetOutput("workgroup_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("workgroup_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -49,8 +52,8 @@ public class AwsRedshiftserverlessWorkgroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformProperty<string> WorkgroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workgroup_name");
-        set => this.WithProperty("workgroup_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workgroup_name");
+        set => SetProperty("workgroup_name", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsCleanroomsMembershipDefaultResultConfigurationBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -39,17 +38,21 @@ public class AwsCleanroomsMembership : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("collaboration_arn");
-        this.WithOutput("collaboration_creator_account_id");
-        this.WithOutput("collaboration_creator_display_name");
-        this.WithOutput("collaboration_name");
-        this.WithOutput("create_time");
-        this.WithOutput("id");
-        this.WithOutput("member_abilities");
-        this.WithOutput("status");
-        this.WithOutput("tags_all");
-        this.WithOutput("update_time");
+        SetOutput("arn");
+        SetOutput("collaboration_arn");
+        SetOutput("collaboration_creator_account_id");
+        SetOutput("collaboration_creator_display_name");
+        SetOutput("collaboration_name");
+        SetOutput("create_time");
+        SetOutput("id");
+        SetOutput("member_abilities");
+        SetOutput("status");
+        SetOutput("tags_all");
+        SetOutput("update_time");
+        SetOutput("collaboration_id");
+        SetOutput("query_log_status");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -58,8 +61,8 @@ public class AwsCleanroomsMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationId is required")]
     public required TerraformProperty<string> CollaborationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collaboration_id");
-        set => this.WithProperty("collaboration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collaboration_id");
+        set => SetProperty("collaboration_id", value);
     }
 
     /// <summary>
@@ -68,26 +71,26 @@ public class AwsCleanroomsMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
     public required TerraformProperty<string> QueryLogStatus
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query_log_status");
-        set => this.WithProperty("query_log_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_log_status");
+        set => SetProperty("query_log_status", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -96,8 +99,7 @@ public class AwsCleanroomsMembership : TerraformResource
     /// </summary>
     public List<AwsCleanroomsMembershipDefaultResultConfigurationBlock>? DefaultResultConfiguration
     {
-        get => GetProperty<List<AwsCleanroomsMembershipDefaultResultConfigurationBlock>>("default_result_configuration");
-        set => this.WithProperty("default_result_configuration", value);
+        set => SetProperty("default_result_configuration", value);
     }
 
     /// <summary>
@@ -106,8 +108,7 @@ public class AwsCleanroomsMembership : TerraformResource
     /// </summary>
     public List<AwsCleanroomsMembershipPaymentConfigurationBlock>? PaymentConfiguration
     {
-        get => GetProperty<List<AwsCleanroomsMembershipPaymentConfigurationBlock>>("payment_configuration");
-        set => this.WithProperty("payment_configuration", value);
+        set => SetProperty("payment_configuration", value);
     }
 
     /// <summary>

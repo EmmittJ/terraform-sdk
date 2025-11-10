@@ -13,8 +13,7 @@ public class AzurermOracleAutonomousDatabaseBackupDataSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,25 @@ public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("automatic");
-        this.WithOutput("autonomous_database_backup_ocid");
-        this.WithOutput("autonomous_database_ocid");
-        this.WithOutput("database_backup_size_in_tbs");
-        this.WithOutput("database_version");
-        this.WithOutput("display_name");
-        this.WithOutput("id");
-        this.WithOutput("lifecycle_details");
-        this.WithOutput("lifecycle_state");
-        this.WithOutput("location");
-        this.WithOutput("provisioning_state");
-        this.WithOutput("restorable");
-        this.WithOutput("retention_period_in_days");
-        this.WithOutput("time_available_til");
-        this.WithOutput("time_ended");
-        this.WithOutput("time_started");
-        this.WithOutput("type");
+        SetOutput("automatic");
+        SetOutput("autonomous_database_backup_ocid");
+        SetOutput("autonomous_database_ocid");
+        SetOutput("database_backup_size_in_tbs");
+        SetOutput("database_version");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("lifecycle_details");
+        SetOutput("lifecycle_state");
+        SetOutput("location");
+        SetOutput("provisioning_state");
+        SetOutput("restorable");
+        SetOutput("retention_period_in_days");
+        SetOutput("time_available_til");
+        SetOutput("time_ended");
+        SetOutput("time_started");
+        SetOutput("type");
+        SetOutput("autonomous_database_id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -56,8 +57,8 @@ public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformProperty<string> AutonomousDatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("autonomous_database_id");
-        set => this.WithProperty("autonomous_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("autonomous_database_id");
+        set => SetProperty("autonomous_database_id", value);
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +77,7 @@ public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSour
     /// </summary>
     public AzurermOracleAutonomousDatabaseBackupDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleAutonomousDatabaseBackupDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

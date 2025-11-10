@@ -13,8 +13,7 @@ public class AzurermRoleDefinitionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,46 +30,50 @@ public class AzurermRoleDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("assignable_scopes");
-        this.WithOutput("description");
-        this.WithOutput("permissions");
-        this.WithOutput("type");
+        SetOutput("assignable_scopes");
+        SetOutput("description");
+        SetOutput("permissions");
+        SetOutput("type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("role_definition_id");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleDefinitionId
+    public TerraformProperty<string> RoleDefinitionId
     {
-        get => GetProperty<TerraformProperty<string>>("role_definition_id");
-        set => this.WithProperty("role_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
+        set => SetProperty("role_definition_id", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    public TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -79,8 +82,7 @@ public class AzurermRoleDefinitionDataSource : TerraformDataSource
     /// </summary>
     public AzurermRoleDefinitionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRoleDefinitionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

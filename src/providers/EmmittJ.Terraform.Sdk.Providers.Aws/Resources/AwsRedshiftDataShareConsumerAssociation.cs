@@ -14,45 +14,51 @@ public class AwsRedshiftDataShareConsumerAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputd");
-        this.WithOutputanaged_by");
-        this.WithOutputroducer_arn");
+        SetOutput("id");
+        SetOutput("managed_by");
+        SetOutput("producer_arn");
+        SetOutput("allow_writes");
+        SetOutput("associate_entire_account");
+        SetOutput("consumer_arn");
+        SetOutput("consumer_region");
+        SetOutput("data_share_arn");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The allow_writes attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowWrites
+    public TerraformProperty<bool> AllowWrites
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_writes");
-        set => this.WithProperty("allow_writes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_writes");
+        set => SetProperty("allow_writes", value);
     }
 
     /// <summary>
     /// The associate_entire_account attribute.
     /// </summary>
-    public TerraformProperty<bool>? AssociateEntireAccount
+    public TerraformProperty<bool> AssociateEntireAccount
     {
-        get => GetProperty<TerraformProperty<bool>>("associate_entire_account");
-        set => this.WithProperty("associate_entire_account", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("associate_entire_account");
+        set => SetProperty("associate_entire_account", value);
     }
 
     /// <summary>
     /// The consumer_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ConsumerArn
+    public TerraformProperty<string> ConsumerArn
     {
-        get => GetProperty<TerraformProperty<string>>("consumer_arn");
-        set => this.WithProperty("consumer_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("consumer_arn");
+        set => SetProperty("consumer_arn", value);
     }
 
     /// <summary>
     /// The consumer_region attribute.
     /// </summary>
-    public TerraformProperty<string>? ConsumerRegion
+    public TerraformProperty<string> ConsumerRegion
     {
-        get => GetProperty<TerraformProperty<string>>("consumer_region");
-        set => this.WithProperty("consumer_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("consumer_region");
+        set => SetProperty("consumer_region", value);
     }
 
     /// <summary>
@@ -61,17 +67,17 @@ public class AwsRedshiftDataShareConsumerAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareArn is required")]
     public required TerraformProperty<string> DataShareArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_share_arn");
-        set => this.WithProperty("data_share_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_share_arn");
+        set => SetProperty("data_share_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

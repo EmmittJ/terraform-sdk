@@ -14,44 +14,48 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_mode");
-        this.WithOutput("async_primary_disk");
-        this.WithOutput("create_snapshot_before_destroy");
-        this.WithOutput("create_snapshot_before_destroy_prefix");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("description");
-        this.WithOutput("disk_encryption_key");
-        this.WithOutput("disk_id");
-        this.WithOutput("effective_labels");
-        this.WithOutput("guest_os_features");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("labels");
-        this.WithOutput("last_attach_timestamp");
-        this.WithOutput("last_detach_timestamp");
-        this.WithOutput("licenses");
-        this.WithOutput("physical_block_size_bytes");
-        this.WithOutput("provisioned_iops");
-        this.WithOutput("provisioned_throughput");
-        this.WithOutput("replica_zones");
-        this.WithOutput("self_link");
-        this.WithOutput("size");
-        this.WithOutput("snapshot");
-        this.WithOutput("source_disk");
-        this.WithOutput("source_disk_id");
-        this.WithOutput("source_snapshot_encryption_key");
-        this.WithOutput("source_snapshot_id");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("type");
-        this.WithOutput("users");
+        SetOutput("access_mode");
+        SetOutput("async_primary_disk");
+        SetOutput("create_snapshot_before_destroy");
+        SetOutput("create_snapshot_before_destroy_prefix");
+        SetOutput("creation_timestamp");
+        SetOutput("description");
+        SetOutput("disk_encryption_key");
+        SetOutput("disk_id");
+        SetOutput("effective_labels");
+        SetOutput("guest_os_features");
+        SetOutput("label_fingerprint");
+        SetOutput("labels");
+        SetOutput("last_attach_timestamp");
+        SetOutput("last_detach_timestamp");
+        SetOutput("licenses");
+        SetOutput("physical_block_size_bytes");
+        SetOutput("provisioned_iops");
+        SetOutput("provisioned_throughput");
+        SetOutput("replica_zones");
+        SetOutput("self_link");
+        SetOutput("size");
+        SetOutput("snapshot");
+        SetOutput("source_disk");
+        SetOutput("source_disk_id");
+        SetOutput("source_snapshot_encryption_key");
+        SetOutput("source_snapshot_id");
+        SetOutput("terraform_labels");
+        SetOutput("type");
+        SetOutput("users");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,26 +70,26 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// A reference to the region where the disk resides.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

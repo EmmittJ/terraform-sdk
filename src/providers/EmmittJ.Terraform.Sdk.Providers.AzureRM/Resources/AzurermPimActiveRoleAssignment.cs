@@ -13,8 +13,7 @@ public class AzurermPimActiveRoleAssignmentScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StartDateTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_date_time");
-        set => WithProperty("start_date_time", value);
+        set => SetProperty("start_date_time", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AzurermPimActiveRoleAssignmentTicketBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Number
     {
-        get => GetProperty<TerraformProperty<string>>("number");
-        set => WithProperty("number", value);
+        set => SetProperty("number", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AzurermPimActiveRoleAssignmentTicketBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? System
     {
-        get => GetProperty<TerraformProperty<string>>("system");
-        set => WithProperty("system", value);
+        set => SetProperty("system", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class AzurermPimActiveRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AzurermPimActiveRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AzurermPimActiveRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -93,25 +87,30 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("principal_type");
+        SetOutput("principal_type");
+        SetOutput("id");
+        SetOutput("justification");
+        SetOutput("principal_id");
+        SetOutput("role_definition_id");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The justification for this role assignment
     /// </summary>
-    public TerraformProperty<string>? Justification
+    public TerraformProperty<string> Justification
     {
-        get => GetProperty<TerraformProperty<string>>("justification");
-        set => this.WithProperty("justification", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("justification");
+        set => SetProperty("justification", value);
     }
 
     /// <summary>
@@ -120,8 +119,8 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -130,8 +129,8 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
-        set => this.WithProperty("role_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
+        set => SetProperty("role_definition_id", value);
     }
 
     /// <summary>
@@ -140,8 +139,8 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -151,8 +150,7 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     public List<AzurermPimActiveRoleAssignmentScheduleBlock>? Schedule
     {
-        get => GetProperty<List<AzurermPimActiveRoleAssignmentScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -162,8 +160,7 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ticket block(s) allowed")]
     public List<AzurermPimActiveRoleAssignmentTicketBlock>? Ticket
     {
-        get => GetProperty<List<AzurermPimActiveRoleAssignmentTicketBlock>>("ticket");
-        set => this.WithProperty("ticket", value);
+        set => SetProperty("ticket", value);
     }
 
     /// <summary>
@@ -172,8 +169,7 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     /// </summary>
     public AzurermPimActiveRoleAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPimActiveRoleAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

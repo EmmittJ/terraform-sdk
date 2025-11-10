@@ -14,7 +14,13 @@ public class AwsVpcNetworkPerformanceMetricSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("period");
+        SetOutput("period");
+        SetOutput("destination");
+        SetOutput("id");
+        SetOutput("metric");
+        SetOutput("region");
+        SetOutput("source");
+        SetOutput("statistic");
     }
 
     /// <summary>
@@ -23,35 +29,35 @@ public class AwsVpcNetworkPerformanceMetricSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination");
-        set => this.WithProperty("destination", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination");
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metric attribute.
     /// </summary>
-    public TerraformProperty<string>? Metric
+    public TerraformProperty<string> Metric
     {
-        get => GetProperty<TerraformProperty<string>>("metric");
-        set => this.WithProperty("metric", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metric");
+        set => SetProperty("metric", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -60,17 +66,17 @@ public class AwsVpcNetworkPerformanceMetricSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>
     /// The statistic attribute.
     /// </summary>
-    public TerraformProperty<string>? Statistic
+    public TerraformProperty<string> Statistic
     {
-        get => GetProperty<TerraformProperty<string>>("statistic");
-        set => this.WithProperty("statistic", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("statistic");
+        set => SetProperty("statistic", value);
     }
 
     /// <summary>

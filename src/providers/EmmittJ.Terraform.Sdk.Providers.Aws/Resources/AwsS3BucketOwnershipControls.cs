@@ -14,8 +14,7 @@ public class AwsS3BucketOwnershipControlsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectOwnership is required")]
     public required TerraformProperty<string> ObjectOwnership
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("object_ownership");
-        set => WithProperty("object_ownership", value);
+        set => SetProperty("object_ownership", value);
     }
 
 }
@@ -33,6 +32,9 @@ public class AwsS3BucketOwnershipControls : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -41,38 +43,38 @@ public class AwsS3BucketOwnershipControls : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rule block(s) allowed")]
     public List<AwsS3BucketOwnershipControlsRuleBlock>? Rule
     {
-        get => GetProperty<List<AwsS3BucketOwnershipControlsRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
 }

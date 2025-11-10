@@ -14,24 +14,30 @@ public class GoogleLoggingProjectExclusion : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// A human-readable description.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Whether this exclusion rule should be disabled or not. This defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -40,17 +46,17 @@ public class GoogleLoggingProjectExclusion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,17 +65,17 @@ public class GoogleLoggingProjectExclusion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
 }

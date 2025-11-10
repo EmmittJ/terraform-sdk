@@ -14,36 +14,41 @@ public class AwsS3tablesTableBucket : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("owner_account_id");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("owner_account_id");
+        SetOutput("encryption_configuration");
+        SetOutput("force_destroy");
+        SetOutput("maintenance_configuration");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformProperty<object>? EncryptionConfiguration
+    public TerraformProperty<object> EncryptionConfiguration
     {
-        get => GetProperty<TerraformProperty<object>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        get => GetRequiredOutput<TerraformProperty<object>>("encryption_configuration");
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The maintenance_configuration attribute.
     /// </summary>
-    public TerraformProperty<object>? MaintenanceConfiguration
+    public TerraformProperty<object> MaintenanceConfiguration
     {
-        get => GetProperty<TerraformProperty<object>>("maintenance_configuration");
-        set => this.WithProperty("maintenance_configuration", value);
+        get => GetRequiredOutput<TerraformProperty<object>>("maintenance_configuration");
+        set => SetProperty("maintenance_configuration", value);
     }
 
     /// <summary>
@@ -52,17 +57,17 @@ public class AwsS3tablesTableBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

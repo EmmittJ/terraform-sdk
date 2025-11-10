@@ -14,17 +14,21 @@ public class AwsNotificationsNotificationConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("tags_all");
+        SetOutput("aggregation_duration");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The aggregation_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? AggregationDuration
+    public TerraformProperty<string> AggregationDuration
     {
-        get => GetProperty<TerraformProperty<string>>("aggregation_duration");
-        set => this.WithProperty("aggregation_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aggregation_duration");
+        set => SetProperty("aggregation_duration", value);
     }
 
     /// <summary>
@@ -33,8 +37,8 @@ public class AwsNotificationsNotificationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -43,17 +47,17 @@ public class AwsNotificationsNotificationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

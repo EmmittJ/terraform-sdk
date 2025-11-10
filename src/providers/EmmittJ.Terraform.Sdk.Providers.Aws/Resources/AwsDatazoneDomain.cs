@@ -13,8 +13,7 @@ public class AwsDatazoneDomainSingleSignOnBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDatazoneDomainSingleSignOnBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserAssignment
     {
-        get => GetProperty<TerraformProperty<string>>("user_assignment");
-        set => WithProperty("user_assignment", value);
+        set => SetProperty("user_assignment", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsDatazoneDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsDatazoneDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -66,19 +62,28 @@ public class AwsDatazoneDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("portal_url");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("portal_url");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("domain_execution_role");
+        SetOutput("domain_version");
+        SetOutput("kms_key_identifier");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("service_role");
+        SetOutput("skip_deletion_check");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -87,26 +92,26 @@ public class AwsDatazoneDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainExecutionRole is required")]
     public required TerraformProperty<string> DomainExecutionRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_execution_role");
-        set => this.WithProperty("domain_execution_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_execution_role");
+        set => SetProperty("domain_execution_role", value);
     }
 
     /// <summary>
     /// The domain_version attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainVersion
+    public TerraformProperty<string> DomainVersion
     {
-        get => GetProperty<TerraformProperty<string>>("domain_version");
-        set => this.WithProperty("domain_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_version");
+        set => SetProperty("domain_version", value);
     }
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyIdentifier
+    public TerraformProperty<string> KmsKeyIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_identifier");
-        set => this.WithProperty("kms_key_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
+        set => SetProperty("kms_key_identifier", value);
     }
 
     /// <summary>
@@ -115,44 +120,44 @@ public class AwsDatazoneDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceRole
+    public TerraformProperty<string> ServiceRole
     {
-        get => GetProperty<TerraformProperty<string>>("service_role");
-        set => this.WithProperty("service_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_role");
+        set => SetProperty("service_role", value);
     }
 
     /// <summary>
     /// The skip_deletion_check attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDeletionCheck
+    public TerraformProperty<bool> SkipDeletionCheck
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_deletion_check");
-        set => this.WithProperty("skip_deletion_check", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_deletion_check");
+        set => SetProperty("skip_deletion_check", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -161,8 +166,7 @@ public class AwsDatazoneDomain : TerraformResource
     /// </summary>
     public List<AwsDatazoneDomainSingleSignOnBlock>? SingleSignOn
     {
-        get => GetProperty<List<AwsDatazoneDomainSingleSignOnBlock>>("single_sign_on");
-        set => this.WithProperty("single_sign_on", value);
+        set => SetProperty("single_sign_on", value);
     }
 
     /// <summary>
@@ -171,8 +175,7 @@ public class AwsDatazoneDomain : TerraformResource
     /// </summary>
     public AwsDatazoneDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDatazoneDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

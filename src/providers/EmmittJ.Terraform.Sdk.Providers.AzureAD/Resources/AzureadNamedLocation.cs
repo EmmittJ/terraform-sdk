@@ -14,8 +14,7 @@ public class AzureadNamedLocationCountryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountriesAndRegions is required")]
     public List<TerraformProperty<string>>? CountriesAndRegions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("countries_and_regions");
-        set => WithProperty("countries_and_regions", value);
+        set => SetProperty("countries_and_regions", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzureadNamedLocationCountryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CountryLookupMethod
     {
-        get => GetProperty<TerraformProperty<string>>("country_lookup_method");
-        set => WithProperty("country_lookup_method", value);
+        set => SetProperty("country_lookup_method", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzureadNamedLocationCountryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeUnknownCountriesAndRegions
     {
-        get => GetProperty<TerraformProperty<bool>>("include_unknown_countries_and_regions");
-        set => WithProperty("include_unknown_countries_and_regions", value);
+        set => SetProperty("include_unknown_countries_and_regions", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AzureadNamedLocationIpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRanges is required")]
     public List<TerraformProperty<string>>? IpRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ip_ranges");
-        set => WithProperty("ip_ranges", value);
+        set => SetProperty("ip_ranges", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzureadNamedLocationIpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Trusted
     {
-        get => GetProperty<TerraformProperty<bool>>("trusted");
-        set => WithProperty("trusted", value);
+        set => SetProperty("trusted", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class AzureadNamedLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzureadNamedLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AzureadNamedLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzureadNamedLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -122,7 +113,9 @@ public class AzureadNamedLocation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("object_id");
+        SetOutput("object_id");
+        SetOutput("display_name");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -131,17 +124,17 @@ public class AzureadNamedLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -151,8 +144,7 @@ public class AzureadNamedLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Country block(s) allowed")]
     public List<AzureadNamedLocationCountryBlock>? Country
     {
-        get => GetProperty<List<AzureadNamedLocationCountryBlock>>("country");
-        set => this.WithProperty("country", value);
+        set => SetProperty("country", value);
     }
 
     /// <summary>
@@ -162,8 +154,7 @@ public class AzureadNamedLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ip block(s) allowed")]
     public List<AzureadNamedLocationIpBlock>? Ip
     {
-        get => GetProperty<List<AzureadNamedLocationIpBlock>>("ip");
-        set => this.WithProperty("ip", value);
+        set => SetProperty("ip", value);
     }
 
     /// <summary>
@@ -172,8 +163,7 @@ public class AzureadNamedLocation : TerraformResource
     /// </summary>
     public AzureadNamedLocationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadNamedLocationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

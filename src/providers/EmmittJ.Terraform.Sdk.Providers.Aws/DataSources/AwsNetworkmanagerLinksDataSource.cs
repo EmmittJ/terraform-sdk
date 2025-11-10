@@ -14,7 +14,13 @@ public class AwsNetworkmanagerLinksDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ids");
+        SetOutput("ids");
+        SetOutput("global_network_id");
+        SetOutput("id");
+        SetOutput("provider_name");
+        SetOutput("site_id");
+        SetOutput("tags");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -23,53 +29,53 @@ public class AwsNetworkmanagerLinksDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
-        set => this.WithProperty("global_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
+        set => SetProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProviderName
+    public TerraformProperty<string> ProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("provider_name");
-        set => this.WithProperty("provider_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_name");
+        set => SetProperty("provider_name", value);
     }
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SiteId
+    public TerraformProperty<string> SiteId
     {
-        get => GetProperty<TerraformProperty<string>>("site_id");
-        set => this.WithProperty("site_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("site_id");
+        set => SetProperty("site_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>

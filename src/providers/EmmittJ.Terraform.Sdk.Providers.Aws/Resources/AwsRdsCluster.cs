@@ -13,8 +13,7 @@ public class AwsRdsClusterRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RestoreToTime
     {
-        get => GetProperty<TerraformProperty<string>>("restore_to_time");
-        set => WithProperty("restore_to_time", value);
+        set => SetProperty("restore_to_time", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRdsClusterRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RestoreType
     {
-        get => GetProperty<TerraformProperty<string>>("restore_type");
-        set => WithProperty("restore_type", value);
+        set => SetProperty("restore_type", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRdsClusterRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("source_cluster_identifier");
-        set => WithProperty("source_cluster_identifier", value);
+        set => SetProperty("source_cluster_identifier", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsRdsClusterRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceClusterResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_cluster_resource_id");
-        set => WithProperty("source_cluster_resource_id", value);
+        set => SetProperty("source_cluster_resource_id", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsRdsClusterRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseLatestRestorableTime
     {
-        get => GetProperty<TerraformProperty<bool>>("use_latest_restorable_time");
-        set => WithProperty("use_latest_restorable_time", value);
+        set => SetProperty("use_latest_restorable_time", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AwsRdsClusterS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
-        set => WithProperty("bucket_name", value);
+        set => SetProperty("bucket_name", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsRdsClusterS3ImportBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BucketPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_prefix");
-        set => WithProperty("bucket_prefix", value);
+        set => SetProperty("bucket_prefix", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AwsRdsClusterS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionRole is required")]
     public required TerraformProperty<string> IngestionRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ingestion_role");
-        set => WithProperty("ingestion_role", value);
+        set => SetProperty("ingestion_role", value);
     }
 
     /// <summary>
@@ -96,8 +88,7 @@ public class AwsRdsClusterS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngine is required")]
     public required TerraformProperty<string> SourceEngine
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_engine");
-        set => WithProperty("source_engine", value);
+        set => SetProperty("source_engine", value);
     }
 
     /// <summary>
@@ -106,8 +97,7 @@ public class AwsRdsClusterS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngineVersion is required")]
     public required TerraformProperty<string> SourceEngineVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_engine_version");
-        set => WithProperty("source_engine_version", value);
+        set => SetProperty("source_engine_version", value);
     }
 
 }
@@ -123,8 +113,7 @@ public class AwsRdsClusterScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AutoPause
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_pause");
-        set => WithProperty("auto_pause", value);
+        set => SetProperty("auto_pause", value);
     }
 
     /// <summary>
@@ -132,8 +121,7 @@ public class AwsRdsClusterScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity");
-        set => WithProperty("max_capacity", value);
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class AwsRdsClusterScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_capacity");
-        set => WithProperty("min_capacity", value);
+        set => SetProperty("min_capacity", value);
     }
 
     /// <summary>
@@ -150,8 +137,7 @@ public class AwsRdsClusterScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SecondsBeforeTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("seconds_before_timeout");
-        set => WithProperty("seconds_before_timeout", value);
+        set => SetProperty("seconds_before_timeout", value);
     }
 
     /// <summary>
@@ -159,8 +145,7 @@ public class AwsRdsClusterScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SecondsUntilAutoPause
     {
-        get => GetProperty<TerraformProperty<double>>("seconds_until_auto_pause");
-        set => WithProperty("seconds_until_auto_pause", value);
+        set => SetProperty("seconds_until_auto_pause", value);
     }
 
     /// <summary>
@@ -168,8 +153,7 @@ public class AwsRdsClusterScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TimeoutAction
     {
-        get => GetProperty<TerraformProperty<string>>("timeout_action");
-        set => WithProperty("timeout_action", value);
+        set => SetProperty("timeout_action", value);
     }
 
 }
@@ -186,8 +170,7 @@ public class AwsRdsClusterServerlessv2ScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformProperty<double> MaxCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_capacity");
-        set => WithProperty("max_capacity", value);
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
@@ -196,8 +179,7 @@ public class AwsRdsClusterServerlessv2ScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformProperty<double> MinCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_capacity");
-        set => WithProperty("min_capacity", value);
+        set => SetProperty("min_capacity", value);
     }
 
     /// <summary>
@@ -205,8 +187,7 @@ public class AwsRdsClusterServerlessv2ScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SecondsUntilAutoPause
     {
-        get => GetProperty<TerraformProperty<double>>("seconds_until_auto_pause");
-        set => WithProperty("seconds_until_auto_pause", value);
+        set => SetProperty("seconds_until_auto_pause", value);
     }
 
 }
@@ -222,8 +203,7 @@ public class AwsRdsClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -231,8 +211,7 @@ public class AwsRdsClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -240,8 +219,7 @@ public class AwsRdsClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -259,257 +237,320 @@ public class AwsRdsCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("ca_certificate_valid_till");
-        this.WithOutput("cluster_resource_id");
-        this.WithOutput("endpoint");
-        this.WithOutput("engine_version_actual");
-        this.WithOutput("hosted_zone_id");
-        this.WithOutput("master_user_secret");
-        this.WithOutput("reader_endpoint");
+        SetOutput("arn");
+        SetOutput("ca_certificate_valid_till");
+        SetOutput("cluster_resource_id");
+        SetOutput("endpoint");
+        SetOutput("engine_version_actual");
+        SetOutput("hosted_zone_id");
+        SetOutput("master_user_secret");
+        SetOutput("reader_endpoint");
+        SetOutput("allocated_storage");
+        SetOutput("allow_major_version_upgrade");
+        SetOutput("apply_immediately");
+        SetOutput("availability_zones");
+        SetOutput("backtrack_window");
+        SetOutput("backup_retention_period");
+        SetOutput("ca_certificate_identifier");
+        SetOutput("cluster_identifier");
+        SetOutput("cluster_identifier_prefix");
+        SetOutput("cluster_members");
+        SetOutput("cluster_scalability_type");
+        SetOutput("copy_tags_to_snapshot");
+        SetOutput("database_insights_mode");
+        SetOutput("database_name");
+        SetOutput("db_cluster_instance_class");
+        SetOutput("db_cluster_parameter_group_name");
+        SetOutput("db_instance_parameter_group_name");
+        SetOutput("db_subnet_group_name");
+        SetOutput("db_system_id");
+        SetOutput("delete_automated_backups");
+        SetOutput("deletion_protection");
+        SetOutput("domain");
+        SetOutput("domain_iam_role_name");
+        SetOutput("enable_global_write_forwarding");
+        SetOutput("enable_http_endpoint");
+        SetOutput("enable_local_write_forwarding");
+        SetOutput("enabled_cloudwatch_logs_exports");
+        SetOutput("engine");
+        SetOutput("engine_lifecycle_support");
+        SetOutput("engine_mode");
+        SetOutput("engine_version");
+        SetOutput("final_snapshot_identifier");
+        SetOutput("global_cluster_identifier");
+        SetOutput("iam_database_authentication_enabled");
+        SetOutput("iam_roles");
+        SetOutput("id");
+        SetOutput("iops");
+        SetOutput("kms_key_id");
+        SetOutput("manage_master_user_password");
+        SetOutput("master_password");
+        SetOutput("master_password_wo");
+        SetOutput("master_password_wo_version");
+        SetOutput("master_user_secret_kms_key_id");
+        SetOutput("master_username");
+        SetOutput("monitoring_interval");
+        SetOutput("monitoring_role_arn");
+        SetOutput("network_type");
+        SetOutput("performance_insights_enabled");
+        SetOutput("performance_insights_kms_key_id");
+        SetOutput("performance_insights_retention_period");
+        SetOutput("port");
+        SetOutput("preferred_backup_window");
+        SetOutput("preferred_maintenance_window");
+        SetOutput("region");
+        SetOutput("replication_source_identifier");
+        SetOutput("skip_final_snapshot");
+        SetOutput("snapshot_identifier");
+        SetOutput("source_region");
+        SetOutput("storage_encrypted");
+        SetOutput("storage_type");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_security_group_ids");
     }
 
     /// <summary>
     /// The allocated_storage attribute.
     /// </summary>
-    public TerraformProperty<double>? AllocatedStorage
+    public TerraformProperty<double> AllocatedStorage
     {
-        get => GetProperty<TerraformProperty<double>>("allocated_storage");
-        set => this.WithProperty("allocated_storage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("allocated_storage");
+        set => SetProperty("allocated_storage", value);
     }
 
     /// <summary>
     /// The allow_major_version_upgrade attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowMajorVersionUpgrade
+    public TerraformProperty<bool> AllowMajorVersionUpgrade
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_major_version_upgrade");
-        set => this.WithProperty("allow_major_version_upgrade", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_major_version_upgrade");
+        set => SetProperty("allow_major_version_upgrade", value);
     }
 
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplyImmediately
+    public TerraformProperty<bool> ApplyImmediately
     {
-        get => GetProperty<TerraformProperty<bool>>("apply_immediately");
-        set => this.WithProperty("apply_immediately", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("apply_immediately");
+        set => SetProperty("apply_immediately", value);
     }
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AvailabilityZones
+    public HashSet<TerraformProperty<string>> AvailabilityZones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
-        set => this.WithProperty("availability_zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("availability_zones");
+        set => SetProperty("availability_zones", value);
     }
 
     /// <summary>
     /// The backtrack_window attribute.
     /// </summary>
-    public TerraformProperty<double>? BacktrackWindow
+    public TerraformProperty<double> BacktrackWindow
     {
-        get => GetProperty<TerraformProperty<double>>("backtrack_window");
-        set => this.WithProperty("backtrack_window", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("backtrack_window");
+        set => SetProperty("backtrack_window", value);
     }
 
     /// <summary>
     /// The backup_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? BackupRetentionPeriod
+    public TerraformProperty<double> BackupRetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("backup_retention_period");
-        set => this.WithProperty("backup_retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("backup_retention_period");
+        set => SetProperty("backup_retention_period", value);
     }
 
     /// <summary>
     /// The ca_certificate_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? CaCertificateIdentifier
+    public TerraformProperty<string> CaCertificateIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("ca_certificate_identifier");
-        set => this.WithProperty("ca_certificate_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ca_certificate_identifier");
+        set => SetProperty("ca_certificate_identifier", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    public TerraformProperty<string> ClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The cluster_identifier_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifierPrefix
+    public TerraformProperty<string> ClusterIdentifierPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_identifier_prefix");
-        set => this.WithProperty("cluster_identifier_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier_prefix");
+        set => SetProperty("cluster_identifier_prefix", value);
     }
 
     /// <summary>
     /// The cluster_members attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ClusterMembers
+    public HashSet<TerraformProperty<string>> ClusterMembers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("cluster_members");
-        set => this.WithProperty("cluster_members", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("cluster_members");
+        set => SetProperty("cluster_members", value);
     }
 
     /// <summary>
     /// The cluster_scalability_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterScalabilityType
+    public TerraformProperty<string> ClusterScalabilityType
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_scalability_type");
-        set => this.WithProperty("cluster_scalability_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_scalability_type");
+        set => SetProperty("cluster_scalability_type", value);
     }
 
     /// <summary>
     /// The copy_tags_to_snapshot attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyTagsToSnapshot
+    public TerraformProperty<bool> CopyTagsToSnapshot
     {
-        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_snapshot");
-        set => this.WithProperty("copy_tags_to_snapshot", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags_to_snapshot");
+        set => SetProperty("copy_tags_to_snapshot", value);
     }
 
     /// <summary>
     /// The database_insights_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseInsightsMode
+    public TerraformProperty<string> DatabaseInsightsMode
     {
-        get => GetProperty<TerraformProperty<string>>("database_insights_mode");
-        set => this.WithProperty("database_insights_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_insights_mode");
+        set => SetProperty("database_insights_mode", value);
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
+    public TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The db_cluster_instance_class attribute.
     /// </summary>
-    public TerraformProperty<string>? DbClusterInstanceClass
+    public TerraformProperty<string> DbClusterInstanceClass
     {
-        get => GetProperty<TerraformProperty<string>>("db_cluster_instance_class");
-        set => this.WithProperty("db_cluster_instance_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_cluster_instance_class");
+        set => SetProperty("db_cluster_instance_class", value);
     }
 
     /// <summary>
     /// The db_cluster_parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DbClusterParameterGroupName
+    public TerraformProperty<string> DbClusterParameterGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("db_cluster_parameter_group_name");
-        set => this.WithProperty("db_cluster_parameter_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_cluster_parameter_group_name");
+        set => SetProperty("db_cluster_parameter_group_name", value);
     }
 
     /// <summary>
     /// The db_instance_parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DbInstanceParameterGroupName
+    public TerraformProperty<string> DbInstanceParameterGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("db_instance_parameter_group_name");
-        set => this.WithProperty("db_instance_parameter_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_parameter_group_name");
+        set => SetProperty("db_instance_parameter_group_name", value);
     }
 
     /// <summary>
     /// The db_subnet_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DbSubnetGroupName
+    public TerraformProperty<string> DbSubnetGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("db_subnet_group_name");
-        set => this.WithProperty("db_subnet_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_subnet_group_name");
+        set => SetProperty("db_subnet_group_name", value);
     }
 
     /// <summary>
     /// The db_system_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DbSystemId
+    public TerraformProperty<string> DbSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("db_system_id");
-        set => this.WithProperty("db_system_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_system_id");
+        set => SetProperty("db_system_id", value);
     }
 
     /// <summary>
     /// The delete_automated_backups attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeleteAutomatedBackups
+    public TerraformProperty<bool> DeleteAutomatedBackups
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_automated_backups");
-        set => this.WithProperty("delete_automated_backups", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_automated_backups");
+        set => SetProperty("delete_automated_backups", value);
     }
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    public TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The domain_iam_role_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainIamRoleName
+    public TerraformProperty<string> DomainIamRoleName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_iam_role_name");
-        set => this.WithProperty("domain_iam_role_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_iam_role_name");
+        set => SetProperty("domain_iam_role_name", value);
     }
 
     /// <summary>
     /// The enable_global_write_forwarding attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableGlobalWriteForwarding
+    public TerraformProperty<bool> EnableGlobalWriteForwarding
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_global_write_forwarding");
-        set => this.WithProperty("enable_global_write_forwarding", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_global_write_forwarding");
+        set => SetProperty("enable_global_write_forwarding", value);
     }
 
     /// <summary>
     /// The enable_http_endpoint attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableHttpEndpoint
+    public TerraformProperty<bool> EnableHttpEndpoint
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_http_endpoint");
-        set => this.WithProperty("enable_http_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_http_endpoint");
+        set => SetProperty("enable_http_endpoint", value);
     }
 
     /// <summary>
     /// The enable_local_write_forwarding attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableLocalWriteForwarding
+    public TerraformProperty<bool> EnableLocalWriteForwarding
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_local_write_forwarding");
-        set => this.WithProperty("enable_local_write_forwarding", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_local_write_forwarding");
+        set => SetProperty("enable_local_write_forwarding", value);
     }
 
     /// <summary>
     /// The enabled_cloudwatch_logs_exports attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EnabledCloudwatchLogsExports
+    public HashSet<TerraformProperty<string>> EnabledCloudwatchLogsExports
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_cloudwatch_logs_exports");
-        set => this.WithProperty("enabled_cloudwatch_logs_exports", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("enabled_cloudwatch_logs_exports");
+        set => SetProperty("enabled_cloudwatch_logs_exports", value);
     }
 
     /// <summary>
@@ -518,323 +559,323 @@ public class AwsRdsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_lifecycle_support attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineLifecycleSupport
+    public TerraformProperty<string> EngineLifecycleSupport
     {
-        get => GetProperty<TerraformProperty<string>>("engine_lifecycle_support");
-        set => this.WithProperty("engine_lifecycle_support", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_lifecycle_support");
+        set => SetProperty("engine_lifecycle_support", value);
     }
 
     /// <summary>
     /// The engine_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineMode
+    public TerraformProperty<string> EngineMode
     {
-        get => GetProperty<TerraformProperty<string>>("engine_mode");
-        set => this.WithProperty("engine_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_mode");
+        set => SetProperty("engine_mode", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
     /// The final_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? FinalSnapshotIdentifier
+    public TerraformProperty<string> FinalSnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("final_snapshot_identifier");
-        set => this.WithProperty("final_snapshot_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("final_snapshot_identifier");
+        set => SetProperty("final_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The global_cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? GlobalClusterIdentifier
+    public TerraformProperty<string> GlobalClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("global_cluster_identifier");
-        set => this.WithProperty("global_cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_cluster_identifier");
+        set => SetProperty("global_cluster_identifier", value);
     }
 
     /// <summary>
     /// The iam_database_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IamDatabaseAuthenticationEnabled
+    public TerraformProperty<bool> IamDatabaseAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("iam_database_authentication_enabled");
-        set => this.WithProperty("iam_database_authentication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("iam_database_authentication_enabled");
+        set => SetProperty("iam_database_authentication_enabled", value);
     }
 
     /// <summary>
     /// The iam_roles attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IamRoles
+    public HashSet<TerraformProperty<string>> IamRoles
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("iam_roles");
-        set => this.WithProperty("iam_roles", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("iam_roles");
+        set => SetProperty("iam_roles", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformProperty<double>? Iops
+    public TerraformProperty<double> Iops
     {
-        get => GetProperty<TerraformProperty<double>>("iops");
-        set => this.WithProperty("iops", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("iops");
+        set => SetProperty("iops", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The manage_master_user_password attribute.
     /// </summary>
-    public TerraformProperty<bool>? ManageMasterUserPassword
+    public TerraformProperty<bool> ManageMasterUserPassword
     {
-        get => GetProperty<TerraformProperty<bool>>("manage_master_user_password");
-        set => this.WithProperty("manage_master_user_password", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("manage_master_user_password");
+        set => SetProperty("manage_master_user_password", value);
     }
 
     /// <summary>
     /// The master_password attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterPassword
+    public TerraformProperty<string> MasterPassword
     {
-        get => GetProperty<TerraformProperty<string>>("master_password");
-        set => this.WithProperty("master_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("master_password");
+        set => SetProperty("master_password", value);
     }
 
     /// <summary>
     /// The master_password_wo attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterPasswordWo
+    public TerraformProperty<string> MasterPasswordWo
     {
-        get => GetProperty<TerraformProperty<string>>("master_password_wo");
-        set => this.WithProperty("master_password_wo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("master_password_wo");
+        set => SetProperty("master_password_wo", value);
     }
 
     /// <summary>
     /// The master_password_wo_version attribute.
     /// </summary>
-    public TerraformProperty<double>? MasterPasswordWoVersion
+    public TerraformProperty<double> MasterPasswordWoVersion
     {
-        get => GetProperty<TerraformProperty<double>>("master_password_wo_version");
-        set => this.WithProperty("master_password_wo_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("master_password_wo_version");
+        set => SetProperty("master_password_wo_version", value);
     }
 
     /// <summary>
     /// The master_user_secret_kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterUserSecretKmsKeyId
+    public TerraformProperty<string> MasterUserSecretKmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("master_user_secret_kms_key_id");
-        set => this.WithProperty("master_user_secret_kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("master_user_secret_kms_key_id");
+        set => SetProperty("master_user_secret_kms_key_id", value);
     }
 
     /// <summary>
     /// The master_username attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterUsername
+    public TerraformProperty<string> MasterUsername
     {
-        get => GetProperty<TerraformProperty<string>>("master_username");
-        set => this.WithProperty("master_username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("master_username");
+        set => SetProperty("master_username", value);
     }
 
     /// <summary>
     /// The monitoring_interval attribute.
     /// </summary>
-    public TerraformProperty<double>? MonitoringInterval
+    public TerraformProperty<double> MonitoringInterval
     {
-        get => GetProperty<TerraformProperty<double>>("monitoring_interval");
-        set => this.WithProperty("monitoring_interval", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("monitoring_interval");
+        set => SetProperty("monitoring_interval", value);
     }
 
     /// <summary>
     /// The monitoring_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? MonitoringRoleArn
+    public TerraformProperty<string> MonitoringRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("monitoring_role_arn");
-        set => this.WithProperty("monitoring_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("monitoring_role_arn");
+        set => SetProperty("monitoring_role_arn", value);
     }
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkType
+    public TerraformProperty<string> NetworkType
     {
-        get => GetProperty<TerraformProperty<string>>("network_type");
-        set => this.WithProperty("network_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_type");
+        set => SetProperty("network_type", value);
     }
 
     /// <summary>
     /// The performance_insights_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PerformanceInsightsEnabled
+    public TerraformProperty<bool> PerformanceInsightsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("performance_insights_enabled");
-        set => this.WithProperty("performance_insights_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("performance_insights_enabled");
+        set => SetProperty("performance_insights_enabled", value);
     }
 
     /// <summary>
     /// The performance_insights_kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PerformanceInsightsKmsKeyId
+    public TerraformProperty<string> PerformanceInsightsKmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("performance_insights_kms_key_id");
-        set => this.WithProperty("performance_insights_kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("performance_insights_kms_key_id");
+        set => SetProperty("performance_insights_kms_key_id", value);
     }
 
     /// <summary>
     /// The performance_insights_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? PerformanceInsightsRetentionPeriod
+    public TerraformProperty<double> PerformanceInsightsRetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("performance_insights_retention_period");
-        set => this.WithProperty("performance_insights_retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("performance_insights_retention_period");
+        set => SetProperty("performance_insights_retention_period", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredBackupWindow
+    public TerraformProperty<string> PreferredBackupWindow
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_backup_window");
-        set => this.WithProperty("preferred_backup_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_backup_window");
+        set => SetProperty("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredMaintenanceWindow
+    public TerraformProperty<string> PreferredMaintenanceWindow
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_maintenance_window");
-        set => this.WithProperty("preferred_maintenance_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_maintenance_window");
+        set => SetProperty("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The replication_source_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationSourceIdentifier
+    public TerraformProperty<string> ReplicationSourceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("replication_source_identifier");
-        set => this.WithProperty("replication_source_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_source_identifier");
+        set => SetProperty("replication_source_identifier", value);
     }
 
     /// <summary>
     /// The skip_final_snapshot attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipFinalSnapshot
+    public TerraformProperty<bool> SkipFinalSnapshot
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_final_snapshot");
-        set => this.WithProperty("skip_final_snapshot", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_final_snapshot");
+        set => SetProperty("skip_final_snapshot", value);
     }
 
     /// <summary>
     /// The snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotIdentifier
+    public TerraformProperty<string> SnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_identifier");
-        set => this.WithProperty("snapshot_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_identifier");
+        set => SetProperty("snapshot_identifier", value);
     }
 
     /// <summary>
     /// The source_region attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceRegion
+    public TerraformProperty<string> SourceRegion
     {
-        get => GetProperty<TerraformProperty<string>>("source_region");
-        set => this.WithProperty("source_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_region");
+        set => SetProperty("source_region", value);
     }
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool>? StorageEncrypted
+    public TerraformProperty<bool> StorageEncrypted
     {
-        get => GetProperty<TerraformProperty<bool>>("storage_encrypted");
-        set => this.WithProperty("storage_encrypted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("storage_encrypted");
+        set => SetProperty("storage_encrypted", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageType
+    public TerraformProperty<string> StorageType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_type");
-        set => this.WithProperty("storage_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
+        set => SetProperty("storage_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => this.WithProperty("vpc_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
+        set => SetProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
@@ -844,8 +885,7 @@ public class AwsRdsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreToPointInTime block(s) allowed")]
     public List<AwsRdsClusterRestoreToPointInTimeBlock>? RestoreToPointInTime
     {
-        get => GetProperty<List<AwsRdsClusterRestoreToPointInTimeBlock>>("restore_to_point_in_time");
-        set => this.WithProperty("restore_to_point_in_time", value);
+        set => SetProperty("restore_to_point_in_time", value);
     }
 
     /// <summary>
@@ -855,8 +895,7 @@ public class AwsRdsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Import block(s) allowed")]
     public List<AwsRdsClusterS3ImportBlock>? S3Import
     {
-        get => GetProperty<List<AwsRdsClusterS3ImportBlock>>("s3_import");
-        set => this.WithProperty("s3_import", value);
+        set => SetProperty("s3_import", value);
     }
 
     /// <summary>
@@ -866,8 +905,7 @@ public class AwsRdsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfiguration block(s) allowed")]
     public List<AwsRdsClusterScalingConfigurationBlock>? ScalingConfiguration
     {
-        get => GetProperty<List<AwsRdsClusterScalingConfigurationBlock>>("scaling_configuration");
-        set => this.WithProperty("scaling_configuration", value);
+        set => SetProperty("scaling_configuration", value);
     }
 
     /// <summary>
@@ -877,8 +915,7 @@ public class AwsRdsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serverlessv2ScalingConfiguration block(s) allowed")]
     public List<AwsRdsClusterServerlessv2ScalingConfigurationBlock>? Serverlessv2ScalingConfiguration
     {
-        get => GetProperty<List<AwsRdsClusterServerlessv2ScalingConfigurationBlock>>("serverlessv2_scaling_configuration");
-        set => this.WithProperty("serverlessv2_scaling_configuration", value);
+        set => SetProperty("serverlessv2_scaling_configuration", value);
     }
 
     /// <summary>
@@ -887,8 +924,7 @@ public class AwsRdsCluster : TerraformResource
     /// </summary>
     public AwsRdsClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRdsClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

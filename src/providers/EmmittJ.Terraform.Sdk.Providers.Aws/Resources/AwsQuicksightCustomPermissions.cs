@@ -13,8 +13,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AddOrRunAnomalyDetectionForAnalyses
     {
-        get => GetProperty<TerraformProperty<string>>("add_or_run_anomaly_detection_for_analyses");
-        set => WithProperty("add_or_run_anomaly_detection_for_analyses", value);
+        set => SetProperty("add_or_run_anomaly_detection_for_analyses", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateAndUpdateDashboardEmailReports
     {
-        get => GetProperty<TerraformProperty<string>>("create_and_update_dashboard_email_reports");
-        set => WithProperty("create_and_update_dashboard_email_reports", value);
+        set => SetProperty("create_and_update_dashboard_email_reports", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateAndUpdateDataSources
     {
-        get => GetProperty<TerraformProperty<string>>("create_and_update_data_sources");
-        set => WithProperty("create_and_update_data_sources", value);
+        set => SetProperty("create_and_update_data_sources", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateAndUpdateDatasets
     {
-        get => GetProperty<TerraformProperty<string>>("create_and_update_datasets");
-        set => WithProperty("create_and_update_datasets", value);
+        set => SetProperty("create_and_update_datasets", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateAndUpdateThemes
     {
-        get => GetProperty<TerraformProperty<string>>("create_and_update_themes");
-        set => WithProperty("create_and_update_themes", value);
+        set => SetProperty("create_and_update_themes", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateAndUpdateThresholdAlerts
     {
-        get => GetProperty<TerraformProperty<string>>("create_and_update_threshold_alerts");
-        set => WithProperty("create_and_update_threshold_alerts", value);
+        set => SetProperty("create_and_update_threshold_alerts", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateSharedFolders
     {
-        get => GetProperty<TerraformProperty<string>>("create_shared_folders");
-        set => WithProperty("create_shared_folders", value);
+        set => SetProperty("create_shared_folders", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateSpiceDataset
     {
-        get => GetProperty<TerraformProperty<string>>("create_spice_dataset");
-        set => WithProperty("create_spice_dataset", value);
+        set => SetProperty("create_spice_dataset", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExportToCsv
     {
-        get => GetProperty<TerraformProperty<string>>("export_to_csv");
-        set => WithProperty("export_to_csv", value);
+        set => SetProperty("export_to_csv", value);
     }
 
     /// <summary>
@@ -94,8 +85,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExportToCsvInScheduledReports
     {
-        get => GetProperty<TerraformProperty<string>>("export_to_csv_in_scheduled_reports");
-        set => WithProperty("export_to_csv_in_scheduled_reports", value);
+        set => SetProperty("export_to_csv_in_scheduled_reports", value);
     }
 
     /// <summary>
@@ -103,8 +93,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExportToExcel
     {
-        get => GetProperty<TerraformProperty<string>>("export_to_excel");
-        set => WithProperty("export_to_excel", value);
+        set => SetProperty("export_to_excel", value);
     }
 
     /// <summary>
@@ -112,8 +101,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExportToExcelInScheduledReports
     {
-        get => GetProperty<TerraformProperty<string>>("export_to_excel_in_scheduled_reports");
-        set => WithProperty("export_to_excel_in_scheduled_reports", value);
+        set => SetProperty("export_to_excel_in_scheduled_reports", value);
     }
 
     /// <summary>
@@ -121,8 +109,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExportToPdf
     {
-        get => GetProperty<TerraformProperty<string>>("export_to_pdf");
-        set => WithProperty("export_to_pdf", value);
+        set => SetProperty("export_to_pdf", value);
     }
 
     /// <summary>
@@ -130,8 +117,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExportToPdfInScheduledReports
     {
-        get => GetProperty<TerraformProperty<string>>("export_to_pdf_in_scheduled_reports");
-        set => WithProperty("export_to_pdf_in_scheduled_reports", value);
+        set => SetProperty("export_to_pdf_in_scheduled_reports", value);
     }
 
     /// <summary>
@@ -139,8 +125,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IncludeContentInScheduledReportsEmail
     {
-        get => GetProperty<TerraformProperty<string>>("include_content_in_scheduled_reports_email");
-        set => WithProperty("include_content_in_scheduled_reports_email", value);
+        set => SetProperty("include_content_in_scheduled_reports_email", value);
     }
 
     /// <summary>
@@ -148,8 +133,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrintReports
     {
-        get => GetProperty<TerraformProperty<string>>("print_reports");
-        set => WithProperty("print_reports", value);
+        set => SetProperty("print_reports", value);
     }
 
     /// <summary>
@@ -157,8 +141,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RenameSharedFolders
     {
-        get => GetProperty<TerraformProperty<string>>("rename_shared_folders");
-        set => WithProperty("rename_shared_folders", value);
+        set => SetProperty("rename_shared_folders", value);
     }
 
     /// <summary>
@@ -166,8 +149,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ShareAnalyses
     {
-        get => GetProperty<TerraformProperty<string>>("share_analyses");
-        set => WithProperty("share_analyses", value);
+        set => SetProperty("share_analyses", value);
     }
 
     /// <summary>
@@ -175,8 +157,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ShareDashboards
     {
-        get => GetProperty<TerraformProperty<string>>("share_dashboards");
-        set => WithProperty("share_dashboards", value);
+        set => SetProperty("share_dashboards", value);
     }
 
     /// <summary>
@@ -184,8 +165,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ShareDataSources
     {
-        get => GetProperty<TerraformProperty<string>>("share_data_sources");
-        set => WithProperty("share_data_sources", value);
+        set => SetProperty("share_data_sources", value);
     }
 
     /// <summary>
@@ -193,8 +173,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ShareDatasets
     {
-        get => GetProperty<TerraformProperty<string>>("share_datasets");
-        set => WithProperty("share_datasets", value);
+        set => SetProperty("share_datasets", value);
     }
 
     /// <summary>
@@ -202,8 +181,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubscribeDashboardEmailReports
     {
-        get => GetProperty<TerraformProperty<string>>("subscribe_dashboard_email_reports");
-        set => WithProperty("subscribe_dashboard_email_reports", value);
+        set => SetProperty("subscribe_dashboard_email_reports", value);
     }
 
     /// <summary>
@@ -211,8 +189,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ViewAccountSpiceCapacity
     {
-        get => GetProperty<TerraformProperty<string>>("view_account_spice_capacity");
-        set => WithProperty("view_account_spice_capacity", value);
+        set => SetProperty("view_account_spice_capacity", value);
     }
 
 }
@@ -229,17 +206,21 @@ public class AwsQuicksightCustomPermissions : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("tags_all");
+        SetOutput("aws_account_id");
+        SetOutput("custom_permissions_name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -248,26 +229,26 @@ public class AwsQuicksightCustomPermissions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomPermissionsName is required")]
     public required TerraformProperty<string> CustomPermissionsName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_permissions_name");
-        set => this.WithProperty("custom_permissions_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_permissions_name");
+        set => SetProperty("custom_permissions_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -276,8 +257,7 @@ public class AwsQuicksightCustomPermissions : TerraformResource
     /// </summary>
     public List<AwsQuicksightCustomPermissionsCapabilitiesBlock>? Capabilities
     {
-        get => GetProperty<List<AwsQuicksightCustomPermissionsCapabilitiesBlock>>("capabilities");
-        set => this.WithProperty("capabilities", value);
+        set => SetProperty("capabilities", value);
     }
 
     /// <summary>

@@ -14,8 +14,13 @@ public class GoogleLoggingLogViewIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("bucket");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("parent");
     }
 
     /// <summary>
@@ -24,26 +29,26 @@ public class GoogleLoggingLogViewIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -52,8 +57,8 @@ public class GoogleLoggingLogViewIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -62,8 +67,8 @@ public class GoogleLoggingLogViewIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>

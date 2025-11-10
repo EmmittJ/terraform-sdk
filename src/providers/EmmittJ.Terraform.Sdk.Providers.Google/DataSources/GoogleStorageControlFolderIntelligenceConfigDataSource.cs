@@ -14,20 +14,22 @@ public class GoogleStorageControlFolderIntelligenceConfigDataSource : TerraformD
 
     private void InitializeOutputs()
     {
-        this.WithOutput("edition_config");
-        this.WithOutput("effective_intelligence_config");
-        this.WithOutput("filter");
-        this.WithOutput("trial_config");
-        this.WithOutput("update_time");
+        SetOutput("edition_config");
+        SetOutput("effective_intelligence_config");
+        SetOutput("filter");
+        SetOutput("trial_config");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -36,8 +38,8 @@ public class GoogleStorageControlFolderIntelligenceConfigDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

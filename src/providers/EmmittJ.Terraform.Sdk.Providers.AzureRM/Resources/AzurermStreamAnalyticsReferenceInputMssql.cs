@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsReferenceInputMssqlTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsReferenceInputMssqlTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStreamAnalyticsReferenceInputMssqlTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStreamAnalyticsReferenceInputMssqlTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,19 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("database");
+        SetOutput("delta_snapshot_query");
+        SetOutput("full_snapshot_query");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("password");
+        SetOutput("refresh_interval_duration");
+        SetOutput("refresh_type");
+        SetOutput("resource_group_name");
+        SetOutput("server");
+        SetOutput("stream_analytics_job_name");
+        SetOutput("table");
+        SetOutput("username");
     }
 
     /// <summary>
@@ -66,17 +75,17 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database");
-        set => this.WithProperty("database", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database");
+        set => SetProperty("database", value);
     }
 
     /// <summary>
     /// The delta_snapshot_query attribute.
     /// </summary>
-    public TerraformProperty<string>? DeltaSnapshotQuery
+    public TerraformProperty<string> DeltaSnapshotQuery
     {
-        get => GetProperty<TerraformProperty<string>>("delta_snapshot_query");
-        set => this.WithProperty("delta_snapshot_query", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delta_snapshot_query");
+        set => SetProperty("delta_snapshot_query", value);
     }
 
     /// <summary>
@@ -85,17 +94,17 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullSnapshotQuery is required")]
     public required TerraformProperty<string> FullSnapshotQuery
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("full_snapshot_query");
-        set => this.WithProperty("full_snapshot_query", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("full_snapshot_query");
+        set => SetProperty("full_snapshot_query", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,8 +113,8 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,17 +123,17 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// The refresh_interval_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? RefreshIntervalDuration
+    public TerraformProperty<string> RefreshIntervalDuration
     {
-        get => GetProperty<TerraformProperty<string>>("refresh_interval_duration");
-        set => this.WithProperty("refresh_interval_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("refresh_interval_duration");
+        set => SetProperty("refresh_interval_duration", value);
     }
 
     /// <summary>
@@ -133,8 +142,8 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshType is required")]
     public required TerraformProperty<string> RefreshType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("refresh_type");
-        set => this.WithProperty("refresh_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("refresh_type");
+        set => SetProperty("refresh_type", value);
     }
 
     /// <summary>
@@ -143,8 +152,8 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -153,8 +162,8 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server");
-        set => this.WithProperty("server", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server");
+        set => SetProperty("server", value);
     }
 
     /// <summary>
@@ -163,17 +172,17 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
-        set => this.WithProperty("stream_analytics_job_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_name");
+        set => SetProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public TerraformProperty<string>? Table
+    public TerraformProperty<string> Table
     {
-        get => GetProperty<TerraformProperty<string>>("table");
-        set => this.WithProperty("table", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table");
+        set => SetProperty("table", value);
     }
 
     /// <summary>
@@ -182,8 +191,8 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -192,8 +201,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsReferenceInputMssqlTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsReferenceInputMssqlTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

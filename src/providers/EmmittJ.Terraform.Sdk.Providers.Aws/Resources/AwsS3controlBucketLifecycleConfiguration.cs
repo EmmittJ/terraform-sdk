@@ -14,8 +14,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -42,6 +40,9 @@ public class AwsS3controlBucketLifecycleConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -50,37 +51,37 @@ public class AwsS3controlBucketLifecycleConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     public HashSet<AwsS3controlBucketLifecycleConfigurationRuleBlock>? Rule
     {
-        get => GetProperty<HashSet<AwsS3controlBucketLifecycleConfigurationRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
 }

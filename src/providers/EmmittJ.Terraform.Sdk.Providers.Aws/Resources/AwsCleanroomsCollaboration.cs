@@ -14,8 +14,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowClearText is required")]
     public required TerraformProperty<bool> AllowClearText
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("allow_clear_text");
-        set => WithProperty("allow_clear_text", value);
+        set => SetProperty("allow_clear_text", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowDuplicates is required")]
     public required TerraformProperty<bool> AllowDuplicates
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("allow_duplicates");
-        set => WithProperty("allow_duplicates", value);
+        set => SetProperty("allow_duplicates", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowJoinsOnColumnsWithDifferentNames is required")]
     public required TerraformProperty<bool> AllowJoinsOnColumnsWithDifferentNames
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("allow_joins_on_columns_with_different_names");
-        set => WithProperty("allow_joins_on_columns_with_different_names", value);
+        set => SetProperty("allow_joins_on_columns_with_different_names", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveNulls is required")]
     public required TerraformProperty<bool> PreserveNulls
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("preserve_nulls");
-        set => WithProperty("preserve_nulls", value);
+        set => SetProperty("preserve_nulls", value);
     }
 
 }
@@ -62,8 +58,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => WithProperty("account_id", value);
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -72,8 +67,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -82,8 +76,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberAbilities is required")]
     public List<TerraformProperty<string>>? MemberAbilities
     {
-        get => GetProperty<List<TerraformProperty<string>>>("member_abilities");
-        set => WithProperty("member_abilities", value);
+        set => SetProperty("member_abilities", value);
     }
 
     /// <summary>
@@ -91,8 +84,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -108,8 +100,7 @@ public class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -117,8 +108,7 @@ public class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -126,8 +116,7 @@ public class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -145,19 +134,28 @@ public class AwsCleanroomsCollaboration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("create_time");
-        this.WithOutput("id");
-        this.WithOutput("update_time");
+        SetOutput("arn");
+        SetOutput("create_time");
+        SetOutput("id");
+        SetOutput("update_time");
+        SetOutput("analytics_engine");
+        SetOutput("creator_display_name");
+        SetOutput("creator_member_abilities");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("query_log_status");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The analytics_engine attribute.
     /// </summary>
-    public TerraformProperty<string>? AnalyticsEngine
+    public TerraformProperty<string> AnalyticsEngine
     {
-        get => GetProperty<TerraformProperty<string>>("analytics_engine");
-        set => this.WithProperty("analytics_engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("analytics_engine");
+        set => SetProperty("analytics_engine", value);
     }
 
     /// <summary>
@@ -166,18 +164,18 @@ public class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatorDisplayName is required")]
     public required TerraformProperty<string> CreatorDisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("creator_display_name");
-        set => this.WithProperty("creator_display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("creator_display_name");
+        set => SetProperty("creator_display_name", value);
     }
 
     /// <summary>
     /// The creator_member_abilities attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatorMemberAbilities is required")]
-    public List<TerraformProperty<string>>? CreatorMemberAbilities
+    public List<TerraformProperty<string>> CreatorMemberAbilities
     {
-        get => GetProperty<List<TerraformProperty<string>>>("creator_member_abilities");
-        set => this.WithProperty("creator_member_abilities", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("creator_member_abilities");
+        set => SetProperty("creator_member_abilities", value);
     }
 
     /// <summary>
@@ -186,8 +184,8 @@ public class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -196,8 +194,8 @@ public class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -206,35 +204,35 @@ public class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
     public required TerraformProperty<string> QueryLogStatus
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query_log_status");
-        set => this.WithProperty("query_log_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_log_status");
+        set => SetProperty("query_log_status", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -244,8 +242,7 @@ public class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataEncryptionMetadata block(s) allowed")]
     public List<AwsCleanroomsCollaborationDataEncryptionMetadataBlock>? DataEncryptionMetadata
     {
-        get => GetProperty<List<AwsCleanroomsCollaborationDataEncryptionMetadataBlock>>("data_encryption_metadata");
-        set => this.WithProperty("data_encryption_metadata", value);
+        set => SetProperty("data_encryption_metadata", value);
     }
 
     /// <summary>
@@ -254,8 +251,7 @@ public class AwsCleanroomsCollaboration : TerraformResource
     /// </summary>
     public HashSet<AwsCleanroomsCollaborationMemberBlock>? Member
     {
-        get => GetProperty<HashSet<AwsCleanroomsCollaborationMemberBlock>>("member");
-        set => this.WithProperty("member", value);
+        set => SetProperty("member", value);
     }
 
     /// <summary>
@@ -264,8 +260,7 @@ public class AwsCleanroomsCollaboration : TerraformResource
     /// </summary>
     public AwsCleanroomsCollaborationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCleanroomsCollaborationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

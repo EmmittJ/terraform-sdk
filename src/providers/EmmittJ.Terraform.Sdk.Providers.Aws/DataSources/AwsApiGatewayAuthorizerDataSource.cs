@@ -14,15 +14,19 @@ public class AwsApiGatewayAuthorizerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("authorizer_credentials");
-        this.WithOutput("authorizer_result_ttl_in_seconds");
-        this.WithOutput("authorizer_uri");
-        this.WithOutput("identity_source");
-        this.WithOutput("identity_validation_expression");
-        this.WithOutput("name");
-        this.WithOutput("provider_arns");
-        this.WithOutput("type");
+        SetOutput("arn");
+        SetOutput("authorizer_credentials");
+        SetOutput("authorizer_result_ttl_in_seconds");
+        SetOutput("authorizer_uri");
+        SetOutput("identity_source");
+        SetOutput("identity_validation_expression");
+        SetOutput("name");
+        SetOutput("provider_arns");
+        SetOutput("type");
+        SetOutput("authorizer_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("rest_api_id");
     }
 
     /// <summary>
@@ -31,26 +35,26 @@ public class AwsApiGatewayAuthorizerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerId is required")]
     public required TerraformProperty<string> AuthorizerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorizer_id");
-        set => this.WithProperty("authorizer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_id");
+        set => SetProperty("authorizer_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -59,8 +63,8 @@ public class AwsApiGatewayAuthorizerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
-        set => this.WithProperty("rest_api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
+        set => SetProperty("rest_api_id", value);
     }
 
     /// <summary>

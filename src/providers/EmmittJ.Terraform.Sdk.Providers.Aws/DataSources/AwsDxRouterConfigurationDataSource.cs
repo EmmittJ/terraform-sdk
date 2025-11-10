@@ -14,27 +14,31 @@ public class AwsDxRouterConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputustomer_router_config");
-        this.WithOutputouter");
-        this.WithOutputirtual_interface_name");
+        SetOutput("customer_router_config");
+        SetOutput("router");
+        SetOutput("virtual_interface_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("router_type_identifier");
+        SetOutput("virtual_interface_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -43,8 +47,8 @@ public class AwsDxRouterConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterTypeIdentifier is required")]
     public required TerraformProperty<string> RouterTypeIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("router_type_identifier");
-        set => this.WithProperty("router_type_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("router_type_identifier");
+        set => SetProperty("router_type_identifier", value);
     }
 
     /// <summary>
@@ -53,8 +57,8 @@ public class AwsDxRouterConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
     public required TerraformProperty<string> VirtualInterfaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_interface_id");
-        set => this.WithProperty("virtual_interface_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_interface_id");
+        set => SetProperty("virtual_interface_id", value);
     }
 
     /// <summary>

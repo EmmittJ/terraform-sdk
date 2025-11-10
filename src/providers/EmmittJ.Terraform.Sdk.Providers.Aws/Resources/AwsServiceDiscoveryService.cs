@@ -14,8 +14,7 @@ public class AwsServiceDiscoveryServiceDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     public required TerraformProperty<string> NamespaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace_id");
-        set => WithProperty("namespace_id", value);
+        set => SetProperty("namespace_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsServiceDiscoveryServiceDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RoutingPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("routing_policy");
-        set => WithProperty("routing_policy", value);
+        set => SetProperty("routing_policy", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsServiceDiscoveryServiceHealthCheckConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? FailureThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("failure_threshold");
-        set => WithProperty("failure_threshold", value);
+        set => SetProperty("failure_threshold", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsServiceDiscoveryServiceHealthCheckConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourcePath
     {
-        get => GetProperty<TerraformProperty<string>>("resource_path");
-        set => WithProperty("resource_path", value);
+        set => SetProperty("resource_path", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsServiceDiscoveryServiceHealthCheckConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock : TerraformB
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<double>? FailureThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("failure_threshold");
-        set => WithProperty("failure_threshold", value);
+        set => SetProperty("failure_threshold", value);
     }
 
 }
@@ -95,34 +89,43 @@ public class AwsServiceDiscoveryService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("namespace_id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,53 +134,53 @@ public class AwsServiceDiscoveryService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NamespaceId
+    public TerraformProperty<string> NamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_id");
-        set => this.WithProperty("namespace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_id");
+        set => SetProperty("namespace_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -187,8 +190,7 @@ public class AwsServiceDiscoveryService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
     public List<AwsServiceDiscoveryServiceDnsConfigBlock>? DnsConfig
     {
-        get => GetProperty<List<AwsServiceDiscoveryServiceDnsConfigBlock>>("dns_config");
-        set => this.WithProperty("dns_config", value);
+        set => SetProperty("dns_config", value);
     }
 
     /// <summary>
@@ -198,8 +200,7 @@ public class AwsServiceDiscoveryService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheckConfig block(s) allowed")]
     public List<AwsServiceDiscoveryServiceHealthCheckConfigBlock>? HealthCheckConfig
     {
-        get => GetProperty<List<AwsServiceDiscoveryServiceHealthCheckConfigBlock>>("health_check_config");
-        set => this.WithProperty("health_check_config", value);
+        set => SetProperty("health_check_config", value);
     }
 
     /// <summary>
@@ -209,8 +210,7 @@ public class AwsServiceDiscoveryService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheckCustomConfig block(s) allowed")]
     public List<AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock>? HealthCheckCustomConfig
     {
-        get => GetProperty<List<AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock>>("health_check_custom_config");
-        set => this.WithProperty("health_check_custom_config", value);
+        set => SetProperty("health_check_custom_config", value);
     }
 
     /// <summary>

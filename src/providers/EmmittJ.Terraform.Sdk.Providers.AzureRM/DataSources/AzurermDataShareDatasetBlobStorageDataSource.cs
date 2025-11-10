@@ -13,8 +13,7 @@ public class AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,11 +30,14 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("container_name");
-        this.WithOutput("display_name");
-        this.WithOutput("file_path");
-        this.WithOutput("folder_path");
-        this.WithOutput("storage_account");
+        SetOutput("container_name");
+        SetOutput("display_name");
+        SetOutput("file_path");
+        SetOutput("folder_path");
+        SetOutput("storage_account");
+        SetOutput("data_share_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -44,17 +46,17 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
     public required TerraformProperty<string> DataShareId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_share_id");
-        set => this.WithProperty("data_share_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_share_id");
+        set => SetProperty("data_share_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
     /// </summary>
     public AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

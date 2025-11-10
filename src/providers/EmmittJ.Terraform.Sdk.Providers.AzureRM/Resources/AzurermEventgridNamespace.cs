@@ -13,8 +13,7 @@ public class AzurermEventgridNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermEventgridNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermEventgridNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermEventgridNamespaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
     public required TerraformProperty<string> IpMask
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_mask");
-        set => WithProperty("ip_mask", value);
+        set => SetProperty("ip_mask", value);
     }
 
 }
@@ -85,8 +79,7 @@ public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -129,8 +119,7 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? AlternativeAuthenticationNameSource
     {
-        get => GetProperty<List<TerraformProperty<string>>>("alternative_authentication_name_source");
-        set => WithProperty("alternative_authentication_name_source", value);
+        set => SetProperty("alternative_authentication_name_source", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? MaximumClientSessionsPerAuthenticationName
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_client_sessions_per_authentication_name");
-        set => WithProperty("maximum_client_sessions_per_authentication_name", value);
+        set => SetProperty("maximum_client_sessions_per_authentication_name", value);
     }
 
     /// <summary>
@@ -147,8 +135,7 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? MaximumSessionExpiryInHours
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_session_expiry_in_hours");
-        set => WithProperty("maximum_session_expiry_in_hours", value);
+        set => SetProperty("maximum_session_expiry_in_hours", value);
     }
 
     /// <summary>
@@ -156,8 +143,7 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? RouteTopicId
     {
-        get => GetProperty<TerraformProperty<string>>("route_topic_id");
-        set => WithProperty("route_topic_id", value);
+        set => SetProperty("route_topic_id", value);
     }
 
 }
@@ -175,24 +161,32 @@ public class AzurermEventgridNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("capacity");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("public_network_access");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? Capacity
+    public TerraformProperty<double> Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
-        set => this.WithProperty("capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("capacity");
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -201,8 +195,8 @@ public class AzurermEventgridNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -211,17 +205,17 @@ public class AzurermEventgridNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string> PublicNetworkAccess
     {
-        get => GetProperty<TerraformProperty<string>>("public_network_access");
-        set => this.WithProperty("public_network_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_network_access");
+        set => SetProperty("public_network_access", value);
     }
 
     /// <summary>
@@ -230,26 +224,26 @@ public class AzurermEventgridNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    public TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -259,8 +253,7 @@ public class AzurermEventgridNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermEventgridNamespaceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermEventgridNamespaceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -270,8 +263,7 @@ public class AzurermEventgridNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(128, ErrorMessage = "Maximum 128 InboundIpRule block(s) allowed")]
     public List<AzurermEventgridNamespaceInboundIpRuleBlock>? InboundIpRule
     {
-        get => GetProperty<List<AzurermEventgridNamespaceInboundIpRuleBlock>>("inbound_ip_rule");
-        set => this.WithProperty("inbound_ip_rule", value);
+        set => SetProperty("inbound_ip_rule", value);
     }
 
     /// <summary>
@@ -280,8 +272,7 @@ public class AzurermEventgridNamespace : TerraformResource
     /// </summary>
     public AzurermEventgridNamespaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventgridNamespaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -290,8 +281,7 @@ public class AzurermEventgridNamespace : TerraformResource
     /// </summary>
     public List<AzurermEventgridNamespaceTopicSpacesConfigurationBlock>? TopicSpacesConfiguration
     {
-        get => GetProperty<List<AzurermEventgridNamespaceTopicSpacesConfigurationBlock>>("topic_spaces_configuration");
-        set => this.WithProperty("topic_spaces_configuration", value);
+        set => SetProperty("topic_spaces_configuration", value);
     }
 
 }

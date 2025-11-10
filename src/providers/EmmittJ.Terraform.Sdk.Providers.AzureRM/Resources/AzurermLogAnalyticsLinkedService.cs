@@ -13,8 +13,7 @@ public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,30 @@ public class AzurermLogAnalyticsLinkedService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("read_access_id");
+        SetOutput("resource_group_name");
+        SetOutput("workspace_id");
+        SetOutput("write_access_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The read_access_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ReadAccessId
+    public TerraformProperty<string> ReadAccessId
     {
-        get => GetProperty<TerraformProperty<string>>("read_access_id");
-        set => this.WithProperty("read_access_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("read_access_id");
+        set => SetProperty("read_access_id", value);
     }
 
     /// <summary>
@@ -85,8 +86,8 @@ public class AzurermLogAnalyticsLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -95,17 +96,17 @@ public class AzurermLogAnalyticsLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
     /// The write_access_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WriteAccessId
+    public TerraformProperty<string> WriteAccessId
     {
-        get => GetProperty<TerraformProperty<string>>("write_access_id");
-        set => this.WithProperty("write_access_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("write_access_id");
+        set => SetProperty("write_access_id", value);
     }
 
     /// <summary>
@@ -114,8 +115,7 @@ public class AzurermLogAnalyticsLinkedService : TerraformResource
     /// </summary>
     public AzurermLogAnalyticsLinkedServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogAnalyticsLinkedServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

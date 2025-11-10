@@ -13,8 +13,7 @@ public class AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,20 +46,33 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("monthly_leasing_price");
-        this.WithOutput("phone_number");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("monthly_leasing_price");
+        SetOutput("phone_number");
+        SetOutput("tags_all");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("iso_country_code");
+        SetOutput("message_type");
+        SetOutput("number_capabilities");
+        SetOutput("number_type");
+        SetOutput("opt_out_list_name");
+        SetOutput("region");
+        SetOutput("registration_id");
+        SetOutput("self_managed_opt_outs_enabled");
+        SetOutput("tags");
+        SetOutput("two_way_channel_arn");
+        SetOutput("two_way_channel_enabled");
+        SetOutput("two_way_channel_role");
     }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool> DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => this.WithProperty("deletion_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
+        set => SetProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
@@ -71,8 +81,8 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsoCountryCode is required")]
     public required TerraformProperty<string> IsoCountryCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iso_country_code");
-        set => this.WithProperty("iso_country_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iso_country_code");
+        set => SetProperty("iso_country_code", value);
     }
 
     /// <summary>
@@ -81,18 +91,18 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageType is required")]
     public required TerraformProperty<string> MessageType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("message_type");
-        set => this.WithProperty("message_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("message_type");
+        set => SetProperty("message_type", value);
     }
 
     /// <summary>
     /// The number_capabilities attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberCapabilities is required")]
-    public HashSet<TerraformProperty<string>>? NumberCapabilities
+    public HashSet<TerraformProperty<string>> NumberCapabilities
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("number_capabilities");
-        set => this.WithProperty("number_capabilities", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("number_capabilities");
+        set => SetProperty("number_capabilities", value);
     }
 
     /// <summary>
@@ -101,80 +111,80 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberType is required")]
     public required TerraformProperty<string> NumberType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("number_type");
-        set => this.WithProperty("number_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("number_type");
+        set => SetProperty("number_type", value);
     }
 
     /// <summary>
     /// The opt_out_list_name attribute.
     /// </summary>
-    public TerraformProperty<string>? OptOutListName
+    public TerraformProperty<string> OptOutListName
     {
-        get => GetProperty<TerraformProperty<string>>("opt_out_list_name");
-        set => this.WithProperty("opt_out_list_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("opt_out_list_name");
+        set => SetProperty("opt_out_list_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The registration_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RegistrationId
+    public TerraformProperty<string> RegistrationId
     {
-        get => GetProperty<TerraformProperty<string>>("registration_id");
-        set => this.WithProperty("registration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("registration_id");
+        set => SetProperty("registration_id", value);
     }
 
     /// <summary>
     /// The self_managed_opt_outs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SelfManagedOptOutsEnabled
+    public TerraformProperty<bool> SelfManagedOptOutsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("self_managed_opt_outs_enabled");
-        set => this.WithProperty("self_managed_opt_outs_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("self_managed_opt_outs_enabled");
+        set => SetProperty("self_managed_opt_outs_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The two_way_channel_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TwoWayChannelArn
+    public TerraformProperty<string> TwoWayChannelArn
     {
-        get => GetProperty<TerraformProperty<string>>("two_way_channel_arn");
-        set => this.WithProperty("two_way_channel_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("two_way_channel_arn");
+        set => SetProperty("two_way_channel_arn", value);
     }
 
     /// <summary>
     /// The two_way_channel_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TwoWayChannelEnabled
+    public TerraformProperty<bool> TwoWayChannelEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("two_way_channel_enabled");
-        set => this.WithProperty("two_way_channel_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("two_way_channel_enabled");
+        set => SetProperty("two_way_channel_enabled", value);
     }
 
     /// <summary>
     /// The two_way_channel_role attribute.
     /// </summary>
-    public TerraformProperty<string>? TwoWayChannelRole
+    public TerraformProperty<string> TwoWayChannelRole
     {
-        get => GetProperty<TerraformProperty<string>>("two_way_channel_role");
-        set => this.WithProperty("two_way_channel_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("two_way_channel_role");
+        set => SetProperty("two_way_channel_role", value);
     }
 
     /// <summary>
@@ -183,8 +193,7 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
     /// </summary>
     public AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

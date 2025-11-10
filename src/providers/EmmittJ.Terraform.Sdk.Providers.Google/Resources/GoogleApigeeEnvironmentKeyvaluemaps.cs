@@ -13,8 +13,7 @@ public class GoogleApigeeEnvironmentKeyvaluemapsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeEnvironmentKeyvaluemapsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,9 @@ public class GoogleApigeeEnvironmentKeyvaluemaps : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("env_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -49,17 +50,17 @@ public class GoogleApigeeEnvironmentKeyvaluemaps : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
-        set => this.WithProperty("env_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
+        set => SetProperty("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +69,8 @@ public class GoogleApigeeEnvironmentKeyvaluemaps : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -78,8 +79,7 @@ public class GoogleApigeeEnvironmentKeyvaluemaps : TerraformResource
     /// </summary>
     public GoogleApigeeEnvironmentKeyvaluemapsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeEnvironmentKeyvaluemapsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

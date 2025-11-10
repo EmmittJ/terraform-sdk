@@ -14,15 +14,20 @@ public class AwsSesv2EmailIdentityMailFromAttributes : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("behavior_on_mx_failure");
+        SetOutput("email_identity");
+        SetOutput("id");
+        SetOutput("mail_from_domain");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The behavior_on_mx_failure attribute.
     /// </summary>
-    public TerraformProperty<string>? BehaviorOnMxFailure
+    public TerraformProperty<string> BehaviorOnMxFailure
     {
-        get => GetProperty<TerraformProperty<string>>("behavior_on_mx_failure");
-        set => this.WithProperty("behavior_on_mx_failure", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("behavior_on_mx_failure");
+        set => SetProperty("behavior_on_mx_failure", value);
     }
 
     /// <summary>
@@ -31,35 +36,35 @@ public class AwsSesv2EmailIdentityMailFromAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
     public required TerraformProperty<string> EmailIdentity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_identity");
-        set => this.WithProperty("email_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_identity");
+        set => SetProperty("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The mail_from_domain attribute.
     /// </summary>
-    public TerraformProperty<string>? MailFromDomain
+    public TerraformProperty<string> MailFromDomain
     {
-        get => GetProperty<TerraformProperty<string>>("mail_from_domain");
-        set => this.WithProperty("mail_from_domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mail_from_domain");
+        set => SetProperty("mail_from_domain", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

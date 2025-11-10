@@ -13,8 +13,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Method
     {
-        get => GetProperty<TerraformProperty<string>>("method");
-        set => WithProperty("method", value);
+        set => SetProperty("method", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StatusCode
     {
-        get => GetProperty<TerraformProperty<string>>("status_code");
-        set => WithProperty("status_code", value);
+        set => SetProperty("status_code", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -69,16 +64,20 @@ public class AwsApiGatewayDocumentationPart : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("documentation_part_id");
+        SetOutput("documentation_part_id");
+        SetOutput("id");
+        SetOutput("properties");
+        SetOutput("region");
+        SetOutput("rest_api_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,17 +86,17 @@ public class AwsApiGatewayDocumentationPart : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
     public required TerraformProperty<string> Properties
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("properties");
-        set => this.WithProperty("properties", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("properties");
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -106,20 +105,20 @@ public class AwsApiGatewayDocumentationPart : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
-        set => this.WithProperty("rest_api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
+        set => SetProperty("rest_api_id", value);
     }
 
     /// <summary>
     /// Block for location.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Location block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
     public List<AwsApiGatewayDocumentationPartLocationBlock>? Location
     {
-        get => GetProperty<List<AwsApiGatewayDocumentationPartLocationBlock>>("location");
-        set => this.WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>

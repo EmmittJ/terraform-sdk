@@ -13,8 +13,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Fqdn
     {
-        get => GetProperty<TerraformProperty<string>>("fqdn");
-        set => WithProperty("fqdn", value);
+        set => SetProperty("fqdn", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => WithProperty("ip_address", value);
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("provider_name");
-        set => WithProperty("provider_name", value);
+        set => SetProperty("provider_name", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SpeedInMbps
     {
-        get => GetProperty<TerraformProperty<double>>("speed_in_mbps");
-        set => WithProperty("speed_in_mbps", value);
+        set => SetProperty("speed_in_mbps", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class AzurermVpnSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermVpnSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AzurermVpnSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermVpnSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -130,42 +120,51 @@ public class AzurermVpnSite : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("address_cidrs");
+        SetOutput("device_model");
+        SetOutput("device_vendor");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("virtual_wan_id");
     }
 
     /// <summary>
     /// The address_cidrs attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AddressCidrs
+    public HashSet<TerraformProperty<string>> AddressCidrs
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("address_cidrs");
-        set => this.WithProperty("address_cidrs", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("address_cidrs");
+        set => SetProperty("address_cidrs", value);
     }
 
     /// <summary>
     /// The device_model attribute.
     /// </summary>
-    public TerraformProperty<string>? DeviceModel
+    public TerraformProperty<string> DeviceModel
     {
-        get => GetProperty<TerraformProperty<string>>("device_model");
-        set => this.WithProperty("device_model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_model");
+        set => SetProperty("device_model", value);
     }
 
     /// <summary>
     /// The device_vendor attribute.
     /// </summary>
-    public TerraformProperty<string>? DeviceVendor
+    public TerraformProperty<string> DeviceVendor
     {
-        get => GetProperty<TerraformProperty<string>>("device_vendor");
-        set => this.WithProperty("device_vendor", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_vendor");
+        set => SetProperty("device_vendor", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -174,8 +173,8 @@ public class AzurermVpnSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -184,8 +183,8 @@ public class AzurermVpnSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -194,17 +193,17 @@ public class AzurermVpnSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -213,8 +212,8 @@ public class AzurermVpnSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualWanId is required")]
     public required TerraformProperty<string> VirtualWanId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_wan_id");
-        set => this.WithProperty("virtual_wan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_wan_id");
+        set => SetProperty("virtual_wan_id", value);
     }
 
     /// <summary>
@@ -223,8 +222,7 @@ public class AzurermVpnSite : TerraformResource
     /// </summary>
     public List<AzurermVpnSiteLinkBlock>? Link
     {
-        get => GetProperty<List<AzurermVpnSiteLinkBlock>>("link");
-        set => this.WithProperty("link", value);
+        set => SetProperty("link", value);
     }
 
     /// <summary>
@@ -234,8 +232,7 @@ public class AzurermVpnSite : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 O365Policy block(s) allowed")]
     public List<AzurermVpnSiteO365PolicyBlock>? O365Policy
     {
-        get => GetProperty<List<AzurermVpnSiteO365PolicyBlock>>("o365_policy");
-        set => this.WithProperty("o365_policy", value);
+        set => SetProperty("o365_policy", value);
     }
 
     /// <summary>
@@ -244,8 +241,7 @@ public class AzurermVpnSite : TerraformResource
     /// </summary>
     public AzurermVpnSiteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVpnSiteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

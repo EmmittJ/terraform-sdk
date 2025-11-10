@@ -14,15 +14,21 @@ public class AwsSesIdentityNotificationTopic : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("identity");
+        SetOutput("include_original_headers");
+        SetOutput("notification_type");
+        SetOutput("region");
+        SetOutput("topic_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,17 +37,17 @@ public class AwsSesIdentityNotificationTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     public required TerraformProperty<string> Identity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity");
-        set => this.WithProperty("identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity");
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
     /// The include_original_headers attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeOriginalHeaders
+    public TerraformProperty<bool> IncludeOriginalHeaders
     {
-        get => GetProperty<TerraformProperty<bool>>("include_original_headers");
-        set => this.WithProperty("include_original_headers", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_original_headers");
+        set => SetProperty("include_original_headers", value);
     }
 
     /// <summary>
@@ -50,26 +56,26 @@ public class AwsSesIdentityNotificationTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformProperty<string> NotificationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("notification_type");
-        set => this.WithProperty("notification_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_type");
+        set => SetProperty("notification_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TopicArn
+    public TerraformProperty<string> TopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("topic_arn");
-        set => this.WithProperty("topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("topic_arn");
+        set => SetProperty("topic_arn", value);
     }
 
 }

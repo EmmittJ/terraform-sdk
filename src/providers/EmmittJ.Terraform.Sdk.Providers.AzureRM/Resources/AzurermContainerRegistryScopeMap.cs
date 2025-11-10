@@ -13,8 +13,7 @@ public class AzurermContainerRegistryScopeMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerRegistryScopeMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermContainerRegistryScopeMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermContainerRegistryScopeMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +54,22 @@ public class AzurermContainerRegistryScopeMap : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("actions");
+        SetOutput("container_registry_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The actions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
-    public List<TerraformProperty<string>>? Actions
+    public List<TerraformProperty<string>> Actions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("actions");
-        set => this.WithProperty("actions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("actions");
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -76,26 +78,26 @@ public class AzurermContainerRegistryScopeMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryName is required")]
     public required TerraformProperty<string> ContainerRegistryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_name");
-        set => this.WithProperty("container_registry_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_name");
+        set => SetProperty("container_registry_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,8 +106,8 @@ public class AzurermContainerRegistryScopeMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AzurermContainerRegistryScopeMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermContainerRegistryScopeMap : TerraformResource
     /// </summary>
     public AzurermContainerRegistryScopeMapTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryScopeMapTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

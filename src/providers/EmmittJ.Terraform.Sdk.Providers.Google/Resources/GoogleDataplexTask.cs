@@ -13,8 +13,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Args
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => WithProperty("kms_key", value);
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxJobExecutionLifetime
     {
-        get => GetProperty<TerraformProperty<string>>("max_job_execution_lifetime");
-        set => WithProperty("max_job_execution_lifetime", value);
+        set => SetProperty("max_job_execution_lifetime", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => WithProperty("project", value);
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformProperty<string> ServiceAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_account");
-        set => WithProperty("service_account", value);
+        set => SetProperty("service_account", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class GoogleDataplexTaskNotebookBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class GoogleDataplexTaskNotebookBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class GoogleDataplexTaskNotebookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notebook is required")]
     public required TerraformProperty<string> Notebook
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("notebook");
-        set => WithProperty("notebook", value);
+        set => SetProperty("notebook", value);
     }
 
 }
@@ -103,8 +95,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainClass
     {
-        get => GetProperty<TerraformProperty<string>>("main_class");
-        set => WithProperty("main_class", value);
+        set => SetProperty("main_class", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainJarFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_jar_file_uri");
-        set => WithProperty("main_jar_file_uri", value);
+        set => SetProperty("main_jar_file_uri", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PythonScriptFile
     {
-        get => GetProperty<TerraformProperty<string>>("python_script_file");
-        set => WithProperty("python_script_file", value);
+        set => SetProperty("python_script_file", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SqlScript
     {
-        get => GetProperty<TerraformProperty<string>>("sql_script");
-        set => WithProperty("sql_script", value);
+        set => SetProperty("sql_script", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SqlScriptFile
     {
-        get => GetProperty<TerraformProperty<string>>("sql_script_file");
-        set => WithProperty("sql_script_file", value);
+        set => SetProperty("sql_script_file", value);
     }
 
 }
@@ -174,8 +159,7 @@ public class GoogleDataplexTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -183,8 +167,7 @@ public class GoogleDataplexTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -192,8 +175,7 @@ public class GoogleDataplexTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -209,8 +191,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => WithProperty("disabled", value);
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -218,8 +199,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxRetries
     {
-        get => GetProperty<TerraformProperty<double>>("max_retries");
-        set => WithProperty("max_retries", value);
+        set => SetProperty("max_retries", value);
     }
 
     /// <summary>
@@ -227,8 +207,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
-        set => WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -236,8 +215,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
@@ -246,8 +224,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -265,41 +242,49 @@ public class GoogleDataplexTask : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("execution_status");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("execution_status");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("lake");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("task_id");
     }
 
     /// <summary>
     /// User-provided description of the task.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// User friendly display name.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -309,58 +294,58 @@ public class GoogleDataplexTask : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The lake in which the task will be created in.
     /// </summary>
-    public TerraformProperty<string>? Lake
+    public TerraformProperty<string> Lake
     {
-        get => GetProperty<TerraformProperty<string>>("lake");
-        set => this.WithProperty("lake", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lake");
+        set => SetProperty("lake", value);
     }
 
     /// <summary>
     /// The location in which the task will be created in.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The task Id of the task.
     /// </summary>
-    public TerraformProperty<string>? TaskId
+    public TerraformProperty<string> TaskId
     {
-        get => GetProperty<TerraformProperty<string>>("task_id");
-        set => this.WithProperty("task_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_id");
+        set => SetProperty("task_id", value);
     }
 
     /// <summary>
     /// Block for execution_spec.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionSpec is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExecutionSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionSpec block(s) allowed")]
     public List<GoogleDataplexTaskExecutionSpecBlock>? ExecutionSpec
     {
-        get => GetProperty<List<GoogleDataplexTaskExecutionSpecBlock>>("execution_spec");
-        set => this.WithProperty("execution_spec", value);
+        set => SetProperty("execution_spec", value);
     }
 
     /// <summary>
@@ -370,8 +355,7 @@ public class GoogleDataplexTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notebook block(s) allowed")]
     public List<GoogleDataplexTaskNotebookBlock>? Notebook
     {
-        get => GetProperty<List<GoogleDataplexTaskNotebookBlock>>("notebook");
-        set => this.WithProperty("notebook", value);
+        set => SetProperty("notebook", value);
     }
 
     /// <summary>
@@ -381,8 +365,7 @@ public class GoogleDataplexTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spark block(s) allowed")]
     public List<GoogleDataplexTaskSparkBlock>? Spark
     {
-        get => GetProperty<List<GoogleDataplexTaskSparkBlock>>("spark");
-        set => this.WithProperty("spark", value);
+        set => SetProperty("spark", value);
     }
 
     /// <summary>
@@ -391,20 +374,19 @@ public class GoogleDataplexTask : TerraformResource
     /// </summary>
     public GoogleDataplexTaskTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataplexTaskTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for trigger_spec.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerSpec is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TriggerSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TriggerSpec block(s) allowed")]
     public List<GoogleDataplexTaskTriggerSpecBlock>? TriggerSpec
     {
-        get => GetProperty<List<GoogleDataplexTaskTriggerSpecBlock>>("trigger_spec");
-        set => this.WithProperty("trigger_spec", value);
+        set => SetProperty("trigger_spec", value);
     }
 
     /// <summary>

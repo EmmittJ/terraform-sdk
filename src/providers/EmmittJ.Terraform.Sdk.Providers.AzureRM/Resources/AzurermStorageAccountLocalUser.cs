@@ -14,8 +14,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
     public required TerraformProperty<string> ResourceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_name");
-        set => WithProperty("resource_name", value);
+        set => SetProperty("resource_name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => WithProperty("service", value);
+        set => SetProperty("service", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -113,26 +105,32 @@ public class AzurermStorageAccountLocalUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputassword");
-        this.WithOutputid");
+        SetOutput("password");
+        SetOutput("sid");
+        SetOutput("home_directory");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("ssh_key_enabled");
+        SetOutput("ssh_password_enabled");
+        SetOutput("storage_account_id");
     }
 
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
-    public TerraformProperty<string>? HomeDirectory
+    public TerraformProperty<string> HomeDirectory
     {
-        get => GetProperty<TerraformProperty<string>>("home_directory");
-        set => this.WithProperty("home_directory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("home_directory");
+        set => SetProperty("home_directory", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -141,26 +139,26 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ssh_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SshKeyEnabled
+    public TerraformProperty<bool> SshKeyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ssh_key_enabled");
-        set => this.WithProperty("ssh_key_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ssh_key_enabled");
+        set => SetProperty("ssh_key_enabled", value);
     }
 
     /// <summary>
     /// The ssh_password_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SshPasswordEnabled
+    public TerraformProperty<bool> SshPasswordEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ssh_password_enabled");
-        set => this.WithProperty("ssh_password_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ssh_password_enabled");
+        set => SetProperty("ssh_password_enabled", value);
     }
 
     /// <summary>
@@ -169,8 +167,8 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -179,8 +177,7 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// </summary>
     public List<AzurermStorageAccountLocalUserPermissionScopeBlock>? PermissionScope
     {
-        get => GetProperty<List<AzurermStorageAccountLocalUserPermissionScopeBlock>>("permission_scope");
-        set => this.WithProperty("permission_scope", value);
+        set => SetProperty("permission_scope", value);
     }
 
     /// <summary>
@@ -189,8 +186,7 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// </summary>
     public List<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>? SshAuthorizedKey
     {
-        get => GetProperty<List<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>>("ssh_authorized_key");
-        set => this.WithProperty("ssh_authorized_key", value);
+        set => SetProperty("ssh_authorized_key", value);
     }
 
     /// <summary>
@@ -199,8 +195,7 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// </summary>
     public AzurermStorageAccountLocalUserTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageAccountLocalUserTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

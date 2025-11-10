@@ -14,8 +14,7 @@ public class AwsVerifiedpermissionsPolicyStoreValidationSettingsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -32,46 +31,50 @@ public class AwsVerifiedpermissionsPolicyStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("policy_store_id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("policy_store_id");
+        SetOutput("tags_all");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformProperty<string>? DeletionProtection
+    public TerraformProperty<string> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -80,8 +83,7 @@ public class AwsVerifiedpermissionsPolicyStore : TerraformResource
     /// </summary>
     public List<AwsVerifiedpermissionsPolicyStoreValidationSettingsBlock>? ValidationSettings
     {
-        get => GetProperty<List<AwsVerifiedpermissionsPolicyStoreValidationSettingsBlock>>("validation_settings");
-        set => this.WithProperty("validation_settings", value);
+        set => SetProperty("validation_settings", value);
     }
 
     /// <summary>

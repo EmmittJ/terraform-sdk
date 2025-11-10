@@ -21,8 +21,7 @@ public class GoogleDataLossPreventionDiscoveryConfigOrgConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
 }
@@ -54,8 +53,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -63,8 +61,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -72,8 +69,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -91,38 +87,44 @@ public class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("errors");
-        this.WithOutput("last_run_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("errors");
+        SetOutput("last_run_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("inspect_templates");
+        SetOutput("location");
+        SetOutput("parent");
+        SetOutput("status");
     }
 
     /// <summary>
     /// Display Name (max 1000 Chars)
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Detection logic for profile generation
     /// </summary>
-    public List<TerraformProperty<string>>? InspectTemplates
+    public List<TerraformProperty<string>> InspectTemplates
     {
-        get => GetProperty<List<TerraformProperty<string>>>("inspect_templates");
-        set => this.WithProperty("inspect_templates", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("inspect_templates");
+        set => SetProperty("inspect_templates", value);
     }
 
     /// <summary>
@@ -131,8 +133,8 @@ public class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -144,17 +146,17 @@ public class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// Required. A status for this configuration Possible values: [&amp;quot;RUNNING&amp;quot;, &amp;quot;PAUSED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -163,8 +165,7 @@ public class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     /// </summary>
     public List<GoogleDataLossPreventionDiscoveryConfigActionsBlock>? Actions
     {
-        get => GetProperty<List<GoogleDataLossPreventionDiscoveryConfigActionsBlock>>("actions");
-        set => this.WithProperty("actions", value);
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -174,8 +175,7 @@ public class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrgConfig block(s) allowed")]
     public List<GoogleDataLossPreventionDiscoveryConfigOrgConfigBlock>? OrgConfig
     {
-        get => GetProperty<List<GoogleDataLossPreventionDiscoveryConfigOrgConfigBlock>>("org_config");
-        set => this.WithProperty("org_config", value);
+        set => SetProperty("org_config", value);
     }
 
     /// <summary>
@@ -185,8 +185,7 @@ public class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OtherCloudStartingLocation block(s) allowed")]
     public List<GoogleDataLossPreventionDiscoveryConfigOtherCloudStartingLocationBlock>? OtherCloudStartingLocation
     {
-        get => GetProperty<List<GoogleDataLossPreventionDiscoveryConfigOtherCloudStartingLocationBlock>>("other_cloud_starting_location");
-        set => this.WithProperty("other_cloud_starting_location", value);
+        set => SetProperty("other_cloud_starting_location", value);
     }
 
     /// <summary>
@@ -195,8 +194,7 @@ public class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     /// </summary>
     public List<GoogleDataLossPreventionDiscoveryConfigTargetsBlock>? Targets
     {
-        get => GetProperty<List<GoogleDataLossPreventionDiscoveryConfigTargetsBlock>>("targets");
-        set => this.WithProperty("targets", value);
+        set => SetProperty("targets", value);
     }
 
     /// <summary>
@@ -205,8 +203,7 @@ public class GoogleDataLossPreventionDiscoveryConfig : TerraformResource
     /// </summary>
     public GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,97 +14,107 @@ public class AwsIamAccountPasswordPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("expire_passwords");
+        SetOutput("expire_passwords");
+        SetOutput("allow_users_to_change_password");
+        SetOutput("hard_expiry");
+        SetOutput("id");
+        SetOutput("max_password_age");
+        SetOutput("minimum_password_length");
+        SetOutput("password_reuse_prevention");
+        SetOutput("require_lowercase_characters");
+        SetOutput("require_numbers");
+        SetOutput("require_symbols");
+        SetOutput("require_uppercase_characters");
     }
 
     /// <summary>
     /// The allow_users_to_change_password attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowUsersToChangePassword
+    public TerraformProperty<bool> AllowUsersToChangePassword
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_users_to_change_password");
-        set => this.WithProperty("allow_users_to_change_password", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_users_to_change_password");
+        set => SetProperty("allow_users_to_change_password", value);
     }
 
     /// <summary>
     /// The hard_expiry attribute.
     /// </summary>
-    public TerraformProperty<bool>? HardExpiry
+    public TerraformProperty<bool> HardExpiry
     {
-        get => GetProperty<TerraformProperty<bool>>("hard_expiry");
-        set => this.WithProperty("hard_expiry", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("hard_expiry");
+        set => SetProperty("hard_expiry", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_password_age attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxPasswordAge
+    public TerraformProperty<double> MaxPasswordAge
     {
-        get => GetProperty<TerraformProperty<double>>("max_password_age");
-        set => this.WithProperty("max_password_age", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_password_age");
+        set => SetProperty("max_password_age", value);
     }
 
     /// <summary>
     /// The minimum_password_length attribute.
     /// </summary>
-    public TerraformProperty<double>? MinimumPasswordLength
+    public TerraformProperty<double> MinimumPasswordLength
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_password_length");
-        set => this.WithProperty("minimum_password_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("minimum_password_length");
+        set => SetProperty("minimum_password_length", value);
     }
 
     /// <summary>
     /// The password_reuse_prevention attribute.
     /// </summary>
-    public TerraformProperty<double>? PasswordReusePrevention
+    public TerraformProperty<double> PasswordReusePrevention
     {
-        get => GetProperty<TerraformProperty<double>>("password_reuse_prevention");
-        set => this.WithProperty("password_reuse_prevention", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("password_reuse_prevention");
+        set => SetProperty("password_reuse_prevention", value);
     }
 
     /// <summary>
     /// The require_lowercase_characters attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireLowercaseCharacters
+    public TerraformProperty<bool> RequireLowercaseCharacters
     {
-        get => GetProperty<TerraformProperty<bool>>("require_lowercase_characters");
-        set => this.WithProperty("require_lowercase_characters", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_lowercase_characters");
+        set => SetProperty("require_lowercase_characters", value);
     }
 
     /// <summary>
     /// The require_numbers attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireNumbers
+    public TerraformProperty<bool> RequireNumbers
     {
-        get => GetProperty<TerraformProperty<bool>>("require_numbers");
-        set => this.WithProperty("require_numbers", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_numbers");
+        set => SetProperty("require_numbers", value);
     }
 
     /// <summary>
     /// The require_symbols attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireSymbols
+    public TerraformProperty<bool> RequireSymbols
     {
-        get => GetProperty<TerraformProperty<bool>>("require_symbols");
-        set => this.WithProperty("require_symbols", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_symbols");
+        set => SetProperty("require_symbols", value);
     }
 
     /// <summary>
     /// The require_uppercase_characters attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireUppercaseCharacters
+    public TerraformProperty<bool> RequireUppercaseCharacters
     {
-        get => GetProperty<TerraformProperty<bool>>("require_uppercase_characters");
-        set => this.WithProperty("require_uppercase_characters", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_uppercase_characters");
+        set => SetProperty("require_uppercase_characters", value);
     }
 
     /// <summary>

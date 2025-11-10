@@ -14,6 +14,12 @@ public class AwsPinpointAdmChannel : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("application_id");
+        SetOutput("client_id");
+        SetOutput("client_secret");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,8 +28,8 @@ public class AwsPinpointAdmChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -32,8 +38,8 @@ public class AwsPinpointAdmChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -42,35 +48,35 @@ public class AwsPinpointAdmChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
-        set => this.WithProperty("client_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_secret");
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

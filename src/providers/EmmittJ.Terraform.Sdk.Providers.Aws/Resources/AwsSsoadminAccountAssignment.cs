@@ -13,8 +13,7 @@ public class AwsSsoadminAccountAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSsoadminAccountAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,15 +38,23 @@ public class AwsSsoadminAccountAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("instance_arn");
+        SetOutput("permission_set_arn");
+        SetOutput("principal_id");
+        SetOutput("principal_type");
+        SetOutput("region");
+        SetOutput("target_id");
+        SetOutput("target_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -57,8 +63,8 @@ public class AwsSsoadminAccountAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
-        set => this.WithProperty("instance_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
+        set => SetProperty("instance_arn", value);
     }
 
     /// <summary>
@@ -67,8 +73,8 @@ public class AwsSsoadminAccountAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
     public required TerraformProperty<string> PermissionSetArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("permission_set_arn");
-        set => this.WithProperty("permission_set_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("permission_set_arn");
+        set => SetProperty("permission_set_arn", value);
     }
 
     /// <summary>
@@ -77,8 +83,8 @@ public class AwsSsoadminAccountAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -87,17 +93,17 @@ public class AwsSsoadminAccountAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformProperty<string> PrincipalType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_type");
-        set => this.WithProperty("principal_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_type");
+        set => SetProperty("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -106,17 +112,17 @@ public class AwsSsoadminAccountAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformProperty<string> TargetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_id");
-        set => this.WithProperty("target_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_id");
+        set => SetProperty("target_id", value);
     }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetType
+    public TerraformProperty<string> TargetType
     {
-        get => GetProperty<TerraformProperty<string>>("target_type");
-        set => this.WithProperty("target_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_type");
+        set => SetProperty("target_type", value);
     }
 
     /// <summary>
@@ -125,8 +131,7 @@ public class AwsSsoadminAccountAssignment : TerraformResource
     /// </summary>
     public AwsSsoadminAccountAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSsoadminAccountAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

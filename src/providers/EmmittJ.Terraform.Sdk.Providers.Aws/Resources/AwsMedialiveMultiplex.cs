@@ -13,8 +13,7 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumVideoBufferDelayMilliseconds
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_video_buffer_delay_milliseconds");
-        set => WithProperty("maximum_video_buffer_delay_milliseconds", value);
+        set => SetProperty("maximum_video_buffer_delay_milliseconds", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportStreamBitrate is required")]
     public required TerraformProperty<double> TransportStreamBitrate
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("transport_stream_bitrate");
-        set => WithProperty("transport_stream_bitrate", value);
+        set => SetProperty("transport_stream_bitrate", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportStreamId is required")]
     public required TerraformProperty<double> TransportStreamId
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("transport_stream_id");
-        set => WithProperty("transport_stream_id", value);
+        set => SetProperty("transport_stream_id", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TransportStreamReservedBitrate
     {
-        get => GetProperty<TerraformProperty<double>>("transport_stream_reserved_bitrate");
-        set => WithProperty("transport_stream_reserved_bitrate", value);
+        set => SetProperty("transport_stream_reserved_bitrate", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AwsMedialiveMultiplexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsMedialiveMultiplexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AwsMedialiveMultiplexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -96,26 +89,33 @@ public class AwsMedialiveMultiplex : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("availability_zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("start_multiplex");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZones is required")]
-    public List<TerraformProperty<string>>? AvailabilityZones
+    public List<TerraformProperty<string>> AvailabilityZones
     {
-        get => GetProperty<List<TerraformProperty<string>>>("availability_zones");
-        set => this.WithProperty("availability_zones", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("availability_zones");
+        set => SetProperty("availability_zones", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -124,44 +124,44 @@ public class AwsMedialiveMultiplex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The start_multiplex attribute.
     /// </summary>
-    public TerraformProperty<bool>? StartMultiplex
+    public TerraformProperty<bool> StartMultiplex
     {
-        get => GetProperty<TerraformProperty<bool>>("start_multiplex");
-        set => this.WithProperty("start_multiplex", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("start_multiplex");
+        set => SetProperty("start_multiplex", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -171,8 +171,7 @@ public class AwsMedialiveMultiplex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiplexSettings block(s) allowed")]
     public List<AwsMedialiveMultiplexMultiplexSettingsBlock>? MultiplexSettings
     {
-        get => GetProperty<List<AwsMedialiveMultiplexMultiplexSettingsBlock>>("multiplex_settings");
-        set => this.WithProperty("multiplex_settings", value);
+        set => SetProperty("multiplex_settings", value);
     }
 
     /// <summary>
@@ -181,8 +180,7 @@ public class AwsMedialiveMultiplex : TerraformResource
     /// </summary>
     public AwsMedialiveMultiplexTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMedialiveMultiplexTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AzurermSharedImageIdentifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformProperty<string> Offer
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("offer");
-        set => WithProperty("offer", value);
+        set => SetProperty("offer", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermSharedImageIdentifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
-        set => WithProperty("publisher", value);
+        set => SetProperty("publisher", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermSharedImageIdentifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class AzurermSharedImagePurchasePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AzurermSharedImagePurchasePlanBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Product
     {
-        get => GetProperty<TerraformProperty<string>>("product");
-        set => WithProperty("product", value);
+        set => SetProperty("product", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class AzurermSharedImagePurchasePlanBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
-        set => WithProperty("publisher", value);
+        set => SetProperty("publisher", value);
     }
 
 }
@@ -87,8 +81,7 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -114,8 +105,7 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -133,87 +123,114 @@ public class AzurermSharedImage : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("accelerated_network_support_enabled");
+        SetOutput("architecture");
+        SetOutput("confidential_vm_enabled");
+        SetOutput("confidential_vm_supported");
+        SetOutput("description");
+        SetOutput("disk_controller_type_nvme_enabled");
+        SetOutput("disk_types_not_allowed");
+        SetOutput("end_of_life_date");
+        SetOutput("eula");
+        SetOutput("gallery_name");
+        SetOutput("hibernation_enabled");
+        SetOutput("hyper_v_generation");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("max_recommended_memory_in_gb");
+        SetOutput("max_recommended_vcpu_count");
+        SetOutput("min_recommended_memory_in_gb");
+        SetOutput("min_recommended_vcpu_count");
+        SetOutput("name");
+        SetOutput("os_type");
+        SetOutput("privacy_statement_uri");
+        SetOutput("release_note_uri");
+        SetOutput("resource_group_name");
+        SetOutput("specialized");
+        SetOutput("tags");
+        SetOutput("trusted_launch_enabled");
+        SetOutput("trusted_launch_supported");
     }
 
     /// <summary>
     /// The accelerated_network_support_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AcceleratedNetworkSupportEnabled
+    public TerraformProperty<bool> AcceleratedNetworkSupportEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("accelerated_network_support_enabled");
-        set => this.WithProperty("accelerated_network_support_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("accelerated_network_support_enabled");
+        set => SetProperty("accelerated_network_support_enabled", value);
     }
 
     /// <summary>
     /// The architecture attribute.
     /// </summary>
-    public TerraformProperty<string>? Architecture
+    public TerraformProperty<string> Architecture
     {
-        get => GetProperty<TerraformProperty<string>>("architecture");
-        set => this.WithProperty("architecture", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("architecture");
+        set => SetProperty("architecture", value);
     }
 
     /// <summary>
     /// The confidential_vm_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ConfidentialVmEnabled
+    public TerraformProperty<bool> ConfidentialVmEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("confidential_vm_enabled");
-        set => this.WithProperty("confidential_vm_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("confidential_vm_enabled");
+        set => SetProperty("confidential_vm_enabled", value);
     }
 
     /// <summary>
     /// The confidential_vm_supported attribute.
     /// </summary>
-    public TerraformProperty<bool>? ConfidentialVmSupported
+    public TerraformProperty<bool> ConfidentialVmSupported
     {
-        get => GetProperty<TerraformProperty<bool>>("confidential_vm_supported");
-        set => this.WithProperty("confidential_vm_supported", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("confidential_vm_supported");
+        set => SetProperty("confidential_vm_supported", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The disk_controller_type_nvme_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DiskControllerTypeNvmeEnabled
+    public TerraformProperty<bool> DiskControllerTypeNvmeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disk_controller_type_nvme_enabled");
-        set => this.WithProperty("disk_controller_type_nvme_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disk_controller_type_nvme_enabled");
+        set => SetProperty("disk_controller_type_nvme_enabled", value);
     }
 
     /// <summary>
     /// The disk_types_not_allowed attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DiskTypesNotAllowed
+    public HashSet<TerraformProperty<string>> DiskTypesNotAllowed
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("disk_types_not_allowed");
-        set => this.WithProperty("disk_types_not_allowed", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("disk_types_not_allowed");
+        set => SetProperty("disk_types_not_allowed", value);
     }
 
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
-    public TerraformProperty<string>? EndOfLifeDate
+    public TerraformProperty<string> EndOfLifeDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_of_life_date");
-        set => this.WithProperty("end_of_life_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_of_life_date");
+        set => SetProperty("end_of_life_date", value);
     }
 
     /// <summary>
     /// The eula attribute.
     /// </summary>
-    public TerraformProperty<string>? Eula
+    public TerraformProperty<string> Eula
     {
-        get => GetProperty<TerraformProperty<string>>("eula");
-        set => this.WithProperty("eula", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eula");
+        set => SetProperty("eula", value);
     }
 
     /// <summary>
@@ -222,35 +239,35 @@ public class AzurermSharedImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     public required TerraformProperty<string> GalleryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gallery_name");
-        set => this.WithProperty("gallery_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gallery_name");
+        set => SetProperty("gallery_name", value);
     }
 
     /// <summary>
     /// The hibernation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HibernationEnabled
+    public TerraformProperty<bool> HibernationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("hibernation_enabled");
-        set => this.WithProperty("hibernation_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("hibernation_enabled");
+        set => SetProperty("hibernation_enabled", value);
     }
 
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
-    public TerraformProperty<string>? HyperVGeneration
+    public TerraformProperty<string> HyperVGeneration
     {
-        get => GetProperty<TerraformProperty<string>>("hyper_v_generation");
-        set => this.WithProperty("hyper_v_generation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hyper_v_generation");
+        set => SetProperty("hyper_v_generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -259,44 +276,44 @@ public class AzurermSharedImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The max_recommended_memory_in_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxRecommendedMemoryInGb
+    public TerraformProperty<double> MaxRecommendedMemoryInGb
     {
-        get => GetProperty<TerraformProperty<double>>("max_recommended_memory_in_gb");
-        set => this.WithProperty("max_recommended_memory_in_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_recommended_memory_in_gb");
+        set => SetProperty("max_recommended_memory_in_gb", value);
     }
 
     /// <summary>
     /// The max_recommended_vcpu_count attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxRecommendedVcpuCount
+    public TerraformProperty<double> MaxRecommendedVcpuCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_recommended_vcpu_count");
-        set => this.WithProperty("max_recommended_vcpu_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_recommended_vcpu_count");
+        set => SetProperty("max_recommended_vcpu_count", value);
     }
 
     /// <summary>
     /// The min_recommended_memory_in_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? MinRecommendedMemoryInGb
+    public TerraformProperty<double> MinRecommendedMemoryInGb
     {
-        get => GetProperty<TerraformProperty<double>>("min_recommended_memory_in_gb");
-        set => this.WithProperty("min_recommended_memory_in_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_recommended_memory_in_gb");
+        set => SetProperty("min_recommended_memory_in_gb", value);
     }
 
     /// <summary>
     /// The min_recommended_vcpu_count attribute.
     /// </summary>
-    public TerraformProperty<double>? MinRecommendedVcpuCount
+    public TerraformProperty<double> MinRecommendedVcpuCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_recommended_vcpu_count");
-        set => this.WithProperty("min_recommended_vcpu_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_recommended_vcpu_count");
+        set => SetProperty("min_recommended_vcpu_count", value);
     }
 
     /// <summary>
@@ -305,8 +322,8 @@ public class AzurermSharedImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -315,26 +332,26 @@ public class AzurermSharedImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformProperty<string> OsType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("os_type");
-        set => this.WithProperty("os_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("os_type");
+        set => SetProperty("os_type", value);
     }
 
     /// <summary>
     /// The privacy_statement_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivacyStatementUri
+    public TerraformProperty<string> PrivacyStatementUri
     {
-        get => GetProperty<TerraformProperty<string>>("privacy_statement_uri");
-        set => this.WithProperty("privacy_statement_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("privacy_statement_uri");
+        set => SetProperty("privacy_statement_uri", value);
     }
 
     /// <summary>
     /// The release_note_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? ReleaseNoteUri
+    public TerraformProperty<string> ReleaseNoteUri
     {
-        get => GetProperty<TerraformProperty<string>>("release_note_uri");
-        set => this.WithProperty("release_note_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_note_uri");
+        set => SetProperty("release_note_uri", value);
     }
 
     /// <summary>
@@ -343,56 +360,56 @@ public class AzurermSharedImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The specialized attribute.
     /// </summary>
-    public TerraformProperty<bool>? Specialized
+    public TerraformProperty<bool> Specialized
     {
-        get => GetProperty<TerraformProperty<bool>>("specialized");
-        set => this.WithProperty("specialized", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("specialized");
+        set => SetProperty("specialized", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The trusted_launch_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TrustedLaunchEnabled
+    public TerraformProperty<bool> TrustedLaunchEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("trusted_launch_enabled");
-        set => this.WithProperty("trusted_launch_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("trusted_launch_enabled");
+        set => SetProperty("trusted_launch_enabled", value);
     }
 
     /// <summary>
     /// The trusted_launch_supported attribute.
     /// </summary>
-    public TerraformProperty<bool>? TrustedLaunchSupported
+    public TerraformProperty<bool> TrustedLaunchSupported
     {
-        get => GetProperty<TerraformProperty<bool>>("trusted_launch_supported");
-        set => this.WithProperty("trusted_launch_supported", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("trusted_launch_supported");
+        set => SetProperty("trusted_launch_supported", value);
     }
 
     /// <summary>
     /// Block for identifier.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identifier block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identifier block(s) allowed")]
     public List<AzurermSharedImageIdentifierBlock>? Identifier
     {
-        get => GetProperty<List<AzurermSharedImageIdentifierBlock>>("identifier");
-        set => this.WithProperty("identifier", value);
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
@@ -402,8 +419,7 @@ public class AzurermSharedImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PurchasePlan block(s) allowed")]
     public List<AzurermSharedImagePurchasePlanBlock>? PurchasePlan
     {
-        get => GetProperty<List<AzurermSharedImagePurchasePlanBlock>>("purchase_plan");
-        set => this.WithProperty("purchase_plan", value);
+        set => SetProperty("purchase_plan", value);
     }
 
     /// <summary>
@@ -412,8 +428,7 @@ public class AzurermSharedImage : TerraformResource
     /// </summary>
     public AzurermSharedImageTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSharedImageTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

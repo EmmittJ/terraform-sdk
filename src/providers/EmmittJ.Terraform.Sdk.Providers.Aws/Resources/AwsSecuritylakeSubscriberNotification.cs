@@ -22,18 +22,20 @@ public class AwsSecuritylakeSubscriberNotification : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("endpoint_id");
-        this.WithOutput("id");
-        this.WithOutput("subscriber_endpoint");
+        SetOutput("endpoint_id");
+        SetOutput("id");
+        SetOutput("subscriber_endpoint");
+        SetOutput("region");
+        SetOutput("subscriber_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -42,8 +44,8 @@ public class AwsSecuritylakeSubscriberNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriberId is required")]
     public required TerraformProperty<string> SubscriberId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscriber_id");
-        set => this.WithProperty("subscriber_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscriber_id");
+        set => SetProperty("subscriber_id", value);
     }
 
     /// <summary>
@@ -52,8 +54,7 @@ public class AwsSecuritylakeSubscriberNotification : TerraformResource
     /// </summary>
     public List<AwsSecuritylakeSubscriberNotificationConfigurationBlock>? Configuration
     {
-        get => GetProperty<List<AwsSecuritylakeSubscriberNotificationConfigurationBlock>>("configuration");
-        set => this.WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>

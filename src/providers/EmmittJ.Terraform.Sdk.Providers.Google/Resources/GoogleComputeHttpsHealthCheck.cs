@@ -13,8 +13,7 @@ public class GoogleComputeHttpsHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeHttpsHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeHttpsHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,38 +46,49 @@ public class GoogleComputeHttpsHealthCheck : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("self_link");
+        SetOutput("check_interval_sec");
+        SetOutput("description");
+        SetOutput("healthy_threshold");
+        SetOutput("host");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("port");
+        SetOutput("project");
+        SetOutput("request_path");
+        SetOutput("timeout_sec");
+        SetOutput("unhealthy_threshold");
     }
 
     /// <summary>
     /// How often (in seconds) to send a health check. The default value is 5
     /// seconds.
     /// </summary>
-    public TerraformProperty<double>? CheckIntervalSec
+    public TerraformProperty<double> CheckIntervalSec
     {
-        get => GetProperty<TerraformProperty<double>>("check_interval_sec");
-        set => this.WithProperty("check_interval_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("check_interval_sec");
+        set => SetProperty("check_interval_sec", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many
     /// consecutive successes. The default value is 2.
     /// </summary>
-    public TerraformProperty<double>? HealthyThreshold
+    public TerraformProperty<double> HealthyThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("healthy_threshold");
-        set => this.WithProperty("healthy_threshold", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("healthy_threshold");
+        set => SetProperty("healthy_threshold", value);
     }
 
     /// <summary>
@@ -88,19 +96,19 @@ public class GoogleComputeHttpsHealthCheck : TerraformResource
     /// left empty (default value), the public IP on behalf of which this
     /// health check is performed will be used.
     /// </summary>
-    public TerraformProperty<string>? Host
+    public TerraformProperty<string> Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
-        set => this.WithProperty("host", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host");
+        set => SetProperty("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -115,37 +123,37 @@ public class GoogleComputeHttpsHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The TCP port number for the HTTPS health check request.
     /// The default value is 443.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The request path of the HTTPS health check request.
     /// The default value is /.
     /// </summary>
-    public TerraformProperty<string>? RequestPath
+    public TerraformProperty<string> RequestPath
     {
-        get => GetProperty<TerraformProperty<string>>("request_path");
-        set => this.WithProperty("request_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("request_path");
+        set => SetProperty("request_path", value);
     }
 
     /// <summary>
@@ -153,20 +161,20 @@ public class GoogleComputeHttpsHealthCheck : TerraformResource
     /// The default value is 5 seconds.  It is invalid for timeoutSec to have
     /// greater value than checkIntervalSec.
     /// </summary>
-    public TerraformProperty<double>? TimeoutSec
+    public TerraformProperty<double> TimeoutSec
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_sec");
-        set => this.WithProperty("timeout_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout_sec");
+        set => SetProperty("timeout_sec", value);
     }
 
     /// <summary>
     /// A so-far healthy instance will be marked unhealthy after this many
     /// consecutive failures. The default value is 2.
     /// </summary>
-    public TerraformProperty<double>? UnhealthyThreshold
+    public TerraformProperty<double> UnhealthyThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("unhealthy_threshold");
-        set => this.WithProperty("unhealthy_threshold", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("unhealthy_threshold");
+        set => SetProperty("unhealthy_threshold", value);
     }
 
     /// <summary>
@@ -175,8 +183,7 @@ public class GoogleComputeHttpsHealthCheck : TerraformResource
     /// </summary>
     public GoogleComputeHttpsHealthCheckTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeHttpsHealthCheckTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

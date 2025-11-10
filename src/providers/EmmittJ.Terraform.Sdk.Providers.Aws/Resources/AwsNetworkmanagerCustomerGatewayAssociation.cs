@@ -13,8 +13,7 @@ public class AwsNetworkmanagerCustomerGatewayAssociationTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerCustomerGatewayAssociationTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,11 @@ public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("customer_gateway_arn");
+        SetOutput("device_id");
+        SetOutput("global_network_id");
+        SetOutput("id");
+        SetOutput("link_id");
     }
 
     /// <summary>
@@ -48,8 +51,8 @@ public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerGatewayArn is required")]
     public required TerraformProperty<string> CustomerGatewayArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("customer_gateway_arn");
-        set => this.WithProperty("customer_gateway_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_gateway_arn");
+        set => SetProperty("customer_gateway_arn", value);
     }
 
     /// <summary>
@@ -58,8 +61,8 @@ public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
     public required TerraformProperty<string> DeviceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("device_id");
-        set => this.WithProperty("device_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_id");
+        set => SetProperty("device_id", value);
     }
 
     /// <summary>
@@ -68,26 +71,26 @@ public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
-        set => this.WithProperty("global_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
+        set => SetProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LinkId
+    public TerraformProperty<string> LinkId
     {
-        get => GetProperty<TerraformProperty<string>>("link_id");
-        set => this.WithProperty("link_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("link_id");
+        set => SetProperty("link_id", value);
     }
 
     /// <summary>
@@ -96,8 +99,7 @@ public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
     /// </summary>
     public AwsNetworkmanagerCustomerGatewayAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerCustomerGatewayAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

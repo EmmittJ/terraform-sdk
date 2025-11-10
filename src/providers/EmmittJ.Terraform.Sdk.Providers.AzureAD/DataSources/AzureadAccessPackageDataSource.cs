@@ -13,8 +13,7 @@ public class AzureadAccessPackageDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,44 +30,48 @@ public class AzureadAccessPackageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("hidden");
+        SetOutput("description");
+        SetOutput("hidden");
+        SetOutput("catalog_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("object_id");
     }
 
     /// <summary>
     /// The ID of the Catalog this access package is in
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The display name of the access package
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ID of this access package
     /// </summary>
-    public TerraformProperty<string>? ObjectId
+    public TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
-        set => this.WithProperty("object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
@@ -77,8 +80,7 @@ public class AzureadAccessPackageDataSource : TerraformDataSource
     /// </summary>
     public AzureadAccessPackageDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAccessPackageDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

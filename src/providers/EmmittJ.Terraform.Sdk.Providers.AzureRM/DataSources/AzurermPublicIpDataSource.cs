@@ -13,8 +13,7 @@ public class AzurermPublicIpDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,29 +30,32 @@ public class AzurermPublicIpDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allocation_method");
-        this.WithOutput("ddos_protection_mode");
-        this.WithOutput("ddos_protection_plan_id");
-        this.WithOutput("domain_name_label");
-        this.WithOutput("fqdn");
-        this.WithOutput("idle_timeout_in_minutes");
-        this.WithOutput("ip_address");
-        this.WithOutput("ip_tags");
-        this.WithOutput("ip_version");
-        this.WithOutput("location");
-        this.WithOutput("reverse_fqdn");
-        this.WithOutput("sku");
-        this.WithOutput("tags");
-        this.WithOutput("zones");
+        SetOutput("allocation_method");
+        SetOutput("ddos_protection_mode");
+        SetOutput("ddos_protection_plan_id");
+        SetOutput("domain_name_label");
+        SetOutput("fqdn");
+        SetOutput("idle_timeout_in_minutes");
+        SetOutput("ip_address");
+        SetOutput("ip_tags");
+        SetOutput("ip_version");
+        SetOutput("location");
+        SetOutput("reverse_fqdn");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +64,8 @@ public class AzurermPublicIpDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +74,8 @@ public class AzurermPublicIpDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -82,8 +84,7 @@ public class AzurermPublicIpDataSource : TerraformDataSource
     /// </summary>
     public AzurermPublicIpDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPublicIpDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

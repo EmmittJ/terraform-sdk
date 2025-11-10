@@ -13,8 +13,7 @@ public class GoogleAccessContextManagerEgressPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleAccessContextManagerEgressPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,7 +38,10 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_policy_id");
+        SetOutput("access_policy_id");
+        SetOutput("egress_policy_name");
+        SetOutput("id");
+        SetOutput("resource");
     }
 
     /// <summary>
@@ -49,17 +50,17 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EgressPolicyName is required")]
     public required TerraformProperty<string> EgressPolicyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("egress_policy_name");
-        set => this.WithProperty("egress_policy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("egress_policy_name");
+        set => SetProperty("egress_policy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +69,8 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource");
-        set => this.WithProperty("resource", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource");
+        set => SetProperty("resource", value);
     }
 
     /// <summary>
@@ -78,8 +79,7 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
     /// </summary>
     public GoogleAccessContextManagerEgressPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerEgressPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

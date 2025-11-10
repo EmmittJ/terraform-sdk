@@ -14,30 +14,33 @@ public class AwsFsxWindowsFileSystemDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("active_directory_id");
-        this.WithOutput("aliases");
-        this.WithOutput("arn");
-        this.WithOutput("audit_log_configuration");
-        this.WithOutput("automatic_backup_retention_days");
-        this.WithOutput("backup_id");
-        this.WithOutput("copy_tags_to_backups");
-        this.WithOutput("daily_automatic_backup_start_time");
-        this.WithOutput("deployment_type");
-        this.WithOutput("disk_iops_configuration");
-        this.WithOutput("dns_name");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("network_interface_ids");
-        this.WithOutput("owner_id");
-        this.WithOutput("preferred_file_server_ip");
-        this.WithOutput("preferred_subnet_id");
-        this.WithOutput("security_group_ids");
-        this.WithOutput("skip_final_backup");
-        this.WithOutput("storage_capacity");
-        this.WithOutput("storage_type");
-        this.WithOutput("subnet_ids");
-        this.WithOutput("throughput_capacity");
-        this.WithOutput("vpc_id");
-        this.WithOutput("weekly_maintenance_start_time");
+        SetOutput("active_directory_id");
+        SetOutput("aliases");
+        SetOutput("arn");
+        SetOutput("audit_log_configuration");
+        SetOutput("automatic_backup_retention_days");
+        SetOutput("backup_id");
+        SetOutput("copy_tags_to_backups");
+        SetOutput("daily_automatic_backup_start_time");
+        SetOutput("deployment_type");
+        SetOutput("disk_iops_configuration");
+        SetOutput("dns_name");
+        SetOutput("kms_key_id");
+        SetOutput("network_interface_ids");
+        SetOutput("owner_id");
+        SetOutput("preferred_file_server_ip");
+        SetOutput("preferred_subnet_id");
+        SetOutput("security_group_ids");
+        SetOutput("skip_final_backup");
+        SetOutput("storage_capacity");
+        SetOutput("storage_type");
+        SetOutput("subnet_ids");
+        SetOutput("throughput_capacity");
+        SetOutput("vpc_id");
+        SetOutput("weekly_maintenance_start_time");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -46,26 +49,26 @@ public class AwsFsxWindowsFileSystemDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

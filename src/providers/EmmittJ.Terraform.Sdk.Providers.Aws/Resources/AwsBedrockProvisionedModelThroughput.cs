@@ -13,8 +13,7 @@ public class AwsBedrockProvisionedModelThroughputTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,18 +30,24 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputd");
-        this.WithOutputrovisioned_model_arn");
-        this.WithOutputags_all");
+        SetOutput("id");
+        SetOutput("provisioned_model_arn");
+        SetOutput("tags_all");
+        SetOutput("commitment_duration");
+        SetOutput("model_arn");
+        SetOutput("model_units");
+        SetOutput("provisioned_model_name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The commitment_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? CommitmentDuration
+    public TerraformProperty<string> CommitmentDuration
     {
-        get => GetProperty<TerraformProperty<string>>("commitment_duration");
-        set => this.WithProperty("commitment_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("commitment_duration");
+        set => SetProperty("commitment_duration", value);
     }
 
     /// <summary>
@@ -51,8 +56,8 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelArn is required")]
     public required TerraformProperty<string> ModelArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("model_arn");
-        set => this.WithProperty("model_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("model_arn");
+        set => SetProperty("model_arn", value);
     }
 
     /// <summary>
@@ -61,8 +66,8 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelUnits is required")]
     public required TerraformProperty<double> ModelUnits
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("model_units");
-        set => this.WithProperty("model_units", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("model_units");
+        set => SetProperty("model_units", value);
     }
 
     /// <summary>
@@ -71,26 +76,26 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedModelName is required")]
     public required TerraformProperty<string> ProvisionedModelName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provisioned_model_name");
-        set => this.WithProperty("provisioned_model_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provisioned_model_name");
+        set => SetProperty("provisioned_model_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -99,8 +104,7 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
     /// </summary>
     public AwsBedrockProvisionedModelThroughputTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockProvisionedModelThroughputTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

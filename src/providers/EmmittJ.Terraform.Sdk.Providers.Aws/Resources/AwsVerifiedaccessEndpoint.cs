@@ -14,8 +14,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformProperty<string> Cidr
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cidr");
-        set => WithProperty("cidr", value);
+        set => SetProperty("cidr", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LoadBalancerArn
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer_arn");
-        set => WithProperty("load_balancer_arn", value);
+        set => SetProperty("load_balancer_arn", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
-        set => WithProperty("network_interface_id", value);
+        set => SetProperty("network_interface_id", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
 }
@@ -128,8 +118,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -137,8 +126,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -146,8 +134,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RdsDbClusterArn
     {
-        get => GetProperty<TerraformProperty<string>>("rds_db_cluster_arn");
-        set => WithProperty("rds_db_cluster_arn", value);
+        set => SetProperty("rds_db_cluster_arn", value);
     }
 
     /// <summary>
@@ -155,8 +142,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RdsDbInstanceArn
     {
-        get => GetProperty<TerraformProperty<string>>("rds_db_instance_arn");
-        set => WithProperty("rds_db_instance_arn", value);
+        set => SetProperty("rds_db_instance_arn", value);
     }
 
     /// <summary>
@@ -164,8 +150,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RdsDbProxyArn
     {
-        get => GetProperty<TerraformProperty<string>>("rds_db_proxy_arn");
-        set => WithProperty("rds_db_proxy_arn", value);
+        set => SetProperty("rds_db_proxy_arn", value);
     }
 
     /// <summary>
@@ -173,8 +158,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RdsEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("rds_endpoint");
-        set => WithProperty("rds_endpoint", value);
+        set => SetProperty("rds_endpoint", value);
     }
 
     /// <summary>
@@ -182,8 +166,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -199,8 +182,7 @@ public class AwsVerifiedaccessEndpointSseSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CustomerManagedKeyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("customer_managed_key_enabled");
-        set => WithProperty("customer_managed_key_enabled", value);
+        set => SetProperty("customer_managed_key_enabled", value);
     }
 
     /// <summary>
@@ -208,8 +190,7 @@ public class AwsVerifiedaccessEndpointSseSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => WithProperty("kms_key_arn", value);
+        set => SetProperty("kms_key_arn", value);
     }
 
 }
@@ -225,8 +206,7 @@ public class AwsVerifiedaccessEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -234,8 +214,7 @@ public class AwsVerifiedaccessEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -243,8 +222,7 @@ public class AwsVerifiedaccessEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -262,18 +240,31 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("device_validation_domain");
-        this.WithOutput("endpoint_domain");
-        this.WithOutput("verified_access_instance_id");
+        SetOutput("device_validation_domain");
+        SetOutput("endpoint_domain");
+        SetOutput("verified_access_instance_id");
+        SetOutput("application_domain");
+        SetOutput("attachment_type");
+        SetOutput("description");
+        SetOutput("domain_certificate_arn");
+        SetOutput("endpoint_domain_prefix");
+        SetOutput("endpoint_type");
+        SetOutput("id");
+        SetOutput("policy_document");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("verified_access_group_id");
     }
 
     /// <summary>
     /// The application_domain attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationDomain
+    public TerraformProperty<string> ApplicationDomain
     {
-        get => GetProperty<TerraformProperty<string>>("application_domain");
-        set => this.WithProperty("application_domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_domain");
+        set => SetProperty("application_domain", value);
     }
 
     /// <summary>
@@ -282,35 +273,35 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
     public required TerraformProperty<string> AttachmentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("attachment_type");
-        set => this.WithProperty("attachment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("attachment_type");
+        set => SetProperty("attachment_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The domain_certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainCertificateArn
+    public TerraformProperty<string> DomainCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("domain_certificate_arn");
-        set => this.WithProperty("domain_certificate_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_certificate_arn");
+        set => SetProperty("domain_certificate_arn", value);
     }
 
     /// <summary>
     /// The endpoint_domain_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointDomainPrefix
+    public TerraformProperty<string> EndpointDomainPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_domain_prefix");
-        set => this.WithProperty("endpoint_domain_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_domain_prefix");
+        set => SetProperty("endpoint_domain_prefix", value);
     }
 
     /// <summary>
@@ -319,62 +310,62 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
-        set => this.WithProperty("endpoint_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_type");
+        set => SetProperty("endpoint_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyDocument
+    public TerraformProperty<string> PolicyDocument
     {
-        get => GetProperty<TerraformProperty<string>>("policy_document");
-        set => this.WithProperty("policy_document", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_document");
+        set => SetProperty("policy_document", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -383,8 +374,8 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedAccessGroupId is required")]
     public required TerraformProperty<string> VerifiedAccessGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("verified_access_group_id");
-        set => this.WithProperty("verified_access_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("verified_access_group_id");
+        set => SetProperty("verified_access_group_id", value);
     }
 
     /// <summary>
@@ -394,8 +385,7 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CidrOptions block(s) allowed")]
     public List<AwsVerifiedaccessEndpointCidrOptionsBlock>? CidrOptions
     {
-        get => GetProperty<List<AwsVerifiedaccessEndpointCidrOptionsBlock>>("cidr_options");
-        set => this.WithProperty("cidr_options", value);
+        set => SetProperty("cidr_options", value);
     }
 
     /// <summary>
@@ -405,8 +395,7 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerOptions block(s) allowed")]
     public List<AwsVerifiedaccessEndpointLoadBalancerOptionsBlock>? LoadBalancerOptions
     {
-        get => GetProperty<List<AwsVerifiedaccessEndpointLoadBalancerOptionsBlock>>("load_balancer_options");
-        set => this.WithProperty("load_balancer_options", value);
+        set => SetProperty("load_balancer_options", value);
     }
 
     /// <summary>
@@ -416,8 +405,7 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkInterfaceOptions block(s) allowed")]
     public List<AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock>? NetworkInterfaceOptions
     {
-        get => GetProperty<List<AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock>>("network_interface_options");
-        set => this.WithProperty("network_interface_options", value);
+        set => SetProperty("network_interface_options", value);
     }
 
     /// <summary>
@@ -427,8 +415,7 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RdsOptions block(s) allowed")]
     public List<AwsVerifiedaccessEndpointRdsOptionsBlock>? RdsOptions
     {
-        get => GetProperty<List<AwsVerifiedaccessEndpointRdsOptionsBlock>>("rds_options");
-        set => this.WithProperty("rds_options", value);
+        set => SetProperty("rds_options", value);
     }
 
     /// <summary>
@@ -438,8 +425,7 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SseSpecification block(s) allowed")]
     public List<AwsVerifiedaccessEndpointSseSpecificationBlock>? SseSpecification
     {
-        get => GetProperty<List<AwsVerifiedaccessEndpointSseSpecificationBlock>>("sse_specification");
-        set => this.WithProperty("sse_specification", value);
+        set => SetProperty("sse_specification", value);
     }
 
     /// <summary>
@@ -448,8 +434,7 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     /// </summary>
     public AwsVerifiedaccessEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVerifiedaccessEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

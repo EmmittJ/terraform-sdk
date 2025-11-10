@@ -13,8 +13,7 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,31 @@ public class AzurermNetworkManagerDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("configuration_ids");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("network_manager_id");
+        SetOutput("scope_access");
+        SetOutput("triggers");
     }
 
     /// <summary>
     /// The configuration_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationIds is required")]
-    public List<TerraformProperty<string>>? ConfigurationIds
+    public List<TerraformProperty<string>> ConfigurationIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("configuration_ids");
-        set => this.WithProperty("configuration_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("configuration_ids");
+        set => SetProperty("configuration_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformProperty<string> NetworkManagerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_manager_id");
-        set => this.WithProperty("network_manager_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_manager_id");
+        set => SetProperty("network_manager_id", value);
     }
 
     /// <summary>
@@ -105,17 +107,17 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeAccess is required")]
     public required TerraformProperty<string> ScopeAccess
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope_access");
-        set => this.WithProperty("scope_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope_access");
+        set => SetProperty("scope_access", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Triggers
+    public Dictionary<string, TerraformProperty<string>> Triggers
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
-        set => this.WithProperty("triggers", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("triggers");
+        set => SetProperty("triggers", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     /// </summary>
     public AzurermNetworkManagerDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,6 +14,8 @@ public class AwsMacie2OrganizationConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("auto_enable");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,17 +24,17 @@ public class AwsMacie2OrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     public required TerraformProperty<bool> AutoEnable
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("auto_enable");
-        set => this.WithProperty("auto_enable", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_enable");
+        set => SetProperty("auto_enable", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

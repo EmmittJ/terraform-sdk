@@ -14,25 +14,31 @@ public class AwsRdsClusterActivityStream : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("kinesis_stream_name");
+        SetOutput("kinesis_stream_name");
+        SetOutput("engine_native_audit_fields_included");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("mode");
+        SetOutput("region");
+        SetOutput("resource_arn");
     }
 
     /// <summary>
     /// The engine_native_audit_fields_included attribute.
     /// </summary>
-    public TerraformProperty<bool>? EngineNativeAuditFieldsIncluded
+    public TerraformProperty<bool> EngineNativeAuditFieldsIncluded
     {
-        get => GetProperty<TerraformProperty<bool>>("engine_native_audit_fields_included");
-        set => this.WithProperty("engine_native_audit_fields_included", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("engine_native_audit_fields_included");
+        set => SetProperty("engine_native_audit_fields_included", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,8 +47,8 @@ public class AwsRdsClusterActivityStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformProperty<string> KmsKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -51,17 +57,17 @@ public class AwsRdsClusterActivityStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => this.WithProperty("mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mode");
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -70,8 +76,8 @@ public class AwsRdsClusterActivityStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
-        set => this.WithProperty("resource_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
+        set => SetProperty("resource_arn", value);
     }
 
     /// <summary>

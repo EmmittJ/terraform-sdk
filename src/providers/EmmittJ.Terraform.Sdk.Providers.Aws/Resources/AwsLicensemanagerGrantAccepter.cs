@@ -14,14 +14,17 @@ public class AwsLicensemanagerGrantAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allowed_operations");
-        this.WithOutput("home_region");
-        this.WithOutput("license_arn");
-        this.WithOutput("name");
-        this.WithOutput("parent_arn");
-        this.WithOutput("principal");
-        this.WithOutput("status");
-        this.WithOutput("version");
+        SetOutput("allowed_operations");
+        SetOutput("home_region");
+        SetOutput("license_arn");
+        SetOutput("name");
+        SetOutput("parent_arn");
+        SetOutput("principal");
+        SetOutput("status");
+        SetOutput("version");
+        SetOutput("grant_arn");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -30,26 +33,26 @@ public class AwsLicensemanagerGrantAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrantArn is required")]
     public required TerraformProperty<string> GrantArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("grant_arn");
-        set => this.WithProperty("grant_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("grant_arn");
+        set => SetProperty("grant_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

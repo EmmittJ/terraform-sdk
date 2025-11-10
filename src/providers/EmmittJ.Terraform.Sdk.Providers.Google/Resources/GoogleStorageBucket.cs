@@ -14,8 +14,7 @@ public class GoogleStorageBucketAutoclassBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleStorageBucketAutoclassBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TerminalStorageClass
     {
-        get => GetProperty<TerraformProperty<string>>("terminal_storage_class");
-        set => WithProperty("terminal_storage_class", value);
+        set => SetProperty("terminal_storage_class", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleStorageBucketCorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAgeSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_age_seconds");
-        set => WithProperty("max_age_seconds", value);
+        set => SetProperty("max_age_seconds", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleStorageBucketCorsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Method
     {
-        get => GetProperty<List<TerraformProperty<string>>>("method");
-        set => WithProperty("method", value);
+        set => SetProperty("method", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleStorageBucketCorsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Origin
     {
-        get => GetProperty<List<TerraformProperty<string>>>("origin");
-        set => WithProperty("origin", value);
+        set => SetProperty("origin", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class GoogleStorageBucketCorsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ResponseHeader
     {
-        get => GetProperty<List<TerraformProperty<string>>>("response_header");
-        set => WithProperty("response_header", value);
+        set => SetProperty("response_header", value);
     }
 
 }
@@ -85,8 +79,7 @@ public class GoogleStorageBucketCustomPlacementConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataLocations is required")]
     public HashSet<TerraformProperty<string>>? DataLocations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("data_locations");
-        set => WithProperty("data_locations", value);
+        set => SetProperty("data_locations", value);
     }
 
 }
@@ -103,8 +96,7 @@ public class GoogleStorageBucketEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultKmsKeyName is required")]
     public required TerraformProperty<string> DefaultKmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_kms_key_name");
-        set => WithProperty("default_kms_key_name", value);
+        set => SetProperty("default_kms_key_name", value);
     }
 
 }
@@ -121,8 +113,7 @@ public class GoogleStorageBucketHierarchicalNamespaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -138,8 +129,7 @@ public class GoogleStorageBucketIpFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowAllServiceAgentAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_all_service_agent_access");
-        set => WithProperty("allow_all_service_agent_access", value);
+        set => SetProperty("allow_all_service_agent_access", value);
     }
 
     /// <summary>
@@ -147,8 +137,7 @@ public class GoogleStorageBucketIpFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowCrossOrgVpcs
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_cross_org_vpcs");
-        set => WithProperty("allow_cross_org_vpcs", value);
+        set => SetProperty("allow_cross_org_vpcs", value);
     }
 
     /// <summary>
@@ -157,8 +146,7 @@ public class GoogleStorageBucketIpFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -183,8 +171,7 @@ public class GoogleStorageBucketLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBucket is required")]
     public required TerraformProperty<string> LogBucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_bucket");
-        set => WithProperty("log_bucket", value);
+        set => SetProperty("log_bucket", value);
     }
 
     /// <summary>
@@ -192,8 +179,7 @@ public class GoogleStorageBucketLoggingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LogObjectPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("log_object_prefix");
-        set => WithProperty("log_object_prefix", value);
+        set => SetProperty("log_object_prefix", value);
     }
 
 }
@@ -209,8 +195,7 @@ public class GoogleStorageBucketRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IsLocked
     {
-        get => GetProperty<TerraformProperty<bool>>("is_locked");
-        set => WithProperty("is_locked", value);
+        set => SetProperty("is_locked", value);
     }
 
     /// <summary>
@@ -219,8 +204,7 @@ public class GoogleStorageBucketRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriod is required")]
     public required TerraformProperty<string> RetentionPeriod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("retention_period");
-        set => WithProperty("retention_period", value);
+        set => SetProperty("retention_period", value);
     }
 
 }
@@ -236,8 +220,7 @@ public class GoogleStorageBucketSoftDeletePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EffectiveTime
     {
-        get => GetProperty<TerraformProperty<string>>("effective_time");
-        set => WithProperty("effective_time", value);
+        set => SetProperty("effective_time", value);
     }
 
     /// <summary>
@@ -245,8 +228,7 @@ public class GoogleStorageBucketSoftDeletePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RetentionDurationSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("retention_duration_seconds");
-        set => WithProperty("retention_duration_seconds", value);
+        set => SetProperty("retention_duration_seconds", value);
     }
 
 }
@@ -262,8 +244,7 @@ public class GoogleStorageBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -271,8 +252,7 @@ public class GoogleStorageBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -280,8 +260,7 @@ public class GoogleStorageBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -298,8 +277,7 @@ public class GoogleStorageBucketVersioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -315,8 +293,7 @@ public class GoogleStorageBucketWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainPageSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("main_page_suffix");
-        set => WithProperty("main_page_suffix", value);
+        set => SetProperty("main_page_suffix", value);
     }
 
     /// <summary>
@@ -324,8 +301,7 @@ public class GoogleStorageBucketWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NotFoundPage
     {
-        get => GetProperty<TerraformProperty<string>>("not_found_page");
-        set => WithProperty("not_found_page", value);
+        set => SetProperty("not_found_page", value);
     }
 
 }
@@ -343,58 +319,71 @@ public class GoogleStorageBucket : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("project_number");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("time_created");
-        this.WithOutput("updated");
-        this.WithOutput("url");
+        SetOutput("effective_labels");
+        SetOutput("project_number");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("time_created");
+        SetOutput("updated");
+        SetOutput("url");
+        SetOutput("default_event_based_hold");
+        SetOutput("enable_object_retention");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("public_access_prevention");
+        SetOutput("requester_pays");
+        SetOutput("rpo");
+        SetOutput("storage_class");
+        SetOutput("uniform_bucket_level_access");
     }
 
     /// <summary>
     /// Whether or not to automatically apply an eventBasedHold to new objects added to the bucket.
     /// </summary>
-    public TerraformProperty<bool>? DefaultEventBasedHold
+    public TerraformProperty<bool> DefaultEventBasedHold
     {
-        get => GetProperty<TerraformProperty<bool>>("default_event_based_hold");
-        set => this.WithProperty("default_event_based_hold", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default_event_based_hold");
+        set => SetProperty("default_event_based_hold", value);
     }
 
     /// <summary>
     /// Enables each object in the bucket to have its own retention policy, which prevents deletion until stored for a specific length of time.
     /// </summary>
-    public TerraformProperty<bool>? EnableObjectRetention
+    public TerraformProperty<bool> EnableObjectRetention
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_object_retention");
-        set => this.WithProperty("enable_object_retention", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_object_retention");
+        set => SetProperty("enable_object_retention", value);
     }
 
     /// <summary>
     /// When deleting a bucket, this boolean option will delete all contained objects, or anywhereCaches (if any). If you try to delete a bucket that contains objects or anywhereCaches, Terraform will fail that run, deleting anywhereCaches may take 80 minutes to complete.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// A set of key/value label pairs to assign to the bucket.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -403,8 +392,8 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -413,62 +402,62 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Prevents public access to a bucket.
     /// </summary>
-    public TerraformProperty<string>? PublicAccessPrevention
+    public TerraformProperty<string> PublicAccessPrevention
     {
-        get => GetProperty<TerraformProperty<string>>("public_access_prevention");
-        set => this.WithProperty("public_access_prevention", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_access_prevention");
+        set => SetProperty("public_access_prevention", value);
     }
 
     /// <summary>
     /// Enables Requester Pays on a storage bucket.
     /// </summary>
-    public TerraformProperty<bool>? RequesterPays
+    public TerraformProperty<bool> RequesterPays
     {
-        get => GetProperty<TerraformProperty<bool>>("requester_pays");
-        set => this.WithProperty("requester_pays", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("requester_pays");
+        set => SetProperty("requester_pays", value);
     }
 
     /// <summary>
     /// Specifies the RPO setting of bucket. If set &#39;ASYNC_TURBO&#39;, The Turbo Replication will be enabled for the dual-region bucket. Value &#39;DEFAULT&#39; will set RPO setting to default. Turbo Replication is only for buckets in dual-regions.See the docs for more details.
     /// </summary>
-    public TerraformProperty<string>? Rpo
+    public TerraformProperty<string> Rpo
     {
-        get => GetProperty<TerraformProperty<string>>("rpo");
-        set => this.WithProperty("rpo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rpo");
+        set => SetProperty("rpo", value);
     }
 
     /// <summary>
     /// The Storage Class of the new bucket. Supported values include: STANDARD, MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE.
     /// </summary>
-    public TerraformProperty<string>? StorageClass
+    public TerraformProperty<string> StorageClass
     {
-        get => GetProperty<TerraformProperty<string>>("storage_class");
-        set => this.WithProperty("storage_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_class");
+        set => SetProperty("storage_class", value);
     }
 
     /// <summary>
     /// Enables uniform bucket-level access on a bucket.
     /// </summary>
-    public TerraformProperty<bool>? UniformBucketLevelAccess
+    public TerraformProperty<bool> UniformBucketLevelAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("uniform_bucket_level_access");
-        set => this.WithProperty("uniform_bucket_level_access", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("uniform_bucket_level_access");
+        set => SetProperty("uniform_bucket_level_access", value);
     }
 
     /// <summary>
@@ -478,8 +467,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoclass block(s) allowed")]
     public List<GoogleStorageBucketAutoclassBlock>? Autoclass
     {
-        get => GetProperty<List<GoogleStorageBucketAutoclassBlock>>("autoclass");
-        set => this.WithProperty("autoclass", value);
+        set => SetProperty("autoclass", value);
     }
 
     /// <summary>
@@ -488,8 +476,7 @@ public class GoogleStorageBucket : TerraformResource
     /// </summary>
     public List<GoogleStorageBucketCorsBlock>? Cors
     {
-        get => GetProperty<List<GoogleStorageBucketCorsBlock>>("cors");
-        set => this.WithProperty("cors", value);
+        set => SetProperty("cors", value);
     }
 
     /// <summary>
@@ -499,8 +486,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomPlacementConfig block(s) allowed")]
     public List<GoogleStorageBucketCustomPlacementConfigBlock>? CustomPlacementConfig
     {
-        get => GetProperty<List<GoogleStorageBucketCustomPlacementConfigBlock>>("custom_placement_config");
-        set => this.WithProperty("custom_placement_config", value);
+        set => SetProperty("custom_placement_config", value);
     }
 
     /// <summary>
@@ -510,8 +496,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     public List<GoogleStorageBucketEncryptionBlock>? Encryption
     {
-        get => GetProperty<List<GoogleStorageBucketEncryptionBlock>>("encryption");
-        set => this.WithProperty("encryption", value);
+        set => SetProperty("encryption", value);
     }
 
     /// <summary>
@@ -521,8 +506,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HierarchicalNamespace block(s) allowed")]
     public List<GoogleStorageBucketHierarchicalNamespaceBlock>? HierarchicalNamespace
     {
-        get => GetProperty<List<GoogleStorageBucketHierarchicalNamespaceBlock>>("hierarchical_namespace");
-        set => this.WithProperty("hierarchical_namespace", value);
+        set => SetProperty("hierarchical_namespace", value);
     }
 
     /// <summary>
@@ -532,8 +516,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpFilter block(s) allowed")]
     public List<GoogleStorageBucketIpFilterBlock>? IpFilter
     {
-        get => GetProperty<List<GoogleStorageBucketIpFilterBlock>>("ip_filter");
-        set => this.WithProperty("ip_filter", value);
+        set => SetProperty("ip_filter", value);
     }
 
     /// <summary>
@@ -543,8 +526,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 LifecycleRule block(s) allowed")]
     public List<GoogleStorageBucketLifecycleRuleBlock>? LifecycleRule
     {
-        get => GetProperty<List<GoogleStorageBucketLifecycleRuleBlock>>("lifecycle_rule");
-        set => this.WithProperty("lifecycle_rule", value);
+        set => SetProperty("lifecycle_rule", value);
     }
 
     /// <summary>
@@ -554,8 +536,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
     public List<GoogleStorageBucketLoggingBlock>? Logging
     {
-        get => GetProperty<List<GoogleStorageBucketLoggingBlock>>("logging");
-        set => this.WithProperty("logging", value);
+        set => SetProperty("logging", value);
     }
 
     /// <summary>
@@ -565,8 +546,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
     public List<GoogleStorageBucketRetentionPolicyBlock>? RetentionPolicy
     {
-        get => GetProperty<List<GoogleStorageBucketRetentionPolicyBlock>>("retention_policy");
-        set => this.WithProperty("retention_policy", value);
+        set => SetProperty("retention_policy", value);
     }
 
     /// <summary>
@@ -576,8 +556,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftDeletePolicy block(s) allowed")]
     public List<GoogleStorageBucketSoftDeletePolicyBlock>? SoftDeletePolicy
     {
-        get => GetProperty<List<GoogleStorageBucketSoftDeletePolicyBlock>>("soft_delete_policy");
-        set => this.WithProperty("soft_delete_policy", value);
+        set => SetProperty("soft_delete_policy", value);
     }
 
     /// <summary>
@@ -586,8 +565,7 @@ public class GoogleStorageBucket : TerraformResource
     /// </summary>
     public GoogleStorageBucketTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageBucketTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -597,8 +575,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Versioning block(s) allowed")]
     public List<GoogleStorageBucketVersioningBlock>? Versioning
     {
-        get => GetProperty<List<GoogleStorageBucketVersioningBlock>>("versioning");
-        set => this.WithProperty("versioning", value);
+        set => SetProperty("versioning", value);
     }
 
     /// <summary>
@@ -608,8 +585,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Website block(s) allowed")]
     public List<GoogleStorageBucketWebsiteBlock>? Website
     {
-        get => GetProperty<List<GoogleStorageBucketWebsiteBlock>>("website");
-        set => this.WithProperty("website", value);
+        set => SetProperty("website", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,11 @@ public class AzurermPrivateDnsResolverVirtualNetworkLink : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dns_forwarding_ruleset_id");
+        SetOutput("id");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("virtual_network_id");
     }
 
     /// <summary>
@@ -66,26 +67,26 @@ public class AzurermPrivateDnsResolverVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     public required TerraformProperty<string> DnsForwardingRulesetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns_forwarding_ruleset_id");
-        set => this.WithProperty("dns_forwarding_ruleset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_forwarding_ruleset_id");
+        set => SetProperty("dns_forwarding_ruleset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -94,8 +95,8 @@ public class AzurermPrivateDnsResolverVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,8 +105,8 @@ public class AzurermPrivateDnsResolverVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
-        set => this.WithProperty("virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
+        set => SetProperty("virtual_network_id", value);
     }
 
     /// <summary>
@@ -114,8 +115,7 @@ public class AzurermPrivateDnsResolverVirtualNetworkLink : TerraformResource
     /// </summary>
     public AzurermPrivateDnsResolverVirtualNetworkLinkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateDnsResolverVirtualNetworkLinkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

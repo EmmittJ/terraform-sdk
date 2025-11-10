@@ -13,8 +13,7 @@ public class AzurermSpringCloudActiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudActiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudActiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudActiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,9 @@ public class AzurermSpringCloudActiveDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("deployment_name");
+        SetOutput("id");
+        SetOutput("spring_cloud_app_id");
     }
 
     /// <summary>
@@ -66,17 +65,17 @@ public class AzurermSpringCloudActiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentName is required")]
     public required TerraformProperty<string> DeploymentName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deployment_name");
-        set => this.WithProperty("deployment_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_name");
+        set => SetProperty("deployment_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +84,8 @@ public class AzurermSpringCloudActiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
-        set => this.WithProperty("spring_cloud_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
+        set => SetProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
@@ -95,8 +94,7 @@ public class AzurermSpringCloudActiveDeployment : TerraformResource
     /// </summary>
     public AzurermSpringCloudActiveDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudActiveDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

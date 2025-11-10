@@ -13,8 +13,7 @@ public class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,36 +46,43 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("base_uri");
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("base_uri");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("provider_id");
+        SetOutput("scim_tenant_id");
+        SetOutput("workforce_pool_id");
     }
 
     /// <summary>
     /// A user-specified description of the provider. Cannot exceed 256 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// A user-specified display name for the scim tenant. Cannot exceed 32 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,8 +91,8 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -97,8 +101,8 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformProperty<string> ProviderId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provider_id");
-        set => this.WithProperty("provider_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_id");
+        set => SetProperty("provider_id", value);
     }
 
     /// <summary>
@@ -107,8 +111,8 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScimTenantId is required")]
     public required TerraformProperty<string> ScimTenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scim_tenant_id");
-        set => this.WithProperty("scim_tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scim_tenant_id");
+        set => SetProperty("scim_tenant_id", value);
     }
 
     /// <summary>
@@ -117,8 +121,8 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
-        set => this.WithProperty("workforce_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workforce_pool_id");
+        set => SetProperty("workforce_pool_id", value);
     }
 
     /// <summary>
@@ -127,8 +131,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// </summary>
     public GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -18,8 +18,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_id");
-        set => WithProperty("certificate_id", value);
+        set => SetProperty("certificate_id", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PendingManagedCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("pending_managed_certificate_id");
-        set => WithProperty("pending_managed_certificate_id", value);
+        set => SetProperty("pending_managed_certificate_id", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslManagementType is required")]
     public required TerraformProperty<string> SslManagementType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ssl_management_type");
-        set => WithProperty("ssl_management_type", value);
+        set => SetProperty("ssl_management_type", value);
     }
 
 }
@@ -59,8 +56,7 @@ public class GoogleAppEngineDomainMappingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class GoogleAppEngineDomainMappingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class GoogleAppEngineDomainMappingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -96,8 +90,12 @@ public class GoogleAppEngineDomainMapping : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("resource_records");
+        SetOutput("name");
+        SetOutput("resource_records");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("override_strategy");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -106,36 +104,36 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Whether the domain creation should override any existing mappings for this domain.
     /// By default, overrides are rejected. Default value: &amp;quot;STRICT&amp;quot; Possible values: [&amp;quot;STRICT&amp;quot;, &amp;quot;OVERRIDE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? OverrideStrategy
+    public TerraformProperty<string> OverrideStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("override_strategy");
-        set => this.WithProperty("override_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("override_strategy");
+        set => SetProperty("override_strategy", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -145,8 +143,7 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslSettings block(s) allowed")]
     public List<GoogleAppEngineDomainMappingSslSettingsBlock>? SslSettings
     {
-        get => GetProperty<List<GoogleAppEngineDomainMappingSslSettingsBlock>>("ssl_settings");
-        set => this.WithProperty("ssl_settings", value);
+        set => SetProperty("ssl_settings", value);
     }
 
     /// <summary>
@@ -155,8 +152,7 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     /// </summary>
     public GoogleAppEngineDomainMappingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAppEngineDomainMappingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,33 +14,35 @@ public class AwsGlobalacceleratorAcceleratorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("attributes");
-        this.WithOutput("dns_name");
-        this.WithOutput("dual_stack_dns_name");
-        this.WithOutput("enabled");
-        this.WithOutput("hosted_zone_id");
-        this.WithOutput("id");
-        this.WithOutput("ip_address_type");
-        this.WithOutput("ip_sets");
-        this.WithOutput("tags");
+        SetOutput("attributes");
+        SetOutput("dns_name");
+        SetOutput("dual_stack_dns_name");
+        SetOutput("enabled");
+        SetOutput("hosted_zone_id");
+        SetOutput("id");
+        SetOutput("ip_address_type");
+        SetOutput("ip_sets");
+        SetOutput("tags");
+        SetOutput("arn");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

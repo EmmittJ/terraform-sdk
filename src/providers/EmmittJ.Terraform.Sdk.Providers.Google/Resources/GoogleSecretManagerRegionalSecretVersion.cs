@@ -13,8 +13,7 @@ public class GoogleSecretManagerRegionalSecretVersionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSecretManagerRegionalSecretVersionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSecretManagerRegionalSecretVersionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,12 +46,18 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("customer_managed_encryption");
-        this.WithOutput("destroy_time");
-        this.WithOutput("location");
-        this.WithOutput("name");
-        this.WithOutput("version");
+        SetOutput("create_time");
+        SetOutput("customer_managed_encryption");
+        SetOutput("destroy_time");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("version");
+        SetOutput("deletion_policy");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("is_secret_data_base64");
+        SetOutput("secret");
+        SetOutput("secret_data");
     }
 
     /// <summary>
@@ -65,37 +68,37 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
     ///   * DISABLE
     ///   * ABANDON
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The current state of the regional secret version.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// If set to &#39;true&#39;, the secret data is expected to be base64-encoded string and would be sent as is.
     /// </summary>
-    public TerraformProperty<bool>? IsSecretDataBase64
+    public TerraformProperty<bool> IsSecretDataBase64
     {
-        get => GetProperty<TerraformProperty<bool>>("is_secret_data_base64");
-        set => this.WithProperty("is_secret_data_base64", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_secret_data_base64");
+        set => SetProperty("is_secret_data_base64", value);
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret");
-        set => this.WithProperty("secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret");
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
@@ -114,8 +117,8 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretData is required")]
     public required TerraformProperty<string> SecretData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_data");
-        set => this.WithProperty("secret_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_data");
+        set => SetProperty("secret_data", value);
     }
 
     /// <summary>
@@ -124,8 +127,7 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
     /// </summary>
     public GoogleSecretManagerRegionalSecretVersionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSecretManagerRegionalSecretVersionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

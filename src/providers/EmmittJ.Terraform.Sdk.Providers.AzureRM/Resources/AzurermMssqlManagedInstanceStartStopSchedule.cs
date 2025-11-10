@@ -14,8 +14,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDay is required")]
     public required TerraformProperty<string> StartDay
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_day");
-        set => WithProperty("start_day", value);
+        set => SetProperty("start_day", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformProperty<string> StartTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopDay is required")]
     public required TerraformProperty<string> StopDay
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stop_day");
-        set => WithProperty("stop_day", value);
+        set => SetProperty("stop_day", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopTime is required")]
     public required TerraformProperty<string> StopTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stop_time");
-        set => WithProperty("stop_time", value);
+        set => SetProperty("stop_time", value);
     }
 
 }
@@ -61,8 +57,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -107,26 +99,30 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("next_execution_time");
-        this.WithOutput("next_run_action");
+        SetOutput("next_execution_time");
+        SetOutput("next_run_action");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("managed_instance_id");
+        SetOutput("timezone_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -135,28 +131,28 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
-        set => this.WithProperty("managed_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_instance_id");
+        set => SetProperty("managed_instance_id", value);
     }
 
     /// <summary>
     /// The timezone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TimezoneId
+    public TerraformProperty<string> TimezoneId
     {
-        get => GetProperty<TerraformProperty<string>>("timezone_id");
-        set => this.WithProperty("timezone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("timezone_id");
+        set => SetProperty("timezone_id", value);
     }
 
     /// <summary>
     /// Block for schedule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     public List<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock>? Schedule
     {
-        get => GetProperty<List<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -165,8 +161,7 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     /// </summary>
     public AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

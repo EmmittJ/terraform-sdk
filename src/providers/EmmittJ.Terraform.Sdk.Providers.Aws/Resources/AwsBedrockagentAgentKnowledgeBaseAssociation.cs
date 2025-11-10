@@ -13,8 +13,7 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,7 +38,13 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("agent_id");
+        SetOutput("agent_version");
+        SetOutput("description");
+        SetOutput("knowledge_base_id");
+        SetOutput("knowledge_base_state");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -49,17 +53,17 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
-        set => this.WithProperty("agent_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_id");
+        set => SetProperty("agent_id", value);
     }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentVersion
+    public TerraformProperty<string> AgentVersion
     {
-        get => GetProperty<TerraformProperty<string>>("agent_version");
-        set => this.WithProperty("agent_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_version");
+        set => SetProperty("agent_version", value);
     }
 
     /// <summary>
@@ -68,8 +72,8 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -78,8 +82,8 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseId is required")]
     public required TerraformProperty<string> KnowledgeBaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("knowledge_base_id");
-        set => this.WithProperty("knowledge_base_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("knowledge_base_id");
+        set => SetProperty("knowledge_base_id", value);
     }
 
     /// <summary>
@@ -88,17 +92,17 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseState is required")]
     public required TerraformProperty<string> KnowledgeBaseState
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("knowledge_base_state");
-        set => this.WithProperty("knowledge_base_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("knowledge_base_state");
+        set => SetProperty("knowledge_base_state", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -107,8 +111,7 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     /// </summary>
     public AwsBedrockagentAgentKnowledgeBaseAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentAgentKnowledgeBaseAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

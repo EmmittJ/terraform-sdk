@@ -13,8 +13,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,24 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
 
     private void InitializeOutputs()
     {
-        this.WithOutput("assignable_scopes");
-        this.WithOutput("description");
-        this.WithOutput("permission");
-        this.WithOutput("resource_manager_id");
-        this.WithOutput("role_name");
-        this.WithOutput("role_type");
+        SetOutput("assignable_scopes");
+        SetOutput("description");
+        SetOutput("permission");
+        SetOutput("resource_manager_id");
+        SetOutput("role_name");
+        SetOutput("role_type");
+        SetOutput("id");
+        SetOutput("managed_hsm_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +56,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformProperty<string> ManagedHsmId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_hsm_id");
-        set => this.WithProperty("managed_hsm_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_id");
+        set => SetProperty("managed_hsm_id", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

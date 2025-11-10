@@ -29,8 +29,7 @@ public class GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -38,8 +37,7 @@ public class GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -47,8 +45,7 @@ public class GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -66,28 +63,35 @@ public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("sni");
     }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -96,20 +100,20 @@ public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the client tls policy.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -118,26 +122,26 @@ public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Server Name Indication string to present to the server during TLS handshake. E.g: &amp;quot;secure.example.com&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Sni
+    public TerraformProperty<string> Sni
     {
-        get => GetProperty<TerraformProperty<string>>("sni");
-        set => this.WithProperty("sni", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sni");
+        set => SetProperty("sni", value);
     }
 
     /// <summary>
@@ -147,8 +151,7 @@ public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificate block(s) allowed")]
     public List<GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock>? ClientCertificate
     {
-        get => GetProperty<List<GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock>>("client_certificate");
-        set => this.WithProperty("client_certificate", value);
+        set => SetProperty("client_certificate", value);
     }
 
     /// <summary>
@@ -157,8 +160,7 @@ public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// </summary>
     public List<GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock>? ServerValidationCa
     {
-        get => GetProperty<List<GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock>>("server_validation_ca");
-        set => this.WithProperty("server_validation_ca", value);
+        set => SetProperty("server_validation_ca", value);
     }
 
     /// <summary>
@@ -167,8 +169,7 @@ public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// </summary>
     public GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

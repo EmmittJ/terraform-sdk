@@ -14,20 +14,24 @@ public class AwsSyntheticsRuntimeVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("deprecation_date");
-        this.WithOutput("description");
-        this.WithOutput("id");
-        this.WithOutput("release_date");
-        this.WithOutput("version_name");
+        SetOutput("deprecation_date");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("release_date");
+        SetOutput("version_name");
+        SetOutput("latest");
+        SetOutput("prefix");
+        SetOutput("region");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public TerraformProperty<bool>? Latest
+    public TerraformProperty<bool> Latest
     {
-        get => GetProperty<TerraformProperty<bool>>("latest");
-        set => this.WithProperty("latest", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("latest");
+        set => SetProperty("latest", value);
     }
 
     /// <summary>
@@ -36,26 +40,26 @@ public class AwsSyntheticsRuntimeVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformProperty<string> Prefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("prefix");
-        set => this.WithProperty("prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
+        set => SetProperty("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

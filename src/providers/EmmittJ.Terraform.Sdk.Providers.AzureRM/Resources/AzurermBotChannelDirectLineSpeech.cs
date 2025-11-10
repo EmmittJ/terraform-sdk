@@ -13,8 +13,7 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,15 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bot_name");
+        SetOutput("cognitive_account_id");
+        SetOutput("cognitive_service_access_key");
+        SetOutput("cognitive_service_location");
+        SetOutput("custom_speech_model_id");
+        SetOutput("custom_voice_deployment_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -66,17 +71,17 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
-        set => this.WithProperty("bot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_name");
+        set => SetProperty("bot_name", value);
     }
 
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CognitiveAccountId
+    public TerraformProperty<string> CognitiveAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("cognitive_account_id");
-        set => this.WithProperty("cognitive_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_account_id");
+        set => SetProperty("cognitive_account_id", value);
     }
 
     /// <summary>
@@ -85,8 +90,8 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceAccessKey is required")]
     public required TerraformProperty<string> CognitiveServiceAccessKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_service_access_key");
-        set => this.WithProperty("cognitive_service_access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_service_access_key");
+        set => SetProperty("cognitive_service_access_key", value);
     }
 
     /// <summary>
@@ -95,35 +100,35 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceLocation is required")]
     public required TerraformProperty<string> CognitiveServiceLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_service_location");
-        set => this.WithProperty("cognitive_service_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_service_location");
+        set => SetProperty("cognitive_service_location", value);
     }
 
     /// <summary>
     /// The custom_speech_model_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomSpeechModelId
+    public TerraformProperty<string> CustomSpeechModelId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_speech_model_id");
-        set => this.WithProperty("custom_speech_model_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_speech_model_id");
+        set => SetProperty("custom_speech_model_id", value);
     }
 
     /// <summary>
     /// The custom_voice_deployment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomVoiceDeploymentId
+    public TerraformProperty<string> CustomVoiceDeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_voice_deployment_id");
-        set => this.WithProperty("custom_voice_deployment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_voice_deployment_id");
+        set => SetProperty("custom_voice_deployment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -132,8 +137,8 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -142,8 +147,8 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -152,8 +157,7 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// </summary>
     public AzurermBotChannelDirectLineSpeechTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBotChannelDirectLineSpeechTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

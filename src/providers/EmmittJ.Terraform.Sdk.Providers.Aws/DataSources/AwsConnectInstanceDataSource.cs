@@ -14,63 +14,68 @@ public class AwsConnectInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("auto_resolve_best_voices_enabled");
-        this.WithOutput("contact_flow_logs_enabled");
-        this.WithOutput("contact_lens_enabled");
-        this.WithOutput("created_time");
-        this.WithOutput("early_media_enabled");
-        this.WithOutput("identity_management_type");
-        this.WithOutput("inbound_calls_enabled");
-        this.WithOutput("multi_party_conference_enabled");
-        this.WithOutput("outbound_calls_enabled");
-        this.WithOutput("service_role");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("auto_resolve_best_voices_enabled");
+        SetOutput("contact_flow_logs_enabled");
+        SetOutput("contact_lens_enabled");
+        SetOutput("created_time");
+        SetOutput("early_media_enabled");
+        SetOutput("identity_management_type");
+        SetOutput("inbound_calls_enabled");
+        SetOutput("multi_party_conference_enabled");
+        SetOutput("outbound_calls_enabled");
+        SetOutput("service_role");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("instance_alias");
+        SetOutput("instance_id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_alias attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceAlias
+    public TerraformProperty<string> InstanceAlias
     {
-        get => GetProperty<TerraformProperty<string>>("instance_alias");
-        set => this.WithProperty("instance_alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_alias");
+        set => SetProperty("instance_alias", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    public TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

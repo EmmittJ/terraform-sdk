@@ -14,8 +14,7 @@ public class GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
-        set => WithProperty("dataset", value);
+        set => SetProperty("dataset", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleBigqueryAnalyticsHubListingDataProviderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleBigqueryAnalyticsHubListingDataProviderBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrimaryContact
     {
-        get => GetProperty<TerraformProperty<string>>("primary_contact");
-        set => WithProperty("primary_contact", value);
+        set => SetProperty("primary_contact", value);
     }
 
 }
@@ -59,8 +56,7 @@ public class GoogleBigqueryAnalyticsHubListingPublisherBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class GoogleBigqueryAnalyticsHubListingPublisherBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrimaryContact
     {
-        get => GetProperty<TerraformProperty<string>>("primary_contact");
-        set => WithProperty("primary_contact", value);
+        set => SetProperty("primary_contact", value);
     }
 
 }
@@ -86,8 +81,7 @@ public class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? DataAffinityRegions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("data_affinity_regions");
-        set => WithProperty("data_affinity_regions", value);
+        set => SetProperty("data_affinity_regions", value);
     }
 
     /// <summary>
@@ -96,8 +90,7 @@ public class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -113,8 +106,7 @@ public class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock : Terr
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -122,8 +114,7 @@ public class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock : Terr
     /// </summary>
     public TerraformProperty<bool>? RestrictDirectTableAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("restrict_direct_table_access");
-        set => WithProperty("restrict_direct_table_access", value);
+        set => SetProperty("restrict_direct_table_access", value);
     }
 
     /// <summary>
@@ -131,8 +122,7 @@ public class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock : Terr
     /// </summary>
     public TerraformProperty<bool>? RestrictQueryResult
     {
-        get => GetProperty<TerraformProperty<bool>>("restrict_query_result");
-        set => WithProperty("restrict_query_result", value);
+        set => SetProperty("restrict_query_result", value);
     }
 
 }
@@ -148,8 +138,7 @@ public class GoogleBigqueryAnalyticsHubListingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -157,8 +146,7 @@ public class GoogleBigqueryAnalyticsHubListingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -166,8 +154,7 @@ public class GoogleBigqueryAnalyticsHubListingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -185,27 +172,43 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("commercial_info");
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("commercial_info");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("allow_only_metadata_sharing");
+        SetOutput("categories");
+        SetOutput("data_exchange_id");
+        SetOutput("delete_commercial");
+        SetOutput("description");
+        SetOutput("discovery_type");
+        SetOutput("display_name");
+        SetOutput("documentation");
+        SetOutput("icon");
+        SetOutput("id");
+        SetOutput("listing_id");
+        SetOutput("location");
+        SetOutput("log_linked_dataset_query_user_email");
+        SetOutput("primary_contact");
+        SetOutput("project");
+        SetOutput("request_access");
     }
 
     /// <summary>
     /// If true, the listing is only available to get the resource metadata. Listing is non subscribable.
     /// </summary>
-    public TerraformProperty<bool>? AllowOnlyMetadataSharing
+    public TerraformProperty<bool> AllowOnlyMetadataSharing
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_only_metadata_sharing");
-        set => this.WithProperty("allow_only_metadata_sharing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_only_metadata_sharing");
+        set => SetProperty("allow_only_metadata_sharing", value);
     }
 
     /// <summary>
     /// Categories of the listing. Up to two categories are allowed.
     /// </summary>
-    public List<TerraformProperty<string>>? Categories
+    public List<TerraformProperty<string>> Categories
     {
-        get => GetProperty<List<TerraformProperty<string>>>("categories");
-        set => this.WithProperty("categories", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("categories");
+        set => SetProperty("categories", value);
     }
 
     /// <summary>
@@ -214,35 +217,35 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformProperty<string> DataExchangeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_exchange_id");
-        set => this.WithProperty("data_exchange_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_exchange_id");
+        set => SetProperty("data_exchange_id", value);
     }
 
     /// <summary>
     /// If the listing is commercial then this field must be set to true, otherwise a failure is thrown. This acts as a safety guard to avoid deleting commercial listings accidentally.
     /// </summary>
-    public TerraformProperty<bool>? DeleteCommercial
+    public TerraformProperty<bool> DeleteCommercial
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_commercial");
-        set => this.WithProperty("delete_commercial", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_commercial");
+        set => SetProperty("delete_commercial", value);
     }
 
     /// <summary>
     /// Short description of the listing. The description must not contain Unicode non-characters and C0 and C1 control codes except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF).
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Specifies the type of discovery on the discovery page. Cannot be set for a restricted listing. Note that this does not control the visibility of the exchange/listing which is defined by IAM permission. Possible values: [&amp;quot;DISCOVERY_TYPE_PRIVATE&amp;quot;, &amp;quot;DISCOVERY_TYPE_PUBLIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DiscoveryType
+    public TerraformProperty<string> DiscoveryType
     {
-        get => GetProperty<TerraformProperty<string>>("discovery_type");
-        set => this.WithProperty("discovery_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("discovery_type");
+        set => SetProperty("discovery_type", value);
     }
 
     /// <summary>
@@ -251,35 +254,35 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Documentation describing the listing.
     /// </summary>
-    public TerraformProperty<string>? Documentation
+    public TerraformProperty<string> Documentation
     {
-        get => GetProperty<TerraformProperty<string>>("documentation");
-        set => this.WithProperty("documentation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("documentation");
+        set => SetProperty("documentation", value);
     }
 
     /// <summary>
     /// Base64 encoded image representing the listing.
     /// </summary>
-    public TerraformProperty<string>? Icon
+    public TerraformProperty<string> Icon
     {
-        get => GetProperty<TerraformProperty<string>>("icon");
-        set => this.WithProperty("icon", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("icon");
+        set => SetProperty("icon", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -288,8 +291,8 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     public required TerraformProperty<string> ListingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("listing_id");
-        set => this.WithProperty("listing_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("listing_id");
+        set => SetProperty("listing_id", value);
     }
 
     /// <summary>
@@ -298,44 +301,44 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// If true, subscriber email logging is enabled and all queries on the linked dataset will log the email address of the querying user. Once enabled, this setting cannot be turned off.
     /// </summary>
-    public TerraformProperty<bool>? LogLinkedDatasetQueryUserEmail
+    public TerraformProperty<bool> LogLinkedDatasetQueryUserEmail
     {
-        get => GetProperty<TerraformProperty<bool>>("log_linked_dataset_query_user_email");
-        set => this.WithProperty("log_linked_dataset_query_user_email", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("log_linked_dataset_query_user_email");
+        set => SetProperty("log_linked_dataset_query_user_email", value);
     }
 
     /// <summary>
     /// Email or URL of the primary point of contact of the listing.
     /// </summary>
-    public TerraformProperty<string>? PrimaryContact
+    public TerraformProperty<string> PrimaryContact
     {
-        get => GetProperty<TerraformProperty<string>>("primary_contact");
-        set => this.WithProperty("primary_contact", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_contact");
+        set => SetProperty("primary_contact", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Email or URL of the request access of the listing. Subscribers can use this reference to request access.
     /// </summary>
-    public TerraformProperty<string>? RequestAccess
+    public TerraformProperty<string> RequestAccess
     {
-        get => GetProperty<TerraformProperty<string>>("request_access");
-        set => this.WithProperty("request_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("request_access");
+        set => SetProperty("request_access", value);
     }
 
     /// <summary>
@@ -345,8 +348,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryDataset block(s) allowed")]
     public List<GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock>? BigqueryDataset
     {
-        get => GetProperty<List<GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock>>("bigquery_dataset");
-        set => this.WithProperty("bigquery_dataset", value);
+        set => SetProperty("bigquery_dataset", value);
     }
 
     /// <summary>
@@ -356,8 +358,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProvider block(s) allowed")]
     public List<GoogleBigqueryAnalyticsHubListingDataProviderBlock>? DataProvider
     {
-        get => GetProperty<List<GoogleBigqueryAnalyticsHubListingDataProviderBlock>>("data_provider");
-        set => this.WithProperty("data_provider", value);
+        set => SetProperty("data_provider", value);
     }
 
     /// <summary>
@@ -367,8 +368,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Publisher block(s) allowed")]
     public List<GoogleBigqueryAnalyticsHubListingPublisherBlock>? Publisher
     {
-        get => GetProperty<List<GoogleBigqueryAnalyticsHubListingPublisherBlock>>("publisher");
-        set => this.WithProperty("publisher", value);
+        set => SetProperty("publisher", value);
     }
 
     /// <summary>
@@ -378,8 +378,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PubsubTopic block(s) allowed")]
     public List<GoogleBigqueryAnalyticsHubListingPubsubTopicBlock>? PubsubTopic
     {
-        get => GetProperty<List<GoogleBigqueryAnalyticsHubListingPubsubTopicBlock>>("pubsub_topic");
-        set => this.WithProperty("pubsub_topic", value);
+        set => SetProperty("pubsub_topic", value);
     }
 
     /// <summary>
@@ -389,8 +388,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestrictedExportConfig block(s) allowed")]
     public List<GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock>? RestrictedExportConfig
     {
-        get => GetProperty<List<GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock>>("restricted_export_config");
-        set => this.WithProperty("restricted_export_config", value);
+        set => SetProperty("restricted_export_config", value);
     }
 
     /// <summary>
@@ -399,8 +397,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     public GoogleBigqueryAnalyticsHubListingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryAnalyticsHubListingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

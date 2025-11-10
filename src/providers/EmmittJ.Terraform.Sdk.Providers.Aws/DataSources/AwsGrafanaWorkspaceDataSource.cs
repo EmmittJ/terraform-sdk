@@ -14,51 +14,55 @@ public class AwsGrafanaWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_access_type");
-        this.WithOutput("arn");
-        this.WithOutput("authentication_providers");
-        this.WithOutput("created_date");
-        this.WithOutput("data_sources");
-        this.WithOutput("description");
-        this.WithOutput("endpoint");
-        this.WithOutput("grafana_version");
-        this.WithOutput("last_updated_date");
-        this.WithOutput("name");
-        this.WithOutput("notification_destinations");
-        this.WithOutput("organization_role_name");
-        this.WithOutput("organizational_units");
-        this.WithOutput("permission_type");
-        this.WithOutput("role_arn");
-        this.WithOutput("saml_configuration_status");
-        this.WithOutput("stack_set_name");
-        this.WithOutput("status");
+        SetOutput("account_access_type");
+        SetOutput("arn");
+        SetOutput("authentication_providers");
+        SetOutput("created_date");
+        SetOutput("data_sources");
+        SetOutput("description");
+        SetOutput("endpoint");
+        SetOutput("grafana_version");
+        SetOutput("last_updated_date");
+        SetOutput("name");
+        SetOutput("notification_destinations");
+        SetOutput("organization_role_name");
+        SetOutput("organizational_units");
+        SetOutput("permission_type");
+        SetOutput("role_arn");
+        SetOutput("saml_configuration_status");
+        SetOutput("stack_set_name");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -67,8 +71,8 @@ public class AwsGrafanaWorkspaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>

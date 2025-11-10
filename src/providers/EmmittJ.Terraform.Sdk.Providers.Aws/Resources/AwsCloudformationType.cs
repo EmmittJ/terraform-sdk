@@ -14,8 +14,7 @@ public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
-        set => WithProperty("log_group_name", value);
+        set => SetProperty("log_group_name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogRoleArn is required")]
     public required TerraformProperty<string> LogRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_role_arn");
-        set => WithProperty("log_role_arn", value);
+        set => SetProperty("log_role_arn", value);
     }
 
 }
@@ -43,45 +41,51 @@ public class AwsCloudformationType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("default_version_id");
-        this.WithOutput("deprecated_status");
-        this.WithOutput("description");
-        this.WithOutput("documentation_url");
-        this.WithOutput("is_default_version");
-        this.WithOutput("provisioning_type");
-        this.WithOutput("schema");
-        this.WithOutput("source_url");
-        this.WithOutput("type_arn");
-        this.WithOutput("version_id");
-        this.WithOutput("visibility");
+        SetOutput("arn");
+        SetOutput("default_version_id");
+        SetOutput("deprecated_status");
+        SetOutput("description");
+        SetOutput("documentation_url");
+        SetOutput("is_default_version");
+        SetOutput("provisioning_type");
+        SetOutput("schema");
+        SetOutput("source_url");
+        SetOutput("type_arn");
+        SetOutput("version_id");
+        SetOutput("visibility");
+        SetOutput("execution_role_arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("schema_handler_package");
+        SetOutput("type");
+        SetOutput("type_name");
     }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionRoleArn
+    public TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -90,17 +94,17 @@ public class AwsCloudformationType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaHandlerPackage is required")]
     public required TerraformProperty<string> SchemaHandlerPackage
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schema_handler_package");
-        set => this.WithProperty("schema_handler_package", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema_handler_package");
+        set => SetProperty("schema_handler_package", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -109,8 +113,8 @@ public class AwsCloudformationType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformProperty<string> TypeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type_name");
-        set => this.WithProperty("type_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type_name");
+        set => SetProperty("type_name", value);
     }
 
     /// <summary>
@@ -120,8 +124,7 @@ public class AwsCloudformationType : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     public List<AwsCloudformationTypeLoggingConfigBlock>? LoggingConfig
     {
-        get => GetProperty<List<AwsCloudformationTypeLoggingConfigBlock>>("logging_config");
-        set => this.WithProperty("logging_config", value);
+        set => SetProperty("logging_config", value);
     }
 
     /// <summary>

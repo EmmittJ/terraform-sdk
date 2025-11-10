@@ -13,8 +13,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
 }
@@ -41,7 +39,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("json");
+        SetOutput("json");
     }
 
     /// <summary>
@@ -50,8 +48,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSource : TerraformDataSource
     /// </summary>
     public List<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock>? Rule
     {
-        get => GetProperty<List<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>

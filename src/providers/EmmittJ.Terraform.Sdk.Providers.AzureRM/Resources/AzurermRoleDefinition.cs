@@ -13,8 +13,7 @@ public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Actions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("actions");
-        set => WithProperty("actions", value);
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? DataActions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("data_actions");
-        set => WithProperty("data_actions", value);
+        set => SetProperty("data_actions", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? NotActions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("not_actions");
-        set => WithProperty("not_actions", value);
+        set => SetProperty("not_actions", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? NotDataActions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("not_data_actions");
-        set => WithProperty("not_data_actions", value);
+        set => SetProperty("not_data_actions", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -102,34 +94,40 @@ public class AzurermRoleDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputole_definition_resource_id");
+        SetOutput("role_definition_resource_id");
+        SetOutput("assignable_scopes");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("role_definition_id");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// The assignable_scopes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AssignableScopes
+    public List<TerraformProperty<string>> AssignableScopes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("assignable_scopes");
-        set => this.WithProperty("assignable_scopes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("assignable_scopes");
+        set => SetProperty("assignable_scopes", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -138,17 +136,17 @@ public class AzurermRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleDefinitionId
+    public TerraformProperty<string> RoleDefinitionId
     {
-        get => GetProperty<TerraformProperty<string>>("role_definition_id");
-        set => this.WithProperty("role_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
+        set => SetProperty("role_definition_id", value);
     }
 
     /// <summary>
@@ -157,8 +155,8 @@ public class AzurermRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -167,8 +165,7 @@ public class AzurermRoleDefinition : TerraformResource
     /// </summary>
     public List<AzurermRoleDefinitionPermissionsBlock>? Permissions
     {
-        get => GetProperty<List<AzurermRoleDefinitionPermissionsBlock>>("permissions");
-        set => this.WithProperty("permissions", value);
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
@@ -177,8 +174,7 @@ public class AzurermRoleDefinition : TerraformResource
     /// </summary>
     public AzurermRoleDefinitionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRoleDefinitionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

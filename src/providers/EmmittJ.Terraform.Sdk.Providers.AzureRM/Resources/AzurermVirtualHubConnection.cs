@@ -13,8 +13,7 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AssociatedRouteTableId
     {
-        get => GetProperty<TerraformProperty<string>>("associated_route_table_id");
-        set => WithProperty("associated_route_table_id", value);
+        set => SetProperty("associated_route_table_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InboundRouteMapId
     {
-        get => GetProperty<TerraformProperty<string>>("inbound_route_map_id");
-        set => WithProperty("inbound_route_map_id", value);
+        set => SetProperty("inbound_route_map_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutboundRouteMapId
     {
-        get => GetProperty<TerraformProperty<string>>("outbound_route_map_id");
-        set => WithProperty("outbound_route_map_id", value);
+        set => SetProperty("outbound_route_map_id", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StaticVnetLocalRouteOverrideCriteria
     {
-        get => GetProperty<TerraformProperty<string>>("static_vnet_local_route_override_criteria");
-        set => WithProperty("static_vnet_local_route_override_criteria", value);
+        set => SetProperty("static_vnet_local_route_override_criteria", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? StaticVnetPropagateStaticRoutesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("static_vnet_propagate_static_routes_enabled");
-        set => WithProperty("static_vnet_propagate_static_routes_enabled", value);
+        set => SetProperty("static_vnet_propagate_static_routes_enabled", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -112,24 +103,29 @@ public class AzurermVirtualHubConnection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("internet_security_enabled");
+        SetOutput("name");
+        SetOutput("remote_virtual_network_id");
+        SetOutput("virtual_hub_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The internet_security_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? InternetSecurityEnabled
+    public TerraformProperty<bool> InternetSecurityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("internet_security_enabled");
-        set => this.WithProperty("internet_security_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("internet_security_enabled");
+        set => SetProperty("internet_security_enabled", value);
     }
 
     /// <summary>
@@ -138,8 +134,8 @@ public class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -148,8 +144,8 @@ public class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
     public required TerraformProperty<string> RemoteVirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("remote_virtual_network_id");
-        set => this.WithProperty("remote_virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("remote_virtual_network_id");
+        set => SetProperty("remote_virtual_network_id", value);
     }
 
     /// <summary>
@@ -158,8 +154,8 @@ public class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
-        set => this.WithProperty("virtual_hub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_id");
+        set => SetProperty("virtual_hub_id", value);
     }
 
     /// <summary>
@@ -169,8 +165,7 @@ public class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     public List<AzurermVirtualHubConnectionRoutingBlock>? Routing
     {
-        get => GetProperty<List<AzurermVirtualHubConnectionRoutingBlock>>("routing");
-        set => this.WithProperty("routing", value);
+        set => SetProperty("routing", value);
     }
 
     /// <summary>
@@ -179,8 +174,7 @@ public class AzurermVirtualHubConnection : TerraformResource
     /// </summary>
     public AzurermVirtualHubConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualHubConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

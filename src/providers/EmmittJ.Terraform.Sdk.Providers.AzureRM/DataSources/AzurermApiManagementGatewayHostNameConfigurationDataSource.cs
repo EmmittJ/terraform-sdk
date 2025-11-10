@@ -13,8 +13,7 @@ public class AzurermApiManagementGatewayHostNameConfigurationDataSourceTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,12 +30,16 @@ public class AzurermApiManagementGatewayHostNameConfigurationDataSource : Terraf
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate_id");
-        this.WithOutput("host_name");
-        this.WithOutput("http2_enabled");
-        this.WithOutput("request_client_certificate_enabled");
-        this.WithOutput("tls10_enabled");
-        this.WithOutput("tls11_enabled");
+        SetOutput("certificate_id");
+        SetOutput("host_name");
+        SetOutput("http2_enabled");
+        SetOutput("request_client_certificate_enabled");
+        SetOutput("tls10_enabled");
+        SetOutput("tls11_enabled");
+        SetOutput("api_management_id");
+        SetOutput("gateway_name");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -45,8 +48,8 @@ public class AzurermApiManagementGatewayHostNameConfigurationDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
-        set => this.WithProperty("api_management_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_id");
+        set => SetProperty("api_management_id", value);
     }
 
     /// <summary>
@@ -55,17 +58,17 @@ public class AzurermApiManagementGatewayHostNameConfigurationDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformProperty<string> GatewayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gateway_name");
-        set => this.WithProperty("gateway_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_name");
+        set => SetProperty("gateway_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -74,8 +77,8 @@ public class AzurermApiManagementGatewayHostNameConfigurationDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -84,8 +87,7 @@ public class AzurermApiManagementGatewayHostNameConfigurationDataSource : Terraf
     /// </summary>
     public AzurermApiManagementGatewayHostNameConfigurationDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementGatewayHostNameConfigurationDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

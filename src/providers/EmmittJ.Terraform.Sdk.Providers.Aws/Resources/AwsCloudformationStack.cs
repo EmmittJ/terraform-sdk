@@ -13,8 +13,7 @@ public class AwsCloudformationStackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCloudformationStackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCloudformationStackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,43 +46,59 @@ public class AwsCloudformationStack : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("outputs");
+        SetOutput("outputs");
+        SetOutput("capabilities");
+        SetOutput("disable_rollback");
+        SetOutput("iam_role_arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("notification_arns");
+        SetOutput("on_failure");
+        SetOutput("parameters");
+        SetOutput("policy_body");
+        SetOutput("policy_url");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("template_body");
+        SetOutput("template_url");
+        SetOutput("timeout_in_minutes");
     }
 
     /// <summary>
     /// The capabilities attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Capabilities
+    public HashSet<TerraformProperty<string>> Capabilities
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("capabilities");
-        set => this.WithProperty("capabilities", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("capabilities");
+        set => SetProperty("capabilities", value);
     }
 
     /// <summary>
     /// The disable_rollback attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableRollback
+    public TerraformProperty<bool> DisableRollback
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_rollback");
-        set => this.WithProperty("disable_rollback", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_rollback");
+        set => SetProperty("disable_rollback", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRoleArn
+    public TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,107 +107,107 @@ public class AwsCloudformationStack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The notification_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NotificationArns
+    public HashSet<TerraformProperty<string>> NotificationArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("notification_arns");
-        set => this.WithProperty("notification_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("notification_arns");
+        set => SetProperty("notification_arns", value);
     }
 
     /// <summary>
     /// The on_failure attribute.
     /// </summary>
-    public TerraformProperty<string>? OnFailure
+    public TerraformProperty<string> OnFailure
     {
-        get => GetProperty<TerraformProperty<string>>("on_failure");
-        set => this.WithProperty("on_failure", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("on_failure");
+        set => SetProperty("on_failure", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// The policy_body attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyBody
+    public TerraformProperty<string> PolicyBody
     {
-        get => GetProperty<TerraformProperty<string>>("policy_body");
-        set => this.WithProperty("policy_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_body");
+        set => SetProperty("policy_body", value);
     }
 
     /// <summary>
     /// The policy_url attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyUrl
+    public TerraformProperty<string> PolicyUrl
     {
-        get => GetProperty<TerraformProperty<string>>("policy_url");
-        set => this.WithProperty("policy_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_url");
+        set => SetProperty("policy_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateBody
+    public TerraformProperty<string> TemplateBody
     {
-        get => GetProperty<TerraformProperty<string>>("template_body");
-        set => this.WithProperty("template_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_body");
+        set => SetProperty("template_body", value);
     }
 
     /// <summary>
     /// The template_url attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateUrl
+    public TerraformProperty<string> TemplateUrl
     {
-        get => GetProperty<TerraformProperty<string>>("template_url");
-        set => this.WithProperty("template_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_url");
+        set => SetProperty("template_url", value);
     }
 
     /// <summary>
     /// The timeout_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? TimeoutInMinutes
+    public TerraformProperty<double> TimeoutInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_in_minutes");
-        set => this.WithProperty("timeout_in_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout_in_minutes");
+        set => SetProperty("timeout_in_minutes", value);
     }
 
     /// <summary>
@@ -203,8 +216,7 @@ public class AwsCloudformationStack : TerraformResource
     /// </summary>
     public AwsCloudformationStackTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCloudformationStackTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

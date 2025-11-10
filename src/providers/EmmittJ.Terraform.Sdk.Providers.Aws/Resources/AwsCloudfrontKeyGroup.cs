@@ -14,35 +14,39 @@ public class AwsCloudfrontKeyGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("comment");
+        SetOutput("id");
+        SetOutput("items");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The items attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Items is required")]
-    public HashSet<TerraformProperty<string>>? Items
+    public HashSet<TerraformProperty<string>> Items
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("items");
-        set => this.WithProperty("items", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("items");
+        set => SetProperty("items", value);
     }
 
     /// <summary>
@@ -51,8 +55,8 @@ public class AwsCloudfrontKeyGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

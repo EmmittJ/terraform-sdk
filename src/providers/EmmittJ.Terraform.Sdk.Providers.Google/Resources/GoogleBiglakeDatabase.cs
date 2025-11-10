@@ -13,8 +13,7 @@ public class GoogleBiglakeDatabaseHiveOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocationUri
     {
-        get => GetProperty<TerraformProperty<string>>("location_uri");
-        set => WithProperty("location_uri", value);
+        set => SetProperty("location_uri", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleBiglakeDatabaseHiveOptionsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleBiglakeDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleBiglakeDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleBiglakeDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -78,10 +73,14 @@ public class GoogleBiglakeDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("expire_time");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("expire_time");
+        SetOutput("update_time");
+        SetOutput("catalog");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -90,17 +89,17 @@ public class GoogleBiglakeDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Catalog is required")]
     public required TerraformProperty<string> Catalog
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("catalog");
-        set => this.WithProperty("catalog", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog");
+        set => SetProperty("catalog", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -109,8 +108,8 @@ public class GoogleBiglakeDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -119,20 +118,20 @@ public class GoogleBiglakeDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Block for hive_options.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HiveOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HiveOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveOptions block(s) allowed")]
     public List<GoogleBiglakeDatabaseHiveOptionsBlock>? HiveOptions
     {
-        get => GetProperty<List<GoogleBiglakeDatabaseHiveOptionsBlock>>("hive_options");
-        set => this.WithProperty("hive_options", value);
+        set => SetProperty("hive_options", value);
     }
 
     /// <summary>
@@ -141,8 +140,7 @@ public class GoogleBiglakeDatabase : TerraformResource
     /// </summary>
     public GoogleBiglakeDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBiglakeDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

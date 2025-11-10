@@ -14,18 +14,22 @@ public class AwsVerifiedpermissionsPolicyTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_date");
-        this.WithOutput("id");
-        this.WithOutput("policy_template_id");
+        SetOutput("created_date");
+        SetOutput("id");
+        SetOutput("policy_template_id");
+        SetOutput("description");
+        SetOutput("policy_store_id");
+        SetOutput("region");
+        SetOutput("statement");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -34,17 +38,17 @@ public class AwsVerifiedpermissionsPolicyTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
     public required TerraformProperty<string> PolicyStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_store_id");
-        set => this.WithProperty("policy_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_store_id");
+        set => SetProperty("policy_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -53,8 +57,8 @@ public class AwsVerifiedpermissionsPolicyTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Statement is required")]
     public required TerraformProperty<string> Statement
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("statement");
-        set => this.WithProperty("statement", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("statement");
+        set => SetProperty("statement", value);
     }
 
     /// <summary>

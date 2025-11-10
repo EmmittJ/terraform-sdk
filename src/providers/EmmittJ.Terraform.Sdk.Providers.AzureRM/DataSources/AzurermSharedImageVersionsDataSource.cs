@@ -13,8 +13,7 @@ public class AzurermSharedImageVersionsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,7 +30,12 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("images");
+        SetOutput("images");
+        SetOutput("gallery_name");
+        SetOutput("id");
+        SetOutput("image_name");
+        SetOutput("resource_group_name");
+        SetOutput("tags_filter");
     }
 
     /// <summary>
@@ -40,17 +44,17 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     public required TerraformProperty<string> GalleryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gallery_name");
-        set => this.WithProperty("gallery_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gallery_name");
+        set => SetProperty("gallery_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +63,8 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformProperty<string> ImageName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image_name");
-        set => this.WithProperty("image_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
+        set => SetProperty("image_name", value);
     }
 
     /// <summary>
@@ -69,17 +73,17 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags_filter attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsFilter
+    public Dictionary<string, TerraformProperty<string>> TagsFilter
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_filter");
-        set => this.WithProperty("tags_filter", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_filter");
+        set => SetProperty("tags_filter", value);
     }
 
     /// <summary>
@@ -88,8 +92,7 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     /// </summary>
     public AzurermSharedImageVersionsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSharedImageVersionsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

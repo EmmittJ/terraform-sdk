@@ -14,16 +14,18 @@ public class AwsIamUserPoliciesExclusive : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("policy_names");
+        SetOutput("user_name");
     }
 
     /// <summary>
     /// The policy_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
-    public HashSet<TerraformProperty<string>>? PolicyNames
+    public HashSet<TerraformProperty<string>> PolicyNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("policy_names");
-        set => this.WithProperty("policy_names", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("policy_names");
+        set => SetProperty("policy_names", value);
     }
 
     /// <summary>
@@ -32,8 +34,8 @@ public class AwsIamUserPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
 }

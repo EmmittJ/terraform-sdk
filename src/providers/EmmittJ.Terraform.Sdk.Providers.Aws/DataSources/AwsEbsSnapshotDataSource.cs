@@ -14,8 +14,7 @@ public class AwsEbsSnapshotDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsEbsSnapshotDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsEbsSnapshotDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,83 +56,90 @@ public class AwsEbsSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("data_encryption_key_id");
-        this.WithOutput("description");
-        this.WithOutput("encrypted");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("outpost_arn");
-        this.WithOutput("owner_alias");
-        this.WithOutput("owner_id");
-        this.WithOutput("snapshot_id");
-        this.WithOutput("start_time");
-        this.WithOutput("state");
-        this.WithOutput("storage_tier");
-        this.WithOutput("volume_id");
-        this.WithOutput("volume_size");
+        SetOutput("arn");
+        SetOutput("data_encryption_key_id");
+        SetOutput("description");
+        SetOutput("encrypted");
+        SetOutput("kms_key_id");
+        SetOutput("outpost_arn");
+        SetOutput("owner_alias");
+        SetOutput("owner_id");
+        SetOutput("snapshot_id");
+        SetOutput("start_time");
+        SetOutput("state");
+        SetOutput("storage_tier");
+        SetOutput("volume_id");
+        SetOutput("volume_size");
+        SetOutput("id");
+        SetOutput("most_recent");
+        SetOutput("owners");
+        SetOutput("region");
+        SetOutput("restorable_by_user_ids");
+        SetOutput("snapshot_ids");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Owners
+    public List<TerraformProperty<string>> Owners
     {
-        get => GetProperty<List<TerraformProperty<string>>>("owners");
-        set => this.WithProperty("owners", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("owners");
+        set => SetProperty("owners", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The restorable_by_user_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? RestorableByUserIds
+    public List<TerraformProperty<string>> RestorableByUserIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("restorable_by_user_ids");
-        set => this.WithProperty("restorable_by_user_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("restorable_by_user_ids");
+        set => SetProperty("restorable_by_user_ids", value);
     }
 
     /// <summary>
     /// The snapshot_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SnapshotIds
+    public List<TerraformProperty<string>> SnapshotIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("snapshot_ids");
-        set => this.WithProperty("snapshot_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("snapshot_ids");
+        set => SetProperty("snapshot_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -144,8 +148,7 @@ public class AwsEbsSnapshotDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsEbsSnapshotDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsEbsSnapshotDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -154,8 +157,7 @@ public class AwsEbsSnapshotDataSource : TerraformDataSource
     /// </summary>
     public AwsEbsSnapshotDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEbsSnapshotDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermKustoClusterPrincipalAssignmentTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKustoClusterPrincipalAssignmentTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKustoClusterPrincipalAssignmentTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,8 +46,16 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("principal_name");
-        this.WithOutput("tenant_name");
+        SetOutput("principal_name");
+        SetOutput("tenant_name");
+        SetOutput("cluster_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("principal_id");
+        SetOutput("principal_type");
+        SetOutput("resource_group_name");
+        SetOutput("role");
+        SetOutput("tenant_id");
     }
 
     /// <summary>
@@ -59,17 +64,17 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,8 +83,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -88,8 +93,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -98,8 +103,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformProperty<string> PrincipalType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_type");
-        set => this.WithProperty("principal_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_type");
+        set => SetProperty("principal_type", value);
     }
 
     /// <summary>
@@ -108,8 +113,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -118,8 +123,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -128,8 +133,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
-        set => this.WithProperty("tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -138,8 +143,7 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     /// </summary>
     public AzurermKustoClusterPrincipalAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKustoClusterPrincipalAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

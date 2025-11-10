@@ -13,8 +13,7 @@ public class AwsBcmdataexportsExportExportBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBcmdataexportsExportExportBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExportArn
     {
-        get => GetProperty<TerraformProperty<string>>("export_arn");
-        set => WithProperty("export_arn", value);
+        set => SetProperty("export_arn", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsBcmdataexportsExportExportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsBcmdataexportsExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsBcmdataexportsExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,18 +71,19 @@ public class AwsBcmdataexportsExport : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -96,8 +92,7 @@ public class AwsBcmdataexportsExport : TerraformResource
     /// </summary>
     public List<AwsBcmdataexportsExportExportBlock>? Export
     {
-        get => GetProperty<List<AwsBcmdataexportsExportExportBlock>>("export");
-        set => this.WithProperty("export", value);
+        set => SetProperty("export", value);
     }
 
     /// <summary>
@@ -106,8 +101,7 @@ public class AwsBcmdataexportsExport : TerraformResource
     /// </summary>
     public AwsBcmdataexportsExportTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBcmdataexportsExportTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

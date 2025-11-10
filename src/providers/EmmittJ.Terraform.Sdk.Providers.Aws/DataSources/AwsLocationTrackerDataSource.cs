@@ -14,39 +14,43 @@ public class AwsLocationTrackerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("description");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("position_filtering");
-        this.WithOutput("tracker_arn");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("kms_key_id");
+        SetOutput("position_filtering");
+        SetOutput("tracker_arn");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tracker_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -55,8 +59,8 @@ public class AwsLocationTrackerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackerName is required")]
     public required TerraformProperty<string> TrackerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tracker_name");
-        set => this.WithProperty("tracker_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tracker_name");
+        set => SetProperty("tracker_name", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsAmiDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsAmiDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsAmiDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,128 +56,138 @@ public class AwsAmiDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("architecture");
-        this.WithOutput("arn");
-        this.WithOutput("block_device_mappings");
-        this.WithOutput("boot_mode");
-        this.WithOutput("creation_date");
-        this.WithOutput("deprecation_time");
-        this.WithOutput("description");
-        this.WithOutput("ena_support");
-        this.WithOutput("hypervisor");
-        this.WithOutput("image_id");
-        this.WithOutput("image_location");
-        this.WithOutput("image_owner_alias");
-        this.WithOutput("image_type");
-        this.WithOutput("imds_support");
-        this.WithOutput("kernel_id");
-        this.WithOutput("last_launched_time");
-        this.WithOutput("name");
-        this.WithOutput("owner_id");
-        this.WithOutput("platform");
-        this.WithOutput("platform_details");
-        this.WithOutput("product_codes");
-        this.WithOutput("public");
-        this.WithOutput("ramdisk_id");
-        this.WithOutput("root_device_name");
-        this.WithOutput("root_device_type");
-        this.WithOutput("root_snapshot_id");
-        this.WithOutput("sriov_net_support");
-        this.WithOutput("state");
-        this.WithOutput("state_reason");
-        this.WithOutput("tpm_support");
-        this.WithOutput("usage_operation");
-        this.WithOutput("virtualization_type");
+        SetOutput("architecture");
+        SetOutput("arn");
+        SetOutput("block_device_mappings");
+        SetOutput("boot_mode");
+        SetOutput("creation_date");
+        SetOutput("deprecation_time");
+        SetOutput("description");
+        SetOutput("ena_support");
+        SetOutput("hypervisor");
+        SetOutput("image_id");
+        SetOutput("image_location");
+        SetOutput("image_owner_alias");
+        SetOutput("image_type");
+        SetOutput("imds_support");
+        SetOutput("kernel_id");
+        SetOutput("last_launched_time");
+        SetOutput("name");
+        SetOutput("owner_id");
+        SetOutput("platform");
+        SetOutput("platform_details");
+        SetOutput("product_codes");
+        SetOutput("public");
+        SetOutput("ramdisk_id");
+        SetOutput("root_device_name");
+        SetOutput("root_device_type");
+        SetOutput("root_snapshot_id");
+        SetOutput("sriov_net_support");
+        SetOutput("state");
+        SetOutput("state_reason");
+        SetOutput("tpm_support");
+        SetOutput("usage_operation");
+        SetOutput("virtualization_type");
+        SetOutput("allow_unsafe_filter");
+        SetOutput("executable_users");
+        SetOutput("id");
+        SetOutput("include_deprecated");
+        SetOutput("most_recent");
+        SetOutput("name_regex");
+        SetOutput("owners");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("uefi_data");
     }
 
     /// <summary>
     /// The allow_unsafe_filter attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowUnsafeFilter
+    public TerraformProperty<bool> AllowUnsafeFilter
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_unsafe_filter");
-        set => this.WithProperty("allow_unsafe_filter", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_unsafe_filter");
+        set => SetProperty("allow_unsafe_filter", value);
     }
 
     /// <summary>
     /// The executable_users attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ExecutableUsers
+    public List<TerraformProperty<string>> ExecutableUsers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("executable_users");
-        set => this.WithProperty("executable_users", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("executable_users");
+        set => SetProperty("executable_users", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_deprecated attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeDeprecated
+    public TerraformProperty<bool> IncludeDeprecated
     {
-        get => GetProperty<TerraformProperty<bool>>("include_deprecated");
-        set => this.WithProperty("include_deprecated", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_deprecated");
+        set => SetProperty("include_deprecated", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string>? NameRegex
+    public TerraformProperty<string> NameRegex
     {
-        get => GetProperty<TerraformProperty<string>>("name_regex");
-        set => this.WithProperty("name_regex", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
+        set => SetProperty("name_regex", value);
     }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Owners
+    public List<TerraformProperty<string>> Owners
     {
-        get => GetProperty<List<TerraformProperty<string>>>("owners");
-        set => this.WithProperty("owners", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("owners");
+        set => SetProperty("owners", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The uefi_data attribute.
     /// </summary>
-    public TerraformProperty<string>? UefiData
+    public TerraformProperty<string> UefiData
     {
-        get => GetProperty<TerraformProperty<string>>("uefi_data");
-        set => this.WithProperty("uefi_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("uefi_data");
+        set => SetProperty("uefi_data", value);
     }
 
     /// <summary>
@@ -189,8 +196,7 @@ public class AwsAmiDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsAmiDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsAmiDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -199,8 +205,7 @@ public class AwsAmiDataSource : TerraformDataSource
     /// </summary>
     public AwsAmiDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAmiDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

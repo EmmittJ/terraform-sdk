@@ -14,11 +14,32 @@ public class AwsAmplifyBranch : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("associated_resources");
-        this.WithOutput("custom_domains");
-        this.WithOutput("destination_branch");
-        this.WithOutput("source_branch");
+        SetOutput("arn");
+        SetOutput("associated_resources");
+        SetOutput("custom_domains");
+        SetOutput("destination_branch");
+        SetOutput("source_branch");
+        SetOutput("app_id");
+        SetOutput("backend_environment_arn");
+        SetOutput("basic_auth_credentials");
+        SetOutput("branch_name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("enable_auto_build");
+        SetOutput("enable_basic_auth");
+        SetOutput("enable_notification");
+        SetOutput("enable_performance_mode");
+        SetOutput("enable_pull_request_preview");
+        SetOutput("enable_skew_protection");
+        SetOutput("environment_variables");
+        SetOutput("framework");
+        SetOutput("id");
+        SetOutput("pull_request_environment_name");
+        SetOutput("region");
+        SetOutput("stage");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("ttl");
     }
 
     /// <summary>
@@ -27,26 +48,26 @@ public class AwsAmplifyBranch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
     /// The backend_environment_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? BackendEnvironmentArn
+    public TerraformProperty<string> BackendEnvironmentArn
     {
-        get => GetProperty<TerraformProperty<string>>("backend_environment_arn");
-        set => this.WithProperty("backend_environment_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backend_environment_arn");
+        set => SetProperty("backend_environment_arn", value);
     }
 
     /// <summary>
     /// The basic_auth_credentials attribute.
     /// </summary>
-    public TerraformProperty<string>? BasicAuthCredentials
+    public TerraformProperty<string> BasicAuthCredentials
     {
-        get => GetProperty<TerraformProperty<string>>("basic_auth_credentials");
-        set => this.WithProperty("basic_auth_credentials", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("basic_auth_credentials");
+        set => SetProperty("basic_auth_credentials", value);
     }
 
     /// <summary>
@@ -55,161 +76,161 @@ public class AwsAmplifyBranch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformProperty<string> BranchName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("branch_name");
-        set => this.WithProperty("branch_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("branch_name");
+        set => SetProperty("branch_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The enable_auto_build attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableAutoBuild
+    public TerraformProperty<bool> EnableAutoBuild
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_auto_build");
-        set => this.WithProperty("enable_auto_build", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_auto_build");
+        set => SetProperty("enable_auto_build", value);
     }
 
     /// <summary>
     /// The enable_basic_auth attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableBasicAuth
+    public TerraformProperty<bool> EnableBasicAuth
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_basic_auth");
-        set => this.WithProperty("enable_basic_auth", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_basic_auth");
+        set => SetProperty("enable_basic_auth", value);
     }
 
     /// <summary>
     /// The enable_notification attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableNotification
+    public TerraformProperty<bool> EnableNotification
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_notification");
-        set => this.WithProperty("enable_notification", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_notification");
+        set => SetProperty("enable_notification", value);
     }
 
     /// <summary>
     /// The enable_performance_mode attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnablePerformanceMode
+    public TerraformProperty<bool> EnablePerformanceMode
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_performance_mode");
-        set => this.WithProperty("enable_performance_mode", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_performance_mode");
+        set => SetProperty("enable_performance_mode", value);
     }
 
     /// <summary>
     /// The enable_pull_request_preview attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnablePullRequestPreview
+    public TerraformProperty<bool> EnablePullRequestPreview
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_pull_request_preview");
-        set => this.WithProperty("enable_pull_request_preview", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_pull_request_preview");
+        set => SetProperty("enable_pull_request_preview", value);
     }
 
     /// <summary>
     /// The enable_skew_protection attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableSkewProtection
+    public TerraformProperty<bool> EnableSkewProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_skew_protection");
-        set => this.WithProperty("enable_skew_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_skew_protection");
+        set => SetProperty("enable_skew_protection", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>> EnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => this.WithProperty("environment_variables", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("environment_variables");
+        set => SetProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The framework attribute.
     /// </summary>
-    public TerraformProperty<string>? Framework
+    public TerraformProperty<string> Framework
     {
-        get => GetProperty<TerraformProperty<string>>("framework");
-        set => this.WithProperty("framework", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("framework");
+        set => SetProperty("framework", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The pull_request_environment_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PullRequestEnvironmentName
+    public TerraformProperty<string> PullRequestEnvironmentName
     {
-        get => GetProperty<TerraformProperty<string>>("pull_request_environment_name");
-        set => this.WithProperty("pull_request_environment_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pull_request_environment_name");
+        set => SetProperty("pull_request_environment_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The stage attribute.
     /// </summary>
-    public TerraformProperty<string>? Stage
+    public TerraformProperty<string> Stage
     {
-        get => GetProperty<TerraformProperty<string>>("stage");
-        set => this.WithProperty("stage", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stage");
+        set => SetProperty("stage", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformProperty<string>? Ttl
+    public TerraformProperty<string> Ttl
     {
-        get => GetProperty<TerraformProperty<string>>("ttl");
-        set => this.WithProperty("ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ttl");
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>

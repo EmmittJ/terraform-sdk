@@ -14,8 +14,7 @@ public class GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock : T
     /// </summary>
     public List<TerraformProperty<string>>? AllowedDeviceManagementLevels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_device_management_levels");
-        set => WithProperty("allowed_device_management_levels", value);
+        set => SetProperty("allowed_device_management_levels", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock : T
     /// </summary>
     public List<TerraformProperty<string>>? AllowedEncryptionStatuses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_encryption_statuses");
-        set => WithProperty("allowed_encryption_statuses", value);
+        set => SetProperty("allowed_encryption_statuses", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock : T
     /// </summary>
     public TerraformProperty<bool>? RequireAdminApproval
     {
-        get => GetProperty<TerraformProperty<bool>>("require_admin_approval");
-        set => WithProperty("require_admin_approval", value);
+        set => SetProperty("require_admin_approval", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock : T
     /// </summary>
     public TerraformProperty<bool>? RequireCorpOwned
     {
-        get => GetProperty<TerraformProperty<bool>>("require_corp_owned");
-        set => WithProperty("require_corp_owned", value);
+        set => SetProperty("require_corp_owned", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock : T
     /// </summary>
     public TerraformProperty<bool>? RequireScreenLock
     {
-        get => GetProperty<TerraformProperty<bool>>("require_screen_lock");
-        set => WithProperty("require_screen_lock", value);
+        set => SetProperty("require_screen_lock", value);
     }
 
 }
@@ -69,8 +64,7 @@ public class GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -105,7 +98,14 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_policy_id");
+        SetOutput("access_policy_id");
+        SetOutput("access_level");
+        SetOutput("id");
+        SetOutput("ip_subnetworks");
+        SetOutput("members");
+        SetOutput("negate");
+        SetOutput("regions");
+        SetOutput("required_access_levels");
     }
 
     /// <summary>
@@ -114,17 +114,17 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessLevel is required")]
     public required TerraformProperty<string> AccessLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_level");
-        set => this.WithProperty("access_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_level");
+        set => SetProperty("access_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -139,10 +139,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// listed subnets in order for this Condition to be true.
     /// If empty, all IP addresses are allowed.
     /// </summary>
-    public List<TerraformProperty<string>>? IpSubnetworks
+    public List<TerraformProperty<string>> IpSubnetworks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ip_subnetworks");
-        set => this.WithProperty("ip_subnetworks", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ip_subnetworks");
+        set => SetProperty("ip_subnetworks", value);
     }
 
     /// <summary>
@@ -155,10 +155,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// groups, etc.).
     /// Formats: &#39;user:{emailid}&#39;, &#39;serviceAccount:{emailid}&#39;
     /// </summary>
-    public List<TerraformProperty<string>>? Members
+    public List<TerraformProperty<string>> Members
     {
-        get => GetProperty<List<TerraformProperty<string>>>("members");
-        set => this.WithProperty("members", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("members");
+        set => SetProperty("members", value);
     }
 
     /// <summary>
@@ -166,10 +166,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// a NAND over its non-empty fields, each field must be false for
     /// the Condition overall to be satisfied. Defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? Negate
+    public TerraformProperty<bool> Negate
     {
-        get => GetProperty<TerraformProperty<bool>>("negate");
-        set => this.WithProperty("negate", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("negate");
+        set => SetProperty("negate", value);
     }
 
     /// <summary>
@@ -177,10 +177,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// countries/regions.
     /// Format: A valid ISO 3166-1 alpha-2 code.
     /// </summary>
-    public List<TerraformProperty<string>>? Regions
+    public List<TerraformProperty<string>> Regions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("regions");
-        set => this.WithProperty("regions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("regions");
+        set => SetProperty("regions", value);
     }
 
     /// <summary>
@@ -190,10 +190,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// granted for the Condition to be true.
     /// Format: accessPolicies/{policy_id}/accessLevels/{short_name}
     /// </summary>
-    public List<TerraformProperty<string>>? RequiredAccessLevels
+    public List<TerraformProperty<string>> RequiredAccessLevels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("required_access_levels");
-        set => this.WithProperty("required_access_levels", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("required_access_levels");
+        set => SetProperty("required_access_levels", value);
     }
 
     /// <summary>
@@ -203,8 +203,7 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DevicePolicy block(s) allowed")]
     public List<GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock>? DevicePolicy
     {
-        get => GetProperty<List<GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock>>("device_policy");
-        set => this.WithProperty("device_policy", value);
+        set => SetProperty("device_policy", value);
     }
 
     /// <summary>
@@ -213,8 +212,7 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// </summary>
     public GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -223,8 +221,7 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// </summary>
     public List<GoogleAccessContextManagerAccessLevelConditionVpcNetworkSourcesBlock>? VpcNetworkSources
     {
-        get => GetProperty<List<GoogleAccessContextManagerAccessLevelConditionVpcNetworkSourcesBlock>>("vpc_network_sources");
-        set => this.WithProperty("vpc_network_sources", value);
+        set => SetProperty("vpc_network_sources", value);
     }
 
     /// <summary>

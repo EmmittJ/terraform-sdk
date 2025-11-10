@@ -13,8 +13,7 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AvailabilityZoneName
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone_name");
-        set => WithProperty("availability_zone_name", value);
+        set => SetProperty("availability_zone_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
-        set => WithProperty("file_system_id", value);
+        set => SetProperty("file_system_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AwsEfsReplicationConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsEfsReplicationConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -94,28 +87,31 @@ public class AwsEfsReplicationConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_time");
-        this.WithOutput("original_source_file_system_arn");
-        this.WithOutput("source_file_system_arn");
-        this.WithOutput("source_file_system_region");
+        SetOutput("creation_time");
+        SetOutput("original_source_file_system_arn");
+        SetOutput("source_file_system_arn");
+        SetOutput("source_file_system_region");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("source_file_system_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -124,20 +120,20 @@ public class AwsEfsReplicationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileSystemId is required")]
     public required TerraformProperty<string> SourceFileSystemId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_file_system_id");
-        set => this.WithProperty("source_file_system_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_file_system_id");
+        set => SetProperty("source_file_system_id", value);
     }
 
     /// <summary>
     /// Block for destination.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     public List<AwsEfsReplicationConfigurationDestinationBlock>? Destination
     {
-        get => GetProperty<List<AwsEfsReplicationConfigurationDestinationBlock>>("destination");
-        set => this.WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
@@ -146,8 +142,7 @@ public class AwsEfsReplicationConfiguration : TerraformResource
     /// </summary>
     public AwsEfsReplicationConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEfsReplicationConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

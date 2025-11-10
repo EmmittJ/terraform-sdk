@@ -14,8 +14,7 @@ public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyCacheSecretIamArn is required")]
     public required TerraformProperty<string> KeyCacheSecretIamArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_cache_secret_iam_arn");
-        set => WithProperty("key_cache_secret_iam_arn", value);
+        set => SetProperty("key_cache_secret_iam_arn", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyCacheSecretId is required")]
     public required TerraformProperty<string> KeyCacheSecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_cache_secret_id");
-        set => WithProperty("key_cache_secret_id", value);
+        set => SetProperty("key_cache_secret_id", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Krb5FileContents is required")]
     public required TerraformProperty<string> Krb5FileContents
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("krb5_file_contents");
-        set => WithProperty("krb5_file_contents", value);
+        set => SetProperty("krb5_file_contents", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AwsDmsReplicationInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsDmsReplicationInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsDmsReplicationInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -88,135 +82,155 @@ public class AwsDmsReplicationInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("replication_instance_arn");
-        this.WithOutput("replication_instance_private_ips");
-        this.WithOutput("replication_instance_public_ips");
+        SetOutput("replication_instance_arn");
+        SetOutput("replication_instance_private_ips");
+        SetOutput("replication_instance_public_ips");
+        SetOutput("allocated_storage");
+        SetOutput("allow_major_version_upgrade");
+        SetOutput("apply_immediately");
+        SetOutput("auto_minor_version_upgrade");
+        SetOutput("availability_zone");
+        SetOutput("dns_name_servers");
+        SetOutput("engine_version");
+        SetOutput("id");
+        SetOutput("kms_key_arn");
+        SetOutput("multi_az");
+        SetOutput("network_type");
+        SetOutput("preferred_maintenance_window");
+        SetOutput("publicly_accessible");
+        SetOutput("region");
+        SetOutput("replication_instance_class");
+        SetOutput("replication_instance_id");
+        SetOutput("replication_subnet_group_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_security_group_ids");
     }
 
     /// <summary>
     /// The allocated_storage attribute.
     /// </summary>
-    public TerraformProperty<double>? AllocatedStorage
+    public TerraformProperty<double> AllocatedStorage
     {
-        get => GetProperty<TerraformProperty<double>>("allocated_storage");
-        set => this.WithProperty("allocated_storage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("allocated_storage");
+        set => SetProperty("allocated_storage", value);
     }
 
     /// <summary>
     /// The allow_major_version_upgrade attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowMajorVersionUpgrade
+    public TerraformProperty<bool> AllowMajorVersionUpgrade
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_major_version_upgrade");
-        set => this.WithProperty("allow_major_version_upgrade", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_major_version_upgrade");
+        set => SetProperty("allow_major_version_upgrade", value);
     }
 
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplyImmediately
+    public TerraformProperty<bool> ApplyImmediately
     {
-        get => GetProperty<TerraformProperty<bool>>("apply_immediately");
-        set => this.WithProperty("apply_immediately", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("apply_immediately");
+        set => SetProperty("apply_immediately", value);
     }
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoMinorVersionUpgrade
+    public TerraformProperty<bool> AutoMinorVersionUpgrade
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_minor_version_upgrade");
-        set => this.WithProperty("auto_minor_version_upgrade", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_minor_version_upgrade");
+        set => SetProperty("auto_minor_version_upgrade", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZone
+    public TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
-        set => this.WithProperty("availability_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The dns_name_servers attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsNameServers
+    public TerraformProperty<string> DnsNameServers
     {
-        get => GetProperty<TerraformProperty<string>>("dns_name_servers");
-        set => this.WithProperty("dns_name_servers", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_name_servers");
+        set => SetProperty("dns_name_servers", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public TerraformProperty<bool>? MultiAz
+    public TerraformProperty<bool> MultiAz
     {
-        get => GetProperty<TerraformProperty<bool>>("multi_az");
-        set => this.WithProperty("multi_az", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multi_az");
+        set => SetProperty("multi_az", value);
     }
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkType
+    public TerraformProperty<string> NetworkType
     {
-        get => GetProperty<TerraformProperty<string>>("network_type");
-        set => this.WithProperty("network_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_type");
+        set => SetProperty("network_type", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredMaintenanceWindow
+    public TerraformProperty<string> PreferredMaintenanceWindow
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_maintenance_window");
-        set => this.WithProperty("preferred_maintenance_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_maintenance_window");
+        set => SetProperty("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool> PubliclyAccessible
     {
-        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
-        set => this.WithProperty("publicly_accessible", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
+        set => SetProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -225,8 +239,8 @@ public class AwsDmsReplicationInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceClass is required")]
     public required TerraformProperty<string> ReplicationInstanceClass
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("replication_instance_class");
-        set => this.WithProperty("replication_instance_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_instance_class");
+        set => SetProperty("replication_instance_class", value);
     }
 
     /// <summary>
@@ -235,44 +249,44 @@ public class AwsDmsReplicationInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceId is required")]
     public required TerraformProperty<string> ReplicationInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("replication_instance_id");
-        set => this.WithProperty("replication_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_instance_id");
+        set => SetProperty("replication_instance_id", value);
     }
 
     /// <summary>
     /// The replication_subnet_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationSubnetGroupId
+    public TerraformProperty<string> ReplicationSubnetGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("replication_subnet_group_id");
-        set => this.WithProperty("replication_subnet_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_subnet_group_id");
+        set => SetProperty("replication_subnet_group_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => this.WithProperty("vpc_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
+        set => SetProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
@@ -282,8 +296,7 @@ public class AwsDmsReplicationInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KerberosAuthenticationSettings block(s) allowed")]
     public List<AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock>? KerberosAuthenticationSettings
     {
-        get => GetProperty<List<AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock>>("kerberos_authentication_settings");
-        set => this.WithProperty("kerberos_authentication_settings", value);
+        set => SetProperty("kerberos_authentication_settings", value);
     }
 
     /// <summary>
@@ -292,8 +305,7 @@ public class AwsDmsReplicationInstance : TerraformResource
     /// </summary>
     public AwsDmsReplicationInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDmsReplicationInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

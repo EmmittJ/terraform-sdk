@@ -18,8 +18,7 @@ public class GoogleComputeRouteParamsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
-        set => WithProperty("resource_manager_tags", value);
+        set => SetProperty("resource_manager_tags", value);
     }
 
 }
@@ -35,8 +34,7 @@ public class GoogleComputeRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -44,8 +42,7 @@ public class GoogleComputeRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -63,28 +60,42 @@ public class GoogleComputeRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("as_paths");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("next_hop_hub");
-        this.WithOutput("next_hop_inter_region_cost");
-        this.WithOutput("next_hop_med");
-        this.WithOutput("next_hop_network");
-        this.WithOutput("next_hop_origin");
-        this.WithOutput("next_hop_peering");
-        this.WithOutput("route_status");
-        this.WithOutput("route_type");
-        this.WithOutput("self_link");
-        this.WithOutput("warnings");
+        SetOutput("as_paths");
+        SetOutput("creation_timestamp");
+        SetOutput("next_hop_hub");
+        SetOutput("next_hop_inter_region_cost");
+        SetOutput("next_hop_med");
+        SetOutput("next_hop_network");
+        SetOutput("next_hop_origin");
+        SetOutput("next_hop_peering");
+        SetOutput("route_status");
+        SetOutput("route_type");
+        SetOutput("self_link");
+        SetOutput("warnings");
+        SetOutput("description");
+        SetOutput("dest_range");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("next_hop_gateway");
+        SetOutput("next_hop_ilb");
+        SetOutput("next_hop_instance");
+        SetOutput("next_hop_instance_zone");
+        SetOutput("next_hop_ip");
+        SetOutput("next_hop_vpn_tunnel");
+        SetOutput("priority");
+        SetOutput("project");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property
     /// when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -94,17 +105,17 @@ public class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestRange is required")]
     public required TerraformProperty<string> DestRange
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dest_range");
-        set => this.WithProperty("dest_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dest_range");
+        set => SetProperty("dest_range", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -119,8 +130,8 @@ public class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -129,8 +140,8 @@ public class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -142,10 +153,10 @@ public class GoogleComputeRoute : TerraformResource
     /// * &#39;global/gateways/default-internet-gateway&#39;
     /// * The string &#39;default-internet-gateway&#39;.
     /// </summary>
-    public TerraformProperty<string>? NextHopGateway
+    public TerraformProperty<string> NextHopGateway
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_gateway");
-        set => this.WithProperty("next_hop_gateway", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_gateway");
+        set => SetProperty("next_hop_gateway", value);
     }
 
     /// <summary>
@@ -166,10 +177,10 @@ public class GoogleComputeRoute : TerraformResource
     /// Note that this can only be used when the destinationRange is
     /// a public (non-RFC 1918) IP CIDR range.
     /// </summary>
-    public TerraformProperty<string>? NextHopIlb
+    public TerraformProperty<string> NextHopIlb
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_ilb");
-        set => this.WithProperty("next_hop_ilb", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_ilb");
+        set => SetProperty("next_hop_ilb", value);
     }
 
     /// <summary>
@@ -180,37 +191,37 @@ public class GoogleComputeRoute : TerraformResource
     /// * &#39;zones/zone/instances/instance&#39;
     /// * Just the instance name, with the zone in &#39;next_hop_instance_zone&#39;.
     /// </summary>
-    public TerraformProperty<string>? NextHopInstance
+    public TerraformProperty<string> NextHopInstance
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_instance");
-        set => this.WithProperty("next_hop_instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_instance");
+        set => SetProperty("next_hop_instance", value);
     }
 
     /// <summary>
     /// The zone of the instance specified in next_hop_instance. Omit if next_hop_instance is specified as a URL.
     /// </summary>
-    public TerraformProperty<string>? NextHopInstanceZone
+    public TerraformProperty<string> NextHopInstanceZone
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_instance_zone");
-        set => this.WithProperty("next_hop_instance_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_instance_zone");
+        set => SetProperty("next_hop_instance_zone", value);
     }
 
     /// <summary>
     /// Network IP address of an instance that should handle matching packets.
     /// </summary>
-    public TerraformProperty<string>? NextHopIp
+    public TerraformProperty<string> NextHopIp
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_ip");
-        set => this.WithProperty("next_hop_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_ip");
+        set => SetProperty("next_hop_ip", value);
     }
 
     /// <summary>
     /// URL to a VpnTunnel that should handle matching packets.
     /// </summary>
-    public TerraformProperty<string>? NextHopVpnTunnel
+    public TerraformProperty<string> NextHopVpnTunnel
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_vpn_tunnel");
-        set => this.WithProperty("next_hop_vpn_tunnel", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_vpn_tunnel");
+        set => SetProperty("next_hop_vpn_tunnel", value);
     }
 
     /// <summary>
@@ -222,28 +233,28 @@ public class GoogleComputeRoute : TerraformResource
     /// 
     /// Default value is 1000. Valid range is 0 through 65535.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// A list of instance tags to which this route applies.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Tags
+    public HashSet<TerraformProperty<string>> Tags
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -253,8 +264,7 @@ public class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     public List<GoogleComputeRouteParamsBlock>? Params
     {
-        get => GetProperty<List<GoogleComputeRouteParamsBlock>>("params");
-        set => this.WithProperty("params", value);
+        set => SetProperty("params", value);
     }
 
     /// <summary>
@@ -263,8 +273,7 @@ public class GoogleComputeRoute : TerraformResource
     /// </summary>
     public GoogleComputeRouteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRouteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

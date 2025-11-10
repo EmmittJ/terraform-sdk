@@ -13,8 +13,7 @@ public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? DefaultBranch
     {
-        get => GetProperty<TerraformProperty<string>>("default_branch");
-        set => WithProperty("default_branch", value);
+        set => SetProperty("default_branch", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<string>>? Gitignores
     {
-        get => GetProperty<List<TerraformProperty<string>>>("gitignores");
-        set => WithProperty("gitignores", value);
+        set => SetProperty("gitignores", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? License
     {
-        get => GetProperty<TerraformProperty<string>>("license");
-        set => WithProperty("license", value);
+        set => SetProperty("license", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Readme
     {
-        get => GetProperty<TerraformProperty<string>>("readme");
-        set => WithProperty("readme", value);
+        set => SetProperty("readme", value);
     }
 
 }
@@ -60,8 +56,7 @@ public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -97,11 +90,18 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("uris");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("uris");
+        SetOutput("deletion_policy");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("repository_id");
     }
 
     /// <summary>
@@ -114,28 +114,28 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     ///   * PREVENT
     ///   * ABANDON
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// Description of the repository, which cannot exceed 500 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -144,8 +144,8 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -154,17 +154,17 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -173,8 +173,8 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
-        set => this.WithProperty("repository_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_id");
+        set => SetProperty("repository_id", value);
     }
 
     /// <summary>
@@ -184,8 +184,7 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialConfig block(s) allowed")]
     public List<GoogleSecureSourceManagerRepositoryInitialConfigBlock>? InitialConfig
     {
-        get => GetProperty<List<GoogleSecureSourceManagerRepositoryInitialConfigBlock>>("initial_config");
-        set => this.WithProperty("initial_config", value);
+        set => SetProperty("initial_config", value);
     }
 
     /// <summary>
@@ -194,8 +193,7 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     /// </summary>
     public GoogleSecureSourceManagerRepositoryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSecureSourceManagerRepositoryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

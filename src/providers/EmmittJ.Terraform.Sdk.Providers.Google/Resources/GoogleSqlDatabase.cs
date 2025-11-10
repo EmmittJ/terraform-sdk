@@ -13,8 +13,7 @@ public class GoogleSqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,14 @@ public class GoogleSqlDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("self_link");
+        SetOutput("self_link");
+        SetOutput("charset");
+        SetOutput("collation");
+        SetOutput("deletion_policy");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -59,10 +63,10 @@ public class GoogleSqlDatabase : TerraformResource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
-    public TerraformProperty<string>? Charset
+    public TerraformProperty<string> Charset
     {
-        get => GetProperty<TerraformProperty<string>>("charset");
-        set => this.WithProperty("charset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("charset");
+        set => SetProperty("charset", value);
     }
 
     /// <summary>
@@ -72,10 +76,10 @@ public class GoogleSqlDatabase : TerraformResource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
-    public TerraformProperty<string>? Collation
+    public TerraformProperty<string> Collation
     {
-        get => GetProperty<TerraformProperty<string>>("collation");
-        set => this.WithProperty("collation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collation");
+        set => SetProperty("collation", value);
     }
 
     /// <summary>
@@ -84,19 +88,19 @@ public class GoogleSqlDatabase : TerraformResource
     /// deleted from the API if there are users other than cloudsqlsuperuser with access. Possible
     /// values are: &amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;. Defaults to &amp;quot;DELETE&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -106,8 +110,8 @@ public class GoogleSqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -117,17 +121,17 @@ public class GoogleSqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -136,8 +140,7 @@ public class GoogleSqlDatabase : TerraformResource
     /// </summary>
     public GoogleSqlDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSqlDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

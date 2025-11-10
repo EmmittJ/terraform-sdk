@@ -18,8 +18,7 @@ public class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ActiveKeyVersion
     {
-        get => GetProperty<List<TerraformProperty<string>>>("active_key_version");
-        set => WithProperty("active_key_version", value);
+        set => SetProperty("active_key_version", value);
     }
 
     /// <summary>
@@ -40,8 +39,7 @@ public class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
 }
@@ -57,8 +55,7 @@ public class GoogleFirestoreDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +63,7 @@ public class GoogleFirestoreDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +71,7 @@ public class GoogleFirestoreDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,40 +89,52 @@ public class GoogleFirestoreDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("earliest_version_time");
-        this.WithOutput("etag");
-        this.WithOutput("key_prefix");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("version_retention_period");
+        SetOutput("create_time");
+        SetOutput("earliest_version_time");
+        SetOutput("etag");
+        SetOutput("key_prefix");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("version_retention_period");
+        SetOutput("app_engine_integration_mode");
+        SetOutput("concurrency_mode");
+        SetOutput("database_edition");
+        SetOutput("delete_protection_state");
+        SetOutput("deletion_policy");
+        SetOutput("id");
+        SetOutput("location_id");
+        SetOutput("name");
+        SetOutput("point_in_time_recovery_enablement");
+        SetOutput("project");
+        SetOutput("tags");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The App Engine integration mode to use for this database. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AppEngineIntegrationMode
+    public TerraformProperty<string> AppEngineIntegrationMode
     {
-        get => GetProperty<TerraformProperty<string>>("app_engine_integration_mode");
-        set => this.WithProperty("app_engine_integration_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_engine_integration_mode");
+        set => SetProperty("app_engine_integration_mode", value);
     }
 
     /// <summary>
     /// The concurrency control mode to use for this database. Possible values: [&amp;quot;OPTIMISTIC&amp;quot;, &amp;quot;PESSIMISTIC&amp;quot;, &amp;quot;OPTIMISTIC_WITH_ENTITY_GROUPS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ConcurrencyMode
+    public TerraformProperty<string> ConcurrencyMode
     {
-        get => GetProperty<TerraformProperty<string>>("concurrency_mode");
-        set => this.WithProperty("concurrency_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("concurrency_mode");
+        set => SetProperty("concurrency_mode", value);
     }
 
     /// <summary>
     /// The database edition. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DatabaseEdition
+    public TerraformProperty<string> DatabaseEdition
     {
-        get => GetProperty<TerraformProperty<string>>("database_edition");
-        set => this.WithProperty("database_edition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_edition");
+        set => SetProperty("database_edition", value);
     }
 
     /// <summary>
@@ -136,10 +143,10 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// The default value is &#39;DELETE_PROTECTION_STATE_UNSPECIFIED&#39;, which is currently equivalent to &#39;DELETE_PROTECTION_DISABLED&#39;.
     /// **Note:** Additionally, to delete this database using &#39;terraform destroy&#39;, &#39;deletion_policy&#39; must be set to &#39;DELETE&#39;. Possible values: [&amp;quot;DELETE_PROTECTION_STATE_UNSPECIFIED&amp;quot;, &amp;quot;DELETE_PROTECTION_ENABLED&amp;quot;, &amp;quot;DELETE_PROTECTION_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DeleteProtectionState
+    public TerraformProperty<string> DeleteProtectionState
     {
-        get => GetProperty<TerraformProperty<string>>("delete_protection_state");
-        set => this.WithProperty("delete_protection_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delete_protection_state");
+        set => SetProperty("delete_protection_state", value);
     }
 
     /// <summary>
@@ -149,19 +156,19 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// The default value is &#39;ABANDON&#39;.
     /// See also &#39;delete_protection&#39;.
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -171,8 +178,8 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
     public required TerraformProperty<string> LocationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location_id");
-        set => this.WithProperty("location_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location_id");
+        set => SetProperty("location_id", value);
     }
 
     /// <summary>
@@ -186,8 +193,8 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -197,19 +204,19 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// and reads against 1-minute snapshots beyond 1 hour and within 7 days.
     /// If &#39;POINT_IN_TIME_RECOVERY_DISABLED&#39; is selected, reads are supported on any version of the data from within the past 1 hour. Default value: &amp;quot;POINT_IN_TIME_RECOVERY_DISABLED&amp;quot; Possible values: [&amp;quot;POINT_IN_TIME_RECOVERY_ENABLED&amp;quot;, &amp;quot;POINT_IN_TIME_RECOVERY_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PointInTimeRecoveryEnablement
+    public TerraformProperty<string> PointInTimeRecoveryEnablement
     {
-        get => GetProperty<TerraformProperty<string>>("point_in_time_recovery_enablement");
-        set => this.WithProperty("point_in_time_recovery_enablement", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("point_in_time_recovery_enablement");
+        set => SetProperty("point_in_time_recovery_enablement", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -220,10 +227,10 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// resource replacement when mutated. To apply tags to an existing resource, see
     /// the &#39;google_tags_tag_value&#39; resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -234,8 +241,8 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -245,8 +252,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CmekConfig block(s) allowed")]
     public List<GoogleFirestoreDatabaseCmekConfigBlock>? CmekConfig
     {
-        get => GetProperty<List<GoogleFirestoreDatabaseCmekConfigBlock>>("cmek_config");
-        set => this.WithProperty("cmek_config", value);
+        set => SetProperty("cmek_config", value);
     }
 
     /// <summary>
@@ -255,8 +261,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// </summary>
     public GoogleFirestoreDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFirestoreDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

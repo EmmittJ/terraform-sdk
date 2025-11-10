@@ -14,134 +14,147 @@ public class AwsDefaultVpc : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cidr_block");
-        this.WithOutput("default_network_acl_id");
-        this.WithOutput("default_route_table_id");
-        this.WithOutput("default_security_group_id");
-        this.WithOutput("dhcp_options_id");
-        this.WithOutput("existing_default_vpc");
-        this.WithOutput("instance_tenancy");
-        this.WithOutput("ipv6_association_id");
-        this.WithOutput("main_route_table_id");
-        this.WithOutput("owner_id");
+        SetOutput("arn");
+        SetOutput("cidr_block");
+        SetOutput("default_network_acl_id");
+        SetOutput("default_route_table_id");
+        SetOutput("default_security_group_id");
+        SetOutput("dhcp_options_id");
+        SetOutput("existing_default_vpc");
+        SetOutput("instance_tenancy");
+        SetOutput("ipv6_association_id");
+        SetOutput("main_route_table_id");
+        SetOutput("owner_id");
+        SetOutput("assign_generated_ipv6_cidr_block");
+        SetOutput("enable_dns_hostnames");
+        SetOutput("enable_dns_support");
+        SetOutput("enable_network_address_usage_metrics");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("ipv6_cidr_block");
+        SetOutput("ipv6_cidr_block_network_border_group");
+        SetOutput("ipv6_ipam_pool_id");
+        SetOutput("ipv6_netmask_length");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The assign_generated_ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<bool>? AssignGeneratedIpv6CidrBlock
+    public TerraformProperty<bool> AssignGeneratedIpv6CidrBlock
     {
-        get => GetProperty<TerraformProperty<bool>>("assign_generated_ipv6_cidr_block");
-        set => this.WithProperty("assign_generated_ipv6_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("assign_generated_ipv6_cidr_block");
+        set => SetProperty("assign_generated_ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The enable_dns_hostnames attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableDnsHostnames
+    public TerraformProperty<bool> EnableDnsHostnames
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_dns_hostnames");
-        set => this.WithProperty("enable_dns_hostnames", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_dns_hostnames");
+        set => SetProperty("enable_dns_hostnames", value);
     }
 
     /// <summary>
     /// The enable_dns_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableDnsSupport
+    public TerraformProperty<bool> EnableDnsSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_dns_support");
-        set => this.WithProperty("enable_dns_support", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_dns_support");
+        set => SetProperty("enable_dns_support", value);
     }
 
     /// <summary>
     /// The enable_network_address_usage_metrics attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableNetworkAddressUsageMetrics
+    public TerraformProperty<bool> EnableNetworkAddressUsageMetrics
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_network_address_usage_metrics");
-        set => this.WithProperty("enable_network_address_usage_metrics", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_network_address_usage_metrics");
+        set => SetProperty("enable_network_address_usage_metrics", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6CidrBlock
+    public TerraformProperty<string> Ipv6CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_cidr_block");
-        set => this.WithProperty("ipv6_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_cidr_block");
+        set => SetProperty("ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block_network_border_group attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6CidrBlockNetworkBorderGroup
+    public TerraformProperty<string> Ipv6CidrBlockNetworkBorderGroup
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_cidr_block_network_border_group");
-        set => this.WithProperty("ipv6_cidr_block_network_border_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_cidr_block_network_border_group");
+        set => SetProperty("ipv6_cidr_block_network_border_group", value);
     }
 
     /// <summary>
     /// The ipv6_ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6IpamPoolId
+    public TerraformProperty<string> Ipv6IpamPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_ipam_pool_id");
-        set => this.WithProperty("ipv6_ipam_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_ipam_pool_id");
+        set => SetProperty("ipv6_ipam_pool_id", value);
     }
 
     /// <summary>
     /// The ipv6_netmask_length attribute.
     /// </summary>
-    public TerraformProperty<double>? Ipv6NetmaskLength
+    public TerraformProperty<double> Ipv6NetmaskLength
     {
-        get => GetProperty<TerraformProperty<double>>("ipv6_netmask_length");
-        set => this.WithProperty("ipv6_netmask_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ipv6_netmask_length");
+        set => SetProperty("ipv6_netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

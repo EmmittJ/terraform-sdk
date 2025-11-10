@@ -13,8 +13,7 @@ public class AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,6 +30,10 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
+        SetOutput("billing_account_name");
+        SetOutput("billing_profile_name");
+        SetOutput("id");
+        SetOutput("invoice_section_name");
     }
 
     /// <summary>
@@ -39,8 +42,8 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
     public required TerraformProperty<string> BillingAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("billing_account_name");
-        set => this.WithProperty("billing_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_account_name");
+        set => SetProperty("billing_account_name", value);
     }
 
     /// <summary>
@@ -49,17 +52,17 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProfileName is required")]
     public required TerraformProperty<string> BillingProfileName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("billing_profile_name");
-        set => this.WithProperty("billing_profile_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_profile_name");
+        set => SetProperty("billing_profile_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +71,8 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvoiceSectionName is required")]
     public required TerraformProperty<string> InvoiceSectionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("invoice_section_name");
-        set => this.WithProperty("invoice_section_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("invoice_section_name");
+        set => SetProperty("invoice_section_name", value);
     }
 
     /// <summary>
@@ -78,8 +81,7 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
     /// </summary>
     public AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

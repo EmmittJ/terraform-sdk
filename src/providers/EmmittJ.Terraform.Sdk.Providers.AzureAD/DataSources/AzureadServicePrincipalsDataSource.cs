@@ -13,8 +13,7 @@ public class AzureadServicePrincipalsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,61 +30,67 @@ public class AzureadServicePrincipalsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("service_principals");
+        SetOutput("service_principals");
+        SetOutput("client_ids");
+        SetOutput("display_names");
+        SetOutput("id");
+        SetOutput("ignore_missing");
+        SetOutput("object_ids");
+        SetOutput("return_all");
     }
 
     /// <summary>
     /// The client IDs of the applications associated with the service principals
     /// </summary>
-    public List<TerraformProperty<string>>? ClientIds
+    public List<TerraformProperty<string>> ClientIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("client_ids");
-        set => this.WithProperty("client_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("client_ids");
+        set => SetProperty("client_ids", value);
     }
 
     /// <summary>
     /// The display names of the applications associated with the service principals
     /// </summary>
-    public List<TerraformProperty<string>>? DisplayNames
+    public List<TerraformProperty<string>> DisplayNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("display_names");
-        set => this.WithProperty("display_names", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("display_names");
+        set => SetProperty("display_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Ignore missing service principals and return the service principals that were found. The data source will still fail if no service principals are found
     /// </summary>
-    public TerraformProperty<bool>? IgnoreMissing
+    public TerraformProperty<bool> IgnoreMissing
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_missing");
-        set => this.WithProperty("ignore_missing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_missing");
+        set => SetProperty("ignore_missing", value);
     }
 
     /// <summary>
     /// The object IDs of the service principals
     /// </summary>
-    public List<TerraformProperty<string>>? ObjectIds
+    public List<TerraformProperty<string>> ObjectIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("object_ids");
-        set => this.WithProperty("object_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("object_ids");
+        set => SetProperty("object_ids", value);
     }
 
     /// <summary>
     /// Fetch all service principals with no filter and return all that were found. The data source will still fail if no service principals are found.
     /// </summary>
-    public TerraformProperty<bool>? ReturnAll
+    public TerraformProperty<bool> ReturnAll
     {
-        get => GetProperty<TerraformProperty<bool>>("return_all");
-        set => this.WithProperty("return_all", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("return_all");
+        set => SetProperty("return_all", value);
     }
 
     /// <summary>
@@ -94,8 +99,7 @@ public class AzureadServicePrincipalsDataSource : TerraformDataSource
     /// </summary>
     public AzureadServicePrincipalsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadServicePrincipalsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

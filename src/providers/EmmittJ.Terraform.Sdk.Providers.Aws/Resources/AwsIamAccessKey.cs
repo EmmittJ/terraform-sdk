@@ -14,39 +14,43 @@ public class AwsIamAccessKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_date");
-        this.WithOutput("encrypted_secret");
-        this.WithOutput("encrypted_ses_smtp_password_v4");
-        this.WithOutput("key_fingerprint");
-        this.WithOutput("secret");
-        this.WithOutput("ses_smtp_password_v4");
+        SetOutput("create_date");
+        SetOutput("encrypted_secret");
+        SetOutput("encrypted_ses_smtp_password_v4");
+        SetOutput("key_fingerprint");
+        SetOutput("secret");
+        SetOutput("ses_smtp_password_v4");
+        SetOutput("id");
+        SetOutput("pgp_key");
+        SetOutput("status");
+        SetOutput("user");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The pgp_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PgpKey
+    public TerraformProperty<string> PgpKey
     {
-        get => GetProperty<TerraformProperty<string>>("pgp_key");
-        set => this.WithProperty("pgp_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pgp_key");
+        set => SetProperty("pgp_key", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -55,8 +59,8 @@ public class AwsIamAccessKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user");
-        set => this.WithProperty("user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user");
+        set => SetProperty("user", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsDbSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,23 +30,30 @@ public class AwsDbSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allocated_storage");
-        this.WithOutput("availability_zone");
-        this.WithOutput("db_snapshot_arn");
-        this.WithOutput("encrypted");
-        this.WithOutput("engine");
-        this.WithOutput("engine_version");
-        this.WithOutput("iops");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("license_model");
-        this.WithOutput("option_group_name");
-        this.WithOutput("port");
-        this.WithOutput("snapshot_type");
-        this.WithOutput("source_db_snapshot_identifier");
-        this.WithOutput("source_region");
-        this.WithOutput("status");
-        this.WithOutput("storage_type");
-        this.WithOutput("vpc_id");
+        SetOutput("allocated_storage");
+        SetOutput("availability_zone");
+        SetOutput("db_snapshot_arn");
+        SetOutput("encrypted");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("iops");
+        SetOutput("kms_key_id");
+        SetOutput("license_model");
+        SetOutput("option_group_name");
+        SetOutput("port");
+        SetOutput("snapshot_type");
+        SetOutput("source_db_snapshot_identifier");
+        SetOutput("source_region");
+        SetOutput("status");
+        SetOutput("storage_type");
+        SetOutput("vpc_id");
+        SetOutput("db_instance_identifier");
+        SetOutput("db_snapshot_identifier");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("shared_accounts");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -56,8 +62,8 @@ public class AwsDbSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceIdentifier is required")]
     public required TerraformProperty<string> DbInstanceIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_instance_identifier");
-        set => this.WithProperty("db_instance_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_identifier");
+        set => SetProperty("db_instance_identifier", value);
     }
 
     /// <summary>
@@ -66,53 +72,53 @@ public class AwsDbSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbSnapshotIdentifier is required")]
     public required TerraformProperty<string> DbSnapshotIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_snapshot_identifier");
-        set => this.WithProperty("db_snapshot_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_snapshot_identifier");
+        set => SetProperty("db_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The shared_accounts attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SharedAccounts
+    public HashSet<TerraformProperty<string>> SharedAccounts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("shared_accounts");
-        set => this.WithProperty("shared_accounts", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("shared_accounts");
+        set => SetProperty("shared_accounts", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -121,8 +127,7 @@ public class AwsDbSnapshot : TerraformResource
     /// </summary>
     public AwsDbSnapshotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDbSnapshotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

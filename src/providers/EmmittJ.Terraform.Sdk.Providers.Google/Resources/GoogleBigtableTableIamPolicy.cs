@@ -14,16 +14,21 @@ public class GoogleBigtableTableIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("instance_name");
+        SetOutput("policy_data");
+        SetOutput("project");
+        SetOutput("table");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,8 +37,8 @@ public class GoogleBigtableTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
-        set => this.WithProperty("instance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_name");
+        set => SetProperty("instance_name", value);
     }
 
     /// <summary>
@@ -42,17 +47,17 @@ public class GoogleBigtableTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
-        set => this.WithProperty("policy_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
+        set => SetProperty("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -61,8 +66,8 @@ public class GoogleBigtableTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table");
-        set => this.WithProperty("table", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table");
+        set => SetProperty("table", value);
     }
 
     /// <summary>

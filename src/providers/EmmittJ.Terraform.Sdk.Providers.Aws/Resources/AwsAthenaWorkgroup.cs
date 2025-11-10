@@ -13,8 +13,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? BytesScannedCutoffPerQuery
     {
-        get => GetProperty<TerraformProperty<double>>("bytes_scanned_cutoff_per_query");
-        set => WithProperty("bytes_scanned_cutoff_per_query", value);
+        set => SetProperty("bytes_scanned_cutoff_per_query", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnforceWorkgroupConfiguration
     {
-        get => GetProperty<TerraformProperty<bool>>("enforce_workgroup_configuration");
-        set => WithProperty("enforce_workgroup_configuration", value);
+        set => SetProperty("enforce_workgroup_configuration", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExecutionRole
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role");
-        set => WithProperty("execution_role", value);
+        set => SetProperty("execution_role", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PublishCloudwatchMetricsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("publish_cloudwatch_metrics_enabled");
-        set => WithProperty("publish_cloudwatch_metrics_enabled", value);
+        set => SetProperty("publish_cloudwatch_metrics_enabled", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequesterPaysEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("requester_pays_enabled");
-        set => WithProperty("requester_pays_enabled", value);
+        set => SetProperty("requester_pays_enabled", value);
     }
 
 }
@@ -68,34 +63,42 @@ public class AwsAthenaWorkgroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("state");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,44 +107,44 @@ public class AwsAthenaWorkgroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -151,8 +154,7 @@ public class AwsAthenaWorkgroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     public List<AwsAthenaWorkgroupConfigurationBlock>? Configuration
     {
-        get => GetProperty<List<AwsAthenaWorkgroupConfigurationBlock>>("configuration");
-        set => this.WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>

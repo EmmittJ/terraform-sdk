@@ -29,8 +29,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -38,8 +37,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -47,8 +45,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -56,8 +53,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -75,16 +71,21 @@ public class AzurermCdnFrontdoorRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cdn_frontdoor_rule_set_name");
+        SetOutput("cdn_frontdoor_rule_set_name");
+        SetOutput("behavior_on_match");
+        SetOutput("cdn_frontdoor_rule_set_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("order");
     }
 
     /// <summary>
     /// The behavior_on_match attribute.
     /// </summary>
-    public TerraformProperty<string>? BehaviorOnMatch
+    public TerraformProperty<string> BehaviorOnMatch
     {
-        get => GetProperty<TerraformProperty<string>>("behavior_on_match");
-        set => this.WithProperty("behavior_on_match", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("behavior_on_match");
+        set => SetProperty("behavior_on_match", value);
     }
 
     /// <summary>
@@ -93,17 +94,17 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorRuleSetId is required")]
     public required TerraformProperty<string> CdnFrontdoorRuleSetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_rule_set_id");
-        set => this.WithProperty("cdn_frontdoor_rule_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cdn_frontdoor_rule_set_id");
+        set => SetProperty("cdn_frontdoor_rule_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,8 +113,8 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -122,20 +123,20 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("order");
-        set => this.WithProperty("order", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("order");
+        set => SetProperty("order", value);
     }
 
     /// <summary>
     /// Block for actions.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Actions block(s) allowed")]
     public List<AzurermCdnFrontdoorRuleActionsBlock>? Actions
     {
-        get => GetProperty<List<AzurermCdnFrontdoorRuleActionsBlock>>("actions");
-        set => this.WithProperty("actions", value);
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -145,8 +146,7 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Conditions block(s) allowed")]
     public List<AzurermCdnFrontdoorRuleConditionsBlock>? Conditions
     {
-        get => GetProperty<List<AzurermCdnFrontdoorRuleConditionsBlock>>("conditions");
-        set => this.WithProperty("conditions", value);
+        set => SetProperty("conditions", value);
     }
 
     /// <summary>
@@ -155,8 +155,7 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     /// </summary>
     public AzurermCdnFrontdoorRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCdnFrontdoorRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

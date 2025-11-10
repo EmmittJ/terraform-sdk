@@ -14,44 +14,47 @@ public class AwsEcsTaskDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("arn_without_revision");
-        this.WithOutput("container_definitions");
-        this.WithOutput("cpu");
-        this.WithOutput("enable_fault_injection");
-        this.WithOutput("ephemeral_storage");
-        this.WithOutput("execution_role_arn");
-        this.WithOutput("family");
-        this.WithOutput("ipc_mode");
-        this.WithOutput("memory");
-        this.WithOutput("network_mode");
-        this.WithOutput("pid_mode");
-        this.WithOutput("placement_constraints");
-        this.WithOutput("proxy_configuration");
-        this.WithOutput("requires_compatibilities");
-        this.WithOutput("revision");
-        this.WithOutput("runtime_platform");
-        this.WithOutput("status");
-        this.WithOutput("task_role_arn");
-        this.WithOutput("volume");
+        SetOutput("arn");
+        SetOutput("arn_without_revision");
+        SetOutput("container_definitions");
+        SetOutput("cpu");
+        SetOutput("enable_fault_injection");
+        SetOutput("ephemeral_storage");
+        SetOutput("execution_role_arn");
+        SetOutput("family");
+        SetOutput("ipc_mode");
+        SetOutput("memory");
+        SetOutput("network_mode");
+        SetOutput("pid_mode");
+        SetOutput("placement_constraints");
+        SetOutput("proxy_configuration");
+        SetOutput("requires_compatibilities");
+        SetOutput("revision");
+        SetOutput("runtime_platform");
+        SetOutput("status");
+        SetOutput("task_role_arn");
+        SetOutput("volume");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("task_definition");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -60,8 +63,8 @@ public class AwsEcsTaskDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     public required TerraformProperty<string> TaskDefinition
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_definition");
-        set => this.WithProperty("task_definition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_definition");
+        set => SetProperty("task_definition", value);
     }
 
     /// <summary>

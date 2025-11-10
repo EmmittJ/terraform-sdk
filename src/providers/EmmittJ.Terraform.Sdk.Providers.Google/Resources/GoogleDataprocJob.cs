@@ -13,8 +13,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainClass
     {
-        get => GetProperty<TerraformProperty<string>>("main_class");
-        set => WithProperty("main_class", value);
+        set => SetProperty("main_class", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainJarFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_jar_file_uri");
-        set => WithProperty("main_jar_file_uri", value);
+        set => SetProperty("main_jar_file_uri", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
 }
@@ -84,8 +77,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ContinueOnFailure
     {
-        get => GetProperty<TerraformProperty<bool>>("continue_on_failure");
-        set => WithProperty("continue_on_failure", value);
+        set => SetProperty("continue_on_failure", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? QueryFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("query_file_uri");
-        set => WithProperty("query_file_uri", value);
+        set => SetProperty("query_file_uri", value);
     }
 
     /// <summary>
@@ -120,8 +109,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? QueryList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("query_list");
-        set => WithProperty("query_list", value);
+        set => SetProperty("query_list", value);
     }
 
     /// <summary>
@@ -129,8 +117,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ScriptVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("script_variables");
-        set => WithProperty("script_variables", value);
+        set => SetProperty("script_variables", value);
     }
 
 }
@@ -146,8 +133,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ContinueOnFailure
     {
-        get => GetProperty<TerraformProperty<bool>>("continue_on_failure");
-        set => WithProperty("continue_on_failure", value);
+        set => SetProperty("continue_on_failure", value);
     }
 
     /// <summary>
@@ -155,8 +141,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -164,8 +149,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -173,8 +157,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? QueryFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("query_file_uri");
-        set => WithProperty("query_file_uri", value);
+        set => SetProperty("query_file_uri", value);
     }
 
     /// <summary>
@@ -182,8 +165,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? QueryList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("query_list");
-        set => WithProperty("query_list", value);
+        set => SetProperty("query_list", value);
     }
 
     /// <summary>
@@ -191,8 +173,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ScriptVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("script_variables");
-        set => WithProperty("script_variables", value);
+        set => SetProperty("script_variables", value);
     }
 
 }
@@ -209,8 +190,7 @@ public class GoogleDataprocJobPlacementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => WithProperty("cluster_name", value);
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
@@ -218,8 +198,7 @@ public class GoogleDataprocJobPlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterUuid
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_uuid");
-        set => WithProperty("cluster_uuid", value);
+        set => SetProperty("cluster_uuid", value);
     }
 
 }
@@ -235,8 +214,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ClientTags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("client_tags");
-        set => WithProperty("client_tags", value);
+        set => SetProperty("client_tags", value);
     }
 
     /// <summary>
@@ -244,8 +222,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ContinueOnFailure
     {
-        get => GetProperty<TerraformProperty<bool>>("continue_on_failure");
-        set => WithProperty("continue_on_failure", value);
+        set => SetProperty("continue_on_failure", value);
     }
 
     /// <summary>
@@ -253,8 +230,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutputFormat
     {
-        get => GetProperty<TerraformProperty<string>>("output_format");
-        set => WithProperty("output_format", value);
+        set => SetProperty("output_format", value);
     }
 
     /// <summary>
@@ -262,8 +238,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -271,8 +246,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? QueryFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("query_file_uri");
-        set => WithProperty("query_file_uri", value);
+        set => SetProperty("query_file_uri", value);
     }
 
     /// <summary>
@@ -280,8 +254,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? QueryList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("query_list");
-        set => WithProperty("query_list", value);
+        set => SetProperty("query_list", value);
     }
 
 }
@@ -297,8 +270,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -306,8 +278,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -315,8 +286,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -324,8 +294,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -334,8 +303,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
     public required TerraformProperty<string> MainPythonFileUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("main_python_file_uri");
-        set => WithProperty("main_python_file_uri", value);
+        set => SetProperty("main_python_file_uri", value);
     }
 
     /// <summary>
@@ -343,8 +311,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -352,8 +319,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? PythonFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("python_file_uris");
-        set => WithProperty("python_file_uris", value);
+        set => SetProperty("python_file_uris", value);
     }
 
 }
@@ -369,8 +335,7 @@ public class GoogleDataprocJobReferenceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JobId
     {
-        get => GetProperty<TerraformProperty<string>>("job_id");
-        set => WithProperty("job_id", value);
+        set => SetProperty("job_id", value);
     }
 
 }
@@ -387,8 +352,7 @@ public class GoogleDataprocJobSchedulingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxFailuresPerHour is required")]
     public required TerraformProperty<double> MaxFailuresPerHour
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_failures_per_hour");
-        set => WithProperty("max_failures_per_hour", value);
+        set => SetProperty("max_failures_per_hour", value);
     }
 
     /// <summary>
@@ -397,8 +361,7 @@ public class GoogleDataprocJobSchedulingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxFailuresTotal is required")]
     public required TerraformProperty<double> MaxFailuresTotal
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_failures_total");
-        set => WithProperty("max_failures_total", value);
+        set => SetProperty("max_failures_total", value);
     }
 
 }
@@ -414,8 +377,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -423,8 +385,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -432,8 +393,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -441,8 +401,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -450,8 +409,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainClass
     {
-        get => GetProperty<TerraformProperty<string>>("main_class");
-        set => WithProperty("main_class", value);
+        set => SetProperty("main_class", value);
     }
 
     /// <summary>
@@ -459,8 +417,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainJarFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_jar_file_uri");
-        set => WithProperty("main_jar_file_uri", value);
+        set => SetProperty("main_jar_file_uri", value);
     }
 
     /// <summary>
@@ -468,8 +425,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
 }
@@ -485,8 +441,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -494,8 +449,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -503,8 +457,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? QueryFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("query_file_uri");
-        set => WithProperty("query_file_uri", value);
+        set => SetProperty("query_file_uri", value);
     }
 
     /// <summary>
@@ -512,8 +465,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? QueryList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("query_list");
-        set => WithProperty("query_list", value);
+        set => SetProperty("query_list", value);
     }
 
     /// <summary>
@@ -521,8 +473,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ScriptVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("script_variables");
-        set => WithProperty("script_variables", value);
+        set => SetProperty("script_variables", value);
     }
 
 }
@@ -538,8 +489,7 @@ public class GoogleDataprocJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -547,8 +497,7 @@ public class GoogleDataprocJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -566,29 +515,34 @@ public class GoogleDataprocJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("driver_controls_files_uri");
-        this.WithOutput("driver_output_resource_uri");
-        this.WithOutput("effective_labels");
-        this.WithOutput("status");
-        this.WithOutput("terraform_labels");
+        SetOutput("driver_controls_files_uri");
+        SetOutput("driver_output_resource_uri");
+        SetOutput("effective_labels");
+        SetOutput("status");
+        SetOutput("terraform_labels");
+        SetOutput("force_delete");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// By default, you can only delete inactive jobs within Dataproc. Setting this to true, and calling destroy, will ensure that the job is first cancelled before issuing the delete.
     /// </summary>
-    public TerraformProperty<bool>? ForceDelete
+    public TerraformProperty<bool> ForceDelete
     {
-        get => GetProperty<TerraformProperty<bool>>("force_delete");
-        set => this.WithProperty("force_delete", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete");
+        set => SetProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -597,28 +551,28 @@ public class GoogleDataprocJob : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The project in which the cluster can be found and jobs subsequently run against. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The Cloud Dataproc region. This essentially determines which clusters are available for this job to be submitted to. If not specified, defaults to global.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -628,8 +582,7 @@ public class GoogleDataprocJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HadoopConfig block(s) allowed")]
     public List<GoogleDataprocJobHadoopConfigBlock>? HadoopConfig
     {
-        get => GetProperty<List<GoogleDataprocJobHadoopConfigBlock>>("hadoop_config");
-        set => this.WithProperty("hadoop_config", value);
+        set => SetProperty("hadoop_config", value);
     }
 
     /// <summary>
@@ -639,8 +592,7 @@ public class GoogleDataprocJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveConfig block(s) allowed")]
     public List<GoogleDataprocJobHiveConfigBlock>? HiveConfig
     {
-        get => GetProperty<List<GoogleDataprocJobHiveConfigBlock>>("hive_config");
-        set => this.WithProperty("hive_config", value);
+        set => SetProperty("hive_config", value);
     }
 
     /// <summary>
@@ -650,20 +602,19 @@ public class GoogleDataprocJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PigConfig block(s) allowed")]
     public List<GoogleDataprocJobPigConfigBlock>? PigConfig
     {
-        get => GetProperty<List<GoogleDataprocJobPigConfigBlock>>("pig_config");
-        set => this.WithProperty("pig_config", value);
+        set => SetProperty("pig_config", value);
     }
 
     /// <summary>
     /// Block for placement.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Placement is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Placement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
     public List<GoogleDataprocJobPlacementBlock>? Placement
     {
-        get => GetProperty<List<GoogleDataprocJobPlacementBlock>>("placement");
-        set => this.WithProperty("placement", value);
+        set => SetProperty("placement", value);
     }
 
     /// <summary>
@@ -673,8 +624,7 @@ public class GoogleDataprocJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrestoConfig block(s) allowed")]
     public List<GoogleDataprocJobPrestoConfigBlock>? PrestoConfig
     {
-        get => GetProperty<List<GoogleDataprocJobPrestoConfigBlock>>("presto_config");
-        set => this.WithProperty("presto_config", value);
+        set => SetProperty("presto_config", value);
     }
 
     /// <summary>
@@ -684,8 +634,7 @@ public class GoogleDataprocJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PysparkConfig block(s) allowed")]
     public List<GoogleDataprocJobPysparkConfigBlock>? PysparkConfig
     {
-        get => GetProperty<List<GoogleDataprocJobPysparkConfigBlock>>("pyspark_config");
-        set => this.WithProperty("pyspark_config", value);
+        set => SetProperty("pyspark_config", value);
     }
 
     /// <summary>
@@ -695,8 +644,7 @@ public class GoogleDataprocJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Reference block(s) allowed")]
     public List<GoogleDataprocJobReferenceBlock>? Reference
     {
-        get => GetProperty<List<GoogleDataprocJobReferenceBlock>>("reference");
-        set => this.WithProperty("reference", value);
+        set => SetProperty("reference", value);
     }
 
     /// <summary>
@@ -706,8 +654,7 @@ public class GoogleDataprocJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scheduling block(s) allowed")]
     public List<GoogleDataprocJobSchedulingBlock>? Scheduling
     {
-        get => GetProperty<List<GoogleDataprocJobSchedulingBlock>>("scheduling");
-        set => this.WithProperty("scheduling", value);
+        set => SetProperty("scheduling", value);
     }
 
     /// <summary>
@@ -717,8 +664,7 @@ public class GoogleDataprocJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkConfig block(s) allowed")]
     public List<GoogleDataprocJobSparkConfigBlock>? SparkConfig
     {
-        get => GetProperty<List<GoogleDataprocJobSparkConfigBlock>>("spark_config");
-        set => this.WithProperty("spark_config", value);
+        set => SetProperty("spark_config", value);
     }
 
     /// <summary>
@@ -728,8 +674,7 @@ public class GoogleDataprocJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparksqlConfig block(s) allowed")]
     public List<GoogleDataprocJobSparksqlConfigBlock>? SparksqlConfig
     {
-        get => GetProperty<List<GoogleDataprocJobSparksqlConfigBlock>>("sparksql_config");
-        set => this.WithProperty("sparksql_config", value);
+        set => SetProperty("sparksql_config", value);
     }
 
     /// <summary>
@@ -738,8 +683,7 @@ public class GoogleDataprocJob : TerraformResource
     /// </summary>
     public GoogleDataprocJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataprocJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

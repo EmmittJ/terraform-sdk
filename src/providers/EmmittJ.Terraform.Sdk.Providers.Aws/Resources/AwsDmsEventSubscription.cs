@@ -13,8 +13,7 @@ public class AwsDmsEventSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDmsEventSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDmsEventSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,35 +46,45 @@ public class AwsDmsEventSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("enabled");
+        SetOutput("event_categories");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("sns_topic_arn");
+        SetOutput("source_ids");
+        SetOutput("source_type");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The event_categories attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventCategories is required")]
-    public HashSet<TerraformProperty<string>>? EventCategories
+    public HashSet<TerraformProperty<string>> EventCategories
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("event_categories");
-        set => this.WithProperty("event_categories", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("event_categories");
+        set => SetProperty("event_categories", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,17 +93,17 @@ public class AwsDmsEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -105,17 +112,17 @@ public class AwsDmsEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopicArn is required")]
     public required TerraformProperty<string> SnsTopicArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sns_topic_arn");
-        set => this.WithProperty("sns_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sns_topic_arn");
+        set => SetProperty("sns_topic_arn", value);
     }
 
     /// <summary>
     /// The source_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SourceIds
+    public HashSet<TerraformProperty<string>> SourceIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("source_ids");
-        set => this.WithProperty("source_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("source_ids");
+        set => SetProperty("source_ids", value);
     }
 
     /// <summary>
@@ -124,26 +131,26 @@ public class AwsDmsEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformProperty<string> SourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_type");
-        set => this.WithProperty("source_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_type");
+        set => SetProperty("source_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -152,8 +159,7 @@ public class AwsDmsEventSubscription : TerraformResource
     /// </summary>
     public AwsDmsEventSubscriptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDmsEventSubscriptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

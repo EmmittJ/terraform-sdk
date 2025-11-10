@@ -14,65 +14,72 @@ public class AwsApprunnerVpcConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("status");
-        this.WithOutput("vpc_connector_revision");
+        SetOutput("arn");
+        SetOutput("status");
+        SetOutput("vpc_connector_revision");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("security_groups");
+        SetOutput("subnets");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_connector_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
-    public HashSet<TerraformProperty<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>> SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => this.WithProperty("security_groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_groups");
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
-    public HashSet<TerraformProperty<string>>? Subnets
+    public HashSet<TerraformProperty<string>> Subnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
-        set => this.WithProperty("subnets", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnets");
+        set => SetProperty("subnets", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -81,8 +88,8 @@ public class AwsApprunnerVpcConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectorName is required")]
     public required TerraformProperty<string> VpcConnectorName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_connector_name");
-        set => this.WithProperty("vpc_connector_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_connector_name");
+        set => SetProperty("vpc_connector_name", value);
     }
 
     /// <summary>

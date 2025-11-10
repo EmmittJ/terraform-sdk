@@ -14,57 +14,62 @@ public class AwsIamServerCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("certificate_body");
-        this.WithOutput("certificate_chain");
-        this.WithOutput("expiration_date");
-        this.WithOutput("path");
-        this.WithOutput("upload_date");
+        SetOutput("arn");
+        SetOutput("certificate_body");
+        SetOutput("certificate_chain");
+        SetOutput("expiration_date");
+        SetOutput("path");
+        SetOutput("upload_date");
+        SetOutput("id");
+        SetOutput("latest");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("path_prefix");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public TerraformProperty<bool>? Latest
+    public TerraformProperty<bool> Latest
     {
-        get => GetProperty<TerraformProperty<bool>>("latest");
-        set => this.WithProperty("latest", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("latest");
+        set => SetProperty("latest", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? PathPrefix
+    public TerraformProperty<string> PathPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("path_prefix");
-        set => this.WithProperty("path_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path_prefix");
+        set => SetProperty("path_prefix", value);
     }
 
     /// <summary>

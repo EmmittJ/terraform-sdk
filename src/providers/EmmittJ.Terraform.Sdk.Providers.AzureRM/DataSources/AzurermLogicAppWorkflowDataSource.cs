@@ -13,8 +13,7 @@ public class AzurermLogicAppWorkflowDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,27 +30,30 @@ public class AzurermLogicAppWorkflowDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_endpoint");
-        this.WithOutput("connector_endpoint_ip_addresses");
-        this.WithOutput("connector_outbound_ip_addresses");
-        this.WithOutput("identity");
-        this.WithOutput("location");
-        this.WithOutput("logic_app_integration_account_id");
-        this.WithOutput("parameters");
-        this.WithOutput("tags");
-        this.WithOutput("workflow_endpoint_ip_addresses");
-        this.WithOutput("workflow_outbound_ip_addresses");
-        this.WithOutput("workflow_schema");
-        this.WithOutput("workflow_version");
+        SetOutput("access_endpoint");
+        SetOutput("connector_endpoint_ip_addresses");
+        SetOutput("connector_outbound_ip_addresses");
+        SetOutput("identity");
+        SetOutput("location");
+        SetOutput("logic_app_integration_account_id");
+        SetOutput("parameters");
+        SetOutput("tags");
+        SetOutput("workflow_endpoint_ip_addresses");
+        SetOutput("workflow_outbound_ip_addresses");
+        SetOutput("workflow_schema");
+        SetOutput("workflow_version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +62,8 @@ public class AzurermLogicAppWorkflowDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -70,8 +72,8 @@ public class AzurermLogicAppWorkflowDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -80,8 +82,7 @@ public class AzurermLogicAppWorkflowDataSource : TerraformDataSource
     /// </summary>
     public AzurermLogicAppWorkflowDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogicAppWorkflowDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

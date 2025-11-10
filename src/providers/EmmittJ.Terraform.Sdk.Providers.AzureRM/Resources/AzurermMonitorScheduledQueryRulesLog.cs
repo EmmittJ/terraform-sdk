@@ -14,8 +14,7 @@ public class AzurermMonitorScheduledQueryRulesLogCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
-        set => WithProperty("metric_name", value);
+        set => SetProperty("metric_name", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermMonitorScheduledQueryRulesLogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermMonitorScheduledQueryRulesLogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermMonitorScheduledQueryRulesLogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermMonitorScheduledQueryRulesLogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,15 +72,24 @@ public class AzurermMonitorScheduledQueryRulesLog : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("authorized_resource_ids");
+        SetOutput("data_source_id");
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The authorized_resource_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AuthorizedResourceIds
+    public HashSet<TerraformProperty<string>> AuthorizedResourceIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("authorized_resource_ids");
-        set => this.WithProperty("authorized_resource_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("authorized_resource_ids");
+        set => SetProperty("authorized_resource_ids", value);
     }
 
     /// <summary>
@@ -94,35 +98,35 @@ public class AzurermMonitorScheduledQueryRulesLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformProperty<string> DataSourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_source_id");
-        set => this.WithProperty("data_source_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_source_id");
+        set => SetProperty("data_source_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,8 +135,8 @@ public class AzurermMonitorScheduledQueryRulesLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -141,8 +145,8 @@ public class AzurermMonitorScheduledQueryRulesLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -151,29 +155,29 @@ public class AzurermMonitorScheduledQueryRulesLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for criteria.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
     public List<AzurermMonitorScheduledQueryRulesLogCriteriaBlock>? Criteria
     {
-        get => GetProperty<List<AzurermMonitorScheduledQueryRulesLogCriteriaBlock>>("criteria");
-        set => this.WithProperty("criteria", value);
+        set => SetProperty("criteria", value);
     }
 
     /// <summary>
@@ -182,8 +186,7 @@ public class AzurermMonitorScheduledQueryRulesLog : TerraformResource
     /// </summary>
     public AzurermMonitorScheduledQueryRulesLogTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorScheduledQueryRulesLogTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

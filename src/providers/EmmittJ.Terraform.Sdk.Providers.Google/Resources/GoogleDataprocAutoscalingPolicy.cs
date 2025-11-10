@@ -16,8 +16,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CooldownPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("cooldown_period");
-        set => WithProperty("cooldown_period", value);
+        set => SetProperty("cooldown_period", value);
     }
 
 }
@@ -35,8 +34,7 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? MaxInstances
     {
-        get => GetProperty<TerraformProperty<double>>("max_instances");
-        set => WithProperty("max_instances", value);
+        set => SetProperty("max_instances", value);
     }
 
     /// <summary>
@@ -44,8 +42,7 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? MinInstances
     {
-        get => GetProperty<TerraformProperty<double>>("min_instances");
-        set => WithProperty("min_instances", value);
+        set => SetProperty("min_instances", value);
     }
 
     /// <summary>
@@ -66,8 +63,7 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
-        set => WithProperty("weight", value);
+        set => SetProperty("weight", value);
     }
 
 }
@@ -83,8 +79,7 @@ public class GoogleDataprocAutoscalingPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -92,8 +87,7 @@ public class GoogleDataprocAutoscalingPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -101,8 +95,7 @@ public class GoogleDataprocAutoscalingPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -119,8 +112,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
     public required TerraformProperty<double> MaxInstances
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_instances");
-        set => WithProperty("max_instances", value);
+        set => SetProperty("max_instances", value);
     }
 
     /// <summary>
@@ -128,8 +120,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinInstances
     {
-        get => GetProperty<TerraformProperty<double>>("min_instances");
-        set => WithProperty("min_instances", value);
+        set => SetProperty("min_instances", value);
     }
 
     /// <summary>
@@ -150,8 +141,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
-        set => WithProperty("weight", value);
+        set => SetProperty("weight", value);
     }
 
 }
@@ -169,26 +159,30 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("policy_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The  location where the autoscaling policy should reside.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -199,17 +193,17 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
-        set => this.WithProperty("policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
+        set => SetProperty("policy_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -219,8 +213,7 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAlgorithm block(s) allowed")]
     public List<GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock>? BasicAlgorithm
     {
-        get => GetProperty<List<GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock>>("basic_algorithm");
-        set => this.WithProperty("basic_algorithm", value);
+        set => SetProperty("basic_algorithm", value);
     }
 
     /// <summary>
@@ -230,8 +223,7 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryWorkerConfig block(s) allowed")]
     public List<GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock>? SecondaryWorkerConfig
     {
-        get => GetProperty<List<GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock>>("secondary_worker_config");
-        set => this.WithProperty("secondary_worker_config", value);
+        set => SetProperty("secondary_worker_config", value);
     }
 
     /// <summary>
@@ -240,8 +232,7 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// </summary>
     public GoogleDataprocAutoscalingPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataprocAutoscalingPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -251,8 +242,7 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfig block(s) allowed")]
     public List<GoogleDataprocAutoscalingPolicyWorkerConfigBlock>? WorkerConfig
     {
-        get => GetProperty<List<GoogleDataprocAutoscalingPolicyWorkerConfigBlock>>("worker_config");
-        set => this.WithProperty("worker_config", value);
+        set => SetProperty("worker_config", value);
     }
 
     /// <summary>

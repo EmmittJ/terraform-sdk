@@ -14,8 +14,7 @@ public class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionThresholdType is required")]
     public required TerraformProperty<string> ActionThresholdType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action_threshold_type");
-        set => WithProperty("action_threshold_type", value);
+        set => SetProperty("action_threshold_type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionThresholdValue is required")]
     public required TerraformProperty<double> ActionThresholdValue
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("action_threshold_value");
-        set => WithProperty("action_threshold_value", value);
+        set => SetProperty("action_threshold_value", value);
     }
 
 }
@@ -50,8 +48,7 @@ public class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformProperty<string> Address
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("address");
-        set => WithProperty("address", value);
+        set => SetProperty("address", value);
     }
 
     /// <summary>
@@ -60,8 +57,7 @@ public class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionType is required")]
     public required TerraformProperty<string> SubscriptionType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_type");
-        set => WithProperty("subscription_type", value);
+        set => SetProperty("subscription_type", value);
     }
 
 }
@@ -77,8 +73,7 @@ public class AwsBudgetsBudgetActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -86,8 +81,7 @@ public class AwsBudgetsBudgetActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -95,8 +89,7 @@ public class AwsBudgetsBudgetActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,18 +107,27 @@ public class AwsBudgetsBudgetAction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("action_id");
-        this.WithOutput("arn");
-        this.WithOutput("status");
+        SetOutput("action_id");
+        SetOutput("arn");
+        SetOutput("status");
+        SetOutput("account_id");
+        SetOutput("action_type");
+        SetOutput("approval_model");
+        SetOutput("budget_name");
+        SetOutput("execution_role_arn");
+        SetOutput("id");
+        SetOutput("notification_type");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -134,8 +136,8 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformProperty<string> ActionType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action_type");
-        set => this.WithProperty("action_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action_type");
+        set => SetProperty("action_type", value);
     }
 
     /// <summary>
@@ -144,8 +146,8 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApprovalModel is required")]
     public required TerraformProperty<string> ApprovalModel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("approval_model");
-        set => this.WithProperty("approval_model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("approval_model");
+        set => SetProperty("approval_model", value);
     }
 
     /// <summary>
@@ -154,8 +156,8 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetName is required")]
     public required TerraformProperty<string> BudgetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("budget_name");
-        set => this.WithProperty("budget_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("budget_name");
+        set => SetProperty("budget_name", value);
     }
 
     /// <summary>
@@ -164,17 +166,17 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -183,62 +185,62 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformProperty<string> NotificationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("notification_type");
-        set => this.WithProperty("notification_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_type");
+        set => SetProperty("notification_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for action_threshold.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionThreshold is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionThreshold block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionThreshold block(s) allowed")]
     public List<AwsBudgetsBudgetActionActionThresholdBlock>? ActionThreshold
     {
-        get => GetProperty<List<AwsBudgetsBudgetActionActionThresholdBlock>>("action_threshold");
-        set => this.WithProperty("action_threshold", value);
+        set => SetProperty("action_threshold", value);
     }
 
     /// <summary>
     /// Block for definition.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Definition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     public List<AwsBudgetsBudgetActionDefinitionBlock>? Definition
     {
-        get => GetProperty<List<AwsBudgetsBudgetActionDefinitionBlock>>("definition");
-        set => this.WithProperty("definition", value);
+        set => SetProperty("definition", value);
     }
 
     /// <summary>
     /// Block for subscriber.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subscriber is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subscriber block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(11, ErrorMessage = "Maximum 11 Subscriber block(s) allowed")]
     public HashSet<AwsBudgetsBudgetActionSubscriberBlock>? Subscriber
     {
-        get => GetProperty<HashSet<AwsBudgetsBudgetActionSubscriberBlock>>("subscriber");
-        set => this.WithProperty("subscriber", value);
+        set => SetProperty("subscriber", value);
     }
 
     /// <summary>
@@ -247,8 +249,7 @@ public class AwsBudgetsBudgetAction : TerraformResource
     /// </summary>
     public AwsBudgetsBudgetActionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBudgetsBudgetActionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

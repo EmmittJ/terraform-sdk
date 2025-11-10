@@ -14,45 +14,48 @@ public class GoogleSqlDatabaseInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("available_maintenance_versions");
-        this.WithOutput("backupdr_backup");
-        this.WithOutput("clone");
-        this.WithOutput("connection_name");
-        this.WithOutput("database_version");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("dns_name");
-        this.WithOutput("dns_names");
-        this.WithOutput("encryption_key_name");
-        this.WithOutput("final_backup_description");
-        this.WithOutput("first_ip_address");
-        this.WithOutput("instance_type");
-        this.WithOutput("ip_address");
-        this.WithOutput("maintenance_version");
-        this.WithOutput("master_instance_name");
-        this.WithOutput("node_count");
-        this.WithOutput("point_in_time_restore_context");
-        this.WithOutput("private_ip_address");
-        this.WithOutput("psc_service_attachment_link");
-        this.WithOutput("public_ip_address");
-        this.WithOutput("region");
-        this.WithOutput("replica_configuration");
-        this.WithOutput("replica_names");
-        this.WithOutput("replication_cluster");
-        this.WithOutput("restore_backup_context");
-        this.WithOutput("root_password");
-        this.WithOutput("self_link");
-        this.WithOutput("server_ca_cert");
-        this.WithOutput("service_account_email_address");
-        this.WithOutput("settings");
+        SetOutput("available_maintenance_versions");
+        SetOutput("backupdr_backup");
+        SetOutput("clone");
+        SetOutput("connection_name");
+        SetOutput("database_version");
+        SetOutput("deletion_protection");
+        SetOutput("dns_name");
+        SetOutput("dns_names");
+        SetOutput("encryption_key_name");
+        SetOutput("final_backup_description");
+        SetOutput("first_ip_address");
+        SetOutput("instance_type");
+        SetOutput("ip_address");
+        SetOutput("maintenance_version");
+        SetOutput("master_instance_name");
+        SetOutput("node_count");
+        SetOutput("point_in_time_restore_context");
+        SetOutput("private_ip_address");
+        SetOutput("psc_service_attachment_link");
+        SetOutput("public_ip_address");
+        SetOutput("region");
+        SetOutput("replica_configuration");
+        SetOutput("replica_names");
+        SetOutput("replication_cluster");
+        SetOutput("restore_backup_context");
+        SetOutput("root_password");
+        SetOutput("self_link");
+        SetOutput("server_ca_cert");
+        SetOutput("service_account_email_address");
+        SetOutput("settings");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,17 +64,17 @@ public class GoogleSqlDatabaseInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

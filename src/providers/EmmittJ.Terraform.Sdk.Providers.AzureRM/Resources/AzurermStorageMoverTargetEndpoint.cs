@@ -13,8 +13,7 @@ public class AzurermStorageMoverTargetEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageMoverTargetEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageMoverTargetEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStorageMoverTargetEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,30 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("storage_account_id");
+        SetOutput("storage_container_name");
+        SetOutput("storage_mover_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +86,8 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -94,8 +96,8 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -104,8 +106,8 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformProperty<string> StorageContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_name");
-        set => this.WithProperty("storage_container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_name");
+        set => SetProperty("storage_container_name", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverId is required")]
     public required TerraformProperty<string> StorageMoverId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_mover_id");
-        set => this.WithProperty("storage_mover_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_mover_id");
+        set => SetProperty("storage_mover_id", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
     /// </summary>
     public AzurermStorageMoverTargetEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageMoverTargetEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,6 +14,9 @@ public class AwsShieldProtectionHealthCheckAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("health_check_arn");
+        SetOutput("id");
+        SetOutput("shield_protection_id");
     }
 
     /// <summary>
@@ -22,17 +25,17 @@ public class AwsShieldProtectionHealthCheckAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthCheckArn is required")]
     public required TerraformProperty<string> HealthCheckArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("health_check_arn");
-        set => this.WithProperty("health_check_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("health_check_arn");
+        set => SetProperty("health_check_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,8 +44,8 @@ public class AwsShieldProtectionHealthCheckAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShieldProtectionId is required")]
     public required TerraformProperty<string> ShieldProtectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("shield_protection_id");
-        set => this.WithProperty("shield_protection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shield_protection_id");
+        set => SetProperty("shield_protection_id", value);
     }
 
 }

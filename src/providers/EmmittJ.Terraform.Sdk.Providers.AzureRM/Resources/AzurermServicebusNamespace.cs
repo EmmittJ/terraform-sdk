@@ -14,8 +14,7 @@ public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityId is required")]
     public required TerraformProperty<string> IdentityId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_id");
-        set => WithProperty("identity_id", value);
+        set => SetProperty("identity_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InfrastructureEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("infrastructure_encryption_enabled");
-        set => WithProperty("infrastructure_encryption_enabled", value);
+        set => SetProperty("infrastructure_encryption_enabled", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => WithProperty("key_vault_key_id", value);
+        set => SetProperty("key_vault_key_id", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -95,8 +88,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("default_action");
-        set => WithProperty("default_action", value);
+        set => SetProperty("default_action", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IpRules
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ip_rules");
-        set => WithProperty("ip_rules", value);
+        set => SetProperty("ip_rules", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => WithProperty("public_network_access_enabled", value);
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? TrustedServicesAllowed
     {
-        get => GetProperty<TerraformProperty<bool>>("trusted_services_allowed");
-        set => WithProperty("trusted_services_allowed", value);
+        set => SetProperty("trusted_services_allowed", value);
     }
 
 }
@@ -139,8 +128,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -148,8 +136,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -157,8 +144,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -166,8 +152,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -185,38 +170,49 @@ public class AzurermServicebusNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputefault_primary_connection_string");
-        this.WithOutputefault_primary_key");
-        this.WithOutputefault_secondary_connection_string");
-        this.WithOutputefault_secondary_key");
-        this.WithOutputndpoint");
+        SetOutput("default_primary_connection_string");
+        SetOutput("default_primary_key");
+        SetOutput("default_secondary_connection_string");
+        SetOutput("default_secondary_key");
+        SetOutput("endpoint");
+        SetOutput("capacity");
+        SetOutput("id");
+        SetOutput("local_auth_enabled");
+        SetOutput("location");
+        SetOutput("minimum_tls_version");
+        SetOutput("name");
+        SetOutput("premium_messaging_partitions");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? Capacity
+    public TerraformProperty<double> Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
-        set => this.WithProperty("capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("capacity");
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthEnabled
+    public TerraformProperty<bool> LocalAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_auth_enabled");
-        set => this.WithProperty("local_auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_auth_enabled");
+        set => SetProperty("local_auth_enabled", value);
     }
 
     /// <summary>
@@ -225,17 +221,17 @@ public class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MinimumTlsVersion
+    public TerraformProperty<string> MinimumTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_tls_version");
-        set => this.WithProperty("minimum_tls_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("minimum_tls_version");
+        set => SetProperty("minimum_tls_version", value);
     }
 
     /// <summary>
@@ -244,26 +240,26 @@ public class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The premium_messaging_partitions attribute.
     /// </summary>
-    public TerraformProperty<double>? PremiumMessagingPartitions
+    public TerraformProperty<double> PremiumMessagingPartitions
     {
-        get => GetProperty<TerraformProperty<double>>("premium_messaging_partitions");
-        set => this.WithProperty("premium_messaging_partitions", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("premium_messaging_partitions");
+        set => SetProperty("premium_messaging_partitions", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -272,8 +268,8 @@ public class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -282,17 +278,17 @@ public class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -302,8 +298,7 @@ public class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     public List<AzurermServicebusNamespaceCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetProperty<List<AzurermServicebusNamespaceCustomerManagedKeyBlock>>("customer_managed_key");
-        set => this.WithProperty("customer_managed_key", value);
+        set => SetProperty("customer_managed_key", value);
     }
 
     /// <summary>
@@ -313,8 +308,7 @@ public class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermServicebusNamespaceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermServicebusNamespaceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -324,8 +318,7 @@ public class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkRuleSet block(s) allowed")]
     public List<AzurermServicebusNamespaceNetworkRuleSetBlock>? NetworkRuleSet
     {
-        get => GetProperty<List<AzurermServicebusNamespaceNetworkRuleSetBlock>>("network_rule_set");
-        set => this.WithProperty("network_rule_set", value);
+        set => SetProperty("network_rule_set", value);
     }
 
     /// <summary>
@@ -334,8 +327,7 @@ public class AzurermServicebusNamespace : TerraformResource
     /// </summary>
     public AzurermServicebusNamespaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermServicebusNamespaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

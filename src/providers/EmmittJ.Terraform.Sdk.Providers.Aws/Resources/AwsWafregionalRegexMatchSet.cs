@@ -14,8 +14,7 @@ public class AwsWafregionalRegexMatchSetRegexMatchTupleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegexPatternSetId is required")]
     public required TerraformProperty<string> RegexPatternSetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("regex_pattern_set_id");
-        set => WithProperty("regex_pattern_set_id", value);
+        set => SetProperty("regex_pattern_set_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsWafregionalRegexMatchSetRegexMatchTupleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformProperty<string> TextTransformation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("text_transformation");
-        set => WithProperty("text_transformation", value);
+        set => SetProperty("text_transformation", value);
     }
 
 }
@@ -42,15 +40,18 @@ public class AwsWafregionalRegexMatchSet : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,17 +60,17 @@ public class AwsWafregionalRegexMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +79,7 @@ public class AwsWafregionalRegexMatchSet : TerraformResource
     /// </summary>
     public HashSet<AwsWafregionalRegexMatchSetRegexMatchTupleBlock>? RegexMatchTuple
     {
-        get => GetProperty<HashSet<AwsWafregionalRegexMatchSetRegexMatchTupleBlock>>("regex_match_tuple");
-        set => this.WithProperty("regex_match_tuple", value);
+        set => SetProperty("regex_match_tuple", value);
     }
 
 }

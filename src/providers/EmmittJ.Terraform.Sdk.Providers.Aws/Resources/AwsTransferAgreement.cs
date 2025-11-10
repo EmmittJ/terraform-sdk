@@ -14,9 +14,19 @@ public class AwsTransferAgreement : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("agreement_id");
-        this.WithOutput("arn");
-        this.WithOutput("status");
+        SetOutput("agreement_id");
+        SetOutput("arn");
+        SetOutput("status");
+        SetOutput("access_role");
+        SetOutput("base_directory");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("local_profile_id");
+        SetOutput("partner_profile_id");
+        SetOutput("region");
+        SetOutput("server_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -25,8 +35,8 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRole is required")]
     public required TerraformProperty<string> AccessRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_role");
-        set => this.WithProperty("access_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_role");
+        set => SetProperty("access_role", value);
     }
 
     /// <summary>
@@ -35,26 +45,26 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseDirectory is required")]
     public required TerraformProperty<string> BaseDirectory
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("base_directory");
-        set => this.WithProperty("base_directory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("base_directory");
+        set => SetProperty("base_directory", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,8 +73,8 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalProfileId is required")]
     public required TerraformProperty<string> LocalProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("local_profile_id");
-        set => this.WithProperty("local_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("local_profile_id");
+        set => SetProperty("local_profile_id", value);
     }
 
     /// <summary>
@@ -73,17 +83,17 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerProfileId is required")]
     public required TerraformProperty<string> PartnerProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partner_profile_id");
-        set => this.WithProperty("partner_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partner_profile_id");
+        set => SetProperty("partner_profile_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -92,26 +102,26 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
-        set => this.WithProperty("server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
+        set => SetProperty("server_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

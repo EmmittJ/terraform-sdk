@@ -13,8 +13,7 @@ public class AzureadGroupMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadGroupMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadGroupMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,9 @@ public class AzureadGroupMember : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("group_object_id");
+        SetOutput("id");
+        SetOutput("member_object_id");
     }
 
     /// <summary>
@@ -57,17 +57,17 @@ public class AzureadGroupMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupObjectId is required")]
     public required TerraformProperty<string> GroupObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_object_id");
-        set => this.WithProperty("group_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_object_id");
+        set => SetProperty("group_object_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +76,8 @@ public class AzureadGroupMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberObjectId is required")]
     public required TerraformProperty<string> MemberObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("member_object_id");
-        set => this.WithProperty("member_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member_object_id");
+        set => SetProperty("member_object_id", value);
     }
 
     /// <summary>
@@ -86,8 +86,7 @@ public class AzureadGroupMember : TerraformResource
     /// </summary>
     public AzureadGroupMemberTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadGroupMemberTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

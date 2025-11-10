@@ -14,30 +14,33 @@ public class AwsSignerSigningJobDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("completed_at");
-        this.WithOutput("created_at");
-        this.WithOutput("job_invoker");
-        this.WithOutput("job_owner");
-        this.WithOutput("platform_display_name");
-        this.WithOutput("platform_id");
-        this.WithOutput("profile_name");
-        this.WithOutput("profile_version");
-        this.WithOutput("requested_by");
-        this.WithOutput("revocation_record");
-        this.WithOutput("signature_expires_at");
-        this.WithOutput("signed_object");
-        this.WithOutput("source");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
+        SetOutput("completed_at");
+        SetOutput("created_at");
+        SetOutput("job_invoker");
+        SetOutput("job_owner");
+        SetOutput("platform_display_name");
+        SetOutput("platform_id");
+        SetOutput("profile_name");
+        SetOutput("profile_version");
+        SetOutput("requested_by");
+        SetOutput("revocation_record");
+        SetOutput("signature_expires_at");
+        SetOutput("signed_object");
+        SetOutput("source");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("id");
+        SetOutput("job_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -46,17 +49,17 @@ public class AwsSignerSigningJobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformProperty<string> JobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("job_id");
-        set => this.WithProperty("job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_id");
+        set => SetProperty("job_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -39,7 +39,12 @@ public class AwsSagemakerAppImageConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("app_image_config_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -48,44 +53,44 @@ public class AwsSagemakerAppImageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformProperty<string> AppImageConfigName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_image_config_name");
-        set => this.WithProperty("app_image_config_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_image_config_name");
+        set => SetProperty("app_image_config_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -95,8 +100,7 @@ public class AwsSagemakerAppImageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CodeEditorAppImageConfig block(s) allowed")]
     public List<AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock>? CodeEditorAppImageConfig
     {
-        get => GetProperty<List<AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlock>>("code_editor_app_image_config");
-        set => this.WithProperty("code_editor_app_image_config", value);
+        set => SetProperty("code_editor_app_image_config", value);
     }
 
     /// <summary>
@@ -106,8 +110,7 @@ public class AwsSagemakerAppImageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JupyterLabImageConfig block(s) allowed")]
     public List<AwsSagemakerAppImageConfigJupyterLabImageConfigBlock>? JupyterLabImageConfig
     {
-        get => GetProperty<List<AwsSagemakerAppImageConfigJupyterLabImageConfigBlock>>("jupyter_lab_image_config");
-        set => this.WithProperty("jupyter_lab_image_config", value);
+        set => SetProperty("jupyter_lab_image_config", value);
     }
 
     /// <summary>
@@ -117,8 +120,7 @@ public class AwsSagemakerAppImageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KernelGatewayImageConfig block(s) allowed")]
     public List<AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock>? KernelGatewayImageConfig
     {
-        get => GetProperty<List<AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock>>("kernel_gateway_image_config");
-        set => this.WithProperty("kernel_gateway_image_config", value);
+        set => SetProperty("kernel_gateway_image_config", value);
     }
 
     /// <summary>

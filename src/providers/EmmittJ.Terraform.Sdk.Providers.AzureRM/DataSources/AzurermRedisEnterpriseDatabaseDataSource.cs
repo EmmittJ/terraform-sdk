@@ -13,8 +13,7 @@ public class AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -32,10 +31,13 @@ public class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("linked_database_group_nickname");
-        this.WithOutput("linked_database_id");
-        this.WithOutput("primary_access_key");
-        this.WithOutput("secondary_access_key");
+        SetOutput("linked_database_group_nickname");
+        SetOutput("linked_database_id");
+        SetOutput("primary_access_key");
+        SetOutput("secondary_access_key");
+        SetOutput("cluster_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -44,17 +46,17 @@ public class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSource
     /// </summary>
     public AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

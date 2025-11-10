@@ -13,8 +13,7 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachmentTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachmentTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachmentTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,15 +46,20 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("attachment_policy_rule_number");
-        this.WithOutput("attachment_type");
-        this.WithOutput("core_network_arn");
-        this.WithOutput("edge_location");
-        this.WithOutput("owner_account_id");
-        this.WithOutput("resource_arn");
-        this.WithOutput("segment_name");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("attachment_policy_rule_number");
+        SetOutput("attachment_type");
+        SetOutput("core_network_arn");
+        SetOutput("edge_location");
+        SetOutput("owner_account_id");
+        SetOutput("resource_arn");
+        SetOutput("segment_name");
+        SetOutput("state");
+        SetOutput("core_network_id");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpn_connection_arn");
     }
 
     /// <summary>
@@ -66,35 +68,35 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
-        set => this.WithProperty("core_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("core_network_id");
+        set => SetProperty("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -103,8 +105,8 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnConnectionArn is required")]
     public required TerraformProperty<string> VpnConnectionArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpn_connection_arn");
-        set => this.WithProperty("vpn_connection_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpn_connection_arn");
+        set => SetProperty("vpn_connection_arn", value);
     }
 
     /// <summary>
@@ -113,8 +115,7 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachment : TerraformResource
     /// </summary>
     public AwsNetworkmanagerSiteToSiteVpnAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerSiteToSiteVpnAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

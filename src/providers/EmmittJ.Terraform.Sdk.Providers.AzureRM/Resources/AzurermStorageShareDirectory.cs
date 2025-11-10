@@ -13,8 +13,7 @@ public class AzurermStorageShareDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageShareDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageShareDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStorageShareDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,28 @@ public class AzurermStorageShareDirectory : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("storage_share_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -84,8 +84,8 @@ public class AzurermStorageShareDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class AzurermStorageShareDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageShareId is required")]
     public required TerraformProperty<string> StorageShareId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_share_id");
-        set => this.WithProperty("storage_share_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_share_id");
+        set => SetProperty("storage_share_id", value);
     }
 
     /// <summary>
@@ -104,8 +104,7 @@ public class AzurermStorageShareDirectory : TerraformResource
     /// </summary>
     public AzurermStorageShareDirectoryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageShareDirectoryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

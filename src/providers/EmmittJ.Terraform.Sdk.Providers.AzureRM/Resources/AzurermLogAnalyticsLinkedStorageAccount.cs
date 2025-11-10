@@ -13,8 +13,7 @@ public class AzurermLogAnalyticsLinkedStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogAnalyticsLinkedStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogAnalyticsLinkedStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogAnalyticsLinkedStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermLogAnalyticsLinkedStorageAccount : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("data_source_type");
+        SetOutput("id");
+        SetOutput("resource_group_name");
+        SetOutput("storage_account_ids");
+        SetOutput("workspace_id");
+        SetOutput("workspace_resource_id");
     }
 
     /// <summary>
@@ -66,17 +68,17 @@ public class AzurermLogAnalyticsLinkedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceType is required")]
     public required TerraformProperty<string> DataSourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_source_type");
-        set => this.WithProperty("data_source_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_source_type");
+        set => SetProperty("data_source_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,36 +87,36 @@ public class AzurermLogAnalyticsLinkedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_account_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountIds is required")]
-    public HashSet<TerraformProperty<string>>? StorageAccountIds
+    public HashSet<TerraformProperty<string>> StorageAccountIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("storage_account_ids");
-        set => this.WithProperty("storage_account_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("storage_account_ids");
+        set => SetProperty("storage_account_ids", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceId
+    public TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
     /// The workspace_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceResourceId
+    public TerraformProperty<string> WorkspaceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_resource_id");
-        set => this.WithProperty("workspace_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_resource_id");
+        set => SetProperty("workspace_resource_id", value);
     }
 
     /// <summary>
@@ -123,8 +125,7 @@ public class AzurermLogAnalyticsLinkedStorageAccount : TerraformResource
     /// </summary>
     public AzurermLogAnalyticsLinkedStorageAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogAnalyticsLinkedStorageAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsEc2CapacityReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2CapacityReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEc2CapacityReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,24 @@ public class AwsEc2CapacityReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("owner_id");
+        SetOutput("arn");
+        SetOutput("owner_id");
+        SetOutput("availability_zone");
+        SetOutput("ebs_optimized");
+        SetOutput("end_date");
+        SetOutput("end_date_type");
+        SetOutput("ephemeral_storage");
+        SetOutput("id");
+        SetOutput("instance_count");
+        SetOutput("instance_match_criteria");
+        SetOutput("instance_platform");
+        SetOutput("instance_type");
+        SetOutput("outpost_arn");
+        SetOutput("placement_group_arn");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("tenancy");
     }
 
     /// <summary>
@@ -59,53 +72,53 @@ public class AwsEc2CapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformProperty<string> AvailabilityZone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone");
-        set => this.WithProperty("availability_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformProperty<bool>? EbsOptimized
+    public TerraformProperty<bool> EbsOptimized
     {
-        get => GetProperty<TerraformProperty<bool>>("ebs_optimized");
-        set => this.WithProperty("ebs_optimized", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ebs_optimized");
+        set => SetProperty("ebs_optimized", value);
     }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public TerraformProperty<string>? EndDate
+    public TerraformProperty<string> EndDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_date");
-        set => this.WithProperty("end_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date");
+        set => SetProperty("end_date", value);
     }
 
     /// <summary>
     /// The end_date_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EndDateType
+    public TerraformProperty<string> EndDateType
     {
-        get => GetProperty<TerraformProperty<string>>("end_date_type");
-        set => this.WithProperty("end_date_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date_type");
+        set => SetProperty("end_date_type", value);
     }
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    public TerraformProperty<bool>? EphemeralStorage
+    public TerraformProperty<bool> EphemeralStorage
     {
-        get => GetProperty<TerraformProperty<bool>>("ephemeral_storage");
-        set => this.WithProperty("ephemeral_storage", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ephemeral_storage");
+        set => SetProperty("ephemeral_storage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -114,17 +127,17 @@ public class AwsEc2CapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformProperty<double> InstanceCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("instance_count");
-        set => this.WithProperty("instance_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
     /// The instance_match_criteria attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceMatchCriteria
+    public TerraformProperty<string> InstanceMatchCriteria
     {
-        get => GetProperty<TerraformProperty<string>>("instance_match_criteria");
-        set => this.WithProperty("instance_match_criteria", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_match_criteria");
+        set => SetProperty("instance_match_criteria", value);
     }
 
     /// <summary>
@@ -133,8 +146,8 @@ public class AwsEc2CapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePlatform is required")]
     public required TerraformProperty<string> InstancePlatform
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_platform");
-        set => this.WithProperty("instance_platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_platform");
+        set => SetProperty("instance_platform", value);
     }
 
     /// <summary>
@@ -143,62 +156,62 @@ public class AwsEc2CapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? OutpostArn
+    public TerraformProperty<string> OutpostArn
     {
-        get => GetProperty<TerraformProperty<string>>("outpost_arn");
-        set => this.WithProperty("outpost_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("outpost_arn");
+        set => SetProperty("outpost_arn", value);
     }
 
     /// <summary>
     /// The placement_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PlacementGroupArn
+    public TerraformProperty<string> PlacementGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("placement_group_arn");
-        set => this.WithProperty("placement_group_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("placement_group_arn");
+        set => SetProperty("placement_group_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    public TerraformProperty<string>? Tenancy
+    public TerraformProperty<string> Tenancy
     {
-        get => GetProperty<TerraformProperty<string>>("tenancy");
-        set => this.WithProperty("tenancy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenancy");
+        set => SetProperty("tenancy", value);
     }
 
     /// <summary>
@@ -207,8 +220,7 @@ public class AwsEc2CapacityReservation : TerraformResource
     /// </summary>
     public AwsEc2CapacityReservationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2CapacityReservationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

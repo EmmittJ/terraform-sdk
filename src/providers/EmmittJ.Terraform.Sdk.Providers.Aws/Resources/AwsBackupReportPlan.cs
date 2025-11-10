@@ -13,8 +13,7 @@ public class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Formats
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("formats");
-        set => WithProperty("formats", value);
+        set => SetProperty("formats", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
-        set => WithProperty("s3_bucket_name", value);
+        set => SetProperty("s3_bucket_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? S3KeyPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("s3_key_prefix");
-        set => WithProperty("s3_key_prefix", value);
+        set => SetProperty("s3_key_prefix", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Accounts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("accounts");
-        set => WithProperty("accounts", value);
+        set => SetProperty("accounts", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? FrameworkArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("framework_arns");
-        set => WithProperty("framework_arns", value);
+        set => SetProperty("framework_arns", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NumberOfFrameworks
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_frameworks");
-        set => WithProperty("number_of_frameworks", value);
+        set => SetProperty("number_of_frameworks", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? OrganizationUnits
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("organization_units");
-        set => WithProperty("organization_units", value);
+        set => SetProperty("organization_units", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Regions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("regions");
-        set => WithProperty("regions", value);
+        set => SetProperty("regions", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportTemplate is required")]
     public required TerraformProperty<string> ReportTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("report_template");
-        set => WithProperty("report_template", value);
+        set => SetProperty("report_template", value);
     }
 
 }
@@ -114,27 +105,33 @@ public class AwsBackupReportPlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("creation_time");
-        this.WithOutput("deployment_status");
+        SetOutput("arn");
+        SetOutput("creation_time");
+        SetOutput("deployment_status");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -143,59 +140,59 @@ public class AwsBackupReportPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for report_delivery_channel.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportDeliveryChannel is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReportDeliveryChannel block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReportDeliveryChannel block(s) allowed")]
     public List<AwsBackupReportPlanReportDeliveryChannelBlock>? ReportDeliveryChannel
     {
-        get => GetProperty<List<AwsBackupReportPlanReportDeliveryChannelBlock>>("report_delivery_channel");
-        set => this.WithProperty("report_delivery_channel", value);
+        set => SetProperty("report_delivery_channel", value);
     }
 
     /// <summary>
     /// Block for report_setting.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportSetting is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReportSetting block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReportSetting block(s) allowed")]
     public List<AwsBackupReportPlanReportSettingBlock>? ReportSetting
     {
-        get => GetProperty<List<AwsBackupReportPlanReportSettingBlock>>("report_setting");
-        set => this.WithProperty("report_setting", value);
+        set => SetProperty("report_setting", value);
     }
 
     /// <summary>

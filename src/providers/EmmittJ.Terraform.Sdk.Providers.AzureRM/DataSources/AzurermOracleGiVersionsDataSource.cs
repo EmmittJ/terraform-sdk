@@ -13,8 +13,7 @@ public class AzurermOracleGiVersionsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,20 @@ public class AzurermOracleGiVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("versions");
+        SetOutput("versions");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("shape");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,26 +52,26 @@ public class AzurermOracleGiVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Filter the versions by system shape. Possible values are &#39;ExaDbXS&#39;, &#39;Exadata.X9M&#39;, and &#39;Exadata.X11M&#39;.
     /// </summary>
-    public TerraformProperty<string>? Shape
+    public TerraformProperty<string> Shape
     {
-        get => GetProperty<TerraformProperty<string>>("shape");
-        set => this.WithProperty("shape", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shape");
+        set => SetProperty("shape", value);
     }
 
     /// <summary>
     /// Filter the versions by zone
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -77,8 +80,7 @@ public class AzurermOracleGiVersionsDataSource : TerraformDataSource
     /// </summary>
     public AzurermOracleGiVersionsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleGiVersionsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

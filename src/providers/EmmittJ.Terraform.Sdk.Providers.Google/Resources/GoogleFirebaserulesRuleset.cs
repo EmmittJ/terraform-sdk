@@ -13,8 +13,7 @@ public class GoogleFirebaserulesRulesetSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Language
     {
-        get => GetProperty<TerraformProperty<string>>("language");
-        set => WithProperty("language", value);
+        set => SetProperty("language", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleFirebaserulesRulesetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleFirebaserulesRulesetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -58,39 +55,41 @@ public class GoogleFirebaserulesRuleset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("metadata");
-        this.WithOutput("name");
+        SetOutput("create_time");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     public List<GoogleFirebaserulesRulesetSourceBlock>? Source
     {
-        get => GetProperty<List<GoogleFirebaserulesRulesetSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -99,8 +98,7 @@ public class GoogleFirebaserulesRuleset : TerraformResource
     /// </summary>
     public GoogleFirebaserulesRulesetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFirebaserulesRulesetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

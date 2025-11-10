@@ -13,8 +13,7 @@ public class GoogleIamWorkloadIdentityPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIamWorkloadIdentityPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleIamWorkloadIdentityPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,17 +46,23 @@ public class GoogleIamWorkloadIdentityPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("workload_identity_pool_id");
     }
 
     /// <summary>
     /// A description of the pool. Cannot exceed 256 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -67,37 +70,37 @@ public class GoogleIamWorkloadIdentityPool : TerraformResource
     /// existing tokens to access resources. If the pool is re-enabled, existing tokens grant
     /// access again.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// A display name for the pool. Cannot exceed 32 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -108,8 +111,8 @@ public class GoogleIamWorkloadIdentityPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     public required TerraformProperty<string> WorkloadIdentityPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workload_identity_pool_id");
-        set => this.WithProperty("workload_identity_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_identity_pool_id");
+        set => SetProperty("workload_identity_pool_id", value);
     }
 
     /// <summary>
@@ -118,8 +121,7 @@ public class GoogleIamWorkloadIdentityPool : TerraformResource
     /// </summary>
     public GoogleIamWorkloadIdentityPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamWorkloadIdentityPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

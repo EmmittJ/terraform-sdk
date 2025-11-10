@@ -14,8 +14,7 @@ public class GoogleComputeInstanceGroupNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleComputeInstanceGroupNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleComputeInstanceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleComputeInstanceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleComputeInstanceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,35 +72,42 @@ public class GoogleComputeInstanceGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("self_link");
-        this.WithOutput("size");
+        SetOutput("self_link");
+        SetOutput("size");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("instances");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// An optional textual description of the instance group.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The list of instances in the group, in self_link format. When adding instances they must all be in the same network and zone as the instance group.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Instances
+    public HashSet<TerraformProperty<string>> Instances
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("instances");
-        set => this.WithProperty("instances", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("instances");
+        set => SetProperty("instances", value);
     }
 
     /// <summary>
@@ -114,35 +116,35 @@ public class GoogleComputeInstanceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The URL of the network the instance group is in. If this is different from the network where the instances are in, the creation fails. Defaults to the network where the instances are in (if neither network nor instances is specified, this field will be blank).
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The zone that this instance group should be created in.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -151,8 +153,7 @@ public class GoogleComputeInstanceGroup : TerraformResource
     /// </summary>
     public List<GoogleComputeInstanceGroupNamedPortBlock>? NamedPort
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupNamedPortBlock>>("named_port");
-        set => this.WithProperty("named_port", value);
+        set => SetProperty("named_port", value);
     }
 
     /// <summary>
@@ -161,8 +162,7 @@ public class GoogleComputeInstanceGroup : TerraformResource
     /// </summary>
     public GoogleComputeInstanceGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeInstanceGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermEventhubNamespaceAuthorizationRuleTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermEventhubNamespaceAuthorizationRuleTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermEventhubNamespaceAuthorizationRuleTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermEventhubNamespaceAuthorizationRuleTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,39 +54,46 @@ public class AzurermEventhubNamespaceAuthorizationRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("primary_connection_string");
-        this.WithOutput("primary_connection_string_alias");
-        this.WithOutput("primary_key");
-        this.WithOutput("secondary_connection_string");
-        this.WithOutput("secondary_connection_string_alias");
-        this.WithOutput("secondary_key");
+        SetOutput("primary_connection_string");
+        SetOutput("primary_connection_string_alias");
+        SetOutput("primary_key");
+        SetOutput("secondary_connection_string");
+        SetOutput("secondary_connection_string_alias");
+        SetOutput("secondary_key");
+        SetOutput("id");
+        SetOutput("listen");
+        SetOutput("manage");
+        SetOutput("name");
+        SetOutput("namespace_name");
+        SetOutput("resource_group_name");
+        SetOutput("send");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
-    public TerraformProperty<bool>? Listen
+    public TerraformProperty<bool> Listen
     {
-        get => GetProperty<TerraformProperty<bool>>("listen");
-        set => this.WithProperty("listen", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("listen");
+        set => SetProperty("listen", value);
     }
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
-    public TerraformProperty<bool>? Manage
+    public TerraformProperty<bool> Manage
     {
-        get => GetProperty<TerraformProperty<bool>>("manage");
-        set => this.WithProperty("manage", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("manage");
+        set => SetProperty("manage", value);
     }
 
     /// <summary>
@@ -99,8 +102,8 @@ public class AzurermEventhubNamespaceAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -109,8 +112,8 @@ public class AzurermEventhubNamespaceAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
-        set => this.WithProperty("namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
+        set => SetProperty("namespace_name", value);
     }
 
     /// <summary>
@@ -119,17 +122,17 @@ public class AzurermEventhubNamespaceAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The send attribute.
     /// </summary>
-    public TerraformProperty<bool>? Send
+    public TerraformProperty<bool> Send
     {
-        get => GetProperty<TerraformProperty<bool>>("send");
-        set => this.WithProperty("send", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("send");
+        set => SetProperty("send", value);
     }
 
     /// <summary>
@@ -138,8 +141,7 @@ public class AzurermEventhubNamespaceAuthorizationRule : TerraformResource
     /// </summary>
     public AzurermEventhubNamespaceAuthorizationRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventhubNamespaceAuthorizationRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

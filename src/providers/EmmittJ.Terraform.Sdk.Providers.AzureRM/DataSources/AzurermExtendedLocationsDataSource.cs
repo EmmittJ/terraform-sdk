@@ -13,8 +13,7 @@ public class AzurermExtendedLocationsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,18 @@ public class AzurermExtendedLocationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("extended_locations");
+        SetOutput("extended_locations");
+        SetOutput("id");
+        SetOutput("location");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +50,8 @@ public class AzurermExtendedLocationsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -59,8 +60,7 @@ public class AzurermExtendedLocationsDataSource : TerraformDataSource
     /// </summary>
     public AzurermExtendedLocationsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermExtendedLocationsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

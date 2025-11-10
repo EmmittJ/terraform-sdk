@@ -14,8 +14,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSetti
     /// </summary>
     public List<TerraformProperty<string>>? AzureDnsServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("azure_dns_servers");
-        set => WithProperty("azure_dns_servers", value);
+        set => SetProperty("azure_dns_servers", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSetti
     /// </summary>
     public List<TerraformProperty<string>>? DnsServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
-        set => WithProperty("dns_servers", value);
+        set => SetProperty("dns_servers", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSetti
     /// </summary>
     public TerraformProperty<bool>? UseAzureDns
     {
-        get => GetProperty<TerraformProperty<bool>>("use_azure_dns");
-        set => WithProperty("use_azure_dns", value);
+        set => SetProperty("use_azure_dns", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkP
     /// </summary>
     public List<TerraformProperty<string>>? EgressNatIpAddressIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("egress_nat_ip_address_ids");
-        set => WithProperty("egress_nat_ip_address_ids", value);
+        set => SetProperty("egress_nat_ip_address_ids", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkP
     /// </summary>
     public List<TerraformProperty<string>>? EgressNatIpAddresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("egress_nat_ip_addresses");
-        set => WithProperty("egress_nat_ip_addresses", value);
+        set => SetProperty("egress_nat_ip_addresses", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressIds is required")]
     public List<TerraformProperty<string>>? PublicIpAddressIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("public_ip_address_ids");
-        set => WithProperty("public_ip_address_ids", value);
+        set => SetProperty("public_ip_address_ids", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkP
     /// </summary>
     public List<TerraformProperty<string>>? PublicIpAddresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("public_ip_addresses");
-        set => WithProperty("public_ip_addresses", value);
+        set => SetProperty("public_ip_addresses", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkP
     /// </summary>
     public List<TerraformProperty<string>>? TrustedAddressRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("trusted_address_ranges");
-        set => WithProperty("trusted_address_ranges", value);
+        set => SetProperty("trusted_address_ranges", value);
     }
 
 }
@@ -130,8 +120,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeouts
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -139,8 +128,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeouts
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -148,8 +136,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeouts
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -157,8 +144,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeouts
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -176,16 +162,24 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : Terra
 
     private void InitializeOutputs()
     {
-        this.WithOutput("panorama");
+        SetOutput("panorama");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("marketplace_offer_id");
+        SetOutput("name");
+        SetOutput("panorama_base64_config");
+        SetOutput("plan_id");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -194,17 +188,17 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The marketplace_offer_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MarketplaceOfferId
+    public TerraformProperty<string> MarketplaceOfferId
     {
-        get => GetProperty<TerraformProperty<string>>("marketplace_offer_id");
-        set => this.WithProperty("marketplace_offer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("marketplace_offer_id");
+        set => SetProperty("marketplace_offer_id", value);
     }
 
     /// <summary>
@@ -213,8 +207,8 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -223,17 +217,17 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PanoramaBase64Config is required")]
     public required TerraformProperty<string> PanoramaBase64Config
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("panorama_base64_config");
-        set => this.WithProperty("panorama_base64_config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("panorama_base64_config");
+        set => SetProperty("panorama_base64_config", value);
     }
 
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PlanId
+    public TerraformProperty<string> PlanId
     {
-        get => GetProperty<TerraformProperty<string>>("plan_id");
-        set => this.WithProperty("plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plan_id");
+        set => SetProperty("plan_id", value);
     }
 
     /// <summary>
@@ -242,17 +236,17 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -261,8 +255,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : Terra
     /// </summary>
     public List<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock>? DestinationNat
     {
-        get => GetProperty<List<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock>>("destination_nat");
-        set => this.WithProperty("destination_nat", value);
+        set => SetProperty("destination_nat", value);
     }
 
     /// <summary>
@@ -272,20 +265,19 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : Terra
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
     public List<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock>? DnsSettings
     {
-        get => GetProperty<List<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock>>("dns_settings");
-        set => this.WithProperty("dns_settings", value);
+        set => SetProperty("dns_settings", value);
     }
 
     /// <summary>
     /// Block for network_profile.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     public List<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock>? NetworkProfile
     {
-        get => GetProperty<List<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock>>("network_profile");
-        set => this.WithProperty("network_profile", value);
+        set => SetProperty("network_profile", value);
     }
 
     /// <summary>
@@ -294,8 +286,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : Terra
     /// </summary>
     public AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

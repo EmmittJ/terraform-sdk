@@ -13,8 +13,7 @@ public class AzurermContainerRegistryTokenDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,8 +30,12 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("enabled");
-        this.WithOutput("scope_map_id");
+        SetOutput("enabled");
+        SetOutput("scope_map_id");
+        SetOutput("container_registry_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -41,17 +44,17 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryName is required")]
     public required TerraformProperty<string> ContainerRegistryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_name");
-        set => this.WithProperty("container_registry_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_name");
+        set => SetProperty("container_registry_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +63,8 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -70,8 +73,8 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -80,8 +83,7 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
     /// </summary>
     public AzurermContainerRegistryTokenDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryTokenDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

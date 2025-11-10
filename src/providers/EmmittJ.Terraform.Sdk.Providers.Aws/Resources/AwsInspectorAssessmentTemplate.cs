@@ -14,8 +14,7 @@ public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Event is required")]
     public required TerraformProperty<string> Event
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("event");
-        set => WithProperty("event", value);
+        set => SetProperty("event", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformProperty<string> TopicArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic_arn");
-        set => WithProperty("topic_arn", value);
+        set => SetProperty("topic_arn", value);
     }
 
 }
@@ -42,7 +40,15 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("duration");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("rules_package_arns");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("target_arn");
     }
 
     /// <summary>
@@ -51,17 +57,17 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("duration");
-        set => this.WithProperty("duration", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("duration");
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -70,45 +76,45 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The rules_package_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulesPackageArns is required")]
-    public HashSet<TerraformProperty<string>>? RulesPackageArns
+    public HashSet<TerraformProperty<string>> RulesPackageArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("rules_package_arns");
-        set => this.WithProperty("rules_package_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("rules_package_arns");
+        set => SetProperty("rules_package_arns", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -117,8 +123,8 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
-        set => this.WithProperty("target_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_arn");
+        set => SetProperty("target_arn", value);
     }
 
     /// <summary>
@@ -127,8 +133,7 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     /// </summary>
     public HashSet<AwsInspectorAssessmentTemplateEventSubscriptionBlock>? EventSubscription
     {
-        get => GetProperty<HashSet<AwsInspectorAssessmentTemplateEventSubscriptionBlock>>("event_subscription");
-        set => this.WithProperty("event_subscription", value);
+        set => SetProperty("event_subscription", value);
     }
 
     /// <summary>

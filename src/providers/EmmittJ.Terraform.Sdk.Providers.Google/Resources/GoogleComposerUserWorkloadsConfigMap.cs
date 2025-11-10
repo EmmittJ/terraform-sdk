@@ -13,8 +13,7 @@ public class GoogleComposerUserWorkloadsConfigMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComposerUserWorkloadsConfigMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComposerUserWorkloadsConfigMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,16 +46,22 @@ public class GoogleComposerUserWorkloadsConfigMap : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("data");
+        SetOutput("environment");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The &amp;quot;data&amp;quot; field of Kubernetes ConfigMap, organized in key-value pairs.
     /// For details see: https://kubernetes.io/docs/concepts/configuration/configmap/
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Data
+    public Dictionary<string, TerraformProperty<string>> Data
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("data");
-        set => this.WithProperty("data", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("data");
+        set => SetProperty("data", value);
     }
 
     /// <summary>
@@ -67,17 +70,17 @@ public class GoogleComposerUserWorkloadsConfigMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment");
-        set => this.WithProperty("environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment");
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,26 +89,26 @@ public class GoogleComposerUserWorkloadsConfigMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The location or Compute Engine region for the environment.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -114,8 +117,7 @@ public class GoogleComposerUserWorkloadsConfigMap : TerraformResource
     /// </summary>
     public GoogleComposerUserWorkloadsConfigMapTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComposerUserWorkloadsConfigMapTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

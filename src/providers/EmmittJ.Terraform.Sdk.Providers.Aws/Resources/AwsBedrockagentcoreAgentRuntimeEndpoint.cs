@@ -13,8 +13,7 @@ public class AwsBedrockagentcoreAgentRuntimeEndpointTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBedrockagentcoreAgentRuntimeEndpointTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsBedrockagentcoreAgentRuntimeEndpointTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,9 +46,15 @@ public class AwsBedrockagentcoreAgentRuntimeEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("agent_runtime_arn");
-        this.WithOutput("agent_runtime_endpoint_arn");
-        this.WithOutput("tags_all");
+        SetOutput("agent_runtime_arn");
+        SetOutput("agent_runtime_endpoint_arn");
+        SetOutput("tags_all");
+        SetOutput("agent_runtime_id");
+        SetOutput("agent_runtime_version");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -60,26 +63,26 @@ public class AwsBedrockagentcoreAgentRuntimeEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentRuntimeId is required")]
     public required TerraformProperty<string> AgentRuntimeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_runtime_id");
-        set => this.WithProperty("agent_runtime_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_runtime_id");
+        set => SetProperty("agent_runtime_id", value);
     }
 
     /// <summary>
     /// The agent_runtime_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentRuntimeVersion
+    public TerraformProperty<string> AgentRuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("agent_runtime_version");
-        set => this.WithProperty("agent_runtime_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_runtime_version");
+        set => SetProperty("agent_runtime_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -88,26 +91,26 @@ public class AwsBedrockagentcoreAgentRuntimeEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -116,8 +119,7 @@ public class AwsBedrockagentcoreAgentRuntimeEndpoint : TerraformResource
     /// </summary>
     public AwsBedrockagentcoreAgentRuntimeEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentcoreAgentRuntimeEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

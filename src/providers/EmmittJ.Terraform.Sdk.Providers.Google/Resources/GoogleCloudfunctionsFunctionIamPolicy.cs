@@ -14,7 +14,12 @@ public class GoogleCloudfunctionsFunctionIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("cloud_function");
+        SetOutput("id");
+        SetOutput("policy_data");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -23,17 +28,17 @@ public class GoogleCloudfunctionsFunctionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudFunction is required")]
     public required TerraformProperty<string> CloudFunction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_function");
-        set => this.WithProperty("cloud_function", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_function");
+        set => SetProperty("cloud_function", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,26 +47,26 @@ public class GoogleCloudfunctionsFunctionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
-        set => this.WithProperty("policy_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
+        set => SetProperty("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

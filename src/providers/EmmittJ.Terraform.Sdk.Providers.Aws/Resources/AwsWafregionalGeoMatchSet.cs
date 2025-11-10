@@ -14,8 +14,7 @@ public class AwsWafregionalGeoMatchSetGeoMatchConstraintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsWafregionalGeoMatchSetGeoMatchConstraintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -42,15 +40,18 @@ public class AwsWafregionalGeoMatchSet : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,17 +60,17 @@ public class AwsWafregionalGeoMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +79,7 @@ public class AwsWafregionalGeoMatchSet : TerraformResource
     /// </summary>
     public HashSet<AwsWafregionalGeoMatchSetGeoMatchConstraintBlock>? GeoMatchConstraint
     {
-        get => GetProperty<HashSet<AwsWafregionalGeoMatchSetGeoMatchConstraintBlock>>("geo_match_constraint");
-        set => this.WithProperty("geo_match_constraint", value);
+        set => SetProperty("geo_match_constraint", value);
     }
 
 }

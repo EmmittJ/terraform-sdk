@@ -14,8 +14,10 @@ public class GoogleHealthcareFhirStoreIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("fhir_store_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -24,17 +26,17 @@ public class GoogleHealthcareFhirStoreIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FhirStoreId is required")]
     public required TerraformProperty<string> FhirStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("fhir_store_id");
-        set => this.WithProperty("fhir_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fhir_store_id");
+        set => SetProperty("fhir_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

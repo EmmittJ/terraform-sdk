@@ -14,16 +14,21 @@ public class AwsXrayResourcePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("last_updated_time");
+        SetOutput("last_updated_time");
+        SetOutput("bypass_policy_lockout_check");
+        SetOutput("policy_document");
+        SetOutput("policy_name");
+        SetOutput("policy_revision_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The bypass_policy_lockout_check attribute.
     /// </summary>
-    public TerraformProperty<bool>? BypassPolicyLockoutCheck
+    public TerraformProperty<bool> BypassPolicyLockoutCheck
     {
-        get => GetProperty<TerraformProperty<bool>>("bypass_policy_lockout_check");
-        set => this.WithProperty("bypass_policy_lockout_check", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bypass_policy_lockout_check");
+        set => SetProperty("bypass_policy_lockout_check", value);
     }
 
     /// <summary>
@@ -32,8 +37,8 @@ public class AwsXrayResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformProperty<string> PolicyDocument
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_document");
-        set => this.WithProperty("policy_document", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_document");
+        set => SetProperty("policy_document", value);
     }
 
     /// <summary>
@@ -42,26 +47,26 @@ public class AwsXrayResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
     public required TerraformProperty<string> PolicyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_name");
-        set => this.WithProperty("policy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_name");
+        set => SetProperty("policy_name", value);
     }
 
     /// <summary>
     /// The policy_revision_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyRevisionId
+    public TerraformProperty<string> PolicyRevisionId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_revision_id");
-        set => this.WithProperty("policy_revision_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_revision_id");
+        set => SetProperty("policy_revision_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

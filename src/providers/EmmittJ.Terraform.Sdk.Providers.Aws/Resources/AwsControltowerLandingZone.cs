@@ -13,8 +13,7 @@ public class AwsControltowerLandingZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsControltowerLandingZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsControltowerLandingZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,18 +46,24 @@ public class AwsControltowerLandingZone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("drift_status");
-        this.WithOutput("latest_available_version");
+        SetOutput("arn");
+        SetOutput("drift_status");
+        SetOutput("latest_available_version");
+        SetOutput("id");
+        SetOutput("manifest_json");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,35 +72,35 @@ public class AwsControltowerLandingZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManifestJson is required")]
     public required TerraformProperty<string> ManifestJson
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("manifest_json");
-        set => this.WithProperty("manifest_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("manifest_json");
+        set => SetProperty("manifest_json", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -106,8 +109,8 @@ public class AwsControltowerLandingZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -116,8 +119,7 @@ public class AwsControltowerLandingZone : TerraformResource
     /// </summary>
     public AwsControltowerLandingZoneTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsControltowerLandingZoneTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

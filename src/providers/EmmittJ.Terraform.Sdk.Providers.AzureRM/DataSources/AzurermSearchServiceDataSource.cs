@@ -13,8 +13,7 @@ public class AzurermSearchServiceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,24 +30,27 @@ public class AzurermSearchServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("customer_managed_key_encryption_compliance_status");
-        this.WithOutput("identity");
-        this.WithOutput("partition_count");
-        this.WithOutput("primary_key");
-        this.WithOutput("public_network_access_enabled");
-        this.WithOutput("query_keys");
-        this.WithOutput("replica_count");
-        this.WithOutput("secondary_key");
-        this.WithOutput("tags");
+        SetOutput("customer_managed_key_encryption_compliance_status");
+        SetOutput("identity");
+        SetOutput("partition_count");
+        SetOutput("primary_key");
+        SetOutput("public_network_access_enabled");
+        SetOutput("query_keys");
+        SetOutput("replica_count");
+        SetOutput("secondary_key");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -57,8 +59,8 @@ public class AzurermSearchServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class AzurermSearchServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -77,8 +79,7 @@ public class AzurermSearchServiceDataSource : TerraformDataSource
     /// </summary>
     public AzurermSearchServiceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSearchServiceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

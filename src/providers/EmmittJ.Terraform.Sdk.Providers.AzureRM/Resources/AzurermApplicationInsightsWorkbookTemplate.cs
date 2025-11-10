@@ -14,8 +14,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("category");
-        set => WithProperty("category", value);
+        set => SetProperty("category", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
-        set => WithProperty("order", value);
+        set => SetProperty("order", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -68,8 +63,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,33 +105,42 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("author");
+        SetOutput("id");
+        SetOutput("localized");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("priority");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("template_data");
     }
 
     /// <summary>
     /// The author attribute.
     /// </summary>
-    public TerraformProperty<string>? Author
+    public TerraformProperty<string> Author
     {
-        get => GetProperty<TerraformProperty<string>>("author");
-        set => this.WithProperty("author", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("author");
+        set => SetProperty("author", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The localized attribute.
     /// </summary>
-    public TerraformProperty<string>? Localized
+    public TerraformProperty<string> Localized
     {
-        get => GetProperty<TerraformProperty<string>>("localized");
-        set => this.WithProperty("localized", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("localized");
+        set => SetProperty("localized", value);
     }
 
     /// <summary>
@@ -149,8 +149,8 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -159,17 +159,17 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -178,17 +178,17 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -197,19 +197,19 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateData is required")]
     public required TerraformProperty<string> TemplateData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("template_data");
-        set => this.WithProperty("template_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_data");
+        set => SetProperty("template_data", value);
     }
 
     /// <summary>
     /// Block for galleries.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Galleries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Galleries block(s) required")]
     public List<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock>? Galleries
     {
-        get => GetProperty<List<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock>>("galleries");
-        set => this.WithProperty("galleries", value);
+        set => SetProperty("galleries", value);
     }
 
     /// <summary>
@@ -218,8 +218,7 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// </summary>
     public AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

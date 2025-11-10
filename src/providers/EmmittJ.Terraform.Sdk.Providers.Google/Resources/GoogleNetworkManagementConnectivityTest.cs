@@ -13,8 +13,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? CloudSqlInstance
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_sql_instance");
-        set => WithProperty("cloud_sql_instance", value);
+        set => SetProperty("cloud_sql_instance", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? ForwardingRule
     {
-        get => GetProperty<TerraformProperty<string>>("forwarding_rule");
-        set => WithProperty("forwarding_rule", value);
+        set => SetProperty("forwarding_rule", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Fqdn
     {
-        get => GetProperty<TerraformProperty<string>>("fqdn");
-        set => WithProperty("fqdn", value);
+        set => SetProperty("fqdn", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? GkeMasterCluster
     {
-        get => GetProperty<TerraformProperty<string>>("gke_master_cluster");
-        set => WithProperty("gke_master_cluster", value);
+        set => SetProperty("gke_master_cluster", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
-        set => WithProperty("instance", value);
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -61,8 +56,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => WithProperty("ip_address", value);
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -80,8 +73,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>
@@ -106,8 +97,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? RedisCluster
     {
-        get => GetProperty<TerraformProperty<string>>("redis_cluster");
-        set => WithProperty("redis_cluster", value);
+        set => SetProperty("redis_cluster", value);
     }
 
     /// <summary>
@@ -115,8 +105,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? RedisInstance
     {
-        get => GetProperty<TerraformProperty<string>>("redis_instance");
-        set => WithProperty("redis_instance", value);
+        set => SetProperty("redis_instance", value);
     }
 
 }
@@ -132,8 +121,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CloudSqlInstance
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_sql_instance");
-        set => WithProperty("cloud_sql_instance", value);
+        set => SetProperty("cloud_sql_instance", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GkeMasterCluster
     {
-        get => GetProperty<TerraformProperty<string>>("gke_master_cluster");
-        set => WithProperty("gke_master_cluster", value);
+        set => SetProperty("gke_master_cluster", value);
     }
 
     /// <summary>
@@ -150,8 +137,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
-        set => WithProperty("instance", value);
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -159,8 +145,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => WithProperty("ip_address", value);
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
@@ -168,8 +153,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -177,8 +161,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NetworkType
     {
-        get => GetProperty<TerraformProperty<string>>("network_type");
-        set => WithProperty("network_type", value);
+        set => SetProperty("network_type", value);
     }
 
     /// <summary>
@@ -187,8 +170,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -204,8 +186,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
 }
@@ -221,8 +202,7 @@ public class GoogleNetworkManagementConnectivityTestTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -230,8 +210,7 @@ public class GoogleNetworkManagementConnectivityTestTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -239,8 +218,7 @@ public class GoogleNetworkManagementConnectivityTestTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -258,36 +236,45 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("bypass_firewall_checks");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("protocol");
+        SetOutput("related_projects");
+        SetOutput("round_trip");
     }
 
     /// <summary>
     /// Whether the analysis should skip firewall checking. Default value is false.
     /// </summary>
-    public TerraformProperty<bool>? BypassFirewallChecks
+    public TerraformProperty<bool> BypassFirewallChecks
     {
-        get => GetProperty<TerraformProperty<bool>>("bypass_firewall_checks");
-        set => this.WithProperty("bypass_firewall_checks", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bypass_firewall_checks");
+        set => SetProperty("bypass_firewall_checks", value);
     }
 
     /// <summary>
     /// The user-supplied description of the Connectivity Test.
     /// Maximum of 512 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -297,10 +284,10 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -309,26 +296,26 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// IP Protocol of the test. When not provided, &amp;quot;TCP&amp;quot; is assumed.
     /// </summary>
-    public TerraformProperty<string>? Protocol
+    public TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -336,44 +323,44 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// This is applicable to scenarios where a test can cross project
     /// boundaries.
     /// </summary>
-    public List<TerraformProperty<string>>? RelatedProjects
+    public List<TerraformProperty<string>> RelatedProjects
     {
-        get => GetProperty<List<TerraformProperty<string>>>("related_projects");
-        set => this.WithProperty("related_projects", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("related_projects");
+        set => SetProperty("related_projects", value);
     }
 
     /// <summary>
     /// Whether run analysis for the return path from destination to source.
     /// Default value is false.
     /// </summary>
-    public TerraformProperty<bool>? RoundTrip
+    public TerraformProperty<bool> RoundTrip
     {
-        get => GetProperty<TerraformProperty<bool>>("round_trip");
-        set => this.WithProperty("round_trip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("round_trip");
+        set => SetProperty("round_trip", value);
     }
 
     /// <summary>
     /// Block for destination.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     public List<GoogleNetworkManagementConnectivityTestDestinationBlock>? Destination
     {
-        get => GetProperty<List<GoogleNetworkManagementConnectivityTestDestinationBlock>>("destination");
-        set => this.WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     public List<GoogleNetworkManagementConnectivityTestSourceBlock>? Source
     {
-        get => GetProperty<List<GoogleNetworkManagementConnectivityTestSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -382,8 +369,7 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// </summary>
     public GoogleNetworkManagementConnectivityTestTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkManagementConnectivityTestTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

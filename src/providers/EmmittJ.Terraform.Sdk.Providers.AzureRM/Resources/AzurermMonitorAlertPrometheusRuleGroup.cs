@@ -13,8 +13,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Alert
     {
-        get => GetProperty<TerraformProperty<string>>("alert");
-        set => WithProperty("alert", value);
+        set => SetProperty("alert", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => WithProperty("annotations", value);
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? For
     {
-        get => GetProperty<TerraformProperty<string>>("for");
-        set => WithProperty("for", value);
+        set => SetProperty("for", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Record
     {
-        get => GetProperty<TerraformProperty<string>>("record");
-        set => WithProperty("record", value);
+        set => SetProperty("record", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Severity
     {
-        get => GetProperty<TerraformProperty<double>>("severity");
-        set => WithProperty("severity", value);
+        set => SetProperty("severity", value);
     }
 
 }
@@ -94,8 +86,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -140,42 +128,52 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cluster_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("interval");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("rule_group_enabled");
+        SetOutput("scopes");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    public TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public TerraformProperty<string>? Interval
+    public TerraformProperty<string> Interval
     {
-        get => GetProperty<TerraformProperty<string>>("interval");
-        set => this.WithProperty("interval", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("interval");
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
@@ -184,8 +182,8 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -194,8 +192,8 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -204,47 +202,47 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The rule_group_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RuleGroupEnabled
+    public TerraformProperty<bool> RuleGroupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("rule_group_enabled");
-        set => this.WithProperty("rule_group_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("rule_group_enabled");
+        set => SetProperty("rule_group_enabled", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public List<TerraformProperty<string>>? Scopes
+    public List<TerraformProperty<string>> Scopes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("scopes");
-        set => this.WithProperty("scopes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("scopes");
+        set => SetProperty("scopes", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     public List<AzurermMonitorAlertPrometheusRuleGroupRuleBlock>? Rule
     {
-        get => GetProperty<List<AzurermMonitorAlertPrometheusRuleGroupRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
@@ -253,8 +251,7 @@ public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
     /// </summary>
     public AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

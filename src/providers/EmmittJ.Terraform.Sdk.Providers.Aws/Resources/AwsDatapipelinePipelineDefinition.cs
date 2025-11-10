@@ -14,8 +14,7 @@ public class AwsDatapipelinePipelineDefinitionParameterObjectBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsDatapipelinePipelineDefinitionParameterValueBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class AwsDatapipelinePipelineDefinitionParameterValueBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StringValue is required")]
     public required TerraformProperty<string> StringValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("string_value");
-        set => WithProperty("string_value", value);
+        set => SetProperty("string_value", value);
     }
 
 }
@@ -60,8 +57,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -70,8 +66,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -89,15 +84,18 @@ public class AwsDatapipelinePipelineDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("pipeline_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -106,17 +104,17 @@ public class AwsDatapipelinePipelineDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     public required TerraformProperty<string> PipelineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_id");
-        set => this.WithProperty("pipeline_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_id");
+        set => SetProperty("pipeline_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -125,8 +123,7 @@ public class AwsDatapipelinePipelineDefinition : TerraformResource
     /// </summary>
     public HashSet<AwsDatapipelinePipelineDefinitionParameterObjectBlock>? ParameterObject
     {
-        get => GetProperty<HashSet<AwsDatapipelinePipelineDefinitionParameterObjectBlock>>("parameter_object");
-        set => this.WithProperty("parameter_object", value);
+        set => SetProperty("parameter_object", value);
     }
 
     /// <summary>
@@ -135,19 +132,18 @@ public class AwsDatapipelinePipelineDefinition : TerraformResource
     /// </summary>
     public HashSet<AwsDatapipelinePipelineDefinitionParameterValueBlock>? ParameterValue
     {
-        get => GetProperty<HashSet<AwsDatapipelinePipelineDefinitionParameterValueBlock>>("parameter_value");
-        set => this.WithProperty("parameter_value", value);
+        set => SetProperty("parameter_value", value);
     }
 
     /// <summary>
     /// Block for pipeline_object.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineObject is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PipelineObject block(s) required")]
     public HashSet<AwsDatapipelinePipelineDefinitionPipelineObjectBlock>? PipelineObject
     {
-        get => GetProperty<HashSet<AwsDatapipelinePipelineDefinitionPipelineObjectBlock>>("pipeline_object");
-        set => this.WithProperty("pipeline_object", value);
+        set => SetProperty("pipeline_object", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,21 @@ public class AzurermLogAnalyticsWorkspaceTable : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("plan");
+        SetOutput("retention_in_days");
+        SetOutput("total_retention_in_days");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,35 +77,35 @@ public class AzurermLogAnalyticsWorkspaceTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
-    public TerraformProperty<string>? Plan
+    public TerraformProperty<string> Plan
     {
-        get => GetProperty<TerraformProperty<string>>("plan");
-        set => this.WithProperty("plan", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plan");
+        set => SetProperty("plan", value);
     }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionInDays
+    public TerraformProperty<double> RetentionInDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_in_days");
-        set => this.WithProperty("retention_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_in_days");
+        set => SetProperty("retention_in_days", value);
     }
 
     /// <summary>
     /// The total_retention_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? TotalRetentionInDays
+    public TerraformProperty<double> TotalRetentionInDays
     {
-        get => GetProperty<TerraformProperty<double>>("total_retention_in_days");
-        set => this.WithProperty("total_retention_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("total_retention_in_days");
+        set => SetProperty("total_retention_in_days", value);
     }
 
     /// <summary>
@@ -112,8 +114,8 @@ public class AzurermLogAnalyticsWorkspaceTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -122,8 +124,7 @@ public class AzurermLogAnalyticsWorkspaceTable : TerraformResource
     /// </summary>
     public AzurermLogAnalyticsWorkspaceTableTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogAnalyticsWorkspaceTableTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

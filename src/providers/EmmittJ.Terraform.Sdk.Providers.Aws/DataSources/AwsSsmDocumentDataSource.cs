@@ -14,36 +14,41 @@ public class AwsSsmDocumentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("content");
-        this.WithOutput("document_type");
+        SetOutput("arn");
+        SetOutput("content");
+        SetOutput("document_type");
+        SetOutput("document_format");
+        SetOutput("document_version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The document_format attribute.
     /// </summary>
-    public TerraformProperty<string>? DocumentFormat
+    public TerraformProperty<string> DocumentFormat
     {
-        get => GetProperty<TerraformProperty<string>>("document_format");
-        set => this.WithProperty("document_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("document_format");
+        set => SetProperty("document_format", value);
     }
 
     /// <summary>
     /// The document_version attribute.
     /// </summary>
-    public TerraformProperty<string>? DocumentVersion
+    public TerraformProperty<string> DocumentVersion
     {
-        get => GetProperty<TerraformProperty<string>>("document_version");
-        set => this.WithProperty("document_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("document_version");
+        set => SetProperty("document_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,17 +57,17 @@ public class AwsSsmDocumentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

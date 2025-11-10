@@ -14,25 +14,30 @@ public class AwsVpclatticeListenerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("default_action");
-        this.WithOutput("last_updated_at");
-        this.WithOutput("listener_id");
-        this.WithOutput("name");
-        this.WithOutput("port");
-        this.WithOutput("protocol");
-        this.WithOutput("service_arn");
-        this.WithOutput("service_id");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("default_action");
+        SetOutput("last_updated_at");
+        SetOutput("listener_id");
+        SetOutput("name");
+        SetOutput("port");
+        SetOutput("protocol");
+        SetOutput("service_arn");
+        SetOutput("service_id");
+        SetOutput("id");
+        SetOutput("listener_identifier");
+        SetOutput("region");
+        SetOutput("service_identifier");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,17 +46,17 @@ public class AwsVpclatticeListenerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerIdentifier is required")]
     public required TerraformProperty<string> ListenerIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("listener_identifier");
-        set => this.WithProperty("listener_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("listener_identifier");
+        set => SetProperty("listener_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -60,17 +65,17 @@ public class AwsVpclatticeListenerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceIdentifier is required")]
     public required TerraformProperty<string> ServiceIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_identifier");
-        set => this.WithProperty("service_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_identifier");
+        set => SetProperty("service_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

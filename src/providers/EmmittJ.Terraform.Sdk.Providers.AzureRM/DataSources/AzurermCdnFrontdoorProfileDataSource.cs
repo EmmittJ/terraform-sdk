@@ -13,8 +13,7 @@ public class AzurermCdnFrontdoorProfileDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,24 @@ public class AzurermCdnFrontdoorProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("identity");
-        this.WithOutput("log_scrubbing_rule");
-        this.WithOutput("resource_guid");
-        this.WithOutput("response_timeout_seconds");
-        this.WithOutput("sku_name");
-        this.WithOutput("tags");
+        SetOutput("identity");
+        SetOutput("log_scrubbing_rule");
+        SetOutput("resource_guid");
+        SetOutput("response_timeout_seconds");
+        SetOutput("sku_name");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +56,8 @@ public class AzurermCdnFrontdoorProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermCdnFrontdoorProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermCdnFrontdoorProfileDataSource : TerraformDataSource
     /// </summary>
     public AzurermCdnFrontdoorProfileDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCdnFrontdoorProfileDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

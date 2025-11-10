@@ -14,6 +14,16 @@ public class AwsAutoscalingLifecycleHook : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("autoscaling_group_name");
+        SetOutput("default_result");
+        SetOutput("heartbeat_timeout");
+        SetOutput("id");
+        SetOutput("lifecycle_transition");
+        SetOutput("name");
+        SetOutput("notification_metadata");
+        SetOutput("notification_target_arn");
+        SetOutput("region");
+        SetOutput("role_arn");
     }
 
     /// <summary>
@@ -22,35 +32,35 @@ public class AwsAutoscalingLifecycleHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformProperty<string> AutoscalingGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("autoscaling_group_name");
-        set => this.WithProperty("autoscaling_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_group_name");
+        set => SetProperty("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The default_result attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultResult
+    public TerraformProperty<string> DefaultResult
     {
-        get => GetProperty<TerraformProperty<string>>("default_result");
-        set => this.WithProperty("default_result", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_result");
+        set => SetProperty("default_result", value);
     }
 
     /// <summary>
     /// The heartbeat_timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? HeartbeatTimeout
+    public TerraformProperty<double> HeartbeatTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("heartbeat_timeout");
-        set => this.WithProperty("heartbeat_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("heartbeat_timeout");
+        set => SetProperty("heartbeat_timeout", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +69,8 @@ public class AwsAutoscalingLifecycleHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LifecycleTransition is required")]
     public required TerraformProperty<string> LifecycleTransition
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lifecycle_transition");
-        set => this.WithProperty("lifecycle_transition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lifecycle_transition");
+        set => SetProperty("lifecycle_transition", value);
     }
 
     /// <summary>
@@ -69,44 +79,44 @@ public class AwsAutoscalingLifecycleHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The notification_metadata attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationMetadata
+    public TerraformProperty<string> NotificationMetadata
     {
-        get => GetProperty<TerraformProperty<string>>("notification_metadata");
-        set => this.WithProperty("notification_metadata", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_metadata");
+        set => SetProperty("notification_metadata", value);
     }
 
     /// <summary>
     /// The notification_target_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationTargetArn
+    public TerraformProperty<string> NotificationTargetArn
     {
-        get => GetProperty<TerraformProperty<string>>("notification_target_arn");
-        set => this.WithProperty("notification_target_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_target_arn");
+        set => SetProperty("notification_target_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
 }

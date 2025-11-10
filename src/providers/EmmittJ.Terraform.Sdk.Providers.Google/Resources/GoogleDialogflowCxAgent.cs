@@ -22,8 +22,7 @@ public class GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableAnswerFeedback
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_answer_feedback");
-        set => WithProperty("enable_answer_feedback", value);
+        set => SetProperty("enable_answer_feedback", value);
     }
 
 }
@@ -39,8 +38,7 @@ public class GoogleDialogflowCxAgentClientCertificateSettingsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Passphrase
     {
-        get => GetProperty<TerraformProperty<string>>("passphrase");
-        set => WithProperty("passphrase", value);
+        set => SetProperty("passphrase", value);
     }
 
     /// <summary>
@@ -49,8 +47,7 @@ public class GoogleDialogflowCxAgentClientCertificateSettingsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformProperty<string> PrivateKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_key");
-        set => WithProperty("private_key", value);
+        set => SetProperty("private_key", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class GoogleDialogflowCxAgentClientCertificateSettingsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslCertificate is required")]
     public required TerraformProperty<string> SslCertificate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ssl_certificate");
-        set => WithProperty("ssl_certificate", value);
+        set => SetProperty("ssl_certificate", value);
     }
 
 }
@@ -78,8 +74,7 @@ public class GoogleDialogflowCxAgentGenAppBuilderSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine");
-        set => WithProperty("engine", value);
+        set => SetProperty("engine", value);
     }
 
 }
@@ -107,8 +102,7 @@ public class GoogleDialogflowCxAgentPersonalizationSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? DefaultEndUserMetadata
     {
-        get => GetProperty<TerraformProperty<string>>("default_end_user_metadata");
-        set => WithProperty("default_end_user_metadata", value);
+        set => SetProperty("default_end_user_metadata", value);
     }
 
 }
@@ -124,8 +118,7 @@ public class GoogleDialogflowCxAgentSpeechToTextSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableSpeechAdaptation
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_speech_adaptation");
-        set => WithProperty("enable_speech_adaptation", value);
+        set => SetProperty("enable_speech_adaptation", value);
     }
 
 }
@@ -144,8 +137,7 @@ public class GoogleDialogflowCxAgentTextToSpeechSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SynthesizeSpeechConfigs
     {
-        get => GetProperty<TerraformProperty<string>>("synthesize_speech_configs");
-        set => WithProperty("synthesize_speech_configs", value);
+        set => SetProperty("synthesize_speech_configs", value);
     }
 
 }
@@ -161,8 +153,7 @@ public class GoogleDialogflowCxAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -170,8 +161,7 @@ public class GoogleDialogflowCxAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -179,8 +169,7 @@ public class GoogleDialogflowCxAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -198,19 +187,35 @@ public class GoogleDialogflowCxAgent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("satisfies_pzi");
-        this.WithOutput("satisfies_pzs");
-        this.WithOutput("start_flow");
+        SetOutput("name");
+        SetOutput("satisfies_pzi");
+        SetOutput("satisfies_pzs");
+        SetOutput("start_flow");
+        SetOutput("avatar_uri");
+        SetOutput("default_language_code");
+        SetOutput("delete_chat_engine_on_destroy");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("enable_multi_language_training");
+        SetOutput("enable_spell_correction");
+        SetOutput("enable_stackdriver_logging");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("locked");
+        SetOutput("project");
+        SetOutput("security_settings");
+        SetOutput("start_playbook");
+        SetOutput("supported_language_codes");
+        SetOutput("time_zone");
     }
 
     /// <summary>
     /// The URI of the agent&#39;s avatar. Avatars are used throughout the Dialogflow console and in the self-hosted Web Demo integration.
     /// </summary>
-    public TerraformProperty<string>? AvatarUri
+    public TerraformProperty<string> AvatarUri
     {
-        get => GetProperty<TerraformProperty<string>>("avatar_uri");
-        set => this.WithProperty("avatar_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("avatar_uri");
+        set => SetProperty("avatar_uri", value);
     }
 
     /// <summary>
@@ -220,8 +225,8 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
     public required TerraformProperty<string> DefaultLanguageCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_language_code");
-        set => this.WithProperty("default_language_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_language_code");
+        set => SetProperty("default_language_code", value);
     }
 
     /// <summary>
@@ -240,19 +245,19 @@ public class GoogleDialogflowCxAgent : TerraformResource
     /// or the &#39;dataStoreSpec&#39; field of a [tool](https://cloud.google.com/dialogflow/cx/docs/reference/rest/v3/projects.locations.agents.tools#resource:-tool).
     /// The ID of the implicitly created engine is stored in the &#39;genAppBuilderSettings&#39; field of the [agent](https://cloud.google.com/dialogflow/cx/docs/reference/rest/v3/projects.locations.agents#resource:-agent).
     /// </summary>
-    public TerraformProperty<bool>? DeleteChatEngineOnDestroy
+    public TerraformProperty<bool> DeleteChatEngineOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_chat_engine_on_destroy");
-        set => this.WithProperty("delete_chat_engine_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_chat_engine_on_destroy");
+        set => SetProperty("delete_chat_engine_on_destroy", value);
     }
 
     /// <summary>
     /// The description of this agent. The maximum length is 500 characters. If exceeded, the request is rejected.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -261,45 +266,45 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Enable training multi-lingual models for this agent. These models will be trained on all the languages supported by the agent.
     /// </summary>
-    public TerraformProperty<bool>? EnableMultiLanguageTraining
+    public TerraformProperty<bool> EnableMultiLanguageTraining
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_multi_language_training");
-        set => this.WithProperty("enable_multi_language_training", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_multi_language_training");
+        set => SetProperty("enable_multi_language_training", value);
     }
 
     /// <summary>
     /// Indicates if automatic spell correction is enabled in detect intent requests.
     /// </summary>
-    public TerraformProperty<bool>? EnableSpellCorrection
+    public TerraformProperty<bool> EnableSpellCorrection
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_spell_correction");
-        set => this.WithProperty("enable_spell_correction", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_spell_correction");
+        set => SetProperty("enable_spell_correction", value);
     }
 
     /// <summary>
     /// Determines whether this agent should log conversation queries.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableStackdriverLogging
+    public TerraformProperty<bool> EnableStackdriverLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_stackdriver_logging");
-        set => this.WithProperty("enable_stackdriver_logging", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_stackdriver_logging");
+        set => SetProperty("enable_stackdriver_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -312,53 +317,53 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Indicates whether the agent is locked for changes. If the agent is locked, modifications to the agent will be rejected except for [agents.restore][].
     /// </summary>
-    public TerraformProperty<bool>? Locked
+    public TerraformProperty<bool> Locked
     {
-        get => GetProperty<TerraformProperty<bool>>("locked");
-        set => this.WithProperty("locked", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("locked");
+        set => SetProperty("locked", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Name of the SecuritySettings reference for the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/securitySettings/&amp;lt;Security Settings ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? SecuritySettings
+    public TerraformProperty<string> SecuritySettings
     {
-        get => GetProperty<TerraformProperty<string>>("security_settings");
-        set => this.WithProperty("security_settings", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_settings");
+        set => SetProperty("security_settings", value);
     }
 
     /// <summary>
     /// Name of the start playbook in this agent. A start playbook will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: **projects/&amp;lt;ProjectID&amp;gt;/locations/&amp;lt;LocationID&amp;gt;/agents/&amp;lt;AgentID&amp;gt;/playbooks/&amp;lt;PlaybookID&amp;gt;**. Currently only the default playbook with id &amp;quot;00000000-0000-0000-0000-000000000000&amp;quot; is allowed.
     /// </summary>
-    public TerraformProperty<string>? StartPlaybook
+    public TerraformProperty<string> StartPlaybook
     {
-        get => GetProperty<TerraformProperty<string>>("start_playbook");
-        set => this.WithProperty("start_playbook", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_playbook");
+        set => SetProperty("start_playbook", value);
     }
 
     /// <summary>
     /// The list of all languages supported by this agent (except for the default_language_code).
     /// </summary>
-    public List<TerraformProperty<string>>? SupportedLanguageCodes
+    public List<TerraformProperty<string>> SupportedLanguageCodes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("supported_language_codes");
-        set => this.WithProperty("supported_language_codes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("supported_language_codes");
+        set => SetProperty("supported_language_codes", value);
     }
 
     /// <summary>
@@ -368,8 +373,8 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
@@ -379,8 +384,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSettings block(s) allowed")]
     public List<GoogleDialogflowCxAgentAdvancedSettingsBlock>? AdvancedSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxAgentAdvancedSettingsBlock>>("advanced_settings");
-        set => this.WithProperty("advanced_settings", value);
+        set => SetProperty("advanced_settings", value);
     }
 
     /// <summary>
@@ -390,8 +394,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnswerFeedbackSettings block(s) allowed")]
     public List<GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock>? AnswerFeedbackSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock>>("answer_feedback_settings");
-        set => this.WithProperty("answer_feedback_settings", value);
+        set => SetProperty("answer_feedback_settings", value);
     }
 
     /// <summary>
@@ -401,8 +404,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificateSettings block(s) allowed")]
     public List<GoogleDialogflowCxAgentClientCertificateSettingsBlock>? ClientCertificateSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxAgentClientCertificateSettingsBlock>>("client_certificate_settings");
-        set => this.WithProperty("client_certificate_settings", value);
+        set => SetProperty("client_certificate_settings", value);
     }
 
     /// <summary>
@@ -412,8 +414,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenAppBuilderSettings block(s) allowed")]
     public List<GoogleDialogflowCxAgentGenAppBuilderSettingsBlock>? GenAppBuilderSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxAgentGenAppBuilderSettingsBlock>>("gen_app_builder_settings");
-        set => this.WithProperty("gen_app_builder_settings", value);
+        set => SetProperty("gen_app_builder_settings", value);
     }
 
     /// <summary>
@@ -423,8 +424,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitIntegrationSettings block(s) allowed")]
     public List<GoogleDialogflowCxAgentGitIntegrationSettingsBlock>? GitIntegrationSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxAgentGitIntegrationSettingsBlock>>("git_integration_settings");
-        set => this.WithProperty("git_integration_settings", value);
+        set => SetProperty("git_integration_settings", value);
     }
 
     /// <summary>
@@ -434,8 +434,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersonalizationSettings block(s) allowed")]
     public List<GoogleDialogflowCxAgentPersonalizationSettingsBlock>? PersonalizationSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxAgentPersonalizationSettingsBlock>>("personalization_settings");
-        set => this.WithProperty("personalization_settings", value);
+        set => SetProperty("personalization_settings", value);
     }
 
     /// <summary>
@@ -445,8 +444,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpeechToTextSettings block(s) allowed")]
     public List<GoogleDialogflowCxAgentSpeechToTextSettingsBlock>? SpeechToTextSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxAgentSpeechToTextSettingsBlock>>("speech_to_text_settings");
-        set => this.WithProperty("speech_to_text_settings", value);
+        set => SetProperty("speech_to_text_settings", value);
     }
 
     /// <summary>
@@ -456,8 +454,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TextToSpeechSettings block(s) allowed")]
     public List<GoogleDialogflowCxAgentTextToSpeechSettingsBlock>? TextToSpeechSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxAgentTextToSpeechSettingsBlock>>("text_to_speech_settings");
-        set => this.WithProperty("text_to_speech_settings", value);
+        set => SetProperty("text_to_speech_settings", value);
     }
 
     /// <summary>
@@ -466,8 +463,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     public GoogleDialogflowCxAgentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowCxAgentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

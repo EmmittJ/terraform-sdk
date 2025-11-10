@@ -13,8 +13,7 @@ public class AwsVerifiedaccessTrustProviderDeviceOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? AuthorizationEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_endpoint");
-        set => WithProperty("authorization_endpoint", value);
+        set => SetProperty("authorization_endpoint", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
-        set => WithProperty("client_secret", value);
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
-        set => WithProperty("issuer", value);
+        set => SetProperty("issuer", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? PublicSigningKeyEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("public_signing_key_endpoint");
-        set => WithProperty("public_signing_key_endpoint", value);
+        set => SetProperty("public_signing_key_endpoint", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? TokenEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("token_endpoint");
-        set => WithProperty("token_endpoint", value);
+        set => SetProperty("token_endpoint", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? UserInfoEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("user_info_endpoint");
-        set => WithProperty("user_info_endpoint", value);
+        set => SetProperty("user_info_endpoint", value);
     }
 
 }
@@ -111,8 +102,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthorizationEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_endpoint");
-        set => WithProperty("authorization_endpoint", value);
+        set => SetProperty("authorization_endpoint", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
-        set => WithProperty("client_secret", value);
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
-        set => WithProperty("issuer", value);
+        set => SetProperty("issuer", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TokenEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("token_endpoint");
-        set => WithProperty("token_endpoint", value);
+        set => SetProperty("token_endpoint", value);
     }
 
     /// <summary>
@@ -166,8 +151,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserInfoEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("user_info_endpoint");
-        set => WithProperty("user_info_endpoint", value);
+        set => SetProperty("user_info_endpoint", value);
     }
 
 }
@@ -183,8 +167,7 @@ public class AwsVerifiedaccessTrustProviderSseSpecificationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? CustomerManagedKeyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("customer_managed_key_enabled");
-        set => WithProperty("customer_managed_key_enabled", value);
+        set => SetProperty("customer_managed_key_enabled", value);
     }
 
     /// <summary>
@@ -192,8 +175,7 @@ public class AwsVerifiedaccessTrustProviderSseSpecificationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => WithProperty("kms_key_arn", value);
+        set => SetProperty("kms_key_arn", value);
     }
 
 }
@@ -209,8 +191,7 @@ public class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -218,8 +199,7 @@ public class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -227,8 +207,7 @@ public class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -246,33 +225,42 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("device_trust_provider_type");
+        SetOutput("id");
+        SetOutput("policy_reference_name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("trust_provider_type");
+        SetOutput("user_trust_provider_type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The device_trust_provider_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DeviceTrustProviderType
+    public TerraformProperty<string> DeviceTrustProviderType
     {
-        get => GetProperty<TerraformProperty<string>>("device_trust_provider_type");
-        set => this.WithProperty("device_trust_provider_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_trust_provider_type");
+        set => SetProperty("device_trust_provider_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -281,35 +269,35 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyReferenceName is required")]
     public required TerraformProperty<string> PolicyReferenceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_reference_name");
-        set => this.WithProperty("policy_reference_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_reference_name");
+        set => SetProperty("policy_reference_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -318,17 +306,17 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustProviderType is required")]
     public required TerraformProperty<string> TrustProviderType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trust_provider_type");
-        set => this.WithProperty("trust_provider_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trust_provider_type");
+        set => SetProperty("trust_provider_type", value);
     }
 
     /// <summary>
     /// The user_trust_provider_type attribute.
     /// </summary>
-    public TerraformProperty<string>? UserTrustProviderType
+    public TerraformProperty<string> UserTrustProviderType
     {
-        get => GetProperty<TerraformProperty<string>>("user_trust_provider_type");
-        set => this.WithProperty("user_trust_provider_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_trust_provider_type");
+        set => SetProperty("user_trust_provider_type", value);
     }
 
     /// <summary>
@@ -338,8 +326,7 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeviceOptions block(s) allowed")]
     public List<AwsVerifiedaccessTrustProviderDeviceOptionsBlock>? DeviceOptions
     {
-        get => GetProperty<List<AwsVerifiedaccessTrustProviderDeviceOptionsBlock>>("device_options");
-        set => this.WithProperty("device_options", value);
+        set => SetProperty("device_options", value);
     }
 
     /// <summary>
@@ -349,8 +336,7 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NativeApplicationOidcOptions block(s) allowed")]
     public List<AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock>? NativeApplicationOidcOptions
     {
-        get => GetProperty<List<AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock>>("native_application_oidc_options");
-        set => this.WithProperty("native_application_oidc_options", value);
+        set => SetProperty("native_application_oidc_options", value);
     }
 
     /// <summary>
@@ -360,8 +346,7 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcOptions block(s) allowed")]
     public List<AwsVerifiedaccessTrustProviderOidcOptionsBlock>? OidcOptions
     {
-        get => GetProperty<List<AwsVerifiedaccessTrustProviderOidcOptionsBlock>>("oidc_options");
-        set => this.WithProperty("oidc_options", value);
+        set => SetProperty("oidc_options", value);
     }
 
     /// <summary>
@@ -371,8 +356,7 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SseSpecification block(s) allowed")]
     public List<AwsVerifiedaccessTrustProviderSseSpecificationBlock>? SseSpecification
     {
-        get => GetProperty<List<AwsVerifiedaccessTrustProviderSseSpecificationBlock>>("sse_specification");
-        set => this.WithProperty("sse_specification", value);
+        set => SetProperty("sse_specification", value);
     }
 
     /// <summary>
@@ -381,8 +365,7 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     public AwsVerifiedaccessTrustProviderTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVerifiedaccessTrustProviderTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

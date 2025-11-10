@@ -14,15 +14,19 @@ public class AwsCloudwatchLogDataProtectionPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("log_group_name");
+        SetOutput("policy_document");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,8 +35,8 @@ public class AwsCloudwatchLogDataProtectionPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
-        set => this.WithProperty("log_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_group_name");
+        set => SetProperty("log_group_name", value);
     }
 
     /// <summary>
@@ -41,17 +45,17 @@ public class AwsCloudwatchLogDataProtectionPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformProperty<string> PolicyDocument
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_document");
-        set => this.WithProperty("policy_document", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_document");
+        set => SetProperty("policy_document", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

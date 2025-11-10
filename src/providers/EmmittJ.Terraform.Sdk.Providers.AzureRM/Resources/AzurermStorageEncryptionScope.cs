@@ -13,8 +13,7 @@ public class AzurermStorageEncryptionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageEncryptionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageEncryptionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStorageEncryptionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,33 +54,39 @@ public class AzurermStorageEncryptionScope : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("infrastructure_encryption_required");
+        SetOutput("key_vault_key_id");
+        SetOutput("name");
+        SetOutput("source");
+        SetOutput("storage_account_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The infrastructure_encryption_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? InfrastructureEncryptionRequired
+    public TerraformProperty<bool> InfrastructureEncryptionRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("infrastructure_encryption_required");
-        set => this.WithProperty("infrastructure_encryption_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("infrastructure_encryption_required");
+        set => SetProperty("infrastructure_encryption_required", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
+    public TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => this.WithProperty("key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -93,8 +95,8 @@ public class AzurermStorageEncryptionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -103,8 +105,8 @@ public class AzurermStorageEncryptionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -113,8 +115,8 @@ public class AzurermStorageEncryptionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -123,8 +125,7 @@ public class AzurermStorageEncryptionScope : TerraformResource
     /// </summary>
     public AzurermStorageEncryptionScopeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageEncryptionScopeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

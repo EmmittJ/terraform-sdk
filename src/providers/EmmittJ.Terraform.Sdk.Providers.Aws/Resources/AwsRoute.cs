@@ -13,8 +13,7 @@ public class AwsRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,118 +46,134 @@ public class AwsRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("instance_id");
-        this.WithOutput("instance_owner_id");
-        this.WithOutput("origin");
-        this.WithOutput("state");
+        SetOutput("instance_id");
+        SetOutput("instance_owner_id");
+        SetOutput("origin");
+        SetOutput("state");
+        SetOutput("carrier_gateway_id");
+        SetOutput("core_network_arn");
+        SetOutput("destination_cidr_block");
+        SetOutput("destination_ipv6_cidr_block");
+        SetOutput("destination_prefix_list_id");
+        SetOutput("egress_only_gateway_id");
+        SetOutput("gateway_id");
+        SetOutput("id");
+        SetOutput("local_gateway_id");
+        SetOutput("nat_gateway_id");
+        SetOutput("network_interface_id");
+        SetOutput("region");
+        SetOutput("route_table_id");
+        SetOutput("transit_gateway_id");
+        SetOutput("vpc_endpoint_id");
+        SetOutput("vpc_peering_connection_id");
     }
 
     /// <summary>
     /// The carrier_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CarrierGatewayId
+    public TerraformProperty<string> CarrierGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("carrier_gateway_id");
-        set => this.WithProperty("carrier_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("carrier_gateway_id");
+        set => SetProperty("carrier_gateway_id", value);
     }
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CoreNetworkArn
+    public TerraformProperty<string> CoreNetworkArn
     {
-        get => GetProperty<TerraformProperty<string>>("core_network_arn");
-        set => this.WithProperty("core_network_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("core_network_arn");
+        set => SetProperty("core_network_arn", value);
     }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationCidrBlock
+    public TerraformProperty<string> DestinationCidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
-        set => this.WithProperty("destination_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_cidr_block");
+        set => SetProperty("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The destination_ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationIpv6CidrBlock
+    public TerraformProperty<string> DestinationIpv6CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("destination_ipv6_cidr_block");
-        set => this.WithProperty("destination_ipv6_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_ipv6_cidr_block");
+        set => SetProperty("destination_ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The destination_prefix_list_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationPrefixListId
+    public TerraformProperty<string> DestinationPrefixListId
     {
-        get => GetProperty<TerraformProperty<string>>("destination_prefix_list_id");
-        set => this.WithProperty("destination_prefix_list_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_prefix_list_id");
+        set => SetProperty("destination_prefix_list_id", value);
     }
 
     /// <summary>
     /// The egress_only_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EgressOnlyGatewayId
+    public TerraformProperty<string> EgressOnlyGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("egress_only_gateway_id");
-        set => this.WithProperty("egress_only_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("egress_only_gateway_id");
+        set => SetProperty("egress_only_gateway_id", value);
     }
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayId
+    public TerraformProperty<string> GatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_id");
-        set => this.WithProperty("gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_id");
+        set => SetProperty("gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LocalGatewayId
+    public TerraformProperty<string> LocalGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("local_gateway_id");
-        set => this.WithProperty("local_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("local_gateway_id");
+        set => SetProperty("local_gateway_id", value);
     }
 
     /// <summary>
     /// The nat_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NatGatewayId
+    public TerraformProperty<string> NatGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("nat_gateway_id");
-        set => this.WithProperty("nat_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nat_gateway_id");
+        set => SetProperty("nat_gateway_id", value);
     }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInterfaceId
+    public TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
-        set => this.WithProperty("network_interface_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
+        set => SetProperty("network_interface_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -169,35 +182,35 @@ public class AwsRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
     public required TerraformProperty<string> RouteTableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("route_table_id");
-        set => this.WithProperty("route_table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("route_table_id");
+        set => SetProperty("route_table_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TransitGatewayId
+    public TerraformProperty<string> TransitGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
-        set => this.WithProperty("transit_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_id");
+        set => SetProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointId
+    public TerraformProperty<string> VpcEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
-        set => this.WithProperty("vpc_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_endpoint_id");
+        set => SetProperty("vpc_endpoint_id", value);
     }
 
     /// <summary>
     /// The vpc_peering_connection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcPeeringConnectionId
+    public TerraformProperty<string> VpcPeeringConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_peering_connection_id");
-        set => this.WithProperty("vpc_peering_connection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_peering_connection_id");
+        set => SetProperty("vpc_peering_connection_id", value);
     }
 
     /// <summary>
@@ -206,8 +219,7 @@ public class AwsRoute : TerraformResource
     /// </summary>
     public AwsRouteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRouteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

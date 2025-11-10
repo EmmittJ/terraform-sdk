@@ -13,8 +13,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DestAddressGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dest_address_groups");
-        set => WithProperty("dest_address_groups", value);
+        set => SetProperty("dest_address_groups", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DestFqdns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dest_fqdns");
-        set => WithProperty("dest_fqdns", value);
+        set => SetProperty("dest_fqdns", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DestIpRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dest_ip_ranges");
-        set => WithProperty("dest_ip_ranges", value);
+        set => SetProperty("dest_ip_ranges", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DestRegionCodes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dest_region_codes");
-        set => WithProperty("dest_region_codes", value);
+        set => SetProperty("dest_region_codes", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DestThreatIntelligences
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dest_threat_intelligences");
-        set => WithProperty("dest_threat_intelligences", value);
+        set => SetProperty("dest_threat_intelligences", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SrcAddressGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("src_address_groups");
-        set => WithProperty("src_address_groups", value);
+        set => SetProperty("src_address_groups", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SrcFqdns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("src_fqdns");
-        set => WithProperty("src_fqdns", value);
+        set => SetProperty("src_fqdns", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SrcIpRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("src_ip_ranges");
-        set => WithProperty("src_ip_ranges", value);
+        set => SetProperty("src_ip_ranges", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SrcRegionCodes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("src_region_codes");
-        set => WithProperty("src_region_codes", value);
+        set => SetProperty("src_region_codes", value);
     }
 
     /// <summary>
@@ -94,8 +85,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SrcThreatIntelligences
     {
-        get => GetProperty<List<TerraformProperty<string>>>("src_threat_intelligences");
-        set => WithProperty("src_threat_intelligences", value);
+        set => SetProperty("src_threat_intelligences", value);
     }
 
 }
@@ -111,8 +101,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -120,8 +109,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -137,8 +125,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -146,8 +133,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -155,8 +141,7 @@ public class GoogleComputeNetworkFirewallPolicyRuleTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -174,9 +159,22 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("kind");
-        this.WithOutput("rule_tuple_count");
+        SetOutput("creation_timestamp");
+        SetOutput("kind");
+        SetOutput("rule_tuple_count");
+        SetOutput("action");
+        SetOutput("description");
+        SetOutput("direction");
+        SetOutput("disabled");
+        SetOutput("enable_logging");
+        SetOutput("firewall_policy");
+        SetOutput("id");
+        SetOutput("priority");
+        SetOutput("project");
+        SetOutput("rule_name");
+        SetOutput("security_profile_group");
+        SetOutput("target_service_accounts");
+        SetOutput("tls_inspect");
     }
 
     /// <summary>
@@ -185,17 +183,17 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// An optional description for this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -204,8 +202,8 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("direction");
-        set => this.WithProperty("direction", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("direction");
+        set => SetProperty("direction", value);
     }
 
     /// <summary>
@@ -213,10 +211,10 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     /// When set to true, the firewall policy rule is not enforced and traffic behaves as if it did not exist.
     /// If this is unspecified, the firewall policy rule will be enabled.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -225,10 +223,10 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     /// Logs may be exported to BigQuery or Pub/Sub.
     /// Note: you cannot enable logging on &amp;quot;goto_next&amp;quot; rules.
     /// </summary>
-    public TerraformProperty<bool>? EnableLogging
+    public TerraformProperty<bool> EnableLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_logging");
-        set => this.WithProperty("enable_logging", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_logging");
+        set => SetProperty("enable_logging", value);
     }
 
     /// <summary>
@@ -237,17 +235,17 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
     public required TerraformProperty<string> FirewallPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("firewall_policy");
-        set => this.WithProperty("firewall_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firewall_policy");
+        set => SetProperty("firewall_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -258,26 +256,26 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// An optional name for the rule. This field is not a unique identifier and can be updated.
     /// </summary>
-    public TerraformProperty<string>? RuleName
+    public TerraformProperty<string> RuleName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_name");
-        set => this.WithProperty("rule_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
+        set => SetProperty("rule_name", value);
     }
 
     /// <summary>
@@ -285,41 +283,41 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     /// Example: https://networksecurity.googleapis.com/v1/projects/{project}/locations/{location}/securityProfileGroups/my-security-profile-group
     /// Must be specified if action = &#39;apply_security_profile_group&#39; and cannot be specified for other actions.
     /// </summary>
-    public TerraformProperty<string>? SecurityProfileGroup
+    public TerraformProperty<string> SecurityProfileGroup
     {
-        get => GetProperty<TerraformProperty<string>>("security_profile_group");
-        set => this.WithProperty("security_profile_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_profile_group");
+        set => SetProperty("security_profile_group", value);
     }
 
     /// <summary>
     /// A list of service accounts indicating the sets of instances that are applied with this rule.
     /// </summary>
-    public List<TerraformProperty<string>>? TargetServiceAccounts
+    public List<TerraformProperty<string>> TargetServiceAccounts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("target_service_accounts");
-        set => this.WithProperty("target_service_accounts", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("target_service_accounts");
+        set => SetProperty("target_service_accounts", value);
     }
 
     /// <summary>
     /// Boolean flag indicating if the traffic should be TLS decrypted.
     /// Can be set only if action = &#39;apply_security_profile_group&#39; and cannot be set for other actions.
     /// </summary>
-    public TerraformProperty<bool>? TlsInspect
+    public TerraformProperty<bool> TlsInspect
     {
-        get => GetProperty<TerraformProperty<bool>>("tls_inspect");
-        set => this.WithProperty("tls_inspect", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tls_inspect");
+        set => SetProperty("tls_inspect", value);
     }
 
     /// <summary>
     /// Block for match.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Match is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Match block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
     public List<GoogleComputeNetworkFirewallPolicyRuleMatchBlock>? Match
     {
-        get => GetProperty<List<GoogleComputeNetworkFirewallPolicyRuleMatchBlock>>("match");
-        set => this.WithProperty("match", value);
+        set => SetProperty("match", value);
     }
 
     /// <summary>
@@ -328,8 +326,7 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     /// </summary>
     public List<GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock>? TargetSecureTags
     {
-        get => GetProperty<List<GoogleComputeNetworkFirewallPolicyRuleTargetSecureTagsBlock>>("target_secure_tags");
-        set => this.WithProperty("target_secure_tags", value);
+        set => SetProperty("target_secure_tags", value);
     }
 
     /// <summary>
@@ -338,8 +335,7 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     /// </summary>
     public GoogleComputeNetworkFirewallPolicyRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNetworkFirewallPolicyRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

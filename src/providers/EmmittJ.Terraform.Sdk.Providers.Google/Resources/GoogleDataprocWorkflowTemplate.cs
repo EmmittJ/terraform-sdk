@@ -13,8 +13,7 @@ public class GoogleDataprocWorkflowTemplateEncryptionConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => WithProperty("kms_key", value);
+        set => SetProperty("kms_key", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? PrerequisiteStepIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("prerequisite_step_ids");
-        set => WithProperty("prerequisite_step_ids", value);
+        set => SetProperty("prerequisite_step_ids", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StepId is required")]
     public required TerraformProperty<string> StepId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("step_id");
-        set => WithProperty("step_id", value);
+        set => SetProperty("step_id", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     public List<TerraformProperty<string>>? Fields
     {
-        get => GetProperty<List<TerraformProperty<string>>>("fields");
-        set => WithProperty("fields", value);
+        set => SetProperty("fields", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -111,8 +104,7 @@ public class GoogleDataprocWorkflowTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -120,8 +112,7 @@ public class GoogleDataprocWorkflowTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -129,8 +120,7 @@ public class GoogleDataprocWorkflowTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -148,28 +138,35 @@ public class GoogleDataprocWorkflowTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("dag_timeout");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("version");
     }
 
     /// <summary>
     /// Optional. Timeout duration for the DAG of jobs, expressed in seconds (see [JSON representation of duration](https://developers.google.com/protocol-buffers/docs/proto3#json)). The timeout duration must be from 10 minutes (&amp;quot;600s&amp;quot;) to 24 hours (&amp;quot;86400s&amp;quot;). The timer begins when the first job is submitted. If the workflow is running at the end of the timeout period, any remaining jobs are cancelled, the workflow is ended, and if the workflow was running on a [managed cluster](/dataproc/docs/concepts/workflows/using-workflows#configuring_or_selecting_a_cluster), the cluster is deleted.
     /// </summary>
-    public TerraformProperty<string>? DagTimeout
+    public TerraformProperty<string> DagTimeout
     {
-        get => GetProperty<TerraformProperty<string>>("dag_timeout");
-        set => this.WithProperty("dag_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dag_timeout");
+        set => SetProperty("dag_timeout", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -178,10 +175,10 @@ public class GoogleDataprocWorkflowTemplate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -190,8 +187,8 @@ public class GoogleDataprocWorkflowTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -200,27 +197,27 @@ public class GoogleDataprocWorkflowTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Output only. The current version of this workflow template.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<double>? Version
+    public TerraformProperty<double> Version
     {
-        get => GetProperty<TerraformProperty<double>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -230,19 +227,18 @@ public class GoogleDataprocWorkflowTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     public List<GoogleDataprocWorkflowTemplateEncryptionConfigBlock>? EncryptionConfig
     {
-        get => GetProperty<List<GoogleDataprocWorkflowTemplateEncryptionConfigBlock>>("encryption_config");
-        set => this.WithProperty("encryption_config", value);
+        set => SetProperty("encryption_config", value);
     }
 
     /// <summary>
     /// Block for jobs.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Jobs is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Jobs block(s) required")]
     public List<GoogleDataprocWorkflowTemplateJobsBlock>? Jobs
     {
-        get => GetProperty<List<GoogleDataprocWorkflowTemplateJobsBlock>>("jobs");
-        set => this.WithProperty("jobs", value);
+        set => SetProperty("jobs", value);
     }
 
     /// <summary>
@@ -251,20 +247,19 @@ public class GoogleDataprocWorkflowTemplate : TerraformResource
     /// </summary>
     public List<GoogleDataprocWorkflowTemplateParametersBlock>? Parameters
     {
-        get => GetProperty<List<GoogleDataprocWorkflowTemplateParametersBlock>>("parameters");
-        set => this.WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// Block for placement.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Placement is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Placement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
     public List<GoogleDataprocWorkflowTemplatePlacementBlock>? Placement
     {
-        get => GetProperty<List<GoogleDataprocWorkflowTemplatePlacementBlock>>("placement");
-        set => this.WithProperty("placement", value);
+        set => SetProperty("placement", value);
     }
 
     /// <summary>
@@ -273,8 +268,7 @@ public class GoogleDataprocWorkflowTemplate : TerraformResource
     /// </summary>
     public GoogleDataprocWorkflowTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataprocWorkflowTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

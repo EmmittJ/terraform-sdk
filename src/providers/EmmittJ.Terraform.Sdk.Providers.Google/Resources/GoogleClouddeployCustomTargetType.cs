@@ -14,8 +14,7 @@ public class GoogleClouddeployCustomTargetTypeCustomActionsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeployAction is required")]
     public required TerraformProperty<string> DeployAction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deploy_action");
-        set => WithProperty("deploy_action", value);
+        set => SetProperty("deploy_action", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleClouddeployCustomTargetTypeCustomActionsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? RenderAction
     {
-        get => GetProperty<TerraformProperty<string>>("render_action");
-        set => WithProperty("render_action", value);
+        set => SetProperty("render_action", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleClouddeployCustomTargetTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleClouddeployCustomTargetTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleClouddeployCustomTargetTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,14 +72,21 @@ public class GoogleClouddeployCustomTargetType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("custom_target_type_id");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("custom_target_type_id");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -93,28 +95,28 @@ public class GoogleClouddeployCustomTargetType : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// Description of the &#39;CustomTargetType&#39;. Max length is 255 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,10 +125,10 @@ public class GoogleClouddeployCustomTargetType : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -135,8 +137,8 @@ public class GoogleClouddeployCustomTargetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -145,17 +147,17 @@ public class GoogleClouddeployCustomTargetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -165,8 +167,7 @@ public class GoogleClouddeployCustomTargetType : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomActions block(s) allowed")]
     public List<GoogleClouddeployCustomTargetTypeCustomActionsBlock>? CustomActions
     {
-        get => GetProperty<List<GoogleClouddeployCustomTargetTypeCustomActionsBlock>>("custom_actions");
-        set => this.WithProperty("custom_actions", value);
+        set => SetProperty("custom_actions", value);
     }
 
     /// <summary>
@@ -175,8 +176,7 @@ public class GoogleClouddeployCustomTargetType : TerraformResource
     /// </summary>
     public GoogleClouddeployCustomTargetTypeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleClouddeployCustomTargetTypeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

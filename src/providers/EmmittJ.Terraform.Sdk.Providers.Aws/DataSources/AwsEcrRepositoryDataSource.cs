@@ -14,22 +14,27 @@ public class AwsEcrRepositoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("encryption_configuration");
-        this.WithOutput("image_scanning_configuration");
-        this.WithOutput("image_tag_mutability");
-        this.WithOutput("image_tag_mutability_exclusion_filter");
-        this.WithOutput("most_recent_image_tags");
-        this.WithOutput("repository_url");
+        SetOutput("arn");
+        SetOutput("encryption_configuration");
+        SetOutput("image_scanning_configuration");
+        SetOutput("image_tag_mutability");
+        SetOutput("image_tag_mutability_exclusion_filter");
+        SetOutput("most_recent_image_tags");
+        SetOutput("repository_url");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("registry_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -38,35 +43,35 @@ public class AwsEcrRepositoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RegistryId
+    public TerraformProperty<string> RegistryId
     {
-        get => GetProperty<TerraformProperty<string>>("registry_id");
-        set => this.WithProperty("registry_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("registry_id");
+        set => SetProperty("registry_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

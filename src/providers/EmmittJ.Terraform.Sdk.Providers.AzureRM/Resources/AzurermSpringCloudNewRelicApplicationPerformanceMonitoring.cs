@@ -13,8 +13,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,28 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
 
     private void InitializeOutputs()
     {
+        SetOutput("agent_enabled");
+        SetOutput("app_name");
+        SetOutput("app_server_port");
+        SetOutput("audit_mode_enabled");
+        SetOutput("auto_app_naming_enabled");
+        SetOutput("auto_transaction_naming_enabled");
+        SetOutput("custom_tracing_enabled");
+        SetOutput("globally_enabled");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("license_key");
+        SetOutput("name");
+        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The agent_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AgentEnabled
+    public TerraformProperty<bool> AgentEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("agent_enabled");
-        set => this.WithProperty("agent_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("agent_enabled");
+        set => SetProperty("agent_enabled", value);
     }
 
     /// <summary>
@@ -75,80 +84,80 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformProperty<string> AppName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_name");
-        set => this.WithProperty("app_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_name");
+        set => SetProperty("app_name", value);
     }
 
     /// <summary>
     /// The app_server_port attribute.
     /// </summary>
-    public TerraformProperty<double>? AppServerPort
+    public TerraformProperty<double> AppServerPort
     {
-        get => GetProperty<TerraformProperty<double>>("app_server_port");
-        set => this.WithProperty("app_server_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("app_server_port");
+        set => SetProperty("app_server_port", value);
     }
 
     /// <summary>
     /// The audit_mode_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AuditModeEnabled
+    public TerraformProperty<bool> AuditModeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("audit_mode_enabled");
-        set => this.WithProperty("audit_mode_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("audit_mode_enabled");
+        set => SetProperty("audit_mode_enabled", value);
     }
 
     /// <summary>
     /// The auto_app_naming_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoAppNamingEnabled
+    public TerraformProperty<bool> AutoAppNamingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_app_naming_enabled");
-        set => this.WithProperty("auto_app_naming_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_app_naming_enabled");
+        set => SetProperty("auto_app_naming_enabled", value);
     }
 
     /// <summary>
     /// The auto_transaction_naming_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoTransactionNamingEnabled
+    public TerraformProperty<bool> AutoTransactionNamingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_transaction_naming_enabled");
-        set => this.WithProperty("auto_transaction_naming_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_transaction_naming_enabled");
+        set => SetProperty("auto_transaction_naming_enabled", value);
     }
 
     /// <summary>
     /// The custom_tracing_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CustomTracingEnabled
+    public TerraformProperty<bool> CustomTracingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("custom_tracing_enabled");
-        set => this.WithProperty("custom_tracing_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("custom_tracing_enabled");
+        set => SetProperty("custom_tracing_enabled", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? GloballyEnabled
+    public TerraformProperty<bool> GloballyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("globally_enabled");
-        set => this.WithProperty("globally_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("globally_enabled");
+        set => SetProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -157,8 +166,8 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseKey is required")]
     public required TerraformProperty<string> LicenseKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license_key");
-        set => this.WithProperty("license_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_key");
+        set => SetProperty("license_key", value);
     }
 
     /// <summary>
@@ -167,8 +176,8 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -177,8 +186,8 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
-        set => this.WithProperty("spring_cloud_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
+        set => SetProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
@@ -187,8 +196,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     /// </summary>
     public AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

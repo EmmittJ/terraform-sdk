@@ -14,53 +14,64 @@ public class AwsConnectContactFlow : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("contact_flow_id");
+        SetOutput("arn");
+        SetOutput("contact_flow_id");
+        SetOutput("content");
+        SetOutput("content_hash");
+        SetOutput("description");
+        SetOutput("filename");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformProperty<string>? Content
+    public TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
-        set => this.WithProperty("content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content");
+        set => SetProperty("content", value);
     }
 
     /// <summary>
     /// The content_hash attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentHash
+    public TerraformProperty<string> ContentHash
     {
-        get => GetProperty<TerraformProperty<string>>("content_hash");
-        set => this.WithProperty("content_hash", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_hash");
+        set => SetProperty("content_hash", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public TerraformProperty<string>? Filename
+    public TerraformProperty<string> Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
-        set => this.WithProperty("filename", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filename");
+        set => SetProperty("filename", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,8 +80,8 @@ public class AwsConnectContactFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -79,44 +90,44 @@ public class AwsConnectContactFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>

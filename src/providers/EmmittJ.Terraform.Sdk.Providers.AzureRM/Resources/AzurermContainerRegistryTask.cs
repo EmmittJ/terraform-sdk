@@ -14,8 +14,7 @@ public class AzurermContainerRegistryTaskAgentSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformProperty<double> Cpu
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("cpu");
-        set => WithProperty("cpu", value);
+        set => SetProperty("cpu", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateTriggerEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("update_trigger_endpoint");
-        set => WithProperty("update_trigger_endpoint", value);
+        set => SetProperty("update_trigger_endpoint", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateTriggerPayloadType
     {
-        get => GetProperty<TerraformProperty<string>>("update_trigger_payload_type");
-        set => WithProperty("update_trigger_payload_type", value);
+        set => SetProperty("update_trigger_payload_type", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Arguments
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("arguments");
-        set => WithProperty("arguments", value);
+        set => SetProperty("arguments", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CacheEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cache_enabled");
-        set => WithProperty("cache_enabled", value);
+        set => SetProperty("cache_enabled", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextAccessToken is required")]
     public required TerraformProperty<string> ContextAccessToken
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("context_access_token");
-        set => WithProperty("context_access_token", value);
+        set => SetProperty("context_access_token", value);
     }
 
     /// <summary>
@@ -115,8 +106,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextPath is required")]
     public required TerraformProperty<string> ContextPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("context_path");
-        set => WithProperty("context_path", value);
+        set => SetProperty("context_path", value);
     }
 
     /// <summary>
@@ -125,8 +115,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DockerfilePath is required")]
     public required TerraformProperty<string> DockerfilePath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dockerfile_path");
-        set => WithProperty("dockerfile_path", value);
+        set => SetProperty("dockerfile_path", value);
     }
 
     /// <summary>
@@ -134,8 +123,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ImageNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("image_names");
-        set => WithProperty("image_names", value);
+        set => SetProperty("image_names", value);
     }
 
     /// <summary>
@@ -143,8 +131,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PushEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("push_enabled");
-        set => WithProperty("push_enabled", value);
+        set => SetProperty("push_enabled", value);
     }
 
     /// <summary>
@@ -152,8 +139,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? SecretArguments
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("secret_arguments");
-        set => WithProperty("secret_arguments", value);
+        set => SetProperty("secret_arguments", value);
     }
 
     /// <summary>
@@ -161,8 +147,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
-        set => WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
 }
@@ -178,8 +163,7 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContextAccessToken
     {
-        get => GetProperty<TerraformProperty<string>>("context_access_token");
-        set => WithProperty("context_access_token", value);
+        set => SetProperty("context_access_token", value);
     }
 
     /// <summary>
@@ -187,8 +171,7 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContextPath
     {
-        get => GetProperty<TerraformProperty<string>>("context_path");
-        set => WithProperty("context_path", value);
+        set => SetProperty("context_path", value);
     }
 
     /// <summary>
@@ -196,8 +179,7 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? SecretValues
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("secret_values");
-        set => WithProperty("secret_values", value);
+        set => SetProperty("secret_values", value);
     }
 
     /// <summary>
@@ -206,8 +188,7 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskContent is required")]
     public required TerraformProperty<string> TaskContent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_content");
-        set => WithProperty("task_content", value);
+        set => SetProperty("task_content", value);
     }
 
     /// <summary>
@@ -215,8 +196,7 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ValueContent
     {
-        get => GetProperty<TerraformProperty<string>>("value_content");
-        set => WithProperty("value_content", value);
+        set => SetProperty("value_content", value);
     }
 
     /// <summary>
@@ -224,8 +204,7 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Values
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -241,8 +220,7 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContextAccessToken
     {
-        get => GetProperty<TerraformProperty<string>>("context_access_token");
-        set => WithProperty("context_access_token", value);
+        set => SetProperty("context_access_token", value);
     }
 
     /// <summary>
@@ -250,8 +228,7 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContextPath
     {
-        get => GetProperty<TerraformProperty<string>>("context_path");
-        set => WithProperty("context_path", value);
+        set => SetProperty("context_path", value);
     }
 
     /// <summary>
@@ -259,8 +236,7 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? SecretValues
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("secret_values");
-        set => WithProperty("secret_values", value);
+        set => SetProperty("secret_values", value);
     }
 
     /// <summary>
@@ -269,8 +245,7 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskFilePath is required")]
     public required TerraformProperty<string> TaskFilePath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_file_path");
-        set => WithProperty("task_file_path", value);
+        set => SetProperty("task_file_path", value);
     }
 
     /// <summary>
@@ -278,8 +253,7 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ValueFilePath
     {
-        get => GetProperty<TerraformProperty<string>>("value_file_path");
-        set => WithProperty("value_file_path", value);
+        set => SetProperty("value_file_path", value);
     }
 
     /// <summary>
@@ -287,8 +261,7 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Values
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -304,8 +277,7 @@ public class AzurermContainerRegistryTaskIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -313,8 +285,7 @@ public class AzurermContainerRegistryTaskIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -322,8 +293,7 @@ public class AzurermContainerRegistryTaskIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -332,8 +302,7 @@ public class AzurermContainerRegistryTaskIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -349,8 +318,7 @@ public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Architecture
     {
-        get => GetProperty<TerraformProperty<string>>("architecture");
-        set => WithProperty("architecture", value);
+        set => SetProperty("architecture", value);
     }
 
     /// <summary>
@@ -359,8 +327,7 @@ public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Os is required")]
     public required TerraformProperty<string> Os
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("os");
-        set => WithProperty("os", value);
+        set => SetProperty("os", value);
     }
 
     /// <summary>
@@ -368,8 +335,7 @@ public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Variant
     {
-        get => GetProperty<TerraformProperty<string>>("variant");
-        set => WithProperty("variant", value);
+        set => SetProperty("variant", value);
     }
 
 }
@@ -393,8 +359,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Branch
     {
-        get => GetProperty<TerraformProperty<string>>("branch");
-        set => WithProperty("branch", value);
+        set => SetProperty("branch", value);
     }
 
     /// <summary>
@@ -402,8 +367,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -412,8 +376,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public List<TerraformProperty<string>>? Events
     {
-        get => GetProperty<List<TerraformProperty<string>>>("events");
-        set => WithProperty("events", value);
+        set => SetProperty("events", value);
     }
 
     /// <summary>
@@ -422,8 +385,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -432,8 +394,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformProperty<string> RepositoryUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_url");
-        set => WithProperty("repository_url", value);
+        set => SetProperty("repository_url", value);
     }
 
     /// <summary>
@@ -442,8 +403,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformProperty<string> SourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_type");
-        set => WithProperty("source_type", value);
+        set => SetProperty("source_type", value);
     }
 
 }
@@ -459,8 +419,7 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -468,8 +427,7 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -477,8 +435,7 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -486,8 +443,7 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -503,8 +459,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -513,8 +468,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -523,8 +477,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformProperty<string> Schedule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule");
-        set => WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
 }
@@ -542,15 +495,24 @@ public class AzurermContainerRegistryTask : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("agent_pool_name");
+        SetOutput("container_registry_id");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("is_system_task");
+        SetOutput("log_template");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("timeout_in_seconds");
     }
 
     /// <summary>
     /// The agent_pool_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentPoolName
+    public TerraformProperty<string> AgentPoolName
     {
-        get => GetProperty<TerraformProperty<string>>("agent_pool_name");
-        set => this.WithProperty("agent_pool_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_pool_name");
+        set => SetProperty("agent_pool_name", value);
     }
 
     /// <summary>
@@ -559,44 +521,44 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformProperty<string> ContainerRegistryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_id");
-        set => this.WithProperty("container_registry_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_id");
+        set => SetProperty("container_registry_id", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The is_system_task attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsSystemTask
+    public TerraformProperty<bool> IsSystemTask
     {
-        get => GetProperty<TerraformProperty<bool>>("is_system_task");
-        set => this.WithProperty("is_system_task", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_system_task");
+        set => SetProperty("is_system_task", value);
     }
 
     /// <summary>
     /// The log_template attribute.
     /// </summary>
-    public TerraformProperty<string>? LogTemplate
+    public TerraformProperty<string> LogTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("log_template");
-        set => this.WithProperty("log_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_template");
+        set => SetProperty("log_template", value);
     }
 
     /// <summary>
@@ -605,26 +567,26 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? TimeoutInSeconds
+    public TerraformProperty<double> TimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_in_seconds");
-        set => this.WithProperty("timeout_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout_in_seconds");
+        set => SetProperty("timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -634,8 +596,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AgentSetting block(s) allowed")]
     public List<AzurermContainerRegistryTaskAgentSettingBlock>? AgentSetting
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskAgentSettingBlock>>("agent_setting");
-        set => this.WithProperty("agent_setting", value);
+        set => SetProperty("agent_setting", value);
     }
 
     /// <summary>
@@ -645,8 +606,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BaseImageTrigger block(s) allowed")]
     public List<AzurermContainerRegistryTaskBaseImageTriggerBlock>? BaseImageTrigger
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskBaseImageTriggerBlock>>("base_image_trigger");
-        set => this.WithProperty("base_image_trigger", value);
+        set => SetProperty("base_image_trigger", value);
     }
 
     /// <summary>
@@ -656,8 +616,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerStep block(s) allowed")]
     public List<AzurermContainerRegistryTaskDockerStepBlock>? DockerStep
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskDockerStepBlock>>("docker_step");
-        set => this.WithProperty("docker_step", value);
+        set => SetProperty("docker_step", value);
     }
 
     /// <summary>
@@ -667,8 +626,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncodedStep block(s) allowed")]
     public List<AzurermContainerRegistryTaskEncodedStepBlock>? EncodedStep
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskEncodedStepBlock>>("encoded_step");
-        set => this.WithProperty("encoded_step", value);
+        set => SetProperty("encoded_step", value);
     }
 
     /// <summary>
@@ -678,8 +636,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileStep block(s) allowed")]
     public List<AzurermContainerRegistryTaskFileStepBlock>? FileStep
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskFileStepBlock>>("file_step");
-        set => this.WithProperty("file_step", value);
+        set => SetProperty("file_step", value);
     }
 
     /// <summary>
@@ -689,8 +646,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermContainerRegistryTaskIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -700,8 +656,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Platform block(s) allowed")]
     public List<AzurermContainerRegistryTaskPlatformBlock>? Platform
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskPlatformBlock>>("platform");
-        set => this.WithProperty("platform", value);
+        set => SetProperty("platform", value);
     }
 
     /// <summary>
@@ -711,8 +666,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistryCredential block(s) allowed")]
     public List<AzurermContainerRegistryTaskRegistryCredentialBlock>? RegistryCredential
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskRegistryCredentialBlock>>("registry_credential");
-        set => this.WithProperty("registry_credential", value);
+        set => SetProperty("registry_credential", value);
     }
 
     /// <summary>
@@ -721,8 +675,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     public List<AzurermContainerRegistryTaskSourceTriggerBlock>? SourceTrigger
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskSourceTriggerBlock>>("source_trigger");
-        set => this.WithProperty("source_trigger", value);
+        set => SetProperty("source_trigger", value);
     }
 
     /// <summary>
@@ -731,8 +684,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     public AzurermContainerRegistryTaskTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryTaskTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -741,8 +693,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// </summary>
     public List<AzurermContainerRegistryTaskTimerTriggerBlock>? TimerTrigger
     {
-        get => GetProperty<List<AzurermContainerRegistryTaskTimerTriggerBlock>>("timer_trigger");
-        set => this.WithProperty("timer_trigger", value);
+        set => SetProperty("timer_trigger", value);
     }
 
 }

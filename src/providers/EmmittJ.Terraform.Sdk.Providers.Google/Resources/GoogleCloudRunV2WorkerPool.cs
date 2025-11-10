@@ -13,8 +13,7 @@ public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BreakglassJustification
     {
-        get => GetProperty<TerraformProperty<string>>("breakglass_justification");
-        set => WithProperty("breakglass_justification", value);
+        set => SetProperty("breakglass_justification", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => WithProperty("policy", value);
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseDefault
     {
-        get => GetProperty<TerraformProperty<bool>>("use_default");
-        set => WithProperty("use_default", value);
+        set => SetProperty("use_default", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Percent
     {
-        get => GetProperty<TerraformProperty<double>>("percent");
-        set => WithProperty("percent", value);
+        set => SetProperty("percent", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Revision
     {
-        get => GetProperty<TerraformProperty<string>>("revision");
-        set => WithProperty("revision", value);
+        set => SetProperty("revision", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -83,8 +77,7 @@ public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ManualInstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("manual_instance_count");
-        set => WithProperty("manual_instance_count", value);
+        set => SetProperty("manual_instance_count", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxInstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_instance_count");
-        set => WithProperty("max_instance_count", value);
+        set => SetProperty("max_instance_count", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinInstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_instance_count");
-        set => WithProperty("min_instance_count", value);
+        set => SetProperty("min_instance_count", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScalingMode
     {
-        get => GetProperty<TerraformProperty<string>>("scaling_mode");
-        set => WithProperty("scaling_mode", value);
+        set => SetProperty("scaling_mode", value);
     }
 
 }
@@ -132,8 +122,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => WithProperty("annotations", value);
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -141,8 +130,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncryptionKey
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key");
-        set => WithProperty("encryption_key", value);
+        set => SetProperty("encryption_key", value);
     }
 
     /// <summary>
@@ -150,8 +138,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncryptionKeyRevocationAction
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key_revocation_action");
-        set => WithProperty("encryption_key_revocation_action", value);
+        set => SetProperty("encryption_key_revocation_action", value);
     }
 
     /// <summary>
@@ -161,8 +148,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncryptionKeyShutdownDuration
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key_shutdown_duration");
-        set => WithProperty("encryption_key_shutdown_duration", value);
+        set => SetProperty("encryption_key_shutdown_duration", value);
     }
 
     /// <summary>
@@ -170,8 +156,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? GpuZonalRedundancyDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("gpu_zonal_redundancy_disabled");
-        set => WithProperty("gpu_zonal_redundancy_disabled", value);
+        set => SetProperty("gpu_zonal_redundancy_disabled", value);
     }
 
     /// <summary>
@@ -183,8 +168,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -192,8 +176,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Revision
     {
-        get => GetProperty<TerraformProperty<string>>("revision");
-        set => WithProperty("revision", value);
+        set => SetProperty("revision", value);
     }
 
     /// <summary>
@@ -201,8 +184,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => WithProperty("service_account", value);
+        set => SetProperty("service_account", value);
     }
 
 }
@@ -218,8 +200,7 @@ public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -227,8 +208,7 @@ public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -236,8 +216,7 @@ public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -255,25 +234,37 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("conditions");
-        this.WithOutput("create_time");
-        this.WithOutput("creator");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("expire_time");
-        this.WithOutput("generation");
-        this.WithOutput("instance_split_statuses");
-        this.WithOutput("last_modifier");
-        this.WithOutput("latest_created_revision");
-        this.WithOutput("latest_ready_revision");
-        this.WithOutput("observed_generation");
-        this.WithOutput("reconciling");
-        this.WithOutput("terminal_condition");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("conditions");
+        SetOutput("create_time");
+        SetOutput("creator");
+        SetOutput("delete_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("expire_time");
+        SetOutput("generation");
+        SetOutput("instance_split_statuses");
+        SetOutput("last_modifier");
+        SetOutput("latest_created_revision");
+        SetOutput("latest_ready_revision");
+        SetOutput("observed_generation");
+        SetOutput("reconciling");
+        SetOutput("terminal_condition");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("client");
+        SetOutput("client_version");
+        SetOutput("custom_audiences");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("launch_stage");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -287,38 +278,38 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
-    public TerraformProperty<string>? Client
+    public TerraformProperty<string> Client
     {
-        get => GetProperty<TerraformProperty<string>>("client");
-        set => this.WithProperty("client", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client");
+        set => SetProperty("client", value);
     }
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
-    public TerraformProperty<string>? ClientVersion
+    public TerraformProperty<string> ClientVersion
     {
-        get => GetProperty<TerraformProperty<string>>("client_version");
-        set => this.WithProperty("client_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_version");
+        set => SetProperty("client_version", value);
     }
 
     /// <summary>
     /// One or more custom audiences that you want this worker pool to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests.
     /// For more information, see https://cloud.google.com/run/docs/configuring/custom-audiences.
     /// </summary>
-    public List<TerraformProperty<string>>? CustomAudiences
+    public List<TerraformProperty<string>> CustomAudiences
     {
-        get => GetProperty<List<TerraformProperty<string>>>("custom_audiences");
-        set => this.WithProperty("custom_audiences", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("custom_audiences");
+        set => SetProperty("custom_audiences", value);
     }
 
     /// <summary>
@@ -329,28 +320,28 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the WorkerPool will fail.
     /// When the field is set to false, deleting the WorkerPool is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// User-provided description of the WorkerPool. This field currently has a 512-character limit.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -363,10 +354,10 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -375,10 +366,10 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// 
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? LaunchStage
+    public TerraformProperty<string> LaunchStage
     {
-        get => GetProperty<TerraformProperty<string>>("launch_stage");
-        set => this.WithProperty("launch_stage", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("launch_stage");
+        set => SetProperty("launch_stage", value);
     }
 
     /// <summary>
@@ -387,8 +378,8 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -397,17 +388,17 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -417,8 +408,7 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     public List<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock>? BinaryAuthorization
     {
-        get => GetProperty<List<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock>>("binary_authorization");
-        set => this.WithProperty("binary_authorization", value);
+        set => SetProperty("binary_authorization", value);
     }
 
     /// <summary>
@@ -427,8 +417,7 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     public List<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock>? InstanceSplits
     {
-        get => GetProperty<List<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock>>("instance_splits");
-        set => this.WithProperty("instance_splits", value);
+        set => SetProperty("instance_splits", value);
     }
 
     /// <summary>
@@ -438,20 +427,19 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scaling block(s) allowed")]
     public List<GoogleCloudRunV2WorkerPoolScalingBlock>? Scaling
     {
-        get => GetProperty<List<GoogleCloudRunV2WorkerPoolScalingBlock>>("scaling");
-        set => this.WithProperty("scaling", value);
+        set => SetProperty("scaling", value);
     }
 
     /// <summary>
     /// Block for template.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     public List<GoogleCloudRunV2WorkerPoolTemplateBlock>? Template
     {
-        get => GetProperty<List<GoogleCloudRunV2WorkerPoolTemplateBlock>>("template");
-        set => this.WithProperty("template", value);
+        set => SetProperty("template", value);
     }
 
     /// <summary>
@@ -460,8 +448,7 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     public GoogleCloudRunV2WorkerPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudRunV2WorkerPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

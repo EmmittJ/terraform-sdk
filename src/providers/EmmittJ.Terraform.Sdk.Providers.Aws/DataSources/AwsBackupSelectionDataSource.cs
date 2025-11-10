@@ -14,18 +14,22 @@ public class AwsBackupSelectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("iam_role_arn");
-        this.WithOutput("name");
-        this.WithOutput("resources");
+        SetOutput("iam_role_arn");
+        SetOutput("name");
+        SetOutput("resources");
+        SetOutput("id");
+        SetOutput("plan_id");
+        SetOutput("region");
+        SetOutput("selection_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -34,17 +38,17 @@ public class AwsBackupSelectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlanId is required")]
     public required TerraformProperty<string> PlanId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("plan_id");
-        set => this.WithProperty("plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plan_id");
+        set => SetProperty("plan_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -53,8 +57,8 @@ public class AwsBackupSelectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelectionId is required")]
     public required TerraformProperty<string> SelectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("selection_id");
-        set => this.WithProperty("selection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("selection_id");
+        set => SetProperty("selection_id", value);
     }
 
     /// <summary>

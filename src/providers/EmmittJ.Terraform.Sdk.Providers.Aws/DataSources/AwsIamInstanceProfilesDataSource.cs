@@ -14,18 +14,20 @@ public class AwsIamInstanceProfilesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arns");
-        this.WithOutput("names");
-        this.WithOutput("paths");
+        SetOutput("arns");
+        SetOutput("names");
+        SetOutput("paths");
+        SetOutput("id");
+        SetOutput("role_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -34,8 +36,8 @@ public class AwsIamInstanceProfilesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformProperty<string> RoleName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_name");
-        set => this.WithProperty("role_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
+        set => SetProperty("role_name", value);
     }
 
     /// <summary>

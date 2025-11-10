@@ -13,8 +13,7 @@ public class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock : Terra
     /// </summary>
     public TerraformProperty<bool>? DisableAutomaticRefresh
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_automatic_refresh");
-        set => WithProperty("disable_automatic_refresh", value);
+        set => SetProperty("disable_automatic_refresh", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock : Terra
     /// </summary>
     public TerraformProperty<bool>? DisableInitialIndex
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_initial_index");
-        set => WithProperty("disable_initial_index", value);
+        set => SetProperty("disable_initial_index", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,9 +88,20 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("default_schema_id");
-        this.WithOutput("name");
+        SetOutput("create_time");
+        SetOutput("default_schema_id");
+        SetOutput("name");
+        SetOutput("content_config");
+        SetOutput("create_advanced_site_search");
+        SetOutput("data_store_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("industry_vertical");
+        SetOutput("kms_key_name");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("skip_default_schema_creation");
+        SetOutput("solution_types");
     }
 
     /// <summary>
@@ -105,8 +110,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentConfig is required")]
     public required TerraformProperty<string> ContentConfig
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content_config");
-        set => this.WithProperty("content_config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_config");
+        set => SetProperty("content_config", value);
     }
 
     /// <summary>
@@ -114,10 +119,10 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// data store is not configured as site search (GENERIC vertical and
     /// PUBLIC_WEBSITE contentConfig), this flag will be ignored.
     /// </summary>
-    public TerraformProperty<bool>? CreateAdvancedSiteSearch
+    public TerraformProperty<bool> CreateAdvancedSiteSearch
     {
-        get => GetProperty<TerraformProperty<bool>>("create_advanced_site_search");
-        set => this.WithProperty("create_advanced_site_search", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_advanced_site_search");
+        set => SetProperty("create_advanced_site_search", value);
     }
 
     /// <summary>
@@ -126,8 +131,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformProperty<string> DataStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_store_id");
-        set => this.WithProperty("data_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_store_id");
+        set => SetProperty("data_store_id", value);
     }
 
     /// <summary>
@@ -137,17 +142,17 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -156,8 +161,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndustryVertical is required")]
     public required TerraformProperty<string> IndustryVertical
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("industry_vertical");
-        set => this.WithProperty("industry_vertical", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("industry_vertical");
+        set => SetProperty("industry_vertical", value);
     }
 
     /// <summary>
@@ -168,10 +173,10 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// If this field is set and processed successfully, the DataStore will be
     /// protected by the KMS key, as indicated in the cmek_config field.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -181,17 +186,17 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -203,19 +208,19 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// This flag cannot be specified if &#39;data_store.starting_schema&#39; is
     /// specified.
     /// </summary>
-    public TerraformProperty<bool>? SkipDefaultSchemaCreation
+    public TerraformProperty<bool> SkipDefaultSchemaCreation
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_default_schema_creation");
-        set => this.WithProperty("skip_default_schema_creation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_default_schema_creation");
+        set => SetProperty("skip_default_schema_creation", value);
     }
 
     /// <summary>
     /// The solutions that the data store enrolls. Possible values: [&amp;quot;SOLUTION_TYPE_RECOMMENDATION&amp;quot;, &amp;quot;SOLUTION_TYPE_SEARCH&amp;quot;, &amp;quot;SOLUTION_TYPE_CHAT&amp;quot;, &amp;quot;SOLUTION_TYPE_GENERATIVE_CHAT&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? SolutionTypes
+    public List<TerraformProperty<string>> SolutionTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("solution_types");
-        set => this.WithProperty("solution_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("solution_types");
+        set => SetProperty("solution_types", value);
     }
 
     /// <summary>
@@ -225,8 +230,7 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSiteSearchConfig block(s) allowed")]
     public List<GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock>? AdvancedSiteSearchConfig
     {
-        get => GetProperty<List<GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock>>("advanced_site_search_config");
-        set => this.WithProperty("advanced_site_search_config", value);
+        set => SetProperty("advanced_site_search_config", value);
     }
 
     /// <summary>
@@ -236,8 +240,7 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DocumentProcessingConfig block(s) allowed")]
     public List<GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock>? DocumentProcessingConfig
     {
-        get => GetProperty<List<GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock>>("document_processing_config");
-        set => this.WithProperty("document_processing_config", value);
+        set => SetProperty("document_processing_config", value);
     }
 
     /// <summary>
@@ -246,8 +249,7 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineDataStoreTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineDataStoreTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleDataplexDatascanDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Entity
     {
-        get => GetProperty<TerraformProperty<string>>("entity");
-        set => WithProperty("entity", value);
+        set => SetProperty("entity", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleDataplexDatascanDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Resource
     {
-        get => GetProperty<TerraformProperty<string>>("resource");
-        set => WithProperty("resource", value);
+        set => SetProperty("resource", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class GoogleDataplexDatascanDataProfileSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RowFilter
     {
-        get => GetProperty<TerraformProperty<string>>("row_filter");
-        set => WithProperty("row_filter", value);
+        set => SetProperty("row_filter", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class GoogleDataplexDatascanDataProfileSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SamplingPercent
     {
-        get => GetProperty<TerraformProperty<double>>("sampling_percent");
-        set => WithProperty("sampling_percent", value);
+        set => SetProperty("sampling_percent", value);
     }
 
 }
@@ -76,8 +72,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CatalogPublishingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("catalog_publishing_enabled");
-        set => WithProperty("catalog_publishing_enabled", value);
+        set => SetProperty("catalog_publishing_enabled", value);
     }
 
     /// <summary>
@@ -85,8 +80,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RowFilter
     {
-        get => GetProperty<TerraformProperty<string>>("row_filter");
-        set => WithProperty("row_filter", value);
+        set => SetProperty("row_filter", value);
     }
 
     /// <summary>
@@ -96,8 +90,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SamplingPercent
     {
-        get => GetProperty<TerraformProperty<double>>("sampling_percent");
-        set => WithProperty("sampling_percent", value);
+        set => SetProperty("sampling_percent", value);
     }
 
 }
@@ -113,8 +106,7 @@ public class GoogleDataplexDatascanExecutionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Field
     {
-        get => GetProperty<TerraformProperty<string>>("field");
-        set => WithProperty("field", value);
+        set => SetProperty("field", value);
     }
 
 }
@@ -130,8 +122,7 @@ public class GoogleDataplexDatascanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -139,8 +130,7 @@ public class GoogleDataplexDatascanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -148,8 +138,7 @@ public class GoogleDataplexDatascanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -167,15 +156,22 @@ public class GoogleDataplexDatascan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("execution_status");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("type");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("execution_status");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("type");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("data_scan_id");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -184,35 +180,35 @@ public class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataScanId is required")]
     public required TerraformProperty<string> DataScanId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_scan_id");
-        set => this.WithProperty("data_scan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_scan_id");
+        set => SetProperty("data_scan_id", value);
     }
 
     /// <summary>
     /// Description of the scan.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// User friendly display name.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -222,10 +218,10 @@ public class GoogleDataplexDatascan : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -234,29 +230,29 @@ public class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for data.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Data block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Data block(s) allowed")]
     public List<GoogleDataplexDatascanDataBlock>? Data
     {
-        get => GetProperty<List<GoogleDataplexDatascanDataBlock>>("data");
-        set => this.WithProperty("data", value);
+        set => SetProperty("data", value);
     }
 
     /// <summary>
@@ -266,8 +262,7 @@ public class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataDiscoverySpec block(s) allowed")]
     public List<GoogleDataplexDatascanDataDiscoverySpecBlock>? DataDiscoverySpec
     {
-        get => GetProperty<List<GoogleDataplexDatascanDataDiscoverySpecBlock>>("data_discovery_spec");
-        set => this.WithProperty("data_discovery_spec", value);
+        set => SetProperty("data_discovery_spec", value);
     }
 
     /// <summary>
@@ -277,8 +272,7 @@ public class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProfileSpec block(s) allowed")]
     public List<GoogleDataplexDatascanDataProfileSpecBlock>? DataProfileSpec
     {
-        get => GetProperty<List<GoogleDataplexDatascanDataProfileSpecBlock>>("data_profile_spec");
-        set => this.WithProperty("data_profile_spec", value);
+        set => SetProperty("data_profile_spec", value);
     }
 
     /// <summary>
@@ -288,20 +282,19 @@ public class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualitySpec block(s) allowed")]
     public List<GoogleDataplexDatascanDataQualitySpecBlock>? DataQualitySpec
     {
-        get => GetProperty<List<GoogleDataplexDatascanDataQualitySpecBlock>>("data_quality_spec");
-        set => this.WithProperty("data_quality_spec", value);
+        set => SetProperty("data_quality_spec", value);
     }
 
     /// <summary>
     /// Block for execution_spec.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionSpec is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExecutionSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionSpec block(s) allowed")]
     public List<GoogleDataplexDatascanExecutionSpecBlock>? ExecutionSpec
     {
-        get => GetProperty<List<GoogleDataplexDatascanExecutionSpecBlock>>("execution_spec");
-        set => this.WithProperty("execution_spec", value);
+        set => SetProperty("execution_spec", value);
     }
 
     /// <summary>
@@ -310,8 +303,7 @@ public class GoogleDataplexDatascan : TerraformResource
     /// </summary>
     public GoogleDataplexDatascanTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataplexDatascanTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTypes is required")]
     public HashSet<TerraformProperty<string>>? DataTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("data_types");
-        set => WithProperty("data_types", value);
+        set => SetProperty("data_types", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => WithProperty("workspace_id", value);
+        set => SetProperty("workspace_id", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? AcrAuthentication
     {
-        get => GetProperty<TerraformProperty<bool>>("acr_authentication");
-        set => WithProperty("acr_authentication", value);
+        set => SetProperty("acr_authentication", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? AgentSendUnutilizedMsg
     {
-        get => GetProperty<TerraformProperty<bool>>("agent_send_unutilized_msg");
-        set => WithProperty("agent_send_unutilized_msg", value);
+        set => SetProperty("agent_send_unutilized_msg", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? Baseline
     {
-        get => GetProperty<TerraformProperty<bool>>("baseline");
-        set => WithProperty("baseline", value);
+        set => SetProperty("baseline", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? EdgeHubMemOptimize
     {
-        get => GetProperty<TerraformProperty<bool>>("edge_hub_mem_optimize");
-        set => WithProperty("edge_hub_mem_optimize", value);
+        set => SetProperty("edge_hub_mem_optimize", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? EdgeLoggingOption
     {
-        get => GetProperty<TerraformProperty<bool>>("edge_logging_option");
-        set => WithProperty("edge_logging_option", value);
+        set => SetProperty("edge_logging_option", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? InconsistentModuleSettings
     {
-        get => GetProperty<TerraformProperty<bool>>("inconsistent_module_settings");
-        set => WithProperty("inconsistent_module_settings", value);
+        set => SetProperty("inconsistent_module_settings", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? InstallAgent
     {
-        get => GetProperty<TerraformProperty<bool>>("install_agent");
-        set => WithProperty("install_agent", value);
+        set => SetProperty("install_agent", value);
     }
 
     /// <summary>
@@ -104,8 +95,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? IpFilterDenyAll
     {
-        get => GetProperty<TerraformProperty<bool>>("ip_filter_deny_all");
-        set => WithProperty("ip_filter_deny_all", value);
+        set => SetProperty("ip_filter_deny_all", value);
     }
 
     /// <summary>
@@ -113,8 +103,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? IpFilterPermissiveRule
     {
-        get => GetProperty<TerraformProperty<bool>>("ip_filter_permissive_rule");
-        set => WithProperty("ip_filter_permissive_rule", value);
+        set => SetProperty("ip_filter_permissive_rule", value);
     }
 
     /// <summary>
@@ -122,8 +111,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? OpenPorts
     {
-        get => GetProperty<TerraformProperty<bool>>("open_ports");
-        set => WithProperty("open_ports", value);
+        set => SetProperty("open_ports", value);
     }
 
     /// <summary>
@@ -131,8 +119,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? PermissiveFirewallPolicy
     {
-        get => GetProperty<TerraformProperty<bool>>("permissive_firewall_policy");
-        set => WithProperty("permissive_firewall_policy", value);
+        set => SetProperty("permissive_firewall_policy", value);
     }
 
     /// <summary>
@@ -140,8 +127,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? PermissiveInputFirewallRules
     {
-        get => GetProperty<TerraformProperty<bool>>("permissive_input_firewall_rules");
-        set => WithProperty("permissive_input_firewall_rules", value);
+        set => SetProperty("permissive_input_firewall_rules", value);
     }
 
     /// <summary>
@@ -149,8 +135,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? PermissiveOutputFirewallRules
     {
-        get => GetProperty<TerraformProperty<bool>>("permissive_output_firewall_rules");
-        set => WithProperty("permissive_output_firewall_rules", value);
+        set => SetProperty("permissive_output_firewall_rules", value);
     }
 
     /// <summary>
@@ -158,8 +143,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? PrivilegedDockerOptions
     {
-        get => GetProperty<TerraformProperty<bool>>("privileged_docker_options");
-        set => WithProperty("privileged_docker_options", value);
+        set => SetProperty("privileged_docker_options", value);
     }
 
     /// <summary>
@@ -167,8 +151,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? SharedCredentials
     {
-        get => GetProperty<TerraformProperty<bool>>("shared_credentials");
-        set => WithProperty("shared_credentials", value);
+        set => SetProperty("shared_credentials", value);
     }
 
     /// <summary>
@@ -176,8 +159,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? VulnerableTlsCipherSuite
     {
-        get => GetProperty<TerraformProperty<bool>>("vulnerable_tls_cipher_suite");
-        set => WithProperty("vulnerable_tls_cipher_suite", value);
+        set => SetProperty("vulnerable_tls_cipher_suite", value);
     }
 
 }
@@ -193,8 +175,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -202,8 +183,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -211,8 +191,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -220,8 +199,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -239,15 +217,29 @@ public class AzurermIotSecuritySolution : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("disabled_data_sources");
+        SetOutput("display_name");
+        SetOutput("enabled");
+        SetOutput("events_to_export");
+        SetOutput("id");
+        SetOutput("iothub_ids");
+        SetOutput("location");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("log_unmasked_ips_enabled");
+        SetOutput("name");
+        SetOutput("query_for_resources");
+        SetOutput("query_subscription_ids");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The disabled_data_sources attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DisabledDataSources
+    public HashSet<TerraformProperty<string>> DisabledDataSources
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("disabled_data_sources");
-        set => this.WithProperty("disabled_data_sources", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("disabled_data_sources");
+        set => SetProperty("disabled_data_sources", value);
     }
 
     /// <summary>
@@ -256,45 +248,45 @@ public class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The events_to_export attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EventsToExport
+    public HashSet<TerraformProperty<string>> EventsToExport
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("events_to_export");
-        set => this.WithProperty("events_to_export", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("events_to_export");
+        set => SetProperty("events_to_export", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The iothub_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubIds is required")]
-    public HashSet<TerraformProperty<string>>? IothubIds
+    public HashSet<TerraformProperty<string>> IothubIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("iothub_ids");
-        set => this.WithProperty("iothub_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("iothub_ids");
+        set => SetProperty("iothub_ids", value);
     }
 
     /// <summary>
@@ -303,26 +295,26 @@ public class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The log_unmasked_ips_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LogUnmaskedIpsEnabled
+    public TerraformProperty<bool> LogUnmaskedIpsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("log_unmasked_ips_enabled");
-        set => this.WithProperty("log_unmasked_ips_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("log_unmasked_ips_enabled");
+        set => SetProperty("log_unmasked_ips_enabled", value);
     }
 
     /// <summary>
@@ -331,26 +323,26 @@ public class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The query_for_resources attribute.
     /// </summary>
-    public TerraformProperty<string>? QueryForResources
+    public TerraformProperty<string> QueryForResources
     {
-        get => GetProperty<TerraformProperty<string>>("query_for_resources");
-        set => this.WithProperty("query_for_resources", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_for_resources");
+        set => SetProperty("query_for_resources", value);
     }
 
     /// <summary>
     /// The query_subscription_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? QuerySubscriptionIds
+    public HashSet<TerraformProperty<string>> QuerySubscriptionIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("query_subscription_ids");
-        set => this.WithProperty("query_subscription_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("query_subscription_ids");
+        set => SetProperty("query_subscription_ids", value);
     }
 
     /// <summary>
@@ -359,17 +351,17 @@ public class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -378,8 +370,7 @@ public class AzurermIotSecuritySolution : TerraformResource
     /// </summary>
     public HashSet<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>? AdditionalWorkspace
     {
-        get => GetProperty<HashSet<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>>("additional_workspace");
-        set => this.WithProperty("additional_workspace", value);
+        set => SetProperty("additional_workspace", value);
     }
 
     /// <summary>
@@ -389,8 +380,7 @@ public class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecommendationsEnabled block(s) allowed")]
     public List<AzurermIotSecuritySolutionRecommendationsEnabledBlock>? RecommendationsEnabled
     {
-        get => GetProperty<List<AzurermIotSecuritySolutionRecommendationsEnabledBlock>>("recommendations_enabled");
-        set => this.WithProperty("recommendations_enabled", value);
+        set => SetProperty("recommendations_enabled", value);
     }
 
     /// <summary>
@@ -399,8 +389,7 @@ public class AzurermIotSecuritySolution : TerraformResource
     /// </summary>
     public AzurermIotSecuritySolutionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIotSecuritySolutionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

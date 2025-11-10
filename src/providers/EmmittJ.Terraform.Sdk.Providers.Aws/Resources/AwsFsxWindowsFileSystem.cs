@@ -13,8 +13,7 @@ public class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuditLogDestination
     {
-        get => GetProperty<TerraformProperty<string>>("audit_log_destination");
-        set => WithProperty("audit_log_destination", value);
+        set => SetProperty("audit_log_destination", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FileAccessAuditLogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("file_access_audit_log_level");
-        set => WithProperty("file_access_audit_log_level", value);
+        set => SetProperty("file_access_audit_log_level", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FileShareAccessAuditLogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("file_share_access_audit_log_level");
-        set => WithProperty("file_share_access_audit_log_level", value);
+        set => SetProperty("file_share_access_audit_log_level", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsFsxWindowsFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Iops
     {
-        get => GetProperty<TerraformProperty<double>>("iops");
-        set => WithProperty("iops", value);
+        set => SetProperty("iops", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsFsxWindowsFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -75,8 +70,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsIps is required")]
     public HashSet<TerraformProperty<string>>? DnsIps
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("dns_ips");
-        set => WithProperty("dns_ips", value);
+        set => SetProperty("dns_ips", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => WithProperty("domain_name", value);
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? FileSystemAdministratorsGroup
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_administrators_group");
-        set => WithProperty("file_system_administrators_group", value);
+        set => SetProperty("file_system_administrators_group", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? OrganizationalUnitDistinguishedName
     {
-        get => GetProperty<TerraformProperty<string>>("organizational_unit_distinguished_name");
-        set => WithProperty("organizational_unit_distinguished_name", value);
+        set => SetProperty("organizational_unit_distinguished_name", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -140,8 +129,7 @@ public class AwsFsxWindowsFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -149,8 +137,7 @@ public class AwsFsxWindowsFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -158,8 +145,7 @@ public class AwsFsxWindowsFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -177,185 +163,206 @@ public class AwsFsxWindowsFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("dns_name");
-        this.WithOutput("network_interface_ids");
-        this.WithOutput("owner_id");
-        this.WithOutput("preferred_file_server_ip");
-        this.WithOutput("remote_administration_endpoint");
-        this.WithOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("dns_name");
+        SetOutput("network_interface_ids");
+        SetOutput("owner_id");
+        SetOutput("preferred_file_server_ip");
+        SetOutput("remote_administration_endpoint");
+        SetOutput("vpc_id");
+        SetOutput("active_directory_id");
+        SetOutput("aliases");
+        SetOutput("automatic_backup_retention_days");
+        SetOutput("backup_id");
+        SetOutput("copy_tags_to_backups");
+        SetOutput("daily_automatic_backup_start_time");
+        SetOutput("deployment_type");
+        SetOutput("final_backup_tags");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("preferred_subnet_id");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("skip_final_backup");
+        SetOutput("storage_capacity");
+        SetOutput("storage_type");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("throughput_capacity");
+        SetOutput("weekly_maintenance_start_time");
     }
 
     /// <summary>
     /// The active_directory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ActiveDirectoryId
+    public TerraformProperty<string> ActiveDirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("active_directory_id");
-        set => this.WithProperty("active_directory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("active_directory_id");
+        set => SetProperty("active_directory_id", value);
     }
 
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Aliases
+    public HashSet<TerraformProperty<string>> Aliases
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("aliases");
-        set => this.WithProperty("aliases", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("aliases");
+        set => SetProperty("aliases", value);
     }
 
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    public TerraformProperty<double>? AutomaticBackupRetentionDays
+    public TerraformProperty<double> AutomaticBackupRetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("automatic_backup_retention_days");
-        set => this.WithProperty("automatic_backup_retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("automatic_backup_retention_days");
+        set => SetProperty("automatic_backup_retention_days", value);
     }
 
     /// <summary>
     /// The backup_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupId
+    public TerraformProperty<string> BackupId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_id");
-        set => this.WithProperty("backup_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_id");
+        set => SetProperty("backup_id", value);
     }
 
     /// <summary>
     /// The copy_tags_to_backups attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyTagsToBackups
+    public TerraformProperty<bool> CopyTagsToBackups
     {
-        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_backups");
-        set => this.WithProperty("copy_tags_to_backups", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags_to_backups");
+        set => SetProperty("copy_tags_to_backups", value);
     }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? DailyAutomaticBackupStartTime
+    public TerraformProperty<string> DailyAutomaticBackupStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("daily_automatic_backup_start_time");
-        set => this.WithProperty("daily_automatic_backup_start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("daily_automatic_backup_start_time");
+        set => SetProperty("daily_automatic_backup_start_time", value);
     }
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentType
+    public TerraformProperty<string> DeploymentType
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_type");
-        set => this.WithProperty("deployment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_type");
+        set => SetProperty("deployment_type", value);
     }
 
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? FinalBackupTags
+    public Dictionary<string, TerraformProperty<string>> FinalBackupTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
-        set => this.WithProperty("final_backup_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
+        set => SetProperty("final_backup_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The preferred_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredSubnetId
+    public TerraformProperty<string> PreferredSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_subnet_id");
-        set => this.WithProperty("preferred_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_subnet_id");
+        set => SetProperty("preferred_subnet_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The skip_final_backup attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipFinalBackup
+    public TerraformProperty<bool> SkipFinalBackup
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_final_backup");
-        set => this.WithProperty("skip_final_backup", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_final_backup");
+        set => SetProperty("skip_final_backup", value);
     }
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? StorageCapacity
+    public TerraformProperty<double> StorageCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("storage_capacity");
-        set => this.WithProperty("storage_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity");
+        set => SetProperty("storage_capacity", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageType
+    public TerraformProperty<string> StorageType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_type");
-        set => this.WithProperty("storage_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
+        set => SetProperty("storage_type", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public List<TerraformProperty<string>>? SubnetIds
+    public List<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -364,17 +371,17 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
     public required TerraformProperty<double> ThroughputCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("throughput_capacity");
-        set => this.WithProperty("throughput_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput_capacity");
+        set => SetProperty("throughput_capacity", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? WeeklyMaintenanceStartTime
+    public TerraformProperty<string> WeeklyMaintenanceStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("weekly_maintenance_start_time");
-        set => this.WithProperty("weekly_maintenance_start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("weekly_maintenance_start_time");
+        set => SetProperty("weekly_maintenance_start_time", value);
     }
 
     /// <summary>
@@ -384,8 +391,7 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuditLogConfiguration block(s) allowed")]
     public List<AwsFsxWindowsFileSystemAuditLogConfigurationBlock>? AuditLogConfiguration
     {
-        get => GetProperty<List<AwsFsxWindowsFileSystemAuditLogConfigurationBlock>>("audit_log_configuration");
-        set => this.WithProperty("audit_log_configuration", value);
+        set => SetProperty("audit_log_configuration", value);
     }
 
     /// <summary>
@@ -395,8 +401,7 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
     public List<AwsFsxWindowsFileSystemDiskIopsConfigurationBlock>? DiskIopsConfiguration
     {
-        get => GetProperty<List<AwsFsxWindowsFileSystemDiskIopsConfigurationBlock>>("disk_iops_configuration");
-        set => this.WithProperty("disk_iops_configuration", value);
+        set => SetProperty("disk_iops_configuration", value);
     }
 
     /// <summary>
@@ -406,8 +411,7 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManagedActiveDirectory block(s) allowed")]
     public List<AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock>? SelfManagedActiveDirectory
     {
-        get => GetProperty<List<AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock>>("self_managed_active_directory");
-        set => this.WithProperty("self_managed_active_directory", value);
+        set => SetProperty("self_managed_active_directory", value);
     }
 
     /// <summary>
@@ -416,8 +420,7 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     /// </summary>
     public AwsFsxWindowsFileSystemTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFsxWindowsFileSystemTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsSsmPatchBaselinesDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsSsmPatchBaselinesDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -42,25 +40,27 @@ public class AwsSsmPatchBaselinesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("baseline_identities");
+        SetOutput("baseline_identities");
+        SetOutput("default_baselines");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The default_baselines attribute.
     /// </summary>
-    public TerraformProperty<bool>? DefaultBaselines
+    public TerraformProperty<bool> DefaultBaselines
     {
-        get => GetProperty<TerraformProperty<bool>>("default_baselines");
-        set => this.WithProperty("default_baselines", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default_baselines");
+        set => SetProperty("default_baselines", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,8 +69,7 @@ public class AwsSsmPatchBaselinesDataSource : TerraformDataSource
     /// </summary>
     public List<AwsSsmPatchBaselinesDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<List<AwsSsmPatchBaselinesDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>

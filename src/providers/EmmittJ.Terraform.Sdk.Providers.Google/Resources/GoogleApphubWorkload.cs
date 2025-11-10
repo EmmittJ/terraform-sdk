@@ -21,8 +21,7 @@ public class GoogleApphubWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleApphubWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleApphubWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,13 +55,21 @@ public class GoogleApphubWorkload : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("workload_properties");
-        this.WithOutput("workload_reference");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("workload_properties");
+        SetOutput("workload_reference");
+        SetOutput("application_id");
+        SetOutput("description");
+        SetOutput("discovered_workload");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("workload_id");
     }
 
     /// <summary>
@@ -73,17 +78,17 @@ public class GoogleApphubWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// User-defined description of a Workload.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -92,26 +97,26 @@ public class GoogleApphubWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiscoveredWorkload is required")]
     public required TerraformProperty<string> DiscoveredWorkload
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("discovered_workload");
-        set => this.WithProperty("discovered_workload", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("discovered_workload");
+        set => SetProperty("discovered_workload", value);
     }
 
     /// <summary>
     /// User-defined name for the Workload.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -120,17 +125,17 @@ public class GoogleApphubWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -139,8 +144,8 @@ public class GoogleApphubWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadId is required")]
     public required TerraformProperty<string> WorkloadId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workload_id");
-        set => this.WithProperty("workload_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_id");
+        set => SetProperty("workload_id", value);
     }
 
     /// <summary>
@@ -150,8 +155,7 @@ public class GoogleApphubWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
     public List<GoogleApphubWorkloadAttributesBlock>? Attributes
     {
-        get => GetProperty<List<GoogleApphubWorkloadAttributesBlock>>("attributes");
-        set => this.WithProperty("attributes", value);
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
@@ -160,8 +164,7 @@ public class GoogleApphubWorkload : TerraformResource
     /// </summary>
     public GoogleApphubWorkloadTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApphubWorkloadTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

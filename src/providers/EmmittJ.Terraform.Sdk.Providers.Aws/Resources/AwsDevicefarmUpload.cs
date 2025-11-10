@@ -14,28 +14,34 @@ public class AwsDevicefarmUpload : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("category");
-        this.WithOutput("metadata");
-        this.WithOutput("url");
+        SetOutput("arn");
+        SetOutput("category");
+        SetOutput("metadata");
+        SetOutput("url");
+        SetOutput("content_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project_arn");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    public TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => this.WithProperty("content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -44,8 +50,8 @@ public class AwsDevicefarmUpload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -54,17 +60,17 @@ public class AwsDevicefarmUpload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectArn is required")]
     public required TerraformProperty<string> ProjectArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_arn");
-        set => this.WithProperty("project_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_arn");
+        set => SetProperty("project_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -73,8 +79,8 @@ public class AwsDevicefarmUpload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>

@@ -14,14 +14,16 @@ public class AwsSsoadminApplicationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("application_account");
-        this.WithOutput("application_provider_arn");
-        this.WithOutput("description");
-        this.WithOutput("id");
-        this.WithOutput("instance_arn");
-        this.WithOutput("name");
-        this.WithOutput("portal_options");
-        this.WithOutput("status");
+        SetOutput("application_account");
+        SetOutput("application_provider_arn");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("instance_arn");
+        SetOutput("name");
+        SetOutput("portal_options");
+        SetOutput("status");
+        SetOutput("application_arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -30,17 +32,17 @@ public class AwsSsoadminApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     public required TerraformProperty<string> ApplicationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_arn");
-        set => this.WithProperty("application_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_arn");
+        set => SetProperty("application_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

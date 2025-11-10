@@ -13,8 +13,7 @@ public class AzurermPublicIpsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,43 +30,48 @@ public class AzurermPublicIpsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("public_ips");
+        SetOutput("public_ips");
+        SetOutput("allocation_type");
+        SetOutput("attachment_status");
+        SetOutput("id");
+        SetOutput("name_prefix");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The allocation_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AllocationType
+    public TerraformProperty<string> AllocationType
     {
-        get => GetProperty<TerraformProperty<string>>("allocation_type");
-        set => this.WithProperty("allocation_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("allocation_type");
+        set => SetProperty("allocation_type", value);
     }
 
     /// <summary>
     /// The attachment_status attribute.
     /// </summary>
-    public TerraformProperty<string>? AttachmentStatus
+    public TerraformProperty<string> AttachmentStatus
     {
-        get => GetProperty<TerraformProperty<string>>("attachment_status");
-        set => this.WithProperty("attachment_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("attachment_status");
+        set => SetProperty("attachment_status", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
@@ -76,8 +80,8 @@ public class AzurermPublicIpsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -86,8 +90,7 @@ public class AzurermPublicIpsDataSource : TerraformDataSource
     /// </summary>
     public AzurermPublicIpsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPublicIpsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,20 +14,23 @@ public class AwsWorkspacesImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("name");
-        this.WithOutput("operating_system_type");
-        this.WithOutput("required_tenancy");
-        this.WithOutput("state");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("operating_system_type");
+        SetOutput("required_tenancy");
+        SetOutput("state");
+        SetOutput("id");
+        SetOutput("image_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -36,17 +39,17 @@ public class AwsWorkspacesImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
     public required TerraformProperty<string> ImageId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image_id");
-        set => this.WithProperty("image_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_id");
+        set => SetProperty("image_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

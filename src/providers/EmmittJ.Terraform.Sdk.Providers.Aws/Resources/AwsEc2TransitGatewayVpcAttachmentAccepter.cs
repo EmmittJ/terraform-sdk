@@ -14,50 +14,57 @@ public class AwsEc2TransitGatewayVpcAttachmentAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("appliance_mode_support");
-        this.WithOutput("dns_support");
-        this.WithOutput("ipv6_support");
-        this.WithOutput("security_group_referencing_support");
-        this.WithOutput("subnet_ids");
-        this.WithOutput("transit_gateway_id");
-        this.WithOutput("vpc_id");
-        this.WithOutput("vpc_owner_id");
+        SetOutput("appliance_mode_support");
+        SetOutput("dns_support");
+        SetOutput("ipv6_support");
+        SetOutput("security_group_referencing_support");
+        SetOutput("subnet_ids");
+        SetOutput("transit_gateway_id");
+        SetOutput("vpc_id");
+        SetOutput("vpc_owner_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("transit_gateway_attachment_id");
+        SetOutput("transit_gateway_default_route_table_association");
+        SetOutput("transit_gateway_default_route_table_propagation");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -66,26 +73,26 @@ public class AwsEc2TransitGatewayVpcAttachmentAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
     public required TerraformProperty<string> TransitGatewayAttachmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
-        set => this.WithProperty("transit_gateway_attachment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_attachment_id");
+        set => SetProperty("transit_gateway_attachment_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_default_route_table_association attribute.
     /// </summary>
-    public TerraformProperty<bool>? TransitGatewayDefaultRouteTableAssociation
+    public TerraformProperty<bool> TransitGatewayDefaultRouteTableAssociation
     {
-        get => GetProperty<TerraformProperty<bool>>("transit_gateway_default_route_table_association");
-        set => this.WithProperty("transit_gateway_default_route_table_association", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("transit_gateway_default_route_table_association");
+        set => SetProperty("transit_gateway_default_route_table_association", value);
     }
 
     /// <summary>
     /// The transit_gateway_default_route_table_propagation attribute.
     /// </summary>
-    public TerraformProperty<bool>? TransitGatewayDefaultRouteTablePropagation
+    public TerraformProperty<bool> TransitGatewayDefaultRouteTablePropagation
     {
-        get => GetProperty<TerraformProperty<bool>>("transit_gateway_default_route_table_propagation");
-        set => this.WithProperty("transit_gateway_default_route_table_propagation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("transit_gateway_default_route_table_propagation");
+        set => SetProperty("transit_gateway_default_route_table_propagation", value);
     }
 
     /// <summary>

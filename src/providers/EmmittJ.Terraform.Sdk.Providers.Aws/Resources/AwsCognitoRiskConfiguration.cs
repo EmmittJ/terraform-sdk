@@ -21,8 +21,7 @@ public class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationB
     /// </summary>
     public HashSet<TerraformProperty<string>>? EventFilter
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("event_filter");
-        set => WithProperty("event_filter", value);
+        set => SetProperty("event_filter", value);
     }
 
 }
@@ -38,8 +37,7 @@ public class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock : Terraf
     /// </summary>
     public HashSet<TerraformProperty<string>>? BlockedIpRangeList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("blocked_ip_range_list");
-        set => WithProperty("blocked_ip_range_list", value);
+        set => SetProperty("blocked_ip_range_list", value);
     }
 
     /// <summary>
@@ -47,8 +45,7 @@ public class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock : Terraf
     /// </summary>
     public HashSet<TerraformProperty<string>>? SkippedIpRangeList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("skipped_ip_range_list");
-        set => WithProperty("skipped_ip_range_list", value);
+        set => SetProperty("skipped_ip_range_list", value);
     }
 
 }
@@ -66,33 +63,37 @@ public class AwsCognitoRiskConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("client_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    public TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -101,8 +102,8 @@ public class AwsCognitoRiskConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>
@@ -112,8 +113,7 @@ public class AwsCognitoRiskConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountTakeoverRiskConfiguration block(s) allowed")]
     public List<AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock>? AccountTakeoverRiskConfiguration
     {
-        get => GetProperty<List<AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock>>("account_takeover_risk_configuration");
-        set => this.WithProperty("account_takeover_risk_configuration", value);
+        set => SetProperty("account_takeover_risk_configuration", value);
     }
 
     /// <summary>
@@ -123,8 +123,7 @@ public class AwsCognitoRiskConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CompromisedCredentialsRiskConfiguration block(s) allowed")]
     public List<AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock>? CompromisedCredentialsRiskConfiguration
     {
-        get => GetProperty<List<AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock>>("compromised_credentials_risk_configuration");
-        set => this.WithProperty("compromised_credentials_risk_configuration", value);
+        set => SetProperty("compromised_credentials_risk_configuration", value);
     }
 
     /// <summary>
@@ -134,8 +133,7 @@ public class AwsCognitoRiskConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RiskExceptionConfiguration block(s) allowed")]
     public List<AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock>? RiskExceptionConfiguration
     {
-        get => GetProperty<List<AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock>>("risk_exception_configuration");
-        set => this.WithProperty("risk_exception_configuration", value);
+        set => SetProperty("risk_exception_configuration", value);
     }
 
 }

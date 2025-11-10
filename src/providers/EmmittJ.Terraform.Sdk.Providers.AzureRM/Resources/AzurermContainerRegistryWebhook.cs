@@ -13,8 +13,7 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,34 +54,45 @@ public class AzurermContainerRegistryWebhook : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("actions");
+        SetOutput("custom_headers");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("registry_name");
+        SetOutput("resource_group_name");
+        SetOutput("scope");
+        SetOutput("service_uri");
+        SetOutput("status");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The actions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
-    public HashSet<TerraformProperty<string>>? Actions
+    public HashSet<TerraformProperty<string>> Actions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
-        set => this.WithProperty("actions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("actions");
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
     /// The custom_headers attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? CustomHeaders
+    public Dictionary<string, TerraformProperty<string>> CustomHeaders
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("custom_headers");
-        set => this.WithProperty("custom_headers", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("custom_headers");
+        set => SetProperty("custom_headers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,8 +101,8 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -104,8 +111,8 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,8 +121,8 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryName is required")]
     public required TerraformProperty<string> RegistryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("registry_name");
-        set => this.WithProperty("registry_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("registry_name");
+        set => SetProperty("registry_name", value);
     }
 
     /// <summary>
@@ -124,17 +131,17 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    public TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -143,26 +150,26 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     public required TerraformProperty<string> ServiceUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_uri");
-        set => this.WithProperty("service_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_uri");
+        set => SetProperty("service_uri", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -171,8 +178,7 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// </summary>
     public AzurermContainerRegistryWebhookTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryWebhookTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

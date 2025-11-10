@@ -13,8 +13,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdnTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdnTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdnTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdnTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn : TerraformR
 
     private void InitializeOutputs()
     {
+        SetOutput("destination_fqdn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
@@ -66,17 +66,17 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFqdn is required")]
     public required TerraformProperty<string> DestinationFqdn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_fqdn");
-        set => this.WithProperty("destination_fqdn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_fqdn");
+        set => SetProperty("destination_fqdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +85,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn : TerraformR
     /// </summary>
     public AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdnTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdnTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

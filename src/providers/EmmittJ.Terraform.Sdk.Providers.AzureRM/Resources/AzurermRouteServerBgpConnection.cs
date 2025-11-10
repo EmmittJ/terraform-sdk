@@ -13,8 +13,7 @@ public class AzurermRouteServerBgpConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermRouteServerBgpConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermRouteServerBgpConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,20 @@ public class AzurermRouteServerBgpConnection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("peer_asn");
+        SetOutput("peer_ip");
+        SetOutput("route_server_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     public required TerraformProperty<double> PeerAsn
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("peer_asn");
-        set => this.WithProperty("peer_asn", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("peer_asn");
+        set => SetProperty("peer_asn", value);
     }
 
     /// <summary>
@@ -86,8 +88,8 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerIp is required")]
     public required TerraformProperty<string> PeerIp
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_ip");
-        set => this.WithProperty("peer_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_ip");
+        set => SetProperty("peer_ip", value);
     }
 
     /// <summary>
@@ -96,8 +98,8 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerId is required")]
     public required TerraformProperty<string> RouteServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("route_server_id");
-        set => this.WithProperty("route_server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("route_server_id");
+        set => SetProperty("route_server_id", value);
     }
 
     /// <summary>
@@ -106,8 +108,7 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     /// </summary>
     public AzurermRouteServerBgpConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRouteServerBgpConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

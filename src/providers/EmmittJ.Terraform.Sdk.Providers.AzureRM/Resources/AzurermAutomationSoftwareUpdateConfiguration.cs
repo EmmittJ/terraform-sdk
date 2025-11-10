@@ -14,8 +14,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
     public List<TerraformProperty<string>>? ClassificationsIncluded
     {
-        get => GetProperty<List<TerraformProperty<string>>>("classifications_included");
-        set => WithProperty("classifications_included", value);
+        set => SetProperty("classifications_included", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? ExcludedPackages
     {
-        get => GetProperty<List<TerraformProperty<string>>>("excluded_packages");
-        set => WithProperty("excluded_packages", value);
+        set => SetProperty("excluded_packages", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? IncludedPackages
     {
-        get => GetProperty<List<TerraformProperty<string>>>("included_packages");
-        set => WithProperty("included_packages", value);
+        set => SetProperty("included_packages", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Reboot
     {
-        get => GetProperty<TerraformProperty<string>>("reboot");
-        set => WithProperty("reboot", value);
+        set => SetProperty("reboot", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : Terrafo
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : Terrafor
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -110,8 +102,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public List<TerraformProperty<double>>? AdvancedMonthDays
     {
-        get => GetProperty<List<TerraformProperty<double>>>("advanced_month_days");
-        set => WithProperty("advanced_month_days", value);
+        set => SetProperty("advanced_month_days", value);
     }
 
     /// <summary>
@@ -119,8 +110,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public List<TerraformProperty<string>>? AdvancedWeekDays
     {
-        get => GetProperty<List<TerraformProperty<string>>>("advanced_week_days");
-        set => WithProperty("advanced_week_days", value);
+        set => SetProperty("advanced_week_days", value);
     }
 
     /// <summary>
@@ -128,8 +118,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? CreationTime
     {
-        get => GetProperty<TerraformProperty<string>>("creation_time");
-        set => WithProperty("creation_time", value);
+        set => SetProperty("creation_time", value);
     }
 
     /// <summary>
@@ -137,8 +126,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -146,8 +134,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? ExpiryTime
     {
-        get => GetProperty<TerraformProperty<string>>("expiry_time");
-        set => WithProperty("expiry_time", value);
+        set => SetProperty("expiry_time", value);
     }
 
     /// <summary>
@@ -155,8 +142,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? ExpiryTimeOffsetMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("expiry_time_offset_minutes");
-        set => WithProperty("expiry_time_offset_minutes", value);
+        set => SetProperty("expiry_time_offset_minutes", value);
     }
 
     /// <summary>
@@ -165,8 +151,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
-        set => WithProperty("frequency", value);
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
@@ -174,8 +159,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
-        set => WithProperty("interval", value);
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
@@ -183,8 +167,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? IsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_enabled");
-        set => WithProperty("is_enabled", value);
+        set => SetProperty("is_enabled", value);
     }
 
     /// <summary>
@@ -192,8 +175,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? LastModifiedTime
     {
-        get => GetProperty<TerraformProperty<string>>("last_modified_time");
-        set => WithProperty("last_modified_time", value);
+        set => SetProperty("last_modified_time", value);
     }
 
     /// <summary>
@@ -201,8 +183,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? NextRun
     {
-        get => GetProperty<TerraformProperty<string>>("next_run");
-        set => WithProperty("next_run", value);
+        set => SetProperty("next_run", value);
     }
 
     /// <summary>
@@ -210,8 +191,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? NextRunOffsetMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("next_run_offset_minutes");
-        set => WithProperty("next_run_offset_minutes", value);
+        set => SetProperty("next_run_offset_minutes", value);
     }
 
     /// <summary>
@@ -219,8 +199,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
@@ -228,8 +207,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? StartTimeOffsetMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("start_time_offset_minutes");
-        set => WithProperty("start_time_offset_minutes", value);
+        set => SetProperty("start_time_offset_minutes", value);
     }
 
     /// <summary>
@@ -237,8 +215,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
 }
@@ -262,8 +239,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -271,8 +247,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -280,8 +255,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -289,8 +263,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -307,8 +280,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
     public List<TerraformProperty<string>>? ClassificationsIncluded
     {
-        get => GetProperty<List<TerraformProperty<string>>>("classifications_included");
-        set => WithProperty("classifications_included", value);
+        set => SetProperty("classifications_included", value);
     }
 
     /// <summary>
@@ -316,8 +288,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// </summary>
     public List<TerraformProperty<string>>? ExcludedKnowledgeBaseNumbers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("excluded_knowledge_base_numbers");
-        set => WithProperty("excluded_knowledge_base_numbers", value);
+        set => SetProperty("excluded_knowledge_base_numbers", value);
     }
 
     /// <summary>
@@ -325,8 +296,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// </summary>
     public List<TerraformProperty<string>>? IncludedKnowledgeBaseNumbers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("included_knowledge_base_numbers");
-        set => WithProperty("included_knowledge_base_numbers", value);
+        set => SetProperty("included_knowledge_base_numbers", value);
     }
 
     /// <summary>
@@ -334,8 +304,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Reboot
     {
-        get => GetProperty<TerraformProperty<string>>("reboot");
-        set => WithProperty("reboot", value);
+        set => SetProperty("reboot", value);
     }
 
 }
@@ -354,8 +323,14 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("error_code");
-        this.WithOutput("error_message");
+        SetOutput("error_code");
+        SetOutput("error_message");
+        SetOutput("automation_account_id");
+        SetOutput("duration");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("non_azure_computer_names");
+        SetOutput("virtual_machine_ids");
     }
 
     /// <summary>
@@ -364,26 +339,26 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformProperty<string> AutomationAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_id");
-        set => this.WithProperty("automation_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_id");
+        set => SetProperty("automation_account_id", value);
     }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformProperty<string>? Duration
+    public TerraformProperty<string> Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
-        set => this.WithProperty("duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("duration");
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -392,26 +367,26 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The non_azure_computer_names attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? NonAzureComputerNames
+    public List<TerraformProperty<string>> NonAzureComputerNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("non_azure_computer_names");
-        set => this.WithProperty("non_azure_computer_names", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("non_azure_computer_names");
+        set => SetProperty("non_azure_computer_names", value);
     }
 
     /// <summary>
     /// The virtual_machine_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? VirtualMachineIds
+    public List<TerraformProperty<string>> VirtualMachineIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("virtual_machine_ids");
-        set => this.WithProperty("virtual_machine_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("virtual_machine_ids");
+        set => SetProperty("virtual_machine_ids", value);
     }
 
     /// <summary>
@@ -421,8 +396,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Linux block(s) allowed")]
     public List<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>? Linux
     {
-        get => GetProperty<List<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>>("linux");
-        set => this.WithProperty("linux", value);
+        set => SetProperty("linux", value);
     }
 
     /// <summary>
@@ -432,8 +406,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostTask block(s) allowed")]
     public List<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>? PostTask
     {
-        get => GetProperty<List<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>>("post_task");
-        set => this.WithProperty("post_task", value);
+        set => SetProperty("post_task", value);
     }
 
     /// <summary>
@@ -443,20 +416,19 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreTask block(s) allowed")]
     public List<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>? PreTask
     {
-        get => GetProperty<List<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>>("pre_task");
-        set => this.WithProperty("pre_task", value);
+        set => SetProperty("pre_task", value);
     }
 
     /// <summary>
     /// Block for schedule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     public List<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock>? Schedule
     {
-        get => GetProperty<List<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -466,8 +438,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     public List<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>? Target
     {
-        get => GetProperty<List<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>>("target");
-        set => this.WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -476,8 +447,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// </summary>
     public AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -487,8 +457,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Windows block(s) allowed")]
     public List<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>? Windows
     {
-        get => GetProperty<List<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>>("windows");
-        set => this.WithProperty("windows", value);
+        set => SetProperty("windows", value);
     }
 
     /// <summary>

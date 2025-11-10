@@ -13,8 +13,7 @@ public class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
-        set => WithProperty("from_port", value);
+        set => SetProperty("from_port", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
-        set => WithProperty("to_port", value);
+        set => SetProperty("to_port", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
-        set => WithProperty("from_port", value);
+        set => SetProperty("from_port", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
-        set => WithProperty("to_port", value);
+        set => SetProperty("to_port", value);
     }
 
 }
@@ -67,16 +63,26 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("destination_cidr_block");
+        SetOutput("id");
+        SetOutput("protocol");
+        SetOutput("region");
+        SetOutput("rule_action");
+        SetOutput("rule_number");
+        SetOutput("source_cidr_block");
+        SetOutput("traffic_direction");
+        SetOutput("traffic_mirror_filter_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -85,35 +91,35 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     public required TerraformProperty<string> DestinationCidrBlock
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_cidr_block");
-        set => this.WithProperty("destination_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_cidr_block");
+        set => SetProperty("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<double>? Protocol
+    public TerraformProperty<double> Protocol
     {
-        get => GetProperty<TerraformProperty<double>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -122,8 +128,8 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformProperty<string> RuleAction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule_action");
-        set => this.WithProperty("rule_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_action");
+        set => SetProperty("rule_action", value);
     }
 
     /// <summary>
@@ -132,8 +138,8 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformProperty<double> RuleNumber
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("rule_number");
-        set => this.WithProperty("rule_number", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("rule_number");
+        set => SetProperty("rule_number", value);
     }
 
     /// <summary>
@@ -142,8 +148,8 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceCidrBlock is required")]
     public required TerraformProperty<string> SourceCidrBlock
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_cidr_block");
-        set => this.WithProperty("source_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_cidr_block");
+        set => SetProperty("source_cidr_block", value);
     }
 
     /// <summary>
@@ -152,8 +158,8 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficDirection is required")]
     public required TerraformProperty<string> TrafficDirection
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("traffic_direction");
-        set => this.WithProperty("traffic_direction", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("traffic_direction");
+        set => SetProperty("traffic_direction", value);
     }
 
     /// <summary>
@@ -162,8 +168,8 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorFilterId is required")]
     public required TerraformProperty<string> TrafficMirrorFilterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("traffic_mirror_filter_id");
-        set => this.WithProperty("traffic_mirror_filter_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("traffic_mirror_filter_id");
+        set => SetProperty("traffic_mirror_filter_id", value);
     }
 
     /// <summary>
@@ -173,8 +179,7 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationPortRange block(s) allowed")]
     public List<AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock>? DestinationPortRange
     {
-        get => GetProperty<List<AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock>>("destination_port_range");
-        set => this.WithProperty("destination_port_range", value);
+        set => SetProperty("destination_port_range", value);
     }
 
     /// <summary>
@@ -184,8 +189,7 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourcePortRange block(s) allowed")]
     public List<AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock>? SourcePortRange
     {
-        get => GetProperty<List<AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock>>("source_port_range");
-        set => this.WithProperty("source_port_range", value);
+        set => SetProperty("source_port_range", value);
     }
 
     /// <summary>

@@ -14,21 +14,25 @@ public class GoogleBeyondcorpAppConnectorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("display_name");
-        this.WithOutput("effective_labels");
-        this.WithOutput("labels");
-        this.WithOutput("principal_info");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("display_name");
+        SetOutput("effective_labels");
+        SetOutput("labels");
+        SetOutput("principal_info");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -37,26 +41,26 @@ public class GoogleBeyondcorpAppConnectorDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region of the AppConnector.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

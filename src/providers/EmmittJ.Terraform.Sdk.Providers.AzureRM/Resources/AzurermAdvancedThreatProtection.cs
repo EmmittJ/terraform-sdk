@@ -13,8 +13,7 @@ public class AzurermAdvancedThreatProtectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAdvancedThreatProtectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAdvancedThreatProtectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAdvancedThreatProtectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,9 @@ public class AzurermAdvancedThreatProtection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("target_resource_id");
     }
 
     /// <summary>
@@ -66,17 +65,17 @@ public class AzurermAdvancedThreatProtection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +84,8 @@ public class AzurermAdvancedThreatProtection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
@@ -95,8 +94,7 @@ public class AzurermAdvancedThreatProtection : TerraformResource
     /// </summary>
     public AzurermAdvancedThreatProtectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAdvancedThreatProtectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

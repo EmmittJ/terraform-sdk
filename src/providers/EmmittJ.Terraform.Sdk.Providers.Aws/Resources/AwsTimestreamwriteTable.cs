@@ -13,8 +13,7 @@ public class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock : Terrafor
     /// </summary>
     public TerraformProperty<bool>? EnableMagneticStoreWrites
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_magnetic_store_writes");
-        set => WithProperty("enable_magnetic_store_writes", value);
+        set => SetProperty("enable_magnetic_store_writes", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsTimestreamwriteTableRetentionPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MagneticStoreRetentionPeriodInDays is required")]
     public required TerraformProperty<double> MagneticStoreRetentionPeriodInDays
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("magnetic_store_retention_period_in_days");
-        set => WithProperty("magnetic_store_retention_period_in_days", value);
+        set => SetProperty("magnetic_store_retention_period_in_days", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AwsTimestreamwriteTableRetentionPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryStoreRetentionPeriodInHours is required")]
     public required TerraformProperty<double> MemoryStoreRetentionPeriodInHours
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("memory_store_retention_period_in_hours");
-        set => WithProperty("memory_store_retention_period_in_hours", value);
+        set => SetProperty("memory_store_retention_period_in_hours", value);
     }
 
 }
@@ -68,7 +65,13 @@ public class AwsTimestreamwriteTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("database_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("table_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -77,26 +80,26 @@ public class AwsTimestreamwriteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -105,26 +108,26 @@ public class AwsTimestreamwriteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class AwsTimestreamwriteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MagneticStoreWriteProperties block(s) allowed")]
     public List<AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock>? MagneticStoreWriteProperties
     {
-        get => GetProperty<List<AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock>>("magnetic_store_write_properties");
-        set => this.WithProperty("magnetic_store_write_properties", value);
+        set => SetProperty("magnetic_store_write_properties", value);
     }
 
     /// <summary>
@@ -145,8 +147,7 @@ public class AwsTimestreamwriteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionProperties block(s) allowed")]
     public List<AwsTimestreamwriteTableRetentionPropertiesBlock>? RetentionProperties
     {
-        get => GetProperty<List<AwsTimestreamwriteTableRetentionPropertiesBlock>>("retention_properties");
-        set => this.WithProperty("retention_properties", value);
+        set => SetProperty("retention_properties", value);
     }
 
     /// <summary>
@@ -156,8 +157,7 @@ public class AwsTimestreamwriteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schema block(s) allowed")]
     public List<AwsTimestreamwriteTableSchemaBlock>? Schema
     {
-        get => GetProperty<List<AwsTimestreamwriteTableSchemaBlock>>("schema");
-        set => this.WithProperty("schema", value);
+        set => SetProperty("schema", value);
     }
 
     /// <summary>

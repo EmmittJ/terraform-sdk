@@ -13,8 +13,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MachineLearningWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("machine_learning_workspace_id");
-        set => WithProperty("machine_learning_workspace_id", value);
+        set => SetProperty("machine_learning_workspace_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NatGatewayName
     {
-        get => GetProperty<TerraformProperty<string>>("nat_gateway_name");
-        set => WithProperty("nat_gateway_name", value);
+        set => SetProperty("nat_gateway_name", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NoPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("no_public_ip");
-        set => WithProperty("no_public_ip", value);
+        set => SetProperty("no_public_ip", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateSubnetName
     {
-        get => GetProperty<TerraformProperty<string>>("private_subnet_name");
-        set => WithProperty("private_subnet_name", value);
+        set => SetProperty("private_subnet_name", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateSubnetNetworkSecurityGroupAssociationId
     {
-        get => GetProperty<TerraformProperty<string>>("private_subnet_network_security_group_association_id");
-        set => WithProperty("private_subnet_network_security_group_association_id", value);
+        set => SetProperty("private_subnet_network_security_group_association_id", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PublicIpName
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_name");
-        set => WithProperty("public_ip_name", value);
+        set => SetProperty("public_ip_name", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PublicSubnetName
     {
-        get => GetProperty<TerraformProperty<string>>("public_subnet_name");
-        set => WithProperty("public_subnet_name", value);
+        set => SetProperty("public_subnet_name", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PublicSubnetNetworkSecurityGroupAssociationId
     {
-        get => GetProperty<TerraformProperty<string>>("public_subnet_network_security_group_association_id");
-        set => WithProperty("public_subnet_network_security_group_association_id", value);
+        set => SetProperty("public_subnet_network_security_group_association_id", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
-        set => WithProperty("storage_account_name", value);
+        set => SetProperty("storage_account_name", value);
     }
 
     /// <summary>
@@ -94,8 +85,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageAccountSkuName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_sku_name");
-        set => WithProperty("storage_account_sku_name", value);
+        set => SetProperty("storage_account_sku_name", value);
     }
 
     /// <summary>
@@ -103,8 +93,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
-        set => WithProperty("virtual_network_id", value);
+        set => SetProperty("virtual_network_id", value);
     }
 
     /// <summary>
@@ -112,8 +101,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VnetAddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("vnet_address_prefix");
-        set => WithProperty("vnet_address_prefix", value);
+        set => SetProperty("vnet_address_prefix", value);
     }
 
 }
@@ -129,8 +117,7 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? AutomaticClusterUpdateEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("automatic_cluster_update_enabled");
-        set => WithProperty("automatic_cluster_update_enabled", value);
+        set => SetProperty("automatic_cluster_update_enabled", value);
     }
 
     /// <summary>
@@ -138,8 +125,7 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? ComplianceSecurityProfileEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("compliance_security_profile_enabled");
-        set => WithProperty("compliance_security_profile_enabled", value);
+        set => SetProperty("compliance_security_profile_enabled", value);
     }
 
     /// <summary>
@@ -147,8 +133,7 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
     /// </summary>
     public HashSet<TerraformProperty<string>>? ComplianceSecurityProfileStandards
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("compliance_security_profile_standards");
-        set => WithProperty("compliance_security_profile_standards", value);
+        set => SetProperty("compliance_security_profile_standards", value);
     }
 
     /// <summary>
@@ -156,8 +141,7 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? EnhancedSecurityMonitoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enhanced_security_monitoring_enabled");
-        set => WithProperty("enhanced_security_monitoring_enabled", value);
+        set => SetProperty("enhanced_security_monitoring_enabled", value);
     }
 
 }
@@ -173,8 +157,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -182,8 +165,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -191,8 +173,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -200,8 +181,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -219,66 +199,85 @@ public class AzurermDatabricksWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("disk_encryption_set_id");
-        this.WithOutput("managed_disk_identity");
-        this.WithOutput("managed_resource_group_id");
-        this.WithOutput("storage_account_identity");
-        this.WithOutput("workspace_id");
-        this.WithOutput("workspace_url");
+        SetOutput("disk_encryption_set_id");
+        SetOutput("managed_disk_identity");
+        SetOutput("managed_resource_group_id");
+        SetOutput("storage_account_identity");
+        SetOutput("workspace_id");
+        SetOutput("workspace_url");
+        SetOutput("access_connector_id");
+        SetOutput("customer_managed_key_enabled");
+        SetOutput("default_storage_firewall_enabled");
+        SetOutput("id");
+        SetOutput("infrastructure_encryption_enabled");
+        SetOutput("load_balancer_backend_address_pool_id");
+        SetOutput("location");
+        SetOutput("managed_disk_cmk_key_vault_id");
+        SetOutput("managed_disk_cmk_key_vault_key_id");
+        SetOutput("managed_disk_cmk_rotation_to_latest_version_enabled");
+        SetOutput("managed_resource_group_name");
+        SetOutput("managed_services_cmk_key_vault_id");
+        SetOutput("managed_services_cmk_key_vault_key_id");
+        SetOutput("name");
+        SetOutput("network_security_group_rules_required");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The access_connector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessConnectorId
+    public TerraformProperty<string> AccessConnectorId
     {
-        get => GetProperty<TerraformProperty<string>>("access_connector_id");
-        set => this.WithProperty("access_connector_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_connector_id");
+        set => SetProperty("access_connector_id", value);
     }
 
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CustomerManagedKeyEnabled
+    public TerraformProperty<bool> CustomerManagedKeyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("customer_managed_key_enabled");
-        set => this.WithProperty("customer_managed_key_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("customer_managed_key_enabled");
+        set => SetProperty("customer_managed_key_enabled", value);
     }
 
     /// <summary>
     /// The default_storage_firewall_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DefaultStorageFirewallEnabled
+    public TerraformProperty<bool> DefaultStorageFirewallEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("default_storage_firewall_enabled");
-        set => this.WithProperty("default_storage_firewall_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default_storage_firewall_enabled");
+        set => SetProperty("default_storage_firewall_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? InfrastructureEncryptionEnabled
+    public TerraformProperty<bool> InfrastructureEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("infrastructure_encryption_enabled");
-        set => this.WithProperty("infrastructure_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("infrastructure_encryption_enabled");
+        set => SetProperty("infrastructure_encryption_enabled", value);
     }
 
     /// <summary>
     /// The load_balancer_backend_address_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancerBackendAddressPoolId
+    public TerraformProperty<string> LoadBalancerBackendAddressPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer_backend_address_pool_id");
-        set => this.WithProperty("load_balancer_backend_address_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("load_balancer_backend_address_pool_id");
+        set => SetProperty("load_balancer_backend_address_pool_id", value);
     }
 
     /// <summary>
@@ -287,62 +286,62 @@ public class AzurermDatabricksWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The managed_disk_cmk_key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedDiskCmkKeyVaultId
+    public TerraformProperty<string> ManagedDiskCmkKeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_cmk_key_vault_id");
-        set => this.WithProperty("managed_disk_cmk_key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_disk_cmk_key_vault_id");
+        set => SetProperty("managed_disk_cmk_key_vault_id", value);
     }
 
     /// <summary>
     /// The managed_disk_cmk_key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedDiskCmkKeyVaultKeyId
+    public TerraformProperty<string> ManagedDiskCmkKeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_cmk_key_vault_key_id");
-        set => this.WithProperty("managed_disk_cmk_key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_disk_cmk_key_vault_key_id");
+        set => SetProperty("managed_disk_cmk_key_vault_key_id", value);
     }
 
     /// <summary>
     /// The managed_disk_cmk_rotation_to_latest_version_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ManagedDiskCmkRotationToLatestVersionEnabled
+    public TerraformProperty<bool> ManagedDiskCmkRotationToLatestVersionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("managed_disk_cmk_rotation_to_latest_version_enabled");
-        set => this.WithProperty("managed_disk_cmk_rotation_to_latest_version_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("managed_disk_cmk_rotation_to_latest_version_enabled");
+        set => SetProperty("managed_disk_cmk_rotation_to_latest_version_enabled", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedResourceGroupName
+    public TerraformProperty<string> ManagedResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("managed_resource_group_name");
-        set => this.WithProperty("managed_resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_resource_group_name");
+        set => SetProperty("managed_resource_group_name", value);
     }
 
     /// <summary>
     /// The managed_services_cmk_key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedServicesCmkKeyVaultId
+    public TerraformProperty<string> ManagedServicesCmkKeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_services_cmk_key_vault_id");
-        set => this.WithProperty("managed_services_cmk_key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_services_cmk_key_vault_id");
+        set => SetProperty("managed_services_cmk_key_vault_id", value);
     }
 
     /// <summary>
     /// The managed_services_cmk_key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedServicesCmkKeyVaultKeyId
+    public TerraformProperty<string> ManagedServicesCmkKeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_services_cmk_key_vault_key_id");
-        set => this.WithProperty("managed_services_cmk_key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_services_cmk_key_vault_key_id");
+        set => SetProperty("managed_services_cmk_key_vault_key_id", value);
     }
 
     /// <summary>
@@ -351,26 +350,26 @@ public class AzurermDatabricksWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_security_group_rules_required attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkSecurityGroupRulesRequired
+    public TerraformProperty<string> NetworkSecurityGroupRulesRequired
     {
-        get => GetProperty<TerraformProperty<string>>("network_security_group_rules_required");
-        set => this.WithProperty("network_security_group_rules_required", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_security_group_rules_required");
+        set => SetProperty("network_security_group_rules_required", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -379,8 +378,8 @@ public class AzurermDatabricksWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -389,17 +388,17 @@ public class AzurermDatabricksWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -409,8 +408,7 @@ public class AzurermDatabricksWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomParameters block(s) allowed")]
     public List<AzurermDatabricksWorkspaceCustomParametersBlock>? CustomParameters
     {
-        get => GetProperty<List<AzurermDatabricksWorkspaceCustomParametersBlock>>("custom_parameters");
-        set => this.WithProperty("custom_parameters", value);
+        set => SetProperty("custom_parameters", value);
     }
 
     /// <summary>
@@ -420,8 +418,7 @@ public class AzurermDatabricksWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnhancedSecurityCompliance block(s) allowed")]
     public List<AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock>? EnhancedSecurityCompliance
     {
-        get => GetProperty<List<AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock>>("enhanced_security_compliance");
-        set => this.WithProperty("enhanced_security_compliance", value);
+        set => SetProperty("enhanced_security_compliance", value);
     }
 
     /// <summary>
@@ -430,8 +427,7 @@ public class AzurermDatabricksWorkspace : TerraformResource
     /// </summary>
     public AzurermDatabricksWorkspaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDatabricksWorkspaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,34 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("exemption_category");
+        SetOutput("expires_on");
+        SetOutput("id");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("policy_assignment_id");
+        SetOutput("policy_definition_reference_ids");
+        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -84,35 +90,35 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExemptionCategory is required")]
     public required TerraformProperty<string> ExemptionCategory
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("exemption_category");
-        set => this.WithProperty("exemption_category", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("exemption_category");
+        set => SetProperty("exemption_category", value);
     }
 
     /// <summary>
     /// The expires_on attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpiresOn
+    public TerraformProperty<string> ExpiresOn
     {
-        get => GetProperty<TerraformProperty<string>>("expires_on");
-        set => this.WithProperty("expires_on", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expires_on");
+        set => SetProperty("expires_on", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformProperty<string>? Metadata
+    public TerraformProperty<string> Metadata
     {
-        get => GetProperty<TerraformProperty<string>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -121,8 +127,8 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -131,17 +137,17 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
     public required TerraformProperty<string> PolicyAssignmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_assignment_id");
-        set => this.WithProperty("policy_assignment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_assignment_id");
+        set => SetProperty("policy_assignment_id", value);
     }
 
     /// <summary>
     /// The policy_definition_reference_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PolicyDefinitionReferenceIds
+    public List<TerraformProperty<string>> PolicyDefinitionReferenceIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("policy_definition_reference_ids");
-        set => this.WithProperty("policy_definition_reference_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("policy_definition_reference_ids");
+        set => SetProperty("policy_definition_reference_ids", value);
     }
 
     /// <summary>
@@ -150,8 +156,8 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -160,8 +166,7 @@ public class AzurermSubscriptionPolicyExemption : TerraformResource
     /// </summary>
     public AzurermSubscriptionPolicyExemptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSubscriptionPolicyExemptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

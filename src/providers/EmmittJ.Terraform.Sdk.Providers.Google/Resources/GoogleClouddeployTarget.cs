@@ -13,8 +13,7 @@ public class GoogleClouddeployTargetAnthosClusterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Membership
     {
-        get => GetProperty<TerraformProperty<string>>("membership");
-        set => WithProperty("membership", value);
+        set => SetProperty("membership", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleClouddeployTargetAssociatedEntitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityId is required")]
     public required TerraformProperty<string> EntityId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entity_id");
-        set => WithProperty("entity_id", value);
+        set => SetProperty("entity_id", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class GoogleClouddeployTargetCustomTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomTargetType is required")]
     public required TerraformProperty<string> CustomTargetType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_target_type");
-        set => WithProperty("custom_target_type", value);
+        set => SetProperty("custom_target_type", value);
     }
 
 }
@@ -66,8 +63,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ArtifactStorage
     {
-        get => GetProperty<TerraformProperty<string>>("artifact_storage");
-        set => WithProperty("artifact_storage", value);
+        set => SetProperty("artifact_storage", value);
     }
 
     /// <summary>
@@ -75,8 +71,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExecutionTimeout
     {
-        get => GetProperty<TerraformProperty<string>>("execution_timeout");
-        set => WithProperty("execution_timeout", value);
+        set => SetProperty("execution_timeout", value);
     }
 
     /// <summary>
@@ -84,8 +79,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => WithProperty("service_account", value);
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usages is required")]
     public List<TerraformProperty<string>>? Usages
     {
-        get => GetProperty<List<TerraformProperty<string>>>("usages");
-        set => WithProperty("usages", value);
+        set => SetProperty("usages", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Verbose
     {
-        get => GetProperty<TerraformProperty<bool>>("verbose");
-        set => WithProperty("verbose", value);
+        set => SetProperty("verbose", value);
     }
 
     /// <summary>
@@ -112,8 +104,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WorkerPool
     {
-        get => GetProperty<TerraformProperty<string>>("worker_pool");
-        set => WithProperty("worker_pool", value);
+        set => SetProperty("worker_pool", value);
     }
 
 }
@@ -129,8 +120,7 @@ public class GoogleClouddeployTargetGkeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
-        set => WithProperty("cluster", value);
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
@@ -138,8 +128,7 @@ public class GoogleClouddeployTargetGkeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DnsEndpoint
     {
-        get => GetProperty<TerraformProperty<bool>>("dns_endpoint");
-        set => WithProperty("dns_endpoint", value);
+        set => SetProperty("dns_endpoint", value);
     }
 
     /// <summary>
@@ -147,8 +136,7 @@ public class GoogleClouddeployTargetGkeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InternalIp
     {
-        get => GetProperty<TerraformProperty<bool>>("internal_ip");
-        set => WithProperty("internal_ip", value);
+        set => SetProperty("internal_ip", value);
     }
 
     /// <summary>
@@ -156,8 +144,7 @@ public class GoogleClouddeployTargetGkeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProxyUrl
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_url");
-        set => WithProperty("proxy_url", value);
+        set => SetProperty("proxy_url", value);
     }
 
 }
@@ -174,8 +161,7 @@ public class GoogleClouddeployTargetMultiTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIds is required")]
     public List<TerraformProperty<string>>? TargetIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("target_ids");
-        set => WithProperty("target_ids", value);
+        set => SetProperty("target_ids", value);
     }
 
 }
@@ -192,8 +178,7 @@ public class GoogleClouddeployTargetRunBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
 }
@@ -209,8 +194,7 @@ public class GoogleClouddeployTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -218,8 +202,7 @@ public class GoogleClouddeployTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -227,8 +210,7 @@ public class GoogleClouddeployTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -246,65 +228,74 @@ public class GoogleClouddeployTarget : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("target_id");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("target_id");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("deploy_parameters");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("require_approval");
     }
 
     /// <summary>
     /// Optional. User annotations. These attributes can only be set and used by the user, and not by Google Cloud Deploy. See https://google.aip.dev/128#annotations for more details such as format and size limitations.
-    ///
+    /// 
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// Optional. The deploy parameters to use for this target.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? DeployParameters
+    public Dictionary<string, TerraformProperty<string>> DeployParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("deploy_parameters");
-        set => this.WithProperty("deploy_parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("deploy_parameters");
+        set => SetProperty("deploy_parameters", value);
     }
 
     /// <summary>
     /// Optional. Description of the `Target`. Max length is 255 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Optional. Labels are attributes that can be set and used by both the user and by Google Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be &amp;lt;= 128 bytes.
-    ///
+    /// 
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -313,8 +304,8 @@ public class GoogleClouddeployTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -323,26 +314,26 @@ public class GoogleClouddeployTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Optional. Whether or not the `Target` requires approval.
     /// </summary>
-    public TerraformProperty<bool>? RequireApproval
+    public TerraformProperty<bool> RequireApproval
     {
-        get => GetProperty<TerraformProperty<bool>>("require_approval");
-        set => this.WithProperty("require_approval", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_approval");
+        set => SetProperty("require_approval", value);
     }
 
     /// <summary>
@@ -352,8 +343,7 @@ public class GoogleClouddeployTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnthosCluster block(s) allowed")]
     public List<GoogleClouddeployTargetAnthosClusterBlock>? AnthosCluster
     {
-        get => GetProperty<List<GoogleClouddeployTargetAnthosClusterBlock>>("anthos_cluster");
-        set => this.WithProperty("anthos_cluster", value);
+        set => SetProperty("anthos_cluster", value);
     }
 
     /// <summary>
@@ -362,8 +352,7 @@ public class GoogleClouddeployTarget : TerraformResource
     /// </summary>
     public HashSet<GoogleClouddeployTargetAssociatedEntitiesBlock>? AssociatedEntities
     {
-        get => GetProperty<HashSet<GoogleClouddeployTargetAssociatedEntitiesBlock>>("associated_entities");
-        set => this.WithProperty("associated_entities", value);
+        set => SetProperty("associated_entities", value);
     }
 
     /// <summary>
@@ -373,8 +362,7 @@ public class GoogleClouddeployTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomTarget block(s) allowed")]
     public List<GoogleClouddeployTargetCustomTargetBlock>? CustomTarget
     {
-        get => GetProperty<List<GoogleClouddeployTargetCustomTargetBlock>>("custom_target");
-        set => this.WithProperty("custom_target", value);
+        set => SetProperty("custom_target", value);
     }
 
     /// <summary>
@@ -383,8 +371,7 @@ public class GoogleClouddeployTarget : TerraformResource
     /// </summary>
     public List<GoogleClouddeployTargetExecutionConfigsBlock>? ExecutionConfigs
     {
-        get => GetProperty<List<GoogleClouddeployTargetExecutionConfigsBlock>>("execution_configs");
-        set => this.WithProperty("execution_configs", value);
+        set => SetProperty("execution_configs", value);
     }
 
     /// <summary>
@@ -394,8 +381,7 @@ public class GoogleClouddeployTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gke block(s) allowed")]
     public List<GoogleClouddeployTargetGkeBlock>? Gke
     {
-        get => GetProperty<List<GoogleClouddeployTargetGkeBlock>>("gke");
-        set => this.WithProperty("gke", value);
+        set => SetProperty("gke", value);
     }
 
     /// <summary>
@@ -405,8 +391,7 @@ public class GoogleClouddeployTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiTarget block(s) allowed")]
     public List<GoogleClouddeployTargetMultiTargetBlock>? MultiTarget
     {
-        get => GetProperty<List<GoogleClouddeployTargetMultiTargetBlock>>("multi_target");
-        set => this.WithProperty("multi_target", value);
+        set => SetProperty("multi_target", value);
     }
 
     /// <summary>
@@ -416,8 +401,7 @@ public class GoogleClouddeployTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Run block(s) allowed")]
     public List<GoogleClouddeployTargetRunBlock>? Run
     {
-        get => GetProperty<List<GoogleClouddeployTargetRunBlock>>("run");
-        set => this.WithProperty("run", value);
+        set => SetProperty("run", value);
     }
 
     /// <summary>
@@ -426,8 +410,7 @@ public class GoogleClouddeployTarget : TerraformResource
     /// </summary>
     public GoogleClouddeployTargetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleClouddeployTargetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

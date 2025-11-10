@@ -13,8 +13,7 @@ public class AzurermAppServiceCertificateOrderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAppServiceCertificateOrderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAppServiceCertificateOrderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAppServiceCertificateOrderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,60 +54,71 @@ public class AzurermAppServiceCertificateOrder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_service_certificate_not_renewable_reasons");
-        this.WithOutput("certificates");
-        this.WithOutput("domain_verification_token");
-        this.WithOutput("expiration_time");
-        this.WithOutput("intermediate_thumbprint");
-        this.WithOutput("is_private_key_external");
-        this.WithOutput("root_thumbprint");
-        this.WithOutput("signed_certificate_thumbprint");
-        this.WithOutput("status");
+        SetOutput("app_service_certificate_not_renewable_reasons");
+        SetOutput("certificates");
+        SetOutput("domain_verification_token");
+        SetOutput("expiration_time");
+        SetOutput("intermediate_thumbprint");
+        SetOutput("is_private_key_external");
+        SetOutput("root_thumbprint");
+        SetOutput("signed_certificate_thumbprint");
+        SetOutput("status");
+        SetOutput("auto_renew");
+        SetOutput("csr");
+        SetOutput("distinguished_name");
+        SetOutput("id");
+        SetOutput("key_size");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("product_type");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("validity_in_years");
     }
 
     /// <summary>
     /// The auto_renew attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoRenew
+    public TerraformProperty<bool> AutoRenew
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_renew");
-        set => this.WithProperty("auto_renew", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_renew");
+        set => SetProperty("auto_renew", value);
     }
 
     /// <summary>
     /// The csr attribute.
     /// </summary>
-    public TerraformProperty<string>? Csr
+    public TerraformProperty<string> Csr
     {
-        get => GetProperty<TerraformProperty<string>>("csr");
-        set => this.WithProperty("csr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("csr");
+        set => SetProperty("csr", value);
     }
 
     /// <summary>
     /// The distinguished_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DistinguishedName
+    public TerraformProperty<string> DistinguishedName
     {
-        get => GetProperty<TerraformProperty<string>>("distinguished_name");
-        set => this.WithProperty("distinguished_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("distinguished_name");
+        set => SetProperty("distinguished_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    public TerraformProperty<double>? KeySize
+    public TerraformProperty<double> KeySize
     {
-        get => GetProperty<TerraformProperty<double>>("key_size");
-        set => this.WithProperty("key_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("key_size");
+        set => SetProperty("key_size", value);
     }
 
     /// <summary>
@@ -120,8 +127,8 @@ public class AzurermAppServiceCertificateOrder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -130,17 +137,17 @@ public class AzurermAppServiceCertificateOrder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The product_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductType
+    public TerraformProperty<string> ProductType
     {
-        get => GetProperty<TerraformProperty<string>>("product_type");
-        set => this.WithProperty("product_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_type");
+        set => SetProperty("product_type", value);
     }
 
     /// <summary>
@@ -149,26 +156,26 @@ public class AzurermAppServiceCertificateOrder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The validity_in_years attribute.
     /// </summary>
-    public TerraformProperty<double>? ValidityInYears
+    public TerraformProperty<double> ValidityInYears
     {
-        get => GetProperty<TerraformProperty<double>>("validity_in_years");
-        set => this.WithProperty("validity_in_years", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("validity_in_years");
+        set => SetProperty("validity_in_years", value);
     }
 
     /// <summary>
@@ -177,8 +184,7 @@ public class AzurermAppServiceCertificateOrder : TerraformResource
     /// </summary>
     public AzurermAppServiceCertificateOrderTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceCertificateOrderTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

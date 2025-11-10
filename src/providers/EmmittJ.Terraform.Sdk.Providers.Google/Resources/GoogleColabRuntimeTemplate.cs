@@ -13,8 +13,7 @@ public class GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<string>>("disk_size_gb");
-        set => WithProperty("disk_size_gb", value);
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? DiskType
     {
-        get => GetProperty<TerraformProperty<string>>("disk_type");
-        set => WithProperty("disk_type", value);
+        set => SetProperty("disk_type", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleColabRuntimeTemplateEncryptionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class GoogleColabRuntimeTemplateEucConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EucDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("euc_disabled");
-        set => WithProperty("euc_disabled", value);
+        set => SetProperty("euc_disabled", value);
     }
 
 }
@@ -73,8 +69,7 @@ public class GoogleColabRuntimeTemplateIdleShutdownConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdleTimeout
     {
-        get => GetProperty<TerraformProperty<string>>("idle_timeout");
-        set => WithProperty("idle_timeout", value);
+        set => SetProperty("idle_timeout", value);
     }
 
 }
@@ -90,8 +85,7 @@ public class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AcceleratorCount
     {
-        get => GetProperty<TerraformProperty<double>>("accelerator_count");
-        set => WithProperty("accelerator_count", value);
+        set => SetProperty("accelerator_count", value);
     }
 
     /// <summary>
@@ -99,8 +93,7 @@ public class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AcceleratorType
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_type");
-        set => WithProperty("accelerator_type", value);
+        set => SetProperty("accelerator_type", value);
     }
 
     /// <summary>
@@ -108,8 +101,7 @@ public class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
-        set => WithProperty("machine_type", value);
+        set => SetProperty("machine_type", value);
     }
 
 }
@@ -125,8 +117,7 @@ public class GoogleColabRuntimeTemplateNetworkSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableInternetAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_internet_access");
-        set => WithProperty("enable_internet_access", value);
+        set => SetProperty("enable_internet_access", value);
     }
 
     /// <summary>
@@ -134,8 +125,7 @@ public class GoogleColabRuntimeTemplateNetworkSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -143,8 +133,7 @@ public class GoogleColabRuntimeTemplateNetworkSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => WithProperty("subnetwork", value);
+        set => SetProperty("subnetwork", value);
     }
 
 }
@@ -160,8 +149,7 @@ public class GoogleColabRuntimeTemplateShieldedVmConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableSecureBoot
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_secure_boot");
-        set => WithProperty("enable_secure_boot", value);
+        set => SetProperty("enable_secure_boot", value);
     }
 
 }
@@ -185,8 +173,7 @@ public class GoogleColabRuntimeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -194,8 +181,7 @@ public class GoogleColabRuntimeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -203,8 +189,7 @@ public class GoogleColabRuntimeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -222,17 +207,25 @@ public class GoogleColabRuntimeTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network_tags");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The description of the Runtime Template.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -241,17 +234,17 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -260,10 +253,10 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -272,35 +265,35 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The resource name of the Runtime Template
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Applies the given Compute Engine tags to the runtime.
     /// </summary>
-    public List<TerraformProperty<string>>? NetworkTags
+    public List<TerraformProperty<string>> NetworkTags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("network_tags");
-        set => this.WithProperty("network_tags", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("network_tags");
+        set => SetProperty("network_tags", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -310,8 +303,7 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataPersistentDiskSpec block(s) allowed")]
     public List<GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock>? DataPersistentDiskSpec
     {
-        get => GetProperty<List<GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock>>("data_persistent_disk_spec");
-        set => this.WithProperty("data_persistent_disk_spec", value);
+        set => SetProperty("data_persistent_disk_spec", value);
     }
 
     /// <summary>
@@ -321,8 +313,7 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     public List<GoogleColabRuntimeTemplateEncryptionSpecBlock>? EncryptionSpec
     {
-        get => GetProperty<List<GoogleColabRuntimeTemplateEncryptionSpecBlock>>("encryption_spec");
-        set => this.WithProperty("encryption_spec", value);
+        set => SetProperty("encryption_spec", value);
     }
 
     /// <summary>
@@ -332,8 +323,7 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EucConfig block(s) allowed")]
     public List<GoogleColabRuntimeTemplateEucConfigBlock>? EucConfig
     {
-        get => GetProperty<List<GoogleColabRuntimeTemplateEucConfigBlock>>("euc_config");
-        set => this.WithProperty("euc_config", value);
+        set => SetProperty("euc_config", value);
     }
 
     /// <summary>
@@ -343,8 +333,7 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdleShutdownConfig block(s) allowed")]
     public List<GoogleColabRuntimeTemplateIdleShutdownConfigBlock>? IdleShutdownConfig
     {
-        get => GetProperty<List<GoogleColabRuntimeTemplateIdleShutdownConfigBlock>>("idle_shutdown_config");
-        set => this.WithProperty("idle_shutdown_config", value);
+        set => SetProperty("idle_shutdown_config", value);
     }
 
     /// <summary>
@@ -354,8 +343,7 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineSpec block(s) allowed")]
     public List<GoogleColabRuntimeTemplateMachineSpecBlock>? MachineSpec
     {
-        get => GetProperty<List<GoogleColabRuntimeTemplateMachineSpecBlock>>("machine_spec");
-        set => this.WithProperty("machine_spec", value);
+        set => SetProperty("machine_spec", value);
     }
 
     /// <summary>
@@ -365,8 +353,7 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkSpec block(s) allowed")]
     public List<GoogleColabRuntimeTemplateNetworkSpecBlock>? NetworkSpec
     {
-        get => GetProperty<List<GoogleColabRuntimeTemplateNetworkSpecBlock>>("network_spec");
-        set => this.WithProperty("network_spec", value);
+        set => SetProperty("network_spec", value);
     }
 
     /// <summary>
@@ -376,8 +363,7 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedVmConfig block(s) allowed")]
     public List<GoogleColabRuntimeTemplateShieldedVmConfigBlock>? ShieldedVmConfig
     {
-        get => GetProperty<List<GoogleColabRuntimeTemplateShieldedVmConfigBlock>>("shielded_vm_config");
-        set => this.WithProperty("shielded_vm_config", value);
+        set => SetProperty("shielded_vm_config", value);
     }
 
     /// <summary>
@@ -387,8 +373,7 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareConfig block(s) allowed")]
     public List<GoogleColabRuntimeTemplateSoftwareConfigBlock>? SoftwareConfig
     {
-        get => GetProperty<List<GoogleColabRuntimeTemplateSoftwareConfigBlock>>("software_config");
-        set => this.WithProperty("software_config", value);
+        set => SetProperty("software_config", value);
     }
 
     /// <summary>
@@ -397,8 +382,7 @@ public class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     public GoogleColabRuntimeTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleColabRuntimeTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,45 +14,49 @@ public class AwsMacie2Account : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("service_role");
-        this.WithOutput("updated_at");
+        SetOutput("created_at");
+        SetOutput("service_role");
+        SetOutput("updated_at");
+        SetOutput("finding_publishing_frequency");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("status");
     }
 
     /// <summary>
     /// The finding_publishing_frequency attribute.
     /// </summary>
-    public TerraformProperty<string>? FindingPublishingFrequency
+    public TerraformProperty<string> FindingPublishingFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("finding_publishing_frequency");
-        set => this.WithProperty("finding_publishing_frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("finding_publishing_frequency");
+        set => SetProperty("finding_publishing_frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>

@@ -14,7 +14,17 @@ public class AwsRedshiftUsageLimit : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("amount");
+        SetOutput("breach_action");
+        SetOutput("cluster_identifier");
+        SetOutput("feature_type");
+        SetOutput("id");
+        SetOutput("limit_type");
+        SetOutput("period");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -23,17 +33,17 @@ public class AwsRedshiftUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformProperty<double> Amount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("amount");
-        set => this.WithProperty("amount", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("amount");
+        set => SetProperty("amount", value);
     }
 
     /// <summary>
     /// The breach_action attribute.
     /// </summary>
-    public TerraformProperty<string>? BreachAction
+    public TerraformProperty<string> BreachAction
     {
-        get => GetProperty<TerraformProperty<string>>("breach_action");
-        set => this.WithProperty("breach_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("breach_action");
+        set => SetProperty("breach_action", value);
     }
 
     /// <summary>
@@ -42,8 +52,8 @@ public class AwsRedshiftUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
@@ -52,17 +62,17 @@ public class AwsRedshiftUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureType is required")]
     public required TerraformProperty<string> FeatureType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("feature_type");
-        set => this.WithProperty("feature_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("feature_type");
+        set => SetProperty("feature_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -71,44 +81,44 @@ public class AwsRedshiftUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LimitType is required")]
     public required TerraformProperty<string> LimitType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("limit_type");
-        set => this.WithProperty("limit_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("limit_type");
+        set => SetProperty("limit_type", value);
     }
 
     /// <summary>
     /// The period attribute.
     /// </summary>
-    public TerraformProperty<string>? Period
+    public TerraformProperty<string> Period
     {
-        get => GetProperty<TerraformProperty<string>>("period");
-        set => this.WithProperty("period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("period");
+        set => SetProperty("period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

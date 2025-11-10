@@ -13,8 +13,7 @@ public class AzurermPurviewAccountIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPurviewAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPurviewAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermPurviewAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,22 +96,30 @@ public class AzurermPurviewAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("atlas_kafka_endpoint_primary_connection_string");
-        this.WithOutput("atlas_kafka_endpoint_secondary_connection_string");
-        this.WithOutput("aws_external_id");
-        this.WithOutput("catalog_endpoint");
-        this.WithOutput("guardian_endpoint");
-        this.WithOutput("managed_resources");
-        this.WithOutput("scan_endpoint");
+        SetOutput("atlas_kafka_endpoint_primary_connection_string");
+        SetOutput("atlas_kafka_endpoint_secondary_connection_string");
+        SetOutput("aws_external_id");
+        SetOutput("catalog_endpoint");
+        SetOutput("guardian_endpoint");
+        SetOutput("managed_resources");
+        SetOutput("scan_endpoint");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("managed_event_hub_enabled");
+        SetOutput("managed_resource_group_name");
+        SetOutput("name");
+        SetOutput("public_network_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -128,26 +128,26 @@ public class AzurermPurviewAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The managed_event_hub_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ManagedEventHubEnabled
+    public TerraformProperty<bool> ManagedEventHubEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("managed_event_hub_enabled");
-        set => this.WithProperty("managed_event_hub_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("managed_event_hub_enabled");
+        set => SetProperty("managed_event_hub_enabled", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedResourceGroupName
+    public TerraformProperty<string> ManagedResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("managed_resource_group_name");
-        set => this.WithProperty("managed_resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_resource_group_name");
+        set => SetProperty("managed_resource_group_name", value);
     }
 
     /// <summary>
@@ -156,17 +156,17 @@ public class AzurermPurviewAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkEnabled
+    public TerraformProperty<bool> PublicNetworkEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_enabled");
-        set => this.WithProperty("public_network_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_enabled");
+        set => SetProperty("public_network_enabled", value);
     }
 
     /// <summary>
@@ -175,29 +175,29 @@ public class AzurermPurviewAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermPurviewAccountIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermPurviewAccountIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -206,8 +206,7 @@ public class AzurermPurviewAccount : TerraformResource
     /// </summary>
     public AzurermPurviewAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPurviewAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

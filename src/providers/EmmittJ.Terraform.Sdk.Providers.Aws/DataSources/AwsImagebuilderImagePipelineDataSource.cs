@@ -14,22 +14,26 @@ public class AwsImagebuilderImagePipelineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("container_recipe_arn");
-        this.WithOutput("date_created");
-        this.WithOutput("date_last_run");
-        this.WithOutput("date_next_run");
-        this.WithOutput("date_updated");
-        this.WithOutput("description");
-        this.WithOutput("distribution_configuration_arn");
-        this.WithOutput("enhanced_image_metadata_enabled");
-        this.WithOutput("image_recipe_arn");
-        this.WithOutput("image_scanning_configuration");
-        this.WithOutput("image_tests_configuration");
-        this.WithOutput("infrastructure_configuration_arn");
-        this.WithOutput("name");
-        this.WithOutput("platform");
-        this.WithOutput("schedule");
-        this.WithOutput("status");
+        SetOutput("container_recipe_arn");
+        SetOutput("date_created");
+        SetOutput("date_last_run");
+        SetOutput("date_next_run");
+        SetOutput("date_updated");
+        SetOutput("description");
+        SetOutput("distribution_configuration_arn");
+        SetOutput("enhanced_image_metadata_enabled");
+        SetOutput("image_recipe_arn");
+        SetOutput("image_scanning_configuration");
+        SetOutput("image_tests_configuration");
+        SetOutput("infrastructure_configuration_arn");
+        SetOutput("name");
+        SetOutput("platform");
+        SetOutput("schedule");
+        SetOutput("status");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -38,35 +42,35 @@ public class AwsImagebuilderImagePipelineDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Accounts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("accounts");
-        set => WithProperty("accounts", value);
+        set => SetProperty("accounts", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
     public HashSet<TerraformProperty<string>>? Regions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("regions");
-        set => WithProperty("regions", value);
+        set => SetProperty("regions", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformProperty<string> SourceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_name");
-        set => WithProperty("source_name", value);
+        set => SetProperty("source_name", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceVersion
     {
-        get => GetProperty<TerraformProperty<string>>("source_version");
-        set => WithProperty("source_version", value);
+        set => SetProperty("source_version", value);
     }
 
 }
@@ -60,16 +56,17 @@ public class AwsSecuritylakeAwsLogSource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +75,7 @@ public class AwsSecuritylakeAwsLogSource : TerraformResource
     /// </summary>
     public List<AwsSecuritylakeAwsLogSourceSourceBlock>? Source
     {
-        get => GetProperty<List<AwsSecuritylakeAwsLogSourceSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>

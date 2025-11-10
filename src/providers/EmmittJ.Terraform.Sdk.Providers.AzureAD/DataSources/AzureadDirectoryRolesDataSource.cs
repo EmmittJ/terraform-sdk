@@ -13,8 +13,7 @@ public class AzureadDirectoryRolesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,18 +30,19 @@ public class AzureadDirectoryRolesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("object_ids");
-        this.WithOutput("roles");
-        this.WithOutput("template_ids");
+        SetOutput("object_ids");
+        SetOutput("roles");
+        SetOutput("template_ids");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +51,7 @@ public class AzureadDirectoryRolesDataSource : TerraformDataSource
     /// </summary>
     public AzureadDirectoryRolesDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadDirectoryRolesDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

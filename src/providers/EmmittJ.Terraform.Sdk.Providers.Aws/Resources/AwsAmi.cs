@@ -13,8 +13,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DeleteOnTermination
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_on_termination");
-        set => WithProperty("delete_on_termination", value);
+        set => SetProperty("delete_on_termination", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
-        set => WithProperty("device_name", value);
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Encrypted
     {
-        get => GetProperty<TerraformProperty<bool>>("encrypted");
-        set => WithProperty("encrypted", value);
+        set => SetProperty("encrypted", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Iops
     {
-        get => GetProperty<TerraformProperty<double>>("iops");
-        set => WithProperty("iops", value);
+        set => SetProperty("iops", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutpostArn
     {
-        get => GetProperty<TerraformProperty<string>>("outpost_arn");
-        set => WithProperty("outpost_arn", value);
+        set => SetProperty("outpost_arn", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SnapshotId
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_id");
-        set => WithProperty("snapshot_id", value);
+        set => SetProperty("snapshot_id", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Throughput
     {
-        get => GetProperty<TerraformProperty<double>>("throughput");
-        set => WithProperty("throughput", value);
+        set => SetProperty("throughput", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? VolumeSize
     {
-        get => GetProperty<TerraformProperty<double>>("volume_size");
-        set => WithProperty("volume_size", value);
+        set => SetProperty("volume_size", value);
     }
 
     /// <summary>
@@ -86,8 +78,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VolumeType
     {
-        get => GetProperty<TerraformProperty<string>>("volume_type");
-        set => WithProperty("volume_type", value);
+        set => SetProperty("volume_type", value);
     }
 
 }
@@ -104,8 +95,7 @@ public class AwsAmiEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
-        set => WithProperty("device_name", value);
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
@@ -114,8 +104,7 @@ public class AwsAmiEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualName is required")]
     public required TerraformProperty<string> VirtualName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_name");
-        set => WithProperty("virtual_name", value);
+        set => SetProperty("virtual_name", value);
     }
 
 }
@@ -131,8 +120,7 @@ public class AwsAmiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -140,8 +128,7 @@ public class AwsAmiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -149,8 +136,7 @@ public class AwsAmiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -167,99 +153,118 @@ public class AwsAmi : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("hypervisor");
-        this.WithOutput("image_owner_alias");
-        this.WithOutput("image_type");
-        this.WithOutput("last_launched_time");
-        this.WithOutput("manage_ebs_snapshots");
-        this.WithOutput("owner_id");
-        this.WithOutput("platform");
-        this.WithOutput("platform_details");
-        this.WithOutput("public");
-        this.WithOutput("root_snapshot_id");
-        this.WithOutput("usage_operation");
+        SetOutput("arn");
+        SetOutput("hypervisor");
+        SetOutput("image_owner_alias");
+        SetOutput("image_type");
+        SetOutput("last_launched_time");
+        SetOutput("manage_ebs_snapshots");
+        SetOutput("owner_id");
+        SetOutput("platform");
+        SetOutput("platform_details");
+        SetOutput("public");
+        SetOutput("root_snapshot_id");
+        SetOutput("usage_operation");
+        SetOutput("architecture");
+        SetOutput("boot_mode");
+        SetOutput("deprecation_time");
+        SetOutput("description");
+        SetOutput("ena_support");
+        SetOutput("id");
+        SetOutput("image_location");
+        SetOutput("imds_support");
+        SetOutput("kernel_id");
+        SetOutput("name");
+        SetOutput("ramdisk_id");
+        SetOutput("region");
+        SetOutput("root_device_name");
+        SetOutput("sriov_net_support");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("tpm_support");
+        SetOutput("uefi_data");
+        SetOutput("virtualization_type");
     }
 
     /// <summary>
     /// The architecture attribute.
     /// </summary>
-    public TerraformProperty<string>? Architecture
+    public TerraformProperty<string> Architecture
     {
-        get => GetProperty<TerraformProperty<string>>("architecture");
-        set => this.WithProperty("architecture", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("architecture");
+        set => SetProperty("architecture", value);
     }
 
     /// <summary>
     /// The boot_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? BootMode
+    public TerraformProperty<string> BootMode
     {
-        get => GetProperty<TerraformProperty<string>>("boot_mode");
-        set => this.WithProperty("boot_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("boot_mode");
+        set => SetProperty("boot_mode", value);
     }
 
     /// <summary>
     /// The deprecation_time attribute.
     /// </summary>
-    public TerraformProperty<string>? DeprecationTime
+    public TerraformProperty<string> DeprecationTime
     {
-        get => GetProperty<TerraformProperty<string>>("deprecation_time");
-        set => this.WithProperty("deprecation_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deprecation_time");
+        set => SetProperty("deprecation_time", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The ena_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnaSupport
+    public TerraformProperty<bool> EnaSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("ena_support");
-        set => this.WithProperty("ena_support", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ena_support");
+        set => SetProperty("ena_support", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The image_location attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageLocation
+    public TerraformProperty<string> ImageLocation
     {
-        get => GetProperty<TerraformProperty<string>>("image_location");
-        set => this.WithProperty("image_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_location");
+        set => SetProperty("image_location", value);
     }
 
     /// <summary>
     /// The imds_support attribute.
     /// </summary>
-    public TerraformProperty<string>? ImdsSupport
+    public TerraformProperty<string> ImdsSupport
     {
-        get => GetProperty<TerraformProperty<string>>("imds_support");
-        set => this.WithProperty("imds_support", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("imds_support");
+        set => SetProperty("imds_support", value);
     }
 
     /// <summary>
     /// The kernel_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KernelId
+    public TerraformProperty<string> KernelId
     {
-        get => GetProperty<TerraformProperty<string>>("kernel_id");
-        set => this.WithProperty("kernel_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kernel_id");
+        set => SetProperty("kernel_id", value);
     }
 
     /// <summary>
@@ -268,89 +273,89 @@ public class AwsAmi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ramdisk_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RamdiskId
+    public TerraformProperty<string> RamdiskId
     {
-        get => GetProperty<TerraformProperty<string>>("ramdisk_id");
-        set => this.WithProperty("ramdisk_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ramdisk_id");
+        set => SetProperty("ramdisk_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The root_device_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RootDeviceName
+    public TerraformProperty<string> RootDeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("root_device_name");
-        set => this.WithProperty("root_device_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("root_device_name");
+        set => SetProperty("root_device_name", value);
     }
 
     /// <summary>
     /// The sriov_net_support attribute.
     /// </summary>
-    public TerraformProperty<string>? SriovNetSupport
+    public TerraformProperty<string> SriovNetSupport
     {
-        get => GetProperty<TerraformProperty<string>>("sriov_net_support");
-        set => this.WithProperty("sriov_net_support", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sriov_net_support");
+        set => SetProperty("sriov_net_support", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tpm_support attribute.
     /// </summary>
-    public TerraformProperty<string>? TpmSupport
+    public TerraformProperty<string> TpmSupport
     {
-        get => GetProperty<TerraformProperty<string>>("tpm_support");
-        set => this.WithProperty("tpm_support", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tpm_support");
+        set => SetProperty("tpm_support", value);
     }
 
     /// <summary>
     /// The uefi_data attribute.
     /// </summary>
-    public TerraformProperty<string>? UefiData
+    public TerraformProperty<string> UefiData
     {
-        get => GetProperty<TerraformProperty<string>>("uefi_data");
-        set => this.WithProperty("uefi_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("uefi_data");
+        set => SetProperty("uefi_data", value);
     }
 
     /// <summary>
     /// The virtualization_type attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualizationType
+    public TerraformProperty<string> VirtualizationType
     {
-        get => GetProperty<TerraformProperty<string>>("virtualization_type");
-        set => this.WithProperty("virtualization_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtualization_type");
+        set => SetProperty("virtualization_type", value);
     }
 
     /// <summary>
@@ -359,8 +364,7 @@ public class AwsAmi : TerraformResource
     /// </summary>
     public HashSet<AwsAmiEbsBlockDeviceBlock>? EbsBlockDevice
     {
-        get => GetProperty<HashSet<AwsAmiEbsBlockDeviceBlock>>("ebs_block_device");
-        set => this.WithProperty("ebs_block_device", value);
+        set => SetProperty("ebs_block_device", value);
     }
 
     /// <summary>
@@ -369,8 +373,7 @@ public class AwsAmi : TerraformResource
     /// </summary>
     public HashSet<AwsAmiEphemeralBlockDeviceBlock>? EphemeralBlockDevice
     {
-        get => GetProperty<HashSet<AwsAmiEphemeralBlockDeviceBlock>>("ephemeral_block_device");
-        set => this.WithProperty("ephemeral_block_device", value);
+        set => SetProperty("ephemeral_block_device", value);
     }
 
     /// <summary>
@@ -379,8 +382,7 @@ public class AwsAmi : TerraformResource
     /// </summary>
     public AwsAmiTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAmiTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,19 +14,22 @@ public class GoogleComputeNetworkAttachmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connection_endpoints");
-        this.WithOutput("connection_preference");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("description");
-        this.WithOutput("fingerprint");
-        this.WithOutput("id");
-        this.WithOutput("kind");
-        this.WithOutput("network");
-        this.WithOutput("producer_accept_lists");
-        this.WithOutput("producer_reject_lists");
-        this.WithOutput("self_link");
-        this.WithOutput("self_link_with_id");
-        this.WithOutput("subnetworks");
+        SetOutput("connection_endpoints");
+        SetOutput("connection_preference");
+        SetOutput("creation_timestamp");
+        SetOutput("description");
+        SetOutput("fingerprint");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("network");
+        SetOutput("producer_accept_lists");
+        SetOutput("producer_reject_lists");
+        SetOutput("self_link");
+        SetOutput("self_link_with_id");
+        SetOutput("subnetworks");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -35,17 +38,17 @@ public class GoogleComputeNetworkAttachmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -54,8 +57,8 @@ public class GoogleComputeNetworkAttachmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

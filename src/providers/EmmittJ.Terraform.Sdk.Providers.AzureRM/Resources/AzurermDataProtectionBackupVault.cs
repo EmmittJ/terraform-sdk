@@ -13,8 +13,7 @@ public class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,15 +96,26 @@ public class AzurermDataProtectionBackupVault : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cross_region_restore_enabled");
+        SetOutput("datastore_type");
+        SetOutput("id");
+        SetOutput("immutability");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("redundancy");
+        SetOutput("resource_group_name");
+        SetOutput("retention_duration_in_days");
+        SetOutput("soft_delete");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The cross_region_restore_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CrossRegionRestoreEnabled
+    public TerraformProperty<bool> CrossRegionRestoreEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cross_region_restore_enabled");
-        set => this.WithProperty("cross_region_restore_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cross_region_restore_enabled");
+        set => SetProperty("cross_region_restore_enabled", value);
     }
 
     /// <summary>
@@ -121,26 +124,26 @@ public class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatastoreType is required")]
     public required TerraformProperty<string> DatastoreType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("datastore_type");
-        set => this.WithProperty("datastore_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("datastore_type");
+        set => SetProperty("datastore_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The immutability attribute.
     /// </summary>
-    public TerraformProperty<string>? Immutability
+    public TerraformProperty<string> Immutability
     {
-        get => GetProperty<TerraformProperty<string>>("immutability");
-        set => this.WithProperty("immutability", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("immutability");
+        set => SetProperty("immutability", value);
     }
 
     /// <summary>
@@ -149,8 +152,8 @@ public class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -159,8 +162,8 @@ public class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -169,8 +172,8 @@ public class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Redundancy is required")]
     public required TerraformProperty<string> Redundancy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("redundancy");
-        set => this.WithProperty("redundancy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redundancy");
+        set => SetProperty("redundancy", value);
     }
 
     /// <summary>
@@ -179,35 +182,35 @@ public class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_duration_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionDurationInDays
+    public TerraformProperty<double> RetentionDurationInDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_duration_in_days");
-        set => this.WithProperty("retention_duration_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_duration_in_days");
+        set => SetProperty("retention_duration_in_days", value);
     }
 
     /// <summary>
     /// The soft_delete attribute.
     /// </summary>
-    public TerraformProperty<string>? SoftDelete
+    public TerraformProperty<string> SoftDelete
     {
-        get => GetProperty<TerraformProperty<string>>("soft_delete");
-        set => this.WithProperty("soft_delete", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("soft_delete");
+        set => SetProperty("soft_delete", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -217,8 +220,7 @@ public class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermDataProtectionBackupVaultIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermDataProtectionBackupVaultIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -227,8 +229,7 @@ public class AzurermDataProtectionBackupVault : TerraformResource
     /// </summary>
     public AzurermDataProtectionBackupVaultTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataProtectionBackupVaultTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

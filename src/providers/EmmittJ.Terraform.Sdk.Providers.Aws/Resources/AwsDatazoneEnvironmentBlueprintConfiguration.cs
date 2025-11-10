@@ -14,6 +14,13 @@ public class AwsDatazoneEnvironmentBlueprintConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("domain_id");
+        SetOutput("enabled_regions");
+        SetOutput("environment_blueprint_id");
+        SetOutput("manage_access_role_arn");
+        SetOutput("provisioning_role_arn");
+        SetOutput("region");
+        SetOutput("regional_parameters");
     }
 
     /// <summary>
@@ -22,18 +29,18 @@ public class AwsDatazoneEnvironmentBlueprintConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
-        set => this.WithProperty("domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_id");
+        set => SetProperty("domain_id", value);
     }
 
     /// <summary>
     /// The enabled_regions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledRegions is required")]
-    public List<TerraformProperty<string>>? EnabledRegions
+    public List<TerraformProperty<string>> EnabledRegions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("enabled_regions");
-        set => this.WithProperty("enabled_regions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("enabled_regions");
+        set => SetProperty("enabled_regions", value);
     }
 
     /// <summary>
@@ -42,44 +49,44 @@ public class AwsDatazoneEnvironmentBlueprintConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentBlueprintId is required")]
     public required TerraformProperty<string> EnvironmentBlueprintId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment_blueprint_id");
-        set => this.WithProperty("environment_blueprint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_blueprint_id");
+        set => SetProperty("environment_blueprint_id", value);
     }
 
     /// <summary>
     /// The manage_access_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ManageAccessRoleArn
+    public TerraformProperty<string> ManageAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("manage_access_role_arn");
-        set => this.WithProperty("manage_access_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("manage_access_role_arn");
+        set => SetProperty("manage_access_role_arn", value);
     }
 
     /// <summary>
     /// The provisioning_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ProvisioningRoleArn
+    public TerraformProperty<string> ProvisioningRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("provisioning_role_arn");
-        set => this.WithProperty("provisioning_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provisioning_role_arn");
+        set => SetProperty("provisioning_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The regional_parameters attribute.
     /// </summary>
-    public Dictionary<string, Dictionary<string, TerraformProperty<string>>>? RegionalParameters
+    public Dictionary<string, Dictionary<string, TerraformProperty<string>>> RegionalParameters
     {
-        get => GetProperty<Dictionary<string, Dictionary<string, TerraformProperty<string>>>>("regional_parameters");
-        set => this.WithProperty("regional_parameters", value);
+        get => GetRequiredOutput<Dictionary<string, Dictionary<string, TerraformProperty<string>>>>("regional_parameters");
+        set => SetProperty("regional_parameters", value);
     }
 
 }

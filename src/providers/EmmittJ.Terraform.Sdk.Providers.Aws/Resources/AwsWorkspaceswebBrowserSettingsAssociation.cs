@@ -14,6 +14,9 @@ public class AwsWorkspaceswebBrowserSettingsAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("browser_settings_arn");
+        SetOutput("portal_arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,8 +25,8 @@ public class AwsWorkspaceswebBrowserSettingsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrowserSettingsArn is required")]
     public required TerraformProperty<string> BrowserSettingsArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("browser_settings_arn");
-        set => this.WithProperty("browser_settings_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("browser_settings_arn");
+        set => SetProperty("browser_settings_arn", value);
     }
 
     /// <summary>
@@ -32,17 +35,17 @@ public class AwsWorkspaceswebBrowserSettingsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
     public required TerraformProperty<string> PortalArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("portal_arn");
-        set => this.WithProperty("portal_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("portal_arn");
+        set => SetProperty("portal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

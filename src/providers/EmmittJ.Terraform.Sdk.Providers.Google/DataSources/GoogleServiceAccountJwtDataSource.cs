@@ -14,34 +14,39 @@ public class GoogleServiceAccountJwtDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("jwt");
+        SetOutput("jwt");
+        SetOutput("delegates");
+        SetOutput("expires_in");
+        SetOutput("id");
+        SetOutput("payload");
+        SetOutput("target_service_account");
     }
 
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Delegates
+    public HashSet<TerraformProperty<string>> Delegates
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("delegates");
-        set => this.WithProperty("delegates", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("delegates");
+        set => SetProperty("delegates", value);
     }
 
     /// <summary>
     /// Number of seconds until the JWT expires. If set and non-zero an `exp` claim will be added to the payload derived from the current timestamp plus expires_in seconds.
     /// </summary>
-    public TerraformProperty<double>? ExpiresIn
+    public TerraformProperty<double> ExpiresIn
     {
-        get => GetProperty<TerraformProperty<double>>("expires_in");
-        set => this.WithProperty("expires_in", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("expires_in");
+        set => SetProperty("expires_in", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +55,8 @@ public class GoogleServiceAccountJwtDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformProperty<string> Payload
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("payload");
-        set => this.WithProperty("payload", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("payload");
+        set => SetProperty("payload", value);
     }
 
     /// <summary>
@@ -60,8 +65,8 @@ public class GoogleServiceAccountJwtDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     public required TerraformProperty<string> TargetServiceAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_service_account");
-        set => this.WithProperty("target_service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_service_account");
+        set => SetProperty("target_service_account", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleVmwareengineNetworkPolicyExternalIpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleVmwareengineNetworkPolicyExternalIpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleVmwareengineNetworkPolicyInternetAccessBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleVmwareengineNetworkPolicyInternetAccessBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class GoogleVmwareengineNetworkPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class GoogleVmwareengineNetworkPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class GoogleVmwareengineNetworkPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -102,19 +95,26 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("vmware_engine_network_canonical");
+        SetOutput("create_time");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("vmware_engine_network_canonical");
+        SetOutput("description");
+        SetOutput("edge_services_cidr");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("vmware_engine_network");
     }
 
     /// <summary>
     /// User-provided description for this network policy.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -125,17 +125,17 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeServicesCidr is required")]
     public required TerraformProperty<string> EdgeServicesCidr
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("edge_services_cidr");
-        set => this.WithProperty("edge_services_cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_services_cidr");
+        set => SetProperty("edge_services_cidr", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -146,8 +146,8 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -156,17 +156,17 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -177,8 +177,8 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareEngineNetwork is required")]
     public required TerraformProperty<string> VmwareEngineNetwork
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vmware_engine_network");
-        set => this.WithProperty("vmware_engine_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vmware_engine_network");
+        set => SetProperty("vmware_engine_network", value);
     }
 
     /// <summary>
@@ -188,8 +188,7 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalIp block(s) allowed")]
     public List<GoogleVmwareengineNetworkPolicyExternalIpBlock>? ExternalIp
     {
-        get => GetProperty<List<GoogleVmwareengineNetworkPolicyExternalIpBlock>>("external_ip");
-        set => this.WithProperty("external_ip", value);
+        set => SetProperty("external_ip", value);
     }
 
     /// <summary>
@@ -199,8 +198,7 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InternetAccess block(s) allowed")]
     public List<GoogleVmwareengineNetworkPolicyInternetAccessBlock>? InternetAccess
     {
-        get => GetProperty<List<GoogleVmwareengineNetworkPolicyInternetAccessBlock>>("internet_access");
-        set => this.WithProperty("internet_access", value);
+        set => SetProperty("internet_access", value);
     }
 
     /// <summary>
@@ -209,8 +207,7 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// </summary>
     public GoogleVmwareengineNetworkPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVmwareengineNetworkPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

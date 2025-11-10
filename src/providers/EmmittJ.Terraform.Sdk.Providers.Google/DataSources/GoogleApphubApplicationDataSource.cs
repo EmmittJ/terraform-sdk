@@ -14,15 +14,19 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("attributes");
-        this.WithOutput("create_time");
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("name");
-        this.WithOutput("scope");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("attributes");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("name");
+        SetOutput("scope");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("application_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -31,17 +35,17 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -60,8 +64,8 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

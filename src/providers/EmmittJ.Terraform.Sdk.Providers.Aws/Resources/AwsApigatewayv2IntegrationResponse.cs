@@ -14,6 +14,14 @@ public class AwsApigatewayv2IntegrationResponse : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_id");
+        SetOutput("content_handling_strategy");
+        SetOutput("id");
+        SetOutput("integration_id");
+        SetOutput("integration_response_key");
+        SetOutput("region");
+        SetOutput("response_templates");
+        SetOutput("template_selection_expression");
     }
 
     /// <summary>
@@ -22,26 +30,26 @@ public class AwsApigatewayv2IntegrationResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The content_handling_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentHandlingStrategy
+    public TerraformProperty<string> ContentHandlingStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("content_handling_strategy");
-        set => this.WithProperty("content_handling_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_handling_strategy");
+        set => SetProperty("content_handling_strategy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +58,8 @@ public class AwsApigatewayv2IntegrationResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationId is required")]
     public required TerraformProperty<string> IntegrationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("integration_id");
-        set => this.WithProperty("integration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("integration_id");
+        set => SetProperty("integration_id", value);
     }
 
     /// <summary>
@@ -60,35 +68,35 @@ public class AwsApigatewayv2IntegrationResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationResponseKey is required")]
     public required TerraformProperty<string> IntegrationResponseKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("integration_response_key");
-        set => this.WithProperty("integration_response_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("integration_response_key");
+        set => SetProperty("integration_response_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The response_templates attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResponseTemplates
+    public Dictionary<string, TerraformProperty<string>> ResponseTemplates
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("response_templates");
-        set => this.WithProperty("response_templates", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("response_templates");
+        set => SetProperty("response_templates", value);
     }
 
     /// <summary>
     /// The template_selection_expression attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateSelectionExpression
+    public TerraformProperty<string> TemplateSelectionExpression
     {
-        get => GetProperty<TerraformProperty<string>>("template_selection_expression");
-        set => this.WithProperty("template_selection_expression", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_selection_expression");
+        set => SetProperty("template_selection_expression", value);
     }
 
 }

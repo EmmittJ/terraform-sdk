@@ -21,8 +21,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,8 +55,19 @@ public class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("listing_count");
-        this.WithOutput("name");
+        SetOutput("listing_count");
+        SetOutput("name");
+        SetOutput("data_exchange_id");
+        SetOutput("description");
+        SetOutput("discovery_type");
+        SetOutput("display_name");
+        SetOutput("documentation");
+        SetOutput("icon");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("log_linked_dataset_query_user_email");
+        SetOutput("primary_contact");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -68,26 +76,26 @@ public class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformProperty<string> DataExchangeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_exchange_id");
-        set => this.WithProperty("data_exchange_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_exchange_id");
+        set => SetProperty("data_exchange_id", value);
     }
 
     /// <summary>
     /// Description of the data exchange.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Type of discovery on the discovery page for all the listings under this exchange. Cannot be set for a Data Clean Room. Updating this field also updates (overwrites) the discoveryType field for all the listings under this exchange. Possible values: [&amp;quot;DISCOVERY_TYPE_PRIVATE&amp;quot;, &amp;quot;DISCOVERY_TYPE_PUBLIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DiscoveryType
+    public TerraformProperty<string> DiscoveryType
     {
-        get => GetProperty<TerraformProperty<string>>("discovery_type");
-        set => this.WithProperty("discovery_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("discovery_type");
+        set => SetProperty("discovery_type", value);
     }
 
     /// <summary>
@@ -96,35 +104,35 @@ public class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Documentation describing the data exchange.
     /// </summary>
-    public TerraformProperty<string>? Documentation
+    public TerraformProperty<string> Documentation
     {
-        get => GetProperty<TerraformProperty<string>>("documentation");
-        set => this.WithProperty("documentation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("documentation");
+        set => SetProperty("documentation", value);
     }
 
     /// <summary>
     /// Base64 encoded image representing the data exchange.
     /// </summary>
-    public TerraformProperty<string>? Icon
+    public TerraformProperty<string> Icon
     {
-        get => GetProperty<TerraformProperty<string>>("icon");
-        set => this.WithProperty("icon", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("icon");
+        set => SetProperty("icon", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -133,35 +141,35 @@ public class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// If true, subscriber email logging is enabled and all queries on the linked dataset will log the email address of the querying user. Once enabled, this setting cannot be turned off.
     /// </summary>
-    public TerraformProperty<bool>? LogLinkedDatasetQueryUserEmail
+    public TerraformProperty<bool> LogLinkedDatasetQueryUserEmail
     {
-        get => GetProperty<TerraformProperty<bool>>("log_linked_dataset_query_user_email");
-        set => this.WithProperty("log_linked_dataset_query_user_email", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("log_linked_dataset_query_user_email");
+        set => SetProperty("log_linked_dataset_query_user_email", value);
     }
 
     /// <summary>
     /// Email or URL of the primary point of contact of the data exchange.
     /// </summary>
-    public TerraformProperty<string>? PrimaryContact
+    public TerraformProperty<string> PrimaryContact
     {
-        get => GetProperty<TerraformProperty<string>>("primary_contact");
-        set => this.WithProperty("primary_contact", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_contact");
+        set => SetProperty("primary_contact", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -171,8 +179,7 @@ public class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SharingEnvironmentConfig block(s) allowed")]
     public List<GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock>? SharingEnvironmentConfig
     {
-        get => GetProperty<List<GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock>>("sharing_environment_config");
-        set => this.WithProperty("sharing_environment_config", value);
+        set => SetProperty("sharing_environment_config", value);
     }
 
     /// <summary>
@@ -181,8 +188,7 @@ public class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
     /// </summary>
     public GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

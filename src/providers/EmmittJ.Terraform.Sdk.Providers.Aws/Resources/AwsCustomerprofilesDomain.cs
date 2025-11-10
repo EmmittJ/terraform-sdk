@@ -14,8 +14,7 @@ public class AwsCustomerprofilesDomainMatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAllowedRuleLevelForMatching
     {
-        get => GetProperty<TerraformProperty<double>>("max_allowed_rule_level_for_matching");
-        set => WithProperty("max_allowed_rule_level_for_matching", value);
+        set => SetProperty("max_allowed_rule_level_for_matching", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAllowedRuleLevelForMerging
     {
-        get => GetProperty<TerraformProperty<double>>("max_allowed_rule_level_for_merging");
-        set => WithProperty("max_allowed_rule_level_for_merging", value);
+        set => SetProperty("max_allowed_rule_level_for_merging", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -78,25 +73,33 @@ public class AwsCustomerprofilesDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("dead_letter_queue_url");
+        SetOutput("default_encryption_key");
+        SetOutput("default_expiration_days");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The dead_letter_queue_url attribute.
     /// </summary>
-    public TerraformProperty<string>? DeadLetterQueueUrl
+    public TerraformProperty<string> DeadLetterQueueUrl
     {
-        get => GetProperty<TerraformProperty<string>>("dead_letter_queue_url");
-        set => this.WithProperty("dead_letter_queue_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dead_letter_queue_url");
+        set => SetProperty("dead_letter_queue_url", value);
     }
 
     /// <summary>
     /// The default_encryption_key attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultEncryptionKey
+    public TerraformProperty<string> DefaultEncryptionKey
     {
-        get => GetProperty<TerraformProperty<string>>("default_encryption_key");
-        set => this.WithProperty("default_encryption_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_encryption_key");
+        set => SetProperty("default_encryption_key", value);
     }
 
     /// <summary>
@@ -105,8 +108,8 @@ public class AwsCustomerprofilesDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultExpirationDays is required")]
     public required TerraformProperty<double> DefaultExpirationDays
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("default_expiration_days");
-        set => this.WithProperty("default_expiration_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_expiration_days");
+        set => SetProperty("default_expiration_days", value);
     }
 
     /// <summary>
@@ -115,44 +118,44 @@ public class AwsCustomerprofilesDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -162,8 +165,7 @@ public class AwsCustomerprofilesDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Matching block(s) allowed")]
     public List<AwsCustomerprofilesDomainMatchingBlock>? Matching
     {
-        get => GetProperty<List<AwsCustomerprofilesDomainMatchingBlock>>("matching");
-        set => this.WithProperty("matching", value);
+        set => SetProperty("matching", value);
     }
 
     /// <summary>
@@ -173,8 +175,7 @@ public class AwsCustomerprofilesDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuleBasedMatching block(s) allowed")]
     public List<AwsCustomerprofilesDomainRuleBasedMatchingBlock>? RuleBasedMatching
     {
-        get => GetProperty<List<AwsCustomerprofilesDomainRuleBasedMatchingBlock>>("rule_based_matching");
-        set => this.WithProperty("rule_based_matching", value);
+        set => SetProperty("rule_based_matching", value);
     }
 
     /// <summary>

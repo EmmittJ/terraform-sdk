@@ -14,21 +14,25 @@ public class GoogleOracleDatabaseAutonomousDatabaseDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("admin_password");
-        this.WithOutput("cidr");
-        this.WithOutput("create_time");
-        this.WithOutput("database");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("display_name");
-        this.WithOutput("effective_labels");
-        this.WithOutput("entitlement_id");
-        this.WithOutput("labels");
-        this.WithOutput("name");
-        this.WithOutput("network");
-        this.WithOutput("odb_network");
-        this.WithOutput("odb_subnet");
-        this.WithOutput("properties");
-        this.WithOutput("terraform_labels");
+        SetOutput("admin_password");
+        SetOutput("cidr");
+        SetOutput("create_time");
+        SetOutput("database");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("effective_labels");
+        SetOutput("entitlement_id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("odb_network");
+        SetOutput("odb_subnet");
+        SetOutput("properties");
+        SetOutput("terraform_labels");
+        SetOutput("autonomous_database_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -40,17 +44,17 @@ public class GoogleOracleDatabaseAutonomousDatabaseDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformProperty<string> AutonomousDatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("autonomous_database_id");
-        set => this.WithProperty("autonomous_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("autonomous_database_id");
+        set => SetProperty("autonomous_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,17 +63,17 @@ public class GoogleOracleDatabaseAutonomousDatabaseDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

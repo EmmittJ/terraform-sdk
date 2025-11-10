@@ -13,8 +13,7 @@ public class AwsS3ObjectCopyGrantBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsS3ObjectCopyGrantBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsS3ObjectCopyGrantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public HashSet<TerraformProperty<string>>? Permissions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("permissions");
-        set => WithProperty("permissions", value);
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsS3ObjectCopyGrantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsS3ObjectCopyGrantBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -78,27 +73,68 @@ public class AwsS3ObjectCopy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("checksum_crc32");
-        this.WithOutput("checksum_crc32c");
-        this.WithOutput("checksum_crc64nvme");
-        this.WithOutput("checksum_sha1");
-        this.WithOutput("checksum_sha256");
-        this.WithOutput("etag");
-        this.WithOutput("expiration");
-        this.WithOutput("last_modified");
-        this.WithOutput("request_charged");
-        this.WithOutput("source_version_id");
-        this.WithOutput("version_id");
+        SetOutput("arn");
+        SetOutput("checksum_crc32");
+        SetOutput("checksum_crc32c");
+        SetOutput("checksum_crc64nvme");
+        SetOutput("checksum_sha1");
+        SetOutput("checksum_sha256");
+        SetOutput("etag");
+        SetOutput("expiration");
+        SetOutput("last_modified");
+        SetOutput("request_charged");
+        SetOutput("source_version_id");
+        SetOutput("version_id");
+        SetOutput("acl");
+        SetOutput("bucket");
+        SetOutput("bucket_key_enabled");
+        SetOutput("cache_control");
+        SetOutput("checksum_algorithm");
+        SetOutput("content_disposition");
+        SetOutput("content_encoding");
+        SetOutput("content_language");
+        SetOutput("content_type");
+        SetOutput("copy_if_match");
+        SetOutput("copy_if_modified_since");
+        SetOutput("copy_if_none_match");
+        SetOutput("copy_if_unmodified_since");
+        SetOutput("customer_algorithm");
+        SetOutput("customer_key");
+        SetOutput("customer_key_md5");
+        SetOutput("expected_bucket_owner");
+        SetOutput("expected_source_bucket_owner");
+        SetOutput("expires");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("key");
+        SetOutput("kms_encryption_context");
+        SetOutput("kms_key_id");
+        SetOutput("metadata");
+        SetOutput("metadata_directive");
+        SetOutput("object_lock_legal_hold_status");
+        SetOutput("object_lock_mode");
+        SetOutput("object_lock_retain_until_date");
+        SetOutput("region");
+        SetOutput("request_payer");
+        SetOutput("server_side_encryption");
+        SetOutput("source");
+        SetOutput("source_customer_algorithm");
+        SetOutput("source_customer_key");
+        SetOutput("source_customer_key_md5");
+        SetOutput("storage_class");
+        SetOutput("tagging_directive");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("website_redirect");
     }
 
     /// <summary>
     /// The acl attribute.
     /// </summary>
-    public TerraformProperty<string>? Acl
+    public TerraformProperty<string> Acl
     {
-        get => GetProperty<TerraformProperty<string>>("acl");
-        set => this.WithProperty("acl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("acl");
+        set => SetProperty("acl", value);
     }
 
     /// <summary>
@@ -107,179 +143,179 @@ public class AwsS3ObjectCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The bucket_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BucketKeyEnabled
+    public TerraformProperty<bool> BucketKeyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("bucket_key_enabled");
-        set => this.WithProperty("bucket_key_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bucket_key_enabled");
+        set => SetProperty("bucket_key_enabled", value);
     }
 
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
-    public TerraformProperty<string>? CacheControl
+    public TerraformProperty<string> CacheControl
     {
-        get => GetProperty<TerraformProperty<string>>("cache_control");
-        set => this.WithProperty("cache_control", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cache_control");
+        set => SetProperty("cache_control", value);
     }
 
     /// <summary>
     /// The checksum_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? ChecksumAlgorithm
+    public TerraformProperty<string> ChecksumAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("checksum_algorithm");
-        set => this.WithProperty("checksum_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("checksum_algorithm");
+        set => SetProperty("checksum_algorithm", value);
     }
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentDisposition
+    public TerraformProperty<string> ContentDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("content_disposition");
-        set => this.WithProperty("content_disposition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_disposition");
+        set => SetProperty("content_disposition", value);
     }
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentEncoding
+    public TerraformProperty<string> ContentEncoding
     {
-        get => GetProperty<TerraformProperty<string>>("content_encoding");
-        set => this.WithProperty("content_encoding", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_encoding");
+        set => SetProperty("content_encoding", value);
     }
 
     /// <summary>
     /// The content_language attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentLanguage
+    public TerraformProperty<string> ContentLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("content_language");
-        set => this.WithProperty("content_language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_language");
+        set => SetProperty("content_language", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    public TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => this.WithProperty("content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
     /// The copy_if_match attribute.
     /// </summary>
-    public TerraformProperty<string>? CopyIfMatch
+    public TerraformProperty<string> CopyIfMatch
     {
-        get => GetProperty<TerraformProperty<string>>("copy_if_match");
-        set => this.WithProperty("copy_if_match", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("copy_if_match");
+        set => SetProperty("copy_if_match", value);
     }
 
     /// <summary>
     /// The copy_if_modified_since attribute.
     /// </summary>
-    public TerraformProperty<string>? CopyIfModifiedSince
+    public TerraformProperty<string> CopyIfModifiedSince
     {
-        get => GetProperty<TerraformProperty<string>>("copy_if_modified_since");
-        set => this.WithProperty("copy_if_modified_since", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("copy_if_modified_since");
+        set => SetProperty("copy_if_modified_since", value);
     }
 
     /// <summary>
     /// The copy_if_none_match attribute.
     /// </summary>
-    public TerraformProperty<string>? CopyIfNoneMatch
+    public TerraformProperty<string> CopyIfNoneMatch
     {
-        get => GetProperty<TerraformProperty<string>>("copy_if_none_match");
-        set => this.WithProperty("copy_if_none_match", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("copy_if_none_match");
+        set => SetProperty("copy_if_none_match", value);
     }
 
     /// <summary>
     /// The copy_if_unmodified_since attribute.
     /// </summary>
-    public TerraformProperty<string>? CopyIfUnmodifiedSince
+    public TerraformProperty<string> CopyIfUnmodifiedSince
     {
-        get => GetProperty<TerraformProperty<string>>("copy_if_unmodified_since");
-        set => this.WithProperty("copy_if_unmodified_since", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("copy_if_unmodified_since");
+        set => SetProperty("copy_if_unmodified_since", value);
     }
 
     /// <summary>
     /// The customer_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerAlgorithm
+    public TerraformProperty<string> CustomerAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("customer_algorithm");
-        set => this.WithProperty("customer_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_algorithm");
+        set => SetProperty("customer_algorithm", value);
     }
 
     /// <summary>
     /// The customer_key attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerKey
+    public TerraformProperty<string> CustomerKey
     {
-        get => GetProperty<TerraformProperty<string>>("customer_key");
-        set => this.WithProperty("customer_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_key");
+        set => SetProperty("customer_key", value);
     }
 
     /// <summary>
     /// The customer_key_md5 attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerKeyMd5
+    public TerraformProperty<string> CustomerKeyMd5
     {
-        get => GetProperty<TerraformProperty<string>>("customer_key_md5");
-        set => this.WithProperty("customer_key_md5", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_key_md5");
+        set => SetProperty("customer_key_md5", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpectedBucketOwner
+    public TerraformProperty<string> ExpectedBucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("expected_bucket_owner");
-        set => this.WithProperty("expected_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
+        set => SetProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The expected_source_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpectedSourceBucketOwner
+    public TerraformProperty<string> ExpectedSourceBucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("expected_source_bucket_owner");
-        set => this.WithProperty("expected_source_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expected_source_bucket_owner");
+        set => SetProperty("expected_source_bucket_owner", value);
     }
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
-    public TerraformProperty<string>? Expires
+    public TerraformProperty<string> Expires
     {
-        get => GetProperty<TerraformProperty<string>>("expires");
-        set => this.WithProperty("expires", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expires");
+        set => SetProperty("expires", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -288,98 +324,98 @@ public class AwsS3ObjectCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => this.WithProperty("key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key");
+        set => SetProperty("key", value);
     }
 
     /// <summary>
     /// The kms_encryption_context attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsEncryptionContext
+    public TerraformProperty<string> KmsEncryptionContext
     {
-        get => GetProperty<TerraformProperty<string>>("kms_encryption_context");
-        set => this.WithProperty("kms_encryption_context", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_encryption_context");
+        set => SetProperty("kms_encryption_context", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
     /// The metadata_directive attribute.
     /// </summary>
-    public TerraformProperty<string>? MetadataDirective
+    public TerraformProperty<string> MetadataDirective
     {
-        get => GetProperty<TerraformProperty<string>>("metadata_directive");
-        set => this.WithProperty("metadata_directive", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metadata_directive");
+        set => SetProperty("metadata_directive", value);
     }
 
     /// <summary>
     /// The object_lock_legal_hold_status attribute.
     /// </summary>
-    public TerraformProperty<string>? ObjectLockLegalHoldStatus
+    public TerraformProperty<string> ObjectLockLegalHoldStatus
     {
-        get => GetProperty<TerraformProperty<string>>("object_lock_legal_hold_status");
-        set => this.WithProperty("object_lock_legal_hold_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_lock_legal_hold_status");
+        set => SetProperty("object_lock_legal_hold_status", value);
     }
 
     /// <summary>
     /// The object_lock_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ObjectLockMode
+    public TerraformProperty<string> ObjectLockMode
     {
-        get => GetProperty<TerraformProperty<string>>("object_lock_mode");
-        set => this.WithProperty("object_lock_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_lock_mode");
+        set => SetProperty("object_lock_mode", value);
     }
 
     /// <summary>
     /// The object_lock_retain_until_date attribute.
     /// </summary>
-    public TerraformProperty<string>? ObjectLockRetainUntilDate
+    public TerraformProperty<string> ObjectLockRetainUntilDate
     {
-        get => GetProperty<TerraformProperty<string>>("object_lock_retain_until_date");
-        set => this.WithProperty("object_lock_retain_until_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_lock_retain_until_date");
+        set => SetProperty("object_lock_retain_until_date", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The request_payer attribute.
     /// </summary>
-    public TerraformProperty<string>? RequestPayer
+    public TerraformProperty<string> RequestPayer
     {
-        get => GetProperty<TerraformProperty<string>>("request_payer");
-        set => this.WithProperty("request_payer", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("request_payer");
+        set => SetProperty("request_payer", value);
     }
 
     /// <summary>
     /// The server_side_encryption attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerSideEncryption
+    public TerraformProperty<string> ServerSideEncryption
     {
-        get => GetProperty<TerraformProperty<string>>("server_side_encryption");
-        set => this.WithProperty("server_side_encryption", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_side_encryption");
+        set => SetProperty("server_side_encryption", value);
     }
 
     /// <summary>
@@ -388,80 +424,80 @@ public class AwsS3ObjectCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>
     /// The source_customer_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceCustomerAlgorithm
+    public TerraformProperty<string> SourceCustomerAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("source_customer_algorithm");
-        set => this.WithProperty("source_customer_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_customer_algorithm");
+        set => SetProperty("source_customer_algorithm", value);
     }
 
     /// <summary>
     /// The source_customer_key attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceCustomerKey
+    public TerraformProperty<string> SourceCustomerKey
     {
-        get => GetProperty<TerraformProperty<string>>("source_customer_key");
-        set => this.WithProperty("source_customer_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_customer_key");
+        set => SetProperty("source_customer_key", value);
     }
 
     /// <summary>
     /// The source_customer_key_md5 attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceCustomerKeyMd5
+    public TerraformProperty<string> SourceCustomerKeyMd5
     {
-        get => GetProperty<TerraformProperty<string>>("source_customer_key_md5");
-        set => this.WithProperty("source_customer_key_md5", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_customer_key_md5");
+        set => SetProperty("source_customer_key_md5", value);
     }
 
     /// <summary>
     /// The storage_class attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageClass
+    public TerraformProperty<string> StorageClass
     {
-        get => GetProperty<TerraformProperty<string>>("storage_class");
-        set => this.WithProperty("storage_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_class");
+        set => SetProperty("storage_class", value);
     }
 
     /// <summary>
     /// The tagging_directive attribute.
     /// </summary>
-    public TerraformProperty<string>? TaggingDirective
+    public TerraformProperty<string> TaggingDirective
     {
-        get => GetProperty<TerraformProperty<string>>("tagging_directive");
-        set => this.WithProperty("tagging_directive", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tagging_directive");
+        set => SetProperty("tagging_directive", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The website_redirect attribute.
     /// </summary>
-    public TerraformProperty<string>? WebsiteRedirect
+    public TerraformProperty<string> WebsiteRedirect
     {
-        get => GetProperty<TerraformProperty<string>>("website_redirect");
-        set => this.WithProperty("website_redirect", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("website_redirect");
+        set => SetProperty("website_redirect", value);
     }
 
     /// <summary>
@@ -470,8 +506,7 @@ public class AwsS3ObjectCopy : TerraformResource
     /// </summary>
     public HashSet<AwsS3ObjectCopyGrantBlock>? Grant
     {
-        get => GetProperty<HashSet<AwsS3ObjectCopyGrantBlock>>("grant");
-        set => this.WithProperty("grant", value);
+        set => SetProperty("grant", value);
     }
 
     /// <summary>
@@ -481,8 +516,7 @@ public class AwsS3ObjectCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OverrideProvider block(s) allowed")]
     public List<AwsS3ObjectCopyOverrideProviderBlock>? OverrideProvider
     {
-        get => GetProperty<List<AwsS3ObjectCopyOverrideProviderBlock>>("override_provider");
-        set => this.WithProperty("override_provider", value);
+        set => SetProperty("override_provider", value);
     }
 
     /// <summary>

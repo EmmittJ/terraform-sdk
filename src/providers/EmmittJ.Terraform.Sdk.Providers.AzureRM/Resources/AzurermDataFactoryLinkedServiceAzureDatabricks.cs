@@ -14,8 +14,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     public required TerraformProperty<string> ClusterVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_version");
-        set => WithProperty("cluster_version", value);
+        set => SetProperty("cluster_version", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePoolId is required")]
     public required TerraformProperty<string> InstancePoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_pool_id");
-        set => WithProperty("instance_pool_id", value);
+        set => SetProperty("instance_pool_id", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     /// </summary>
     public TerraformProperty<double>? MaxNumberOfWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("max_number_of_workers");
-        set => WithProperty("max_number_of_workers", value);
+        set => SetProperty("max_number_of_workers", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     /// </summary>
     public TerraformProperty<double>? MinNumberOfWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("min_number_of_workers");
-        set => WithProperty("min_number_of_workers", value);
+        set => SetProperty("min_number_of_workers", value);
     }
 
 }
@@ -60,8 +56,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
-        set => WithProperty("linked_service_name", value);
+        set => SetProperty("linked_service_name", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
-        set => WithProperty("secret_name", value);
+        set => SetProperty("secret_name", value);
     }
 
 }
@@ -88,8 +82,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     public required TerraformProperty<string> ClusterVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_version");
-        set => WithProperty("cluster_version", value);
+        set => SetProperty("cluster_version", value);
     }
 
     /// <summary>
@@ -97,8 +90,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? CustomTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("custom_tags");
-        set => WithProperty("custom_tags", value);
+        set => SetProperty("custom_tags", value);
     }
 
     /// <summary>
@@ -106,8 +98,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformProperty<string>? DriverNodeType
     {
-        get => GetProperty<TerraformProperty<string>>("driver_node_type");
-        set => WithProperty("driver_node_type", value);
+        set => SetProperty("driver_node_type", value);
     }
 
     /// <summary>
@@ -115,8 +106,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public List<TerraformProperty<string>>? InitScripts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("init_scripts");
-        set => WithProperty("init_scripts", value);
+        set => SetProperty("init_scripts", value);
     }
 
     /// <summary>
@@ -124,8 +114,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformProperty<string>? LogDestination
     {
-        get => GetProperty<TerraformProperty<string>>("log_destination");
-        set => WithProperty("log_destination", value);
+        set => SetProperty("log_destination", value);
     }
 
     /// <summary>
@@ -133,8 +122,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformProperty<double>? MaxNumberOfWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("max_number_of_workers");
-        set => WithProperty("max_number_of_workers", value);
+        set => SetProperty("max_number_of_workers", value);
     }
 
     /// <summary>
@@ -142,8 +130,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformProperty<double>? MinNumberOfWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("min_number_of_workers");
-        set => WithProperty("min_number_of_workers", value);
+        set => SetProperty("min_number_of_workers", value);
     }
 
     /// <summary>
@@ -152,8 +139,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
-        set => WithProperty("node_type", value);
+        set => SetProperty("node_type", value);
     }
 
     /// <summary>
@@ -161,8 +147,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? SparkConfig
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("spark_config");
-        set => WithProperty("spark_config", value);
+        set => SetProperty("spark_config", value);
     }
 
     /// <summary>
@@ -170,8 +155,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? SparkEnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("spark_environment_variables");
-        set => WithProperty("spark_environment_variables", value);
+        set => SetProperty("spark_environment_variables", value);
     }
 
 }
@@ -187,8 +171,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -196,8 +179,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -205,8 +187,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -214,8 +195,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -233,15 +213,27 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("access_token");
+        SetOutput("adb_domain");
+        SetOutput("additional_properties");
+        SetOutput("annotations");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("existing_cluster_id");
+        SetOutput("id");
+        SetOutput("integration_runtime_name");
+        SetOutput("msi_work_space_resource_id");
+        SetOutput("name");
+        SetOutput("parameters");
     }
 
     /// <summary>
     /// The access_token attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessToken
+    public TerraformProperty<string> AccessToken
     {
-        get => GetProperty<TerraformProperty<string>>("access_token");
-        set => this.WithProperty("access_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_token");
+        set => SetProperty("access_token", value);
     }
 
     /// <summary>
@@ -250,26 +242,26 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdbDomain is required")]
     public required TerraformProperty<string> AdbDomain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("adb_domain");
-        set => this.WithProperty("adb_domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("adb_domain");
+        set => SetProperty("adb_domain", value);
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => this.WithProperty("additional_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Annotations
+    public List<TerraformProperty<string>> Annotations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -278,53 +270,53 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The existing_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ExistingClusterId
+    public TerraformProperty<string> ExistingClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("existing_cluster_id");
-        set => this.WithProperty("existing_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("existing_cluster_id");
+        set => SetProperty("existing_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IntegrationRuntimeName
+    public TerraformProperty<string> IntegrationRuntimeName
     {
-        get => GetProperty<TerraformProperty<string>>("integration_runtime_name");
-        set => this.WithProperty("integration_runtime_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("integration_runtime_name");
+        set => SetProperty("integration_runtime_name", value);
     }
 
     /// <summary>
     /// The msi_work_space_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MsiWorkSpaceResourceId
+    public TerraformProperty<string> MsiWorkSpaceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("msi_work_space_resource_id");
-        set => this.WithProperty("msi_work_space_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("msi_work_space_resource_id");
+        set => SetProperty("msi_work_space_resource_id", value);
     }
 
     /// <summary>
@@ -333,17 +325,17 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -353,8 +345,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstancePool block(s) allowed")]
     public List<AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock>? InstancePool
     {
-        get => GetProperty<List<AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock>>("instance_pool");
-        set => this.WithProperty("instance_pool", value);
+        set => SetProperty("instance_pool", value);
     }
 
     /// <summary>
@@ -364,8 +355,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
     public List<AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock>? KeyVaultPassword
     {
-        get => GetProperty<List<AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock>>("key_vault_password");
-        set => this.WithProperty("key_vault_password", value);
+        set => SetProperty("key_vault_password", value);
     }
 
     /// <summary>
@@ -375,8 +365,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewClusterConfig block(s) allowed")]
     public List<AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock>? NewClusterConfig
     {
-        get => GetProperty<List<AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock>>("new_cluster_config");
-        set => this.WithProperty("new_cluster_config", value);
+        set => SetProperty("new_cluster_config", value);
     }
 
     /// <summary>
@@ -385,8 +374,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     /// </summary>
     public AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

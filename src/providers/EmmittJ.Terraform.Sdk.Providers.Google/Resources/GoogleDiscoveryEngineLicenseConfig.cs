@@ -13,8 +13,7 @@ public class GoogleDiscoveryEngineLicenseConfigEndDateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Day
     {
-        get => GetProperty<TerraformProperty<double>>("day");
-        set => WithProperty("day", value);
+        set => SetProperty("day", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDiscoveryEngineLicenseConfigEndDateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Month
     {
-        get => GetProperty<TerraformProperty<double>>("month");
-        set => WithProperty("month", value);
+        set => SetProperty("month", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleDiscoveryEngineLicenseConfigEndDateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Year
     {
-        get => GetProperty<TerraformProperty<double>>("year");
-        set => WithProperty("year", value);
+        set => SetProperty("year", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class GoogleDiscoveryEngineLicenseConfigStartDateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Day
     {
-        get => GetProperty<TerraformProperty<double>>("day");
-        set => WithProperty("day", value);
+        set => SetProperty("day", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleDiscoveryEngineLicenseConfigStartDateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Month
     {
-        get => GetProperty<TerraformProperty<double>>("month");
-        set => WithProperty("month", value);
+        set => SetProperty("month", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class GoogleDiscoveryEngineLicenseConfigStartDateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Year
     {
-        get => GetProperty<TerraformProperty<double>>("year");
-        set => WithProperty("year", value);
+        set => SetProperty("year", value);
     }
 
 }
@@ -83,8 +77,7 @@ public class GoogleDiscoveryEngineLicenseConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class GoogleDiscoveryEngineLicenseConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class GoogleDiscoveryEngineLicenseConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -120,34 +111,43 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("auto_renew");
+        SetOutput("free_trial");
+        SetOutput("id");
+        SetOutput("license_config_id");
+        SetOutput("license_count");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("subscription_term");
+        SetOutput("subscription_tier");
     }
 
     /// <summary>
     /// Whether the license config should be auto renewed when it reaches the end date.
     /// </summary>
-    public TerraformProperty<bool>? AutoRenew
+    public TerraformProperty<bool> AutoRenew
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_renew");
-        set => this.WithProperty("auto_renew", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_renew");
+        set => SetProperty("auto_renew", value);
     }
 
     /// <summary>
     /// Whether the license config is for free trial.
     /// </summary>
-    public TerraformProperty<bool>? FreeTrial
+    public TerraformProperty<bool> FreeTrial
     {
-        get => GetProperty<TerraformProperty<bool>>("free_trial");
-        set => this.WithProperty("free_trial", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("free_trial");
+        set => SetProperty("free_trial", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -156,8 +156,8 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseConfigId is required")]
     public required TerraformProperty<string> LicenseConfigId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license_config_id");
-        set => this.WithProperty("license_config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_config_id");
+        set => SetProperty("license_config_id", value);
     }
 
     /// <summary>
@@ -166,8 +166,8 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseCount is required")]
     public required TerraformProperty<double> LicenseCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("license_count");
-        set => this.WithProperty("license_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("license_count");
+        set => SetProperty("license_count", value);
     }
 
     /// <summary>
@@ -177,17 +177,17 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -196,8 +196,8 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionTerm is required")]
     public required TerraformProperty<string> SubscriptionTerm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_term");
-        set => this.WithProperty("subscription_term", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_term");
+        set => SetProperty("subscription_term", value);
     }
 
     /// <summary>
@@ -206,8 +206,8 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionTier is required")]
     public required TerraformProperty<string> SubscriptionTier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_tier");
-        set => this.WithProperty("subscription_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_tier");
+        set => SetProperty("subscription_tier", value);
     }
 
     /// <summary>
@@ -217,20 +217,19 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndDate block(s) allowed")]
     public List<GoogleDiscoveryEngineLicenseConfigEndDateBlock>? EndDate
     {
-        get => GetProperty<List<GoogleDiscoveryEngineLicenseConfigEndDateBlock>>("end_date");
-        set => this.WithProperty("end_date", value);
+        set => SetProperty("end_date", value);
     }
 
     /// <summary>
     /// Block for start_date.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StartDate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StartDate block(s) allowed")]
     public List<GoogleDiscoveryEngineLicenseConfigStartDateBlock>? StartDate
     {
-        get => GetProperty<List<GoogleDiscoveryEngineLicenseConfigStartDateBlock>>("start_date");
-        set => this.WithProperty("start_date", value);
+        set => SetProperty("start_date", value);
     }
 
     /// <summary>
@@ -239,8 +238,7 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineLicenseConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineLicenseConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

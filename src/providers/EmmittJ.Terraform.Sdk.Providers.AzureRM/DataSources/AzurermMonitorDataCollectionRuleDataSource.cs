@@ -13,8 +13,7 @@ public class AzurermMonitorDataCollectionRuleDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,26 +30,29 @@ public class AzurermMonitorDataCollectionRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("data_collection_endpoint_id");
-        this.WithOutput("data_flow");
-        this.WithOutput("data_sources");
-        this.WithOutput("description");
-        this.WithOutput("destinations");
-        this.WithOutput("identity");
-        this.WithOutput("immutable_id");
-        this.WithOutput("kind");
-        this.WithOutput("location");
-        this.WithOutput("stream_declaration");
-        this.WithOutput("tags");
+        SetOutput("data_collection_endpoint_id");
+        SetOutput("data_flow");
+        SetOutput("data_sources");
+        SetOutput("description");
+        SetOutput("destinations");
+        SetOutput("identity");
+        SetOutput("immutable_id");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("stream_declaration");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class AzurermMonitorDataCollectionRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -69,8 +71,8 @@ public class AzurermMonitorDataCollectionRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -79,8 +81,7 @@ public class AzurermMonitorDataCollectionRuleDataSource : TerraformDataSource
     /// </summary>
     public AzurermMonitorDataCollectionRuleDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorDataCollectionRuleDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

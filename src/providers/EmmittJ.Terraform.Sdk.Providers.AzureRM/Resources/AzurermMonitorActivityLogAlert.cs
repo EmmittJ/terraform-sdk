@@ -14,8 +14,7 @@ public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
     public required TerraformProperty<string> ActionGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action_group_id");
-        set => WithProperty("action_group_id", value);
+        set => SetProperty("action_group_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? WebhookProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("webhook_properties");
-        set => WithProperty("webhook_properties", value);
+        set => SetProperty("webhook_properties", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Caller
     {
-        get => GetProperty<TerraformProperty<string>>("caller");
-        set => WithProperty("caller", value);
+        set => SetProperty("caller", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("category");
-        set => WithProperty("category", value);
+        set => SetProperty("category", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Level
     {
-        get => GetProperty<TerraformProperty<string>>("level");
-        set => WithProperty("level", value);
+        set => SetProperty("level", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Levels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("levels");
-        set => WithProperty("levels", value);
+        set => SetProperty("levels", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OperationName
     {
-        get => GetProperty<TerraformProperty<string>>("operation_name");
-        set => WithProperty("operation_name", value);
+        set => SetProperty("operation_name", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RecommendationCategory
     {
-        get => GetProperty<TerraformProperty<string>>("recommendation_category");
-        set => WithProperty("recommendation_category", value);
+        set => SetProperty("recommendation_category", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RecommendationImpact
     {
-        get => GetProperty<TerraformProperty<string>>("recommendation_impact");
-        set => WithProperty("recommendation_impact", value);
+        set => SetProperty("recommendation_impact", value);
     }
 
     /// <summary>
@@ -104,8 +95,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RecommendationType
     {
-        get => GetProperty<TerraformProperty<string>>("recommendation_type");
-        set => WithProperty("recommendation_type", value);
+        set => SetProperty("recommendation_type", value);
     }
 
     /// <summary>
@@ -113,8 +103,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceGroup
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group");
-        set => WithProperty("resource_group", value);
+        set => SetProperty("resource_group", value);
     }
 
     /// <summary>
@@ -122,8 +111,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ResourceGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_groups");
-        set => WithProperty("resource_groups", value);
+        set => SetProperty("resource_groups", value);
     }
 
     /// <summary>
@@ -131,8 +119,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
-        set => WithProperty("resource_id", value);
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -140,8 +127,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ResourceIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_ids");
-        set => WithProperty("resource_ids", value);
+        set => SetProperty("resource_ids", value);
     }
 
     /// <summary>
@@ -149,8 +135,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceProvider
     {
-        get => GetProperty<TerraformProperty<string>>("resource_provider");
-        set => WithProperty("resource_provider", value);
+        set => SetProperty("resource_provider", value);
     }
 
     /// <summary>
@@ -158,8 +143,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ResourceProviders
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_providers");
-        set => WithProperty("resource_providers", value);
+        set => SetProperty("resource_providers", value);
     }
 
     /// <summary>
@@ -167,8 +151,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
@@ -176,8 +159,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ResourceTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_types");
-        set => WithProperty("resource_types", value);
+        set => SetProperty("resource_types", value);
     }
 
     /// <summary>
@@ -185,8 +167,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -194,8 +175,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Statuses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("statuses");
-        set => WithProperty("statuses", value);
+        set => SetProperty("statuses", value);
     }
 
     /// <summary>
@@ -203,8 +183,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubStatus
     {
-        get => GetProperty<TerraformProperty<string>>("sub_status");
-        set => WithProperty("sub_status", value);
+        set => SetProperty("sub_status", value);
     }
 
     /// <summary>
@@ -212,8 +191,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SubStatuses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("sub_statuses");
-        set => WithProperty("sub_statuses", value);
+        set => SetProperty("sub_statuses", value);
     }
 
 }
@@ -229,8 +207,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -238,8 +215,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -247,8 +223,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -256,8 +231,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -275,33 +249,41 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("scopes");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -310,8 +292,8 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -320,8 +302,8 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -330,27 +312,27 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public HashSet<TerraformProperty<string>>? Scopes
+    public HashSet<TerraformProperty<string>> Scopes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scopes");
-        set => this.WithProperty("scopes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scopes");
+        set => SetProperty("scopes", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -359,20 +341,19 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     /// </summary>
     public List<AzurermMonitorActivityLogAlertActionBlock>? Action
     {
-        get => GetProperty<List<AzurermMonitorActivityLogAlertActionBlock>>("action");
-        set => this.WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// Block for criteria.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
     public List<AzurermMonitorActivityLogAlertCriteriaBlock>? Criteria
     {
-        get => GetProperty<List<AzurermMonitorActivityLogAlertCriteriaBlock>>("criteria");
-        set => this.WithProperty("criteria", value);
+        set => SetProperty("criteria", value);
     }
 
     /// <summary>
@@ -381,8 +362,7 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     /// </summary>
     public AzurermMonitorActivityLogAlertTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorActivityLogAlertTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

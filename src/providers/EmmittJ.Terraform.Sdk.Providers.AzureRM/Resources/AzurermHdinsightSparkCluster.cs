@@ -14,8 +14,7 @@ public class AzurermHdinsightSparkClusterComponentVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Spark is required")]
     public required TerraformProperty<string> Spark
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spark");
-        set => WithProperty("spark", value);
+        set => SetProperty("spark", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermHdinsightSparkClusterComputeIsolationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ComputeIsolationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("compute_isolation_enabled");
-        set => WithProperty("compute_isolation_enabled", value);
+        set => SetProperty("compute_isolation_enabled", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermHdinsightSparkClusterComputeIsolationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HostSku
     {
-        get => GetProperty<TerraformProperty<string>>("host_sku");
-        set => WithProperty("host_sku", value);
+        set => SetProperty("host_sku", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class AzurermHdinsightSparkClusterDiskEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncryptionAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_algorithm");
-        set => WithProperty("encryption_algorithm", value);
+        set => SetProperty("encryption_algorithm", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class AzurermHdinsightSparkClusterDiskEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EncryptionAtHostEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("encryption_at_host_enabled");
-        set => WithProperty("encryption_at_host_enabled", value);
+        set => SetProperty("encryption_at_host_enabled", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AzurermHdinsightSparkClusterDiskEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => WithProperty("key_vault_key_id", value);
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AzurermHdinsightSparkClusterDiskEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultManagedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_managed_identity_id");
-        set => WithProperty("key_vault_managed_identity_id", value);
+        set => SetProperty("key_vault_managed_identity_id", value);
     }
 
 }
@@ -102,8 +95,7 @@ public class AzurermHdinsightSparkClusterExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => WithProperty("log_analytics_workspace_id", value);
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -112,8 +104,7 @@ public class AzurermHdinsightSparkClusterExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     public required TerraformProperty<string> PrimaryKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("primary_key");
-        set => WithProperty("primary_key", value);
+        set => SetProperty("primary_key", value);
     }
 
 }
@@ -130,8 +121,7 @@ public class AzurermHdinsightSparkClusterGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -140,8 +130,7 @@ public class AzurermHdinsightSparkClusterGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -166,8 +155,7 @@ public class AzurermHdinsightSparkClusterMonitorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => WithProperty("log_analytics_workspace_id", value);
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -176,8 +164,7 @@ public class AzurermHdinsightSparkClusterMonitorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     public required TerraformProperty<string> PrimaryKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("primary_key");
-        set => WithProperty("primary_key", value);
+        set => SetProperty("primary_key", value);
     }
 
 }
@@ -193,8 +180,7 @@ public class AzurermHdinsightSparkClusterNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionDirection
     {
-        get => GetProperty<TerraformProperty<string>>("connection_direction");
-        set => WithProperty("connection_direction", value);
+        set => SetProperty("connection_direction", value);
     }
 
     /// <summary>
@@ -202,8 +188,7 @@ public class AzurermHdinsightSparkClusterNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PrivateLinkEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_link_enabled");
-        set => WithProperty("private_link_enabled", value);
+        set => SetProperty("private_link_enabled", value);
     }
 
 }
@@ -220,8 +205,7 @@ public class AzurermHdinsightSparkClusterPrivateLinkConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformProperty<string> GroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_id");
-        set => WithProperty("group_id", value);
+        set => SetProperty("group_id", value);
     }
 
     /// <summary>
@@ -230,8 +214,7 @@ public class AzurermHdinsightSparkClusterPrivateLinkConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -256,8 +239,7 @@ public class AzurermHdinsightSparkClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AaddsResourceId is required")]
     public required TerraformProperty<string> AaddsResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aadds_resource_id");
-        set => WithProperty("aadds_resource_id", value);
+        set => SetProperty("aadds_resource_id", value);
     }
 
     /// <summary>
@@ -265,8 +247,7 @@ public class AzurermHdinsightSparkClusterSecurityProfileBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ClusterUsersGroupDns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("cluster_users_group_dns");
-        set => WithProperty("cluster_users_group_dns", value);
+        set => SetProperty("cluster_users_group_dns", value);
     }
 
     /// <summary>
@@ -275,8 +256,7 @@ public class AzurermHdinsightSparkClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => WithProperty("domain_name", value);
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
@@ -285,8 +265,7 @@ public class AzurermHdinsightSparkClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUserPassword is required")]
     public required TerraformProperty<string> DomainUserPassword
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_user_password");
-        set => WithProperty("domain_user_password", value);
+        set => SetProperty("domain_user_password", value);
     }
 
     /// <summary>
@@ -295,8 +274,7 @@ public class AzurermHdinsightSparkClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUsername is required")]
     public required TerraformProperty<string> DomainUsername
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_username");
-        set => WithProperty("domain_username", value);
+        set => SetProperty("domain_username", value);
     }
 
     /// <summary>
@@ -305,8 +283,7 @@ public class AzurermHdinsightSparkClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LdapsUrls is required")]
     public HashSet<TerraformProperty<string>>? LdapsUrls
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ldaps_urls");
-        set => WithProperty("ldaps_urls", value);
+        set => SetProperty("ldaps_urls", value);
     }
 
     /// <summary>
@@ -315,8 +292,7 @@ public class AzurermHdinsightSparkClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MsiResourceId is required")]
     public required TerraformProperty<string> MsiResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("msi_resource_id");
-        set => WithProperty("msi_resource_id", value);
+        set => SetProperty("msi_resource_id", value);
     }
 
 }
@@ -333,8 +309,7 @@ public class AzurermHdinsightSparkClusterStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     public required TerraformProperty<bool> IsDefault
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("is_default");
-        set => WithProperty("is_default", value);
+        set => SetProperty("is_default", value);
     }
 
     /// <summary>
@@ -343,8 +318,7 @@ public class AzurermHdinsightSparkClusterStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
-        set => WithProperty("storage_account_key", value);
+        set => SetProperty("storage_account_key", value);
     }
 
     /// <summary>
@@ -353,8 +327,7 @@ public class AzurermHdinsightSparkClusterStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     public required TerraformProperty<string> StorageContainerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_id");
-        set => WithProperty("storage_container_id", value);
+        set => SetProperty("storage_container_id", value);
     }
 
     /// <summary>
@@ -362,8 +335,7 @@ public class AzurermHdinsightSparkClusterStorageAccountBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_resource_id");
-        set => WithProperty("storage_resource_id", value);
+        set => SetProperty("storage_resource_id", value);
     }
 
 }
@@ -380,8 +352,7 @@ public class AzurermHdinsightSparkClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemId is required")]
     public required TerraformProperty<string> FilesystemId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filesystem_id");
-        set => WithProperty("filesystem_id", value);
+        set => SetProperty("filesystem_id", value);
     }
 
     /// <summary>
@@ -390,8 +361,7 @@ public class AzurermHdinsightSparkClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     public required TerraformProperty<bool> IsDefault
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("is_default");
-        set => WithProperty("is_default", value);
+        set => SetProperty("is_default", value);
     }
 
     /// <summary>
@@ -400,8 +370,7 @@ public class AzurermHdinsightSparkClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityResourceId is required")]
     public required TerraformProperty<string> ManagedIdentityResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_identity_resource_id");
-        set => WithProperty("managed_identity_resource_id", value);
+        set => SetProperty("managed_identity_resource_id", value);
     }
 
     /// <summary>
@@ -410,8 +379,7 @@ public class AzurermHdinsightSparkClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageResourceId is required")]
     public required TerraformProperty<string> StorageResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_resource_id");
-        set => WithProperty("storage_resource_id", value);
+        set => SetProperty("storage_resource_id", value);
     }
 
 }
@@ -427,8 +395,7 @@ public class AzurermHdinsightSparkClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -436,8 +403,7 @@ public class AzurermHdinsightSparkClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -445,8 +411,7 @@ public class AzurermHdinsightSparkClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -454,8 +419,7 @@ public class AzurermHdinsightSparkClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -473,8 +437,18 @@ public class AzurermHdinsightSparkCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("https_endpoint");
-        this.WithOutput("ssh_endpoint");
+        SetOutput("https_endpoint");
+        SetOutput("ssh_endpoint");
+        SetOutput("cluster_version");
+        SetOutput("encryption_in_transit_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("tier");
+        SetOutput("tls_min_version");
+        SetOutput("zones");
     }
 
     /// <summary>
@@ -483,26 +457,26 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     public required TerraformProperty<string> ClusterVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_version");
-        set => this.WithProperty("cluster_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_version");
+        set => SetProperty("cluster_version", value);
     }
 
     /// <summary>
     /// The encryption_in_transit_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EncryptionInTransitEnabled
+    public TerraformProperty<bool> EncryptionInTransitEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("encryption_in_transit_enabled");
-        set => this.WithProperty("encryption_in_transit_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("encryption_in_transit_enabled");
+        set => SetProperty("encryption_in_transit_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -511,8 +485,8 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -521,8 +495,8 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -531,17 +505,17 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -550,38 +524,38 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
     /// The tls_min_version attribute.
     /// </summary>
-    public TerraformProperty<string>? TlsMinVersion
+    public TerraformProperty<string> TlsMinVersion
     {
-        get => GetProperty<TerraformProperty<string>>("tls_min_version");
-        set => this.WithProperty("tls_min_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tls_min_version");
+        set => SetProperty("tls_min_version", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
     /// Block for component_version.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentVersion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
     public List<AzurermHdinsightSparkClusterComponentVersionBlock>? ComponentVersion
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterComponentVersionBlock>>("component_version");
-        set => this.WithProperty("component_version", value);
+        set => SetProperty("component_version", value);
     }
 
     /// <summary>
@@ -591,8 +565,7 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
     public List<AzurermHdinsightSparkClusterComputeIsolationBlock>? ComputeIsolation
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterComputeIsolationBlock>>("compute_isolation");
-        set => this.WithProperty("compute_isolation", value);
+        set => SetProperty("compute_isolation", value);
     }
 
     /// <summary>
@@ -601,8 +574,7 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     /// </summary>
     public List<AzurermHdinsightSparkClusterDiskEncryptionBlock>? DiskEncryption
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterDiskEncryptionBlock>>("disk_encryption");
-        set => this.WithProperty("disk_encryption", value);
+        set => SetProperty("disk_encryption", value);
     }
 
     /// <summary>
@@ -612,20 +584,19 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
     public List<AzurermHdinsightSparkClusterExtensionBlock>? Extension
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterExtensionBlock>>("extension");
-        set => this.WithProperty("extension", value);
+        set => SetProperty("extension", value);
     }
 
     /// <summary>
     /// Block for gateway.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gateway is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
     public List<AzurermHdinsightSparkClusterGatewayBlock>? Gateway
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterGatewayBlock>>("gateway");
-        set => this.WithProperty("gateway", value);
+        set => SetProperty("gateway", value);
     }
 
     /// <summary>
@@ -635,8 +606,7 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
     public List<AzurermHdinsightSparkClusterMetastoresBlock>? Metastores
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterMetastoresBlock>>("metastores");
-        set => this.WithProperty("metastores", value);
+        set => SetProperty("metastores", value);
     }
 
     /// <summary>
@@ -646,8 +616,7 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
     public List<AzurermHdinsightSparkClusterMonitorBlock>? Monitor
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterMonitorBlock>>("monitor");
-        set => this.WithProperty("monitor", value);
+        set => SetProperty("monitor", value);
     }
 
     /// <summary>
@@ -657,8 +626,7 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     public List<AzurermHdinsightSparkClusterNetworkBlock>? Network
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterNetworkBlock>>("network");
-        set => this.WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -668,20 +636,19 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
     public List<AzurermHdinsightSparkClusterPrivateLinkConfigurationBlock>? PrivateLinkConfiguration
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterPrivateLinkConfigurationBlock>>("private_link_configuration");
-        set => this.WithProperty("private_link_configuration", value);
+        set => SetProperty("private_link_configuration", value);
     }
 
     /// <summary>
     /// Block for roles.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
     public List<AzurermHdinsightSparkClusterRolesBlock>? Roles
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterRolesBlock>>("roles");
-        set => this.WithProperty("roles", value);
+        set => SetProperty("roles", value);
     }
 
     /// <summary>
@@ -691,8 +658,7 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
     public List<AzurermHdinsightSparkClusterSecurityProfileBlock>? SecurityProfile
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterSecurityProfileBlock>>("security_profile");
-        set => this.WithProperty("security_profile", value);
+        set => SetProperty("security_profile", value);
     }
 
     /// <summary>
@@ -701,8 +667,7 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     /// </summary>
     public List<AzurermHdinsightSparkClusterStorageAccountBlock>? StorageAccount
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterStorageAccountBlock>>("storage_account");
-        set => this.WithProperty("storage_account", value);
+        set => SetProperty("storage_account", value);
     }
 
     /// <summary>
@@ -712,8 +677,7 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
     public List<AzurermHdinsightSparkClusterStorageAccountGen2Block>? StorageAccountGen2
     {
-        get => GetProperty<List<AzurermHdinsightSparkClusterStorageAccountGen2Block>>("storage_account_gen2");
-        set => this.WithProperty("storage_account_gen2", value);
+        set => SetProperty("storage_account_gen2", value);
     }
 
     /// <summary>
@@ -722,8 +686,7 @@ public class AzurermHdinsightSparkCluster : TerraformResource
     /// </summary>
     public AzurermHdinsightSparkClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHdinsightSparkClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

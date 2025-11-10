@@ -21,8 +21,7 @@ public class GoogleSpannerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleSpannerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleSpannerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,9 +55,21 @@ public class GoogleSpannerInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("config");
+        SetOutput("default_backup_schedule_type");
+        SetOutput("display_name");
+        SetOutput("edition");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("instance_type");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("num_nodes");
+        SetOutput("processing_units");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -74,8 +83,8 @@ public class GoogleSpannerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     public required TerraformProperty<string> Config
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("config");
-        set => this.WithProperty("config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("config");
+        set => SetProperty("config", value);
     }
 
     /// <summary>
@@ -83,10 +92,10 @@ public class GoogleSpannerInstance : TerraformResource
     /// Note that &#39;AUTOMATIC&#39; is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
     /// if unset or NONE, no default backup schedule will be created for new databases within the instance. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;AUTOMATIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DefaultBackupScheduleType
+    public TerraformProperty<string> DefaultBackupScheduleType
     {
-        get => GetProperty<TerraformProperty<string>>("default_backup_schedule_type");
-        set => this.WithProperty("default_backup_schedule_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_backup_schedule_type");
+        set => SetProperty("default_backup_schedule_type", value);
     }
 
     /// <summary>
@@ -96,36 +105,36 @@ public class GoogleSpannerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The edition selected for this instance. Different editions provide different capabilities at different price points. Possible values: [&amp;quot;EDITION_UNSPECIFIED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;, &amp;quot;ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Edition
+    public TerraformProperty<string> Edition
     {
-        get => GetProperty<TerraformProperty<string>>("edition");
-        set => this.WithProperty("edition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edition");
+        set => SetProperty("edition", value);
     }
 
     /// <summary>
     /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
     /// This must be set to true if you created a backup manually in the console.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -133,10 +142,10 @@ public class GoogleSpannerInstance : TerraformResource
     /// usage restrictions, quotas and billing. Currently this is used to distinguish FREE_INSTANCE vs PROVISIONED instances.
     /// When configured as FREE_INSTANCE, the field &#39;edition&#39; should not be configured. Possible values: [&amp;quot;PROVISIONED&amp;quot;, &amp;quot;FREE_INSTANCE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    public TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -147,10 +156,10 @@ public class GoogleSpannerInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -159,39 +168,39 @@ public class GoogleSpannerInstance : TerraformResource
     /// in length.
     /// If not provided, a random string starting with &#39;tf-&#39; will be selected.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The number of nodes allocated to this instance. Exactly one of either num_nodes, processing_units or
     /// autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    public TerraformProperty<double>? NumNodes
+    public TerraformProperty<double> NumNodes
     {
-        get => GetProperty<TerraformProperty<double>>("num_nodes");
-        set => this.WithProperty("num_nodes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("num_nodes");
+        set => SetProperty("num_nodes", value);
     }
 
     /// <summary>
     /// The number of processing units allocated to this instance. Exactly one of either num_nodes,
     /// processing_units or autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    public TerraformProperty<double>? ProcessingUnits
+    public TerraformProperty<double> ProcessingUnits
     {
-        get => GetProperty<TerraformProperty<double>>("processing_units");
-        set => this.WithProperty("processing_units", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("processing_units");
+        set => SetProperty("processing_units", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -201,8 +210,7 @@ public class GoogleSpannerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingConfig block(s) allowed")]
     public List<GoogleSpannerInstanceAutoscalingConfigBlock>? AutoscalingConfig
     {
-        get => GetProperty<List<GoogleSpannerInstanceAutoscalingConfigBlock>>("autoscaling_config");
-        set => this.WithProperty("autoscaling_config", value);
+        set => SetProperty("autoscaling_config", value);
     }
 
     /// <summary>
@@ -211,8 +219,7 @@ public class GoogleSpannerInstance : TerraformResource
     /// </summary>
     public GoogleSpannerInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSpannerInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

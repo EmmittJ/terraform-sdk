@@ -13,8 +13,7 @@ public class AzurermAutomationWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAutomationWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAutomationWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAutomationWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,16 @@ public class AzurermAutomationWebhook : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("automation_account_name");
+        SetOutput("enabled");
+        SetOutput("expiry_time");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parameters");
+        SetOutput("resource_group_name");
+        SetOutput("run_on_worker_group");
+        SetOutput("runbook_name");
+        SetOutput("uri");
     }
 
     /// <summary>
@@ -66,17 +72,17 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
-        set => this.WithProperty("automation_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_name");
+        set => SetProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -85,17 +91,17 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpiryTime is required")]
     public required TerraformProperty<string> ExpiryTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expiry_time");
-        set => this.WithProperty("expiry_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiry_time");
+        set => SetProperty("expiry_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,17 +110,17 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -123,17 +129,17 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The run_on_worker_group attribute.
     /// </summary>
-    public TerraformProperty<string>? RunOnWorkerGroup
+    public TerraformProperty<string> RunOnWorkerGroup
     {
-        get => GetProperty<TerraformProperty<string>>("run_on_worker_group");
-        set => this.WithProperty("run_on_worker_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("run_on_worker_group");
+        set => SetProperty("run_on_worker_group", value);
     }
 
     /// <summary>
@@ -142,17 +148,17 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookName is required")]
     public required TerraformProperty<string> RunbookName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runbook_name");
-        set => this.WithProperty("runbook_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runbook_name");
+        set => SetProperty("runbook_name", value);
     }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformProperty<string>? Uri
+    public TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => this.WithProperty("uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("uri");
+        set => SetProperty("uri", value);
     }
 
     /// <summary>
@@ -161,8 +167,7 @@ public class AzurermAutomationWebhook : TerraformResource
     /// </summary>
     public AzurermAutomationWebhookTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAutomationWebhookTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,18 +14,23 @@ public class AwsWorkspaceswebBrowserSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("associated_portal_arns");
-        this.WithOutput("browser_settings_arn");
-        this.WithOutput("tags_all");
+        SetOutput("associated_portal_arns");
+        SetOutput("browser_settings_arn");
+        SetOutput("tags_all");
+        SetOutput("additional_encryption_context");
+        SetOutput("browser_policy");
+        SetOutput("customer_managed_key");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>> AdditionalEncryptionContext
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
-        set => this.WithProperty("additional_encryption_context", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
+        set => SetProperty("additional_encryption_context", value);
     }
 
     /// <summary>
@@ -34,35 +39,35 @@ public class AwsWorkspaceswebBrowserSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrowserPolicy is required")]
     public required TerraformProperty<string> BrowserPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("browser_policy");
-        set => this.WithProperty("browser_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("browser_policy");
+        set => SetProperty("browser_policy", value);
     }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerManagedKey
+    public TerraformProperty<string> CustomerManagedKey
     {
-        get => GetProperty<TerraformProperty<string>>("customer_managed_key");
-        set => this.WithProperty("customer_managed_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_managed_key");
+        set => SetProperty("customer_managed_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

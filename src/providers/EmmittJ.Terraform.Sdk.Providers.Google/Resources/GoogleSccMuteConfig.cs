@@ -13,8 +13,7 @@ public class GoogleSccMuteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSccMuteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSccMuteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,19 +46,26 @@ public class GoogleSccMuteConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("most_recent_editor");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("most_recent_editor");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("expiry_time");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("mute_config_id");
+        SetOutput("parent");
+        SetOutput("type");
     }
 
     /// <summary>
     /// A description of the mute config.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -71,10 +75,10 @@ public class GoogleSccMuteConfig : TerraformResource
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to
     /// nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? ExpiryTime
+    public TerraformProperty<string> ExpiryTime
     {
-        get => GetProperty<TerraformProperty<string>>("expiry_time");
-        set => this.WithProperty("expiry_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiry_time");
+        set => SetProperty("expiry_time", value);
     }
 
     /// <summary>
@@ -87,17 +91,17 @@ public class GoogleSccMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -106,8 +110,8 @@ public class GoogleSccMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MuteConfigId is required")]
     public required TerraformProperty<string> MuteConfigId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mute_config_id");
-        set => this.WithProperty("mute_config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mute_config_id");
+        set => SetProperty("mute_config_id", value);
     }
 
     /// <summary>
@@ -118,17 +122,17 @@ public class GoogleSccMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// The type of the mute config, which determines what type of mute state the config affects. Default value: &amp;quot;DYNAMIC&amp;quot; Possible values: [&amp;quot;MUTE_CONFIG_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;STATIC&amp;quot;, &amp;quot;DYNAMIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -137,8 +141,7 @@ public class GoogleSccMuteConfig : TerraformResource
     /// </summary>
     public GoogleSccMuteConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSccMuteConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

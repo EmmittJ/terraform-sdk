@@ -21,8 +21,7 @@ public class GoogleApigeeOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleApigeeOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleApigeeOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,28 +55,42 @@ public class GoogleApigeeOrganization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("apigee_project_id");
-        this.WithOutput("ca_certificate");
-        this.WithOutput("name");
-        this.WithOutput("subscription_type");
+        SetOutput("apigee_project_id");
+        SetOutput("ca_certificate");
+        SetOutput("name");
+        SetOutput("subscription_type");
+        SetOutput("analytics_region");
+        SetOutput("api_consumer_data_encryption_key_name");
+        SetOutput("api_consumer_data_location");
+        SetOutput("authorized_network");
+        SetOutput("billing_type");
+        SetOutput("control_plane_encryption_key_name");
+        SetOutput("description");
+        SetOutput("disable_vpc_peering");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("project_id");
+        SetOutput("retention");
+        SetOutput("runtime_database_encryption_key_name");
+        SetOutput("runtime_type");
     }
 
     /// <summary>
     /// Primary GCP region for analytics data storage. For valid values, see [Create an Apigee organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org).
     /// </summary>
-    public TerraformProperty<string>? AnalyticsRegion
+    public TerraformProperty<string> AnalyticsRegion
     {
-        get => GetProperty<TerraformProperty<string>>("analytics_region");
-        set => this.WithProperty("analytics_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("analytics_region");
+        set => SetProperty("analytics_region", value);
     }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting API consumer data.
     /// </summary>
-    public TerraformProperty<string>? ApiConsumerDataEncryptionKeyName
+    public TerraformProperty<string> ApiConsumerDataEncryptionKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("api_consumer_data_encryption_key_name");
-        set => this.WithProperty("api_consumer_data_encryption_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_consumer_data_encryption_key_name");
+        set => SetProperty("api_consumer_data_encryption_key_name", value);
     }
 
     /// <summary>
@@ -87,10 +98,10 @@ public class GoogleApigeeOrganization : TerraformResource
     /// Apigee stores some control plane data only in single region.
     /// This field determines which single region Apigee should use.
     /// </summary>
-    public TerraformProperty<string>? ApiConsumerDataLocation
+    public TerraformProperty<string> ApiConsumerDataLocation
     {
-        get => GetProperty<TerraformProperty<string>>("api_consumer_data_location");
-        set => this.WithProperty("api_consumer_data_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_consumer_data_location");
+        set => SetProperty("api_consumer_data_location", value);
     }
 
     /// <summary>
@@ -98,38 +109,38 @@ public class GoogleApigeeOrganization : TerraformResource
     /// See [Getting started with the Service Networking API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
     /// Valid only when &#39;RuntimeType&#39; is set to CLOUD. The value can be updated only when there are no runtime instances. For example: &amp;quot;default&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? AuthorizedNetwork
+    public TerraformProperty<string> AuthorizedNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("authorized_network");
-        set => this.WithProperty("authorized_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorized_network");
+        set => SetProperty("authorized_network", value);
     }
 
     /// <summary>
     /// Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing).
     /// </summary>
-    public TerraformProperty<string>? BillingType
+    public TerraformProperty<string> BillingType
     {
-        get => GetProperty<TerraformProperty<string>>("billing_type");
-        set => this.WithProperty("billing_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_type");
+        set => SetProperty("billing_type", value);
     }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting control plane data that is stored in a multi region.
     /// Only used for the data residency region &amp;quot;US&amp;quot; or &amp;quot;EU&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? ControlPlaneEncryptionKeyName
+    public TerraformProperty<string> ControlPlaneEncryptionKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("control_plane_encryption_key_name");
-        set => this.WithProperty("control_plane_encryption_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("control_plane_encryption_key_name");
+        set => SetProperty("control_plane_encryption_key_name", value);
     }
 
     /// <summary>
     /// Description of the Apigee organization.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -139,28 +150,28 @@ public class GoogleApigeeOrganization : TerraformResource
     /// Valid only when &#39;RuntimeType&#39; is set to CLOUD. The value must be set before the creation
     /// of any Apigee runtime instance and can be updated only when there are no runtime instances.
     /// </summary>
-    public TerraformProperty<bool>? DisableVpcPeering
+    public TerraformProperty<bool> DisableVpcPeering
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_vpc_peering");
-        set => this.WithProperty("disable_vpc_peering", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_vpc_peering");
+        set => SetProperty("disable_vpc_peering", value);
     }
 
     /// <summary>
     /// The display name of the Apigee organization.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -169,8 +180,8 @@ public class GoogleApigeeOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
-        set => this.WithProperty("project_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_id");
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>
@@ -179,10 +190,10 @@ public class GoogleApigeeOrganization : TerraformResource
     /// operation completes. During this period, the Organization may be restored to its last known state.
     /// After this period, the Organization will no longer be able to be restored. Default value: &amp;quot;DELETION_RETENTION_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;DELETION_RETENTION_UNSPECIFIED&amp;quot;, &amp;quot;MINIMUM&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Retention
+    public TerraformProperty<string> Retention
     {
-        get => GetProperty<TerraformProperty<string>>("retention");
-        set => this.WithProperty("retention", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("retention");
+        set => SetProperty("retention", value);
     }
 
     /// <summary>
@@ -191,19 +202,19 @@ public class GoogleApigeeOrganization : TerraformResource
     /// If not specified, a Google-Managed encryption key will be used.
     /// Valid only when &#39;RuntimeType&#39; is CLOUD. For example: &#39;projects/foo/locations/us/keyRings/bar/cryptoKeys/baz&#39;.
     /// </summary>
-    public TerraformProperty<string>? RuntimeDatabaseEncryptionKeyName
+    public TerraformProperty<string> RuntimeDatabaseEncryptionKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_database_encryption_key_name");
-        set => this.WithProperty("runtime_database_encryption_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime_database_encryption_key_name");
+        set => SetProperty("runtime_database_encryption_key_name", value);
     }
 
     /// <summary>
     /// Runtime type of the Apigee organization based on the Apigee subscription purchased. Default value: &amp;quot;CLOUD&amp;quot; Possible values: [&amp;quot;CLOUD&amp;quot;, &amp;quot;HYBRID&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? RuntimeType
+    public TerraformProperty<string> RuntimeType
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_type");
-        set => this.WithProperty("runtime_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime_type");
+        set => SetProperty("runtime_type", value);
     }
 
     /// <summary>
@@ -213,8 +224,7 @@ public class GoogleApigeeOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     public List<GoogleApigeeOrganizationPropertiesBlock>? Properties
     {
-        get => GetProperty<List<GoogleApigeeOrganizationPropertiesBlock>>("properties");
-        set => this.WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -223,8 +233,7 @@ public class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     public GoogleApigeeOrganizationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeOrganizationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

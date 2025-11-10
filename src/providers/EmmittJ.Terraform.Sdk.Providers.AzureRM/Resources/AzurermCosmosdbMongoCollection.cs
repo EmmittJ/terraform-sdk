@@ -13,8 +13,7 @@ public class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? MaxThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("max_throughput");
-        set => WithProperty("max_throughput", value);
+        set => SetProperty("max_throughput", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keys is required")]
     public List<TerraformProperty<string>>? Keys
     {
-        get => GetProperty<List<TerraformProperty<string>>>("keys");
-        set => WithProperty("keys", value);
+        set => SetProperty("keys", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Unique
     {
-        get => GetProperty<TerraformProperty<bool>>("unique");
-        set => WithProperty("unique", value);
+        set => SetProperty("unique", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -103,7 +96,16 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("system_indexes");
+        SetOutput("system_indexes");
+        SetOutput("account_name");
+        SetOutput("analytical_storage_ttl");
+        SetOutput("database_name");
+        SetOutput("default_ttl_seconds");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("shard_key");
+        SetOutput("throughput");
     }
 
     /// <summary>
@@ -112,17 +114,17 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? AnalyticalStorageTtl
+    public TerraformProperty<double> AnalyticalStorageTtl
     {
-        get => GetProperty<TerraformProperty<double>>("analytical_storage_ttl");
-        set => this.WithProperty("analytical_storage_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("analytical_storage_ttl");
+        set => SetProperty("analytical_storage_ttl", value);
     }
 
     /// <summary>
@@ -131,26 +133,26 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The default_ttl_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultTtlSeconds
+    public TerraformProperty<double> DefaultTtlSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("default_ttl_seconds");
-        set => this.WithProperty("default_ttl_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_ttl_seconds");
+        set => SetProperty("default_ttl_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -159,8 +161,8 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -169,26 +171,26 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The shard_key attribute.
     /// </summary>
-    public TerraformProperty<string>? ShardKey
+    public TerraformProperty<string> ShardKey
     {
-        get => GetProperty<TerraformProperty<string>>("shard_key");
-        set => this.WithProperty("shard_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shard_key");
+        set => SetProperty("shard_key", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformProperty<double>? Throughput
+    public TerraformProperty<double> Throughput
     {
-        get => GetProperty<TerraformProperty<double>>("throughput");
-        set => this.WithProperty("throughput", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput");
+        set => SetProperty("throughput", value);
     }
 
     /// <summary>
@@ -198,8 +200,7 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     public List<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetProperty<List<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock>>("autoscale_settings");
-        set => this.WithProperty("autoscale_settings", value);
+        set => SetProperty("autoscale_settings", value);
     }
 
     /// <summary>
@@ -208,8 +209,7 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// </summary>
     public HashSet<AzurermCosmosdbMongoCollectionIndexBlock>? Index
     {
-        get => GetProperty<HashSet<AzurermCosmosdbMongoCollectionIndexBlock>>("index");
-        set => this.WithProperty("index", value);
+        set => SetProperty("index", value);
     }
 
     /// <summary>
@@ -218,8 +218,7 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// </summary>
     public AzurermCosmosdbMongoCollectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbMongoCollectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

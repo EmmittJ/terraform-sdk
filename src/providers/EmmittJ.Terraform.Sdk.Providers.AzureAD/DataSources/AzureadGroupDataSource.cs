@@ -13,8 +13,7 @@ public class AzureadGroupDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,93 +30,100 @@ public class AzureadGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("assignable_to_role");
-        this.WithOutput("auto_subscribe_new_members");
-        this.WithOutput("behaviors");
-        this.WithOutput("description");
-        this.WithOutput("dynamic_membership");
-        this.WithOutput("external_senders_allowed");
-        this.WithOutput("hide_from_address_lists");
-        this.WithOutput("hide_from_outlook_clients");
-        this.WithOutput("mail");
-        this.WithOutput("members");
-        this.WithOutput("onpremises_domain_name");
-        this.WithOutput("onpremises_group_type");
-        this.WithOutput("onpremises_netbios_name");
-        this.WithOutput("onpremises_sam_account_name");
-        this.WithOutput("onpremises_security_identifier");
-        this.WithOutput("onpremises_sync_enabled");
-        this.WithOutput("owners");
-        this.WithOutput("preferred_language");
-        this.WithOutput("provisioning_options");
-        this.WithOutput("proxy_addresses");
-        this.WithOutput("theme");
-        this.WithOutput("types");
-        this.WithOutput("visibility");
-        this.WithOutput("writeback_enabled");
+        SetOutput("assignable_to_role");
+        SetOutput("auto_subscribe_new_members");
+        SetOutput("behaviors");
+        SetOutput("description");
+        SetOutput("dynamic_membership");
+        SetOutput("external_senders_allowed");
+        SetOutput("hide_from_address_lists");
+        SetOutput("hide_from_outlook_clients");
+        SetOutput("mail");
+        SetOutput("members");
+        SetOutput("onpremises_domain_name");
+        SetOutput("onpremises_group_type");
+        SetOutput("onpremises_netbios_name");
+        SetOutput("onpremises_sam_account_name");
+        SetOutput("onpremises_security_identifier");
+        SetOutput("onpremises_sync_enabled");
+        SetOutput("owners");
+        SetOutput("preferred_language");
+        SetOutput("provisioning_options");
+        SetOutput("proxy_addresses");
+        SetOutput("theme");
+        SetOutput("types");
+        SetOutput("visibility");
+        SetOutput("writeback_enabled");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("include_transitive_members");
+        SetOutput("mail_enabled");
+        SetOutput("mail_nickname");
+        SetOutput("object_id");
+        SetOutput("security_enabled");
     }
 
     /// <summary>
     /// The display name for the group
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Specifies whether to include transitive members (a flat list of all nested members).
     /// </summary>
-    public TerraformProperty<bool>? IncludeTransitiveMembers
+    public TerraformProperty<bool> IncludeTransitiveMembers
     {
-        get => GetProperty<TerraformProperty<bool>>("include_transitive_members");
-        set => this.WithProperty("include_transitive_members", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_transitive_members");
+        set => SetProperty("include_transitive_members", value);
     }
 
     /// <summary>
     /// Whether the group is mail-enabled
     /// </summary>
-    public TerraformProperty<bool>? MailEnabled
+    public TerraformProperty<bool> MailEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("mail_enabled");
-        set => this.WithProperty("mail_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("mail_enabled");
+        set => SetProperty("mail_enabled", value);
     }
 
     /// <summary>
     /// The mail alias for the group, unique in the organisation
     /// </summary>
-    public TerraformProperty<string>? MailNickname
+    public TerraformProperty<string> MailNickname
     {
-        get => GetProperty<TerraformProperty<string>>("mail_nickname");
-        set => this.WithProperty("mail_nickname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mail_nickname");
+        set => SetProperty("mail_nickname", value);
     }
 
     /// <summary>
     /// The object ID of the group
     /// </summary>
-    public TerraformProperty<string>? ObjectId
+    public TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
-        set => this.WithProperty("object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
     /// Whether the group is a security group
     /// </summary>
-    public TerraformProperty<bool>? SecurityEnabled
+    public TerraformProperty<bool> SecurityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("security_enabled");
-        set => this.WithProperty("security_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("security_enabled");
+        set => SetProperty("security_enabled", value);
     }
 
     /// <summary>
@@ -126,8 +132,7 @@ public class AzureadGroupDataSource : TerraformDataSource
     /// </summary>
     public AzureadGroupDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadGroupDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

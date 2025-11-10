@@ -14,38 +14,43 @@ public class AwsBudgetsBudgetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("auto_adjust_data");
-        this.WithOutput("billing_view_arn");
-        this.WithOutput("budget_exceeded");
-        this.WithOutput("budget_limit");
-        this.WithOutput("budget_type");
-        this.WithOutput("calculated_spend");
-        this.WithOutput("cost_filter");
-        this.WithOutput("cost_types");
-        this.WithOutput("notification");
-        this.WithOutput("planned_limit");
-        this.WithOutput("time_period_end");
-        this.WithOutput("time_period_start");
-        this.WithOutput("time_unit");
+        SetOutput("arn");
+        SetOutput("auto_adjust_data");
+        SetOutput("billing_view_arn");
+        SetOutput("budget_exceeded");
+        SetOutput("budget_limit");
+        SetOutput("budget_type");
+        SetOutput("calculated_spend");
+        SetOutput("cost_filter");
+        SetOutput("cost_types");
+        SetOutput("notification");
+        SetOutput("planned_limit");
+        SetOutput("time_period_end");
+        SetOutput("time_period_start");
+        SetOutput("time_unit");
+        SetOutput("account_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,26 +59,26 @@ public class AwsBudgetsBudgetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

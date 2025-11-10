@@ -22,8 +22,7 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
-        set => WithProperty("index_name", value);
+        set => SetProperty("index_name", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IndexStatus
     {
-        get => GetProperty<TerraformProperty<string>>("index_status");
-        set => WithProperty("index_status", value);
+        set => SetProperty("index_status", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keys is required")]
     public List<TerraformProperty<string>>? Keys
     {
-        get => GetProperty<List<TerraformProperty<string>>>("keys");
-        set => WithProperty("keys", value);
+        set => SetProperty("keys", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => WithProperty("comment", value);
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -103,8 +96,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AdditionalLocations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("additional_locations");
-        set => WithProperty("additional_locations", value);
+        set => SetProperty("additional_locations", value);
     }
 
     /// <summary>
@@ -112,8 +104,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? BucketColumns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("bucket_columns");
-        set => WithProperty("bucket_columns", value);
+        set => SetProperty("bucket_columns", value);
     }
 
     /// <summary>
@@ -121,8 +112,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Compressed
     {
-        get => GetProperty<TerraformProperty<bool>>("compressed");
-        set => WithProperty("compressed", value);
+        set => SetProperty("compressed", value);
     }
 
     /// <summary>
@@ -130,8 +120,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InputFormat
     {
-        get => GetProperty<TerraformProperty<string>>("input_format");
-        set => WithProperty("input_format", value);
+        set => SetProperty("input_format", value);
     }
 
     /// <summary>
@@ -139,8 +128,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -148,8 +136,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NumberOfBuckets
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_buckets");
-        set => WithProperty("number_of_buckets", value);
+        set => SetProperty("number_of_buckets", value);
     }
 
     /// <summary>
@@ -157,8 +144,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutputFormat
     {
-        get => GetProperty<TerraformProperty<string>>("output_format");
-        set => WithProperty("output_format", value);
+        set => SetProperty("output_format", value);
     }
 
     /// <summary>
@@ -166,8 +152,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -175,8 +160,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? StoredAsSubDirectories
     {
-        get => GetProperty<TerraformProperty<bool>>("stored_as_sub_directories");
-        set => WithProperty("stored_as_sub_directories", value);
+        set => SetProperty("stored_as_sub_directories", value);
     }
 
 }
@@ -193,8 +177,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
-        set => WithProperty("catalog_id", value);
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -203,8 +186,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -213,8 +195,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -222,8 +203,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
 }
@@ -241,16 +221,28 @@ public class AwsGlueCatalogTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("catalog_id");
+        SetOutput("database_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("owner");
+        SetOutput("parameters");
+        SetOutput("region");
+        SetOutput("retention");
+        SetOutput("table_type");
+        SetOutput("view_expanded_text");
+        SetOutput("view_original_text");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -259,26 +251,26 @@ public class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -287,71 +279,71 @@ public class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformProperty<string>? Owner
+    public TerraformProperty<string> Owner
     {
-        get => GetProperty<TerraformProperty<string>>("owner");
-        set => this.WithProperty("owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner");
+        set => SetProperty("owner", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retention attribute.
     /// </summary>
-    public TerraformProperty<double>? Retention
+    public TerraformProperty<double> Retention
     {
-        get => GetProperty<TerraformProperty<double>>("retention");
-        set => this.WithProperty("retention", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention");
+        set => SetProperty("retention", value);
     }
 
     /// <summary>
     /// The table_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TableType
+    public TerraformProperty<string> TableType
     {
-        get => GetProperty<TerraformProperty<string>>("table_type");
-        set => this.WithProperty("table_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_type");
+        set => SetProperty("table_type", value);
     }
 
     /// <summary>
     /// The view_expanded_text attribute.
     /// </summary>
-    public TerraformProperty<string>? ViewExpandedText
+    public TerraformProperty<string> ViewExpandedText
     {
-        get => GetProperty<TerraformProperty<string>>("view_expanded_text");
-        set => this.WithProperty("view_expanded_text", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("view_expanded_text");
+        set => SetProperty("view_expanded_text", value);
     }
 
     /// <summary>
     /// The view_original_text attribute.
     /// </summary>
-    public TerraformProperty<string>? ViewOriginalText
+    public TerraformProperty<string> ViewOriginalText
     {
-        get => GetProperty<TerraformProperty<string>>("view_original_text");
-        set => this.WithProperty("view_original_text", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("view_original_text");
+        set => SetProperty("view_original_text", value);
     }
 
     /// <summary>
@@ -361,8 +353,7 @@ public class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenTableFormatInput block(s) allowed")]
     public List<AwsGlueCatalogTableOpenTableFormatInputBlock>? OpenTableFormatInput
     {
-        get => GetProperty<List<AwsGlueCatalogTableOpenTableFormatInputBlock>>("open_table_format_input");
-        set => this.WithProperty("open_table_format_input", value);
+        set => SetProperty("open_table_format_input", value);
     }
 
     /// <summary>
@@ -372,8 +363,7 @@ public class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 PartitionIndex block(s) allowed")]
     public List<AwsGlueCatalogTablePartitionIndexBlock>? PartitionIndex
     {
-        get => GetProperty<List<AwsGlueCatalogTablePartitionIndexBlock>>("partition_index");
-        set => this.WithProperty("partition_index", value);
+        set => SetProperty("partition_index", value);
     }
 
     /// <summary>
@@ -382,8 +372,7 @@ public class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     public List<AwsGlueCatalogTablePartitionKeysBlock>? PartitionKeys
     {
-        get => GetProperty<List<AwsGlueCatalogTablePartitionKeysBlock>>("partition_keys");
-        set => this.WithProperty("partition_keys", value);
+        set => SetProperty("partition_keys", value);
     }
 
     /// <summary>
@@ -393,8 +382,7 @@ public class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageDescriptor block(s) allowed")]
     public List<AwsGlueCatalogTableStorageDescriptorBlock>? StorageDescriptor
     {
-        get => GetProperty<List<AwsGlueCatalogTableStorageDescriptorBlock>>("storage_descriptor");
-        set => this.WithProperty("storage_descriptor", value);
+        set => SetProperty("storage_descriptor", value);
     }
 
     /// <summary>
@@ -404,8 +392,7 @@ public class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTable block(s) allowed")]
     public List<AwsGlueCatalogTableTargetTableBlock>? TargetTable
     {
-        get => GetProperty<List<AwsGlueCatalogTableTargetTableBlock>>("target_table");
-        set => this.WithProperty("target_table", value);
+        set => SetProperty("target_table", value);
     }
 
     /// <summary>

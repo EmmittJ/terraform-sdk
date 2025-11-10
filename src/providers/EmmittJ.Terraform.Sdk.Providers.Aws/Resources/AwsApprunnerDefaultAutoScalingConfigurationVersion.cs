@@ -14,7 +14,9 @@ public class AwsApprunnerDefaultAutoScalingConfigurationVersion : TerraformResou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("auto_scaling_configuration_arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -23,17 +25,17 @@ public class AwsApprunnerDefaultAutoScalingConfigurationVersion : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingConfigurationArn is required")]
     public required TerraformProperty<string> AutoScalingConfigurationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auto_scaling_configuration_arn");
-        set => this.WithProperty("auto_scaling_configuration_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_scaling_configuration_arn");
+        set => SetProperty("auto_scaling_configuration_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

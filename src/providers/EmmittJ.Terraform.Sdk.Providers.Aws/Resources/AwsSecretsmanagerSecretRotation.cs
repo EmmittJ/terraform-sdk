@@ -13,8 +13,7 @@ public class AwsSecretsmanagerSecretRotationRotationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AutomaticallyAfterDays
     {
-        get => GetProperty<TerraformProperty<double>>("automatically_after_days");
-        set => WithProperty("automatically_after_days", value);
+        set => SetProperty("automatically_after_days", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSecretsmanagerSecretRotationRotationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
-        set => WithProperty("duration", value);
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSecretsmanagerSecretRotationRotationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScheduleExpression
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression");
-        set => WithProperty("schedule_expression", value);
+        set => SetProperty("schedule_expression", value);
     }
 
 }
@@ -50,43 +47,48 @@ public class AwsSecretsmanagerSecretRotation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("rotation_enabled");
+        SetOutput("rotation_enabled");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("rotate_immediately");
+        SetOutput("rotation_lambda_arn");
+        SetOutput("secret_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The rotate_immediately attribute.
     /// </summary>
-    public TerraformProperty<bool>? RotateImmediately
+    public TerraformProperty<bool> RotateImmediately
     {
-        get => GetProperty<TerraformProperty<bool>>("rotate_immediately");
-        set => this.WithProperty("rotate_immediately", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("rotate_immediately");
+        set => SetProperty("rotate_immediately", value);
     }
 
     /// <summary>
     /// The rotation_lambda_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RotationLambdaArn
+    public TerraformProperty<string> RotationLambdaArn
     {
-        get => GetProperty<TerraformProperty<string>>("rotation_lambda_arn");
-        set => this.WithProperty("rotation_lambda_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rotation_lambda_arn");
+        set => SetProperty("rotation_lambda_arn", value);
     }
 
     /// <summary>
@@ -95,20 +97,20 @@ public class AwsSecretsmanagerSecretRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
-        set => this.WithProperty("secret_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_id");
+        set => SetProperty("secret_id", value);
     }
 
     /// <summary>
     /// Block for rotation_rules.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RotationRules block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationRules block(s) allowed")]
     public List<AwsSecretsmanagerSecretRotationRotationRulesBlock>? RotationRules
     {
-        get => GetProperty<List<AwsSecretsmanagerSecretRotationRotationRulesBlock>>("rotation_rules");
-        set => this.WithProperty("rotation_rules", value);
+        set => SetProperty("rotation_rules", value);
     }
 
     /// <summary>

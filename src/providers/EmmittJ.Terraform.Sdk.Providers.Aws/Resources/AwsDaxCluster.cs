@@ -13,8 +13,7 @@ public class AwsDaxClusterServerSideEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsDaxClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsDaxClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsDaxClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,29 +63,45 @@ public class AwsDaxCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cluster_address");
-        this.WithOutput("configuration_endpoint");
-        this.WithOutput("nodes");
-        this.WithOutput("port");
+        SetOutput("arn");
+        SetOutput("cluster_address");
+        SetOutput("configuration_endpoint");
+        SetOutput("nodes");
+        SetOutput("port");
+        SetOutput("availability_zones");
+        SetOutput("cluster_endpoint_encryption_type");
+        SetOutput("cluster_name");
+        SetOutput("description");
+        SetOutput("iam_role_arn");
+        SetOutput("id");
+        SetOutput("maintenance_window");
+        SetOutput("node_type");
+        SetOutput("notification_topic_arn");
+        SetOutput("parameter_group_name");
+        SetOutput("region");
+        SetOutput("replication_factor");
+        SetOutput("security_group_ids");
+        SetOutput("subnet_group_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AvailabilityZones
+    public HashSet<TerraformProperty<string>> AvailabilityZones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
-        set => this.WithProperty("availability_zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("availability_zones");
+        set => SetProperty("availability_zones", value);
     }
 
     /// <summary>
     /// The cluster_endpoint_encryption_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterEndpointEncryptionType
+    public TerraformProperty<string> ClusterEndpointEncryptionType
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_endpoint_encryption_type");
-        set => this.WithProperty("cluster_endpoint_encryption_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_endpoint_encryption_type");
+        set => SetProperty("cluster_endpoint_encryption_type", value);
     }
 
     /// <summary>
@@ -98,17 +110,17 @@ public class AwsDaxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -117,26 +129,26 @@ public class AwsDaxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string>? MaintenanceWindow
+    public TerraformProperty<string> MaintenanceWindow
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_window");
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
@@ -145,35 +157,35 @@ public class AwsDaxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
-        set => this.WithProperty("node_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
+        set => SetProperty("node_type", value);
     }
 
     /// <summary>
     /// The notification_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationTopicArn
+    public TerraformProperty<string> NotificationTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("notification_topic_arn");
-        set => this.WithProperty("notification_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_topic_arn");
+        set => SetProperty("notification_topic_arn", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ParameterGroupName
+    public TerraformProperty<string> ParameterGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_group_name");
-        set => this.WithProperty("parameter_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_group_name");
+        set => SetProperty("parameter_group_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -182,44 +194,44 @@ public class AwsDaxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
     public required TerraformProperty<double> ReplicationFactor
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("replication_factor");
-        set => this.WithProperty("replication_factor", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("replication_factor");
+        set => SetProperty("replication_factor", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetGroupName
+    public TerraformProperty<string> SubnetGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_group_name");
-        set => this.WithProperty("subnet_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_group_name");
+        set => SetProperty("subnet_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -229,8 +241,7 @@ public class AwsDaxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
     public List<AwsDaxClusterServerSideEncryptionBlock>? ServerSideEncryption
     {
-        get => GetProperty<List<AwsDaxClusterServerSideEncryptionBlock>>("server_side_encryption");
-        set => this.WithProperty("server_side_encryption", value);
+        set => SetProperty("server_side_encryption", value);
     }
 
     /// <summary>
@@ -239,8 +250,7 @@ public class AwsDaxCluster : TerraformResource
     /// </summary>
     public AwsDaxClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDaxClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

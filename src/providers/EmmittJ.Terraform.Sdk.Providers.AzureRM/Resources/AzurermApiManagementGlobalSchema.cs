@@ -13,8 +13,7 @@ public class AzurermApiManagementGlobalSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementGlobalSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementGlobalSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementGlobalSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("resource_group_name");
+        SetOutput("schema_id");
+        SetOutput("type");
+        SetOutput("value");
     }
 
     /// <summary>
@@ -66,26 +69,26 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,8 +97,8 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaId is required")]
     public required TerraformProperty<string> SchemaId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schema_id");
-        set => this.WithProperty("schema_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema_id");
+        set => SetProperty("schema_id", value);
     }
 
     /// <summary>
@@ -114,8 +117,8 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -124,8 +127,8 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     /// </summary>
     public AzurermApiManagementGlobalSchemaTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementGlobalSchemaTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

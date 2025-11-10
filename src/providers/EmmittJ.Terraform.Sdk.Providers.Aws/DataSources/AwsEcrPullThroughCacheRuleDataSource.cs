@@ -14,11 +14,14 @@ public class AwsEcrPullThroughCacheRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("credential_arn");
-        this.WithOutput("custom_role_arn");
-        this.WithOutput("registry_id");
-        this.WithOutput("upstream_registry_url");
-        this.WithOutput("upstream_repository_prefix");
+        SetOutput("credential_arn");
+        SetOutput("custom_role_arn");
+        SetOutput("registry_id");
+        SetOutput("upstream_registry_url");
+        SetOutput("upstream_repository_prefix");
+        SetOutput("ecr_repository_prefix");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -27,26 +30,26 @@ public class AwsEcrPullThroughCacheRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EcrRepositoryPrefix is required")]
     public required TerraformProperty<string> EcrRepositoryPrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ecr_repository_prefix");
-        set => this.WithProperty("ecr_repository_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ecr_repository_prefix");
+        set => SetProperty("ecr_repository_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

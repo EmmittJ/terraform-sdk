@@ -14,14 +14,18 @@ public class AwsLambdaFunctionUrlDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authorization_type");
-        this.WithOutput("cors");
-        this.WithOutput("creation_time");
-        this.WithOutput("function_arn");
-        this.WithOutput("function_url");
-        this.WithOutput("invoke_mode");
-        this.WithOutput("last_modified_time");
-        this.WithOutput("url_id");
+        SetOutput("authorization_type");
+        SetOutput("cors");
+        SetOutput("creation_time");
+        SetOutput("function_arn");
+        SetOutput("function_url");
+        SetOutput("invoke_mode");
+        SetOutput("last_modified_time");
+        SetOutput("url_id");
+        SetOutput("function_name");
+        SetOutput("id");
+        SetOutput("qualifier");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -30,35 +34,35 @@ public class AwsLambdaFunctionUrlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string>? Qualifier
+    public TerraformProperty<string> Qualifier
     {
-        get => GetProperty<TerraformProperty<string>>("qualifier");
-        set => this.WithProperty("qualifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
+        set => SetProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

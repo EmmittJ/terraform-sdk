@@ -14,34 +14,39 @@ public class GoogleServiceAccountIdTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id_token");
+        SetOutput("id_token");
+        SetOutput("delegates");
+        SetOutput("id");
+        SetOutput("include_email");
+        SetOutput("target_audience");
+        SetOutput("target_service_account");
     }
 
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Delegates
+    public HashSet<TerraformProperty<string>> Delegates
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("delegates");
-        set => this.WithProperty("delegates", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("delegates");
+        set => SetProperty("delegates", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_email attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeEmail
+    public TerraformProperty<bool> IncludeEmail
     {
-        get => GetProperty<TerraformProperty<bool>>("include_email");
-        set => this.WithProperty("include_email", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_email");
+        set => SetProperty("include_email", value);
     }
 
     /// <summary>
@@ -50,17 +55,17 @@ public class GoogleServiceAccountIdTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAudience is required")]
     public required TerraformProperty<string> TargetAudience
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_audience");
-        set => this.WithProperty("target_audience", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_audience");
+        set => SetProperty("target_audience", value);
     }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetServiceAccount
+    public TerraformProperty<string> TargetServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("target_service_account");
-        set => this.WithProperty("target_service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_service_account");
+        set => SetProperty("target_service_account", value);
     }
 
     /// <summary>

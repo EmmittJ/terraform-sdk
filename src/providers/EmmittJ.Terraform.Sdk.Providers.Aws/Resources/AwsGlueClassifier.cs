@@ -13,8 +13,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowSingleColumn
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_single_column");
-        set => WithProperty("allow_single_column", value);
+        set => SetProperty("allow_single_column", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainsHeader
     {
-        get => GetProperty<TerraformProperty<string>>("contains_header");
-        set => WithProperty("contains_header", value);
+        set => SetProperty("contains_header", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CustomDatatypeConfigured
     {
-        get => GetProperty<TerraformProperty<bool>>("custom_datatype_configured");
-        set => WithProperty("custom_datatype_configured", value);
+        set => SetProperty("custom_datatype_configured", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? CustomDatatypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("custom_datatypes");
-        set => WithProperty("custom_datatypes", value);
+        set => SetProperty("custom_datatypes", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delimiter
     {
-        get => GetProperty<TerraformProperty<string>>("delimiter");
-        set => WithProperty("delimiter", value);
+        set => SetProperty("delimiter", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DisableValueTrimming
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_value_trimming");
-        set => WithProperty("disable_value_trimming", value);
+        set => SetProperty("disable_value_trimming", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Header
     {
-        get => GetProperty<List<TerraformProperty<string>>>("header");
-        set => WithProperty("header", value);
+        set => SetProperty("header", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? QuoteSymbol
     {
-        get => GetProperty<TerraformProperty<string>>("quote_symbol");
-        set => WithProperty("quote_symbol", value);
+        set => SetProperty("quote_symbol", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Serde
     {
-        get => GetProperty<TerraformProperty<string>>("serde");
-        set => WithProperty("serde", value);
+        set => SetProperty("serde", value);
     }
 
 }
@@ -103,8 +94,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformProperty<string> Classification
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("classification");
-        set => WithProperty("classification", value);
+        set => SetProperty("classification", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomPatterns
     {
-        get => GetProperty<TerraformProperty<string>>("custom_patterns");
-        set => WithProperty("custom_patterns", value);
+        set => SetProperty("custom_patterns", value);
     }
 
     /// <summary>
@@ -122,8 +111,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrokPattern is required")]
     public required TerraformProperty<string> GrokPattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("grok_pattern");
-        set => WithProperty("grok_pattern", value);
+        set => SetProperty("grok_pattern", value);
     }
 
 }
@@ -140,8 +128,7 @@ public class AwsGlueClassifierJsonClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
     public required TerraformProperty<string> JsonPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("json_path");
-        set => WithProperty("json_path", value);
+        set => SetProperty("json_path", value);
     }
 
 }
@@ -158,8 +145,7 @@ public class AwsGlueClassifierXmlClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformProperty<string> Classification
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("classification");
-        set => WithProperty("classification", value);
+        set => SetProperty("classification", value);
     }
 
     /// <summary>
@@ -168,8 +154,7 @@ public class AwsGlueClassifierXmlClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowTag is required")]
     public required TerraformProperty<string> RowTag
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("row_tag");
-        set => WithProperty("row_tag", value);
+        set => SetProperty("row_tag", value);
     }
 
 }
@@ -187,15 +172,18 @@ public class AwsGlueClassifier : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -204,17 +192,17 @@ public class AwsGlueClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -224,8 +212,7 @@ public class AwsGlueClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CsvClassifier block(s) allowed")]
     public List<AwsGlueClassifierCsvClassifierBlock>? CsvClassifier
     {
-        get => GetProperty<List<AwsGlueClassifierCsvClassifierBlock>>("csv_classifier");
-        set => this.WithProperty("csv_classifier", value);
+        set => SetProperty("csv_classifier", value);
     }
 
     /// <summary>
@@ -235,8 +222,7 @@ public class AwsGlueClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrokClassifier block(s) allowed")]
     public List<AwsGlueClassifierGrokClassifierBlock>? GrokClassifier
     {
-        get => GetProperty<List<AwsGlueClassifierGrokClassifierBlock>>("grok_classifier");
-        set => this.WithProperty("grok_classifier", value);
+        set => SetProperty("grok_classifier", value);
     }
 
     /// <summary>
@@ -246,8 +232,7 @@ public class AwsGlueClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JsonClassifier block(s) allowed")]
     public List<AwsGlueClassifierJsonClassifierBlock>? JsonClassifier
     {
-        get => GetProperty<List<AwsGlueClassifierJsonClassifierBlock>>("json_classifier");
-        set => this.WithProperty("json_classifier", value);
+        set => SetProperty("json_classifier", value);
     }
 
     /// <summary>
@@ -257,8 +242,7 @@ public class AwsGlueClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 XmlClassifier block(s) allowed")]
     public List<AwsGlueClassifierXmlClassifierBlock>? XmlClassifier
     {
-        get => GetProperty<List<AwsGlueClassifierXmlClassifierBlock>>("xml_classifier");
-        set => this.WithProperty("xml_classifier", value);
+        set => SetProperty("xml_classifier", value);
     }
 
 }

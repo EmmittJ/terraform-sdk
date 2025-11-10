@@ -14,7 +14,18 @@ public class AwsAppconfigDeploymentStrategy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("deployment_duration_in_minutes");
+        SetOutput("description");
+        SetOutput("final_bake_time_in_minutes");
+        SetOutput("growth_factor");
+        SetOutput("growth_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("replicate_to");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -23,26 +34,26 @@ public class AwsAppconfigDeploymentStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentDurationInMinutes is required")]
     public required TerraformProperty<double> DeploymentDurationInMinutes
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("deployment_duration_in_minutes");
-        set => this.WithProperty("deployment_duration_in_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("deployment_duration_in_minutes");
+        set => SetProperty("deployment_duration_in_minutes", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The final_bake_time_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? FinalBakeTimeInMinutes
+    public TerraformProperty<double> FinalBakeTimeInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("final_bake_time_in_minutes");
-        set => this.WithProperty("final_bake_time_in_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("final_bake_time_in_minutes");
+        set => SetProperty("final_bake_time_in_minutes", value);
     }
 
     /// <summary>
@@ -51,26 +62,26 @@ public class AwsAppconfigDeploymentStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrowthFactor is required")]
     public required TerraformProperty<double> GrowthFactor
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("growth_factor");
-        set => this.WithProperty("growth_factor", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("growth_factor");
+        set => SetProperty("growth_factor", value);
     }
 
     /// <summary>
     /// The growth_type attribute.
     /// </summary>
-    public TerraformProperty<string>? GrowthType
+    public TerraformProperty<string> GrowthType
     {
-        get => GetProperty<TerraformProperty<string>>("growth_type");
-        set => this.WithProperty("growth_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("growth_type");
+        set => SetProperty("growth_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -79,17 +90,17 @@ public class AwsAppconfigDeploymentStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -98,26 +109,26 @@ public class AwsAppconfigDeploymentStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicateTo is required")]
     public required TerraformProperty<string> ReplicateTo
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("replicate_to");
-        set => this.WithProperty("replicate_to", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replicate_to");
+        set => SetProperty("replicate_to", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

@@ -14,63 +14,68 @@ public class AwsEfsMountTargetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("availability_zone_id");
-        this.WithOutput("availability_zone_name");
-        this.WithOutput("dns_name");
-        this.WithOutput("file_system_arn");
-        this.WithOutput("ip_address");
-        this.WithOutput("ip_address_type");
-        this.WithOutput("ipv6_address");
-        this.WithOutput("mount_target_dns_name");
-        this.WithOutput("network_interface_id");
-        this.WithOutput("owner_id");
-        this.WithOutput("security_groups");
-        this.WithOutput("subnet_id");
+        SetOutput("availability_zone_id");
+        SetOutput("availability_zone_name");
+        SetOutput("dns_name");
+        SetOutput("file_system_arn");
+        SetOutput("ip_address");
+        SetOutput("ip_address_type");
+        SetOutput("ipv6_address");
+        SetOutput("mount_target_dns_name");
+        SetOutput("network_interface_id");
+        SetOutput("owner_id");
+        SetOutput("security_groups");
+        SetOutput("subnet_id");
+        SetOutput("access_point_id");
+        SetOutput("file_system_id");
+        SetOutput("id");
+        SetOutput("mount_target_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The access_point_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessPointId
+    public TerraformProperty<string> AccessPointId
     {
-        get => GetProperty<TerraformProperty<string>>("access_point_id");
-        set => this.WithProperty("access_point_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_point_id");
+        set => SetProperty("access_point_id", value);
     }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystemId
+    public TerraformProperty<string> FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
-        set => this.WithProperty("file_system_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_system_id");
+        set => SetProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The mount_target_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MountTargetId
+    public TerraformProperty<string> MountTargetId
     {
-        get => GetProperty<TerraformProperty<string>>("mount_target_id");
-        set => this.WithProperty("mount_target_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mount_target_id");
+        set => SetProperty("mount_target_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

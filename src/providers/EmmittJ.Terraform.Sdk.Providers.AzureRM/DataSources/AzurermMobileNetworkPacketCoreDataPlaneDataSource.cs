@@ -13,8 +13,7 @@ public class AzurermMobileNetworkPacketCoreDataPlaneDataSourceTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,24 @@ public class AzurermMobileNetworkPacketCoreDataPlaneDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.WithOutput("location");
-        this.WithOutput("tags");
-        this.WithOutput("user_plane_access_ipv4_address");
-        this.WithOutput("user_plane_access_ipv4_gateway");
-        this.WithOutput("user_plane_access_ipv4_subnet");
-        this.WithOutput("user_plane_access_name");
+        SetOutput("location");
+        SetOutput("tags");
+        SetOutput("user_plane_access_ipv4_address");
+        SetOutput("user_plane_access_ipv4_gateway");
+        SetOutput("user_plane_access_ipv4_subnet");
+        SetOutput("user_plane_access_name");
+        SetOutput("id");
+        SetOutput("mobile_network_packet_core_control_plane_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +56,8 @@ public class AzurermMobileNetworkPacketCoreDataPlaneDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreControlPlaneId is required")]
     public required TerraformProperty<string> MobileNetworkPacketCoreControlPlaneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_packet_core_control_plane_id");
-        set => this.WithProperty("mobile_network_packet_core_control_plane_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_packet_core_control_plane_id");
+        set => SetProperty("mobile_network_packet_core_control_plane_id", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermMobileNetworkPacketCoreDataPlaneDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermMobileNetworkPacketCoreDataPlaneDataSource : TerraformDataSo
     /// </summary>
     public AzurermMobileNetworkPacketCoreDataPlaneDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMobileNetworkPacketCoreDataPlaneDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

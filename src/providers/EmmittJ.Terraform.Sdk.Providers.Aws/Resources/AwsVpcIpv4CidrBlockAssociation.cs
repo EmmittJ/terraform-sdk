@@ -13,8 +13,7 @@ public class AwsVpcIpv4CidrBlockAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpcIpv4CidrBlockAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,51 +38,57 @@ public class AwsVpcIpv4CidrBlockAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cidr_block");
+        SetOutput("id");
+        SetOutput("ipv4_ipam_pool_id");
+        SetOutput("ipv4_netmask_length");
+        SetOutput("region");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? CidrBlock
+    public TerraformProperty<string> CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("cidr_block");
-        set => this.WithProperty("cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr_block");
+        set => SetProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ipv4_ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv4IpamPoolId
+    public TerraformProperty<string> Ipv4IpamPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("ipv4_ipam_pool_id");
-        set => this.WithProperty("ipv4_ipam_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv4_ipam_pool_id");
+        set => SetProperty("ipv4_ipam_pool_id", value);
     }
 
     /// <summary>
     /// The ipv4_netmask_length attribute.
     /// </summary>
-    public TerraformProperty<double>? Ipv4NetmaskLength
+    public TerraformProperty<double> Ipv4NetmaskLength
     {
-        get => GetProperty<TerraformProperty<double>>("ipv4_netmask_length");
-        set => this.WithProperty("ipv4_netmask_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ipv4_netmask_length");
+        set => SetProperty("ipv4_netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -93,8 +97,8 @@ public class AwsVpcIpv4CidrBlockAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -103,8 +107,7 @@ public class AwsVpcIpv4CidrBlockAssociation : TerraformResource
     /// </summary>
     public AwsVpcIpv4CidrBlockAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcIpv4CidrBlockAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

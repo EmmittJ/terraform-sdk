@@ -13,8 +13,7 @@ public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermApiManagementWorkspacePolicyFragment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_workspace_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("xml_content");
+        SetOutput("xml_format");
     }
 
     /// <summary>
@@ -66,26 +68,26 @@ public class AzurermApiManagementWorkspacePolicyFragment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementWorkspaceId is required")]
     public required TerraformProperty<string> ApiManagementWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_workspace_id");
-        set => this.WithProperty("api_management_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_workspace_id");
+        set => SetProperty("api_management_workspace_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,8 +96,8 @@ public class AzurermApiManagementWorkspacePolicyFragment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,17 +106,17 @@ public class AzurermApiManagementWorkspacePolicyFragment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "XmlContent is required")]
     public required TerraformProperty<string> XmlContent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("xml_content");
-        set => this.WithProperty("xml_content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("xml_content");
+        set => SetProperty("xml_content", value);
     }
 
     /// <summary>
     /// The xml_format attribute.
     /// </summary>
-    public TerraformProperty<string>? XmlFormat
+    public TerraformProperty<string> XmlFormat
     {
-        get => GetProperty<TerraformProperty<string>>("xml_format");
-        set => this.WithProperty("xml_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("xml_format");
+        set => SetProperty("xml_format", value);
     }
 
     /// <summary>
@@ -123,8 +125,7 @@ public class AzurermApiManagementWorkspacePolicyFragment : TerraformResource
     /// </summary>
     public AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

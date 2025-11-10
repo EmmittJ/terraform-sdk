@@ -13,8 +13,7 @@ public class GoogleKmsKeyRingImportJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleKmsKeyRingImportJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,20 +38,25 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("attestation");
-        this.WithOutput("expire_time");
-        this.WithOutput("name");
-        this.WithOutput("public_key");
-        this.WithOutput("state");
+        SetOutput("attestation");
+        SetOutput("expire_time");
+        SetOutput("name");
+        SetOutput("public_key");
+        SetOutput("state");
+        SetOutput("id");
+        SetOutput("import_job_id");
+        SetOutput("import_method");
+        SetOutput("key_ring");
+        SetOutput("protection_level");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +65,8 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportJobId is required")]
     public required TerraformProperty<string> ImportJobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("import_job_id");
-        set => this.WithProperty("import_job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("import_job_id");
+        set => SetProperty("import_job_id", value);
     }
 
     /// <summary>
@@ -72,8 +75,8 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMethod is required")]
     public required TerraformProperty<string> ImportMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("import_method");
-        set => this.WithProperty("import_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("import_method");
+        set => SetProperty("import_method", value);
     }
 
     /// <summary>
@@ -83,8 +86,8 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformProperty<string> KeyRing
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_ring");
-        set => this.WithProperty("key_ring", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_ring");
+        set => SetProperty("key_ring", value);
     }
 
     /// <summary>
@@ -94,8 +97,8 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionLevel is required")]
     public required TerraformProperty<string> ProtectionLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protection_level");
-        set => this.WithProperty("protection_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protection_level");
+        set => SetProperty("protection_level", value);
     }
 
     /// <summary>
@@ -104,8 +107,7 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// </summary>
     public GoogleKmsKeyRingImportJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleKmsKeyRingImportJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

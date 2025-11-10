@@ -13,8 +13,7 @@ public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,9 @@ public class AzurermIpGroupCidr : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cidr");
+        SetOutput("id");
+        SetOutput("ip_group_id");
     }
 
     /// <summary>
@@ -57,17 +57,17 @@ public class AzurermIpGroupCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformProperty<string> Cidr
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cidr");
-        set => this.WithProperty("cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr");
+        set => SetProperty("cidr", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +76,8 @@ public class AzurermIpGroupCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpGroupId is required")]
     public required TerraformProperty<string> IpGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_group_id");
-        set => this.WithProperty("ip_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_group_id");
+        set => SetProperty("ip_group_id", value);
     }
 
     /// <summary>
@@ -86,8 +86,7 @@ public class AzurermIpGroupCidr : TerraformResource
     /// </summary>
     public AzurermIpGroupCidrTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIpGroupCidrTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

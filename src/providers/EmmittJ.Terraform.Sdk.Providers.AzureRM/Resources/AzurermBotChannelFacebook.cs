@@ -14,8 +14,7 @@ public class AzurermBotChannelFacebookPageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessToken is required")]
     public required TerraformProperty<string> AccessToken
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_token");
-        set => WithProperty("access_token", value);
+        set => SetProperty("access_token", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermBotChannelFacebookPageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermBotChannelFacebookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermBotChannelFacebookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermBotChannelFacebookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermBotChannelFacebookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,6 +81,12 @@ public class AzurermBotChannelFacebook : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bot_name");
+        SetOutput("facebook_application_id");
+        SetOutput("facebook_application_secret");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
-        set => this.WithProperty("bot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_name");
+        set => SetProperty("bot_name", value);
     }
 
     /// <summary>
@@ -105,8 +105,8 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FacebookApplicationId is required")]
     public required TerraformProperty<string> FacebookApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("facebook_application_id");
-        set => this.WithProperty("facebook_application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("facebook_application_id");
+        set => SetProperty("facebook_application_id", value);
     }
 
     /// <summary>
@@ -115,17 +115,17 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FacebookApplicationSecret is required")]
     public required TerraformProperty<string> FacebookApplicationSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("facebook_application_secret");
-        set => this.WithProperty("facebook_application_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("facebook_application_secret");
+        set => SetProperty("facebook_application_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -134,8 +134,8 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -144,19 +144,19 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// Block for page.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Page is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Page block(s) required")]
     public HashSet<AzurermBotChannelFacebookPageBlock>? Page
     {
-        get => GetProperty<HashSet<AzurermBotChannelFacebookPageBlock>>("page");
-        set => this.WithProperty("page", value);
+        set => SetProperty("page", value);
     }
 
     /// <summary>
@@ -165,8 +165,7 @@ public class AzurermBotChannelFacebook : TerraformResource
     /// </summary>
     public AzurermBotChannelFacebookTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBotChannelFacebookTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

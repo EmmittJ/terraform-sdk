@@ -13,8 +13,7 @@ public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBl
     /// </summary>
     public TerraformProperty<double>? HttpPutResponseHopLimit
     {
-        get => GetProperty<TerraformProperty<double>>("http_put_response_hop_limit");
-        set => WithProperty("http_put_response_hop_limit", value);
+        set => SetProperty("http_put_response_hop_limit", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBl
     /// </summary>
     public TerraformProperty<string>? HttpTokens
     {
-        get => GetProperty<TerraformProperty<string>>("http_tokens");
-        set => WithProperty("http_tokens", value);
+        set => SetProperty("http_tokens", value);
     }
 
 }
@@ -47,8 +45,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
-        set => WithProperty("availability_zone", value);
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
@@ -56,8 +53,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? HostId
     {
-        get => GetProperty<TerraformProperty<string>>("host_id");
-        set => WithProperty("host_id", value);
+        set => SetProperty("host_id", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? HostResourceGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("host_resource_group_arn");
-        set => WithProperty("host_resource_group_arn", value);
+        set => SetProperty("host_resource_group_arn", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Tenancy
     {
-        get => GetProperty<TerraformProperty<string>>("tenancy");
-        set => WithProperty("tenancy", value);
+        set => SetProperty("tenancy", value);
     }
 
 }
@@ -93,27 +87,41 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("date_created");
-        this.WithOutput("date_updated");
+        SetOutput("arn");
+        SetOutput("date_created");
+        SetOutput("date_updated");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("instance_profile_name");
+        SetOutput("instance_types");
+        SetOutput("key_pair");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("resource_tags");
+        SetOutput("security_group_ids");
+        SetOutput("sns_topic_arn");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("terminate_instance_on_failure");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -122,26 +130,26 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProfileName is required")]
     public required TerraformProperty<string> InstanceProfileName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_profile_name");
-        set => this.WithProperty("instance_profile_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_profile_name");
+        set => SetProperty("instance_profile_name", value);
     }
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? InstanceTypes
+    public HashSet<TerraformProperty<string>> InstanceTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("instance_types");
-        set => this.WithProperty("instance_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("instance_types");
+        set => SetProperty("instance_types", value);
     }
 
     /// <summary>
     /// The key_pair attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyPair
+    public TerraformProperty<string> KeyPair
     {
-        get => GetProperty<TerraformProperty<string>>("key_pair");
-        set => this.WithProperty("key_pair", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_pair");
+        set => SetProperty("key_pair", value);
     }
 
     /// <summary>
@@ -150,80 +158,80 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>> ResourceTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
-        set => this.WithProperty("resource_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("resource_tags");
+        set => SetProperty("resource_tags", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SnsTopicArn
+    public TerraformProperty<string> SnsTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
-        set => this.WithProperty("sns_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sns_topic_arn");
+        set => SetProperty("sns_topic_arn", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    public TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The terminate_instance_on_failure attribute.
     /// </summary>
-    public TerraformProperty<bool>? TerminateInstanceOnFailure
+    public TerraformProperty<bool> TerminateInstanceOnFailure
     {
-        get => GetProperty<TerraformProperty<bool>>("terminate_instance_on_failure");
-        set => this.WithProperty("terminate_instance_on_failure", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("terminate_instance_on_failure");
+        set => SetProperty("terminate_instance_on_failure", value);
     }
 
     /// <summary>
@@ -233,8 +241,7 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMetadataOptions block(s) allowed")]
     public List<AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock>? InstanceMetadataOptions
     {
-        get => GetProperty<List<AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock>>("instance_metadata_options");
-        set => this.WithProperty("instance_metadata_options", value);
+        set => SetProperty("instance_metadata_options", value);
     }
 
     /// <summary>
@@ -244,8 +251,7 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
     public List<AwsImagebuilderInfrastructureConfigurationLoggingBlock>? Logging
     {
-        get => GetProperty<List<AwsImagebuilderInfrastructureConfigurationLoggingBlock>>("logging");
-        set => this.WithProperty("logging", value);
+        set => SetProperty("logging", value);
     }
 
     /// <summary>
@@ -255,8 +261,7 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
     public List<AwsImagebuilderInfrastructureConfigurationPlacementBlock>? Placement
     {
-        get => GetProperty<List<AwsImagebuilderInfrastructureConfigurationPlacementBlock>>("placement");
-        set => this.WithProperty("placement", value);
+        set => SetProperty("placement", value);
     }
 
     /// <summary>

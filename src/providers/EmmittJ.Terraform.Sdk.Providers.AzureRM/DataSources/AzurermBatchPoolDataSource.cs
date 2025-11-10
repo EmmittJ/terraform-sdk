@@ -13,8 +13,7 @@ public class AzurermBatchPoolDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,29 +30,33 @@ public class AzurermBatchPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("auto_scale");
-        this.WithOutput("certificate");
-        this.WithOutput("container_configuration");
-        this.WithOutput("data_disks");
-        this.WithOutput("disk_encryption");
-        this.WithOutput("display_name");
-        this.WithOutput("extensions");
-        this.WithOutput("fixed_scale");
-        this.WithOutput("inter_node_communication");
-        this.WithOutput("license_type");
-        this.WithOutput("max_tasks_per_node");
-        this.WithOutput("metadata");
-        this.WithOutput("mount");
-        this.WithOutput("network_configuration");
-        this.WithOutput("node_agent_sku_id");
-        this.WithOutput("node_placement");
-        this.WithOutput("os_disk_placement");
-        this.WithOutput("start_task");
-        this.WithOutput("storage_image_reference");
-        this.WithOutput("task_scheduling_policy");
-        this.WithOutput("user_accounts");
-        this.WithOutput("vm_size");
-        this.WithOutput("windows");
+        SetOutput("auto_scale");
+        SetOutput("certificate");
+        SetOutput("container_configuration");
+        SetOutput("data_disks");
+        SetOutput("disk_encryption");
+        SetOutput("display_name");
+        SetOutput("extensions");
+        SetOutput("fixed_scale");
+        SetOutput("inter_node_communication");
+        SetOutput("license_type");
+        SetOutput("max_tasks_per_node");
+        SetOutput("metadata");
+        SetOutput("mount");
+        SetOutput("network_configuration");
+        SetOutput("node_agent_sku_id");
+        SetOutput("node_placement");
+        SetOutput("os_disk_placement");
+        SetOutput("start_task");
+        SetOutput("storage_image_reference");
+        SetOutput("task_scheduling_policy");
+        SetOutput("user_accounts");
+        SetOutput("vm_size");
+        SetOutput("windows");
+        SetOutput("account_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -62,17 +65,17 @@ public class AzurermBatchPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -81,8 +84,8 @@ public class AzurermBatchPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -91,8 +94,8 @@ public class AzurermBatchPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -101,8 +104,7 @@ public class AzurermBatchPoolDataSource : TerraformDataSource
     /// </summary>
     public AzurermBatchPoolDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBatchPoolDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,6 +14,8 @@ public class AwsIamAccountAlias : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_alias");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -22,17 +24,17 @@ public class AwsIamAccountAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAlias is required")]
     public required TerraformProperty<string> AccountAlias
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_alias");
-        set => this.WithProperty("account_alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_alias");
+        set => SetProperty("account_alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
 }

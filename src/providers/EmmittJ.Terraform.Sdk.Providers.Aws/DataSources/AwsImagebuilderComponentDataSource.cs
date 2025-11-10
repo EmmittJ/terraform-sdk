@@ -14,18 +14,22 @@ public class AwsImagebuilderComponentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("change_description");
-        this.WithOutput("data");
-        this.WithOutput("date_created");
-        this.WithOutput("description");
-        this.WithOutput("encrypted");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("name");
-        this.WithOutput("owner");
-        this.WithOutput("platform");
-        this.WithOutput("supported_os_versions");
-        this.WithOutput("type");
-        this.WithOutput("version");
+        SetOutput("change_description");
+        SetOutput("data");
+        SetOutput("date_created");
+        SetOutput("description");
+        SetOutput("encrypted");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("owner");
+        SetOutput("platform");
+        SetOutput("supported_os_versions");
+        SetOutput("type");
+        SetOutput("version");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -34,35 +38,35 @@ public class AwsImagebuilderComponentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

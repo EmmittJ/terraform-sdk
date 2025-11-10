@@ -14,11 +14,16 @@ public class AwsAppconfigEnvironmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("description");
-        this.WithOutput("monitor");
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("monitor");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("application_id");
+        SetOutput("environment_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -27,8 +32,8 @@ public class AwsAppconfigEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -37,35 +42,35 @@ public class AwsAppconfigEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
-        set => this.WithProperty("environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_id");
+        set => SetProperty("environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

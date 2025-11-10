@@ -14,11 +14,21 @@ public class AwsGlueSchema : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("latest_schema_version");
-        this.WithOutput("next_schema_version");
-        this.WithOutput("registry_name");
-        this.WithOutput("schema_checkpoint");
+        SetOutput("arn");
+        SetOutput("latest_schema_version");
+        SetOutput("next_schema_version");
+        SetOutput("registry_name");
+        SetOutput("schema_checkpoint");
+        SetOutput("compatibility");
+        SetOutput("data_format");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("registry_arn");
+        SetOutput("schema_definition");
+        SetOutput("schema_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -27,8 +37,8 @@ public class AwsGlueSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compatibility is required")]
     public required TerraformProperty<string> Compatibility
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("compatibility");
-        set => this.WithProperty("compatibility", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compatibility");
+        set => SetProperty("compatibility", value);
     }
 
     /// <summary>
@@ -37,44 +47,44 @@ public class AwsGlueSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFormat is required")]
     public required TerraformProperty<string> DataFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_format");
-        set => this.WithProperty("data_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_format");
+        set => SetProperty("data_format", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The registry_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RegistryArn
+    public TerraformProperty<string> RegistryArn
     {
-        get => GetProperty<TerraformProperty<string>>("registry_arn");
-        set => this.WithProperty("registry_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("registry_arn");
+        set => SetProperty("registry_arn", value);
     }
 
     /// <summary>
@@ -83,8 +93,8 @@ public class AwsGlueSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaDefinition is required")]
     public required TerraformProperty<string> SchemaDefinition
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schema_definition");
-        set => this.WithProperty("schema_definition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema_definition");
+        set => SetProperty("schema_definition", value);
     }
 
     /// <summary>
@@ -93,26 +103,26 @@ public class AwsGlueSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaName is required")]
     public required TerraformProperty<string> SchemaName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schema_name");
-        set => this.WithProperty("schema_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema_name");
+        set => SetProperty("schema_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

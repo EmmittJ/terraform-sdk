@@ -13,8 +13,7 @@ public class GoogleContactCenterInsightsViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleContactCenterInsightsViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleContactCenterInsightsViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,27 +46,32 @@ public class GoogleContactCenterInsightsView : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("value");
     }
 
     /// <summary>
     /// The human-readable display name of the view.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,17 +80,17 @@ public class GoogleContactCenterInsightsView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -96,10 +98,10 @@ public class GoogleContactCenterInsightsView : TerraformResource
     /// Refer to https://cloud.google.com/contact-center/insights/docs/filtering
     /// for details.
     /// </summary>
-    public TerraformProperty<string>? Value
+    public TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>
@@ -108,8 +110,7 @@ public class GoogleContactCenterInsightsView : TerraformResource
     /// </summary>
     public GoogleContactCenterInsightsViewTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleContactCenterInsightsViewTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

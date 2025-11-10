@@ -13,8 +13,7 @@ public class GoogleServiceAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,10 +30,17 @@ public class GoogleServiceAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("email");
-        this.WithOutput("member");
-        this.WithOutput("name");
-        this.WithOutput("unique_id");
+        SetOutput("email");
+        SetOutput("member");
+        SetOutput("name");
+        SetOutput("unique_id");
+        SetOutput("account_id");
+        SetOutput("create_ignore_already_exists");
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -43,62 +49,62 @@ public class GoogleServiceAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// If set to true, skip service account creation if a service account with the same email already exists.
     /// </summary>
-    public TerraformProperty<bool>? CreateIgnoreAlreadyExists
+    public TerraformProperty<bool> CreateIgnoreAlreadyExists
     {
-        get => GetProperty<TerraformProperty<bool>>("create_ignore_already_exists");
-        set => this.WithProperty("create_ignore_already_exists", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_ignore_already_exists");
+        set => SetProperty("create_ignore_already_exists", value);
     }
 
     /// <summary>
     /// A text description of the service account. Must be less than or equal to 256 UTF-8 bytes.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Whether the service account is disabled. Defaults to false
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// The display name for the service account. Can be updated without creating a new resource.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -107,8 +113,7 @@ public class GoogleServiceAccount : TerraformResource
     /// </summary>
     public GoogleServiceAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleServiceAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

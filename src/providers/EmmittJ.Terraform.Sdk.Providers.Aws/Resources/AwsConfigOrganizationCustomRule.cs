@@ -13,8 +13,7 @@ public class AwsConfigOrganizationCustomRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsConfigOrganizationCustomRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsConfigOrganizationCustomRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,43 +46,56 @@ public class AwsConfigOrganizationCustomRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("excluded_accounts");
+        SetOutput("id");
+        SetOutput("input_parameters");
+        SetOutput("lambda_function_arn");
+        SetOutput("maximum_execution_frequency");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("resource_id_scope");
+        SetOutput("resource_types_scope");
+        SetOutput("tag_key_scope");
+        SetOutput("tag_value_scope");
+        SetOutput("trigger_types");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The excluded_accounts attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExcludedAccounts
+    public HashSet<TerraformProperty<string>> ExcludedAccounts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_accounts");
-        set => this.WithProperty("excluded_accounts", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("excluded_accounts");
+        set => SetProperty("excluded_accounts", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The input_parameters attribute.
     /// </summary>
-    public TerraformProperty<string>? InputParameters
+    public TerraformProperty<string> InputParameters
     {
-        get => GetProperty<TerraformProperty<string>>("input_parameters");
-        set => this.WithProperty("input_parameters", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("input_parameters");
+        set => SetProperty("input_parameters", value);
     }
 
     /// <summary>
@@ -94,17 +104,17 @@ public class AwsConfigOrganizationCustomRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaFunctionArn is required")]
     public required TerraformProperty<string> LambdaFunctionArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lambda_function_arn");
-        set => this.WithProperty("lambda_function_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lambda_function_arn");
+        set => SetProperty("lambda_function_arn", value);
     }
 
     /// <summary>
     /// The maximum_execution_frequency attribute.
     /// </summary>
-    public TerraformProperty<string>? MaximumExecutionFrequency
+    public TerraformProperty<string> MaximumExecutionFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_execution_frequency");
-        set => this.WithProperty("maximum_execution_frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maximum_execution_frequency");
+        set => SetProperty("maximum_execution_frequency", value);
     }
 
     /// <summary>
@@ -113,63 +123,63 @@ public class AwsConfigOrganizationCustomRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resource_id_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceIdScope
+    public TerraformProperty<string> ResourceIdScope
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id_scope");
-        set => this.WithProperty("resource_id_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id_scope");
+        set => SetProperty("resource_id_scope", value);
     }
 
     /// <summary>
     /// The resource_types_scope attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ResourceTypesScope
+    public HashSet<TerraformProperty<string>> ResourceTypesScope
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_types_scope");
-        set => this.WithProperty("resource_types_scope", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resource_types_scope");
+        set => SetProperty("resource_types_scope", value);
     }
 
     /// <summary>
     /// The tag_key_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? TagKeyScope
+    public TerraformProperty<string> TagKeyScope
     {
-        get => GetProperty<TerraformProperty<string>>("tag_key_scope");
-        set => this.WithProperty("tag_key_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag_key_scope");
+        set => SetProperty("tag_key_scope", value);
     }
 
     /// <summary>
     /// The tag_value_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? TagValueScope
+    public TerraformProperty<string> TagValueScope
     {
-        get => GetProperty<TerraformProperty<string>>("tag_value_scope");
-        set => this.WithProperty("tag_value_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag_value_scope");
+        set => SetProperty("tag_value_scope", value);
     }
 
     /// <summary>
     /// The trigger_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTypes is required")]
-    public HashSet<TerraformProperty<string>>? TriggerTypes
+    public HashSet<TerraformProperty<string>> TriggerTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("trigger_types");
-        set => this.WithProperty("trigger_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("trigger_types");
+        set => SetProperty("trigger_types", value);
     }
 
     /// <summary>
@@ -178,8 +188,7 @@ public class AwsConfigOrganizationCustomRule : TerraformResource
     /// </summary>
     public AwsConfigOrganizationCustomRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsConfigOrganizationCustomRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

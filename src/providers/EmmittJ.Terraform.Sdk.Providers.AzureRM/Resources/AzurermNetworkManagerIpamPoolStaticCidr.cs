@@ -13,8 +13,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,29 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("address_prefixes");
+        SetOutput("id");
+        SetOutput("ipam_pool_id");
+        SetOutput("name");
+        SetOutput("number_of_ip_addresses_to_allocate");
     }
 
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AddressPrefixes
+    public List<TerraformProperty<string>> AddressPrefixes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("address_prefixes");
-        set => this.WithProperty("address_prefixes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("address_prefixes");
+        set => SetProperty("address_prefixes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +85,8 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     public required TerraformProperty<string> IpamPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ipam_pool_id");
-        set => this.WithProperty("ipam_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipam_pool_id");
+        set => SetProperty("ipam_pool_id", value);
     }
 
     /// <summary>
@@ -94,17 +95,17 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The number_of_ip_addresses_to_allocate attribute.
     /// </summary>
-    public TerraformProperty<string>? NumberOfIpAddressesToAllocate
+    public TerraformProperty<string> NumberOfIpAddressesToAllocate
     {
-        get => GetProperty<TerraformProperty<string>>("number_of_ip_addresses_to_allocate");
-        set => this.WithProperty("number_of_ip_addresses_to_allocate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("number_of_ip_addresses_to_allocate");
+        set => SetProperty("number_of_ip_addresses_to_allocate", value);
     }
 
     /// <summary>
@@ -113,8 +114,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     /// </summary>
     public AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

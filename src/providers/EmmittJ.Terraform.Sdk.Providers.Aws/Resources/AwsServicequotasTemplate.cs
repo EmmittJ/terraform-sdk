@@ -14,20 +14,25 @@ public class AwsServicequotasTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("global_quota");
-        this.WithOutput("id");
-        this.WithOutput("quota_name");
-        this.WithOutput("service_name");
-        this.WithOutput("unit");
+        SetOutput("global_quota");
+        SetOutput("id");
+        SetOutput("quota_name");
+        SetOutput("service_name");
+        SetOutput("unit");
+        SetOutput("aws_region");
+        SetOutput("quota_code");
+        SetOutput("region");
+        SetOutput("service_code");
+        SetOutput("value");
     }
 
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsRegion
+    public TerraformProperty<string> AwsRegion
     {
-        get => GetProperty<TerraformProperty<string>>("aws_region");
-        set => this.WithProperty("aws_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_region");
+        set => SetProperty("aws_region", value);
     }
 
     /// <summary>
@@ -36,18 +41,18 @@ public class AwsServicequotasTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaCode is required")]
     public required TerraformProperty<string> QuotaCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("quota_code");
-        set => this.WithProperty("quota_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("quota_code");
+        set => SetProperty("quota_code", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -56,8 +61,8 @@ public class AwsServicequotasTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformProperty<string> ServiceCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_code");
-        set => this.WithProperty("service_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_code");
+        set => SetProperty("service_code", value);
     }
 
     /// <summary>
@@ -66,8 +71,8 @@ public class AwsServicequotasTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<double> Value
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>

@@ -14,24 +14,28 @@ public class AwsRoute53ResolverQueryLogConfigAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("resolver_query_log_config_id");
+        SetOutput("resource_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -40,8 +44,8 @@ public class AwsRoute53ResolverQueryLogConfigAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolverQueryLogConfigId is required")]
     public required TerraformProperty<string> ResolverQueryLogConfigId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resolver_query_log_config_id");
-        set => this.WithProperty("resolver_query_log_config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resolver_query_log_config_id");
+        set => SetProperty("resolver_query_log_config_id", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class AwsRoute53ResolverQueryLogConfigAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
 }

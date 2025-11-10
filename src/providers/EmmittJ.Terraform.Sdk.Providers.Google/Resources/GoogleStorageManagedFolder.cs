@@ -13,8 +13,7 @@ public class GoogleStorageManagedFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleStorageManagedFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleStorageManagedFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,14 @@ public class GoogleStorageManagedFolder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("metageneration");
-        this.WithOutput("self_link");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("metageneration");
+        SetOutput("self_link");
+        SetOutput("update_time");
+        SetOutput("bucket");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -61,8 +62,8 @@ public class GoogleStorageManagedFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
@@ -71,19 +72,19 @@ public class GoogleStorageManagedFolder : TerraformResource
     /// within the folder will remain in a simulated folder with the
     /// same name.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -93,8 +94,8 @@ public class GoogleStorageManagedFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -103,8 +104,7 @@ public class GoogleStorageManagedFolder : TerraformResource
     /// </summary>
     public GoogleStorageManagedFolderTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageManagedFolderTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

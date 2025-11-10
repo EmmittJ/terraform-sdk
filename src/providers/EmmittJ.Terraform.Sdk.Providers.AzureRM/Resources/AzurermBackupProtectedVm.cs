@@ -13,8 +13,7 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,51 +54,59 @@ public class AzurermBackupProtectedVm : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("backup_policy_id");
+        SetOutput("exclude_disk_luns");
+        SetOutput("id");
+        SetOutput("include_disk_luns");
+        SetOutput("protection_state");
+        SetOutput("recovery_vault_name");
+        SetOutput("resource_group_name");
+        SetOutput("source_vm_id");
     }
 
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupPolicyId
+    public TerraformProperty<string> BackupPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_policy_id");
-        set => this.WithProperty("backup_policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_policy_id");
+        set => SetProperty("backup_policy_id", value);
     }
 
     /// <summary>
     /// The exclude_disk_luns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<double>>? ExcludeDiskLuns
+    public HashSet<TerraformProperty<double>> ExcludeDiskLuns
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("exclude_disk_luns");
-        set => this.WithProperty("exclude_disk_luns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<double>>>("exclude_disk_luns");
+        set => SetProperty("exclude_disk_luns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_disk_luns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<double>>? IncludeDiskLuns
+    public HashSet<TerraformProperty<double>> IncludeDiskLuns
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("include_disk_luns");
-        set => this.WithProperty("include_disk_luns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<double>>>("include_disk_luns");
+        set => SetProperty("include_disk_luns", value);
     }
 
     /// <summary>
     /// The protection_state attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtectionState
+    public TerraformProperty<string> ProtectionState
     {
-        get => GetProperty<TerraformProperty<string>>("protection_state");
-        set => this.WithProperty("protection_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protection_state");
+        set => SetProperty("protection_state", value);
     }
 
     /// <summary>
@@ -111,8 +115,8 @@ public class AzurermBackupProtectedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
-        set => this.WithProperty("recovery_vault_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_name");
+        set => SetProperty("recovery_vault_name", value);
     }
 
     /// <summary>
@@ -121,17 +125,17 @@ public class AzurermBackupProtectedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_vm_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceVmId
+    public TerraformProperty<string> SourceVmId
     {
-        get => GetProperty<TerraformProperty<string>>("source_vm_id");
-        set => this.WithProperty("source_vm_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_vm_id");
+        set => SetProperty("source_vm_id", value);
     }
 
     /// <summary>
@@ -140,8 +144,7 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// </summary>
     public AzurermBackupProtectedVmTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBackupProtectedVmTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermDataFactoryTriggerSchedulesDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,7 +30,9 @@ public class AzurermDataFactoryTriggerSchedulesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("items");
+        SetOutput("items");
+        SetOutput("data_factory_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -40,17 +41,17 @@ public class AzurermDataFactoryTriggerSchedulesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +60,7 @@ public class AzurermDataFactoryTriggerSchedulesDataSource : TerraformDataSource
     /// </summary>
     public AzurermDataFactoryTriggerSchedulesDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryTriggerSchedulesDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

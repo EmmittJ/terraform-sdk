@@ -13,8 +13,7 @@ public class AzurermResourcesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,52 +30,57 @@ public class AzurermResourcesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("resources");
+        SetOutput("resources");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("required_tags");
+        SetOutput("resource_group_name");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The required_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? RequiredTags
+    public Dictionary<string, TerraformProperty<string>> RequiredTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("required_tags");
-        set => this.WithProperty("required_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("required_tags");
+        set => SetProperty("required_tags", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    public TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -85,8 +89,7 @@ public class AzurermResourcesDataSource : TerraformDataSource
     /// </summary>
     public AzurermResourcesDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermResourcesDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

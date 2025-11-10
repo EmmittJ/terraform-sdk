@@ -14,8 +14,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RateLimitDurationInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("rate_limit_duration_in_minutes");
-        set => WithProperty("rate_limit_duration_in_minutes", value);
+        set => SetProperty("rate_limit_duration_in_minutes", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RateLimitThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("rate_limit_threshold");
-        set => WithProperty("rate_limit_threshold", value);
+        set => SetProperty("rate_limit_threshold", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -88,8 +81,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -98,8 +90,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -115,8 +106,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -124,8 +114,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -133,8 +122,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -142,8 +130,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -161,53 +148,62 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("frontend_endpoint_ids");
-        this.WithOutput("location");
+        SetOutput("frontend_endpoint_ids");
+        SetOutput("location");
+        SetOutput("custom_block_response_body");
+        SetOutput("custom_block_response_status_code");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("mode");
+        SetOutput("name");
+        SetOutput("redirect_url");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The custom_block_response_body attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomBlockResponseBody
+    public TerraformProperty<string> CustomBlockResponseBody
     {
-        get => GetProperty<TerraformProperty<string>>("custom_block_response_body");
-        set => this.WithProperty("custom_block_response_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_block_response_body");
+        set => SetProperty("custom_block_response_body", value);
     }
 
     /// <summary>
     /// The custom_block_response_status_code attribute.
     /// </summary>
-    public TerraformProperty<double>? CustomBlockResponseStatusCode
+    public TerraformProperty<double> CustomBlockResponseStatusCode
     {
-        get => GetProperty<TerraformProperty<double>>("custom_block_response_status_code");
-        set => this.WithProperty("custom_block_response_status_code", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("custom_block_response_status_code");
+        set => SetProperty("custom_block_response_status_code", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
+    public TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => this.WithProperty("mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mode");
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -216,17 +212,17 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
-    public TerraformProperty<string>? RedirectUrl
+    public TerraformProperty<string> RedirectUrl
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_url");
-        set => this.WithProperty("redirect_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redirect_url");
+        set => SetProperty("redirect_url", value);
     }
 
     /// <summary>
@@ -235,17 +231,17 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -255,8 +251,7 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CustomRule block(s) allowed")]
     public List<AzurermFrontdoorFirewallPolicyCustomRuleBlock>? CustomRule
     {
-        get => GetProperty<List<AzurermFrontdoorFirewallPolicyCustomRuleBlock>>("custom_rule");
-        set => this.WithProperty("custom_rule", value);
+        set => SetProperty("custom_rule", value);
     }
 
     /// <summary>
@@ -266,8 +261,7 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 ManagedRule block(s) allowed")]
     public List<AzurermFrontdoorFirewallPolicyManagedRuleBlock>? ManagedRule
     {
-        get => GetProperty<List<AzurermFrontdoorFirewallPolicyManagedRuleBlock>>("managed_rule");
-        set => this.WithProperty("managed_rule", value);
+        set => SetProperty("managed_rule", value);
     }
 
     /// <summary>
@@ -276,8 +270,7 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     public AzurermFrontdoorFirewallPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFrontdoorFirewallPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

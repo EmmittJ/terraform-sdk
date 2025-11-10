@@ -14,6 +14,11 @@ public class GoogleStorageBucketAcl : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket");
+        SetOutput("default_acl");
+        SetOutput("id");
+        SetOutput("predefined_acl");
+        SetOutput("role_entity");
     }
 
     /// <summary>
@@ -22,44 +27,44 @@ public class GoogleStorageBucketAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// Configure this ACL to be the default ACL.
     /// </summary>
-    public TerraformProperty<string>? DefaultAcl
+    public TerraformProperty<string> DefaultAcl
     {
-        get => GetProperty<TerraformProperty<string>>("default_acl");
-        set => this.WithProperty("default_acl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_acl");
+        set => SetProperty("default_acl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The canned GCS ACL to apply. Must be set if role_entity is not.
     /// </summary>
-    public TerraformProperty<string>? PredefinedAcl
+    public TerraformProperty<string> PredefinedAcl
     {
-        get => GetProperty<TerraformProperty<string>>("predefined_acl");
-        set => this.WithProperty("predefined_acl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("predefined_acl");
+        set => SetProperty("predefined_acl", value);
     }
 
     /// <summary>
     /// List of role/entity pairs in the form ROLE:entity. See GCS Bucket ACL documentation  for more details. Must be set if predefined_acl is not.
     /// </summary>
-    public List<TerraformProperty<string>>? RoleEntity
+    public List<TerraformProperty<string>> RoleEntity
     {
-        get => GetProperty<List<TerraformProperty<string>>>("role_entity");
-        set => this.WithProperty("role_entity", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("role_entity");
+        set => SetProperty("role_entity", value);
     }
 
 }

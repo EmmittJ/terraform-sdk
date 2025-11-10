@@ -14,29 +14,33 @@ public class AwsLexBotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("checksum");
-        this.WithOutput("child_directed");
-        this.WithOutput("created_date");
-        this.WithOutput("description");
-        this.WithOutput("detect_sentiment");
-        this.WithOutput("enable_model_improvements");
-        this.WithOutput("failure_reason");
-        this.WithOutput("idle_session_ttl_in_seconds");
-        this.WithOutput("last_updated_date");
-        this.WithOutput("locale");
-        this.WithOutput("nlu_intent_confidence_threshold");
-        this.WithOutput("status");
-        this.WithOutput("voice_id");
+        SetOutput("arn");
+        SetOutput("checksum");
+        SetOutput("child_directed");
+        SetOutput("created_date");
+        SetOutput("description");
+        SetOutput("detect_sentiment");
+        SetOutput("enable_model_improvements");
+        SetOutput("failure_reason");
+        SetOutput("idle_session_ttl_in_seconds");
+        SetOutput("last_updated_date");
+        SetOutput("locale");
+        SetOutput("nlu_intent_confidence_threshold");
+        SetOutput("status");
+        SetOutput("voice_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -45,26 +49,26 @@ public class AwsLexBotDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

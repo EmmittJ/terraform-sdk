@@ -13,8 +13,7 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -94,8 +88,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -112,8 +104,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -121,8 +112,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -140,36 +130,48 @@ public class AzurermBatchAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_endpoint");
-        this.WithOutput("primary_access_key");
-        this.WithOutput("secondary_access_key");
+        SetOutput("account_endpoint");
+        SetOutput("primary_access_key");
+        SetOutput("secondary_access_key");
+        SetOutput("allowed_authentication_modes");
+        SetOutput("encryption");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("pool_allocation_mode");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("storage_account_authentication_mode");
+        SetOutput("storage_account_id");
+        SetOutput("storage_account_node_identity");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The allowed_authentication_modes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedAuthenticationModes
+    public HashSet<TerraformProperty<string>> AllowedAuthenticationModes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_authentication_modes");
-        set => this.WithProperty("allowed_authentication_modes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_authentication_modes");
+        set => SetProperty("allowed_authentication_modes", value);
     }
 
     /// <summary>
     /// The encryption attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? Encryption
+    public List<TerraformProperty<object>> Encryption
     {
-        get => GetProperty<List<TerraformProperty<object>>>("encryption");
-        set => this.WithProperty("encryption", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("encryption");
+        set => SetProperty("encryption", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -178,8 +180,8 @@ public class AzurermBatchAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -188,26 +190,26 @@ public class AzurermBatchAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The pool_allocation_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? PoolAllocationMode
+    public TerraformProperty<string> PoolAllocationMode
     {
-        get => GetProperty<TerraformProperty<string>>("pool_allocation_mode");
-        set => this.WithProperty("pool_allocation_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool_allocation_mode");
+        set => SetProperty("pool_allocation_mode", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -216,44 +218,44 @@ public class AzurermBatchAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_account_authentication_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountAuthenticationMode
+    public TerraformProperty<string> StorageAccountAuthenticationMode
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_authentication_mode");
-        set => this.WithProperty("storage_account_authentication_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_authentication_mode");
+        set => SetProperty("storage_account_authentication_mode", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    public TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_node_identity attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountNodeIdentity
+    public TerraformProperty<string> StorageAccountNodeIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_node_identity");
-        set => this.WithProperty("storage_account_node_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_node_identity");
+        set => SetProperty("storage_account_node_identity", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -263,8 +265,7 @@ public class AzurermBatchAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermBatchAccountIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermBatchAccountIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -274,8 +275,7 @@ public class AzurermBatchAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultReference block(s) allowed")]
     public List<AzurermBatchAccountKeyVaultReferenceBlock>? KeyVaultReference
     {
-        get => GetProperty<List<AzurermBatchAccountKeyVaultReferenceBlock>>("key_vault_reference");
-        set => this.WithProperty("key_vault_reference", value);
+        set => SetProperty("key_vault_reference", value);
     }
 
     /// <summary>
@@ -285,8 +285,7 @@ public class AzurermBatchAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     public List<AzurermBatchAccountNetworkProfileBlock>? NetworkProfile
     {
-        get => GetProperty<List<AzurermBatchAccountNetworkProfileBlock>>("network_profile");
-        set => this.WithProperty("network_profile", value);
+        set => SetProperty("network_profile", value);
     }
 
     /// <summary>
@@ -295,8 +294,7 @@ public class AzurermBatchAccount : TerraformResource
     /// </summary>
     public AzurermBatchAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBatchAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

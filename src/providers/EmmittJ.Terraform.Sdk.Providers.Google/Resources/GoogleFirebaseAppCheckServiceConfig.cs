@@ -13,8 +13,7 @@ public class GoogleFirebaseAppCheckServiceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleFirebaseAppCheckServiceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleFirebaseAppCheckServiceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,24 +46,28 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("enforcement_mode");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("service_id");
     }
 
     /// <summary>
     /// The App Check enforcement mode for a service supported by App Check. Valid values are
-    ///
+    /// 
     /// (Unset)
     /// Firebase App Check is not enforced for the service, nor are App Check metrics collected.
     /// Though the service is not protected by App Check in this mode, other applicable protections,
     /// such as user authorization, are still enforced. An unconfigured service is in this mode by default.
     /// This is equivalent to OFF in the REST API. Deleting the Terraform resource will also switch the
     /// enforcement to OFF for this service.
-    ///
+    /// 
     /// UNENFORCED
     /// Firebase App Check is not enforced for the service. App Check metrics are collected to help you
     /// decide when to turn on enforcement for the service. Though the service is not protected by App Check
     /// in this mode, other applicable protections, such as user authorization, are still enforced.
-    ///
+    /// 
     /// ENFORCED
     /// Firebase App Check is enforced for the service. The service will reject any request that attempts to
     /// access your project&#39;s resources if it does not have valid App Check token attached, with some exceptions
@@ -75,37 +76,37 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     /// collected to help you detect issues with your App Check integration and monitor the composition of your
     /// callers. While the service is protected by App Check, other applicable protections, such as user
     /// authorization, continue to be enforced at the same time.
-    ///
+    /// 
     /// Use caution when choosing to enforce App Check on a Firebase service. If your users have not updated
     /// to an App Check capable version of your app, their apps will no longer be able to use your Firebase
     /// services that are enforcing App Check. App Check metrics can help you decide whether to enforce App
     /// Check on your Firebase services.
-    ///
+    /// 
     /// If your app has not launched yet, you should enable enforcement immediately, since there are no outdated
     /// clients in use. Possible values: [&amp;quot;UNENFORCED&amp;quot;, &amp;quot;ENFORCED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EnforcementMode
+    public TerraformProperty<string> EnforcementMode
     {
-        get => GetProperty<TerraformProperty<string>>("enforcement_mode");
-        set => this.WithProperty("enforcement_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enforcement_mode");
+        set => SetProperty("enforcement_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -118,8 +119,8 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
-        set => this.WithProperty("service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
+        set => SetProperty("service_id", value);
     }
 
     /// <summary>
@@ -128,8 +129,7 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     /// </summary>
     public GoogleFirebaseAppCheckServiceConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFirebaseAppCheckServiceConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

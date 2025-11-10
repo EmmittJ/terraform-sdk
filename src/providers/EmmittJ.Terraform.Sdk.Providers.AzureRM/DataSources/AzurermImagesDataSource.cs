@@ -13,8 +13,7 @@ public class AzurermImagesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,19 @@ public class AzurermImagesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("images");
+        SetOutput("images");
+        SetOutput("id");
+        SetOutput("resource_group_name");
+        SetOutput("tags_filter");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,17 +51,17 @@ public class AzurermImagesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags_filter attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsFilter
+    public Dictionary<string, TerraformProperty<string>> TagsFilter
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_filter");
-        set => this.WithProperty("tags_filter", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_filter");
+        set => SetProperty("tags_filter", value);
     }
 
     /// <summary>
@@ -68,8 +70,7 @@ public class AzurermImagesDataSource : TerraformDataSource
     /// </summary>
     public AzurermImagesDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermImagesDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

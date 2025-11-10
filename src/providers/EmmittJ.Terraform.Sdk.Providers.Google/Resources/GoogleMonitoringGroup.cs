@@ -13,8 +13,7 @@ public class GoogleMonitoringGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleMonitoringGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleMonitoringGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,13 @@ public class GoogleMonitoringGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("display_name");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("is_cluster");
+        SetOutput("parent_name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -59,8 +62,8 @@ public class GoogleMonitoringGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -70,17 +73,17 @@ public class GoogleMonitoringGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -88,10 +91,10 @@ public class GoogleMonitoringGroup : TerraformResource
     /// cluster. The system can perform additional analysis on
     /// groups that are clusters.
     /// </summary>
-    public TerraformProperty<bool>? IsCluster
+    public TerraformProperty<bool> IsCluster
     {
-        get => GetProperty<TerraformProperty<bool>>("is_cluster");
-        set => this.WithProperty("is_cluster", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_cluster");
+        set => SetProperty("is_cluster", value);
     }
 
     /// <summary>
@@ -99,19 +102,19 @@ public class GoogleMonitoringGroup : TerraformResource
     /// &amp;quot;projects/{project_id_or_number}/groups/{group_id}&amp;quot;. For
     /// groups with no parent, parentName is the empty string, &amp;quot;&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? ParentName
+    public TerraformProperty<string> ParentName
     {
-        get => GetProperty<TerraformProperty<string>>("parent_name");
-        set => this.WithProperty("parent_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_name");
+        set => SetProperty("parent_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -120,8 +123,7 @@ public class GoogleMonitoringGroup : TerraformResource
     /// </summary>
     public GoogleMonitoringGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMonitoringGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

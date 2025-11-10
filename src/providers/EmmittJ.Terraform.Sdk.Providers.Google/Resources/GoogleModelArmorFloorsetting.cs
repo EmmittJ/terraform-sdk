@@ -13,8 +13,7 @@ public class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : Terraform
     /// </summary>
     public TerraformProperty<bool>? EnableCloudLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_cloud_logging");
-        set => WithProperty("enable_cloud_logging", value);
+        set => SetProperty("enable_cloud_logging", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : Terraform
     /// </summary>
     public TerraformProperty<bool>? InspectAndBlock
     {
-        get => GetProperty<TerraformProperty<bool>>("inspect_and_block");
-        set => WithProperty("inspect_and_block", value);
+        set => SetProperty("inspect_and_block", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : Terraform
     /// </summary>
     public TerraformProperty<bool>? InspectOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("inspect_only");
-        set => WithProperty("inspect_only", value);
+        set => SetProperty("inspect_only", value);
     }
 
 }
@@ -66,8 +63,7 @@ public class GoogleModelArmorFloorsettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -75,8 +71,7 @@ public class GoogleModelArmorFloorsettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -84,8 +79,7 @@ public class GoogleModelArmorFloorsettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -103,36 +97,41 @@ public class GoogleModelArmorFloorsetting : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("enable_floor_setting_enforcement");
+        SetOutput("id");
+        SetOutput("integrated_services");
+        SetOutput("location");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// Floor Settings enforcement status.
     /// </summary>
-    public TerraformProperty<bool>? EnableFloorSettingEnforcement
+    public TerraformProperty<bool> EnableFloorSettingEnforcement
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_floor_setting_enforcement");
-        set => this.WithProperty("enable_floor_setting_enforcement", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_floor_setting_enforcement");
+        set => SetProperty("enable_floor_setting_enforcement", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// List of integrated services for which the floor setting is applicable.
     /// </summary>
-    public List<TerraformProperty<string>>? IntegratedServices
+    public List<TerraformProperty<string>> IntegratedServices
     {
-        get => GetProperty<List<TerraformProperty<string>>>("integrated_services");
-        set => this.WithProperty("integrated_services", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("integrated_services");
+        set => SetProperty("integrated_services", value);
     }
 
     /// <summary>
@@ -141,8 +140,8 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -155,8 +154,8 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -166,20 +165,19 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AiPlatformFloorSetting block(s) allowed")]
     public List<GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock>? AiPlatformFloorSetting
     {
-        get => GetProperty<List<GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock>>("ai_platform_floor_setting");
-        set => this.WithProperty("ai_platform_floor_setting", value);
+        set => SetProperty("ai_platform_floor_setting", value);
     }
 
     /// <summary>
     /// Block for filter_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FilterConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterConfig block(s) allowed")]
     public List<GoogleModelArmorFloorsettingFilterConfigBlock>? FilterConfig
     {
-        get => GetProperty<List<GoogleModelArmorFloorsettingFilterConfigBlock>>("filter_config");
-        set => this.WithProperty("filter_config", value);
+        set => SetProperty("filter_config", value);
     }
 
     /// <summary>
@@ -189,8 +187,7 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FloorSettingMetadata block(s) allowed")]
     public List<GoogleModelArmorFloorsettingFloorSettingMetadataBlock>? FloorSettingMetadata
     {
-        get => GetProperty<List<GoogleModelArmorFloorsettingFloorSettingMetadataBlock>>("floor_setting_metadata");
-        set => this.WithProperty("floor_setting_metadata", value);
+        set => SetProperty("floor_setting_metadata", value);
     }
 
     /// <summary>
@@ -199,8 +196,7 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     /// </summary>
     public GoogleModelArmorFloorsettingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleModelArmorFloorsettingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

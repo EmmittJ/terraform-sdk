@@ -14,8 +14,12 @@ public class GoogleDataCatalogEntryGroupIamPolicyDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("entry_group");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,35 +28,35 @@ public class GoogleDataCatalogEntryGroupIamPolicyDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
     public required TerraformProperty<string> EntryGroup
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entry_group");
-        set => this.WithProperty("entry_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entry_group");
+        set => SetProperty("entry_group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

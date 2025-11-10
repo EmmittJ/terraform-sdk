@@ -14,8 +14,15 @@ public class AwsVpclatticeAccessLogSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("resource_arn");
+        SetOutput("arn");
+        SetOutput("resource_arn");
+        SetOutput("destination_arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("resource_identifier");
+        SetOutput("service_network_log_type");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -24,26 +31,26 @@ public class AwsVpclatticeAccessLogSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
-        set => this.WithProperty("destination_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_arn");
+        set => SetProperty("destination_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -52,35 +59,35 @@ public class AwsVpclatticeAccessLogSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceIdentifier is required")]
     public required TerraformProperty<string> ResourceIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_identifier");
-        set => this.WithProperty("resource_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_identifier");
+        set => SetProperty("resource_identifier", value);
     }
 
     /// <summary>
     /// The service_network_log_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceNetworkLogType
+    public TerraformProperty<string> ServiceNetworkLogType
     {
-        get => GetProperty<TerraformProperty<string>>("service_network_log_type");
-        set => this.WithProperty("service_network_log_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_network_log_type");
+        set => SetProperty("service_network_log_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsVpcEndpointServiceDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsVpcEndpointServiceDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsVpcEndpointServiceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,73 +56,79 @@ public class AwsVpcEndpointServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("acceptance_required");
-        this.WithOutput("arn");
-        this.WithOutput("availability_zones");
-        this.WithOutput("base_endpoint_dns_names");
-        this.WithOutput("manages_vpc_endpoints");
-        this.WithOutput("owner");
-        this.WithOutput("private_dns_name");
-        this.WithOutput("private_dns_names");
-        this.WithOutput("region");
-        this.WithOutput("service_id");
-        this.WithOutput("service_region");
-        this.WithOutput("supported_ip_address_types");
-        this.WithOutput("vpc_endpoint_policy_supported");
+        SetOutput("acceptance_required");
+        SetOutput("arn");
+        SetOutput("availability_zones");
+        SetOutput("base_endpoint_dns_names");
+        SetOutput("manages_vpc_endpoints");
+        SetOutput("owner");
+        SetOutput("private_dns_name");
+        SetOutput("private_dns_names");
+        SetOutput("region");
+        SetOutput("service_id");
+        SetOutput("service_region");
+        SetOutput("supported_ip_address_types");
+        SetOutput("vpc_endpoint_policy_supported");
+        SetOutput("id");
+        SetOutput("service");
+        SetOutput("service_name");
+        SetOutput("service_regions");
+        SetOutput("service_type");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public TerraformProperty<string>? Service
+    public TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceName
+    public TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
     /// The service_regions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ServiceRegions
+    public HashSet<TerraformProperty<string>> ServiceRegions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("service_regions");
-        set => this.WithProperty("service_regions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("service_regions");
+        set => SetProperty("service_regions", value);
     }
 
     /// <summary>
     /// The service_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceType
+    public TerraformProperty<string> ServiceType
     {
-        get => GetProperty<TerraformProperty<string>>("service_type");
-        set => this.WithProperty("service_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_type");
+        set => SetProperty("service_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class AwsVpcEndpointServiceDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsVpcEndpointServiceDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsVpcEndpointServiceDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -144,8 +146,7 @@ public class AwsVpcEndpointServiceDataSource : TerraformDataSource
     /// </summary>
     public AwsVpcEndpointServiceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcEndpointServiceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

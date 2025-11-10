@@ -14,8 +14,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionId is required")]
     public required TerraformProperty<string> ActionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action_id");
-        set => WithProperty("action_id", value);
+        set => SetProperty("action_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? StartAfter
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("start_after");
-        set => WithProperty("start_after", value);
+        set => SetProperty("start_after", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AwsFisExperimentTemplateExperimentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AccountTargeting
     {
-        get => GetProperty<TerraformProperty<string>>("account_targeting");
-        set => WithProperty("account_targeting", value);
+        set => SetProperty("account_targeting", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsFisExperimentTemplateExperimentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EmptyTargetResolutionMode
     {
-        get => GetProperty<TerraformProperty<string>>("empty_target_resolution_mode");
-        set => WithProperty("empty_target_resolution_mode", value);
+        set => SetProperty("empty_target_resolution_mode", value);
     }
 
 }
@@ -85,8 +79,7 @@ public class AwsFisExperimentTemplateExperimentReportConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? PostExperimentDuration
     {
-        get => GetProperty<TerraformProperty<string>>("post_experiment_duration");
-        set => WithProperty("post_experiment_duration", value);
+        set => SetProperty("post_experiment_duration", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AwsFisExperimentTemplateExperimentReportConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? PreExperimentDuration
     {
-        get => GetProperty<TerraformProperty<string>>("pre_experiment_duration");
-        set => WithProperty("pre_experiment_duration", value);
+        set => SetProperty("pre_experiment_duration", value);
     }
 
 }
@@ -112,8 +104,7 @@ public class AwsFisExperimentTemplateLogConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogSchemaVersion is required")]
     public required TerraformProperty<double> LogSchemaVersion
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("log_schema_version");
-        set => WithProperty("log_schema_version", value);
+        set => SetProperty("log_schema_version", value);
     }
 
 }
@@ -130,8 +121,7 @@ public class AwsFisExperimentTemplateStopConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -139,8 +129,7 @@ public class AwsFisExperimentTemplateStopConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -157,8 +146,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -166,8 +154,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -175,8 +162,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ResourceArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_arns");
-        set => WithProperty("resource_arns", value);
+        set => SetProperty("resource_arns", value);
     }
 
     /// <summary>
@@ -185,8 +171,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
@@ -195,8 +180,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelectionMode is required")]
     public required TerraformProperty<string> SelectionMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("selection_mode");
-        set => WithProperty("selection_mode", value);
+        set => SetProperty("selection_mode", value);
     }
 
 }
@@ -212,8 +196,7 @@ public class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -221,8 +204,7 @@ public class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -230,8 +212,7 @@ public class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -249,6 +230,12 @@ public class AwsFisExperimentTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -257,26 +244,26 @@ public class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -285,37 +272,37 @@ public class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for action.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
     public HashSet<AwsFisExperimentTemplateActionBlock>? Action
     {
-        get => GetProperty<HashSet<AwsFisExperimentTemplateActionBlock>>("action");
-        set => this.WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -325,8 +312,7 @@ public class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExperimentOptions block(s) allowed")]
     public List<AwsFisExperimentTemplateExperimentOptionsBlock>? ExperimentOptions
     {
-        get => GetProperty<List<AwsFisExperimentTemplateExperimentOptionsBlock>>("experiment_options");
-        set => this.WithProperty("experiment_options", value);
+        set => SetProperty("experiment_options", value);
     }
 
     /// <summary>
@@ -336,8 +322,7 @@ public class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExperimentReportConfiguration block(s) allowed")]
     public List<AwsFisExperimentTemplateExperimentReportConfigurationBlock>? ExperimentReportConfiguration
     {
-        get => GetProperty<List<AwsFisExperimentTemplateExperimentReportConfigurationBlock>>("experiment_report_configuration");
-        set => this.WithProperty("experiment_report_configuration", value);
+        set => SetProperty("experiment_report_configuration", value);
     }
 
     /// <summary>
@@ -347,19 +332,18 @@ public class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfiguration block(s) allowed")]
     public List<AwsFisExperimentTemplateLogConfigurationBlock>? LogConfiguration
     {
-        get => GetProperty<List<AwsFisExperimentTemplateLogConfigurationBlock>>("log_configuration");
-        set => this.WithProperty("log_configuration", value);
+        set => SetProperty("log_configuration", value);
     }
 
     /// <summary>
     /// Block for stop_condition.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopCondition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StopCondition block(s) required")]
     public HashSet<AwsFisExperimentTemplateStopConditionBlock>? StopCondition
     {
-        get => GetProperty<HashSet<AwsFisExperimentTemplateStopConditionBlock>>("stop_condition");
-        set => this.WithProperty("stop_condition", value);
+        set => SetProperty("stop_condition", value);
     }
 
     /// <summary>
@@ -368,8 +352,7 @@ public class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     public HashSet<AwsFisExperimentTemplateTargetBlock>? Target
     {
-        get => GetProperty<HashSet<AwsFisExperimentTemplateTargetBlock>>("target");
-        set => this.WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -378,8 +361,7 @@ public class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     public AwsFisExperimentTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFisExperimentTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

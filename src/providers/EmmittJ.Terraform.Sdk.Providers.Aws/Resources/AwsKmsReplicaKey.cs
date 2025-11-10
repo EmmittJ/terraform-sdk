@@ -14,65 +14,75 @@ public class AwsKmsReplicaKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("key_id");
-        this.WithOutput("key_rotation_enabled");
-        this.WithOutput("key_spec");
-        this.WithOutput("key_usage");
+        SetOutput("arn");
+        SetOutput("key_id");
+        SetOutput("key_rotation_enabled");
+        SetOutput("key_spec");
+        SetOutput("key_usage");
+        SetOutput("bypass_policy_lockout_safety_check");
+        SetOutput("deletion_window_in_days");
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("policy");
+        SetOutput("primary_key_arn");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The bypass_policy_lockout_safety_check attribute.
     /// </summary>
-    public TerraformProperty<bool>? BypassPolicyLockoutSafetyCheck
+    public TerraformProperty<bool> BypassPolicyLockoutSafetyCheck
     {
-        get => GetProperty<TerraformProperty<bool>>("bypass_policy_lockout_safety_check");
-        set => this.WithProperty("bypass_policy_lockout_safety_check", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bypass_policy_lockout_safety_check");
+        set => SetProperty("bypass_policy_lockout_safety_check", value);
     }
 
     /// <summary>
     /// The deletion_window_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? DeletionWindowInDays
+    public TerraformProperty<double> DeletionWindowInDays
     {
-        get => GetProperty<TerraformProperty<double>>("deletion_window_in_days");
-        set => this.WithProperty("deletion_window_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("deletion_window_in_days");
+        set => SetProperty("deletion_window_in_days", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    public TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
@@ -81,35 +91,35 @@ public class AwsKmsReplicaKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKeyArn is required")]
     public required TerraformProperty<string> PrimaryKeyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("primary_key_arn");
-        set => this.WithProperty("primary_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_key_arn");
+        set => SetProperty("primary_key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

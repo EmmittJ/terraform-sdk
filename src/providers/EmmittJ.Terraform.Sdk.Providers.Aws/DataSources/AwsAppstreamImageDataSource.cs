@@ -14,73 +14,79 @@ public class AwsAppstreamImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("applications");
-        this.WithOutput("appstream_agent_version");
-        this.WithOutput("base_image_arn");
-        this.WithOutput("created_time");
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("image_builder_name");
-        this.WithOutput("image_builder_supported");
-        this.WithOutput("image_permissions");
-        this.WithOutput("platform");
-        this.WithOutput("public_base_image_released_date");
-        this.WithOutput("state");
-        this.WithOutput("state_change_reason");
+        SetOutput("applications");
+        SetOutput("appstream_agent_version");
+        SetOutput("base_image_arn");
+        SetOutput("created_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("image_builder_name");
+        SetOutput("image_builder_supported");
+        SetOutput("image_permissions");
+        SetOutput("platform");
+        SetOutput("public_base_image_released_date");
+        SetOutput("state");
+        SetOutput("state_change_reason");
+        SetOutput("arn");
+        SetOutput("most_recent");
+        SetOutput("name");
+        SetOutput("name_regex");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string>? NameRegex
+    public TerraformProperty<string> NameRegex
     {
-        get => GetProperty<TerraformProperty<string>>("name_regex");
-        set => this.WithProperty("name_regex", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
+        set => SetProperty("name_regex", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>

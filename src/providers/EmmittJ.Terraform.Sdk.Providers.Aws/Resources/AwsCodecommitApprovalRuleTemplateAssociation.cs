@@ -14,6 +14,10 @@ public class AwsCodecommitApprovalRuleTemplateAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("approval_rule_template_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("repository_name");
     }
 
     /// <summary>
@@ -22,26 +26,26 @@ public class AwsCodecommitApprovalRuleTemplateAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApprovalRuleTemplateName is required")]
     public required TerraformProperty<string> ApprovalRuleTemplateName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("approval_rule_template_name");
-        set => this.WithProperty("approval_rule_template_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("approval_rule_template_name");
+        set => SetProperty("approval_rule_template_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class AwsCodecommitApprovalRuleTemplateAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
-        set => this.WithProperty("repository_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_name");
+        set => SetProperty("repository_name", value);
     }
 
 }

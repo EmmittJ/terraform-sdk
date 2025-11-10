@@ -13,8 +13,7 @@ public class AzurermIothubEndpointStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubEndpointStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIothubEndpointStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIothubEndpointStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,33 +54,47 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("authentication_type");
+        SetOutput("batch_frequency_in_seconds");
+        SetOutput("connection_string");
+        SetOutput("container_name");
+        SetOutput("encoding");
+        SetOutput("endpoint_uri");
+        SetOutput("file_name_format");
+        SetOutput("id");
+        SetOutput("identity_id");
+        SetOutput("iothub_id");
+        SetOutput("max_chunk_size_in_bytes");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationType
+    public TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
-        set => this.WithProperty("authentication_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The batch_frequency_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? BatchFrequencyInSeconds
+    public TerraformProperty<double> BatchFrequencyInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("batch_frequency_in_seconds");
-        set => this.WithProperty("batch_frequency_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("batch_frequency_in_seconds");
+        set => SetProperty("batch_frequency_in_seconds", value);
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
+    public TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -93,53 +103,53 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => this.WithProperty("container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public TerraformProperty<string>? Encoding
+    public TerraformProperty<string> Encoding
     {
-        get => GetProperty<TerraformProperty<string>>("encoding");
-        set => this.WithProperty("encoding", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encoding");
+        set => SetProperty("encoding", value);
     }
 
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointUri
+    public TerraformProperty<string> EndpointUri
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_uri");
-        set => this.WithProperty("endpoint_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_uri");
+        set => SetProperty("endpoint_uri", value);
     }
 
     /// <summary>
     /// The file_name_format attribute.
     /// </summary>
-    public TerraformProperty<string>? FileNameFormat
+    public TerraformProperty<string> FileNameFormat
     {
-        get => GetProperty<TerraformProperty<string>>("file_name_format");
-        set => this.WithProperty("file_name_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_name_format");
+        set => SetProperty("file_name_format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityId
+    public TerraformProperty<string> IdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_id");
-        set => this.WithProperty("identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_id");
+        set => SetProperty("identity_id", value);
     }
 
     /// <summary>
@@ -148,17 +158,17 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
-        set => this.WithProperty("iothub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
+        set => SetProperty("iothub_id", value);
     }
 
     /// <summary>
     /// The max_chunk_size_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxChunkSizeInBytes
+    public TerraformProperty<double> MaxChunkSizeInBytes
     {
-        get => GetProperty<TerraformProperty<double>>("max_chunk_size_in_bytes");
-        set => this.WithProperty("max_chunk_size_in_bytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_chunk_size_in_bytes");
+        set => SetProperty("max_chunk_size_in_bytes", value);
     }
 
     /// <summary>
@@ -167,8 +177,8 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -177,17 +187,17 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionId
+    public TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -196,8 +206,7 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
     /// </summary>
     public AzurermIothubEndpointStorageContainerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubEndpointStorageContainerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

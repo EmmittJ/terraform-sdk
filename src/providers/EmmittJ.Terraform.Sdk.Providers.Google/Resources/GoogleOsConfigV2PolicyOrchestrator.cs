@@ -26,8 +26,7 @@ public class GoogleOsConfigV2PolicyOrchestratorOrchestratedResourceBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -51,8 +50,7 @@ public class GoogleOsConfigV2PolicyOrchestratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +58,7 @@ public class GoogleOsConfigV2PolicyOrchestratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +66,7 @@ public class GoogleOsConfigV2PolicyOrchestratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -88,13 +84,20 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("orchestration_state");
-        this.WithOutput("reconciling");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("orchestration_state");
+        SetOutput("reconciling");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("action");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("policy_orchestrator_id");
+        SetOutput("project");
+        SetOutput("state");
     }
 
     /// <summary>
@@ -107,26 +110,26 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// Optional. Freeform text describing the purpose of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -135,10 +138,10 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -154,17 +157,17 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyOrchestratorId is required")]
     public required TerraformProperty<string> PolicyOrchestratorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_orchestrator_id");
-        set => this.WithProperty("policy_orchestrator_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_orchestrator_id");
+        set => SetProperty("policy_orchestrator_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -177,22 +180,22 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     /// instead of an enum, to avoid the need of propagating new states to all the
     /// client code.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// Block for orchestrated_resource.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrchestratedResource is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OrchestratedResource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestratedResource block(s) allowed")]
     public List<GoogleOsConfigV2PolicyOrchestratorOrchestratedResourceBlock>? OrchestratedResource
     {
-        get => GetProperty<List<GoogleOsConfigV2PolicyOrchestratorOrchestratedResourceBlock>>("orchestrated_resource");
-        set => this.WithProperty("orchestrated_resource", value);
+        set => SetProperty("orchestrated_resource", value);
     }
 
     /// <summary>
@@ -202,8 +205,7 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestrationScope block(s) allowed")]
     public List<GoogleOsConfigV2PolicyOrchestratorOrchestrationScopeBlock>? OrchestrationScope
     {
-        get => GetProperty<List<GoogleOsConfigV2PolicyOrchestratorOrchestrationScopeBlock>>("orchestration_scope");
-        set => this.WithProperty("orchestration_scope", value);
+        set => SetProperty("orchestration_scope", value);
     }
 
     /// <summary>
@@ -212,8 +214,7 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     /// </summary>
     public GoogleOsConfigV2PolicyOrchestratorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOsConfigV2PolicyOrchestratorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

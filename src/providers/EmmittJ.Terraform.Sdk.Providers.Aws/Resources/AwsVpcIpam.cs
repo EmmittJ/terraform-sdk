@@ -14,8 +14,7 @@ public class AwsVpcIpamOperatingRegionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformProperty<string> RegionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region_name");
-        set => WithProperty("region_name", value);
+        set => SetProperty("region_name", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsVpcIpamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsVpcIpamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsVpcIpamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -68,104 +64,113 @@ public class AwsVpcIpam : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("default_resource_discovery_association_id");
-        this.WithOutput("default_resource_discovery_id");
-        this.WithOutput("private_default_scope_id");
-        this.WithOutput("public_default_scope_id");
-        this.WithOutput("scope_count");
+        SetOutput("arn");
+        SetOutput("default_resource_discovery_association_id");
+        SetOutput("default_resource_discovery_id");
+        SetOutput("private_default_scope_id");
+        SetOutput("public_default_scope_id");
+        SetOutput("scope_count");
+        SetOutput("cascade");
+        SetOutput("description");
+        SetOutput("enable_private_gua");
+        SetOutput("id");
+        SetOutput("metered_account");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("tier");
     }
 
     /// <summary>
     /// The cascade attribute.
     /// </summary>
-    public TerraformProperty<bool>? Cascade
+    public TerraformProperty<bool> Cascade
     {
-        get => GetProperty<TerraformProperty<bool>>("cascade");
-        set => this.WithProperty("cascade", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cascade");
+        set => SetProperty("cascade", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enable_private_gua attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnablePrivateGua
+    public TerraformProperty<bool> EnablePrivateGua
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_private_gua");
-        set => this.WithProperty("enable_private_gua", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_private_gua");
+        set => SetProperty("enable_private_gua", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metered_account attribute.
     /// </summary>
-    public TerraformProperty<string>? MeteredAccount
+    public TerraformProperty<string> MeteredAccount
     {
-        get => GetProperty<TerraformProperty<string>>("metered_account");
-        set => this.WithProperty("metered_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metered_account");
+        set => SetProperty("metered_account", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformProperty<string>? Tier
+    public TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
     /// Block for operating_regions.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatingRegions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OperatingRegions block(s) required")]
     public HashSet<AwsVpcIpamOperatingRegionsBlock>? OperatingRegions
     {
-        get => GetProperty<HashSet<AwsVpcIpamOperatingRegionsBlock>>("operating_regions");
-        set => this.WithProperty("operating_regions", value);
+        set => SetProperty("operating_regions", value);
     }
 
     /// <summary>
@@ -174,8 +179,7 @@ public class AwsVpcIpam : TerraformResource
     /// </summary>
     public AwsVpcIpamTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcIpamTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

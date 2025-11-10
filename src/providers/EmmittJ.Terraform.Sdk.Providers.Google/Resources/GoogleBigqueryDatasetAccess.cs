@@ -14,8 +14,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -63,8 +59,7 @@ public class GoogleBigqueryDatasetAccessDatasetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetTypes is required")]
     public List<TerraformProperty<string>>? TargetTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("target_types");
-        set => WithProperty("target_types", value);
+        set => SetProperty("target_types", value);
     }
 
 }
@@ -81,8 +76,7 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
-        set => WithProperty("dataset_id", value);
+        set => SetProperty("dataset_id", value);
     }
 
     /// <summary>
@@ -91,8 +85,7 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     public required TerraformProperty<string> RoutineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("routine_id");
-        set => WithProperty("routine_id", value);
+        set => SetProperty("routine_id", value);
     }
 
 }
@@ -120,8 +112,7 @@ public class GoogleBigqueryDatasetAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -129,8 +120,7 @@ public class GoogleBigqueryDatasetAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -147,8 +137,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
-        set => WithProperty("dataset_id", value);
+        set => SetProperty("dataset_id", value);
     }
 
     /// <summary>
@@ -157,8 +146,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>
@@ -169,8 +157,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformProperty<string> TableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_id");
-        set => WithProperty("table_id", value);
+        set => SetProperty("table_id", value);
     }
 
 }
@@ -188,7 +175,16 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_updated_member");
+        SetOutput("api_updated_member");
+        SetOutput("dataset_id");
+        SetOutput("domain");
+        SetOutput("group_by_email");
+        SetOutput("iam_member");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("role");
+        SetOutput("special_group");
+        SetOutput("user_by_email");
     }
 
     /// <summary>
@@ -199,55 +195,55 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
-        set => this.WithProperty("dataset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
+        set => SetProperty("dataset_id", value);
     }
 
     /// <summary>
     /// A domain to grant access to. Any users signed in with the
     /// domain specified will be granted the specified access
     /// </summary>
-    public TerraformProperty<string>? Domain
+    public TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// An email address of a Google Group to grant access to.
     /// </summary>
-    public TerraformProperty<string>? GroupByEmail
+    public TerraformProperty<string> GroupByEmail
     {
-        get => GetProperty<TerraformProperty<string>>("group_by_email");
-        set => this.WithProperty("group_by_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_by_email");
+        set => SetProperty("group_by_email", value);
     }
 
     /// <summary>
     /// Some other type of member that appears in the IAM Policy but isn&#39;t a user,
     /// group, domain, or special group. For example: &#39;allUsers&#39;
     /// </summary>
-    public TerraformProperty<string>? IamMember
+    public TerraformProperty<string> IamMember
     {
-        get => GetProperty<TerraformProperty<string>>("iam_member");
-        set => this.WithProperty("iam_member", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_member");
+        set => SetProperty("iam_member", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -258,10 +254,10 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// post-create. See
     /// [official docs](https://cloud.google.com/bigquery/docs/access-control).
     /// </summary>
-    public TerraformProperty<string>? Role
+    public TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -271,20 +267,20 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// * &#39;projectWriters&#39;: Writers of the enclosing project.
     /// * &#39;allAuthenticatedUsers&#39;: All authenticated BigQuery users.
     /// </summary>
-    public TerraformProperty<string>? SpecialGroup
+    public TerraformProperty<string> SpecialGroup
     {
-        get => GetProperty<TerraformProperty<string>>("special_group");
-        set => this.WithProperty("special_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("special_group");
+        set => SetProperty("special_group", value);
     }
 
     /// <summary>
     /// An email address of a user to grant access to. For example:
     /// fred@example.com
     /// </summary>
-    public TerraformProperty<string>? UserByEmail
+    public TerraformProperty<string> UserByEmail
     {
-        get => GetProperty<TerraformProperty<string>>("user_by_email");
-        set => this.WithProperty("user_by_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_by_email");
+        set => SetProperty("user_by_email", value);
     }
 
     /// <summary>
@@ -294,8 +290,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     public List<GoogleBigqueryDatasetAccessConditionBlock>? Condition
     {
-        get => GetProperty<List<GoogleBigqueryDatasetAccessConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
@@ -305,8 +300,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
     public List<GoogleBigqueryDatasetAccessDatasetBlock>? Dataset
     {
-        get => GetProperty<List<GoogleBigqueryDatasetAccessDatasetBlock>>("dataset");
-        set => this.WithProperty("dataset", value);
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
@@ -316,8 +310,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routine block(s) allowed")]
     public List<GoogleBigqueryDatasetAccessRoutineBlock>? Routine
     {
-        get => GetProperty<List<GoogleBigqueryDatasetAccessRoutineBlock>>("routine");
-        set => this.WithProperty("routine", value);
+        set => SetProperty("routine", value);
     }
 
     /// <summary>
@@ -326,8 +319,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// </summary>
     public GoogleBigqueryDatasetAccessTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryDatasetAccessTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -337,8 +329,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 View block(s) allowed")]
     public List<GoogleBigqueryDatasetAccessViewBlock>? View
     {
-        get => GetProperty<List<GoogleBigqueryDatasetAccessViewBlock>>("view");
-        set => this.WithProperty("view", value);
+        set => SetProperty("view", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleNetworkConnectivityRegionalEndpointTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetworkConnectivityRegionalEndpointTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetworkConnectivityRegionalEndpointTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,11 +46,22 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("psc_forwarding_rule");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("psc_forwarding_rule");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("access_type");
+        SetOutput("address");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("subnetwork");
+        SetOutput("target_google_api");
     }
 
     /// <summary>
@@ -62,8 +70,8 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessType is required")]
     public required TerraformProperty<string> AccessType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_type");
-        set => this.WithProperty("access_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_type");
+        set => SetProperty("access_type", value);
     }
 
     /// <summary>
@@ -71,28 +79,28 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     /// 
     /// ~&amp;gt; **Note:** This field accepts both a reference to a Compute Address resource, which is the resource name of which format is given in the description, and IP literal value. If the user chooses to input a reserved address value; they need to make sure that the reserved address is in IPv4 version, its purpose is GCE_ENDPOINT, its type is INTERNAL and its status is RESERVED. If the user chooses to input an IP literal, they need to make sure that it&#39;s a valid IPv4 address (x.x.x.x) within the subnetwork.
     /// </summary>
-    public TerraformProperty<string>? Address
+    public TerraformProperty<string> Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
-        set => this.WithProperty("address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address");
+        set => SetProperty("address", value);
     }
 
     /// <summary>
     /// A description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -102,10 +110,10 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -114,8 +122,8 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -124,35 +132,35 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name of the VPC network for this private regional endpoint. Format: &#39;projects/{project}/global/networks/{network}&#39;
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The name of the subnetwork from which the IP address will be allocated. Format: &#39;projects/{project}/regions/{region}/subnetworks/{subnetwork}&#39;
     /// </summary>
-    public TerraformProperty<string>? Subnetwork
+    public TerraformProperty<string> Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => this.WithProperty("subnetwork", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnetwork");
+        set => SetProperty("subnetwork", value);
     }
 
     /// <summary>
@@ -161,8 +169,8 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGoogleApi is required")]
     public required TerraformProperty<string> TargetGoogleApi
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_google_api");
-        set => this.WithProperty("target_google_api", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_google_api");
+        set => SetProperty("target_google_api", value);
     }
 
     /// <summary>
@@ -171,8 +179,7 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     /// </summary>
     public GoogleNetworkConnectivityRegionalEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkConnectivityRegionalEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

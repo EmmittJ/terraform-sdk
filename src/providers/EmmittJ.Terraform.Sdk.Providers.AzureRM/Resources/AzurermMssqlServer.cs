@@ -13,8 +13,7 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AzureadAuthenticationOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("azuread_authentication_only");
-        set => WithProperty("azuread_authentication_only", value);
+        set => SetProperty("azuread_authentication_only", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
     public required TerraformProperty<string> LoginUsername
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("login_username");
-        set => WithProperty("login_username", value);
+        set => SetProperty("login_username", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
-        set => WithProperty("object_id", value);
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -104,8 +96,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -131,8 +120,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -150,71 +138,88 @@ public class AzurermMssqlServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fully_qualified_domain_name");
-        this.WithOutput("restorable_dropped_database_ids");
+        SetOutput("fully_qualified_domain_name");
+        SetOutput("restorable_dropped_database_ids");
+        SetOutput("administrator_login");
+        SetOutput("administrator_login_password");
+        SetOutput("administrator_login_password_wo");
+        SetOutput("administrator_login_password_wo_version");
+        SetOutput("connection_policy");
+        SetOutput("express_vulnerability_assessment_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("minimum_tls_version");
+        SetOutput("name");
+        SetOutput("outbound_network_restriction_enabled");
+        SetOutput("primary_user_assigned_identity_id");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("transparent_data_encryption_key_vault_key_id");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    public TerraformProperty<string>? AdministratorLogin
+    public TerraformProperty<string> AdministratorLogin
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_login");
-        set => this.WithProperty("administrator_login", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administrator_login");
+        set => SetProperty("administrator_login", value);
     }
 
     /// <summary>
     /// The administrator_login_password attribute.
     /// </summary>
-    public TerraformProperty<string>? AdministratorLoginPassword
+    public TerraformProperty<string> AdministratorLoginPassword
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_login_password");
-        set => this.WithProperty("administrator_login_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administrator_login_password");
+        set => SetProperty("administrator_login_password", value);
     }
 
     /// <summary>
     /// The administrator_login_password_wo attribute.
     /// </summary>
-    public TerraformProperty<string>? AdministratorLoginPasswordWo
+    public TerraformProperty<string> AdministratorLoginPasswordWo
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_login_password_wo");
-        set => this.WithProperty("administrator_login_password_wo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administrator_login_password_wo");
+        set => SetProperty("administrator_login_password_wo", value);
     }
 
     /// <summary>
     /// The administrator_login_password_wo_version attribute.
     /// </summary>
-    public TerraformProperty<double>? AdministratorLoginPasswordWoVersion
+    public TerraformProperty<double> AdministratorLoginPasswordWoVersion
     {
-        get => GetProperty<TerraformProperty<double>>("administrator_login_password_wo_version");
-        set => this.WithProperty("administrator_login_password_wo_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("administrator_login_password_wo_version");
+        set => SetProperty("administrator_login_password_wo_version", value);
     }
 
     /// <summary>
     /// The connection_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionPolicy
+    public TerraformProperty<string> ConnectionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("connection_policy");
-        set => this.WithProperty("connection_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_policy");
+        set => SetProperty("connection_policy", value);
     }
 
     /// <summary>
     /// The express_vulnerability_assessment_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExpressVulnerabilityAssessmentEnabled
+    public TerraformProperty<bool> ExpressVulnerabilityAssessmentEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("express_vulnerability_assessment_enabled");
-        set => this.WithProperty("express_vulnerability_assessment_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("express_vulnerability_assessment_enabled");
+        set => SetProperty("express_vulnerability_assessment_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -223,17 +228,17 @@ public class AzurermMssqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MinimumTlsVersion
+    public TerraformProperty<string> MinimumTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_tls_version");
-        set => this.WithProperty("minimum_tls_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("minimum_tls_version");
+        set => SetProperty("minimum_tls_version", value);
     }
 
     /// <summary>
@@ -242,35 +247,35 @@ public class AzurermMssqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The outbound_network_restriction_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? OutboundNetworkRestrictionEnabled
+    public TerraformProperty<bool> OutboundNetworkRestrictionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("outbound_network_restriction_enabled");
-        set => this.WithProperty("outbound_network_restriction_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("outbound_network_restriction_enabled");
+        set => SetProperty("outbound_network_restriction_enabled", value);
     }
 
     /// <summary>
     /// The primary_user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrimaryUserAssignedIdentityId
+    public TerraformProperty<string> PrimaryUserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("primary_user_assigned_identity_id");
-        set => this.WithProperty("primary_user_assigned_identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_user_assigned_identity_id");
+        set => SetProperty("primary_user_assigned_identity_id", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -279,26 +284,26 @@ public class AzurermMssqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The transparent_data_encryption_key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TransparentDataEncryptionKeyVaultKeyId
+    public TerraformProperty<string> TransparentDataEncryptionKeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("transparent_data_encryption_key_vault_key_id");
-        set => this.WithProperty("transparent_data_encryption_key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transparent_data_encryption_key_vault_key_id");
+        set => SetProperty("transparent_data_encryption_key_vault_key_id", value);
     }
 
     /// <summary>
@@ -307,8 +312,8 @@ public class AzurermMssqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -318,8 +323,7 @@ public class AzurermMssqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureadAdministrator block(s) allowed")]
     public List<AzurermMssqlServerAzureadAdministratorBlock>? AzureadAdministrator
     {
-        get => GetProperty<List<AzurermMssqlServerAzureadAdministratorBlock>>("azuread_administrator");
-        set => this.WithProperty("azuread_administrator", value);
+        set => SetProperty("azuread_administrator", value);
     }
 
     /// <summary>
@@ -329,8 +333,7 @@ public class AzurermMssqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermMssqlServerIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermMssqlServerIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -339,8 +342,7 @@ public class AzurermMssqlServer : TerraformResource
     /// </summary>
     public AzurermMssqlServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

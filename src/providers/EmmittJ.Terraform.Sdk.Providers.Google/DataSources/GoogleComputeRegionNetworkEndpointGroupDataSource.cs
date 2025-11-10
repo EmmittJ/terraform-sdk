@@ -14,24 +14,29 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_engine");
-        this.WithOutput("cloud_function");
-        this.WithOutput("cloud_run");
-        this.WithOutput("description");
-        this.WithOutput("network");
-        this.WithOutput("network_endpoint_type");
-        this.WithOutput("psc_data");
-        this.WithOutput("psc_target_service");
-        this.WithOutput("subnetwork");
+        SetOutput("app_engine");
+        SetOutput("cloud_function");
+        SetOutput("cloud_run");
+        SetOutput("description");
+        SetOutput("network");
+        SetOutput("network_endpoint_type");
+        SetOutput("psc_data");
+        SetOutput("psc_target_service");
+        SetOutput("subnetwork");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("self_link");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,37 +48,37 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// A reference to the region where the regional NEGs reside.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformProperty<string>? SelfLink
+    public TerraformProperty<string> SelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("self_link");
-        set => this.WithProperty("self_link", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("self_link");
+        set => SetProperty("self_link", value);
     }
 
     /// <summary>

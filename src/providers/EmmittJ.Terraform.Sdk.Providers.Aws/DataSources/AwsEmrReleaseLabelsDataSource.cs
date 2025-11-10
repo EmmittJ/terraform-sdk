@@ -13,8 +13,7 @@ public class AwsEmrReleaseLabelsDataSourceFiltersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Application
     {
-        get => GetProperty<TerraformProperty<string>>("application");
-        set => WithProperty("application", value);
+        set => SetProperty("application", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEmrReleaseLabelsDataSourceFiltersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
-        set => WithProperty("prefix", value);
+        set => SetProperty("prefix", value);
     }
 
 }
@@ -41,25 +39,27 @@ public class AwsEmrReleaseLabelsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("release_labels");
+        SetOutput("release_labels");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,8 +69,7 @@ public class AwsEmrReleaseLabelsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filters block(s) allowed")]
     public List<AwsEmrReleaseLabelsDataSourceFiltersBlock>? Filters
     {
-        get => GetProperty<List<AwsEmrReleaseLabelsDataSourceFiltersBlock>>("filters");
-        set => this.WithProperty("filters", value);
+        set => SetProperty("filters", value);
     }
 
     /// <summary>

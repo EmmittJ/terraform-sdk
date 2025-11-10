@@ -14,30 +14,38 @@ public class AwsLightsailLb : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("dns_name");
-        this.WithOutput("protocol");
-        this.WithOutput("public_ports");
-        this.WithOutput("support_code");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("dns_name");
+        SetOutput("protocol");
+        SetOutput("public_ports");
+        SetOutput("support_code");
+        SetOutput("health_check_path");
+        SetOutput("id");
+        SetOutput("instance_port");
+        SetOutput("ip_address_type");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The health_check_path attribute.
     /// </summary>
-    public TerraformProperty<string>? HealthCheckPath
+    public TerraformProperty<string> HealthCheckPath
     {
-        get => GetProperty<TerraformProperty<string>>("health_check_path");
-        set => this.WithProperty("health_check_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("health_check_path");
+        set => SetProperty("health_check_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -46,17 +54,17 @@ public class AwsLightsailLb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePort is required")]
     public required TerraformProperty<double> InstancePort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("instance_port");
-        set => this.WithProperty("instance_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_port");
+        set => SetProperty("instance_port", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddressType
+    public TerraformProperty<string> IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => this.WithProperty("ip_address_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_address_type");
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
@@ -65,35 +73,35 @@ public class AwsLightsailLb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleStorageTransferAgentPoolBandwidthLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LimitMbps is required")]
     public required TerraformProperty<string> LimitMbps
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("limit_mbps");
-        set => WithProperty("limit_mbps", value);
+        set => SetProperty("limit_mbps", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleStorageTransferAgentPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleStorageTransferAgentPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleStorageTransferAgentPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -68,25 +64,29 @@ public class GoogleStorageTransferAgentPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("state");
+        SetOutput("state");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Specifies the client-specified AgentPool description.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,17 +104,17 @@ public class GoogleStorageTransferAgentPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -124,8 +124,7 @@ public class GoogleStorageTransferAgentPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BandwidthLimit block(s) allowed")]
     public List<GoogleStorageTransferAgentPoolBandwidthLimitBlock>? BandwidthLimit
     {
-        get => GetProperty<List<GoogleStorageTransferAgentPoolBandwidthLimitBlock>>("bandwidth_limit");
-        set => this.WithProperty("bandwidth_limit", value);
+        set => SetProperty("bandwidth_limit", value);
     }
 
     /// <summary>
@@ -134,8 +133,7 @@ public class GoogleStorageTransferAgentPool : TerraformResource
     /// </summary>
     public GoogleStorageTransferAgentPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageTransferAgentPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

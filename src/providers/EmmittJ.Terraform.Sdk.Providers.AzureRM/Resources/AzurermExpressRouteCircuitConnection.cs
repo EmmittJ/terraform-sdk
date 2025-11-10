@@ -13,8 +13,7 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("address_prefix_ipv4");
+        SetOutput("address_prefix_ipv6");
+        SetOutput("authorization_key");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("peer_peering_id");
+        SetOutput("peering_id");
     }
 
     /// <summary>
@@ -66,35 +69,35 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixIpv4 is required")]
     public required TerraformProperty<string> AddressPrefixIpv4
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("address_prefix_ipv4");
-        set => this.WithProperty("address_prefix_ipv4", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address_prefix_ipv4");
+        set => SetProperty("address_prefix_ipv4", value);
     }
 
     /// <summary>
     /// The address_prefix_ipv6 attribute.
     /// </summary>
-    public TerraformProperty<string>? AddressPrefixIpv6
+    public TerraformProperty<string> AddressPrefixIpv6
     {
-        get => GetProperty<TerraformProperty<string>>("address_prefix_ipv6");
-        set => this.WithProperty("address_prefix_ipv6", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address_prefix_ipv6");
+        set => SetProperty("address_prefix_ipv6", value);
     }
 
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizationKey
+    public TerraformProperty<string> AuthorizationKey
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_key");
-        set => this.WithProperty("authorization_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_key");
+        set => SetProperty("authorization_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,8 +106,8 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -113,8 +116,8 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerPeeringId is required")]
     public required TerraformProperty<string> PeerPeeringId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_peering_id");
-        set => this.WithProperty("peer_peering_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_peering_id");
+        set => SetProperty("peer_peering_id", value);
     }
 
     /// <summary>
@@ -123,8 +126,8 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
     public required TerraformProperty<string> PeeringId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peering_id");
-        set => this.WithProperty("peering_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peering_id");
+        set => SetProperty("peering_id", value);
     }
 
     /// <summary>
@@ -133,8 +136,7 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     /// </summary>
     public AzurermExpressRouteCircuitConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermExpressRouteCircuitConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

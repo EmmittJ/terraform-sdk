@@ -13,8 +13,7 @@ public class GoogleFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,21 +54,26 @@ public class GoogleFolder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("configured_capabilities");
-        this.WithOutput("create_time");
-        this.WithOutput("folder_id");
-        this.WithOutput("lifecycle_state");
-        this.WithOutput("management_project");
-        this.WithOutput("name");
+        SetOutput("configured_capabilities");
+        SetOutput("create_time");
+        SetOutput("folder_id");
+        SetOutput("lifecycle_state");
+        SetOutput("management_project");
+        SetOutput("name");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// When the field is set to true or unset in Terraform state, a terraform apply or terraform destroy that would delete the instance will fail. When the field is set to false, deleting the instance is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
@@ -81,17 +82,17 @@ public class GoogleFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -100,17 +101,17 @@ public class GoogleFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys and values have the same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456. The field is ignored when empty. This field is only set at create time and modifying this field after creation will trigger recreation. To apply tags to an existing resource, see the google_tags_tag_value resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -119,8 +120,7 @@ public class GoogleFolder : TerraformResource
     /// </summary>
     public GoogleFolderTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFolderTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

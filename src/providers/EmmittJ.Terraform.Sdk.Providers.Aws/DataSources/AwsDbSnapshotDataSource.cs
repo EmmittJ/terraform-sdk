@@ -14,105 +14,114 @@ public class AwsDbSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allocated_storage");
-        this.WithOutput("availability_zone");
-        this.WithOutput("db_snapshot_arn");
-        this.WithOutput("encrypted");
-        this.WithOutput("engine");
-        this.WithOutput("engine_version");
-        this.WithOutput("iops");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("license_model");
-        this.WithOutput("option_group_name");
-        this.WithOutput("original_snapshot_create_time");
-        this.WithOutput("port");
-        this.WithOutput("snapshot_create_time");
-        this.WithOutput("source_db_snapshot_identifier");
-        this.WithOutput("source_region");
-        this.WithOutput("status");
-        this.WithOutput("storage_type");
-        this.WithOutput("vpc_id");
+        SetOutput("allocated_storage");
+        SetOutput("availability_zone");
+        SetOutput("db_snapshot_arn");
+        SetOutput("encrypted");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("iops");
+        SetOutput("kms_key_id");
+        SetOutput("license_model");
+        SetOutput("option_group_name");
+        SetOutput("original_snapshot_create_time");
+        SetOutput("port");
+        SetOutput("snapshot_create_time");
+        SetOutput("source_db_snapshot_identifier");
+        SetOutput("source_region");
+        SetOutput("status");
+        SetOutput("storage_type");
+        SetOutput("vpc_id");
+        SetOutput("db_instance_identifier");
+        SetOutput("db_snapshot_identifier");
+        SetOutput("id");
+        SetOutput("include_public");
+        SetOutput("include_shared");
+        SetOutput("most_recent");
+        SetOutput("region");
+        SetOutput("snapshot_type");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbInstanceIdentifier
+    public TerraformProperty<string> DbInstanceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_instance_identifier");
-        set => this.WithProperty("db_instance_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_identifier");
+        set => SetProperty("db_instance_identifier", value);
     }
 
     /// <summary>
     /// The db_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbSnapshotIdentifier
+    public TerraformProperty<string> DbSnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_snapshot_identifier");
-        set => this.WithProperty("db_snapshot_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_snapshot_identifier");
+        set => SetProperty("db_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_public attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludePublic
+    public TerraformProperty<bool> IncludePublic
     {
-        get => GetProperty<TerraformProperty<bool>>("include_public");
-        set => this.WithProperty("include_public", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_public");
+        set => SetProperty("include_public", value);
     }
 
     /// <summary>
     /// The include_shared attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeShared
+    public TerraformProperty<bool> IncludeShared
     {
-        get => GetProperty<TerraformProperty<bool>>("include_shared");
-        set => this.WithProperty("include_shared", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_shared");
+        set => SetProperty("include_shared", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The snapshot_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotType
+    public TerraformProperty<string> SnapshotType
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_type");
-        set => this.WithProperty("snapshot_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_type");
+        set => SetProperty("snapshot_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

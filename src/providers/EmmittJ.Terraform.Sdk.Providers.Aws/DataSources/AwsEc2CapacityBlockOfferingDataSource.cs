@@ -14,11 +14,17 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("availability_zone");
-        this.WithOutput("capacity_block_offering_id");
-        this.WithOutput("currency_code");
-        this.WithOutput("tenancy");
-        this.WithOutput("upfront_fee");
+        SetOutput("availability_zone");
+        SetOutput("capacity_block_offering_id");
+        SetOutput("currency_code");
+        SetOutput("tenancy");
+        SetOutput("upfront_fee");
+        SetOutput("capacity_duration_hours");
+        SetOutput("end_date_range");
+        SetOutput("instance_count");
+        SetOutput("instance_type");
+        SetOutput("region");
+        SetOutput("start_date_range");
     }
 
     /// <summary>
@@ -27,17 +33,17 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityDurationHours is required")]
     public required TerraformProperty<double> CapacityDurationHours
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("capacity_duration_hours");
-        set => this.WithProperty("capacity_duration_hours", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("capacity_duration_hours");
+        set => SetProperty("capacity_duration_hours", value);
     }
 
     /// <summary>
     /// The end_date_range attribute.
     /// </summary>
-    public TerraformProperty<string>? EndDateRange
+    public TerraformProperty<string> EndDateRange
     {
-        get => GetProperty<TerraformProperty<string>>("end_date_range");
-        set => this.WithProperty("end_date_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date_range");
+        set => SetProperty("end_date_range", value);
     }
 
     /// <summary>
@@ -46,8 +52,8 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformProperty<double> InstanceCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("instance_count");
-        set => this.WithProperty("instance_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -56,26 +62,26 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The start_date_range attribute.
     /// </summary>
-    public TerraformProperty<string>? StartDateRange
+    public TerraformProperty<string> StartDateRange
     {
-        get => GetProperty<TerraformProperty<string>>("start_date_range");
-        set => this.WithProperty("start_date_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_date_range");
+        set => SetProperty("start_date_range", value);
     }
 
     /// <summary>

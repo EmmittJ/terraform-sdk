@@ -13,8 +13,7 @@ public class AzurermBlueprintDefinitionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,24 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("last_modified");
-        this.WithOutput("target_scope");
-        this.WithOutput("time_created");
-        this.WithOutput("versions");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("last_modified");
+        SetOutput("target_scope");
+        SetOutput("time_created");
+        SetOutput("versions");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("scope_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +56,8 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformProperty<string> ScopeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope_id");
-        set => this.WithProperty("scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope_id");
+        set => SetProperty("scope_id", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     /// </summary>
     public AzurermBlueprintDefinitionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBlueprintDefinitionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

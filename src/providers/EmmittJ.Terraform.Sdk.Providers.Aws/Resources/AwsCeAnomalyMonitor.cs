@@ -14,34 +14,41 @@ public class AwsCeAnomalyMonitor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("monitor_dimension");
+        SetOutput("monitor_specification");
+        SetOutput("monitor_type");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The monitor_dimension attribute.
     /// </summary>
-    public TerraformProperty<string>? MonitorDimension
+    public TerraformProperty<string> MonitorDimension
     {
-        get => GetProperty<TerraformProperty<string>>("monitor_dimension");
-        set => this.WithProperty("monitor_dimension", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("monitor_dimension");
+        set => SetProperty("monitor_dimension", value);
     }
 
     /// <summary>
     /// The monitor_specification attribute.
     /// </summary>
-    public TerraformProperty<string>? MonitorSpecification
+    public TerraformProperty<string> MonitorSpecification
     {
-        get => GetProperty<TerraformProperty<string>>("monitor_specification");
-        set => this.WithProperty("monitor_specification", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("monitor_specification");
+        set => SetProperty("monitor_specification", value);
     }
 
     /// <summary>
@@ -50,8 +57,8 @@ public class AwsCeAnomalyMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorType is required")]
     public required TerraformProperty<string> MonitorType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("monitor_type");
-        set => this.WithProperty("monitor_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("monitor_type");
+        set => SetProperty("monitor_type", value);
     }
 
     /// <summary>
@@ -60,26 +67,26 @@ public class AwsCeAnomalyMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

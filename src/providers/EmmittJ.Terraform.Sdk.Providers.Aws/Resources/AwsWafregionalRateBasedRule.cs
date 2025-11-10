@@ -14,8 +14,7 @@ public class AwsWafregionalRateBasedRulePredicateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataId is required")]
     public required TerraformProperty<string> DataId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_id");
-        set => WithProperty("data_id", value);
+        set => SetProperty("data_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsWafregionalRateBasedRulePredicateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Negated is required")]
     public required TerraformProperty<bool> Negated
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("negated");
-        set => WithProperty("negated", value);
+        set => SetProperty("negated", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsWafregionalRateBasedRulePredicateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -52,16 +49,24 @@ public class AwsWafregionalRateBasedRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("metric_name");
+        SetOutput("name");
+        SetOutput("rate_key");
+        SetOutput("rate_limit");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -70,8 +75,8 @@ public class AwsWafregionalRateBasedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
-        set => this.WithProperty("metric_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metric_name");
+        set => SetProperty("metric_name", value);
     }
 
     /// <summary>
@@ -80,8 +85,8 @@ public class AwsWafregionalRateBasedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -90,8 +95,8 @@ public class AwsWafregionalRateBasedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RateKey is required")]
     public required TerraformProperty<string> RateKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rate_key");
-        set => this.WithProperty("rate_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rate_key");
+        set => SetProperty("rate_key", value);
     }
 
     /// <summary>
@@ -100,35 +105,35 @@ public class AwsWafregionalRateBasedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RateLimit is required")]
     public required TerraformProperty<double> RateLimit
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("rate_limit");
-        set => this.WithProperty("rate_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("rate_limit");
+        set => SetProperty("rate_limit", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -137,8 +142,7 @@ public class AwsWafregionalRateBasedRule : TerraformResource
     /// </summary>
     public HashSet<AwsWafregionalRateBasedRulePredicateBlock>? Predicate
     {
-        get => GetProperty<HashSet<AwsWafregionalRateBasedRulePredicateBlock>>("predicate");
-        set => this.WithProperty("predicate", value);
+        set => SetProperty("predicate", value);
     }
 
     /// <summary>

@@ -22,8 +22,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => WithProperty("annotations", value);
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EffectiveAnnotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("effective_annotations");
-        set => WithProperty("effective_annotations", value);
+        set => SetProperty("effective_annotations", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EffectiveLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("effective_labels");
-        set => WithProperty("effective_labels", value);
+        set => SetProperty("effective_labels", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Generation
     {
-        get => GetProperty<TerraformProperty<double>>("generation");
-        set => WithProperty("generation", value);
+        set => SetProperty("generation", value);
     }
 
     /// <summary>
@@ -64,8 +60,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
-        set => WithProperty("namespace", value);
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
@@ -91,8 +85,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceVersion
     {
-        get => GetProperty<TerraformProperty<string>>("resource_version");
-        set => WithProperty("resource_version", value);
+        set => SetProperty("resource_version", value);
     }
 
     /// <summary>
@@ -100,8 +93,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("self_link");
-        set => WithProperty("self_link", value);
+        set => SetProperty("self_link", value);
     }
 
     /// <summary>
@@ -110,8 +102,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? TerraformLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("terraform_labels");
-        set => WithProperty("terraform_labels", value);
+        set => SetProperty("terraform_labels", value);
     }
 
     /// <summary>
@@ -122,8 +113,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Uid
     {
-        get => GetProperty<TerraformProperty<string>>("uid");
-        set => WithProperty("uid", value);
+        set => SetProperty("uid", value);
     }
 
 }
@@ -139,8 +129,7 @@ public class GoogleCloudRunDomainMappingSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateMode
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_mode");
-        set => WithProperty("certificate_mode", value);
+        set => SetProperty("certificate_mode", value);
     }
 
     /// <summary>
@@ -151,8 +140,7 @@ public class GoogleCloudRunDomainMappingSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ForceOverride
     {
-        get => GetProperty<TerraformProperty<bool>>("force_override");
-        set => WithProperty("force_override", value);
+        set => SetProperty("force_override", value);
     }
 
     /// <summary>
@@ -162,8 +150,7 @@ public class GoogleCloudRunDomainMappingSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteName is required")]
     public required TerraformProperty<string> RouteName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("route_name");
-        set => WithProperty("route_name", value);
+        set => SetProperty("route_name", value);
     }
 
 }
@@ -179,8 +166,7 @@ public class GoogleCloudRunDomainMappingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -188,8 +174,7 @@ public class GoogleCloudRunDomainMappingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -207,16 +192,20 @@ public class GoogleCloudRunDomainMapping : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("status");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -225,8 +214,8 @@ public class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -235,17 +224,17 @@ public class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -255,20 +244,19 @@ public class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     public List<GoogleCloudRunDomainMappingMetadataBlock>? Metadata
     {
-        get => GetProperty<List<GoogleCloudRunDomainMappingMetadataBlock>>("metadata");
-        set => this.WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
     /// Block for spec.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Spec is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Spec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     public List<GoogleCloudRunDomainMappingSpecBlock>? Spec
     {
-        get => GetProperty<List<GoogleCloudRunDomainMappingSpecBlock>>("spec");
-        set => this.WithProperty("spec", value);
+        set => SetProperty("spec", value);
     }
 
     /// <summary>
@@ -277,8 +265,7 @@ public class GoogleCloudRunDomainMapping : TerraformResource
     /// </summary>
     public GoogleCloudRunDomainMappingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudRunDomainMappingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

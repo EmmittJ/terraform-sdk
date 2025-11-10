@@ -14,16 +14,20 @@ public class AwsLightsailStaticIpAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ip_address");
+        SetOutput("ip_address");
+        SetOutput("id");
+        SetOutput("instance_name");
+        SetOutput("region");
+        SetOutput("static_ip_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,17 +36,17 @@ public class AwsLightsailStaticIpAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
-        set => this.WithProperty("instance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_name");
+        set => SetProperty("instance_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -51,8 +55,8 @@ public class AwsLightsailStaticIpAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticIpName is required")]
     public required TerraformProperty<string> StaticIpName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("static_ip_name");
-        set => this.WithProperty("static_ip_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("static_ip_name");
+        set => SetProperty("static_ip_name", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermNginxApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNginxApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNginxApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNginxApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,7 +54,12 @@ public class AzurermNginxApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("hint");
+        SetOutput("hint");
+        SetOutput("end_date_time");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("nginx_deployment_id");
+        SetOutput("secret_text");
     }
 
     /// <summary>
@@ -67,17 +68,17 @@ public class AzurermNginxApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDateTime is required")]
     public required TerraformProperty<string> EndDateTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("end_date_time");
-        set => this.WithProperty("end_date_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date_time");
+        set => SetProperty("end_date_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class AzurermNginxApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -96,8 +97,8 @@ public class AzurermNginxApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
-        set => this.WithProperty("nginx_deployment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nginx_deployment_id");
+        set => SetProperty("nginx_deployment_id", value);
     }
 
     /// <summary>
@@ -106,8 +107,8 @@ public class AzurermNginxApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretText is required")]
     public required TerraformProperty<string> SecretText
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_text");
-        set => this.WithProperty("secret_text", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_text");
+        set => SetProperty("secret_text", value);
     }
 
     /// <summary>
@@ -116,8 +117,7 @@ public class AzurermNginxApiKey : TerraformResource
     /// </summary>
     public AzurermNginxApiKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNginxApiKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

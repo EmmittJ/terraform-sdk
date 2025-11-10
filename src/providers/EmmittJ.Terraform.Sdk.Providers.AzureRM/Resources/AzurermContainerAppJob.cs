@@ -13,8 +13,7 @@ public class AzurermContainerAppJobEventTriggerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Parallelism
     {
-        get => GetProperty<TerraformProperty<double>>("parallelism");
-        set => WithProperty("parallelism", value);
+        set => SetProperty("parallelism", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerAppJobEventTriggerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ReplicaCompletionCount
     {
-        get => GetProperty<TerraformProperty<double>>("replica_completion_count");
-        set => WithProperty("replica_completion_count", value);
+        set => SetProperty("replica_completion_count", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermContainerAppJobIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermContainerAppJobIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermContainerAppJobIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermContainerAppJobIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class AzurermContainerAppJobManualTriggerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Parallelism
     {
-        get => GetProperty<TerraformProperty<double>>("parallelism");
-        set => WithProperty("parallelism", value);
+        set => SetProperty("parallelism", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermContainerAppJobManualTriggerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ReplicaCompletionCount
     {
-        get => GetProperty<TerraformProperty<double>>("replica_completion_count");
-        set => WithProperty("replica_completion_count", value);
+        set => SetProperty("replica_completion_count", value);
     }
 
 }
@@ -110,8 +102,7 @@ public class AzurermContainerAppJobRegistryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Identity
     {
-        get => GetProperty<TerraformProperty<string>>("identity");
-        set => WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -119,8 +110,7 @@ public class AzurermContainerAppJobRegistryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PasswordSecretName
     {
-        get => GetProperty<TerraformProperty<string>>("password_secret_name");
-        set => WithProperty("password_secret_name", value);
+        set => SetProperty("password_secret_name", value);
     }
 
     /// <summary>
@@ -129,8 +119,7 @@ public class AzurermContainerAppJobRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server");
-        set => WithProperty("server", value);
+        set => SetProperty("server", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class AzurermContainerAppJobRegistryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -156,8 +144,7 @@ public class AzurermContainerAppJobScheduleTriggerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CronExpression is required")]
     public required TerraformProperty<string> CronExpression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cron_expression");
-        set => WithProperty("cron_expression", value);
+        set => SetProperty("cron_expression", value);
     }
 
     /// <summary>
@@ -165,8 +152,7 @@ public class AzurermContainerAppJobScheduleTriggerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Parallelism
     {
-        get => GetProperty<TerraformProperty<double>>("parallelism");
-        set => WithProperty("parallelism", value);
+        set => SetProperty("parallelism", value);
     }
 
     /// <summary>
@@ -174,8 +160,7 @@ public class AzurermContainerAppJobScheduleTriggerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ReplicaCompletionCount
     {
-        get => GetProperty<TerraformProperty<double>>("replica_completion_count");
-        set => WithProperty("replica_completion_count", value);
+        set => SetProperty("replica_completion_count", value);
     }
 
 }
@@ -191,8 +176,7 @@ public class AzurermContainerAppJobSecretBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Identity
     {
-        get => GetProperty<TerraformProperty<string>>("identity");
-        set => WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -200,8 +184,7 @@ public class AzurermContainerAppJobSecretBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_secret_id");
-        set => WithProperty("key_vault_secret_id", value);
+        set => SetProperty("key_vault_secret_id", value);
     }
 
     /// <summary>
@@ -210,8 +193,7 @@ public class AzurermContainerAppJobSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -219,8 +201,7 @@ public class AzurermContainerAppJobSecretBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -244,8 +225,7 @@ public class AzurermContainerAppJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -253,8 +233,7 @@ public class AzurermContainerAppJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -262,8 +241,7 @@ public class AzurermContainerAppJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -271,8 +249,7 @@ public class AzurermContainerAppJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -290,8 +267,17 @@ public class AzurermContainerAppJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("event_stream_endpoint");
-        this.WithOutput("outbound_ip_addresses");
+        SetOutput("event_stream_endpoint");
+        SetOutput("outbound_ip_addresses");
+        SetOutput("container_app_environment_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("replica_retry_limit");
+        SetOutput("replica_timeout_in_seconds");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("workload_profile_name");
     }
 
     /// <summary>
@@ -300,17 +286,17 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
-        set => this.WithProperty("container_app_environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_app_environment_id");
+        set => SetProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -319,8 +305,8 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -329,17 +315,17 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The replica_retry_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? ReplicaRetryLimit
+    public TerraformProperty<double> ReplicaRetryLimit
     {
-        get => GetProperty<TerraformProperty<double>>("replica_retry_limit");
-        set => this.WithProperty("replica_retry_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("replica_retry_limit");
+        set => SetProperty("replica_retry_limit", value);
     }
 
     /// <summary>
@@ -348,8 +334,8 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicaTimeoutInSeconds is required")]
     public required TerraformProperty<double> ReplicaTimeoutInSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("replica_timeout_in_seconds");
-        set => this.WithProperty("replica_timeout_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("replica_timeout_in_seconds");
+        set => SetProperty("replica_timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -358,26 +344,26 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The workload_profile_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkloadProfileName
+    public TerraformProperty<string> WorkloadProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("workload_profile_name");
-        set => this.WithProperty("workload_profile_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_profile_name");
+        set => SetProperty("workload_profile_name", value);
     }
 
     /// <summary>
@@ -387,8 +373,7 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventTriggerConfig block(s) allowed")]
     public List<AzurermContainerAppJobEventTriggerConfigBlock>? EventTriggerConfig
     {
-        get => GetProperty<List<AzurermContainerAppJobEventTriggerConfigBlock>>("event_trigger_config");
-        set => this.WithProperty("event_trigger_config", value);
+        set => SetProperty("event_trigger_config", value);
     }
 
     /// <summary>
@@ -398,8 +383,7 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermContainerAppJobIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermContainerAppJobIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -409,8 +393,7 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualTriggerConfig block(s) allowed")]
     public List<AzurermContainerAppJobManualTriggerConfigBlock>? ManualTriggerConfig
     {
-        get => GetProperty<List<AzurermContainerAppJobManualTriggerConfigBlock>>("manual_trigger_config");
-        set => this.WithProperty("manual_trigger_config", value);
+        set => SetProperty("manual_trigger_config", value);
     }
 
     /// <summary>
@@ -419,8 +402,7 @@ public class AzurermContainerAppJob : TerraformResource
     /// </summary>
     public List<AzurermContainerAppJobRegistryBlock>? Registry
     {
-        get => GetProperty<List<AzurermContainerAppJobRegistryBlock>>("registry");
-        set => this.WithProperty("registry", value);
+        set => SetProperty("registry", value);
     }
 
     /// <summary>
@@ -430,8 +412,7 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleTriggerConfig block(s) allowed")]
     public List<AzurermContainerAppJobScheduleTriggerConfigBlock>? ScheduleTriggerConfig
     {
-        get => GetProperty<List<AzurermContainerAppJobScheduleTriggerConfigBlock>>("schedule_trigger_config");
-        set => this.WithProperty("schedule_trigger_config", value);
+        set => SetProperty("schedule_trigger_config", value);
     }
 
     /// <summary>
@@ -440,20 +421,19 @@ public class AzurermContainerAppJob : TerraformResource
     /// </summary>
     public HashSet<AzurermContainerAppJobSecretBlock>? Secret
     {
-        get => GetProperty<HashSet<AzurermContainerAppJobSecretBlock>>("secret");
-        set => this.WithProperty("secret", value);
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
     /// Block for template.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     public List<AzurermContainerAppJobTemplateBlock>? Template
     {
-        get => GetProperty<List<AzurermContainerAppJobTemplateBlock>>("template");
-        set => this.WithProperty("template", value);
+        set => SetProperty("template", value);
     }
 
     /// <summary>
@@ -462,8 +442,7 @@ public class AzurermContainerAppJob : TerraformResource
     /// </summary>
     public AzurermContainerAppJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerAppJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

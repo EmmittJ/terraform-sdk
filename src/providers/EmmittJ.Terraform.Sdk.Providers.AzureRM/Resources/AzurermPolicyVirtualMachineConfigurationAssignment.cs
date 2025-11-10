@@ -13,8 +13,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
     /// </summary>
     public TerraformProperty<string>? AssignmentType
     {
-        get => GetProperty<TerraformProperty<string>>("assignment_type");
-        set => WithProperty("assignment_type", value);
+        set => SetProperty("assignment_type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
     /// </summary>
     public TerraformProperty<string>? ContentHash
     {
-        get => GetProperty<TerraformProperty<string>>("content_hash");
-        set => WithProperty("content_hash", value);
+        set => SetProperty("content_hash", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
     /// </summary>
     public TerraformProperty<string>? ContentUri
     {
-        get => GetProperty<TerraformProperty<string>>("content_uri");
-        set => WithProperty("content_uri", value);
+        set => SetProperty("content_uri", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -103,15 +95,19 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("virtual_machine_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -120,8 +116,8 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -130,8 +126,8 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -140,20 +136,20 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
-        set => this.WithProperty("virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
+        set => SetProperty("virtual_machine_id", value);
     }
 
     /// <summary>
     /// Block for configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configuration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     public List<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock>? Configuration
     {
-        get => GetProperty<List<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock>>("configuration");
-        set => this.WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>
@@ -162,8 +158,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResou
     /// </summary>
     public AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

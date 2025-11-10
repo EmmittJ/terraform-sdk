@@ -14,8 +14,7 @@ public class GoogleMlEngineModelDefaultVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleMlEngineModelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleMlEngineModelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleMlEngineModelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -69,26 +65,34 @@ public class GoogleMlEngineModel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("online_prediction_console_logging");
+        SetOutput("online_prediction_logging");
+        SetOutput("project");
+        SetOutput("regions");
     }
 
     /// <summary>
     /// The description specified for the model when it was created.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -97,10 +101,10 @@ public class GoogleMlEngineModel : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -109,45 +113,45 @@ public class GoogleMlEngineModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// If true, online prediction nodes send stderr and stdout streams to Stackdriver Logging
     /// </summary>
-    public TerraformProperty<bool>? OnlinePredictionConsoleLogging
+    public TerraformProperty<bool> OnlinePredictionConsoleLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("online_prediction_console_logging");
-        set => this.WithProperty("online_prediction_console_logging", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("online_prediction_console_logging");
+        set => SetProperty("online_prediction_console_logging", value);
     }
 
     /// <summary>
     /// If true, online prediction access logs are sent to StackDriver Logging.
     /// </summary>
-    public TerraformProperty<bool>? OnlinePredictionLogging
+    public TerraformProperty<bool> OnlinePredictionLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("online_prediction_logging");
-        set => this.WithProperty("online_prediction_logging", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("online_prediction_logging");
+        set => SetProperty("online_prediction_logging", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The list of regions where the model is going to be deployed.
     /// Currently only one region per model is supported
     /// </summary>
-    public List<TerraformProperty<string>>? Regions
+    public List<TerraformProperty<string>> Regions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("regions");
-        set => this.WithProperty("regions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("regions");
+        set => SetProperty("regions", value);
     }
 
     /// <summary>
@@ -157,8 +161,7 @@ public class GoogleMlEngineModel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultVersion block(s) allowed")]
     public List<GoogleMlEngineModelDefaultVersionBlock>? DefaultVersion
     {
-        get => GetProperty<List<GoogleMlEngineModelDefaultVersionBlock>>("default_version");
-        set => this.WithProperty("default_version", value);
+        set => SetProperty("default_version", value);
     }
 
     /// <summary>
@@ -167,8 +170,7 @@ public class GoogleMlEngineModel : TerraformResource
     /// </summary>
     public GoogleMlEngineModelTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMlEngineModelTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

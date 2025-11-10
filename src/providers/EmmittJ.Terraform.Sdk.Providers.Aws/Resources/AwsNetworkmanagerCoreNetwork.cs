@@ -13,8 +13,7 @@ public class AwsNetworkmanagerCoreNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerCoreNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsNetworkmanagerCoreNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,47 +46,55 @@ public class AwsNetworkmanagerCoreNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("edges");
-        this.WithOutput("segments");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("edges");
+        SetOutput("segments");
+        SetOutput("state");
+        SetOutput("base_policy_document");
+        SetOutput("base_policy_regions");
+        SetOutput("create_base_policy");
+        SetOutput("description");
+        SetOutput("global_network_id");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The base_policy_document attribute.
     /// </summary>
-    public TerraformProperty<string>? BasePolicyDocument
+    public TerraformProperty<string> BasePolicyDocument
     {
-        get => GetProperty<TerraformProperty<string>>("base_policy_document");
-        set => this.WithProperty("base_policy_document", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("base_policy_document");
+        set => SetProperty("base_policy_document", value);
     }
 
     /// <summary>
     /// The base_policy_regions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? BasePolicyRegions
+    public HashSet<TerraformProperty<string>> BasePolicyRegions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("base_policy_regions");
-        set => this.WithProperty("base_policy_regions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("base_policy_regions");
+        set => SetProperty("base_policy_regions", value);
     }
 
     /// <summary>
     /// The create_base_policy attribute.
     /// </summary>
-    public TerraformProperty<bool>? CreateBasePolicy
+    public TerraformProperty<bool> CreateBasePolicy
     {
-        get => GetProperty<TerraformProperty<bool>>("create_base_policy");
-        set => this.WithProperty("create_base_policy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_base_policy");
+        set => SetProperty("create_base_policy", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -98,35 +103,35 @@ public class AwsNetworkmanagerCoreNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
-        set => this.WithProperty("global_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
+        set => SetProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -135,8 +140,7 @@ public class AwsNetworkmanagerCoreNetwork : TerraformResource
     /// </summary>
     public AwsNetworkmanagerCoreNetworkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerCoreNetworkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

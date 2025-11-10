@@ -14,8 +14,7 @@ public class GoogleChronicleReferenceListEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -39,8 +38,7 @@ public class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +46,7 @@ public class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,11 +72,18 @@ public class GoogleChronicleReferenceList : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("display_name");
-        this.WithOutput("name");
-        this.WithOutput("revision_create_time");
-        this.WithOutput("rule_associations_count");
-        this.WithOutput("rules");
+        SetOutput("display_name");
+        SetOutput("name");
+        SetOutput("revision_create_time");
+        SetOutput("rule_associations_count");
+        SetOutput("rules");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("reference_list_id");
+        SetOutput("syntax_type");
     }
 
     /// <summary>
@@ -89,17 +92,17 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -108,8 +111,8 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -118,17 +121,17 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -142,8 +145,8 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceListId is required")]
     public required TerraformProperty<string> ReferenceListId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("reference_list_id");
-        set => this.WithProperty("reference_list_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reference_list_id");
+        set => SetProperty("reference_list_id", value);
     }
 
     /// <summary>
@@ -155,19 +158,19 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyntaxType is required")]
     public required TerraformProperty<string> SyntaxType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("syntax_type");
-        set => this.WithProperty("syntax_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("syntax_type");
+        set => SetProperty("syntax_type", value);
     }
 
     /// <summary>
     /// Block for entries.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entries block(s) required")]
     public List<GoogleChronicleReferenceListEntriesBlock>? Entries
     {
-        get => GetProperty<List<GoogleChronicleReferenceListEntriesBlock>>("entries");
-        set => this.WithProperty("entries", value);
+        set => SetProperty("entries", value);
     }
 
     /// <summary>
@@ -177,8 +180,7 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScopeInfo block(s) allowed")]
     public List<GoogleChronicleReferenceListScopeInfoBlock>? ScopeInfo
     {
-        get => GetProperty<List<GoogleChronicleReferenceListScopeInfoBlock>>("scope_info");
-        set => this.WithProperty("scope_info", value);
+        set => SetProperty("scope_info", value);
     }
 
     /// <summary>
@@ -187,8 +189,7 @@ public class GoogleChronicleReferenceList : TerraformResource
     /// </summary>
     public GoogleChronicleReferenceListTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleChronicleReferenceListTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

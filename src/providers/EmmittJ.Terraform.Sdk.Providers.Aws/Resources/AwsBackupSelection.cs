@@ -22,8 +22,7 @@ public class AwsBackupSelectionSelectionTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class AwsBackupSelectionSelectionTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class AwsBackupSelectionSelectionTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -60,6 +57,13 @@ public class AwsBackupSelection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("iam_role_arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("not_resources");
+        SetOutput("plan_id");
+        SetOutput("region");
+        SetOutput("resources");
     }
 
     /// <summary>
@@ -68,17 +72,17 @@ public class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,17 +91,17 @@ public class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The not_resources attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NotResources
+    public HashSet<TerraformProperty<string>> NotResources
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("not_resources");
-        set => this.WithProperty("not_resources", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("not_resources");
+        set => SetProperty("not_resources", value);
     }
 
     /// <summary>
@@ -106,26 +110,26 @@ public class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlanId is required")]
     public required TerraformProperty<string> PlanId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("plan_id");
-        set => this.WithProperty("plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plan_id");
+        set => SetProperty("plan_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Resources
+    public HashSet<TerraformProperty<string>> Resources
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resources");
-        set => this.WithProperty("resources", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resources");
+        set => SetProperty("resources", value);
     }
 
     /// <summary>
@@ -134,8 +138,7 @@ public class AwsBackupSelection : TerraformResource
     /// </summary>
     public HashSet<AwsBackupSelectionConditionBlock>? Condition
     {
-        get => GetProperty<HashSet<AwsBackupSelectionConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
@@ -144,8 +147,7 @@ public class AwsBackupSelection : TerraformResource
     /// </summary>
     public HashSet<AwsBackupSelectionSelectionTagBlock>? SelectionTag
     {
-        get => GetProperty<HashSet<AwsBackupSelectionSelectionTagBlock>>("selection_tag");
-        set => this.WithProperty("selection_tag", value);
+        set => SetProperty("selection_tag", value);
     }
 
 }

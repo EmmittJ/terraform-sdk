@@ -15,8 +15,7 @@ public class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AccessType
     {
-        get => GetProperty<TerraformProperty<string>>("access_type");
-        set => WithProperty("access_type", value);
+        set => SetProperty("access_type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProxyUri
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_uri");
-        set => WithProperty("proxy_uri", value);
+        set => SetProperty("proxy_uri", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RuntimeOwner
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_owner");
-        set => WithProperty("runtime_owner", value);
+        set => SetProperty("runtime_owner", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomGpuDriverPath
     {
-        get => GetProperty<TerraformProperty<string>>("custom_gpu_driver_path");
-        set => WithProperty("custom_gpu_driver_path", value);
+        set => SetProperty("custom_gpu_driver_path", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableHealthMonitoring
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_health_monitoring");
-        set => WithProperty("enable_health_monitoring", value);
+        set => SetProperty("enable_health_monitoring", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IdleShutdown
     {
-        get => GetProperty<TerraformProperty<bool>>("idle_shutdown");
-        set => WithProperty("idle_shutdown", value);
+        set => SetProperty("idle_shutdown", value);
     }
 
     /// <summary>
@@ -81,8 +75,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IdleShutdownTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("idle_shutdown_timeout");
-        set => WithProperty("idle_shutdown_timeout", value);
+        set => SetProperty("idle_shutdown_timeout", value);
     }
 
     /// <summary>
@@ -90,8 +83,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InstallGpuDriver
     {
-        get => GetProperty<TerraformProperty<bool>>("install_gpu_driver");
-        set => WithProperty("install_gpu_driver", value);
+        set => SetProperty("install_gpu_driver", value);
     }
 
     /// <summary>
@@ -100,8 +92,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NotebookUpgradeSchedule
     {
-        get => GetProperty<TerraformProperty<string>>("notebook_upgrade_schedule");
-        set => WithProperty("notebook_upgrade_schedule", value);
+        set => SetProperty("notebook_upgrade_schedule", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PostStartupScript
     {
-        get => GetProperty<TerraformProperty<string>>("post_startup_script");
-        set => WithProperty("post_startup_script", value);
+        set => SetProperty("post_startup_script", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PostStartupScriptBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("post_startup_script_behavior");
-        set => WithProperty("post_startup_script_behavior", value);
+        set => SetProperty("post_startup_script_behavior", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Upgradeable
     {
-        get => GetProperty<TerraformProperty<bool>>("upgradeable");
-        set => WithProperty("upgradeable", value);
+        set => SetProperty("upgradeable", value);
     }
 
 }
@@ -146,8 +134,7 @@ public class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -155,8 +142,7 @@ public class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -164,8 +150,7 @@ public class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -181,8 +166,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
-        set => WithProperty("instance_id", value);
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -190,8 +174,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("instance_name");
-        set => WithProperty("instance_name", value);
+        set => SetProperty("instance_name", value);
     }
 
 }
@@ -210,20 +193,25 @@ public class GoogleNotebooksRuntime : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("health_state");
-        this.WithOutput("metrics");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("health_state");
+        SetOutput("metrics");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -238,10 +226,10 @@ public class GoogleNotebooksRuntime : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -250,8 +238,8 @@ public class GoogleNotebooksRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -260,17 +248,17 @@ public class GoogleNotebooksRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -280,8 +268,7 @@ public class GoogleNotebooksRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessConfig block(s) allowed")]
     public List<GoogleNotebooksRuntimeAccessConfigBlock>? AccessConfig
     {
-        get => GetProperty<List<GoogleNotebooksRuntimeAccessConfigBlock>>("access_config");
-        set => this.WithProperty("access_config", value);
+        set => SetProperty("access_config", value);
     }
 
     /// <summary>
@@ -291,8 +278,7 @@ public class GoogleNotebooksRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareConfig block(s) allowed")]
     public List<GoogleNotebooksRuntimeSoftwareConfigBlock>? SoftwareConfig
     {
-        get => GetProperty<List<GoogleNotebooksRuntimeSoftwareConfigBlock>>("software_config");
-        set => this.WithProperty("software_config", value);
+        set => SetProperty("software_config", value);
     }
 
     /// <summary>
@@ -301,8 +287,7 @@ public class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     public GoogleNotebooksRuntimeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNotebooksRuntimeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -312,8 +297,7 @@ public class GoogleNotebooksRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachine block(s) allowed")]
     public List<GoogleNotebooksRuntimeVirtualMachineBlock>? VirtualMachine
     {
-        get => GetProperty<List<GoogleNotebooksRuntimeVirtualMachineBlock>>("virtual_machine");
-        set => this.WithProperty("virtual_machine", value);
+        set => SetProperty("virtual_machine", value);
     }
 
     /// <summary>

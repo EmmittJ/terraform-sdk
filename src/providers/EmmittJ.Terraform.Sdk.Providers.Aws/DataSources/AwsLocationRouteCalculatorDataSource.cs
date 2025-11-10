@@ -14,11 +14,15 @@ public class AwsLocationRouteCalculatorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputalculator_arn");
-        this.WithOutputreate_time");
-        this.WithOutputata_source");
-        this.WithOutputescription");
-        this.WithOutputpdate_time");
+        SetOutput("calculator_arn");
+        SetOutput("create_time");
+        SetOutput("data_source");
+        SetOutput("description");
+        SetOutput("update_time");
+        SetOutput("calculator_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -27,35 +31,35 @@ public class AwsLocationRouteCalculatorDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CalculatorName is required")]
     public required TerraformProperty<string> CalculatorName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("calculator_name");
-        set => this.WithProperty("calculator_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("calculator_name");
+        set => SetProperty("calculator_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

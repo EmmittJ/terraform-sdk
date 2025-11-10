@@ -14,22 +14,25 @@ public class GoogleVmwareengineExternalAddressDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("description");
-        this.WithOutput("external_ip");
-        this.WithOutput("internal_ip");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("external_ip");
+        SetOutput("internal_ip");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -38,8 +41,8 @@ public class GoogleVmwareengineExternalAddressDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -50,8 +53,8 @@ public class GoogleVmwareengineExternalAddressDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>

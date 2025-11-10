@@ -13,8 +13,7 @@ public class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? SelectedPrompt
     {
-        get => GetProperty<TerraformProperty<string>>("selected_prompt");
-        set => WithProperty("selected_prompt", value);
+        set => SetProperty("selected_prompt", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock :
     /// </summary>
     public TerraformProperty<string>? DefaultBannedPhraseMatchStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("default_banned_phrase_match_strategy");
-        set => WithProperty("default_banned_phrase_match_strategy", value);
+        set => SetProperty("default_banned_phrase_match_strategy", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformProperty<string>? Agent
     {
-        get => GetProperty<TerraformProperty<string>>("agent");
-        set => WithProperty("agent", value);
+        set => SetProperty("agent", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformProperty<string>? AgentIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("agent_identity");
-        set => WithProperty("agent_identity", value);
+        set => SetProperty("agent_identity", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformProperty<string>? AgentScope
     {
-        get => GetProperty<TerraformProperty<string>>("agent_scope");
-        set => WithProperty("agent_scope", value);
+        set => SetProperty("agent_scope", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformProperty<string>? Business
     {
-        get => GetProperty<TerraformProperty<string>>("business");
-        set => WithProperty("business", value);
+        set => SetProperty("business", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformProperty<string>? BusinessDescription
     {
-        get => GetProperty<TerraformProperty<string>>("business_description");
-        set => WithProperty("business_description", value);
+        set => SetProperty("business_description", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformProperty<bool>? DisableDataStoreFallback
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_data_store_fallback");
-        set => WithProperty("disable_data_store_fallback", value);
+        set => SetProperty("disable_data_store_fallback", value);
     }
 
 }
@@ -110,8 +102,7 @@ public class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Model
     {
-        get => GetProperty<TerraformProperty<string>>("model");
-        set => WithProperty("model", value);
+        set => SetProperty("model", value);
     }
 
     /// <summary>
@@ -119,8 +110,7 @@ public class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? PromptText
     {
-        get => GetProperty<TerraformProperty<string>>("prompt_text");
-        set => WithProperty("prompt_text", value);
+        set => SetProperty("prompt_text", value);
     }
 
 }
@@ -136,8 +126,7 @@ public class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -145,8 +134,7 @@ public class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -154,8 +142,7 @@ public class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -173,16 +160,19 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("language_code");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -191,18 +181,18 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformProperty<string> LanguageCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("language_code");
-        set => this.WithProperty("language_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
     /// The agent to create a flow for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -212,8 +202,7 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FallbackSettings block(s) allowed")]
     public List<GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock>? FallbackSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock>>("fallback_settings");
-        set => this.WithProperty("fallback_settings", value);
+        set => SetProperty("fallback_settings", value);
     }
 
     /// <summary>
@@ -223,8 +212,7 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenerativeSafetySettings block(s) allowed")]
     public List<GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock>? GenerativeSafetySettings
     {
-        get => GetProperty<List<GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock>>("generative_safety_settings");
-        set => this.WithProperty("generative_safety_settings", value);
+        set => SetProperty("generative_safety_settings", value);
     }
 
     /// <summary>
@@ -234,8 +222,7 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KnowledgeConnectorSettings block(s) allowed")]
     public List<GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock>? KnowledgeConnectorSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock>>("knowledge_connector_settings");
-        set => this.WithProperty("knowledge_connector_settings", value);
+        set => SetProperty("knowledge_connector_settings", value);
     }
 
     /// <summary>
@@ -245,8 +232,7 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
     public List<GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock>? LlmModelSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock>>("llm_model_settings");
-        set => this.WithProperty("llm_model_settings", value);
+        set => SetProperty("llm_model_settings", value);
     }
 
     /// <summary>
@@ -255,8 +241,7 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     public GoogleDialogflowCxGenerativeSettingsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowCxGenerativeSettingsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

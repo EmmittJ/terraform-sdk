@@ -14,17 +14,25 @@ public class AwsRedshiftClusterCredentialsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("db_password");
-        this.WithOutput("expiration");
+        SetOutput("db_password");
+        SetOutput("expiration");
+        SetOutput("auto_create");
+        SetOutput("cluster_identifier");
+        SetOutput("db_groups");
+        SetOutput("db_name");
+        SetOutput("db_user");
+        SetOutput("duration_seconds");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The auto_create attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoCreate
+    public TerraformProperty<bool> AutoCreate
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_create");
-        set => this.WithProperty("auto_create", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_create");
+        set => SetProperty("auto_create", value);
     }
 
     /// <summary>
@@ -33,26 +41,26 @@ public class AwsRedshiftClusterCredentialsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The db_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DbGroups
+    public HashSet<TerraformProperty<string>> DbGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("db_groups");
-        set => this.WithProperty("db_groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("db_groups");
+        set => SetProperty("db_groups", value);
     }
 
     /// <summary>
     /// The db_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DbName
+    public TerraformProperty<string> DbName
     {
-        get => GetProperty<TerraformProperty<string>>("db_name");
-        set => this.WithProperty("db_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_name");
+        set => SetProperty("db_name", value);
     }
 
     /// <summary>
@@ -61,35 +69,35 @@ public class AwsRedshiftClusterCredentialsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbUser is required")]
     public required TerraformProperty<string> DbUser
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_user");
-        set => this.WithProperty("db_user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_user");
+        set => SetProperty("db_user", value);
     }
 
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? DurationSeconds
+    public TerraformProperty<double> DurationSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("duration_seconds");
-        set => this.WithProperty("duration_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("duration_seconds");
+        set => SetProperty("duration_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -14,7 +14,13 @@ public class GoogleIapAppEngineVersionIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("app_id");
+        SetOutput("id");
+        SetOutput("policy_data");
+        SetOutput("project");
+        SetOutput("service");
+        SetOutput("version_id");
     }
 
     /// <summary>
@@ -23,17 +29,17 @@ public class GoogleIapAppEngineVersionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,17 +48,17 @@ public class GoogleIapAppEngineVersionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
-        set => this.WithProperty("policy_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
+        set => SetProperty("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -61,8 +67,8 @@ public class GoogleIapAppEngineVersionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
@@ -71,8 +77,8 @@ public class GoogleIapAppEngineVersionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
     public required TerraformProperty<string> VersionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version_id");
-        set => this.WithProperty("version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
+        set => SetProperty("version_id", value);
     }
 
     /// <summary>

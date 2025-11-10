@@ -13,8 +13,7 @@ public class AzurermSpringCloudAppDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,22 +30,26 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fqdn");
-        this.WithOutput("https_only");
-        this.WithOutput("identity");
-        this.WithOutput("is_public");
-        this.WithOutput("persistent_disk");
-        this.WithOutput("tls_enabled");
-        this.WithOutput("url");
+        SetOutput("fqdn");
+        SetOutput("https_only");
+        SetOutput("identity");
+        SetOutput("is_public");
+        SetOutput("persistent_disk");
+        SetOutput("tls_enabled");
+        SetOutput("url");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("service_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,8 +58,8 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -65,8 +68,8 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
@@ -85,8 +88,7 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
     /// </summary>
     public AzurermSpringCloudAppDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudAppDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

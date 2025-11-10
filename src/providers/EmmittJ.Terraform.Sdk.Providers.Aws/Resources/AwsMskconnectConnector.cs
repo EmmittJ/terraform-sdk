@@ -29,8 +29,7 @@ public class AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock : Terra
     /// </summary>
     public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
-        set => WithProperty("authentication_type", value);
+        set => SetProperty("authentication_type", value);
     }
 
 }
@@ -46,8 +45,7 @@ public class AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? EncryptionType
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_type");
-        set => WithProperty("encryption_type", value);
+        set => SetProperty("encryption_type", value);
     }
 
 }
@@ -79,8 +77,7 @@ public class AwsMskconnectConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -88,8 +85,7 @@ public class AwsMskconnectConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -97,8 +93,7 @@ public class AwsMskconnectConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,8 +110,7 @@ public class AwsMskconnectConnectorWorkerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => WithProperty("arn", value);
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
@@ -125,8 +119,7 @@ public class AwsMskconnectConnectorWorkerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformProperty<double> Revision
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("revision");
-        set => WithProperty("revision", value);
+        set => SetProperty("revision", value);
     }
 
 }
@@ -144,36 +137,45 @@ public class AwsMskconnectConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("version");
+        SetOutput("connector_configuration");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("kafkaconnect_version");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("service_execution_role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The connector_configuration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorConfiguration is required")]
-    public Dictionary<string, TerraformProperty<string>>? ConnectorConfiguration
+    public Dictionary<string, TerraformProperty<string>> ConnectorConfiguration
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("connector_configuration");
-        set => this.WithProperty("connector_configuration", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("connector_configuration");
+        set => SetProperty("connector_configuration", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -182,8 +184,8 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaconnectVersion is required")]
     public required TerraformProperty<string> KafkaconnectVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kafkaconnect_version");
-        set => this.WithProperty("kafkaconnect_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kafkaconnect_version");
+        set => SetProperty("kafkaconnect_version", value);
     }
 
     /// <summary>
@@ -192,17 +194,17 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -211,74 +213,74 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRoleArn is required")]
     public required TerraformProperty<string> ServiceExecutionRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_execution_role_arn");
-        set => this.WithProperty("service_execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_execution_role_arn");
+        set => SetProperty("service_execution_role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for capacity.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Capacity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Capacity block(s) allowed")]
     public List<AwsMskconnectConnectorCapacityBlock>? Capacity
     {
-        get => GetProperty<List<AwsMskconnectConnectorCapacityBlock>>("capacity");
-        set => this.WithProperty("capacity", value);
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
     /// Block for kafka_cluster.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaCluster is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KafkaCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaCluster block(s) allowed")]
     public List<AwsMskconnectConnectorKafkaClusterBlock>? KafkaCluster
     {
-        get => GetProperty<List<AwsMskconnectConnectorKafkaClusterBlock>>("kafka_cluster");
-        set => this.WithProperty("kafka_cluster", value);
+        set => SetProperty("kafka_cluster", value);
     }
 
     /// <summary>
     /// Block for kafka_cluster_client_authentication.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaClusterClientAuthentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KafkaClusterClientAuthentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaClusterClientAuthentication block(s) allowed")]
     public List<AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock>? KafkaClusterClientAuthentication
     {
-        get => GetProperty<List<AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock>>("kafka_cluster_client_authentication");
-        set => this.WithProperty("kafka_cluster_client_authentication", value);
+        set => SetProperty("kafka_cluster_client_authentication", value);
     }
 
     /// <summary>
     /// Block for kafka_cluster_encryption_in_transit.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaClusterEncryptionInTransit is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KafkaClusterEncryptionInTransit block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaClusterEncryptionInTransit block(s) allowed")]
     public List<AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock>? KafkaClusterEncryptionInTransit
     {
-        get => GetProperty<List<AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock>>("kafka_cluster_encryption_in_transit");
-        set => this.WithProperty("kafka_cluster_encryption_in_transit", value);
+        set => SetProperty("kafka_cluster_encryption_in_transit", value);
     }
 
     /// <summary>
@@ -288,19 +290,18 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogDelivery block(s) allowed")]
     public List<AwsMskconnectConnectorLogDeliveryBlock>? LogDelivery
     {
-        get => GetProperty<List<AwsMskconnectConnectorLogDeliveryBlock>>("log_delivery");
-        set => this.WithProperty("log_delivery", value);
+        set => SetProperty("log_delivery", value);
     }
 
     /// <summary>
     /// Block for plugin.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plugin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plugin block(s) required")]
     public HashSet<AwsMskconnectConnectorPluginBlock>? Plugin
     {
-        get => GetProperty<HashSet<AwsMskconnectConnectorPluginBlock>>("plugin");
-        set => this.WithProperty("plugin", value);
+        set => SetProperty("plugin", value);
     }
 
     /// <summary>
@@ -309,8 +310,7 @@ public class AwsMskconnectConnector : TerraformResource
     /// </summary>
     public AwsMskconnectConnectorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMskconnectConnectorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -320,8 +320,7 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfiguration block(s) allowed")]
     public List<AwsMskconnectConnectorWorkerConfigurationBlock>? WorkerConfiguration
     {
-        get => GetProperty<List<AwsMskconnectConnectorWorkerConfigurationBlock>>("worker_configuration");
-        set => this.WithProperty("worker_configuration", value);
+        set => SetProperty("worker_configuration", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleStorageInsightsReportConfigCsvOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delimiter
     {
-        get => GetProperty<TerraformProperty<string>>("delimiter");
-        set => WithProperty("delimiter", value);
+        set => SetProperty("delimiter", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleStorageInsightsReportConfigCsvOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? HeaderRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("header_required");
-        set => WithProperty("header_required", value);
+        set => SetProperty("header_required", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleStorageInsightsReportConfigCsvOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RecordSeparator
     {
-        get => GetProperty<TerraformProperty<string>>("record_separator");
-        set => WithProperty("record_separator", value);
+        set => SetProperty("record_separator", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
-        set => WithProperty("frequency", value);
+        set => SetProperty("frequency", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataFields is required")]
     public List<TerraformProperty<string>>? MetadataFields
     {
-        get => GetProperty<List<TerraformProperty<string>>>("metadata_fields");
-        set => WithProperty("metadata_fields", value);
+        set => SetProperty("metadata_fields", value);
     }
 
 }
@@ -92,8 +87,7 @@ public class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -101,8 +95,7 @@ public class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -110,8 +103,7 @@ public class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -129,34 +121,39 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("display_name");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The editable display name of the inventory report configuration. Has a limit of 256 characters. Can be empty.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// If set, all the inventory report details associated with this report configuration are deleted.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -166,17 +163,17 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -186,8 +183,7 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CsvOptions block(s) allowed")]
     public List<GoogleStorageInsightsReportConfigCsvOptionsBlock>? CsvOptions
     {
-        get => GetProperty<List<GoogleStorageInsightsReportConfigCsvOptionsBlock>>("csv_options");
-        set => this.WithProperty("csv_options", value);
+        set => SetProperty("csv_options", value);
     }
 
     /// <summary>
@@ -197,8 +193,7 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrequencyOptions block(s) allowed")]
     public List<GoogleStorageInsightsReportConfigFrequencyOptionsBlock>? FrequencyOptions
     {
-        get => GetProperty<List<GoogleStorageInsightsReportConfigFrequencyOptionsBlock>>("frequency_options");
-        set => this.WithProperty("frequency_options", value);
+        set => SetProperty("frequency_options", value);
     }
 
     /// <summary>
@@ -208,8 +203,7 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObjectMetadataReportOptions block(s) allowed")]
     public List<GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock>? ObjectMetadataReportOptions
     {
-        get => GetProperty<List<GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock>>("object_metadata_report_options");
-        set => this.WithProperty("object_metadata_report_options", value);
+        set => SetProperty("object_metadata_report_options", value);
     }
 
     /// <summary>
@@ -219,8 +213,7 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParquetOptions block(s) allowed")]
     public List<GoogleStorageInsightsReportConfigParquetOptionsBlock>? ParquetOptions
     {
-        get => GetProperty<List<GoogleStorageInsightsReportConfigParquetOptionsBlock>>("parquet_options");
-        set => this.WithProperty("parquet_options", value);
+        set => SetProperty("parquet_options", value);
     }
 
     /// <summary>
@@ -229,8 +222,7 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     public GoogleStorageInsightsReportConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageInsightsReportConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

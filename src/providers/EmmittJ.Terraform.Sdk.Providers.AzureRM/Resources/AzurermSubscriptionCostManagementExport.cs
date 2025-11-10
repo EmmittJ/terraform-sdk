@@ -14,8 +14,7 @@ public class AzurermSubscriptionCostManagementExportExportDataOptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFrame is required")]
     public required TerraformProperty<string> TimeFrame
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_frame");
-        set => WithProperty("time_frame", value);
+        set => SetProperty("time_frame", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermSubscriptionCostManagementExportExportDataOptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AzurermSubscriptionCostManagementExportExportDataStorageLocationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformProperty<string> ContainerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_id");
-        set => WithProperty("container_id", value);
+        set => SetProperty("container_id", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class AzurermSubscriptionCostManagementExportExportDataStorageLocationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolderPath is required")]
     public required TerraformProperty<string> RootFolderPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("root_folder_path");
-        set => WithProperty("root_folder_path", value);
+        set => SetProperty("root_folder_path", value);
     }
 
 }
@@ -69,8 +65,7 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -78,8 +73,7 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,33 +107,41 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("active");
+        SetOutput("file_format");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recurrence_period_end_date");
+        SetOutput("recurrence_period_start_date");
+        SetOutput("recurrence_type");
+        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformProperty<bool>? Active
+    public TerraformProperty<bool> Active
     {
-        get => GetProperty<TerraformProperty<bool>>("active");
-        set => this.WithProperty("active", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("active");
+        set => SetProperty("active", value);
     }
 
     /// <summary>
     /// The file_format attribute.
     /// </summary>
-    public TerraformProperty<string>? FileFormat
+    public TerraformProperty<string> FileFormat
     {
-        get => GetProperty<TerraformProperty<string>>("file_format");
-        set => this.WithProperty("file_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_format");
+        set => SetProperty("file_format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -150,8 +150,8 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -160,8 +160,8 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodEndDate is required")]
     public required TerraformProperty<string> RecurrencePeriodEndDate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recurrence_period_end_date");
-        set => this.WithProperty("recurrence_period_end_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recurrence_period_end_date");
+        set => SetProperty("recurrence_period_end_date", value);
     }
 
     /// <summary>
@@ -170,8 +170,8 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodStartDate is required")]
     public required TerraformProperty<string> RecurrencePeriodStartDate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recurrence_period_start_date");
-        set => this.WithProperty("recurrence_period_start_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recurrence_period_start_date");
+        set => SetProperty("recurrence_period_start_date", value);
     }
 
     /// <summary>
@@ -180,8 +180,8 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceType is required")]
     public required TerraformProperty<string> RecurrenceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recurrence_type");
-        set => this.WithProperty("recurrence_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recurrence_type");
+        set => SetProperty("recurrence_type", value);
     }
 
     /// <summary>
@@ -190,32 +190,32 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
     /// Block for export_data_options.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportDataOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataOptions block(s) allowed")]
     public List<AzurermSubscriptionCostManagementExportExportDataOptionsBlock>? ExportDataOptions
     {
-        get => GetProperty<List<AzurermSubscriptionCostManagementExportExportDataOptionsBlock>>("export_data_options");
-        set => this.WithProperty("export_data_options", value);
+        set => SetProperty("export_data_options", value);
     }
 
     /// <summary>
     /// Block for export_data_storage_location.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportDataStorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataStorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataStorageLocation block(s) allowed")]
     public List<AzurermSubscriptionCostManagementExportExportDataStorageLocationBlock>? ExportDataStorageLocation
     {
-        get => GetProperty<List<AzurermSubscriptionCostManagementExportExportDataStorageLocationBlock>>("export_data_storage_location");
-        set => this.WithProperty("export_data_storage_location", value);
+        set => SetProperty("export_data_storage_location", value);
     }
 
     /// <summary>
@@ -224,8 +224,7 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     /// </summary>
     public AzurermSubscriptionCostManagementExportTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSubscriptionCostManagementExportTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

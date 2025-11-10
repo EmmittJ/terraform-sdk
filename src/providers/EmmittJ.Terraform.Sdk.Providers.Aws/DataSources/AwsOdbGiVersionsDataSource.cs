@@ -14,25 +14,27 @@ public class AwsOdbGiVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("gi_versions");
+        SetOutput("gi_versions");
+        SetOutput("region");
+        SetOutput("shape");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The system shape.
     /// </summary>
-    public TerraformProperty<string>? Shape
+    public TerraformProperty<string> Shape
     {
-        get => GetProperty<TerraformProperty<string>>("shape");
-        set => this.WithProperty("shape", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shape");
+        set => SetProperty("shape", value);
     }
 
     /// <summary>

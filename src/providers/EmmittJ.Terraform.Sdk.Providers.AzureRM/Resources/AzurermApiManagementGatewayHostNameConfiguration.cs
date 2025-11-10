@@ -13,8 +13,7 @@ public class AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,16 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_id");
+        SetOutput("certificate_id");
+        SetOutput("gateway_name");
+        SetOutput("host_name");
+        SetOutput("http2_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("request_client_certificate_enabled");
+        SetOutput("tls10_enabled");
+        SetOutput("tls11_enabled");
     }
 
     /// <summary>
@@ -66,8 +72,8 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
-        set => this.WithProperty("api_management_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_id");
+        set => SetProperty("api_management_id", value);
     }
 
     /// <summary>
@@ -76,8 +82,8 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     public required TerraformProperty<string> CertificateId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_id");
-        set => this.WithProperty("certificate_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_id");
+        set => SetProperty("certificate_id", value);
     }
 
     /// <summary>
@@ -86,8 +92,8 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformProperty<string> GatewayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gateway_name");
-        set => this.WithProperty("gateway_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_name");
+        set => SetProperty("gateway_name", value);
     }
 
     /// <summary>
@@ -96,26 +102,26 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => this.WithProperty("host_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_name");
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Http2Enabled
+    public TerraformProperty<bool> Http2Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("http2_enabled");
-        set => this.WithProperty("http2_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("http2_enabled");
+        set => SetProperty("http2_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -124,35 +130,35 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The request_client_certificate_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequestClientCertificateEnabled
+    public TerraformProperty<bool> RequestClientCertificateEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("request_client_certificate_enabled");
-        set => this.WithProperty("request_client_certificate_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("request_client_certificate_enabled");
+        set => SetProperty("request_client_certificate_enabled", value);
     }
 
     /// <summary>
     /// The tls10_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Tls10Enabled
+    public TerraformProperty<bool> Tls10Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tls10_enabled");
-        set => this.WithProperty("tls10_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tls10_enabled");
+        set => SetProperty("tls10_enabled", value);
     }
 
     /// <summary>
     /// The tls11_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Tls11Enabled
+    public TerraformProperty<bool> Tls11Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tls11_enabled");
-        set => this.WithProperty("tls11_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tls11_enabled");
+        set => SetProperty("tls11_enabled", value);
     }
 
     /// <summary>
@@ -161,8 +167,7 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     /// </summary>
     public AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

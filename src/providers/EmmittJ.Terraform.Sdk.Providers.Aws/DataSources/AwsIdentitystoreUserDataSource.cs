@@ -23,29 +23,33 @@ public class AwsIdentitystoreUserDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("addresses");
-        this.WithOutput("display_name");
-        this.WithOutput("emails");
-        this.WithOutput("external_ids");
-        this.WithOutput("locale");
-        this.WithOutput("name");
-        this.WithOutput("nickname");
-        this.WithOutput("phone_numbers");
-        this.WithOutput("preferred_language");
-        this.WithOutput("profile_url");
-        this.WithOutput("timezone");
-        this.WithOutput("title");
-        this.WithOutput("user_name");
-        this.WithOutput("user_type");
+        SetOutput("addresses");
+        SetOutput("display_name");
+        SetOutput("emails");
+        SetOutput("external_ids");
+        SetOutput("locale");
+        SetOutput("name");
+        SetOutput("nickname");
+        SetOutput("phone_numbers");
+        SetOutput("preferred_language");
+        SetOutput("profile_url");
+        SetOutput("timezone");
+        SetOutput("title");
+        SetOutput("user_name");
+        SetOutput("user_type");
+        SetOutput("id");
+        SetOutput("identity_store_id");
+        SetOutput("region");
+        SetOutput("user_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,26 +58,26 @@ public class AwsIdentitystoreUserDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformProperty<string> IdentityStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_store_id");
-        set => this.WithProperty("identity_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_store_id");
+        set => SetProperty("identity_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserId
+    public TerraformProperty<string> UserId
     {
-        get => GetProperty<TerraformProperty<string>>("user_id");
-        set => this.WithProperty("user_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_id");
+        set => SetProperty("user_id", value);
     }
 
     /// <summary>
@@ -83,8 +87,7 @@ public class AwsIdentitystoreUserDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlternateIdentifier block(s) allowed")]
     public List<AwsIdentitystoreUserDataSourceAlternateIdentifierBlock>? AlternateIdentifier
     {
-        get => GetProperty<List<AwsIdentitystoreUserDataSourceAlternateIdentifierBlock>>("alternate_identifier");
-        set => this.WithProperty("alternate_identifier", value);
+        set => SetProperty("alternate_identifier", value);
     }
 
     /// <summary>

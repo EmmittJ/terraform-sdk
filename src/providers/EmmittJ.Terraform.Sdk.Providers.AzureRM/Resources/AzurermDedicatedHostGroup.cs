@@ -13,8 +13,7 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,32 @@ public class AzurermDedicatedHostGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("automatic_placement_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("platform_fault_domain_count");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The automatic_placement_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutomaticPlacementEnabled
+    public TerraformProperty<bool> AutomaticPlacementEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("automatic_placement_enabled");
-        set => this.WithProperty("automatic_placement_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("automatic_placement_enabled");
+        set => SetProperty("automatic_placement_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +88,8 @@ public class AzurermDedicatedHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -94,8 +98,8 @@ public class AzurermDedicatedHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,8 +108,8 @@ public class AzurermDedicatedHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomainCount is required")]
     public required TerraformProperty<double> PlatformFaultDomainCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("platform_fault_domain_count");
-        set => this.WithProperty("platform_fault_domain_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("platform_fault_domain_count");
+        set => SetProperty("platform_fault_domain_count", value);
     }
 
     /// <summary>
@@ -114,26 +118,26 @@ public class AzurermDedicatedHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -142,8 +146,7 @@ public class AzurermDedicatedHostGroup : TerraformResource
     /// </summary>
     public AzurermDedicatedHostGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDedicatedHostGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

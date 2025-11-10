@@ -13,8 +13,7 @@ public class AzureadClientConfigDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,18 +30,19 @@ public class AzureadClientConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("client_id");
-        this.WithOutput("object_id");
-        this.WithOutput("tenant_id");
+        SetOutput("client_id");
+        SetOutput("object_id");
+        SetOutput("tenant_id");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +51,7 @@ public class AzureadClientConfigDataSource : TerraformDataSource
     /// </summary>
     public AzureadClientConfigDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadClientConfigDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

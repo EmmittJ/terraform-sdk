@@ -13,8 +13,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
     /// </summary>
     public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
-        set => WithProperty("authentication_type", value);
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
     /// </summary>
     public TerraformProperty<string>? AutomationAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_id");
-        set => WithProperty("automation_account_id", value);
+        set => SetProperty("automation_account_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,15 +87,23 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recovery_fabric_name");
+        SetOutput("recovery_replication_policy_id");
+        SetOutput("recovery_source_protection_container_name");
+        SetOutput("recovery_target_protection_container_id");
+        SetOutput("recovery_vault_name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -111,8 +112,8 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -121,8 +122,8 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryFabricName is required")]
     public required TerraformProperty<string> RecoveryFabricName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_fabric_name");
-        set => this.WithProperty("recovery_fabric_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_fabric_name");
+        set => SetProperty("recovery_fabric_name", value);
     }
 
     /// <summary>
@@ -131,8 +132,8 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
     public required TerraformProperty<string> RecoveryReplicationPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_replication_policy_id");
-        set => this.WithProperty("recovery_replication_policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_replication_policy_id");
+        set => SetProperty("recovery_replication_policy_id", value);
     }
 
     /// <summary>
@@ -141,8 +142,8 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoverySourceProtectionContainerName is required")]
     public required TerraformProperty<string> RecoverySourceProtectionContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_source_protection_container_name");
-        set => this.WithProperty("recovery_source_protection_container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_source_protection_container_name");
+        set => SetProperty("recovery_source_protection_container_name", value);
     }
 
     /// <summary>
@@ -151,8 +152,8 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryTargetProtectionContainerId is required")]
     public required TerraformProperty<string> RecoveryTargetProtectionContainerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_target_protection_container_id");
-        set => this.WithProperty("recovery_target_protection_container_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_target_protection_container_id");
+        set => SetProperty("recovery_target_protection_container_id", value);
     }
 
     /// <summary>
@@ -161,8 +162,8 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
-        set => this.WithProperty("recovery_vault_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_name");
+        set => SetProperty("recovery_vault_name", value);
     }
 
     /// <summary>
@@ -171,8 +172,8 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -182,8 +183,7 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticUpdate block(s) allowed")]
     public List<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock>? AutomaticUpdate
     {
-        get => GetProperty<List<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock>>("automatic_update");
-        set => this.WithProperty("automatic_update", value);
+        set => SetProperty("automatic_update", value);
     }
 
     /// <summary>
@@ -192,8 +192,7 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     /// </summary>
     public AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

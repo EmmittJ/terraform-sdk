@@ -14,8 +14,7 @@ public class AwsLexv2modelsBotDataPrivacyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChildDirected is required")]
     public required TerraformProperty<bool> ChildDirected
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("child_directed");
-        set => WithProperty("child_directed", value);
+        set => SetProperty("child_directed", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasId is required")]
     public required TerraformProperty<string> AliasId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alias_id");
-        set => WithProperty("alias_id", value);
+        set => SetProperty("alias_id", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasName is required")]
     public required TerraformProperty<string> AliasName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alias_name");
-        set => WithProperty("alias_name", value);
+        set => SetProperty("alias_name", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +67,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -89,8 +83,7 @@ public class AwsLexv2modelsBotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -98,8 +91,7 @@ public class AwsLexv2modelsBotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -107,8 +99,7 @@ public class AwsLexv2modelsBotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -125,18 +116,26 @@ public class AwsLexv2modelsBot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("idle_session_ttl_in_seconds");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("test_bot_alias_tags");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -145,8 +144,8 @@ public class AwsLexv2modelsBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdleSessionTtlInSeconds is required")]
     public required TerraformProperty<double> IdleSessionTtlInSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("idle_session_ttl_in_seconds");
-        set => this.WithProperty("idle_session_ttl_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("idle_session_ttl_in_seconds");
+        set => SetProperty("idle_session_ttl_in_seconds", value);
     }
 
     /// <summary>
@@ -155,17 +154,17 @@ public class AwsLexv2modelsBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -174,35 +173,35 @@ public class AwsLexv2modelsBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The test_bot_alias_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TestBotAliasTags
+    public Dictionary<string, TerraformProperty<string>> TestBotAliasTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("test_bot_alias_tags");
-        set => this.WithProperty("test_bot_alias_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("test_bot_alias_tags");
+        set => SetProperty("test_bot_alias_tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -211,8 +210,7 @@ public class AwsLexv2modelsBot : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsBotDataPrivacyBlock>? DataPrivacy
     {
-        get => GetProperty<List<AwsLexv2modelsBotDataPrivacyBlock>>("data_privacy");
-        set => this.WithProperty("data_privacy", value);
+        set => SetProperty("data_privacy", value);
     }
 
     /// <summary>
@@ -221,8 +219,7 @@ public class AwsLexv2modelsBot : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsBotMembersBlock>? Members
     {
-        get => GetProperty<List<AwsLexv2modelsBotMembersBlock>>("members");
-        set => this.WithProperty("members", value);
+        set => SetProperty("members", value);
     }
 
     /// <summary>
@@ -231,8 +228,7 @@ public class AwsLexv2modelsBot : TerraformResource
     /// </summary>
     public AwsLexv2modelsBotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLexv2modelsBotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

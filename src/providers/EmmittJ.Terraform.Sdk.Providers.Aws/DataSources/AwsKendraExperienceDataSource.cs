@@ -14,16 +14,20 @@ public class AwsKendraExperienceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("configuration");
-        this.WithOutput("created_at");
-        this.WithOutput("description");
-        this.WithOutput("endpoints");
-        this.WithOutput("error_message");
-        this.WithOutput("name");
-        this.WithOutput("role_arn");
-        this.WithOutput("status");
-        this.WithOutput("updated_at");
+        SetOutput("arn");
+        SetOutput("configuration");
+        SetOutput("created_at");
+        SetOutput("description");
+        SetOutput("endpoints");
+        SetOutput("error_message");
+        SetOutput("name");
+        SetOutput("role_arn");
+        SetOutput("status");
+        SetOutput("updated_at");
+        SetOutput("experience_id");
+        SetOutput("id");
+        SetOutput("index_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -32,17 +36,17 @@ public class AwsKendraExperienceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExperienceId is required")]
     public required TerraformProperty<string> ExperienceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("experience_id");
-        set => this.WithProperty("experience_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("experience_id");
+        set => SetProperty("experience_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,17 +55,17 @@ public class AwsKendraExperienceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
     public required TerraformProperty<string> IndexId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("index_id");
-        set => this.WithProperty("index_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("index_id");
+        set => SetProperty("index_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

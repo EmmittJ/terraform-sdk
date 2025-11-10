@@ -14,13 +14,14 @@ public class AwsCloudfrontOriginAccessIdentityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("caller_reference");
-        this.WithOutput("cloudfront_access_identity_path");
-        this.WithOutput("comment");
-        this.WithOutput("etag");
-        this.WithOutput("iam_arn");
-        this.WithOutput("s3_canonical_user_id");
+        SetOutput("arn");
+        SetOutput("caller_reference");
+        SetOutput("cloudfront_access_identity_path");
+        SetOutput("comment");
+        SetOutput("etag");
+        SetOutput("iam_arn");
+        SetOutput("s3_canonical_user_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -29,8 +30,8 @@ public class AwsCloudfrontOriginAccessIdentityDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

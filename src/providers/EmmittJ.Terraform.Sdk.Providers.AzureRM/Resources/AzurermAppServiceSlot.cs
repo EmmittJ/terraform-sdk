@@ -13,8 +13,7 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? AdditionalLoginParams
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_login_params");
-        set => WithProperty("additional_login_params", value);
+        set => SetProperty("additional_login_params", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedExternalRedirectUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_external_redirect_urls");
-        set => WithProperty("allowed_external_redirect_urls", value);
+        set => SetProperty("allowed_external_redirect_urls", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultProvider
     {
-        get => GetProperty<TerraformProperty<string>>("default_provider");
-        set => WithProperty("default_provider", value);
+        set => SetProperty("default_provider", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
-        set => WithProperty("issuer", value);
+        set => SetProperty("issuer", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
-        set => WithProperty("runtime_version", value);
+        set => SetProperty("runtime_version", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TokenRefreshExtensionHours
     {
-        get => GetProperty<TerraformProperty<double>>("token_refresh_extension_hours");
-        set => WithProperty("token_refresh_extension_hours", value);
+        set => SetProperty("token_refresh_extension_hours", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? TokenStoreEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("token_store_enabled");
-        set => WithProperty("token_store_enabled", value);
+        set => SetProperty("token_store_enabled", value);
     }
 
     /// <summary>
@@ -86,8 +78,7 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UnauthenticatedClientAction
     {
-        get => GetProperty<TerraformProperty<string>>("unauthenticated_client_action");
-        set => WithProperty("unauthenticated_client_action", value);
+        set => SetProperty("unauthenticated_client_action", value);
     }
 
 }
@@ -104,8 +95,7 @@ public class AzurermAppServiceSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,8 +104,7 @@ public class AzurermAppServiceSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -124,8 +113,7 @@ public class AzurermAppServiceSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -141,8 +129,7 @@ public class AzurermAppServiceSlotIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -150,8 +137,7 @@ public class AzurermAppServiceSlotIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -159,8 +145,7 @@ public class AzurermAppServiceSlotIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -169,8 +154,7 @@ public class AzurermAppServiceSlotIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -186,8 +170,7 @@ public class AzurermAppServiceSlotLogsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DetailedErrorMessagesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("detailed_error_messages_enabled");
-        set => WithProperty("detailed_error_messages_enabled", value);
+        set => SetProperty("detailed_error_messages_enabled", value);
     }
 
     /// <summary>
@@ -195,8 +178,7 @@ public class AzurermAppServiceSlotLogsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? FailedRequestTracingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("failed_request_tracing_enabled");
-        set => WithProperty("failed_request_tracing_enabled", value);
+        set => SetProperty("failed_request_tracing_enabled", value);
     }
 
 }
@@ -212,8 +194,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AcrUseManagedIdentityCredentials
     {
-        get => GetProperty<TerraformProperty<bool>>("acr_use_managed_identity_credentials");
-        set => WithProperty("acr_use_managed_identity_credentials", value);
+        set => SetProperty("acr_use_managed_identity_credentials", value);
     }
 
     /// <summary>
@@ -221,8 +202,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AcrUserManagedIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("acr_user_managed_identity_client_id");
-        set => WithProperty("acr_user_managed_identity_client_id", value);
+        set => SetProperty("acr_user_managed_identity_client_id", value);
     }
 
     /// <summary>
@@ -230,8 +210,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AlwaysOn
     {
-        get => GetProperty<TerraformProperty<bool>>("always_on");
-        set => WithProperty("always_on", value);
+        set => SetProperty("always_on", value);
     }
 
     /// <summary>
@@ -239,8 +218,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AppCommandLine
     {
-        get => GetProperty<TerraformProperty<string>>("app_command_line");
-        set => WithProperty("app_command_line", value);
+        set => SetProperty("app_command_line", value);
     }
 
     /// <summary>
@@ -248,8 +226,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AutoSwapSlotName
     {
-        get => GetProperty<TerraformProperty<string>>("auto_swap_slot_name");
-        set => WithProperty("auto_swap_slot_name", value);
+        set => SetProperty("auto_swap_slot_name", value);
     }
 
     /// <summary>
@@ -257,8 +234,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DefaultDocuments
     {
-        get => GetProperty<List<TerraformProperty<string>>>("default_documents");
-        set => WithProperty("default_documents", value);
+        set => SetProperty("default_documents", value);
     }
 
     /// <summary>
@@ -266,8 +242,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DotnetFrameworkVersion
     {
-        get => GetProperty<TerraformProperty<string>>("dotnet_framework_version");
-        set => WithProperty("dotnet_framework_version", value);
+        set => SetProperty("dotnet_framework_version", value);
     }
 
     /// <summary>
@@ -275,8 +250,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FtpsState
     {
-        get => GetProperty<TerraformProperty<string>>("ftps_state");
-        set => WithProperty("ftps_state", value);
+        set => SetProperty("ftps_state", value);
     }
 
     /// <summary>
@@ -284,8 +258,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HealthCheckPath
     {
-        get => GetProperty<TerraformProperty<string>>("health_check_path");
-        set => WithProperty("health_check_path", value);
+        set => SetProperty("health_check_path", value);
     }
 
     /// <summary>
@@ -293,8 +266,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Http2Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("http2_enabled");
-        set => WithProperty("http2_enabled", value);
+        set => SetProperty("http2_enabled", value);
     }
 
     /// <summary>
@@ -302,8 +274,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? IpRestriction
     {
-        get => GetProperty<List<TerraformProperty<object>>>("ip_restriction");
-        set => WithProperty("ip_restriction", value);
+        set => SetProperty("ip_restriction", value);
     }
 
     /// <summary>
@@ -311,8 +282,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JavaContainer
     {
-        get => GetProperty<TerraformProperty<string>>("java_container");
-        set => WithProperty("java_container", value);
+        set => SetProperty("java_container", value);
     }
 
     /// <summary>
@@ -320,8 +290,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JavaContainerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("java_container_version");
-        set => WithProperty("java_container_version", value);
+        set => SetProperty("java_container_version", value);
     }
 
     /// <summary>
@@ -329,8 +298,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JavaVersion
     {
-        get => GetProperty<TerraformProperty<string>>("java_version");
-        set => WithProperty("java_version", value);
+        set => SetProperty("java_version", value);
     }
 
     /// <summary>
@@ -338,8 +306,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LinuxFxVersion
     {
-        get => GetProperty<TerraformProperty<string>>("linux_fx_version");
-        set => WithProperty("linux_fx_version", value);
+        set => SetProperty("linux_fx_version", value);
     }
 
     /// <summary>
@@ -347,8 +314,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? LocalMysqlEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_mysql_enabled");
-        set => WithProperty("local_mysql_enabled", value);
+        set => SetProperty("local_mysql_enabled", value);
     }
 
     /// <summary>
@@ -356,8 +322,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedPipelineMode
     {
-        get => GetProperty<TerraformProperty<string>>("managed_pipeline_mode");
-        set => WithProperty("managed_pipeline_mode", value);
+        set => SetProperty("managed_pipeline_mode", value);
     }
 
     /// <summary>
@@ -365,8 +330,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("min_tls_version");
-        set => WithProperty("min_tls_version", value);
+        set => SetProperty("min_tls_version", value);
     }
 
     /// <summary>
@@ -374,8 +338,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NumberOfWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_workers");
-        set => WithProperty("number_of_workers", value);
+        set => SetProperty("number_of_workers", value);
     }
 
     /// <summary>
@@ -383,8 +346,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PhpVersion
     {
-        get => GetProperty<TerraformProperty<string>>("php_version");
-        set => WithProperty("php_version", value);
+        set => SetProperty("php_version", value);
     }
 
     /// <summary>
@@ -392,8 +354,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PythonVersion
     {
-        get => GetProperty<TerraformProperty<string>>("python_version");
-        set => WithProperty("python_version", value);
+        set => SetProperty("python_version", value);
     }
 
     /// <summary>
@@ -401,8 +362,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RemoteDebuggingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("remote_debugging_enabled");
-        set => WithProperty("remote_debugging_enabled", value);
+        set => SetProperty("remote_debugging_enabled", value);
     }
 
     /// <summary>
@@ -410,8 +370,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RemoteDebuggingVersion
     {
-        get => GetProperty<TerraformProperty<string>>("remote_debugging_version");
-        set => WithProperty("remote_debugging_version", value);
+        set => SetProperty("remote_debugging_version", value);
     }
 
     /// <summary>
@@ -419,8 +378,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? ScmIpRestriction
     {
-        get => GetProperty<List<TerraformProperty<object>>>("scm_ip_restriction");
-        set => WithProperty("scm_ip_restriction", value);
+        set => SetProperty("scm_ip_restriction", value);
     }
 
     /// <summary>
@@ -428,8 +386,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScmType
     {
-        get => GetProperty<TerraformProperty<string>>("scm_type");
-        set => WithProperty("scm_type", value);
+        set => SetProperty("scm_type", value);
     }
 
     /// <summary>
@@ -437,8 +394,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ScmUseMainIpRestriction
     {
-        get => GetProperty<TerraformProperty<bool>>("scm_use_main_ip_restriction");
-        set => WithProperty("scm_use_main_ip_restriction", value);
+        set => SetProperty("scm_use_main_ip_restriction", value);
     }
 
     /// <summary>
@@ -446,8 +402,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Use32BitWorkerProcess
     {
-        get => GetProperty<TerraformProperty<bool>>("use_32_bit_worker_process");
-        set => WithProperty("use_32_bit_worker_process", value);
+        set => SetProperty("use_32_bit_worker_process", value);
     }
 
     /// <summary>
@@ -455,8 +410,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? VnetRouteAllEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("vnet_route_all_enabled");
-        set => WithProperty("vnet_route_all_enabled", value);
+        set => SetProperty("vnet_route_all_enabled", value);
     }
 
     /// <summary>
@@ -464,8 +418,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WebsocketsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("websockets_enabled");
-        set => WithProperty("websockets_enabled", value);
+        set => SetProperty("websockets_enabled", value);
     }
 
     /// <summary>
@@ -473,8 +426,7 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WindowsFxVersion
     {
-        get => GetProperty<TerraformProperty<string>>("windows_fx_version");
-        set => WithProperty("windows_fx_version", value);
+        set => SetProperty("windows_fx_version", value);
     }
 
 }
@@ -491,8 +443,7 @@ public class AzurermAppServiceSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKey is required")]
     public required TerraformProperty<string> AccessKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_key");
-        set => WithProperty("access_key", value);
+        set => SetProperty("access_key", value);
     }
 
     /// <summary>
@@ -501,8 +452,7 @@ public class AzurermAppServiceSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => WithProperty("account_name", value);
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
@@ -510,8 +460,7 @@ public class AzurermAppServiceSlotStorageAccountBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MountPath
     {
-        get => GetProperty<TerraformProperty<string>>("mount_path");
-        set => WithProperty("mount_path", value);
+        set => SetProperty("mount_path", value);
     }
 
     /// <summary>
@@ -520,8 +469,7 @@ public class AzurermAppServiceSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -530,8 +478,7 @@ public class AzurermAppServiceSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformProperty<string> ShareName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("share_name");
-        set => WithProperty("share_name", value);
+        set => SetProperty("share_name", value);
     }
 
     /// <summary>
@@ -540,8 +487,7 @@ public class AzurermAppServiceSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -557,8 +503,7 @@ public class AzurermAppServiceSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -566,8 +511,7 @@ public class AzurermAppServiceSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -575,8 +519,7 @@ public class AzurermAppServiceSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -584,8 +527,7 @@ public class AzurermAppServiceSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -604,8 +546,20 @@ public class AzurermAppServiceSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_site_hostname");
-        this.WithOutput("site_credential");
+        SetOutput("default_site_hostname");
+        SetOutput("site_credential");
+        SetOutput("app_service_name");
+        SetOutput("app_service_plan_id");
+        SetOutput("app_settings");
+        SetOutput("client_affinity_enabled");
+        SetOutput("enabled");
+        SetOutput("https_only");
+        SetOutput("id");
+        SetOutput("key_vault_reference_identity_id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -614,8 +568,8 @@ public class AzurermAppServiceSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformProperty<string> AppServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_service_name");
-        set => this.WithProperty("app_service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_service_name");
+        set => SetProperty("app_service_name", value);
     }
 
     /// <summary>
@@ -624,62 +578,62 @@ public class AzurermAppServiceSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServicePlanId is required")]
     public required TerraformProperty<string> AppServicePlanId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_service_plan_id");
-        set => this.WithProperty("app_service_plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_service_plan_id");
+        set => SetProperty("app_service_plan_id", value);
     }
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AppSettings
+    public Dictionary<string, TerraformProperty<string>> AppSettings
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("app_settings");
-        set => this.WithProperty("app_settings", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("app_settings");
+        set => SetProperty("app_settings", value);
     }
 
     /// <summary>
     /// The client_affinity_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ClientAffinityEnabled
+    public TerraformProperty<bool> ClientAffinityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("client_affinity_enabled");
-        set => this.WithProperty("client_affinity_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("client_affinity_enabled");
+        set => SetProperty("client_affinity_enabled", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? HttpsOnly
+    public TerraformProperty<bool> HttpsOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("https_only");
-        set => this.WithProperty("https_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("https_only");
+        set => SetProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_reference_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultReferenceIdentityId
+    public TerraformProperty<string> KeyVaultReferenceIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_reference_identity_id");
-        set => this.WithProperty("key_vault_reference_identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_reference_identity_id");
+        set => SetProperty("key_vault_reference_identity_id", value);
     }
 
     /// <summary>
@@ -688,8 +642,8 @@ public class AzurermAppServiceSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -698,8 +652,8 @@ public class AzurermAppServiceSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -708,17 +662,17 @@ public class AzurermAppServiceSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -728,8 +682,7 @@ public class AzurermAppServiceSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     public List<AzurermAppServiceSlotAuthSettingsBlock>? AuthSettings
     {
-        get => GetProperty<List<AzurermAppServiceSlotAuthSettingsBlock>>("auth_settings");
-        set => this.WithProperty("auth_settings", value);
+        set => SetProperty("auth_settings", value);
     }
 
     /// <summary>
@@ -738,8 +691,7 @@ public class AzurermAppServiceSlot : TerraformResource
     /// </summary>
     public HashSet<AzurermAppServiceSlotConnectionStringBlock>? ConnectionString
     {
-        get => GetProperty<HashSet<AzurermAppServiceSlotConnectionStringBlock>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -749,8 +701,7 @@ public class AzurermAppServiceSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermAppServiceSlotIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermAppServiceSlotIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -760,8 +711,7 @@ public class AzurermAppServiceSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     public List<AzurermAppServiceSlotLogsBlock>? Logs
     {
-        get => GetProperty<List<AzurermAppServiceSlotLogsBlock>>("logs");
-        set => this.WithProperty("logs", value);
+        set => SetProperty("logs", value);
     }
 
     /// <summary>
@@ -771,8 +721,7 @@ public class AzurermAppServiceSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     public List<AzurermAppServiceSlotSiteConfigBlock>? SiteConfig
     {
-        get => GetProperty<List<AzurermAppServiceSlotSiteConfigBlock>>("site_config");
-        set => this.WithProperty("site_config", value);
+        set => SetProperty("site_config", value);
     }
 
     /// <summary>
@@ -781,8 +730,7 @@ public class AzurermAppServiceSlot : TerraformResource
     /// </summary>
     public HashSet<AzurermAppServiceSlotStorageAccountBlock>? StorageAccount
     {
-        get => GetProperty<HashSet<AzurermAppServiceSlotStorageAccountBlock>>("storage_account");
-        set => this.WithProperty("storage_account", value);
+        set => SetProperty("storage_account", value);
     }
 
     /// <summary>
@@ -791,8 +739,7 @@ public class AzurermAppServiceSlot : TerraformResource
     /// </summary>
     public AzurermAppServiceSlotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceSlotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

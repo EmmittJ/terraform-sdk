@@ -13,8 +13,7 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
-        set => WithProperty("client_secret", value);
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IssuerUri
     {
-        get => GetProperty<TerraformProperty<string>>("issuer_uri");
-        set => WithProperty("issuer_uri", value);
+        set => SetProperty("issuer_uri", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Scope
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -103,52 +95,60 @@ public class AzurermSpringCloudApiPortal : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrl");
+        SetOutput("url");
+        SetOutput("api_try_out_enabled");
+        SetOutput("gateway_ids");
+        SetOutput("https_only_enabled");
+        SetOutput("id");
+        SetOutput("instance_count");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The api_try_out_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApiTryOutEnabled
+    public TerraformProperty<bool> ApiTryOutEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("api_try_out_enabled");
-        set => this.WithProperty("api_try_out_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("api_try_out_enabled");
+        set => SetProperty("api_try_out_enabled", value);
     }
 
     /// <summary>
     /// The gateway_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? GatewayIds
+    public HashSet<TerraformProperty<string>> GatewayIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("gateway_ids");
-        set => this.WithProperty("gateway_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("gateway_ids");
+        set => SetProperty("gateway_ids", value);
     }
 
     /// <summary>
     /// The https_only_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HttpsOnlyEnabled
+    public TerraformProperty<bool> HttpsOnlyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("https_only_enabled");
-        set => this.WithProperty("https_only_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("https_only_enabled");
+        set => SetProperty("https_only_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InstanceCount
+    public TerraformProperty<double> InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
-        set => this.WithProperty("instance_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -157,17 +157,17 @@ public class AzurermSpringCloudApiPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -176,8 +176,8 @@ public class AzurermSpringCloudApiPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
-        set => this.WithProperty("spring_cloud_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
+        set => SetProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
@@ -187,8 +187,7 @@ public class AzurermSpringCloudApiPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
     public List<AzurermSpringCloudApiPortalSsoBlock>? Sso
     {
-        get => GetProperty<List<AzurermSpringCloudApiPortalSsoBlock>>("sso");
-        set => this.WithProperty("sso", value);
+        set => SetProperty("sso", value);
     }
 
     /// <summary>
@@ -197,8 +196,7 @@ public class AzurermSpringCloudApiPortal : TerraformResource
     /// </summary>
     public AzurermSpringCloudApiPortalTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudApiPortalTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

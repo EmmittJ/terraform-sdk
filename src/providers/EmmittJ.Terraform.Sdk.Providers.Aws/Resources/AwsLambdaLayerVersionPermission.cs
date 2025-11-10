@@ -14,8 +14,17 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("policy");
-        this.WithOutput("revision_id");
+        SetOutput("policy");
+        SetOutput("revision_id");
+        SetOutput("action");
+        SetOutput("id");
+        SetOutput("layer_name");
+        SetOutput("organization_id");
+        SetOutput("principal");
+        SetOutput("region");
+        SetOutput("skip_destroy");
+        SetOutput("statement_id");
+        SetOutput("version_number");
     }
 
     /// <summary>
@@ -24,17 +33,17 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,17 +52,17 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     public required TerraformProperty<string> LayerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("layer_name");
-        set => this.WithProperty("layer_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("layer_name");
+        set => SetProperty("layer_name", value);
     }
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OrganizationId
+    public TerraformProperty<string> OrganizationId
     {
-        get => GetProperty<TerraformProperty<string>>("organization_id");
-        set => this.WithProperty("organization_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization_id");
+        set => SetProperty("organization_id", value);
     }
 
     /// <summary>
@@ -62,26 +71,26 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => this.WithProperty("principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal");
+        set => SetProperty("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
@@ -90,8 +99,8 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     public required TerraformProperty<string> StatementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("statement_id");
-        set => this.WithProperty("statement_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("statement_id");
+        set => SetProperty("statement_id", value);
     }
 
     /// <summary>
@@ -100,8 +109,8 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionNumber is required")]
     public required TerraformProperty<double> VersionNumber
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("version_number");
-        set => this.WithProperty("version_number", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("version_number");
+        set => SetProperty("version_number", value);
     }
 
     /// <summary>

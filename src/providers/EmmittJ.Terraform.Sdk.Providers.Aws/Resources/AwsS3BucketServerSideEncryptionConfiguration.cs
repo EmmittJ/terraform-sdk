@@ -13,8 +13,7 @@ public class AwsS3BucketServerSideEncryptionConfigurationRuleBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? BucketKeyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("bucket_key_enabled");
-        set => WithProperty("bucket_key_enabled", value);
+        set => SetProperty("bucket_key_enabled", value);
     }
 
 }
@@ -32,6 +31,10 @@ public class AwsS3BucketServerSideEncryptionConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket");
+        SetOutput("expected_bucket_owner");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -40,46 +43,46 @@ public class AwsS3BucketServerSideEncryptionConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpectedBucketOwner
+    public TerraformProperty<string> ExpectedBucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("expected_bucket_owner");
-        set => this.WithProperty("expected_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
+        set => SetProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     public HashSet<AwsS3BucketServerSideEncryptionConfigurationRuleBlock>? Rule
     {
-        get => GetProperty<HashSet<AwsS3BucketServerSideEncryptionConfigurationRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
 }

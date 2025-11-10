@@ -39,8 +39,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => WithProperty("annotations", value);
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -48,8 +47,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EffectiveAnnotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("effective_annotations");
-        set => WithProperty("effective_annotations", value);
+        set => SetProperty("effective_annotations", value);
     }
 
     /// <summary>
@@ -57,8 +55,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EffectiveLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("effective_labels");
-        set => WithProperty("effective_labels", value);
+        set => SetProperty("effective_labels", value);
     }
 
     /// <summary>
@@ -66,8 +63,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Generation
     {
-        get => GetProperty<TerraformProperty<double>>("generation");
-        set => WithProperty("generation", value);
+        set => SetProperty("generation", value);
     }
 
     /// <summary>
@@ -80,8 +76,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -90,8 +85,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
-        set => WithProperty("namespace", value);
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
@@ -103,8 +97,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceVersion
     {
-        get => GetProperty<TerraformProperty<string>>("resource_version");
-        set => WithProperty("resource_version", value);
+        set => SetProperty("resource_version", value);
     }
 
     /// <summary>
@@ -112,8 +105,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("self_link");
-        set => WithProperty("self_link", value);
+        set => SetProperty("self_link", value);
     }
 
     /// <summary>
@@ -122,8 +114,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? TerraformLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("terraform_labels");
-        set => WithProperty("terraform_labels", value);
+        set => SetProperty("terraform_labels", value);
     }
 
     /// <summary>
@@ -132,8 +123,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Uid
     {
-        get => GetProperty<TerraformProperty<string>>("uid");
-        set => WithProperty("uid", value);
+        set => SetProperty("uid", value);
     }
 
 }
@@ -157,8 +147,7 @@ public class GoogleCloudRunServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -166,8 +155,7 @@ public class GoogleCloudRunServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -175,8 +163,7 @@ public class GoogleCloudRunServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -195,8 +182,7 @@ public class GoogleCloudRunServiceTrafficBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? LatestRevision
     {
-        get => GetProperty<TerraformProperty<bool>>("latest_revision");
-        set => WithProperty("latest_revision", value);
+        set => SetProperty("latest_revision", value);
     }
 
     /// <summary>
@@ -205,8 +191,7 @@ public class GoogleCloudRunServiceTrafficBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percent is required")]
     public required TerraformProperty<double> Percent
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("percent");
-        set => WithProperty("percent", value);
+        set => SetProperty("percent", value);
     }
 
     /// <summary>
@@ -214,8 +199,7 @@ public class GoogleCloudRunServiceTrafficBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RevisionName
     {
-        get => GetProperty<TerraformProperty<string>>("revision_name");
-        set => WithProperty("revision_name", value);
+        set => SetProperty("revision_name", value);
     }
 
     /// <summary>
@@ -223,8 +207,7 @@ public class GoogleCloudRunServiceTrafficBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Tag
     {
-        get => GetProperty<TerraformProperty<string>>("tag");
-        set => WithProperty("tag", value);
+        set => SetProperty("tag", value);
     }
 
     /// <summary>
@@ -234,8 +217,7 @@ public class GoogleCloudRunServiceTrafficBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -253,7 +235,12 @@ public class GoogleCloudRunService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("status");
+        SetOutput("status");
+        SetOutput("autogenerate_revision_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -263,19 +250,19 @@ public class GoogleCloudRunService : TerraformResource
     /// (For legacy support, if &#39;template.metadata.name&#39; is unset in state while
     /// this field is set to false, the revision name will still autogenerate.)
     /// </summary>
-    public TerraformProperty<bool>? AutogenerateRevisionName
+    public TerraformProperty<bool> AutogenerateRevisionName
     {
-        get => GetProperty<TerraformProperty<bool>>("autogenerate_revision_name");
-        set => this.WithProperty("autogenerate_revision_name", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("autogenerate_revision_name");
+        set => SetProperty("autogenerate_revision_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -284,8 +271,8 @@ public class GoogleCloudRunService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -297,17 +284,17 @@ public class GoogleCloudRunService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -317,8 +304,7 @@ public class GoogleCloudRunService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     public List<GoogleCloudRunServiceMetadataBlock>? Metadata
     {
-        get => GetProperty<List<GoogleCloudRunServiceMetadataBlock>>("metadata");
-        set => this.WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -328,8 +314,7 @@ public class GoogleCloudRunService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     public List<GoogleCloudRunServiceTemplateBlock>? Template
     {
-        get => GetProperty<List<GoogleCloudRunServiceTemplateBlock>>("template");
-        set => this.WithProperty("template", value);
+        set => SetProperty("template", value);
     }
 
     /// <summary>
@@ -338,8 +323,7 @@ public class GoogleCloudRunService : TerraformResource
     /// </summary>
     public GoogleCloudRunServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudRunServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -348,8 +332,7 @@ public class GoogleCloudRunService : TerraformResource
     /// </summary>
     public List<GoogleCloudRunServiceTrafficBlock>? Traffic
     {
-        get => GetProperty<List<GoogleCloudRunServiceTrafficBlock>>("traffic");
-        set => this.WithProperty("traffic", value);
+        set => SetProperty("traffic", value);
     }
 
     /// <summary>

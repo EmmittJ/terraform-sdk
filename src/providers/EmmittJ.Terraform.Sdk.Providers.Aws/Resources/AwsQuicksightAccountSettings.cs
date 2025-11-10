@@ -13,8 +13,7 @@ public class AwsQuicksightAccountSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsQuicksightAccountSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,33 +38,36 @@ public class AwsQuicksightAccountSettings : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("aws_account_id");
+        SetOutput("default_namespace");
+        SetOutput("termination_protection_enabled");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The default_namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultNamespace
+    public TerraformProperty<string> DefaultNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("default_namespace");
-        set => this.WithProperty("default_namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_namespace");
+        set => SetProperty("default_namespace", value);
     }
 
     /// <summary>
     /// The termination_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TerminationProtectionEnabled
+    public TerraformProperty<bool> TerminationProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("termination_protection_enabled");
-        set => this.WithProperty("termination_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("termination_protection_enabled");
+        set => SetProperty("termination_protection_enabled", value);
     }
 
     /// <summary>
@@ -75,8 +76,7 @@ public class AwsQuicksightAccountSettings : TerraformResource
     /// </summary>
     public AwsQuicksightAccountSettingsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsQuicksightAccountSettingsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

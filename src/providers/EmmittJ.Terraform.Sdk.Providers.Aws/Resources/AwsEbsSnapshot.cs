@@ -13,8 +13,7 @@ public class AwsEbsSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEbsSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,94 +38,104 @@ public class AwsEbsSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("data_encryption_key_id");
-        this.WithOutput("encrypted");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("owner_alias");
-        this.WithOutput("owner_id");
-        this.WithOutput("volume_size");
+        SetOutput("arn");
+        SetOutput("data_encryption_key_id");
+        SetOutput("encrypted");
+        SetOutput("kms_key_id");
+        SetOutput("owner_alias");
+        SetOutput("owner_id");
+        SetOutput("volume_size");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("outpost_arn");
+        SetOutput("permanent_restore");
+        SetOutput("region");
+        SetOutput("storage_tier");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("temporary_restore_days");
+        SetOutput("volume_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? OutpostArn
+    public TerraformProperty<string> OutpostArn
     {
-        get => GetProperty<TerraformProperty<string>>("outpost_arn");
-        set => this.WithProperty("outpost_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("outpost_arn");
+        set => SetProperty("outpost_arn", value);
     }
 
     /// <summary>
     /// The permanent_restore attribute.
     /// </summary>
-    public TerraformProperty<bool>? PermanentRestore
+    public TerraformProperty<bool> PermanentRestore
     {
-        get => GetProperty<TerraformProperty<bool>>("permanent_restore");
-        set => this.WithProperty("permanent_restore", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("permanent_restore");
+        set => SetProperty("permanent_restore", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageTier
+    public TerraformProperty<string> StorageTier
     {
-        get => GetProperty<TerraformProperty<string>>("storage_tier");
-        set => this.WithProperty("storage_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_tier");
+        set => SetProperty("storage_tier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The temporary_restore_days attribute.
     /// </summary>
-    public TerraformProperty<double>? TemporaryRestoreDays
+    public TerraformProperty<double> TemporaryRestoreDays
     {
-        get => GetProperty<TerraformProperty<double>>("temporary_restore_days");
-        set => this.WithProperty("temporary_restore_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("temporary_restore_days");
+        set => SetProperty("temporary_restore_days", value);
     }
 
     /// <summary>
@@ -136,8 +144,8 @@ public class AwsEbsSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
-        set => this.WithProperty("volume_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_id");
+        set => SetProperty("volume_id", value);
     }
 
     /// <summary>
@@ -146,8 +154,7 @@ public class AwsEbsSnapshot : TerraformResource
     /// </summary>
     public AwsEbsSnapshotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEbsSnapshotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

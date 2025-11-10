@@ -13,8 +13,7 @@ public class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? Base
     {
-        get => GetProperty<TerraformProperty<double>>("base");
-        set => WithProperty("base", value);
+        set => SetProperty("base", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformProperty<string> CapacityProvider
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capacity_provider");
-        set => WithProperty("capacity_provider", value);
+        set => SetProperty("capacity_provider", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
-        set => WithProperty("weight", value);
+        set => SetProperty("weight", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : TerraformB
     /// </summary>
     public TerraformProperty<bool>? AssignPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("assign_public_ip");
-        set => WithProperty("assign_public_ip", value);
+        set => SetProperty("assign_public_ip", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : TerraformB
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => WithProperty("security_groups", value);
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
-        set => WithProperty("subnets", value);
+        set => SetProperty("subnets", value);
     }
 
 }
@@ -85,8 +79,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cpu
     {
-        get => GetProperty<TerraformProperty<string>>("cpu");
-        set => WithProperty("cpu", value);
+        set => SetProperty("cpu", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
-        set => WithProperty("execution_role_arn", value);
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Memory
     {
-        get => GetProperty<TerraformProperty<string>>("memory");
-        set => WithProperty("memory", value);
+        set => SetProperty("memory", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TaskRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("task_role_arn");
-        set => WithProperty("task_role_arn", value);
+        set => SetProperty("task_role_arn", value);
     }
 
 }
@@ -129,8 +119,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -139,8 +128,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -156,8 +144,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Field
     {
-        get => GetProperty<TerraformProperty<string>>("field");
-        set => WithProperty("field", value);
+        set => SetProperty("field", value);
     }
 
     /// <summary>
@@ -166,8 +153,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -185,16 +171,31 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("task_arns");
+        SetOutput("task_arns");
+        SetOutput("client_token");
+        SetOutput("cluster");
+        SetOutput("desired_count");
+        SetOutput("enable_ecs_managed_tags");
+        SetOutput("enable_execute_command");
+        SetOutput("group");
+        SetOutput("id");
+        SetOutput("launch_type");
+        SetOutput("platform_version");
+        SetOutput("propagate_tags");
+        SetOutput("reference_id");
+        SetOutput("region");
+        SetOutput("started_by");
+        SetOutput("tags");
+        SetOutput("task_definition");
     }
 
     /// <summary>
     /// The client_token attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientToken
+    public TerraformProperty<string> ClientToken
     {
-        get => GetProperty<TerraformProperty<string>>("client_token");
-        set => this.WithProperty("client_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_token");
+        set => SetProperty("client_token", value);
     }
 
     /// <summary>
@@ -203,116 +204,116 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// The desired_count attribute.
     /// </summary>
-    public TerraformProperty<double>? DesiredCount
+    public TerraformProperty<double> DesiredCount
     {
-        get => GetProperty<TerraformProperty<double>>("desired_count");
-        set => this.WithProperty("desired_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("desired_count");
+        set => SetProperty("desired_count", value);
     }
 
     /// <summary>
     /// The enable_ecs_managed_tags attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableEcsManagedTags
+    public TerraformProperty<bool> EnableEcsManagedTags
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_ecs_managed_tags");
-        set => this.WithProperty("enable_ecs_managed_tags", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_ecs_managed_tags");
+        set => SetProperty("enable_ecs_managed_tags", value);
     }
 
     /// <summary>
     /// The enable_execute_command attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableExecuteCommand
+    public TerraformProperty<bool> EnableExecuteCommand
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_execute_command");
-        set => this.WithProperty("enable_execute_command", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_execute_command");
+        set => SetProperty("enable_execute_command", value);
     }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformProperty<string>? Group
+    public TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
-        set => this.WithProperty("group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group");
+        set => SetProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LaunchType
+    public TerraformProperty<string> LaunchType
     {
-        get => GetProperty<TerraformProperty<string>>("launch_type");
-        set => this.WithProperty("launch_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("launch_type");
+        set => SetProperty("launch_type", value);
     }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
-    public TerraformProperty<string>? PlatformVersion
+    public TerraformProperty<string> PlatformVersion
     {
-        get => GetProperty<TerraformProperty<string>>("platform_version");
-        set => this.WithProperty("platform_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform_version");
+        set => SetProperty("platform_version", value);
     }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
-    public TerraformProperty<string>? PropagateTags
+    public TerraformProperty<string> PropagateTags
     {
-        get => GetProperty<TerraformProperty<string>>("propagate_tags");
-        set => this.WithProperty("propagate_tags", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("propagate_tags");
+        set => SetProperty("propagate_tags", value);
     }
 
     /// <summary>
     /// The reference_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ReferenceId
+    public TerraformProperty<string> ReferenceId
     {
-        get => GetProperty<TerraformProperty<string>>("reference_id");
-        set => this.WithProperty("reference_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reference_id");
+        set => SetProperty("reference_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The started_by attribute.
     /// </summary>
-    public TerraformProperty<string>? StartedBy
+    public TerraformProperty<string> StartedBy
     {
-        get => GetProperty<TerraformProperty<string>>("started_by");
-        set => this.WithProperty("started_by", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("started_by");
+        set => SetProperty("started_by", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -321,8 +322,8 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     public required TerraformProperty<string> TaskDefinition
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_definition");
-        set => this.WithProperty("task_definition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_definition");
+        set => SetProperty("task_definition", value);
     }
 
     /// <summary>
@@ -331,8 +332,7 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock>? CapacityProviderStrategy
     {
-        get => GetProperty<HashSet<AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock>>("capacity_provider_strategy");
-        set => this.WithProperty("capacity_provider_strategy", value);
+        set => SetProperty("capacity_provider_strategy", value);
     }
 
     /// <summary>
@@ -342,8 +342,7 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     public List<AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock>? NetworkConfiguration
     {
-        get => GetProperty<List<AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock>>("network_configuration");
-        set => this.WithProperty("network_configuration", value);
+        set => SetProperty("network_configuration", value);
     }
 
     /// <summary>
@@ -353,8 +352,7 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Overrides block(s) allowed")]
     public List<AwsEcsTaskExecutionDataSourceOverridesBlock>? Overrides
     {
-        get => GetProperty<List<AwsEcsTaskExecutionDataSourceOverridesBlock>>("overrides");
-        set => this.WithProperty("overrides", value);
+        set => SetProperty("overrides", value);
     }
 
     /// <summary>
@@ -364,8 +362,7 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
     public HashSet<AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock>? PlacementConstraints
     {
-        get => GetProperty<HashSet<AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock>>("placement_constraints");
-        set => this.WithProperty("placement_constraints", value);
+        set => SetProperty("placement_constraints", value);
     }
 
     /// <summary>
@@ -375,8 +372,7 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 PlacementStrategy block(s) allowed")]
     public List<AwsEcsTaskExecutionDataSourcePlacementStrategyBlock>? PlacementStrategy
     {
-        get => GetProperty<List<AwsEcsTaskExecutionDataSourcePlacementStrategyBlock>>("placement_strategy");
-        set => this.WithProperty("placement_strategy", value);
+        set => SetProperty("placement_strategy", value);
     }
 
     /// <summary>

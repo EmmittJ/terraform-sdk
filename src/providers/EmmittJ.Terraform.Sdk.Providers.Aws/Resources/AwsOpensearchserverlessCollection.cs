@@ -13,8 +13,7 @@ public class AwsOpensearchserverlessCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsOpensearchserverlessCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,21 +38,27 @@ public class AwsOpensearchserverlessCollection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("collection_endpoint");
-        this.WithOutput("dashboard_endpoint");
-        this.WithOutput("id");
-        this.WithOutput("kms_key_arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("collection_endpoint");
+        SetOutput("dashboard_endpoint");
+        SetOutput("id");
+        SetOutput("kms_key_arn");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("standby_replicas");
+        SetOutput("tags");
+        SetOutput("type");
     }
 
     /// <summary>
     /// Description of the collection.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -63,44 +67,44 @@ public class AwsOpensearchserverlessCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
     /// </summary>
-    public TerraformProperty<string>? StandbyReplicas
+    public TerraformProperty<string> StandbyReplicas
     {
-        get => GetProperty<TerraformProperty<string>>("standby_replicas");
-        set => this.WithProperty("standby_replicas", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("standby_replicas");
+        set => SetProperty("standby_replicas", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -109,8 +113,7 @@ public class AwsOpensearchserverlessCollection : TerraformResource
     /// </summary>
     public AwsOpensearchserverlessCollectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsOpensearchserverlessCollectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,6 +14,9 @@ public class AwsVpcEndpointPrivateDns : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("private_dns_enabled");
+        SetOutput("region");
+        SetOutput("vpc_endpoint_id");
     }
 
     /// <summary>
@@ -22,17 +25,17 @@ public class AwsVpcEndpointPrivateDns : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsEnabled is required")]
     public required TerraformProperty<bool> PrivateDnsEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("private_dns_enabled");
-        set => this.WithProperty("private_dns_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_dns_enabled");
+        set => SetProperty("private_dns_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -41,8 +44,8 @@ public class AwsVpcEndpointPrivateDns : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
     public required TerraformProperty<string> VpcEndpointId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_endpoint_id");
-        set => this.WithProperty("vpc_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_endpoint_id");
+        set => SetProperty("vpc_endpoint_id", value);
     }
 
 }

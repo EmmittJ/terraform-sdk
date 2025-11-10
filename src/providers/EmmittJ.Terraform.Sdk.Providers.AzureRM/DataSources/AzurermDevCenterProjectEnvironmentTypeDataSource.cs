@@ -13,8 +13,7 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,12 +30,15 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creator_role_assignment_roles");
-        this.WithOutput("deployment_target_id");
-        this.WithOutput("identity");
-        this.WithOutput("location");
-        this.WithOutput("tags");
-        this.WithOutput("user_role_assignment");
+        SetOutput("creator_role_assignment_roles");
+        SetOutput("deployment_target_id");
+        SetOutput("identity");
+        SetOutput("location");
+        SetOutput("tags");
+        SetOutput("user_role_assignment");
+        SetOutput("dev_center_project_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -45,17 +47,17 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     public required TerraformProperty<string> DevCenterProjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dev_center_project_id");
-        set => this.WithProperty("dev_center_project_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dev_center_project_id");
+        set => SetProperty("dev_center_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSource : TerraformDataSou
     /// </summary>
     public AzurermDevCenterProjectEnvironmentTypeDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDevCenterProjectEnvironmentTypeDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

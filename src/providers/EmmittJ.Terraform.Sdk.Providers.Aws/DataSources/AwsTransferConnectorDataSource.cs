@@ -14,15 +14,17 @@ public class AwsTransferConnectorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_role");
-        this.WithOutput("arn");
-        this.WithOutput("as2_config");
-        this.WithOutput("logging_role");
-        this.WithOutput("security_policy_name");
-        this.WithOutput("service_managed_egress_ip_addresses");
-        this.WithOutput("sftp_config");
-        this.WithOutput("tags");
-        this.WithOutput("url");
+        SetOutput("access_role");
+        SetOutput("arn");
+        SetOutput("as2_config");
+        SetOutput("logging_role");
+        SetOutput("security_policy_name");
+        SetOutput("service_managed_egress_ip_addresses");
+        SetOutput("sftp_config");
+        SetOutput("tags");
+        SetOutput("url");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -31,17 +33,17 @@ public class AwsTransferConnectorDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

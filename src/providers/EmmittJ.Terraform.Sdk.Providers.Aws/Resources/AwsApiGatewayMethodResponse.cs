@@ -14,6 +14,14 @@ public class AwsApiGatewayMethodResponse : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("http_method");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("resource_id");
+        SetOutput("response_models");
+        SetOutput("response_parameters");
+        SetOutput("rest_api_id");
+        SetOutput("status_code");
     }
 
     /// <summary>
@@ -22,26 +30,26 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformProperty<string> HttpMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("http_method");
-        set => this.WithProperty("http_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
+        set => SetProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -50,26 +58,26 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
     /// The response_models attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResponseModels
+    public Dictionary<string, TerraformProperty<string>> ResponseModels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("response_models");
-        set => this.WithProperty("response_models", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("response_models");
+        set => SetProperty("response_models", value);
     }
 
     /// <summary>
     /// The response_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<bool>>? ResponseParameters
+    public Dictionary<string, TerraformProperty<bool>> ResponseParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<bool>>>("response_parameters");
-        set => this.WithProperty("response_parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<bool>>>("response_parameters");
+        set => SetProperty("response_parameters", value);
     }
 
     /// <summary>
@@ -78,8 +86,8 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
-        set => this.WithProperty("rest_api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
+        set => SetProperty("rest_api_id", value);
     }
 
     /// <summary>
@@ -88,8 +96,8 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformProperty<string> StatusCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("status_code");
-        set => this.WithProperty("status_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status_code");
+        set => SetProperty("status_code", value);
     }
 
 }

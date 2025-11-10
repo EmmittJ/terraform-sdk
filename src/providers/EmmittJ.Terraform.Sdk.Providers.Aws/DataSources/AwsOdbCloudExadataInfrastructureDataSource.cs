@@ -14,44 +14,46 @@ public class AwsOdbCloudExadataInfrastructureDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("activated_storage_count");
-        this.WithOutput("additional_storage_count");
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone");
-        this.WithOutput("availability_zone_id");
-        this.WithOutput("available_storage_size_in_gbs");
-        this.WithOutput("compute_count");
-        this.WithOutput("compute_model");
-        this.WithOutput("cpu_count");
-        this.WithOutput("created_at");
-        this.WithOutput("customer_contacts_to_send_to_oci");
-        this.WithOutput("data_storage_size_in_tbs");
-        this.WithOutput("database_server_type");
-        this.WithOutput("db_node_storage_size_in_gbs");
-        this.WithOutput("db_server_version");
-        this.WithOutput("display_name");
-        this.WithOutput("last_maintenance_run_id");
-        this.WithOutput("maintenance_window");
-        this.WithOutput("max_cpu_count");
-        this.WithOutput("max_data_storage_in_tbs");
-        this.WithOutput("max_db_node_storage_size_in_gbs");
-        this.WithOutput("max_memory_in_gbs");
-        this.WithOutput("memory_size_in_gbs");
-        this.WithOutput("monthly_db_server_version");
-        this.WithOutput("monthly_storage_server_version");
-        this.WithOutput("next_maintenance_run_id");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("oci_url");
-        this.WithOutput("ocid");
-        this.WithOutput("percent_progress");
-        this.WithOutput("shape");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("storage_count");
-        this.WithOutput("storage_server_type");
-        this.WithOutput("storage_server_version");
-        this.WithOutput("tags");
-        this.WithOutput("total_storage_size_in_gbs");
+        SetOutput("activated_storage_count");
+        SetOutput("additional_storage_count");
+        SetOutput("arn");
+        SetOutput("availability_zone");
+        SetOutput("availability_zone_id");
+        SetOutput("available_storage_size_in_gbs");
+        SetOutput("compute_count");
+        SetOutput("compute_model");
+        SetOutput("cpu_count");
+        SetOutput("created_at");
+        SetOutput("customer_contacts_to_send_to_oci");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("database_server_type");
+        SetOutput("db_node_storage_size_in_gbs");
+        SetOutput("db_server_version");
+        SetOutput("display_name");
+        SetOutput("last_maintenance_run_id");
+        SetOutput("maintenance_window");
+        SetOutput("max_cpu_count");
+        SetOutput("max_data_storage_in_tbs");
+        SetOutput("max_db_node_storage_size_in_gbs");
+        SetOutput("max_memory_in_gbs");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("monthly_db_server_version");
+        SetOutput("monthly_storage_server_version");
+        SetOutput("next_maintenance_run_id");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("oci_url");
+        SetOutput("ocid");
+        SetOutput("percent_progress");
+        SetOutput("shape");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("storage_count");
+        SetOutput("storage_server_type");
+        SetOutput("storage_server_version");
+        SetOutput("tags");
+        SetOutput("total_storage_size_in_gbs");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -60,17 +62,17 @@ public class AwsOdbCloudExadataInfrastructureDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

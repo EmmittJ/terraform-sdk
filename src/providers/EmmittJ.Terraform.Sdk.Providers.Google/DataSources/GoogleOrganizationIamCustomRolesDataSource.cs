@@ -14,43 +14,47 @@ public class GoogleOrganizationIamCustomRolesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("roles");
+        SetOutput("roles");
+        SetOutput("id");
+        SetOutput("org_id");
+        SetOutput("show_deleted");
+        SetOutput("view");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    public TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
     /// The show_deleted attribute.
     /// </summary>
-    public TerraformProperty<bool>? ShowDeleted
+    public TerraformProperty<bool> ShowDeleted
     {
-        get => GetProperty<TerraformProperty<bool>>("show_deleted");
-        set => this.WithProperty("show_deleted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("show_deleted");
+        set => SetProperty("show_deleted", value);
     }
 
     /// <summary>
     /// The view attribute.
     /// </summary>
-    public TerraformProperty<string>? View
+    public TerraformProperty<string> View
     {
-        get => GetProperty<TerraformProperty<string>>("view");
-        set => this.WithProperty("view", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("view");
+        set => SetProperty("view", value);
     }
 
     /// <summary>

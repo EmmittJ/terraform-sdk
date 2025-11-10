@@ -14,8 +14,7 @@ public class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotebookRuntimeTemplate is required")]
     public required TerraformProperty<string> NotebookRuntimeTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("notebook_runtime_template");
-        set => WithProperty("notebook_runtime_template", value);
+        set => SetProperty("notebook_runtime_template", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleColabRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleColabRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleColabRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -68,37 +64,46 @@ public class GoogleColabRuntime : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("expiration_time");
-        this.WithOutput("is_upgradable");
-        this.WithOutput("notebook_runtime_type");
-        this.WithOutput("state");
+        SetOutput("expiration_time");
+        SetOutput("is_upgradable");
+        SetOutput("notebook_runtime_type");
+        SetOutput("state");
+        SetOutput("auto_upgrade");
+        SetOutput("description");
+        SetOutput("desired_state");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("runtime_user");
     }
 
     /// <summary>
     /// Triggers an upgrade anytime the runtime is started if it is upgradable.
     /// </summary>
-    public TerraformProperty<bool>? AutoUpgrade
+    public TerraformProperty<bool> AutoUpgrade
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_upgrade");
-        set => this.WithProperty("auto_upgrade", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_upgrade");
+        set => SetProperty("auto_upgrade", value);
     }
 
     /// <summary>
     /// The description of the Runtime.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Desired state of the Colab Runtime. Set this field to &#39;RUNNING&#39; to start the runtime, and &#39;STOPPED&#39; to stop it.
     /// </summary>
-    public TerraformProperty<string>? DesiredState
+    public TerraformProperty<string> DesiredState
     {
-        get => GetProperty<TerraformProperty<string>>("desired_state");
-        set => this.WithProperty("desired_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("desired_state");
+        set => SetProperty("desired_state", value);
     }
 
     /// <summary>
@@ -107,17 +112,17 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -126,26 +131,26 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The resource name of the Runtime
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -154,8 +159,8 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeUser is required")]
     public required TerraformProperty<string> RuntimeUser
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runtime_user");
-        set => this.WithProperty("runtime_user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime_user");
+        set => SetProperty("runtime_user", value);
     }
 
     /// <summary>
@@ -165,8 +170,7 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotebookRuntimeTemplateRef block(s) allowed")]
     public List<GoogleColabRuntimeNotebookRuntimeTemplateRefBlock>? NotebookRuntimeTemplateRef
     {
-        get => GetProperty<List<GoogleColabRuntimeNotebookRuntimeTemplateRefBlock>>("notebook_runtime_template_ref");
-        set => this.WithProperty("notebook_runtime_template_ref", value);
+        set => SetProperty("notebook_runtime_template_ref", value);
     }
 
     /// <summary>
@@ -175,8 +179,7 @@ public class GoogleColabRuntime : TerraformResource
     /// </summary>
     public GoogleColabRuntimeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleColabRuntimeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

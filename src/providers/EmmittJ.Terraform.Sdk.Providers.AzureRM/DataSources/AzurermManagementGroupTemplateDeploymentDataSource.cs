@@ -13,8 +13,7 @@ public class AzurermManagementGroupTemplateDeploymentDataSourceTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,19 @@ public class AzurermManagementGroupTemplateDeploymentDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.WithOutput("output_content");
+        SetOutput("output_content");
+        SetOutput("id");
+        SetOutput("management_group_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +51,8 @@ public class AzurermManagementGroupTemplateDeploymentDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
-        set => this.WithProperty("management_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("management_group_id");
+        set => SetProperty("management_group_id", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class AzurermManagementGroupTemplateDeploymentDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -69,8 +71,7 @@ public class AzurermManagementGroupTemplateDeploymentDataSource : TerraformDataS
     /// </summary>
     public AzurermManagementGroupTemplateDeploymentDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagementGroupTemplateDeploymentDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

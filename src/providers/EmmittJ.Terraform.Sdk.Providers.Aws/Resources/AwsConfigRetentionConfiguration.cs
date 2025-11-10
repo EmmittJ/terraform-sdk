@@ -14,17 +14,19 @@ public class AwsConfigRetentionConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("retention_period_in_days");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -33,8 +35,8 @@ public class AwsConfigRetentionConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
     public required TerraformProperty<double> RetentionPeriodInDays
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("retention_period_in_days");
-        set => this.WithProperty("retention_period_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_period_in_days");
+        set => SetProperty("retention_period_in_days", value);
     }
 
     /// <summary>

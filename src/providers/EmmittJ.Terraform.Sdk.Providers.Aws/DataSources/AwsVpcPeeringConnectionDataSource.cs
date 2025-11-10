@@ -14,8 +14,7 @@ public class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsVpcPeeringConnectionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,96 +56,105 @@ public class AwsVpcPeeringConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("accepter");
-        this.WithOutput("cidr_block_set");
-        this.WithOutput("ipv6_cidr_block_set");
-        this.WithOutput("peer_cidr_block_set");
-        this.WithOutput("peer_ipv6_cidr_block_set");
-        this.WithOutput("peer_region");
-        this.WithOutput("region");
-        this.WithOutput("requester");
-        this.WithOutput("requester_region");
+        SetOutput("accepter");
+        SetOutput("cidr_block_set");
+        SetOutput("ipv6_cidr_block_set");
+        SetOutput("peer_cidr_block_set");
+        SetOutput("peer_ipv6_cidr_block_set");
+        SetOutput("peer_region");
+        SetOutput("region");
+        SetOutput("requester");
+        SetOutput("requester_region");
+        SetOutput("cidr_block");
+        SetOutput("id");
+        SetOutput("owner_id");
+        SetOutput("peer_cidr_block");
+        SetOutput("peer_owner_id");
+        SetOutput("peer_vpc_id");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? CidrBlock
+    public TerraformProperty<string> CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("cidr_block");
-        set => this.WithProperty("cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr_block");
+        set => SetProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OwnerId
+    public TerraformProperty<string> OwnerId
     {
-        get => GetProperty<TerraformProperty<string>>("owner_id");
-        set => this.WithProperty("owner_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner_id");
+        set => SetProperty("owner_id", value);
     }
 
     /// <summary>
     /// The peer_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerCidrBlock
+    public TerraformProperty<string> PeerCidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("peer_cidr_block");
-        set => this.WithProperty("peer_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_cidr_block");
+        set => SetProperty("peer_cidr_block", value);
     }
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerOwnerId
+    public TerraformProperty<string> PeerOwnerId
     {
-        get => GetProperty<TerraformProperty<string>>("peer_owner_id");
-        set => this.WithProperty("peer_owner_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_owner_id");
+        set => SetProperty("peer_owner_id", value);
     }
 
     /// <summary>
     /// The peer_vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerVpcId
+    public TerraformProperty<string> PeerVpcId
     {
-        get => GetProperty<TerraformProperty<string>>("peer_vpc_id");
-        set => this.WithProperty("peer_vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_vpc_id");
+        set => SetProperty("peer_vpc_id", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    public TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -157,8 +163,7 @@ public class AwsVpcPeeringConnectionDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsVpcPeeringConnectionDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsVpcPeeringConnectionDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -167,8 +172,7 @@ public class AwsVpcPeeringConnectionDataSource : TerraformDataSource
     /// </summary>
     public AwsVpcPeeringConnectionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcPeeringConnectionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

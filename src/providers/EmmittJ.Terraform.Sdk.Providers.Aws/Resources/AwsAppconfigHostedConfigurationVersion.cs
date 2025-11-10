@@ -14,8 +14,15 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("version_number");
+        SetOutput("arn");
+        SetOutput("version_number");
+        SetOutput("application_id");
+        SetOutput("configuration_profile_id");
+        SetOutput("content");
+        SetOutput("content_type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,8 +31,8 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -34,8 +41,8 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
     public required TerraformProperty<string> ConfigurationProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_profile_id");
-        set => this.WithProperty("configuration_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_profile_id");
+        set => SetProperty("configuration_profile_id", value);
     }
 
     /// <summary>
@@ -44,8 +51,8 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => this.WithProperty("content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content");
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -54,35 +61,35 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformProperty<string> ContentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content_type");
-        set => this.WithProperty("content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

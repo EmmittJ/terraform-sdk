@@ -13,8 +13,7 @@ public class GoogleApihubHostProjectRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApihubHostProjectRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,8 +38,13 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("gcp_project");
+        SetOutput("host_project_registration_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -52,8 +55,8 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpProject is required")]
     public required TerraformProperty<string> GcpProject
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gcp_project");
-        set => this.WithProperty("gcp_project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gcp_project");
+        set => SetProperty("gcp_project", value);
     }
 
     /// <summary>
@@ -65,17 +68,17 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProjectRegistrationId is required")]
     public required TerraformProperty<string> HostProjectRegistrationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_project_registration_id");
-        set => this.WithProperty("host_project_registration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_project_registration_id");
+        set => SetProperty("host_project_registration_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,17 +87,17 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -103,8 +106,7 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     /// </summary>
     public GoogleApihubHostProjectRegistrationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApihubHostProjectRegistrationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

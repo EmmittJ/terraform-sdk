@@ -29,8 +29,7 @@ public class GoogleClouddeployDeployPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -38,8 +37,7 @@ public class GoogleClouddeployDeployPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -47,8 +45,7 @@ public class GoogleClouddeployDeployPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -66,13 +63,21 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("suspended");
     }
 
     /// <summary>
@@ -81,28 +86,28 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// Description of the &#39;DeployPolicy&#39;. Max length is 255 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -111,10 +116,10 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -123,8 +128,8 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -133,48 +138,48 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// When suspended, the policy will not prevent actions from occurring, even if the action violates the policy.
     /// </summary>
-    public TerraformProperty<bool>? Suspended
+    public TerraformProperty<bool> Suspended
     {
-        get => GetProperty<TerraformProperty<bool>>("suspended");
-        set => this.WithProperty("suspended", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("suspended");
+        set => SetProperty("suspended", value);
     }
 
     /// <summary>
     /// Block for rules.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     public List<GoogleClouddeployDeployPolicyRulesBlock>? Rules
     {
-        get => GetProperty<List<GoogleClouddeployDeployPolicyRulesBlock>>("rules");
-        set => this.WithProperty("rules", value);
+        set => SetProperty("rules", value);
     }
 
     /// <summary>
     /// Block for selectors.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selectors is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Selectors block(s) required")]
     public List<GoogleClouddeployDeployPolicySelectorsBlock>? Selectors
     {
-        get => GetProperty<List<GoogleClouddeployDeployPolicySelectorsBlock>>("selectors");
-        set => this.WithProperty("selectors", value);
+        set => SetProperty("selectors", value);
     }
 
     /// <summary>
@@ -183,8 +188,7 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
     /// </summary>
     public GoogleClouddeployDeployPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleClouddeployDeployPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,33 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("importance");
+        SetOutput("max_resource_percent");
+        SetOutput("max_resource_percent_per_request");
+        SetOutput("min_resource_percent");
+        SetOutput("min_resource_percent_per_request");
+        SetOutput("name");
+        SetOutput("query_execution_timeout_in_seconds");
+        SetOutput("sql_pool_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The importance attribute.
     /// </summary>
-    public TerraformProperty<string>? Importance
+    public TerraformProperty<string> Importance
     {
-        get => GetProperty<TerraformProperty<string>>("importance");
-        set => this.WithProperty("importance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("importance");
+        set => SetProperty("importance", value);
     }
 
     /// <summary>
@@ -84,17 +89,17 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxResourcePercent is required")]
     public required TerraformProperty<double> MaxResourcePercent
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_resource_percent");
-        set => this.WithProperty("max_resource_percent", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_resource_percent");
+        set => SetProperty("max_resource_percent", value);
     }
 
     /// <summary>
     /// The max_resource_percent_per_request attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxResourcePercentPerRequest
+    public TerraformProperty<double> MaxResourcePercentPerRequest
     {
-        get => GetProperty<TerraformProperty<double>>("max_resource_percent_per_request");
-        set => this.WithProperty("max_resource_percent_per_request", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_resource_percent_per_request");
+        set => SetProperty("max_resource_percent_per_request", value);
     }
 
     /// <summary>
@@ -103,17 +108,17 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinResourcePercent is required")]
     public required TerraformProperty<double> MinResourcePercent
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_resource_percent");
-        set => this.WithProperty("min_resource_percent", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_resource_percent");
+        set => SetProperty("min_resource_percent", value);
     }
 
     /// <summary>
     /// The min_resource_percent_per_request attribute.
     /// </summary>
-    public TerraformProperty<double>? MinResourcePercentPerRequest
+    public TerraformProperty<double> MinResourcePercentPerRequest
     {
-        get => GetProperty<TerraformProperty<double>>("min_resource_percent_per_request");
-        set => this.WithProperty("min_resource_percent_per_request", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_resource_percent_per_request");
+        set => SetProperty("min_resource_percent_per_request", value);
     }
 
     /// <summary>
@@ -122,17 +127,17 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The query_execution_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? QueryExecutionTimeoutInSeconds
+    public TerraformProperty<double> QueryExecutionTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("query_execution_timeout_in_seconds");
-        set => this.WithProperty("query_execution_timeout_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("query_execution_timeout_in_seconds");
+        set => SetProperty("query_execution_timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -141,8 +146,8 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlPoolId is required")]
     public required TerraformProperty<string> SqlPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sql_pool_id");
-        set => this.WithProperty("sql_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sql_pool_id");
+        set => SetProperty("sql_pool_id", value);
     }
 
     /// <summary>
@@ -151,8 +156,7 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     /// </summary>
     public AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
-        set => WithProperty("device_name", value);
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NoDevice
     {
-        get => GetProperty<TerraformProperty<string>>("no_device");
-        set => WithProperty("no_device", value);
+        set => SetProperty("no_device", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VirtualName
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_name");
-        set => WithProperty("virtual_name", value);
+        set => SetProperty("virtual_name", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsLaunchTemplateCapacityReservationSpecificationBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? CapacityReservationPreference
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_reservation_preference");
-        set => WithProperty("capacity_reservation_preference", value);
+        set => SetProperty("capacity_reservation_preference", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class AwsLaunchTemplateCpuOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AmdSevSnp
     {
-        get => GetProperty<TerraformProperty<string>>("amd_sev_snp");
-        set => WithProperty("amd_sev_snp", value);
+        set => SetProperty("amd_sev_snp", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AwsLaunchTemplateCpuOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("core_count");
-        set => WithProperty("core_count", value);
+        set => SetProperty("core_count", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AwsLaunchTemplateCpuOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ThreadsPerCore
     {
-        get => GetProperty<TerraformProperty<double>>("threads_per_core");
-        set => WithProperty("threads_per_core", value);
+        set => SetProperty("threads_per_core", value);
     }
 
 }
@@ -100,8 +93,7 @@ public class AwsLaunchTemplateCreditSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CpuCredits
     {
-        get => GetProperty<TerraformProperty<string>>("cpu_credits");
-        set => WithProperty("cpu_credits", value);
+        set => SetProperty("cpu_credits", value);
     }
 
 }
@@ -117,8 +109,7 @@ public class AwsLaunchTemplateEnclaveOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -135,8 +126,7 @@ public class AwsLaunchTemplateHibernationOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configured is required")]
     public required TerraformProperty<bool> Configured
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("configured");
-        set => WithProperty("configured", value);
+        set => SetProperty("configured", value);
     }
 
 }
@@ -152,8 +142,7 @@ public class AwsLaunchTemplateIamInstanceProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => WithProperty("arn", value);
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
@@ -161,8 +150,7 @@ public class AwsLaunchTemplateIamInstanceProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -178,8 +166,7 @@ public class AwsLaunchTemplateInstanceMarketOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MarketType
     {
-        get => GetProperty<TerraformProperty<string>>("market_type");
-        set => WithProperty("market_type", value);
+        set => SetProperty("market_type", value);
     }
 
 }
@@ -195,8 +182,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AcceleratorManufacturers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("accelerator_manufacturers");
-        set => WithProperty("accelerator_manufacturers", value);
+        set => SetProperty("accelerator_manufacturers", value);
     }
 
     /// <summary>
@@ -204,8 +190,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AcceleratorNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("accelerator_names");
-        set => WithProperty("accelerator_names", value);
+        set => SetProperty("accelerator_names", value);
     }
 
     /// <summary>
@@ -213,8 +198,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AcceleratorTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("accelerator_types");
-        set => WithProperty("accelerator_types", value);
+        set => SetProperty("accelerator_types", value);
     }
 
     /// <summary>
@@ -222,8 +206,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedInstanceTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_instance_types");
-        set => WithProperty("allowed_instance_types", value);
+        set => SetProperty("allowed_instance_types", value);
     }
 
     /// <summary>
@@ -231,8 +214,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BareMetal
     {
-        get => GetProperty<TerraformProperty<string>>("bare_metal");
-        set => WithProperty("bare_metal", value);
+        set => SetProperty("bare_metal", value);
     }
 
     /// <summary>
@@ -240,8 +222,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BurstablePerformance
     {
-        get => GetProperty<TerraformProperty<string>>("burstable_performance");
-        set => WithProperty("burstable_performance", value);
+        set => SetProperty("burstable_performance", value);
     }
 
     /// <summary>
@@ -249,8 +230,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? CpuManufacturers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("cpu_manufacturers");
-        set => WithProperty("cpu_manufacturers", value);
+        set => SetProperty("cpu_manufacturers", value);
     }
 
     /// <summary>
@@ -258,8 +238,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExcludedInstanceTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_instance_types");
-        set => WithProperty("excluded_instance_types", value);
+        set => SetProperty("excluded_instance_types", value);
     }
 
     /// <summary>
@@ -267,8 +246,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? InstanceGenerations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("instance_generations");
-        set => WithProperty("instance_generations", value);
+        set => SetProperty("instance_generations", value);
     }
 
     /// <summary>
@@ -276,8 +254,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocalStorage
     {
-        get => GetProperty<TerraformProperty<string>>("local_storage");
-        set => WithProperty("local_storage", value);
+        set => SetProperty("local_storage", value);
     }
 
     /// <summary>
@@ -285,8 +262,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? LocalStorageTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("local_storage_types");
-        set => WithProperty("local_storage_types", value);
+        set => SetProperty("local_storage_types", value);
     }
 
     /// <summary>
@@ -294,8 +270,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
     {
-        get => GetProperty<TerraformProperty<double>>("max_spot_price_as_percentage_of_optimal_on_demand_price");
-        set => WithProperty("max_spot_price_as_percentage_of_optimal_on_demand_price", value);
+        set => SetProperty("max_spot_price_as_percentage_of_optimal_on_demand_price", value);
     }
 
     /// <summary>
@@ -303,8 +278,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? OnDemandMaxPricePercentageOverLowestPrice
     {
-        get => GetProperty<TerraformProperty<double>>("on_demand_max_price_percentage_over_lowest_price");
-        set => WithProperty("on_demand_max_price_percentage_over_lowest_price", value);
+        set => SetProperty("on_demand_max_price_percentage_over_lowest_price", value);
     }
 
     /// <summary>
@@ -312,8 +286,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequireHibernateSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("require_hibernate_support");
-        set => WithProperty("require_hibernate_support", value);
+        set => SetProperty("require_hibernate_support", value);
     }
 
     /// <summary>
@@ -321,8 +294,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SpotMaxPricePercentageOverLowestPrice
     {
-        get => GetProperty<TerraformProperty<double>>("spot_max_price_percentage_over_lowest_price");
-        set => WithProperty("spot_max_price_percentage_over_lowest_price", value);
+        set => SetProperty("spot_max_price_percentage_over_lowest_price", value);
     }
 
 }
@@ -339,8 +311,7 @@ public class AwsLaunchTemplateLicenseSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseConfigurationArn is required")]
     public required TerraformProperty<string> LicenseConfigurationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license_configuration_arn");
-        set => WithProperty("license_configuration_arn", value);
+        set => SetProperty("license_configuration_arn", value);
     }
 
 }
@@ -356,8 +327,7 @@ public class AwsLaunchTemplateMaintenanceOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AutoRecovery
     {
-        get => GetProperty<TerraformProperty<string>>("auto_recovery");
-        set => WithProperty("auto_recovery", value);
+        set => SetProperty("auto_recovery", value);
     }
 
 }
@@ -373,8 +343,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("http_endpoint");
-        set => WithProperty("http_endpoint", value);
+        set => SetProperty("http_endpoint", value);
     }
 
     /// <summary>
@@ -382,8 +351,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpProtocolIpv6
     {
-        get => GetProperty<TerraformProperty<string>>("http_protocol_ipv6");
-        set => WithProperty("http_protocol_ipv6", value);
+        set => SetProperty("http_protocol_ipv6", value);
     }
 
     /// <summary>
@@ -391,8 +359,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? HttpPutResponseHopLimit
     {
-        get => GetProperty<TerraformProperty<double>>("http_put_response_hop_limit");
-        set => WithProperty("http_put_response_hop_limit", value);
+        set => SetProperty("http_put_response_hop_limit", value);
     }
 
     /// <summary>
@@ -400,8 +367,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpTokens
     {
-        get => GetProperty<TerraformProperty<string>>("http_tokens");
-        set => WithProperty("http_tokens", value);
+        set => SetProperty("http_tokens", value);
     }
 
     /// <summary>
@@ -409,8 +375,7 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceMetadataTags
     {
-        get => GetProperty<TerraformProperty<string>>("instance_metadata_tags");
-        set => WithProperty("instance_metadata_tags", value);
+        set => SetProperty("instance_metadata_tags", value);
     }
 
 }
@@ -426,8 +391,7 @@ public class AwsLaunchTemplateMonitoringBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -443,8 +407,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AssociateCarrierIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("associate_carrier_ip_address");
-        set => WithProperty("associate_carrier_ip_address", value);
+        set => SetProperty("associate_carrier_ip_address", value);
     }
 
     /// <summary>
@@ -452,8 +415,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AssociatePublicIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("associate_public_ip_address");
-        set => WithProperty("associate_public_ip_address", value);
+        set => SetProperty("associate_public_ip_address", value);
     }
 
     /// <summary>
@@ -461,8 +423,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeleteOnTermination
     {
-        get => GetProperty<TerraformProperty<string>>("delete_on_termination");
-        set => WithProperty("delete_on_termination", value);
+        set => SetProperty("delete_on_termination", value);
     }
 
     /// <summary>
@@ -470,8 +431,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -479,8 +439,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DeviceIndex
     {
-        get => GetProperty<TerraformProperty<double>>("device_index");
-        set => WithProperty("device_index", value);
+        set => SetProperty("device_index", value);
     }
 
     /// <summary>
@@ -488,8 +447,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InterfaceType
     {
-        get => GetProperty<TerraformProperty<string>>("interface_type");
-        set => WithProperty("interface_type", value);
+        set => SetProperty("interface_type", value);
     }
 
     /// <summary>
@@ -497,8 +455,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Ipv4AddressCount
     {
-        get => GetProperty<TerraformProperty<double>>("ipv4_address_count");
-        set => WithProperty("ipv4_address_count", value);
+        set => SetProperty("ipv4_address_count", value);
     }
 
     /// <summary>
@@ -506,8 +463,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Ipv4Addresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv4_addresses");
-        set => WithProperty("ipv4_addresses", value);
+        set => SetProperty("ipv4_addresses", value);
     }
 
     /// <summary>
@@ -515,8 +471,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Ipv4PrefixCount
     {
-        get => GetProperty<TerraformProperty<double>>("ipv4_prefix_count");
-        set => WithProperty("ipv4_prefix_count", value);
+        set => SetProperty("ipv4_prefix_count", value);
     }
 
     /// <summary>
@@ -524,8 +479,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Ipv4Prefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv4_prefixes");
-        set => WithProperty("ipv4_prefixes", value);
+        set => SetProperty("ipv4_prefixes", value);
     }
 
     /// <summary>
@@ -533,8 +487,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Ipv6AddressCount
     {
-        get => GetProperty<TerraformProperty<double>>("ipv6_address_count");
-        set => WithProperty("ipv6_address_count", value);
+        set => SetProperty("ipv6_address_count", value);
     }
 
     /// <summary>
@@ -542,8 +495,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Ipv6Addresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv6_addresses");
-        set => WithProperty("ipv6_addresses", value);
+        set => SetProperty("ipv6_addresses", value);
     }
 
     /// <summary>
@@ -551,8 +503,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Ipv6PrefixCount
     {
-        get => GetProperty<TerraformProperty<double>>("ipv6_prefix_count");
-        set => WithProperty("ipv6_prefix_count", value);
+        set => SetProperty("ipv6_prefix_count", value);
     }
 
     /// <summary>
@@ -560,8 +511,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Ipv6Prefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv6_prefixes");
-        set => WithProperty("ipv6_prefixes", value);
+        set => SetProperty("ipv6_prefixes", value);
     }
 
     /// <summary>
@@ -569,8 +519,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NetworkCardIndex
     {
-        get => GetProperty<TerraformProperty<double>>("network_card_index");
-        set => WithProperty("network_card_index", value);
+        set => SetProperty("network_card_index", value);
     }
 
     /// <summary>
@@ -578,8 +527,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
-        set => WithProperty("network_interface_id", value);
+        set => SetProperty("network_interface_id", value);
     }
 
     /// <summary>
@@ -587,8 +535,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrimaryIpv6
     {
-        get => GetProperty<TerraformProperty<string>>("primary_ipv6");
-        set => WithProperty("primary_ipv6", value);
+        set => SetProperty("primary_ipv6", value);
     }
 
     /// <summary>
@@ -596,8 +543,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address");
-        set => WithProperty("private_ip_address", value);
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
@@ -605,8 +551,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => WithProperty("security_groups", value);
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
@@ -614,8 +559,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -631,8 +575,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Affinity
     {
-        get => GetProperty<TerraformProperty<string>>("affinity");
-        set => WithProperty("affinity", value);
+        set => SetProperty("affinity", value);
     }
 
     /// <summary>
@@ -640,8 +583,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
-        set => WithProperty("availability_zone", value);
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
@@ -649,8 +591,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GroupId
     {
-        get => GetProperty<TerraformProperty<string>>("group_id");
-        set => WithProperty("group_id", value);
+        set => SetProperty("group_id", value);
     }
 
     /// <summary>
@@ -658,8 +599,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GroupName
     {
-        get => GetProperty<TerraformProperty<string>>("group_name");
-        set => WithProperty("group_name", value);
+        set => SetProperty("group_name", value);
     }
 
     /// <summary>
@@ -667,8 +607,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HostId
     {
-        get => GetProperty<TerraformProperty<string>>("host_id");
-        set => WithProperty("host_id", value);
+        set => SetProperty("host_id", value);
     }
 
     /// <summary>
@@ -676,8 +615,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HostResourceGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("host_resource_group_arn");
-        set => WithProperty("host_resource_group_arn", value);
+        set => SetProperty("host_resource_group_arn", value);
     }
 
     /// <summary>
@@ -685,8 +623,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? PartitionNumber
     {
-        get => GetProperty<TerraformProperty<double>>("partition_number");
-        set => WithProperty("partition_number", value);
+        set => SetProperty("partition_number", value);
     }
 
     /// <summary>
@@ -694,8 +631,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SpreadDomain
     {
-        get => GetProperty<TerraformProperty<string>>("spread_domain");
-        set => WithProperty("spread_domain", value);
+        set => SetProperty("spread_domain", value);
     }
 
     /// <summary>
@@ -703,8 +639,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Tenancy
     {
-        get => GetProperty<TerraformProperty<string>>("tenancy");
-        set => WithProperty("tenancy", value);
+        set => SetProperty("tenancy", value);
     }
 
 }
@@ -720,8 +655,7 @@ public class AwsLaunchTemplatePrivateDnsNameOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableResourceNameDnsARecord
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_resource_name_dns_a_record");
-        set => WithProperty("enable_resource_name_dns_a_record", value);
+        set => SetProperty("enable_resource_name_dns_a_record", value);
     }
 
     /// <summary>
@@ -729,8 +663,7 @@ public class AwsLaunchTemplatePrivateDnsNameOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableResourceNameDnsAaaaRecord
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_resource_name_dns_aaaa_record");
-        set => WithProperty("enable_resource_name_dns_aaaa_record", value);
+        set => SetProperty("enable_resource_name_dns_aaaa_record", value);
     }
 
     /// <summary>
@@ -738,8 +671,7 @@ public class AwsLaunchTemplatePrivateDnsNameOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HostnameType
     {
-        get => GetProperty<TerraformProperty<string>>("hostname_type");
-        set => WithProperty("hostname_type", value);
+        set => SetProperty("hostname_type", value);
     }
 
 }
@@ -755,8 +687,7 @@ public class AwsLaunchTemplateTagSpecificationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
@@ -764,8 +695,7 @@ public class AwsLaunchTemplateTagSpecificationsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
 }
@@ -783,197 +713,218 @@ public class AwsLaunchTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("latest_version");
+        SetOutput("arn");
+        SetOutput("latest_version");
+        SetOutput("default_version");
+        SetOutput("description");
+        SetOutput("disable_api_stop");
+        SetOutput("disable_api_termination");
+        SetOutput("ebs_optimized");
+        SetOutput("id");
+        SetOutput("image_id");
+        SetOutput("instance_initiated_shutdown_behavior");
+        SetOutput("instance_type");
+        SetOutput("kernel_id");
+        SetOutput("key_name");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("ram_disk_id");
+        SetOutput("region");
+        SetOutput("security_group_names");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("update_default_version");
+        SetOutput("user_data");
+        SetOutput("vpc_security_group_ids");
     }
 
     /// <summary>
     /// The default_version attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultVersion
+    public TerraformProperty<double> DefaultVersion
     {
-        get => GetProperty<TerraformProperty<double>>("default_version");
-        set => this.WithProperty("default_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_version");
+        set => SetProperty("default_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The disable_api_stop attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableApiStop
+    public TerraformProperty<bool> DisableApiStop
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_api_stop");
-        set => this.WithProperty("disable_api_stop", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_api_stop");
+        set => SetProperty("disable_api_stop", value);
     }
 
     /// <summary>
     /// The disable_api_termination attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableApiTermination
+    public TerraformProperty<bool> DisableApiTermination
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_api_termination");
-        set => this.WithProperty("disable_api_termination", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_api_termination");
+        set => SetProperty("disable_api_termination", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformProperty<string>? EbsOptimized
+    public TerraformProperty<string> EbsOptimized
     {
-        get => GetProperty<TerraformProperty<string>>("ebs_optimized");
-        set => this.WithProperty("ebs_optimized", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ebs_optimized");
+        set => SetProperty("ebs_optimized", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageId
+    public TerraformProperty<string> ImageId
     {
-        get => GetProperty<TerraformProperty<string>>("image_id");
-        set => this.WithProperty("image_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_id");
+        set => SetProperty("image_id", value);
     }
 
     /// <summary>
     /// The instance_initiated_shutdown_behavior attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceInitiatedShutdownBehavior
+    public TerraformProperty<string> InstanceInitiatedShutdownBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("instance_initiated_shutdown_behavior");
-        set => this.WithProperty("instance_initiated_shutdown_behavior", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_initiated_shutdown_behavior");
+        set => SetProperty("instance_initiated_shutdown_behavior", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    public TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
     /// The kernel_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KernelId
+    public TerraformProperty<string> KernelId
     {
-        get => GetProperty<TerraformProperty<string>>("kernel_id");
-        set => this.WithProperty("kernel_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kernel_id");
+        set => SetProperty("kernel_id", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyName
+    public TerraformProperty<string> KeyName
     {
-        get => GetProperty<TerraformProperty<string>>("key_name");
-        set => this.WithProperty("key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_name");
+        set => SetProperty("key_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The ram_disk_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RamDiskId
+    public TerraformProperty<string> RamDiskId
     {
-        get => GetProperty<TerraformProperty<string>>("ram_disk_id");
-        set => this.WithProperty("ram_disk_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ram_disk_id");
+        set => SetProperty("ram_disk_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_names attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupNames
+    public HashSet<TerraformProperty<string>> SecurityGroupNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_names");
-        set => this.WithProperty("security_group_names", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_names");
+        set => SetProperty("security_group_names", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The update_default_version attribute.
     /// </summary>
-    public TerraformProperty<bool>? UpdateDefaultVersion
+    public TerraformProperty<bool> UpdateDefaultVersion
     {
-        get => GetProperty<TerraformProperty<bool>>("update_default_version");
-        set => this.WithProperty("update_default_version", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("update_default_version");
+        set => SetProperty("update_default_version", value);
     }
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
-    public TerraformProperty<string>? UserData
+    public TerraformProperty<string> UserData
     {
-        get => GetProperty<TerraformProperty<string>>("user_data");
-        set => this.WithProperty("user_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_data");
+        set => SetProperty("user_data", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => this.WithProperty("vpc_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
+        set => SetProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
@@ -982,8 +933,7 @@ public class AwsLaunchTemplate : TerraformResource
     /// </summary>
     public List<AwsLaunchTemplateBlockDeviceMappingsBlock>? BlockDeviceMappings
     {
-        get => GetProperty<List<AwsLaunchTemplateBlockDeviceMappingsBlock>>("block_device_mappings");
-        set => this.WithProperty("block_device_mappings", value);
+        set => SetProperty("block_device_mappings", value);
     }
 
     /// <summary>
@@ -993,8 +943,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityReservationSpecification block(s) allowed")]
     public List<AwsLaunchTemplateCapacityReservationSpecificationBlock>? CapacityReservationSpecification
     {
-        get => GetProperty<List<AwsLaunchTemplateCapacityReservationSpecificationBlock>>("capacity_reservation_specification");
-        set => this.WithProperty("capacity_reservation_specification", value);
+        set => SetProperty("capacity_reservation_specification", value);
     }
 
     /// <summary>
@@ -1004,8 +953,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CpuOptions block(s) allowed")]
     public List<AwsLaunchTemplateCpuOptionsBlock>? CpuOptions
     {
-        get => GetProperty<List<AwsLaunchTemplateCpuOptionsBlock>>("cpu_options");
-        set => this.WithProperty("cpu_options", value);
+        set => SetProperty("cpu_options", value);
     }
 
     /// <summary>
@@ -1015,8 +963,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreditSpecification block(s) allowed")]
     public List<AwsLaunchTemplateCreditSpecificationBlock>? CreditSpecification
     {
-        get => GetProperty<List<AwsLaunchTemplateCreditSpecificationBlock>>("credit_specification");
-        set => this.WithProperty("credit_specification", value);
+        set => SetProperty("credit_specification", value);
     }
 
     /// <summary>
@@ -1026,8 +973,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnclaveOptions block(s) allowed")]
     public List<AwsLaunchTemplateEnclaveOptionsBlock>? EnclaveOptions
     {
-        get => GetProperty<List<AwsLaunchTemplateEnclaveOptionsBlock>>("enclave_options");
-        set => this.WithProperty("enclave_options", value);
+        set => SetProperty("enclave_options", value);
     }
 
     /// <summary>
@@ -1037,8 +983,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HibernationOptions block(s) allowed")]
     public List<AwsLaunchTemplateHibernationOptionsBlock>? HibernationOptions
     {
-        get => GetProperty<List<AwsLaunchTemplateHibernationOptionsBlock>>("hibernation_options");
-        set => this.WithProperty("hibernation_options", value);
+        set => SetProperty("hibernation_options", value);
     }
 
     /// <summary>
@@ -1048,8 +993,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IamInstanceProfile block(s) allowed")]
     public List<AwsLaunchTemplateIamInstanceProfileBlock>? IamInstanceProfile
     {
-        get => GetProperty<List<AwsLaunchTemplateIamInstanceProfileBlock>>("iam_instance_profile");
-        set => this.WithProperty("iam_instance_profile", value);
+        set => SetProperty("iam_instance_profile", value);
     }
 
     /// <summary>
@@ -1059,8 +1003,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMarketOptions block(s) allowed")]
     public List<AwsLaunchTemplateInstanceMarketOptionsBlock>? InstanceMarketOptions
     {
-        get => GetProperty<List<AwsLaunchTemplateInstanceMarketOptionsBlock>>("instance_market_options");
-        set => this.WithProperty("instance_market_options", value);
+        set => SetProperty("instance_market_options", value);
     }
 
     /// <summary>
@@ -1070,8 +1013,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceRequirements block(s) allowed")]
     public List<AwsLaunchTemplateInstanceRequirementsBlock>? InstanceRequirements
     {
-        get => GetProperty<List<AwsLaunchTemplateInstanceRequirementsBlock>>("instance_requirements");
-        set => this.WithProperty("instance_requirements", value);
+        set => SetProperty("instance_requirements", value);
     }
 
     /// <summary>
@@ -1080,8 +1022,7 @@ public class AwsLaunchTemplate : TerraformResource
     /// </summary>
     public HashSet<AwsLaunchTemplateLicenseSpecificationBlock>? LicenseSpecification
     {
-        get => GetProperty<HashSet<AwsLaunchTemplateLicenseSpecificationBlock>>("license_specification");
-        set => this.WithProperty("license_specification", value);
+        set => SetProperty("license_specification", value);
     }
 
     /// <summary>
@@ -1091,8 +1032,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceOptions block(s) allowed")]
     public List<AwsLaunchTemplateMaintenanceOptionsBlock>? MaintenanceOptions
     {
-        get => GetProperty<List<AwsLaunchTemplateMaintenanceOptionsBlock>>("maintenance_options");
-        set => this.WithProperty("maintenance_options", value);
+        set => SetProperty("maintenance_options", value);
     }
 
     /// <summary>
@@ -1102,8 +1042,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataOptions block(s) allowed")]
     public List<AwsLaunchTemplateMetadataOptionsBlock>? MetadataOptions
     {
-        get => GetProperty<List<AwsLaunchTemplateMetadataOptionsBlock>>("metadata_options");
-        set => this.WithProperty("metadata_options", value);
+        set => SetProperty("metadata_options", value);
     }
 
     /// <summary>
@@ -1113,8 +1052,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitoring block(s) allowed")]
     public List<AwsLaunchTemplateMonitoringBlock>? Monitoring
     {
-        get => GetProperty<List<AwsLaunchTemplateMonitoringBlock>>("monitoring");
-        set => this.WithProperty("monitoring", value);
+        set => SetProperty("monitoring", value);
     }
 
     /// <summary>
@@ -1123,8 +1061,7 @@ public class AwsLaunchTemplate : TerraformResource
     /// </summary>
     public List<AwsLaunchTemplateNetworkInterfacesBlock>? NetworkInterfaces
     {
-        get => GetProperty<List<AwsLaunchTemplateNetworkInterfacesBlock>>("network_interfaces");
-        set => this.WithProperty("network_interfaces", value);
+        set => SetProperty("network_interfaces", value);
     }
 
     /// <summary>
@@ -1134,8 +1071,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
     public List<AwsLaunchTemplatePlacementBlock>? Placement
     {
-        get => GetProperty<List<AwsLaunchTemplatePlacementBlock>>("placement");
-        set => this.WithProperty("placement", value);
+        set => SetProperty("placement", value);
     }
 
     /// <summary>
@@ -1145,8 +1081,7 @@ public class AwsLaunchTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateDnsNameOptions block(s) allowed")]
     public List<AwsLaunchTemplatePrivateDnsNameOptionsBlock>? PrivateDnsNameOptions
     {
-        get => GetProperty<List<AwsLaunchTemplatePrivateDnsNameOptionsBlock>>("private_dns_name_options");
-        set => this.WithProperty("private_dns_name_options", value);
+        set => SetProperty("private_dns_name_options", value);
     }
 
     /// <summary>
@@ -1155,8 +1090,7 @@ public class AwsLaunchTemplate : TerraformResource
     /// </summary>
     public List<AwsLaunchTemplateTagSpecificationsBlock>? TagSpecifications
     {
-        get => GetProperty<List<AwsLaunchTemplateTagSpecificationsBlock>>("tag_specifications");
-        set => this.WithProperty("tag_specifications", value);
+        set => SetProperty("tag_specifications", value);
     }
 
     /// <summary>

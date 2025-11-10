@@ -23,8 +23,7 @@ public class GoogleDiscoveryEngineAssistantGenerationConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? DefaultLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("default_language");
-        set => WithProperty("default_language", value);
+        set => SetProperty("default_language", value);
     }
 
 }
@@ -40,8 +39,7 @@ public class GoogleDiscoveryEngineAssistantTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +47,7 @@ public class GoogleDiscoveryEngineAssistantTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class GoogleDiscoveryEngineAssistantTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,7 +73,16 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("assistant_id");
+        SetOutput("collection_id");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("engine_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("web_grounding_type");
     }
 
     /// <summary>
@@ -86,8 +91,8 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssistantId is required")]
     public required TerraformProperty<string> AssistantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("assistant_id");
-        set => this.WithProperty("assistant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("assistant_id");
+        set => SetProperty("assistant_id", value);
     }
 
     /// <summary>
@@ -96,18 +101,18 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
-        set => this.WithProperty("collection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collection_id");
+        set => SetProperty("collection_id", value);
     }
 
     /// <summary>
     /// Description for additional information. Expected to be shown on the
     /// configuration UI, not to the users of the assistant.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -118,8 +123,8 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -128,17 +133,17 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformProperty<string> EngineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_id");
-        set => this.WithProperty("engine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_id");
+        set => SetProperty("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -148,27 +153,27 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The type of web grounding to use.
     /// The supported values: &#39;WEB_GROUNDING_TYPE_DISABLED&#39;, &#39;WEB_GROUNDING_TYPE_GOOGLE_SEARCH&#39;, &#39;WEB_GROUNDING_TYPE_ENTERPRISE_WEB_SEARCH&#39;.
     /// </summary>
-    public TerraformProperty<string>? WebGroundingType
+    public TerraformProperty<string> WebGroundingType
     {
-        get => GetProperty<TerraformProperty<string>>("web_grounding_type");
-        set => this.WithProperty("web_grounding_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("web_grounding_type");
+        set => SetProperty("web_grounding_type", value);
     }
 
     /// <summary>
@@ -178,8 +183,7 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerPolicy block(s) allowed")]
     public List<GoogleDiscoveryEngineAssistantCustomerPolicyBlock>? CustomerPolicy
     {
-        get => GetProperty<List<GoogleDiscoveryEngineAssistantCustomerPolicyBlock>>("customer_policy");
-        set => this.WithProperty("customer_policy", value);
+        set => SetProperty("customer_policy", value);
     }
 
     /// <summary>
@@ -189,8 +193,7 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenerationConfig block(s) allowed")]
     public List<GoogleDiscoveryEngineAssistantGenerationConfigBlock>? GenerationConfig
     {
-        get => GetProperty<List<GoogleDiscoveryEngineAssistantGenerationConfigBlock>>("generation_config");
-        set => this.WithProperty("generation_config", value);
+        set => SetProperty("generation_config", value);
     }
 
     /// <summary>
@@ -199,8 +202,7 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineAssistantTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineAssistantTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,78 +14,83 @@ public class GoogleComputeRegionInstanceGroupManagerDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.WithOutput("all_instances_config");
-        this.WithOutput("auto_healing_policies");
-        this.WithOutput("base_instance_name");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("description");
-        this.WithOutput("distribution_policy_target_shape");
-        this.WithOutput("distribution_policy_zones");
-        this.WithOutput("fingerprint");
-        this.WithOutput("instance_flexibility_policy");
-        this.WithOutput("instance_group");
-        this.WithOutput("instance_group_manager_id");
-        this.WithOutput("instance_lifecycle_policy");
-        this.WithOutput("list_managed_instances_results");
-        this.WithOutput("named_port");
-        this.WithOutput("standby_policy");
-        this.WithOutput("stateful_disk");
-        this.WithOutput("stateful_external_ip");
-        this.WithOutput("stateful_internal_ip");
-        this.WithOutput("status");
-        this.WithOutput("target_pools");
-        this.WithOutput("target_size");
-        this.WithOutput("target_stopped_size");
-        this.WithOutput("target_suspended_size");
-        this.WithOutput("update_policy");
-        this.WithOutput("version");
-        this.WithOutput("wait_for_instances");
-        this.WithOutput("wait_for_instances_status");
+        SetOutput("all_instances_config");
+        SetOutput("auto_healing_policies");
+        SetOutput("base_instance_name");
+        SetOutput("creation_timestamp");
+        SetOutput("description");
+        SetOutput("distribution_policy_target_shape");
+        SetOutput("distribution_policy_zones");
+        SetOutput("fingerprint");
+        SetOutput("instance_flexibility_policy");
+        SetOutput("instance_group");
+        SetOutput("instance_group_manager_id");
+        SetOutput("instance_lifecycle_policy");
+        SetOutput("list_managed_instances_results");
+        SetOutput("named_port");
+        SetOutput("standby_policy");
+        SetOutput("stateful_disk");
+        SetOutput("stateful_external_ip");
+        SetOutput("stateful_internal_ip");
+        SetOutput("status");
+        SetOutput("target_pools");
+        SetOutput("target_size");
+        SetOutput("target_stopped_size");
+        SetOutput("target_suspended_size");
+        SetOutput("update_policy");
+        SetOutput("version");
+        SetOutput("wait_for_instances");
+        SetOutput("wait_for_instances_status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("self_link");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name of the instance group manager. Must be 1-63 characters long and comply with RFC1035. Supported characters include lowercase letters, numbers, and hyphens.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region where the managed instance group resides.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The URL of the created resource.
     /// </summary>
-    public TerraformProperty<string>? SelfLink
+    public TerraformProperty<string> SelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("self_link");
-        set => this.WithProperty("self_link", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("self_link");
+        set => SetProperty("self_link", value);
     }
 
     /// <summary>

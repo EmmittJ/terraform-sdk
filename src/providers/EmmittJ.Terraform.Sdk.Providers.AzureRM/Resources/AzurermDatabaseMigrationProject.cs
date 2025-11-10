@@ -13,8 +13,7 @@ public class AzurermDatabaseMigrationProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDatabaseMigrationProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDatabaseMigrationProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDatabaseMigrationProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,23 @@ public class AzurermDatabaseMigrationProject : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("service_name");
+        SetOutput("source_platform");
+        SetOutput("tags");
+        SetOutput("target_platform");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +79,8 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -85,8 +89,8 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -95,8 +99,8 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -105,8 +109,8 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
@@ -115,17 +119,17 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePlatform is required")]
     public required TerraformProperty<string> SourcePlatform
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_platform");
-        set => this.WithProperty("source_platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_platform");
+        set => SetProperty("source_platform", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -134,8 +138,8 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPlatform is required")]
     public required TerraformProperty<string> TargetPlatform
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_platform");
-        set => this.WithProperty("target_platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_platform");
+        set => SetProperty("target_platform", value);
     }
 
     /// <summary>
@@ -144,8 +148,7 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     /// </summary>
     public AzurermDatabaseMigrationProjectTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDatabaseMigrationProjectTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

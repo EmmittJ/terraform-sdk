@@ -14,7 +14,14 @@ public class AwsRedshiftserverlessUsageLimit : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("amount");
+        SetOutput("breach_action");
+        SetOutput("id");
+        SetOutput("period");
+        SetOutput("region");
+        SetOutput("resource_arn");
+        SetOutput("usage_type");
     }
 
     /// <summary>
@@ -23,44 +30,44 @@ public class AwsRedshiftserverlessUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformProperty<double> Amount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("amount");
-        set => this.WithProperty("amount", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("amount");
+        set => SetProperty("amount", value);
     }
 
     /// <summary>
     /// The breach_action attribute.
     /// </summary>
-    public TerraformProperty<string>? BreachAction
+    public TerraformProperty<string> BreachAction
     {
-        get => GetProperty<TerraformProperty<string>>("breach_action");
-        set => this.WithProperty("breach_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("breach_action");
+        set => SetProperty("breach_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The period attribute.
     /// </summary>
-    public TerraformProperty<string>? Period
+    public TerraformProperty<string> Period
     {
-        get => GetProperty<TerraformProperty<string>>("period");
-        set => this.WithProperty("period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("period");
+        set => SetProperty("period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,8 +76,8 @@ public class AwsRedshiftserverlessUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
-        set => this.WithProperty("resource_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
+        set => SetProperty("resource_arn", value);
     }
 
     /// <summary>
@@ -79,8 +86,8 @@ public class AwsRedshiftserverlessUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageType is required")]
     public required TerraformProperty<string> UsageType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("usage_type");
-        set => this.WithProperty("usage_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("usage_type");
+        set => SetProperty("usage_type", value);
     }
 
     /// <summary>

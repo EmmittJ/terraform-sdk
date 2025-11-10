@@ -13,8 +13,7 @@ public class AwsElasticacheGlobalReplicationGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsElasticacheGlobalReplicationGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsElasticacheGlobalReplicationGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,59 +46,70 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("at_rest_encryption_enabled");
-        this.WithOutput("auth_token_enabled");
-        this.WithOutput("cluster_enabled");
-        this.WithOutput("engine_version_actual");
-        this.WithOutput("global_node_groups");
-        this.WithOutput("global_replication_group_id");
-        this.WithOutput("transit_encryption_enabled");
+        SetOutput("arn");
+        SetOutput("at_rest_encryption_enabled");
+        SetOutput("auth_token_enabled");
+        SetOutput("cluster_enabled");
+        SetOutput("engine_version_actual");
+        SetOutput("global_node_groups");
+        SetOutput("global_replication_group_id");
+        SetOutput("transit_encryption_enabled");
+        SetOutput("automatic_failover_enabled");
+        SetOutput("cache_node_type");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("global_replication_group_description");
+        SetOutput("global_replication_group_id_suffix");
+        SetOutput("id");
+        SetOutput("num_node_groups");
+        SetOutput("parameter_group_name");
+        SetOutput("primary_replication_group_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The automatic_failover_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutomaticFailoverEnabled
+    public TerraformProperty<bool> AutomaticFailoverEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("automatic_failover_enabled");
-        set => this.WithProperty("automatic_failover_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("automatic_failover_enabled");
+        set => SetProperty("automatic_failover_enabled", value);
     }
 
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
-    public TerraformProperty<string>? CacheNodeType
+    public TerraformProperty<string> CacheNodeType
     {
-        get => GetProperty<TerraformProperty<string>>("cache_node_type");
-        set => this.WithProperty("cache_node_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cache_node_type");
+        set => SetProperty("cache_node_type", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    public TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
     /// The global_replication_group_description attribute.
     /// </summary>
-    public TerraformProperty<string>? GlobalReplicationGroupDescription
+    public TerraformProperty<string> GlobalReplicationGroupDescription
     {
-        get => GetProperty<TerraformProperty<string>>("global_replication_group_description");
-        set => this.WithProperty("global_replication_group_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_replication_group_description");
+        set => SetProperty("global_replication_group_description", value);
     }
 
     /// <summary>
@@ -110,35 +118,35 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalReplicationGroupIdSuffix is required")]
     public required TerraformProperty<string> GlobalReplicationGroupIdSuffix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_replication_group_id_suffix");
-        set => this.WithProperty("global_replication_group_id_suffix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_replication_group_id_suffix");
+        set => SetProperty("global_replication_group_id_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The num_node_groups attribute.
     /// </summary>
-    public TerraformProperty<double>? NumNodeGroups
+    public TerraformProperty<double> NumNodeGroups
     {
-        get => GetProperty<TerraformProperty<double>>("num_node_groups");
-        set => this.WithProperty("num_node_groups", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("num_node_groups");
+        set => SetProperty("num_node_groups", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ParameterGroupName
+    public TerraformProperty<string> ParameterGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_group_name");
-        set => this.WithProperty("parameter_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_group_name");
+        set => SetProperty("parameter_group_name", value);
     }
 
     /// <summary>
@@ -147,17 +155,17 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryReplicationGroupId is required")]
     public required TerraformProperty<string> PrimaryReplicationGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("primary_replication_group_id");
-        set => this.WithProperty("primary_replication_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_replication_group_id");
+        set => SetProperty("primary_replication_group_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -166,8 +174,7 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
     /// </summary>
     public AwsElasticacheGlobalReplicationGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsElasticacheGlobalReplicationGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock : 
     /// </summary>
     public TerraformProperty<bool>? FastTryoutEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("fast_tryout_enabled");
-        set => WithProperty("fast_tryout_enabled", value);
+        set => SetProperty("fast_tryout_enabled", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock : 
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? SystemLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("system_labels");
-        set => WithProperty("system_labels", value);
+        set => SetProperty("system_labels", value);
     }
 
 }
@@ -45,8 +43,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock 
     /// </summary>
     public TerraformProperty<bool>? DedicatedEndpointEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dedicated_endpoint_enabled");
-        set => WithProperty("dedicated_endpoint_enabled", value);
+        set => SetProperty("dedicated_endpoint_enabled", value);
     }
 
     /// <summary>
@@ -55,8 +52,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock 
     /// </summary>
     public TerraformProperty<string>? EndpointDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_display_name");
-        set => WithProperty("endpoint_display_name", value);
+        set => SetProperty("endpoint_display_name", value);
     }
 
 }
@@ -73,8 +69,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock : T
     /// </summary>
     public TerraformProperty<bool>? AcceptEula
     {
-        get => GetProperty<TerraformProperty<bool>>("accept_eula");
-        set => WithProperty("accept_eula", value);
+        set => SetProperty("accept_eula", value);
     }
 
     /// <summary>
@@ -83,8 +78,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock : T
     /// </summary>
     public TerraformProperty<string>? HuggingFaceAccessToken
     {
-        get => GetProperty<TerraformProperty<string>>("hugging_face_access_token");
-        set => WithProperty("hugging_face_access_token", value);
+        set => SetProperty("hugging_face_access_token", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock : T
     /// </summary>
     public TerraformProperty<bool>? HuggingFaceCacheEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("hugging_face_cache_enabled");
-        set => WithProperty("hugging_face_cache_enabled", value);
+        set => SetProperty("hugging_face_cache_enabled", value);
     }
 
     /// <summary>
@@ -104,8 +97,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock : T
     /// </summary>
     public TerraformProperty<string>? ModelDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("model_display_name");
-        set => WithProperty("model_display_name", value);
+        set => SetProperty("model_display_name", value);
     }
 
 }
@@ -121,8 +113,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -130,8 +121,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -149,28 +139,33 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("deployed_model_display_name");
-        this.WithOutput("deployed_model_id");
-        this.WithOutput("endpoint");
+        SetOutput("deployed_model_display_name");
+        SetOutput("deployed_model_id");
+        SetOutput("endpoint");
+        SetOutput("hugging_face_model_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("publisher_model_name");
     }
 
     /// <summary>
     /// The Hugging Face model to deploy.
     /// Format: Hugging Face model ID like &#39;google/gemma-2-2b-it&#39;.
     /// </summary>
-    public TerraformProperty<string>? HuggingFaceModelId
+    public TerraformProperty<string> HuggingFaceModelId
     {
-        get => GetProperty<TerraformProperty<string>>("hugging_face_model_id");
-        set => this.WithProperty("hugging_face_model_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hugging_face_model_id");
+        set => SetProperty("hugging_face_model_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -179,17 +174,17 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -198,10 +193,10 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
     /// &#39;publishers/{publisher}/models/{publisher_model}@{version_id}&#39;, or
     /// &#39;publishers/hf-{hugging-face-author}/models/{hugging-face-model-name}@001&#39;.
     /// </summary>
-    public TerraformProperty<string>? PublisherModelName
+    public TerraformProperty<string> PublisherModelName
     {
-        get => GetProperty<TerraformProperty<string>>("publisher_model_name");
-        set => this.WithProperty("publisher_model_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("publisher_model_name");
+        set => SetProperty("publisher_model_name", value);
     }
 
     /// <summary>
@@ -211,8 +206,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeployConfig block(s) allowed")]
     public List<GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock>? DeployConfig
     {
-        get => GetProperty<List<GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock>>("deploy_config");
-        set => this.WithProperty("deploy_config", value);
+        set => SetProperty("deploy_config", value);
     }
 
     /// <summary>
@@ -222,8 +216,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointConfig block(s) allowed")]
     public List<GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock>? EndpointConfig
     {
-        get => GetProperty<List<GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock>>("endpoint_config");
-        set => this.WithProperty("endpoint_config", value);
+        set => SetProperty("endpoint_config", value);
     }
 
     /// <summary>
@@ -233,8 +226,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelConfig block(s) allowed")]
     public List<GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock>? ModelConfig
     {
-        get => GetProperty<List<GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock>>("model_config");
-        set => this.WithProperty("model_config", value);
+        set => SetProperty("model_config", value);
     }
 
     /// <summary>
@@ -243,8 +235,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
     /// </summary>
     public GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

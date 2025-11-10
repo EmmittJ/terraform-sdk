@@ -14,25 +14,28 @@ public class GoogleComputeGlobalAddressDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("address");
-        this.WithOutput("address_type");
-        this.WithOutput("network");
-        this.WithOutput("network_tier");
-        this.WithOutput("prefix_length");
-        this.WithOutput("purpose");
-        this.WithOutput("self_link");
-        this.WithOutput("status");
-        this.WithOutput("subnetwork");
-        this.WithOutput("users");
+        SetOutput("address");
+        SetOutput("address_type");
+        SetOutput("network");
+        SetOutput("network_tier");
+        SetOutput("prefix_length");
+        SetOutput("purpose");
+        SetOutput("self_link");
+        SetOutput("status");
+        SetOutput("subnetwork");
+        SetOutput("users");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,17 +44,17 @@ public class GoogleComputeGlobalAddressDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

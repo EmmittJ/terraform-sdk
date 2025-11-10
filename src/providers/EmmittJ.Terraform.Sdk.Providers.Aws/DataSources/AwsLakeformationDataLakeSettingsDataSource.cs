@@ -14,43 +14,46 @@ public class AwsLakeformationDataLakeSettingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("admins");
-        this.WithOutput("allow_external_data_filtering");
-        this.WithOutput("allow_full_table_external_data_access");
-        this.WithOutput("authorized_session_tag_value_list");
-        this.WithOutput("create_database_default_permissions");
-        this.WithOutput("create_table_default_permissions");
-        this.WithOutput("external_data_filtering_allow_list");
-        this.WithOutput("parameters");
-        this.WithOutput("read_only_admins");
-        this.WithOutput("trusted_resource_owners");
+        SetOutput("admins");
+        SetOutput("allow_external_data_filtering");
+        SetOutput("allow_full_table_external_data_access");
+        SetOutput("authorized_session_tag_value_list");
+        SetOutput("create_database_default_permissions");
+        SetOutput("create_table_default_permissions");
+        SetOutput("external_data_filtering_allow_list");
+        SetOutput("parameters");
+        SetOutput("read_only_admins");
+        SetOutput("trusted_resource_owners");
+        SetOutput("catalog_id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

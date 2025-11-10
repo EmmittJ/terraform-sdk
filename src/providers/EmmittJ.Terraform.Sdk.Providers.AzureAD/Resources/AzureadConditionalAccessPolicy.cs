@@ -14,8 +14,7 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientAppTypes is required")]
     public List<TerraformProperty<string>>? ClientAppTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("client_app_types");
-        set => WithProperty("client_app_types", value);
+        set => SetProperty("client_app_types", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InsiderRiskLevels
     {
-        get => GetProperty<TerraformProperty<string>>("insider_risk_levels");
-        set => WithProperty("insider_risk_levels", value);
+        set => SetProperty("insider_risk_levels", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ServicePrincipalRiskLevels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("service_principal_risk_levels");
-        set => WithProperty("service_principal_risk_levels", value);
+        set => SetProperty("service_principal_risk_levels", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SignInRiskLevels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("sign_in_risk_levels");
-        set => WithProperty("sign_in_risk_levels", value);
+        set => SetProperty("sign_in_risk_levels", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? UserRiskLevels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("user_risk_levels");
-        set => WithProperty("user_risk_levels", value);
+        set => SetProperty("user_risk_levels", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthenticationStrengthPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_strength_policy_id");
-        set => WithProperty("authentication_strength_policy_id", value);
+        set => SetProperty("authentication_strength_policy_id", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? BuiltInControls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("built_in_controls");
-        set => WithProperty("built_in_controls", value);
+        set => SetProperty("built_in_controls", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? CustomAuthenticationFactors
     {
-        get => GetProperty<List<TerraformProperty<string>>>("custom_authentication_factors");
-        set => WithProperty("custom_authentication_factors", value);
+        set => SetProperty("custom_authentication_factors", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
     public required TerraformProperty<string> Operator
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("operator");
-        set => WithProperty("operator", value);
+        set => SetProperty("operator", value);
     }
 
     /// <summary>
@@ -104,8 +95,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? TermsOfUse
     {
-        get => GetProperty<List<TerraformProperty<string>>>("terms_of_use");
-        set => WithProperty("terms_of_use", value);
+        set => SetProperty("terms_of_use", value);
     }
 
 }
@@ -121,8 +111,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ApplicationEnforcedRestrictionsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("application_enforced_restrictions_enabled");
-        set => WithProperty("application_enforced_restrictions_enabled", value);
+        set => SetProperty("application_enforced_restrictions_enabled", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CloudAppSecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_app_security_policy");
-        set => WithProperty("cloud_app_security_policy", value);
+        set => SetProperty("cloud_app_security_policy", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DisableResilienceDefaults
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_resilience_defaults");
-        set => WithProperty("disable_resilience_defaults", value);
+        set => SetProperty("disable_resilience_defaults", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PersistentBrowserMode
     {
-        get => GetProperty<TerraformProperty<string>>("persistent_browser_mode");
-        set => WithProperty("persistent_browser_mode", value);
+        set => SetProperty("persistent_browser_mode", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SignInFrequency
     {
-        get => GetProperty<TerraformProperty<double>>("sign_in_frequency");
-        set => WithProperty("sign_in_frequency", value);
+        set => SetProperty("sign_in_frequency", value);
     }
 
     /// <summary>
@@ -166,8 +151,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SignInFrequencyAuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("sign_in_frequency_authentication_type");
-        set => WithProperty("sign_in_frequency_authentication_type", value);
+        set => SetProperty("sign_in_frequency_authentication_type", value);
     }
 
     /// <summary>
@@ -175,8 +159,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SignInFrequencyInterval
     {
-        get => GetProperty<TerraformProperty<string>>("sign_in_frequency_interval");
-        set => WithProperty("sign_in_frequency_interval", value);
+        set => SetProperty("sign_in_frequency_interval", value);
     }
 
     /// <summary>
@@ -184,8 +167,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SignInFrequencyPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("sign_in_frequency_period");
-        set => WithProperty("sign_in_frequency_period", value);
+        set => SetProperty("sign_in_frequency_period", value);
     }
 
 }
@@ -201,8 +183,7 @@ public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -210,8 +191,7 @@ public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -219,8 +199,7 @@ public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -228,8 +207,7 @@ public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -247,7 +225,10 @@ public class AzureadConditionalAccessPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("object_id");
+        SetOutput("object_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("state");
     }
 
     /// <summary>
@@ -256,17 +237,17 @@ public class AzureadConditionalAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -275,20 +256,20 @@ public class AzureadConditionalAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// Block for conditions.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Conditions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Conditions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Conditions block(s) allowed")]
     public List<AzureadConditionalAccessPolicyConditionsBlock>? Conditions
     {
-        get => GetProperty<List<AzureadConditionalAccessPolicyConditionsBlock>>("conditions");
-        set => this.WithProperty("conditions", value);
+        set => SetProperty("conditions", value);
     }
 
     /// <summary>
@@ -298,8 +279,7 @@ public class AzureadConditionalAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrantControls block(s) allowed")]
     public List<AzureadConditionalAccessPolicyGrantControlsBlock>? GrantControls
     {
-        get => GetProperty<List<AzureadConditionalAccessPolicyGrantControlsBlock>>("grant_controls");
-        set => this.WithProperty("grant_controls", value);
+        set => SetProperty("grant_controls", value);
     }
 
     /// <summary>
@@ -309,8 +289,7 @@ public class AzureadConditionalAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SessionControls block(s) allowed")]
     public List<AzureadConditionalAccessPolicySessionControlsBlock>? SessionControls
     {
-        get => GetProperty<List<AzureadConditionalAccessPolicySessionControlsBlock>>("session_controls");
-        set => this.WithProperty("session_controls", value);
+        set => SetProperty("session_controls", value);
     }
 
     /// <summary>
@@ -319,8 +298,7 @@ public class AzureadConditionalAccessPolicy : TerraformResource
     /// </summary>
     public AzureadConditionalAccessPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadConditionalAccessPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

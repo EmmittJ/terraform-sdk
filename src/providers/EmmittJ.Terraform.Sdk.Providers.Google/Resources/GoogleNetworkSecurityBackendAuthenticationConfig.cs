@@ -13,8 +13,7 @@ public class GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,38 +46,47 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("client_certificate");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("trust_config");
+        SetOutput("well_known_roots");
     }
 
     /// <summary>
     /// Reference to a Certificate resource from the certificatemanager.googleapis.com namespace.
     /// Used by a BackendService to negotiate mTLS when the backend connection uses TLS and the backend requests a client certificate. Must have a CLIENT_AUTH scope.
     /// </summary>
-    public TerraformProperty<string>? ClientCertificate
+    public TerraformProperty<string> ClientCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate");
-        set => this.WithProperty("client_certificate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_certificate");
+        set => SetProperty("client_certificate", value);
     }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -89,20 +95,20 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the backend authentication config.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -111,27 +117,27 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Reference to a TrustConfig resource from the certificatemanager.googleapis.com namespace.
     /// A BackendService uses the chain of trust represented by this TrustConfig, if specified, to validate the server certificates presented by the backend. Required unless wellKnownRoots is set to PUBLIC_ROOTS.
     /// </summary>
-    public TerraformProperty<string>? TrustConfig
+    public TerraformProperty<string> TrustConfig
     {
-        get => GetProperty<TerraformProperty<string>>("trust_config");
-        set => this.WithProperty("trust_config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trust_config");
+        set => SetProperty("trust_config", value);
     }
 
     /// <summary>
@@ -139,10 +145,10 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
     /// If set to PUBLIC_ROOTS, the BackendService uses a set of well-known public roots, in addition to any roots specified in the trustConfig field, when validating the server certificates presented by the backend.
     /// Validation with these roots is only considered when the TlsSettings.sni field in the BackendService is set. The well-known roots are a set of root CAs managed by Google. CAs in this set can be added or removed without notice. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PUBLIC_ROOTS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? WellKnownRoots
+    public TerraformProperty<string> WellKnownRoots
     {
-        get => GetProperty<TerraformProperty<string>>("well_known_roots");
-        set => this.WithProperty("well_known_roots", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("well_known_roots");
+        set => SetProperty("well_known_roots", value);
     }
 
     /// <summary>
@@ -151,8 +157,7 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
     /// </summary>
     public GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

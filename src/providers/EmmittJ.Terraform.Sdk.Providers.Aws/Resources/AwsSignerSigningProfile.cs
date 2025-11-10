@@ -14,8 +14,7 @@ public class AwsSignerSigningProfileSignatureValidityPeriodBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsSignerSigningProfileSignatureValidityPeriodBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<double> Value
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AwsSignerSigningProfileSigningMaterialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
     public required TerraformProperty<string> CertificateArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_arn");
-        set => WithProperty("certificate_arn", value);
+        set => SetProperty("certificate_arn", value);
     }
 
 }
@@ -61,39 +58,47 @@ public class AwsSignerSigningProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("platform_display_name");
-        this.WithOutput("revocation_record");
-        this.WithOutput("status");
-        this.WithOutput("version");
-        this.WithOutput("version_arn");
+        SetOutput("arn");
+        SetOutput("platform_display_name");
+        SetOutput("revocation_record");
+        SetOutput("status");
+        SetOutput("version");
+        SetOutput("version_arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("platform_id");
+        SetOutput("region");
+        SetOutput("signing_parameters");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
@@ -102,44 +107,44 @@ public class AwsSignerSigningProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformId is required")]
     public required TerraformProperty<string> PlatformId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("platform_id");
-        set => this.WithProperty("platform_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform_id");
+        set => SetProperty("platform_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The signing_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? SigningParameters
+    public Dictionary<string, TerraformProperty<string>> SigningParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("signing_parameters");
-        set => this.WithProperty("signing_parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("signing_parameters");
+        set => SetProperty("signing_parameters", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -149,8 +154,7 @@ public class AwsSignerSigningProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignatureValidityPeriod block(s) allowed")]
     public List<AwsSignerSigningProfileSignatureValidityPeriodBlock>? SignatureValidityPeriod
     {
-        get => GetProperty<List<AwsSignerSigningProfileSignatureValidityPeriodBlock>>("signature_validity_period");
-        set => this.WithProperty("signature_validity_period", value);
+        set => SetProperty("signature_validity_period", value);
     }
 
     /// <summary>
@@ -160,8 +164,7 @@ public class AwsSignerSigningProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SigningMaterial block(s) allowed")]
     public List<AwsSignerSigningProfileSigningMaterialBlock>? SigningMaterial
     {
-        get => GetProperty<List<AwsSignerSigningProfileSigningMaterialBlock>>("signing_material");
-        set => this.WithProperty("signing_material", value);
+        set => SetProperty("signing_material", value);
     }
 
     /// <summary>

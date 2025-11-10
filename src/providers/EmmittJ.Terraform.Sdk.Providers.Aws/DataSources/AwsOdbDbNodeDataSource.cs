@@ -14,33 +14,36 @@ public class AwsOdbDbNodeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("additional_details");
-        this.WithOutput("arn");
-        this.WithOutput("backup_ip_id");
-        this.WithOutput("backup_vnic2_id");
-        this.WithOutput("backup_vnic_id");
-        this.WithOutput("cpu_core_count");
-        this.WithOutput("created_at");
-        this.WithOutput("db_server_id");
-        this.WithOutput("db_storage_size_in_gbs");
-        this.WithOutput("db_system_id");
-        this.WithOutput("fault_domain");
-        this.WithOutput("floating_ip_address");
-        this.WithOutput("host_ip_id");
-        this.WithOutput("hostname");
-        this.WithOutput("maintenance_type");
-        this.WithOutput("memory_size_in_gbs");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("ocid");
-        this.WithOutput("private_ip_address");
-        this.WithOutput("software_storage_size_in_gbs");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("time_maintenance_window_end");
-        this.WithOutput("time_maintenance_window_start");
-        this.WithOutput("total_cpu_core_count");
-        this.WithOutput("vnic2_id");
-        this.WithOutput("vnic_id");
+        SetOutput("additional_details");
+        SetOutput("arn");
+        SetOutput("backup_ip_id");
+        SetOutput("backup_vnic2_id");
+        SetOutput("backup_vnic_id");
+        SetOutput("cpu_core_count");
+        SetOutput("created_at");
+        SetOutput("db_server_id");
+        SetOutput("db_storage_size_in_gbs");
+        SetOutput("db_system_id");
+        SetOutput("fault_domain");
+        SetOutput("floating_ip_address");
+        SetOutput("host_ip_id");
+        SetOutput("hostname");
+        SetOutput("maintenance_type");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("ocid");
+        SetOutput("private_ip_address");
+        SetOutput("software_storage_size_in_gbs");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("time_maintenance_window_end");
+        SetOutput("time_maintenance_window_start");
+        SetOutput("total_cpu_core_count");
+        SetOutput("vnic2_id");
+        SetOutput("vnic_id");
+        SetOutput("cloud_vm_cluster_id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -49,8 +52,8 @@ public class AwsOdbDbNodeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformProperty<string> CloudVmClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
-        set => this.WithProperty("cloud_vm_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_vm_cluster_id");
+        set => SetProperty("cloud_vm_cluster_id", value);
     }
 
     /// <summary>
@@ -59,17 +62,17 @@ public class AwsOdbDbNodeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

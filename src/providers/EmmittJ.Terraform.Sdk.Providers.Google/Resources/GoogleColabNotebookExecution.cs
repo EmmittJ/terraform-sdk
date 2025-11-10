@@ -13,8 +13,7 @@ public class GoogleColabNotebookExecutionDataformRepositorySourceBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? CommitSha
     {
-        get => GetProperty<TerraformProperty<string>>("commit_sha");
-        set => WithProperty("commit_sha", value);
+        set => SetProperty("commit_sha", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleColabNotebookExecutionDataformRepositorySourceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataformRepositoryResourceName is required")]
     public required TerraformProperty<string> DataformRepositoryResourceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataform_repository_resource_name");
-        set => WithProperty("dataform_repository_resource_name", value);
+        set => SetProperty("dataform_repository_resource_name", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleColabNotebookExecutionDirectNotebookSourceBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class GoogleColabNotebookExecutionGcsNotebookSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Generation
     {
-        get => GetProperty<TerraformProperty<string>>("generation");
-        set => WithProperty("generation", value);
+        set => SetProperty("generation", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class GoogleColabNotebookExecutionGcsNotebookSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -85,8 +80,7 @@ public class GoogleColabNotebookExecutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class GoogleColabNotebookExecutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -113,6 +106,16 @@ public class GoogleColabNotebookExecution : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("display_name");
+        SetOutput("execution_timeout");
+        SetOutput("execution_user");
+        SetOutput("gcs_output_uri");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("notebook_execution_job_id");
+        SetOutput("notebook_runtime_template_resource_name");
+        SetOutput("project");
+        SetOutput("service_account");
     }
 
     /// <summary>
@@ -121,26 +124,26 @@ public class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Max running time of the execution job in seconds (default 86400s / 24 hrs).
     /// </summary>
-    public TerraformProperty<string>? ExecutionTimeout
+    public TerraformProperty<string> ExecutionTimeout
     {
-        get => GetProperty<TerraformProperty<string>>("execution_timeout");
-        set => this.WithProperty("execution_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_timeout");
+        set => SetProperty("execution_timeout", value);
     }
 
     /// <summary>
     /// The user email to run the execution as.
     /// </summary>
-    public TerraformProperty<string>? ExecutionUser
+    public TerraformProperty<string> ExecutionUser
     {
-        get => GetProperty<TerraformProperty<string>>("execution_user");
-        set => this.WithProperty("execution_user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_user");
+        set => SetProperty("execution_user", value);
     }
 
     /// <summary>
@@ -149,17 +152,17 @@ public class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcsOutputUri is required")]
     public required TerraformProperty<string> GcsOutputUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gcs_output_uri");
-        set => this.WithProperty("gcs_output_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gcs_output_uri");
+        set => SetProperty("gcs_output_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -168,44 +171,44 @@ public class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// User specified ID for the Notebook Execution Job
     /// </summary>
-    public TerraformProperty<string>? NotebookExecutionJobId
+    public TerraformProperty<string> NotebookExecutionJobId
     {
-        get => GetProperty<TerraformProperty<string>>("notebook_execution_job_id");
-        set => this.WithProperty("notebook_execution_job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notebook_execution_job_id");
+        set => SetProperty("notebook_execution_job_id", value);
     }
 
     /// <summary>
     /// The NotebookRuntimeTemplate to source compute configuration from.
     /// </summary>
-    public TerraformProperty<string>? NotebookRuntimeTemplateResourceName
+    public TerraformProperty<string> NotebookRuntimeTemplateResourceName
     {
-        get => GetProperty<TerraformProperty<string>>("notebook_runtime_template_resource_name");
-        set => this.WithProperty("notebook_runtime_template_resource_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notebook_runtime_template_resource_name");
+        set => SetProperty("notebook_runtime_template_resource_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The service account to run the execution as.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
+    public TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => this.WithProperty("service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
@@ -215,8 +218,7 @@ public class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataformRepositorySource block(s) allowed")]
     public List<GoogleColabNotebookExecutionDataformRepositorySourceBlock>? DataformRepositorySource
     {
-        get => GetProperty<List<GoogleColabNotebookExecutionDataformRepositorySourceBlock>>("dataform_repository_source");
-        set => this.WithProperty("dataform_repository_source", value);
+        set => SetProperty("dataform_repository_source", value);
     }
 
     /// <summary>
@@ -226,8 +228,7 @@ public class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectNotebookSource block(s) allowed")]
     public List<GoogleColabNotebookExecutionDirectNotebookSourceBlock>? DirectNotebookSource
     {
-        get => GetProperty<List<GoogleColabNotebookExecutionDirectNotebookSourceBlock>>("direct_notebook_source");
-        set => this.WithProperty("direct_notebook_source", value);
+        set => SetProperty("direct_notebook_source", value);
     }
 
     /// <summary>
@@ -237,8 +238,7 @@ public class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsNotebookSource block(s) allowed")]
     public List<GoogleColabNotebookExecutionGcsNotebookSourceBlock>? GcsNotebookSource
     {
-        get => GetProperty<List<GoogleColabNotebookExecutionGcsNotebookSourceBlock>>("gcs_notebook_source");
-        set => this.WithProperty("gcs_notebook_source", value);
+        set => SetProperty("gcs_notebook_source", value);
     }
 
     /// <summary>
@@ -247,8 +247,7 @@ public class GoogleColabNotebookExecution : TerraformResource
     /// </summary>
     public GoogleColabNotebookExecutionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleColabNotebookExecutionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

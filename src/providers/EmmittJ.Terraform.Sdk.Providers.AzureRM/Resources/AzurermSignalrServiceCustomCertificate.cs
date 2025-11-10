@@ -13,8 +13,7 @@ public class AzurermSignalrServiceCustomCertificateTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSignalrServiceCustomCertificateTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSignalrServiceCustomCertificateTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,7 +46,11 @@ public class AzurermSignalrServiceCustomCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputertificate_version");
+        SetOutput("certificate_version");
+        SetOutput("custom_certificate_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("signalr_service_id");
     }
 
     /// <summary>
@@ -58,17 +59,17 @@ public class AzurermSignalrServiceCustomCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomCertificateId is required")]
     public required TerraformProperty<string> CustomCertificateId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_certificate_id");
-        set => this.WithProperty("custom_certificate_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_certificate_id");
+        set => SetProperty("custom_certificate_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,8 +78,8 @@ public class AzurermSignalrServiceCustomCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -87,8 +88,8 @@ public class AzurermSignalrServiceCustomCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     public required TerraformProperty<string> SignalrServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signalr_service_id");
-        set => this.WithProperty("signalr_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("signalr_service_id");
+        set => SetProperty("signalr_service_id", value);
     }
 
     /// <summary>
@@ -97,8 +98,7 @@ public class AzurermSignalrServiceCustomCertificate : TerraformResource
     /// </summary>
     public AzurermSignalrServiceCustomCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSignalrServiceCustomCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

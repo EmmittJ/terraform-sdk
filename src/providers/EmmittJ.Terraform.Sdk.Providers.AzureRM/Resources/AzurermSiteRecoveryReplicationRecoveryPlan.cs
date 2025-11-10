@@ -13,8 +13,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock
     /// </summary>
     public TerraformProperty<string>? PrimaryEdgeZone
     {
-        get => GetProperty<TerraformProperty<string>>("primary_edge_zone");
-        set => WithProperty("primary_edge_zone", value);
+        set => SetProperty("primary_edge_zone", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock
     /// </summary>
     public TerraformProperty<string>? PrimaryZone
     {
-        get => GetProperty<TerraformProperty<string>>("primary_zone");
-        set => WithProperty("primary_zone", value);
+        set => SetProperty("primary_zone", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock
     /// </summary>
     public TerraformProperty<string>? RecoveryEdgeZone
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_edge_zone");
-        set => WithProperty("recovery_edge_zone", value);
+        set => SetProperty("recovery_edge_zone", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock
     /// </summary>
     public TerraformProperty<string>? RecoveryZone
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_zone");
-        set => WithProperty("recovery_zone", value);
+        set => SetProperty("recovery_zone", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock : 
     /// </summary>
     public List<TerraformProperty<string>>? ReplicatedProtectedItems
     {
-        get => GetProperty<List<TerraformProperty<string>>>("replicated_protected_items");
-        set => WithProperty("replicated_protected_items", value);
+        set => SetProperty("replicated_protected_items", value);
     }
 
 }
@@ -90,8 +85,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -99,8 +93,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -108,8 +101,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -117,8 +109,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -136,15 +127,20 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recovery_vault_id");
+        SetOutput("source_recovery_fabric_id");
+        SetOutput("target_recovery_fabric_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -153,8 +149,8 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -163,8 +159,8 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
-        set => this.WithProperty("recovery_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_id");
+        set => SetProperty("recovery_vault_id", value);
     }
 
     /// <summary>
@@ -173,8 +169,8 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricId is required")]
     public required TerraformProperty<string> SourceRecoveryFabricId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_recovery_fabric_id");
-        set => this.WithProperty("source_recovery_fabric_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_recovery_fabric_id");
+        set => SetProperty("source_recovery_fabric_id", value);
     }
 
     /// <summary>
@@ -183,8 +179,8 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricId is required")]
     public required TerraformProperty<string> TargetRecoveryFabricId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_recovery_fabric_id");
-        set => this.WithProperty("target_recovery_fabric_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_recovery_fabric_id");
+        set => SetProperty("target_recovery_fabric_id", value);
     }
 
     /// <summary>
@@ -194,43 +190,42 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureToAzureSettings block(s) allowed")]
     public List<AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock>? AzureToAzureSettings
     {
-        get => GetProperty<List<AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock>>("azure_to_azure_settings");
-        set => this.WithProperty("azure_to_azure_settings", value);
+        set => SetProperty("azure_to_azure_settings", value);
     }
 
     /// <summary>
     /// Block for boot_recovery_group.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BootRecoveryGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BootRecoveryGroup block(s) required")]
     public List<AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock>? BootRecoveryGroup
     {
-        get => GetProperty<List<AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock>>("boot_recovery_group");
-        set => this.WithProperty("boot_recovery_group", value);
+        set => SetProperty("boot_recovery_group", value);
     }
 
     /// <summary>
     /// Block for failover_recovery_group.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailoverRecoveryGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FailoverRecoveryGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FailoverRecoveryGroup block(s) allowed")]
     public List<AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock>? FailoverRecoveryGroup
     {
-        get => GetProperty<List<AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock>>("failover_recovery_group");
-        set => this.WithProperty("failover_recovery_group", value);
+        set => SetProperty("failover_recovery_group", value);
     }
 
     /// <summary>
     /// Block for shutdown_recovery_group.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShutdownRecoveryGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ShutdownRecoveryGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShutdownRecoveryGroup block(s) allowed")]
     public List<AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock>? ShutdownRecoveryGroup
     {
-        get => GetProperty<List<AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock>>("shutdown_recovery_group");
-        set => this.WithProperty("shutdown_recovery_group", value);
+        set => SetProperty("shutdown_recovery_group", value);
     }
 
     /// <summary>
@@ -239,8 +234,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     /// </summary>
     public AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

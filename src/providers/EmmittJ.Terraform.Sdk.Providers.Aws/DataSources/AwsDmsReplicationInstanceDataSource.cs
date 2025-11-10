@@ -14,39 +14,43 @@ public class AwsDmsReplicationInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allocated_storage");
-        this.WithOutput("auto_minor_version_upgrade");
-        this.WithOutput("availability_zone");
-        this.WithOutput("engine_version");
-        this.WithOutput("kms_key_arn");
-        this.WithOutput("multi_az");
-        this.WithOutput("network_type");
-        this.WithOutput("preferred_maintenance_window");
-        this.WithOutput("publicly_accessible");
-        this.WithOutput("replication_instance_arn");
-        this.WithOutput("replication_instance_class");
-        this.WithOutput("replication_instance_private_ips");
-        this.WithOutput("replication_instance_public_ips");
-        this.WithOutput("replication_subnet_group_id");
-        this.WithOutput("vpc_security_group_ids");
+        SetOutput("allocated_storage");
+        SetOutput("auto_minor_version_upgrade");
+        SetOutput("availability_zone");
+        SetOutput("engine_version");
+        SetOutput("kms_key_arn");
+        SetOutput("multi_az");
+        SetOutput("network_type");
+        SetOutput("preferred_maintenance_window");
+        SetOutput("publicly_accessible");
+        SetOutput("replication_instance_arn");
+        SetOutput("replication_instance_class");
+        SetOutput("replication_instance_private_ips");
+        SetOutput("replication_instance_public_ips");
+        SetOutput("replication_subnet_group_id");
+        SetOutput("vpc_security_group_ids");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("replication_instance_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -55,17 +59,17 @@ public class AwsDmsReplicationInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceId is required")]
     public required TerraformProperty<string> ReplicationInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("replication_instance_id");
-        set => this.WithProperty("replication_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_instance_id");
+        set => SetProperty("replication_instance_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

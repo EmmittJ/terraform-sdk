@@ -13,8 +13,7 @@ public class AwsLbTrustStoreRevocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,25 +30,31 @@ public class AwsLbTrustStoreRevocation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("revocation_id");
+        SetOutput("revocation_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("revocations_s3_bucket");
+        SetOutput("revocations_s3_key");
+        SetOutput("revocations_s3_object_version");
+        SetOutput("trust_store_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -58,8 +63,8 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Bucket is required")]
     public required TerraformProperty<string> RevocationsS3Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("revocations_s3_bucket");
-        set => this.WithProperty("revocations_s3_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revocations_s3_bucket");
+        set => SetProperty("revocations_s3_bucket", value);
     }
 
     /// <summary>
@@ -68,17 +73,17 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Key is required")]
     public required TerraformProperty<string> RevocationsS3Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("revocations_s3_key");
-        set => this.WithProperty("revocations_s3_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revocations_s3_key");
+        set => SetProperty("revocations_s3_key", value);
     }
 
     /// <summary>
     /// The revocations_s3_object_version attribute.
     /// </summary>
-    public TerraformProperty<string>? RevocationsS3ObjectVersion
+    public TerraformProperty<string> RevocationsS3ObjectVersion
     {
-        get => GetProperty<TerraformProperty<string>>("revocations_s3_object_version");
-        set => this.WithProperty("revocations_s3_object_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revocations_s3_object_version");
+        set => SetProperty("revocations_s3_object_version", value);
     }
 
     /// <summary>
@@ -87,8 +92,8 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustStoreArn is required")]
     public required TerraformProperty<string> TrustStoreArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trust_store_arn");
-        set => this.WithProperty("trust_store_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trust_store_arn");
+        set => SetProperty("trust_store_arn", value);
     }
 
     /// <summary>
@@ -97,8 +102,7 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     /// </summary>
     public AwsLbTrustStoreRevocationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLbTrustStoreRevocationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

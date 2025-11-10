@@ -13,8 +13,7 @@ public class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsLexv2modelsBotLocaleVoiceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => WithProperty("engine", value);
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsLexv2modelsBotLocaleVoiceSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceId is required")]
     public required TerraformProperty<string> VoiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("voice_id");
-        set => WithProperty("voice_id", value);
+        set => SetProperty("voice_id", value);
     }
 
 }
@@ -76,7 +71,14 @@ public class AwsLexv2modelsBotLocale : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("bot_id");
+        SetOutput("bot_version");
+        SetOutput("description");
+        SetOutput("locale_id");
+        SetOutput("n_lu_intent_confidence_threshold");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformProperty<string> BotId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_id");
-        set => this.WithProperty("bot_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_id");
+        set => SetProperty("bot_id", value);
     }
 
     /// <summary>
@@ -95,17 +97,17 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformProperty<string> BotVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_version");
-        set => this.WithProperty("bot_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_version");
+        set => SetProperty("bot_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformProperty<string> LocaleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("locale_id");
-        set => this.WithProperty("locale_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("locale_id");
+        set => SetProperty("locale_id", value);
     }
 
     /// <summary>
@@ -124,26 +126,26 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NLuIntentConfidenceThreshold is required")]
     public required TerraformProperty<double> NLuIntentConfidenceThreshold
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("n_lu_intent_confidence_threshold");
-        set => this.WithProperty("n_lu_intent_confidence_threshold", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("n_lu_intent_confidence_threshold");
+        set => SetProperty("n_lu_intent_confidence_threshold", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -152,8 +154,7 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     /// </summary>
     public AwsLexv2modelsBotLocaleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLexv2modelsBotLocaleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -162,8 +163,7 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsBotLocaleVoiceSettingsBlock>? VoiceSettings
     {
-        get => GetProperty<List<AwsLexv2modelsBotLocaleVoiceSettingsBlock>>("voice_settings");
-        set => this.WithProperty("voice_settings", value);
+        set => SetProperty("voice_settings", value);
     }
 
     /// <summary>

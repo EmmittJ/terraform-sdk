@@ -13,8 +13,7 @@ public class AzurermNatGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,26 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("idle_timeout_in_minutes");
-        this.WithOutput("location");
-        this.WithOutput("resource_guid");
-        this.WithOutput("sku_name");
-        this.WithOutput("tags");
-        this.WithOutput("zones");
+        SetOutput("idle_timeout_in_minutes");
+        SetOutput("location");
+        SetOutput("resource_guid");
+        SetOutput("sku_name");
+        SetOutput("tags");
+        SetOutput("zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("public_ip_address_ids");
+        SetOutput("public_ip_prefix_ids");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,26 +58,26 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_ip_address_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PublicIpAddressIds
+    public List<TerraformProperty<string>> PublicIpAddressIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("public_ip_address_ids");
-        set => this.WithProperty("public_ip_address_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("public_ip_address_ids");
+        set => SetProperty("public_ip_address_ids", value);
     }
 
     /// <summary>
     /// The public_ip_prefix_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PublicIpPrefixIds
+    public List<TerraformProperty<string>> PublicIpPrefixIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("public_ip_prefix_ids");
-        set => this.WithProperty("public_ip_prefix_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("public_ip_prefix_ids");
+        set => SetProperty("public_ip_prefix_ids", value);
     }
 
     /// <summary>
@@ -82,8 +86,8 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -92,8 +96,7 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     /// </summary>
     public AzurermNatGatewayDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNatGatewayDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

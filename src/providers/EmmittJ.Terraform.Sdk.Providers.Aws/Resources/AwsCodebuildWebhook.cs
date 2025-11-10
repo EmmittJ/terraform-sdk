@@ -21,8 +21,7 @@ public class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ApproverRoles
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("approver_roles");
-        set => WithProperty("approver_roles", value);
+        set => SetProperty("approver_roles", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequiresCommentApproval is required")]
     public required TerraformProperty<string> RequiresCommentApproval
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("requires_comment_approval");
-        set => WithProperty("requires_comment_approval", value);
+        set => SetProperty("requires_comment_approval", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => WithProperty("domain", value);
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
 }
@@ -87,45 +82,51 @@ public class AwsCodebuildWebhook : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("payload_url");
-        this.WithOutput("secret");
-        this.WithOutput("url");
+        SetOutput("payload_url");
+        SetOutput("secret");
+        SetOutput("url");
+        SetOutput("branch_filter");
+        SetOutput("build_type");
+        SetOutput("id");
+        SetOutput("manual_creation");
+        SetOutput("project_name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The branch_filter attribute.
     /// </summary>
-    public TerraformProperty<string>? BranchFilter
+    public TerraformProperty<string> BranchFilter
     {
-        get => GetProperty<TerraformProperty<string>>("branch_filter");
-        set => this.WithProperty("branch_filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("branch_filter");
+        set => SetProperty("branch_filter", value);
     }
 
     /// <summary>
     /// The build_type attribute.
     /// </summary>
-    public TerraformProperty<string>? BuildType
+    public TerraformProperty<string> BuildType
     {
-        get => GetProperty<TerraformProperty<string>>("build_type");
-        set => this.WithProperty("build_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("build_type");
+        set => SetProperty("build_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The manual_creation attribute.
     /// </summary>
-    public TerraformProperty<bool>? ManualCreation
+    public TerraformProperty<bool> ManualCreation
     {
-        get => GetProperty<TerraformProperty<bool>>("manual_creation");
-        set => this.WithProperty("manual_creation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("manual_creation");
+        set => SetProperty("manual_creation", value);
     }
 
     /// <summary>
@@ -134,17 +135,17 @@ public class AwsCodebuildWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
-        set => this.WithProperty("project_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_name");
+        set => SetProperty("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -153,8 +154,7 @@ public class AwsCodebuildWebhook : TerraformResource
     /// </summary>
     public HashSet<AwsCodebuildWebhookFilterGroupBlock>? FilterGroup
     {
-        get => GetProperty<HashSet<AwsCodebuildWebhookFilterGroupBlock>>("filter_group");
-        set => this.WithProperty("filter_group", value);
+        set => SetProperty("filter_group", value);
     }
 
     /// <summary>
@@ -164,8 +164,7 @@ public class AwsCodebuildWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PullRequestBuildPolicy block(s) allowed")]
     public List<AwsCodebuildWebhookPullRequestBuildPolicyBlock>? PullRequestBuildPolicy
     {
-        get => GetProperty<List<AwsCodebuildWebhookPullRequestBuildPolicyBlock>>("pull_request_build_policy");
-        set => this.WithProperty("pull_request_build_policy", value);
+        set => SetProperty("pull_request_build_policy", value);
     }
 
     /// <summary>
@@ -175,8 +174,7 @@ public class AwsCodebuildWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScopeConfiguration block(s) allowed")]
     public List<AwsCodebuildWebhookScopeConfigurationBlock>? ScopeConfiguration
     {
-        get => GetProperty<List<AwsCodebuildWebhookScopeConfigurationBlock>>("scope_configuration");
-        set => this.WithProperty("scope_configuration", value);
+        set => SetProperty("scope_configuration", value);
     }
 
     /// <summary>

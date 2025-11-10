@@ -13,8 +13,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerPortRangeBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
-        set => WithProperty("from_port", value);
+        set => SetProperty("from_port", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerPortRangeBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
-        set => WithProperty("to_port", value);
+        set => SetProperty("to_port", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,7 +71,9 @@ public class AwsGlobalacceleratorCustomRoutingListener : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
+        SetOutput("arn");
+        SetOutput("accelerator_arn");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -85,29 +82,29 @@ public class AwsGlobalacceleratorCustomRoutingListener : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorArn is required")]
     public required TerraformProperty<string> AcceleratorArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("accelerator_arn");
-        set => this.WithProperty("accelerator_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("accelerator_arn");
+        set => SetProperty("accelerator_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Block for port_range.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortRange is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PortRange block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PortRange block(s) allowed")]
     public HashSet<AwsGlobalacceleratorCustomRoutingListenerPortRangeBlock>? PortRange
     {
-        get => GetProperty<HashSet<AwsGlobalacceleratorCustomRoutingListenerPortRangeBlock>>("port_range");
-        set => this.WithProperty("port_range", value);
+        set => SetProperty("port_range", value);
     }
 
     /// <summary>
@@ -116,8 +113,7 @@ public class AwsGlobalacceleratorCustomRoutingListener : TerraformResource
     /// </summary>
     public AwsGlobalacceleratorCustomRoutingListenerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsGlobalacceleratorCustomRoutingListenerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

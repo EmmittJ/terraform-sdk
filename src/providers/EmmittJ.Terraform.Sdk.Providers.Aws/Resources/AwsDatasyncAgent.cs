@@ -13,8 +13,7 @@ public class AwsDatasyncAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,106 +30,117 @@ public class AwsDatasyncAgent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("activation_key");
+        SetOutput("id");
+        SetOutput("ip_address");
+        SetOutput("name");
+        SetOutput("private_link_endpoint");
+        SetOutput("region");
+        SetOutput("security_group_arns");
+        SetOutput("subnet_arns");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_endpoint_id");
     }
 
     /// <summary>
     /// The activation_key attribute.
     /// </summary>
-    public TerraformProperty<string>? ActivationKey
+    public TerraformProperty<string> ActivationKey
     {
-        get => GetProperty<TerraformProperty<string>>("activation_key");
-        set => this.WithProperty("activation_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("activation_key");
+        set => SetProperty("activation_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
+    public TerraformProperty<string> IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => this.WithProperty("ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_address");
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The private_link_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateLinkEndpoint
+    public TerraformProperty<string> PrivateLinkEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("private_link_endpoint");
-        set => this.WithProperty("private_link_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_link_endpoint");
+        set => SetProperty("private_link_endpoint", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupArns
+    public HashSet<TerraformProperty<string>> SecurityGroupArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_arns");
-        set => this.WithProperty("security_group_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_arns");
+        set => SetProperty("security_group_arns", value);
     }
 
     /// <summary>
     /// The subnet_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetArns
+    public HashSet<TerraformProperty<string>> SubnetArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_arns");
-        set => this.WithProperty("subnet_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_arns");
+        set => SetProperty("subnet_arns", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointId
+    public TerraformProperty<string> VpcEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
-        set => this.WithProperty("vpc_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_endpoint_id");
+        set => SetProperty("vpc_endpoint_id", value);
     }
 
     /// <summary>
@@ -139,8 +149,7 @@ public class AwsDatasyncAgent : TerraformResource
     /// </summary>
     public AwsDatasyncAgentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDatasyncAgentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

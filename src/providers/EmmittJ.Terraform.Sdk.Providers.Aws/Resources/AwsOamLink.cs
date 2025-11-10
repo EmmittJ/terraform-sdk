@@ -21,8 +21,7 @@ public class AwsOamLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsOamLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsOamLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,19 +55,26 @@ public class AwsOamLink : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("label");
-        this.WithOutput("link_id");
-        this.WithOutput("sink_arn");
+        SetOutput("arn");
+        SetOutput("label");
+        SetOutput("link_id");
+        SetOutput("sink_arn");
+        SetOutput("id");
+        SetOutput("label_template");
+        SetOutput("region");
+        SetOutput("resource_types");
+        SetOutput("sink_identifier");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -79,27 +83,27 @@ public class AwsOamLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelTemplate is required")]
     public required TerraformProperty<string> LabelTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("label_template");
-        set => this.WithProperty("label_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("label_template");
+        set => SetProperty("label_template", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
-    public HashSet<TerraformProperty<string>>? ResourceTypes
+    public HashSet<TerraformProperty<string>> ResourceTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_types");
-        set => this.WithProperty("resource_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resource_types");
+        set => SetProperty("resource_types", value);
     }
 
     /// <summary>
@@ -108,26 +112,26 @@ public class AwsOamLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
     public required TerraformProperty<string> SinkIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sink_identifier");
-        set => this.WithProperty("sink_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sink_identifier");
+        set => SetProperty("sink_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -137,8 +141,7 @@ public class AwsOamLink : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkConfiguration block(s) allowed")]
     public List<AwsOamLinkLinkConfigurationBlock>? LinkConfiguration
     {
-        get => GetProperty<List<AwsOamLinkLinkConfigurationBlock>>("link_configuration");
-        set => this.WithProperty("link_configuration", value);
+        set => SetProperty("link_configuration", value);
     }
 
     /// <summary>
@@ -147,8 +150,7 @@ public class AwsOamLink : TerraformResource
     /// </summary>
     public AwsOamLinkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsOamLinkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

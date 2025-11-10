@@ -14,15 +14,21 @@ public class AwsLoadBalancerListenerPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("load_balancer_name");
+        SetOutput("load_balancer_port");
+        SetOutput("policy_names");
+        SetOutput("region");
+        SetOutput("triggers");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,8 +37,8 @@ public class AwsLoadBalancerListenerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
     public required TerraformProperty<string> LoadBalancerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("load_balancer_name");
-        set => this.WithProperty("load_balancer_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("load_balancer_name");
+        set => SetProperty("load_balancer_name", value);
     }
 
     /// <summary>
@@ -41,35 +47,35 @@ public class AwsLoadBalancerListenerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerPort is required")]
     public required TerraformProperty<double> LoadBalancerPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("load_balancer_port");
-        set => this.WithProperty("load_balancer_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("load_balancer_port");
+        set => SetProperty("load_balancer_port", value);
     }
 
     /// <summary>
     /// The policy_names attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? PolicyNames
+    public HashSet<TerraformProperty<string>> PolicyNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("policy_names");
-        set => this.WithProperty("policy_names", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("policy_names");
+        set => SetProperty("policy_names", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Triggers
+    public Dictionary<string, TerraformProperty<string>> Triggers
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
-        set => this.WithProperty("triggers", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("triggers");
+        set => SetProperty("triggers", value);
     }
 
 }

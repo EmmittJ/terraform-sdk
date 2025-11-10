@@ -13,8 +13,7 @@ public class GoogleApigeeSyncAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeSyncAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeSyncAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,16 +46,19 @@ public class GoogleApigeeSyncAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("identities");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -71,10 +71,10 @@ public class GoogleApigeeSyncAuthorization : TerraformResource
     /// The service accounts must have **Apigee Synchronizer Manager** role. See also [Create service accounts](https://cloud.google.com/apigee/docs/hybrid/v1.8/sa-about#create-the-service-accounts).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identities is required")]
-    public List<TerraformProperty<string>>? Identities
+    public List<TerraformProperty<string>> Identities
     {
-        get => GetProperty<List<TerraformProperty<string>>>("identities");
-        set => this.WithProperty("identities", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("identities");
+        set => SetProperty("identities", value);
     }
 
     /// <summary>
@@ -83,8 +83,8 @@ public class GoogleApigeeSyncAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -93,8 +93,7 @@ public class GoogleApigeeSyncAuthorization : TerraformResource
     /// </summary>
     public GoogleApigeeSyncAuthorizationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeSyncAuthorizationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

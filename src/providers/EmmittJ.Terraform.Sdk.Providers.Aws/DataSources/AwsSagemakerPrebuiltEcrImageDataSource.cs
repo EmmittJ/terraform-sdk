@@ -14,44 +14,49 @@ public class AwsSagemakerPrebuiltEcrImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("registry_id");
-        this.WithOutput("registry_path");
+        SetOutput("registry_id");
+        SetOutput("registry_path");
+        SetOutput("dns_suffix");
+        SetOutput("id");
+        SetOutput("image_tag");
+        SetOutput("region");
+        SetOutput("repository_name");
     }
 
     /// <summary>
     /// The dns_suffix attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsSuffix
+    public TerraformProperty<string> DnsSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("dns_suffix");
-        set => this.WithProperty("dns_suffix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_suffix");
+        set => SetProperty("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The image_tag attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageTag
+    public TerraformProperty<string> ImageTag
     {
-        get => GetProperty<TerraformProperty<string>>("image_tag");
-        set => this.WithProperty("image_tag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_tag");
+        set => SetProperty("image_tag", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -60,8 +65,8 @@ public class AwsSagemakerPrebuiltEcrImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
-        set => this.WithProperty("repository_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_name");
+        set => SetProperty("repository_name", value);
     }
 
     /// <summary>

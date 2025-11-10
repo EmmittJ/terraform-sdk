@@ -13,8 +13,7 @@ public class AzurermCosmosdbMongoUserDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCosmosdbMongoUserDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCosmosdbMongoUserDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCosmosdbMongoUserDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,11 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cosmos_mongo_database_id");
+        SetOutput("id");
+        SetOutput("inherited_role_names");
+        SetOutput("password");
+        SetOutput("username");
     }
 
     /// <summary>
@@ -66,26 +67,26 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
     public required TerraformProperty<string> CosmosMongoDatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cosmos_mongo_database_id");
-        set => this.WithProperty("cosmos_mongo_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmos_mongo_database_id");
+        set => SetProperty("cosmos_mongo_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The inherited_role_names attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? InheritedRoleNames
+    public List<TerraformProperty<string>> InheritedRoleNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("inherited_role_names");
-        set => this.WithProperty("inherited_role_names", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("inherited_role_names");
+        set => SetProperty("inherited_role_names", value);
     }
 
     /// <summary>
@@ -94,8 +95,8 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -104,8 +105,8 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -114,8 +115,7 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     /// </summary>
     public AzurermCosmosdbMongoUserDefinitionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbMongoUserDefinitionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

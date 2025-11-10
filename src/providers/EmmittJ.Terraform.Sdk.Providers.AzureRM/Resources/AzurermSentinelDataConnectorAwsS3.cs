@@ -13,8 +13,7 @@ public class AzurermSentinelDataConnectorAwsS3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSentinelDataConnectorAwsS3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSentinelDataConnectorAwsS3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSentinelDataConnectorAwsS3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("aws_role_arn");
+        SetOutput("destination_table");
+        SetOutput("id");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("name");
+        SetOutput("sqs_urls");
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRoleArn is required")]
     public required TerraformProperty<string> AwsRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aws_role_arn");
-        set => this.WithProperty("aws_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_role_arn");
+        set => SetProperty("aws_role_arn", value);
     }
 
     /// <summary>
@@ -76,17 +78,17 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationTable is required")]
     public required TerraformProperty<string> DestinationTable
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_table");
-        set => this.WithProperty("destination_table", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_table");
+        set => SetProperty("destination_table", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -105,18 +107,18 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The sqs_urls attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqsUrls is required")]
-    public List<TerraformProperty<string>>? SqsUrls
+    public List<TerraformProperty<string>> SqsUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("sqs_urls");
-        set => this.WithProperty("sqs_urls", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("sqs_urls");
+        set => SetProperty("sqs_urls", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     /// </summary>
     public AzurermSentinelDataConnectorAwsS3TimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSentinelDataConnectorAwsS3TimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

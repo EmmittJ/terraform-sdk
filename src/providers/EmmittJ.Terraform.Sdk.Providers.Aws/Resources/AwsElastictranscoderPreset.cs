@@ -13,8 +13,7 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AudioPackingMode
     {
-        get => GetProperty<TerraformProperty<string>>("audio_packing_mode");
-        set => WithProperty("audio_packing_mode", value);
+        set => SetProperty("audio_packing_mode", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BitRate
     {
-        get => GetProperty<TerraformProperty<string>>("bit_rate");
-        set => WithProperty("bit_rate", value);
+        set => SetProperty("bit_rate", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Channels
     {
-        get => GetProperty<TerraformProperty<string>>("channels");
-        set => WithProperty("channels", value);
+        set => SetProperty("channels", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Codec
     {
-        get => GetProperty<TerraformProperty<string>>("codec");
-        set => WithProperty("codec", value);
+        set => SetProperty("codec", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SampleRate
     {
-        get => GetProperty<TerraformProperty<string>>("sample_rate");
-        set => WithProperty("sample_rate", value);
+        set => SetProperty("sample_rate", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BitDepth
     {
-        get => GetProperty<TerraformProperty<string>>("bit_depth");
-        set => WithProperty("bit_depth", value);
+        set => SetProperty("bit_depth", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BitOrder
     {
-        get => GetProperty<TerraformProperty<string>>("bit_order");
-        set => WithProperty("bit_order", value);
+        set => SetProperty("bit_order", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Profile
     {
-        get => GetProperty<TerraformProperty<string>>("profile");
-        set => WithProperty("profile", value);
+        set => SetProperty("profile", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Signed
     {
-        get => GetProperty<TerraformProperty<string>>("signed");
-        set => WithProperty("signed", value);
+        set => SetProperty("signed", value);
     }
 
 }
@@ -110,8 +101,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AspectRatio
     {
-        get => GetProperty<TerraformProperty<string>>("aspect_ratio");
-        set => WithProperty("aspect_ratio", value);
+        set => SetProperty("aspect_ratio", value);
     }
 
     /// <summary>
@@ -119,8 +109,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
-        set => WithProperty("format", value);
+        set => SetProperty("format", value);
     }
 
     /// <summary>
@@ -128,8 +117,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Interval
     {
-        get => GetProperty<TerraformProperty<string>>("interval");
-        set => WithProperty("interval", value);
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
@@ -137,8 +125,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxHeight
     {
-        get => GetProperty<TerraformProperty<string>>("max_height");
-        set => WithProperty("max_height", value);
+        set => SetProperty("max_height", value);
     }
 
     /// <summary>
@@ -146,8 +133,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxWidth
     {
-        get => GetProperty<TerraformProperty<string>>("max_width");
-        set => WithProperty("max_width", value);
+        set => SetProperty("max_width", value);
     }
 
     /// <summary>
@@ -155,8 +141,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PaddingPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("padding_policy");
-        set => WithProperty("padding_policy", value);
+        set => SetProperty("padding_policy", value);
     }
 
     /// <summary>
@@ -164,8 +149,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Resolution
     {
-        get => GetProperty<TerraformProperty<string>>("resolution");
-        set => WithProperty("resolution", value);
+        set => SetProperty("resolution", value);
     }
 
     /// <summary>
@@ -173,8 +157,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SizingPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("sizing_policy");
-        set => WithProperty("sizing_policy", value);
+        set => SetProperty("sizing_policy", value);
     }
 
 }
@@ -190,8 +173,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AspectRatio
     {
-        get => GetProperty<TerraformProperty<string>>("aspect_ratio");
-        set => WithProperty("aspect_ratio", value);
+        set => SetProperty("aspect_ratio", value);
     }
 
     /// <summary>
@@ -199,8 +181,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BitRate
     {
-        get => GetProperty<TerraformProperty<string>>("bit_rate");
-        set => WithProperty("bit_rate", value);
+        set => SetProperty("bit_rate", value);
     }
 
     /// <summary>
@@ -208,8 +189,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Codec
     {
-        get => GetProperty<TerraformProperty<string>>("codec");
-        set => WithProperty("codec", value);
+        set => SetProperty("codec", value);
     }
 
     /// <summary>
@@ -217,8 +197,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DisplayAspectRatio
     {
-        get => GetProperty<TerraformProperty<string>>("display_aspect_ratio");
-        set => WithProperty("display_aspect_ratio", value);
+        set => SetProperty("display_aspect_ratio", value);
     }
 
     /// <summary>
@@ -226,8 +205,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FixedGop
     {
-        get => GetProperty<TerraformProperty<string>>("fixed_gop");
-        set => WithProperty("fixed_gop", value);
+        set => SetProperty("fixed_gop", value);
     }
 
     /// <summary>
@@ -235,8 +213,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FrameRate
     {
-        get => GetProperty<TerraformProperty<string>>("frame_rate");
-        set => WithProperty("frame_rate", value);
+        set => SetProperty("frame_rate", value);
     }
 
     /// <summary>
@@ -244,8 +221,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyframesMaxDist
     {
-        get => GetProperty<TerraformProperty<string>>("keyframes_max_dist");
-        set => WithProperty("keyframes_max_dist", value);
+        set => SetProperty("keyframes_max_dist", value);
     }
 
     /// <summary>
@@ -253,8 +229,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxFrameRate
     {
-        get => GetProperty<TerraformProperty<string>>("max_frame_rate");
-        set => WithProperty("max_frame_rate", value);
+        set => SetProperty("max_frame_rate", value);
     }
 
     /// <summary>
@@ -262,8 +237,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxHeight
     {
-        get => GetProperty<TerraformProperty<string>>("max_height");
-        set => WithProperty("max_height", value);
+        set => SetProperty("max_height", value);
     }
 
     /// <summary>
@@ -271,8 +245,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxWidth
     {
-        get => GetProperty<TerraformProperty<string>>("max_width");
-        set => WithProperty("max_width", value);
+        set => SetProperty("max_width", value);
     }
 
     /// <summary>
@@ -280,8 +253,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PaddingPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("padding_policy");
-        set => WithProperty("padding_policy", value);
+        set => SetProperty("padding_policy", value);
     }
 
     /// <summary>
@@ -289,8 +261,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Resolution
     {
-        get => GetProperty<TerraformProperty<string>>("resolution");
-        set => WithProperty("resolution", value);
+        set => SetProperty("resolution", value);
     }
 
     /// <summary>
@@ -298,8 +269,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SizingPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("sizing_policy");
-        set => WithProperty("sizing_policy", value);
+        set => SetProperty("sizing_policy", value);
     }
 
 }
@@ -315,8 +285,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HorizontalAlign
     {
-        get => GetProperty<TerraformProperty<string>>("horizontal_align");
-        set => WithProperty("horizontal_align", value);
+        set => SetProperty("horizontal_align", value);
     }
 
     /// <summary>
@@ -324,8 +293,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HorizontalOffset
     {
-        get => GetProperty<TerraformProperty<string>>("horizontal_offset");
-        set => WithProperty("horizontal_offset", value);
+        set => SetProperty("horizontal_offset", value);
     }
 
     /// <summary>
@@ -333,8 +301,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -342,8 +309,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxHeight
     {
-        get => GetProperty<TerraformProperty<string>>("max_height");
-        set => WithProperty("max_height", value);
+        set => SetProperty("max_height", value);
     }
 
     /// <summary>
@@ -351,8 +317,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxWidth
     {
-        get => GetProperty<TerraformProperty<string>>("max_width");
-        set => WithProperty("max_width", value);
+        set => SetProperty("max_width", value);
     }
 
     /// <summary>
@@ -360,8 +325,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Opacity
     {
-        get => GetProperty<TerraformProperty<string>>("opacity");
-        set => WithProperty("opacity", value);
+        set => SetProperty("opacity", value);
     }
 
     /// <summary>
@@ -369,8 +333,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SizingPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("sizing_policy");
-        set => WithProperty("sizing_policy", value);
+        set => SetProperty("sizing_policy", value);
     }
 
     /// <summary>
@@ -378,8 +341,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
-        set => WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -387,8 +349,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VerticalAlign
     {
-        get => GetProperty<TerraformProperty<string>>("vertical_align");
-        set => WithProperty("vertical_align", value);
+        set => SetProperty("vertical_align", value);
     }
 
     /// <summary>
@@ -396,8 +357,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VerticalOffset
     {
-        get => GetProperty<TerraformProperty<string>>("vertical_offset");
-        set => WithProperty("vertical_offset", value);
+        set => SetProperty("vertical_offset", value);
     }
 
 }
@@ -416,7 +376,14 @@ public class AwsElastictranscoderPreset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("container");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("type");
+        SetOutput("video_codec_options");
     }
 
     /// <summary>
@@ -425,62 +392,62 @@ public class AwsElastictranscoderPreset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformProperty<string> Container
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container");
-        set => this.WithProperty("container", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container");
+        set => SetProperty("container", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The video_codec_options attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? VideoCodecOptions
+    public Dictionary<string, TerraformProperty<string>> VideoCodecOptions
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("video_codec_options");
-        set => this.WithProperty("video_codec_options", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("video_codec_options");
+        set => SetProperty("video_codec_options", value);
     }
 
     /// <summary>
@@ -490,8 +457,7 @@ public class AwsElastictranscoderPreset : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Audio block(s) allowed")]
     public List<AwsElastictranscoderPresetAudioBlock>? Audio
     {
-        get => GetProperty<List<AwsElastictranscoderPresetAudioBlock>>("audio");
-        set => this.WithProperty("audio", value);
+        set => SetProperty("audio", value);
     }
 
     /// <summary>
@@ -501,8 +467,7 @@ public class AwsElastictranscoderPreset : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioCodecOptions block(s) allowed")]
     public List<AwsElastictranscoderPresetAudioCodecOptionsBlock>? AudioCodecOptions
     {
-        get => GetProperty<List<AwsElastictranscoderPresetAudioCodecOptionsBlock>>("audio_codec_options");
-        set => this.WithProperty("audio_codec_options", value);
+        set => SetProperty("audio_codec_options", value);
     }
 
     /// <summary>
@@ -512,8 +477,7 @@ public class AwsElastictranscoderPreset : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Thumbnails block(s) allowed")]
     public List<AwsElastictranscoderPresetThumbnailsBlock>? Thumbnails
     {
-        get => GetProperty<List<AwsElastictranscoderPresetThumbnailsBlock>>("thumbnails");
-        set => this.WithProperty("thumbnails", value);
+        set => SetProperty("thumbnails", value);
     }
 
     /// <summary>
@@ -523,8 +487,7 @@ public class AwsElastictranscoderPreset : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Video block(s) allowed")]
     public List<AwsElastictranscoderPresetVideoBlock>? Video
     {
-        get => GetProperty<List<AwsElastictranscoderPresetVideoBlock>>("video");
-        set => this.WithProperty("video", value);
+        set => SetProperty("video", value);
     }
 
     /// <summary>
@@ -533,8 +496,7 @@ public class AwsElastictranscoderPreset : TerraformResource
     /// </summary>
     public HashSet<AwsElastictranscoderPresetVideoWatermarksBlock>? VideoWatermarks
     {
-        get => GetProperty<HashSet<AwsElastictranscoderPresetVideoWatermarksBlock>>("video_watermarks");
-        set => this.WithProperty("video_watermarks", value);
+        set => SetProperty("video_watermarks", value);
     }
 
     /// <summary>

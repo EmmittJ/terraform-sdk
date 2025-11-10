@@ -14,24 +14,27 @@ public class AwsIamRoleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("assume_role_policy");
-        this.WithOutput("create_date");
-        this.WithOutput("description");
-        this.WithOutput("max_session_duration");
-        this.WithOutput("path");
-        this.WithOutput("permissions_boundary");
-        this.WithOutput("role_last_used");
-        this.WithOutput("unique_id");
+        SetOutput("arn");
+        SetOutput("assume_role_policy");
+        SetOutput("create_date");
+        SetOutput("description");
+        SetOutput("max_session_duration");
+        SetOutput("path");
+        SetOutput("permissions_boundary");
+        SetOutput("role_last_used");
+        SetOutput("unique_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -40,17 +43,17 @@ public class AwsIamRoleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

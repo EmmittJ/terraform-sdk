@@ -13,8 +13,7 @@ public class GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? CompanyName
     {
-        get => GetProperty<TerraformProperty<string>>("company_name");
-        set => WithProperty("company_name", value);
+        set => SetProperty("company_name", value);
     }
 
 }
@@ -36,8 +35,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformProperty<string>? OptimizationObjective
     {
-        get => GetProperty<TerraformProperty<string>>("optimization_objective");
-        set => WithProperty("optimization_objective", value);
+        set => SetProperty("optimization_objective", value);
     }
 
     /// <summary>
@@ -50,8 +48,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformProperty<string>? TrainingState
     {
-        get => GetProperty<TerraformProperty<string>>("training_state");
-        set => WithProperty("training_state", value);
+        set => SetProperty("training_state", value);
     }
 
     /// <summary>
@@ -63,8 +60,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -80,8 +76,7 @@ public class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -89,8 +84,7 @@ public class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -98,8 +92,7 @@ public class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -117,19 +110,26 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("data_store_ids");
+        SetOutput("display_name");
+        SetOutput("engine_id");
+        SetOutput("id");
+        SetOutput("industry_vertical");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The data stores associated with this engine. For SOLUTION_TYPE_RECOMMENDATION type of engines, they can only associate with at most one data store.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreIds is required")]
-    public List<TerraformProperty<string>>? DataStoreIds
+    public List<TerraformProperty<string>> DataStoreIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("data_store_ids");
-        set => this.WithProperty("data_store_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("data_store_ids");
+        set => SetProperty("data_store_ids", value);
     }
 
     /// <summary>
@@ -138,8 +138,8 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -148,26 +148,26 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformProperty<string> EngineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_id");
-        set => this.WithProperty("engine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_id");
+        set => SetProperty("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The industry vertical that the engine registers. The restriction of the Engine industry vertical is based on DataStore: If unspecified, default to GENERIC. Vertical on Engine has to match vertical of the DataStore liniked to the engine. Default value: &amp;quot;GENERIC&amp;quot; Possible values: [&amp;quot;GENERIC&amp;quot;, &amp;quot;MEDIA&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? IndustryVertical
+    public TerraformProperty<string> IndustryVertical
     {
-        get => GetProperty<TerraformProperty<string>>("industry_vertical");
-        set => this.WithProperty("industry_vertical", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("industry_vertical");
+        set => SetProperty("industry_vertical", value);
     }
 
     /// <summary>
@@ -177,17 +177,17 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -197,8 +197,7 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommonConfig block(s) allowed")]
     public List<GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock>? CommonConfig
     {
-        get => GetProperty<List<GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock>>("common_config");
-        set => this.WithProperty("common_config", value);
+        set => SetProperty("common_config", value);
     }
 
     /// <summary>
@@ -208,8 +207,7 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MediaRecommendationEngineConfig block(s) allowed")]
     public List<GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock>? MediaRecommendationEngineConfig
     {
-        get => GetProperty<List<GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock>>("media_recommendation_engine_config");
-        set => this.WithProperty("media_recommendation_engine_config", value);
+        set => SetProperty("media_recommendation_engine_config", value);
     }
 
     /// <summary>
@@ -218,8 +216,7 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

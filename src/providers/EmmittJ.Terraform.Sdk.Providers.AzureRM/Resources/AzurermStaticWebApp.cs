@@ -14,8 +14,7 @@ public class AzurermStaticWebAppBasicAuthBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environments is required")]
     public required TerraformProperty<string> Environments
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environments");
-        set => WithProperty("environments", value);
+        set => SetProperty("environments", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermStaticWebAppBasicAuthBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermStaticWebAppIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermStaticWebAppIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermStaticWebAppIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermStaticWebAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -132,35 +122,49 @@ public class AzurermStaticWebApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputpi_key");
-        this.WithOutputefault_host_name");
+        SetOutput("api_key");
+        SetOutput("default_host_name");
+        SetOutput("app_settings");
+        SetOutput("configuration_file_changes_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("preview_environments_enabled");
+        SetOutput("public_network_access_enabled");
+        SetOutput("repository_branch");
+        SetOutput("repository_token");
+        SetOutput("repository_url");
+        SetOutput("resource_group_name");
+        SetOutput("sku_size");
+        SetOutput("sku_tier");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AppSettings
+    public Dictionary<string, TerraformProperty<string>> AppSettings
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("app_settings");
-        set => this.WithProperty("app_settings", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("app_settings");
+        set => SetProperty("app_settings", value);
     }
 
     /// <summary>
     /// The configuration_file_changes_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ConfigurationFileChangesEnabled
+    public TerraformProperty<bool> ConfigurationFileChangesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("configuration_file_changes_enabled");
-        set => this.WithProperty("configuration_file_changes_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("configuration_file_changes_enabled");
+        set => SetProperty("configuration_file_changes_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -169,8 +173,8 @@ public class AzurermStaticWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -179,53 +183,53 @@ public class AzurermStaticWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The preview_environments_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PreviewEnvironmentsEnabled
+    public TerraformProperty<bool> PreviewEnvironmentsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("preview_environments_enabled");
-        set => this.WithProperty("preview_environments_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("preview_environments_enabled");
+        set => SetProperty("preview_environments_enabled", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The repository_branch attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryBranch
+    public TerraformProperty<string> RepositoryBranch
     {
-        get => GetProperty<TerraformProperty<string>>("repository_branch");
-        set => this.WithProperty("repository_branch", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_branch");
+        set => SetProperty("repository_branch", value);
     }
 
     /// <summary>
     /// The repository_token attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryToken
+    public TerraformProperty<string> RepositoryToken
     {
-        get => GetProperty<TerraformProperty<string>>("repository_token");
-        set => this.WithProperty("repository_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_token");
+        set => SetProperty("repository_token", value);
     }
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryUrl
+    public TerraformProperty<string> RepositoryUrl
     {
-        get => GetProperty<TerraformProperty<string>>("repository_url");
-        set => this.WithProperty("repository_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_url");
+        set => SetProperty("repository_url", value);
     }
 
     /// <summary>
@@ -234,35 +238,35 @@ public class AzurermStaticWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku_size attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuSize
+    public TerraformProperty<string> SkuSize
     {
-        get => GetProperty<TerraformProperty<string>>("sku_size");
-        set => this.WithProperty("sku_size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_size");
+        set => SetProperty("sku_size", value);
     }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuTier
+    public TerraformProperty<string> SkuTier
     {
-        get => GetProperty<TerraformProperty<string>>("sku_tier");
-        set => this.WithProperty("sku_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_tier");
+        set => SetProperty("sku_tier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -272,8 +276,7 @@ public class AzurermStaticWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAuth block(s) allowed")]
     public List<AzurermStaticWebAppBasicAuthBlock>? BasicAuth
     {
-        get => GetProperty<List<AzurermStaticWebAppBasicAuthBlock>>("basic_auth");
-        set => this.WithProperty("basic_auth", value);
+        set => SetProperty("basic_auth", value);
     }
 
     /// <summary>
@@ -283,8 +286,7 @@ public class AzurermStaticWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermStaticWebAppIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermStaticWebAppIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -293,8 +295,7 @@ public class AzurermStaticWebApp : TerraformResource
     /// </summary>
     public AzurermStaticWebAppTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStaticWebAppTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

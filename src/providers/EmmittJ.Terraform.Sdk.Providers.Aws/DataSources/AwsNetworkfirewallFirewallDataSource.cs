@@ -14,66 +14,71 @@ public class AwsNetworkfirewallFirewallDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("availability_zone_change_protection");
-        this.WithOutput("availability_zone_mapping");
-        this.WithOutput("delete_protection");
-        this.WithOutput("description");
-        this.WithOutput("enabled_analysis_types");
-        this.WithOutput("encryption_configuration");
-        this.WithOutput("firewall_policy_arn");
-        this.WithOutput("firewall_policy_change_protection");
-        this.WithOutput("firewall_status");
-        this.WithOutput("subnet_change_protection");
-        this.WithOutput("subnet_mapping");
-        this.WithOutput("transit_gateway_id");
-        this.WithOutput("transit_gateway_owner_account_id");
-        this.WithOutput("update_token");
-        this.WithOutput("vpc_id");
+        SetOutput("availability_zone_change_protection");
+        SetOutput("availability_zone_mapping");
+        SetOutput("delete_protection");
+        SetOutput("description");
+        SetOutput("enabled_analysis_types");
+        SetOutput("encryption_configuration");
+        SetOutput("firewall_policy_arn");
+        SetOutput("firewall_policy_change_protection");
+        SetOutput("firewall_status");
+        SetOutput("subnet_change_protection");
+        SetOutput("subnet_mapping");
+        SetOutput("transit_gateway_id");
+        SetOutput("transit_gateway_owner_account_id");
+        SetOutput("update_token");
+        SetOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

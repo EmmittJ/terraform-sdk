@@ -13,8 +13,7 @@ public class AwsDevicefarmDevicePoolRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Attribute
     {
-        get => GetProperty<TerraformProperty<string>>("attribute");
-        set => WithProperty("attribute", value);
+        set => SetProperty("attribute", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDevicefarmDevicePoolRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Operator
     {
-        get => GetProperty<TerraformProperty<string>>("operator");
-        set => WithProperty("operator", value);
+        set => SetProperty("operator", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDevicefarmDevicePoolRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -50,35 +47,43 @@ public class AwsDevicefarmDevicePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("type");
+        SetOutput("arn");
+        SetOutput("type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("max_devices");
+        SetOutput("name");
+        SetOutput("project_arn");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_devices attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxDevices
+    public TerraformProperty<double> MaxDevices
     {
-        get => GetProperty<TerraformProperty<double>>("max_devices");
-        set => this.WithProperty("max_devices", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_devices");
+        set => SetProperty("max_devices", value);
     }
 
     /// <summary>
@@ -87,8 +92,8 @@ public class AwsDevicefarmDevicePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -97,46 +102,46 @@ public class AwsDevicefarmDevicePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectArn is required")]
     public required TerraformProperty<string> ProjectArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_arn");
-        set => this.WithProperty("project_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_arn");
+        set => SetProperty("project_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     public HashSet<AwsDevicefarmDevicePoolRuleBlock>? Rule
     {
-        get => GetProperty<HashSet<AwsDevicefarmDevicePoolRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>

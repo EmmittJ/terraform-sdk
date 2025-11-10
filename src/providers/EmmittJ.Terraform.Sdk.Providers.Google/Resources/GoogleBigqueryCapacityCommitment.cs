@@ -13,8 +13,7 @@ public class GoogleBigqueryCapacityCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleBigqueryCapacityCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleBigqueryCapacityCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,19 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("commitment_end_time");
-        this.WithOutput("commitment_start_time");
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("commitment_end_time");
+        SetOutput("commitment_start_time");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("capacity_commitment_id");
+        SetOutput("edition");
+        SetOutput("enforce_single_admin_project_per_org");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("plan");
+        SetOutput("project");
+        SetOutput("renewal_plan");
+        SetOutput("slot_count");
     }
 
     /// <summary>
@@ -61,47 +67,47 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     /// cannot be a dash. Max length is 64 characters. NOTE: this ID won&#39;t be kept if the capacity commitment is split
     /// or merged.
     /// </summary>
-    public TerraformProperty<string>? CapacityCommitmentId
+    public TerraformProperty<string> CapacityCommitmentId
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_commitment_id");
-        set => this.WithProperty("capacity_commitment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capacity_commitment_id");
+        set => SetProperty("capacity_commitment_id", value);
     }
 
     /// <summary>
     /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
     /// </summary>
-    public TerraformProperty<string>? Edition
+    public TerraformProperty<string> Edition
     {
-        get => GetProperty<TerraformProperty<string>>("edition");
-        set => this.WithProperty("edition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edition");
+        set => SetProperty("edition", value);
     }
 
     /// <summary>
     /// If true, fail the request if another project in the organization has a capacity commitment.
     /// </summary>
-    public TerraformProperty<string>? EnforceSingleAdminProjectPerOrg
+    public TerraformProperty<string> EnforceSingleAdminProjectPerOrg
     {
-        get => GetProperty<TerraformProperty<string>>("enforce_single_admin_project_per_org");
-        set => this.WithProperty("enforce_single_admin_project_per_org", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enforce_single_admin_project_per_org");
+        set => SetProperty("enforce_single_admin_project_per_org", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The geographic location where the transfer config should reside.
     /// Examples: US, EU, asia-northeast1. The default value is US.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -110,26 +116,26 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformProperty<string> Plan
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("plan");
-        set => this.WithProperty("plan", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plan");
+        set => SetProperty("plan", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The plan this capacity commitment is converted to after commitmentEndTime passes. Once the plan is changed, committed period is extended according to commitment plan. Only applicable for some commitment plans.
     /// </summary>
-    public TerraformProperty<string>? RenewalPlan
+    public TerraformProperty<string> RenewalPlan
     {
-        get => GetProperty<TerraformProperty<string>>("renewal_plan");
-        set => this.WithProperty("renewal_plan", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("renewal_plan");
+        set => SetProperty("renewal_plan", value);
     }
 
     /// <summary>
@@ -138,8 +144,8 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCount is required")]
     public required TerraformProperty<double> SlotCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("slot_count");
-        set => this.WithProperty("slot_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("slot_count");
+        set => SetProperty("slot_count", value);
     }
 
     /// <summary>
@@ -148,8 +154,7 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     /// </summary>
     public GoogleBigqueryCapacityCommitmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryCapacityCommitmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -16,8 +16,7 @@ public class GoogleGkeonpremVmwareClusterAntiAffinityGroupsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AagConfigDisabled is required")]
     public required TerraformProperty<bool> AagConfigDisabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("aag_config_disabled");
-        set => WithProperty("aag_config_disabled", value);
+        set => SetProperty("aag_config_disabled", value);
     }
 
 }
@@ -42,8 +41,7 @@ public class GoogleGkeonpremVmwareClusterAutoRepairConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -60,8 +58,7 @@ public class GoogleGkeonpremVmwareClusterControlPlaneNodeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Cpus
     {
-        get => GetProperty<TerraformProperty<double>>("cpus");
-        set => WithProperty("cpus", value);
+        set => SetProperty("cpus", value);
     }
 
     /// <summary>
@@ -70,8 +67,7 @@ public class GoogleGkeonpremVmwareClusterControlPlaneNodeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Memory
     {
-        get => GetProperty<TerraformProperty<double>>("memory");
-        set => WithProperty("memory", value);
+        set => SetProperty("memory", value);
     }
 
     /// <summary>
@@ -80,8 +76,7 @@ public class GoogleGkeonpremVmwareClusterControlPlaneNodeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Replicas
     {
-        get => GetProperty<TerraformProperty<double>>("replicas");
-        set => WithProperty("replicas", value);
+        set => SetProperty("replicas", value);
     }
 
     /// <summary>
@@ -89,8 +84,7 @@ public class GoogleGkeonpremVmwareClusterControlPlaneNodeBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? VsphereConfig
     {
-        get => GetProperty<List<TerraformProperty<object>>>("vsphere_config");
-        set => WithProperty("vsphere_config", value);
+        set => SetProperty("vsphere_config", value);
     }
 
 }
@@ -106,8 +100,7 @@ public class GoogleGkeonpremVmwareClusterDataplaneV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AdvancedNetworking
     {
-        get => GetProperty<TerraformProperty<bool>>("advanced_networking");
-        set => WithProperty("advanced_networking", value);
+        set => SetProperty("advanced_networking", value);
     }
 
     /// <summary>
@@ -115,8 +108,7 @@ public class GoogleGkeonpremVmwareClusterDataplaneV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DataplaneV2Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dataplane_v2_enabled");
-        set => WithProperty("dataplane_v2_enabled", value);
+        set => SetProperty("dataplane_v2_enabled", value);
     }
 
     /// <summary>
@@ -124,8 +116,7 @@ public class GoogleGkeonpremVmwareClusterDataplaneV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WindowsDataplaneV2Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("windows_dataplane_v2_enabled");
-        set => WithProperty("windows_dataplane_v2_enabled", value);
+        set => SetProperty("windows_dataplane_v2_enabled", value);
     }
 
 }
@@ -151,8 +142,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodAddressCidrBlocks is required")]
     public List<TerraformProperty<string>>? PodAddressCidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("pod_address_cidr_blocks");
-        set => WithProperty("pod_address_cidr_blocks", value);
+        set => SetProperty("pod_address_cidr_blocks", value);
     }
 
     /// <summary>
@@ -163,8 +153,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAddressCidrBlocks is required")]
     public List<TerraformProperty<string>>? ServiceAddressCidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("service_address_cidr_blocks");
-        set => WithProperty("service_address_cidr_blocks", value);
+        set => SetProperty("service_address_cidr_blocks", value);
     }
 
     /// <summary>
@@ -172,8 +161,7 @@ public class GoogleGkeonpremVmwareClusterNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VcenterNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("vcenter_network");
-        set => WithProperty("vcenter_network", value);
+        set => SetProperty("vcenter_network", value);
     }
 
 }
@@ -191,8 +179,7 @@ public class GoogleGkeonpremVmwareClusterStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VsphereCsiDisabled is required")]
     public required TerraformProperty<bool> VsphereCsiDisabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("vsphere_csi_disabled");
-        set => WithProperty("vsphere_csi_disabled", value);
+        set => SetProperty("vsphere_csi_disabled", value);
     }
 
 }
@@ -208,8 +195,7 @@ public class GoogleGkeonpremVmwareClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -217,8 +203,7 @@ public class GoogleGkeonpremVmwareClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -226,8 +211,7 @@ public class GoogleGkeonpremVmwareClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -243,8 +227,7 @@ public class GoogleGkeonpremVmwareClusterUpgradePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ControlPlaneOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("control_plane_only");
-        set => WithProperty("control_plane_only", value);
+        set => SetProperty("control_plane_only", value);
     }
 
 }
@@ -260,8 +243,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
-        set => WithProperty("address", value);
+        set => SetProperty("address", value);
     }
 
     /// <summary>
@@ -269,8 +251,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CaCertData
     {
-        get => GetProperty<TerraformProperty<string>>("ca_cert_data");
-        set => WithProperty("ca_cert_data", value);
+        set => SetProperty("ca_cert_data", value);
     }
 
     /// <summary>
@@ -278,8 +259,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
-        set => WithProperty("cluster", value);
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
@@ -287,8 +267,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Datacenter
     {
-        get => GetProperty<TerraformProperty<string>>("datacenter");
-        set => WithProperty("datacenter", value);
+        set => SetProperty("datacenter", value);
     }
 
     /// <summary>
@@ -296,8 +275,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Datastore
     {
-        get => GetProperty<TerraformProperty<string>>("datastore");
-        set => WithProperty("datastore", value);
+        set => SetProperty("datastore", value);
     }
 
     /// <summary>
@@ -305,8 +283,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
-        set => WithProperty("folder", value);
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
@@ -314,8 +291,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourcePool
     {
-        get => GetProperty<TerraformProperty<string>>("resource_pool");
-        set => WithProperty("resource_pool", value);
+        set => SetProperty("resource_pool", value);
     }
 
     /// <summary>
@@ -323,8 +299,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StoragePolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_policy_name");
-        set => WithProperty("storage_policy_name", value);
+        set => SetProperty("storage_policy_name", value);
     }
 
 }
@@ -342,19 +317,31 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("endpoint");
-        this.WithOutput("etag");
-        this.WithOutput("fleet");
-        this.WithOutput("local_name");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("status");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("validation_check");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_annotations");
+        SetOutput("endpoint");
+        SetOutput("etag");
+        SetOutput("fleet");
+        SetOutput("local_name");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("status");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("validation_check");
+        SetOutput("admin_cluster_membership");
+        SetOutput("annotations");
+        SetOutput("description");
+        SetOutput("disable_bundled_ingress");
+        SetOutput("enable_advanced_cluster");
+        SetOutput("enable_control_plane_v2");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("on_prem_version");
+        SetOutput("project");
+        SetOutput("vm_tracking_enabled");
     }
 
     /// <summary>
@@ -366,8 +353,8 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminClusterMembership is required")]
     public required TerraformProperty<string> AdminClusterMembership
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_cluster_membership");
-        set => this.WithProperty("admin_cluster_membership", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admin_cluster_membership");
+        set => SetProperty("admin_cluster_membership", value);
     }
 
     /// <summary>
@@ -384,55 +371,55 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// A human readable description of this VMware User Cluster.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Disable bundled ingress.
     /// </summary>
-    public TerraformProperty<bool>? DisableBundledIngress
+    public TerraformProperty<bool> DisableBundledIngress
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_bundled_ingress");
-        set => this.WithProperty("disable_bundled_ingress", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_bundled_ingress");
+        set => SetProperty("disable_bundled_ingress", value);
     }
 
     /// <summary>
     /// Enable advanced cluster. Default to false.
     /// </summary>
-    public TerraformProperty<bool>? EnableAdvancedCluster
+    public TerraformProperty<bool> EnableAdvancedCluster
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_advanced_cluster");
-        set => this.WithProperty("enable_advanced_cluster", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_advanced_cluster");
+        set => SetProperty("enable_advanced_cluster", value);
     }
 
     /// <summary>
     /// Enable control plane V2. Default to false.
     /// </summary>
-    public TerraformProperty<bool>? EnableControlPlaneV2
+    public TerraformProperty<bool> EnableControlPlaneV2
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_control_plane_v2");
-        set => this.WithProperty("enable_control_plane_v2", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_control_plane_v2");
+        set => SetProperty("enable_control_plane_v2", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -441,8 +428,8 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -451,8 +438,8 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -461,26 +448,26 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnPremVersion is required")]
     public required TerraformProperty<string> OnPremVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("on_prem_version");
-        set => this.WithProperty("on_prem_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("on_prem_version");
+        set => SetProperty("on_prem_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Enable VM tracking.
     /// </summary>
-    public TerraformProperty<bool>? VmTrackingEnabled
+    public TerraformProperty<bool> VmTrackingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("vm_tracking_enabled");
-        set => this.WithProperty("vm_tracking_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("vm_tracking_enabled");
+        set => SetProperty("vm_tracking_enabled", value);
     }
 
     /// <summary>
@@ -490,8 +477,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AntiAffinityGroups block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterAntiAffinityGroupsBlock>? AntiAffinityGroups
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterAntiAffinityGroupsBlock>>("anti_affinity_groups");
-        set => this.WithProperty("anti_affinity_groups", value);
+        set => SetProperty("anti_affinity_groups", value);
     }
 
     /// <summary>
@@ -501,8 +487,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterAuthorizationBlock>? Authorization
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterAuthorizationBlock>>("authorization");
-        set => this.WithProperty("authorization", value);
+        set => SetProperty("authorization", value);
     }
 
     /// <summary>
@@ -512,20 +497,19 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoRepairConfig block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterAutoRepairConfigBlock>? AutoRepairConfig
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterAutoRepairConfigBlock>>("auto_repair_config");
-        set => this.WithProperty("auto_repair_config", value);
+        set => SetProperty("auto_repair_config", value);
     }
 
     /// <summary>
     /// Block for control_plane_node.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlaneNode is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ControlPlaneNode block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneNode block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterControlPlaneNodeBlock>? ControlPlaneNode
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterControlPlaneNodeBlock>>("control_plane_node");
-        set => this.WithProperty("control_plane_node", value);
+        set => SetProperty("control_plane_node", value);
     }
 
     /// <summary>
@@ -535,8 +519,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataplaneV2 block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterDataplaneV2Block>? DataplaneV2
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterDataplaneV2Block>>("dataplane_v2");
-        set => this.WithProperty("dataplane_v2", value);
+        set => SetProperty("dataplane_v2", value);
     }
 
     /// <summary>
@@ -546,8 +529,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancer block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterLoadBalancerBlock>? LoadBalancer
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterLoadBalancerBlock>>("load_balancer");
-        set => this.WithProperty("load_balancer", value);
+        set => SetProperty("load_balancer", value);
     }
 
     /// <summary>
@@ -557,8 +539,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -568,8 +549,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterStorageBlock>? Storage
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterStorageBlock>>("storage");
-        set => this.WithProperty("storage", value);
+        set => SetProperty("storage", value);
     }
 
     /// <summary>
@@ -578,8 +558,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     /// </summary>
     public GoogleGkeonpremVmwareClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGkeonpremVmwareClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -589,8 +568,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterUpgradePolicyBlock>? UpgradePolicy
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterUpgradePolicyBlock>>("upgrade_policy");
-        set => this.WithProperty("upgrade_policy", value);
+        set => SetProperty("upgrade_policy", value);
     }
 
     /// <summary>
@@ -600,8 +578,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vcenter block(s) allowed")]
     public List<GoogleGkeonpremVmwareClusterVcenterBlock>? Vcenter
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareClusterVcenterBlock>>("vcenter");
-        set => this.WithProperty("vcenter", value);
+        set => SetProperty("vcenter", value);
     }
 
     /// <summary>

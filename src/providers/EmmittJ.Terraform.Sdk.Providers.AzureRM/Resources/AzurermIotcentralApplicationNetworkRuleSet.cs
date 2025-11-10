@@ -14,8 +14,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
     public required TerraformProperty<string> IpMask
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_mask");
-        set => WithProperty("ip_mask", value);
+        set => SetProperty("ip_mask", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,33 +80,37 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("apply_to_device");
+        SetOutput("default_action");
+        SetOutput("id");
+        SetOutput("iotcentral_application_id");
     }
 
     /// <summary>
     /// The apply_to_device attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplyToDevice
+    public TerraformProperty<bool> ApplyToDevice
     {
-        get => GetProperty<TerraformProperty<bool>>("apply_to_device");
-        set => this.WithProperty("apply_to_device", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("apply_to_device");
+        set => SetProperty("apply_to_device", value);
     }
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultAction
+    public TerraformProperty<string> DefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("default_action");
-        set => this.WithProperty("default_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_action");
+        set => SetProperty("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,8 +119,8 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
     public required TerraformProperty<string> IotcentralApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iotcentral_application_id");
-        set => this.WithProperty("iotcentral_application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iotcentral_application_id");
+        set => SetProperty("iotcentral_application_id", value);
     }
 
     /// <summary>
@@ -131,8 +129,7 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
     /// </summary>
     public List<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock>? IpRule
     {
-        get => GetProperty<List<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock>>("ip_rule");
-        set => this.WithProperty("ip_rule", value);
+        set => SetProperty("ip_rule", value);
     }
 
     /// <summary>
@@ -141,8 +138,7 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
     /// </summary>
     public AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -15,8 +15,7 @@ public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
-        set => WithProperty("service", value);
+        set => SetProperty("service", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? UrlMask
     {
-        get => GetProperty<TerraformProperty<string>>("url_mask");
-        set => WithProperty("url_mask", value);
+        set => SetProperty("url_mask", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -61,8 +58,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Function
     {
-        get => GetProperty<TerraformProperty<string>>("function");
-        set => WithProperty("function", value);
+        set => SetProperty("function", value);
     }
 
     /// <summary>
@@ -76,8 +72,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? UrlMask
     {
-        get => GetProperty<TerraformProperty<string>>("url_mask");
-        set => WithProperty("url_mask", value);
+        set => SetProperty("url_mask", value);
     }
 
 }
@@ -95,8 +90,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
-        set => WithProperty("service", value);
+        set => SetProperty("service", value);
     }
 
     /// <summary>
@@ -107,8 +101,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Tag
     {
-        get => GetProperty<TerraformProperty<string>>("tag");
-        set => WithProperty("tag", value);
+        set => SetProperty("tag", value);
     }
 
     /// <summary>
@@ -123,8 +116,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? UrlMask
     {
-        get => GetProperty<TerraformProperty<string>>("url_mask");
-        set => WithProperty("url_mask", value);
+        set => SetProperty("url_mask", value);
     }
 
 }
@@ -143,8 +135,7 @@ public class GoogleComputeRegionNetworkEndpointGroupPscDataBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ProducerPort
     {
-        get => GetProperty<TerraformProperty<string>>("producer_port");
-        set => WithProperty("producer_port", value);
+        set => SetProperty("producer_port", value);
     }
 
 }
@@ -160,8 +151,7 @@ public class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -169,8 +159,7 @@ public class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -188,26 +177,35 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("self_link");
+        SetOutput("self_link");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("network_endpoint_type");
+        SetOutput("project");
+        SetOutput("psc_target_service");
+        SetOutput("region");
+        SetOutput("subnetwork");
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -222,8 +220,8 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -232,28 +230,28 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// The URL of the network to which all network endpoints in the NEG belong. Uses
     /// &amp;quot;default&amp;quot; project network if unspecified.
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group. Defaults to SERVERLESS. Default value: &amp;quot;SERVERLESS&amp;quot; Possible values: [&amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;GCE_VM_IP_PORTMAP&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NetworkEndpointType
+    public TerraformProperty<string> NetworkEndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("network_endpoint_type");
-        set => this.WithProperty("network_endpoint_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_endpoint_type");
+        set => SetProperty("network_endpoint_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -262,10 +260,10 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// The target service url used to set up private service connection to
     /// a Google API or a PSC Producer Service Attachment.
     /// </summary>
-    public TerraformProperty<string>? PscTargetService
+    public TerraformProperty<string> PscTargetService
     {
-        get => GetProperty<TerraformProperty<string>>("psc_target_service");
-        set => this.WithProperty("psc_target_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("psc_target_service");
+        set => SetProperty("psc_target_service", value);
     }
 
     /// <summary>
@@ -274,8 +272,8 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -283,10 +281,10 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// 
     /// Optional URL of the subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
-    public TerraformProperty<string>? Subnetwork
+    public TerraformProperty<string> Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => this.WithProperty("subnetwork", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnetwork");
+        set => SetProperty("subnetwork", value);
     }
 
     /// <summary>
@@ -296,8 +294,7 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppEngine block(s) allowed")]
     public List<GoogleComputeRegionNetworkEndpointGroupAppEngineBlock>? AppEngine
     {
-        get => GetProperty<List<GoogleComputeRegionNetworkEndpointGroupAppEngineBlock>>("app_engine");
-        set => this.WithProperty("app_engine", value);
+        set => SetProperty("app_engine", value);
     }
 
     /// <summary>
@@ -307,8 +304,7 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudFunction block(s) allowed")]
     public List<GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock>? CloudFunction
     {
-        get => GetProperty<List<GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock>>("cloud_function");
-        set => this.WithProperty("cloud_function", value);
+        set => SetProperty("cloud_function", value);
     }
 
     /// <summary>
@@ -318,8 +314,7 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudRun block(s) allowed")]
     public List<GoogleComputeRegionNetworkEndpointGroupCloudRunBlock>? CloudRun
     {
-        get => GetProperty<List<GoogleComputeRegionNetworkEndpointGroupCloudRunBlock>>("cloud_run");
-        set => this.WithProperty("cloud_run", value);
+        set => SetProperty("cloud_run", value);
     }
 
     /// <summary>
@@ -329,8 +324,7 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscData block(s) allowed")]
     public List<GoogleComputeRegionNetworkEndpointGroupPscDataBlock>? PscData
     {
-        get => GetProperty<List<GoogleComputeRegionNetworkEndpointGroupPscDataBlock>>("psc_data");
-        set => this.WithProperty("psc_data", value);
+        set => SetProperty("psc_data", value);
     }
 
     /// <summary>
@@ -339,8 +333,7 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// </summary>
     public GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

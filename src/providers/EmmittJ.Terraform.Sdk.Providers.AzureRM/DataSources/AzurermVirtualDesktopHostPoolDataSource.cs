@@ -13,8 +13,7 @@ public class AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,28 +30,31 @@ public class AzurermVirtualDesktopHostPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("custom_rdp_properties");
-        this.WithOutput("description");
-        this.WithOutput("friendly_name");
-        this.WithOutput("load_balancer_type");
-        this.WithOutput("location");
-        this.WithOutput("maximum_sessions_allowed");
-        this.WithOutput("personal_desktop_assignment_type");
-        this.WithOutput("preferred_app_group_type");
-        this.WithOutput("scheduled_agent_updates");
-        this.WithOutput("start_vm_on_connect");
-        this.WithOutput("tags");
-        this.WithOutput("type");
-        this.WithOutput("validate_environment");
+        SetOutput("custom_rdp_properties");
+        SetOutput("description");
+        SetOutput("friendly_name");
+        SetOutput("load_balancer_type");
+        SetOutput("location");
+        SetOutput("maximum_sessions_allowed");
+        SetOutput("personal_desktop_assignment_type");
+        SetOutput("preferred_app_group_type");
+        SetOutput("scheduled_agent_updates");
+        SetOutput("start_vm_on_connect");
+        SetOutput("tags");
+        SetOutput("type");
+        SetOutput("validate_environment");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermVirtualDesktopHostPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,8 +73,8 @@ public class AzurermVirtualDesktopHostPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -81,8 +83,7 @@ public class AzurermVirtualDesktopHostPoolDataSource : TerraformDataSource
     /// </summary>
     public AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualDesktopHostPoolDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermStorageMoverAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageMoverAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageMoverAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStorageMoverAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermStorageMoverAgent : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("arc_virtual_machine_id");
+        SetOutput("arc_virtual_machine_uuid");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("storage_mover_id");
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermStorageMoverAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcVirtualMachineId is required")]
     public required TerraformProperty<string> ArcVirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arc_virtual_machine_id");
-        set => this.WithProperty("arc_virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arc_virtual_machine_id");
+        set => SetProperty("arc_virtual_machine_id", value);
     }
 
     /// <summary>
@@ -76,26 +78,26 @@ public class AzurermStorageMoverAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcVirtualMachineUuid is required")]
     public required TerraformProperty<string> ArcVirtualMachineUuid
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arc_virtual_machine_uuid");
-        set => this.WithProperty("arc_virtual_machine_uuid", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arc_virtual_machine_uuid");
+        set => SetProperty("arc_virtual_machine_uuid", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,8 +106,8 @@ public class AzurermStorageMoverAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AzurermStorageMoverAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverId is required")]
     public required TerraformProperty<string> StorageMoverId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_mover_id");
-        set => this.WithProperty("storage_mover_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_mover_id");
+        set => SetProperty("storage_mover_id", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermStorageMoverAgent : TerraformResource
     /// </summary>
     public AzurermStorageMoverAgentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageMoverAgentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

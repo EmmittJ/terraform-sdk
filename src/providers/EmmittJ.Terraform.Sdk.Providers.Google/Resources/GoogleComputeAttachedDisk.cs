@@ -13,8 +13,7 @@ public class GoogleComputeAttachedDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeAttachedDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,15 +38,23 @@ public class GoogleComputeAttachedDisk : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("device_name");
+        SetOutput("disk");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("interface");
+        SetOutput("mode");
+        SetOutput("project");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// Specifies a unique device name of your choice that is reflected into the /dev/disk/by-id/google-* tree of a Linux operating system running within the instance. This name can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, the server chooses a default device name to apply to this disk, in the form persistent-disks-x, where x is a number assigned by Google Compute Engine.
     /// </summary>
-    public TerraformProperty<string>? DeviceName
+    public TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
-        set => this.WithProperty("device_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_name");
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
@@ -57,17 +63,17 @@ public class GoogleComputeAttachedDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformProperty<string> Disk
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("disk");
-        set => this.WithProperty("disk", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk");
+        set => SetProperty("disk", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,44 +82,44 @@ public class GoogleComputeAttachedDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
     /// The disk interface used for attaching this disk. One of SCSI or NVME. (This field is only used for specific cases, please don&#39;t specify this field without advice from Google.)
     /// </summary>
-    public TerraformProperty<string>? Interface
+    public TerraformProperty<string> Interface
     {
-        get => GetProperty<TerraformProperty<string>>("interface");
-        set => this.WithProperty("interface", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("interface");
+        set => SetProperty("interface", value);
     }
 
     /// <summary>
     /// The mode in which to attach this disk, either READ_WRITE or READ_ONLY. If not specified, the default is to attach the disk in READ_WRITE mode.
     /// </summary>
-    public TerraformProperty<string>? Mode
+    public TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => this.WithProperty("mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mode");
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
     /// The project that the referenced compute instance is a part of. If instance is referenced by its self_link the project defined in the link will take precedence.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The zone that the referenced compute instance is located within. If instance is referenced by its self_link the zone defined in the link will take precedence.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -122,8 +128,7 @@ public class GoogleComputeAttachedDisk : TerraformResource
     /// </summary>
     public GoogleComputeAttachedDiskTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeAttachedDiskTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

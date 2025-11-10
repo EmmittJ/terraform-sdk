@@ -14,8 +14,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? AssetNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("asset_namespace");
-        set => WithProperty("asset_namespace", value);
+        set => SetProperty("asset_namespace", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? DataAccessLabel
     {
-        get => GetProperty<TerraformProperty<string>>("data_access_label");
-        set => WithProperty("data_access_label", value);
+        set => SetProperty("data_access_label", value);
     }
 
     /// <summary>
@@ -36,8 +34,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -45,8 +42,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? LogType
     {
-        get => GetProperty<TerraformProperty<string>>("log_type");
-        set => WithProperty("log_type", value);
+        set => SetProperty("log_type", value);
     }
 
 }
@@ -63,8 +59,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? AssetNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("asset_namespace");
-        set => WithProperty("asset_namespace", value);
+        set => SetProperty("asset_namespace", value);
     }
 
     /// <summary>
@@ -72,8 +67,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? DataAccessLabel
     {
-        get => GetProperty<TerraformProperty<string>>("data_access_label");
-        set => WithProperty("data_access_label", value);
+        set => SetProperty("data_access_label", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? LogType
     {
-        get => GetProperty<TerraformProperty<string>>("log_type");
-        set => WithProperty("log_type", value);
+        set => SetProperty("log_type", value);
     }
 
 }
@@ -111,8 +103,7 @@ public class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -129,8 +119,7 @@ public class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -147,12 +136,19 @@ public class GoogleChronicleDataAccessScope : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("author");
-        this.WithOutput("create_time");
-        this.WithOutput("display_name");
-        this.WithOutput("last_editor");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("author");
+        SetOutput("create_time");
+        SetOutput("display_name");
+        SetOutput("last_editor");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("allow_all");
+        SetOutput("data_access_scope_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -165,10 +161,10 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// to see all data except data labeled with A and data labeled with B and data
     /// with labels A and B.
     /// </summary>
-    public TerraformProperty<bool>? AllowAll
+    public TerraformProperty<bool> AllowAll
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_all");
-        set => this.WithProperty("allow_all", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_all");
+        set => SetProperty("allow_all", value);
     }
 
     /// <summary>
@@ -179,26 +175,26 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessScopeId is required")]
     public required TerraformProperty<string> DataAccessScopeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_access_scope_id");
-        set => this.WithProperty("data_access_scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_access_scope_id");
+        set => SetProperty("data_access_scope_id", value);
     }
 
     /// <summary>
     /// Optional. A description of the data access scope for a human reader.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -207,8 +203,8 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -217,17 +213,17 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -236,8 +232,7 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// </summary>
     public List<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock>? AllowedDataAccessLabels
     {
-        get => GetProperty<List<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock>>("allowed_data_access_labels");
-        set => this.WithProperty("allowed_data_access_labels", value);
+        set => SetProperty("allowed_data_access_labels", value);
     }
 
     /// <summary>
@@ -246,8 +241,7 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// </summary>
     public List<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock>? DeniedDataAccessLabels
     {
-        get => GetProperty<List<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock>>("denied_data_access_labels");
-        set => this.WithProperty("denied_data_access_labels", value);
+        set => SetProperty("denied_data_access_labels", value);
     }
 
     /// <summary>
@@ -256,8 +250,7 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// </summary>
     public GoogleChronicleDataAccessScopeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleChronicleDataAccessScopeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

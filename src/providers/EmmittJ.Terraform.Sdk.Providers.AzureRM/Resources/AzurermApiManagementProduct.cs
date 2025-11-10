@@ -13,8 +13,7 @@ public class AzurermApiManagementProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,17 @@ public class AzurermApiManagementProduct : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_name");
+        SetOutput("approval_required");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("product_id");
+        SetOutput("published");
+        SetOutput("resource_group_name");
+        SetOutput("subscription_required");
+        SetOutput("subscriptions_limit");
+        SetOutput("terms");
     }
 
     /// <summary>
@@ -66,26 +73,26 @@ public class AzurermApiManagementProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The approval_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApprovalRequired
+    public TerraformProperty<bool> ApprovalRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("approval_required");
-        set => this.WithProperty("approval_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("approval_required");
+        set => SetProperty("approval_required", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -94,17 +101,17 @@ public class AzurermApiManagementProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,8 +120,8 @@ public class AzurermApiManagementProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
-        set => this.WithProperty("product_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_id");
+        set => SetProperty("product_id", value);
     }
 
     /// <summary>
@@ -123,8 +130,8 @@ public class AzurermApiManagementProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Published is required")]
     public required TerraformProperty<bool> Published
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("published");
-        set => this.WithProperty("published", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("published");
+        set => SetProperty("published", value);
     }
 
     /// <summary>
@@ -133,35 +140,35 @@ public class AzurermApiManagementProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subscription_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? SubscriptionRequired
+    public TerraformProperty<bool> SubscriptionRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("subscription_required");
-        set => this.WithProperty("subscription_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("subscription_required");
+        set => SetProperty("subscription_required", value);
     }
 
     /// <summary>
     /// The subscriptions_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? SubscriptionsLimit
+    public TerraformProperty<double> SubscriptionsLimit
     {
-        get => GetProperty<TerraformProperty<double>>("subscriptions_limit");
-        set => this.WithProperty("subscriptions_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("subscriptions_limit");
+        set => SetProperty("subscriptions_limit", value);
     }
 
     /// <summary>
     /// The terms attribute.
     /// </summary>
-    public TerraformProperty<string>? Terms
+    public TerraformProperty<string> Terms
     {
-        get => GetProperty<TerraformProperty<string>>("terms");
-        set => this.WithProperty("terms", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("terms");
+        set => SetProperty("terms", value);
     }
 
     /// <summary>
@@ -170,8 +177,7 @@ public class AzurermApiManagementProduct : TerraformResource
     /// </summary>
     public AzurermApiManagementProductTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementProductTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

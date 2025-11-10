@@ -13,8 +13,7 @@ public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<bool>? InternetSecurityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("internet_security_enabled");
-        set => WithProperty("internet_security_enabled", value);
+        set => SetProperty("internet_security_enabled", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermPointToSiteVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermPointToSiteVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermPointToSiteVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermPointToSiteVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,24 +80,34 @@ public class AzurermPointToSiteVpnGateway : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dns_servers");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("routing_preference_internet_enabled");
+        SetOutput("scale_unit");
+        SetOutput("tags");
+        SetOutput("virtual_hub_id");
+        SetOutput("vpn_server_configuration_id");
     }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DnsServers
+    public List<TerraformProperty<string>> DnsServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
-        set => this.WithProperty("dns_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("dns_servers");
+        set => SetProperty("dns_servers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,8 +116,8 @@ public class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -122,8 +126,8 @@ public class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -132,17 +136,17 @@ public class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The routing_preference_internet_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RoutingPreferenceInternetEnabled
+    public TerraformProperty<bool> RoutingPreferenceInternetEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("routing_preference_internet_enabled");
-        set => this.WithProperty("routing_preference_internet_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("routing_preference_internet_enabled");
+        set => SetProperty("routing_preference_internet_enabled", value);
     }
 
     /// <summary>
@@ -151,17 +155,17 @@ public class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUnit is required")]
     public required TerraformProperty<double> ScaleUnit
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("scale_unit");
-        set => this.WithProperty("scale_unit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scale_unit");
+        set => SetProperty("scale_unit", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -170,8 +174,8 @@ public class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
-        set => this.WithProperty("virtual_hub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_id");
+        set => SetProperty("virtual_hub_id", value);
     }
 
     /// <summary>
@@ -180,19 +184,19 @@ public class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnServerConfigurationId is required")]
     public required TerraformProperty<string> VpnServerConfigurationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpn_server_configuration_id");
-        set => this.WithProperty("vpn_server_configuration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpn_server_configuration_id");
+        set => SetProperty("vpn_server_configuration_id", value);
     }
 
     /// <summary>
     /// Block for connection_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionConfiguration block(s) required")]
     public List<AzurermPointToSiteVpnGatewayConnectionConfigurationBlock>? ConnectionConfiguration
     {
-        get => GetProperty<List<AzurermPointToSiteVpnGatewayConnectionConfigurationBlock>>("connection_configuration");
-        set => this.WithProperty("connection_configuration", value);
+        set => SetProperty("connection_configuration", value);
     }
 
     /// <summary>
@@ -201,8 +205,7 @@ public class AzurermPointToSiteVpnGateway : TerraformResource
     /// </summary>
     public AzurermPointToSiteVpnGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPointToSiteVpnGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsS3BucketIntelligentTieringConfigurationFilterBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
-        set => WithProperty("prefix", value);
+        set => SetProperty("prefix", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsS3BucketIntelligentTieringConfigurationFilterBlock : TerraformBl
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsS3BucketIntelligentTieringConfigurationTieringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessTier is required")]
     public required TerraformProperty<string> AccessTier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_tier");
-        set => WithProperty("access_tier", value);
+        set => SetProperty("access_tier", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsS3BucketIntelligentTieringConfigurationTieringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     public required TerraformProperty<double> Days
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("days");
-        set => WithProperty("days", value);
+        set => SetProperty("days", value);
     }
 
 }
@@ -69,6 +65,11 @@ public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("status");
     }
 
     /// <summary>
@@ -77,17 +78,17 @@ public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -96,26 +97,26 @@ public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -125,19 +126,18 @@ public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     public List<AwsS3BucketIntelligentTieringConfigurationFilterBlock>? Filter
     {
-        get => GetProperty<List<AwsS3BucketIntelligentTieringConfigurationFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// Block for tiering.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tiering is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tiering block(s) required")]
     public HashSet<AwsS3BucketIntelligentTieringConfigurationTieringBlock>? Tiering
     {
-        get => GetProperty<HashSet<AwsS3BucketIntelligentTieringConfigurationTieringBlock>>("tiering");
-        set => this.WithProperty("tiering", value);
+        set => SetProperty("tiering", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class GoogleBigtableTableAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
-        set => WithProperty("frequency", value);
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleBigtableTableAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RetentionPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("retention_period");
-        set => WithProperty("retention_period", value);
+        set => SetProperty("retention_period", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleBigtableTableColumnFamilyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformProperty<string> Family
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("family");
-        set => WithProperty("family", value);
+        set => SetProperty("family", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleBigtableTableColumnFamilyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class GoogleBigtableTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleBigtableTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,33 +88,41 @@ public class GoogleBigtableTable : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("change_stream_retention");
+        SetOutput("deletion_protection");
+        SetOutput("id");
+        SetOutput("instance_name");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("row_key_schema");
+        SetOutput("split_keys");
     }
 
     /// <summary>
     /// Duration to retain change stream data for the table. Set to 0 to disable. Must be between 1 and 7 days.
     /// </summary>
-    public TerraformProperty<string>? ChangeStreamRetention
+    public TerraformProperty<string> ChangeStreamRetention
     {
-        get => GetProperty<TerraformProperty<string>>("change_stream_retention");
-        set => this.WithProperty("change_stream_retention", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("change_stream_retention");
+        set => SetProperty("change_stream_retention", value);
     }
 
     /// <summary>
     /// A field to make the table protected against data loss i.e. when set to PROTECTED, deleting the table, the column families in the table, and the instance containing the table would be prohibited. If not provided, currently deletion protection will be set to UNPROTECTED as it is the API default value.
     /// </summary>
-    public TerraformProperty<string>? DeletionProtection
+    public TerraformProperty<string> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -129,8 +131,8 @@ public class GoogleBigtableTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
-        set => this.WithProperty("instance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_name");
+        set => SetProperty("instance_name", value);
     }
 
     /// <summary>
@@ -139,17 +141,17 @@ public class GoogleBigtableTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -160,19 +162,19 @@ public class GoogleBigtableTable : TerraformResource
     /// 					The schema must be a valid JSON encoded string representing a Type&#39;s struct protobuf message. Note that for bytes sequence (like delimited_bytes.delimiter)
     /// 					the delimiter must be base64 encoded. For example, if you want to set a delimiter to a single byte character &amp;quot;#&amp;quot;, it should be set to &amp;quot;Iw==&amp;quot;, which is the base64 encoding of the byte sequence &amp;quot;#&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? RowKeySchema
+    public TerraformProperty<string> RowKeySchema
     {
-        get => GetProperty<TerraformProperty<string>>("row_key_schema");
-        set => this.WithProperty("row_key_schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("row_key_schema");
+        set => SetProperty("row_key_schema", value);
     }
 
     /// <summary>
     /// A list of predefined keys to split the table on. !&amp;gt; Warning: Modifying the split_keys of an existing table will cause Terraform to delete/recreate the entire google_bigtable_table resource.
     /// </summary>
-    public List<TerraformProperty<string>>? SplitKeys
+    public List<TerraformProperty<string>> SplitKeys
     {
-        get => GetProperty<List<TerraformProperty<string>>>("split_keys");
-        set => this.WithProperty("split_keys", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("split_keys");
+        set => SetProperty("split_keys", value);
     }
 
     /// <summary>
@@ -182,8 +184,7 @@ public class GoogleBigtableTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupPolicy block(s) allowed")]
     public HashSet<GoogleBigtableTableAutomatedBackupPolicyBlock>? AutomatedBackupPolicy
     {
-        get => GetProperty<HashSet<GoogleBigtableTableAutomatedBackupPolicyBlock>>("automated_backup_policy");
-        set => this.WithProperty("automated_backup_policy", value);
+        set => SetProperty("automated_backup_policy", value);
     }
 
     /// <summary>
@@ -192,8 +193,7 @@ public class GoogleBigtableTable : TerraformResource
     /// </summary>
     public HashSet<GoogleBigtableTableColumnFamilyBlock>? ColumnFamily
     {
-        get => GetProperty<HashSet<GoogleBigtableTableColumnFamilyBlock>>("column_family");
-        set => this.WithProperty("column_family", value);
+        set => SetProperty("column_family", value);
     }
 
     /// <summary>
@@ -202,8 +202,7 @@ public class GoogleBigtableTable : TerraformResource
     /// </summary>
     public GoogleBigtableTableTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigtableTableTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,8 +14,12 @@ public class GoogleIapAppEngineServiceIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("app_id");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("service");
     }
 
     /// <summary>
@@ -24,26 +28,26 @@ public class GoogleIapAppEngineServiceIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -52,8 +56,8 @@ public class GoogleIapAppEngineServiceIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>

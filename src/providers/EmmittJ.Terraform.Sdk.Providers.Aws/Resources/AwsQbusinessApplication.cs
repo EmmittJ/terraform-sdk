@@ -14,8 +14,7 @@ public class AwsQbusinessApplicationAttachmentsConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentsControlMode is required")]
     public required TerraformProperty<string> AttachmentsControlMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("attachments_control_mode");
-        set => WithProperty("attachments_control_mode", value);
+        set => SetProperty("attachments_control_mode", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsQbusinessApplicationEncryptionConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformProperty<string> KmsKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsQbusinessApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsQbusinessApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AwsQbusinessApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,19 +80,25 @@ public class AwsQbusinessApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("identity_center_application_arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("identity_center_application_arn");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("iam_service_role_arn");
+        SetOutput("identity_center_instance_arn");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// A description of the Amazon Q application.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -106,8 +107,8 @@ public class AwsQbusinessApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -116,8 +117,8 @@ public class AwsQbusinessApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamServiceRoleArn is required")]
     public required TerraformProperty<string> IamServiceRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iam_service_role_arn");
-        set => this.WithProperty("iam_service_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_service_role_arn");
+        set => SetProperty("iam_service_role_arn", value);
     }
 
     /// <summary>
@@ -126,26 +127,26 @@ public class AwsQbusinessApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityCenterInstanceArn is required")]
     public required TerraformProperty<string> IdentityCenterInstanceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_center_instance_arn");
-        set => this.WithProperty("identity_center_instance_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_center_instance_arn");
+        set => SetProperty("identity_center_instance_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -154,8 +155,7 @@ public class AwsQbusinessApplication : TerraformResource
     /// </summary>
     public List<AwsQbusinessApplicationAttachmentsConfigurationBlock>? AttachmentsConfiguration
     {
-        get => GetProperty<List<AwsQbusinessApplicationAttachmentsConfigurationBlock>>("attachments_configuration");
-        set => this.WithProperty("attachments_configuration", value);
+        set => SetProperty("attachments_configuration", value);
     }
 
     /// <summary>
@@ -164,8 +164,7 @@ public class AwsQbusinessApplication : TerraformResource
     /// </summary>
     public List<AwsQbusinessApplicationEncryptionConfigurationBlock>? EncryptionConfiguration
     {
-        get => GetProperty<List<AwsQbusinessApplicationEncryptionConfigurationBlock>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -174,8 +173,7 @@ public class AwsQbusinessApplication : TerraformResource
     /// </summary>
     public AwsQbusinessApplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsQbusinessApplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

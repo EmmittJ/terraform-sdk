@@ -13,8 +13,7 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Amount
     {
-        get => GetProperty<TerraformProperty<string>>("amount");
-        set => WithProperty("amount", value);
+        set => SetProperty("amount", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CoresPerLicense
     {
-        get => GetProperty<TerraformProperty<string>>("cores_per_license");
-        set => WithProperty("cores_per_license", value);
+        set => SetProperty("cores_per_license", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "License is required")]
     public required TerraformProperty<string> License
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license");
-        set => WithProperty("license", value);
+        set => SetProperty("license", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class GoogleComputeRegionCommitmentResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AcceleratorType
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_type");
-        set => WithProperty("accelerator_type", value);
+        set => SetProperty("accelerator_type", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class GoogleComputeRegionCommitmentResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Amount
     {
-        get => GetProperty<TerraformProperty<string>>("amount");
-        set => WithProperty("amount", value);
+        set => SetProperty("amount", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class GoogleComputeRegionCommitmentResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -88,8 +82,7 @@ public class GoogleComputeRegionCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -97,8 +90,7 @@ public class GoogleComputeRegionCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -116,13 +108,23 @@ public class GoogleComputeRegionCommitment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("commitment_id");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("end_timestamp");
-        this.WithOutput("self_link");
-        this.WithOutput("start_timestamp");
-        this.WithOutput("status");
-        this.WithOutput("status_message");
+        SetOutput("commitment_id");
+        SetOutput("creation_timestamp");
+        SetOutput("end_timestamp");
+        SetOutput("self_link");
+        SetOutput("start_timestamp");
+        SetOutput("status");
+        SetOutput("status_message");
+        SetOutput("auto_renew");
+        SetOutput("category");
+        SetOutput("description");
+        SetOutput("existing_reservations");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("plan");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -131,10 +133,10 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// If the field is set to true, the commitment will be automatically renewed for either
     /// one or three years according to the terms of the existing commitment.
     /// </summary>
-    public TerraformProperty<bool>? AutoRenew
+    public TerraformProperty<bool> AutoRenew
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_renew");
-        set => this.WithProperty("auto_renew", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_renew");
+        set => SetProperty("auto_renew", value);
     }
 
     /// <summary>
@@ -143,37 +145,37 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// specifies commitments composed of software licenses, listed in licenseResources.
     /// Note that only MACHINE commitments should have a Type specified. Possible values: [&amp;quot;LICENSE&amp;quot;, &amp;quot;MACHINE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Category
+    public TerraformProperty<string> Category
     {
-        get => GetProperty<TerraformProperty<string>>("category");
-        set => this.WithProperty("category", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("category");
+        set => SetProperty("category", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Specifies the already existing reservations to attach to the Commitment.
     /// </summary>
-    public TerraformProperty<string>? ExistingReservations
+    public TerraformProperty<string> ExistingReservations
     {
-        get => GetProperty<TerraformProperty<string>>("existing_reservations");
-        set => this.WithProperty("existing_reservations", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("existing_reservations");
+        set => SetProperty("existing_reservations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -186,8 +188,8 @@ public class GoogleComputeRegionCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -197,26 +199,26 @@ public class GoogleComputeRegionCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformProperty<string> Plan
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("plan");
-        set => this.WithProperty("plan", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plan");
+        set => SetProperty("plan", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// URL of the region where this commitment may be used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -226,10 +228,10 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// &#39;GENERAL_PURPOSE_T2D&#39;, &#39;GENERAL_PURPOSE_C3&#39;, &#39;COMPUTE_OPTIMIZED_C2&#39;, &#39;COMPUTE_OPTIMIZED_C2D&#39; and
     /// &#39;GRAPHICS_OPTIMIZED_G2&#39;
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -239,8 +241,7 @@ public class GoogleComputeRegionCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LicenseResource block(s) allowed")]
     public List<GoogleComputeRegionCommitmentLicenseResourceBlock>? LicenseResource
     {
-        get => GetProperty<List<GoogleComputeRegionCommitmentLicenseResourceBlock>>("license_resource");
-        set => this.WithProperty("license_resource", value);
+        set => SetProperty("license_resource", value);
     }
 
     /// <summary>
@@ -249,8 +250,7 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     public List<GoogleComputeRegionCommitmentResourcesBlock>? Resources
     {
-        get => GetProperty<List<GoogleComputeRegionCommitmentResourcesBlock>>("resources");
-        set => this.WithProperty("resources", value);
+        set => SetProperty("resources", value);
     }
 
     /// <summary>
@@ -259,8 +259,7 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     public GoogleComputeRegionCommitmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRegionCommitmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,9 +30,12 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("credential_set_id");
-        this.WithOutput("source_repo");
-        this.WithOutput("target_repo");
+        SetOutput("credential_set_id");
+        SetOutput("source_repo");
+        SetOutput("target_repo");
+        SetOutput("container_registry_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -42,17 +44,17 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformProperty<string> ContainerRegistryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_id");
-        set => this.WithProperty("container_registry_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_id");
+        set => SetProperty("container_registry_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,8 +73,7 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     /// </summary>
     public AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

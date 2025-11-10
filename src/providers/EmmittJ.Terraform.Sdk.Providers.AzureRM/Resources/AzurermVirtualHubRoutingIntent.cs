@@ -14,8 +14,7 @@ public class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     public List<TerraformProperty<string>>? Destinations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destinations");
-        set => WithProperty("destinations", value);
+        set => SetProperty("destinations", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     public required TerraformProperty<string> NextHop
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("next_hop");
-        set => WithProperty("next_hop", value);
+        set => SetProperty("next_hop", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -97,15 +90,18 @@ public class AzurermVirtualHubRoutingIntent : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("virtual_hub_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -114,8 +110,8 @@ public class AzurermVirtualHubRoutingIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -124,19 +120,19 @@ public class AzurermVirtualHubRoutingIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
-        set => this.WithProperty("virtual_hub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_id");
+        set => SetProperty("virtual_hub_id", value);
     }
 
     /// <summary>
     /// Block for routing_policy.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingPolicy block(s) required")]
     public List<AzurermVirtualHubRoutingIntentRoutingPolicyBlock>? RoutingPolicy
     {
-        get => GetProperty<List<AzurermVirtualHubRoutingIntentRoutingPolicyBlock>>("routing_policy");
-        set => this.WithProperty("routing_policy", value);
+        set => SetProperty("routing_policy", value);
     }
 
     /// <summary>
@@ -145,8 +141,7 @@ public class AzurermVirtualHubRoutingIntent : TerraformResource
     /// </summary>
     public AzurermVirtualHubRoutingIntentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualHubRoutingIntentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

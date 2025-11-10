@@ -14,8 +14,7 @@ public class GoogleAppEngineServiceSplitTrafficSplitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Allocations is required")]
     public Dictionary<string, TerraformProperty<string>>? Allocations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("allocations");
-        set => WithProperty("allocations", value);
+        set => SetProperty("allocations", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleAppEngineServiceSplitTrafficSplitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ShardBy
     {
-        get => GetProperty<TerraformProperty<string>>("shard_by");
-        set => WithProperty("shard_by", value);
+        set => SetProperty("shard_by", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleAppEngineServiceSplitTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleAppEngineServiceSplitTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleAppEngineServiceSplitTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,33 +72,37 @@ public class GoogleAppEngineServiceSplitTraffic : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("migrate_traffic");
+        SetOutput("project");
+        SetOutput("service");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// If set to true traffic will be migrated to this version.
     /// </summary>
-    public TerraformProperty<bool>? MigrateTraffic
+    public TerraformProperty<bool> MigrateTraffic
     {
-        get => GetProperty<TerraformProperty<bool>>("migrate_traffic");
-        set => this.WithProperty("migrate_traffic", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("migrate_traffic");
+        set => SetProperty("migrate_traffic", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -112,20 +111,20 @@ public class GoogleAppEngineServiceSplitTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
     /// Block for split.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Split is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Split block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Split block(s) allowed")]
     public List<GoogleAppEngineServiceSplitTrafficSplitBlock>? Split
     {
-        get => GetProperty<List<GoogleAppEngineServiceSplitTrafficSplitBlock>>("split");
-        set => this.WithProperty("split", value);
+        set => SetProperty("split", value);
     }
 
     /// <summary>
@@ -134,8 +133,7 @@ public class GoogleAppEngineServiceSplitTraffic : TerraformResource
     /// </summary>
     public GoogleAppEngineServiceSplitTrafficTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAppEngineServiceSplitTrafficTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

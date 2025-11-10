@@ -14,8 +14,7 @@ public class GoogleOrganizationPolicyBooleanPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforced is required")]
     public required TerraformProperty<bool> Enforced
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enforced");
-        set => WithProperty("enforced", value);
+        set => SetProperty("enforced", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleOrganizationPolicyListPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InheritFromParent
     {
-        get => GetProperty<TerraformProperty<bool>>("inherit_from_parent");
-        set => WithProperty("inherit_from_parent", value);
+        set => SetProperty("inherit_from_parent", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleOrganizationPolicyListPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SuggestedValue
     {
-        get => GetProperty<TerraformProperty<string>>("suggested_value");
-        set => WithProperty("suggested_value", value);
+        set => SetProperty("suggested_value", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class GoogleOrganizationPolicyRestorePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Default is required")]
     public required TerraformProperty<bool> Default
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("default");
-        set => WithProperty("default", value);
+        set => SetProperty("default", value);
     }
 
 }
@@ -75,8 +71,7 @@ public class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -84,8 +79,7 @@ public class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -102,8 +95,7 @@ public class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,8 +113,12 @@ public class GoogleOrganizationPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("update_time");
+        SetOutput("etag");
+        SetOutput("update_time");
+        SetOutput("constraint");
+        SetOutput("id");
+        SetOutput("org_id");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -131,17 +127,17 @@ public class GoogleOrganizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     public required TerraformProperty<string> Constraint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("constraint");
-        set => this.WithProperty("constraint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("constraint");
+        set => SetProperty("constraint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -150,17 +146,17 @@ public class GoogleOrganizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
-    public TerraformProperty<double>? Version
+    public TerraformProperty<double> Version
     {
-        get => GetProperty<TerraformProperty<double>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -170,8 +166,7 @@ public class GoogleOrganizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BooleanPolicy block(s) allowed")]
     public List<GoogleOrganizationPolicyBooleanPolicyBlock>? BooleanPolicy
     {
-        get => GetProperty<List<GoogleOrganizationPolicyBooleanPolicyBlock>>("boolean_policy");
-        set => this.WithProperty("boolean_policy", value);
+        set => SetProperty("boolean_policy", value);
     }
 
     /// <summary>
@@ -181,8 +176,7 @@ public class GoogleOrganizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ListPolicy block(s) allowed")]
     public List<GoogleOrganizationPolicyListPolicyBlock>? ListPolicy
     {
-        get => GetProperty<List<GoogleOrganizationPolicyListPolicyBlock>>("list_policy");
-        set => this.WithProperty("list_policy", value);
+        set => SetProperty("list_policy", value);
     }
 
     /// <summary>
@@ -192,8 +186,7 @@ public class GoogleOrganizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestorePolicy block(s) allowed")]
     public List<GoogleOrganizationPolicyRestorePolicyBlock>? RestorePolicy
     {
-        get => GetProperty<List<GoogleOrganizationPolicyRestorePolicyBlock>>("restore_policy");
-        set => this.WithProperty("restore_policy", value);
+        set => SetProperty("restore_policy", value);
     }
 
     /// <summary>
@@ -202,8 +195,7 @@ public class GoogleOrganizationPolicy : TerraformResource
     /// </summary>
     public GoogleOrganizationPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOrganizationPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

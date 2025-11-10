@@ -13,8 +13,7 @@ public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("container_registry_id");
+        SetOutput("credential_set_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("source_repo");
+        SetOutput("target_repo");
     }
 
     /// <summary>
@@ -66,26 +68,26 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformProperty<string> ContainerRegistryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_id");
-        set => this.WithProperty("container_registry_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_id");
+        set => SetProperty("container_registry_id", value);
     }
 
     /// <summary>
     /// The ARM resource ID of the credential store which is associated with the cache rule.
     /// </summary>
-    public TerraformProperty<string>? CredentialSetId
+    public TerraformProperty<string> CredentialSetId
     {
-        get => GetProperty<TerraformProperty<string>>("credential_set_id");
-        set => this.WithProperty("credential_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("credential_set_id");
+        set => SetProperty("credential_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,8 +96,8 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,8 +106,8 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRepo is required")]
     public required TerraformProperty<string> SourceRepo
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_repo");
-        set => this.WithProperty("source_repo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_repo");
+        set => SetProperty("source_repo", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRepo is required")]
     public required TerraformProperty<string> TargetRepo
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_repo");
-        set => this.WithProperty("target_repo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_repo");
+        set => SetProperty("target_repo", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     /// </summary>
     public AzurermContainerRegistryCacheRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryCacheRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

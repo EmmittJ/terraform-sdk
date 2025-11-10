@@ -14,29 +14,32 @@ public class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("disabled");
-        this.WithOutput("display_name");
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("workload_identity_pool_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -47,8 +50,8 @@ public class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     public required TerraformProperty<string> WorkloadIdentityPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workload_identity_pool_id");
-        set => this.WithProperty("workload_identity_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_identity_pool_id");
+        set => SetProperty("workload_identity_pool_id", value);
     }
 
     /// <summary>

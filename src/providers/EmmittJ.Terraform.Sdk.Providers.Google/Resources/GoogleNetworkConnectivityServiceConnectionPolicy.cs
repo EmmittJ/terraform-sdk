@@ -21,8 +21,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     /// </summary>
     public List<TerraformProperty<string>>? AllowedGoogleProducersResourceHierarchyLevel
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_google_producers_resource_hierarchy_level");
-        set => WithProperty("allowed_google_producers_resource_hierarchy_level", value);
+        set => SetProperty("allowed_google_producers_resource_hierarchy_level", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     /// </summary>
     public TerraformProperty<string>? Limit
     {
-        get => GetProperty<TerraformProperty<string>>("limit");
-        set => WithProperty("limit", value);
+        set => SetProperty("limit", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     /// </summary>
     public TerraformProperty<string>? ProducerInstanceLocation
     {
-        get => GetProperty<TerraformProperty<string>>("producer_instance_location");
-        set => WithProperty("producer_instance_location", value);
+        set => SetProperty("producer_instance_location", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetworks is required")]
     public List<TerraformProperty<string>>? Subnetworks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subnetworks");
-        set => WithProperty("subnetworks", value);
+        set => SetProperty("subnetworks", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,31 +97,39 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("infrastructure");
-        this.WithOutput("psc_connections");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("infrastructure");
+        SetOutput("psc_connections");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("service_class");
     }
 
     /// <summary>
     /// Free-text description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -138,10 +139,10 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -150,8 +151,8 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -160,8 +161,8 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -170,17 +171,17 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -190,8 +191,8 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceClass is required")]
     public required TerraformProperty<string> ServiceClass
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_class");
-        set => this.WithProperty("service_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_class");
+        set => SetProperty("service_class", value);
     }
 
     /// <summary>
@@ -201,8 +202,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
     public List<GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock>? PscConfig
     {
-        get => GetProperty<List<GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock>>("psc_config");
-        set => this.WithProperty("psc_config", value);
+        set => SetProperty("psc_config", value);
     }
 
     /// <summary>
@@ -211,8 +211,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
     /// </summary>
     public GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

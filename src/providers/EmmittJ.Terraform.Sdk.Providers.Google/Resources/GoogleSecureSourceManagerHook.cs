@@ -16,8 +16,7 @@ public class GoogleSecureSourceManagerHookPushOptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BranchFilter
     {
-        get => GetProperty<TerraformProperty<string>>("branch_filter");
-        set => WithProperty("branch_filter", value);
+        set => SetProperty("branch_filter", value);
     }
 
 }
@@ -33,8 +32,7 @@ public class GoogleSecureSourceManagerHookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleSecureSourceManagerHookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class GoogleSecureSourceManagerHookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -70,29 +66,38 @@ public class GoogleSecureSourceManagerHook : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("disabled");
+        SetOutput("events");
+        SetOutput("hook_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("repository_id");
+        SetOutput("sensitive_query_string");
+        SetOutput("target_uri");
     }
 
     /// <summary>
     /// Determines if the hook disabled or not.
     /// Set to true to stop sending traffic.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// The events that trigger hook on. Possible values: [&amp;quot;PUSH&amp;quot;, &amp;quot;PULL_REQUEST&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? Events
+    public List<TerraformProperty<string>> Events
     {
-        get => GetProperty<List<TerraformProperty<string>>>("events");
-        set => this.WithProperty("events", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("events");
+        set => SetProperty("events", value);
     }
 
     /// <summary>
@@ -101,17 +106,17 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HookId is required")]
     public required TerraformProperty<string> HookId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hook_id");
-        set => this.WithProperty("hook_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hook_id");
+        set => SetProperty("hook_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -120,17 +125,17 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -139,17 +144,17 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
-        set => this.WithProperty("repository_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_id");
+        set => SetProperty("repository_id", value);
     }
 
     /// <summary>
     /// The sensitive query string to be appended to the target URI.
     /// </summary>
-    public TerraformProperty<string>? SensitiveQueryString
+    public TerraformProperty<string> SensitiveQueryString
     {
-        get => GetProperty<TerraformProperty<string>>("sensitive_query_string");
-        set => this.WithProperty("sensitive_query_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sensitive_query_string");
+        set => SetProperty("sensitive_query_string", value);
     }
 
     /// <summary>
@@ -158,8 +163,8 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUri is required")]
     public required TerraformProperty<string> TargetUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_uri");
-        set => this.WithProperty("target_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_uri");
+        set => SetProperty("target_uri", value);
     }
 
     /// <summary>
@@ -169,8 +174,7 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PushOption block(s) allowed")]
     public List<GoogleSecureSourceManagerHookPushOptionBlock>? PushOption
     {
-        get => GetProperty<List<GoogleSecureSourceManagerHookPushOptionBlock>>("push_option");
-        set => this.WithProperty("push_option", value);
+        set => SetProperty("push_option", value);
     }
 
     /// <summary>
@@ -179,8 +183,7 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     /// </summary>
     public GoogleSecureSourceManagerHookTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSecureSourceManagerHookTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

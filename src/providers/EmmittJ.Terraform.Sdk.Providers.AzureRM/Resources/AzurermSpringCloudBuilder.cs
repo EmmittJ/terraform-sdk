@@ -13,8 +13,7 @@ public class AzurermSpringCloudBuilderBuildPackGroupBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? BuildPackIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("build_pack_ids");
-        set => WithProperty("build_pack_ids", value);
+        set => SetProperty("build_pack_ids", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermSpringCloudBuilderBuildPackGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermSpringCloudBuilderStackBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermSpringCloudBuilderStackBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class AzurermSpringCloudBuilderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AzurermSpringCloudBuilderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AzurermSpringCloudBuilderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermSpringCloudBuilderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,15 +106,18 @@ public class AzurermSpringCloudBuilder : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,8 +126,8 @@ public class AzurermSpringCloudBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -141,31 +136,31 @@ public class AzurermSpringCloudBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
-        set => this.WithProperty("spring_cloud_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
+        set => SetProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
     /// Block for build_pack_group.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildPackGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BuildPackGroup block(s) required")]
     public HashSet<AzurermSpringCloudBuilderBuildPackGroupBlock>? BuildPackGroup
     {
-        get => GetProperty<HashSet<AzurermSpringCloudBuilderBuildPackGroupBlock>>("build_pack_group");
-        set => this.WithProperty("build_pack_group", value);
+        set => SetProperty("build_pack_group", value);
     }
 
     /// <summary>
     /// Block for stack.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stack is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stack block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Stack block(s) allowed")]
     public List<AzurermSpringCloudBuilderStackBlock>? Stack
     {
-        get => GetProperty<List<AzurermSpringCloudBuilderStackBlock>>("stack");
-        set => this.WithProperty("stack", value);
+        set => SetProperty("stack", value);
     }
 
     /// <summary>
@@ -174,8 +169,7 @@ public class AzurermSpringCloudBuilder : TerraformResource
     /// </summary>
     public AzurermSpringCloudBuilderTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudBuilderTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

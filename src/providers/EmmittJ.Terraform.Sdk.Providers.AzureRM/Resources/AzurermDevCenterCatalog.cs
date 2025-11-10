@@ -14,8 +14,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformProperty<string> Branch
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("branch");
-        set => WithProperty("branch", value);
+        set => SetProperty("branch", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
     public required TerraformProperty<string> KeyVaultKeyUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_url");
-        set => WithProperty("key_vault_key_url", value);
+        set => SetProperty("key_vault_key_url", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -62,8 +58,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformProperty<string> Branch
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("branch");
-        set => WithProperty("branch", value);
+        set => SetProperty("branch", value);
     }
 
     /// <summary>
@@ -72,8 +67,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
     public required TerraformProperty<string> KeyVaultKeyUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_url");
-        set => WithProperty("key_vault_key_url", value);
+        set => SetProperty("key_vault_key_url", value);
     }
 
     /// <summary>
@@ -82,8 +76,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -109,8 +101,7 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -118,8 +109,7 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -127,8 +117,7 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -136,8 +125,7 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -155,6 +143,10 @@ public class AzurermDevCenterCatalog : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dev_center_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -163,17 +155,17 @@ public class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     public required TerraformProperty<string> DevCenterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dev_center_id");
-        set => this.WithProperty("dev_center_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dev_center_id");
+        set => SetProperty("dev_center_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -182,8 +174,8 @@ public class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -192,8 +184,8 @@ public class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -203,8 +195,7 @@ public class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogAdogit block(s) allowed")]
     public List<AzurermDevCenterCatalogCatalogAdogitBlock>? CatalogAdogit
     {
-        get => GetProperty<List<AzurermDevCenterCatalogCatalogAdogitBlock>>("catalog_adogit");
-        set => this.WithProperty("catalog_adogit", value);
+        set => SetProperty("catalog_adogit", value);
     }
 
     /// <summary>
@@ -214,8 +205,7 @@ public class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogGithub block(s) allowed")]
     public List<AzurermDevCenterCatalogCatalogGithubBlock>? CatalogGithub
     {
-        get => GetProperty<List<AzurermDevCenterCatalogCatalogGithubBlock>>("catalog_github");
-        set => this.WithProperty("catalog_github", value);
+        set => SetProperty("catalog_github", value);
     }
 
     /// <summary>
@@ -224,8 +214,7 @@ public class AzurermDevCenterCatalog : TerraformResource
     /// </summary>
     public AzurermDevCenterCatalogTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDevCenterCatalogTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

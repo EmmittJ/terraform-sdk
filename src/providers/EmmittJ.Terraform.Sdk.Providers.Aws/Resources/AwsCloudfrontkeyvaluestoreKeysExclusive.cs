@@ -14,8 +14,7 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -42,7 +40,9 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("total_size_in_bytes");
+        SetOutput("total_size_in_bytes");
+        SetOutput("key_value_store_arn");
+        SetOutput("max_batch_size");
     }
 
     /// <summary>
@@ -51,17 +51,17 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValueStoreArn is required")]
     public required TerraformProperty<string> KeyValueStoreArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_value_store_arn");
-        set => this.WithProperty("key_value_store_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_value_store_arn");
+        set => SetProperty("key_value_store_arn", value);
     }
 
     /// <summary>
     /// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
     /// </summary>
-    public TerraformProperty<double>? MaxBatchSize
+    public TerraformProperty<double> MaxBatchSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_batch_size");
-        set => this.WithProperty("max_batch_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_batch_size");
+        set => SetProperty("max_batch_size", value);
     }
 
     /// <summary>
@@ -70,8 +70,7 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
     /// </summary>
     public HashSet<AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock>? ResourceKeyValuePair
     {
-        get => GetProperty<HashSet<AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock>>("resource_key_value_pair");
-        set => this.WithProperty("resource_key_value_pair", value);
+        set => SetProperty("resource_key_value_pair", value);
     }
 
     /// <summary>

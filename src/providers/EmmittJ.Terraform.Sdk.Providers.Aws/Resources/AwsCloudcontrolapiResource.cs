@@ -13,8 +13,7 @@ public class AwsCloudcontrolapiResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCloudcontrolapiResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCloudcontrolapiResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,14 @@ public class AwsCloudcontrolapiResource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("properties");
+        SetOutput("properties");
+        SetOutput("desired_state");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("schema");
+        SetOutput("type_name");
+        SetOutput("type_version_id");
     }
 
     /// <summary>
@@ -58,44 +62,44 @@ public class AwsCloudcontrolapiResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     public required TerraformProperty<string> DesiredState
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("desired_state");
-        set => this.WithProperty("desired_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("desired_state");
+        set => SetProperty("desired_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
-    public TerraformProperty<string>? Schema
+    public TerraformProperty<string> Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
-        set => this.WithProperty("schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema");
+        set => SetProperty("schema", value);
     }
 
     /// <summary>
@@ -104,17 +108,17 @@ public class AwsCloudcontrolapiResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformProperty<string> TypeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type_name");
-        set => this.WithProperty("type_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type_name");
+        set => SetProperty("type_name", value);
     }
 
     /// <summary>
     /// The type_version_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TypeVersionId
+    public TerraformProperty<string> TypeVersionId
     {
-        get => GetProperty<TerraformProperty<string>>("type_version_id");
-        set => this.WithProperty("type_version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type_version_id");
+        set => SetProperty("type_version_id", value);
     }
 
     /// <summary>
@@ -123,8 +127,7 @@ public class AwsCloudcontrolapiResource : TerraformResource
     /// </summary>
     public AwsCloudcontrolapiResourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCloudcontrolapiResourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsDynamodbTableReplicaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDynamodbTableReplicaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDynamodbTableReplicaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,16 +46,25 @@ public class AwsDynamodbTableReplica : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("global_table_arn");
+        SetOutput("id");
+        SetOutput("kms_key_arn");
+        SetOutput("point_in_time_recovery");
+        SetOutput("region");
+        SetOutput("table_class_override");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool> DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => this.WithProperty("deletion_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
+        set => SetProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
@@ -67,71 +73,71 @@ public class AwsDynamodbTableReplica : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalTableArn is required")]
     public required TerraformProperty<string> GlobalTableArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_table_arn");
-        set => this.WithProperty("global_table_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_table_arn");
+        set => SetProperty("global_table_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The point_in_time_recovery attribute.
     /// </summary>
-    public TerraformProperty<bool>? PointInTimeRecovery
+    public TerraformProperty<bool> PointInTimeRecovery
     {
-        get => GetProperty<TerraformProperty<bool>>("point_in_time_recovery");
-        set => this.WithProperty("point_in_time_recovery", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("point_in_time_recovery");
+        set => SetProperty("point_in_time_recovery", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The table_class_override attribute.
     /// </summary>
-    public TerraformProperty<string>? TableClassOverride
+    public TerraformProperty<string> TableClassOverride
     {
-        get => GetProperty<TerraformProperty<string>>("table_class_override");
-        set => this.WithProperty("table_class_override", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_class_override");
+        set => SetProperty("table_class_override", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -140,8 +146,7 @@ public class AwsDynamodbTableReplica : TerraformResource
     /// </summary>
     public AwsDynamodbTableReplicaTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDynamodbTableReplicaTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

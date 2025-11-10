@@ -14,43 +14,51 @@ public class AwsCognitoIdentityProvider : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("attribute_mapping");
+        SetOutput("id");
+        SetOutput("idp_identifiers");
+        SetOutput("provider_details");
+        SetOutput("provider_name");
+        SetOutput("provider_type");
+        SetOutput("region");
+        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// The attribute_mapping attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AttributeMapping
+    public Dictionary<string, TerraformProperty<string>> AttributeMapping
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attribute_mapping");
-        set => this.WithProperty("attribute_mapping", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attribute_mapping");
+        set => SetProperty("attribute_mapping", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The idp_identifiers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? IdpIdentifiers
+    public List<TerraformProperty<string>> IdpIdentifiers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("idp_identifiers");
-        set => this.WithProperty("idp_identifiers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("idp_identifiers");
+        set => SetProperty("idp_identifiers", value);
     }
 
     /// <summary>
     /// The provider_details attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderDetails is required")]
-    public Dictionary<string, TerraformProperty<string>>? ProviderDetails
+    public Dictionary<string, TerraformProperty<string>> ProviderDetails
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("provider_details");
-        set => this.WithProperty("provider_details", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("provider_details");
+        set => SetProperty("provider_details", value);
     }
 
     /// <summary>
@@ -59,8 +67,8 @@ public class AwsCognitoIdentityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
     public required TerraformProperty<string> ProviderName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provider_name");
-        set => this.WithProperty("provider_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_name");
+        set => SetProperty("provider_name", value);
     }
 
     /// <summary>
@@ -69,17 +77,17 @@ public class AwsCognitoIdentityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
     public required TerraformProperty<string> ProviderType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provider_type");
-        set => this.WithProperty("provider_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_type");
+        set => SetProperty("provider_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -88,8 +96,8 @@ public class AwsCognitoIdentityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
 }

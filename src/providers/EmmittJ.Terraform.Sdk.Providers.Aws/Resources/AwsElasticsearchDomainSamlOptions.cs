@@ -13,8 +13,7 @@ public class AwsElasticsearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsElasticsearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MasterBackendRole
     {
-        get => GetProperty<TerraformProperty<string>>("master_backend_role");
-        set => WithProperty("master_backend_role", value);
+        set => SetProperty("master_backend_role", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsElasticsearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MasterUserName
     {
-        get => GetProperty<TerraformProperty<string>>("master_user_name");
-        set => WithProperty("master_user_name", value);
+        set => SetProperty("master_user_name", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsElasticsearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RolesKey
     {
-        get => GetProperty<TerraformProperty<string>>("roles_key");
-        set => WithProperty("roles_key", value);
+        set => SetProperty("roles_key", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsElasticsearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SessionTimeoutMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("session_timeout_minutes");
-        set => WithProperty("session_timeout_minutes", value);
+        set => SetProperty("session_timeout_minutes", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsElasticsearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubjectKey
     {
-        get => GetProperty<TerraformProperty<string>>("subject_key");
-        set => WithProperty("subject_key", value);
+        set => SetProperty("subject_key", value);
     }
 
 }
@@ -75,8 +69,7 @@ public class AwsElasticsearchDomainSamlOptionsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AwsElasticsearchDomainSamlOptionsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -103,6 +95,9 @@ public class AwsElasticsearchDomainSamlOptions : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -111,26 +106,26 @@ public class AwsElasticsearchDomainSamlOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -140,8 +135,7 @@ public class AwsElasticsearchDomainSamlOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SamlOptions block(s) allowed")]
     public List<AwsElasticsearchDomainSamlOptionsSamlOptionsBlock>? SamlOptions
     {
-        get => GetProperty<List<AwsElasticsearchDomainSamlOptionsSamlOptionsBlock>>("saml_options");
-        set => this.WithProperty("saml_options", value);
+        set => SetProperty("saml_options", value);
     }
 
     /// <summary>
@@ -150,8 +144,7 @@ public class AwsElasticsearchDomainSamlOptions : TerraformResource
     /// </summary>
     public AwsElasticsearchDomainSamlOptionsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsElasticsearchDomainSamlOptionsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

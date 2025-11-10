@@ -14,27 +14,32 @@ public class AwsQuicksightDataSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("column_groups");
-        this.WithOutput("column_level_permission_rules");
-        this.WithOutput("data_set_usage_configuration");
-        this.WithOutput("field_folders");
-        this.WithOutput("import_mode");
-        this.WithOutput("logical_table_map");
-        this.WithOutput("name");
-        this.WithOutput("permissions");
-        this.WithOutput("physical_table_map");
-        this.WithOutput("row_level_permission_data_set");
-        this.WithOutput("row_level_permission_tag_configuration");
+        SetOutput("arn");
+        SetOutput("column_groups");
+        SetOutput("column_level_permission_rules");
+        SetOutput("data_set_usage_configuration");
+        SetOutput("field_folders");
+        SetOutput("import_mode");
+        SetOutput("logical_table_map");
+        SetOutput("name");
+        SetOutput("permissions");
+        SetOutput("physical_table_map");
+        SetOutput("row_level_permission_data_set");
+        SetOutput("row_level_permission_tag_configuration");
+        SetOutput("aws_account_id");
+        SetOutput("data_set_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -43,35 +48,35 @@ public class AwsQuicksightDataSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformProperty<string> DataSetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_set_id");
-        set => this.WithProperty("data_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_set_id");
+        set => SetProperty("data_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

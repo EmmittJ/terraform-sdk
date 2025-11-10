@@ -14,8 +14,7 @@ public class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeEnvironment is required")]
     public required TerraformProperty<string> ComputeEnvironment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("compute_environment");
-        set => WithProperty("compute_environment", value);
+        set => SetProperty("compute_environment", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("order");
-        set => WithProperty("order", value);
+        set => SetProperty("order", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxTimeSeconds is required")]
     public required TerraformProperty<double> MaxTimeSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_time_seconds");
-        set => WithProperty("max_time_seconds", value);
+        set => SetProperty("max_time_seconds", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
     public required TerraformProperty<string> Reason
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("reason");
-        set => WithProperty("reason", value);
+        set => SetProperty("reason", value);
     }
 
     /// <summary>
@@ -72,8 +67,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -89,8 +83,7 @@ public class AwsBatchJobQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -98,8 +91,7 @@ public class AwsBatchJobQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -107,8 +99,7 @@ public class AwsBatchJobQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -125,9 +116,15 @@ public class AwsBatchJobQueue : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("name");
+        SetOutput("priority");
+        SetOutput("region");
+        SetOutput("scheduling_policy_arn");
+        SetOutput("state");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -136,8 +133,8 @@ public class AwsBatchJobQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -146,26 +143,26 @@ public class AwsBatchJobQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The scheduling_policy_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SchedulingPolicyArn
+    public TerraformProperty<string> SchedulingPolicyArn
     {
-        get => GetProperty<TerraformProperty<string>>("scheduling_policy_arn");
-        set => this.WithProperty("scheduling_policy_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scheduling_policy_arn");
+        set => SetProperty("scheduling_policy_arn", value);
     }
 
     /// <summary>
@@ -174,17 +171,17 @@ public class AwsBatchJobQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -193,8 +190,7 @@ public class AwsBatchJobQueue : TerraformResource
     /// </summary>
     public List<AwsBatchJobQueueComputeEnvironmentOrderBlock>? ComputeEnvironmentOrder
     {
-        get => GetProperty<List<AwsBatchJobQueueComputeEnvironmentOrderBlock>>("compute_environment_order");
-        set => this.WithProperty("compute_environment_order", value);
+        set => SetProperty("compute_environment_order", value);
     }
 
     /// <summary>
@@ -203,8 +199,7 @@ public class AwsBatchJobQueue : TerraformResource
     /// </summary>
     public List<AwsBatchJobQueueJobStateTimeLimitActionBlock>? JobStateTimeLimitAction
     {
-        get => GetProperty<List<AwsBatchJobQueueJobStateTimeLimitActionBlock>>("job_state_time_limit_action");
-        set => this.WithProperty("job_state_time_limit_action", value);
+        set => SetProperty("job_state_time_limit_action", value);
     }
 
     /// <summary>
@@ -213,8 +208,7 @@ public class AwsBatchJobQueue : TerraformResource
     /// </summary>
     public AwsBatchJobQueueTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBatchJobQueueTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

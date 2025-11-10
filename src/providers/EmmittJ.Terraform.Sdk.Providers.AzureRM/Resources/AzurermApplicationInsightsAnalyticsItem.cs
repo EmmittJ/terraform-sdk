@@ -13,8 +13,7 @@ public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,9 +54,16 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("time_created");
-        this.WithOutput("time_modified");
-        this.WithOutput("version");
+        SetOutput("time_created");
+        SetOutput("time_modified");
+        SetOutput("version");
+        SetOutput("application_insights_id");
+        SetOutput("content");
+        SetOutput("function_alias");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("scope");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -69,8 +72,8 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformProperty<string> ApplicationInsightsId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_insights_id");
-        set => this.WithProperty("application_insights_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_insights_id");
+        set => SetProperty("application_insights_id", value);
     }
 
     /// <summary>
@@ -79,26 +82,26 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => this.WithProperty("content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content");
+        set => SetProperty("content", value);
     }
 
     /// <summary>
     /// The function_alias attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionAlias
+    public TerraformProperty<string> FunctionAlias
     {
-        get => GetProperty<TerraformProperty<string>>("function_alias");
-        set => this.WithProperty("function_alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_alias");
+        set => SetProperty("function_alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -107,8 +110,8 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -117,8 +120,8 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -127,8 +130,8 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -137,8 +140,7 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     /// </summary>
     public AzurermApplicationInsightsAnalyticsItemTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApplicationInsightsAnalyticsItemTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

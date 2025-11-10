@@ -13,8 +13,7 @@ public class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,7 +46,12 @@ public class AzurermApplicationInsightsApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_key");
+        SetOutput("api_key");
+        SetOutput("application_insights_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("read_permissions");
+        SetOutput("write_permissions");
     }
 
     /// <summary>
@@ -58,17 +60,17 @@ public class AzurermApplicationInsightsApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformProperty<string> ApplicationInsightsId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_insights_id");
-        set => this.WithProperty("application_insights_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_insights_id");
+        set => SetProperty("application_insights_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,26 +79,26 @@ public class AzurermApplicationInsightsApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The read_permissions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ReadPermissions
+    public HashSet<TerraformProperty<string>> ReadPermissions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("read_permissions");
-        set => this.WithProperty("read_permissions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("read_permissions");
+        set => SetProperty("read_permissions", value);
     }
 
     /// <summary>
     /// The write_permissions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? WritePermissions
+    public HashSet<TerraformProperty<string>> WritePermissions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("write_permissions");
-        set => this.WithProperty("write_permissions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("write_permissions");
+        set => SetProperty("write_permissions", value);
     }
 
     /// <summary>
@@ -105,8 +107,7 @@ public class AzurermApplicationInsightsApiKey : TerraformResource
     /// </summary>
     public AzurermApplicationInsightsApiKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApplicationInsightsApiKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

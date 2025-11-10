@@ -14,8 +14,7 @@ public class AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
     public required TerraformProperty<string> SecretUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_url");
-        set => WithProperty("secret_url", value);
+        set => SetProperty("secret_url", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformProperty<string> SourceVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_vault_id");
-        set => WithProperty("source_vault_id", value);
+        set => SetProperty("source_vault_id", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermVirtualMachineExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermVirtualMachineExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermVirtualMachineExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermVirtualMachineExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,42 +81,55 @@ public class AzurermVirtualMachineExtension : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("auto_upgrade_minor_version");
+        SetOutput("automatic_upgrade_enabled");
+        SetOutput("failure_suppression_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("protected_settings");
+        SetOutput("provision_after_extensions");
+        SetOutput("publisher");
+        SetOutput("settings");
+        SetOutput("tags");
+        SetOutput("type");
+        SetOutput("type_handler_version");
+        SetOutput("virtual_machine_id");
     }
 
     /// <summary>
     /// The auto_upgrade_minor_version attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoUpgradeMinorVersion
+    public TerraformProperty<bool> AutoUpgradeMinorVersion
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_upgrade_minor_version");
-        set => this.WithProperty("auto_upgrade_minor_version", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_upgrade_minor_version");
+        set => SetProperty("auto_upgrade_minor_version", value);
     }
 
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutomaticUpgradeEnabled
+    public TerraformProperty<bool> AutomaticUpgradeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("automatic_upgrade_enabled");
-        set => this.WithProperty("automatic_upgrade_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("automatic_upgrade_enabled");
+        set => SetProperty("automatic_upgrade_enabled", value);
     }
 
     /// <summary>
     /// The failure_suppression_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FailureSuppressionEnabled
+    public TerraformProperty<bool> FailureSuppressionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("failure_suppression_enabled");
-        set => this.WithProperty("failure_suppression_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("failure_suppression_enabled");
+        set => SetProperty("failure_suppression_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,26 +138,26 @@ public class AzurermVirtualMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtectedSettings
+    public TerraformProperty<string> ProtectedSettings
     {
-        get => GetProperty<TerraformProperty<string>>("protected_settings");
-        set => this.WithProperty("protected_settings", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protected_settings");
+        set => SetProperty("protected_settings", value);
     }
 
     /// <summary>
     /// The provision_after_extensions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ProvisionAfterExtensions
+    public List<TerraformProperty<string>> ProvisionAfterExtensions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("provision_after_extensions");
-        set => this.WithProperty("provision_after_extensions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("provision_after_extensions");
+        set => SetProperty("provision_after_extensions", value);
     }
 
     /// <summary>
@@ -159,26 +166,26 @@ public class AzurermVirtualMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
-        set => this.WithProperty("publisher", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("publisher");
+        set => SetProperty("publisher", value);
     }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    public TerraformProperty<string>? Settings
+    public TerraformProperty<string> Settings
     {
-        get => GetProperty<TerraformProperty<string>>("settings");
-        set => this.WithProperty("settings", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("settings");
+        set => SetProperty("settings", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -187,8 +194,8 @@ public class AzurermVirtualMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -197,8 +204,8 @@ public class AzurermVirtualMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
     public required TerraformProperty<string> TypeHandlerVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type_handler_version");
-        set => this.WithProperty("type_handler_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type_handler_version");
+        set => SetProperty("type_handler_version", value);
     }
 
     /// <summary>
@@ -207,8 +214,8 @@ public class AzurermVirtualMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
-        set => this.WithProperty("virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
+        set => SetProperty("virtual_machine_id", value);
     }
 
     /// <summary>
@@ -218,8 +225,7 @@ public class AzurermVirtualMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtectedSettingsFromKeyVault block(s) allowed")]
     public List<AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock>? ProtectedSettingsFromKeyVault
     {
-        get => GetProperty<List<AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock>>("protected_settings_from_key_vault");
-        set => this.WithProperty("protected_settings_from_key_vault", value);
+        set => SetProperty("protected_settings_from_key_vault", value);
     }
 
     /// <summary>
@@ -228,8 +234,7 @@ public class AzurermVirtualMachineExtension : TerraformResource
     /// </summary>
     public AzurermVirtualMachineExtensionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualMachineExtensionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -21,8 +21,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,28 +55,37 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("key_algorithm");
+        SetOutput("labels");
+        SetOutput("lifetime");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("rotation_window_percentage");
     }
 
     /// <summary>
     /// One or more paragraphs of text description of a CertificateIssuanceConfig.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -88,8 +94,8 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformProperty<string> KeyAlgorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_algorithm");
-        set => this.WithProperty("key_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_algorithm");
+        set => SetProperty("key_algorithm", value);
     }
 
     /// <summary>
@@ -100,10 +106,10 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -113,17 +119,17 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lifetime is required")]
     public required TerraformProperty<string> Lifetime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lifetime");
-        set => this.WithProperty("lifetime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lifetime");
+        set => SetProperty("lifetime", value);
     }
 
     /// <summary>
     /// The Certificate Manager location. If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -133,17 +139,17 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -155,20 +161,20 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationWindowPercentage is required")]
     public required TerraformProperty<double> RotationWindowPercentage
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("rotation_window_percentage");
-        set => this.WithProperty("rotation_window_percentage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("rotation_window_percentage");
+        set => SetProperty("rotation_window_percentage", value);
     }
 
     /// <summary>
     /// Block for certificate_authority_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CertificateAuthorityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthorityConfig block(s) allowed")]
     public List<GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock>? CertificateAuthorityConfig
     {
-        get => GetProperty<List<GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock>>("certificate_authority_config");
-        set => this.WithProperty("certificate_authority_config", value);
+        set => SetProperty("certificate_authority_config", value);
     }
 
     /// <summary>
@@ -177,8 +183,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// </summary>
     public GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

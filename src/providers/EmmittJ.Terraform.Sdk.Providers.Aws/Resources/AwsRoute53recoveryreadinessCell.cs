@@ -13,8 +13,7 @@ public class AwsRoute53recoveryreadinessCellTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -31,8 +30,13 @@ public class AwsRoute53recoveryreadinessCell : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("parent_readiness_scopes");
+        SetOutput("arn");
+        SetOutput("parent_readiness_scopes");
+        SetOutput("cell_name");
+        SetOutput("cells");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -41,44 +45,44 @@ public class AwsRoute53recoveryreadinessCell : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CellName is required")]
     public required TerraformProperty<string> CellName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cell_name");
-        set => this.WithProperty("cell_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cell_name");
+        set => SetProperty("cell_name", value);
     }
 
     /// <summary>
     /// The cells attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Cells
+    public List<TerraformProperty<string>> Cells
     {
-        get => GetProperty<List<TerraformProperty<string>>>("cells");
-        set => this.WithProperty("cells", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("cells");
+        set => SetProperty("cells", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -87,8 +91,7 @@ public class AwsRoute53recoveryreadinessCell : TerraformResource
     /// </summary>
     public AwsRoute53recoveryreadinessCellTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53recoveryreadinessCellTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

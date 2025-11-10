@@ -14,8 +14,10 @@ public class GoogleHealthcareHl7V2StoreIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("hl7_v2_store_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -24,17 +26,17 @@ public class GoogleHealthcareHl7V2StoreIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hl7V2StoreId is required")]
     public required TerraformProperty<string> Hl7V2StoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hl7_v2_store_id");
-        set => this.WithProperty("hl7_v2_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hl7_v2_store_id");
+        set => SetProperty("hl7_v2_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

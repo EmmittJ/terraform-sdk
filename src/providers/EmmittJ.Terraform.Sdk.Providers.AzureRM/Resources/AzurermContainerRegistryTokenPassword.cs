@@ -13,8 +13,7 @@ public class AzurermContainerRegistryTokenPasswordPassword1Block : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformProperty<string>>("expiry");
-        set => WithProperty("expiry", value);
+        set => SetProperty("expiry", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerRegistryTokenPasswordPassword1Block : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermContainerRegistryTokenPasswordPassword2Block : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformProperty<string>>("expiry");
-        set => WithProperty("expiry", value);
+        set => SetProperty("expiry", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermContainerRegistryTokenPasswordPassword2Block : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,6 +103,8 @@ public class AzurermContainerRegistryTokenPassword : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("container_registry_token_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -119,29 +113,29 @@ public class AzurermContainerRegistryTokenPassword : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryTokenId is required")]
     public required TerraformProperty<string> ContainerRegistryTokenId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_token_id");
-        set => this.WithProperty("container_registry_token_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_token_id");
+        set => SetProperty("container_registry_token_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Block for password1.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password1 is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Password1 block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password1 block(s) allowed")]
     public List<AzurermContainerRegistryTokenPasswordPassword1Block>? Password1
     {
-        get => GetProperty<List<AzurermContainerRegistryTokenPasswordPassword1Block>>("password1");
-        set => this.WithProperty("password1", value);
+        set => SetProperty("password1", value);
     }
 
     /// <summary>
@@ -151,8 +145,7 @@ public class AzurermContainerRegistryTokenPassword : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password2 block(s) allowed")]
     public List<AzurermContainerRegistryTokenPasswordPassword2Block>? Password2
     {
-        get => GetProperty<List<AzurermContainerRegistryTokenPasswordPassword2Block>>("password2");
-        set => this.WithProperty("password2", value);
+        set => SetProperty("password2", value);
     }
 
     /// <summary>
@@ -161,8 +154,7 @@ public class AzurermContainerRegistryTokenPassword : TerraformResource
     /// </summary>
     public AzurermContainerRegistryTokenPasswordTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryTokenPasswordTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermEventgridSystemTopicIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermEventgridSystemTopicIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermEventgridSystemTopicIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermEventgridSystemTopicIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermEventgridSystemTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermEventgridSystemTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermEventgridSystemTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermEventgridSystemTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,17 +96,25 @@ public class AzurermEventgridSystemTopic : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("metric_arm_resource_id");
-        this.WithOutput("metric_resource_id");
+        SetOutput("metric_arm_resource_id");
+        SetOutput("metric_resource_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("source_arm_resource_id");
+        SetOutput("source_resource_id");
+        SetOutput("tags");
+        SetOutput("topic_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,8 +123,8 @@ public class AzurermEventgridSystemTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -133,8 +133,8 @@ public class AzurermEventgridSystemTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -143,36 +143,36 @@ public class AzurermEventgridSystemTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_arm_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? SourceArmResourceId
+    public TerraformProperty<string> SourceArmResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_arm_resource_id");
-        set => this.WithProperty("source_arm_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_arm_resource_id");
+        set => SetProperty("source_arm_resource_id", value);
     }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceResourceId
+    public TerraformProperty<string> SourceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_resource_id");
-        set => this.WithProperty("source_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_resource_id");
+        set => SetProperty("source_resource_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -181,8 +181,8 @@ public class AzurermEventgridSystemTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicType is required")]
     public required TerraformProperty<string> TopicType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic_type");
-        set => this.WithProperty("topic_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("topic_type");
+        set => SetProperty("topic_type", value);
     }
 
     /// <summary>
@@ -192,8 +192,7 @@ public class AzurermEventgridSystemTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermEventgridSystemTopicIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermEventgridSystemTopicIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -202,8 +201,7 @@ public class AzurermEventgridSystemTopic : TerraformResource
     /// </summary>
     public AzurermEventgridSystemTopicTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventgridSystemTopicTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

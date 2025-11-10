@@ -13,8 +13,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,17 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_type");
+        SetOutput("cosmosdb_access_key");
+        SetOutput("cosmosdb_account_id");
+        SetOutput("cosmosdb_cassandra_keyspace_name");
+        SetOutput("cosmosdb_gremlin_database_name");
+        SetOutput("cosmosdb_gremlin_graph_name");
+        SetOutput("cosmosdb_mongo_database_name");
+        SetOutput("cosmosdb_sql_database_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("spring_cloud_app_id");
     }
 
     /// <summary>
@@ -66,8 +73,8 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiType is required")]
     public required TerraformProperty<string> ApiType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_type");
-        set => this.WithProperty("api_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_type");
+        set => SetProperty("api_type", value);
     }
 
     /// <summary>
@@ -76,8 +83,8 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccessKey is required")]
     public required TerraformProperty<string> CosmosdbAccessKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_access_key");
-        set => this.WithProperty("cosmosdb_access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_access_key");
+        set => SetProperty("cosmosdb_access_key", value);
     }
 
     /// <summary>
@@ -86,62 +93,62 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountId is required")]
     public required TerraformProperty<string> CosmosdbAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_account_id");
-        set => this.WithProperty("cosmosdb_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_account_id");
+        set => SetProperty("cosmosdb_account_id", value);
     }
 
     /// <summary>
     /// The cosmosdb_cassandra_keyspace_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CosmosdbCassandraKeyspaceName
+    public TerraformProperty<string> CosmosdbCassandraKeyspaceName
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_cassandra_keyspace_name");
-        set => this.WithProperty("cosmosdb_cassandra_keyspace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_cassandra_keyspace_name");
+        set => SetProperty("cosmosdb_cassandra_keyspace_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_gremlin_database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CosmosdbGremlinDatabaseName
+    public TerraformProperty<string> CosmosdbGremlinDatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_gremlin_database_name");
-        set => this.WithProperty("cosmosdb_gremlin_database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_gremlin_database_name");
+        set => SetProperty("cosmosdb_gremlin_database_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_gremlin_graph_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CosmosdbGremlinGraphName
+    public TerraformProperty<string> CosmosdbGremlinGraphName
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_gremlin_graph_name");
-        set => this.WithProperty("cosmosdb_gremlin_graph_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_gremlin_graph_name");
+        set => SetProperty("cosmosdb_gremlin_graph_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_mongo_database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CosmosdbMongoDatabaseName
+    public TerraformProperty<string> CosmosdbMongoDatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_mongo_database_name");
-        set => this.WithProperty("cosmosdb_mongo_database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_mongo_database_name");
+        set => SetProperty("cosmosdb_mongo_database_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_sql_database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CosmosdbSqlDatabaseName
+    public TerraformProperty<string> CosmosdbSqlDatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_sql_database_name");
-        set => this.WithProperty("cosmosdb_sql_database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_sql_database_name");
+        set => SetProperty("cosmosdb_sql_database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -150,8 +157,8 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -160,8 +167,8 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
-        set => this.WithProperty("spring_cloud_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
+        set => SetProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
@@ -170,8 +177,7 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     /// </summary>
     public AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

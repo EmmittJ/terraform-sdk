@@ -13,8 +13,7 @@ public class AzurermStorageShareDataSourceAclBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? AccessPolicy
     {
-        get => GetProperty<List<TerraformProperty<object>>>("access_policy");
-        set => WithProperty("access_policy", value);
+        set => SetProperty("access_policy", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageShareDataSourceAclBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermStorageShareDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -57,26 +54,31 @@ public class AzurermStorageShareDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("quota");
-        this.WithOutput("resource_manager_id");
+        SetOutput("quota");
+        SetOutput("resource_manager_id");
+        SetOutput("id");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("storage_account_id");
+        SetOutput("storage_account_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -85,26 +87,26 @@ public class AzurermStorageShareDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    public TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountName
+    public TerraformProperty<string> StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
-        set => this.WithProperty("storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
+        set => SetProperty("storage_account_name", value);
     }
 
     /// <summary>
@@ -113,8 +115,7 @@ public class AzurermStorageShareDataSource : TerraformDataSource
     /// </summary>
     public List<AzurermStorageShareDataSourceAclBlock>? Acl
     {
-        get => GetProperty<List<AzurermStorageShareDataSourceAclBlock>>("acl");
-        set => this.WithProperty("acl", value);
+        set => SetProperty("acl", value);
     }
 
     /// <summary>
@@ -123,8 +124,7 @@ public class AzurermStorageShareDataSource : TerraformDataSource
     /// </summary>
     public AzurermStorageShareDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageShareDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

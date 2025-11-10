@@ -13,8 +13,7 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,26 @@ public class AzurermIothubFileUpload : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("authentication_type");
+        SetOutput("connection_string");
+        SetOutput("container_name");
+        SetOutput("default_ttl");
+        SetOutput("id");
+        SetOutput("identity_id");
+        SetOutput("iothub_id");
+        SetOutput("lock_duration");
+        SetOutput("max_delivery_count");
+        SetOutput("notifications_enabled");
+        SetOutput("sas_ttl");
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationType
+    public TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
-        set => this.WithProperty("authentication_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
@@ -75,8 +82,8 @@ public class AzurermIothubFileUpload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -85,35 +92,35 @@ public class AzurermIothubFileUpload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => this.WithProperty("container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultTtl
+    public TerraformProperty<string> DefaultTtl
     {
-        get => GetProperty<TerraformProperty<string>>("default_ttl");
-        set => this.WithProperty("default_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_ttl");
+        set => SetProperty("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityId
+    public TerraformProperty<string> IdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_id");
-        set => this.WithProperty("identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_id");
+        set => SetProperty("identity_id", value);
     }
 
     /// <summary>
@@ -122,44 +129,44 @@ public class AzurermIothubFileUpload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
-        set => this.WithProperty("iothub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
+        set => SetProperty("iothub_id", value);
     }
 
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? LockDuration
+    public TerraformProperty<string> LockDuration
     {
-        get => GetProperty<TerraformProperty<string>>("lock_duration");
-        set => this.WithProperty("lock_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lock_duration");
+        set => SetProperty("lock_duration", value);
     }
 
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxDeliveryCount
+    public TerraformProperty<double> MaxDeliveryCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_delivery_count");
-        set => this.WithProperty("max_delivery_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_delivery_count");
+        set => SetProperty("max_delivery_count", value);
     }
 
     /// <summary>
     /// The notifications_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? NotificationsEnabled
+    public TerraformProperty<bool> NotificationsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("notifications_enabled");
-        set => this.WithProperty("notifications_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("notifications_enabled");
+        set => SetProperty("notifications_enabled", value);
     }
 
     /// <summary>
     /// The sas_ttl attribute.
     /// </summary>
-    public TerraformProperty<string>? SasTtl
+    public TerraformProperty<string> SasTtl
     {
-        get => GetProperty<TerraformProperty<string>>("sas_ttl");
-        set => this.WithProperty("sas_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sas_ttl");
+        set => SetProperty("sas_ttl", value);
     }
 
     /// <summary>
@@ -168,8 +175,7 @@ public class AzurermIothubFileUpload : TerraformResource
     /// </summary>
     public AzurermIothubFileUploadTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubFileUploadTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

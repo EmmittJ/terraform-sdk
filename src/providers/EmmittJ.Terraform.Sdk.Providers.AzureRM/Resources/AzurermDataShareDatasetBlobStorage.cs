@@ -14,8 +14,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => WithProperty("resource_group_name", value);
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
-        set => WithProperty("subscription_id", value);
+        set => SetProperty("subscription_id", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -88,7 +82,13 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("display_name");
+        SetOutput("display_name");
+        SetOutput("container_name");
+        SetOutput("data_share_id");
+        SetOutput("file_path");
+        SetOutput("folder_path");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -97,8 +97,8 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => this.WithProperty("container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
@@ -107,35 +107,35 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
     public required TerraformProperty<string> DataShareId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_share_id");
-        set => this.WithProperty("data_share_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_share_id");
+        set => SetProperty("data_share_id", value);
     }
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    public TerraformProperty<string>? FilePath
+    public TerraformProperty<string> FilePath
     {
-        get => GetProperty<TerraformProperty<string>>("file_path");
-        set => this.WithProperty("file_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_path");
+        set => SetProperty("file_path", value);
     }
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    public TerraformProperty<string>? FolderPath
+    public TerraformProperty<string> FolderPath
     {
-        get => GetProperty<TerraformProperty<string>>("folder_path");
-        set => this.WithProperty("folder_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder_path");
+        set => SetProperty("folder_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -144,20 +144,20 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccount is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageAccount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
     public List<AzurermDataShareDatasetBlobStorageStorageAccountBlock>? StorageAccount
     {
-        get => GetProperty<List<AzurermDataShareDatasetBlobStorageStorageAccountBlock>>("storage_account");
-        set => this.WithProperty("storage_account", value);
+        set => SetProperty("storage_account", value);
     }
 
     /// <summary>
@@ -166,8 +166,7 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     /// </summary>
     public AzurermDataShareDatasetBlobStorageTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataShareDatasetBlobStorageTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

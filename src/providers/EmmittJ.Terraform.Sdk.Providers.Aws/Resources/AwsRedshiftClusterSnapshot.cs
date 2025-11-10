@@ -14,9 +14,16 @@ public class AwsRedshiftClusterSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("owner_account");
+        SetOutput("arn");
+        SetOutput("kms_key_id");
+        SetOutput("owner_account");
+        SetOutput("cluster_identifier");
+        SetOutput("id");
+        SetOutput("manual_snapshot_retention_period");
+        SetOutput("region");
+        SetOutput("snapshot_identifier");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -25,35 +32,35 @@ public class AwsRedshiftClusterSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The manual_snapshot_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? ManualSnapshotRetentionPeriod
+    public TerraformProperty<double> ManualSnapshotRetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("manual_snapshot_retention_period");
-        set => this.WithProperty("manual_snapshot_retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("manual_snapshot_retention_period");
+        set => SetProperty("manual_snapshot_retention_period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -62,26 +69,26 @@ public class AwsRedshiftClusterSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotIdentifier is required")]
     public required TerraformProperty<string> SnapshotIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_identifier");
-        set => this.WithProperty("snapshot_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_identifier");
+        set => SetProperty("snapshot_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

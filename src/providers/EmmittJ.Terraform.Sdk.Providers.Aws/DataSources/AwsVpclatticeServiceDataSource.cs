@@ -14,57 +14,62 @@ public class AwsVpclatticeServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("auth_type");
-        this.WithOutput("certificate_arn");
-        this.WithOutput("custom_domain_name");
-        this.WithOutput("dns_entry");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("auth_type");
+        SetOutput("certificate_arn");
+        SetOutput("custom_domain_name");
+        SetOutput("dns_entry");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("service_identifier");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The service_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceIdentifier
+    public TerraformProperty<string> ServiceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("service_identifier");
-        set => this.WithProperty("service_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_identifier");
+        set => SetProperty("service_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

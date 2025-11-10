@@ -13,8 +13,7 @@ public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("caching");
+        SetOutput("create_option");
+        SetOutput("id");
+        SetOutput("lun");
+        SetOutput("managed_disk_id");
+        SetOutput("virtual_machine_id");
+        SetOutput("write_accelerator_enabled");
     }
 
     /// <summary>
@@ -66,26 +69,26 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     public required TerraformProperty<string> Caching
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("caching");
-        set => this.WithProperty("caching", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("caching");
+        set => SetProperty("caching", value);
     }
 
     /// <summary>
     /// The create_option attribute.
     /// </summary>
-    public TerraformProperty<string>? CreateOption
+    public TerraformProperty<string> CreateOption
     {
-        get => GetProperty<TerraformProperty<string>>("create_option");
-        set => this.WithProperty("create_option", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_option");
+        set => SetProperty("create_option", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,8 +97,8 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformProperty<double> Lun
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("lun");
-        set => this.WithProperty("lun", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("lun");
+        set => SetProperty("lun", value);
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
     public required TerraformProperty<string> ManagedDiskId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_disk_id");
-        set => this.WithProperty("managed_disk_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_disk_id");
+        set => SetProperty("managed_disk_id", value);
     }
 
     /// <summary>
@@ -114,17 +117,17 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
-        set => this.WithProperty("virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
+        set => SetProperty("virtual_machine_id", value);
     }
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? WriteAcceleratorEnabled
+    public TerraformProperty<bool> WriteAcceleratorEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("write_accelerator_enabled");
-        set => this.WithProperty("write_accelerator_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("write_accelerator_enabled");
+        set => SetProperty("write_accelerator_enabled", value);
     }
 
     /// <summary>
@@ -133,8 +136,7 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     /// </summary>
     public AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

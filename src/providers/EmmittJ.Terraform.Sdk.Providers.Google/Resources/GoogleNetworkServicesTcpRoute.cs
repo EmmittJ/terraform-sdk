@@ -21,8 +21,7 @@ public class GoogleNetworkServicesTcpRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleNetworkServicesTcpRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleNetworkServicesTcpRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,39 +55,46 @@ public class GoogleNetworkServicesTcpRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("gateways");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("meshes");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Gateways defines a list of gateways this TcpRoute is attached to, as one of the routing rules to route the requests served by the gateway.
     /// Each gateway reference should match the pattern: projects/*/locations/global/gateways/&amp;lt;gateway_name&amp;gt;
     /// </summary>
-    public List<TerraformProperty<string>>? Gateways
+    public List<TerraformProperty<string>> Gateways
     {
-        get => GetProperty<List<TerraformProperty<string>>>("gateways");
-        set => this.WithProperty("gateways", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("gateways");
+        set => SetProperty("gateways", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -99,10 +103,10 @@ public class GoogleNetworkServicesTcpRoute : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -110,10 +114,10 @@ public class GoogleNetworkServicesTcpRoute : TerraformResource
     /// Each mesh reference should match the pattern: projects/*/locations/global/meshes/&amp;lt;mesh_name&amp;gt;
     /// The attached Mesh should be of a type SIDECAR
     /// </summary>
-    public List<TerraformProperty<string>>? Meshes
+    public List<TerraformProperty<string>> Meshes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("meshes");
-        set => this.WithProperty("meshes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("meshes");
+        set => SetProperty("meshes", value);
     }
 
     /// <summary>
@@ -122,28 +126,28 @@ public class GoogleNetworkServicesTcpRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for rules.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     public List<GoogleNetworkServicesTcpRouteRulesBlock>? Rules
     {
-        get => GetProperty<List<GoogleNetworkServicesTcpRouteRulesBlock>>("rules");
-        set => this.WithProperty("rules", value);
+        set => SetProperty("rules", value);
     }
 
     /// <summary>
@@ -152,8 +156,7 @@ public class GoogleNetworkServicesTcpRoute : TerraformResource
     /// </summary>
     public GoogleNetworkServicesTcpRouteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkServicesTcpRouteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

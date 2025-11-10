@@ -13,8 +13,7 @@ public class AzurermApiManagementNotificationRecipientUserTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementNotificationRecipientUserTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementNotificationRecipientUserTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,10 @@ public class AzurermApiManagementNotificationRecipientUser : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_id");
+        SetOutput("id");
+        SetOutput("notification_type");
+        SetOutput("user_id");
     }
 
     /// <summary>
@@ -57,17 +58,17 @@ public class AzurermApiManagementNotificationRecipientUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
-        set => this.WithProperty("api_management_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_id");
+        set => SetProperty("api_management_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AzurermApiManagementNotificationRecipientUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformProperty<string> NotificationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("notification_type");
-        set => this.WithProperty("notification_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_type");
+        set => SetProperty("notification_type", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class AzurermApiManagementNotificationRecipientUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformProperty<string> UserId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_id");
-        set => this.WithProperty("user_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_id");
+        set => SetProperty("user_id", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class AzurermApiManagementNotificationRecipientUser : TerraformResource
     /// </summary>
     public AzurermApiManagementNotificationRecipientUserTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementNotificationRecipientUserTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

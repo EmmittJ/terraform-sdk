@@ -13,8 +13,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? EnableNestedVirtualization
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_nested_virtualization");
-        set => WithProperty("enable_nested_virtualization", value);
+        set => SetProperty("enable_nested_virtualization", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? EnableUefiNetworking
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_uefi_networking");
-        set => WithProperty("enable_uefi_networking", value);
+        set => SetProperty("enable_uefi_networking", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? PerformanceMonitoringUnit
     {
-        get => GetProperty<TerraformProperty<string>>("performance_monitoring_unit");
-        set => WithProperty("performance_monitoring_unit", value);
+        set => SetProperty("performance_monitoring_unit", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? ThreadsPerCore
     {
-        get => GetProperty<TerraformProperty<double>>("threads_per_core");
-        set => WithProperty("threads_per_core", value);
+        set => SetProperty("threads_per_core", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? TurboMode
     {
-        get => GetProperty<TerraformProperty<string>>("turbo_mode");
-        set => WithProperty("turbo_mode", value);
+        set => SetProperty("turbo_mode", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? VisibleCoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("visible_core_count");
-        set => WithProperty("visible_core_count", value);
+        set => SetProperty("visible_core_count", value);
     }
 
 }
@@ -75,8 +69,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
-        set => WithProperty("device_name", value);
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionKeyRaw
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_key_raw");
-        set => WithProperty("disk_encryption_key_raw", value);
+        set => SetProperty("disk_encryption_key_raw", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionKeyRsa
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_key_rsa");
-        set => WithProperty("disk_encryption_key_rsa", value);
+        set => SetProperty("disk_encryption_key_rsa", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionKeySha256
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_key_sha256");
-        set => WithProperty("disk_encryption_key_sha256", value);
+        set => SetProperty("disk_encryption_key_sha256", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_service_account");
-        set => WithProperty("disk_encryption_service_account", value);
+        set => SetProperty("disk_encryption_service_account", value);
     }
 
     /// <summary>
@@ -120,8 +109,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ForceAttach
     {
-        get => GetProperty<TerraformProperty<bool>>("force_attach");
-        set => WithProperty("force_attach", value);
+        set => SetProperty("force_attach", value);
     }
 
     /// <summary>
@@ -129,8 +117,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeySelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
-        set => WithProperty("kms_key_self_link", value);
+        set => SetProperty("kms_key_self_link", value);
     }
 
     /// <summary>
@@ -138,8 +125,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -148,8 +134,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -165,8 +150,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AutoDelete
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_delete");
-        set => WithProperty("auto_delete", value);
+        set => SetProperty("auto_delete", value);
     }
 
     /// <summary>
@@ -174,8 +158,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
-        set => WithProperty("device_name", value);
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
@@ -183,8 +166,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionKeyRaw
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_key_raw");
-        set => WithProperty("disk_encryption_key_raw", value);
+        set => SetProperty("disk_encryption_key_raw", value);
     }
 
     /// <summary>
@@ -192,8 +174,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionKeyRsa
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_key_rsa");
-        set => WithProperty("disk_encryption_key_rsa", value);
+        set => SetProperty("disk_encryption_key_rsa", value);
     }
 
     /// <summary>
@@ -201,8 +182,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionKeySha256
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_key_sha256");
-        set => WithProperty("disk_encryption_key_sha256", value);
+        set => SetProperty("disk_encryption_key_sha256", value);
     }
 
     /// <summary>
@@ -210,8 +190,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_service_account");
-        set => WithProperty("disk_encryption_service_account", value);
+        set => SetProperty("disk_encryption_service_account", value);
     }
 
     /// <summary>
@@ -219,8 +198,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ForceAttach
     {
-        get => GetProperty<TerraformProperty<bool>>("force_attach");
-        set => WithProperty("force_attach", value);
+        set => SetProperty("force_attach", value);
     }
 
     /// <summary>
@@ -228,8 +206,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? GuestOsFeatures
     {
-        get => GetProperty<List<TerraformProperty<string>>>("guest_os_features");
-        set => WithProperty("guest_os_features", value);
+        set => SetProperty("guest_os_features", value);
     }
 
     /// <summary>
@@ -237,8 +214,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Interface
     {
-        get => GetProperty<TerraformProperty<string>>("interface");
-        set => WithProperty("interface", value);
+        set => SetProperty("interface", value);
     }
 
     /// <summary>
@@ -246,8 +222,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeySelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
-        set => WithProperty("kms_key_self_link", value);
+        set => SetProperty("kms_key_self_link", value);
     }
 
     /// <summary>
@@ -255,8 +230,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -264,8 +238,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -285,8 +258,7 @@ public class GoogleComputeInstanceFromTemplateConfidentialInstanceConfigBlock : 
     /// </summary>
     public TerraformProperty<string>? ConfidentialInstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("confidential_instance_type");
-        set => WithProperty("confidential_instance_type", value);
+        set => SetProperty("confidential_instance_type", value);
     }
 
     /// <summary>
@@ -294,8 +266,7 @@ public class GoogleComputeInstanceFromTemplateConfidentialInstanceConfigBlock : 
     /// </summary>
     public TerraformProperty<bool>? EnableConfidentialCompute
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_confidential_compute");
-        set => WithProperty("enable_confidential_compute", value);
+        set => SetProperty("enable_confidential_compute", value);
     }
 
 }
@@ -312,8 +283,7 @@ public class GoogleComputeInstanceFromTemplateGuestAcceleratorBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("count");
-        set => WithProperty("count", value);
+        set => SetProperty("count", value);
     }
 
     /// <summary>
@@ -322,8 +292,7 @@ public class GoogleComputeInstanceFromTemplateGuestAcceleratorBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -339,8 +308,7 @@ public class GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock : Terra
     /// </summary>
     public TerraformProperty<string>? KmsKeySelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
-        set => WithProperty("kms_key_self_link", value);
+        set => SetProperty("kms_key_self_link", value);
     }
 
     /// <summary>
@@ -348,8 +316,7 @@ public class GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock : Terra
     /// </summary>
     public TerraformProperty<string>? KmsKeyServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
-        set => WithProperty("kms_key_service_account", value);
+        set => SetProperty("kms_key_service_account", value);
     }
 
     /// <summary>
@@ -357,8 +324,7 @@ public class GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Sha256
     {
-        get => GetProperty<TerraformProperty<string>>("sha256");
-        set => WithProperty("sha256", value);
+        set => SetProperty("sha256", value);
     }
 
 }
@@ -374,8 +340,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? InternalIpv6PrefixLength
     {
-        get => GetProperty<TerraformProperty<double>>("internal_ipv6_prefix_length");
-        set => WithProperty("internal_ipv6_prefix_length", value);
+        set => SetProperty("internal_ipv6_prefix_length", value);
     }
 
     /// <summary>
@@ -383,8 +348,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Ipv6AccessType
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_access_type");
-        set => WithProperty("ipv6_access_type", value);
+        set => SetProperty("ipv6_access_type", value);
     }
 
     /// <summary>
@@ -392,8 +356,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Ipv6Address
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_address");
-        set => WithProperty("ipv6_address", value);
+        set => SetProperty("ipv6_address", value);
     }
 
     /// <summary>
@@ -401,8 +364,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -410,8 +372,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -419,8 +380,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? NetworkAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("network_attachment");
-        set => WithProperty("network_attachment", value);
+        set => SetProperty("network_attachment", value);
     }
 
     /// <summary>
@@ -428,8 +388,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? NetworkIp
     {
-        get => GetProperty<TerraformProperty<string>>("network_ip");
-        set => WithProperty("network_ip", value);
+        set => SetProperty("network_ip", value);
     }
 
     /// <summary>
@@ -437,8 +396,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? NicType
     {
-        get => GetProperty<TerraformProperty<string>>("nic_type");
-        set => WithProperty("nic_type", value);
+        set => SetProperty("nic_type", value);
     }
 
     /// <summary>
@@ -446,8 +404,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? QueueCount
     {
-        get => GetProperty<TerraformProperty<double>>("queue_count");
-        set => WithProperty("queue_count", value);
+        set => SetProperty("queue_count", value);
     }
 
     /// <summary>
@@ -455,8 +412,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? StackType
     {
-        get => GetProperty<TerraformProperty<string>>("stack_type");
-        set => WithProperty("stack_type", value);
+        set => SetProperty("stack_type", value);
     }
 
     /// <summary>
@@ -464,8 +420,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => WithProperty("subnetwork", value);
+        set => SetProperty("subnetwork", value);
     }
 
     /// <summary>
@@ -473,8 +428,7 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? SubnetworkProject
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork_project");
-        set => WithProperty("subnetwork_project", value);
+        set => SetProperty("subnetwork_project", value);
     }
 
 }
@@ -491,8 +445,7 @@ public class GoogleComputeInstanceFromTemplateNetworkPerformanceConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalEgressBandwidthTier is required")]
     public required TerraformProperty<string> TotalEgressBandwidthTier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("total_egress_bandwidth_tier");
-        set => WithProperty("total_egress_bandwidth_tier", value);
+        set => SetProperty("total_egress_bandwidth_tier", value);
     }
 
 }
@@ -508,8 +461,7 @@ public class GoogleComputeInstanceFromTemplateParamsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
-        set => WithProperty("resource_manager_tags", value);
+        set => SetProperty("resource_manager_tags", value);
     }
 
 }
@@ -526,8 +478,7 @@ public class GoogleComputeInstanceFromTemplateReservationAffinityBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -543,8 +494,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AutomaticRestart
     {
-        get => GetProperty<TerraformProperty<bool>>("automatic_restart");
-        set => WithProperty("automatic_restart", value);
+        set => SetProperty("automatic_restart", value);
     }
 
     /// <summary>
@@ -552,8 +502,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AvailabilityDomain
     {
-        get => GetProperty<TerraformProperty<double>>("availability_domain");
-        set => WithProperty("availability_domain", value);
+        set => SetProperty("availability_domain", value);
     }
 
     /// <summary>
@@ -561,8 +510,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceTerminationAction
     {
-        get => GetProperty<TerraformProperty<string>>("instance_termination_action");
-        set => WithProperty("instance_termination_action", value);
+        set => SetProperty("instance_termination_action", value);
     }
 
     /// <summary>
@@ -570,8 +518,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinNodeCpus
     {
-        get => GetProperty<TerraformProperty<double>>("min_node_cpus");
-        set => WithProperty("min_node_cpus", value);
+        set => SetProperty("min_node_cpus", value);
     }
 
     /// <summary>
@@ -579,8 +526,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OnHostMaintenance
     {
-        get => GetProperty<TerraformProperty<string>>("on_host_maintenance");
-        set => WithProperty("on_host_maintenance", value);
+        set => SetProperty("on_host_maintenance", value);
     }
 
     /// <summary>
@@ -588,8 +534,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Preemptible
     {
-        get => GetProperty<TerraformProperty<bool>>("preemptible");
-        set => WithProperty("preemptible", value);
+        set => SetProperty("preemptible", value);
     }
 
     /// <summary>
@@ -597,8 +542,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProvisioningModel
     {
-        get => GetProperty<TerraformProperty<string>>("provisioning_model");
-        set => WithProperty("provisioning_model", value);
+        set => SetProperty("provisioning_model", value);
     }
 
     /// <summary>
@@ -608,8 +552,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TerminationTime
     {
-        get => GetProperty<TerraformProperty<string>>("termination_time");
-        set => WithProperty("termination_time", value);
+        set => SetProperty("termination_time", value);
     }
 
 }
@@ -625,8 +568,7 @@ public class GoogleComputeInstanceFromTemplateScratchDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
-        set => WithProperty("device_name", value);
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
@@ -635,8 +577,7 @@ public class GoogleComputeInstanceFromTemplateScratchDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interface is required")]
     public required TerraformProperty<string> Interface
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("interface");
-        set => WithProperty("interface", value);
+        set => SetProperty("interface", value);
     }
 
     /// <summary>
@@ -644,8 +585,7 @@ public class GoogleComputeInstanceFromTemplateScratchDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Size
     {
-        get => GetProperty<TerraformProperty<double>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
 }
@@ -661,8 +601,7 @@ public class GoogleComputeInstanceFromTemplateServiceAccountBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -671,8 +610,7 @@ public class GoogleComputeInstanceFromTemplateServiceAccountBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public HashSet<TerraformProperty<string>>? Scopes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scopes");
-        set => WithProperty("scopes", value);
+        set => SetProperty("scopes", value);
     }
 
 }
@@ -688,8 +626,7 @@ public class GoogleComputeInstanceFromTemplateShieldedInstanceConfigBlock : Terr
     /// </summary>
     public TerraformProperty<bool>? EnableIntegrityMonitoring
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_integrity_monitoring");
-        set => WithProperty("enable_integrity_monitoring", value);
+        set => SetProperty("enable_integrity_monitoring", value);
     }
 
     /// <summary>
@@ -697,8 +634,7 @@ public class GoogleComputeInstanceFromTemplateShieldedInstanceConfigBlock : Terr
     /// </summary>
     public TerraformProperty<bool>? EnableSecureBoot
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_secure_boot");
-        set => WithProperty("enable_secure_boot", value);
+        set => SetProperty("enable_secure_boot", value);
     }
 
     /// <summary>
@@ -706,8 +642,7 @@ public class GoogleComputeInstanceFromTemplateShieldedInstanceConfigBlock : Terr
     /// </summary>
     public TerraformProperty<bool>? EnableVtpm
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_vtpm");
-        set => WithProperty("enable_vtpm", value);
+        set => SetProperty("enable_vtpm", value);
     }
 
 }
@@ -723,8 +658,7 @@ public class GoogleComputeInstanceFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -732,8 +666,7 @@ public class GoogleComputeInstanceFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -741,8 +674,7 @@ public class GoogleComputeInstanceFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -760,97 +692,117 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cpu_platform");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("current_status");
-        this.WithOutput("effective_labels");
-        this.WithOutput("instance_id");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("metadata_fingerprint");
-        this.WithOutput("self_link");
-        this.WithOutput("tags_fingerprint");
-        this.WithOutput("terraform_labels");
+        SetOutput("cpu_platform");
+        SetOutput("creation_timestamp");
+        SetOutput("current_status");
+        SetOutput("effective_labels");
+        SetOutput("instance_id");
+        SetOutput("label_fingerprint");
+        SetOutput("metadata_fingerprint");
+        SetOutput("self_link");
+        SetOutput("tags_fingerprint");
+        SetOutput("terraform_labels");
+        SetOutput("allow_stopping_for_update");
+        SetOutput("can_ip_forward");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("desired_status");
+        SetOutput("enable_display");
+        SetOutput("hostname");
+        SetOutput("id");
+        SetOutput("key_revocation_action_type");
+        SetOutput("labels");
+        SetOutput("machine_type");
+        SetOutput("metadata");
+        SetOutput("metadata_startup_script");
+        SetOutput("min_cpu_platform");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("resource_policies");
+        SetOutput("source_instance_template");
+        SetOutput("tags");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// If true, allows Terraform to stop the instance to update its properties. If you try to update a property that requires stopping the instance without setting this field, the update will fail.
     /// </summary>
-    public TerraformProperty<bool>? AllowStoppingForUpdate
+    public TerraformProperty<bool> AllowStoppingForUpdate
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_stopping_for_update");
-        set => this.WithProperty("allow_stopping_for_update", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_stopping_for_update");
+        set => SetProperty("allow_stopping_for_update", value);
     }
 
     /// <summary>
     /// Whether sending and receiving of packets with non-matching source or destination IPs is allowed.
     /// </summary>
-    public TerraformProperty<bool>? CanIpForward
+    public TerraformProperty<bool> CanIpForward
     {
-        get => GetProperty<TerraformProperty<bool>>("can_ip_forward");
-        set => this.WithProperty("can_ip_forward", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("can_ip_forward");
+        set => SetProperty("can_ip_forward", value);
     }
 
     /// <summary>
     /// Whether deletion protection is enabled on this instance.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// A brief description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Desired status of the instance. Either &amp;quot;RUNNING&amp;quot;, &amp;quot;SUSPENDED&amp;quot; or &amp;quot;TERMINATED&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? DesiredStatus
+    public TerraformProperty<string> DesiredStatus
     {
-        get => GetProperty<TerraformProperty<string>>("desired_status");
-        set => this.WithProperty("desired_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("desired_status");
+        set => SetProperty("desired_status", value);
     }
 
     /// <summary>
     /// Whether the instance has virtual displays enabled.
     /// </summary>
-    public TerraformProperty<bool>? EnableDisplay
+    public TerraformProperty<bool> EnableDisplay
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_display");
-        set => this.WithProperty("enable_display", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_display");
+        set => SetProperty("enable_display", value);
     }
 
     /// <summary>
     /// A custom hostname for the instance. Must be a fully qualified DNS name and RFC-1035-valid. Valid format is a series of labels 1-63 characters long matching the regular expression [a-z]([-a-z0-9]*[a-z0-9]), concatenated with periods. The entire hostname must not exceed 253 characters. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string>? Hostname
+    public TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
-        set => this.WithProperty("hostname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hostname");
+        set => SetProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Action to be taken when a customer&#39;s encryption key is revoked. Supports &amp;quot;STOP&amp;quot; and &amp;quot;NONE&amp;quot;, with &amp;quot;NONE&amp;quot; being the default.
     /// </summary>
-    public TerraformProperty<string>? KeyRevocationActionType
+    public TerraformProperty<string> KeyRevocationActionType
     {
-        get => GetProperty<TerraformProperty<string>>("key_revocation_action_type");
-        set => this.WithProperty("key_revocation_action_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_revocation_action_type");
+        set => SetProperty("key_revocation_action_type", value);
     }
 
     /// <summary>
@@ -859,46 +811,46 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The machine type to create.
     /// </summary>
-    public TerraformProperty<string>? MachineType
+    public TerraformProperty<string> MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
-        set => this.WithProperty("machine_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("machine_type");
+        set => SetProperty("machine_type", value);
     }
 
     /// <summary>
     /// Metadata key/value pairs made available within the instance.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
     /// Metadata startup scripts made available within the instance.
     /// </summary>
-    public TerraformProperty<string>? MetadataStartupScript
+    public TerraformProperty<string> MetadataStartupScript
     {
-        get => GetProperty<TerraformProperty<string>>("metadata_startup_script");
-        set => this.WithProperty("metadata_startup_script", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metadata_startup_script");
+        set => SetProperty("metadata_startup_script", value);
     }
 
     /// <summary>
     /// The minimum CPU platform specified for the VM instance.
     /// </summary>
-    public TerraformProperty<string>? MinCpuPlatform
+    public TerraformProperty<string> MinCpuPlatform
     {
-        get => GetProperty<TerraformProperty<string>>("min_cpu_platform");
-        set => this.WithProperty("min_cpu_platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("min_cpu_platform");
+        set => SetProperty("min_cpu_platform", value);
     }
 
     /// <summary>
@@ -907,26 +859,26 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If self_link is provided, this value is ignored. If neither self_link nor project are provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// A list of self_links of resource policies to attach to the instance. Currently a max of 1 resource policy is supported.
     /// </summary>
-    public List<TerraformProperty<string>>? ResourcePolicies
+    public List<TerraformProperty<string>> ResourcePolicies
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_policies");
-        set => this.WithProperty("resource_policies", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("resource_policies");
+        set => SetProperty("resource_policies", value);
     }
 
     /// <summary>
@@ -935,26 +887,26 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstanceTemplate is required")]
     public required TerraformProperty<string> SourceInstanceTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_instance_template");
-        set => this.WithProperty("source_instance_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_instance_template");
+        set => SetProperty("source_instance_template", value);
     }
 
     /// <summary>
     /// The list of tags attached to the instance.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Tags
+    public HashSet<TerraformProperty<string>> Tags
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zone of the instance. If self_link is provided, this value is ignored. If neither self_link nor zone are provided, the provider zone is used.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -964,8 +916,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedMachineFeatures block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock>? AdvancedMachineFeatures
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock>>("advanced_machine_features");
-        set => this.WithProperty("advanced_machine_features", value);
+        set => SetProperty("advanced_machine_features", value);
     }
 
     /// <summary>
@@ -974,8 +925,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     /// </summary>
     public List<GoogleComputeInstanceFromTemplateAttachedDiskBlock>? AttachedDisk
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateAttachedDiskBlock>>("attached_disk");
-        set => this.WithProperty("attached_disk", value);
+        set => SetProperty("attached_disk", value);
     }
 
     /// <summary>
@@ -985,8 +935,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDisk block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateBootDiskBlock>? BootDisk
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateBootDiskBlock>>("boot_disk");
-        set => this.WithProperty("boot_disk", value);
+        set => SetProperty("boot_disk", value);
     }
 
     /// <summary>
@@ -996,8 +945,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfidentialInstanceConfig block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateConfidentialInstanceConfigBlock>? ConfidentialInstanceConfig
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateConfidentialInstanceConfigBlock>>("confidential_instance_config");
-        set => this.WithProperty("confidential_instance_config", value);
+        set => SetProperty("confidential_instance_config", value);
     }
 
     /// <summary>
@@ -1006,8 +954,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     /// </summary>
     public List<GoogleComputeInstanceFromTemplateGuestAcceleratorBlock>? GuestAccelerator
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateGuestAcceleratorBlock>>("guest_accelerator");
-        set => this.WithProperty("guest_accelerator", value);
+        set => SetProperty("guest_accelerator", value);
     }
 
     /// <summary>
@@ -1017,8 +964,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceEncryptionKey block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock>? InstanceEncryptionKey
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock>>("instance_encryption_key");
-        set => this.WithProperty("instance_encryption_key", value);
+        set => SetProperty("instance_encryption_key", value);
     }
 
     /// <summary>
@@ -1027,8 +973,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     /// </summary>
     public List<GoogleComputeInstanceFromTemplateNetworkInterfaceBlock>? NetworkInterface
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateNetworkInterfaceBlock>>("network_interface");
-        set => this.WithProperty("network_interface", value);
+        set => SetProperty("network_interface", value);
     }
 
     /// <summary>
@@ -1038,8 +983,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkPerformanceConfig block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateNetworkPerformanceConfigBlock>? NetworkPerformanceConfig
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateNetworkPerformanceConfigBlock>>("network_performance_config");
-        set => this.WithProperty("network_performance_config", value);
+        set => SetProperty("network_performance_config", value);
     }
 
     /// <summary>
@@ -1049,8 +993,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateParamsBlock>? Params
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateParamsBlock>>("params");
-        set => this.WithProperty("params", value);
+        set => SetProperty("params", value);
     }
 
     /// <summary>
@@ -1060,8 +1003,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationAffinity block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateReservationAffinityBlock>? ReservationAffinity
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateReservationAffinityBlock>>("reservation_affinity");
-        set => this.WithProperty("reservation_affinity", value);
+        set => SetProperty("reservation_affinity", value);
     }
 
     /// <summary>
@@ -1071,8 +1013,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scheduling block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateSchedulingBlock>? Scheduling
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateSchedulingBlock>>("scheduling");
-        set => this.WithProperty("scheduling", value);
+        set => SetProperty("scheduling", value);
     }
 
     /// <summary>
@@ -1081,8 +1022,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     /// </summary>
     public List<GoogleComputeInstanceFromTemplateScratchDiskBlock>? ScratchDisk
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateScratchDiskBlock>>("scratch_disk");
-        set => this.WithProperty("scratch_disk", value);
+        set => SetProperty("scratch_disk", value);
     }
 
     /// <summary>
@@ -1092,8 +1032,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceAccount block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateServiceAccountBlock>? ServiceAccount
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateServiceAccountBlock>>("service_account");
-        set => this.WithProperty("service_account", value);
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
@@ -1103,8 +1042,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceConfig block(s) allowed")]
     public List<GoogleComputeInstanceFromTemplateShieldedInstanceConfigBlock>? ShieldedInstanceConfig
     {
-        get => GetProperty<List<GoogleComputeInstanceFromTemplateShieldedInstanceConfigBlock>>("shielded_instance_config");
-        set => this.WithProperty("shielded_instance_config", value);
+        set => SetProperty("shielded_instance_config", value);
     }
 
     /// <summary>
@@ -1113,8 +1051,7 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     /// </summary>
     public GoogleComputeInstanceFromTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeInstanceFromTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Branch
     {
-        get => GetProperty<TerraformProperty<string>>("branch");
-        set => WithProperty("branch", value);
+        set => SetProperty("branch", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? CaCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("ca_certificate_id");
-        set => WithProperty("ca_certificate_id", value);
+        set => SetProperty("ca_certificate_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Commit
     {
-        get => GetProperty<TerraformProperty<string>>("commit");
-        set => WithProperty("commit", value);
+        set => SetProperty("commit", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? GitTag
     {
-        get => GetProperty<TerraformProperty<string>>("git_tag");
-        set => WithProperty("git_tag", value);
+        set => SetProperty("git_tag", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? IntervalInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("interval_in_seconds");
-        set => WithProperty("interval_in_seconds", value);
+        set => SetProperty("interval_in_seconds", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -85,8 +78,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -131,60 +120,68 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("accelerator_tags");
+        SetOutput("accelerator_type");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("icon_url");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("spring_cloud_accelerator_id");
     }
 
     /// <summary>
     /// The accelerator_tags attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AcceleratorTags
+    public List<TerraformProperty<string>> AcceleratorTags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("accelerator_tags");
-        set => this.WithProperty("accelerator_tags", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("accelerator_tags");
+        set => SetProperty("accelerator_tags", value);
     }
 
     /// <summary>
     /// The accelerator_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AcceleratorType
+    public TerraformProperty<string> AcceleratorType
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_type");
-        set => this.WithProperty("accelerator_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("accelerator_type");
+        set => SetProperty("accelerator_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The icon_url attribute.
     /// </summary>
-    public TerraformProperty<string>? IconUrl
+    public TerraformProperty<string> IconUrl
     {
-        get => GetProperty<TerraformProperty<string>>("icon_url");
-        set => this.WithProperty("icon_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("icon_url");
+        set => SetProperty("icon_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -193,8 +190,8 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -203,20 +200,20 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAcceleratorId is required")]
     public required TerraformProperty<string> SpringCloudAcceleratorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_accelerator_id");
-        set => this.WithProperty("spring_cloud_accelerator_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_accelerator_id");
+        set => SetProperty("spring_cloud_accelerator_id", value);
     }
 
     /// <summary>
     /// Block for git_repository.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepository is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GitRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepository block(s) allowed")]
     public List<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>? GitRepository
     {
-        get => GetProperty<List<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>>("git_repository");
-        set => this.WithProperty("git_repository", value);
+        set => SetProperty("git_repository", value);
     }
 
     /// <summary>
@@ -225,8 +222,7 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     /// </summary>
     public AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

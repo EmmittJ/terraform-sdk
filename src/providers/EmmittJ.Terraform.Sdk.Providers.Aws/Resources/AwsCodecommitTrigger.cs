@@ -13,8 +13,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Branches
     {
-        get => GetProperty<List<TerraformProperty<string>>>("branches");
-        set => WithProperty("branches", value);
+        set => SetProperty("branches", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomData
     {
-        get => GetProperty<TerraformProperty<string>>("custom_data");
-        set => WithProperty("custom_data", value);
+        set => SetProperty("custom_data", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
-        set => WithProperty("destination_arn", value);
+        set => SetProperty("destination_arn", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public List<TerraformProperty<string>>? Events
     {
-        get => GetProperty<List<TerraformProperty<string>>>("events");
-        set => WithProperty("events", value);
+        set => SetProperty("events", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -71,25 +66,28 @@ public class AwsCodecommitTrigger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputonfiguration_id");
+        SetOutput("configuration_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("repository_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -98,20 +96,20 @@ public class AwsCodecommitTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
-        set => this.WithProperty("repository_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_name");
+        set => SetProperty("repository_name", value);
     }
 
     /// <summary>
     /// Block for trigger.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Trigger is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Trigger block(s) allowed")]
     public HashSet<AwsCodecommitTriggerTriggerBlock>? Trigger
     {
-        get => GetProperty<HashSet<AwsCodecommitTriggerTriggerBlock>>("trigger");
-        set => this.WithProperty("trigger", value);
+        set => SetProperty("trigger", value);
     }
 
     /// <summary>

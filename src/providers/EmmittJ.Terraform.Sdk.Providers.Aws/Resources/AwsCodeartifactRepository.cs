@@ -14,8 +14,7 @@ public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalConnectionName is required")]
     public required TerraformProperty<string> ExternalConnectionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("external_connection_name");
-        set => WithProperty("external_connection_name", value);
+        set => SetProperty("external_connection_name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PackageFormat
     {
-        get => GetProperty<TerraformProperty<string>>("package_format");
-        set => WithProperty("package_format", value);
+        set => SetProperty("package_format", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AwsCodeartifactRepositoryUpstreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
-        set => WithProperty("repository_name", value);
+        set => SetProperty("repository_name", value);
     }
 
 }
@@ -69,17 +65,25 @@ public class AwsCodeartifactRepository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("administrator_account");
-        this.WithOutput("arn");
+        SetOutput("administrator_account");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("domain");
+        SetOutput("domain_owner");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("repository");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -88,35 +92,35 @@ public class AwsCodeartifactRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainOwner
+    public TerraformProperty<string> DomainOwner
     {
-        get => GetProperty<TerraformProperty<string>>("domain_owner");
-        set => this.WithProperty("domain_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_owner");
+        set => SetProperty("domain_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -125,26 +129,26 @@ public class AwsCodeartifactRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository");
-        set => this.WithProperty("repository", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository");
+        set => SetProperty("repository", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -154,8 +158,7 @@ public class AwsCodeartifactRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalConnections block(s) allowed")]
     public List<AwsCodeartifactRepositoryExternalConnectionsBlock>? ExternalConnections
     {
-        get => GetProperty<List<AwsCodeartifactRepositoryExternalConnectionsBlock>>("external_connections");
-        set => this.WithProperty("external_connections", value);
+        set => SetProperty("external_connections", value);
     }
 
     /// <summary>
@@ -164,8 +167,7 @@ public class AwsCodeartifactRepository : TerraformResource
     /// </summary>
     public List<AwsCodeartifactRepositoryUpstreamBlock>? Upstream
     {
-        get => GetProperty<List<AwsCodeartifactRepositoryUpstreamBlock>>("upstream");
-        set => this.WithProperty("upstream", value);
+        set => SetProperty("upstream", value);
     }
 
     /// <summary>

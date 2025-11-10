@@ -29,8 +29,7 @@ public class AwsAppfabricIngestionDestinationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -38,8 +37,7 @@ public class AwsAppfabricIngestionDestinationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -47,8 +45,7 @@ public class AwsAppfabricIngestionDestinationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -65,9 +62,13 @@ public class AwsAppfabricIngestionDestination : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("app_bundle_arn");
+        SetOutput("ingestion_arn");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AwsAppfabricIngestionDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformProperty<string> AppBundleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_bundle_arn");
-        set => this.WithProperty("app_bundle_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_bundle_arn");
+        set => SetProperty("app_bundle_arn", value);
     }
 
     /// <summary>
@@ -86,26 +87,26 @@ public class AwsAppfabricIngestionDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionArn is required")]
     public required TerraformProperty<string> IngestionArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ingestion_arn");
-        set => this.WithProperty("ingestion_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ingestion_arn");
+        set => SetProperty("ingestion_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -114,8 +115,7 @@ public class AwsAppfabricIngestionDestination : TerraformResource
     /// </summary>
     public List<AwsAppfabricIngestionDestinationDestinationConfigurationBlock>? DestinationConfiguration
     {
-        get => GetProperty<List<AwsAppfabricIngestionDestinationDestinationConfigurationBlock>>("destination_configuration");
-        set => this.WithProperty("destination_configuration", value);
+        set => SetProperty("destination_configuration", value);
     }
 
     /// <summary>
@@ -124,8 +124,7 @@ public class AwsAppfabricIngestionDestination : TerraformResource
     /// </summary>
     public List<AwsAppfabricIngestionDestinationProcessingConfigurationBlock>? ProcessingConfiguration
     {
-        get => GetProperty<List<AwsAppfabricIngestionDestinationProcessingConfigurationBlock>>("processing_configuration");
-        set => this.WithProperty("processing_configuration", value);
+        set => SetProperty("processing_configuration", value);
     }
 
     /// <summary>
@@ -134,8 +133,7 @@ public class AwsAppfabricIngestionDestination : TerraformResource
     /// </summary>
     public AwsAppfabricIngestionDestinationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAppfabricIngestionDestinationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// </summary>
     public TerraformProperty<bool>? EmbeddingDataDeliveryEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("embedding_data_delivery_enabled");
-        set => WithProperty("embedding_data_delivery_enabled", value);
+        set => SetProperty("embedding_data_delivery_enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// </summary>
     public TerraformProperty<bool>? ImageDataDeliveryEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("image_data_delivery_enabled");
-        set => WithProperty("image_data_delivery_enabled", value);
+        set => SetProperty("image_data_delivery_enabled", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// </summary>
     public TerraformProperty<bool>? TextDataDeliveryEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("text_data_delivery_enabled");
-        set => WithProperty("text_data_delivery_enabled", value);
+        set => SetProperty("text_data_delivery_enabled", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// </summary>
     public TerraformProperty<bool>? VideoDataDeliveryEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("video_data_delivery_enabled");
-        set => WithProperty("video_data_delivery_enabled", value);
+        set => SetProperty("video_data_delivery_enabled", value);
     }
 
 }
@@ -58,16 +54,17 @@ public class AwsBedrockModelInvocationLoggingConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -76,8 +73,7 @@ public class AwsBedrockModelInvocationLoggingConfiguration : TerraformResource
     /// </summary>
     public List<AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock>? LoggingConfig
     {
-        get => GetProperty<List<AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock>>("logging_config");
-        set => this.WithProperty("logging_config", value);
+        set => SetProperty("logging_config", value);
     }
 
     /// <summary>

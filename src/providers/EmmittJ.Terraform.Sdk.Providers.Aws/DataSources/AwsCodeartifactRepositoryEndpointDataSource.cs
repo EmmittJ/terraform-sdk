@@ -14,7 +14,13 @@ public class AwsCodeartifactRepositoryEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("repository_endpoint");
+        SetOutput("repository_endpoint");
+        SetOutput("domain");
+        SetOutput("domain_owner");
+        SetOutput("format");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("repository");
     }
 
     /// <summary>
@@ -23,17 +29,17 @@ public class AwsCodeartifactRepositoryEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainOwner
+    public TerraformProperty<string> DomainOwner
     {
-        get => GetProperty<TerraformProperty<string>>("domain_owner");
-        set => this.WithProperty("domain_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_owner");
+        set => SetProperty("domain_owner", value);
     }
 
     /// <summary>
@@ -42,26 +48,26 @@ public class AwsCodeartifactRepositoryEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("format");
-        set => this.WithProperty("format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("format");
+        set => SetProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -70,8 +76,8 @@ public class AwsCodeartifactRepositoryEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository");
-        set => this.WithProperty("repository", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository");
+        set => SetProperty("repository", value);
     }
 
     /// <summary>

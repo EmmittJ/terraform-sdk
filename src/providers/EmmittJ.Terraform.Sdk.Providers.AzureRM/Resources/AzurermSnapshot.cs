@@ -21,8 +21,7 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,7 +63,21 @@ public class AzurermSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrusted_launch_enabled");
+        SetOutput("trusted_launch_enabled");
+        SetOutput("create_option");
+        SetOutput("disk_access_id");
+        SetOutput("disk_size_gb");
+        SetOutput("id");
+        SetOutput("incremental_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network_access_policy");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("source_resource_id");
+        SetOutput("source_uri");
+        SetOutput("storage_account_id");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -76,44 +86,44 @@ public class AzurermSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformProperty<string> CreateOption
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("create_option");
-        set => this.WithProperty("create_option", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_option");
+        set => SetProperty("create_option", value);
     }
 
     /// <summary>
     /// The disk_access_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskAccessId
+    public TerraformProperty<string> DiskAccessId
     {
-        get => GetProperty<TerraformProperty<string>>("disk_access_id");
-        set => this.WithProperty("disk_access_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk_access_id");
+        set => SetProperty("disk_access_id", value);
     }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? DiskSizeGb
+    public TerraformProperty<double> DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
-        set => this.WithProperty("disk_size_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("disk_size_gb");
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The incremental_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncrementalEnabled
+    public TerraformProperty<bool> IncrementalEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("incremental_enabled");
-        set => this.WithProperty("incremental_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("incremental_enabled");
+        set => SetProperty("incremental_enabled", value);
     }
 
     /// <summary>
@@ -122,8 +132,8 @@ public class AzurermSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -132,26 +142,26 @@ public class AzurermSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_access_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkAccessPolicy
+    public TerraformProperty<string> NetworkAccessPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("network_access_policy");
-        set => this.WithProperty("network_access_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_access_policy");
+        set => SetProperty("network_access_policy", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -160,44 +170,44 @@ public class AzurermSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceResourceId
+    public TerraformProperty<string> SourceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_resource_id");
-        set => this.WithProperty("source_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_resource_id");
+        set => SetProperty("source_resource_id", value);
     }
 
     /// <summary>
     /// The source_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceUri
+    public TerraformProperty<string> SourceUri
     {
-        get => GetProperty<TerraformProperty<string>>("source_uri");
-        set => this.WithProperty("source_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_uri");
+        set => SetProperty("source_uri", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    public TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -207,8 +217,7 @@ public class AzurermSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSettings block(s) allowed")]
     public List<AzurermSnapshotEncryptionSettingsBlock>? EncryptionSettings
     {
-        get => GetProperty<List<AzurermSnapshotEncryptionSettingsBlock>>("encryption_settings");
-        set => this.WithProperty("encryption_settings", value);
+        set => SetProperty("encryption_settings", value);
     }
 
     /// <summary>
@@ -217,8 +226,7 @@ public class AzurermSnapshot : TerraformResource
     /// </summary>
     public AzurermSnapshotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSnapshotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

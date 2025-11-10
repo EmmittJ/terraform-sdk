@@ -13,8 +13,7 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeyTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeyTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeyTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeyTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,28 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey : TerraformRes
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("key_vault_id");
+        SetOutput("key_vault_key_id");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultId
+    public TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -84,8 +84,8 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => this.WithProperty("key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -104,8 +104,7 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey : TerraformRes
     /// </summary>
     public AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

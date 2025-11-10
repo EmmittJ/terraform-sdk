@@ -15,16 +15,22 @@ public class AwsCognitoIdentityOpenidTokenForDeveloperIdentityEphemeralResource 
 
     private void InitializeOutputs()
     {
-        this.WithOutput("token");
+        SetOutput("token");
+        SetOutput("identity_id");
+        SetOutput("identity_pool_id");
+        SetOutput("logins");
+        SetOutput("principal_tags");
+        SetOutput("region");
+        SetOutput("token_duration");
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityId
+    public TerraformProperty<string> IdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_id");
-        set => this.WithProperty("identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_id");
+        set => SetProperty("identity_id", value);
     }
 
     /// <summary>
@@ -33,45 +39,45 @@ public class AwsCognitoIdentityOpenidTokenForDeveloperIdentityEphemeralResource 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformProperty<string> IdentityPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_id");
-        set => this.WithProperty("identity_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_pool_id");
+        set => SetProperty("identity_pool_id", value);
     }
 
     /// <summary>
     /// The logins attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Logins is required")]
-    public Dictionary<string, TerraformProperty<string>>? Logins
+    public Dictionary<string, TerraformProperty<string>> Logins
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("logins");
-        set => this.WithProperty("logins", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("logins");
+        set => SetProperty("logins", value);
     }
 
     /// <summary>
     /// The principal_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? PrincipalTags
+    public Dictionary<string, TerraformProperty<string>> PrincipalTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("principal_tags");
-        set => this.WithProperty("principal_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("principal_tags");
+        set => SetProperty("principal_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The token_duration attribute.
     /// </summary>
-    public TerraformProperty<double>? TokenDuration
+    public TerraformProperty<double> TokenDuration
     {
-        get => GetProperty<TerraformProperty<double>>("token_duration");
-        set => this.WithProperty("token_duration", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("token_duration");
+        set => SetProperty("token_duration", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSpringCloudCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,29 @@ public class AzurermSpringCloudCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("certificate_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("spring_cloud_app_id");
+        SetOutput("thumbprint");
     }
 
     /// <summary>
     /// The certificate_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateName
+    public TerraformProperty<string> CertificateName
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_name");
-        set => this.WithProperty("certificate_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_name");
+        set => SetProperty("certificate_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +85,8 @@ public class AzurermSpringCloudCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -94,17 +95,17 @@ public class AzurermSpringCloudCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
-        set => this.WithProperty("spring_cloud_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
+        set => SetProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformProperty<string>? Thumbprint
+    public TerraformProperty<string> Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
-        set => this.WithProperty("thumbprint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("thumbprint");
+        set => SetProperty("thumbprint", value);
     }
 
     /// <summary>
@@ -113,8 +114,7 @@ public class AzurermSpringCloudCustomDomain : TerraformResource
     /// </summary>
     public AzurermSpringCloudCustomDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudCustomDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

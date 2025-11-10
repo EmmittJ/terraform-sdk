@@ -13,8 +13,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     public TerraformProperty<string>? CreateTime
     {
-        get => GetProperty<TerraformProperty<string>>("create_time");
-        set => WithProperty("create_time", value);
+        set => SetProperty("create_time", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -35,8 +33,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     public TerraformProperty<string>? PerimeterType
     {
-        get => GetProperty<TerraformProperty<string>>("perimeter_type");
-        set => WithProperty("perimeter_type", value);
+        set => SetProperty("perimeter_type", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -78,8 +73,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     public TerraformProperty<string>? UpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("update_time");
-        set => WithProperty("update_time", value);
+        set => SetProperty("update_time", value);
     }
 
     /// <summary>
@@ -95,8 +89,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     public TerraformProperty<bool>? UseExplicitDryRunSpec
     {
-        get => GetProperty<TerraformProperty<bool>>("use_explicit_dry_run_spec");
-        set => WithProperty("use_explicit_dry_run_spec", value);
+        set => SetProperty("use_explicit_dry_run_spec", value);
     }
 
 }
@@ -112,8 +105,7 @@ public class GoogleAccessContextManagerServicePerimetersTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -121,8 +113,7 @@ public class GoogleAccessContextManagerServicePerimetersTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -130,8 +121,7 @@ public class GoogleAccessContextManagerServicePerimetersTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -148,15 +138,17 @@ public class GoogleAccessContextManagerServicePerimeters : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -166,8 +158,8 @@ public class GoogleAccessContextManagerServicePerimeters : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -176,8 +168,7 @@ public class GoogleAccessContextManagerServicePerimeters : TerraformResource
     /// </summary>
     public List<GoogleAccessContextManagerServicePerimetersServicePerimetersBlock>? ServicePerimeters
     {
-        get => GetProperty<List<GoogleAccessContextManagerServicePerimetersServicePerimetersBlock>>("service_perimeters");
-        set => this.WithProperty("service_perimeters", value);
+        set => SetProperty("service_perimeters", value);
     }
 
     /// <summary>
@@ -186,8 +177,7 @@ public class GoogleAccessContextManagerServicePerimeters : TerraformResource
     /// </summary>
     public GoogleAccessContextManagerServicePerimetersTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerServicePerimetersTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

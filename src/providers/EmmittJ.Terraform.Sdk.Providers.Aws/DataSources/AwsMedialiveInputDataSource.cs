@@ -14,21 +14,23 @@ public class AwsMedialiveInputDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputttached_channels");
-        this.WithOutputestinations");
-        this.WithOutputnput_class");
-        this.WithOutputnput_devices");
-        this.WithOutputnput_partner_ids");
-        this.WithOutputnput_source_type");
-        this.WithOutputedia_connect_flows");
-        this.WithOutputame");
-        this.WithOutputole_arn");
-        this.WithOutputecurity_groups");
-        this.WithOutputources");
-        this.WithOutputtate");
-        this.WithOutputags");
-        this.WithOutputype");
+        SetOutput("arn");
+        SetOutput("attached_channels");
+        SetOutput("destinations");
+        SetOutput("input_class");
+        SetOutput("input_devices");
+        SetOutput("input_partner_ids");
+        SetOutput("input_source_type");
+        SetOutput("media_connect_flows");
+        SetOutput("name");
+        SetOutput("role_arn");
+        SetOutput("security_groups");
+        SetOutput("sources");
+        SetOutput("state");
+        SetOutput("tags");
+        SetOutput("type");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -37,17 +39,17 @@ public class AwsMedialiveInputDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -14,83 +14,87 @@ public class AwsDbInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("address");
-        this.WithOutput("allocated_storage");
-        this.WithOutput("auto_minor_version_upgrade");
-        this.WithOutput("availability_zone");
-        this.WithOutput("backup_retention_period");
-        this.WithOutput("ca_cert_identifier");
-        this.WithOutput("database_insights_mode");
-        this.WithOutput("db_cluster_identifier");
-        this.WithOutput("db_instance_arn");
-        this.WithOutput("db_instance_class");
-        this.WithOutput("db_instance_port");
-        this.WithOutput("db_name");
-        this.WithOutput("db_parameter_groups");
-        this.WithOutput("db_subnet_group");
-        this.WithOutput("enabled_cloudwatch_logs_exports");
-        this.WithOutput("endpoint");
-        this.WithOutput("engine");
-        this.WithOutput("engine_version");
-        this.WithOutput("hosted_zone_id");
-        this.WithOutput("iops");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("license_model");
-        this.WithOutput("master_user_secret");
-        this.WithOutput("master_username");
-        this.WithOutput("max_allocated_storage");
-        this.WithOutput("monitoring_interval");
-        this.WithOutput("monitoring_role_arn");
-        this.WithOutput("multi_az");
-        this.WithOutput("network_type");
-        this.WithOutput("option_group_memberships");
-        this.WithOutput("port");
-        this.WithOutput("preferred_backup_window");
-        this.WithOutput("preferred_maintenance_window");
-        this.WithOutput("publicly_accessible");
-        this.WithOutput("replicate_source_db");
-        this.WithOutput("resource_id");
-        this.WithOutput("storage_encrypted");
-        this.WithOutput("storage_throughput");
-        this.WithOutput("storage_type");
-        this.WithOutput("timezone");
-        this.WithOutput("vpc_security_groups");
+        SetOutput("address");
+        SetOutput("allocated_storage");
+        SetOutput("auto_minor_version_upgrade");
+        SetOutput("availability_zone");
+        SetOutput("backup_retention_period");
+        SetOutput("ca_cert_identifier");
+        SetOutput("database_insights_mode");
+        SetOutput("db_cluster_identifier");
+        SetOutput("db_instance_arn");
+        SetOutput("db_instance_class");
+        SetOutput("db_instance_port");
+        SetOutput("db_name");
+        SetOutput("db_parameter_groups");
+        SetOutput("db_subnet_group");
+        SetOutput("enabled_cloudwatch_logs_exports");
+        SetOutput("endpoint");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("hosted_zone_id");
+        SetOutput("iops");
+        SetOutput("kms_key_id");
+        SetOutput("license_model");
+        SetOutput("master_user_secret");
+        SetOutput("master_username");
+        SetOutput("max_allocated_storage");
+        SetOutput("monitoring_interval");
+        SetOutput("monitoring_role_arn");
+        SetOutput("multi_az");
+        SetOutput("network_type");
+        SetOutput("option_group_memberships");
+        SetOutput("port");
+        SetOutput("preferred_backup_window");
+        SetOutput("preferred_maintenance_window");
+        SetOutput("publicly_accessible");
+        SetOutput("replicate_source_db");
+        SetOutput("resource_id");
+        SetOutput("storage_encrypted");
+        SetOutput("storage_throughput");
+        SetOutput("storage_type");
+        SetOutput("timezone");
+        SetOutput("vpc_security_groups");
+        SetOutput("db_instance_identifier");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbInstanceIdentifier
+    public TerraformProperty<string> DbInstanceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_instance_identifier");
-        set => this.WithProperty("db_instance_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_identifier");
+        set => SetProperty("db_instance_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

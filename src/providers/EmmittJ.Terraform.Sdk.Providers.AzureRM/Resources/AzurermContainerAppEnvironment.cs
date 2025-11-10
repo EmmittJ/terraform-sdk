@@ -13,8 +13,7 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -102,8 +94,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumCount
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_count");
-        set => WithProperty("maximum_count", value);
+        set => SetProperty("maximum_count", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinimumCount
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_count");
-        set => WithProperty("minimum_count", value);
+        set => SetProperty("minimum_count", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -131,8 +120,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadProfileType is required")]
     public required TerraformProperty<string> WorkloadProfileType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workload_profile_type");
-        set => WithProperty("workload_profile_type", value);
+        set => SetProperty("workload_profile_type", value);
     }
 
 }
@@ -150,57 +138,71 @@ public class AzurermContainerAppEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("custom_domain_verification_id");
-        this.WithOutput("default_domain");
-        this.WithOutput("docker_bridge_cidr");
-        this.WithOutput("platform_reserved_cidr");
-        this.WithOutput("platform_reserved_dns_ip_address");
-        this.WithOutput("static_ip_address");
+        SetOutput("custom_domain_verification_id");
+        SetOutput("default_domain");
+        SetOutput("docker_bridge_cidr");
+        SetOutput("platform_reserved_cidr");
+        SetOutput("platform_reserved_dns_ip_address");
+        SetOutput("static_ip_address");
+        SetOutput("dapr_application_insights_connection_string");
+        SetOutput("id");
+        SetOutput("infrastructure_resource_group_name");
+        SetOutput("infrastructure_subnet_id");
+        SetOutput("internal_load_balancer_enabled");
+        SetOutput("location");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("logs_destination");
+        SetOutput("mutual_tls_enabled");
+        SetOutput("name");
+        SetOutput("public_network_access");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("zone_redundancy_enabled");
     }
 
     /// <summary>
     /// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
     /// </summary>
-    public TerraformProperty<string>? DaprApplicationInsightsConnectionString
+    public TerraformProperty<string> DaprApplicationInsightsConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("dapr_application_insights_connection_string");
-        set => this.WithProperty("dapr_application_insights_connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dapr_application_insights_connection_string");
+        set => SetProperty("dapr_application_insights_connection_string", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
     /// </summary>
-    public TerraformProperty<string>? InfrastructureResourceGroupName
+    public TerraformProperty<string> InfrastructureResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("infrastructure_resource_group_name");
-        set => this.WithProperty("infrastructure_resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("infrastructure_resource_group_name");
+        set => SetProperty("infrastructure_resource_group_name", value);
     }
 
     /// <summary>
     /// The existing Subnet to use for the Container Apps Control Plane. **NOTE:** The Subnet must have a `/21` or larger address space.
     /// </summary>
-    public TerraformProperty<string>? InfrastructureSubnetId
+    public TerraformProperty<string> InfrastructureSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("infrastructure_subnet_id");
-        set => this.WithProperty("infrastructure_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("infrastructure_subnet_id");
+        set => SetProperty("infrastructure_subnet_id", value);
     }
 
     /// <summary>
     /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
     /// </summary>
-    public TerraformProperty<bool>? InternalLoadBalancerEnabled
+    public TerraformProperty<bool> InternalLoadBalancerEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("internal_load_balancer_enabled");
-        set => this.WithProperty("internal_load_balancer_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("internal_load_balancer_enabled");
+        set => SetProperty("internal_load_balancer_enabled", value);
     }
 
     /// <summary>
@@ -209,35 +211,35 @@ public class AzurermContainerAppEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
     /// </summary>
-    public TerraformProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The logs_destination attribute.
     /// </summary>
-    public TerraformProperty<string>? LogsDestination
+    public TerraformProperty<string> LogsDestination
     {
-        get => GetProperty<TerraformProperty<string>>("logs_destination");
-        set => this.WithProperty("logs_destination", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logs_destination");
+        set => SetProperty("logs_destination", value);
     }
 
     /// <summary>
     /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`. **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
     /// </summary>
-    public TerraformProperty<bool>? MutualTlsEnabled
+    public TerraformProperty<bool> MutualTlsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("mutual_tls_enabled");
-        set => this.WithProperty("mutual_tls_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("mutual_tls_enabled");
+        set => SetProperty("mutual_tls_enabled", value);
     }
 
     /// <summary>
@@ -246,17 +248,17 @@ public class AzurermContainerAppEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public network access setting for the Container App Environment.
     /// </summary>
-    public TerraformProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string> PublicNetworkAccess
     {
-        get => GetProperty<TerraformProperty<string>>("public_network_access");
-        set => this.WithProperty("public_network_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_network_access");
+        set => SetProperty("public_network_access", value);
     }
 
     /// <summary>
@@ -265,26 +267,26 @@ public class AzurermContainerAppEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ZoneRedundancyEnabled
+    public TerraformProperty<bool> ZoneRedundancyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_redundancy_enabled");
-        set => this.WithProperty("zone_redundancy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("zone_redundancy_enabled");
+        set => SetProperty("zone_redundancy_enabled", value);
     }
 
     /// <summary>
@@ -294,8 +296,7 @@ public class AzurermContainerAppEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermContainerAppEnvironmentIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermContainerAppEnvironmentIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -304,8 +305,7 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// </summary>
     public AzurermContainerAppEnvironmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerAppEnvironmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -314,8 +314,7 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// </summary>
     public HashSet<AzurermContainerAppEnvironmentWorkloadProfileBlock>? WorkloadProfile
     {
-        get => GetProperty<HashSet<AzurermContainerAppEnvironmentWorkloadProfileBlock>>("workload_profile");
-        set => this.WithProperty("workload_profile", value);
+        set => SetProperty("workload_profile", value);
     }
 
     /// <summary>

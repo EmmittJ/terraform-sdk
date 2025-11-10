@@ -14,8 +14,7 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("direction");
-        set => WithProperty("direction", value);
+        set => SetProperty("direction", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Polarization is required")]
     public required TerraformProperty<string> Polarization
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("polarization");
-        set => WithProperty("polarization", value);
+        set => SetProperty("polarization", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -98,6 +91,16 @@ public class AzurermOrbitalContactProfile : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("auto_tracking");
+        SetOutput("event_hub_uri");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("minimum_elevation_degrees");
+        SetOutput("minimum_variable_contact_duration");
+        SetOutput("name");
+        SetOutput("network_configuration_subnet_id");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -106,26 +109,26 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoTracking is required")]
     public required TerraformProperty<string> AutoTracking
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auto_tracking");
-        set => this.WithProperty("auto_tracking", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_tracking");
+        set => SetProperty("auto_tracking", value);
     }
 
     /// <summary>
     /// The event_hub_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? EventHubUri
+    public TerraformProperty<string> EventHubUri
     {
-        get => GetProperty<TerraformProperty<string>>("event_hub_uri");
-        set => this.WithProperty("event_hub_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_hub_uri");
+        set => SetProperty("event_hub_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -134,17 +137,17 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The minimum_elevation_degrees attribute.
     /// </summary>
-    public TerraformProperty<double>? MinimumElevationDegrees
+    public TerraformProperty<double> MinimumElevationDegrees
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_elevation_degrees");
-        set => this.WithProperty("minimum_elevation_degrees", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("minimum_elevation_degrees");
+        set => SetProperty("minimum_elevation_degrees", value);
     }
 
     /// <summary>
@@ -153,8 +156,8 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumVariableContactDuration is required")]
     public required TerraformProperty<string> MinimumVariableContactDuration
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("minimum_variable_contact_duration");
-        set => this.WithProperty("minimum_variable_contact_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("minimum_variable_contact_duration");
+        set => SetProperty("minimum_variable_contact_duration", value);
     }
 
     /// <summary>
@@ -163,8 +166,8 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -173,8 +176,8 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkConfigurationSubnetId is required")]
     public required TerraformProperty<string> NetworkConfigurationSubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_configuration_subnet_id");
-        set => this.WithProperty("network_configuration_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_configuration_subnet_id");
+        set => SetProperty("network_configuration_subnet_id", value);
     }
 
     /// <summary>
@@ -183,28 +186,28 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for links.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Links is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Links block(s) required")]
     public List<AzurermOrbitalContactProfileLinksBlock>? Links
     {
-        get => GetProperty<List<AzurermOrbitalContactProfileLinksBlock>>("links");
-        set => this.WithProperty("links", value);
+        set => SetProperty("links", value);
     }
 
     /// <summary>
@@ -213,8 +216,7 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// </summary>
     public AzurermOrbitalContactProfileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOrbitalContactProfileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

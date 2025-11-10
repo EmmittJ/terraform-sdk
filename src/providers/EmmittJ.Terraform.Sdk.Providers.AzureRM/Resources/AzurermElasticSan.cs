@@ -14,8 +14,7 @@ public class AzurermElasticSanSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermElasticSanSkuBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
-        set => WithProperty("tier", value);
+        set => SetProperty("tier", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,11 +80,19 @@ public class AzurermElasticSan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("total_iops");
-        this.WithOutput("total_mbps");
-        this.WithOutput("total_size_in_tib");
-        this.WithOutput("total_volume_size_in_gib");
-        this.WithOutput("volume_group_count");
+        SetOutput("total_iops");
+        SetOutput("total_mbps");
+        SetOutput("total_size_in_tib");
+        SetOutput("total_volume_size_in_gib");
+        SetOutput("volume_group_count");
+        SetOutput("base_size_in_tib");
+        SetOutput("extended_size_in_tib");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("zones");
     }
 
     /// <summary>
@@ -99,26 +101,26 @@ public class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseSizeInTib is required")]
     public required TerraformProperty<double> BaseSizeInTib
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("base_size_in_tib");
-        set => this.WithProperty("base_size_in_tib", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("base_size_in_tib");
+        set => SetProperty("base_size_in_tib", value);
     }
 
     /// <summary>
     /// The extended_size_in_tib attribute.
     /// </summary>
-    public TerraformProperty<double>? ExtendedSizeInTib
+    public TerraformProperty<double> ExtendedSizeInTib
     {
-        get => GetProperty<TerraformProperty<double>>("extended_size_in_tib");
-        set => this.WithProperty("extended_size_in_tib", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("extended_size_in_tib");
+        set => SetProperty("extended_size_in_tib", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -127,8 +129,8 @@ public class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -137,8 +139,8 @@ public class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -147,38 +149,38 @@ public class AzurermElasticSan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
     /// Block for sku.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     public List<AzurermElasticSanSkuBlock>? Sku
     {
-        get => GetProperty<List<AzurermElasticSanSkuBlock>>("sku");
-        set => this.WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -187,8 +189,7 @@ public class AzurermElasticSan : TerraformResource
     /// </summary>
     public AzurermElasticSanTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermElasticSanTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

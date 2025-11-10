@@ -14,8 +14,7 @@ public class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<double>? Days
     {
-        get => GetProperty<TerraformProperty<double>>("days");
-        set => WithProperty("days", value);
+        set => SetProperty("days", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
-        set => WithProperty("duration", value);
+        set => SetProperty("duration", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleBigtableGcPolicyMaxVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Number is required")]
     public required TerraformProperty<double> Number
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("number");
-        set => WithProperty("number", value);
+        set => SetProperty("number", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class GoogleBigtableGcPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class GoogleBigtableGcPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -86,6 +81,15 @@ public class GoogleBigtableGcPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("column_family");
+        SetOutput("deletion_policy");
+        SetOutput("gc_rules");
+        SetOutput("id");
+        SetOutput("ignore_warnings");
+        SetOutput("instance_name");
+        SetOutput("mode");
+        SetOutput("project");
+        SetOutput("table");
     }
 
     /// <summary>
@@ -94,8 +98,8 @@ public class GoogleBigtableGcPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnFamily is required")]
     public required TerraformProperty<string> ColumnFamily
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("column_family");
-        set => this.WithProperty("column_family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("column_family");
+        set => SetProperty("column_family", value);
     }
 
     /// <summary>
@@ -103,28 +107,28 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// 				to be abandoned rather than deleted. This is useful for GC policy as it cannot be deleted
     /// 				in a replicated instance. Possible values are: &amp;quot;ABANDON&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// Serialized JSON string for garbage collection policy. Conflicts with &amp;quot;mode&amp;quot;, &amp;quot;max_age&amp;quot; and &amp;quot;max_version&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? GcRules
+    public TerraformProperty<string> GcRules
     {
-        get => GetProperty<TerraformProperty<string>>("gc_rules");
-        set => this.WithProperty("gc_rules", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gc_rules");
+        set => SetProperty("gc_rules", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -133,10 +137,10 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// 				inconsistent for a longer period of time, before using this make sure you understand
     /// 				the risks listed at https://cloud.google.com/bigtable/docs/garbage-collection#increasing
     /// </summary>
-    public TerraformProperty<bool>? IgnoreWarnings
+    public TerraformProperty<bool> IgnoreWarnings
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_warnings");
-        set => this.WithProperty("ignore_warnings", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_warnings");
+        set => SetProperty("ignore_warnings", value);
     }
 
     /// <summary>
@@ -145,26 +149,26 @@ public class GoogleBigtableGcPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
-        set => this.WithProperty("instance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_name");
+        set => SetProperty("instance_name", value);
     }
 
     /// <summary>
     /// NOTE: &#39;gc_rules&#39; is more flexible, and should be preferred over this field for new resources. This field may be deprecated in the future. If multiple policies are set, you should choose between UNION OR INTERSECTION.
     /// </summary>
-    public TerraformProperty<string>? Mode
+    public TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => this.WithProperty("mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mode");
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -173,8 +177,8 @@ public class GoogleBigtableGcPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table");
-        set => this.WithProperty("table", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table");
+        set => SetProperty("table", value);
     }
 
     /// <summary>
@@ -184,8 +188,7 @@ public class GoogleBigtableGcPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxAge block(s) allowed")]
     public List<GoogleBigtableGcPolicyMaxAgeBlock>? MaxAge
     {
-        get => GetProperty<List<GoogleBigtableGcPolicyMaxAgeBlock>>("max_age");
-        set => this.WithProperty("max_age", value);
+        set => SetProperty("max_age", value);
     }
 
     /// <summary>
@@ -194,8 +197,7 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// </summary>
     public List<GoogleBigtableGcPolicyMaxVersionBlock>? MaxVersion
     {
-        get => GetProperty<List<GoogleBigtableGcPolicyMaxVersionBlock>>("max_version");
-        set => this.WithProperty("max_version", value);
+        set => SetProperty("max_version", value);
     }
 
     /// <summary>
@@ -204,8 +206,7 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// </summary>
     public GoogleBigtableGcPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigtableGcPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

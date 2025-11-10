@@ -13,8 +13,7 @@ public class AzurermApiManagementApiDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,18 +30,23 @@ public class AzurermApiManagementApiDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("is_current");
-        this.WithOutput("is_online");
-        this.WithOutput("path");
-        this.WithOutput("protocols");
-        this.WithOutput("service_url");
-        this.WithOutput("soap_pass_through");
-        this.WithOutput("subscription_key_parameter_names");
-        this.WithOutput("subscription_required");
-        this.WithOutput("version");
-        this.WithOutput("version_set_id");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("is_current");
+        SetOutput("is_online");
+        SetOutput("path");
+        SetOutput("protocols");
+        SetOutput("service_url");
+        SetOutput("soap_pass_through");
+        SetOutput("subscription_key_parameter_names");
+        SetOutput("subscription_required");
+        SetOutput("version");
+        SetOutput("version_set_id");
+        SetOutput("api_management_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("revision");
     }
 
     /// <summary>
@@ -51,17 +55,17 @@ public class AzurermApiManagementApiDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -70,8 +74,8 @@ public class AzurermApiManagementApiDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -80,8 +84,8 @@ public class AzurermApiManagementApiDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -90,8 +94,8 @@ public class AzurermApiManagementApiDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformProperty<string> Revision
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("revision");
-        set => this.WithProperty("revision", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revision");
+        set => SetProperty("revision", value);
     }
 
     /// <summary>
@@ -100,8 +104,7 @@ public class AzurermApiManagementApiDataSource : TerraformDataSource
     /// </summary>
     public AzurermApiManagementApiDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementApiDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

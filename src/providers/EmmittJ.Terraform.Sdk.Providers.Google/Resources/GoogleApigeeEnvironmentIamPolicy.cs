@@ -14,7 +14,11 @@ public class GoogleApigeeEnvironmentIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("env_id");
+        SetOutput("id");
+        SetOutput("org_id");
+        SetOutput("policy_data");
     }
 
     /// <summary>
@@ -23,17 +27,17 @@ public class GoogleApigeeEnvironmentIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
-        set => this.WithProperty("env_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
+        set => SetProperty("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,8 +46,8 @@ public class GoogleApigeeEnvironmentIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -52,8 +56,8 @@ public class GoogleApigeeEnvironmentIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
-        set => this.WithProperty("policy_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
+        set => SetProperty("policy_data", value);
     }
 
     /// <summary>

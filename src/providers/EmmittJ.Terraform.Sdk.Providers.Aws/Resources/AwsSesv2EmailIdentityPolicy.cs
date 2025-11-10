@@ -14,6 +14,11 @@ public class AwsSesv2EmailIdentityPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("email_identity");
+        SetOutput("id");
+        SetOutput("policy");
+        SetOutput("policy_name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,17 +27,17 @@ public class AwsSesv2EmailIdentityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
     public required TerraformProperty<string> EmailIdentity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_identity");
-        set => this.WithProperty("email_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_identity");
+        set => SetProperty("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,8 +46,8 @@ public class AwsSesv2EmailIdentityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
@@ -51,17 +56,17 @@ public class AwsSesv2EmailIdentityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
     public required TerraformProperty<string> PolicyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_name");
-        set => this.WithProperty("policy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_name");
+        set => SetProperty("policy_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

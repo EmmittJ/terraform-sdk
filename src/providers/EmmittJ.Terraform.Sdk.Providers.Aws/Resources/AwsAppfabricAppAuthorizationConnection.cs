@@ -14,8 +14,7 @@ public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformProperty<string> Code
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("code");
-        set => WithProperty("code", value);
+        set => SetProperty("code", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
     public required TerraformProperty<string> RedirectUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("redirect_uri");
-        set => WithProperty("redirect_uri", value);
+        set => SetProperty("redirect_uri", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsAppfabricAppAuthorizationConnectionTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -59,9 +56,12 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app");
-        this.WithOutput("id");
-        this.WithOutput("tenant");
+        SetOutput("app");
+        SetOutput("id");
+        SetOutput("tenant");
+        SetOutput("app_authorization_arn");
+        SetOutput("app_bundle_arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -70,8 +70,8 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppAuthorizationArn is required")]
     public required TerraformProperty<string> AppAuthorizationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_authorization_arn");
-        set => this.WithProperty("app_authorization_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_authorization_arn");
+        set => SetProperty("app_authorization_arn", value);
     }
 
     /// <summary>
@@ -80,17 +80,17 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformProperty<string> AppBundleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_bundle_arn");
-        set => this.WithProperty("app_bundle_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_bundle_arn");
+        set => SetProperty("app_bundle_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -99,8 +99,7 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
     /// </summary>
     public List<AwsAppfabricAppAuthorizationConnectionAuthRequestBlock>? AuthRequest
     {
-        get => GetProperty<List<AwsAppfabricAppAuthorizationConnectionAuthRequestBlock>>("auth_request");
-        set => this.WithProperty("auth_request", value);
+        set => SetProperty("auth_request", value);
     }
 
     /// <summary>
@@ -109,8 +108,7 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
     /// </summary>
     public AwsAppfabricAppAuthorizationConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAppfabricAppAuthorizationConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

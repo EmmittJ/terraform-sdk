@@ -14,8 +14,7 @@ public class AwsRedshiftdataStatementParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsRedshiftdataStatementParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsRedshiftdataStatementTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -59,15 +56,25 @@ public class AwsRedshiftdataStatement : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cluster_identifier");
+        SetOutput("database");
+        SetOutput("db_user");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("secret_arn");
+        SetOutput("sql");
+        SetOutput("statement_name");
+        SetOutput("with_event");
+        SetOutput("workgroup_name");
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    public TerraformProperty<string> ClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
@@ -76,44 +83,44 @@ public class AwsRedshiftdataStatement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database");
-        set => this.WithProperty("database", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database");
+        set => SetProperty("database", value);
     }
 
     /// <summary>
     /// The db_user attribute.
     /// </summary>
-    public TerraformProperty<string>? DbUser
+    public TerraformProperty<string> DbUser
     {
-        get => GetProperty<TerraformProperty<string>>("db_user");
-        set => this.WithProperty("db_user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_user");
+        set => SetProperty("db_user", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretArn
+    public TerraformProperty<string> SecretArn
     {
-        get => GetProperty<TerraformProperty<string>>("secret_arn");
-        set => this.WithProperty("secret_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_arn");
+        set => SetProperty("secret_arn", value);
     }
 
     /// <summary>
@@ -122,35 +129,35 @@ public class AwsRedshiftdataStatement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sql is required")]
     public required TerraformProperty<string> Sql
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sql");
-        set => this.WithProperty("sql", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sql");
+        set => SetProperty("sql", value);
     }
 
     /// <summary>
     /// The statement_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StatementName
+    public TerraformProperty<string> StatementName
     {
-        get => GetProperty<TerraformProperty<string>>("statement_name");
-        set => this.WithProperty("statement_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("statement_name");
+        set => SetProperty("statement_name", value);
     }
 
     /// <summary>
     /// The with_event attribute.
     /// </summary>
-    public TerraformProperty<bool>? WithEvent
+    public TerraformProperty<bool> WithEvent
     {
-        get => GetProperty<TerraformProperty<bool>>("with_event");
-        set => this.WithProperty("with_event", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("with_event");
+        set => SetProperty("with_event", value);
     }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkgroupName
+    public TerraformProperty<string> WorkgroupName
     {
-        get => GetProperty<TerraformProperty<string>>("workgroup_name");
-        set => this.WithProperty("workgroup_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workgroup_name");
+        set => SetProperty("workgroup_name", value);
     }
 
     /// <summary>
@@ -159,8 +166,7 @@ public class AwsRedshiftdataStatement : TerraformResource
     /// </summary>
     public List<AwsRedshiftdataStatementParametersBlock>? Parameters
     {
-        get => GetProperty<List<AwsRedshiftdataStatementParametersBlock>>("parameters");
-        set => this.WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -169,8 +175,7 @@ public class AwsRedshiftdataStatement : TerraformResource
     /// </summary>
     public AwsRedshiftdataStatementTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRedshiftdataStatementTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

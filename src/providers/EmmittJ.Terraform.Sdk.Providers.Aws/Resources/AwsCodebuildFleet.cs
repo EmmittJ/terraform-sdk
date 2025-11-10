@@ -13,8 +13,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Disk
     {
-        get => GetProperty<TerraformProperty<double>>("disk");
-        set => WithProperty("disk", value);
+        set => SetProperty("disk", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
-        set => WithProperty("machine_type", value);
+        set => SetProperty("machine_type", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Memory
     {
-        get => GetProperty<TerraformProperty<double>>("memory");
-        set => WithProperty("memory", value);
+        set => SetProperty("memory", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Vcpu
     {
-        get => GetProperty<TerraformProperty<double>>("vcpu");
-        set => WithProperty("vcpu", value);
+        set => SetProperty("vcpu", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DesiredCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("desired_capacity");
-        set => WithProperty("desired_capacity", value);
+        set => SetProperty("desired_capacity", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity");
-        set => WithProperty("max_capacity", value);
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScalingType
     {
-        get => GetProperty<TerraformProperty<string>>("scaling_type");
-        set => WithProperty("scaling_type", value);
+        set => SetProperty("scaling_type", value);
     }
 
 }
@@ -102,8 +94,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
-        set => WithProperty("subnets", value);
+        set => SetProperty("subnets", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -141,11 +130,21 @@ public class AwsCodebuildFleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created");
-        this.WithOutput("id");
-        this.WithOutput("last_modified");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("created");
+        SetOutput("id");
+        SetOutput("last_modified");
+        SetOutput("status");
+        SetOutput("base_capacity");
+        SetOutput("compute_type");
+        SetOutput("environment_type");
+        SetOutput("fleet_service_role");
+        SetOutput("image_id");
+        SetOutput("name");
+        SetOutput("overflow_behavior");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -154,8 +153,8 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseCapacity is required")]
     public required TerraformProperty<double> BaseCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("base_capacity");
-        set => this.WithProperty("base_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("base_capacity");
+        set => SetProperty("base_capacity", value);
     }
 
     /// <summary>
@@ -164,8 +163,8 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
     public required TerraformProperty<string> ComputeType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("compute_type");
-        set => this.WithProperty("compute_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compute_type");
+        set => SetProperty("compute_type", value);
     }
 
     /// <summary>
@@ -174,26 +173,26 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentType is required")]
     public required TerraformProperty<string> EnvironmentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment_type");
-        set => this.WithProperty("environment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_type");
+        set => SetProperty("environment_type", value);
     }
 
     /// <summary>
     /// The fleet_service_role attribute.
     /// </summary>
-    public TerraformProperty<string>? FleetServiceRole
+    public TerraformProperty<string> FleetServiceRole
     {
-        get => GetProperty<TerraformProperty<string>>("fleet_service_role");
-        set => this.WithProperty("fleet_service_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fleet_service_role");
+        set => SetProperty("fleet_service_role", value);
     }
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageId
+    public TerraformProperty<string> ImageId
     {
-        get => GetProperty<TerraformProperty<string>>("image_id");
-        set => this.WithProperty("image_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_id");
+        set => SetProperty("image_id", value);
     }
 
     /// <summary>
@@ -202,44 +201,44 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The overflow_behavior attribute.
     /// </summary>
-    public TerraformProperty<string>? OverflowBehavior
+    public TerraformProperty<string> OverflowBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("overflow_behavior");
-        set => this.WithProperty("overflow_behavior", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("overflow_behavior");
+        set => SetProperty("overflow_behavior", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -249,8 +248,7 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeConfiguration block(s) allowed")]
     public List<AwsCodebuildFleetComputeConfigurationBlock>? ComputeConfiguration
     {
-        get => GetProperty<List<AwsCodebuildFleetComputeConfigurationBlock>>("compute_configuration");
-        set => this.WithProperty("compute_configuration", value);
+        set => SetProperty("compute_configuration", value);
     }
 
     /// <summary>
@@ -260,8 +258,7 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfiguration block(s) allowed")]
     public List<AwsCodebuildFleetScalingConfigurationBlock>? ScalingConfiguration
     {
-        get => GetProperty<List<AwsCodebuildFleetScalingConfigurationBlock>>("scaling_configuration");
-        set => this.WithProperty("scaling_configuration", value);
+        set => SetProperty("scaling_configuration", value);
     }
 
     /// <summary>
@@ -270,8 +267,7 @@ public class AwsCodebuildFleet : TerraformResource
     /// </summary>
     public List<AwsCodebuildFleetVpcConfigBlock>? VpcConfig
     {
-        get => GetProperty<List<AwsCodebuildFleetVpcConfigBlock>>("vpc_config");
-        set => this.WithProperty("vpc_config", value);
+        set => SetProperty("vpc_config", value);
     }
 
     /// <summary>

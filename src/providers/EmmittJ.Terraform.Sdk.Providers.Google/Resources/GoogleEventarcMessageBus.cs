@@ -14,8 +14,7 @@ public class GoogleEventarcMessageBusLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LogSeverity
     {
-        get => GetProperty<TerraformProperty<string>>("log_severity");
-        set => WithProperty("log_severity", value);
+        set => SetProperty("log_severity", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleEventarcMessageBusTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleEventarcMessageBusTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleEventarcMessageBusTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -68,14 +64,22 @@ public class GoogleEventarcMessageBus : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("crypto_key_name");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("message_bus_id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -84,10 +88,10 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -97,28 +101,28 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// It must match the pattern
     /// &#39;projects/*/locations/*/keyRings/*/cryptoKeys/*&#39;.
     /// </summary>
-    public TerraformProperty<string>? CryptoKeyName
+    public TerraformProperty<string> CryptoKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("crypto_key_name");
-        set => this.WithProperty("crypto_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key_name");
+        set => SetProperty("crypto_key_name", value);
     }
 
     /// <summary>
     /// Optional. Resource display name.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -127,10 +131,10 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -139,8 +143,8 @@ public class GoogleEventarcMessageBus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -150,17 +154,17 @@ public class GoogleEventarcMessageBus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageBusId is required")]
     public required TerraformProperty<string> MessageBusId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("message_bus_id");
-        set => this.WithProperty("message_bus_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("message_bus_id");
+        set => SetProperty("message_bus_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -170,8 +174,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     public List<GoogleEventarcMessageBusLoggingConfigBlock>? LoggingConfig
     {
-        get => GetProperty<List<GoogleEventarcMessageBusLoggingConfigBlock>>("logging_config");
-        set => this.WithProperty("logging_config", value);
+        set => SetProperty("logging_config", value);
     }
 
     /// <summary>
@@ -180,8 +183,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     /// </summary>
     public GoogleEventarcMessageBusTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleEventarcMessageBusTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

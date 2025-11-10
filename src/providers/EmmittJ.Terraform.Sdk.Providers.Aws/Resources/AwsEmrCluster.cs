@@ -13,8 +13,7 @@ public class AwsEmrClusterAutoTerminationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IdleTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("idle_timeout");
-        set => WithProperty("idle_timeout", value);
+        set => SetProperty("idle_timeout", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsEmrClusterBootstrapActionBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsEmrClusterBootstrapActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsEmrClusterBootstrapActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ProvisionedOnDemandCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_on_demand_capacity");
-        set => WithProperty("provisioned_on_demand_capacity", value);
+        set => SetProperty("provisioned_on_demand_capacity", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ProvisionedSpotCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_spot_capacity");
-        set => WithProperty("provisioned_spot_capacity", value);
+        set => SetProperty("provisioned_spot_capacity", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TargetOnDemandCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("target_on_demand_capacity");
-        set => WithProperty("target_on_demand_capacity", value);
+        set => SetProperty("target_on_demand_capacity", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TargetSpotCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("target_spot_capacity");
-        set => WithProperty("target_spot_capacity", value);
+        set => SetProperty("target_spot_capacity", value);
     }
 
 }
@@ -129,8 +119,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AutoscalingPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("autoscaling_policy");
-        set => WithProperty("autoscaling_policy", value);
+        set => SetProperty("autoscaling_policy", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BidPrice
     {
-        get => GetProperty<TerraformProperty<string>>("bid_price");
-        set => WithProperty("bid_price", value);
+        set => SetProperty("bid_price", value);
     }
 
     /// <summary>
@@ -147,8 +135,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -156,8 +143,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
-        set => WithProperty("instance_count", value);
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -166,8 +152,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -175,8 +160,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -192,8 +176,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AdditionalMasterSecurityGroups
     {
-        get => GetProperty<TerraformProperty<string>>("additional_master_security_groups");
-        set => WithProperty("additional_master_security_groups", value);
+        set => SetProperty("additional_master_security_groups", value);
     }
 
     /// <summary>
@@ -201,8 +184,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AdditionalSlaveSecurityGroups
     {
-        get => GetProperty<TerraformProperty<string>>("additional_slave_security_groups");
-        set => WithProperty("additional_slave_security_groups", value);
+        set => SetProperty("additional_slave_security_groups", value);
     }
 
     /// <summary>
@@ -210,8 +192,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EmrManagedMasterSecurityGroup
     {
-        get => GetProperty<TerraformProperty<string>>("emr_managed_master_security_group");
-        set => WithProperty("emr_managed_master_security_group", value);
+        set => SetProperty("emr_managed_master_security_group", value);
     }
 
     /// <summary>
@@ -219,8 +200,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EmrManagedSlaveSecurityGroup
     {
-        get => GetProperty<TerraformProperty<string>>("emr_managed_slave_security_group");
-        set => WithProperty("emr_managed_slave_security_group", value);
+        set => SetProperty("emr_managed_slave_security_group", value);
     }
 
     /// <summary>
@@ -229,8 +209,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProfile is required")]
     public required TerraformProperty<string> InstanceProfile
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_profile");
-        set => WithProperty("instance_profile", value);
+        set => SetProperty("instance_profile", value);
     }
 
     /// <summary>
@@ -238,8 +217,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyName
     {
-        get => GetProperty<TerraformProperty<string>>("key_name");
-        set => WithProperty("key_name", value);
+        set => SetProperty("key_name", value);
     }
 
     /// <summary>
@@ -247,8 +225,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccessSecurityGroup
     {
-        get => GetProperty<TerraformProperty<string>>("service_access_security_group");
-        set => WithProperty("service_access_security_group", value);
+        set => SetProperty("service_access_security_group", value);
     }
 
     /// <summary>
@@ -256,8 +233,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -265,8 +241,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -282,8 +257,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AdDomainJoinPassword
     {
-        get => GetProperty<TerraformProperty<string>>("ad_domain_join_password");
-        set => WithProperty("ad_domain_join_password", value);
+        set => SetProperty("ad_domain_join_password", value);
     }
 
     /// <summary>
@@ -291,8 +265,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AdDomainJoinUser
     {
-        get => GetProperty<TerraformProperty<string>>("ad_domain_join_user");
-        set => WithProperty("ad_domain_join_user", value);
+        set => SetProperty("ad_domain_join_user", value);
     }
 
     /// <summary>
@@ -300,8 +273,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CrossRealmTrustPrincipalPassword
     {
-        get => GetProperty<TerraformProperty<string>>("cross_realm_trust_principal_password");
-        set => WithProperty("cross_realm_trust_principal_password", value);
+        set => SetProperty("cross_realm_trust_principal_password", value);
     }
 
     /// <summary>
@@ -310,8 +282,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KdcAdminPassword is required")]
     public required TerraformProperty<string> KdcAdminPassword
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kdc_admin_password");
-        set => WithProperty("kdc_admin_password", value);
+        set => SetProperty("kdc_admin_password", value);
     }
 
     /// <summary>
@@ -320,8 +291,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Realm is required")]
     public required TerraformProperty<string> Realm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("realm");
-        set => WithProperty("realm", value);
+        set => SetProperty("realm", value);
     }
 
 }
@@ -337,8 +307,7 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -346,8 +315,7 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -355,8 +323,7 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ProvisionedOnDemandCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_on_demand_capacity");
-        set => WithProperty("provisioned_on_demand_capacity", value);
+        set => SetProperty("provisioned_on_demand_capacity", value);
     }
 
     /// <summary>
@@ -364,8 +331,7 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ProvisionedSpotCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_spot_capacity");
-        set => WithProperty("provisioned_spot_capacity", value);
+        set => SetProperty("provisioned_spot_capacity", value);
     }
 
     /// <summary>
@@ -373,8 +339,7 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TargetOnDemandCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("target_on_demand_capacity");
-        set => WithProperty("target_on_demand_capacity", value);
+        set => SetProperty("target_on_demand_capacity", value);
     }
 
     /// <summary>
@@ -382,8 +347,7 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TargetSpotCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("target_spot_capacity");
-        set => WithProperty("target_spot_capacity", value);
+        set => SetProperty("target_spot_capacity", value);
     }
 
 }
@@ -399,8 +363,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BidPrice
     {
-        get => GetProperty<TerraformProperty<string>>("bid_price");
-        set => WithProperty("bid_price", value);
+        set => SetProperty("bid_price", value);
     }
 
     /// <summary>
@@ -408,8 +371,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -417,8 +379,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
-        set => WithProperty("instance_count", value);
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -427,8 +388,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -436,8 +396,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -455,117 +414,144 @@ public class AwsEmrCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cluster_state");
-        this.WithOutput("master_public_dns");
+        SetOutput("arn");
+        SetOutput("cluster_state");
+        SetOutput("master_public_dns");
+        SetOutput("additional_info");
+        SetOutput("applications");
+        SetOutput("autoscaling_role");
+        SetOutput("configurations");
+        SetOutput("configurations_json");
+        SetOutput("custom_ami_id");
+        SetOutput("ebs_root_volume_size");
+        SetOutput("id");
+        SetOutput("keep_job_flow_alive_when_no_steps");
+        SetOutput("list_steps_states");
+        SetOutput("log_encryption_kms_key_id");
+        SetOutput("log_uri");
+        SetOutput("name");
+        SetOutput("os_release_label");
+        SetOutput("placement_group_config");
+        SetOutput("region");
+        SetOutput("release_label");
+        SetOutput("scale_down_behavior");
+        SetOutput("security_configuration");
+        SetOutput("service_role");
+        SetOutput("step");
+        SetOutput("step_concurrency_level");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("termination_protection");
+        SetOutput("unhealthy_node_replacement");
+        SetOutput("visible_to_all_users");
     }
 
     /// <summary>
     /// The additional_info attribute.
     /// </summary>
-    public TerraformProperty<string>? AdditionalInfo
+    public TerraformProperty<string> AdditionalInfo
     {
-        get => GetProperty<TerraformProperty<string>>("additional_info");
-        set => this.WithProperty("additional_info", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("additional_info");
+        set => SetProperty("additional_info", value);
     }
 
     /// <summary>
     /// The applications attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Applications
+    public HashSet<TerraformProperty<string>> Applications
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("applications");
-        set => this.WithProperty("applications", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("applications");
+        set => SetProperty("applications", value);
     }
 
     /// <summary>
     /// The autoscaling_role attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoscalingRole
+    public TerraformProperty<string> AutoscalingRole
     {
-        get => GetProperty<TerraformProperty<string>>("autoscaling_role");
-        set => this.WithProperty("autoscaling_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_role");
+        set => SetProperty("autoscaling_role", value);
     }
 
     /// <summary>
     /// The configurations attribute.
     /// </summary>
-    public TerraformProperty<string>? Configurations
+    public TerraformProperty<string> Configurations
     {
-        get => GetProperty<TerraformProperty<string>>("configurations");
-        set => this.WithProperty("configurations", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configurations");
+        set => SetProperty("configurations", value);
     }
 
     /// <summary>
     /// The configurations_json attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationsJson
+    public TerraformProperty<string> ConfigurationsJson
     {
-        get => GetProperty<TerraformProperty<string>>("configurations_json");
-        set => this.WithProperty("configurations_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configurations_json");
+        set => SetProperty("configurations_json", value);
     }
 
     /// <summary>
     /// The custom_ami_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomAmiId
+    public TerraformProperty<string> CustomAmiId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_ami_id");
-        set => this.WithProperty("custom_ami_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_ami_id");
+        set => SetProperty("custom_ami_id", value);
     }
 
     /// <summary>
     /// The ebs_root_volume_size attribute.
     /// </summary>
-    public TerraformProperty<double>? EbsRootVolumeSize
+    public TerraformProperty<double> EbsRootVolumeSize
     {
-        get => GetProperty<TerraformProperty<double>>("ebs_root_volume_size");
-        set => this.WithProperty("ebs_root_volume_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ebs_root_volume_size");
+        set => SetProperty("ebs_root_volume_size", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The keep_job_flow_alive_when_no_steps attribute.
     /// </summary>
-    public TerraformProperty<bool>? KeepJobFlowAliveWhenNoSteps
+    public TerraformProperty<bool> KeepJobFlowAliveWhenNoSteps
     {
-        get => GetProperty<TerraformProperty<bool>>("keep_job_flow_alive_when_no_steps");
-        set => this.WithProperty("keep_job_flow_alive_when_no_steps", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("keep_job_flow_alive_when_no_steps");
+        set => SetProperty("keep_job_flow_alive_when_no_steps", value);
     }
 
     /// <summary>
     /// The list_steps_states attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ListStepsStates
+    public HashSet<TerraformProperty<string>> ListStepsStates
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("list_steps_states");
-        set => this.WithProperty("list_steps_states", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("list_steps_states");
+        set => SetProperty("list_steps_states", value);
     }
 
     /// <summary>
     /// The log_encryption_kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogEncryptionKmsKeyId
+    public TerraformProperty<string> LogEncryptionKmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("log_encryption_kms_key_id");
-        set => this.WithProperty("log_encryption_kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_encryption_kms_key_id");
+        set => SetProperty("log_encryption_kms_key_id", value);
     }
 
     /// <summary>
     /// The log_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? LogUri
+    public TerraformProperty<string> LogUri
     {
-        get => GetProperty<TerraformProperty<string>>("log_uri");
-        set => this.WithProperty("log_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_uri");
+        set => SetProperty("log_uri", value);
     }
 
     /// <summary>
@@ -574,35 +560,35 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The os_release_label attribute.
     /// </summary>
-    public TerraformProperty<string>? OsReleaseLabel
+    public TerraformProperty<string> OsReleaseLabel
     {
-        get => GetProperty<TerraformProperty<string>>("os_release_label");
-        set => this.WithProperty("os_release_label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("os_release_label");
+        set => SetProperty("os_release_label", value);
     }
 
     /// <summary>
     /// The placement_group_config attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? PlacementGroupConfig
+    public List<TerraformProperty<object>> PlacementGroupConfig
     {
-        get => GetProperty<List<TerraformProperty<object>>>("placement_group_config");
-        set => this.WithProperty("placement_group_config", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("placement_group_config");
+        set => SetProperty("placement_group_config", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -611,26 +597,26 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformProperty<string> ReleaseLabel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("release_label");
-        set => this.WithProperty("release_label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_label");
+        set => SetProperty("release_label", value);
     }
 
     /// <summary>
     /// The scale_down_behavior attribute.
     /// </summary>
-    public TerraformProperty<string>? ScaleDownBehavior
+    public TerraformProperty<string> ScaleDownBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("scale_down_behavior");
-        set => this.WithProperty("scale_down_behavior", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scale_down_behavior");
+        set => SetProperty("scale_down_behavior", value);
     }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityConfiguration
+    public TerraformProperty<string> SecurityConfiguration
     {
-        get => GetProperty<TerraformProperty<string>>("security_configuration");
-        set => this.WithProperty("security_configuration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_configuration");
+        set => SetProperty("security_configuration", value);
     }
 
     /// <summary>
@@ -639,71 +625,71 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformProperty<string> ServiceRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_role");
-        set => this.WithProperty("service_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_role");
+        set => SetProperty("service_role", value);
     }
 
     /// <summary>
     /// The step attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? Step
+    public List<TerraformProperty<object>> Step
     {
-        get => GetProperty<List<TerraformProperty<object>>>("step");
-        set => this.WithProperty("step", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("step");
+        set => SetProperty("step", value);
     }
 
     /// <summary>
     /// The step_concurrency_level attribute.
     /// </summary>
-    public TerraformProperty<double>? StepConcurrencyLevel
+    public TerraformProperty<double> StepConcurrencyLevel
     {
-        get => GetProperty<TerraformProperty<double>>("step_concurrency_level");
-        set => this.WithProperty("step_concurrency_level", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("step_concurrency_level");
+        set => SetProperty("step_concurrency_level", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The termination_protection attribute.
     /// </summary>
-    public TerraformProperty<bool>? TerminationProtection
+    public TerraformProperty<bool> TerminationProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("termination_protection");
-        set => this.WithProperty("termination_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("termination_protection");
+        set => SetProperty("termination_protection", value);
     }
 
     /// <summary>
     /// The unhealthy_node_replacement attribute.
     /// </summary>
-    public TerraformProperty<bool>? UnhealthyNodeReplacement
+    public TerraformProperty<bool> UnhealthyNodeReplacement
     {
-        get => GetProperty<TerraformProperty<bool>>("unhealthy_node_replacement");
-        set => this.WithProperty("unhealthy_node_replacement", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("unhealthy_node_replacement");
+        set => SetProperty("unhealthy_node_replacement", value);
     }
 
     /// <summary>
     /// The visible_to_all_users attribute.
     /// </summary>
-    public TerraformProperty<bool>? VisibleToAllUsers
+    public TerraformProperty<bool> VisibleToAllUsers
     {
-        get => GetProperty<TerraformProperty<bool>>("visible_to_all_users");
-        set => this.WithProperty("visible_to_all_users", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("visible_to_all_users");
+        set => SetProperty("visible_to_all_users", value);
     }
 
     /// <summary>
@@ -713,8 +699,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoTerminationPolicy block(s) allowed")]
     public List<AwsEmrClusterAutoTerminationPolicyBlock>? AutoTerminationPolicy
     {
-        get => GetProperty<List<AwsEmrClusterAutoTerminationPolicyBlock>>("auto_termination_policy");
-        set => this.WithProperty("auto_termination_policy", value);
+        set => SetProperty("auto_termination_policy", value);
     }
 
     /// <summary>
@@ -723,8 +708,7 @@ public class AwsEmrCluster : TerraformResource
     /// </summary>
     public List<AwsEmrClusterBootstrapActionBlock>? BootstrapAction
     {
-        get => GetProperty<List<AwsEmrClusterBootstrapActionBlock>>("bootstrap_action");
-        set => this.WithProperty("bootstrap_action", value);
+        set => SetProperty("bootstrap_action", value);
     }
 
     /// <summary>
@@ -734,8 +718,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CoreInstanceFleet block(s) allowed")]
     public List<AwsEmrClusterCoreInstanceFleetBlock>? CoreInstanceFleet
     {
-        get => GetProperty<List<AwsEmrClusterCoreInstanceFleetBlock>>("core_instance_fleet");
-        set => this.WithProperty("core_instance_fleet", value);
+        set => SetProperty("core_instance_fleet", value);
     }
 
     /// <summary>
@@ -745,8 +728,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CoreInstanceGroup block(s) allowed")]
     public List<AwsEmrClusterCoreInstanceGroupBlock>? CoreInstanceGroup
     {
-        get => GetProperty<List<AwsEmrClusterCoreInstanceGroupBlock>>("core_instance_group");
-        set => this.WithProperty("core_instance_group", value);
+        set => SetProperty("core_instance_group", value);
     }
 
     /// <summary>
@@ -756,8 +738,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ec2Attributes block(s) allowed")]
     public List<AwsEmrClusterEc2AttributesBlock>? Ec2Attributes
     {
-        get => GetProperty<List<AwsEmrClusterEc2AttributesBlock>>("ec2_attributes");
-        set => this.WithProperty("ec2_attributes", value);
+        set => SetProperty("ec2_attributes", value);
     }
 
     /// <summary>
@@ -767,8 +748,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KerberosAttributes block(s) allowed")]
     public List<AwsEmrClusterKerberosAttributesBlock>? KerberosAttributes
     {
-        get => GetProperty<List<AwsEmrClusterKerberosAttributesBlock>>("kerberos_attributes");
-        set => this.WithProperty("kerberos_attributes", value);
+        set => SetProperty("kerberos_attributes", value);
     }
 
     /// <summary>
@@ -778,8 +758,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MasterInstanceFleet block(s) allowed")]
     public List<AwsEmrClusterMasterInstanceFleetBlock>? MasterInstanceFleet
     {
-        get => GetProperty<List<AwsEmrClusterMasterInstanceFleetBlock>>("master_instance_fleet");
-        set => this.WithProperty("master_instance_fleet", value);
+        set => SetProperty("master_instance_fleet", value);
     }
 
     /// <summary>
@@ -789,8 +768,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MasterInstanceGroup block(s) allowed")]
     public List<AwsEmrClusterMasterInstanceGroupBlock>? MasterInstanceGroup
     {
-        get => GetProperty<List<AwsEmrClusterMasterInstanceGroupBlock>>("master_instance_group");
-        set => this.WithProperty("master_instance_group", value);
+        set => SetProperty("master_instance_group", value);
     }
 
     /// <summary>

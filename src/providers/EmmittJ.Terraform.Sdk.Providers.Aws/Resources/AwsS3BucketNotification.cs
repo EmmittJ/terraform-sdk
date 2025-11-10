@@ -14,8 +14,7 @@ public class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public HashSet<TerraformProperty<string>>? Events
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("events");
-        set => WithProperty("events", value);
+        set => SetProperty("events", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilterPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("filter_prefix");
-        set => WithProperty("filter_prefix", value);
+        set => SetProperty("filter_prefix", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilterSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("filter_suffix");
-        set => WithProperty("filter_suffix", value);
+        set => SetProperty("filter_suffix", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LambdaFunctionArn
     {
-        get => GetProperty<TerraformProperty<string>>("lambda_function_arn");
-        set => WithProperty("lambda_function_arn", value);
+        set => SetProperty("lambda_function_arn", value);
     }
 
 }
@@ -68,8 +63,7 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public HashSet<TerraformProperty<string>>? Events
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("events");
-        set => WithProperty("events", value);
+        set => SetProperty("events", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilterPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("filter_prefix");
-        set => WithProperty("filter_prefix", value);
+        set => SetProperty("filter_prefix", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilterSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("filter_suffix");
-        set => WithProperty("filter_suffix", value);
+        set => SetProperty("filter_suffix", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,8 +96,7 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueArn is required")]
     public required TerraformProperty<string> QueueArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("queue_arn");
-        set => WithProperty("queue_arn", value);
+        set => SetProperty("queue_arn", value);
     }
 
 }
@@ -123,8 +113,7 @@ public class AwsS3BucketNotificationTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public HashSet<TerraformProperty<string>>? Events
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("events");
-        set => WithProperty("events", value);
+        set => SetProperty("events", value);
     }
 
     /// <summary>
@@ -132,8 +121,7 @@ public class AwsS3BucketNotificationTopicBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilterPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("filter_prefix");
-        set => WithProperty("filter_prefix", value);
+        set => SetProperty("filter_prefix", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class AwsS3BucketNotificationTopicBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilterSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("filter_suffix");
-        set => WithProperty("filter_suffix", value);
+        set => SetProperty("filter_suffix", value);
     }
 
     /// <summary>
@@ -150,8 +137,7 @@ public class AwsS3BucketNotificationTopicBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -160,8 +146,7 @@ public class AwsS3BucketNotificationTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformProperty<string> TopicArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic_arn");
-        set => WithProperty("topic_arn", value);
+        set => SetProperty("topic_arn", value);
     }
 
 }
@@ -178,6 +163,10 @@ public class AwsS3BucketNotification : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket");
+        SetOutput("eventbridge");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -186,35 +175,35 @@ public class AwsS3BucketNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The eventbridge attribute.
     /// </summary>
-    public TerraformProperty<bool>? Eventbridge
+    public TerraformProperty<bool> Eventbridge
     {
-        get => GetProperty<TerraformProperty<bool>>("eventbridge");
-        set => this.WithProperty("eventbridge", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("eventbridge");
+        set => SetProperty("eventbridge", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -223,8 +212,7 @@ public class AwsS3BucketNotification : TerraformResource
     /// </summary>
     public List<AwsS3BucketNotificationLambdaFunctionBlock>? LambdaFunction
     {
-        get => GetProperty<List<AwsS3BucketNotificationLambdaFunctionBlock>>("lambda_function");
-        set => this.WithProperty("lambda_function", value);
+        set => SetProperty("lambda_function", value);
     }
 
     /// <summary>
@@ -233,8 +221,7 @@ public class AwsS3BucketNotification : TerraformResource
     /// </summary>
     public List<AwsS3BucketNotificationQueueBlock>? Queue
     {
-        get => GetProperty<List<AwsS3BucketNotificationQueueBlock>>("queue");
-        set => this.WithProperty("queue", value);
+        set => SetProperty("queue", value);
     }
 
     /// <summary>
@@ -243,8 +230,7 @@ public class AwsS3BucketNotification : TerraformResource
     /// </summary>
     public List<AwsS3BucketNotificationTopicBlock>? Topic
     {
-        get => GetProperty<List<AwsS3BucketNotificationTopicBlock>>("topic");
-        set => this.WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }

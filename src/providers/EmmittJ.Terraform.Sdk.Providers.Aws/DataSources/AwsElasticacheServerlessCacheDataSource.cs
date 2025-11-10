@@ -14,22 +14,24 @@ public class AwsElasticacheServerlessCacheDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cache_usage_limits");
-        this.WithOutput("create_time");
-        this.WithOutput("daily_snapshot_time");
-        this.WithOutput("description");
-        this.WithOutput("endpoint");
-        this.WithOutput("engine");
-        this.WithOutput("full_engine_version");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("major_engine_version");
-        this.WithOutput("reader_endpoint");
-        this.WithOutput("security_group_ids");
-        this.WithOutput("snapshot_retention_limit");
-        this.WithOutput("status");
-        this.WithOutput("subnet_ids");
-        this.WithOutput("user_group_id");
+        SetOutput("arn");
+        SetOutput("cache_usage_limits");
+        SetOutput("create_time");
+        SetOutput("daily_snapshot_time");
+        SetOutput("description");
+        SetOutput("endpoint");
+        SetOutput("engine");
+        SetOutput("full_engine_version");
+        SetOutput("kms_key_id");
+        SetOutput("major_engine_version");
+        SetOutput("reader_endpoint");
+        SetOutput("security_group_ids");
+        SetOutput("snapshot_retention_limit");
+        SetOutput("status");
+        SetOutput("subnet_ids");
+        SetOutput("user_group_id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -38,17 +40,17 @@ public class AwsElasticacheServerlessCacheDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

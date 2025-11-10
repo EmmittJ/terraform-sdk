@@ -14,25 +14,33 @@ public class AwsCloudwatchEventArchive : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("event_pattern");
+        SetOutput("event_source_arn");
+        SetOutput("id");
+        SetOutput("kms_key_identifier");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("retention_days");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The event_pattern attribute.
     /// </summary>
-    public TerraformProperty<string>? EventPattern
+    public TerraformProperty<string> EventPattern
     {
-        get => GetProperty<TerraformProperty<string>>("event_pattern");
-        set => this.WithProperty("event_pattern", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_pattern");
+        set => SetProperty("event_pattern", value);
     }
 
     /// <summary>
@@ -41,26 +49,26 @@ public class AwsCloudwatchEventArchive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSourceArn is required")]
     public required TerraformProperty<string> EventSourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("event_source_arn");
-        set => this.WithProperty("event_source_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_source_arn");
+        set => SetProperty("event_source_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyIdentifier
+    public TerraformProperty<string> KmsKeyIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_identifier");
-        set => this.WithProperty("kms_key_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
+        set => SetProperty("kms_key_identifier", value);
     }
 
     /// <summary>
@@ -69,26 +77,26 @@ public class AwsCloudwatchEventArchive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retention_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionDays
+    public TerraformProperty<double> RetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_days");
-        set => this.WithProperty("retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_days");
+        set => SetProperty("retention_days", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleApphubServiceProjectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApphubServiceProjectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,28 +38,32 @@ public class GoogleApphubServiceProjectAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("uid");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("service_project");
+        SetOutput("service_project_attachment_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -69,10 +71,10 @@ public class GoogleApphubServiceProjectAttachment : TerraformResource
     /// or \&amp;quot;projects/123\&amp;quot;. As input, project name with either project id or number
     /// are accepted. As output, this field will contain project number.&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? ServiceProject
+    public TerraformProperty<string> ServiceProject
     {
-        get => GetProperty<TerraformProperty<string>>("service_project");
-        set => this.WithProperty("service_project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_project");
+        set => SetProperty("service_project", value);
     }
 
     /// <summary>
@@ -81,8 +83,8 @@ public class GoogleApphubServiceProjectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProjectAttachmentId is required")]
     public required TerraformProperty<string> ServiceProjectAttachmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_project_attachment_id");
-        set => this.WithProperty("service_project_attachment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_project_attachment_id");
+        set => SetProperty("service_project_attachment_id", value);
     }
 
     /// <summary>
@@ -91,8 +93,7 @@ public class GoogleApphubServiceProjectAttachment : TerraformResource
     /// </summary>
     public GoogleApphubServiceProjectAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApphubServiceProjectAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

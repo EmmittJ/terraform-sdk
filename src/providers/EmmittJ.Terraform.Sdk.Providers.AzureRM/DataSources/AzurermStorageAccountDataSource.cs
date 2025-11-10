@@ -13,8 +13,7 @@ public class AzurermStorageAccountDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,113 +30,117 @@ public class AzurermStorageAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_tier");
-        this.WithOutput("account_kind");
-        this.WithOutput("account_replication_type");
-        this.WithOutput("account_tier");
-        this.WithOutput("allow_nested_items_to_be_public");
-        this.WithOutput("azure_files_authentication");
-        this.WithOutput("custom_domain");
-        this.WithOutput("dns_endpoint_type");
-        this.WithOutput("https_traffic_only_enabled");
-        this.WithOutput("identity");
-        this.WithOutput("infrastructure_encryption_enabled");
-        this.WithOutput("is_hns_enabled");
-        this.WithOutput("location");
-        this.WithOutput("nfsv3_enabled");
-        this.WithOutput("primary_access_key");
-        this.WithOutput("primary_blob_connection_string");
-        this.WithOutput("primary_blob_endpoint");
-        this.WithOutput("primary_blob_host");
-        this.WithOutput("primary_blob_internet_endpoint");
-        this.WithOutput("primary_blob_internet_host");
-        this.WithOutput("primary_blob_microsoft_endpoint");
-        this.WithOutput("primary_blob_microsoft_host");
-        this.WithOutput("primary_connection_string");
-        this.WithOutput("primary_dfs_endpoint");
-        this.WithOutput("primary_dfs_host");
-        this.WithOutput("primary_dfs_internet_endpoint");
-        this.WithOutput("primary_dfs_internet_host");
-        this.WithOutput("primary_dfs_microsoft_endpoint");
-        this.WithOutput("primary_dfs_microsoft_host");
-        this.WithOutput("primary_file_endpoint");
-        this.WithOutput("primary_file_host");
-        this.WithOutput("primary_file_internet_endpoint");
-        this.WithOutput("primary_file_internet_host");
-        this.WithOutput("primary_file_microsoft_endpoint");
-        this.WithOutput("primary_file_microsoft_host");
-        this.WithOutput("primary_location");
-        this.WithOutput("primary_queue_endpoint");
-        this.WithOutput("primary_queue_host");
-        this.WithOutput("primary_queue_microsoft_endpoint");
-        this.WithOutput("primary_queue_microsoft_host");
-        this.WithOutput("primary_table_endpoint");
-        this.WithOutput("primary_table_host");
-        this.WithOutput("primary_table_microsoft_endpoint");
-        this.WithOutput("primary_table_microsoft_host");
-        this.WithOutput("primary_web_endpoint");
-        this.WithOutput("primary_web_host");
-        this.WithOutput("primary_web_internet_endpoint");
-        this.WithOutput("primary_web_internet_host");
-        this.WithOutput("primary_web_microsoft_endpoint");
-        this.WithOutput("primary_web_microsoft_host");
-        this.WithOutput("queue_encryption_key_type");
-        this.WithOutput("secondary_access_key");
-        this.WithOutput("secondary_blob_connection_string");
-        this.WithOutput("secondary_blob_endpoint");
-        this.WithOutput("secondary_blob_host");
-        this.WithOutput("secondary_blob_internet_endpoint");
-        this.WithOutput("secondary_blob_internet_host");
-        this.WithOutput("secondary_blob_microsoft_endpoint");
-        this.WithOutput("secondary_blob_microsoft_host");
-        this.WithOutput("secondary_connection_string");
-        this.WithOutput("secondary_dfs_endpoint");
-        this.WithOutput("secondary_dfs_host");
-        this.WithOutput("secondary_dfs_internet_endpoint");
-        this.WithOutput("secondary_dfs_internet_host");
-        this.WithOutput("secondary_dfs_microsoft_endpoint");
-        this.WithOutput("secondary_dfs_microsoft_host");
-        this.WithOutput("secondary_file_endpoint");
-        this.WithOutput("secondary_file_host");
-        this.WithOutput("secondary_file_internet_endpoint");
-        this.WithOutput("secondary_file_internet_host");
-        this.WithOutput("secondary_file_microsoft_endpoint");
-        this.WithOutput("secondary_file_microsoft_host");
-        this.WithOutput("secondary_location");
-        this.WithOutput("secondary_queue_endpoint");
-        this.WithOutput("secondary_queue_host");
-        this.WithOutput("secondary_queue_microsoft_endpoint");
-        this.WithOutput("secondary_queue_microsoft_host");
-        this.WithOutput("secondary_table_endpoint");
-        this.WithOutput("secondary_table_host");
-        this.WithOutput("secondary_table_microsoft_endpoint");
-        this.WithOutput("secondary_table_microsoft_host");
-        this.WithOutput("secondary_web_endpoint");
-        this.WithOutput("secondary_web_host");
-        this.WithOutput("secondary_web_internet_endpoint");
-        this.WithOutput("secondary_web_internet_host");
-        this.WithOutput("secondary_web_microsoft_endpoint");
-        this.WithOutput("secondary_web_microsoft_host");
-        this.WithOutput("table_encryption_key_type");
-        this.WithOutput("tags");
+        SetOutput("access_tier");
+        SetOutput("account_kind");
+        SetOutput("account_replication_type");
+        SetOutput("account_tier");
+        SetOutput("allow_nested_items_to_be_public");
+        SetOutput("azure_files_authentication");
+        SetOutput("custom_domain");
+        SetOutput("dns_endpoint_type");
+        SetOutput("https_traffic_only_enabled");
+        SetOutput("identity");
+        SetOutput("infrastructure_encryption_enabled");
+        SetOutput("is_hns_enabled");
+        SetOutput("location");
+        SetOutput("nfsv3_enabled");
+        SetOutput("primary_access_key");
+        SetOutput("primary_blob_connection_string");
+        SetOutput("primary_blob_endpoint");
+        SetOutput("primary_blob_host");
+        SetOutput("primary_blob_internet_endpoint");
+        SetOutput("primary_blob_internet_host");
+        SetOutput("primary_blob_microsoft_endpoint");
+        SetOutput("primary_blob_microsoft_host");
+        SetOutput("primary_connection_string");
+        SetOutput("primary_dfs_endpoint");
+        SetOutput("primary_dfs_host");
+        SetOutput("primary_dfs_internet_endpoint");
+        SetOutput("primary_dfs_internet_host");
+        SetOutput("primary_dfs_microsoft_endpoint");
+        SetOutput("primary_dfs_microsoft_host");
+        SetOutput("primary_file_endpoint");
+        SetOutput("primary_file_host");
+        SetOutput("primary_file_internet_endpoint");
+        SetOutput("primary_file_internet_host");
+        SetOutput("primary_file_microsoft_endpoint");
+        SetOutput("primary_file_microsoft_host");
+        SetOutput("primary_location");
+        SetOutput("primary_queue_endpoint");
+        SetOutput("primary_queue_host");
+        SetOutput("primary_queue_microsoft_endpoint");
+        SetOutput("primary_queue_microsoft_host");
+        SetOutput("primary_table_endpoint");
+        SetOutput("primary_table_host");
+        SetOutput("primary_table_microsoft_endpoint");
+        SetOutput("primary_table_microsoft_host");
+        SetOutput("primary_web_endpoint");
+        SetOutput("primary_web_host");
+        SetOutput("primary_web_internet_endpoint");
+        SetOutput("primary_web_internet_host");
+        SetOutput("primary_web_microsoft_endpoint");
+        SetOutput("primary_web_microsoft_host");
+        SetOutput("queue_encryption_key_type");
+        SetOutput("secondary_access_key");
+        SetOutput("secondary_blob_connection_string");
+        SetOutput("secondary_blob_endpoint");
+        SetOutput("secondary_blob_host");
+        SetOutput("secondary_blob_internet_endpoint");
+        SetOutput("secondary_blob_internet_host");
+        SetOutput("secondary_blob_microsoft_endpoint");
+        SetOutput("secondary_blob_microsoft_host");
+        SetOutput("secondary_connection_string");
+        SetOutput("secondary_dfs_endpoint");
+        SetOutput("secondary_dfs_host");
+        SetOutput("secondary_dfs_internet_endpoint");
+        SetOutput("secondary_dfs_internet_host");
+        SetOutput("secondary_dfs_microsoft_endpoint");
+        SetOutput("secondary_dfs_microsoft_host");
+        SetOutput("secondary_file_endpoint");
+        SetOutput("secondary_file_host");
+        SetOutput("secondary_file_internet_endpoint");
+        SetOutput("secondary_file_internet_host");
+        SetOutput("secondary_file_microsoft_endpoint");
+        SetOutput("secondary_file_microsoft_host");
+        SetOutput("secondary_location");
+        SetOutput("secondary_queue_endpoint");
+        SetOutput("secondary_queue_host");
+        SetOutput("secondary_queue_microsoft_endpoint");
+        SetOutput("secondary_queue_microsoft_host");
+        SetOutput("secondary_table_endpoint");
+        SetOutput("secondary_table_host");
+        SetOutput("secondary_table_microsoft_endpoint");
+        SetOutput("secondary_table_microsoft_host");
+        SetOutput("secondary_web_endpoint");
+        SetOutput("secondary_web_host");
+        SetOutput("secondary_web_internet_endpoint");
+        SetOutput("secondary_web_internet_host");
+        SetOutput("secondary_web_microsoft_endpoint");
+        SetOutput("secondary_web_microsoft_host");
+        SetOutput("table_encryption_key_type");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("min_tls_version");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The min_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MinTlsVersion
+    public TerraformProperty<string> MinTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("min_tls_version");
-        set => this.WithProperty("min_tls_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("min_tls_version");
+        set => SetProperty("min_tls_version", value);
     }
 
     /// <summary>
@@ -146,8 +149,8 @@ public class AzurermStorageAccountDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -156,8 +159,8 @@ public class AzurermStorageAccountDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -166,8 +169,7 @@ public class AzurermStorageAccountDataSource : TerraformDataSource
     /// </summary>
     public AzurermStorageAccountDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageAccountDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DestinationAddresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destination_addresses");
-        set => WithProperty("destination_addresses", value);
+        set => SetProperty("destination_addresses", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DestinationFqdns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destination_fqdns");
-        set => WithProperty("destination_fqdns", value);
+        set => SetProperty("destination_fqdns", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DestinationIpGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destination_ip_groups");
-        set => WithProperty("destination_ip_groups", value);
+        set => SetProperty("destination_ip_groups", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
     public List<TerraformProperty<string>>? DestinationPorts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destination_ports");
-        set => WithProperty("destination_ports", value);
+        set => SetProperty("destination_ports", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     public List<TerraformProperty<string>>? Protocols
     {
-        get => GetProperty<List<TerraformProperty<string>>>("protocols");
-        set => WithProperty("protocols", value);
+        set => SetProperty("protocols", value);
     }
 
     /// <summary>
@@ -79,8 +72,7 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SourceAddresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("source_addresses");
-        set => WithProperty("source_addresses", value);
+        set => SetProperty("source_addresses", value);
     }
 
     /// <summary>
@@ -88,8 +80,7 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SourceIpGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("source_ip_groups");
-        set => WithProperty("source_ip_groups", value);
+        set => SetProperty("source_ip_groups", value);
     }
 
 }
@@ -105,8 +96,7 @@ public class AzurermFirewallNetworkRuleCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -114,8 +104,7 @@ public class AzurermFirewallNetworkRuleCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -123,8 +112,7 @@ public class AzurermFirewallNetworkRuleCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -132,8 +120,7 @@ public class AzurermFirewallNetworkRuleCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -151,6 +138,12 @@ public class AzurermFirewallNetworkRuleCollection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("action");
+        SetOutput("azure_firewall_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("priority");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -159,8 +152,8 @@ public class AzurermFirewallNetworkRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -169,17 +162,17 @@ public class AzurermFirewallNetworkRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureFirewallName is required")]
     public required TerraformProperty<string> AzureFirewallName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("azure_firewall_name");
-        set => this.WithProperty("azure_firewall_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("azure_firewall_name");
+        set => SetProperty("azure_firewall_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -188,8 +181,8 @@ public class AzurermFirewallNetworkRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -198,8 +191,8 @@ public class AzurermFirewallNetworkRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -208,19 +201,19 @@ public class AzurermFirewallNetworkRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     public List<AzurermFirewallNetworkRuleCollectionRuleBlock>? Rule
     {
-        get => GetProperty<List<AzurermFirewallNetworkRuleCollectionRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
@@ -229,8 +222,7 @@ public class AzurermFirewallNetworkRuleCollection : TerraformResource
     /// </summary>
     public AzurermFirewallNetworkRuleCollectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFirewallNetworkRuleCollectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

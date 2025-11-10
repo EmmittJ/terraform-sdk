@@ -13,8 +13,7 @@ public class AwsEc2DefaultCreditSpecificationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2DefaultCreditSpecificationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,6 +38,9 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cpu_credits");
+        SetOutput("instance_family");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -48,8 +49,8 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCredits is required")]
     public required TerraformProperty<string> CpuCredits
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cpu_credits");
-        set => this.WithProperty("cpu_credits", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cpu_credits");
+        set => SetProperty("cpu_credits", value);
     }
 
     /// <summary>
@@ -58,17 +59,17 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceFamily is required")]
     public required TerraformProperty<string> InstanceFamily
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_family");
-        set => this.WithProperty("instance_family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_family");
+        set => SetProperty("instance_family", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -77,8 +78,7 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     /// </summary>
     public AwsEc2DefaultCreditSpecificationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2DefaultCreditSpecificationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

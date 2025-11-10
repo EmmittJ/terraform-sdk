@@ -13,8 +13,7 @@ public class GoogleComputeNetworkEndpointGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeNetworkEndpointGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,38 +38,47 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("generated_id");
-        this.WithOutput("self_link");
-        this.WithOutput("size");
+        SetOutput("generated_id");
+        SetOutput("self_link");
+        SetOutput("size");
+        SetOutput("default_port");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("network_endpoint_type");
+        SetOutput("project");
+        SetOutput("subnetwork");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The default port used if the port number is not specified in the
     /// network endpoint.
     /// </summary>
-    public TerraformProperty<double>? DefaultPort
+    public TerraformProperty<double> DefaultPort
     {
-        get => GetProperty<TerraformProperty<double>>("default_port");
-        set => this.WithProperty("default_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_port");
+        set => SetProperty("default_port", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,8 +93,8 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -97,8 +104,8 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -112,37 +119,37 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// 
     /// Possible values include: GCE_VM_IP, GCE_VM_IP_PORT, NON_GCP_PRIVATE_IP_PORT, INTERNET_IP_PORT, INTERNET_FQDN_PORT, SERVERLESS, and PRIVATE_SERVICE_CONNECT. Default value: &amp;quot;GCE_VM_IP_PORT&amp;quot; Possible values: [&amp;quot;GCE_VM_IP&amp;quot;, &amp;quot;GCE_VM_IP_PORT&amp;quot;, &amp;quot;NON_GCP_PRIVATE_IP_PORT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NetworkEndpointType
+    public TerraformProperty<string> NetworkEndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("network_endpoint_type");
-        set => this.WithProperty("network_endpoint_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_endpoint_type");
+        set => SetProperty("network_endpoint_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Optional subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
-    public TerraformProperty<string>? Subnetwork
+    public TerraformProperty<string> Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => this.WithProperty("subnetwork", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnetwork");
+        set => SetProperty("subnetwork", value);
     }
 
     /// <summary>
     /// Zone where the network endpoint group is located.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -151,8 +158,7 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// </summary>
     public GoogleComputeNetworkEndpointGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNetworkEndpointGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleVmwareengineSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleVmwareengineSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleVmwareengineSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,25 +46,29 @@ public class GoogleVmwareengineSubnet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("dhcp_address_ranges");
-        this.WithOutput("gateway_id");
-        this.WithOutput("gateway_ip");
-        this.WithOutput("standard_config");
-        this.WithOutput("state");
-        this.WithOutput("type");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("vlan_id");
+        SetOutput("create_time");
+        SetOutput("dhcp_address_ranges");
+        SetOutput("gateway_id");
+        SetOutput("gateway_ip");
+        SetOutput("standard_config");
+        SetOutput("state");
+        SetOutput("type");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("vlan_id");
+        SetOutput("id");
+        SetOutput("ip_cidr_range");
+        SetOutput("name");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class GoogleVmwareengineSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformProperty<string> IpCidrRange
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_cidr_range");
-        set => this.WithProperty("ip_cidr_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_cidr_range");
+        set => SetProperty("ip_cidr_range", value);
     }
 
     /// <summary>
@@ -87,8 +88,8 @@ public class GoogleVmwareengineSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -99,8 +100,8 @@ public class GoogleVmwareengineSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -109,8 +110,7 @@ public class GoogleVmwareengineSubnet : TerraformResource
     /// </summary>
     public GoogleVmwareengineSubnetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVmwareengineSubnetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

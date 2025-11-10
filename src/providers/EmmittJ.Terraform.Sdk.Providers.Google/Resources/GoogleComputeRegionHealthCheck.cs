@@ -19,8 +19,7 @@ public class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GrpcServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("grpc_service_name");
-        set => WithProperty("grpc_service_name", value);
+        set => SetProperty("grpc_service_name", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PortName
     {
-        get => GetProperty<TerraformProperty<string>>("port_name");
-        set => WithProperty("port_name", value);
+        set => SetProperty("port_name", value);
     }
 
     /// <summary>
@@ -62,8 +59,7 @@ public class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PortSpecification
     {
-        get => GetProperty<TerraformProperty<string>>("port_specification");
-        set => WithProperty("port_specification", value);
+        set => SetProperty("port_specification", value);
     }
 
 }
@@ -85,8 +81,7 @@ public class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? GrpcServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("grpc_service_name");
-        set => WithProperty("grpc_service_name", value);
+        set => SetProperty("grpc_service_name", value);
     }
 
     /// <summary>
@@ -95,8 +90,7 @@ public class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -116,8 +110,7 @@ public class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PortSpecification
     {
-        get => GetProperty<TerraformProperty<string>>("port_specification");
-        set => WithProperty("port_specification", value);
+        set => SetProperty("port_specification", value);
     }
 
 }
@@ -135,8 +128,7 @@ public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -145,8 +137,7 @@ public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -155,8 +146,7 @@ public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PortName
     {
-        get => GetProperty<TerraformProperty<string>>("port_name");
-        set => WithProperty("port_name", value);
+        set => SetProperty("port_name", value);
     }
 
     /// <summary>
@@ -177,8 +167,7 @@ public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PortSpecification
     {
-        get => GetProperty<TerraformProperty<string>>("port_specification");
-        set => WithProperty("port_specification", value);
+        set => SetProperty("port_specification", value);
     }
 
     /// <summary>
@@ -187,8 +176,7 @@ public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ProxyHeader
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_header");
-        set => WithProperty("proxy_header", value);
+        set => SetProperty("proxy_header", value);
     }
 
     /// <summary>
@@ -197,8 +185,7 @@ public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? RequestPath
     {
-        get => GetProperty<TerraformProperty<string>>("request_path");
-        set => WithProperty("request_path", value);
+        set => SetProperty("request_path", value);
     }
 
     /// <summary>
@@ -208,8 +195,7 @@ public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Response
     {
-        get => GetProperty<TerraformProperty<string>>("response");
-        set => WithProperty("response", value);
+        set => SetProperty("response", value);
     }
 
 }
@@ -227,8 +213,7 @@ public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -237,8 +222,7 @@ public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -247,8 +231,7 @@ public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PortName
     {
-        get => GetProperty<TerraformProperty<string>>("port_name");
-        set => WithProperty("port_name", value);
+        set => SetProperty("port_name", value);
     }
 
     /// <summary>
@@ -269,8 +252,7 @@ public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PortSpecification
     {
-        get => GetProperty<TerraformProperty<string>>("port_specification");
-        set => WithProperty("port_specification", value);
+        set => SetProperty("port_specification", value);
     }
 
     /// <summary>
@@ -279,8 +261,7 @@ public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProxyHeader
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_header");
-        set => WithProperty("proxy_header", value);
+        set => SetProperty("proxy_header", value);
     }
 
     /// <summary>
@@ -289,8 +270,7 @@ public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RequestPath
     {
-        get => GetProperty<TerraformProperty<string>>("request_path");
-        set => WithProperty("request_path", value);
+        set => SetProperty("request_path", value);
     }
 
     /// <summary>
@@ -300,8 +280,7 @@ public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Response
     {
-        get => GetProperty<TerraformProperty<string>>("response");
-        set => WithProperty("response", value);
+        set => SetProperty("response", value);
     }
 
 }
@@ -319,8 +298,7 @@ public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -329,8 +307,7 @@ public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -339,8 +316,7 @@ public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PortName
     {
-        get => GetProperty<TerraformProperty<string>>("port_name");
-        set => WithProperty("port_name", value);
+        set => SetProperty("port_name", value);
     }
 
     /// <summary>
@@ -361,8 +337,7 @@ public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PortSpecification
     {
-        get => GetProperty<TerraformProperty<string>>("port_specification");
-        set => WithProperty("port_specification", value);
+        set => SetProperty("port_specification", value);
     }
 
     /// <summary>
@@ -371,8 +346,7 @@ public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ProxyHeader
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_header");
-        set => WithProperty("proxy_header", value);
+        set => SetProperty("proxy_header", value);
     }
 
     /// <summary>
@@ -381,8 +355,7 @@ public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? RequestPath
     {
-        get => GetProperty<TerraformProperty<string>>("request_path");
-        set => WithProperty("request_path", value);
+        set => SetProperty("request_path", value);
     }
 
     /// <summary>
@@ -392,8 +365,7 @@ public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Response
     {
-        get => GetProperty<TerraformProperty<string>>("response");
-        set => WithProperty("response", value);
+        set => SetProperty("response", value);
     }
 
 }
@@ -410,8 +382,7 @@ public class GoogleComputeRegionHealthCheckLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enable
     {
-        get => GetProperty<TerraformProperty<bool>>("enable");
-        set => WithProperty("enable", value);
+        set => SetProperty("enable", value);
     }
 
 }
@@ -428,8 +399,7 @@ public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -438,8 +408,7 @@ public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PortName
     {
-        get => GetProperty<TerraformProperty<string>>("port_name");
-        set => WithProperty("port_name", value);
+        set => SetProperty("port_name", value);
     }
 
     /// <summary>
@@ -460,8 +429,7 @@ public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PortSpecification
     {
-        get => GetProperty<TerraformProperty<string>>("port_specification");
-        set => WithProperty("port_specification", value);
+        set => SetProperty("port_specification", value);
     }
 
     /// <summary>
@@ -470,8 +438,7 @@ public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProxyHeader
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_header");
-        set => WithProperty("proxy_header", value);
+        set => SetProperty("proxy_header", value);
     }
 
     /// <summary>
@@ -482,8 +449,7 @@ public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Request
     {
-        get => GetProperty<TerraformProperty<string>>("request");
-        set => WithProperty("request", value);
+        set => SetProperty("request", value);
     }
 
     /// <summary>
@@ -493,8 +459,7 @@ public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Response
     {
-        get => GetProperty<TerraformProperty<string>>("response");
-        set => WithProperty("response", value);
+        set => SetProperty("response", value);
     }
 
 }
@@ -511,8 +476,7 @@ public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -521,8 +485,7 @@ public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PortName
     {
-        get => GetProperty<TerraformProperty<string>>("port_name");
-        set => WithProperty("port_name", value);
+        set => SetProperty("port_name", value);
     }
 
     /// <summary>
@@ -543,8 +506,7 @@ public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PortSpecification
     {
-        get => GetProperty<TerraformProperty<string>>("port_specification");
-        set => WithProperty("port_specification", value);
+        set => SetProperty("port_specification", value);
     }
 
     /// <summary>
@@ -553,8 +515,7 @@ public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProxyHeader
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_header");
-        set => WithProperty("proxy_header", value);
+        set => SetProperty("proxy_header", value);
     }
 
     /// <summary>
@@ -565,8 +526,7 @@ public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Request
     {
-        get => GetProperty<TerraformProperty<string>>("request");
-        set => WithProperty("request", value);
+        set => SetProperty("request", value);
     }
 
     /// <summary>
@@ -576,8 +536,7 @@ public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Response
     {
-        get => GetProperty<TerraformProperty<string>>("response");
-        set => WithProperty("response", value);
+        set => SetProperty("response", value);
     }
 
 }
@@ -593,8 +552,7 @@ public class GoogleComputeRegionHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -602,8 +560,7 @@ public class GoogleComputeRegionHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -611,8 +568,7 @@ public class GoogleComputeRegionHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -630,49 +586,58 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("health_check_id");
-        this.WithOutput("self_link");
-        this.WithOutput("type");
+        SetOutput("creation_timestamp");
+        SetOutput("health_check_id");
+        SetOutput("self_link");
+        SetOutput("type");
+        SetOutput("check_interval_sec");
+        SetOutput("description");
+        SetOutput("healthy_threshold");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("timeout_sec");
+        SetOutput("unhealthy_threshold");
     }
 
     /// <summary>
     /// How often (in seconds) to send a health check. The default value is 5
     /// seconds.
     /// </summary>
-    public TerraformProperty<double>? CheckIntervalSec
+    public TerraformProperty<double> CheckIntervalSec
     {
-        get => GetProperty<TerraformProperty<double>>("check_interval_sec");
-        set => this.WithProperty("check_interval_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("check_interval_sec");
+        set => SetProperty("check_interval_sec", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many
     /// consecutive successes. The default value is 2.
     /// </summary>
-    public TerraformProperty<double>? HealthyThreshold
+    public TerraformProperty<double> HealthyThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("healthy_threshold");
-        set => this.WithProperty("healthy_threshold", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("healthy_threshold");
+        set => SetProperty("healthy_threshold", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -687,27 +652,27 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The Region in which the created health check should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -715,20 +680,20 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// The default value is 5 seconds.  It is invalid for timeoutSec to have
     /// greater value than checkIntervalSec.
     /// </summary>
-    public TerraformProperty<double>? TimeoutSec
+    public TerraformProperty<double> TimeoutSec
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_sec");
-        set => this.WithProperty("timeout_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout_sec");
+        set => SetProperty("timeout_sec", value);
     }
 
     /// <summary>
     /// A so-far healthy instance will be marked unhealthy after this many
     /// consecutive failures. The default value is 2.
     /// </summary>
-    public TerraformProperty<double>? UnhealthyThreshold
+    public TerraformProperty<double> UnhealthyThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("unhealthy_threshold");
-        set => this.WithProperty("unhealthy_threshold", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("unhealthy_threshold");
+        set => SetProperty("unhealthy_threshold", value);
     }
 
     /// <summary>
@@ -738,8 +703,7 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcHealthCheck block(s) allowed")]
     public List<GoogleComputeRegionHealthCheckGrpcHealthCheckBlock>? GrpcHealthCheck
     {
-        get => GetProperty<List<GoogleComputeRegionHealthCheckGrpcHealthCheckBlock>>("grpc_health_check");
-        set => this.WithProperty("grpc_health_check", value);
+        set => SetProperty("grpc_health_check", value);
     }
 
     /// <summary>
@@ -749,8 +713,7 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcTlsHealthCheck block(s) allowed")]
     public List<GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock>? GrpcTlsHealthCheck
     {
-        get => GetProperty<List<GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock>>("grpc_tls_health_check");
-        set => this.WithProperty("grpc_tls_health_check", value);
+        set => SetProperty("grpc_tls_health_check", value);
     }
 
     /// <summary>
@@ -760,8 +723,7 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Http2HealthCheck block(s) allowed")]
     public List<GoogleComputeRegionHealthCheckHttp2HealthCheckBlock>? Http2HealthCheck
     {
-        get => GetProperty<List<GoogleComputeRegionHealthCheckHttp2HealthCheckBlock>>("http2_health_check");
-        set => this.WithProperty("http2_health_check", value);
+        set => SetProperty("http2_health_check", value);
     }
 
     /// <summary>
@@ -771,8 +733,7 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpHealthCheck block(s) allowed")]
     public List<GoogleComputeRegionHealthCheckHttpHealthCheckBlock>? HttpHealthCheck
     {
-        get => GetProperty<List<GoogleComputeRegionHealthCheckHttpHealthCheckBlock>>("http_health_check");
-        set => this.WithProperty("http_health_check", value);
+        set => SetProperty("http_health_check", value);
     }
 
     /// <summary>
@@ -782,8 +743,7 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpsHealthCheck block(s) allowed")]
     public List<GoogleComputeRegionHealthCheckHttpsHealthCheckBlock>? HttpsHealthCheck
     {
-        get => GetProperty<List<GoogleComputeRegionHealthCheckHttpsHealthCheckBlock>>("https_health_check");
-        set => this.WithProperty("https_health_check", value);
+        set => SetProperty("https_health_check", value);
     }
 
     /// <summary>
@@ -793,8 +753,7 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     public List<GoogleComputeRegionHealthCheckLogConfigBlock>? LogConfig
     {
-        get => GetProperty<List<GoogleComputeRegionHealthCheckLogConfigBlock>>("log_config");
-        set => this.WithProperty("log_config", value);
+        set => SetProperty("log_config", value);
     }
 
     /// <summary>
@@ -804,8 +763,7 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslHealthCheck block(s) allowed")]
     public List<GoogleComputeRegionHealthCheckSslHealthCheckBlock>? SslHealthCheck
     {
-        get => GetProperty<List<GoogleComputeRegionHealthCheckSslHealthCheckBlock>>("ssl_health_check");
-        set => this.WithProperty("ssl_health_check", value);
+        set => SetProperty("ssl_health_check", value);
     }
 
     /// <summary>
@@ -815,8 +773,7 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TcpHealthCheck block(s) allowed")]
     public List<GoogleComputeRegionHealthCheckTcpHealthCheckBlock>? TcpHealthCheck
     {
-        get => GetProperty<List<GoogleComputeRegionHealthCheckTcpHealthCheckBlock>>("tcp_health_check");
-        set => this.WithProperty("tcp_health_check", value);
+        set => SetProperty("tcp_health_check", value);
     }
 
     /// <summary>
@@ -825,8 +782,7 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     public GoogleComputeRegionHealthCheckTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRegionHealthCheckTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

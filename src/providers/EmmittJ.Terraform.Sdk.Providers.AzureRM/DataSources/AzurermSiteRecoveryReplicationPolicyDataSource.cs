@@ -13,8 +13,7 @@ public class AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,17 +30,21 @@ public class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.WithOutput("application_consistent_snapshot_frequency_in_minutes");
-        this.WithOutput("recovery_point_retention_in_minutes");
+        SetOutput("application_consistent_snapshot_frequency_in_minutes");
+        SetOutput("recovery_point_retention_in_minutes");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recovery_vault_name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +53,8 @@ public class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -60,8 +63,8 @@ public class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
-        set => this.WithProperty("recovery_vault_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_name");
+        set => SetProperty("recovery_vault_name", value);
     }
 
     /// <summary>
@@ -70,8 +73,8 @@ public class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -80,8 +83,7 @@ public class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformDataSourc
     /// </summary>
     public AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

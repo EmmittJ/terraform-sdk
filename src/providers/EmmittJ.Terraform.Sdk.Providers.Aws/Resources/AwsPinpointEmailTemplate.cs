@@ -13,8 +13,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultSubstitutions
     {
-        get => GetProperty<TerraformProperty<string>>("default_substitutions");
-        set => WithProperty("default_substitutions", value);
+        set => SetProperty("default_substitutions", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HtmlPart
     {
-        get => GetProperty<TerraformProperty<string>>("html_part");
-        set => WithProperty("html_part", value);
+        set => SetProperty("html_part", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RecommenderId
     {
-        get => GetProperty<TerraformProperty<string>>("recommender_id");
-        set => WithProperty("recommender_id", value);
+        set => SetProperty("recommender_id", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TextPart
     {
-        get => GetProperty<TerraformProperty<string>>("text_part");
-        set => WithProperty("text_part", value);
+        set => SetProperty("text_part", value);
     }
 
 }
@@ -76,26 +70,29 @@ public class AwsPinpointEmailTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("tags_all");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("template_name");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -104,8 +101,8 @@ public class AwsPinpointEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
     public required TerraformProperty<string> TemplateName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("template_name");
-        set => this.WithProperty("template_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_name");
+        set => SetProperty("template_name", value);
     }
 
     /// <summary>
@@ -114,8 +111,7 @@ public class AwsPinpointEmailTemplate : TerraformResource
     /// </summary>
     public List<AwsPinpointEmailTemplateEmailTemplateBlock>? EmailTemplate
     {
-        get => GetProperty<List<AwsPinpointEmailTemplateEmailTemplateBlock>>("email_template");
-        set => this.WithProperty("email_template", value);
+        set => SetProperty("email_template", value);
     }
 
     /// <summary>

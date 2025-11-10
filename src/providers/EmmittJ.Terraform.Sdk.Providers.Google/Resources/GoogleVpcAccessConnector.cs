@@ -14,8 +14,7 @@ public class GoogleVpcAccessConnectorSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleVpcAccessConnectorSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleVpcAccessConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleVpcAccessConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleVpcAccessConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,46 +72,57 @@ public class GoogleVpcAccessConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connected_projects");
-        this.WithOutput("self_link");
-        this.WithOutput("state");
+        SetOutput("connected_projects");
+        SetOutput("self_link");
+        SetOutput("state");
+        SetOutput("id");
+        SetOutput("ip_cidr_range");
+        SetOutput("machine_type");
+        SetOutput("max_instances");
+        SetOutput("max_throughput");
+        SetOutput("min_instances");
+        SetOutput("min_throughput");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The range of internal addresses that follows RFC 4632 notation. Example: &#39;10.132.0.0/28&#39;.
     /// </summary>
-    public TerraformProperty<string>? IpCidrRange
+    public TerraformProperty<string> IpCidrRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
-        set => this.WithProperty("ip_cidr_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_cidr_range");
+        set => SetProperty("ip_cidr_range", value);
     }
 
     /// <summary>
     /// Machine type of VM Instance underlying connector. Default is e2-micro
     /// </summary>
-    public TerraformProperty<string>? MachineType
+    public TerraformProperty<string> MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
-        set => this.WithProperty("machine_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("machine_type");
+        set => SetProperty("machine_type", value);
     }
 
     /// <summary>
     /// Maximum value of instances in autoscaling group underlying the connector. Value must be between 3 and 10, inclusive. Must be
     /// higher than the value specified by min_instances. Required alongside &#39;min_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    public TerraformProperty<double>? MaxInstances
+    public TerraformProperty<double> MaxInstances
     {
-        get => GetProperty<TerraformProperty<double>>("max_instances");
-        set => this.WithProperty("max_instances", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_instances");
+        set => SetProperty("max_instances", value);
     }
 
     /// <summary>
@@ -124,20 +130,20 @@ public class GoogleVpcAccessConnector : TerraformResource
     /// when using an e2-micro machine type. Value must be a multiple of 100 from 300 through 1000. Must be higher than the value specified by
     /// min_throughput. Only one of &#39;max_throughput&#39; and &#39;max_instances&#39; can be specified. The use of max_throughput is discouraged in favor of max_instances.
     /// </summary>
-    public TerraformProperty<double>? MaxThroughput
+    public TerraformProperty<double> MaxThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("max_throughput");
-        set => this.WithProperty("max_throughput", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_throughput");
+        set => SetProperty("max_throughput", value);
     }
 
     /// <summary>
     /// Minimum value of instances in autoscaling group underlying the connector. Value must be between 2 and 9, inclusive. Must be
     /// lower than the value specified by max_instances. Required alongside &#39;max_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    public TerraformProperty<double>? MinInstances
+    public TerraformProperty<double> MinInstances
     {
-        get => GetProperty<TerraformProperty<double>>("min_instances");
-        set => this.WithProperty("min_instances", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_instances");
+        set => SetProperty("min_instances", value);
     }
 
     /// <summary>
@@ -145,10 +151,10 @@ public class GoogleVpcAccessConnector : TerraformResource
     /// Value must be a multiple of 100 from 200 through 900. Must be lower than the value specified by max_throughput.
     /// Only one of &#39;min_throughput&#39; and &#39;min_instances&#39; can be specified. The use of min_throughput is discouraged in favor of min_instances.
     /// </summary>
-    public TerraformProperty<double>? MinThroughput
+    public TerraformProperty<double> MinThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("min_throughput");
-        set => this.WithProperty("min_throughput", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_throughput");
+        set => SetProperty("min_throughput", value);
     }
 
     /// <summary>
@@ -157,35 +163,35 @@ public class GoogleVpcAccessConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Name or self_link of the VPC network. Required if &#39;ip_cidr_range&#39; is set.
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where the VPC Access connector resides. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -195,8 +201,7 @@ public class GoogleVpcAccessConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
     public List<GoogleVpcAccessConnectorSubnetBlock>? Subnet
     {
-        get => GetProperty<List<GoogleVpcAccessConnectorSubnetBlock>>("subnet");
-        set => this.WithProperty("subnet", value);
+        set => SetProperty("subnet", value);
     }
 
     /// <summary>
@@ -205,8 +210,7 @@ public class GoogleVpcAccessConnector : TerraformResource
     /// </summary>
     public GoogleVpcAccessConnectorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVpcAccessConnectorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

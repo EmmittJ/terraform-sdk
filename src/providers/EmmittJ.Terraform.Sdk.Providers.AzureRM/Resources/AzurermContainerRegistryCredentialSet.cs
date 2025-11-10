@@ -14,8 +14,7 @@ public class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordSecretId is required")]
     public required TerraformProperty<string> PasswordSecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password_secret_id");
-        set => WithProperty("password_secret_id", value);
+        set => SetProperty("password_secret_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsernameSecretId is required")]
     public required TerraformProperty<string> UsernameSecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username_secret_id");
-        set => WithProperty("username_secret_id", value);
+        set => SetProperty("username_secret_id", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermContainerRegistryCredentialSetIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermContainerRegistryCredentialSetIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermContainerRegistryCredentialSetIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -77,8 +72,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -123,6 +114,10 @@ public class AzurermContainerRegistryCredentialSet : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("container_registry_id");
+        SetOutput("id");
+        SetOutput("login_server");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -131,17 +126,17 @@ public class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformProperty<string> ContainerRegistryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_id");
-        set => this.WithProperty("container_registry_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_id");
+        set => SetProperty("container_registry_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -150,8 +145,8 @@ public class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
     public required TerraformProperty<string> LoginServer
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("login_server");
-        set => this.WithProperty("login_server", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("login_server");
+        set => SetProperty("login_server", value);
     }
 
     /// <summary>
@@ -160,32 +155,32 @@ public class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Block for authentication_credentials.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationCredentials is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationCredentials block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationCredentials block(s) allowed")]
     public List<AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock>? AuthenticationCredentials
     {
-        get => GetProperty<List<AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock>>("authentication_credentials");
-        set => this.WithProperty("authentication_credentials", value);
+        set => SetProperty("authentication_credentials", value);
     }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermContainerRegistryCredentialSetIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermContainerRegistryCredentialSetIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -194,8 +189,7 @@ public class AzurermContainerRegistryCredentialSet : TerraformResource
     /// </summary>
     public AzurermContainerRegistryCredentialSetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryCredentialSetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

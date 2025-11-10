@@ -14,17 +14,27 @@ public class AwsQuicksightUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("user_invitation_url");
+        SetOutput("arn");
+        SetOutput("user_invitation_url");
+        SetOutput("aws_account_id");
+        SetOutput("email");
+        SetOutput("iam_arn");
+        SetOutput("id");
+        SetOutput("identity_type");
+        SetOutput("namespace");
+        SetOutput("region");
+        SetOutput("session_name");
+        SetOutput("user_name");
+        SetOutput("user_role");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -33,26 +43,26 @@ public class AwsQuicksightUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email");
-        set => this.WithProperty("email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email");
+        set => SetProperty("email", value);
     }
 
     /// <summary>
     /// The iam_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamArn
+    public TerraformProperty<string> IamArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_arn");
-        set => this.WithProperty("iam_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_arn");
+        set => SetProperty("iam_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,44 +71,44 @@ public class AwsQuicksightUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityType is required")]
     public required TerraformProperty<string> IdentityType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_type");
-        set => this.WithProperty("identity_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_type");
+        set => SetProperty("identity_type", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? Namespace
+    public TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
-        set => this.WithProperty("namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The session_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SessionName
+    public TerraformProperty<string> SessionName
     {
-        get => GetProperty<TerraformProperty<string>>("session_name");
-        set => this.WithProperty("session_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("session_name");
+        set => SetProperty("session_name", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    public TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
@@ -107,8 +117,8 @@ public class AwsQuicksightUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserRole is required")]
     public required TerraformProperty<string> UserRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_role");
-        set => this.WithProperty("user_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_role");
+        set => SetProperty("user_role", value);
     }
 
     /// <summary>

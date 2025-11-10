@@ -13,8 +13,7 @@ public class AwsBedrockagentAgentAliasTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBedrockagentAgentAliasTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsBedrockagentAgentAliasTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,16 @@ public class AwsBedrockagentAgentAlias : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("agent_alias_arn");
-        this.WithOutput("agent_alias_id");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("agent_alias_arn");
+        SetOutput("agent_alias_id");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("agent_alias_name");
+        SetOutput("agent_id");
+        SetOutput("description");
+        SetOutput("region");
+        SetOutput("routing_configuration");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -61,8 +64,8 @@ public class AwsBedrockagentAgentAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAliasName is required")]
     public required TerraformProperty<string> AgentAliasName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_alias_name");
-        set => this.WithProperty("agent_alias_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_alias_name");
+        set => SetProperty("agent_alias_name", value);
     }
 
     /// <summary>
@@ -71,44 +74,44 @@ public class AwsBedrockagentAgentAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
-        set => this.WithProperty("agent_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_id");
+        set => SetProperty("agent_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The routing_configuration attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? RoutingConfiguration
+    public List<TerraformProperty<object>> RoutingConfiguration
     {
-        get => GetProperty<List<TerraformProperty<object>>>("routing_configuration");
-        set => this.WithProperty("routing_configuration", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("routing_configuration");
+        set => SetProperty("routing_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -117,8 +120,7 @@ public class AwsBedrockagentAgentAlias : TerraformResource
     /// </summary>
     public AwsBedrockagentAgentAliasTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentAgentAliasTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

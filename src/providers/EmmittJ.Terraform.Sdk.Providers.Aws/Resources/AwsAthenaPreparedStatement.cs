@@ -13,8 +13,7 @@ public class AwsAthenaPreparedStatementTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAthenaPreparedStatementTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsAthenaPreparedStatementTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,24 +46,30 @@ public class AwsAthenaPreparedStatement : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("query_statement");
+        SetOutput("region");
+        SetOutput("workgroup");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AwsAthenaPreparedStatement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,17 +88,17 @@ public class AwsAthenaPreparedStatement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStatement is required")]
     public required TerraformProperty<string> QueryStatement
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query_statement");
-        set => this.WithProperty("query_statement", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_statement");
+        set => SetProperty("query_statement", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class AwsAthenaPreparedStatement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workgroup is required")]
     public required TerraformProperty<string> Workgroup
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workgroup");
-        set => this.WithProperty("workgroup", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workgroup");
+        set => SetProperty("workgroup", value);
     }
 
     /// <summary>
@@ -114,8 +117,7 @@ public class AwsAthenaPreparedStatement : TerraformResource
     /// </summary>
     public AwsAthenaPreparedStatementTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAthenaPreparedStatementTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

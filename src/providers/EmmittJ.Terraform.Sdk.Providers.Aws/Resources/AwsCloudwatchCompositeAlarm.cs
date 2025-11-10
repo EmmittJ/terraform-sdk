@@ -14,8 +14,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alarm is required")]
     public required TerraformProperty<string> Alarm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alarm");
-        set => WithProperty("alarm", value);
+        set => SetProperty("alarm", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionPeriod is required")]
     public required TerraformProperty<double> ExtensionPeriod
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("extension_period");
-        set => WithProperty("extension_period", value);
+        set => SetProperty("extension_period", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitPeriod is required")]
     public required TerraformProperty<double> WaitPeriod
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("wait_period");
-        set => WithProperty("wait_period", value);
+        set => SetProperty("wait_period", value);
     }
 
 }
@@ -53,34 +50,45 @@ public class AwsCloudwatchCompositeAlarm : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
+        SetOutput("arn");
+        SetOutput("actions_enabled");
+        SetOutput("alarm_actions");
+        SetOutput("alarm_description");
+        SetOutput("alarm_name");
+        SetOutput("alarm_rule");
+        SetOutput("id");
+        SetOutput("insufficient_data_actions");
+        SetOutput("ok_actions");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The actions_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ActionsEnabled
+    public TerraformProperty<bool> ActionsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("actions_enabled");
-        set => this.WithProperty("actions_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("actions_enabled");
+        set => SetProperty("actions_enabled", value);
     }
 
     /// <summary>
     /// The alarm_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AlarmActions
+    public HashSet<TerraformProperty<string>> AlarmActions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("alarm_actions");
-        set => this.WithProperty("alarm_actions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("alarm_actions");
+        set => SetProperty("alarm_actions", value);
     }
 
     /// <summary>
     /// The alarm_description attribute.
     /// </summary>
-    public TerraformProperty<string>? AlarmDescription
+    public TerraformProperty<string> AlarmDescription
     {
-        get => GetProperty<TerraformProperty<string>>("alarm_description");
-        set => this.WithProperty("alarm_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alarm_description");
+        set => SetProperty("alarm_description", value);
     }
 
     /// <summary>
@@ -89,8 +97,8 @@ public class AwsCloudwatchCompositeAlarm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformProperty<string> AlarmName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alarm_name");
-        set => this.WithProperty("alarm_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alarm_name");
+        set => SetProperty("alarm_name", value);
     }
 
     /// <summary>
@@ -99,62 +107,62 @@ public class AwsCloudwatchCompositeAlarm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmRule is required")]
     public required TerraformProperty<string> AlarmRule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alarm_rule");
-        set => this.WithProperty("alarm_rule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alarm_rule");
+        set => SetProperty("alarm_rule", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The insufficient_data_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? InsufficientDataActions
+    public HashSet<TerraformProperty<string>> InsufficientDataActions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("insufficient_data_actions");
-        set => this.WithProperty("insufficient_data_actions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("insufficient_data_actions");
+        set => SetProperty("insufficient_data_actions", value);
     }
 
     /// <summary>
     /// The ok_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? OkActions
+    public HashSet<TerraformProperty<string>> OkActions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ok_actions");
-        set => this.WithProperty("ok_actions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ok_actions");
+        set => SetProperty("ok_actions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -164,8 +172,7 @@ public class AwsCloudwatchCompositeAlarm : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionsSuppressor block(s) allowed")]
     public List<AwsCloudwatchCompositeAlarmActionsSuppressorBlock>? ActionsSuppressor
     {
-        get => GetProperty<List<AwsCloudwatchCompositeAlarmActionsSuppressorBlock>>("actions_suppressor");
-        set => this.WithProperty("actions_suppressor", value);
+        set => SetProperty("actions_suppressor", value);
     }
 
     /// <summary>

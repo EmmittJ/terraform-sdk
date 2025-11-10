@@ -17,8 +17,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BackupWindow
     {
-        get => GetProperty<TerraformProperty<string>>("backup_window");
-        set => WithProperty("backup_window", value);
+        set => SetProperty("backup_window", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -35,8 +33,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
 }
@@ -61,8 +57,7 @@ public class GoogleAlloydbClusterContinuousBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -72,8 +67,7 @@ public class GoogleAlloydbClusterContinuousBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RecoveryWindowDays
     {
-        get => GetProperty<TerraformProperty<double>>("recovery_window_days");
-        set => WithProperty("recovery_window_days", value);
+        set => SetProperty("recovery_window_days", value);
     }
 
 }
@@ -89,8 +83,7 @@ public class GoogleAlloydbClusterEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
 }
@@ -107,8 +100,7 @@ public class GoogleAlloydbClusterInitialUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -116,8 +108,7 @@ public class GoogleAlloydbClusterInitialUserBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? User
     {
-        get => GetProperty<TerraformProperty<string>>("user");
-        set => WithProperty("user", value);
+        set => SetProperty("user", value);
     }
 
 }
@@ -142,8 +133,7 @@ public class GoogleAlloydbClusterNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AllocatedIpRange
     {
-        get => GetProperty<TerraformProperty<string>>("allocated_ip_range");
-        set => WithProperty("allocated_ip_range", value);
+        set => SetProperty("allocated_ip_range", value);
     }
 
     /// <summary>
@@ -152,8 +142,7 @@ public class GoogleAlloydbClusterNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
 }
@@ -169,8 +158,7 @@ public class GoogleAlloydbClusterPscConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PscEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("psc_enabled");
-        set => WithProperty("psc_enabled", value);
+        set => SetProperty("psc_enabled", value);
     }
 
     /// <summary>
@@ -179,8 +167,7 @@ public class GoogleAlloydbClusterPscConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ServiceOwnedProjectNumber
     {
-        get => GetProperty<TerraformProperty<double>>("service_owned_project_number");
-        set => WithProperty("service_owned_project_number", value);
+        set => SetProperty("service_owned_project_number", value);
     }
 
 }
@@ -197,8 +184,7 @@ public class GoogleAlloydbClusterRestoreBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupName is required")]
     public required TerraformProperty<string> BackupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_name");
-        set => WithProperty("backup_name", value);
+        set => SetProperty("backup_name", value);
     }
 
 }
@@ -215,8 +201,7 @@ public class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => WithProperty("cluster", value);
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
@@ -225,8 +210,7 @@ public class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
     public required TerraformProperty<string> PointInTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("point_in_time");
-        set => WithProperty("point_in_time", value);
+        set => SetProperty("point_in_time", value);
     }
 
 }
@@ -244,8 +228,7 @@ public class GoogleAlloydbClusterSecondaryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryClusterName is required")]
     public required TerraformProperty<string> PrimaryClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("primary_cluster_name");
-        set => WithProperty("primary_cluster_name", value);
+        set => SetProperty("primary_cluster_name", value);
     }
 
 }
@@ -261,8 +244,7 @@ public class GoogleAlloydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -270,8 +252,7 @@ public class GoogleAlloydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -279,8 +260,7 @@ public class GoogleAlloydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -298,18 +278,32 @@ public class GoogleAlloydbCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backup_source");
-        this.WithOutput("continuous_backup_info");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("encryption_info");
-        this.WithOutput("migration_source");
-        this.WithOutput("name");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("trial_metadata");
-        this.WithOutput("uid");
+        SetOutput("backup_source");
+        SetOutput("continuous_backup_info");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("encryption_info");
+        SetOutput("migration_source");
+        SetOutput("name");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("trial_metadata");
+        SetOutput("uid");
+        SetOutput("annotations");
+        SetOutput("cluster_id");
+        SetOutput("cluster_type");
+        SetOutput("database_version");
+        SetOutput("deletion_policy");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("skip_await_major_version_upgrade");
+        SetOutput("subscription_type");
     }
 
     /// <summary>
@@ -320,10 +314,10 @@ public class GoogleAlloydbCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -332,27 +326,27 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The type of cluster. If not set, defaults to PRIMARY. Default value: &amp;quot;PRIMARY&amp;quot; Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ClusterType
+    public TerraformProperty<string> ClusterType
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_type");
-        set => this.WithProperty("cluster_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_type");
+        set => SetProperty("cluster_type", value);
     }
 
     /// <summary>
     /// The database engine major version. This is an optional field and it&#39;s populated at the Cluster creation time.
     /// Note: Changing this field to a higer version results in upgrading the AlloyDB cluster which is an irreversible change.
     /// </summary>
-    public TerraformProperty<string>? DatabaseVersion
+    public TerraformProperty<string> DatabaseVersion
     {
-        get => GetProperty<TerraformProperty<string>>("database_version");
-        set => this.WithProperty("database_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_version");
+        set => SetProperty("database_version", value);
     }
 
     /// <summary>
@@ -361,10 +355,10 @@ public class GoogleAlloydbCluster : TerraformResource
     /// Deleting a Secondary cluster with a secondary instance REQUIRES setting deletion_policy = &amp;quot;FORCE&amp;quot; otherwise an error is returned. This is needed as there is no support to delete just the secondary instance, and the only way to delete secondary instance is to delete the associated secondary cluster forcefully which also deletes the secondary instance.
     /// Possible values: DEFAULT, FORCE
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
@@ -373,37 +367,37 @@ public class GoogleAlloydbCluster : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the cluster will fail.
     /// When the field is set to false, deleting the cluster is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// User-settable and human-readable display name for the Cluster.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
-    public TerraformProperty<string>? Etag
+    public TerraformProperty<string> Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => this.WithProperty("etag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("etag");
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -412,10 +406,10 @@ public class GoogleAlloydbCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -424,17 +418,17 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -442,19 +436,19 @@ public class GoogleAlloydbCluster : TerraformResource
     /// Possible values: true, false
     /// Default value: &amp;quot;true&amp;quot;
     /// </summary>
-    public TerraformProperty<bool>? SkipAwaitMajorVersionUpgrade
+    public TerraformProperty<bool> SkipAwaitMajorVersionUpgrade
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_await_major_version_upgrade");
-        set => this.WithProperty("skip_await_major_version_upgrade", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_await_major_version_upgrade");
+        set => SetProperty("skip_await_major_version_upgrade", value);
     }
 
     /// <summary>
     /// The subscrition type of cluster. Possible values: [&amp;quot;TRIAL&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? SubscriptionType
+    public TerraformProperty<string> SubscriptionType
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_type");
-        set => this.WithProperty("subscription_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_type");
+        set => SetProperty("subscription_type", value);
     }
 
     /// <summary>
@@ -464,8 +458,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupPolicy block(s) allowed")]
     public List<GoogleAlloydbClusterAutomatedBackupPolicyBlock>? AutomatedBackupPolicy
     {
-        get => GetProperty<List<GoogleAlloydbClusterAutomatedBackupPolicyBlock>>("automated_backup_policy");
-        set => this.WithProperty("automated_backup_policy", value);
+        set => SetProperty("automated_backup_policy", value);
     }
 
     /// <summary>
@@ -475,8 +468,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContinuousBackupConfig block(s) allowed")]
     public List<GoogleAlloydbClusterContinuousBackupConfigBlock>? ContinuousBackupConfig
     {
-        get => GetProperty<List<GoogleAlloydbClusterContinuousBackupConfigBlock>>("continuous_backup_config");
-        set => this.WithProperty("continuous_backup_config", value);
+        set => SetProperty("continuous_backup_config", value);
     }
 
     /// <summary>
@@ -486,8 +478,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     public List<GoogleAlloydbClusterEncryptionConfigBlock>? EncryptionConfig
     {
-        get => GetProperty<List<GoogleAlloydbClusterEncryptionConfigBlock>>("encryption_config");
-        set => this.WithProperty("encryption_config", value);
+        set => SetProperty("encryption_config", value);
     }
 
     /// <summary>
@@ -497,8 +488,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialUser block(s) allowed")]
     public List<GoogleAlloydbClusterInitialUserBlock>? InitialUser
     {
-        get => GetProperty<List<GoogleAlloydbClusterInitialUserBlock>>("initial_user");
-        set => this.WithProperty("initial_user", value);
+        set => SetProperty("initial_user", value);
     }
 
     /// <summary>
@@ -508,8 +498,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceUpdatePolicy block(s) allowed")]
     public List<GoogleAlloydbClusterMaintenanceUpdatePolicyBlock>? MaintenanceUpdatePolicy
     {
-        get => GetProperty<List<GoogleAlloydbClusterMaintenanceUpdatePolicyBlock>>("maintenance_update_policy");
-        set => this.WithProperty("maintenance_update_policy", value);
+        set => SetProperty("maintenance_update_policy", value);
     }
 
     /// <summary>
@@ -519,8 +508,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<GoogleAlloydbClusterNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<GoogleAlloydbClusterNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -530,8 +518,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
     public List<GoogleAlloydbClusterPscConfigBlock>? PscConfig
     {
-        get => GetProperty<List<GoogleAlloydbClusterPscConfigBlock>>("psc_config");
-        set => this.WithProperty("psc_config", value);
+        set => SetProperty("psc_config", value);
     }
 
     /// <summary>
@@ -541,8 +528,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreBackupSource block(s) allowed")]
     public List<GoogleAlloydbClusterRestoreBackupSourceBlock>? RestoreBackupSource
     {
-        get => GetProperty<List<GoogleAlloydbClusterRestoreBackupSourceBlock>>("restore_backup_source");
-        set => this.WithProperty("restore_backup_source", value);
+        set => SetProperty("restore_backup_source", value);
     }
 
     /// <summary>
@@ -552,8 +538,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreContinuousBackupSource block(s) allowed")]
     public List<GoogleAlloydbClusterRestoreContinuousBackupSourceBlock>? RestoreContinuousBackupSource
     {
-        get => GetProperty<List<GoogleAlloydbClusterRestoreContinuousBackupSourceBlock>>("restore_continuous_backup_source");
-        set => this.WithProperty("restore_continuous_backup_source", value);
+        set => SetProperty("restore_continuous_backup_source", value);
     }
 
     /// <summary>
@@ -563,8 +548,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryConfig block(s) allowed")]
     public List<GoogleAlloydbClusterSecondaryConfigBlock>? SecondaryConfig
     {
-        get => GetProperty<List<GoogleAlloydbClusterSecondaryConfigBlock>>("secondary_config");
-        set => this.WithProperty("secondary_config", value);
+        set => SetProperty("secondary_config", value);
     }
 
     /// <summary>
@@ -573,8 +557,7 @@ public class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     public GoogleAlloydbClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAlloydbClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsDatazoneGlossaryTermTermRelationsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Classifies
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("classifies");
-        set => WithProperty("classifies", value);
+        set => SetProperty("classifies", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDatazoneGlossaryTermTermRelationsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IsA
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("is_a");
-        set => WithProperty("is_a", value);
+        set => SetProperty("is_a", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsDatazoneGlossaryTermTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -57,18 +54,25 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("created_by");
-        this.WithOutput("id");
+        SetOutput("created_at");
+        SetOutput("created_by");
+        SetOutput("id");
+        SetOutput("domain_identifier");
+        SetOutput("glossary_identifier");
+        SetOutput("long_description");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("short_description");
+        SetOutput("status");
     }
 
     /// <summary>
     /// The domain_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainIdentifier
+    public TerraformProperty<string> DomainIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("domain_identifier");
-        set => this.WithProperty("domain_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_identifier");
+        set => SetProperty("domain_identifier", value);
     }
 
     /// <summary>
@@ -77,17 +81,17 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlossaryIdentifier is required")]
     public required TerraformProperty<string> GlossaryIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("glossary_identifier");
-        set => this.WithProperty("glossary_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("glossary_identifier");
+        set => SetProperty("glossary_identifier", value);
     }
 
     /// <summary>
     /// The long_description attribute.
     /// </summary>
-    public TerraformProperty<string>? LongDescription
+    public TerraformProperty<string> LongDescription
     {
-        get => GetProperty<TerraformProperty<string>>("long_description");
-        set => this.WithProperty("long_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("long_description");
+        set => SetProperty("long_description", value);
     }
 
     /// <summary>
@@ -96,35 +100,35 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The short_description attribute.
     /// </summary>
-    public TerraformProperty<string>? ShortDescription
+    public TerraformProperty<string> ShortDescription
     {
-        get => GetProperty<TerraformProperty<string>>("short_description");
-        set => this.WithProperty("short_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("short_description");
+        set => SetProperty("short_description", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -133,8 +137,7 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     /// </summary>
     public List<AwsDatazoneGlossaryTermTermRelationsBlock>? TermRelations
     {
-        get => GetProperty<List<AwsDatazoneGlossaryTermTermRelationsBlock>>("term_relations");
-        set => this.WithProperty("term_relations", value);
+        set => SetProperty("term_relations", value);
     }
 
     /// <summary>
@@ -143,8 +146,7 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     /// </summary>
     public AwsDatazoneGlossaryTermTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDatazoneGlossaryTermTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

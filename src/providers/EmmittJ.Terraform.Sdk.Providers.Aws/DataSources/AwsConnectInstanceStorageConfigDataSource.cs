@@ -14,7 +14,12 @@ public class AwsConnectInstanceStorageConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("storage_config");
+        SetOutput("storage_config");
+        SetOutput("association_id");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("region");
+        SetOutput("resource_type");
     }
 
     /// <summary>
@@ -23,17 +28,17 @@ public class AwsConnectInstanceStorageConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociationId is required")]
     public required TerraformProperty<string> AssociationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("association_id");
-        set => this.WithProperty("association_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("association_id");
+        set => SetProperty("association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,17 +47,17 @@ public class AwsConnectInstanceStorageConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -61,8 +66,8 @@ public class AwsConnectInstanceStorageConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => this.WithProperty("resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>

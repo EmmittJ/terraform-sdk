@@ -13,8 +13,7 @@ public class AwsDatasyncLocationNfsMountOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsDatasyncLocationNfsOnPremConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
     public HashSet<TerraformProperty<string>>? AgentArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("agent_arns");
-        set => WithProperty("agent_arns", value);
+        set => SetProperty("agent_arns", value);
     }
 
 }
@@ -50,26 +48,32 @@ public class AwsDatasyncLocationNfs : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("uri");
+        SetOutput("arn");
+        SetOutput("uri");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("server_hostname");
+        SetOutput("subdirectory");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +82,8 @@ public class AwsDatasyncLocationNfs : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
     public required TerraformProperty<string> ServerHostname
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_hostname");
-        set => this.WithProperty("server_hostname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_hostname");
+        set => SetProperty("server_hostname", value);
     }
 
     /// <summary>
@@ -88,26 +92,26 @@ public class AwsDatasyncLocationNfs : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
     public required TerraformProperty<string> Subdirectory
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subdirectory");
-        set => this.WithProperty("subdirectory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subdirectory");
+        set => SetProperty("subdirectory", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -117,20 +121,19 @@ public class AwsDatasyncLocationNfs : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MountOptions block(s) allowed")]
     public List<AwsDatasyncLocationNfsMountOptionsBlock>? MountOptions
     {
-        get => GetProperty<List<AwsDatasyncLocationNfsMountOptionsBlock>>("mount_options");
-        set => this.WithProperty("mount_options", value);
+        set => SetProperty("mount_options", value);
     }
 
     /// <summary>
     /// Block for on_prem_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnPremConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OnPremConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnPremConfig block(s) allowed")]
     public List<AwsDatasyncLocationNfsOnPremConfigBlock>? OnPremConfig
     {
-        get => GetProperty<List<AwsDatasyncLocationNfsOnPremConfigBlock>>("on_prem_config");
-        set => this.WithProperty("on_prem_config", value);
+        set => SetProperty("on_prem_config", value);
     }
 
     /// <summary>

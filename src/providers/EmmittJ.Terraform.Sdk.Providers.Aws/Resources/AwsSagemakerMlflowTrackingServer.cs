@@ -14,8 +14,19 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("tracking_server_url");
+        SetOutput("arn");
+        SetOutput("tracking_server_url");
+        SetOutput("artifact_store_uri");
+        SetOutput("automatic_model_registration");
+        SetOutput("id");
+        SetOutput("mlflow_version");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("tracking_server_name");
+        SetOutput("tracking_server_size");
+        SetOutput("weekly_maintenance_window_start");
     }
 
     /// <summary>
@@ -24,44 +35,44 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactStoreUri is required")]
     public required TerraformProperty<string> ArtifactStoreUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("artifact_store_uri");
-        set => this.WithProperty("artifact_store_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("artifact_store_uri");
+        set => SetProperty("artifact_store_uri", value);
     }
 
     /// <summary>
     /// The automatic_model_registration attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutomaticModelRegistration
+    public TerraformProperty<bool> AutomaticModelRegistration
     {
-        get => GetProperty<TerraformProperty<bool>>("automatic_model_registration");
-        set => this.WithProperty("automatic_model_registration", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("automatic_model_registration");
+        set => SetProperty("automatic_model_registration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The mlflow_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MlflowVersion
+    public TerraformProperty<string> MlflowVersion
     {
-        get => GetProperty<TerraformProperty<string>>("mlflow_version");
-        set => this.WithProperty("mlflow_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mlflow_version");
+        set => SetProperty("mlflow_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -70,26 +81,26 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -98,26 +109,26 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackingServerName is required")]
     public required TerraformProperty<string> TrackingServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tracking_server_name");
-        set => this.WithProperty("tracking_server_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tracking_server_name");
+        set => SetProperty("tracking_server_name", value);
     }
 
     /// <summary>
     /// The tracking_server_size attribute.
     /// </summary>
-    public TerraformProperty<string>? TrackingServerSize
+    public TerraformProperty<string> TrackingServerSize
     {
-        get => GetProperty<TerraformProperty<string>>("tracking_server_size");
-        set => this.WithProperty("tracking_server_size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tracking_server_size");
+        set => SetProperty("tracking_server_size", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_window_start attribute.
     /// </summary>
-    public TerraformProperty<string>? WeeklyMaintenanceWindowStart
+    public TerraformProperty<string> WeeklyMaintenanceWindowStart
     {
-        get => GetProperty<TerraformProperty<string>>("weekly_maintenance_window_start");
-        set => this.WithProperty("weekly_maintenance_window_start", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("weekly_maintenance_window_start");
+        set => SetProperty("weekly_maintenance_window_start", value);
     }
 
     /// <summary>

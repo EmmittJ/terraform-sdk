@@ -14,27 +14,30 @@ public class AwsSecretsmanagerSecretVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("name");
-        this.WithOutput("versions");
+        SetOutput("arn");
+        SetOutput("name");
+        SetOutput("versions");
+        SetOutput("include_deprecated");
+        SetOutput("region");
+        SetOutput("secret_id");
     }
 
     /// <summary>
     /// The include_deprecated attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeDeprecated
+    public TerraformProperty<bool> IncludeDeprecated
     {
-        get => GetProperty<TerraformProperty<bool>>("include_deprecated");
-        set => this.WithProperty("include_deprecated", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_deprecated");
+        set => SetProperty("include_deprecated", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -43,8 +46,8 @@ public class AwsSecretsmanagerSecretVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
-        set => this.WithProperty("secret_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_id");
+        set => SetProperty("secret_id", value);
     }
 
     /// <summary>

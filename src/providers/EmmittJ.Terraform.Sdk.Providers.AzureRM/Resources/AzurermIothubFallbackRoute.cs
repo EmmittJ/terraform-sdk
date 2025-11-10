@@ -13,8 +13,7 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,22 @@ public class AzurermIothubFallbackRoute : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("condition");
+        SetOutput("enabled");
+        SetOutput("endpoint_names");
+        SetOutput("id");
+        SetOutput("iothub_name");
+        SetOutput("resource_group_name");
+        SetOutput("source");
     }
 
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    public TerraformProperty<string>? Condition
+    public TerraformProperty<string> Condition
     {
-        get => GetProperty<TerraformProperty<string>>("condition");
-        set => this.WithProperty("condition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("condition");
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
@@ -75,27 +78,27 @@ public class AzurermIothubFallbackRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The endpoint_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointNames is required")]
-    public List<TerraformProperty<string>>? EndpointNames
+    public List<TerraformProperty<string>> EndpointNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("endpoint_names");
-        set => this.WithProperty("endpoint_names", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("endpoint_names");
+        set => SetProperty("endpoint_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class AzurermIothubFallbackRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
     public required TerraformProperty<string> IothubName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_name");
-        set => this.WithProperty("iothub_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_name");
+        set => SetProperty("iothub_name", value);
     }
 
     /// <summary>
@@ -114,17 +117,17 @@ public class AzurermIothubFallbackRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string>? Source
+    public TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -133,8 +136,7 @@ public class AzurermIothubFallbackRoute : TerraformResource
     /// </summary>
     public AzurermIothubFallbackRouteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubFallbackRouteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -22,54 +22,59 @@ public class AwsTransferWebApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("tags_all");
-        this.WithOutput("web_app_id");
+        SetOutput("arn");
+        SetOutput("tags_all");
+        SetOutput("web_app_id");
+        SetOutput("access_endpoint");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("web_app_endpoint_policy");
+        SetOutput("web_app_units");
     }
 
     /// <summary>
     /// The access_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessEndpoint
+    public TerraformProperty<string> AccessEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("access_endpoint");
-        set => this.WithProperty("access_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_endpoint");
+        set => SetProperty("access_endpoint", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The web_app_endpoint_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? WebAppEndpointPolicy
+    public TerraformProperty<string> WebAppEndpointPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("web_app_endpoint_policy");
-        set => this.WithProperty("web_app_endpoint_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("web_app_endpoint_policy");
+        set => SetProperty("web_app_endpoint_policy", value);
     }
 
     /// <summary>
     /// The web_app_units attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? WebAppUnits
+    public List<TerraformProperty<object>> WebAppUnits
     {
-        get => GetProperty<List<TerraformProperty<object>>>("web_app_units");
-        set => this.WithProperty("web_app_units", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("web_app_units");
+        set => SetProperty("web_app_units", value);
     }
 
     /// <summary>
@@ -78,8 +83,7 @@ public class AwsTransferWebApp : TerraformResource
     /// </summary>
     public List<AwsTransferWebAppIdentityProviderDetailsBlock>? IdentityProviderDetails
     {
-        get => GetProperty<List<AwsTransferWebAppIdentityProviderDetailsBlock>>("identity_provider_details");
-        set => this.WithProperty("identity_provider_details", value);
+        set => SetProperty("identity_provider_details", value);
     }
 
     /// <summary>

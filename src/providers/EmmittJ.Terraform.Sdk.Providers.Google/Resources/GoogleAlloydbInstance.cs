@@ -13,8 +13,7 @@ public class GoogleAlloydbInstanceClientConnectionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequireConnectors
     {
-        get => GetProperty<TerraformProperty<bool>>("require_connectors");
-        set => WithProperty("require_connectors", value);
+        set => SetProperty("require_connectors", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CpuCount
     {
-        get => GetProperty<TerraformProperty<double>>("cpu_count");
-        set => WithProperty("cpu_count", value);
+        set => SetProperty("cpu_count", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
-        set => WithProperty("machine_type", value);
+        set => SetProperty("machine_type", value);
     }
 
 }
@@ -60,8 +57,7 @@ public class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AllocatedIpRangeOverride
     {
-        get => GetProperty<TerraformProperty<string>>("allocated_ip_range_override");
-        set => WithProperty("allocated_ip_range_override", value);
+        set => SetProperty("allocated_ip_range_override", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableOutboundPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_outbound_public_ip");
-        set => WithProperty("enable_outbound_public_ip", value);
+        set => SetProperty("enable_outbound_public_ip", value);
     }
 
     /// <summary>
@@ -80,8 +75,7 @@ public class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnablePublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_public_ip");
-        set => WithProperty("enable_public_ip", value);
+        set => SetProperty("enable_public_ip", value);
     }
 
 }
@@ -98,8 +92,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedConsumerProjects
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_consumer_projects");
-        set => WithProperty("allowed_consumer_projects", value);
+        set => SetProperty("allowed_consumer_projects", value);
     }
 
     /// <summary>
@@ -108,8 +101,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PscDnsName
     {
-        get => GetProperty<TerraformProperty<string>>("psc_dns_name");
-        set => WithProperty("psc_dns_name", value);
+        set => SetProperty("psc_dns_name", value);
     }
 
     /// <summary>
@@ -119,8 +111,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAttachmentLink
     {
-        get => GetProperty<TerraformProperty<string>>("service_attachment_link");
-        set => WithProperty("service_attachment_link", value);
+        set => SetProperty("service_attachment_link", value);
     }
 
 }
@@ -136,8 +127,7 @@ public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? QueryPlansPerMinute
     {
-        get => GetProperty<TerraformProperty<double>>("query_plans_per_minute");
-        set => WithProperty("query_plans_per_minute", value);
+        set => SetProperty("query_plans_per_minute", value);
     }
 
     /// <summary>
@@ -145,8 +135,7 @@ public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? QueryStringLength
     {
-        get => GetProperty<TerraformProperty<double>>("query_string_length");
-        set => WithProperty("query_string_length", value);
+        set => SetProperty("query_string_length", value);
     }
 
     /// <summary>
@@ -154,8 +143,7 @@ public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RecordApplicationTags
     {
-        get => GetProperty<TerraformProperty<bool>>("record_application_tags");
-        set => WithProperty("record_application_tags", value);
+        set => SetProperty("record_application_tags", value);
     }
 
     /// <summary>
@@ -163,8 +151,7 @@ public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RecordClientAddress
     {
-        get => GetProperty<TerraformProperty<bool>>("record_client_address");
-        set => WithProperty("record_client_address", value);
+        set => SetProperty("record_client_address", value);
     }
 
 }
@@ -180,8 +167,7 @@ public class GoogleAlloydbInstanceReadPoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
-        set => WithProperty("node_count", value);
+        set => SetProperty("node_count", value);
     }
 
 }
@@ -197,8 +183,7 @@ public class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -206,8 +191,7 @@ public class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -215,8 +199,7 @@ public class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -234,18 +217,29 @@ public class GoogleAlloydbInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("ip_address");
-        this.WithOutput("name");
-        this.WithOutput("outbound_public_ip_addresses");
-        this.WithOutput("public_ip_address");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("ip_address");
+        SetOutput("name");
+        SetOutput("outbound_public_ip_addresses");
+        SetOutput("public_ip_address");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("activation_policy");
+        SetOutput("annotations");
+        SetOutput("availability_type");
+        SetOutput("cluster");
+        SetOutput("database_flags");
+        SetOutput("display_name");
+        SetOutput("gce_zone");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("instance_type");
+        SetOutput("labels");
     }
 
     /// <summary>
@@ -258,10 +252,10 @@ public class GoogleAlloydbInstance : TerraformResource
     /// etc.). Please refer to the API documentation for more details.
     /// Possible values are: &#39;ACTIVATION_POLICY_UNSPECIFIED&#39;, &#39;ALWAYS&#39;, &#39;NEVER&#39;.&#39; Possible values: [&amp;quot;ACTIVATION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;ALWAYS&amp;quot;, &amp;quot;NEVER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ActivationPolicy
+    public TerraformProperty<string> ActivationPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("activation_policy");
-        set => this.WithProperty("activation_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("activation_policy");
+        set => SetProperty("activation_policy", value);
     }
 
     /// <summary>
@@ -270,10 +264,10 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -284,10 +278,10 @@ public class GoogleAlloydbInstance : TerraformResource
     /// can have regional availability (nodes are present in 2 or more zones in a region).
     /// Possible values are: &#39;AVAILABILITY_TYPE_UNSPECIFIED&#39;, &#39;ZONAL&#39;, &#39;REGIONAL&#39;.&#39; Possible values: [&amp;quot;AVAILABILITY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;ZONAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AvailabilityType
+    public TerraformProperty<string> AvailabilityType
     {
-        get => GetProperty<TerraformProperty<string>>("availability_type");
-        set => this.WithProperty("availability_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_type");
+        set => SetProperty("availability_type", value);
     }
 
     /// <summary>
@@ -297,44 +291,44 @@ public class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? DatabaseFlags
+    public Dictionary<string, TerraformProperty<string>> DatabaseFlags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("database_flags");
-        set => this.WithProperty("database_flags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("database_flags");
+        set => SetProperty("database_flags", value);
     }
 
     /// <summary>
     /// User-settable and human-readable display name for the Instance.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
     /// </summary>
-    public TerraformProperty<string>? GceZone
+    public TerraformProperty<string> GceZone
     {
-        get => GetProperty<TerraformProperty<string>>("gce_zone");
-        set => this.WithProperty("gce_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gce_zone");
+        set => SetProperty("gce_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -343,8 +337,8 @@ public class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -359,8 +353,8 @@ public class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -369,10 +363,10 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -382,8 +376,7 @@ public class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientConnectionConfig block(s) allowed")]
     public List<GoogleAlloydbInstanceClientConnectionConfigBlock>? ClientConnectionConfig
     {
-        get => GetProperty<List<GoogleAlloydbInstanceClientConnectionConfigBlock>>("client_connection_config");
-        set => this.WithProperty("client_connection_config", value);
+        set => SetProperty("client_connection_config", value);
     }
 
     /// <summary>
@@ -393,8 +386,7 @@ public class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineConfig block(s) allowed")]
     public List<GoogleAlloydbInstanceMachineConfigBlock>? MachineConfig
     {
-        get => GetProperty<List<GoogleAlloydbInstanceMachineConfigBlock>>("machine_config");
-        set => this.WithProperty("machine_config", value);
+        set => SetProperty("machine_config", value);
     }
 
     /// <summary>
@@ -404,8 +396,7 @@ public class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<GoogleAlloydbInstanceNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<GoogleAlloydbInstanceNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -415,8 +406,7 @@ public class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscInstanceConfig block(s) allowed")]
     public List<GoogleAlloydbInstancePscInstanceConfigBlock>? PscInstanceConfig
     {
-        get => GetProperty<List<GoogleAlloydbInstancePscInstanceConfigBlock>>("psc_instance_config");
-        set => this.WithProperty("psc_instance_config", value);
+        set => SetProperty("psc_instance_config", value);
     }
 
     /// <summary>
@@ -426,8 +416,7 @@ public class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryInsightsConfig block(s) allowed")]
     public List<GoogleAlloydbInstanceQueryInsightsConfigBlock>? QueryInsightsConfig
     {
-        get => GetProperty<List<GoogleAlloydbInstanceQueryInsightsConfigBlock>>("query_insights_config");
-        set => this.WithProperty("query_insights_config", value);
+        set => SetProperty("query_insights_config", value);
     }
 
     /// <summary>
@@ -437,8 +426,7 @@ public class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadPoolConfig block(s) allowed")]
     public List<GoogleAlloydbInstanceReadPoolConfigBlock>? ReadPoolConfig
     {
-        get => GetProperty<List<GoogleAlloydbInstanceReadPoolConfigBlock>>("read_pool_config");
-        set => this.WithProperty("read_pool_config", value);
+        set => SetProperty("read_pool_config", value);
     }
 
     /// <summary>
@@ -447,8 +435,7 @@ public class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     public GoogleAlloydbInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAlloydbInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

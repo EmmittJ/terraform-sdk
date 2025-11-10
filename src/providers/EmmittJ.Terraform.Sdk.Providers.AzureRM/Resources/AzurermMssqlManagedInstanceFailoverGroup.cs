@@ -13,8 +13,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPo
     /// </summary>
     public TerraformProperty<double>? GraceMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("grace_minutes");
-        set => WithProperty("grace_minutes", value);
+        set => SetProperty("grace_minutes", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,17 +80,24 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("partner_region");
-        this.WithOutput("role");
+        SetOutput("partner_region");
+        SetOutput("role");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("managed_instance_id");
+        SetOutput("name");
+        SetOutput("partner_managed_instance_id");
+        SetOutput("readonly_endpoint_failover_policy_enabled");
+        SetOutput("secondary_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,8 +106,8 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -115,8 +116,8 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
-        set => this.WithProperty("managed_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_instance_id");
+        set => SetProperty("managed_instance_id", value);
     }
 
     /// <summary>
@@ -125,8 +126,8 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -135,38 +136,38 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerManagedInstanceId is required")]
     public required TerraformProperty<string> PartnerManagedInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partner_managed_instance_id");
-        set => this.WithProperty("partner_managed_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partner_managed_instance_id");
+        set => SetProperty("partner_managed_instance_id", value);
     }
 
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReadonlyEndpointFailoverPolicyEnabled
+    public TerraformProperty<bool> ReadonlyEndpointFailoverPolicyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("readonly_endpoint_failover_policy_enabled");
-        set => this.WithProperty("readonly_endpoint_failover_policy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("readonly_endpoint_failover_policy_enabled");
+        set => SetProperty("readonly_endpoint_failover_policy_enabled", value);
     }
 
     /// <summary>
     /// The secondary_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SecondaryType
+    public TerraformProperty<string> SecondaryType
     {
-        get => GetProperty<TerraformProperty<string>>("secondary_type");
-        set => this.WithProperty("secondary_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secondary_type");
+        set => SetProperty("secondary_type", value);
     }
 
     /// <summary>
     /// Block for read_write_endpoint_failover_policy.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadWriteEndpointFailoverPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadWriteEndpointFailoverPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadWriteEndpointFailoverPolicy block(s) allowed")]
     public List<AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock>? ReadWriteEndpointFailoverPolicy
     {
-        get => GetProperty<List<AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock>>("read_write_endpoint_failover_policy");
-        set => this.WithProperty("read_write_endpoint_failover_policy", value);
+        set => SetProperty("read_write_endpoint_failover_policy", value);
     }
 
     /// <summary>
@@ -175,8 +176,7 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     /// </summary>
     public AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

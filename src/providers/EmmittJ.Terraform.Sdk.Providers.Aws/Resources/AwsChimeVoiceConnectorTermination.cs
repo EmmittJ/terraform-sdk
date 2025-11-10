@@ -14,71 +14,79 @@ public class AwsChimeVoiceConnectorTermination : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("calling_regions");
+        SetOutput("cidr_allow_list");
+        SetOutput("cps_limit");
+        SetOutput("default_phone_number");
+        SetOutput("disabled");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("voice_connector_id");
     }
 
     /// <summary>
     /// The calling_regions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallingRegions is required")]
-    public HashSet<TerraformProperty<string>>? CallingRegions
+    public HashSet<TerraformProperty<string>> CallingRegions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("calling_regions");
-        set => this.WithProperty("calling_regions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("calling_regions");
+        set => SetProperty("calling_regions", value);
     }
 
     /// <summary>
     /// The cidr_allow_list attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrAllowList is required")]
-    public HashSet<TerraformProperty<string>>? CidrAllowList
+    public HashSet<TerraformProperty<string>> CidrAllowList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("cidr_allow_list");
-        set => this.WithProperty("cidr_allow_list", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("cidr_allow_list");
+        set => SetProperty("cidr_allow_list", value);
     }
 
     /// <summary>
     /// The cps_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? CpsLimit
+    public TerraformProperty<double> CpsLimit
     {
-        get => GetProperty<TerraformProperty<double>>("cps_limit");
-        set => this.WithProperty("cps_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cps_limit");
+        set => SetProperty("cps_limit", value);
     }
 
     /// <summary>
     /// The default_phone_number attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultPhoneNumber
+    public TerraformProperty<string> DefaultPhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("default_phone_number");
-        set => this.WithProperty("default_phone_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_phone_number");
+        set => SetProperty("default_phone_number", value);
     }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -87,8 +95,8 @@ public class AwsChimeVoiceConnectorTermination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformProperty<string> VoiceConnectorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("voice_connector_id");
-        set => this.WithProperty("voice_connector_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("voice_connector_id");
+        set => SetProperty("voice_connector_id", value);
     }
 
 }

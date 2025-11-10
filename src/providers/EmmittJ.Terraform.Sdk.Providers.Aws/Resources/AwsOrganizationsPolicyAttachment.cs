@@ -14,15 +14,19 @@ public class AwsOrganizationsPolicyAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("policy_id");
+        SetOutput("skip_destroy");
+        SetOutput("target_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,17 +35,17 @@ public class AwsOrganizationsPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
-        set => this.WithProperty("policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
+        set => SetProperty("policy_id", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class AwsOrganizationsPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformProperty<string> TargetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_id");
-        set => this.WithProperty("target_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_id");
+        set => SetProperty("target_id", value);
     }
 
 }

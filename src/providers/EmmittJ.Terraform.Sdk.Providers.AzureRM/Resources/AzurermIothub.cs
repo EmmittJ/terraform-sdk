@@ -13,8 +13,7 @@ public class AzurermIothubCloudToDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultTtl
     {
-        get => GetProperty<TerraformProperty<string>>("default_ttl");
-        set => WithProperty("default_ttl", value);
+        set => SetProperty("default_ttl", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubCloudToDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxDeliveryCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_delivery_count");
-        set => WithProperty("max_delivery_count", value);
+        set => SetProperty("max_delivery_count", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Condition
     {
-        get => GetProperty<TerraformProperty<string>>("condition");
-        set => WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? EndpointNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("endpoint_names");
-        set => WithProperty("endpoint_names", value);
+        set => SetProperty("endpoint_names", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -83,8 +77,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
-        set => WithProperty("authentication_type", value);
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
-        set => WithProperty("connection_string", value);
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => WithProperty("container_name", value);
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultTtl
     {
-        get => GetProperty<TerraformProperty<string>>("default_ttl");
-        set => WithProperty("default_ttl", value);
+        set => SetProperty("default_ttl", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_id");
-        set => WithProperty("identity_id", value);
+        set => SetProperty("identity_id", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LockDuration
     {
-        get => GetProperty<TerraformProperty<string>>("lock_duration");
-        set => WithProperty("lock_duration", value);
+        set => SetProperty("lock_duration", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxDeliveryCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_delivery_count");
-        set => WithProperty("max_delivery_count", value);
+        set => SetProperty("max_delivery_count", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Notifications
     {
-        get => GetProperty<TerraformProperty<bool>>("notifications");
-        set => WithProperty("notifications", value);
+        set => SetProperty("notifications", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SasTtl
     {
-        get => GetProperty<TerraformProperty<string>>("sas_ttl");
-        set => WithProperty("sas_ttl", value);
+        set => SetProperty("sas_ttl", value);
     }
 
 }
@@ -174,8 +159,7 @@ public class AzurermIothubIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -183,8 +167,7 @@ public class AzurermIothubIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -192,8 +175,7 @@ public class AzurermIothubIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -202,8 +184,7 @@ public class AzurermIothubIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -219,8 +200,7 @@ public class AzurermIothubNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ApplyToBuiltinEventhubEndpoint
     {
-        get => GetProperty<TerraformProperty<bool>>("apply_to_builtin_eventhub_endpoint");
-        set => WithProperty("apply_to_builtin_eventhub_endpoint", value);
+        set => SetProperty("apply_to_builtin_eventhub_endpoint", value);
     }
 
     /// <summary>
@@ -228,8 +208,7 @@ public class AzurermIothubNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("default_action");
-        set => WithProperty("default_action", value);
+        set => SetProperty("default_action", value);
     }
 
 }
@@ -246,8 +225,7 @@ public class AzurermIothubSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformProperty<double> Capacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("capacity");
-        set => WithProperty("capacity", value);
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
@@ -256,8 +234,7 @@ public class AzurermIothubSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -273,8 +250,7 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -282,8 +258,7 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -291,8 +266,7 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -300,8 +274,7 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -319,68 +292,81 @@ public class AzurermIothub : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("event_hub_events_endpoint");
-        this.WithOutput("event_hub_events_namespace");
-        this.WithOutput("event_hub_events_path");
-        this.WithOutput("event_hub_operations_endpoint");
-        this.WithOutput("event_hub_operations_path");
-        this.WithOutput("hostname");
-        this.WithOutput("shared_access_policy");
-        this.WithOutput("type");
+        SetOutput("event_hub_events_endpoint");
+        SetOutput("event_hub_events_namespace");
+        SetOutput("event_hub_events_path");
+        SetOutput("event_hub_operations_endpoint");
+        SetOutput("event_hub_operations_path");
+        SetOutput("hostname");
+        SetOutput("shared_access_policy");
+        SetOutput("type");
+        SetOutput("endpoint");
+        SetOutput("enrichment");
+        SetOutput("event_hub_partition_count");
+        SetOutput("event_hub_retention_in_days");
+        SetOutput("id");
+        SetOutput("local_authentication_enabled");
+        SetOutput("location");
+        SetOutput("min_tls_version");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("route");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? Endpoint
+    public List<TerraformProperty<object>> Endpoint
     {
-        get => GetProperty<List<TerraformProperty<object>>>("endpoint");
-        set => this.WithProperty("endpoint", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("endpoint");
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
     /// The enrichment attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? Enrichment
+    public List<TerraformProperty<object>> Enrichment
     {
-        get => GetProperty<List<TerraformProperty<object>>>("enrichment");
-        set => this.WithProperty("enrichment", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("enrichment");
+        set => SetProperty("enrichment", value);
     }
 
     /// <summary>
     /// The event_hub_partition_count attribute.
     /// </summary>
-    public TerraformProperty<double>? EventHubPartitionCount
+    public TerraformProperty<double> EventHubPartitionCount
     {
-        get => GetProperty<TerraformProperty<double>>("event_hub_partition_count");
-        set => this.WithProperty("event_hub_partition_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("event_hub_partition_count");
+        set => SetProperty("event_hub_partition_count", value);
     }
 
     /// <summary>
     /// The event_hub_retention_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? EventHubRetentionInDays
+    public TerraformProperty<double> EventHubRetentionInDays
     {
-        get => GetProperty<TerraformProperty<double>>("event_hub_retention_in_days");
-        set => this.WithProperty("event_hub_retention_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("event_hub_retention_in_days");
+        set => SetProperty("event_hub_retention_in_days", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthenticationEnabled
+    public TerraformProperty<bool> LocalAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_authentication_enabled");
-        set => this.WithProperty("local_authentication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
+        set => SetProperty("local_authentication_enabled", value);
     }
 
     /// <summary>
@@ -389,17 +375,17 @@ public class AzurermIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The min_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MinTlsVersion
+    public TerraformProperty<string> MinTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("min_tls_version");
-        set => this.WithProperty("min_tls_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("min_tls_version");
+        set => SetProperty("min_tls_version", value);
     }
 
     /// <summary>
@@ -408,17 +394,17 @@ public class AzurermIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -427,26 +413,26 @@ public class AzurermIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The route attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? Route
+    public List<TerraformProperty<object>> Route
     {
-        get => GetProperty<List<TerraformProperty<object>>>("route");
-        set => this.WithProperty("route", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("route");
+        set => SetProperty("route", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -456,8 +442,7 @@ public class AzurermIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudToDevice block(s) allowed")]
     public List<AzurermIothubCloudToDeviceBlock>? CloudToDevice
     {
-        get => GetProperty<List<AzurermIothubCloudToDeviceBlock>>("cloud_to_device");
-        set => this.WithProperty("cloud_to_device", value);
+        set => SetProperty("cloud_to_device", value);
     }
 
     /// <summary>
@@ -467,8 +452,7 @@ public class AzurermIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FallbackRoute block(s) allowed")]
     public List<AzurermIothubFallbackRouteBlock>? FallbackRoute
     {
-        get => GetProperty<List<AzurermIothubFallbackRouteBlock>>("fallback_route");
-        set => this.WithProperty("fallback_route", value);
+        set => SetProperty("fallback_route", value);
     }
 
     /// <summary>
@@ -478,8 +462,7 @@ public class AzurermIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileUpload block(s) allowed")]
     public List<AzurermIothubFileUploadBlock>? FileUpload
     {
-        get => GetProperty<List<AzurermIothubFileUploadBlock>>("file_upload");
-        set => this.WithProperty("file_upload", value);
+        set => SetProperty("file_upload", value);
     }
 
     /// <summary>
@@ -489,8 +472,7 @@ public class AzurermIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermIothubIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermIothubIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -499,20 +481,19 @@ public class AzurermIothub : TerraformResource
     /// </summary>
     public List<AzurermIothubNetworkRuleSetBlock>? NetworkRuleSet
     {
-        get => GetProperty<List<AzurermIothubNetworkRuleSetBlock>>("network_rule_set");
-        set => this.WithProperty("network_rule_set", value);
+        set => SetProperty("network_rule_set", value);
     }
 
     /// <summary>
     /// Block for sku.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     public List<AzurermIothubSkuBlock>? Sku
     {
-        get => GetProperty<List<AzurermIothubSkuBlock>>("sku");
-        set => this.WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -521,8 +502,7 @@ public class AzurermIothub : TerraformResource
     /// </summary>
     public AzurermIothubTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

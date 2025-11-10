@@ -14,6 +14,10 @@ public class AwsIamGroupMembership : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("group");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("users");
     }
 
     /// <summary>
@@ -22,17 +26,17 @@ public class AwsIamGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformProperty<string> Group
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group");
-        set => this.WithProperty("group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group");
+        set => SetProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,18 +45,18 @@ public class AwsIamGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Users is required")]
-    public HashSet<TerraformProperty<string>>? Users
+    public HashSet<TerraformProperty<string>> Users
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("users");
-        set => this.WithProperty("users", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("users");
+        set => SetProperty("users", value);
     }
 
 }

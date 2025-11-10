@@ -13,8 +13,7 @@ public class GoogleDiscoveryEngineSitemapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDiscoveryEngineSitemapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,9 +38,14 @@ public class GoogleDiscoveryEngineSitemap : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("sitemap_id");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("sitemap_id");
+        SetOutput("data_store_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("uri");
     }
 
     /// <summary>
@@ -51,17 +54,17 @@ public class GoogleDiscoveryEngineSitemap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformProperty<string> DataStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_store_id");
-        set => this.WithProperty("data_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_store_id");
+        set => SetProperty("data_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -71,26 +74,26 @@ public class GoogleDiscoveryEngineSitemap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Public URI for the sitemap, e.g. &amp;quot;www.example.com/sitemap.xml&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Uri
+    public TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => this.WithProperty("uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("uri");
+        set => SetProperty("uri", value);
     }
 
     /// <summary>
@@ -99,8 +102,7 @@ public class GoogleDiscoveryEngineSitemap : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineSitemapTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineSitemapTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermMobileNetworkDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermMobileNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("location");
-        this.WithOutput("mobile_country_code");
-        this.WithOutput("mobile_network_code");
-        this.WithOutput("service_key");
-        this.WithOutput("tags");
+        SetOutput("location");
+        SetOutput("mobile_country_code");
+        SetOutput("mobile_network_code");
+        SetOutput("service_key");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermMobileNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermMobileNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermMobileNetworkDataSource : TerraformDataSource
     /// </summary>
     public AzurermMobileNetworkDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMobileNetworkDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

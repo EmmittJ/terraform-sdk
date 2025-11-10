@@ -14,8 +14,7 @@ public class AwsBedrockagentcoreBrowserNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
     public required TerraformProperty<string> NetworkMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_mode");
-        set => WithProperty("network_mode", value);
+        set => SetProperty("network_mode", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsBedrockagentcoreBrowserRecordingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsBedrockagentcoreBrowserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class AwsBedrockagentcoreBrowserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -75,27 +71,32 @@ public class AwsBedrockagentcoreBrowser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("browser_arn");
-        this.WithOutput("browser_id");
-        this.WithOutput("tags_all");
+        SetOutput("browser_arn");
+        SetOutput("browser_id");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("execution_role_arn");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionRoleArn
+    public TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
@@ -104,26 +105,26 @@ public class AwsBedrockagentcoreBrowser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -132,8 +133,7 @@ public class AwsBedrockagentcoreBrowser : TerraformResource
     /// </summary>
     public List<AwsBedrockagentcoreBrowserNetworkConfigurationBlock>? NetworkConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentcoreBrowserNetworkConfigurationBlock>>("network_configuration");
-        set => this.WithProperty("network_configuration", value);
+        set => SetProperty("network_configuration", value);
     }
 
     /// <summary>
@@ -142,8 +142,7 @@ public class AwsBedrockagentcoreBrowser : TerraformResource
     /// </summary>
     public List<AwsBedrockagentcoreBrowserRecordingBlock>? Recording
     {
-        get => GetProperty<List<AwsBedrockagentcoreBrowserRecordingBlock>>("recording");
-        set => this.WithProperty("recording", value);
+        set => SetProperty("recording", value);
     }
 
     /// <summary>
@@ -152,8 +151,7 @@ public class AwsBedrockagentcoreBrowser : TerraformResource
     /// </summary>
     public AwsBedrockagentcoreBrowserTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentcoreBrowserTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

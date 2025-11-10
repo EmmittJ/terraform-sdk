@@ -13,8 +13,7 @@ public class GoogleProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,55 +54,65 @@ public class GoogleProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("number");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("number");
+        SetOutput("terraform_labels");
+        SetOutput("auto_create_network");
+        SetOutput("billing_account");
+        SetOutput("deletion_policy");
+        SetOutput("folder_id");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("org_id");
+        SetOutput("project_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// Create the &#39;default&#39; network automatically.  Default true. If set to false, the default network will be deleted.  Note that, for quota purposes, you will still need to have 1 network slot available to create the project successfully, even if you set auto_create_network to false, since the network will exist momentarily.
     /// </summary>
-    public TerraformProperty<bool>? AutoCreateNetwork
+    public TerraformProperty<bool> AutoCreateNetwork
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_create_network");
-        set => this.WithProperty("auto_create_network", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_create_network");
+        set => SetProperty("auto_create_network", value);
     }
 
     /// <summary>
     /// The alphanumeric ID of the billing account this project belongs to. The user or service account performing this operation with Terraform must have Billing Account Administrator privileges (roles/billing.admin) in the organization. See Google Cloud Billing API Access Control for more details.
     /// </summary>
-    public TerraformProperty<string>? BillingAccount
+    public TerraformProperty<string> BillingAccount
     {
-        get => GetProperty<TerraformProperty<string>>("billing_account");
-        set => this.WithProperty("billing_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_account");
+        set => SetProperty("billing_account", value);
     }
 
     /// <summary>
     /// The deletion policy for the Project. Setting PREVENT will protect the project against any destroy actions caused by a terraform apply or terraform destroy. Setting ABANDON allows the resource
     /// 				to be abandoned rather than deleted. Possible values are: &amp;quot;PREVENT&amp;quot;, &amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The numeric ID of the folder this project should be created under. Only one of org_id or folder_id may be specified. If the folder_id is specified, then the project is created under the specified folder. Changing this forces the project to be migrated to the newly specified folder.
     /// </summary>
-    public TerraformProperty<string>? FolderId
+    public TerraformProperty<string> FolderId
     {
-        get => GetProperty<TerraformProperty<string>>("folder_id");
-        set => this.WithProperty("folder_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder_id");
+        set => SetProperty("folder_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -115,10 +121,10 @@ public class GoogleProject : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -127,17 +133,17 @@ public class GoogleProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The numeric ID of the organization this project belongs to. Changing this forces a new project to be created.  Only one of org_id or folder_id may be specified. If the org_id is specified then the project is created at the top level. Changing this forces the project to be migrated to the newly specified organization.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    public TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -146,17 +152,17 @@ public class GoogleProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
-        set => this.WithProperty("project_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_id");
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys and values have the same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456. The field is ignored when empty. This field is only set at create time and modifying this field after creation will trigger recreation. To apply tags to an existing resource, see the google_tags_tag_value resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -165,8 +171,7 @@ public class GoogleProject : TerraformResource
     /// </summary>
     public GoogleProjectTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleProjectTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

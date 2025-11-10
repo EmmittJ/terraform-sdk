@@ -14,16 +14,18 @@ public class AwsChatbotSlackWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("slack_team_id");
+        SetOutput("slack_team_id");
+        SetOutput("region");
+        SetOutput("slack_team_name");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -32,8 +34,8 @@ public class AwsChatbotSlackWorkspaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackTeamName is required")]
     public required TerraformProperty<string> SlackTeamName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("slack_team_name");
-        set => this.WithProperty("slack_team_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("slack_team_name");
+        set => SetProperty("slack_team_name", value);
     }
 
     /// <summary>

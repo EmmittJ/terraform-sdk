@@ -14,8 +14,7 @@ public class AwsVpcDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsVpcDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsVpcDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,79 +56,86 @@ public class AwsVpcDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cidr_block_associations");
-        this.WithOutput("enable_dns_hostnames");
-        this.WithOutput("enable_dns_support");
-        this.WithOutput("enable_network_address_usage_metrics");
-        this.WithOutput("instance_tenancy");
-        this.WithOutput("ipv6_association_id");
-        this.WithOutput("ipv6_cidr_block");
-        this.WithOutput("main_route_table_id");
-        this.WithOutput("owner_id");
+        SetOutput("arn");
+        SetOutput("cidr_block_associations");
+        SetOutput("enable_dns_hostnames");
+        SetOutput("enable_dns_support");
+        SetOutput("enable_network_address_usage_metrics");
+        SetOutput("instance_tenancy");
+        SetOutput("ipv6_association_id");
+        SetOutput("ipv6_cidr_block");
+        SetOutput("main_route_table_id");
+        SetOutput("owner_id");
+        SetOutput("cidr_block");
+        SetOutput("default");
+        SetOutput("dhcp_options_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("state");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? CidrBlock
+    public TerraformProperty<string> CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("cidr_block");
-        set => this.WithProperty("cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr_block");
+        set => SetProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The default attribute.
     /// </summary>
-    public TerraformProperty<bool>? Default
+    public TerraformProperty<bool> Default
     {
-        get => GetProperty<TerraformProperty<bool>>("default");
-        set => this.WithProperty("default", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default");
+        set => SetProperty("default", value);
     }
 
     /// <summary>
     /// The dhcp_options_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DhcpOptionsId
+    public TerraformProperty<string> DhcpOptionsId
     {
-        get => GetProperty<TerraformProperty<string>>("dhcp_options_id");
-        set => this.WithProperty("dhcp_options_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dhcp_options_id");
+        set => SetProperty("dhcp_options_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -140,8 +144,7 @@ public class AwsVpcDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsVpcDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsVpcDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -150,8 +153,7 @@ public class AwsVpcDataSource : TerraformDataSource
     /// </summary>
     public AwsVpcDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

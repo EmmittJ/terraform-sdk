@@ -13,8 +13,7 @@ public class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ReadCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("read_capacity_units");
-        set => WithProperty("read_capacity_units", value);
+        set => SetProperty("read_capacity_units", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ThroughputMode
     {
-        get => GetProperty<TerraformProperty<string>>("throughput_mode");
-        set => WithProperty("throughput_mode", value);
+        set => SetProperty("throughput_mode", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? WriteCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("write_capacity_units");
-        set => WithProperty("write_capacity_units", value);
+        set => SetProperty("write_capacity_units", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsKeyspacesTableClientSideTimestampsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class AwsKeyspacesTableCommentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Message
     {
-        get => GetProperty<TerraformProperty<string>>("message");
-        set => WithProperty("message", value);
+        set => SetProperty("message", value);
     }
 
 }
@@ -83,8 +78,7 @@ public class AwsKeyspacesTableEncryptionSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_identifier");
-        set => WithProperty("kms_key_identifier", value);
+        set => SetProperty("kms_key_identifier", value);
     }
 
     /// <summary>
@@ -92,8 +86,7 @@ public class AwsKeyspacesTableEncryptionSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -109,8 +102,7 @@ public class AwsKeyspacesTablePointInTimeRecoveryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -134,8 +126,7 @@ public class AwsKeyspacesTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -143,8 +134,7 @@ public class AwsKeyspacesTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -152,8 +142,7 @@ public class AwsKeyspacesTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -170,8 +159,7 @@ public class AwsKeyspacesTableTtlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -189,25 +177,32 @@ public class AwsKeyspacesTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("default_time_to_live");
+        SetOutput("id");
+        SetOutput("keyspace_name");
+        SetOutput("region");
+        SetOutput("table_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The default_time_to_live attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultTimeToLive
+    public TerraformProperty<double> DefaultTimeToLive
     {
-        get => GetProperty<TerraformProperty<double>>("default_time_to_live");
-        set => this.WithProperty("default_time_to_live", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_time_to_live");
+        set => SetProperty("default_time_to_live", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -216,17 +211,17 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyspaceName is required")]
     public required TerraformProperty<string> KeyspaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("keyspace_name");
-        set => this.WithProperty("keyspace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("keyspace_name");
+        set => SetProperty("keyspace_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -235,26 +230,26 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -264,8 +259,7 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacitySpecification block(s) allowed")]
     public List<AwsKeyspacesTableCapacitySpecificationBlock>? CapacitySpecification
     {
-        get => GetProperty<List<AwsKeyspacesTableCapacitySpecificationBlock>>("capacity_specification");
-        set => this.WithProperty("capacity_specification", value);
+        set => SetProperty("capacity_specification", value);
     }
 
     /// <summary>
@@ -275,8 +269,7 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientSideTimestamps block(s) allowed")]
     public List<AwsKeyspacesTableClientSideTimestampsBlock>? ClientSideTimestamps
     {
-        get => GetProperty<List<AwsKeyspacesTableClientSideTimestampsBlock>>("client_side_timestamps");
-        set => this.WithProperty("client_side_timestamps", value);
+        set => SetProperty("client_side_timestamps", value);
     }
 
     /// <summary>
@@ -286,8 +279,7 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Comment block(s) allowed")]
     public List<AwsKeyspacesTableCommentBlock>? Comment
     {
-        get => GetProperty<List<AwsKeyspacesTableCommentBlock>>("comment");
-        set => this.WithProperty("comment", value);
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
@@ -297,8 +289,7 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpecification block(s) allowed")]
     public List<AwsKeyspacesTableEncryptionSpecificationBlock>? EncryptionSpecification
     {
-        get => GetProperty<List<AwsKeyspacesTableEncryptionSpecificationBlock>>("encryption_specification");
-        set => this.WithProperty("encryption_specification", value);
+        set => SetProperty("encryption_specification", value);
     }
 
     /// <summary>
@@ -308,20 +299,19 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRecovery block(s) allowed")]
     public List<AwsKeyspacesTablePointInTimeRecoveryBlock>? PointInTimeRecovery
     {
-        get => GetProperty<List<AwsKeyspacesTablePointInTimeRecoveryBlock>>("point_in_time_recovery");
-        set => this.WithProperty("point_in_time_recovery", value);
+        set => SetProperty("point_in_time_recovery", value);
     }
 
     /// <summary>
     /// Block for schema_definition.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaDefinition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SchemaDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaDefinition block(s) allowed")]
     public List<AwsKeyspacesTableSchemaDefinitionBlock>? SchemaDefinition
     {
-        get => GetProperty<List<AwsKeyspacesTableSchemaDefinitionBlock>>("schema_definition");
-        set => this.WithProperty("schema_definition", value);
+        set => SetProperty("schema_definition", value);
     }
 
     /// <summary>
@@ -330,8 +320,7 @@ public class AwsKeyspacesTable : TerraformResource
     /// </summary>
     public AwsKeyspacesTableTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsKeyspacesTableTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -341,8 +330,7 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ttl block(s) allowed")]
     public List<AwsKeyspacesTableTtlBlock>? Ttl
     {
-        get => GetProperty<List<AwsKeyspacesTableTtlBlock>>("ttl");
-        set => this.WithProperty("ttl", value);
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>

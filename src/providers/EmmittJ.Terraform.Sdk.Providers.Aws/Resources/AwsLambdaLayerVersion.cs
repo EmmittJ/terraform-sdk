@@ -14,59 +14,72 @@ public class AwsLambdaLayerVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("code_sha256");
-        this.WithOutput("created_date");
-        this.WithOutput("layer_arn");
-        this.WithOutput("signing_job_arn");
-        this.WithOutput("signing_profile_version_arn");
-        this.WithOutput("source_code_size");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("code_sha256");
+        SetOutput("created_date");
+        SetOutput("layer_arn");
+        SetOutput("signing_job_arn");
+        SetOutput("signing_profile_version_arn");
+        SetOutput("source_code_size");
+        SetOutput("version");
+        SetOutput("compatible_architectures");
+        SetOutput("compatible_runtimes");
+        SetOutput("description");
+        SetOutput("filename");
+        SetOutput("id");
+        SetOutput("layer_name");
+        SetOutput("license_info");
+        SetOutput("region");
+        SetOutput("s3_bucket");
+        SetOutput("s3_key");
+        SetOutput("s3_object_version");
+        SetOutput("skip_destroy");
+        SetOutput("source_code_hash");
     }
 
     /// <summary>
     /// The compatible_architectures attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? CompatibleArchitectures
+    public HashSet<TerraformProperty<string>> CompatibleArchitectures
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("compatible_architectures");
-        set => this.WithProperty("compatible_architectures", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("compatible_architectures");
+        set => SetProperty("compatible_architectures", value);
     }
 
     /// <summary>
     /// The compatible_runtimes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? CompatibleRuntimes
+    public HashSet<TerraformProperty<string>> CompatibleRuntimes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("compatible_runtimes");
-        set => this.WithProperty("compatible_runtimes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("compatible_runtimes");
+        set => SetProperty("compatible_runtimes", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public TerraformProperty<string>? Filename
+    public TerraformProperty<string> Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
-        set => this.WithProperty("filename", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filename");
+        set => SetProperty("filename", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,71 +88,71 @@ public class AwsLambdaLayerVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     public required TerraformProperty<string> LayerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("layer_name");
-        set => this.WithProperty("layer_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("layer_name");
+        set => SetProperty("layer_name", value);
     }
 
     /// <summary>
     /// The license_info attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseInfo
+    public TerraformProperty<string> LicenseInfo
     {
-        get => GetProperty<TerraformProperty<string>>("license_info");
-        set => this.WithProperty("license_info", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_info");
+        set => SetProperty("license_info", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Bucket
+    public TerraformProperty<string> S3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket");
-        set => this.WithProperty("s3_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket");
+        set => SetProperty("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Key
+    public TerraformProperty<string> S3Key
     {
-        get => GetProperty<TerraformProperty<string>>("s3_key");
-        set => this.WithProperty("s3_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_key");
+        set => SetProperty("s3_key", value);
     }
 
     /// <summary>
     /// The s3_object_version attribute.
     /// </summary>
-    public TerraformProperty<string>? S3ObjectVersion
+    public TerraformProperty<string> S3ObjectVersion
     {
-        get => GetProperty<TerraformProperty<string>>("s3_object_version");
-        set => this.WithProperty("s3_object_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_object_version");
+        set => SetProperty("s3_object_version", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceCodeHash
+    public TerraformProperty<string> SourceCodeHash
     {
-        get => GetProperty<TerraformProperty<string>>("source_code_hash");
-        set => this.WithProperty("source_code_hash", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_code_hash");
+        set => SetProperty("source_code_hash", value);
     }
 
     /// <summary>

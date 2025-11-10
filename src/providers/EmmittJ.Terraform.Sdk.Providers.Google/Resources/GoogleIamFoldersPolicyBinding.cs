@@ -13,8 +13,7 @@ public class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -60,8 +56,7 @@ public class GoogleIamFoldersPolicyBindingTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalSet
     {
-        get => GetProperty<TerraformProperty<string>>("principal_set");
-        set => WithProperty("principal_set", value);
+        set => SetProperty("principal_set", value);
     }
 
 }
@@ -77,8 +72,7 @@ public class GoogleIamFoldersPolicyBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class GoogleIamFoldersPolicyBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class GoogleIamFoldersPolicyBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,13 +106,21 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("policy_uid");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("policy_uid");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("display_name");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("policy");
+        SetOutput("policy_binding_id");
+        SetOutput("policy_kind");
     }
 
     /// <summary>
@@ -130,19 +130,19 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// Optional. The description of the policy binding. Must be less than or equal to 63 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -151,17 +151,17 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -170,8 +170,8 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -180,8 +180,8 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
@@ -190,8 +190,8 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyBindingId is required")]
     public required TerraformProperty<string> PolicyBindingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_binding_id");
-        set => this.WithProperty("policy_binding_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_binding_id");
+        set => SetProperty("policy_binding_id", value);
     }
 
     /// <summary>
@@ -199,10 +199,10 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     /// field must be one of the following:  - Left empty (will be automatically set
     /// to the policy kind) - The input policy kind   Possible values:  POLICY_KIND_UNSPECIFIED PRINCIPAL_ACCESS_BOUNDARY ACCESS
     /// </summary>
-    public TerraformProperty<string>? PolicyKind
+    public TerraformProperty<string> PolicyKind
     {
-        get => GetProperty<TerraformProperty<string>>("policy_kind");
-        set => this.WithProperty("policy_kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_kind");
+        set => SetProperty("policy_kind", value);
     }
 
     /// <summary>
@@ -212,20 +212,19 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     public List<GoogleIamFoldersPolicyBindingConditionBlock>? Condition
     {
-        get => GetProperty<List<GoogleIamFoldersPolicyBindingConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
     /// Block for target.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     public List<GoogleIamFoldersPolicyBindingTargetBlock>? Target
     {
-        get => GetProperty<List<GoogleIamFoldersPolicyBindingTargetBlock>>("target");
-        set => this.WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -234,8 +233,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     /// </summary>
     public GoogleIamFoldersPolicyBindingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamFoldersPolicyBindingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

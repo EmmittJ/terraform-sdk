@@ -13,8 +13,7 @@ public class AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,8 @@ public class AzurermContainerRegistryTaskScheduleRunNow : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("container_registry_task_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -57,17 +56,17 @@ public class AzurermContainerRegistryTaskScheduleRunNow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryTaskId is required")]
     public required TerraformProperty<string> ContainerRegistryTaskId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_task_id");
-        set => this.WithProperty("container_registry_task_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_task_id");
+        set => SetProperty("container_registry_task_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +75,7 @@ public class AzurermContainerRegistryTaskScheduleRunNow : TerraformResource
     /// </summary>
     public AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

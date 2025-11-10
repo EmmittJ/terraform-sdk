@@ -13,8 +13,7 @@ public class AzurermArcMachineExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermArcMachineExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermArcMachineExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermArcMachineExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,18 @@ public class AzurermArcMachineExtension : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("arc_machine_id");
+        SetOutput("automatic_upgrade_enabled");
+        SetOutput("force_update_tag");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("protected_settings");
+        SetOutput("publisher");
+        SetOutput("settings");
+        SetOutput("tags");
+        SetOutput("type");
+        SetOutput("type_handler_version");
     }
 
     /// <summary>
@@ -66,35 +74,35 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcMachineId is required")]
     public required TerraformProperty<string> ArcMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arc_machine_id");
-        set => this.WithProperty("arc_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arc_machine_id");
+        set => SetProperty("arc_machine_id", value);
     }
 
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutomaticUpgradeEnabled
+    public TerraformProperty<bool> AutomaticUpgradeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("automatic_upgrade_enabled");
-        set => this.WithProperty("automatic_upgrade_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("automatic_upgrade_enabled");
+        set => SetProperty("automatic_upgrade_enabled", value);
     }
 
     /// <summary>
     /// The force_update_tag attribute.
     /// </summary>
-    public TerraformProperty<string>? ForceUpdateTag
+    public TerraformProperty<string> ForceUpdateTag
     {
-        get => GetProperty<TerraformProperty<string>>("force_update_tag");
-        set => this.WithProperty("force_update_tag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("force_update_tag");
+        set => SetProperty("force_update_tag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,8 +111,8 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -113,17 +121,17 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtectedSettings
+    public TerraformProperty<string> ProtectedSettings
     {
-        get => GetProperty<TerraformProperty<string>>("protected_settings");
-        set => this.WithProperty("protected_settings", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protected_settings");
+        set => SetProperty("protected_settings", value);
     }
 
     /// <summary>
@@ -132,26 +140,26 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
-        set => this.WithProperty("publisher", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("publisher");
+        set => SetProperty("publisher", value);
     }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    public TerraformProperty<string>? Settings
+    public TerraformProperty<string> Settings
     {
-        get => GetProperty<TerraformProperty<string>>("settings");
-        set => this.WithProperty("settings", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("settings");
+        set => SetProperty("settings", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -160,17 +168,17 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
-    public TerraformProperty<string>? TypeHandlerVersion
+    public TerraformProperty<string> TypeHandlerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("type_handler_version");
-        set => this.WithProperty("type_handler_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type_handler_version");
+        set => SetProperty("type_handler_version", value);
     }
 
     /// <summary>
@@ -179,8 +187,7 @@ public class AzurermArcMachineExtension : TerraformResource
     /// </summary>
     public AzurermArcMachineExtensionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermArcMachineExtensionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

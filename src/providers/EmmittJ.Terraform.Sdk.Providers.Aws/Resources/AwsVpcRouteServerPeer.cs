@@ -14,8 +14,7 @@ public class AwsVpcRouteServerPeerBgpOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     public required TerraformProperty<double> PeerAsn
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("peer_asn");
-        set => WithProperty("peer_asn", value);
+        set => SetProperty("peer_asn", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsVpcRouteServerPeerBgpOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PeerLivenessDetection
     {
-        get => GetProperty<TerraformProperty<string>>("peer_liveness_detection");
-        set => WithProperty("peer_liveness_detection", value);
+        set => SetProperty("peer_liveness_detection", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsVpcRouteServerPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsVpcRouteServerPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -67,14 +63,18 @@ public class AwsVpcRouteServerPeer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("endpoint_eni_address");
-        this.WithOutput("endpoint_eni_id");
-        this.WithOutput("route_server_id");
-        this.WithOutput("route_server_peer_id");
-        this.WithOutput("subnet_id");
-        this.WithOutput("tags_all");
-        this.WithOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("endpoint_eni_address");
+        SetOutput("endpoint_eni_id");
+        SetOutput("route_server_id");
+        SetOutput("route_server_peer_id");
+        SetOutput("subnet_id");
+        SetOutput("tags_all");
+        SetOutput("vpc_id");
+        SetOutput("peer_address");
+        SetOutput("region");
+        SetOutput("route_server_endpoint_id");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -83,17 +83,17 @@ public class AwsVpcRouteServerPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAddress is required")]
     public required TerraformProperty<string> PeerAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_address");
-        set => this.WithProperty("peer_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_address");
+        set => SetProperty("peer_address", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -102,17 +102,17 @@ public class AwsVpcRouteServerPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerEndpointId is required")]
     public required TerraformProperty<string> RouteServerEndpointId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("route_server_endpoint_id");
-        set => this.WithProperty("route_server_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("route_server_endpoint_id");
+        set => SetProperty("route_server_endpoint_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -121,8 +121,7 @@ public class AwsVpcRouteServerPeer : TerraformResource
     /// </summary>
     public List<AwsVpcRouteServerPeerBgpOptionsBlock>? BgpOptions
     {
-        get => GetProperty<List<AwsVpcRouteServerPeerBgpOptionsBlock>>("bgp_options");
-        set => this.WithProperty("bgp_options", value);
+        set => SetProperty("bgp_options", value);
     }
 
     /// <summary>
@@ -131,8 +130,7 @@ public class AwsVpcRouteServerPeer : TerraformResource
     /// </summary>
     public AwsVpcRouteServerPeerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcRouteServerPeerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

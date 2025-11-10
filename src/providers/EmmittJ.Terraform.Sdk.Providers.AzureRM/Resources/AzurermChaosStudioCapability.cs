@@ -13,8 +13,7 @@ public class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,7 +46,10 @@ public class AzurermChaosStudioCapability : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("urn");
+        SetOutput("urn");
+        SetOutput("capability_type");
+        SetOutput("chaos_studio_target_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -58,8 +58,8 @@ public class AzurermChaosStudioCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityType is required")]
     public required TerraformProperty<string> CapabilityType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capability_type");
-        set => this.WithProperty("capability_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capability_type");
+        set => SetProperty("capability_type", value);
     }
 
     /// <summary>
@@ -68,17 +68,17 @@ public class AzurermChaosStudioCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChaosStudioTargetId is required")]
     public required TerraformProperty<string> ChaosStudioTargetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("chaos_studio_target_id");
-        set => this.WithProperty("chaos_studio_target_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("chaos_studio_target_id");
+        set => SetProperty("chaos_studio_target_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,8 +87,7 @@ public class AzurermChaosStudioCapability : TerraformResource
     /// </summary>
     public AzurermChaosStudioCapabilityTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermChaosStudioCapabilityTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

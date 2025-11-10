@@ -13,8 +13,7 @@ public class GoogleSccV2FolderMuteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSccV2FolderMuteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSccV2FolderMuteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,19 +46,26 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("most_recent_editor");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("most_recent_editor");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("filter");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("mute_config_id");
+        SetOutput("type");
     }
 
     /// <summary>
     /// A description of the mute config.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -74,8 +78,8 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -85,26 +89,26 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// location Id is provided by folder. If not provided, Use global as default.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -113,8 +117,8 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MuteConfigId is required")]
     public required TerraformProperty<string> MuteConfigId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mute_config_id");
-        set => this.WithProperty("mute_config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mute_config_id");
+        set => SetProperty("mute_config_id", value);
     }
 
     /// <summary>
@@ -123,8 +127,8 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -133,8 +137,7 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
     /// </summary>
     public GoogleSccV2FolderMuteConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSccV2FolderMuteConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

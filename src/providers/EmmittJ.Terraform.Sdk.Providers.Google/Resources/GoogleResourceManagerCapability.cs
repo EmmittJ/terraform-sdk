@@ -13,8 +13,7 @@ public class GoogleResourceManagerCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleResourceManagerCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleResourceManagerCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,6 +46,10 @@ public class GoogleResourceManagerCapability : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("capability_name");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("value");
     }
 
     /// <summary>
@@ -57,17 +58,17 @@ public class GoogleResourceManagerCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityName is required")]
     public required TerraformProperty<string> CapabilityName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capability_name");
-        set => this.WithProperty("capability_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capability_name");
+        set => SetProperty("capability_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class GoogleResourceManagerCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class GoogleResourceManagerCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<bool> Value
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class GoogleResourceManagerCapability : TerraformResource
     /// </summary>
     public GoogleResourceManagerCapabilityTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleResourceManagerCapabilityTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

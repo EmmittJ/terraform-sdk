@@ -14,46 +14,50 @@ public class GoogleRedisClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authorization_mode");
-        this.WithOutput("automated_backup_config");
-        this.WithOutput("available_maintenance_versions");
-        this.WithOutput("backup_collection");
-        this.WithOutput("create_time");
-        this.WithOutput("cross_cluster_replication_config");
-        this.WithOutput("deletion_protection_enabled");
-        this.WithOutput("discovery_endpoints");
-        this.WithOutput("effective_maintenance_version");
-        this.WithOutput("gcs_source");
-        this.WithOutput("kms_key");
-        this.WithOutput("maintenance_policy");
-        this.WithOutput("maintenance_schedule");
-        this.WithOutput("maintenance_version");
-        this.WithOutput("managed_backup_source");
-        this.WithOutput("managed_server_ca");
-        this.WithOutput("node_type");
-        this.WithOutput("persistence_config");
-        this.WithOutput("precise_size_gb");
-        this.WithOutput("psc_configs");
-        this.WithOutput("psc_connections");
-        this.WithOutput("psc_service_attachments");
-        this.WithOutput("redis_configs");
-        this.WithOutput("replica_count");
-        this.WithOutput("shard_count");
-        this.WithOutput("size_gb");
-        this.WithOutput("state");
-        this.WithOutput("state_info");
-        this.WithOutput("transit_encryption_mode");
-        this.WithOutput("uid");
-        this.WithOutput("zone_distribution_config");
+        SetOutput("authorization_mode");
+        SetOutput("automated_backup_config");
+        SetOutput("available_maintenance_versions");
+        SetOutput("backup_collection");
+        SetOutput("create_time");
+        SetOutput("cross_cluster_replication_config");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("discovery_endpoints");
+        SetOutput("effective_maintenance_version");
+        SetOutput("gcs_source");
+        SetOutput("kms_key");
+        SetOutput("maintenance_policy");
+        SetOutput("maintenance_schedule");
+        SetOutput("maintenance_version");
+        SetOutput("managed_backup_source");
+        SetOutput("managed_server_ca");
+        SetOutput("node_type");
+        SetOutput("persistence_config");
+        SetOutput("precise_size_gb");
+        SetOutput("psc_configs");
+        SetOutput("psc_connections");
+        SetOutput("psc_service_attachments");
+        SetOutput("redis_configs");
+        SetOutput("replica_count");
+        SetOutput("shard_count");
+        SetOutput("size_gb");
+        SetOutput("state");
+        SetOutput("state_info");
+        SetOutput("transit_encryption_mode");
+        SetOutput("uid");
+        SetOutput("zone_distribution_config");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,26 +67,26 @@ public class GoogleRedisClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The name of the region of the Redis cluster.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

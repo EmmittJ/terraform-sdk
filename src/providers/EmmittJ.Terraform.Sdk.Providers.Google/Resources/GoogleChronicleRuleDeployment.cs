@@ -13,8 +13,7 @@ public class GoogleChronicleRuleDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleChronicleRuleDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleChronicleRuleDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,22 +46,31 @@ public class GoogleChronicleRuleDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("archive_time");
-        this.WithOutput("consumer_rules");
-        this.WithOutput("execution_state");
-        this.WithOutput("last_alert_status_change_time");
-        this.WithOutput("name");
-        this.WithOutput("producer_rules");
+        SetOutput("archive_time");
+        SetOutput("consumer_rules");
+        SetOutput("execution_state");
+        SetOutput("last_alert_status_change_time");
+        SetOutput("name");
+        SetOutput("producer_rules");
+        SetOutput("alerting");
+        SetOutput("archived");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("rule");
+        SetOutput("run_frequency");
     }
 
     /// <summary>
     /// Whether detections resulting from this deployment should be considered
     /// alerts.
     /// </summary>
-    public TerraformProperty<bool>? Alerting
+    public TerraformProperty<bool> Alerting
     {
-        get => GetProperty<TerraformProperty<bool>>("alerting");
-        set => this.WithProperty("alerting", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("alerting");
+        set => SetProperty("alerting", value);
     }
 
     /// <summary>
@@ -76,28 +82,28 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     /// If currently set to true, enabled, alerting, and run_frequency cannot be
     /// updated.
     /// </summary>
-    public TerraformProperty<bool>? Archived
+    public TerraformProperty<bool> Archived
     {
-        get => GetProperty<TerraformProperty<bool>>("archived");
-        set => this.WithProperty("archived", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("archived");
+        set => SetProperty("archived", value);
     }
 
     /// <summary>
     /// Whether the rule is currently deployed continuously against incoming data.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -106,8 +112,8 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -116,17 +122,17 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -135,8 +141,8 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformProperty<string> Rule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule");
-        set => this.WithProperty("rule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule");
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
@@ -146,10 +152,10 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     /// HOURLY
     /// DAILY
     /// </summary>
-    public TerraformProperty<string>? RunFrequency
+    public TerraformProperty<string> RunFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("run_frequency");
-        set => this.WithProperty("run_frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("run_frequency");
+        set => SetProperty("run_frequency", value);
     }
 
     /// <summary>
@@ -158,8 +164,7 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     /// </summary>
     public GoogleChronicleRuleDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleChronicleRuleDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

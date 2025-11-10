@@ -13,8 +13,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,9 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociation : Terraf
 
     private void InitializeOutputs()
     {
+        SetOutput("application_security_group_id");
+        SetOutput("id");
+        SetOutput("network_interface_id");
     }
 
     /// <summary>
@@ -57,17 +57,17 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociation : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSecurityGroupId is required")]
     public required TerraformProperty<string> ApplicationSecurityGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_security_group_id");
-        set => this.WithProperty("application_security_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_security_group_id");
+        set => SetProperty("application_security_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +76,8 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociation : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
-        set => this.WithProperty("network_interface_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
+        set => SetProperty("network_interface_id", value);
     }
 
     /// <summary>
@@ -86,8 +86,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociation : Terraf
     /// </summary>
     public AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

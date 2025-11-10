@@ -14,26 +14,33 @@ public class AwsIamUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("unique_id");
+        SetOutput("arn");
+        SetOutput("unique_id");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("path");
+        SetOutput("permissions_boundary");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,44 +49,44 @@ public class AwsIamUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
+    public TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => this.WithProperty("path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path");
+        set => SetProperty("path", value);
     }
 
     /// <summary>
     /// The permissions_boundary attribute.
     /// </summary>
-    public TerraformProperty<string>? PermissionsBoundary
+    public TerraformProperty<string> PermissionsBoundary
     {
-        get => GetProperty<TerraformProperty<string>>("permissions_boundary");
-        set => this.WithProperty("permissions_boundary", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("permissions_boundary");
+        set => SetProperty("permissions_boundary", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

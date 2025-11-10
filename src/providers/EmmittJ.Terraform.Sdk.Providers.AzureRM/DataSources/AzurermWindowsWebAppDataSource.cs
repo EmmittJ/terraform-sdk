@@ -13,8 +13,7 @@ public class AzurermWindowsWebAppDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,48 +30,51 @@ public class AzurermWindowsWebAppDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_settings");
-        this.WithOutput("auth_settings");
-        this.WithOutput("auth_settings_v2");
-        this.WithOutput("backup");
-        this.WithOutput("client_affinity_enabled");
-        this.WithOutput("client_certificate_enabled");
-        this.WithOutput("client_certificate_exclusion_paths");
-        this.WithOutput("client_certificate_mode");
-        this.WithOutput("connection_string");
-        this.WithOutput("custom_domain_verification_id");
-        this.WithOutput("default_hostname");
-        this.WithOutput("enabled");
-        this.WithOutput("ftp_publish_basic_authentication_enabled");
-        this.WithOutput("hosting_environment_id");
-        this.WithOutput("https_only");
-        this.WithOutput("identity");
-        this.WithOutput("kind");
-        this.WithOutput("location");
-        this.WithOutput("logs");
-        this.WithOutput("outbound_ip_address_list");
-        this.WithOutput("outbound_ip_addresses");
-        this.WithOutput("possible_outbound_ip_address_list");
-        this.WithOutput("possible_outbound_ip_addresses");
-        this.WithOutput("public_network_access_enabled");
-        this.WithOutput("service_plan_id");
-        this.WithOutput("site_config");
-        this.WithOutput("site_credential");
-        this.WithOutput("sticky_settings");
-        this.WithOutput("storage_account");
-        this.WithOutput("tags");
-        this.WithOutput("virtual_network_backup_restore_enabled");
-        this.WithOutput("virtual_network_subnet_id");
-        this.WithOutput("webdeploy_publish_basic_authentication_enabled");
+        SetOutput("app_settings");
+        SetOutput("auth_settings");
+        SetOutput("auth_settings_v2");
+        SetOutput("backup");
+        SetOutput("client_affinity_enabled");
+        SetOutput("client_certificate_enabled");
+        SetOutput("client_certificate_exclusion_paths");
+        SetOutput("client_certificate_mode");
+        SetOutput("connection_string");
+        SetOutput("custom_domain_verification_id");
+        SetOutput("default_hostname");
+        SetOutput("enabled");
+        SetOutput("ftp_publish_basic_authentication_enabled");
+        SetOutput("hosting_environment_id");
+        SetOutput("https_only");
+        SetOutput("identity");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("logs");
+        SetOutput("outbound_ip_address_list");
+        SetOutput("outbound_ip_addresses");
+        SetOutput("possible_outbound_ip_address_list");
+        SetOutput("possible_outbound_ip_addresses");
+        SetOutput("public_network_access_enabled");
+        SetOutput("service_plan_id");
+        SetOutput("site_config");
+        SetOutput("site_credential");
+        SetOutput("sticky_settings");
+        SetOutput("storage_account");
+        SetOutput("tags");
+        SetOutput("virtual_network_backup_restore_enabled");
+        SetOutput("virtual_network_subnet_id");
+        SetOutput("webdeploy_publish_basic_authentication_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -81,8 +83,8 @@ public class AzurermWindowsWebAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -91,8 +93,8 @@ public class AzurermWindowsWebAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -101,8 +103,7 @@ public class AzurermWindowsWebAppDataSource : TerraformDataSource
     /// </summary>
     public AzurermWindowsWebAppDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermWindowsWebAppDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermNetworkInterfaceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,28 +30,31 @@ public class AzurermNetworkInterfaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("accelerated_networking_enabled");
-        this.WithOutput("applied_dns_servers");
-        this.WithOutput("dns_servers");
-        this.WithOutput("internal_dns_name_label");
-        this.WithOutput("ip_configuration");
-        this.WithOutput("ip_forwarding_enabled");
-        this.WithOutput("location");
-        this.WithOutput("mac_address");
-        this.WithOutput("network_security_group_id");
-        this.WithOutput("private_ip_address");
-        this.WithOutput("private_ip_addresses");
-        this.WithOutput("tags");
-        this.WithOutput("virtual_machine_id");
+        SetOutput("accelerated_networking_enabled");
+        SetOutput("applied_dns_servers");
+        SetOutput("dns_servers");
+        SetOutput("internal_dns_name_label");
+        SetOutput("ip_configuration");
+        SetOutput("ip_forwarding_enabled");
+        SetOutput("location");
+        SetOutput("mac_address");
+        SetOutput("network_security_group_id");
+        SetOutput("private_ip_address");
+        SetOutput("private_ip_addresses");
+        SetOutput("tags");
+        SetOutput("virtual_machine_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermNetworkInterfaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,8 +73,8 @@ public class AzurermNetworkInterfaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -81,8 +83,7 @@ public class AzurermNetworkInterfaceDataSource : TerraformDataSource
     /// </summary>
     public AzurermNetworkInterfaceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkInterfaceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

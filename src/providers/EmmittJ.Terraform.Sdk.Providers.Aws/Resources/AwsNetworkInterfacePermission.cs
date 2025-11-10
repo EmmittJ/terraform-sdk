@@ -13,8 +13,7 @@ public class AwsNetworkInterfacePermissionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkInterfacePermissionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,7 +38,11 @@ public class AwsNetworkInterfacePermission : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("network_interface_permission_id");
+        SetOutput("network_interface_permission_id");
+        SetOutput("aws_account_id");
+        SetOutput("network_interface_id");
+        SetOutput("permission");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -49,8 +51,8 @@ public class AwsNetworkInterfacePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsAccountId is required")]
     public required TerraformProperty<string> AwsAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class AwsNetworkInterfacePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
-        set => this.WithProperty("network_interface_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
+        set => SetProperty("network_interface_id", value);
     }
 
     /// <summary>
@@ -69,17 +71,17 @@ public class AwsNetworkInterfacePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformProperty<string> Permission
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("permission");
-        set => this.WithProperty("permission", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("permission");
+        set => SetProperty("permission", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -88,8 +90,7 @@ public class AwsNetworkInterfacePermission : TerraformResource
     /// </summary>
     public AwsNetworkInterfacePermissionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkInterfacePermissionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

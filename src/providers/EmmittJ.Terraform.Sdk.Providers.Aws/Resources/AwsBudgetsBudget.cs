@@ -14,8 +14,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoAdjustType is required")]
     public required TerraformProperty<string> AutoAdjustType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auto_adjust_type");
-        set => WithProperty("auto_adjust_type", value);
+        set => SetProperty("auto_adjust_type", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastAutoAdjustTime
     {
-        get => GetProperty<TerraformProperty<string>>("last_auto_adjust_time");
-        set => WithProperty("last_auto_adjust_time", value);
+        set => SetProperty("last_auto_adjust_time", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsBudgetsBudgetCostFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AwsBudgetsBudgetCostFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public List<TerraformProperty<string>>? Values
     {
-        get => GetProperty<List<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeCredit
     {
-        get => GetProperty<TerraformProperty<bool>>("include_credit");
-        set => WithProperty("include_credit", value);
+        set => SetProperty("include_credit", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeDiscount
     {
-        get => GetProperty<TerraformProperty<bool>>("include_discount");
-        set => WithProperty("include_discount", value);
+        set => SetProperty("include_discount", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeOtherSubscription
     {
-        get => GetProperty<TerraformProperty<bool>>("include_other_subscription");
-        set => WithProperty("include_other_subscription", value);
+        set => SetProperty("include_other_subscription", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeRecurring
     {
-        get => GetProperty<TerraformProperty<bool>>("include_recurring");
-        set => WithProperty("include_recurring", value);
+        set => SetProperty("include_recurring", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeRefund
     {
-        get => GetProperty<TerraformProperty<bool>>("include_refund");
-        set => WithProperty("include_refund", value);
+        set => SetProperty("include_refund", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeSubscription
     {
-        get => GetProperty<TerraformProperty<bool>>("include_subscription");
-        set => WithProperty("include_subscription", value);
+        set => SetProperty("include_subscription", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("include_support");
-        set => WithProperty("include_support", value);
+        set => SetProperty("include_support", value);
     }
 
     /// <summary>
@@ -131,8 +120,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeTax
     {
-        get => GetProperty<TerraformProperty<bool>>("include_tax");
-        set => WithProperty("include_tax", value);
+        set => SetProperty("include_tax", value);
     }
 
     /// <summary>
@@ -140,8 +128,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeUpfront
     {
-        get => GetProperty<TerraformProperty<bool>>("include_upfront");
-        set => WithProperty("include_upfront", value);
+        set => SetProperty("include_upfront", value);
     }
 
     /// <summary>
@@ -149,8 +136,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseAmortized
     {
-        get => GetProperty<TerraformProperty<bool>>("use_amortized");
-        set => WithProperty("use_amortized", value);
+        set => SetProperty("use_amortized", value);
     }
 
     /// <summary>
@@ -158,8 +144,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseBlended
     {
-        get => GetProperty<TerraformProperty<bool>>("use_blended");
-        set => WithProperty("use_blended", value);
+        set => SetProperty("use_blended", value);
     }
 
 }
@@ -176,8 +161,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     public required TerraformProperty<string> ComparisonOperator
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("comparison_operator");
-        set => WithProperty("comparison_operator", value);
+        set => SetProperty("comparison_operator", value);
     }
 
     /// <summary>
@@ -186,8 +170,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformProperty<string> NotificationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("notification_type");
-        set => WithProperty("notification_type", value);
+        set => SetProperty("notification_type", value);
     }
 
     /// <summary>
@@ -195,8 +178,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SubscriberEmailAddresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subscriber_email_addresses");
-        set => WithProperty("subscriber_email_addresses", value);
+        set => SetProperty("subscriber_email_addresses", value);
     }
 
     /// <summary>
@@ -204,8 +186,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SubscriberSnsTopicArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subscriber_sns_topic_arns");
-        set => WithProperty("subscriber_sns_topic_arns", value);
+        set => SetProperty("subscriber_sns_topic_arns", value);
     }
 
     /// <summary>
@@ -214,8 +195,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformProperty<double> Threshold
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("threshold");
-        set => WithProperty("threshold", value);
+        set => SetProperty("threshold", value);
     }
 
     /// <summary>
@@ -224,8 +204,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdType is required")]
     public required TerraformProperty<string> ThresholdType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("threshold_type");
-        set => WithProperty("threshold_type", value);
+        set => SetProperty("threshold_type", value);
     }
 
 }
@@ -242,8 +221,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformProperty<string> Amount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("amount");
-        set => WithProperty("amount", value);
+        set => SetProperty("amount", value);
     }
 
     /// <summary>
@@ -252,8 +230,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformProperty<string> StartTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
@@ -262,8 +239,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformProperty<string> Unit
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("unit");
-        set => WithProperty("unit", value);
+        set => SetProperty("unit", value);
     }
 
 }
@@ -281,25 +257,38 @@ public class AwsBudgetsBudget : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("account_id");
+        SetOutput("billing_view_arn");
+        SetOutput("budget_type");
+        SetOutput("id");
+        SetOutput("limit_amount");
+        SetOutput("limit_unit");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("time_period_end");
+        SetOutput("time_period_start");
+        SetOutput("time_unit");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The billing_view_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? BillingViewArn
+    public TerraformProperty<string> BillingViewArn
     {
-        get => GetProperty<TerraformProperty<string>>("billing_view_arn");
-        set => this.WithProperty("billing_view_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_view_arn");
+        set => SetProperty("billing_view_arn", value);
     }
 
     /// <summary>
@@ -308,89 +297,89 @@ public class AwsBudgetsBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetType is required")]
     public required TerraformProperty<string> BudgetType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("budget_type");
-        set => this.WithProperty("budget_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("budget_type");
+        set => SetProperty("budget_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The limit_amount attribute.
     /// </summary>
-    public TerraformProperty<string>? LimitAmount
+    public TerraformProperty<string> LimitAmount
     {
-        get => GetProperty<TerraformProperty<string>>("limit_amount");
-        set => this.WithProperty("limit_amount", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("limit_amount");
+        set => SetProperty("limit_amount", value);
     }
 
     /// <summary>
     /// The limit_unit attribute.
     /// </summary>
-    public TerraformProperty<string>? LimitUnit
+    public TerraformProperty<string> LimitUnit
     {
-        get => GetProperty<TerraformProperty<string>>("limit_unit");
-        set => this.WithProperty("limit_unit", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("limit_unit");
+        set => SetProperty("limit_unit", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The time_period_end attribute.
     /// </summary>
-    public TerraformProperty<string>? TimePeriodEnd
+    public TerraformProperty<string> TimePeriodEnd
     {
-        get => GetProperty<TerraformProperty<string>>("time_period_end");
-        set => this.WithProperty("time_period_end", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_period_end");
+        set => SetProperty("time_period_end", value);
     }
 
     /// <summary>
     /// The time_period_start attribute.
     /// </summary>
-    public TerraformProperty<string>? TimePeriodStart
+    public TerraformProperty<string> TimePeriodStart
     {
-        get => GetProperty<TerraformProperty<string>>("time_period_start");
-        set => this.WithProperty("time_period_start", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_period_start");
+        set => SetProperty("time_period_start", value);
     }
 
     /// <summary>
@@ -399,8 +388,8 @@ public class AwsBudgetsBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeUnit is required")]
     public required TerraformProperty<string> TimeUnit
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_unit");
-        set => this.WithProperty("time_unit", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_unit");
+        set => SetProperty("time_unit", value);
     }
 
     /// <summary>
@@ -410,8 +399,7 @@ public class AwsBudgetsBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoAdjustData block(s) allowed")]
     public List<AwsBudgetsBudgetAutoAdjustDataBlock>? AutoAdjustData
     {
-        get => GetProperty<List<AwsBudgetsBudgetAutoAdjustDataBlock>>("auto_adjust_data");
-        set => this.WithProperty("auto_adjust_data", value);
+        set => SetProperty("auto_adjust_data", value);
     }
 
     /// <summary>
@@ -420,8 +408,7 @@ public class AwsBudgetsBudget : TerraformResource
     /// </summary>
     public HashSet<AwsBudgetsBudgetCostFilterBlock>? CostFilter
     {
-        get => GetProperty<HashSet<AwsBudgetsBudgetCostFilterBlock>>("cost_filter");
-        set => this.WithProperty("cost_filter", value);
+        set => SetProperty("cost_filter", value);
     }
 
     /// <summary>
@@ -431,8 +418,7 @@ public class AwsBudgetsBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CostTypes block(s) allowed")]
     public List<AwsBudgetsBudgetCostTypesBlock>? CostTypes
     {
-        get => GetProperty<List<AwsBudgetsBudgetCostTypesBlock>>("cost_types");
-        set => this.WithProperty("cost_types", value);
+        set => SetProperty("cost_types", value);
     }
 
     /// <summary>
@@ -441,8 +427,7 @@ public class AwsBudgetsBudget : TerraformResource
     /// </summary>
     public HashSet<AwsBudgetsBudgetNotificationBlock>? Notification
     {
-        get => GetProperty<HashSet<AwsBudgetsBudgetNotificationBlock>>("notification");
-        set => this.WithProperty("notification", value);
+        set => SetProperty("notification", value);
     }
 
     /// <summary>
@@ -451,8 +436,7 @@ public class AwsBudgetsBudget : TerraformResource
     /// </summary>
     public HashSet<AwsBudgetsBudgetPlannedLimitBlock>? PlannedLimit
     {
-        get => GetProperty<HashSet<AwsBudgetsBudgetPlannedLimitBlock>>("planned_limit");
-        set => this.WithProperty("planned_limit", value);
+        set => SetProperty("planned_limit", value);
     }
 
     /// <summary>

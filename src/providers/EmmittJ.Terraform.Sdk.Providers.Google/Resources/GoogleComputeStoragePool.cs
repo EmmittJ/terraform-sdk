@@ -13,8 +13,7 @@ public class GoogleComputeStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,23 +46,35 @@ public class GoogleComputeStoragePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("effective_labels");
-        this.WithOutput("id");
-        this.WithOutput("kind");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("resource_status");
-        this.WithOutput("status");
-        this.WithOutput("terraform_labels");
+        SetOutput("creation_timestamp");
+        SetOutput("effective_labels");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("label_fingerprint");
+        SetOutput("resource_status");
+        SetOutput("status");
+        SetOutput("terraform_labels");
+        SetOutput("capacity_provisioning_type");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("performance_provisioning_type");
+        SetOutput("pool_provisioned_capacity_gb");
+        SetOutput("pool_provisioned_iops");
+        SetOutput("pool_provisioned_throughput");
+        SetOutput("project");
+        SetOutput("storage_pool_type");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// Provisioning type of the byte capacity of the pool. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? CapacityProvisioningType
+    public TerraformProperty<string> CapacityProvisioningType
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_provisioning_type");
-        set => this.WithProperty("capacity_provisioning_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capacity_provisioning_type");
+        set => SetProperty("capacity_provisioning_type", value);
     }
 
     /// <summary>
@@ -74,19 +83,19 @@ public class GoogleComputeStoragePool : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the StoragePool will fail.
     /// When the field is set to false, deleting the StoragePool is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// A description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -96,10 +105,10 @@ public class GoogleComputeStoragePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -114,17 +123,17 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Provisioning type of the performance-related parameters of the pool, such as throughput and IOPS. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PerformanceProvisioningType
+    public TerraformProperty<string> PerformanceProvisioningType
     {
-        get => GetProperty<TerraformProperty<string>>("performance_provisioning_type");
-        set => this.WithProperty("performance_provisioning_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("performance_provisioning_type");
+        set => SetProperty("performance_provisioning_type", value);
     }
 
     /// <summary>
@@ -134,18 +143,18 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedCapacityGb is required")]
     public required TerraformProperty<string> PoolProvisionedCapacityGb
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pool_provisioned_capacity_gb");
-        set => this.WithProperty("pool_provisioned_capacity_gb", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool_provisioned_capacity_gb");
+        set => SetProperty("pool_provisioned_capacity_gb", value);
     }
 
     /// <summary>
     /// Provisioned IOPS of the storage pool.
     /// Only relevant if the storage pool type is &#39;hyperdisk-balanced&#39;.
     /// </summary>
-    public TerraformProperty<string>? PoolProvisionedIops
+    public TerraformProperty<string> PoolProvisionedIops
     {
-        get => GetProperty<TerraformProperty<string>>("pool_provisioned_iops");
-        set => this.WithProperty("pool_provisioned_iops", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool_provisioned_iops");
+        set => SetProperty("pool_provisioned_iops", value);
     }
 
     /// <summary>
@@ -155,17 +164,17 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedThroughput is required")]
     public required TerraformProperty<string> PoolProvisionedThroughput
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pool_provisioned_throughput");
-        set => this.WithProperty("pool_provisioned_throughput", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool_provisioned_throughput");
+        set => SetProperty("pool_provisioned_throughput", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -178,17 +187,17 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
     public required TerraformProperty<string> StoragePoolType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_pool_type");
-        set => this.WithProperty("storage_pool_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_pool_type");
+        set => SetProperty("storage_pool_type", value);
     }
 
     /// <summary>
     /// A reference to the zone where the storage pool resides.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -197,8 +206,7 @@ public class GoogleComputeStoragePool : TerraformResource
     /// </summary>
     public GoogleComputeStoragePoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeStoragePoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,6 +14,10 @@ public class AwsConnectPhoneNumberContactFlowAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("contact_flow_id");
+        SetOutput("instance_id");
+        SetOutput("phone_number_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,8 +26,8 @@ public class AwsConnectPhoneNumberContactFlowAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactFlowId is required")]
     public required TerraformProperty<string> ContactFlowId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("contact_flow_id");
-        set => this.WithProperty("contact_flow_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("contact_flow_id");
+        set => SetProperty("contact_flow_id", value);
     }
 
     /// <summary>
@@ -32,8 +36,8 @@ public class AwsConnectPhoneNumberContactFlowAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -42,17 +46,17 @@ public class AwsConnectPhoneNumberContactFlowAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumberId is required")]
     public required TerraformProperty<string> PhoneNumberId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("phone_number_id");
-        set => this.WithProperty("phone_number_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("phone_number_id");
+        set => SetProperty("phone_number_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

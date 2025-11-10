@@ -14,8 +14,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityIdColumns is required")]
     public List<TerraformProperty<string>>? EntityIdColumns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("entity_id_columns");
-        set => WithProperty("entity_id_columns", value);
+        set => SetProperty("entity_id_columns", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlo
     /// </summary>
     public TerraformProperty<string>? ProjectNumber
     {
-        get => GetProperty<TerraformProperty<string>>("project_number");
-        set => WithProperty("project_number", value);
+        set => SetProperty("project_number", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? Continuous
     {
-        get => GetProperty<TerraformProperty<bool>>("continuous");
-        set => WithProperty("continuous", value);
+        set => SetProperty("continuous", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Cron
     {
-        get => GetProperty<TerraformProperty<string>>("cron");
-        set => WithProperty("cron", value);
+        set => SetProperty("cron", value);
     }
 
 }
@@ -85,8 +80,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -122,10 +114,16 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("feature_online_store");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -134,17 +132,17 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureOnlineStore is required")]
     public required TerraformProperty<string> FeatureOnlineStore
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("feature_online_store");
-        set => this.WithProperty("feature_online_store", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("feature_online_store");
+        set => SetProperty("feature_online_store", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -154,37 +152,37 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// Name of the FeatureView. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region for the resource. It should be the same as the featureonlinestore region.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -194,8 +192,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigQuerySource block(s) allowed")]
     public List<GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock>? BigQuerySource
     {
-        get => GetProperty<List<GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock>>("big_query_source");
-        set => this.WithProperty("big_query_source", value);
+        set => SetProperty("big_query_source", value);
     }
 
     /// <summary>
@@ -205,8 +202,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureRegistrySource block(s) allowed")]
     public List<GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock>? FeatureRegistrySource
     {
-        get => GetProperty<List<GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock>>("feature_registry_source");
-        set => this.WithProperty("feature_registry_source", value);
+        set => SetProperty("feature_registry_source", value);
     }
 
     /// <summary>
@@ -216,8 +212,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
     public List<GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock>? SyncConfig
     {
-        get => GetProperty<List<GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock>>("sync_config");
-        set => this.WithProperty("sync_config", value);
+        set => SetProperty("sync_config", value);
     }
 
     /// <summary>
@@ -226,8 +221,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
     /// </summary>
     public GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

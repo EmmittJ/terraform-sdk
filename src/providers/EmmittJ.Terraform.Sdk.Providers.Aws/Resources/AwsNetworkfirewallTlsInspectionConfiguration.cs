@@ -13,8 +13,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,32 +54,37 @@ public class AwsNetworkfirewallTlsInspectionConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("certificate_authority");
-        this.WithOutput("certificates");
-        this.WithOutput("id");
-        this.WithOutput("number_of_associations");
-        this.WithOutput("tags_all");
-        this.WithOutput("tls_inspection_configuration_id");
-        this.WithOutput("update_token");
+        SetOutput("arn");
+        SetOutput("certificate_authority");
+        SetOutput("certificates");
+        SetOutput("id");
+        SetOutput("number_of_associations");
+        SetOutput("tags_all");
+        SetOutput("tls_inspection_configuration_id");
+        SetOutput("update_token");
+        SetOutput("description");
+        SetOutput("encryption_configuration");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? EncryptionConfiguration
+    public List<TerraformProperty<object>> EncryptionConfiguration
     {
-        get => GetProperty<List<TerraformProperty<object>>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("encryption_configuration");
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -91,26 +93,26 @@ public class AwsNetworkfirewallTlsInspectionConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -119,8 +121,7 @@ public class AwsNetworkfirewallTlsInspectionConfiguration : TerraformResource
     /// </summary>
     public AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -129,8 +130,7 @@ public class AwsNetworkfirewallTlsInspectionConfiguration : TerraformResource
     /// </summary>
     public List<AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurationBlock>? TlsInspectionConfiguration
     {
-        get => GetProperty<List<AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurationBlock>>("tls_inspection_configuration");
-        set => this.WithProperty("tls_inspection_configuration", value);
+        set => SetProperty("tls_inspection_configuration", value);
     }
 
     /// <summary>

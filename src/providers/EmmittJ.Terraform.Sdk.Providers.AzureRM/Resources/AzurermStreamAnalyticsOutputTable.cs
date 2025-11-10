@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,17 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("batch_size");
+        SetOutput("columns_to_remove");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("partition_key");
+        SetOutput("resource_group_name");
+        SetOutput("row_key");
+        SetOutput("storage_account_key");
+        SetOutput("storage_account_name");
+        SetOutput("stream_analytics_job_name");
+        SetOutput("table");
     }
 
     /// <summary>
@@ -66,26 +73,26 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
     public required TerraformProperty<double> BatchSize
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("batch_size");
-        set => this.WithProperty("batch_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("batch_size");
+        set => SetProperty("batch_size", value);
     }
 
     /// <summary>
     /// The columns_to_remove attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ColumnsToRemove
+    public List<TerraformProperty<string>> ColumnsToRemove
     {
-        get => GetProperty<List<TerraformProperty<string>>>("columns_to_remove");
-        set => this.WithProperty("columns_to_remove", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("columns_to_remove");
+        set => SetProperty("columns_to_remove", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,8 +101,8 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,8 +111,8 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformProperty<string> PartitionKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partition_key");
-        set => this.WithProperty("partition_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partition_key");
+        set => SetProperty("partition_key", value);
     }
 
     /// <summary>
@@ -114,8 +121,8 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -124,8 +131,8 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     public required TerraformProperty<string> RowKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("row_key");
-        set => this.WithProperty("row_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("row_key");
+        set => SetProperty("row_key", value);
     }
 
     /// <summary>
@@ -134,8 +141,8 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
-        set => this.WithProperty("storage_account_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_key");
+        set => SetProperty("storage_account_key", value);
     }
 
     /// <summary>
@@ -144,8 +151,8 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
-        set => this.WithProperty("storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
+        set => SetProperty("storage_account_name", value);
     }
 
     /// <summary>
@@ -154,8 +161,8 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
-        set => this.WithProperty("stream_analytics_job_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_name");
+        set => SetProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
@@ -164,8 +171,8 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table");
-        set => this.WithProperty("table", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table");
+        set => SetProperty("table", value);
     }
 
     /// <summary>
@@ -174,8 +181,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsOutputTableTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsOutputTableTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

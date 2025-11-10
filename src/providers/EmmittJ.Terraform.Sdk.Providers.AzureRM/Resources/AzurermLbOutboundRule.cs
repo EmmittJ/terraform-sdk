@@ -13,8 +13,7 @@ public class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,15 +79,24 @@ public class AzurermLbOutboundRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("allocated_outbound_ports");
+        SetOutput("backend_address_pool_id");
+        SetOutput("enable_tcp_reset");
+        SetOutput("id");
+        SetOutput("idle_timeout_in_minutes");
+        SetOutput("loadbalancer_id");
+        SetOutput("name");
+        SetOutput("protocol");
+        SetOutput("tcp_reset_enabled");
     }
 
     /// <summary>
     /// The allocated_outbound_ports attribute.
     /// </summary>
-    public TerraformProperty<double>? AllocatedOutboundPorts
+    public TerraformProperty<double> AllocatedOutboundPorts
     {
-        get => GetProperty<TerraformProperty<double>>("allocated_outbound_ports");
-        set => this.WithProperty("allocated_outbound_ports", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("allocated_outbound_ports");
+        set => SetProperty("allocated_outbound_ports", value);
     }
 
     /// <summary>
@@ -102,36 +105,36 @@ public class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     public required TerraformProperty<string> BackendAddressPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backend_address_pool_id");
-        set => this.WithProperty("backend_address_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backend_address_pool_id");
+        set => SetProperty("backend_address_pool_id", value);
     }
 
     /// <summary>
     /// The enable_tcp_reset attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableTcpReset
+    public TerraformProperty<bool> EnableTcpReset
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_tcp_reset");
-        set => this.WithProperty("enable_tcp_reset", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_tcp_reset");
+        set => SetProperty("enable_tcp_reset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? IdleTimeoutInMinutes
+    public TerraformProperty<double> IdleTimeoutInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("idle_timeout_in_minutes");
-        set => this.WithProperty("idle_timeout_in_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("idle_timeout_in_minutes");
+        set => SetProperty("idle_timeout_in_minutes", value);
     }
 
     /// <summary>
@@ -140,8 +143,8 @@ public class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
-        set => this.WithProperty("loadbalancer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("loadbalancer_id");
+        set => SetProperty("loadbalancer_id", value);
     }
 
     /// <summary>
@@ -150,8 +153,8 @@ public class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -160,17 +163,17 @@ public class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TcpResetEnabled
+    public TerraformProperty<bool> TcpResetEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tcp_reset_enabled");
-        set => this.WithProperty("tcp_reset_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tcp_reset_enabled");
+        set => SetProperty("tcp_reset_enabled", value);
     }
 
     /// <summary>
@@ -179,8 +182,7 @@ public class AzurermLbOutboundRule : TerraformResource
     /// </summary>
     public List<AzurermLbOutboundRuleFrontendIpConfigurationBlock>? FrontendIpConfiguration
     {
-        get => GetProperty<List<AzurermLbOutboundRuleFrontendIpConfigurationBlock>>("frontend_ip_configuration");
-        set => this.WithProperty("frontend_ip_configuration", value);
+        set => SetProperty("frontend_ip_configuration", value);
     }
 
     /// <summary>
@@ -189,8 +191,7 @@ public class AzurermLbOutboundRule : TerraformResource
     /// </summary>
     public AzurermLbOutboundRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLbOutboundRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

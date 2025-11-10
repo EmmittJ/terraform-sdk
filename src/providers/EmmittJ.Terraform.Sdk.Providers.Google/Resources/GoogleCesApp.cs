@@ -15,8 +15,7 @@ public class GoogleCesAppAudioProcessingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InactivityTimeout
     {
-        get => GetProperty<TerraformProperty<string>>("inactivity_timeout");
-        set => WithProperty("inactivity_timeout", value);
+        set => SetProperty("inactivity_timeout", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleCesAppDataStoreSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? Engines
     {
-        get => GetProperty<List<TerraformProperty<object>>>("engines");
-        set => WithProperty("engines", value);
+        set => SetProperty("engines", value);
     }
 
 }
@@ -56,8 +54,7 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ChannelType
     {
-        get => GetProperty<TerraformProperty<string>>("channel_type");
-        set => WithProperty("channel_type", value);
+        set => SetProperty("channel_type", value);
     }
 
     /// <summary>
@@ -67,8 +64,7 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DisableBargeInControl
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_barge_in_control");
-        set => WithProperty("disable_barge_in_control", value);
+        set => SetProperty("disable_barge_in_control", value);
     }
 
     /// <summary>
@@ -76,8 +72,7 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DisableDtmf
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_dtmf");
-        set => WithProperty("disable_dtmf", value);
+        set => SetProperty("disable_dtmf", value);
     }
 
     /// <summary>
@@ -85,8 +80,7 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("profile_id");
-        set => WithProperty("profile_id", value);
+        set => SetProperty("profile_id", value);
     }
 
 }
@@ -110,8 +104,7 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultLanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("default_language_code");
-        set => WithProperty("default_language_code", value);
+        set => SetProperty("default_language_code", value);
     }
 
     /// <summary>
@@ -120,8 +113,7 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableMultilingualSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_multilingual_support");
-        set => WithProperty("enable_multilingual_support", value);
+        set => SetProperty("enable_multilingual_support", value);
     }
 
     /// <summary>
@@ -136,8 +128,7 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FallbackAction
     {
-        get => GetProperty<TerraformProperty<string>>("fallback_action");
-        set => WithProperty("fallback_action", value);
+        set => SetProperty("fallback_action", value);
     }
 
     /// <summary>
@@ -146,8 +137,7 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SupportedLanguageCodes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("supported_language_codes");
-        set => WithProperty("supported_language_codes", value);
+        set => SetProperty("supported_language_codes", value);
     }
 
 }
@@ -172,8 +162,7 @@ public class GoogleCesAppModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Model
     {
-        get => GetProperty<TerraformProperty<string>>("model");
-        set => WithProperty("model", value);
+        set => SetProperty("model", value);
     }
 
     /// <summary>
@@ -184,8 +173,7 @@ public class GoogleCesAppModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Temperature
     {
-        get => GetProperty<TerraformProperty<double>>("temperature");
-        set => WithProperty("temperature", value);
+        set => SetProperty("temperature", value);
     }
 
 }
@@ -201,8 +189,7 @@ public class GoogleCesAppTimeZoneSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
 }
@@ -218,8 +205,7 @@ public class GoogleCesAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -227,8 +213,7 @@ public class GoogleCesAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -236,8 +221,7 @@ public class GoogleCesAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -254,8 +238,7 @@ public class GoogleCesAppVariableDeclarationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -265,8 +248,7 @@ public class GoogleCesAppVariableDeclarationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -284,11 +266,21 @@ public class GoogleCesApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("deployment_count");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("deployment_count");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("app_id");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("global_instruction");
+        SetOutput("guardrails");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("metadata");
+        SetOutput("project");
+        SetOutput("root_agent");
     }
 
     /// <summary>
@@ -299,17 +291,17 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
     /// Human-readable description of the app.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -318,8 +310,8 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -327,10 +319,10 @@ public class GoogleCesApp : TerraformResource
     /// You can use this instruction to set up a stable identity or personality
     /// across all the agents.
     /// </summary>
-    public TerraformProperty<string>? GlobalInstruction
+    public TerraformProperty<string> GlobalInstruction
     {
-        get => GetProperty<TerraformProperty<string>>("global_instruction");
-        set => this.WithProperty("global_instruction", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_instruction");
+        set => SetProperty("global_instruction", value);
     }
 
     /// <summary>
@@ -338,19 +330,19 @@ public class GoogleCesApp : TerraformResource
     /// Format:
     /// &#39;projects/{project}/locations/{location}/apps/{app}/guardrails/{guardrail}&#39;
     /// </summary>
-    public List<TerraformProperty<string>>? Guardrails
+    public List<TerraformProperty<string>> Guardrails
     {
-        get => GetProperty<List<TerraformProperty<string>>>("guardrails");
-        set => this.WithProperty("guardrails", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("guardrails");
+        set => SetProperty("guardrails", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -359,37 +351,37 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Metadata about the app. This field can be used to store additional
     /// information relevant to the app&#39;s details or intended usages.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The root agent is the entry point of the app.
     /// Format: &#39;projects/{project}/locations/{location}/apps/{app}/agents/{agent}&#39;
     /// </summary>
-    public TerraformProperty<string>? RootAgent
+    public TerraformProperty<string> RootAgent
     {
-        get => GetProperty<TerraformProperty<string>>("root_agent");
-        set => this.WithProperty("root_agent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("root_agent");
+        set => SetProperty("root_agent", value);
     }
 
     /// <summary>
@@ -399,8 +391,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioProcessingConfig block(s) allowed")]
     public List<GoogleCesAppAudioProcessingConfigBlock>? AudioProcessingConfig
     {
-        get => GetProperty<List<GoogleCesAppAudioProcessingConfigBlock>>("audio_processing_config");
-        set => this.WithProperty("audio_processing_config", value);
+        set => SetProperty("audio_processing_config", value);
     }
 
     /// <summary>
@@ -410,8 +401,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataStoreSettings block(s) allowed")]
     public List<GoogleCesAppDataStoreSettingsBlock>? DataStoreSettings
     {
-        get => GetProperty<List<GoogleCesAppDataStoreSettingsBlock>>("data_store_settings");
-        set => this.WithProperty("data_store_settings", value);
+        set => SetProperty("data_store_settings", value);
     }
 
     /// <summary>
@@ -421,8 +411,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultChannelProfile block(s) allowed")]
     public List<GoogleCesAppDefaultChannelProfileBlock>? DefaultChannelProfile
     {
-        get => GetProperty<List<GoogleCesAppDefaultChannelProfileBlock>>("default_channel_profile");
-        set => this.WithProperty("default_channel_profile", value);
+        set => SetProperty("default_channel_profile", value);
     }
 
     /// <summary>
@@ -432,8 +421,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EvaluationMetricsThresholds block(s) allowed")]
     public List<GoogleCesAppEvaluationMetricsThresholdsBlock>? EvaluationMetricsThresholds
     {
-        get => GetProperty<List<GoogleCesAppEvaluationMetricsThresholdsBlock>>("evaluation_metrics_thresholds");
-        set => this.WithProperty("evaluation_metrics_thresholds", value);
+        set => SetProperty("evaluation_metrics_thresholds", value);
     }
 
     /// <summary>
@@ -443,8 +431,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LanguageSettings block(s) allowed")]
     public List<GoogleCesAppLanguageSettingsBlock>? LanguageSettings
     {
-        get => GetProperty<List<GoogleCesAppLanguageSettingsBlock>>("language_settings");
-        set => this.WithProperty("language_settings", value);
+        set => SetProperty("language_settings", value);
     }
 
     /// <summary>
@@ -454,8 +441,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingSettings block(s) allowed")]
     public List<GoogleCesAppLoggingSettingsBlock>? LoggingSettings
     {
-        get => GetProperty<List<GoogleCesAppLoggingSettingsBlock>>("logging_settings");
-        set => this.WithProperty("logging_settings", value);
+        set => SetProperty("logging_settings", value);
     }
 
     /// <summary>
@@ -465,8 +451,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelSettings block(s) allowed")]
     public List<GoogleCesAppModelSettingsBlock>? ModelSettings
     {
-        get => GetProperty<List<GoogleCesAppModelSettingsBlock>>("model_settings");
-        set => this.WithProperty("model_settings", value);
+        set => SetProperty("model_settings", value);
     }
 
     /// <summary>
@@ -476,8 +461,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimeZoneSettings block(s) allowed")]
     public List<GoogleCesAppTimeZoneSettingsBlock>? TimeZoneSettings
     {
-        get => GetProperty<List<GoogleCesAppTimeZoneSettingsBlock>>("time_zone_settings");
-        set => this.WithProperty("time_zone_settings", value);
+        set => SetProperty("time_zone_settings", value);
     }
 
     /// <summary>
@@ -486,8 +470,7 @@ public class GoogleCesApp : TerraformResource
     /// </summary>
     public GoogleCesAppTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCesAppTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -496,8 +479,7 @@ public class GoogleCesApp : TerraformResource
     /// </summary>
     public List<GoogleCesAppVariableDeclarationsBlock>? VariableDeclarations
     {
-        get => GetProperty<List<GoogleCesAppVariableDeclarationsBlock>>("variable_declarations");
-        set => this.WithProperty("variable_declarations", value);
+        set => SetProperty("variable_declarations", value);
     }
 
     /// <summary>

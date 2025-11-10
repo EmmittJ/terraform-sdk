@@ -14,6 +14,11 @@ public class AwsEc2ManagedPrefixListEntry : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cidr");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("prefix_list_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,26 +27,26 @@ public class AwsEc2ManagedPrefixListEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformProperty<string> Cidr
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cidr");
-        set => this.WithProperty("cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr");
+        set => SetProperty("cidr", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,17 +55,17 @@ public class AwsEc2ManagedPrefixListEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixListId is required")]
     public required TerraformProperty<string> PrefixListId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("prefix_list_id");
-        set => this.WithProperty("prefix_list_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("prefix_list_id");
+        set => SetProperty("prefix_list_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

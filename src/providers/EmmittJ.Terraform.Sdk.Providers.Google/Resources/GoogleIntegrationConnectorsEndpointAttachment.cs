@@ -13,8 +13,7 @@ public class GoogleIntegrationConnectorsEndpointAttachmentTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIntegrationConnectorsEndpointAttachmentTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleIntegrationConnectorsEndpointAttachmentTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,38 +46,46 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("endpoint_ip");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("endpoint_ip");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("endpoint_global_access");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("service_attachment");
     }
 
     /// <summary>
     /// Description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Enable global access for endpoint attachment.
     /// </summary>
-    public TerraformProperty<bool>? EndpointGlobalAccess
+    public TerraformProperty<bool> EndpointGlobalAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("endpoint_global_access");
-        set => this.WithProperty("endpoint_global_access", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("endpoint_global_access");
+        set => SetProperty("endpoint_global_access", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -90,10 +95,10 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -102,8 +107,8 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -112,17 +117,17 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -131,8 +136,8 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     public required TerraformProperty<string> ServiceAttachment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_attachment");
-        set => this.WithProperty("service_attachment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_attachment");
+        set => SetProperty("service_attachment", value);
     }
 
     /// <summary>
@@ -141,8 +146,7 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     /// </summary>
     public GoogleIntegrationConnectorsEndpointAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIntegrationConnectorsEndpointAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

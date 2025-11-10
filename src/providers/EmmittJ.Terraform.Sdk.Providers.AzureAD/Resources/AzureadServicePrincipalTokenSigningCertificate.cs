@@ -13,8 +13,7 @@ public class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,37 +46,41 @@ public class AzureadServicePrincipalTokenSigningCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("key_id");
-        this.WithOutput("start_date");
-        this.WithOutput("thumbprint");
-        this.WithOutput("value");
+        SetOutput("key_id");
+        SetOutput("start_date");
+        SetOutput("thumbprint");
+        SetOutput("value");
+        SetOutput("display_name");
+        SetOutput("end_date");
+        SetOutput("id");
+        SetOutput("service_principal_id");
     }
 
     /// <summary>
     /// A friendly name for the certificate
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The end date until which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Default is 3 years from current date.
     /// </summary>
-    public TerraformProperty<string>? EndDate
+    public TerraformProperty<string> EndDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_date");
-        set => this.WithProperty("end_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date");
+        set => SetProperty("end_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -88,8 +89,8 @@ public class AzureadServicePrincipalTokenSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformProperty<string> ServicePrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_id");
-        set => this.WithProperty("service_principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_principal_id");
+        set => SetProperty("service_principal_id", value);
     }
 
     /// <summary>
@@ -98,8 +99,7 @@ public class AzureadServicePrincipalTokenSigningCertificate : TerraformResource
     /// </summary>
     public AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

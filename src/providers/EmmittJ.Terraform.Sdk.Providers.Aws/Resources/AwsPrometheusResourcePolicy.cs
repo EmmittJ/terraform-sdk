@@ -13,8 +13,7 @@ public class AwsPrometheusResourcePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsPrometheusResourcePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsPrometheusResourcePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,6 +46,10 @@ public class AwsPrometheusResourcePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("policy_document");
+        SetOutput("region");
+        SetOutput("revision_id");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
@@ -57,26 +58,26 @@ public class AwsPrometheusResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformProperty<string> PolicyDocument
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_document");
-        set => this.WithProperty("policy_document", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_document");
+        set => SetProperty("policy_document", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RevisionId
+    public TerraformProperty<string> RevisionId
     {
-        get => GetProperty<TerraformProperty<string>>("revision_id");
-        set => this.WithProperty("revision_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revision_id");
+        set => SetProperty("revision_id", value);
     }
 
     /// <summary>
@@ -85,8 +86,8 @@ public class AwsPrometheusResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -95,8 +96,7 @@ public class AwsPrometheusResourcePolicy : TerraformResource
     /// </summary>
     public AwsPrometheusResourcePolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsPrometheusResourcePolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermNetworkManagerRoutingRuleCollectionTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkManagerRoutingRuleCollectionTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkManagerRoutingRuleCollectionTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetworkManagerRoutingRuleCollectionTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,33 +54,39 @@ public class AzurermNetworkManagerRoutingRuleCollection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bgp_route_propagation_enabled");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_group_ids");
+        SetOutput("routing_configuration_id");
     }
 
     /// <summary>
     /// The bgp_route_propagation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BgpRoutePropagationEnabled
+    public TerraformProperty<bool> BgpRoutePropagationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("bgp_route_propagation_enabled");
-        set => this.WithProperty("bgp_route_propagation_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bgp_route_propagation_enabled");
+        set => SetProperty("bgp_route_propagation_enabled", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -93,18 +95,18 @@ public class AzurermNetworkManagerRoutingRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupIds is required")]
-    public List<TerraformProperty<string>>? NetworkGroupIds
+    public List<TerraformProperty<string>> NetworkGroupIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("network_group_ids");
-        set => this.WithProperty("network_group_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("network_group_ids");
+        set => SetProperty("network_group_ids", value);
     }
 
     /// <summary>
@@ -113,8 +115,8 @@ public class AzurermNetworkManagerRoutingRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingConfigurationId is required")]
     public required TerraformProperty<string> RoutingConfigurationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("routing_configuration_id");
-        set => this.WithProperty("routing_configuration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("routing_configuration_id");
+        set => SetProperty("routing_configuration_id", value);
     }
 
     /// <summary>
@@ -123,8 +125,7 @@ public class AzurermNetworkManagerRoutingRuleCollection : TerraformResource
     /// </summary>
     public AzurermNetworkManagerRoutingRuleCollectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerRoutingRuleCollectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

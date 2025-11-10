@@ -13,8 +13,7 @@ public class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FallbackResult
     {
-        get => GetProperty<TerraformProperty<string>>("fallback_result");
-        set => WithProperty("fallback_result", value);
+        set => SetProperty("fallback_result", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsIvschatRoomTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsIvschatRoomTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsIvschatRoomTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,79 +71,87 @@ public class AwsIvschatRoom : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("logging_configuration_identifiers");
+        SetOutput("maximum_message_length");
+        SetOutput("maximum_message_rate_per_second");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The logging_configuration_identifiers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? LoggingConfigurationIdentifiers
+    public List<TerraformProperty<string>> LoggingConfigurationIdentifiers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("logging_configuration_identifiers");
-        set => this.WithProperty("logging_configuration_identifiers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("logging_configuration_identifiers");
+        set => SetProperty("logging_configuration_identifiers", value);
     }
 
     /// <summary>
     /// The maximum_message_length attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumMessageLength
+    public TerraformProperty<double> MaximumMessageLength
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_message_length");
-        set => this.WithProperty("maximum_message_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_message_length");
+        set => SetProperty("maximum_message_length", value);
     }
 
     /// <summary>
     /// The maximum_message_rate_per_second attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumMessageRatePerSecond
+    public TerraformProperty<double> MaximumMessageRatePerSecond
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_message_rate_per_second");
-        set => this.WithProperty("maximum_message_rate_per_second", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_message_rate_per_second");
+        set => SetProperty("maximum_message_rate_per_second", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -158,8 +161,7 @@ public class AwsIvschatRoom : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageReviewHandler block(s) allowed")]
     public List<AwsIvschatRoomMessageReviewHandlerBlock>? MessageReviewHandler
     {
-        get => GetProperty<List<AwsIvschatRoomMessageReviewHandlerBlock>>("message_review_handler");
-        set => this.WithProperty("message_review_handler", value);
+        set => SetProperty("message_review_handler", value);
     }
 
     /// <summary>
@@ -168,8 +170,7 @@ public class AwsIvschatRoom : TerraformResource
     /// </summary>
     public AwsIvschatRoomTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsIvschatRoomTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

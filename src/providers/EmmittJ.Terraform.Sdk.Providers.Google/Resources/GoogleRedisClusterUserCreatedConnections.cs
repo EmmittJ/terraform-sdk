@@ -21,8 +21,7 @@ public class GoogleRedisClusterUserCreatedConnectionsTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleRedisClusterUserCreatedConnectionsTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleRedisClusterUserCreatedConnectionsTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,15 +54,19 @@ public class GoogleRedisClusterUserCreatedConnections : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -74,17 +75,17 @@ public class GoogleRedisClusterUserCreatedConnections : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -93,8 +94,8 @@ public class GoogleRedisClusterUserCreatedConnections : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -103,8 +104,7 @@ public class GoogleRedisClusterUserCreatedConnections : TerraformResource
     /// </summary>
     public List<GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlock>? ClusterEndpoints
     {
-        get => GetProperty<List<GoogleRedisClusterUserCreatedConnectionsClusterEndpointsBlock>>("cluster_endpoints");
-        set => this.WithProperty("cluster_endpoints", value);
+        set => SetProperty("cluster_endpoints", value);
     }
 
     /// <summary>
@@ -113,8 +113,7 @@ public class GoogleRedisClusterUserCreatedConnections : TerraformResource
     /// </summary>
     public GoogleRedisClusterUserCreatedConnectionsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleRedisClusterUserCreatedConnectionsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,11 +54,17 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("namespace_name");
-        this.WithOutput("relay_name");
-        this.WithOutput("send_key_value");
-        this.WithOutput("service_bus_namespace");
-        this.WithOutput("service_bus_suffix");
+        SetOutput("namespace_name");
+        SetOutput("relay_name");
+        SetOutput("send_key_value");
+        SetOutput("service_bus_namespace");
+        SetOutput("service_bus_suffix");
+        SetOutput("function_app_id");
+        SetOutput("hostname");
+        SetOutput("id");
+        SetOutput("port");
+        SetOutput("relay_id");
+        SetOutput("send_key_name");
     }
 
     /// <summary>
@@ -71,8 +73,8 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformProperty<string> FunctionAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_app_id");
-        set => this.WithProperty("function_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_app_id");
+        set => SetProperty("function_app_id", value);
     }
 
     /// <summary>
@@ -81,17 +83,17 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
-        set => this.WithProperty("hostname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hostname");
+        set => SetProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -100,8 +102,8 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -110,17 +112,17 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayId is required")]
     public required TerraformProperty<string> RelayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("relay_id");
-        set => this.WithProperty("relay_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("relay_id");
+        set => SetProperty("relay_id", value);
     }
 
     /// <summary>
     /// The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
     /// </summary>
-    public TerraformProperty<string>? SendKeyName
+    public TerraformProperty<string> SendKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("send_key_name");
-        set => this.WithProperty("send_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("send_key_name");
+        set => SetProperty("send_key_name", value);
     }
 
     /// <summary>
@@ -129,8 +131,7 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// </summary>
     public AzurermFunctionAppHybridConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFunctionAppHybridConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

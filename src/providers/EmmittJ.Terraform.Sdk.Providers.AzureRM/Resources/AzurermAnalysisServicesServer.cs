@@ -14,8 +14,7 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeEnd is required")]
     public required TerraformProperty<string> RangeEnd
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("range_end");
-        set => WithProperty("range_end", value);
+        set => SetProperty("range_end", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeStart is required")]
     public required TerraformProperty<string> RangeStart
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("range_start");
-        set => WithProperty("range_start", value);
+        set => SetProperty("range_start", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -96,34 +89,44 @@ public class AzurermAnalysisServicesServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("server_full_name");
+        SetOutput("server_full_name");
+        SetOutput("admin_users");
+        SetOutput("backup_blob_container_uri");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("power_bi_service_enabled");
+        SetOutput("querypool_connection_mode");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The admin_users attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AdminUsers
+    public HashSet<TerraformProperty<string>> AdminUsers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("admin_users");
-        set => this.WithProperty("admin_users", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("admin_users");
+        set => SetProperty("admin_users", value);
     }
 
     /// <summary>
     /// The backup_blob_container_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupBlobContainerUri
+    public TerraformProperty<string> BackupBlobContainerUri
     {
-        get => GetProperty<TerraformProperty<string>>("backup_blob_container_uri");
-        set => this.WithProperty("backup_blob_container_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_blob_container_uri");
+        set => SetProperty("backup_blob_container_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -132,8 +135,8 @@ public class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -142,26 +145,26 @@ public class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The power_bi_service_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PowerBiServiceEnabled
+    public TerraformProperty<bool> PowerBiServiceEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("power_bi_service_enabled");
-        set => this.WithProperty("power_bi_service_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("power_bi_service_enabled");
+        set => SetProperty("power_bi_service_enabled", value);
     }
 
     /// <summary>
     /// The querypool_connection_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? QuerypoolConnectionMode
+    public TerraformProperty<string> QuerypoolConnectionMode
     {
-        get => GetProperty<TerraformProperty<string>>("querypool_connection_mode");
-        set => this.WithProperty("querypool_connection_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("querypool_connection_mode");
+        set => SetProperty("querypool_connection_mode", value);
     }
 
     /// <summary>
@@ -170,8 +173,8 @@ public class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -180,17 +183,17 @@ public class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -199,8 +202,7 @@ public class AzurermAnalysisServicesServer : TerraformResource
     /// </summary>
     public HashSet<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>? Ipv4FirewallRule
     {
-        get => GetProperty<HashSet<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>>("ipv4_firewall_rule");
-        set => this.WithProperty("ipv4_firewall_rule", value);
+        set => SetProperty("ipv4_firewall_rule", value);
     }
 
     /// <summary>
@@ -209,8 +211,7 @@ public class AzurermAnalysisServicesServer : TerraformResource
     /// </summary>
     public AzurermAnalysisServicesServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAnalysisServicesServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

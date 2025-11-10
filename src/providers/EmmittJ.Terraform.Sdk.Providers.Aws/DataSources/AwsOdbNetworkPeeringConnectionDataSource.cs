@@ -14,16 +14,18 @@ public class AwsOdbNetworkPeeringConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("display_name");
-        this.WithOutput("odb_network_arn");
-        this.WithOutput("odb_peering_connection_type");
-        this.WithOutput("peer_network_arn");
-        this.WithOutput("percent_progress");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("tags");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("display_name");
+        SetOutput("odb_network_arn");
+        SetOutput("odb_peering_connection_type");
+        SetOutput("peer_network_arn");
+        SetOutput("percent_progress");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -32,17 +34,17 @@ public class AwsOdbNetworkPeeringConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

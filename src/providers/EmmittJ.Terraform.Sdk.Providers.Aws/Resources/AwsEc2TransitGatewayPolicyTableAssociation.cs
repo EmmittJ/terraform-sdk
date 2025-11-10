@@ -14,26 +14,30 @@ public class AwsEc2TransitGatewayPolicyTableAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("resource_id");
-        this.WithOutput("resource_type");
+        SetOutput("resource_id");
+        SetOutput("resource_type");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("transit_gateway_attachment_id");
+        SetOutput("transit_gateway_policy_table_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -42,8 +46,8 @@ public class AwsEc2TransitGatewayPolicyTableAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
     public required TerraformProperty<string> TransitGatewayAttachmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
-        set => this.WithProperty("transit_gateway_attachment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_attachment_id");
+        set => SetProperty("transit_gateway_attachment_id", value);
     }
 
     /// <summary>
@@ -52,8 +56,8 @@ public class AwsEc2TransitGatewayPolicyTableAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayPolicyTableId is required")]
     public required TerraformProperty<string> TransitGatewayPolicyTableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_policy_table_id");
-        set => this.WithProperty("transit_gateway_policy_table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_policy_table_id");
+        set => SetProperty("transit_gateway_policy_table_id", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,25 +30,28 @@ public class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("anti_spyware_profile");
-        this.WithOutput("anti_virus_profile");
-        this.WithOutput("description");
-        this.WithOutput("dns_subscription");
-        this.WithOutput("file_blocking_profile");
-        this.WithOutput("location");
-        this.WithOutput("outbound_trust_certificate");
-        this.WithOutput("outbound_untrust_certificate");
-        this.WithOutput("url_filtering_profile");
-        this.WithOutput("vulnerability_profile");
+        SetOutput("anti_spyware_profile");
+        SetOutput("anti_virus_profile");
+        SetOutput("description");
+        SetOutput("dns_subscription");
+        SetOutput("file_blocking_profile");
+        SetOutput("location");
+        SetOutput("outbound_trust_certificate");
+        SetOutput("outbound_untrust_certificate");
+        SetOutput("url_filtering_profile");
+        SetOutput("vulnerability_profile");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -58,8 +60,8 @@ public class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -68,8 +70,8 @@ public class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -78,8 +80,7 @@ public class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSource
     /// </summary>
     public AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

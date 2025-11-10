@@ -13,8 +13,7 @@ public class AzureadUsersDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,79 +30,87 @@ public class AzureadUsersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("users");
+        SetOutput("users");
+        SetOutput("employee_ids");
+        SetOutput("id");
+        SetOutput("ignore_missing");
+        SetOutput("mail_nicknames");
+        SetOutput("mails");
+        SetOutput("object_ids");
+        SetOutput("return_all");
+        SetOutput("user_principal_names");
     }
 
     /// <summary>
     /// The employee identifier assigned to the user by the organisation
     /// </summary>
-    public List<TerraformProperty<string>>? EmployeeIds
+    public List<TerraformProperty<string>> EmployeeIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("employee_ids");
-        set => this.WithProperty("employee_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("employee_ids");
+        set => SetProperty("employee_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Ignore missing users and return users that were found. The data source will still fail if no users are found
     /// </summary>
-    public TerraformProperty<bool>? IgnoreMissing
+    public TerraformProperty<bool> IgnoreMissing
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_missing");
-        set => this.WithProperty("ignore_missing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_missing");
+        set => SetProperty("ignore_missing", value);
     }
 
     /// <summary>
     /// The email aliases of the users
     /// </summary>
-    public List<TerraformProperty<string>>? MailNicknames
+    public List<TerraformProperty<string>> MailNicknames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("mail_nicknames");
-        set => this.WithProperty("mail_nicknames", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("mail_nicknames");
+        set => SetProperty("mail_nicknames", value);
     }
 
     /// <summary>
     /// The SMTP address of the users
     /// </summary>
-    public List<TerraformProperty<string>>? Mails
+    public List<TerraformProperty<string>> Mails
     {
-        get => GetProperty<List<TerraformProperty<string>>>("mails");
-        set => this.WithProperty("mails", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("mails");
+        set => SetProperty("mails", value);
     }
 
     /// <summary>
     /// The object IDs of the users
     /// </summary>
-    public List<TerraformProperty<string>>? ObjectIds
+    public List<TerraformProperty<string>> ObjectIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("object_ids");
-        set => this.WithProperty("object_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("object_ids");
+        set => SetProperty("object_ids", value);
     }
 
     /// <summary>
     /// Fetch all users with no filter and return all that were found. The data source will still fail if no users are found.
     /// </summary>
-    public TerraformProperty<bool>? ReturnAll
+    public TerraformProperty<bool> ReturnAll
     {
-        get => GetProperty<TerraformProperty<bool>>("return_all");
-        set => this.WithProperty("return_all", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("return_all");
+        set => SetProperty("return_all", value);
     }
 
     /// <summary>
     /// The user principal names (UPNs) of the users
     /// </summary>
-    public List<TerraformProperty<string>>? UserPrincipalNames
+    public List<TerraformProperty<string>> UserPrincipalNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("user_principal_names");
-        set => this.WithProperty("user_principal_names", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("user_principal_names");
+        set => SetProperty("user_principal_names", value);
     }
 
     /// <summary>
@@ -112,8 +119,7 @@ public class AzureadUsersDataSource : TerraformDataSource
     /// </summary>
     public AzureadUsersDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadUsersDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

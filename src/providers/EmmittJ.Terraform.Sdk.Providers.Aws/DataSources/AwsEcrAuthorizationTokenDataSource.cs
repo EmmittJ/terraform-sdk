@@ -14,38 +14,41 @@ public class AwsEcrAuthorizationTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authorization_token");
-        this.WithOutput("expires_at");
-        this.WithOutput("password");
-        this.WithOutput("proxy_endpoint");
-        this.WithOutput("user_name");
+        SetOutput("authorization_token");
+        SetOutput("expires_at");
+        SetOutput("password");
+        SetOutput("proxy_endpoint");
+        SetOutput("user_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("registry_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RegistryId
+    public TerraformProperty<string> RegistryId
     {
-        get => GetProperty<TerraformProperty<string>>("registry_id");
-        set => this.WithProperty("registry_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("registry_id");
+        set => SetProperty("registry_id", value);
     }
 
     /// <summary>

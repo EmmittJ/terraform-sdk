@@ -14,8 +14,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     public required TerraformProperty<string> LedgerRoleName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ledger_role_name");
-        set => WithProperty("ledger_role_name", value);
+        set => SetProperty("ledger_role_name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     public required TerraformProperty<string> LedgerRoleName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ledger_role_name");
-        set => WithProperty("ledger_role_name", value);
+        set => SetProperty("ledger_role_name", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PemPublicKey is required")]
     public required TerraformProperty<string> PemPublicKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pem_public_key");
-        set => WithProperty("pem_public_key", value);
+        set => SetProperty("pem_public_key", value);
     }
 
 }
@@ -79,8 +74,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -88,8 +82,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -97,8 +90,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -106,8 +98,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -125,17 +116,23 @@ public class AzurermConfidentialLedger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("identity_service_endpoint");
-        this.WithOutput("ledger_endpoint");
+        SetOutput("identity_service_endpoint");
+        SetOutput("ledger_endpoint");
+        SetOutput("id");
+        SetOutput("ledger_type");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -144,8 +141,8 @@ public class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerType is required")]
     public required TerraformProperty<string> LedgerType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ledger_type");
-        set => this.WithProperty("ledger_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ledger_type");
+        set => SetProperty("ledger_type", value);
     }
 
     /// <summary>
@@ -154,8 +151,8 @@ public class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -164,8 +161,8 @@ public class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -174,28 +171,28 @@ public class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for azuread_based_service_principal.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureadBasedServicePrincipal is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AzureadBasedServicePrincipal block(s) required")]
     public List<AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock>? AzureadBasedServicePrincipal
     {
-        get => GetProperty<List<AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock>>("azuread_based_service_principal");
-        set => this.WithProperty("azuread_based_service_principal", value);
+        set => SetProperty("azuread_based_service_principal", value);
     }
 
     /// <summary>
@@ -204,8 +201,7 @@ public class AzurermConfidentialLedger : TerraformResource
     /// </summary>
     public List<AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock>? CertificateBasedSecurityPrincipal
     {
-        get => GetProperty<List<AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock>>("certificate_based_security_principal");
-        set => this.WithProperty("certificate_based_security_principal", value);
+        set => SetProperty("certificate_based_security_principal", value);
     }
 
     /// <summary>
@@ -214,8 +210,7 @@ public class AzurermConfidentialLedger : TerraformResource
     /// </summary>
     public AzurermConfidentialLedgerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermConfidentialLedgerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

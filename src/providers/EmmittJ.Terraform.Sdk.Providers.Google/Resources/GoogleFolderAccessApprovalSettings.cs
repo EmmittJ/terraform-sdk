@@ -37,8 +37,7 @@ public class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudProduct is required")]
     public required TerraformProperty<string> CloudProduct
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_product");
-        set => WithProperty("cloud_product", value);
+        set => SetProperty("cloud_product", value);
     }
 
     /// <summary>
@@ -46,8 +45,7 @@ public class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? EnrollmentLevel
     {
-        get => GetProperty<TerraformProperty<string>>("enrollment_level");
-        set => WithProperty("enrollment_level", value);
+        set => SetProperty("enrollment_level", value);
     }
 
 }
@@ -63,8 +61,7 @@ public class GoogleFolderAccessApprovalSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -72,8 +69,7 @@ public class GoogleFolderAccessApprovalSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -81,8 +77,7 @@ public class GoogleFolderAccessApprovalSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -100,10 +95,14 @@ public class GoogleFolderAccessApprovalSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ancestor_has_active_key_version");
-        this.WithOutput("enrolled_ancestor");
-        this.WithOutput("invalid_key_version");
-        this.WithOutput("name");
+        SetOutput("ancestor_has_active_key_version");
+        SetOutput("enrolled_ancestor");
+        SetOutput("invalid_key_version");
+        SetOutput("name");
+        SetOutput("active_key_version");
+        SetOutput("folder_id");
+        SetOutput("id");
+        SetOutput("notification_emails");
     }
 
     /// <summary>
@@ -111,10 +110,10 @@ public class GoogleFolderAccessApprovalSettings : TerraformResource
     /// Empty active_key_version indicates that a Google-managed key should be used for signing.
     /// This property will be ignored if set by an ancestor of the resource, and new non-empty values may not be set.
     /// </summary>
-    public TerraformProperty<string>? ActiveKeyVersion
+    public TerraformProperty<string> ActiveKeyVersion
     {
-        get => GetProperty<TerraformProperty<string>>("active_key_version");
-        set => this.WithProperty("active_key_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("active_key_version");
+        set => SetProperty("active_key_version", value);
     }
 
     /// <summary>
@@ -123,17 +122,17 @@ public class GoogleFolderAccessApprovalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformProperty<string> FolderId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder_id");
-        set => this.WithProperty("folder_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder_id");
+        set => SetProperty("folder_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -141,21 +140,21 @@ public class GoogleFolderAccessApprovalSettings : TerraformResource
     /// Notifications relating to a resource will be sent to all emails in the settings of ancestor
     /// resources of that resource. A maximum of 50 email addresses are allowed.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NotificationEmails
+    public HashSet<TerraformProperty<string>> NotificationEmails
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("notification_emails");
-        set => this.WithProperty("notification_emails", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("notification_emails");
+        set => SetProperty("notification_emails", value);
     }
 
     /// <summary>
     /// Block for enrolled_services.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrolledServices is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnrolledServices block(s) required")]
     public HashSet<GoogleFolderAccessApprovalSettingsEnrolledServicesBlock>? EnrolledServices
     {
-        get => GetProperty<HashSet<GoogleFolderAccessApprovalSettingsEnrolledServicesBlock>>("enrolled_services");
-        set => this.WithProperty("enrolled_services", value);
+        set => SetProperty("enrolled_services", value);
     }
 
     /// <summary>
@@ -164,8 +163,7 @@ public class GoogleFolderAccessApprovalSettings : TerraformResource
     /// </summary>
     public GoogleFolderAccessApprovalSettingsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFolderAccessApprovalSettingsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

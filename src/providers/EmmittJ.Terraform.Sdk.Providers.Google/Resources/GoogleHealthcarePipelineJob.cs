@@ -14,8 +14,7 @@ public class GoogleHealthcarePipelineJobBackfillPipelineJobBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? MappingPipelineJob
     {
-        get => GetProperty<TerraformProperty<string>>("mapping_pipeline_job");
-        set => WithProperty("mapping_pipeline_job", value);
+        set => SetProperty("mapping_pipeline_job", value);
     }
 
 }
@@ -39,8 +38,7 @@ public class GoogleHealthcarePipelineJobMappingPipelineJobBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FhirStoreDestination
     {
-        get => GetProperty<TerraformProperty<string>>("fhir_store_destination");
-        set => WithProperty("fhir_store_destination", value);
+        set => SetProperty("fhir_store_destination", value);
     }
 
     /// <summary>
@@ -51,8 +49,7 @@ public class GoogleHealthcarePipelineJobMappingPipelineJobBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ReconciliationDestination
     {
-        get => GetProperty<TerraformProperty<bool>>("reconciliation_destination");
-        set => WithProperty("reconciliation_destination", value);
+        set => SetProperty("reconciliation_destination", value);
     }
 
 }
@@ -69,8 +66,7 @@ public class GoogleHealthcarePipelineJobReconciliationPipelineJobBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? FhirStoreDestination
     {
-        get => GetProperty<TerraformProperty<string>>("fhir_store_destination");
-        set => WithProperty("fhir_store_destination", value);
+        set => SetProperty("fhir_store_destination", value);
     }
 
     /// <summary>
@@ -82,8 +78,7 @@ public class GoogleHealthcarePipelineJobReconciliationPipelineJobBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingUriPrefix is required")]
     public required TerraformProperty<string> MatchingUriPrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("matching_uri_prefix");
-        set => WithProperty("matching_uri_prefix", value);
+        set => SetProperty("matching_uri_prefix", value);
     }
 
 }
@@ -99,8 +94,7 @@ public class GoogleHealthcarePipelineJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -108,8 +102,7 @@ public class GoogleHealthcarePipelineJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -117,8 +110,7 @@ public class GoogleHealthcarePipelineJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -136,9 +128,15 @@ public class GoogleHealthcarePipelineJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("dataset");
+        SetOutput("disable_lineage");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -147,26 +145,26 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
-        set => this.WithProperty("dataset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
     /// If true, disables writing lineage for the pipeline.
     /// </summary>
-    public TerraformProperty<bool>? DisableLineage
+    public TerraformProperty<bool> DisableLineage
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_lineage");
-        set => this.WithProperty("disable_lineage", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_lineage");
+        set => SetProperty("disable_lineage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -185,10 +183,10 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -197,8 +195,8 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -207,8 +205,8 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -218,8 +216,7 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackfillPipelineJob block(s) allowed")]
     public List<GoogleHealthcarePipelineJobBackfillPipelineJobBlock>? BackfillPipelineJob
     {
-        get => GetProperty<List<GoogleHealthcarePipelineJobBackfillPipelineJobBlock>>("backfill_pipeline_job");
-        set => this.WithProperty("backfill_pipeline_job", value);
+        set => SetProperty("backfill_pipeline_job", value);
     }
 
     /// <summary>
@@ -229,8 +226,7 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MappingPipelineJob block(s) allowed")]
     public List<GoogleHealthcarePipelineJobMappingPipelineJobBlock>? MappingPipelineJob
     {
-        get => GetProperty<List<GoogleHealthcarePipelineJobMappingPipelineJobBlock>>("mapping_pipeline_job");
-        set => this.WithProperty("mapping_pipeline_job", value);
+        set => SetProperty("mapping_pipeline_job", value);
     }
 
     /// <summary>
@@ -240,8 +236,7 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReconciliationPipelineJob block(s) allowed")]
     public List<GoogleHealthcarePipelineJobReconciliationPipelineJobBlock>? ReconciliationPipelineJob
     {
-        get => GetProperty<List<GoogleHealthcarePipelineJobReconciliationPipelineJobBlock>>("reconciliation_pipeline_job");
-        set => this.WithProperty("reconciliation_pipeline_job", value);
+        set => SetProperty("reconciliation_pipeline_job", value);
     }
 
     /// <summary>
@@ -250,8 +245,7 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     /// </summary>
     public GoogleHealthcarePipelineJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleHealthcarePipelineJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

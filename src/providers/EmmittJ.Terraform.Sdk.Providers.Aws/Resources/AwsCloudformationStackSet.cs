@@ -13,8 +13,7 @@ public class AwsCloudformationStackSetAutoDeploymentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCloudformationStackSetAutoDeploymentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RetainStacksOnAccountRemoval
     {
-        get => GetProperty<TerraformProperty<bool>>("retain_stacks_on_account_removal");
-        set => WithProperty("retain_stacks_on_account_removal", value);
+        set => SetProperty("retain_stacks_on_account_removal", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsCloudformationStackSetManagedExecutionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Active
     {
-        get => GetProperty<TerraformProperty<bool>>("active");
-        set => WithProperty("active", value);
+        set => SetProperty("active", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? FailureToleranceCount
     {
-        get => GetProperty<TerraformProperty<double>>("failure_tolerance_count");
-        set => WithProperty("failure_tolerance_count", value);
+        set => SetProperty("failure_tolerance_count", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? FailureTolerancePercentage
     {
-        get => GetProperty<TerraformProperty<double>>("failure_tolerance_percentage");
-        set => WithProperty("failure_tolerance_percentage", value);
+        set => SetProperty("failure_tolerance_percentage", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxConcurrentCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_concurrent_count");
-        set => WithProperty("max_concurrent_count", value);
+        set => SetProperty("max_concurrent_count", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxConcurrentPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("max_concurrent_percentage");
-        set => WithProperty("max_concurrent_percentage", value);
+        set => SetProperty("max_concurrent_percentage", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RegionConcurrencyType
     {
-        get => GetProperty<TerraformProperty<string>>("region_concurrency_type");
-        set => WithProperty("region_concurrency_type", value);
+        set => SetProperty("region_concurrency_type", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? RegionOrder
     {
-        get => GetProperty<List<TerraformProperty<string>>>("region_order");
-        set => WithProperty("region_order", value);
+        set => SetProperty("region_order", value);
     }
 
 }
@@ -118,8 +109,7 @@ public class AwsCloudformationStackSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -137,62 +127,76 @@ public class AwsCloudformationStackSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("stack_set_id");
+        SetOutput("arn");
+        SetOutput("stack_set_id");
+        SetOutput("administration_role_arn");
+        SetOutput("call_as");
+        SetOutput("capabilities");
+        SetOutput("description");
+        SetOutput("execution_role_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parameters");
+        SetOutput("permission_model");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("template_body");
+        SetOutput("template_url");
     }
 
     /// <summary>
     /// The administration_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? AdministrationRoleArn
+    public TerraformProperty<string> AdministrationRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("administration_role_arn");
-        set => this.WithProperty("administration_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administration_role_arn");
+        set => SetProperty("administration_role_arn", value);
     }
 
     /// <summary>
     /// The call_as attribute.
     /// </summary>
-    public TerraformProperty<string>? CallAs
+    public TerraformProperty<string> CallAs
     {
-        get => GetProperty<TerraformProperty<string>>("call_as");
-        set => this.WithProperty("call_as", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("call_as");
+        set => SetProperty("call_as", value);
     }
 
     /// <summary>
     /// The capabilities attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Capabilities
+    public HashSet<TerraformProperty<string>> Capabilities
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("capabilities");
-        set => this.WithProperty("capabilities", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("capabilities");
+        set => SetProperty("capabilities", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The execution_role_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionRoleName
+    public TerraformProperty<string> ExecutionRoleName
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_name");
-        set => this.WithProperty("execution_role_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_name");
+        set => SetProperty("execution_role_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -201,71 +205,71 @@ public class AwsCloudformationStackSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// The permission_model attribute.
     /// </summary>
-    public TerraformProperty<string>? PermissionModel
+    public TerraformProperty<string> PermissionModel
     {
-        get => GetProperty<TerraformProperty<string>>("permission_model");
-        set => this.WithProperty("permission_model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("permission_model");
+        set => SetProperty("permission_model", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateBody
+    public TerraformProperty<string> TemplateBody
     {
-        get => GetProperty<TerraformProperty<string>>("template_body");
-        set => this.WithProperty("template_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_body");
+        set => SetProperty("template_body", value);
     }
 
     /// <summary>
     /// The template_url attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateUrl
+    public TerraformProperty<string> TemplateUrl
     {
-        get => GetProperty<TerraformProperty<string>>("template_url");
-        set => this.WithProperty("template_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_url");
+        set => SetProperty("template_url", value);
     }
 
     /// <summary>
@@ -275,8 +279,7 @@ public class AwsCloudformationStackSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoDeployment block(s) allowed")]
     public List<AwsCloudformationStackSetAutoDeploymentBlock>? AutoDeployment
     {
-        get => GetProperty<List<AwsCloudformationStackSetAutoDeploymentBlock>>("auto_deployment");
-        set => this.WithProperty("auto_deployment", value);
+        set => SetProperty("auto_deployment", value);
     }
 
     /// <summary>
@@ -286,8 +289,7 @@ public class AwsCloudformationStackSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedExecution block(s) allowed")]
     public List<AwsCloudformationStackSetManagedExecutionBlock>? ManagedExecution
     {
-        get => GetProperty<List<AwsCloudformationStackSetManagedExecutionBlock>>("managed_execution");
-        set => this.WithProperty("managed_execution", value);
+        set => SetProperty("managed_execution", value);
     }
 
     /// <summary>
@@ -297,8 +299,7 @@ public class AwsCloudformationStackSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationPreferences block(s) allowed")]
     public List<AwsCloudformationStackSetOperationPreferencesBlock>? OperationPreferences
     {
-        get => GetProperty<List<AwsCloudformationStackSetOperationPreferencesBlock>>("operation_preferences");
-        set => this.WithProperty("operation_preferences", value);
+        set => SetProperty("operation_preferences", value);
     }
 
     /// <summary>
@@ -307,8 +308,7 @@ public class AwsCloudformationStackSet : TerraformResource
     /// </summary>
     public AwsCloudformationStackSetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCloudformationStackSetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

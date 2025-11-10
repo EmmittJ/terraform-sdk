@@ -13,8 +13,7 @@ public class GoogleDocumentAiWarehouseLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDocumentAiWarehouseLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,13 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("access_control_mode");
+        SetOutput("database_type");
+        SetOutput("document_creator_default_role");
+        SetOutput("id");
+        SetOutput("kms_key");
+        SetOutput("location");
+        SetOutput("project_number");
     }
 
     /// <summary>
@@ -48,8 +53,8 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlMode is required")]
     public required TerraformProperty<string> AccessControlMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_control_mode");
-        set => this.WithProperty("access_control_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_control_mode");
+        set => SetProperty("access_control_mode", value);
     }
 
     /// <summary>
@@ -58,26 +63,26 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseType is required")]
     public required TerraformProperty<string> DatabaseType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_type");
-        set => this.WithProperty("database_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_type");
+        set => SetProperty("database_type", value);
     }
 
     /// <summary>
     /// The default role for the person who create a document. Possible values: [&amp;quot;DOCUMENT_ADMIN&amp;quot;, &amp;quot;DOCUMENT_EDITOR&amp;quot;, &amp;quot;DOCUMENT_VIEWER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DocumentCreatorDefaultRole
+    public TerraformProperty<string> DocumentCreatorDefaultRole
     {
-        get => GetProperty<TerraformProperty<string>>("document_creator_default_role");
-        set => this.WithProperty("document_creator_default_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("document_creator_default_role");
+        set => SetProperty("document_creator_default_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,10 +92,10 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     /// encryption is available. If the kmsKey is left empty, no
     /// encryption will be enforced.
     /// </summary>
-    public TerraformProperty<string>? KmsKey
+    public TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => this.WithProperty("kms_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
@@ -99,8 +104,8 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -109,8 +114,8 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     public required TerraformProperty<string> ProjectNumber
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_number");
-        set => this.WithProperty("project_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_number");
+        set => SetProperty("project_number", value);
     }
 
     /// <summary>
@@ -119,8 +124,7 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     /// </summary>
     public GoogleDocumentAiWarehouseLocationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDocumentAiWarehouseLocationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

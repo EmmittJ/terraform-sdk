@@ -14,8 +14,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => WithProperty("api_id", value);
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     public required TerraformProperty<string> Stage
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stage");
-        set => WithProperty("stage", value);
+        set => SetProperty("stage", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Limit is required")]
     public required TerraformProperty<double> Limit
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("limit");
-        set => WithProperty("limit", value);
+        set => SetProperty("limit", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Offset
     {
-        get => GetProperty<TerraformProperty<double>>("offset");
-        set => WithProperty("offset", value);
+        set => SetProperty("offset", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Period is required")]
     public required TerraformProperty<string> Period
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("period");
-        set => WithProperty("period", value);
+        set => SetProperty("period", value);
     }
 
 }
@@ -78,8 +73,7 @@ public class AwsApiGatewayUsagePlanThrottleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? BurstLimit
     {
-        get => GetProperty<TerraformProperty<double>>("burst_limit");
-        set => WithProperty("burst_limit", value);
+        set => SetProperty("burst_limit", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class AwsApiGatewayUsagePlanThrottleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RateLimit
     {
-        get => GetProperty<TerraformProperty<double>>("rate_limit");
-        set => WithProperty("rate_limit", value);
+        set => SetProperty("rate_limit", value);
     }
 
 }
@@ -106,25 +99,32 @@ public class AwsApiGatewayUsagePlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("product_code");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -133,44 +133,44 @@ public class AwsApiGatewayUsagePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The product_code attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductCode
+    public TerraformProperty<string> ProductCode
     {
-        get => GetProperty<TerraformProperty<string>>("product_code");
-        set => this.WithProperty("product_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_code");
+        set => SetProperty("product_code", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -179,8 +179,7 @@ public class AwsApiGatewayUsagePlan : TerraformResource
     /// </summary>
     public HashSet<AwsApiGatewayUsagePlanApiStagesBlock>? ApiStages
     {
-        get => GetProperty<HashSet<AwsApiGatewayUsagePlanApiStagesBlock>>("api_stages");
-        set => this.WithProperty("api_stages", value);
+        set => SetProperty("api_stages", value);
     }
 
     /// <summary>
@@ -190,8 +189,7 @@ public class AwsApiGatewayUsagePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuotaSettings block(s) allowed")]
     public List<AwsApiGatewayUsagePlanQuotaSettingsBlock>? QuotaSettings
     {
-        get => GetProperty<List<AwsApiGatewayUsagePlanQuotaSettingsBlock>>("quota_settings");
-        set => this.WithProperty("quota_settings", value);
+        set => SetProperty("quota_settings", value);
     }
 
     /// <summary>
@@ -201,8 +199,7 @@ public class AwsApiGatewayUsagePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThrottleSettings block(s) allowed")]
     public List<AwsApiGatewayUsagePlanThrottleSettingsBlock>? ThrottleSettings
     {
-        get => GetProperty<List<AwsApiGatewayUsagePlanThrottleSettingsBlock>>("throttle_settings");
-        set => this.WithProperty("throttle_settings", value);
+        set => SetProperty("throttle_settings", value);
     }
 
     /// <summary>

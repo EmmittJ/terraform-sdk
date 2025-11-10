@@ -13,8 +13,7 @@ public class AzurermDnsNsRecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDnsNsRecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDnsNsRecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDnsNsRecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +54,23 @@ public class AzurermDnsNsRecord : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fqdn");
+        SetOutput("fqdn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("records");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("ttl");
+        SetOutput("zone_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,18 +79,18 @@ public class AzurermDnsNsRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The records attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Records is required")]
-    public List<TerraformProperty<string>>? Records
+    public List<TerraformProperty<string>> Records
     {
-        get => GetProperty<List<TerraformProperty<string>>>("records");
-        set => this.WithProperty("records", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("records");
+        set => SetProperty("records", value);
     }
 
     /// <summary>
@@ -96,17 +99,17 @@ public class AzurermDnsNsRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -115,8 +118,8 @@ public class AzurermDnsNsRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<double> Ttl
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("ttl");
-        set => this.WithProperty("ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ttl");
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>
@@ -125,8 +128,8 @@ public class AzurermDnsNsRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
     public required TerraformProperty<string> ZoneName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone_name");
-        set => this.WithProperty("zone_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_name");
+        set => SetProperty("zone_name", value);
     }
 
     /// <summary>
@@ -135,8 +138,7 @@ public class AzurermDnsNsRecord : TerraformResource
     /// </summary>
     public AzurermDnsNsRecordTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDnsNsRecordTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

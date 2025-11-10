@@ -14,8 +14,13 @@ public class AwsAppsyncApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_key_id");
-        this.WithOutput("key");
+        SetOutput("api_key_id");
+        SetOutput("key");
+        SetOutput("api_id");
+        SetOutput("description");
+        SetOutput("expires");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,44 +29,44 @@ public class AwsAppsyncApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
-    public TerraformProperty<string>? Expires
+    public TerraformProperty<string> Expires
     {
-        get => GetProperty<TerraformProperty<string>>("expires");
-        set => this.WithProperty("expires", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expires");
+        set => SetProperty("expires", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

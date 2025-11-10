@@ -14,9 +14,11 @@ public class AwsGuarddutyFindingIdsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("finding_ids");
-        this.WithOutput("has_findings");
-        this.WithOutput("id");
+        SetOutput("finding_ids");
+        SetOutput("has_findings");
+        SetOutput("id");
+        SetOutput("detector_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -25,17 +27,17 @@ public class AwsGuarddutyFindingIdsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformProperty<string> DetectorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("detector_id");
-        set => this.WithProperty("detector_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("detector_id");
+        set => SetProperty("detector_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

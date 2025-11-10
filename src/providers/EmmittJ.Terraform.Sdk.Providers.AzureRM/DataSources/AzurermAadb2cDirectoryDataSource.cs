@@ -13,8 +13,7 @@ public class AzurermAadb2cDirectoryDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,12 +30,15 @@ public class AzurermAadb2cDirectoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("billing_type");
-        this.WithOutput("data_residency_location");
-        this.WithOutput("effective_start_date");
-        this.WithOutput("sku_name");
-        this.WithOutput("tags");
-        this.WithOutput("tenant_id");
+        SetOutput("billing_type");
+        SetOutput("data_residency_location");
+        SetOutput("effective_start_date");
+        SetOutput("sku_name");
+        SetOutput("tags");
+        SetOutput("tenant_id");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -45,17 +47,17 @@ public class AzurermAadb2cDirectoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermAadb2cDirectoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermAadb2cDirectoryDataSource : TerraformDataSource
     /// </summary>
     public AzurermAadb2cDirectoryDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAadb2cDirectoryDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

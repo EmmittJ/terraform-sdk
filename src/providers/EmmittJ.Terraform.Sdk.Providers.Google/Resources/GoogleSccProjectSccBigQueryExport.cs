@@ -13,8 +13,7 @@ public class GoogleSccProjectSccBigQueryExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSccProjectSccBigQueryExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSccProjectSccBigQueryExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,11 +46,17 @@ public class GoogleSccProjectSccBigQueryExport : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("most_recent_editor");
-        this.WithOutput("name");
-        this.WithOutput("principal");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("most_recent_editor");
+        SetOutput("name");
+        SetOutput("principal");
+        SetOutput("update_time");
+        SetOutput("big_query_export_id");
+        SetOutput("dataset");
+        SetOutput("description");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -62,8 +65,8 @@ public class GoogleSccProjectSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     public required TerraformProperty<string> BigQueryExportId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("big_query_export_id");
-        set => this.WithProperty("big_query_export_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("big_query_export_id");
+        set => SetProperty("big_query_export_id", value);
     }
 
     /// <summary>
@@ -71,19 +74,19 @@ public class GoogleSccProjectSccBigQueryExport : TerraformResource
     /// Its format is &amp;quot;projects/[projectId]/datasets/[bigquery_dataset_id]&amp;quot;.
     /// BigQuery Dataset unique ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_).
     /// </summary>
-    public TerraformProperty<string>? Dataset
+    public TerraformProperty<string> Dataset
     {
-        get => GetProperty<TerraformProperty<string>>("dataset");
-        set => this.WithProperty("dataset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -113,28 +116,28 @@ public class GoogleSccProjectSccBigQueryExport : TerraformResource
     /// [Filtering notifications](https://cloud.google.com/security-command-center/docs/how-to-api-filter-notifications)
     /// for information on how to write a filter.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -143,8 +146,7 @@ public class GoogleSccProjectSccBigQueryExport : TerraformResource
     /// </summary>
     public GoogleSccProjectSccBigQueryExportTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSccProjectSccBigQueryExportTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsConfigOrganizationConformancePackInputParameterBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformProperty<string> ParameterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter_name");
-        set => WithProperty("parameter_name", value);
+        set => SetProperty("parameter_name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsConfigOrganizationConformancePackInputParameterBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformProperty<string> ParameterValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter_value");
-        set => WithProperty("parameter_value", value);
+        set => SetProperty("parameter_value", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsConfigOrganizationConformancePackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsConfigOrganizationConformancePackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsConfigOrganizationConformancePackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -78,43 +73,51 @@ public class AwsConfigOrganizationConformancePack : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("delivery_s3_bucket");
+        SetOutput("delivery_s3_key_prefix");
+        SetOutput("excluded_accounts");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("template_body");
+        SetOutput("template_s3_uri");
     }
 
     /// <summary>
     /// The delivery_s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? DeliveryS3Bucket
+    public TerraformProperty<string> DeliveryS3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_s3_bucket");
-        set => this.WithProperty("delivery_s3_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delivery_s3_bucket");
+        set => SetProperty("delivery_s3_bucket", value);
     }
 
     /// <summary>
     /// The delivery_s3_key_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? DeliveryS3KeyPrefix
+    public TerraformProperty<string> DeliveryS3KeyPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_s3_key_prefix");
-        set => this.WithProperty("delivery_s3_key_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delivery_s3_key_prefix");
+        set => SetProperty("delivery_s3_key_prefix", value);
     }
 
     /// <summary>
     /// The excluded_accounts attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExcludedAccounts
+    public HashSet<TerraformProperty<string>> ExcludedAccounts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_accounts");
-        set => this.WithProperty("excluded_accounts", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("excluded_accounts");
+        set => SetProperty("excluded_accounts", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,35 +126,35 @@ public class AwsConfigOrganizationConformancePack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateBody
+    public TerraformProperty<string> TemplateBody
     {
-        get => GetProperty<TerraformProperty<string>>("template_body");
-        set => this.WithProperty("template_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_body");
+        set => SetProperty("template_body", value);
     }
 
     /// <summary>
     /// The template_s3_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateS3Uri
+    public TerraformProperty<string> TemplateS3Uri
     {
-        get => GetProperty<TerraformProperty<string>>("template_s3_uri");
-        set => this.WithProperty("template_s3_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_s3_uri");
+        set => SetProperty("template_s3_uri", value);
     }
 
     /// <summary>
@@ -161,8 +164,7 @@ public class AwsConfigOrganizationConformancePack : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(60, ErrorMessage = "Maximum 60 InputParameter block(s) allowed")]
     public HashSet<AwsConfigOrganizationConformancePackInputParameterBlock>? InputParameter
     {
-        get => GetProperty<HashSet<AwsConfigOrganizationConformancePackInputParameterBlock>>("input_parameter");
-        set => this.WithProperty("input_parameter", value);
+        set => SetProperty("input_parameter", value);
     }
 
     /// <summary>
@@ -171,8 +173,7 @@ public class AwsConfigOrganizationConformancePack : TerraformResource
     /// </summary>
     public AwsConfigOrganizationConformancePackTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsConfigOrganizationConformancePackTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

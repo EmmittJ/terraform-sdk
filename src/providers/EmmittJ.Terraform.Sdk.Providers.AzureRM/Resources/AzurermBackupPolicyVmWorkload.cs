@@ -14,8 +14,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformProperty<string> PolicyType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_type");
-        set => WithProperty("policy_type", value);
+        set => SetProperty("policy_type", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermBackupPolicyVmWorkloadSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CompressionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("compression_enabled");
-        set => WithProperty("compression_enabled", value);
+        set => SetProperty("compression_enabled", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AzurermBackupPolicyVmWorkloadSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,15 +97,20 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recovery_vault_name");
+        SetOutput("resource_group_name");
+        SetOutput("workload_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,8 +119,8 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -131,8 +129,8 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
-        set => this.WithProperty("recovery_vault_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_name");
+        set => SetProperty("recovery_vault_name", value);
     }
 
     /// <summary>
@@ -141,8 +139,8 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -151,31 +149,31 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadType is required")]
     public required TerraformProperty<string> WorkloadType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workload_type");
-        set => this.WithProperty("workload_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_type");
+        set => SetProperty("workload_type", value);
     }
 
     /// <summary>
     /// Block for protection_policy.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProtectionPolicy block(s) required")]
     public HashSet<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock>? ProtectionPolicy
     {
-        get => GetProperty<HashSet<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock>>("protection_policy");
-        set => this.WithProperty("protection_policy", value);
+        set => SetProperty("protection_policy", value);
     }
 
     /// <summary>
     /// Block for settings.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Settings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Settings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
     public List<AzurermBackupPolicyVmWorkloadSettingsBlock>? Settings
     {
-        get => GetProperty<List<AzurermBackupPolicyVmWorkloadSettingsBlock>>("settings");
-        set => this.WithProperty("settings", value);
+        set => SetProperty("settings", value);
     }
 
     /// <summary>
@@ -184,8 +182,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     /// </summary>
     public AzurermBackupPolicyVmWorkloadTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBackupPolicyVmWorkloadTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

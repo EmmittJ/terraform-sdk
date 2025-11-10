@@ -21,8 +21,7 @@ public class GoogleIdentityPlatformTenantTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleIdentityPlatformTenantTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleIdentityPlatformTenantTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +55,22 @@ public class GoogleIdentityPlatformTenant : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("allow_password_signup");
+        SetOutput("disable_auth");
+        SetOutput("display_name");
+        SetOutput("enable_email_link_signin");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Whether to allow email/password user authentication.
     /// </summary>
-    public TerraformProperty<bool>? AllowPasswordSignup
+    public TerraformProperty<bool> AllowPasswordSignup
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_password_signup");
-        set => this.WithProperty("allow_password_signup", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_password_signup");
+        set => SetProperty("allow_password_signup", value);
     }
 
     /// <summary>
@@ -75,10 +78,10 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     /// the disabled tenant are not allowed to sign-in. Admins of the disabled tenant
     /// are not able to manage its users.
     /// </summary>
-    public TerraformProperty<bool>? DisableAuth
+    public TerraformProperty<bool> DisableAuth
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_auth");
-        set => this.WithProperty("disable_auth", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_auth");
+        set => SetProperty("disable_auth", value);
     }
 
     /// <summary>
@@ -87,35 +90,35 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether to enable email link user authentication.
     /// </summary>
-    public TerraformProperty<bool>? EnableEmailLinkSignin
+    public TerraformProperty<bool> EnableEmailLinkSignin
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_email_link_signin");
-        set => this.WithProperty("enable_email_link_signin", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_email_link_signin");
+        set => SetProperty("enable_email_link_signin", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -125,8 +128,7 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Client block(s) allowed")]
     public List<GoogleIdentityPlatformTenantClientBlock>? Client
     {
-        get => GetProperty<List<GoogleIdentityPlatformTenantClientBlock>>("client");
-        set => this.WithProperty("client", value);
+        set => SetProperty("client", value);
     }
 
     /// <summary>
@@ -135,8 +137,7 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     /// </summary>
     public GoogleIdentityPlatformTenantTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIdentityPlatformTenantTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

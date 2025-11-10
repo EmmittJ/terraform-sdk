@@ -13,8 +13,7 @@ public class AzurermEventhubSasDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,7 +30,10 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("sas");
+        SetOutput("sas");
+        SetOutput("connection_string");
+        SetOutput("expiry");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -40,8 +42,8 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -50,17 +52,17 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     public required TerraformProperty<string> Expiry
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expiry");
-        set => this.WithProperty("expiry", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiry");
+        set => SetProperty("expiry", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,8 +71,7 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
     /// </summary>
     public AzurermEventhubSasDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventhubSasDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

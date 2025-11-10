@@ -14,12 +14,19 @@ public class AwsDetectiveMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("administrator_id");
-        this.WithOutput("disabled_reason");
-        this.WithOutput("invited_time");
-        this.WithOutput("status");
-        this.WithOutput("updated_time");
-        this.WithOutput("volume_usage_in_bytes");
+        SetOutput("administrator_id");
+        SetOutput("disabled_reason");
+        SetOutput("invited_time");
+        SetOutput("status");
+        SetOutput("updated_time");
+        SetOutput("volume_usage_in_bytes");
+        SetOutput("account_id");
+        SetOutput("disable_email_notification");
+        SetOutput("email_address");
+        SetOutput("graph_arn");
+        SetOutput("id");
+        SetOutput("message");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -28,17 +35,17 @@ public class AwsDetectiveMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The disable_email_notification attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableEmailNotification
+    public TerraformProperty<bool> DisableEmailNotification
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_email_notification");
-        set => this.WithProperty("disable_email_notification", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_email_notification");
+        set => SetProperty("disable_email_notification", value);
     }
 
     /// <summary>
@@ -47,8 +54,8 @@ public class AwsDetectiveMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformProperty<string> EmailAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_address");
-        set => this.WithProperty("email_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_address");
+        set => SetProperty("email_address", value);
     }
 
     /// <summary>
@@ -57,35 +64,35 @@ public class AwsDetectiveMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GraphArn is required")]
     public required TerraformProperty<string> GraphArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("graph_arn");
-        set => this.WithProperty("graph_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("graph_arn");
+        set => SetProperty("graph_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public TerraformProperty<string>? Message
+    public TerraformProperty<string> Message
     {
-        get => GetProperty<TerraformProperty<string>>("message");
-        set => this.WithProperty("message", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("message");
+        set => SetProperty("message", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

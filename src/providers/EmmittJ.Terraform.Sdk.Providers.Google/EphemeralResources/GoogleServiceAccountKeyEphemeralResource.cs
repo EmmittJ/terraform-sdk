@@ -15,8 +15,10 @@ public class GoogleServiceAccountKeyEphemeralResource : TerraformEphemeralResour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("key_algorithm");
-        this.WithOutput("public_key");
+        SetOutput("key_algorithm");
+        SetOutput("public_key");
+        SetOutput("name");
+        SetOutput("public_key_type");
     }
 
     /// <summary>
@@ -25,17 +27,17 @@ public class GoogleServiceAccountKeyEphemeralResource : TerraformEphemeralResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The output format of the public key requested. TYPE_X509_PEM_FILE is the default output format.
     /// </summary>
-    public TerraformProperty<string>? PublicKeyType
+    public TerraformProperty<string> PublicKeyType
     {
-        get => GetProperty<TerraformProperty<string>>("public_key_type");
-        set => this.WithProperty("public_key_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_key_type");
+        set => SetProperty("public_key_type", value);
     }
 
     /// <summary>

@@ -14,25 +14,29 @@ public class AwsElasticBeanstalkSolutionStackDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("most_recent");
+        SetOutput("name_regex");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
@@ -41,17 +45,17 @@ public class AwsElasticBeanstalkSolutionStackDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NameRegex is required")]
     public required TerraformProperty<string> NameRegex
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name_regex");
-        set => this.WithProperty("name_regex", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
+        set => SetProperty("name_regex", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

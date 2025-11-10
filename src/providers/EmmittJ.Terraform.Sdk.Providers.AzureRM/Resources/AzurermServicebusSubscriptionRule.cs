@@ -13,8 +13,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => WithProperty("content_type", value);
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? CorrelationId
     {
-        get => GetProperty<TerraformProperty<string>>("correlation_id");
-        set => WithProperty("correlation_id", value);
+        set => SetProperty("correlation_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Label
     {
-        get => GetProperty<TerraformProperty<string>>("label");
-        set => WithProperty("label", value);
+        set => SetProperty("label", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? MessageId
     {
-        get => GetProperty<TerraformProperty<string>>("message_id");
-        set => WithProperty("message_id", value);
+        set => SetProperty("message_id", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? ReplyTo
     {
-        get => GetProperty<TerraformProperty<string>>("reply_to");
-        set => WithProperty("reply_to", value);
+        set => SetProperty("reply_to", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? ReplyToSessionId
     {
-        get => GetProperty<TerraformProperty<string>>("reply_to_session_id");
-        set => WithProperty("reply_to_session_id", value);
+        set => SetProperty("reply_to_session_id", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? SessionId
     {
-        get => GetProperty<TerraformProperty<string>>("session_id");
-        set => WithProperty("session_id", value);
+        set => SetProperty("session_id", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? To
     {
-        get => GetProperty<TerraformProperty<string>>("to");
-        set => WithProperty("to", value);
+        set => SetProperty("to", value);
     }
 
 }
@@ -102,8 +93,7 @@ public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -120,8 +109,7 @@ public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -129,8 +117,7 @@ public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -148,16 +135,22 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputql_filter_compatibility_level");
+        SetOutput("sql_filter_compatibility_level");
+        SetOutput("action");
+        SetOutput("filter_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("sql_filter");
+        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
+    public TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -166,17 +159,17 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformProperty<string> FilterType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter_type");
-        set => this.WithProperty("filter_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter_type");
+        set => SetProperty("filter_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -185,17 +178,17 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The sql_filter attribute.
     /// </summary>
-    public TerraformProperty<string>? SqlFilter
+    public TerraformProperty<string> SqlFilter
     {
-        get => GetProperty<TerraformProperty<string>>("sql_filter");
-        set => this.WithProperty("sql_filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sql_filter");
+        set => SetProperty("sql_filter", value);
     }
 
     /// <summary>
@@ -204,8 +197,8 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -215,8 +208,7 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorrelationFilter block(s) allowed")]
     public List<AzurermServicebusSubscriptionRuleCorrelationFilterBlock>? CorrelationFilter
     {
-        get => GetProperty<List<AzurermServicebusSubscriptionRuleCorrelationFilterBlock>>("correlation_filter");
-        set => this.WithProperty("correlation_filter", value);
+        set => SetProperty("correlation_filter", value);
     }
 
     /// <summary>
@@ -225,8 +217,7 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     /// </summary>
     public AzurermServicebusSubscriptionRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermServicebusSubscriptionRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

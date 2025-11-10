@@ -13,8 +13,7 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     /// </summary>
     public List<TerraformProperty<string>>? DomainControllerIpAddresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("domain_controller_ip_addresses");
-        set => WithProperty("domain_controller_ip_addresses", value);
+        set => SetProperty("domain_controller_ip_addresses", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? ExternalAccessIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("external_access_ip_address");
-        set => WithProperty("external_access_ip_address", value);
+        set => SetProperty("external_access_ip_address", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? ServiceStatus
     {
-        get => GetProperty<TerraformProperty<string>>("service_status");
-        set => WithProperty("service_status", value);
+        set => SetProperty("service_status", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -76,8 +70,7 @@ public class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? AdditionalRecipients
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("additional_recipients");
-        set => WithProperty("additional_recipients", value);
+        set => SetProperty("additional_recipients", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? NotifyDcAdmins
     {
-        get => GetProperty<TerraformProperty<bool>>("notify_dc_admins");
-        set => WithProperty("notify_dc_admins", value);
+        set => SetProperty("notify_dc_admins", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? NotifyGlobalAdmins
     {
-        get => GetProperty<TerraformProperty<bool>>("notify_global_admins");
-        set => WithProperty("notify_global_admins", value);
+        set => SetProperty("notify_global_admins", value);
     }
 
 }
@@ -111,8 +102,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateExpiry
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_expiry");
-        set => WithProperty("certificate_expiry", value);
+        set => SetProperty("certificate_expiry", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateThumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_thumbprint");
-        set => WithProperty("certificate_thumbprint", value);
+        set => SetProperty("certificate_thumbprint", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ExternalAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("external_access_enabled");
-        set => WithProperty("external_access_enabled", value);
+        set => SetProperty("external_access_enabled", value);
     }
 
     /// <summary>
@@ -149,8 +136,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificate is required")]
     public required TerraformProperty<string> PfxCertificate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pfx_certificate");
-        set => WithProperty("pfx_certificate", value);
+        set => SetProperty("pfx_certificate", value);
     }
 
     /// <summary>
@@ -159,8 +145,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificatePassword is required")]
     public required TerraformProperty<string> PfxCertificatePassword
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pfx_certificate_password");
-        set => WithProperty("pfx_certificate_password", value);
+        set => SetProperty("pfx_certificate_password", value);
     }
 
     /// <summary>
@@ -168,8 +153,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PublicCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("public_certificate");
-        set => WithProperty("public_certificate", value);
+        set => SetProperty("public_certificate", value);
     }
 
 }
@@ -185,8 +169,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? KerberosArmoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_armoring_enabled");
-        set => WithProperty("kerberos_armoring_enabled", value);
+        set => SetProperty("kerberos_armoring_enabled", value);
     }
 
     /// <summary>
@@ -194,8 +177,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? KerberosRc4EncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_rc4_encryption_enabled");
-        set => WithProperty("kerberos_rc4_encryption_enabled", value);
+        set => SetProperty("kerberos_rc4_encryption_enabled", value);
     }
 
     /// <summary>
@@ -203,8 +185,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NtlmV1Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ntlm_v1_enabled");
-        set => WithProperty("ntlm_v1_enabled", value);
+        set => SetProperty("ntlm_v1_enabled", value);
     }
 
     /// <summary>
@@ -212,8 +193,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SyncKerberosPasswords
     {
-        get => GetProperty<TerraformProperty<bool>>("sync_kerberos_passwords");
-        set => WithProperty("sync_kerberos_passwords", value);
+        set => SetProperty("sync_kerberos_passwords", value);
     }
 
     /// <summary>
@@ -221,8 +201,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SyncNtlmPasswords
     {
-        get => GetProperty<TerraformProperty<bool>>("sync_ntlm_passwords");
-        set => WithProperty("sync_ntlm_passwords", value);
+        set => SetProperty("sync_ntlm_passwords", value);
     }
 
     /// <summary>
@@ -230,8 +209,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SyncOnPremPasswords
     {
-        get => GetProperty<TerraformProperty<bool>>("sync_on_prem_passwords");
-        set => WithProperty("sync_on_prem_passwords", value);
+        set => SetProperty("sync_on_prem_passwords", value);
     }
 
     /// <summary>
@@ -239,8 +217,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? TlsV1Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tls_v1_enabled");
-        set => WithProperty("tls_v1_enabled", value);
+        set => SetProperty("tls_v1_enabled", value);
     }
 
 }
@@ -256,8 +233,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -265,8 +241,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -274,8 +249,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -283,8 +257,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -302,20 +275,29 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("deployment_id");
-        this.WithOutput("resource_id");
-        this.WithOutput("sync_owner");
-        this.WithOutput("tenant_id");
-        this.WithOutput("version");
+        SetOutput("deployment_id");
+        SetOutput("resource_id");
+        SetOutput("sync_owner");
+        SetOutput("tenant_id");
+        SetOutput("version");
+        SetOutput("domain_configuration_type");
+        SetOutput("domain_name");
+        SetOutput("filtered_sync_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The domain_configuration_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainConfigurationType
+    public TerraformProperty<string> DomainConfigurationType
     {
-        get => GetProperty<TerraformProperty<string>>("domain_configuration_type");
-        set => this.WithProperty("domain_configuration_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_configuration_type");
+        set => SetProperty("domain_configuration_type", value);
     }
 
     /// <summary>
@@ -324,26 +306,26 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The filtered_sync_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FilteredSyncEnabled
+    public TerraformProperty<bool> FilteredSyncEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("filtered_sync_enabled");
-        set => this.WithProperty("filtered_sync_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("filtered_sync_enabled");
+        set => SetProperty("filtered_sync_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -352,8 +334,8 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -362,8 +344,8 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -372,8 +354,8 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -382,29 +364,29 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for initial_replica_set.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialReplicaSet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InitialReplicaSet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialReplicaSet block(s) allowed")]
     public List<AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock>? InitialReplicaSet
     {
-        get => GetProperty<List<AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock>>("initial_replica_set");
-        set => this.WithProperty("initial_replica_set", value);
+        set => SetProperty("initial_replica_set", value);
     }
 
     /// <summary>
@@ -414,8 +396,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notifications block(s) allowed")]
     public List<AzurermActiveDirectoryDomainServiceNotificationsBlock>? Notifications
     {
-        get => GetProperty<List<AzurermActiveDirectoryDomainServiceNotificationsBlock>>("notifications");
-        set => this.WithProperty("notifications", value);
+        set => SetProperty("notifications", value);
     }
 
     /// <summary>
@@ -425,8 +406,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecureLdap block(s) allowed")]
     public List<AzurermActiveDirectoryDomainServiceSecureLdapBlock>? SecureLdap
     {
-        get => GetProperty<List<AzurermActiveDirectoryDomainServiceSecureLdapBlock>>("secure_ldap");
-        set => this.WithProperty("secure_ldap", value);
+        set => SetProperty("secure_ldap", value);
     }
 
     /// <summary>
@@ -436,8 +416,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
     public List<AzurermActiveDirectoryDomainServiceSecurityBlock>? Security
     {
-        get => GetProperty<List<AzurermActiveDirectoryDomainServiceSecurityBlock>>("security");
-        set => this.WithProperty("security", value);
+        set => SetProperty("security", value);
     }
 
     /// <summary>
@@ -446,8 +425,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     /// </summary>
     public AzurermActiveDirectoryDomainServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermActiveDirectoryDomainServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

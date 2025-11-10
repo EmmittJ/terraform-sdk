@@ -13,8 +13,7 @@ public class AzurermLogAnalyticsQueryPackQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogAnalyticsQueryPackQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogAnalyticsQueryPackQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogAnalyticsQueryPackQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,26 @@ public class AzurermLogAnalyticsQueryPackQuery : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("additional_settings_json");
+        SetOutput("body");
+        SetOutput("categories");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("query_pack_id");
+        SetOutput("resource_types");
+        SetOutput("solutions");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The additional_settings_json attribute.
     /// </summary>
-    public TerraformProperty<string>? AdditionalSettingsJson
+    public TerraformProperty<string> AdditionalSettingsJson
     {
-        get => GetProperty<TerraformProperty<string>>("additional_settings_json");
-        set => this.WithProperty("additional_settings_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("additional_settings_json");
+        set => SetProperty("additional_settings_json", value);
     }
 
     /// <summary>
@@ -75,26 +82,26 @@ public class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("body");
-        set => this.WithProperty("body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("body");
+        set => SetProperty("body", value);
     }
 
     /// <summary>
     /// The categories attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Categories
+    public List<TerraformProperty<string>> Categories
     {
-        get => GetProperty<List<TerraformProperty<string>>>("categories");
-        set => this.WithProperty("categories", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("categories");
+        set => SetProperty("categories", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -103,26 +110,26 @@ public class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -131,35 +138,35 @@ public class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryPackId is required")]
     public required TerraformProperty<string> QueryPackId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query_pack_id");
-        set => this.WithProperty("query_pack_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_pack_id");
+        set => SetProperty("query_pack_id", value);
     }
 
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ResourceTypes
+    public List<TerraformProperty<string>> ResourceTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_types");
-        set => this.WithProperty("resource_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("resource_types");
+        set => SetProperty("resource_types", value);
     }
 
     /// <summary>
     /// The solutions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Solutions
+    public List<TerraformProperty<string>> Solutions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("solutions");
-        set => this.WithProperty("solutions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("solutions");
+        set => SetProperty("solutions", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -168,8 +175,7 @@ public class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     /// </summary>
     public AzurermLogAnalyticsQueryPackQueryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogAnalyticsQueryPackQueryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,8 +14,7 @@ public class AzurermBastionHostIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermBastionHostIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformProperty<string> PublicIpAddressId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("public_ip_address_id");
-        set => WithProperty("public_ip_address_id", value);
+        set => SetProperty("public_ip_address_id", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermBastionHostIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AzurermBastionHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermBastionHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermBastionHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermBastionHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -97,52 +90,68 @@ public class AzurermBastionHost : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("dns_name");
+        SetOutput("dns_name");
+        SetOutput("copy_paste_enabled");
+        SetOutput("file_copy_enabled");
+        SetOutput("id");
+        SetOutput("ip_connect_enabled");
+        SetOutput("kerberos_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("scale_units");
+        SetOutput("session_recording_enabled");
+        SetOutput("shareable_link_enabled");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("tunneling_enabled");
+        SetOutput("virtual_network_id");
+        SetOutput("zones");
     }
 
     /// <summary>
     /// The copy_paste_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyPasteEnabled
+    public TerraformProperty<bool> CopyPasteEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("copy_paste_enabled");
-        set => this.WithProperty("copy_paste_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("copy_paste_enabled");
+        set => SetProperty("copy_paste_enabled", value);
     }
 
     /// <summary>
     /// The file_copy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FileCopyEnabled
+    public TerraformProperty<bool> FileCopyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("file_copy_enabled");
-        set => this.WithProperty("file_copy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("file_copy_enabled");
+        set => SetProperty("file_copy_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_connect_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IpConnectEnabled
+    public TerraformProperty<bool> IpConnectEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ip_connect_enabled");
-        set => this.WithProperty("ip_connect_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ip_connect_enabled");
+        set => SetProperty("ip_connect_enabled", value);
     }
 
     /// <summary>
     /// The kerberos_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? KerberosEnabled
+    public TerraformProperty<bool> KerberosEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_enabled");
-        set => this.WithProperty("kerberos_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("kerberos_enabled");
+        set => SetProperty("kerberos_enabled", value);
     }
 
     /// <summary>
@@ -151,8 +160,8 @@ public class AzurermBastionHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -161,8 +170,8 @@ public class AzurermBastionHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -171,80 +180,80 @@ public class AzurermBastionHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scale_units attribute.
     /// </summary>
-    public TerraformProperty<double>? ScaleUnits
+    public TerraformProperty<double> ScaleUnits
     {
-        get => GetProperty<TerraformProperty<double>>("scale_units");
-        set => this.WithProperty("scale_units", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scale_units");
+        set => SetProperty("scale_units", value);
     }
 
     /// <summary>
     /// The session_recording_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SessionRecordingEnabled
+    public TerraformProperty<bool> SessionRecordingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("session_recording_enabled");
-        set => this.WithProperty("session_recording_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("session_recording_enabled");
+        set => SetProperty("session_recording_enabled", value);
     }
 
     /// <summary>
     /// The shareable_link_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ShareableLinkEnabled
+    public TerraformProperty<bool> ShareableLinkEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("shareable_link_enabled");
-        set => this.WithProperty("shareable_link_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("shareable_link_enabled");
+        set => SetProperty("shareable_link_enabled", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    public TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tunneling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TunnelingEnabled
+    public TerraformProperty<bool> TunnelingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tunneling_enabled");
-        set => this.WithProperty("tunneling_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tunneling_enabled");
+        set => SetProperty("tunneling_enabled", value);
     }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualNetworkId
+    public TerraformProperty<string> VirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
-        set => this.WithProperty("virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
+        set => SetProperty("virtual_network_id", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
@@ -254,8 +263,7 @@ public class AzurermBastionHost : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]
     public List<AzurermBastionHostIpConfigurationBlock>? IpConfiguration
     {
-        get => GetProperty<List<AzurermBastionHostIpConfigurationBlock>>("ip_configuration");
-        set => this.WithProperty("ip_configuration", value);
+        set => SetProperty("ip_configuration", value);
     }
 
     /// <summary>
@@ -264,8 +272,7 @@ public class AzurermBastionHost : TerraformResource
     /// </summary>
     public AzurermBastionHostTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBastionHostTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

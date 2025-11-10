@@ -13,8 +13,7 @@ public class AzurermOracleAdbsCharacterSetsDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,18 @@ public class AzurermOracleAdbsCharacterSetsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("character_sets");
+        SetOutput("character_sets");
+        SetOutput("id");
+        SetOutput("location");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +50,8 @@ public class AzurermOracleAdbsCharacterSetsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -59,8 +60,7 @@ public class AzurermOracleAdbsCharacterSetsDataSource : TerraformDataSource
     /// </summary>
     public AzurermOracleAdbsCharacterSetsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleAdbsCharacterSetsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

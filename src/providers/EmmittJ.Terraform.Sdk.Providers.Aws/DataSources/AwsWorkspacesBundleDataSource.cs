@@ -14,55 +14,60 @@ public class AwsWorkspacesBundleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("compute_type");
-        this.WithOutput("description");
-        this.WithOutput("root_storage");
-        this.WithOutput("user_storage");
+        SetOutput("compute_type");
+        SetOutput("description");
+        SetOutput("root_storage");
+        SetOutput("user_storage");
+        SetOutput("bundle_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("owner");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BundleId
+    public TerraformProperty<string> BundleId
     {
-        get => GetProperty<TerraformProperty<string>>("bundle_id");
-        set => this.WithProperty("bundle_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bundle_id");
+        set => SetProperty("bundle_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformProperty<string>? Owner
+    public TerraformProperty<string> Owner
     {
-        get => GetProperty<TerraformProperty<string>>("owner");
-        set => this.WithProperty("owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner");
+        set => SetProperty("owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

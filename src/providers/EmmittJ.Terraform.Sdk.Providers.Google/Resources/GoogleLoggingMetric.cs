@@ -23,8 +23,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -35,8 +34,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
     public required TerraformProperty<string> MetricKind
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_kind");
-        set => WithProperty("metric_kind", value);
+        set => SetProperty("metric_kind", value);
     }
 
     /// <summary>
@@ -46,8 +44,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Unit
     {
-        get => GetProperty<TerraformProperty<string>>("unit");
-        set => WithProperty("unit", value);
+        set => SetProperty("unit", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformProperty<string> ValueType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value_type");
-        set => WithProperty("value_type", value);
+        set => SetProperty("value_type", value);
     }
 
 }
@@ -75,8 +71,7 @@ public class GoogleLoggingMetricTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -84,8 +79,7 @@ public class GoogleLoggingMetricTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class GoogleLoggingMetricTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -112,35 +105,44 @@ public class GoogleLoggingMetric : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket_name");
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("label_extractors");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("value_extractor");
     }
 
     /// <summary>
     /// The resource name of the Log Bucket that owns the Log Metric. Only Log Buckets in projects
     /// are supported. The bucket has to be in the same project as the metric.
     /// </summary>
-    public TerraformProperty<string>? BucketName
+    public TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
-        set => this.WithProperty("bucket_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket_name");
+        set => SetProperty("bucket_name", value);
     }
 
     /// <summary>
     /// A description of this metric, which is used in documentation. The maximum length of the
     /// description is 8000 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// If set to True, then this metric is disabled and it does not generate any points.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -150,17 +152,17 @@ public class GoogleLoggingMetric : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -169,10 +171,10 @@ public class GoogleLoggingMetric : TerraformResource
     /// have an associated extractor expression in this map. The syntax of the extractor expression is
     /// the same as for the valueExtractor field.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? LabelExtractors
+    public Dictionary<string, TerraformProperty<string>> LabelExtractors
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("label_extractors");
-        set => this.WithProperty("label_extractors", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("label_extractors");
+        set => SetProperty("label_extractors", value);
     }
 
     /// <summary>
@@ -185,17 +187,17 @@ public class GoogleLoggingMetric : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -207,10 +209,10 @@ public class GoogleLoggingMetric : TerraformResource
     /// log entry field. The value of the field is converted to a string before applying the regex. It is an
     /// error to specify a regex that does not include exactly one capture group.
     /// </summary>
-    public TerraformProperty<string>? ValueExtractor
+    public TerraformProperty<string> ValueExtractor
     {
-        get => GetProperty<TerraformProperty<string>>("value_extractor");
-        set => this.WithProperty("value_extractor", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value_extractor");
+        set => SetProperty("value_extractor", value);
     }
 
     /// <summary>
@@ -220,8 +222,7 @@ public class GoogleLoggingMetric : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BucketOptions block(s) allowed")]
     public List<GoogleLoggingMetricBucketOptionsBlock>? BucketOptions
     {
-        get => GetProperty<List<GoogleLoggingMetricBucketOptionsBlock>>("bucket_options");
-        set => this.WithProperty("bucket_options", value);
+        set => SetProperty("bucket_options", value);
     }
 
     /// <summary>
@@ -231,8 +232,7 @@ public class GoogleLoggingMetric : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricDescriptor block(s) allowed")]
     public List<GoogleLoggingMetricMetricDescriptorBlock>? MetricDescriptor
     {
-        get => GetProperty<List<GoogleLoggingMetricMetricDescriptorBlock>>("metric_descriptor");
-        set => this.WithProperty("metric_descriptor", value);
+        set => SetProperty("metric_descriptor", value);
     }
 
     /// <summary>
@@ -241,8 +241,7 @@ public class GoogleLoggingMetric : TerraformResource
     /// </summary>
     public GoogleLoggingMetricTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleLoggingMetricTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

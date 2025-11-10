@@ -13,8 +13,7 @@ public class AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? MaxThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("max_throughput");
-        set => WithProperty("max_throughput", value);
+        set => SetProperty("max_throughput", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AzurermCosmosdbCassandraKeyspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AzurermCosmosdbCassandraKeyspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermCosmosdbCassandraKeyspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermCosmosdbCassandraKeyspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,6 +71,11 @@ public class AzurermCosmosdbCassandraKeyspace : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("throughput");
     }
 
     /// <summary>
@@ -84,17 +84,17 @@ public class AzurermCosmosdbCassandraKeyspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,8 +103,8 @@ public class AzurermCosmosdbCassandraKeyspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -113,17 +113,17 @@ public class AzurermCosmosdbCassandraKeyspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformProperty<double>? Throughput
+    public TerraformProperty<double> Throughput
     {
-        get => GetProperty<TerraformProperty<double>>("throughput");
-        set => this.WithProperty("throughput", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput");
+        set => SetProperty("throughput", value);
     }
 
     /// <summary>
@@ -133,8 +133,7 @@ public class AzurermCosmosdbCassandraKeyspace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     public List<AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetProperty<List<AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock>>("autoscale_settings");
-        set => this.WithProperty("autoscale_settings", value);
+        set => SetProperty("autoscale_settings", value);
     }
 
     /// <summary>
@@ -143,8 +142,7 @@ public class AzurermCosmosdbCassandraKeyspace : TerraformResource
     /// </summary>
     public AzurermCosmosdbCassandraKeyspaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbCassandraKeyspaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

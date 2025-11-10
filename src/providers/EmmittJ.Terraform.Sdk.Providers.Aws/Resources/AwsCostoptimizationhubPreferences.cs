@@ -14,25 +14,27 @@ public class AwsCostoptimizationhubPreferences : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("member_account_discount_visibility");
+        SetOutput("savings_estimation_mode");
     }
 
     /// <summary>
     /// The member_account_discount_visibility attribute.
     /// </summary>
-    public TerraformProperty<string>? MemberAccountDiscountVisibility
+    public TerraformProperty<string> MemberAccountDiscountVisibility
     {
-        get => GetProperty<TerraformProperty<string>>("member_account_discount_visibility");
-        set => this.WithProperty("member_account_discount_visibility", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member_account_discount_visibility");
+        set => SetProperty("member_account_discount_visibility", value);
     }
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? SavingsEstimationMode
+    public TerraformProperty<string> SavingsEstimationMode
     {
-        get => GetProperty<TerraformProperty<string>>("savings_estimation_mode");
-        set => this.WithProperty("savings_estimation_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("savings_estimation_mode");
+        set => SetProperty("savings_estimation_mode", value);
     }
 
     /// <summary>

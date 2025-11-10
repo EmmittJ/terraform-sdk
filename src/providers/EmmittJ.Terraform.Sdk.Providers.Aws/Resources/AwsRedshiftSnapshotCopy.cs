@@ -14,7 +14,13 @@ public class AwsRedshiftSnapshotCopy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("cluster_identifier");
+        SetOutput("destination_region");
+        SetOutput("manual_snapshot_retention_period");
+        SetOutput("region");
+        SetOutput("retention_period");
+        SetOutput("snapshot_copy_grant_name");
     }
 
     /// <summary>
@@ -23,8 +29,8 @@ public class AwsRedshiftSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
@@ -33,44 +39,44 @@ public class AwsRedshiftSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
     public required TerraformProperty<string> DestinationRegion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_region");
-        set => this.WithProperty("destination_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_region");
+        set => SetProperty("destination_region", value);
     }
 
     /// <summary>
     /// The manual_snapshot_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? ManualSnapshotRetentionPeriod
+    public TerraformProperty<double> ManualSnapshotRetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("manual_snapshot_retention_period");
-        set => this.WithProperty("manual_snapshot_retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("manual_snapshot_retention_period");
+        set => SetProperty("manual_snapshot_retention_period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionPeriod
+    public TerraformProperty<double> RetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("retention_period");
-        set => this.WithProperty("retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_period");
+        set => SetProperty("retention_period", value);
     }
 
     /// <summary>
     /// The snapshot_copy_grant_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotCopyGrantName
+    public TerraformProperty<string> SnapshotCopyGrantName
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_copy_grant_name");
-        set => this.WithProperty("snapshot_copy_grant_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_copy_grant_name");
+        set => SetProperty("snapshot_copy_grant_name", value);
     }
 
     /// <summary>

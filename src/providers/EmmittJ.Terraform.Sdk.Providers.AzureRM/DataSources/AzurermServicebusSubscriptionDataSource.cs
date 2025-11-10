@@ -13,8 +13,7 @@ public class AzurermServicebusSubscriptionDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,26 +30,32 @@ public class AzurermServicebusSubscriptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("auto_delete_on_idle");
-        this.WithOutput("batched_operations_enabled");
-        this.WithOutput("dead_lettering_on_filter_evaluation_error");
-        this.WithOutput("dead_lettering_on_message_expiration");
-        this.WithOutput("default_message_ttl");
-        this.WithOutput("enable_batched_operations");
-        this.WithOutput("forward_dead_lettered_messages_to");
-        this.WithOutput("forward_to");
-        this.WithOutput("lock_duration");
-        this.WithOutput("max_delivery_count");
-        this.WithOutput("requires_session");
+        SetOutput("auto_delete_on_idle");
+        SetOutput("batched_operations_enabled");
+        SetOutput("dead_lettering_on_filter_evaluation_error");
+        SetOutput("dead_lettering_on_message_expiration");
+        SetOutput("default_message_ttl");
+        SetOutput("enable_batched_operations");
+        SetOutput("forward_dead_lettered_messages_to");
+        SetOutput("forward_to");
+        SetOutput("lock_duration");
+        SetOutput("max_delivery_count");
+        SetOutput("requires_session");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("namespace_name");
+        SetOutput("resource_group_name");
+        SetOutput("topic_id");
+        SetOutput("topic_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,47 +64,47 @@ public class AzurermServicebusSubscriptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? NamespaceName
+    public TerraformProperty<string> NamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_name");
-        set => this.WithProperty("namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
+        set => SetProperty("namespace_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? ResourceGroupName
+    public TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The topic_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TopicId
+    public TerraformProperty<string> TopicId
     {
-        get => GetProperty<TerraformProperty<string>>("topic_id");
-        set => this.WithProperty("topic_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("topic_id");
+        set => SetProperty("topic_id", value);
     }
 
     /// <summary>
     /// The topic_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? TopicName
+    public TerraformProperty<string> TopicName
     {
-        get => GetProperty<TerraformProperty<string>>("topic_name");
-        set => this.WithProperty("topic_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("topic_name");
+        set => SetProperty("topic_name", value);
     }
 
     /// <summary>
@@ -108,8 +113,7 @@ public class AzurermServicebusSubscriptionDataSource : TerraformDataSource
     /// </summary>
     public AzurermServicebusSubscriptionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermServicebusSubscriptionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

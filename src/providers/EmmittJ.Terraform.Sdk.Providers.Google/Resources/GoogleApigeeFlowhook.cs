@@ -13,8 +13,7 @@ public class GoogleApigeeFlowhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeFlowhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,24 +38,31 @@ public class GoogleApigeeFlowhook : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("continue_on_error");
+        SetOutput("description");
+        SetOutput("environment");
+        SetOutput("flow_hook_point");
+        SetOutput("id");
+        SetOutput("org_id");
+        SetOutput("sharedflow");
     }
 
     /// <summary>
     /// Flag that specifies whether execution should continue if the flow hook throws an exception. Set to true to continue execution. Set to false to stop execution if the flow hook throws an exception. Defaults to true.
     /// </summary>
-    public TerraformProperty<bool>? ContinueOnError
+    public TerraformProperty<bool> ContinueOnError
     {
-        get => GetProperty<TerraformProperty<bool>>("continue_on_error");
-        set => this.WithProperty("continue_on_error", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("continue_on_error");
+        set => SetProperty("continue_on_error", value);
     }
 
     /// <summary>
     /// Description of the flow hook.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -66,8 +71,8 @@ public class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment");
-        set => this.WithProperty("environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment");
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
@@ -76,17 +81,17 @@ public class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowHookPoint is required")]
     public required TerraformProperty<string> FlowHookPoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("flow_hook_point");
-        set => this.WithProperty("flow_hook_point", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("flow_hook_point");
+        set => SetProperty("flow_hook_point", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +100,8 @@ public class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -105,8 +110,8 @@ public class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sharedflow is required")]
     public required TerraformProperty<string> Sharedflow
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sharedflow");
-        set => this.WithProperty("sharedflow", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sharedflow");
+        set => SetProperty("sharedflow", value);
     }
 
     /// <summary>
@@ -115,8 +120,7 @@ public class GoogleApigeeFlowhook : TerraformResource
     /// </summary>
     public GoogleApigeeFlowhookTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeFlowhookTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

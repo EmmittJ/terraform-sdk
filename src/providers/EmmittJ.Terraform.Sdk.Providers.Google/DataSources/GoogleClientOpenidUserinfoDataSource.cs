@@ -17,8 +17,8 @@ public class GoogleClientOpenidUserinfoDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("email");
-        this.WithOutput("id");
+        SetOutput("email");
+        SetOutput("id");
     }
 
     /// <summary>

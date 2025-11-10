@@ -14,8 +14,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? ActivatedStorageCount
     {
-        get => GetProperty<TerraformProperty<double>>("activated_storage_count");
-        set => WithProperty("activated_storage_count", value);
+        set => SetProperty("activated_storage_count", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? AdditionalStorageCount
     {
-        get => GetProperty<TerraformProperty<double>>("additional_storage_count");
-        set => WithProperty("additional_storage_count", value);
+        set => SetProperty("additional_storage_count", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? AvailableStorageSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("available_storage_size_gb");
-        set => WithProperty("available_storage_size_gb", value);
+        set => SetProperty("available_storage_size_gb", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? ComputeCount
     {
-        get => GetProperty<TerraformProperty<double>>("compute_count");
-        set => WithProperty("compute_count", value);
+        set => SetProperty("compute_count", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? CpuCount
     {
-        get => GetProperty<TerraformProperty<double>>("cpu_count");
-        set => WithProperty("cpu_count", value);
+        set => SetProperty("cpu_count", value);
     }
 
     /// <summary>
@@ -61,8 +56,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? DataStorageSizeTb
     {
-        get => GetProperty<TerraformProperty<double>>("data_storage_size_tb");
-        set => WithProperty("data_storage_size_tb", value);
+        set => SetProperty("data_storage_size_tb", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? DbNodeStorageSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("db_node_storage_size_gb");
-        set => WithProperty("db_node_storage_size_gb", value);
+        set => SetProperty("db_node_storage_size_gb", value);
     }
 
     /// <summary>
@@ -80,8 +73,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? DbServerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("db_server_version");
-        set => WithProperty("db_server_version", value);
+        set => SetProperty("db_server_version", value);
     }
 
     /// <summary>
@@ -89,8 +81,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? MaxCpuCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_cpu_count");
-        set => WithProperty("max_cpu_count", value);
+        set => SetProperty("max_cpu_count", value);
     }
 
     /// <summary>
@@ -98,8 +89,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? MaxDataStorageTb
     {
-        get => GetProperty<TerraformProperty<double>>("max_data_storage_tb");
-        set => WithProperty("max_data_storage_tb", value);
+        set => SetProperty("max_data_storage_tb", value);
     }
 
     /// <summary>
@@ -107,8 +97,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? MaxDbNodeStorageSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("max_db_node_storage_size_gb");
-        set => WithProperty("max_db_node_storage_size_gb", value);
+        set => SetProperty("max_db_node_storage_size_gb", value);
     }
 
     /// <summary>
@@ -116,8 +105,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? MaxMemoryGb
     {
-        get => GetProperty<TerraformProperty<double>>("max_memory_gb");
-        set => WithProperty("max_memory_gb", value);
+        set => SetProperty("max_memory_gb", value);
     }
 
     /// <summary>
@@ -125,8 +113,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? MemorySizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("memory_size_gb");
-        set => WithProperty("memory_size_gb", value);
+        set => SetProperty("memory_size_gb", value);
     }
 
     /// <summary>
@@ -135,8 +122,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? MonthlyDbServerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("monthly_db_server_version");
-        set => WithProperty("monthly_db_server_version", value);
+        set => SetProperty("monthly_db_server_version", value);
     }
 
     /// <summary>
@@ -145,8 +131,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? MonthlyStorageServerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("monthly_storage_server_version");
-        set => WithProperty("monthly_storage_server_version", value);
+        set => SetProperty("monthly_storage_server_version", value);
     }
 
     /// <summary>
@@ -154,8 +139,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? NextMaintenanceRunId
     {
-        get => GetProperty<TerraformProperty<string>>("next_maintenance_run_id");
-        set => WithProperty("next_maintenance_run_id", value);
+        set => SetProperty("next_maintenance_run_id", value);
     }
 
     /// <summary>
@@ -163,8 +147,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? NextMaintenanceRunTime
     {
-        get => GetProperty<TerraformProperty<string>>("next_maintenance_run_time");
-        set => WithProperty("next_maintenance_run_time", value);
+        set => SetProperty("next_maintenance_run_time", value);
     }
 
     /// <summary>
@@ -172,8 +155,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? NextSecurityMaintenanceRunTime
     {
-        get => GetProperty<TerraformProperty<string>>("next_security_maintenance_run_time");
-        set => WithProperty("next_security_maintenance_run_time", value);
+        set => SetProperty("next_security_maintenance_run_time", value);
     }
 
     /// <summary>
@@ -181,8 +163,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? OciUrl
     {
-        get => GetProperty<TerraformProperty<string>>("oci_url");
-        set => WithProperty("oci_url", value);
+        set => SetProperty("oci_url", value);
     }
 
     /// <summary>
@@ -191,8 +172,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Ocid
     {
-        get => GetProperty<TerraformProperty<string>>("ocid");
-        set => WithProperty("ocid", value);
+        set => SetProperty("ocid", value);
     }
 
     /// <summary>
@@ -202,8 +182,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformProperty<string> Shape
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("shape");
-        set => WithProperty("shape", value);
+        set => SetProperty("shape", value);
     }
 
     /// <summary>
@@ -220,8 +199,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -229,8 +207,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? StorageCount
     {
-        get => GetProperty<TerraformProperty<double>>("storage_count");
-        set => WithProperty("storage_count", value);
+        set => SetProperty("storage_count", value);
     }
 
     /// <summary>
@@ -239,8 +216,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<string>? StorageServerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("storage_server_version");
-        set => WithProperty("storage_server_version", value);
+        set => SetProperty("storage_server_version", value);
     }
 
     /// <summary>
@@ -249,8 +225,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? TotalStorageSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("total_storage_size_gb");
-        set => WithProperty("total_storage_size_gb", value);
+        set => SetProperty("total_storage_size_gb", value);
     }
 
 }
@@ -266,8 +241,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -275,8 +249,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -284,8 +257,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -303,11 +275,19 @@ public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("entitlement_id");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("entitlement_id");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("cloud_exadata_infrastructure_id");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("gcp_oracle_zone");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -319,44 +299,44 @@ public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
-        set => this.WithProperty("cloud_exadata_infrastructure_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        set => SetProperty("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted.
     /// </summary>
-    public TerraformProperty<string>? GcpOracleZone
+    public TerraformProperty<string> GcpOracleZone
     {
-        get => GetProperty<TerraformProperty<string>>("gcp_oracle_zone");
-        set => this.WithProperty("gcp_oracle_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gcp_oracle_zone");
+        set => SetProperty("gcp_oracle_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -365,10 +345,10 @@ public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -377,17 +357,17 @@ public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -397,8 +377,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     public List<GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock>? Properties
     {
-        get => GetProperty<List<GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock>>("properties");
-        set => this.WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -407,8 +386,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
     /// </summary>
     public GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

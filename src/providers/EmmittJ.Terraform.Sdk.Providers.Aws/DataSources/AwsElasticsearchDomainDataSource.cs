@@ -14,26 +14,30 @@ public class AwsElasticsearchDomainDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_policies");
-        this.WithOutput("advanced_options");
-        this.WithOutput("advanced_security_options");
-        this.WithOutput("arn");
-        this.WithOutput("auto_tune_options");
-        this.WithOutput("cluster_config");
-        this.WithOutput("cognito_options");
-        this.WithOutput("created");
-        this.WithOutput("deleted");
-        this.WithOutput("domain_id");
-        this.WithOutput("ebs_options");
-        this.WithOutput("elasticsearch_version");
-        this.WithOutput("encryption_at_rest");
-        this.WithOutput("endpoint");
-        this.WithOutput("kibana_endpoint");
-        this.WithOutput("log_publishing_options");
-        this.WithOutput("node_to_node_encryption");
-        this.WithOutput("processing");
-        this.WithOutput("snapshot_options");
-        this.WithOutput("vpc_options");
+        SetOutput("access_policies");
+        SetOutput("advanced_options");
+        SetOutput("advanced_security_options");
+        SetOutput("arn");
+        SetOutput("auto_tune_options");
+        SetOutput("cluster_config");
+        SetOutput("cognito_options");
+        SetOutput("created");
+        SetOutput("deleted");
+        SetOutput("domain_id");
+        SetOutput("ebs_options");
+        SetOutput("elasticsearch_version");
+        SetOutput("encryption_at_rest");
+        SetOutput("endpoint");
+        SetOutput("kibana_endpoint");
+        SetOutput("log_publishing_options");
+        SetOutput("node_to_node_encryption");
+        SetOutput("processing");
+        SetOutput("snapshot_options");
+        SetOutput("vpc_options");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -42,35 +46,35 @@ public class AwsElasticsearchDomainDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

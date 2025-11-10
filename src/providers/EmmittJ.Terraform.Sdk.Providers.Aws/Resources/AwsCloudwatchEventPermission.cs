@@ -14,8 +14,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -53,33 +50,39 @@ public class AwsCloudwatchEventPermission : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("action");
+        SetOutput("event_bus_name");
+        SetOutput("id");
+        SetOutput("principal");
+        SetOutput("region");
+        SetOutput("statement_id");
     }
 
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
+    public TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// The event_bus_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EventBusName
+    public TerraformProperty<string> EventBusName
     {
-        get => GetProperty<TerraformProperty<string>>("event_bus_name");
-        set => this.WithProperty("event_bus_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_bus_name");
+        set => SetProperty("event_bus_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -88,17 +91,17 @@ public class AwsCloudwatchEventPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => this.WithProperty("principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal");
+        set => SetProperty("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -107,8 +110,8 @@ public class AwsCloudwatchEventPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     public required TerraformProperty<string> StatementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("statement_id");
-        set => this.WithProperty("statement_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("statement_id");
+        set => SetProperty("statement_id", value);
     }
 
     /// <summary>
@@ -118,8 +121,7 @@ public class AwsCloudwatchEventPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     public List<AwsCloudwatchEventPermissionConditionBlock>? Condition
     {
-        get => GetProperty<List<AwsCloudwatchEventPermissionConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
 }

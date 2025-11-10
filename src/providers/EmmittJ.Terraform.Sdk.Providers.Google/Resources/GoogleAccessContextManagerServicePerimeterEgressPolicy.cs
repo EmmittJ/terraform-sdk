@@ -17,8 +17,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlo
     /// </summary>
     public List<TerraformProperty<string>>? Identities
     {
-        get => GetProperty<List<TerraformProperty<string>>>("identities");
-        set => WithProperty("identities", value);
+        set => SetProperty("identities", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlo
     /// </summary>
     public TerraformProperty<string>? IdentityType
     {
-        get => GetProperty<TerraformProperty<string>>("identity_type");
-        set => WithProperty("identity_type", value);
+        set => SetProperty("identity_type", value);
     }
 
     /// <summary>
@@ -37,8 +35,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlo
     /// </summary>
     public TerraformProperty<string>? SourceRestriction
     {
-        get => GetProperty<TerraformProperty<string>>("source_restriction");
-        set => WithProperty("source_restriction", value);
+        set => SetProperty("source_restriction", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock
     /// </summary>
     public List<TerraformProperty<string>>? ExternalResources
     {
-        get => GetProperty<List<TerraformProperty<string>>>("external_resources");
-        set => WithProperty("external_resources", value);
+        set => SetProperty("external_resources", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock
     /// </summary>
     public List<TerraformProperty<string>>? Resources
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resources");
-        set => WithProperty("resources", value);
+        set => SetProperty("resources", value);
     }
 
     /// <summary>
@@ -80,8 +75,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock
     /// </summary>
     public List<TerraformProperty<string>>? Roles
     {
-        get => GetProperty<List<TerraformProperty<string>>>("roles");
-        set => WithProperty("roles", value);
+        set => SetProperty("roles", value);
     }
 
 }
@@ -97,8 +91,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -106,8 +99,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -125,17 +117,20 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicy : TerraformR
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_policy_id");
-        this.WithOutput("etag");
+        SetOutput("access_policy_id");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("perimeter");
+        SetOutput("title");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -144,17 +139,17 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicy : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Perimeter is required")]
     public required TerraformProperty<string> Perimeter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("perimeter");
-        set => this.WithProperty("perimeter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("perimeter");
+        set => SetProperty("perimeter", value);
     }
 
     /// <summary>
     /// Human readable title. Must be unique within the perimeter. Does not affect behavior.
     /// </summary>
-    public TerraformProperty<string>? Title
+    public TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
-        set => this.WithProperty("title", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("title");
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -164,8 +159,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicy : TerraformR
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EgressFrom block(s) allowed")]
     public List<GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlock>? EgressFrom
     {
-        get => GetProperty<List<GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlock>>("egress_from");
-        set => this.WithProperty("egress_from", value);
+        set => SetProperty("egress_from", value);
     }
 
     /// <summary>
@@ -175,8 +169,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicy : TerraformR
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EgressTo block(s) allowed")]
     public List<GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock>? EgressTo
     {
-        get => GetProperty<List<GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock>>("egress_to");
-        set => this.WithProperty("egress_to", value);
+        set => SetProperty("egress_to", value);
     }
 
     /// <summary>
@@ -185,8 +178,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicy : TerraformR
     /// </summary>
     public GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

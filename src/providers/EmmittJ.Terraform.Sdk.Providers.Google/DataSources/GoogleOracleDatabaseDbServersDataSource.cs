@@ -14,7 +14,11 @@ public class GoogleOracleDatabaseDbServersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("db_servers");
+        SetOutput("db_servers");
+        SetOutput("cloud_exadata_infrastructure");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -23,17 +27,17 @@ public class GoogleOracleDatabaseDbServersDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructure is required")]
     public required TerraformProperty<string> CloudExadataInfrastructure
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure");
-        set => this.WithProperty("cloud_exadata_infrastructure", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure");
+        set => SetProperty("cloud_exadata_infrastructure", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,17 +46,17 @@ public class GoogleOracleDatabaseDbServersDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The ID of the project in which the dataset is located. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

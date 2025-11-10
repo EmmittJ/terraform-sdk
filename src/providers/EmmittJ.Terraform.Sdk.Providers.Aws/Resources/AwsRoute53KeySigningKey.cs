@@ -13,8 +13,7 @@ public class AwsRoute53KeySigningKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRoute53KeySigningKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRoute53KeySigningKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,16 +46,21 @@ public class AwsRoute53KeySigningKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("digest_algorithm_mnemonic");
-        this.WithOutput("digest_algorithm_type");
-        this.WithOutput("digest_value");
-        this.WithOutput("dnskey_record");
-        this.WithOutput("ds_record");
-        this.WithOutput("flag");
-        this.WithOutput("key_tag");
-        this.WithOutput("public_key");
-        this.WithOutput("signing_algorithm_mnemonic");
-        this.WithOutput("signing_algorithm_type");
+        SetOutput("digest_algorithm_mnemonic");
+        SetOutput("digest_algorithm_type");
+        SetOutput("digest_value");
+        SetOutput("dnskey_record");
+        SetOutput("ds_record");
+        SetOutput("flag");
+        SetOutput("key_tag");
+        SetOutput("public_key");
+        SetOutput("signing_algorithm_mnemonic");
+        SetOutput("signing_algorithm_type");
+        SetOutput("hosted_zone_id");
+        SetOutput("id");
+        SetOutput("key_management_service_arn");
+        SetOutput("name");
+        SetOutput("status");
     }
 
     /// <summary>
@@ -67,17 +69,17 @@ public class AwsRoute53KeySigningKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformProperty<string> HostedZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hosted_zone_id");
-        set => this.WithProperty("hosted_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hosted_zone_id");
+        set => SetProperty("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,8 +88,8 @@ public class AwsRoute53KeySigningKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyManagementServiceArn is required")]
     public required TerraformProperty<string> KeyManagementServiceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_management_service_arn");
-        set => this.WithProperty("key_management_service_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_management_service_arn");
+        set => SetProperty("key_management_service_arn", value);
     }
 
     /// <summary>
@@ -96,17 +98,17 @@ public class AwsRoute53KeySigningKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -115,8 +117,7 @@ public class AwsRoute53KeySigningKey : TerraformResource
     /// </summary>
     public AwsRoute53KeySigningKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53KeySigningKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

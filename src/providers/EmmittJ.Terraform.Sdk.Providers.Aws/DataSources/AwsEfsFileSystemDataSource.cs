@@ -14,64 +14,69 @@ public class AwsEfsFileSystemDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone_id");
-        this.WithOutput("availability_zone_name");
-        this.WithOutput("dns_name");
-        this.WithOutput("encrypted");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("lifecycle_policy");
-        this.WithOutput("name");
-        this.WithOutput("performance_mode");
-        this.WithOutput("protection");
-        this.WithOutput("provisioned_throughput_in_mibps");
-        this.WithOutput("size_in_bytes");
-        this.WithOutput("throughput_mode");
+        SetOutput("arn");
+        SetOutput("availability_zone_id");
+        SetOutput("availability_zone_name");
+        SetOutput("dns_name");
+        SetOutput("encrypted");
+        SetOutput("kms_key_id");
+        SetOutput("lifecycle_policy");
+        SetOutput("name");
+        SetOutput("performance_mode");
+        SetOutput("protection");
+        SetOutput("provisioned_throughput_in_mibps");
+        SetOutput("size_in_bytes");
+        SetOutput("throughput_mode");
+        SetOutput("creation_token");
+        SetOutput("file_system_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The creation_token attribute.
     /// </summary>
-    public TerraformProperty<string>? CreationToken
+    public TerraformProperty<string> CreationToken
     {
-        get => GetProperty<TerraformProperty<string>>("creation_token");
-        set => this.WithProperty("creation_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("creation_token");
+        set => SetProperty("creation_token", value);
     }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystemId
+    public TerraformProperty<string> FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
-        set => this.WithProperty("file_system_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_system_id");
+        set => SetProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

@@ -14,7 +14,13 @@ public class AwsEc2SubnetCidrReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("owner_id");
+        SetOutput("owner_id");
+        SetOutput("cidr_block");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("reservation_type");
+        SetOutput("subnet_id");
     }
 
     /// <summary>
@@ -23,35 +29,35 @@ public class AwsEc2SubnetCidrReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlock is required")]
     public required TerraformProperty<string> CidrBlock
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cidr_block");
-        set => this.WithProperty("cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr_block");
+        set => SetProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -60,8 +66,8 @@ public class AwsEc2SubnetCidrReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationType is required")]
     public required TerraformProperty<string> ReservationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("reservation_type");
-        set => this.WithProperty("reservation_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reservation_type");
+        set => SetProperty("reservation_type", value);
     }
 
     /// <summary>
@@ -70,8 +76,8 @@ public class AwsEc2SubnetCidrReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>

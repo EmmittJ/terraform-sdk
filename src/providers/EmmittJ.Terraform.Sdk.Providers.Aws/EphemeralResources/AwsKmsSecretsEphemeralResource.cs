@@ -13,8 +13,7 @@ public class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Context
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("context");
-        set => WithProperty("context", value);
+        set => SetProperty("context", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncryptionAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_algorithm");
-        set => WithProperty("encryption_algorithm", value);
+        set => SetProperty("encryption_algorithm", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? GrantTokens
     {
-        get => GetProperty<List<TerraformProperty<string>>>("grant_tokens");
-        set => WithProperty("grant_tokens", value);
+        set => SetProperty("grant_tokens", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
-        set => WithProperty("key_id", value);
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformProperty<string> Payload
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("payload");
-        set => WithProperty("payload", value);
+        set => SetProperty("payload", value);
     }
 
 }
@@ -79,16 +73,17 @@ public class AwsKmsSecretsEphemeralResource : TerraformEphemeralResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("plaintext");
+        SetOutput("plaintext");
+        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -97,8 +92,7 @@ public class AwsKmsSecretsEphemeralResource : TerraformEphemeralResource
     /// </summary>
     public HashSet<AwsKmsSecretsEphemeralResourceSecretBlock>? Secret
     {
-        get => GetProperty<HashSet<AwsKmsSecretsEphemeralResourceSecretBlock>>("secret");
-        set => this.WithProperty("secret", value);
+        set => SetProperty("secret", value);
     }
 
     /// <summary>

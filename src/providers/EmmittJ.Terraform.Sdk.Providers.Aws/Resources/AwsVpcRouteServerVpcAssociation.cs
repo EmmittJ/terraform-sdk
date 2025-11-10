@@ -13,8 +13,7 @@ public class AwsVpcRouteServerVpcAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpcRouteServerVpcAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,15 +38,18 @@ public class AwsVpcRouteServerVpcAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("region");
+        SetOutput("route_server_id");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -57,8 +58,8 @@ public class AwsVpcRouteServerVpcAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerId is required")]
     public required TerraformProperty<string> RouteServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("route_server_id");
-        set => this.WithProperty("route_server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("route_server_id");
+        set => SetProperty("route_server_id", value);
     }
 
     /// <summary>
@@ -67,8 +68,8 @@ public class AwsVpcRouteServerVpcAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -77,8 +78,7 @@ public class AwsVpcRouteServerVpcAssociation : TerraformResource
     /// </summary>
     public AwsVpcRouteServerVpcAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcRouteServerVpcAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

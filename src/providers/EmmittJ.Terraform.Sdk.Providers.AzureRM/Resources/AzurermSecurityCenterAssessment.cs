@@ -13,8 +13,7 @@ public class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cause
     {
-        get => GetProperty<TerraformProperty<string>>("cause");
-        set => WithProperty("cause", value);
+        set => SetProperty("cause", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformProperty<string> Code
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("code");
-        set => WithProperty("code", value);
+        set => SetProperty("code", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,15 +88,19 @@ public class AzurermSecurityCenterAssessment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("additional_data");
+        SetOutput("assessment_policy_id");
+        SetOutput("id");
+        SetOutput("target_resource_id");
     }
 
     /// <summary>
     /// The additional_data attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalData
+    public Dictionary<string, TerraformProperty<string>> AdditionalData
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_data");
-        set => this.WithProperty("additional_data", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_data");
+        set => SetProperty("additional_data", value);
     }
 
     /// <summary>
@@ -112,17 +109,17 @@ public class AzurermSecurityCenterAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentPolicyId is required")]
     public required TerraformProperty<string> AssessmentPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("assessment_policy_id");
-        set => this.WithProperty("assessment_policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("assessment_policy_id");
+        set => SetProperty("assessment_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,20 +128,20 @@ public class AzurermSecurityCenterAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
     /// Block for status.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Status block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Status block(s) allowed")]
     public List<AzurermSecurityCenterAssessmentStatusBlock>? Status
     {
-        get => GetProperty<List<AzurermSecurityCenterAssessmentStatusBlock>>("status");
-        set => this.WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -153,8 +150,7 @@ public class AzurermSecurityCenterAssessment : TerraformResource
     /// </summary>
     public AzurermSecurityCenterAssessmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSecurityCenterAssessmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

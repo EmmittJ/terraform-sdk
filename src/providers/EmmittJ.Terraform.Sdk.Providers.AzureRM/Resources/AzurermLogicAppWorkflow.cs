@@ -21,8 +21,7 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -112,38 +104,50 @@ public class AzurermLogicAppWorkflow : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_endpoint");
-        this.WithOutput("connector_endpoint_ip_addresses");
-        this.WithOutput("connector_outbound_ip_addresses");
-        this.WithOutput("workflow_endpoint_ip_addresses");
-        this.WithOutput("workflow_outbound_ip_addresses");
+        SetOutput("access_endpoint");
+        SetOutput("connector_endpoint_ip_addresses");
+        SetOutput("connector_outbound_ip_addresses");
+        SetOutput("workflow_endpoint_ip_addresses");
+        SetOutput("workflow_outbound_ip_addresses");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("integration_service_environment_id");
+        SetOutput("location");
+        SetOutput("logic_app_integration_account_id");
+        SetOutput("name");
+        SetOutput("parameters");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("workflow_parameters");
+        SetOutput("workflow_schema");
+        SetOutput("workflow_version");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The integration_service_environment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IntegrationServiceEnvironmentId
+    public TerraformProperty<string> IntegrationServiceEnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("integration_service_environment_id");
-        set => this.WithProperty("integration_service_environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("integration_service_environment_id");
+        set => SetProperty("integration_service_environment_id", value);
     }
 
     /// <summary>
@@ -152,17 +156,17 @@ public class AzurermLogicAppWorkflow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The logic_app_integration_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogicAppIntegrationAccountId
+    public TerraformProperty<string> LogicAppIntegrationAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("logic_app_integration_account_id");
-        set => this.WithProperty("logic_app_integration_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logic_app_integration_account_id");
+        set => SetProperty("logic_app_integration_account_id", value);
     }
 
     /// <summary>
@@ -171,17 +175,17 @@ public class AzurermLogicAppWorkflow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -190,44 +194,44 @@ public class AzurermLogicAppWorkflow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The workflow_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? WorkflowParameters
+    public Dictionary<string, TerraformProperty<string>> WorkflowParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("workflow_parameters");
-        set => this.WithProperty("workflow_parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("workflow_parameters");
+        set => SetProperty("workflow_parameters", value);
     }
 
     /// <summary>
     /// The workflow_schema attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkflowSchema
+    public TerraformProperty<string> WorkflowSchema
     {
-        get => GetProperty<TerraformProperty<string>>("workflow_schema");
-        set => this.WithProperty("workflow_schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workflow_schema");
+        set => SetProperty("workflow_schema", value);
     }
 
     /// <summary>
     /// The workflow_version attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkflowVersion
+    public TerraformProperty<string> WorkflowVersion
     {
-        get => GetProperty<TerraformProperty<string>>("workflow_version");
-        set => this.WithProperty("workflow_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workflow_version");
+        set => SetProperty("workflow_version", value);
     }
 
     /// <summary>
@@ -237,8 +241,7 @@ public class AzurermLogicAppWorkflow : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessControl block(s) allowed")]
     public List<AzurermLogicAppWorkflowAccessControlBlock>? AccessControl
     {
-        get => GetProperty<List<AzurermLogicAppWorkflowAccessControlBlock>>("access_control");
-        set => this.WithProperty("access_control", value);
+        set => SetProperty("access_control", value);
     }
 
     /// <summary>
@@ -248,8 +251,7 @@ public class AzurermLogicAppWorkflow : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermLogicAppWorkflowIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermLogicAppWorkflowIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -258,8 +260,7 @@ public class AzurermLogicAppWorkflow : TerraformResource
     /// </summary>
     public AzurermLogicAppWorkflowTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogicAppWorkflowTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -22,8 +22,7 @@ public class GoogleContainerAzureClusterAzureServicesAuthenticationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => WithProperty("application_id", value);
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class GoogleContainerAzureClusterAzureServicesAuthenticationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
 }
@@ -50,8 +48,7 @@ public class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -78,8 +73,7 @@ public class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VmSize
     {
-        get => GetProperty<TerraformProperty<string>>("vm_size");
-        set => WithProperty("vm_size", value);
+        set => SetProperty("vm_size", value);
     }
 
 }
@@ -95,8 +89,7 @@ public class GoogleContainerAzureClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Membership
     {
-        get => GetProperty<TerraformProperty<string>>("membership");
-        set => WithProperty("membership", value);
+        set => SetProperty("membership", value);
     }
 
     /// <summary>
@@ -104,8 +97,7 @@ public class GoogleContainerAzureClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => WithProperty("project", value);
+        set => SetProperty("project", value);
     }
 
 }
@@ -122,8 +114,7 @@ public class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodAddressCidrBlocks is required")]
     public List<TerraformProperty<string>>? PodAddressCidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("pod_address_cidr_blocks");
-        set => WithProperty("pod_address_cidr_blocks", value);
+        set => SetProperty("pod_address_cidr_blocks", value);
     }
 
     /// <summary>
@@ -132,8 +123,7 @@ public class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAddressCidrBlocks is required")]
     public List<TerraformProperty<string>>? ServiceAddressCidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("service_address_cidr_blocks");
-        set => WithProperty("service_address_cidr_blocks", value);
+        set => SetProperty("service_address_cidr_blocks", value);
     }
 
     /// <summary>
@@ -142,8 +132,7 @@ public class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
-        set => WithProperty("virtual_network_id", value);
+        set => SetProperty("virtual_network_id", value);
     }
 
 }
@@ -159,8 +148,7 @@ public class GoogleContainerAzureClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -168,8 +156,7 @@ public class GoogleContainerAzureClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -177,8 +164,7 @@ public class GoogleContainerAzureClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -196,15 +182,24 @@ public class GoogleContainerAzureCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("endpoint");
-        this.WithOutput("etag");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("workload_identity_config");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("endpoint");
+        SetOutput("etag");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("workload_identity_config");
+        SetOutput("annotations");
+        SetOutput("azure_region");
+        SetOutput("client");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("resource_group_id");
     }
 
     /// <summary>
@@ -213,10 +208,10 @@ public class GoogleContainerAzureCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -225,35 +220,35 @@ public class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureRegion is required")]
     public required TerraformProperty<string> AzureRegion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("azure_region");
-        set => this.WithProperty("azure_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("azure_region");
+        set => SetProperty("azure_region", value);
     }
 
     /// <summary>
     /// Name of the AzureClient. The `AzureClient` resource must reside on the same GCP project and region as the `AzureCluster`. `AzureClient` names are formatted as `projects/&amp;lt;project-number&amp;gt;/locations/&amp;lt;region&amp;gt;/azureClients/&amp;lt;client-id&amp;gt;`. See Resource Names (https:cloud.google.com/apis/design/resource_names) for more details on Google Cloud resource names.
     /// </summary>
-    public TerraformProperty<string>? Client
+    public TerraformProperty<string> Client
     {
-        get => GetProperty<TerraformProperty<string>>("client");
-        set => this.WithProperty("client", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client");
+        set => SetProperty("client", value);
     }
 
     /// <summary>
     /// Optional. A human readable description of this cluster. Cannot be longer than 255 UTF-8 encoded bytes.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -262,8 +257,8 @@ public class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -272,17 +267,17 @@ public class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -291,20 +286,20 @@ public class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformProperty<string> ResourceGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_id");
-        set => this.WithProperty("resource_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_id");
+        set => SetProperty("resource_group_id", value);
     }
 
     /// <summary>
     /// Block for authorization.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authorization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     public List<GoogleContainerAzureClusterAuthorizationBlock>? Authorization
     {
-        get => GetProperty<List<GoogleContainerAzureClusterAuthorizationBlock>>("authorization");
-        set => this.WithProperty("authorization", value);
+        set => SetProperty("authorization", value);
     }
 
     /// <summary>
@@ -314,44 +309,43 @@ public class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureServicesAuthentication block(s) allowed")]
     public List<GoogleContainerAzureClusterAzureServicesAuthenticationBlock>? AzureServicesAuthentication
     {
-        get => GetProperty<List<GoogleContainerAzureClusterAzureServicesAuthenticationBlock>>("azure_services_authentication");
-        set => this.WithProperty("azure_services_authentication", value);
+        set => SetProperty("azure_services_authentication", value);
     }
 
     /// <summary>
     /// Block for control_plane.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlane is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ControlPlane block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     public List<GoogleContainerAzureClusterControlPlaneBlock>? ControlPlane
     {
-        get => GetProperty<List<GoogleContainerAzureClusterControlPlaneBlock>>("control_plane");
-        set => this.WithProperty("control_plane", value);
+        set => SetProperty("control_plane", value);
     }
 
     /// <summary>
     /// Block for fleet.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fleet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     public List<GoogleContainerAzureClusterFleetBlock>? Fleet
     {
-        get => GetProperty<List<GoogleContainerAzureClusterFleetBlock>>("fleet");
-        set => this.WithProperty("fleet", value);
+        set => SetProperty("fleet", value);
     }
 
     /// <summary>
     /// Block for networking.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Networking is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
     public List<GoogleContainerAzureClusterNetworkingBlock>? Networking
     {
-        get => GetProperty<List<GoogleContainerAzureClusterNetworkingBlock>>("networking");
-        set => this.WithProperty("networking", value);
+        set => SetProperty("networking", value);
     }
 
     /// <summary>
@@ -360,8 +354,7 @@ public class GoogleContainerAzureCluster : TerraformResource
     /// </summary>
     public GoogleContainerAzureClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleContainerAzureClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

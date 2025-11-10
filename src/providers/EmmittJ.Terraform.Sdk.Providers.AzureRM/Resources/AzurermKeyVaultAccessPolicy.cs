@@ -13,8 +13,7 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,42 +54,51 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("application_id");
+        SetOutput("certificate_permissions");
+        SetOutput("id");
+        SetOutput("key_permissions");
+        SetOutput("key_vault_id");
+        SetOutput("object_id");
+        SetOutput("secret_permissions");
+        SetOutput("storage_permissions");
+        SetOutput("tenant_id");
     }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    public TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The certificate_permissions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? CertificatePermissions
+    public List<TerraformProperty<string>> CertificatePermissions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("certificate_permissions");
-        set => this.WithProperty("certificate_permissions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("certificate_permissions");
+        set => SetProperty("certificate_permissions", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_permissions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? KeyPermissions
+    public List<TerraformProperty<string>> KeyPermissions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("key_permissions");
-        set => this.WithProperty("key_permissions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("key_permissions");
+        set => SetProperty("key_permissions", value);
     }
 
     /// <summary>
@@ -102,8 +107,8 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -112,26 +117,26 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
-        set => this.WithProperty("object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
     /// The secret_permissions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SecretPermissions
+    public List<TerraformProperty<string>> SecretPermissions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("secret_permissions");
-        set => this.WithProperty("secret_permissions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("secret_permissions");
+        set => SetProperty("secret_permissions", value);
     }
 
     /// <summary>
     /// The storage_permissions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? StoragePermissions
+    public List<TerraformProperty<string>> StoragePermissions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("storage_permissions");
-        set => this.WithProperty("storage_permissions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("storage_permissions");
+        set => SetProperty("storage_permissions", value);
     }
 
     /// <summary>
@@ -140,8 +145,8 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
-        set => this.WithProperty("tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -150,8 +155,7 @@ public class AzurermKeyVaultAccessPolicy : TerraformResource
     /// </summary>
     public AzurermKeyVaultAccessPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultAccessPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

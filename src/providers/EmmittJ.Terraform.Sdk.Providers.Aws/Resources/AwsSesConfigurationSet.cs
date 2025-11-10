@@ -13,8 +13,7 @@ public class AwsSesConfigurationSetDeliveryOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TlsPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("tls_policy");
-        set => WithProperty("tls_policy", value);
+        set => SetProperty("tls_policy", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsSesConfigurationSetTrackingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomRedirectDomain
     {
-        get => GetProperty<TerraformProperty<string>>("custom_redirect_domain");
-        set => WithProperty("custom_redirect_domain", value);
+        set => SetProperty("custom_redirect_domain", value);
     }
 
 }
@@ -49,17 +47,22 @@ public class AwsSesConfigurationSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("last_fresh_start");
+        SetOutput("arn");
+        SetOutput("last_fresh_start");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("reputation_metrics_enabled");
+        SetOutput("sending_enabled");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,35 +71,35 @@ public class AwsSesConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The reputation_metrics_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReputationMetricsEnabled
+    public TerraformProperty<bool> ReputationMetricsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("reputation_metrics_enabled");
-        set => this.WithProperty("reputation_metrics_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("reputation_metrics_enabled");
+        set => SetProperty("reputation_metrics_enabled", value);
     }
 
     /// <summary>
     /// The sending_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SendingEnabled
+    public TerraformProperty<bool> SendingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sending_enabled");
-        set => this.WithProperty("sending_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("sending_enabled");
+        set => SetProperty("sending_enabled", value);
     }
 
     /// <summary>
@@ -106,8 +109,7 @@ public class AwsSesConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryOptions block(s) allowed")]
     public List<AwsSesConfigurationSetDeliveryOptionsBlock>? DeliveryOptions
     {
-        get => GetProperty<List<AwsSesConfigurationSetDeliveryOptionsBlock>>("delivery_options");
-        set => this.WithProperty("delivery_options", value);
+        set => SetProperty("delivery_options", value);
     }
 
     /// <summary>
@@ -117,8 +119,7 @@ public class AwsSesConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrackingOptions block(s) allowed")]
     public List<AwsSesConfigurationSetTrackingOptionsBlock>? TrackingOptions
     {
-        get => GetProperty<List<AwsSesConfigurationSetTrackingOptionsBlock>>("tracking_options");
-        set => this.WithProperty("tracking_options", value);
+        set => SetProperty("tracking_options", value);
     }
 
     /// <summary>

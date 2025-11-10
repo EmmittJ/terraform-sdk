@@ -14,25 +14,30 @@ public class AwsVpcIpamPreviewNextCidr : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cidr");
+        SetOutput("cidr");
+        SetOutput("disallowed_cidrs");
+        SetOutput("id");
+        SetOutput("ipam_pool_id");
+        SetOutput("netmask_length");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The disallowed_cidrs attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DisallowedCidrs
+    public HashSet<TerraformProperty<string>> DisallowedCidrs
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("disallowed_cidrs");
-        set => this.WithProperty("disallowed_cidrs", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("disallowed_cidrs");
+        set => SetProperty("disallowed_cidrs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,26 +46,26 @@ public class AwsVpcIpamPreviewNextCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     public required TerraformProperty<string> IpamPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ipam_pool_id");
-        set => this.WithProperty("ipam_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipam_pool_id");
+        set => SetProperty("ipam_pool_id", value);
     }
 
     /// <summary>
     /// The netmask_length attribute.
     /// </summary>
-    public TerraformProperty<double>? NetmaskLength
+    public TerraformProperty<double> NetmaskLength
     {
-        get => GetProperty<TerraformProperty<double>>("netmask_length");
-        set => this.WithProperty("netmask_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("netmask_length");
+        set => SetProperty("netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

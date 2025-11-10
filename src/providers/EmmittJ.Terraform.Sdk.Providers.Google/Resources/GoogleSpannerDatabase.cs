@@ -14,8 +14,7 @@ public class GoogleSpannerDatabaseEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleSpannerDatabaseEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? KmsKeyNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("kms_key_names");
-        set => WithProperty("kms_key_names", value);
+        set => SetProperty("kms_key_names", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleSpannerDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleSpannerDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleSpannerDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -78,17 +73,27 @@ public class GoogleSpannerDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("state");
+        SetOutput("state");
+        SetOutput("database_dialect");
+        SetOutput("ddl");
+        SetOutput("default_time_zone");
+        SetOutput("deletion_protection");
+        SetOutput("enable_drop_protection");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("version_retention_period");
     }
 
     /// <summary>
     /// The dialect of the Cloud Spanner Database.
     /// If it is not provided, &amp;quot;GOOGLE_STANDARD_SQL&amp;quot; will be used. Possible values: [&amp;quot;GOOGLE_STANDARD_SQL&amp;quot;, &amp;quot;POSTGRESQL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DatabaseDialect
+    public TerraformProperty<string> DatabaseDialect
     {
-        get => GetProperty<TerraformProperty<string>>("database_dialect");
-        set => this.WithProperty("database_dialect", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_dialect");
+        set => SetProperty("database_dialect", value);
     }
 
     /// <summary>
@@ -103,20 +108,20 @@ public class GoogleSpannerDatabase : TerraformResource
     /// newly appended DDL statements can be executed in an update. However, modifications
     /// to prior statements will create a plan that marks the resource for recreation.
     /// </summary>
-    public List<TerraformProperty<string>>? Ddl
+    public List<TerraformProperty<string>> Ddl
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ddl");
-        set => this.WithProperty("ddl", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ddl");
+        set => SetProperty("ddl", value);
     }
 
     /// <summary>
     /// The default time zone for the database. The default time zone must be a valid name
     /// from the tz database. Default value is &amp;quot;America/Los_angeles&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? DefaultTimeZone
+    public TerraformProperty<string> DefaultTimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("default_time_zone");
-        set => this.WithProperty("default_time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_time_zone");
+        set => SetProperty("default_time_zone", value);
     }
 
     /// <summary>
@@ -127,10 +132,10 @@ public class GoogleSpannerDatabase : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the database will fail.
     /// When the field is set to false, deleting the database is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
@@ -142,19 +147,19 @@ public class GoogleSpannerDatabase : TerraformResource
     /// (2) Setting &amp;quot;enableDropProtection&amp;quot; to true also prevents the deletion of the parent instance containing the database.
     /// &amp;quot;deletion_protection&amp;quot; attribute does not provide protection against the deletion of the parent instance.
     /// </summary>
-    public TerraformProperty<bool>? EnableDropProtection
+    public TerraformProperty<bool> EnableDropProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_drop_protection");
-        set => this.WithProperty("enable_drop_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_drop_protection");
+        set => SetProperty("enable_drop_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -163,8 +168,8 @@ public class GoogleSpannerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -174,17 +179,17 @@ public class GoogleSpannerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -194,10 +199,10 @@ public class GoogleSpannerDatabase : TerraformResource
     /// If this property is used, you must avoid adding new DDL statements to &#39;ddl&#39; that
     /// update the database&#39;s version_retention_period.
     /// </summary>
-    public TerraformProperty<string>? VersionRetentionPeriod
+    public TerraformProperty<string> VersionRetentionPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("version_retention_period");
-        set => this.WithProperty("version_retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_retention_period");
+        set => SetProperty("version_retention_period", value);
     }
 
     /// <summary>
@@ -207,8 +212,7 @@ public class GoogleSpannerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     public List<GoogleSpannerDatabaseEncryptionConfigBlock>? EncryptionConfig
     {
-        get => GetProperty<List<GoogleSpannerDatabaseEncryptionConfigBlock>>("encryption_config");
-        set => this.WithProperty("encryption_config", value);
+        set => SetProperty("encryption_config", value);
     }
 
     /// <summary>
@@ -217,8 +221,7 @@ public class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     public GoogleSpannerDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSpannerDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,31 +14,33 @@ public class AwsSsmincidentsReplicationSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_by");
-        this.WithOutput("deletion_protected");
-        this.WithOutput("last_modified_by");
-        this.WithOutput("region");
-        this.WithOutput("regions");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("created_by");
+        SetOutput("deletion_protected");
+        SetOutput("last_modified_by");
+        SetOutput("region");
+        SetOutput("regions");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

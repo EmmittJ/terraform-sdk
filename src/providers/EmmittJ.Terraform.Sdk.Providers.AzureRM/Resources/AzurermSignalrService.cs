@@ -14,8 +14,7 @@ public class AzurermSignalrServiceCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public HashSet<TerraformProperty<string>>? AllowedOrigins
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_origins");
-        set => WithProperty("allowed_origins", value);
+        set => SetProperty("allowed_origins", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermSignalrServiceIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermSignalrServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermSignalrServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermSignalrServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ConnectivityLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("connectivity_logs_enabled");
-        set => WithProperty("connectivity_logs_enabled", value);
+        set => SetProperty("connectivity_logs_enabled", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? HttpRequestLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("http_request_logs_enabled");
-        set => WithProperty("http_request_logs_enabled", value);
+        set => SetProperty("http_request_logs_enabled", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MessagingLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("messaging_logs_enabled");
-        set => WithProperty("messaging_logs_enabled", value);
+        set => SetProperty("messaging_logs_enabled", value);
     }
 
 }
@@ -121,8 +112,7 @@ public class AzurermSignalrServiceSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformProperty<double> Capacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("capacity");
-        set => WithProperty("capacity", value);
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
@@ -131,8 +121,7 @@ public class AzurermSignalrServiceSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -148,8 +137,7 @@ public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -157,8 +145,7 @@ public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -166,8 +153,7 @@ public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -175,8 +161,7 @@ public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -193,8 +178,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CategoryPattern is required")]
     public List<TerraformProperty<string>>? CategoryPattern
     {
-        get => GetProperty<List<TerraformProperty<string>>>("category_pattern");
-        set => WithProperty("category_pattern", value);
+        set => SetProperty("category_pattern", value);
     }
 
     /// <summary>
@@ -203,8 +187,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventPattern is required")]
     public List<TerraformProperty<string>>? EventPattern
     {
-        get => GetProperty<List<TerraformProperty<string>>>("event_pattern");
-        set => WithProperty("event_pattern", value);
+        set => SetProperty("event_pattern", value);
     }
 
     /// <summary>
@@ -213,8 +196,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubPattern is required")]
     public List<TerraformProperty<string>>? HubPattern
     {
-        get => GetProperty<List<TerraformProperty<string>>>("hub_pattern");
-        set => WithProperty("hub_pattern", value);
+        set => SetProperty("hub_pattern", value);
     }
 
     /// <summary>
@@ -223,8 +205,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
     public required TerraformProperty<string> UrlTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url_template");
-        set => WithProperty("url_template", value);
+        set => SetProperty("url_template", value);
     }
 
     /// <summary>
@@ -232,8 +213,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
-        set => WithProperty("user_assigned_identity_id", value);
+        set => SetProperty("user_assigned_identity_id", value);
     }
 
 }
@@ -251,69 +231,84 @@ public class AzurermSignalrService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputostname");
-        this.WithOutputp_address");
-        this.WithOutputrimary_access_key");
-        this.WithOutputrimary_connection_string");
-        this.WithOutputublic_port");
-        this.WithOutputecondary_access_key");
-        this.WithOutputecondary_connection_string");
-        this.WithOutputerver_port");
+        SetOutput("hostname");
+        SetOutput("ip_address");
+        SetOutput("primary_access_key");
+        SetOutput("primary_connection_string");
+        SetOutput("public_port");
+        SetOutput("secondary_access_key");
+        SetOutput("secondary_connection_string");
+        SetOutput("server_port");
+        SetOutput("aad_auth_enabled");
+        SetOutput("connectivity_logs_enabled");
+        SetOutput("http_request_logs_enabled");
+        SetOutput("id");
+        SetOutput("live_trace_enabled");
+        SetOutput("local_auth_enabled");
+        SetOutput("location");
+        SetOutput("messaging_logs_enabled");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("serverless_connection_timeout_in_seconds");
+        SetOutput("service_mode");
+        SetOutput("tags");
+        SetOutput("tls_client_cert_enabled");
     }
 
     /// <summary>
     /// The aad_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AadAuthEnabled
+    public TerraformProperty<bool> AadAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("aad_auth_enabled");
-        set => this.WithProperty("aad_auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("aad_auth_enabled");
+        set => SetProperty("aad_auth_enabled", value);
     }
 
     /// <summary>
     /// The connectivity_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ConnectivityLogsEnabled
+    public TerraformProperty<bool> ConnectivityLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("connectivity_logs_enabled");
-        set => this.WithProperty("connectivity_logs_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("connectivity_logs_enabled");
+        set => SetProperty("connectivity_logs_enabled", value);
     }
 
     /// <summary>
     /// The http_request_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HttpRequestLogsEnabled
+    public TerraformProperty<bool> HttpRequestLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("http_request_logs_enabled");
-        set => this.WithProperty("http_request_logs_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("http_request_logs_enabled");
+        set => SetProperty("http_request_logs_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The live_trace_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? LiveTraceEnabled
+    public TerraformProperty<bool> LiveTraceEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("live_trace_enabled");
-        set => this.WithProperty("live_trace_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("live_trace_enabled");
+        set => SetProperty("live_trace_enabled", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthEnabled
+    public TerraformProperty<bool> LocalAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_auth_enabled");
-        set => this.WithProperty("local_auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_auth_enabled");
+        set => SetProperty("local_auth_enabled", value);
     }
 
     /// <summary>
@@ -322,17 +317,17 @@ public class AzurermSignalrService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The messaging_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MessagingLogsEnabled
+    public TerraformProperty<bool> MessagingLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("messaging_logs_enabled");
-        set => this.WithProperty("messaging_logs_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("messaging_logs_enabled");
+        set => SetProperty("messaging_logs_enabled", value);
     }
 
     /// <summary>
@@ -341,17 +336,17 @@ public class AzurermSignalrService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -360,44 +355,44 @@ public class AzurermSignalrService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The serverless_connection_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? ServerlessConnectionTimeoutInSeconds
+    public TerraformProperty<double> ServerlessConnectionTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("serverless_connection_timeout_in_seconds");
-        set => this.WithProperty("serverless_connection_timeout_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("serverless_connection_timeout_in_seconds");
+        set => SetProperty("serverless_connection_timeout_in_seconds", value);
     }
 
     /// <summary>
     /// The service_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceMode
+    public TerraformProperty<string> ServiceMode
     {
-        get => GetProperty<TerraformProperty<string>>("service_mode");
-        set => this.WithProperty("service_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_mode");
+        set => SetProperty("service_mode", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tls_client_cert_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsClientCertEnabled
+    public TerraformProperty<bool> TlsClientCertEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tls_client_cert_enabled");
-        set => this.WithProperty("tls_client_cert_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tls_client_cert_enabled");
+        set => SetProperty("tls_client_cert_enabled", value);
     }
 
     /// <summary>
@@ -406,8 +401,7 @@ public class AzurermSignalrService : TerraformResource
     /// </summary>
     public List<AzurermSignalrServiceCorsBlock>? Cors
     {
-        get => GetProperty<List<AzurermSignalrServiceCorsBlock>>("cors");
-        set => this.WithProperty("cors", value);
+        set => SetProperty("cors", value);
     }
 
     /// <summary>
@@ -417,8 +411,7 @@ public class AzurermSignalrService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermSignalrServiceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermSignalrServiceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -428,20 +421,19 @@ public class AzurermSignalrService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LiveTrace block(s) allowed")]
     public List<AzurermSignalrServiceLiveTraceBlock>? LiveTrace
     {
-        get => GetProperty<List<AzurermSignalrServiceLiveTraceBlock>>("live_trace");
-        set => this.WithProperty("live_trace", value);
+        set => SetProperty("live_trace", value);
     }
 
     /// <summary>
     /// Block for sku.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     public List<AzurermSignalrServiceSkuBlock>? Sku
     {
-        get => GetProperty<List<AzurermSignalrServiceSkuBlock>>("sku");
-        set => this.WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -450,8 +442,7 @@ public class AzurermSignalrService : TerraformResource
     /// </summary>
     public AzurermSignalrServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSignalrServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -460,8 +451,7 @@ public class AzurermSignalrService : TerraformResource
     /// </summary>
     public HashSet<AzurermSignalrServiceUpstreamEndpointBlock>? UpstreamEndpoint
     {
-        get => GetProperty<HashSet<AzurermSignalrServiceUpstreamEndpointBlock>>("upstream_endpoint");
-        set => this.WithProperty("upstream_endpoint", value);
+        set => SetProperty("upstream_endpoint", value);
     }
 
     /// <summary>

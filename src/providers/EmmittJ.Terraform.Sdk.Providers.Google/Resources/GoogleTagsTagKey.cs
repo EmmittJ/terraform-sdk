@@ -13,8 +13,7 @@ public class GoogleTagsTagKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleTagsTagKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleTagsTagKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,28 +46,34 @@ public class GoogleTagsTagKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("namespaced_name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("namespaced_name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("purpose");
+        SetOutput("purpose_data");
+        SetOutput("short_name");
     }
 
     /// <summary>
     /// User-assigned description of the TagKey. Must not exceed 256 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -79,8 +82,8 @@ public class GoogleTagsTagKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -88,10 +91,10 @@ public class GoogleTagsTagKey : TerraformResource
     /// 
     /// A purpose denotes that this Tag is intended for use in policies of a specific policy engine, and will involve that policy engine in management operations involving this Tag. Possible values: [&amp;quot;GCE_FIREWALL&amp;quot;, &amp;quot;DATA_GOVERNANCE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Purpose
+    public TerraformProperty<string> Purpose
     {
-        get => GetProperty<TerraformProperty<string>>("purpose");
-        set => this.WithProperty("purpose", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("purpose");
+        set => SetProperty("purpose", value);
     }
 
     /// <summary>
@@ -99,10 +102,10 @@ public class GoogleTagsTagKey : TerraformResource
     /// 
     /// Purpose data corresponds to the policy system that the tag is intended for. For example, the GCE_FIREWALL purpose expects data in the following format: &#39;network = &amp;quot;&amp;lt;project-name&amp;gt;/&amp;lt;vpc-name&amp;gt;&amp;quot;&#39;.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? PurposeData
+    public Dictionary<string, TerraformProperty<string>> PurposeData
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("purpose_data");
-        set => this.WithProperty("purpose_data", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("purpose_data");
+        set => SetProperty("purpose_data", value);
     }
 
     /// <summary>
@@ -113,8 +116,8 @@ public class GoogleTagsTagKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     public required TerraformProperty<string> ShortName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("short_name");
-        set => this.WithProperty("short_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("short_name");
+        set => SetProperty("short_name", value);
     }
 
     /// <summary>
@@ -123,8 +126,7 @@ public class GoogleTagsTagKey : TerraformResource
     /// </summary>
     public GoogleTagsTagKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleTagsTagKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsMedialiveInputDestinationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformProperty<string> StreamName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_name");
-        set => WithProperty("stream_name", value);
+        set => SetProperty("stream_name", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsMedialiveInputInputDevicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -50,8 +48,7 @@ public class AwsMedialiveInputMediaConnectFlowsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowArn is required")]
     public required TerraformProperty<string> FlowArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("flow_arn");
-        set => WithProperty("flow_arn", value);
+        set => SetProperty("flow_arn", value);
     }
 
 }
@@ -68,8 +65,7 @@ public class AwsMedialiveInputSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordParam is required")]
     public required TerraformProperty<string> PasswordParam
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password_param");
-        set => WithProperty("password_param", value);
+        set => SetProperty("password_param", value);
     }
 
     /// <summary>
@@ -78,8 +74,7 @@ public class AwsMedialiveInputSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
     /// <summary>
@@ -88,8 +83,7 @@ public class AwsMedialiveInputSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -105,8 +99,7 @@ public class AwsMedialiveInputTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -114,8 +107,7 @@ public class AwsMedialiveInputTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -123,8 +115,7 @@ public class AwsMedialiveInputTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -140,8 +131,7 @@ public class AwsMedialiveInputVpcBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -150,8 +140,7 @@ public class AwsMedialiveInputVpcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public List<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -169,29 +158,37 @@ public class AwsMedialiveInput : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputttached_channels");
-        this.WithOutputnput_class");
-        this.WithOutputnput_partner_ids");
-        this.WithOutputnput_source_type");
+        SetOutput("arn");
+        SetOutput("attached_channels");
+        SetOutput("input_class");
+        SetOutput("input_partner_ids");
+        SetOutput("input_source_type");
+        SetOutput("id");
+        SetOutput("input_security_groups");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The input_security_groups attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? InputSecurityGroups
+    public List<TerraformProperty<string>> InputSecurityGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("input_security_groups");
-        set => this.WithProperty("input_security_groups", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("input_security_groups");
+        set => SetProperty("input_security_groups", value);
     }
 
     /// <summary>
@@ -200,44 +197,44 @@ public class AwsMedialiveInput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -246,8 +243,8 @@ public class AwsMedialiveInput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -256,8 +253,7 @@ public class AwsMedialiveInput : TerraformResource
     /// </summary>
     public HashSet<AwsMedialiveInputDestinationsBlock>? Destinations
     {
-        get => GetProperty<HashSet<AwsMedialiveInputDestinationsBlock>>("destinations");
-        set => this.WithProperty("destinations", value);
+        set => SetProperty("destinations", value);
     }
 
     /// <summary>
@@ -266,8 +262,7 @@ public class AwsMedialiveInput : TerraformResource
     /// </summary>
     public HashSet<AwsMedialiveInputInputDevicesBlock>? InputDevices
     {
-        get => GetProperty<HashSet<AwsMedialiveInputInputDevicesBlock>>("input_devices");
-        set => this.WithProperty("input_devices", value);
+        set => SetProperty("input_devices", value);
     }
 
     /// <summary>
@@ -276,8 +271,7 @@ public class AwsMedialiveInput : TerraformResource
     /// </summary>
     public HashSet<AwsMedialiveInputMediaConnectFlowsBlock>? MediaConnectFlows
     {
-        get => GetProperty<HashSet<AwsMedialiveInputMediaConnectFlowsBlock>>("media_connect_flows");
-        set => this.WithProperty("media_connect_flows", value);
+        set => SetProperty("media_connect_flows", value);
     }
 
     /// <summary>
@@ -286,8 +280,7 @@ public class AwsMedialiveInput : TerraformResource
     /// </summary>
     public HashSet<AwsMedialiveInputSourcesBlock>? Sources
     {
-        get => GetProperty<HashSet<AwsMedialiveInputSourcesBlock>>("sources");
-        set => this.WithProperty("sources", value);
+        set => SetProperty("sources", value);
     }
 
     /// <summary>
@@ -296,8 +289,7 @@ public class AwsMedialiveInput : TerraformResource
     /// </summary>
     public AwsMedialiveInputTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMedialiveInputTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -307,8 +299,7 @@ public class AwsMedialiveInput : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vpc block(s) allowed")]
     public List<AwsMedialiveInputVpcBlock>? Vpc
     {
-        get => GetProperty<List<AwsMedialiveInputVpcBlock>>("vpc");
-        set => this.WithProperty("vpc", value);
+        set => SetProperty("vpc", value);
     }
 
     /// <summary>

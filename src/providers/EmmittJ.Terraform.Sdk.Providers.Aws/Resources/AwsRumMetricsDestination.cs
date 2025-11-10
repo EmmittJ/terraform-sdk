@@ -14,6 +14,12 @@ public class AwsRumMetricsDestination : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("app_monitor_name");
+        SetOutput("destination");
+        SetOutput("destination_arn");
+        SetOutput("iam_role_arn");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,8 +28,8 @@ public class AwsRumMetricsDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppMonitorName is required")]
     public required TerraformProperty<string> AppMonitorName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_monitor_name");
-        set => this.WithProperty("app_monitor_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_monitor_name");
+        set => SetProperty("app_monitor_name", value);
     }
 
     /// <summary>
@@ -32,44 +38,44 @@ public class AwsRumMetricsDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination");
-        set => this.WithProperty("destination", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination");
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationArn
+    public TerraformProperty<string> DestinationArn
     {
-        get => GetProperty<TerraformProperty<string>>("destination_arn");
-        set => this.WithProperty("destination_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_arn");
+        set => SetProperty("destination_arn", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRoleArn
+    public TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

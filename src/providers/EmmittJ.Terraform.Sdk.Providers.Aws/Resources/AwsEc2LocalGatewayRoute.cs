@@ -14,6 +14,11 @@ public class AwsEc2LocalGatewayRoute : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("destination_cidr_block");
+        SetOutput("id");
+        SetOutput("local_gateway_route_table_id");
+        SetOutput("local_gateway_virtual_interface_group_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,17 +27,17 @@ public class AwsEc2LocalGatewayRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     public required TerraformProperty<string> DestinationCidrBlock
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_cidr_block");
-        set => this.WithProperty("destination_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_cidr_block");
+        set => SetProperty("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,8 +46,8 @@ public class AwsEc2LocalGatewayRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalGatewayRouteTableId is required")]
     public required TerraformProperty<string> LocalGatewayRouteTableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("local_gateway_route_table_id");
-        set => this.WithProperty("local_gateway_route_table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("local_gateway_route_table_id");
+        set => SetProperty("local_gateway_route_table_id", value);
     }
 
     /// <summary>
@@ -51,17 +56,17 @@ public class AwsEc2LocalGatewayRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalGatewayVirtualInterfaceGroupId is required")]
     public required TerraformProperty<string> LocalGatewayVirtualInterfaceGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("local_gateway_virtual_interface_group_id");
-        set => this.WithProperty("local_gateway_virtual_interface_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("local_gateway_virtual_interface_group_id");
+        set => SetProperty("local_gateway_virtual_interface_group_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

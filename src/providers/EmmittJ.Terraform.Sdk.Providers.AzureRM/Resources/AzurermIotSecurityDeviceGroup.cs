@@ -13,8 +13,7 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ConnectionFromIpsNotAllowed
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("connection_from_ips_not_allowed");
-        set => WithProperty("connection_from_ips_not_allowed", value);
+        set => SetProperty("connection_from_ips_not_allowed", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ConnectionToIpsNotAllowed
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("connection_to_ips_not_allowed");
-        set => WithProperty("connection_to_ips_not_allowed", value);
+        set => SetProperty("connection_to_ips_not_allowed", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? LocalUsersNotAllowed
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("local_users_not_allowed");
-        set => WithProperty("local_users_not_allowed", value);
+        set => SetProperty("local_users_not_allowed", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ProcessesNotAllowed
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("processes_not_allowed");
-        set => WithProperty("processes_not_allowed", value);
+        set => SetProperty("processes_not_allowed", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<string> Duration
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("duration");
-        set => WithProperty("duration", value);
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Max is required")]
     public required TerraformProperty<double> Max
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max");
-        set => WithProperty("max", value);
+        set => SetProperty("max", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformProperty<double> Min
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min");
-        set => WithProperty("min", value);
+        set => SetProperty("min", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -105,8 +97,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -114,8 +105,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -132,8 +121,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -151,15 +139,18 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("iothub_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -168,8 +159,8 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
-        set => this.WithProperty("iothub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
+        set => SetProperty("iothub_id", value);
     }
 
     /// <summary>
@@ -178,8 +169,8 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -189,8 +180,7 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllowRule block(s) allowed")]
     public List<AzurermIotSecurityDeviceGroupAllowRuleBlock>? AllowRule
     {
-        get => GetProperty<List<AzurermIotSecurityDeviceGroupAllowRuleBlock>>("allow_rule");
-        set => this.WithProperty("allow_rule", value);
+        set => SetProperty("allow_rule", value);
     }
 
     /// <summary>
@@ -199,8 +189,7 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     /// </summary>
     public HashSet<AzurermIotSecurityDeviceGroupRangeRuleBlock>? RangeRule
     {
-        get => GetProperty<HashSet<AzurermIotSecurityDeviceGroupRangeRuleBlock>>("range_rule");
-        set => this.WithProperty("range_rule", value);
+        set => SetProperty("range_rule", value);
     }
 
     /// <summary>
@@ -209,8 +198,7 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     /// </summary>
     public AzurermIotSecurityDeviceGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIotSecurityDeviceGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

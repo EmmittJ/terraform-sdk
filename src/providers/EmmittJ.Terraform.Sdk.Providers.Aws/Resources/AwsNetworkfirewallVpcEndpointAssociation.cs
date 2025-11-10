@@ -13,8 +13,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => WithProperty("ip_address_type", value);
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -67,19 +63,24 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("tags_all");
-        this.WithOutput("vpc_endpoint_association_arn");
-        this.WithOutput("vpc_endpoint_association_id");
-        this.WithOutput("vpc_endpoint_association_status");
+        SetOutput("tags_all");
+        SetOutput("vpc_endpoint_association_arn");
+        SetOutput("vpc_endpoint_association_id");
+        SetOutput("vpc_endpoint_association_status");
+        SetOutput("description");
+        SetOutput("firewall_arn");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -88,26 +89,26 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
     public required TerraformProperty<string> FirewallArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("firewall_arn");
-        set => this.WithProperty("firewall_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firewall_arn");
+        set => SetProperty("firewall_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -116,8 +117,8 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -126,8 +127,7 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     /// </summary>
     public List<AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock>? SubnetMapping
     {
-        get => GetProperty<List<AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock>>("subnet_mapping");
-        set => this.WithProperty("subnet_mapping", value);
+        set => SetProperty("subnet_mapping", value);
     }
 
     /// <summary>
@@ -136,8 +136,7 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     /// </summary>
     public AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

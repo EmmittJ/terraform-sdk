@@ -13,8 +13,7 @@ public class AzurermSecurityCenterSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSecurityCenterSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSecurityCenterSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSecurityCenterSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,9 @@ public class AzurermSecurityCenterSetting : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("setting_name");
     }
 
     /// <summary>
@@ -66,17 +65,17 @@ public class AzurermSecurityCenterSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +84,8 @@ public class AzurermSecurityCenterSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingName is required")]
     public required TerraformProperty<string> SettingName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("setting_name");
-        set => this.WithProperty("setting_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("setting_name");
+        set => SetProperty("setting_name", value);
     }
 
     /// <summary>
@@ -95,8 +94,7 @@ public class AzurermSecurityCenterSetting : TerraformResource
     /// </summary>
     public AzurermSecurityCenterSettingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSecurityCenterSettingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

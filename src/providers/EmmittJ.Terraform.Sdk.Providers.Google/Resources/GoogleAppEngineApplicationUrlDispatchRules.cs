@@ -14,8 +14,7 @@ public class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => WithProperty("domain", value);
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
@@ -25,8 +24,7 @@ public class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -36,8 +34,7 @@ public class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => WithProperty("service", value);
+        set => SetProperty("service", value);
     }
 
 }
@@ -53,8 +50,7 @@ public class GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -90,35 +84,37 @@ public class GoogleAppEngineApplicationUrlDispatchRules : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for dispatch_rules.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DispatchRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DispatchRules block(s) required")]
     public List<GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock>? DispatchRules
     {
-        get => GetProperty<List<GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock>>("dispatch_rules");
-        set => this.WithProperty("dispatch_rules", value);
+        set => SetProperty("dispatch_rules", value);
     }
 
     /// <summary>
@@ -127,8 +123,7 @@ public class GoogleAppEngineApplicationUrlDispatchRules : TerraformResource
     /// </summary>
     public GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

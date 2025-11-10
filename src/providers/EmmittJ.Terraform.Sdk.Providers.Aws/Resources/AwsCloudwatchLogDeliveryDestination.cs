@@ -14,8 +14,7 @@ public class AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfiguration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceArn is required")]
     public required TerraformProperty<string> DestinationResourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_resource_arn");
-        set => WithProperty("destination_resource_arn", value);
+        set => SetProperty("destination_resource_arn", value);
     }
 
 }
@@ -32,9 +31,13 @@ public class AwsCloudwatchLogDeliveryDestination : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("delivery_destination_type");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("delivery_destination_type");
+        SetOutput("tags_all");
+        SetOutput("name");
+        SetOutput("output_format");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -43,35 +46,35 @@ public class AwsCloudwatchLogDeliveryDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The output_format attribute.
     /// </summary>
-    public TerraformProperty<string>? OutputFormat
+    public TerraformProperty<string> OutputFormat
     {
-        get => GetProperty<TerraformProperty<string>>("output_format");
-        set => this.WithProperty("output_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("output_format");
+        set => SetProperty("output_format", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -80,8 +83,7 @@ public class AwsCloudwatchLogDeliveryDestination : TerraformResource
     /// </summary>
     public List<AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfigurationBlock>? DeliveryDestinationConfiguration
     {
-        get => GetProperty<List<AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfigurationBlock>>("delivery_destination_configuration");
-        set => this.WithProperty("delivery_destination_configuration", value);
+        set => SetProperty("delivery_destination_configuration", value);
     }
 
     /// <summary>

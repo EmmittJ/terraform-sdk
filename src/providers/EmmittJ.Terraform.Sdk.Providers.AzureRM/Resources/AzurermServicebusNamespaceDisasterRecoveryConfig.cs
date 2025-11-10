@@ -13,8 +13,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,28 +54,33 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
 
     private void InitializeOutputs()
     {
-        this.WithOutputefault_primary_key");
-        this.WithOutputefault_secondary_key");
-        this.WithOutputrimary_connection_string_alias");
-        this.WithOutputecondary_connection_string_alias");
+        SetOutput("default_primary_key");
+        SetOutput("default_secondary_key");
+        SetOutput("primary_connection_string_alias");
+        SetOutput("secondary_connection_string_alias");
+        SetOutput("alias_authorization_rule_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("partner_namespace_id");
+        SetOutput("primary_namespace_id");
     }
 
     /// <summary>
     /// The alias_authorization_rule_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AliasAuthorizationRuleId
+    public TerraformProperty<string> AliasAuthorizationRuleId
     {
-        get => GetProperty<TerraformProperty<string>>("alias_authorization_rule_id");
-        set => this.WithProperty("alias_authorization_rule_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias_authorization_rule_id");
+        set => SetProperty("alias_authorization_rule_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -88,8 +89,8 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -98,8 +99,8 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerNamespaceId is required")]
     public required TerraformProperty<string> PartnerNamespaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partner_namespace_id");
-        set => this.WithProperty("partner_namespace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partner_namespace_id");
+        set => SetProperty("partner_namespace_id", value);
     }
 
     /// <summary>
@@ -108,8 +109,8 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryNamespaceId is required")]
     public required TerraformProperty<string> PrimaryNamespaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("primary_namespace_id");
-        set => this.WithProperty("primary_namespace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_namespace_id");
+        set => SetProperty("primary_namespace_id", value);
     }
 
     /// <summary>
@@ -118,8 +119,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     /// </summary>
     public AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

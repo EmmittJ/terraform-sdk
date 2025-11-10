@@ -14,8 +14,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => WithProperty("resource_id", value);
+        set => SetProperty("resource_id", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,8 +71,13 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("primary_authorization_key");
-        this.WithOutput("secondary_authorization_key");
+        SetOutput("primary_authorization_key");
+        SetOutput("secondary_authorization_key");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("self_contained_interactive_authoring_enabled");
     }
 
     /// <summary>
@@ -86,26 +86,26 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -114,17 +114,17 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The self_contained_interactive_authoring_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SelfContainedInteractiveAuthoringEnabled
+    public TerraformProperty<bool> SelfContainedInteractiveAuthoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("self_contained_interactive_authoring_enabled");
-        set => this.WithProperty("self_contained_interactive_authoring_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("self_contained_interactive_authoring_enabled");
+        set => SetProperty("self_contained_interactive_authoring_enabled", value);
     }
 
     /// <summary>
@@ -133,8 +133,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
     /// </summary>
     public HashSet<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock>? RbacAuthorization
     {
-        get => GetProperty<HashSet<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock>>("rbac_authorization");
-        set => this.WithProperty("rbac_authorization", value);
+        set => SetProperty("rbac_authorization", value);
     }
 
     /// <summary>
@@ -143,8 +142,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
     /// </summary>
     public AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

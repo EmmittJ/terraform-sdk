@@ -13,8 +13,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,20 @@ public class AzurermKubernetesClusterTrustedAccessRoleBinding : TerraformResourc
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("kubernetes_cluster_id");
+        SetOutput("name");
+        SetOutput("roles");
+        SetOutput("source_resource_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +76,8 @@ public class AzurermKubernetesClusterTrustedAccessRoleBinding : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformProperty<string> KubernetesClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_cluster_id");
-        set => this.WithProperty("kubernetes_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kubernetes_cluster_id");
+        set => SetProperty("kubernetes_cluster_id", value);
     }
 
     /// <summary>
@@ -85,18 +86,18 @@ public class AzurermKubernetesClusterTrustedAccessRoleBinding : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The roles attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
-    public List<TerraformProperty<string>>? Roles
+    public List<TerraformProperty<string>> Roles
     {
-        get => GetProperty<List<TerraformProperty<string>>>("roles");
-        set => this.WithProperty("roles", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("roles");
+        set => SetProperty("roles", value);
     }
 
     /// <summary>
@@ -105,8 +106,8 @@ public class AzurermKubernetesClusterTrustedAccessRoleBinding : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformProperty<string> SourceResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_resource_id");
-        set => this.WithProperty("source_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_resource_id");
+        set => SetProperty("source_resource_id", value);
     }
 
     /// <summary>
@@ -115,8 +116,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBinding : TerraformResourc
     /// </summary>
     public AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

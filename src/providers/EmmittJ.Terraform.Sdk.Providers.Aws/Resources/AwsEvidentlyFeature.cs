@@ -13,8 +13,7 @@ public class AwsEvidentlyFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEvidentlyFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEvidentlyFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsEvidentlyFeatureVariationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -69,57 +65,67 @@ public class AwsEvidentlyFeature : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_time");
-        this.WithOutput("evaluation_rules");
-        this.WithOutput("last_updated_time");
-        this.WithOutput("status");
-        this.WithOutput("value_type");
+        SetOutput("arn");
+        SetOutput("created_time");
+        SetOutput("evaluation_rules");
+        SetOutput("last_updated_time");
+        SetOutput("status");
+        SetOutput("value_type");
+        SetOutput("default_variation");
+        SetOutput("description");
+        SetOutput("entity_overrides");
+        SetOutput("evaluation_strategy");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The default_variation attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultVariation
+    public TerraformProperty<string> DefaultVariation
     {
-        get => GetProperty<TerraformProperty<string>>("default_variation");
-        set => this.WithProperty("default_variation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_variation");
+        set => SetProperty("default_variation", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The entity_overrides attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EntityOverrides
+    public Dictionary<string, TerraformProperty<string>> EntityOverrides
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("entity_overrides");
-        set => this.WithProperty("entity_overrides", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("entity_overrides");
+        set => SetProperty("entity_overrides", value);
     }
 
     /// <summary>
     /// The evaluation_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? EvaluationStrategy
+    public TerraformProperty<string> EvaluationStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("evaluation_strategy");
-        set => this.WithProperty("evaluation_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("evaluation_strategy");
+        set => SetProperty("evaluation_strategy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -128,8 +134,8 @@ public class AwsEvidentlyFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -138,35 +144,35 @@ public class AwsEvidentlyFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -175,20 +181,19 @@ public class AwsEvidentlyFeature : TerraformResource
     /// </summary>
     public AwsEvidentlyFeatureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEvidentlyFeatureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for variations.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Variations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Variations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Variations block(s) allowed")]
     public HashSet<AwsEvidentlyFeatureVariationsBlock>? Variations
     {
-        get => GetProperty<HashSet<AwsEvidentlyFeatureVariationsBlock>>("variations");
-        set => this.WithProperty("variations", value);
+        set => SetProperty("variations", value);
     }
 
     /// <summary>

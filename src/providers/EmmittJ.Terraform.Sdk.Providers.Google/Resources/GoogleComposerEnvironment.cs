@@ -13,8 +13,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AirflowUri
     {
-        get => GetProperty<TerraformProperty<string>>("airflow_uri");
-        set => WithProperty("airflow_uri", value);
+        set => SetProperty("airflow_uri", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DagGcsPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("dag_gcs_prefix");
-        set => WithProperty("dag_gcs_prefix", value);
+        set => SetProperty("dag_gcs_prefix", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnablePrivateBuildsOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_private_builds_only");
-        set => WithProperty("enable_private_builds_only", value);
+        set => SetProperty("enable_private_builds_only", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnablePrivateEnvironment
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_private_environment");
-        set => WithProperty("enable_private_environment", value);
+        set => SetProperty("enable_private_environment", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EnvironmentSize
     {
-        get => GetProperty<TerraformProperty<string>>("environment_size");
-        set => WithProperty("environment_size", value);
+        set => SetProperty("environment_size", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GkeCluster
     {
-        get => GetProperty<TerraformProperty<string>>("gke_cluster");
-        set => WithProperty("gke_cluster", value);
+        set => SetProperty("gke_cluster", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
-        set => WithProperty("node_count", value);
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class GoogleComposerEnvironmentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResilienceMode
     {
-        get => GetProperty<TerraformProperty<string>>("resilience_mode");
-        set => WithProperty("resilience_mode", value);
+        set => SetProperty("resilience_mode", value);
     }
 
 }
@@ -94,8 +86,7 @@ public class GoogleComposerEnvironmentStorageConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => WithProperty("bucket", value);
+        set => SetProperty("bucket", value);
     }
 
 }
@@ -111,8 +102,7 @@ public class GoogleComposerEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class GoogleComposerEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class GoogleComposerEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -148,17 +136,22 @@ public class GoogleComposerEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -167,10 +160,10 @@ public class GoogleComposerEnvironment : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -179,26 +172,26 @@ public class GoogleComposerEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The location or Compute Engine region for the environment.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -208,8 +201,7 @@ public class GoogleComposerEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     public List<GoogleComposerEnvironmentConfigBlock>? Config
     {
-        get => GetProperty<List<GoogleComposerEnvironmentConfigBlock>>("config");
-        set => this.WithProperty("config", value);
+        set => SetProperty("config", value);
     }
 
     /// <summary>
@@ -219,8 +211,7 @@ public class GoogleComposerEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfig block(s) allowed")]
     public List<GoogleComposerEnvironmentStorageConfigBlock>? StorageConfig
     {
-        get => GetProperty<List<GoogleComposerEnvironmentStorageConfigBlock>>("storage_config");
-        set => this.WithProperty("storage_config", value);
+        set => SetProperty("storage_config", value);
     }
 
     /// <summary>
@@ -229,8 +220,7 @@ public class GoogleComposerEnvironment : TerraformResource
     /// </summary>
     public GoogleComposerEnvironmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComposerEnvironmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

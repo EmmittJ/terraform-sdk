@@ -14,8 +14,7 @@ public class GoogleFirestoreIndexFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ArrayConfig
     {
-        get => GetProperty<TerraformProperty<string>>("array_config");
-        set => WithProperty("array_config", value);
+        set => SetProperty("array_config", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleFirestoreIndexFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FieldPath
     {
-        get => GetProperty<TerraformProperty<string>>("field_path");
-        set => WithProperty("field_path", value);
+        set => SetProperty("field_path", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleFirestoreIndexFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Order
     {
-        get => GetProperty<TerraformProperty<string>>("order");
-        set => WithProperty("order", value);
+        set => SetProperty("order", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class GoogleFirestoreIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleFirestoreIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -78,16 +73,25 @@ public class GoogleFirestoreIndex : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("api_scope");
+        SetOutput("collection");
+        SetOutput("database");
+        SetOutput("density");
+        SetOutput("id");
+        SetOutput("multikey");
+        SetOutput("project");
+        SetOutput("query_scope");
+        SetOutput("unique");
     }
 
     /// <summary>
     /// The API scope at which a query is run. Default value: &amp;quot;ANY_API&amp;quot; Possible values: [&amp;quot;ANY_API&amp;quot;, &amp;quot;DATASTORE_MODE_API&amp;quot;, &amp;quot;MONGODB_COMPATIBLE_API&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ApiScope
+    public TerraformProperty<string> ApiScope
     {
-        get => GetProperty<TerraformProperty<string>>("api_scope");
-        set => this.WithProperty("api_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_scope");
+        set => SetProperty("api_scope", value);
     }
 
     /// <summary>
@@ -96,82 +100,82 @@ public class GoogleFirestoreIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformProperty<string> Collection
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection");
-        set => this.WithProperty("collection", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collection");
+        set => SetProperty("collection", value);
     }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    public TerraformProperty<string>? Database
+    public TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
-        set => this.WithProperty("database", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database");
+        set => SetProperty("database", value);
     }
 
     /// <summary>
     /// The density configuration for this index. Possible values: [&amp;quot;SPARSE_ALL&amp;quot;, &amp;quot;SPARSE_ANY&amp;quot;, &amp;quot;DENSE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Density
+    public TerraformProperty<string> Density
     {
-        get => GetProperty<TerraformProperty<string>>("density");
-        set => this.WithProperty("density", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("density");
+        set => SetProperty("density", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Optional. Whether the index is multikey. By default, the index is not multikey. For non-multikey indexes, none of the paths in the index definition reach or traverse an array, except via an explicit array index. For multikey indexes, at most one of the paths in the index definition reach or traverse an array, except via an explicit array index. Violations will result in errors. Note this field only applies to indexes with MONGODB_COMPATIBLE_API ApiScope.
     /// </summary>
-    public TerraformProperty<bool>? Multikey
+    public TerraformProperty<bool> Multikey
     {
-        get => GetProperty<TerraformProperty<bool>>("multikey");
-        set => this.WithProperty("multikey", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multikey");
+        set => SetProperty("multikey", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The scope at which a query is run. Default value: &amp;quot;COLLECTION&amp;quot; Possible values: [&amp;quot;COLLECTION&amp;quot;, &amp;quot;COLLECTION_GROUP&amp;quot;, &amp;quot;COLLECTION_RECURSIVE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? QueryScope
+    public TerraformProperty<string> QueryScope
     {
-        get => GetProperty<TerraformProperty<string>>("query_scope");
-        set => this.WithProperty("query_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_scope");
+        set => SetProperty("query_scope", value);
     }
 
     /// <summary>
     /// Whether it is an unique index. Unique index ensures all values for the indexed field(s) are unique across documents.
     /// </summary>
-    public TerraformProperty<bool>? Unique
+    public TerraformProperty<bool> Unique
     {
-        get => GetProperty<TerraformProperty<bool>>("unique");
-        set => this.WithProperty("unique", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("unique");
+        set => SetProperty("unique", value);
     }
 
     /// <summary>
     /// Block for fields.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fields block(s) required")]
     public List<GoogleFirestoreIndexFieldsBlock>? Fields
     {
-        get => GetProperty<List<GoogleFirestoreIndexFieldsBlock>>("fields");
-        set => this.WithProperty("fields", value);
+        set => SetProperty("fields", value);
     }
 
     /// <summary>
@@ -180,8 +184,7 @@ public class GoogleFirestoreIndex : TerraformResource
     /// </summary>
     public GoogleFirestoreIndexTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFirestoreIndexTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

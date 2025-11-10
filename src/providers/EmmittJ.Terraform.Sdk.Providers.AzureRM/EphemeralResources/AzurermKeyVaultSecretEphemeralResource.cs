@@ -15,9 +15,12 @@ public class AzurermKeyVaultSecretEphemeralResource : TerraformEphemeralResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("expiration_date");
-        this.WithOutput("not_before_date");
-        this.WithOutput("value");
+        SetOutput("expiration_date");
+        SetOutput("not_before_date");
+        SetOutput("value");
+        SetOutput("key_vault_id");
+        SetOutput("name");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -26,8 +29,8 @@ public class AzurermKeyVaultSecretEphemeralResource : TerraformEphemeralResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -36,17 +39,17 @@ public class AzurermKeyVaultSecretEphemeralResource : TerraformEphemeralResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

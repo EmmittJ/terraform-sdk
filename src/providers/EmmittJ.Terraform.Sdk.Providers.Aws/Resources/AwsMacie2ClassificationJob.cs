@@ -21,8 +21,7 @@ public class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DailySchedule
     {
-        get => GetProperty<TerraformProperty<bool>>("daily_schedule");
-        set => WithProperty("daily_schedule", value);
+        set => SetProperty("daily_schedule", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MonthlySchedule
     {
-        get => GetProperty<TerraformProperty<double>>("monthly_schedule");
-        set => WithProperty("monthly_schedule", value);
+        set => SetProperty("monthly_schedule", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WeeklySchedule
     {
-        get => GetProperty<TerraformProperty<string>>("weekly_schedule");
-        set => WithProperty("weekly_schedule", value);
+        set => SetProperty("weekly_schedule", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class AwsMacie2ClassificationJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AwsMacie2ClassificationJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -84,55 +79,67 @@ public class AwsMacie2ClassificationJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputreated_at");
-        this.WithOutputob_arn");
-        this.WithOutputob_id");
-        this.WithOutputser_paused_details");
+        SetOutput("created_at");
+        SetOutput("job_arn");
+        SetOutput("job_id");
+        SetOutput("user_paused_details");
+        SetOutput("custom_data_identifier_ids");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("initial_run");
+        SetOutput("job_status");
+        SetOutput("job_type");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("region");
+        SetOutput("sampling_percentage");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The custom_data_identifier_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? CustomDataIdentifierIds
+    public List<TerraformProperty<string>> CustomDataIdentifierIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("custom_data_identifier_ids");
-        set => this.WithProperty("custom_data_identifier_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("custom_data_identifier_ids");
+        set => SetProperty("custom_data_identifier_ids", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The initial_run attribute.
     /// </summary>
-    public TerraformProperty<bool>? InitialRun
+    public TerraformProperty<bool> InitialRun
     {
-        get => GetProperty<TerraformProperty<bool>>("initial_run");
-        set => this.WithProperty("initial_run", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("initial_run");
+        set => SetProperty("initial_run", value);
     }
 
     /// <summary>
     /// The job_status attribute.
     /// </summary>
-    public TerraformProperty<string>? JobStatus
+    public TerraformProperty<string> JobStatus
     {
-        get => GetProperty<TerraformProperty<string>>("job_status");
-        set => this.WithProperty("job_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_status");
+        set => SetProperty("job_status", value);
     }
 
     /// <summary>
@@ -141,74 +148,74 @@ public class AwsMacie2ClassificationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
     public required TerraformProperty<string> JobType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("job_type");
-        set => this.WithProperty("job_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_type");
+        set => SetProperty("job_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformProperty<double>? SamplingPercentage
+    public TerraformProperty<double> SamplingPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("sampling_percentage");
-        set => this.WithProperty("sampling_percentage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("sampling_percentage");
+        set => SetProperty("sampling_percentage", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for s3_job_definition.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3JobDefinition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3JobDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3JobDefinition block(s) allowed")]
     public List<AwsMacie2ClassificationJobS3JobDefinitionBlock>? S3JobDefinition
     {
-        get => GetProperty<List<AwsMacie2ClassificationJobS3JobDefinitionBlock>>("s3_job_definition");
-        set => this.WithProperty("s3_job_definition", value);
+        set => SetProperty("s3_job_definition", value);
     }
 
     /// <summary>
@@ -218,8 +225,7 @@ public class AwsMacie2ClassificationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleFrequency block(s) allowed")]
     public List<AwsMacie2ClassificationJobScheduleFrequencyBlock>? ScheduleFrequency
     {
-        get => GetProperty<List<AwsMacie2ClassificationJobScheduleFrequencyBlock>>("schedule_frequency");
-        set => this.WithProperty("schedule_frequency", value);
+        set => SetProperty("schedule_frequency", value);
     }
 
     /// <summary>
@@ -228,8 +234,7 @@ public class AwsMacie2ClassificationJob : TerraformResource
     /// </summary>
     public AwsMacie2ClassificationJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMacie2ClassificationJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

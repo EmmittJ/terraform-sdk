@@ -14,11 +14,16 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("display_name");
-        this.WithOutput("name");
-        this.WithOutput("service_id");
-        this.WithOutput("telemetry");
-        this.WithOutput("user_labels");
+        SetOutput("display_name");
+        SetOutput("name");
+        SetOutput("service_id");
+        SetOutput("telemetry");
+        SetOutput("user_labels");
+        SetOutput("canonical_service");
+        SetOutput("canonical_service_namespace");
+        SetOutput("id");
+        SetOutput("mesh_uid");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -28,8 +33,8 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalService is required")]
     public required TerraformProperty<string> CanonicalService
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("canonical_service");
-        set => this.WithProperty("canonical_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("canonical_service");
+        set => SetProperty("canonical_service", value);
     }
 
     /// <summary>
@@ -39,17 +44,17 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalServiceNamespace is required")]
     public required TerraformProperty<string> CanonicalServiceNamespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("canonical_service_namespace");
-        set => this.WithProperty("canonical_service_namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("canonical_service_namespace");
+        set => SetProperty("canonical_service_namespace", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,17 +64,17 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshUid is required")]
     public required TerraformProperty<string> MeshUid
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mesh_uid");
-        set => this.WithProperty("mesh_uid", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mesh_uid");
+        set => SetProperty("mesh_uid", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

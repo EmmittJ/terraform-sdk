@@ -13,8 +13,7 @@ public class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ip
     {
-        get => GetProperty<TerraformProperty<string>>("ip");
-        set => WithProperty("ip", value);
+        set => SetProperty("ip", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ipv6
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6");
-        set => WithProperty("ipv6", value);
+        set => SetProperty("ipv6", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AwsRoute53ResolverRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsRoute53ResolverRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsRoute53ResolverRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -93,9 +86,17 @@ public class AwsRoute53ResolverRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("owner_id");
-        this.WithOutput("share_status");
+        SetOutput("arn");
+        SetOutput("owner_id");
+        SetOutput("share_status");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("resolver_endpoint_id");
+        SetOutput("rule_type");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -104,44 +105,44 @@ public class AwsRoute53ResolverRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resolver_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResolverEndpointId
+    public TerraformProperty<string> ResolverEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("resolver_endpoint_id");
-        set => this.WithProperty("resolver_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resolver_endpoint_id");
+        set => SetProperty("resolver_endpoint_id", value);
     }
 
     /// <summary>
@@ -150,26 +151,26 @@ public class AwsRoute53ResolverRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
     public required TerraformProperty<string> RuleType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule_type");
-        set => this.WithProperty("rule_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_type");
+        set => SetProperty("rule_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -178,8 +179,7 @@ public class AwsRoute53ResolverRule : TerraformResource
     /// </summary>
     public HashSet<AwsRoute53ResolverRuleTargetIpBlock>? TargetIp
     {
-        get => GetProperty<HashSet<AwsRoute53ResolverRuleTargetIpBlock>>("target_ip");
-        set => this.WithProperty("target_ip", value);
+        set => SetProperty("target_ip", value);
     }
 
     /// <summary>
@@ -188,8 +188,7 @@ public class AwsRoute53ResolverRule : TerraformResource
     /// </summary>
     public AwsRoute53ResolverRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53ResolverRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

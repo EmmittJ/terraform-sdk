@@ -13,8 +13,7 @@ public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,15 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cosmosdb_container_id");
+        SetOutput("id");
+        SetOutput("kusto_database_id");
+        SetOutput("location");
+        SetOutput("managed_identity_id");
+        SetOutput("mapping_rule_name");
+        SetOutput("name");
+        SetOutput("retrieval_start_date");
+        SetOutput("table_name");
     }
 
     /// <summary>
@@ -57,17 +63,17 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbContainerId is required")]
     public required TerraformProperty<string> CosmosdbContainerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_container_id");
-        set => this.WithProperty("cosmosdb_container_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_container_id");
+        set => SetProperty("cosmosdb_container_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +82,8 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseId is required")]
     public required TerraformProperty<string> KustoDatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kusto_database_id");
-        set => this.WithProperty("kusto_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kusto_database_id");
+        set => SetProperty("kusto_database_id", value);
     }
 
     /// <summary>
@@ -86,8 +92,8 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -96,17 +102,17 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityId is required")]
     public required TerraformProperty<string> ManagedIdentityId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_identity_id");
-        set => this.WithProperty("managed_identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_identity_id");
+        set => SetProperty("managed_identity_id", value);
     }
 
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MappingRuleName
+    public TerraformProperty<string> MappingRuleName
     {
-        get => GetProperty<TerraformProperty<string>>("mapping_rule_name");
-        set => this.WithProperty("mapping_rule_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mapping_rule_name");
+        set => SetProperty("mapping_rule_name", value);
     }
 
     /// <summary>
@@ -115,17 +121,17 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The retrieval_start_date attribute.
     /// </summary>
-    public TerraformProperty<string>? RetrievalStartDate
+    public TerraformProperty<string> RetrievalStartDate
     {
-        get => GetProperty<TerraformProperty<string>>("retrieval_start_date");
-        set => this.WithProperty("retrieval_start_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("retrieval_start_date");
+        set => SetProperty("retrieval_start_date", value);
     }
 
     /// <summary>
@@ -134,8 +140,8 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
@@ -144,8 +150,7 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// </summary>
     public AzurermKustoCosmosdbDataConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKustoCosmosdbDataConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

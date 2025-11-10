@@ -13,8 +13,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,7 +54,10 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputoken");
+        SetOutput("token");
+        SetOutput("expiration_date");
+        SetOutput("hostpool_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -67,8 +66,8 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpirationDate is required")]
     public required TerraformProperty<string> ExpirationDate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expiration_date");
-        set => this.WithProperty("expiration_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration_date");
+        set => SetProperty("expiration_date", value);
     }
 
     /// <summary>
@@ -77,17 +76,17 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostpoolId is required")]
     public required TerraformProperty<string> HostpoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hostpool_id");
-        set => this.WithProperty("hostpool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hostpool_id");
+        set => SetProperty("hostpool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -96,8 +95,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformResource
     /// </summary>
     public AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

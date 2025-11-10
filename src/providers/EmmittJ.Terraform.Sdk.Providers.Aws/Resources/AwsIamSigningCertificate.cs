@@ -14,7 +14,11 @@ public class AwsIamSigningCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate_id");
+        SetOutput("certificate_id");
+        SetOutput("certificate_body");
+        SetOutput("id");
+        SetOutput("status");
+        SetOutput("user_name");
     }
 
     /// <summary>
@@ -23,26 +27,26 @@ public class AwsIamSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
     public required TerraformProperty<string> CertificateBody
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_body");
-        set => this.WithProperty("certificate_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_body");
+        set => SetProperty("certificate_body", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -51,8 +55,8 @@ public class AwsIamSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>

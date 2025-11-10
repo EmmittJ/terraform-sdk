@@ -23,33 +23,42 @@ public class AwsRedshiftScheduledAction : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("enable");
+        SetOutput("end_time");
+        SetOutput("iam_role");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("schedule");
+        SetOutput("start_time");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enable attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enable
+    public TerraformProperty<bool> Enable
     {
-        get => GetProperty<TerraformProperty<bool>>("enable");
-        set => this.WithProperty("enable", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable");
+        set => SetProperty("enable", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformProperty<string>? EndTime
+    public TerraformProperty<string> EndTime
     {
-        get => GetProperty<TerraformProperty<string>>("end_time");
-        set => this.WithProperty("end_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_time");
+        set => SetProperty("end_time", value);
     }
 
     /// <summary>
@@ -58,17 +67,17 @@ public class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
     public required TerraformProperty<string> IamRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iam_role");
-        set => this.WithProperty("iam_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role");
+        set => SetProperty("iam_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,17 +86,17 @@ public class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -96,29 +105,29 @@ public class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformProperty<string> Schedule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule");
-        set => this.WithProperty("schedule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule");
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
     /// Block for target_action.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetAction block(s) allowed")]
     public List<AwsRedshiftScheduledActionTargetActionBlock>? TargetAction
     {
-        get => GetProperty<List<AwsRedshiftScheduledActionTargetActionBlock>>("target_action");
-        set => this.WithProperty("target_action", value);
+        set => SetProperty("target_action", value);
     }
 
 }

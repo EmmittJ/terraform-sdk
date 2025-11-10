@@ -14,53 +14,57 @@ public class GoogleComputeSecurityPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("adaptive_protection_config");
-        this.WithOutput("advanced_options_config");
-        this.WithOutput("description");
-        this.WithOutput("effective_labels");
-        this.WithOutput("fingerprint");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("labels");
-        this.WithOutput("recaptcha_options_config");
-        this.WithOutput("rule");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("type");
+        SetOutput("adaptive_protection_config");
+        SetOutput("advanced_options_config");
+        SetOutput("description");
+        SetOutput("effective_labels");
+        SetOutput("fingerprint");
+        SetOutput("label_fingerprint");
+        SetOutput("labels");
+        SetOutput("recaptcha_options_config");
+        SetOutput("rule");
+        SetOutput("terraform_labels");
+        SetOutput("type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("self_link");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name of the security policy.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
-    public TerraformProperty<string>? SelfLink
+    public TerraformProperty<string> SelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("self_link");
-        set => this.WithProperty("self_link", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("self_link");
+        set => SetProperty("self_link", value);
     }
 
     /// <summary>

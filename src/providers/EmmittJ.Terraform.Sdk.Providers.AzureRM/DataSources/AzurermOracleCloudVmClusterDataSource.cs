@@ -13,8 +13,7 @@ public class AzurermOracleCloudVmClusterDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,66 +30,69 @@ public class AzurermOracleCloudVmClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backup_subnet_cidr");
-        this.WithOutput("cloud_exadata_infrastructure_id");
-        this.WithOutput("cluster_name");
-        this.WithOutput("compartment_id");
-        this.WithOutput("compute_model");
-        this.WithOutput("compute_nodes");
-        this.WithOutput("cpu_core_count");
-        this.WithOutput("data_collection_options");
-        this.WithOutput("data_storage_percentage");
-        this.WithOutput("data_storage_size_in_tbs");
-        this.WithOutput("db_node_storage_size_in_gbs");
-        this.WithOutput("db_servers");
-        this.WithOutput("disk_redundancy");
-        this.WithOutput("display_name");
-        this.WithOutput("domain");
-        this.WithOutput("file_system_configuration");
-        this.WithOutput("gi_version");
-        this.WithOutput("hostname");
-        this.WithOutput("hostname_actual");
-        this.WithOutput("iorm_config_cache");
-        this.WithOutput("last_update_history_entry_id");
-        this.WithOutput("license_model");
-        this.WithOutput("lifecycle_details");
-        this.WithOutput("lifecycle_state");
-        this.WithOutput("listener_port");
-        this.WithOutput("local_backup_enabled");
-        this.WithOutput("location");
-        this.WithOutput("memory_size_in_gbs");
-        this.WithOutput("node_count");
-        this.WithOutput("nsg_url");
-        this.WithOutput("oci_url");
-        this.WithOutput("ocid");
-        this.WithOutput("ocpu_count");
-        this.WithOutput("scan_dns_name");
-        this.WithOutput("scan_dns_record_id");
-        this.WithOutput("scan_ip_ids");
-        this.WithOutput("scan_listener_port_tcp");
-        this.WithOutput("scan_listener_port_tcp_ssl");
-        this.WithOutput("shape");
-        this.WithOutput("sparse_diskgroup_enabled");
-        this.WithOutput("ssh_public_keys");
-        this.WithOutput("storage_size_in_gbs");
-        this.WithOutput("subnet_id");
-        this.WithOutput("subnet_ocid");
-        this.WithOutput("system_version");
-        this.WithOutput("tags");
-        this.WithOutput("time_created");
-        this.WithOutput("time_zone");
-        this.WithOutput("vip_ods");
-        this.WithOutput("virtual_network_id");
-        this.WithOutput("zone_id");
+        SetOutput("backup_subnet_cidr");
+        SetOutput("cloud_exadata_infrastructure_id");
+        SetOutput("cluster_name");
+        SetOutput("compartment_id");
+        SetOutput("compute_model");
+        SetOutput("compute_nodes");
+        SetOutput("cpu_core_count");
+        SetOutput("data_collection_options");
+        SetOutput("data_storage_percentage");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("db_node_storage_size_in_gbs");
+        SetOutput("db_servers");
+        SetOutput("disk_redundancy");
+        SetOutput("display_name");
+        SetOutput("domain");
+        SetOutput("file_system_configuration");
+        SetOutput("gi_version");
+        SetOutput("hostname");
+        SetOutput("hostname_actual");
+        SetOutput("iorm_config_cache");
+        SetOutput("last_update_history_entry_id");
+        SetOutput("license_model");
+        SetOutput("lifecycle_details");
+        SetOutput("lifecycle_state");
+        SetOutput("listener_port");
+        SetOutput("local_backup_enabled");
+        SetOutput("location");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("node_count");
+        SetOutput("nsg_url");
+        SetOutput("oci_url");
+        SetOutput("ocid");
+        SetOutput("ocpu_count");
+        SetOutput("scan_dns_name");
+        SetOutput("scan_dns_record_id");
+        SetOutput("scan_ip_ids");
+        SetOutput("scan_listener_port_tcp");
+        SetOutput("scan_listener_port_tcp_ssl");
+        SetOutput("shape");
+        SetOutput("sparse_diskgroup_enabled");
+        SetOutput("ssh_public_keys");
+        SetOutput("storage_size_in_gbs");
+        SetOutput("subnet_id");
+        SetOutput("subnet_ocid");
+        SetOutput("system_version");
+        SetOutput("tags");
+        SetOutput("time_created");
+        SetOutput("time_zone");
+        SetOutput("vip_ods");
+        SetOutput("virtual_network_id");
+        SetOutput("zone_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -99,8 +101,8 @@ public class AzurermOracleCloudVmClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -109,8 +111,8 @@ public class AzurermOracleCloudVmClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -119,8 +121,7 @@ public class AzurermOracleCloudVmClusterDataSource : TerraformDataSource
     /// </summary>
     public AzurermOracleCloudVmClusterDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleCloudVmClusterDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

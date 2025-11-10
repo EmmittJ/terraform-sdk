@@ -13,8 +13,7 @@ public class AzurermHdinsightClusterDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,28 +30,31 @@ public class AzurermHdinsightClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cluster_id");
-        this.WithOutput("cluster_version");
-        this.WithOutput("component_versions");
-        this.WithOutput("edge_ssh_endpoint");
-        this.WithOutput("gateway");
-        this.WithOutput("https_endpoint");
-        this.WithOutput("kafka_rest_proxy_endpoint");
-        this.WithOutput("kind");
-        this.WithOutput("location");
-        this.WithOutput("ssh_endpoint");
-        this.WithOutput("tags");
-        this.WithOutput("tier");
-        this.WithOutput("tls_min_version");
+        SetOutput("cluster_id");
+        SetOutput("cluster_version");
+        SetOutput("component_versions");
+        SetOutput("edge_ssh_endpoint");
+        SetOutput("gateway");
+        SetOutput("https_endpoint");
+        SetOutput("kafka_rest_proxy_endpoint");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("ssh_endpoint");
+        SetOutput("tags");
+        SetOutput("tier");
+        SetOutput("tls_min_version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermHdinsightClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,8 +73,8 @@ public class AzurermHdinsightClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -81,8 +83,7 @@ public class AzurermHdinsightClusterDataSource : TerraformDataSource
     /// </summary>
     public AzurermHdinsightClusterDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHdinsightClusterDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

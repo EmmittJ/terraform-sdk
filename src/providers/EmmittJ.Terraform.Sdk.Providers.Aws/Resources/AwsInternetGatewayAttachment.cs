@@ -13,8 +13,7 @@ public class AwsInternetGatewayAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsInternetGatewayAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,15 +38,19 @@ public class AwsInternetGatewayAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("internet_gateway_id");
+        SetOutput("region");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -57,17 +59,17 @@ public class AwsInternetGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternetGatewayId is required")]
     public required TerraformProperty<string> InternetGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("internet_gateway_id");
-        set => this.WithProperty("internet_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("internet_gateway_id");
+        set => SetProperty("internet_gateway_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AwsInternetGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -86,8 +88,7 @@ public class AwsInternetGatewayAttachment : TerraformResource
     /// </summary>
     public AwsInternetGatewayAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsInternetGatewayAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

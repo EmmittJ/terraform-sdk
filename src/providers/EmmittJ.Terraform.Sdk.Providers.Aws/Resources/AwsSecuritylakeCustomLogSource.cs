@@ -22,27 +22,31 @@ public class AwsSecuritylakeCustomLogSource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("attributes");
-        this.WithOutput("id");
-        this.WithOutput("provider_details");
+        SetOutput("attributes");
+        SetOutput("id");
+        SetOutput("provider_details");
+        SetOutput("event_classes");
+        SetOutput("region");
+        SetOutput("source_name");
+        SetOutput("source_version");
     }
 
     /// <summary>
     /// The event_classes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EventClasses
+    public HashSet<TerraformProperty<string>> EventClasses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("event_classes");
-        set => this.WithProperty("event_classes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("event_classes");
+        set => SetProperty("event_classes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -51,17 +55,17 @@ public class AwsSecuritylakeCustomLogSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformProperty<string> SourceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_name");
-        set => this.WithProperty("source_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_name");
+        set => SetProperty("source_name", value);
     }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceVersion
+    public TerraformProperty<string> SourceVersion
     {
-        get => GetProperty<TerraformProperty<string>>("source_version");
-        set => this.WithProperty("source_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_version");
+        set => SetProperty("source_version", value);
     }
 
     /// <summary>
@@ -70,8 +74,7 @@ public class AwsSecuritylakeCustomLogSource : TerraformResource
     /// </summary>
     public List<AwsSecuritylakeCustomLogSourceConfigurationBlock>? Configuration
     {
-        get => GetProperty<List<AwsSecuritylakeCustomLogSourceConfigurationBlock>>("configuration");
-        set => this.WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>

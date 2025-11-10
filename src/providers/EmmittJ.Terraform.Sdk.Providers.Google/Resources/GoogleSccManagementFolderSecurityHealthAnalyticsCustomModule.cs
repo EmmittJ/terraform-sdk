@@ -15,8 +15,7 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleCustomC
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleCustomC
     /// </summary>
     public TerraformProperty<string>? Recommendation
     {
-        get => GetProperty<TerraformProperty<string>>("recommendation");
-        set => WithProperty("recommendation", value);
+        set => SetProperty("recommendation", value);
     }
 
     /// <summary>
@@ -35,8 +33,7 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleCustomC
     /// </summary>
     public TerraformProperty<string>? Severity
     {
-        get => GetProperty<TerraformProperty<string>>("severity");
-        set => WithProperty("severity", value);
+        set => SetProperty("severity", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeout
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeout
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeout
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -89,10 +83,15 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModule : Terr
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ancestor_module");
-        this.WithOutput("last_editor");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("ancestor_module");
+        SetOutput("last_editor");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("display_name");
+        SetOutput("enablement_state");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("location");
     }
 
     /// <summary>
@@ -102,19 +101,19 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModule : Terr
     /// 128 characters, start with a lowercase letter, and contain alphanumeric
     /// characters or underscores only.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The enablement state of the custom module. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EnablementState
+    public TerraformProperty<string> EnablementState
     {
-        get => GetProperty<TerraformProperty<string>>("enablement_state");
-        set => this.WithProperty("enablement_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enablement_state");
+        set => SetProperty("enablement_state", value);
     }
 
     /// <summary>
@@ -123,26 +122,26 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModule : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Location ID of the parent organization. If not provided, &#39;global&#39; will be used as the default location.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -152,8 +151,7 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModule : Terr
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomConfig block(s) allowed")]
     public List<GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleCustomConfigBlock>? CustomConfig
     {
-        get => GetProperty<List<GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleCustomConfigBlock>>("custom_config");
-        set => this.WithProperty("custom_config", value);
+        set => SetProperty("custom_config", value);
     }
 
     /// <summary>
@@ -162,8 +160,7 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModule : Terr
     /// </summary>
     public GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSpringCloudAppMysqlAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudAppMysqlAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudAppMysqlAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudAppMysqlAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("database_name");
+        SetOutput("id");
+        SetOutput("mysql_server_id");
+        SetOutput("name");
+        SetOutput("password");
+        SetOutput("spring_cloud_app_id");
+        SetOutput("username");
     }
 
     /// <summary>
@@ -66,17 +69,17 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +88,8 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MysqlServerId is required")]
     public required TerraformProperty<string> MysqlServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mysql_server_id");
-        set => this.WithProperty("mysql_server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mysql_server_id");
+        set => SetProperty("mysql_server_id", value);
     }
 
     /// <summary>
@@ -95,8 +98,8 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +108,8 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -115,8 +118,8 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
-        set => this.WithProperty("spring_cloud_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
+        set => SetProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
@@ -125,8 +128,8 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -135,8 +138,7 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     /// </summary>
     public AzurermSpringCloudAppMysqlAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudAppMysqlAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

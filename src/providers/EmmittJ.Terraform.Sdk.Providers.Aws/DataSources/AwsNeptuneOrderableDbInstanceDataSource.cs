@@ -14,93 +14,101 @@ public class AwsNeptuneOrderableDbInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("availability_zones");
-        this.WithOutput("max_iops_per_db_instance");
-        this.WithOutput("max_iops_per_gib");
-        this.WithOutput("max_storage_size");
-        this.WithOutput("min_iops_per_db_instance");
-        this.WithOutput("min_iops_per_gib");
-        this.WithOutput("min_storage_size");
-        this.WithOutput("multi_az_capable");
-        this.WithOutput("read_replica_capable");
-        this.WithOutput("storage_type");
-        this.WithOutput("supports_enhanced_monitoring");
-        this.WithOutput("supports_iam_database_authentication");
-        this.WithOutput("supports_iops");
-        this.WithOutput("supports_performance_insights");
-        this.WithOutput("supports_storage_encryption");
+        SetOutput("availability_zones");
+        SetOutput("max_iops_per_db_instance");
+        SetOutput("max_iops_per_gib");
+        SetOutput("max_storage_size");
+        SetOutput("min_iops_per_db_instance");
+        SetOutput("min_iops_per_gib");
+        SetOutput("min_storage_size");
+        SetOutput("multi_az_capable");
+        SetOutput("read_replica_capable");
+        SetOutput("storage_type");
+        SetOutput("supports_enhanced_monitoring");
+        SetOutput("supports_iam_database_authentication");
+        SetOutput("supports_iops");
+        SetOutput("supports_performance_insights");
+        SetOutput("supports_storage_encryption");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("id");
+        SetOutput("instance_class");
+        SetOutput("license_model");
+        SetOutput("preferred_instance_classes");
+        SetOutput("region");
+        SetOutput("vpc");
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    public TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceClass
+    public TerraformProperty<string> InstanceClass
     {
-        get => GetProperty<TerraformProperty<string>>("instance_class");
-        set => this.WithProperty("instance_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_class");
+        set => SetProperty("instance_class", value);
     }
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseModel
+    public TerraformProperty<string> LicenseModel
     {
-        get => GetProperty<TerraformProperty<string>>("license_model");
-        set => this.WithProperty("license_model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_model");
+        set => SetProperty("license_model", value);
     }
 
     /// <summary>
     /// The preferred_instance_classes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PreferredInstanceClasses
+    public List<TerraformProperty<string>> PreferredInstanceClasses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("preferred_instance_classes");
-        set => this.WithProperty("preferred_instance_classes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("preferred_instance_classes");
+        set => SetProperty("preferred_instance_classes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The vpc attribute.
     /// </summary>
-    public TerraformProperty<bool>? Vpc
+    public TerraformProperty<bool> Vpc
     {
-        get => GetProperty<TerraformProperty<bool>>("vpc");
-        set => this.WithProperty("vpc", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("vpc");
+        set => SetProperty("vpc", value);
     }
 
     /// <summary>

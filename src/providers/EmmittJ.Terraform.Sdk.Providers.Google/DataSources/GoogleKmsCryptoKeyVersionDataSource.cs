@@ -14,11 +14,14 @@ public class GoogleKmsCryptoKeyVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("algorithm");
-        this.WithOutput("name");
-        this.WithOutput("protection_level");
-        this.WithOutput("public_key");
-        this.WithOutput("state");
+        SetOutput("algorithm");
+        SetOutput("name");
+        SetOutput("protection_level");
+        SetOutput("public_key");
+        SetOutput("state");
+        SetOutput("crypto_key");
+        SetOutput("id");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -27,26 +30,26 @@ public class GoogleKmsCryptoKeyVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformProperty<string> CryptoKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("crypto_key");
-        set => this.WithProperty("crypto_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key");
+        set => SetProperty("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<double>? Version
+    public TerraformProperty<double> Version
     {
-        get => GetProperty<TerraformProperty<double>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

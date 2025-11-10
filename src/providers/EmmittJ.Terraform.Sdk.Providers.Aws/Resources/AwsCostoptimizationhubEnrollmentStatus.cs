@@ -14,17 +14,18 @@ public class AwsCostoptimizationhubEnrollmentStatus : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("status");
+        SetOutput("id");
+        SetOutput("status");
+        SetOutput("include_member_accounts");
     }
 
     /// <summary>
     /// The include_member_accounts attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeMemberAccounts
+    public TerraformProperty<bool> IncludeMemberAccounts
     {
-        get => GetProperty<TerraformProperty<bool>>("include_member_accounts");
-        set => this.WithProperty("include_member_accounts", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_member_accounts");
+        set => SetProperty("include_member_accounts", value);
     }
 
     /// <summary>

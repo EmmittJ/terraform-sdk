@@ -14,8 +14,7 @@ public class AwsBedrockagentcoreMemoryStrategyConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsBedrockagentcoreMemoryStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsBedrockagentcoreMemoryStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsBedrockagentcoreMemoryStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,25 +63,32 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("memory_strategy_id");
+        SetOutput("memory_strategy_id");
+        SetOutput("description");
+        SetOutput("memory_execution_role_arn");
+        SetOutput("memory_id");
+        SetOutput("name");
+        SetOutput("namespaces");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The memory_execution_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? MemoryExecutionRoleArn
+    public TerraformProperty<string> MemoryExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("memory_execution_role_arn");
-        set => this.WithProperty("memory_execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("memory_execution_role_arn");
+        set => SetProperty("memory_execution_role_arn", value);
     }
 
     /// <summary>
@@ -94,8 +97,8 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryId is required")]
     public required TerraformProperty<string> MemoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("memory_id");
-        set => this.WithProperty("memory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("memory_id");
+        set => SetProperty("memory_id", value);
     }
 
     /// <summary>
@@ -104,27 +107,27 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The namespaces attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespaces is required")]
-    public HashSet<TerraformProperty<string>>? Namespaces
+    public HashSet<TerraformProperty<string>> Namespaces
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("namespaces");
-        set => this.WithProperty("namespaces", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("namespaces");
+        set => SetProperty("namespaces", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -133,8 +136,8 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -143,8 +146,7 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
     /// </summary>
     public List<AwsBedrockagentcoreMemoryStrategyConfigurationBlock>? Configuration
     {
-        get => GetProperty<List<AwsBedrockagentcoreMemoryStrategyConfigurationBlock>>("configuration");
-        set => this.WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>
@@ -153,8 +155,7 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
     /// </summary>
     public AwsBedrockagentcoreMemoryStrategyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentcoreMemoryStrategyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermMobileNetworkSimDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,26 @@ public class AzurermMobileNetworkSimDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("device_type");
-        this.WithOutput("integrated_circuit_card_identifier");
-        this.WithOutput("international_mobile_subscriber_identity");
-        this.WithOutput("sim_policy_id");
-        this.WithOutput("sim_state");
-        this.WithOutput("static_ip_configuration");
-        this.WithOutput("vendor_key_fingerprint");
-        this.WithOutput("vendor_name");
+        SetOutput("device_type");
+        SetOutput("integrated_circuit_card_identifier");
+        SetOutput("international_mobile_subscriber_identity");
+        SetOutput("sim_policy_id");
+        SetOutput("sim_state");
+        SetOutput("static_ip_configuration");
+        SetOutput("vendor_key_fingerprint");
+        SetOutput("vendor_name");
+        SetOutput("id");
+        SetOutput("mobile_network_sim_group_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -56,8 +58,8 @@ public class AzurermMobileNetworkSimDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
     public required TerraformProperty<string> MobileNetworkSimGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_sim_group_id");
-        set => this.WithProperty("mobile_network_sim_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_sim_group_id");
+        set => SetProperty("mobile_network_sim_group_id", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermMobileNetworkSimDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +78,7 @@ public class AzurermMobileNetworkSimDataSource : TerraformDataSource
     /// </summary>
     public AzurermMobileNetworkSimDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMobileNetworkSimDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

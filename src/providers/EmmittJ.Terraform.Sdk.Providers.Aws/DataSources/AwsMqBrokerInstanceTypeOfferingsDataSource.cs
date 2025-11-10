@@ -14,52 +14,57 @@ public class AwsMqBrokerInstanceTypeOfferingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("broker_instance_options");
+        SetOutput("broker_instance_options");
+        SetOutput("engine_type");
+        SetOutput("host_instance_type");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("storage_type");
     }
 
     /// <summary>
     /// The engine_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineType
+    public TerraformProperty<string> EngineType
     {
-        get => GetProperty<TerraformProperty<string>>("engine_type");
-        set => this.WithProperty("engine_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_type");
+        set => SetProperty("engine_type", value);
     }
 
     /// <summary>
     /// The host_instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? HostInstanceType
+    public TerraformProperty<string> HostInstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("host_instance_type");
-        set => this.WithProperty("host_instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_instance_type");
+        set => SetProperty("host_instance_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageType
+    public TerraformProperty<string> StorageType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_type");
-        set => this.WithProperty("storage_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
+        set => SetProperty("storage_type", value);
     }
 
     /// <summary>

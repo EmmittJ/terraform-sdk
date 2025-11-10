@@ -13,8 +13,7 @@ public class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Namespaces
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("namespaces");
-        set => WithProperty("namespaces", value);
+        set => SetProperty("namespaces", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsEksAccessPolicyAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsEksAccessPolicyAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -68,8 +64,13 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("associated_at");
-        this.WithOutput("modified_at");
+        SetOutput("associated_at");
+        SetOutput("modified_at");
+        SetOutput("cluster_name");
+        SetOutput("id");
+        SetOutput("policy_arn");
+        SetOutput("principal_arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -78,17 +79,17 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -97,8 +98,8 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformProperty<string> PolicyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_arn");
-        set => this.WithProperty("policy_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_arn");
+        set => SetProperty("policy_arn", value);
     }
 
     /// <summary>
@@ -107,29 +108,29 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformProperty<string> PrincipalArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_arn");
-        set => this.WithProperty("principal_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_arn");
+        set => SetProperty("principal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for access_scope.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessScope is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessScope block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessScope block(s) allowed")]
     public List<AwsEksAccessPolicyAssociationAccessScopeBlock>? AccessScope
     {
-        get => GetProperty<List<AwsEksAccessPolicyAssociationAccessScopeBlock>>("access_scope");
-        set => this.WithProperty("access_scope", value);
+        set => SetProperty("access_scope", value);
     }
 
     /// <summary>
@@ -138,8 +139,7 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     /// </summary>
     public AwsEksAccessPolicyAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEksAccessPolicyAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

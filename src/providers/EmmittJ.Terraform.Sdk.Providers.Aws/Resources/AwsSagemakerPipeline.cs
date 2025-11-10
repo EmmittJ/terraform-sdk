@@ -14,8 +14,7 @@ public class AwsSagemakerPipelineParallelismConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxParallelExecutionSteps is required")]
     public required TerraformProperty<double> MaxParallelExecutionSteps
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_parallel_execution_steps");
-        set => WithProperty("max_parallel_execution_steps", value);
+        set => SetProperty("max_parallel_execution_steps", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => WithProperty("bucket", value);
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectKey is required")]
     public required TerraformProperty<string> ObjectKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("object_key");
-        set => WithProperty("object_key", value);
+        set => SetProperty("object_key", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? VersionId
     {
-        get => GetProperty<TerraformProperty<string>>("version_id");
-        set => WithProperty("version_id", value);
+        set => SetProperty("version_id", value);
     }
 
 }
@@ -70,34 +66,43 @@ public class AwsSagemakerPipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("pipeline_definition");
+        SetOutput("pipeline_description");
+        SetOutput("pipeline_display_name");
+        SetOutput("pipeline_name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The pipeline_definition attribute.
     /// </summary>
-    public TerraformProperty<string>? PipelineDefinition
+    public TerraformProperty<string> PipelineDefinition
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_definition");
-        set => this.WithProperty("pipeline_definition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_definition");
+        set => SetProperty("pipeline_definition", value);
     }
 
     /// <summary>
     /// The pipeline_description attribute.
     /// </summary>
-    public TerraformProperty<string>? PipelineDescription
+    public TerraformProperty<string> PipelineDescription
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_description");
-        set => this.WithProperty("pipeline_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_description");
+        set => SetProperty("pipeline_description", value);
     }
 
     /// <summary>
@@ -106,8 +111,8 @@ public class AwsSagemakerPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineDisplayName is required")]
     public required TerraformProperty<string> PipelineDisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_display_name");
-        set => this.WithProperty("pipeline_display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_display_name");
+        set => SetProperty("pipeline_display_name", value);
     }
 
     /// <summary>
@@ -116,44 +121,44 @@ public class AwsSagemakerPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
     public required TerraformProperty<string> PipelineName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_name");
-        set => this.WithProperty("pipeline_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_name");
+        set => SetProperty("pipeline_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -163,8 +168,7 @@ public class AwsSagemakerPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParallelismConfiguration block(s) allowed")]
     public List<AwsSagemakerPipelineParallelismConfigurationBlock>? ParallelismConfiguration
     {
-        get => GetProperty<List<AwsSagemakerPipelineParallelismConfigurationBlock>>("parallelism_configuration");
-        set => this.WithProperty("parallelism_configuration", value);
+        set => SetProperty("parallelism_configuration", value);
     }
 
     /// <summary>
@@ -174,8 +178,7 @@ public class AwsSagemakerPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineDefinitionS3Location block(s) allowed")]
     public List<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock>? PipelineDefinitionS3Location
     {
-        get => GetProperty<List<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock>>("pipeline_definition_s3_location");
-        set => this.WithProperty("pipeline_definition_s3_location", value);
+        set => SetProperty("pipeline_definition_s3_location", value);
     }
 
     /// <summary>

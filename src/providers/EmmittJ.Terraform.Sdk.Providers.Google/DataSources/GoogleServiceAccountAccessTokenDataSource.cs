@@ -14,44 +14,49 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_token");
+        SetOutput("access_token");
+        SetOutput("delegates");
+        SetOutput("id");
+        SetOutput("lifetime");
+        SetOutput("scopes");
+        SetOutput("target_service_account");
     }
 
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Delegates
+    public HashSet<TerraformProperty<string>> Delegates
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("delegates");
-        set => this.WithProperty("delegates", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("delegates");
+        set => SetProperty("delegates", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The lifetime attribute.
     /// </summary>
-    public TerraformProperty<string>? Lifetime
+    public TerraformProperty<string> Lifetime
     {
-        get => GetProperty<TerraformProperty<string>>("lifetime");
-        set => this.WithProperty("lifetime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lifetime");
+        set => SetProperty("lifetime", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public HashSet<TerraformProperty<string>>? Scopes
+    public HashSet<TerraformProperty<string>> Scopes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scopes");
-        set => this.WithProperty("scopes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scopes");
+        set => SetProperty("scopes", value);
     }
 
     /// <summary>
@@ -60,8 +65,8 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     public required TerraformProperty<string> TargetServiceAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_service_account");
-        set => this.WithProperty("target_service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_service_account");
+        set => SetProperty("target_service_account", value);
     }
 
     /// <summary>

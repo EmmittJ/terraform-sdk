@@ -17,8 +17,7 @@ public class GoogleDataplexEntryAspectsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AspectKey is required")]
     public required TerraformProperty<string> AspectKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aspect_key");
-        set => WithProperty("aspect_key", value);
+        set => SetProperty("aspect_key", value);
     }
 
 }
@@ -34,8 +33,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateTime
     {
-        get => GetProperty<TerraformProperty<string>>("create_time");
-        set => WithProperty("create_time", value);
+        set => SetProperty("create_time", value);
     }
 
     /// <summary>
@@ -43,8 +41,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -73,8 +68,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -82,8 +76,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Platform
     {
-        get => GetProperty<TerraformProperty<string>>("platform");
-        set => WithProperty("platform", value);
+        set => SetProperty("platform", value);
     }
 
     /// <summary>
@@ -91,8 +84,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Resource
     {
-        get => GetProperty<TerraformProperty<string>>("resource");
-        set => WithProperty("resource", value);
+        set => SetProperty("resource", value);
     }
 
     /// <summary>
@@ -100,8 +92,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? System
     {
-        get => GetProperty<TerraformProperty<string>>("system");
-        set => WithProperty("system", value);
+        set => SetProperty("system", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("update_time");
-        set => WithProperty("update_time", value);
+        set => SetProperty("update_time", value);
     }
 
 }
@@ -128,8 +118,7 @@ public class GoogleDataplexEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -137,8 +126,7 @@ public class GoogleDataplexEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -146,8 +134,7 @@ public class GoogleDataplexEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -165,27 +152,35 @@ public class GoogleDataplexEntry : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("entry_group_id");
+        SetOutput("entry_id");
+        SetOutput("entry_type");
+        SetOutput("fully_qualified_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("parent_entry");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The entry group id of the entry group the entry will be created in.
     /// </summary>
-    public TerraformProperty<string>? EntryGroupId
+    public TerraformProperty<string> EntryGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("entry_group_id");
-        set => this.WithProperty("entry_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entry_group_id");
+        set => SetProperty("entry_group_id", value);
     }
 
     /// <summary>
     /// The entry id of the entry.
     /// </summary>
-    public TerraformProperty<string>? EntryId
+    public TerraformProperty<string> EntryId
     {
-        get => GetProperty<TerraformProperty<string>>("entry_id");
-        set => this.WithProperty("entry_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entry_id");
+        set => SetProperty("entry_id", value);
     }
 
     /// <summary>
@@ -194,54 +189,54 @@ public class GoogleDataplexEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryType is required")]
     public required TerraformProperty<string> EntryType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entry_type");
-        set => this.WithProperty("entry_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entry_type");
+        set => SetProperty("entry_type", value);
     }
 
     /// <summary>
     /// A name for the entry that can be referenced by an external system. For more information, see https://cloud.google.com/dataplex/docs/fully-qualified-names.
     /// The maximum size of the field is 4000 characters.
     /// </summary>
-    public TerraformProperty<string>? FullyQualifiedName
+    public TerraformProperty<string> FullyQualifiedName
     {
-        get => GetProperty<TerraformProperty<string>>("fully_qualified_name");
-        set => this.WithProperty("fully_qualified_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fully_qualified_name");
+        set => SetProperty("fully_qualified_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location where entry will be created.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The resource name of the parent entry, in the format projects/{project_number}/locations/{locationId}/entryGroups/{entryGroupId}/entries/{entryId}.
     /// </summary>
-    public TerraformProperty<string>? ParentEntry
+    public TerraformProperty<string> ParentEntry
     {
-        get => GetProperty<TerraformProperty<string>>("parent_entry");
-        set => this.WithProperty("parent_entry", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_entry");
+        set => SetProperty("parent_entry", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -250,8 +245,7 @@ public class GoogleDataplexEntry : TerraformResource
     /// </summary>
     public List<GoogleDataplexEntryAspectsBlock>? Aspects
     {
-        get => GetProperty<List<GoogleDataplexEntryAspectsBlock>>("aspects");
-        set => this.WithProperty("aspects", value);
+        set => SetProperty("aspects", value);
     }
 
     /// <summary>
@@ -261,8 +255,7 @@ public class GoogleDataplexEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntrySource block(s) allowed")]
     public List<GoogleDataplexEntryEntrySourceBlock>? EntrySource
     {
-        get => GetProperty<List<GoogleDataplexEntryEntrySourceBlock>>("entry_source");
-        set => this.WithProperty("entry_source", value);
+        set => SetProperty("entry_source", value);
     }
 
     /// <summary>
@@ -271,8 +264,7 @@ public class GoogleDataplexEntry : TerraformResource
     /// </summary>
     public GoogleDataplexEntryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataplexEntryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

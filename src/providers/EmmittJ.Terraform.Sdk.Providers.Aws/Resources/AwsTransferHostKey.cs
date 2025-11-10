@@ -14,46 +14,52 @@ public class AwsTransferHostKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("host_key_fingerprint");
-        this.WithOutput("host_key_id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("host_key_fingerprint");
+        SetOutput("host_key_id");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("host_key_body");
+        SetOutput("host_key_body_wo");
+        SetOutput("region");
+        SetOutput("server_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The host_key_body attribute.
     /// </summary>
-    public TerraformProperty<string>? HostKeyBody
+    public TerraformProperty<string> HostKeyBody
     {
-        get => GetProperty<TerraformProperty<string>>("host_key_body");
-        set => this.WithProperty("host_key_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_key_body");
+        set => SetProperty("host_key_body", value);
     }
 
     /// <summary>
     /// The host_key_body_wo attribute.
     /// </summary>
-    public TerraformProperty<string>? HostKeyBodyWo
+    public TerraformProperty<string> HostKeyBodyWo
     {
-        get => GetProperty<TerraformProperty<string>>("host_key_body_wo");
-        set => this.WithProperty("host_key_body_wo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_key_body_wo");
+        set => SetProperty("host_key_body_wo", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -62,17 +68,17 @@ public class AwsTransferHostKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
-        set => this.WithProperty("server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
+        set => SetProperty("server_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

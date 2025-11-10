@@ -13,8 +13,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? MaximumDuration
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_duration");
-        set => WithProperty("maximum_duration", value);
+        set => SetProperty("maximum_duration", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? RequireApproval
     {
-        get => GetProperty<TerraformProperty<bool>>("require_approval");
-        set => WithProperty("require_approval", value);
+        set => SetProperty("require_approval", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? RequireJustification
     {
-        get => GetProperty<TerraformProperty<bool>>("require_justification");
-        set => WithProperty("require_justification", value);
+        set => SetProperty("require_justification", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? RequireMultifactorAuthentication
     {
-        get => GetProperty<TerraformProperty<bool>>("require_multifactor_authentication");
-        set => WithProperty("require_multifactor_authentication", value);
+        set => SetProperty("require_multifactor_authentication", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? RequireTicketInfo
     {
-        get => GetProperty<TerraformProperty<bool>>("require_ticket_info");
-        set => WithProperty("require_ticket_info", value);
+        set => SetProperty("require_ticket_info", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? RequiredConditionalAccessAuthenticationContext
     {
-        get => GetProperty<TerraformProperty<string>>("required_conditional_access_authentication_context");
-        set => WithProperty("required_conditional_access_authentication_context", value);
+        set => SetProperty("required_conditional_access_authentication_context", value);
     }
 
 }
@@ -75,8 +69,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? ExpirationRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("expiration_required");
-        set => WithProperty("expiration_required", value);
+        set => SetProperty("expiration_required", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? ExpireAfter
     {
-        get => GetProperty<TerraformProperty<string>>("expire_after");
-        set => WithProperty("expire_after", value);
+        set => SetProperty("expire_after", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? RequireJustification
     {
-        get => GetProperty<TerraformProperty<bool>>("require_justification");
-        set => WithProperty("require_justification", value);
+        set => SetProperty("require_justification", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? RequireMultifactorAuthentication
     {
-        get => GetProperty<TerraformProperty<bool>>("require_multifactor_authentication");
-        set => WithProperty("require_multifactor_authentication", value);
+        set => SetProperty("require_multifactor_authentication", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? RequireTicketInfo
     {
-        get => GetProperty<TerraformProperty<bool>>("require_ticket_info");
-        set => WithProperty("require_ticket_info", value);
+        set => SetProperty("require_ticket_info", value);
     }
 
 }
@@ -128,8 +117,7 @@ public class AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock : Terr
     /// </summary>
     public TerraformProperty<bool>? ExpirationRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("expiration_required");
-        set => WithProperty("expiration_required", value);
+        set => SetProperty("expiration_required", value);
     }
 
     /// <summary>
@@ -137,8 +125,7 @@ public class AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock : Terr
     /// </summary>
     public TerraformProperty<string>? ExpireAfter
     {
-        get => GetProperty<TerraformProperty<string>>("expire_after");
-        set => WithProperty("expire_after", value);
+        set => SetProperty("expire_after", value);
     }
 
 }
@@ -162,8 +149,7 @@ public class AzureadGroupRoleManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -171,8 +157,7 @@ public class AzureadGroupRoleManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -180,8 +165,7 @@ public class AzureadGroupRoleManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -189,8 +173,7 @@ public class AzureadGroupRoleManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -208,8 +191,11 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("display_name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("group_id");
+        SetOutput("id");
+        SetOutput("role_id");
     }
 
     /// <summary>
@@ -218,17 +204,17 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformProperty<string> GroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_id");
-        set => this.WithProperty("group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_id");
+        set => SetProperty("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -237,8 +223,8 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
-        set => this.WithProperty("role_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_id");
+        set => SetProperty("role_id", value);
     }
 
     /// <summary>
@@ -248,8 +234,7 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActivationRules block(s) allowed")]
     public List<AzureadGroupRoleManagementPolicyActivationRulesBlock>? ActivationRules
     {
-        get => GetProperty<List<AzureadGroupRoleManagementPolicyActivationRulesBlock>>("activation_rules");
-        set => this.WithProperty("activation_rules", value);
+        set => SetProperty("activation_rules", value);
     }
 
     /// <summary>
@@ -259,8 +244,7 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveAssignmentRules block(s) allowed")]
     public List<AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock>? ActiveAssignmentRules
     {
-        get => GetProperty<List<AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock>>("active_assignment_rules");
-        set => this.WithProperty("active_assignment_rules", value);
+        set => SetProperty("active_assignment_rules", value);
     }
 
     /// <summary>
@@ -270,8 +254,7 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EligibleAssignmentRules block(s) allowed")]
     public List<AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock>? EligibleAssignmentRules
     {
-        get => GetProperty<List<AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock>>("eligible_assignment_rules");
-        set => this.WithProperty("eligible_assignment_rules", value);
+        set => SetProperty("eligible_assignment_rules", value);
     }
 
     /// <summary>
@@ -281,8 +264,7 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationRules block(s) allowed")]
     public List<AzureadGroupRoleManagementPolicyNotificationRulesBlock>? NotificationRules
     {
-        get => GetProperty<List<AzureadGroupRoleManagementPolicyNotificationRulesBlock>>("notification_rules");
-        set => this.WithProperty("notification_rules", value);
+        set => SetProperty("notification_rules", value);
     }
 
     /// <summary>
@@ -291,8 +273,7 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     /// </summary>
     public AzureadGroupRoleManagementPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadGroupRoleManagementPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

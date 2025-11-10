@@ -14,38 +14,42 @@ public class GoogleAlloydbClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("annotations");
-        this.WithOutput("automated_backup_policy");
-        this.WithOutput("backup_source");
-        this.WithOutput("cluster_type");
-        this.WithOutput("continuous_backup_config");
-        this.WithOutput("continuous_backup_info");
-        this.WithOutput("database_version");
-        this.WithOutput("deletion_policy");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("display_name");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("encryption_config");
-        this.WithOutput("encryption_info");
-        this.WithOutput("etag");
-        this.WithOutput("initial_user");
-        this.WithOutput("labels");
-        this.WithOutput("maintenance_update_policy");
-        this.WithOutput("migration_source");
-        this.WithOutput("name");
-        this.WithOutput("network_config");
-        this.WithOutput("psc_config");
-        this.WithOutput("reconciling");
-        this.WithOutput("restore_backup_source");
-        this.WithOutput("restore_continuous_backup_source");
-        this.WithOutput("secondary_config");
-        this.WithOutput("skip_await_major_version_upgrade");
-        this.WithOutput("state");
-        this.WithOutput("subscription_type");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("trial_metadata");
-        this.WithOutput("uid");
+        SetOutput("annotations");
+        SetOutput("automated_backup_policy");
+        SetOutput("backup_source");
+        SetOutput("cluster_type");
+        SetOutput("continuous_backup_config");
+        SetOutput("continuous_backup_info");
+        SetOutput("database_version");
+        SetOutput("deletion_policy");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("encryption_config");
+        SetOutput("encryption_info");
+        SetOutput("etag");
+        SetOutput("initial_user");
+        SetOutput("labels");
+        SetOutput("maintenance_update_policy");
+        SetOutput("migration_source");
+        SetOutput("name");
+        SetOutput("network_config");
+        SetOutput("psc_config");
+        SetOutput("reconciling");
+        SetOutput("restore_backup_source");
+        SetOutput("restore_continuous_backup_source");
+        SetOutput("secondary_config");
+        SetOutput("skip_await_major_version_upgrade");
+        SetOutput("state");
+        SetOutput("subscription_type");
+        SetOutput("terraform_labels");
+        SetOutput("trial_metadata");
+        SetOutput("uid");
+        SetOutput("cluster_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -54,35 +58,35 @@ public class GoogleAlloydbClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location where the alloydb cluster should reside.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

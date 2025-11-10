@@ -14,8 +14,7 @@ public class AwsCodepipelineArtifactStoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsCodepipelineArtifactStoreBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsCodepipelineArtifactStoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AwsCodepipelineStageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -69,8 +65,7 @@ public class AwsCodepipelineTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
     public required TerraformProperty<string> ProviderType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provider_type");
-        set => WithProperty("provider_type", value);
+        set => SetProperty("provider_type", value);
     }
 
 }
@@ -86,8 +81,7 @@ public class AwsCodepipelineVariableBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultValue
     {
-        get => GetProperty<TerraformProperty<string>>("default_value");
-        set => WithProperty("default_value", value);
+        set => SetProperty("default_value", value);
     }
 
     /// <summary>
@@ -95,8 +89,7 @@ public class AwsCodepipelineVariableBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -105,8 +98,7 @@ public class AwsCodepipelineVariableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -124,26 +116,34 @@ public class AwsCodepipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("trigger_all");
+        SetOutput("arn");
+        SetOutput("trigger_all");
+        SetOutput("execution_mode");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("pipeline_type");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The execution_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionMode
+    public TerraformProperty<string> ExecutionMode
     {
-        get => GetProperty<TerraformProperty<string>>("execution_mode");
-        set => this.WithProperty("execution_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_mode");
+        set => SetProperty("execution_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -152,26 +152,26 @@ public class AwsCodepipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The pipeline_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PipelineType
+    public TerraformProperty<string> PipelineType
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_type");
-        set => this.WithProperty("pipeline_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_type");
+        set => SetProperty("pipeline_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -180,37 +180,37 @@ public class AwsCodepipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for artifact_store.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactStore is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ArtifactStore block(s) required")]
     public HashSet<AwsCodepipelineArtifactStoreBlock>? ArtifactStore
     {
-        get => GetProperty<HashSet<AwsCodepipelineArtifactStoreBlock>>("artifact_store");
-        set => this.WithProperty("artifact_store", value);
+        set => SetProperty("artifact_store", value);
     }
 
     /// <summary>
@@ -220,8 +220,7 @@ public class AwsCodepipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Stage block(s) required")]
     public List<AwsCodepipelineStageBlock>? Stage
     {
-        get => GetProperty<List<AwsCodepipelineStageBlock>>("stage");
-        set => this.WithProperty("stage", value);
+        set => SetProperty("stage", value);
     }
 
     /// <summary>
@@ -231,8 +230,7 @@ public class AwsCodepipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Trigger block(s) allowed")]
     public List<AwsCodepipelineTriggerBlock>? Trigger
     {
-        get => GetProperty<List<AwsCodepipelineTriggerBlock>>("trigger");
-        set => this.WithProperty("trigger", value);
+        set => SetProperty("trigger", value);
     }
 
     /// <summary>
@@ -241,8 +239,7 @@ public class AwsCodepipeline : TerraformResource
     /// </summary>
     public List<AwsCodepipelineVariableBlock>? Variable
     {
-        get => GetProperty<List<AwsCodepipelineVariableBlock>>("variable");
-        set => this.WithProperty("variable", value);
+        set => SetProperty("variable", value);
     }
 
     /// <summary>

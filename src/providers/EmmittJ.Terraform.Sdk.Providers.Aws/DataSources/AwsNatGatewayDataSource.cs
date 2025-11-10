@@ -14,8 +14,7 @@ public class AwsNatGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsNatGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsNatGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,69 +56,75 @@ public class AwsNatGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allocation_id");
-        this.WithOutput("association_id");
-        this.WithOutput("connectivity_type");
-        this.WithOutput("network_interface_id");
-        this.WithOutput("private_ip");
-        this.WithOutput("public_ip");
-        this.WithOutput("secondary_allocation_ids");
-        this.WithOutput("secondary_private_ip_address_count");
-        this.WithOutput("secondary_private_ip_addresses");
+        SetOutput("allocation_id");
+        SetOutput("association_id");
+        SetOutput("connectivity_type");
+        SetOutput("network_interface_id");
+        SetOutput("private_ip");
+        SetOutput("public_ip");
+        SetOutput("secondary_allocation_ids");
+        SetOutput("secondary_private_ip_address_count");
+        SetOutput("secondary_private_ip_addresses");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("state");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    public TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    public TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -130,8 +133,7 @@ public class AwsNatGatewayDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsNatGatewayDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsNatGatewayDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -140,8 +142,7 @@ public class AwsNatGatewayDataSource : TerraformDataSource
     /// </summary>
     public AwsNatGatewayDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNatGatewayDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

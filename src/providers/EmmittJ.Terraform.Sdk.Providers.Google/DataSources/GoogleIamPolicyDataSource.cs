@@ -14,8 +14,7 @@ public class GoogleIamPolicyDataSourceAuditConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => WithProperty("service", value);
+        set => SetProperty("service", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleIamPolicyDataSourceBindingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
     public HashSet<TerraformProperty<string>>? Members
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
-        set => WithProperty("members", value);
+        set => SetProperty("members", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleIamPolicyDataSourceBindingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => WithProperty("role", value);
+        set => SetProperty("role", value);
     }
 
 }
@@ -60,16 +57,17 @@ public class GoogleIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("policy_data");
+        SetOutput("policy_data");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,8 +76,7 @@ public class GoogleIamPolicyDataSource : TerraformDataSource
     /// </summary>
     public HashSet<GoogleIamPolicyDataSourceAuditConfigBlock>? AuditConfig
     {
-        get => GetProperty<HashSet<GoogleIamPolicyDataSourceAuditConfigBlock>>("audit_config");
-        set => this.WithProperty("audit_config", value);
+        set => SetProperty("audit_config", value);
     }
 
     /// <summary>
@@ -88,8 +85,7 @@ public class GoogleIamPolicyDataSource : TerraformDataSource
     /// </summary>
     public HashSet<GoogleIamPolicyDataSourceBindingBlock>? Binding
     {
-        get => GetProperty<HashSet<GoogleIamPolicyDataSourceBindingBlock>>("binding");
-        set => this.WithProperty("binding", value);
+        set => SetProperty("binding", value);
     }
 
     /// <summary>

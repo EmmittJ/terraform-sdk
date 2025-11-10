@@ -13,8 +13,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -25,8 +24,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -35,8 +33,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class GoogleAccessContextManagerAccessLevelsTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class GoogleAccessContextManagerAccessLevelsTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class GoogleAccessContextManagerAccessLevelsTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -88,15 +82,17 @@ public class GoogleAccessContextManagerAccessLevels : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -106,8 +102,8 @@ public class GoogleAccessContextManagerAccessLevels : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -116,8 +112,7 @@ public class GoogleAccessContextManagerAccessLevels : TerraformResource
     /// </summary>
     public HashSet<GoogleAccessContextManagerAccessLevelsAccessLevelsBlock>? AccessLevels
     {
-        get => GetProperty<HashSet<GoogleAccessContextManagerAccessLevelsAccessLevelsBlock>>("access_levels");
-        set => this.WithProperty("access_levels", value);
+        set => SetProperty("access_levels", value);
     }
 
     /// <summary>
@@ -126,8 +121,7 @@ public class GoogleAccessContextManagerAccessLevels : TerraformResource
     /// </summary>
     public GoogleAccessContextManagerAccessLevelsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerAccessLevelsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

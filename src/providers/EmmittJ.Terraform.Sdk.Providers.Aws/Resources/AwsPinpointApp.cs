@@ -13,8 +13,7 @@ public class AwsPinpointAppCampaignHookBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LambdaFunctionName
     {
-        get => GetProperty<TerraformProperty<string>>("lambda_function_name");
-        set => WithProperty("lambda_function_name", value);
+        set => SetProperty("lambda_function_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsPinpointAppCampaignHookBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsPinpointAppCampaignHookBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WebUrl
     {
-        get => GetProperty<TerraformProperty<string>>("web_url");
-        set => WithProperty("web_url", value);
+        set => SetProperty("web_url", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsPinpointAppLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Daily
     {
-        get => GetProperty<TerraformProperty<double>>("daily");
-        set => WithProperty("daily", value);
+        set => SetProperty("daily", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsPinpointAppLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumDuration
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_duration");
-        set => WithProperty("maximum_duration", value);
+        set => SetProperty("maximum_duration", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsPinpointAppLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MessagesPerSecond
     {
-        get => GetProperty<TerraformProperty<double>>("messages_per_second");
-        set => WithProperty("messages_per_second", value);
+        set => SetProperty("messages_per_second", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsPinpointAppLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Total
     {
-        get => GetProperty<TerraformProperty<double>>("total");
-        set => WithProperty("total", value);
+        set => SetProperty("total", value);
     }
 
 }
@@ -92,8 +85,7 @@ public class AwsPinpointAppQuietTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? End
     {
-        get => GetProperty<TerraformProperty<string>>("end");
-        set => WithProperty("end", value);
+        set => SetProperty("end", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AwsPinpointAppQuietTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Start
     {
-        get => GetProperty<TerraformProperty<string>>("start");
-        set => WithProperty("start", value);
+        set => SetProperty("start", value);
     }
 
 }
@@ -120,62 +111,68 @@ public class AwsPinpointApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("application_id");
-        this.WithOutput("arn");
+        SetOutput("application_id");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -185,8 +182,7 @@ public class AwsPinpointApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CampaignHook block(s) allowed")]
     public List<AwsPinpointAppCampaignHookBlock>? CampaignHook
     {
-        get => GetProperty<List<AwsPinpointAppCampaignHookBlock>>("campaign_hook");
-        set => this.WithProperty("campaign_hook", value);
+        set => SetProperty("campaign_hook", value);
     }
 
     /// <summary>
@@ -196,8 +192,7 @@ public class AwsPinpointApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Limits block(s) allowed")]
     public List<AwsPinpointAppLimitsBlock>? Limits
     {
-        get => GetProperty<List<AwsPinpointAppLimitsBlock>>("limits");
-        set => this.WithProperty("limits", value);
+        set => SetProperty("limits", value);
     }
 
     /// <summary>
@@ -207,8 +202,7 @@ public class AwsPinpointApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuietTime block(s) allowed")]
     public List<AwsPinpointAppQuietTimeBlock>? QuietTime
     {
-        get => GetProperty<List<AwsPinpointAppQuietTimeBlock>>("quiet_time");
-        set => this.WithProperty("quiet_time", value);
+        set => SetProperty("quiet_time", value);
     }
 
     /// <summary>

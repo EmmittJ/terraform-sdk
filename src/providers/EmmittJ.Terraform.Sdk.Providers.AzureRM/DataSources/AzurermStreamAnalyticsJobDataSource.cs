@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsJobDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,30 +30,33 @@ public class AzurermStreamAnalyticsJobDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("compatibility_level");
-        this.WithOutput("data_locale");
-        this.WithOutput("events_late_arrival_max_delay_in_seconds");
-        this.WithOutput("events_out_of_order_max_delay_in_seconds");
-        this.WithOutput("events_out_of_order_policy");
-        this.WithOutput("identity");
-        this.WithOutput("job_id");
-        this.WithOutput("last_output_time");
-        this.WithOutput("location");
-        this.WithOutput("output_error_policy");
-        this.WithOutput("sku_name");
-        this.WithOutput("start_mode");
-        this.WithOutput("start_time");
-        this.WithOutput("streaming_units");
-        this.WithOutput("transformation_query");
+        SetOutput("compatibility_level");
+        SetOutput("data_locale");
+        SetOutput("events_late_arrival_max_delay_in_seconds");
+        SetOutput("events_out_of_order_max_delay_in_seconds");
+        SetOutput("events_out_of_order_policy");
+        SetOutput("identity");
+        SetOutput("job_id");
+        SetOutput("last_output_time");
+        SetOutput("location");
+        SetOutput("output_error_policy");
+        SetOutput("sku_name");
+        SetOutput("start_mode");
+        SetOutput("start_time");
+        SetOutput("streaming_units");
+        SetOutput("transformation_query");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermStreamAnalyticsJobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -73,8 +75,8 @@ public class AzurermStreamAnalyticsJobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -83,8 +85,7 @@ public class AzurermStreamAnalyticsJobDataSource : TerraformDataSource
     /// </summary>
     public AzurermStreamAnalyticsJobDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsJobDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

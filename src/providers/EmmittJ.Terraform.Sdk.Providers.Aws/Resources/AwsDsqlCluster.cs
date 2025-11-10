@@ -13,8 +13,7 @@ public class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Clusters
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("clusters");
-        set => WithProperty("clusters", value);
+        set => SetProperty("clusters", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WitnessRegion
     {
-        get => GetProperty<TerraformProperty<string>>("witness_region");
-        set => WithProperty("witness_region", value);
+        set => SetProperty("witness_region", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsDsqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsDsqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsDsqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -75,56 +70,61 @@ public class AwsDsqlCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("encryption_details");
-        this.WithOutput("identifier");
-        this.WithOutput("tags_all");
-        this.WithOutput("vpc_endpoint_service_name");
+        SetOutput("arn");
+        SetOutput("encryption_details");
+        SetOutput("identifier");
+        SetOutput("tags_all");
+        SetOutput("vpc_endpoint_service_name");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("force_destroy");
+        SetOutput("kms_encryption_key");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool> DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => this.WithProperty("deletion_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
+        set => SetProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The kms_encryption_key attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsEncryptionKey
+    public TerraformProperty<string> KmsEncryptionKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_encryption_key");
-        set => this.WithProperty("kms_encryption_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_encryption_key");
+        set => SetProperty("kms_encryption_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -133,8 +133,7 @@ public class AwsDsqlCluster : TerraformResource
     /// </summary>
     public List<AwsDsqlClusterMultiRegionPropertiesBlock>? MultiRegionProperties
     {
-        get => GetProperty<List<AwsDsqlClusterMultiRegionPropertiesBlock>>("multi_region_properties");
-        set => this.WithProperty("multi_region_properties", value);
+        set => SetProperty("multi_region_properties", value);
     }
 
     /// <summary>
@@ -143,8 +142,7 @@ public class AwsDsqlCluster : TerraformResource
     /// </summary>
     public AwsDsqlClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDsqlClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

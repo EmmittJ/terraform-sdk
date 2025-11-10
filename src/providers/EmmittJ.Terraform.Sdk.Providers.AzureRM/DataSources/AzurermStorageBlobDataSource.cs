@@ -13,8 +13,7 @@ public class AzurermStorageBlobDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,30 +30,35 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_tier");
-        this.WithOutput("content_md5");
-        this.WithOutput("content_type");
-        this.WithOutput("encryption_scope");
-        this.WithOutput("type");
-        this.WithOutput("url");
+        SetOutput("access_tier");
+        SetOutput("content_md5");
+        SetOutput("content_type");
+        SetOutput("encryption_scope");
+        SetOutput("type");
+        SetOutput("url");
+        SetOutput("id");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("storage_account_name");
+        SetOutput("storage_container_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -63,8 +67,8 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -73,8 +77,8 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
-        set => this.WithProperty("storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
+        set => SetProperty("storage_account_name", value);
     }
 
     /// <summary>
@@ -83,8 +87,8 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformProperty<string> StorageContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_name");
-        set => this.WithProperty("storage_container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_name");
+        set => SetProperty("storage_container_name", value);
     }
 
     /// <summary>
@@ -93,8 +97,7 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
     /// </summary>
     public AzurermStorageBlobDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageBlobDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

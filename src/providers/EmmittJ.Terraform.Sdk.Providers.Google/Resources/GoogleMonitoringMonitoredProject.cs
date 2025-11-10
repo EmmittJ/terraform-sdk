@@ -13,8 +13,7 @@ public class GoogleMonitoringMonitoredProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleMonitoringMonitoredProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,16 +38,19 @@ public class GoogleMonitoringMonitoredProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
+        SetOutput("create_time");
+        SetOutput("id");
+        SetOutput("metrics_scope");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -58,8 +59,8 @@ public class GoogleMonitoringMonitoredProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricsScope is required")]
     public required TerraformProperty<string> MetricsScope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metrics_scope");
-        set => this.WithProperty("metrics_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metrics_scope");
+        set => SetProperty("metrics_scope", value);
     }
 
     /// <summary>
@@ -68,8 +69,8 @@ public class GoogleMonitoringMonitoredProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -78,8 +79,7 @@ public class GoogleMonitoringMonitoredProject : TerraformResource
     /// </summary>
     public GoogleMonitoringMonitoredProjectTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMonitoringMonitoredProjectTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

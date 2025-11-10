@@ -13,8 +13,7 @@ public class AwsChatbotSlackChannelConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsChatbotSlackChannelConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsChatbotSlackChannelConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,20 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("chat_configuration_arn");
-        this.WithOutput("slack_channel_name");
-        this.WithOutput("slack_team_name");
-        this.WithOutput("tags_all");
+        SetOutput("chat_configuration_arn");
+        SetOutput("slack_channel_name");
+        SetOutput("slack_team_name");
+        SetOutput("tags_all");
+        SetOutput("configuration_name");
+        SetOutput("guardrail_policy_arns");
+        SetOutput("iam_role_arn");
+        SetOutput("logging_level");
+        SetOutput("region");
+        SetOutput("slack_channel_id");
+        SetOutput("slack_team_id");
+        SetOutput("sns_topic_arns");
+        SetOutput("tags");
+        SetOutput("user_authorization_required");
     }
 
     /// <summary>
@@ -61,17 +68,17 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationName is required")]
     public required TerraformProperty<string> ConfigurationName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_name");
-        set => this.WithProperty("configuration_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_name");
+        set => SetProperty("configuration_name", value);
     }
 
     /// <summary>
     /// The guardrail_policy_arns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? GuardrailPolicyArns
+    public List<TerraformProperty<string>> GuardrailPolicyArns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("guardrail_policy_arns");
-        set => this.WithProperty("guardrail_policy_arns", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("guardrail_policy_arns");
+        set => SetProperty("guardrail_policy_arns", value);
     }
 
     /// <summary>
@@ -80,26 +87,26 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformProperty<string>? LoggingLevel
+    public TerraformProperty<string> LoggingLevel
     {
-        get => GetProperty<TerraformProperty<string>>("logging_level");
-        set => this.WithProperty("logging_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logging_level");
+        set => SetProperty("logging_level", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -108,8 +115,8 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackChannelId is required")]
     public required TerraformProperty<string> SlackChannelId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("slack_channel_id");
-        set => this.WithProperty("slack_channel_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("slack_channel_id");
+        set => SetProperty("slack_channel_id", value);
     }
 
     /// <summary>
@@ -118,35 +125,35 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackTeamId is required")]
     public required TerraformProperty<string> SlackTeamId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("slack_team_id");
-        set => this.WithProperty("slack_team_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("slack_team_id");
+        set => SetProperty("slack_team_id", value);
     }
 
     /// <summary>
     /// The sns_topic_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SnsTopicArns
+    public HashSet<TerraformProperty<string>> SnsTopicArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("sns_topic_arns");
-        set => this.WithProperty("sns_topic_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("sns_topic_arns");
+        set => SetProperty("sns_topic_arns", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The user_authorization_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? UserAuthorizationRequired
+    public TerraformProperty<bool> UserAuthorizationRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("user_authorization_required");
-        set => this.WithProperty("user_authorization_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("user_authorization_required");
+        set => SetProperty("user_authorization_required", value);
     }
 
     /// <summary>
@@ -155,8 +162,7 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
     /// </summary>
     public AwsChatbotSlackChannelConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsChatbotSlackChannelConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

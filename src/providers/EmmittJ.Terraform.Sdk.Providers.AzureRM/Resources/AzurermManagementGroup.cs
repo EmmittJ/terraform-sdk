@@ -13,8 +13,7 @@ public class AzurermManagementGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermManagementGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermManagementGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermManagementGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,52 +54,57 @@ public class AzurermManagementGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("tenant_scoped_id");
+        SetOutput("tenant_scoped_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent_management_group_id");
+        SetOutput("subscription_ids");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parent_management_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentManagementGroupId
+    public TerraformProperty<string> ParentManagementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("parent_management_group_id");
-        set => this.WithProperty("parent_management_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_management_group_id");
+        set => SetProperty("parent_management_group_id", value);
     }
 
     /// <summary>
     /// The subscription_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubscriptionIds
+    public HashSet<TerraformProperty<string>> SubscriptionIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subscription_ids");
-        set => this.WithProperty("subscription_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subscription_ids");
+        set => SetProperty("subscription_ids", value);
     }
 
     /// <summary>
@@ -112,8 +113,7 @@ public class AzurermManagementGroup : TerraformResource
     /// </summary>
     public AzurermManagementGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagementGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

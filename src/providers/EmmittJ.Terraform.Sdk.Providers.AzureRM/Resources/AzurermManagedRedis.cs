@@ -14,8 +14,7 @@ public class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => WithProperty("key_vault_key_id", value);
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAssignedIdentityId is required")]
     public required TerraformProperty<string> UserAssignedIdentityId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_assigned_identity_id");
-        set => WithProperty("user_assigned_identity_id", value);
+        set => SetProperty("user_assigned_identity_id", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AccessKeysAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("access_keys_authentication_enabled");
-        set => WithProperty("access_keys_authentication_enabled", value);
+        set => SetProperty("access_keys_authentication_enabled", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("client_protocol");
-        set => WithProperty("client_protocol", value);
+        set => SetProperty("client_protocol", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusteringPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("clustering_policy");
-        set => WithProperty("clustering_policy", value);
+        set => SetProperty("clustering_policy", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EvictionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("eviction_policy");
-        set => WithProperty("eviction_policy", value);
+        set => SetProperty("eviction_policy", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GeoReplicationGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("geo_replication_group_name");
-        set => WithProperty("geo_replication_group_name", value);
+        set => SetProperty("geo_replication_group_name", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrimaryAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("primary_access_key");
-        set => WithProperty("primary_access_key", value);
+        set => SetProperty("primary_access_key", value);
     }
 
     /// <summary>
@@ -104,8 +95,7 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SecondaryAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("secondary_access_key");
-        set => WithProperty("secondary_access_key", value);
+        set => SetProperty("secondary_access_key", value);
     }
 
 }
@@ -121,8 +111,7 @@ public class AzurermManagedRedisIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AzurermManagedRedisIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AzurermManagedRedisIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -149,8 +136,7 @@ public class AzurermManagedRedisIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -166,8 +152,7 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -175,8 +160,7 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -184,8 +168,7 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -193,8 +176,7 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -212,25 +194,32 @@ public class AzurermManagedRedis : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("hostname");
+        SetOutput("hostname");
+        SetOutput("high_availability_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The high_availability_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HighAvailabilityEnabled
+    public TerraformProperty<bool> HighAvailabilityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("high_availability_enabled");
-        set => this.WithProperty("high_availability_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("high_availability_enabled");
+        set => SetProperty("high_availability_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -239,8 +228,8 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -249,8 +238,8 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -259,8 +248,8 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -269,17 +258,17 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -289,8 +278,7 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     public List<AzurermManagedRedisCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetProperty<List<AzurermManagedRedisCustomerManagedKeyBlock>>("customer_managed_key");
-        set => this.WithProperty("customer_managed_key", value);
+        set => SetProperty("customer_managed_key", value);
     }
 
     /// <summary>
@@ -300,8 +288,7 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultDatabase block(s) allowed")]
     public List<AzurermManagedRedisDefaultDatabaseBlock>? DefaultDatabase
     {
-        get => GetProperty<List<AzurermManagedRedisDefaultDatabaseBlock>>("default_database");
-        set => this.WithProperty("default_database", value);
+        set => SetProperty("default_database", value);
     }
 
     /// <summary>
@@ -311,8 +298,7 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermManagedRedisIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermManagedRedisIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -321,8 +307,7 @@ public class AzurermManagedRedis : TerraformResource
     /// </summary>
     public AzurermManagedRedisTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagedRedisTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleDataprocClusterClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
-        set => WithProperty("bucket", value);
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDataprocClusterClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterTier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_tier");
-        set => WithProperty("cluster_tier", value);
+        set => SetProperty("cluster_tier", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleDataprocClusterClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StagingBucket
     {
-        get => GetProperty<TerraformProperty<string>>("staging_bucket");
-        set => WithProperty("staging_bucket", value);
+        set => SetProperty("staging_bucket", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleDataprocClusterClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TempBucket
     {
-        get => GetProperty<TerraformProperty<string>>("temp_bucket");
-        set => WithProperty("temp_bucket", value);
+        set => SetProperty("temp_bucket", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class GoogleDataprocClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class GoogleDataprocClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class GoogleDataprocClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -92,8 +85,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StagingBucket
     {
-        get => GetProperty<TerraformProperty<string>>("staging_bucket");
-        set => WithProperty("staging_bucket", value);
+        set => SetProperty("staging_bucket", value);
     }
 
 }
@@ -111,26 +103,32 @@ public class GoogleDataprocCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("graceful_decommission_timeout");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The timeout duration which allows graceful decomissioning when you change the number of worker nodes directly through a terraform apply
     /// </summary>
-    public TerraformProperty<string>? GracefulDecommissionTimeout
+    public TerraformProperty<string> GracefulDecommissionTimeout
     {
-        get => GetProperty<TerraformProperty<string>>("graceful_decommission_timeout");
-        set => this.WithProperty("graceful_decommission_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("graceful_decommission_timeout");
+        set => SetProperty("graceful_decommission_timeout", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -139,10 +137,10 @@ public class GoogleDataprocCluster : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -151,26 +149,26 @@ public class GoogleDataprocCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the cluster will exist. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region in which the cluster and associated nodes will be created in. Defaults to global.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -180,8 +178,7 @@ public class GoogleDataprocCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterConfig block(s) allowed")]
     public List<GoogleDataprocClusterClusterConfigBlock>? ClusterConfig
     {
-        get => GetProperty<List<GoogleDataprocClusterClusterConfigBlock>>("cluster_config");
-        set => this.WithProperty("cluster_config", value);
+        set => SetProperty("cluster_config", value);
     }
 
     /// <summary>
@@ -190,8 +187,7 @@ public class GoogleDataprocCluster : TerraformResource
     /// </summary>
     public GoogleDataprocClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataprocClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -201,8 +197,7 @@ public class GoogleDataprocCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualClusterConfig block(s) allowed")]
     public List<GoogleDataprocClusterVirtualClusterConfigBlock>? VirtualClusterConfig
     {
-        get => GetProperty<List<GoogleDataprocClusterVirtualClusterConfigBlock>>("virtual_cluster_config");
-        set => this.WithProperty("virtual_cluster_config", value);
+        set => SetProperty("virtual_cluster_config", value);
     }
 
     /// <summary>

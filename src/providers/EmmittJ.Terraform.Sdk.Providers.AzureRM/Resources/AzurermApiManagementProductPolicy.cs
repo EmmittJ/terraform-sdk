@@ -13,8 +13,7 @@ public class AzurermApiManagementProductPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementProductPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementProductPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementProductPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermApiManagementProductPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_name");
+        SetOutput("id");
+        SetOutput("product_id");
+        SetOutput("resource_group_name");
+        SetOutput("xml_content");
+        SetOutput("xml_link");
     }
 
     /// <summary>
@@ -66,17 +68,17 @@ public class AzurermApiManagementProductPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermApiManagementProductPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
-        set => this.WithProperty("product_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_id");
+        set => SetProperty("product_id", value);
     }
 
     /// <summary>
@@ -95,26 +97,26 @@ public class AzurermApiManagementProductPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The xml_content attribute.
     /// </summary>
-    public TerraformProperty<string>? XmlContent
+    public TerraformProperty<string> XmlContent
     {
-        get => GetProperty<TerraformProperty<string>>("xml_content");
-        set => this.WithProperty("xml_content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("xml_content");
+        set => SetProperty("xml_content", value);
     }
 
     /// <summary>
     /// The xml_link attribute.
     /// </summary>
-    public TerraformProperty<string>? XmlLink
+    public TerraformProperty<string> XmlLink
     {
-        get => GetProperty<TerraformProperty<string>>("xml_link");
-        set => this.WithProperty("xml_link", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("xml_link");
+        set => SetProperty("xml_link", value);
     }
 
     /// <summary>
@@ -123,8 +125,7 @@ public class AzurermApiManagementProductPolicy : TerraformResource
     /// </summary>
     public AzurermApiManagementProductPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementProductPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

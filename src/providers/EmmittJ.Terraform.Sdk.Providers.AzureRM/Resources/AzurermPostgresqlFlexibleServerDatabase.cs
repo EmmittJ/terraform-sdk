@@ -13,8 +13,7 @@ public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,33 +46,38 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("charset");
+        SetOutput("collation");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("server_id");
     }
 
     /// <summary>
     /// The charset attribute.
     /// </summary>
-    public TerraformProperty<string>? Charset
+    public TerraformProperty<string> Charset
     {
-        get => GetProperty<TerraformProperty<string>>("charset");
-        set => this.WithProperty("charset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("charset");
+        set => SetProperty("charset", value);
     }
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    public TerraformProperty<string>? Collation
+    public TerraformProperty<string> Collation
     {
-        get => GetProperty<TerraformProperty<string>>("collation");
-        set => this.WithProperty("collation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collation");
+        set => SetProperty("collation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +86,8 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -94,8 +96,8 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
-        set => this.WithProperty("server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
+        set => SetProperty("server_id", value);
     }
 
     /// <summary>
@@ -104,8 +106,7 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     /// </summary>
     public AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

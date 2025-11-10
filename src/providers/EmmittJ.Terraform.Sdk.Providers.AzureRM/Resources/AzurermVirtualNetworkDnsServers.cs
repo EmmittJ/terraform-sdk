@@ -13,8 +13,7 @@ public class AzurermVirtualNetworkDnsServersTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualNetworkDnsServersTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualNetworkDnsServersTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermVirtualNetworkDnsServersTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,27 @@ public class AzurermVirtualNetworkDnsServers : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dns_servers");
+        SetOutput("id");
+        SetOutput("virtual_network_id");
     }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DnsServers
+    public List<TerraformProperty<string>> DnsServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
-        set => this.WithProperty("dns_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("dns_servers");
+        set => SetProperty("dns_servers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +83,8 @@ public class AzurermVirtualNetworkDnsServers : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
-        set => this.WithProperty("virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
+        set => SetProperty("virtual_network_id", value);
     }
 
     /// <summary>
@@ -94,8 +93,7 @@ public class AzurermVirtualNetworkDnsServers : TerraformResource
     /// </summary>
     public AzurermVirtualNetworkDnsServersTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualNetworkDnsServersTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

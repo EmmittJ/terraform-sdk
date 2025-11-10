@@ -13,8 +13,7 @@ public class AzureadUserDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,99 +30,105 @@ public class AzureadUserDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_enabled");
-        this.WithOutput("age_group");
-        this.WithOutput("business_phones");
-        this.WithOutput("city");
-        this.WithOutput("company_name");
-        this.WithOutput("consent_provided_for_minor");
-        this.WithOutput("cost_center");
-        this.WithOutput("country");
-        this.WithOutput("creation_type");
-        this.WithOutput("department");
-        this.WithOutput("display_name");
-        this.WithOutput("division");
-        this.WithOutput("employee_hire_date");
-        this.WithOutput("employee_type");
-        this.WithOutput("external_user_state");
-        this.WithOutput("fax_number");
-        this.WithOutput("given_name");
-        this.WithOutput("im_addresses");
-        this.WithOutput("job_title");
-        this.WithOutput("manager_id");
-        this.WithOutput("mobile_phone");
-        this.WithOutput("office_location");
-        this.WithOutput("onpremises_distinguished_name");
-        this.WithOutput("onpremises_domain_name");
-        this.WithOutput("onpremises_immutable_id");
-        this.WithOutput("onpremises_sam_account_name");
-        this.WithOutput("onpremises_security_identifier");
-        this.WithOutput("onpremises_sync_enabled");
-        this.WithOutput("onpremises_user_principal_name");
-        this.WithOutput("other_mails");
-        this.WithOutput("postal_code");
-        this.WithOutput("preferred_language");
-        this.WithOutput("proxy_addresses");
-        this.WithOutput("show_in_address_list");
-        this.WithOutput("state");
-        this.WithOutput("street_address");
-        this.WithOutput("surname");
-        this.WithOutput("usage_location");
-        this.WithOutput("user_type");
+        SetOutput("account_enabled");
+        SetOutput("age_group");
+        SetOutput("business_phones");
+        SetOutput("city");
+        SetOutput("company_name");
+        SetOutput("consent_provided_for_minor");
+        SetOutput("cost_center");
+        SetOutput("country");
+        SetOutput("creation_type");
+        SetOutput("department");
+        SetOutput("display_name");
+        SetOutput("division");
+        SetOutput("employee_hire_date");
+        SetOutput("employee_type");
+        SetOutput("external_user_state");
+        SetOutput("fax_number");
+        SetOutput("given_name");
+        SetOutput("im_addresses");
+        SetOutput("job_title");
+        SetOutput("manager_id");
+        SetOutput("mobile_phone");
+        SetOutput("office_location");
+        SetOutput("onpremises_distinguished_name");
+        SetOutput("onpremises_domain_name");
+        SetOutput("onpremises_immutable_id");
+        SetOutput("onpremises_sam_account_name");
+        SetOutput("onpremises_security_identifier");
+        SetOutput("onpremises_sync_enabled");
+        SetOutput("onpremises_user_principal_name");
+        SetOutput("other_mails");
+        SetOutput("postal_code");
+        SetOutput("preferred_language");
+        SetOutput("proxy_addresses");
+        SetOutput("show_in_address_list");
+        SetOutput("state");
+        SetOutput("street_address");
+        SetOutput("surname");
+        SetOutput("usage_location");
+        SetOutput("user_type");
+        SetOutput("employee_id");
+        SetOutput("id");
+        SetOutput("mail");
+        SetOutput("mail_nickname");
+        SetOutput("object_id");
+        SetOutput("user_principal_name");
     }
 
     /// <summary>
     /// The employee identifier assigned to the user by the organisation
     /// </summary>
-    public TerraformProperty<string>? EmployeeId
+    public TerraformProperty<string> EmployeeId
     {
-        get => GetProperty<TerraformProperty<string>>("employee_id");
-        set => this.WithProperty("employee_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("employee_id");
+        set => SetProperty("employee_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The SMTP address for the user
     /// </summary>
-    public TerraformProperty<string>? Mail
+    public TerraformProperty<string> Mail
     {
-        get => GetProperty<TerraformProperty<string>>("mail");
-        set => this.WithProperty("mail", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mail");
+        set => SetProperty("mail", value);
     }
 
     /// <summary>
     /// The email alias of the user
     /// </summary>
-    public TerraformProperty<string>? MailNickname
+    public TerraformProperty<string> MailNickname
     {
-        get => GetProperty<TerraformProperty<string>>("mail_nickname");
-        set => this.WithProperty("mail_nickname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mail_nickname");
+        set => SetProperty("mail_nickname", value);
     }
 
     /// <summary>
     /// The object ID of the user
     /// </summary>
-    public TerraformProperty<string>? ObjectId
+    public TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
-        set => this.WithProperty("object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
     /// The user principal name (UPN) of the user
     /// </summary>
-    public TerraformProperty<string>? UserPrincipalName
+    public TerraformProperty<string> UserPrincipalName
     {
-        get => GetProperty<TerraformProperty<string>>("user_principal_name");
-        set => this.WithProperty("user_principal_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_principal_name");
+        set => SetProperty("user_principal_name", value);
     }
 
     /// <summary>
@@ -132,8 +137,7 @@ public class AzureadUserDataSource : TerraformDataSource
     /// </summary>
     public AzureadUserDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadUserDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

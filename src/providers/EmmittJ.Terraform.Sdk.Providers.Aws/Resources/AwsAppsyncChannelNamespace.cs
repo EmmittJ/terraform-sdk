@@ -22,8 +22,7 @@ public class AwsAppsyncChannelNamespacePublishAuthModeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
-        set => WithProperty("auth_type", value);
+        set => SetProperty("auth_type", value);
     }
 
 }
@@ -40,8 +39,7 @@ public class AwsAppsyncChannelNamespaceSubscribeAuthModeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
-        set => WithProperty("auth_type", value);
+        set => SetProperty("auth_type", value);
     }
 
 }
@@ -58,8 +56,13 @@ public class AwsAppsyncChannelNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("channel_namespace_arn");
-        this.WithOutput("tags_all");
+        SetOutput("channel_namespace_arn");
+        SetOutput("tags_all");
+        SetOutput("api_id");
+        SetOutput("code_handlers");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -68,17 +71,17 @@ public class AwsAppsyncChannelNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The code_handlers attribute.
     /// </summary>
-    public TerraformProperty<string>? CodeHandlers
+    public TerraformProperty<string> CodeHandlers
     {
-        get => GetProperty<TerraformProperty<string>>("code_handlers");
-        set => this.WithProperty("code_handlers", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("code_handlers");
+        set => SetProperty("code_handlers", value);
     }
 
     /// <summary>
@@ -87,26 +90,26 @@ public class AwsAppsyncChannelNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -115,8 +118,7 @@ public class AwsAppsyncChannelNamespace : TerraformResource
     /// </summary>
     public List<AwsAppsyncChannelNamespaceHandlerConfigsBlock>? HandlerConfigs
     {
-        get => GetProperty<List<AwsAppsyncChannelNamespaceHandlerConfigsBlock>>("handler_configs");
-        set => this.WithProperty("handler_configs", value);
+        set => SetProperty("handler_configs", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AwsAppsyncChannelNamespace : TerraformResource
     /// </summary>
     public List<AwsAppsyncChannelNamespacePublishAuthModeBlock>? PublishAuthMode
     {
-        get => GetProperty<List<AwsAppsyncChannelNamespacePublishAuthModeBlock>>("publish_auth_mode");
-        set => this.WithProperty("publish_auth_mode", value);
+        set => SetProperty("publish_auth_mode", value);
     }
 
     /// <summary>
@@ -135,8 +136,7 @@ public class AwsAppsyncChannelNamespace : TerraformResource
     /// </summary>
     public List<AwsAppsyncChannelNamespaceSubscribeAuthModeBlock>? SubscribeAuthMode
     {
-        get => GetProperty<List<AwsAppsyncChannelNamespaceSubscribeAuthModeBlock>>("subscribe_auth_mode");
-        set => this.WithProperty("subscribe_auth_mode", value);
+        set => SetProperty("subscribe_auth_mode", value);
     }
 
     /// <summary>

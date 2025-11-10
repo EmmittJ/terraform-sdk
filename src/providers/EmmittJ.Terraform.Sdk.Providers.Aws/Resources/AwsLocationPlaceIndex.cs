@@ -13,8 +13,7 @@ public class AwsLocationPlaceIndexDataSourceConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IntendedUse
     {
-        get => GetProperty<TerraformProperty<string>>("intended_use");
-        set => WithProperty("intended_use", value);
+        set => SetProperty("intended_use", value);
     }
 
 }
@@ -32,9 +31,16 @@ public class AwsLocationPlaceIndex : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("index_arn");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("index_arn");
+        SetOutput("update_time");
+        SetOutput("data_source");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("index_name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -43,26 +49,26 @@ public class AwsLocationPlaceIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformProperty<string> DataSource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_source");
-        set => this.WithProperty("data_source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_source");
+        set => SetProperty("data_source", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -71,35 +77,35 @@ public class AwsLocationPlaceIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
-        set => this.WithProperty("index_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("index_name");
+        set => SetProperty("index_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -109,8 +115,7 @@ public class AwsLocationPlaceIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSourceConfiguration block(s) allowed")]
     public List<AwsLocationPlaceIndexDataSourceConfigurationBlock>? DataSourceConfiguration
     {
-        get => GetProperty<List<AwsLocationPlaceIndexDataSourceConfigurationBlock>>("data_source_configuration");
-        set => this.WithProperty("data_source_configuration", value);
+        set => SetProperty("data_source_configuration", value);
     }
 
     /// <summary>

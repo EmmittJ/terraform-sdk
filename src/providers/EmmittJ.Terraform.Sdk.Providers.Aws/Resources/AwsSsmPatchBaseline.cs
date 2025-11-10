@@ -13,8 +13,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ApproveAfterDays
     {
-        get => GetProperty<TerraformProperty<double>>("approve_after_days");
-        set => WithProperty("approve_after_days", value);
+        set => SetProperty("approve_after_days", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApproveUntilDate
     {
-        get => GetProperty<TerraformProperty<string>>("approve_until_date");
-        set => WithProperty("approve_until_date", value);
+        set => SetProperty("approve_until_date", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ComplianceLevel
     {
-        get => GetProperty<TerraformProperty<string>>("compliance_level");
-        set => WithProperty("compliance_level", value);
+        set => SetProperty("compliance_level", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableNonSecurity
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_non_security");
-        set => WithProperty("enable_non_security", value);
+        set => SetProperty("enable_non_security", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public List<TerraformProperty<string>>? Values
     {
-        get => GetProperty<List<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configuration is required")]
     public required TerraformProperty<string> Configuration
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration");
-        set => WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -106,8 +98,7 @@ public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Products is required")]
     public List<TerraformProperty<string>>? Products
     {
-        get => GetProperty<List<TerraformProperty<string>>>("products");
-        set => WithProperty("products", value);
+        set => SetProperty("products", value);
     }
 
 }
@@ -125,62 +116,75 @@ public class AwsSsmPatchBaseline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("json");
+        SetOutput("arn");
+        SetOutput("json");
+        SetOutput("approved_patches");
+        SetOutput("approved_patches_compliance_level");
+        SetOutput("approved_patches_enable_non_security");
+        SetOutput("available_security_updates_compliance_status");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("operating_system");
+        SetOutput("region");
+        SetOutput("rejected_patches");
+        SetOutput("rejected_patches_action");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The approved_patches attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ApprovedPatches
+    public HashSet<TerraformProperty<string>> ApprovedPatches
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("approved_patches");
-        set => this.WithProperty("approved_patches", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("approved_patches");
+        set => SetProperty("approved_patches", value);
     }
 
     /// <summary>
     /// The approved_patches_compliance_level attribute.
     /// </summary>
-    public TerraformProperty<string>? ApprovedPatchesComplianceLevel
+    public TerraformProperty<string> ApprovedPatchesComplianceLevel
     {
-        get => GetProperty<TerraformProperty<string>>("approved_patches_compliance_level");
-        set => this.WithProperty("approved_patches_compliance_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("approved_patches_compliance_level");
+        set => SetProperty("approved_patches_compliance_level", value);
     }
 
     /// <summary>
     /// The approved_patches_enable_non_security attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApprovedPatchesEnableNonSecurity
+    public TerraformProperty<bool> ApprovedPatchesEnableNonSecurity
     {
-        get => GetProperty<TerraformProperty<bool>>("approved_patches_enable_non_security");
-        set => this.WithProperty("approved_patches_enable_non_security", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("approved_patches_enable_non_security");
+        set => SetProperty("approved_patches_enable_non_security", value);
     }
 
     /// <summary>
     /// The available_security_updates_compliance_status attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailableSecurityUpdatesComplianceStatus
+    public TerraformProperty<string> AvailableSecurityUpdatesComplianceStatus
     {
-        get => GetProperty<TerraformProperty<string>>("available_security_updates_compliance_status");
-        set => this.WithProperty("available_security_updates_compliance_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("available_security_updates_compliance_status");
+        set => SetProperty("available_security_updates_compliance_status", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -189,62 +193,62 @@ public class AwsSsmPatchBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
-    public TerraformProperty<string>? OperatingSystem
+    public TerraformProperty<string> OperatingSystem
     {
-        get => GetProperty<TerraformProperty<string>>("operating_system");
-        set => this.WithProperty("operating_system", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("operating_system");
+        set => SetProperty("operating_system", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The rejected_patches attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? RejectedPatches
+    public HashSet<TerraformProperty<string>> RejectedPatches
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("rejected_patches");
-        set => this.WithProperty("rejected_patches", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("rejected_patches");
+        set => SetProperty("rejected_patches", value);
     }
 
     /// <summary>
     /// The rejected_patches_action attribute.
     /// </summary>
-    public TerraformProperty<string>? RejectedPatchesAction
+    public TerraformProperty<string> RejectedPatchesAction
     {
-        get => GetProperty<TerraformProperty<string>>("rejected_patches_action");
-        set => this.WithProperty("rejected_patches_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rejected_patches_action");
+        set => SetProperty("rejected_patches_action", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -253,8 +257,7 @@ public class AwsSsmPatchBaseline : TerraformResource
     /// </summary>
     public List<AwsSsmPatchBaselineApprovalRuleBlock>? ApprovalRule
     {
-        get => GetProperty<List<AwsSsmPatchBaselineApprovalRuleBlock>>("approval_rule");
-        set => this.WithProperty("approval_rule", value);
+        set => SetProperty("approval_rule", value);
     }
 
     /// <summary>
@@ -264,8 +267,7 @@ public class AwsSsmPatchBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 GlobalFilter block(s) allowed")]
     public List<AwsSsmPatchBaselineGlobalFilterBlock>? GlobalFilter
     {
-        get => GetProperty<List<AwsSsmPatchBaselineGlobalFilterBlock>>("global_filter");
-        set => this.WithProperty("global_filter", value);
+        set => SetProperty("global_filter", value);
     }
 
     /// <summary>
@@ -275,8 +277,7 @@ public class AwsSsmPatchBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Source block(s) allowed")]
     public List<AwsSsmPatchBaselineSourceBlock>? Source
     {
-        get => GetProperty<List<AwsSsmPatchBaselineSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>

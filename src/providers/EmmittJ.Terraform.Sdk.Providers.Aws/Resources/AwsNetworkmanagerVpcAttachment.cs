@@ -13,8 +13,7 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ApplianceModeSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("appliance_mode_support");
-        set => WithProperty("appliance_mode_support", value);
+        set => SetProperty("appliance_mode_support", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DnsSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("dns_support");
-        set => WithProperty("dns_support", value);
+        set => SetProperty("dns_support", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Ipv6Support
     {
-        get => GetProperty<TerraformProperty<bool>>("ipv6_support");
-        set => WithProperty("ipv6_support", value);
+        set => SetProperty("ipv6_support", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SecurityGroupReferencingSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("security_group_referencing_support");
-        set => WithProperty("security_group_referencing_support", value);
+        set => SetProperty("security_group_referencing_support", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AwsNetworkmanagerVpcAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsNetworkmanagerVpcAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsNetworkmanagerVpcAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,15 +87,21 @@ public class AwsNetworkmanagerVpcAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("attachment_policy_rule_number");
-        this.WithOutput("attachment_type");
-        this.WithOutput("core_network_arn");
-        this.WithOutput("edge_location");
-        this.WithOutput("owner_account_id");
-        this.WithOutput("resource_arn");
-        this.WithOutput("segment_name");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("attachment_policy_rule_number");
+        SetOutput("attachment_type");
+        SetOutput("core_network_arn");
+        SetOutput("edge_location");
+        SetOutput("owner_account_id");
+        SetOutput("resource_arn");
+        SetOutput("segment_name");
+        SetOutput("state");
+        SetOutput("core_network_id");
+        SetOutput("id");
+        SetOutput("subnet_arns");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_arn");
     }
 
     /// <summary>
@@ -111,45 +110,45 @@ public class AwsNetworkmanagerVpcAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
-        set => this.WithProperty("core_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("core_network_id");
+        set => SetProperty("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The subnet_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetArns is required")]
-    public HashSet<TerraformProperty<string>>? SubnetArns
+    public HashSet<TerraformProperty<string>> SubnetArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_arns");
-        set => this.WithProperty("subnet_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_arns");
+        set => SetProperty("subnet_arns", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -158,8 +157,8 @@ public class AwsNetworkmanagerVpcAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcArn is required")]
     public required TerraformProperty<string> VpcArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_arn");
-        set => this.WithProperty("vpc_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_arn");
+        set => SetProperty("vpc_arn", value);
     }
 
     /// <summary>
@@ -169,8 +168,7 @@ public class AwsNetworkmanagerVpcAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     public List<AwsNetworkmanagerVpcAttachmentOptionsBlock>? Options
     {
-        get => GetProperty<List<AwsNetworkmanagerVpcAttachmentOptionsBlock>>("options");
-        set => this.WithProperty("options", value);
+        set => SetProperty("options", value);
     }
 
     /// <summary>
@@ -179,8 +177,7 @@ public class AwsNetworkmanagerVpcAttachment : TerraformResource
     /// </summary>
     public AwsNetworkmanagerVpcAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerVpcAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

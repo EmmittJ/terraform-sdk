@@ -14,8 +14,11 @@ public class AwsEfsAccessPointsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arns");
-        this.WithOutput("ids");
+        SetOutput("arns");
+        SetOutput("ids");
+        SetOutput("file_system_id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,26 +27,26 @@ public class AwsEfsAccessPointsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
-        set => this.WithProperty("file_system_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_system_id");
+        set => SetProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

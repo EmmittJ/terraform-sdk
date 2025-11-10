@@ -14,28 +14,30 @@ public class AwsS3AccountPublicAccessBlockDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputlock_public_acls");
-        this.WithOutputlock_public_policy");
-        this.WithOutputgnore_public_acls");
-        this.WithOutputestrict_public_buckets");
+        SetOutput("block_public_acls");
+        SetOutput("block_public_policy");
+        SetOutput("ignore_public_acls");
+        SetOutput("restrict_public_buckets");
+        SetOutput("account_id");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

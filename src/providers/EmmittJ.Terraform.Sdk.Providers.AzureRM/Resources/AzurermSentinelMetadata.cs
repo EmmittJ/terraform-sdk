@@ -13,8 +13,7 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Link
     {
-        get => GetProperty<TerraformProperty<string>>("link");
-        set => WithProperty("link", value);
+        set => SetProperty("link", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Domains
     {
-        get => GetProperty<List<TerraformProperty<string>>>("domains");
-        set => WithProperty("domains", value);
+        set => SetProperty("domains", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Verticals
     {
-        get => GetProperty<List<TerraformProperty<string>>>("verticals");
-        set => WithProperty("verticals", value);
+        set => SetProperty("verticals", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kind");
-        set => WithProperty("kind", value);
+        set => SetProperty("kind", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -110,8 +102,7 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -119,8 +110,7 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Link
     {
-        get => GetProperty<TerraformProperty<string>>("link");
-        set => WithProperty("link", value);
+        set => SetProperty("link", value);
     }
 
     /// <summary>
@@ -128,8 +118,7 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tier");
-        set => WithProperty("tier", value);
+        set => SetProperty("tier", value);
     }
 
 }
@@ -155,8 +143,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -164,8 +151,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -173,8 +159,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -182,8 +167,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -201,6 +185,24 @@ public class AzurermSentinelMetadata : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("content_id");
+        SetOutput("content_schema_version");
+        SetOutput("custom_version");
+        SetOutput("dependency");
+        SetOutput("first_publish_date");
+        SetOutput("icon_id");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("last_publish_date");
+        SetOutput("name");
+        SetOutput("parent_id");
+        SetOutput("preview_images");
+        SetOutput("preview_images_dark");
+        SetOutput("providers");
+        SetOutput("threat_analysis_tactics");
+        SetOutput("threat_analysis_techniques");
+        SetOutput("version");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
@@ -209,62 +211,62 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentId is required")]
     public required TerraformProperty<string> ContentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content_id");
-        set => this.WithProperty("content_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_id");
+        set => SetProperty("content_id", value);
     }
 
     /// <summary>
     /// The content_schema_version attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentSchemaVersion
+    public TerraformProperty<string> ContentSchemaVersion
     {
-        get => GetProperty<TerraformProperty<string>>("content_schema_version");
-        set => this.WithProperty("content_schema_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_schema_version");
+        set => SetProperty("content_schema_version", value);
     }
 
     /// <summary>
     /// The custom_version attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomVersion
+    public TerraformProperty<string> CustomVersion
     {
-        get => GetProperty<TerraformProperty<string>>("custom_version");
-        set => this.WithProperty("custom_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_version");
+        set => SetProperty("custom_version", value);
     }
 
     /// <summary>
     /// The dependency attribute.
     /// </summary>
-    public TerraformProperty<string>? Dependency
+    public TerraformProperty<string> Dependency
     {
-        get => GetProperty<TerraformProperty<string>>("dependency");
-        set => this.WithProperty("dependency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dependency");
+        set => SetProperty("dependency", value);
     }
 
     /// <summary>
     /// The first_publish_date attribute.
     /// </summary>
-    public TerraformProperty<string>? FirstPublishDate
+    public TerraformProperty<string> FirstPublishDate
     {
-        get => GetProperty<TerraformProperty<string>>("first_publish_date");
-        set => this.WithProperty("first_publish_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("first_publish_date");
+        set => SetProperty("first_publish_date", value);
     }
 
     /// <summary>
     /// The icon_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IconId
+    public TerraformProperty<string> IconId
     {
-        get => GetProperty<TerraformProperty<string>>("icon_id");
-        set => this.WithProperty("icon_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("icon_id");
+        set => SetProperty("icon_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -273,17 +275,17 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kind");
-        set => this.WithProperty("kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kind");
+        set => SetProperty("kind", value);
     }
 
     /// <summary>
     /// The last_publish_date attribute.
     /// </summary>
-    public TerraformProperty<string>? LastPublishDate
+    public TerraformProperty<string> LastPublishDate
     {
-        get => GetProperty<TerraformProperty<string>>("last_publish_date");
-        set => this.WithProperty("last_publish_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("last_publish_date");
+        set => SetProperty("last_publish_date", value);
     }
 
     /// <summary>
@@ -292,8 +294,8 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -302,62 +304,62 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     public required TerraformProperty<string> ParentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent_id");
-        set => this.WithProperty("parent_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_id");
+        set => SetProperty("parent_id", value);
     }
 
     /// <summary>
     /// The preview_images attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PreviewImages
+    public List<TerraformProperty<string>> PreviewImages
     {
-        get => GetProperty<List<TerraformProperty<string>>>("preview_images");
-        set => this.WithProperty("preview_images", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("preview_images");
+        set => SetProperty("preview_images", value);
     }
 
     /// <summary>
     /// The preview_images_dark attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PreviewImagesDark
+    public List<TerraformProperty<string>> PreviewImagesDark
     {
-        get => GetProperty<List<TerraformProperty<string>>>("preview_images_dark");
-        set => this.WithProperty("preview_images_dark", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("preview_images_dark");
+        set => SetProperty("preview_images_dark", value);
     }
 
     /// <summary>
     /// The providers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Providers
+    public List<TerraformProperty<string>> Providers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("providers");
-        set => this.WithProperty("providers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("providers");
+        set => SetProperty("providers", value);
     }
 
     /// <summary>
     /// The threat_analysis_tactics attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ThreatAnalysisTactics
+    public List<TerraformProperty<string>> ThreatAnalysisTactics
     {
-        get => GetProperty<List<TerraformProperty<string>>>("threat_analysis_tactics");
-        set => this.WithProperty("threat_analysis_tactics", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("threat_analysis_tactics");
+        set => SetProperty("threat_analysis_tactics", value);
     }
 
     /// <summary>
     /// The threat_analysis_techniques attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ThreatAnalysisTechniques
+    public List<TerraformProperty<string>> ThreatAnalysisTechniques
     {
-        get => GetProperty<List<TerraformProperty<string>>>("threat_analysis_techniques");
-        set => this.WithProperty("threat_analysis_techniques", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("threat_analysis_techniques");
+        set => SetProperty("threat_analysis_techniques", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -366,8 +368,8 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -377,8 +379,7 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Author block(s) allowed")]
     public List<AzurermSentinelMetadataAuthorBlock>? Author
     {
-        get => GetProperty<List<AzurermSentinelMetadataAuthorBlock>>("author");
-        set => this.WithProperty("author", value);
+        set => SetProperty("author", value);
     }
 
     /// <summary>
@@ -388,8 +389,7 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Category block(s) allowed")]
     public List<AzurermSentinelMetadataCategoryBlock>? Category
     {
-        get => GetProperty<List<AzurermSentinelMetadataCategoryBlock>>("category");
-        set => this.WithProperty("category", value);
+        set => SetProperty("category", value);
     }
 
     /// <summary>
@@ -399,8 +399,7 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     public List<AzurermSentinelMetadataSourceBlock>? Source
     {
-        get => GetProperty<List<AzurermSentinelMetadataSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -410,8 +409,7 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Support block(s) allowed")]
     public List<AzurermSentinelMetadataSupportBlock>? Support
     {
-        get => GetProperty<List<AzurermSentinelMetadataSupportBlock>>("support");
-        set => this.WithProperty("support", value);
+        set => SetProperty("support", value);
     }
 
     /// <summary>
@@ -420,8 +418,7 @@ public class AzurermSentinelMetadata : TerraformResource
     /// </summary>
     public AzurermSentinelMetadataTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSentinelMetadataTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

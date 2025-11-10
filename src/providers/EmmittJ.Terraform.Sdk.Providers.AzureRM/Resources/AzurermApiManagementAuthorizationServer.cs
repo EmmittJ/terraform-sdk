@@ -13,8 +13,7 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -86,6 +80,25 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_name");
+        SetOutput("authorization_endpoint");
+        SetOutput("authorization_methods");
+        SetOutput("bearer_token_sending_methods");
+        SetOutput("client_authentication_method");
+        SetOutput("client_id");
+        SetOutput("client_registration_endpoint");
+        SetOutput("client_secret");
+        SetOutput("default_scope");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("grant_types");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("resource_owner_password");
+        SetOutput("resource_owner_username");
+        SetOutput("support_state");
+        SetOutput("token_endpoint");
     }
 
     /// <summary>
@@ -94,8 +107,8 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
@@ -104,36 +117,36 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformProperty<string> AuthorizationEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorization_endpoint");
-        set => this.WithProperty("authorization_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_endpoint");
+        set => SetProperty("authorization_endpoint", value);
     }
 
     /// <summary>
     /// The authorization_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationMethods is required")]
-    public HashSet<TerraformProperty<string>>? AuthorizationMethods
+    public HashSet<TerraformProperty<string>> AuthorizationMethods
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("authorization_methods");
-        set => this.WithProperty("authorization_methods", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("authorization_methods");
+        set => SetProperty("authorization_methods", value);
     }
 
     /// <summary>
     /// The bearer_token_sending_methods attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? BearerTokenSendingMethods
+    public HashSet<TerraformProperty<string>> BearerTokenSendingMethods
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("bearer_token_sending_methods");
-        set => this.WithProperty("bearer_token_sending_methods", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("bearer_token_sending_methods");
+        set => SetProperty("bearer_token_sending_methods", value);
     }
 
     /// <summary>
     /// The client_authentication_method attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ClientAuthenticationMethod
+    public HashSet<TerraformProperty<string>> ClientAuthenticationMethod
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("client_authentication_method");
-        set => this.WithProperty("client_authentication_method", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("client_authentication_method");
+        set => SetProperty("client_authentication_method", value);
     }
 
     /// <summary>
@@ -142,8 +155,8 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -152,35 +165,35 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientRegistrationEndpoint is required")]
     public required TerraformProperty<string> ClientRegistrationEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_registration_endpoint");
-        set => this.WithProperty("client_registration_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_registration_endpoint");
+        set => SetProperty("client_registration_endpoint", value);
     }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientSecret
+    public TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
-        set => this.WithProperty("client_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_secret");
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
     /// The default_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultScope
+    public TerraformProperty<string> DefaultScope
     {
-        get => GetProperty<TerraformProperty<string>>("default_scope");
-        set => this.WithProperty("default_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_scope");
+        set => SetProperty("default_scope", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -189,27 +202,27 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The grant_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrantTypes is required")]
-    public HashSet<TerraformProperty<string>>? GrantTypes
+    public HashSet<TerraformProperty<string>> GrantTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("grant_types");
-        set => this.WithProperty("grant_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("grant_types");
+        set => SetProperty("grant_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -218,8 +231,8 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -228,44 +241,44 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The resource_owner_password attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceOwnerPassword
+    public TerraformProperty<string> ResourceOwnerPassword
     {
-        get => GetProperty<TerraformProperty<string>>("resource_owner_password");
-        set => this.WithProperty("resource_owner_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_owner_password");
+        set => SetProperty("resource_owner_password", value);
     }
 
     /// <summary>
     /// The resource_owner_username attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceOwnerUsername
+    public TerraformProperty<string> ResourceOwnerUsername
     {
-        get => GetProperty<TerraformProperty<string>>("resource_owner_username");
-        set => this.WithProperty("resource_owner_username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_owner_username");
+        set => SetProperty("resource_owner_username", value);
     }
 
     /// <summary>
     /// The support_state attribute.
     /// </summary>
-    public TerraformProperty<bool>? SupportState
+    public TerraformProperty<bool> SupportState
     {
-        get => GetProperty<TerraformProperty<bool>>("support_state");
-        set => this.WithProperty("support_state", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("support_state");
+        set => SetProperty("support_state", value);
     }
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? TokenEndpoint
+    public TerraformProperty<string> TokenEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("token_endpoint");
-        set => this.WithProperty("token_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("token_endpoint");
+        set => SetProperty("token_endpoint", value);
     }
 
     /// <summary>
@@ -274,8 +287,7 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     /// </summary>
     public AzurermApiManagementAuthorizationServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementAuthorizationServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -284,8 +296,7 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     /// </summary>
     public List<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>? TokenBodyParameter
     {
-        get => GetProperty<List<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>>("token_body_parameter");
-        set => this.WithProperty("token_body_parameter", value);
+        set => SetProperty("token_body_parameter", value);
     }
 
 }

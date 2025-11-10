@@ -13,8 +13,7 @@ public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,11 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_id");
+        SetOutput("certificate_name");
+        SetOutput("gateway_name");
+        SetOutput("id");
+        SetOutput("is_trusted");
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
-        set => this.WithProperty("api_management_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_id");
+        set => SetProperty("api_management_id", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     public required TerraformProperty<string> CertificateName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_name");
-        set => this.WithProperty("certificate_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_name");
+        set => SetProperty("certificate_name", value);
     }
 
     /// <summary>
@@ -86,26 +87,26 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformProperty<string> GatewayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gateway_name");
-        set => this.WithProperty("gateway_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_name");
+        set => SetProperty("gateway_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The is_trusted attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsTrusted
+    public TerraformProperty<bool> IsTrusted
     {
-        get => GetProperty<TerraformProperty<bool>>("is_trusted");
-        set => this.WithProperty("is_trusted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_trusted");
+        set => SetProperty("is_trusted", value);
     }
 
     /// <summary>
@@ -114,8 +115,7 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     /// </summary>
     public AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SendActivityLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("send_activity_logs");
-        set => WithProperty("send_activity_logs", value);
+        set => SetProperty("send_activity_logs", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SendAzureadLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("send_azuread_logs");
-        set => WithProperty("send_azuread_logs", value);
+        set => SetProperty("send_azuread_logs", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SendSubscriptionLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("send_subscription_logs");
-        set => WithProperty("send_subscription_logs", value);
+        set => SetProperty("send_subscription_logs", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,12 +87,20 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("elastic_cloud_deployment_id");
-        this.WithOutput("elastic_cloud_sso_default_url");
-        this.WithOutput("elastic_cloud_user_id");
-        this.WithOutput("elasticsearch_service_url");
-        this.WithOutput("kibana_service_url");
-        this.WithOutput("kibana_sso_uri");
+        SetOutput("elastic_cloud_deployment_id");
+        SetOutput("elastic_cloud_sso_default_url");
+        SetOutput("elastic_cloud_user_id");
+        SetOutput("elasticsearch_service_url");
+        SetOutput("kibana_service_url");
+        SetOutput("kibana_sso_uri");
+        SetOutput("elastic_cloud_email_address");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("monitoring_enabled");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -108,17 +109,17 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticCloudEmailAddress is required")]
     public required TerraformProperty<string> ElasticCloudEmailAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("elastic_cloud_email_address");
-        set => this.WithProperty("elastic_cloud_email_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("elastic_cloud_email_address");
+        set => SetProperty("elastic_cloud_email_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -127,17 +128,17 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MonitoringEnabled
+    public TerraformProperty<bool> MonitoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("monitoring_enabled");
-        set => this.WithProperty("monitoring_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("monitoring_enabled");
+        set => SetProperty("monitoring_enabled", value);
     }
 
     /// <summary>
@@ -146,8 +147,8 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -156,8 +157,8 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -166,17 +167,17 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -186,8 +187,7 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     public List<AzurermElasticCloudElasticsearchLogsBlock>? Logs
     {
-        get => GetProperty<List<AzurermElasticCloudElasticsearchLogsBlock>>("logs");
-        set => this.WithProperty("logs", value);
+        set => SetProperty("logs", value);
     }
 
     /// <summary>
@@ -196,8 +196,7 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     /// </summary>
     public AzurermElasticCloudElasticsearchTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermElasticCloudElasticsearchTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

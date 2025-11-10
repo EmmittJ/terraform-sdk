@@ -14,8 +14,7 @@ public class GoogleBackupDrManagementServerNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleBackupDrManagementServerNetworksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PeeringMode
     {
-        get => GetProperty<TerraformProperty<string>>("peering_mode");
-        set => WithProperty("peering_mode", value);
+        set => SetProperty("peering_mode", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleBackupDrManagementServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleBackupDrManagementServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -67,17 +63,22 @@ public class GoogleBackupDrManagementServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("management_uri");
-        this.WithOutput("oauth2_client_id");
+        SetOutput("management_uri");
+        SetOutput("oauth2_client_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class GoogleBackupDrManagementServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -96,26 +97,26 @@ public class GoogleBackupDrManagementServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The type of management server (management console). Default value: &amp;quot;BACKUP_RESTORE&amp;quot; Possible values: [&amp;quot;BACKUP_RESTORE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -124,8 +125,7 @@ public class GoogleBackupDrManagementServer : TerraformResource
     /// </summary>
     public List<GoogleBackupDrManagementServerNetworksBlock>? Networks
     {
-        get => GetProperty<List<GoogleBackupDrManagementServerNetworksBlock>>("networks");
-        set => this.WithProperty("networks", value);
+        set => SetProperty("networks", value);
     }
 
     /// <summary>
@@ -134,8 +134,7 @@ public class GoogleBackupDrManagementServer : TerraformResource
     /// </summary>
     public GoogleBackupDrManagementServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBackupDrManagementServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Commands
     {
-        get => GetProperty<List<TerraformProperty<string>>>("commands");
-        set => WithProperty("commands", value);
+        set => SetProperty("commands", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformProperty<double> Cpu
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("cpu");
-        set => WithProperty("cpu", value);
+        set => SetProperty("cpu", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CpuLimit
     {
-        get => GetProperty<TerraformProperty<double>>("cpu_limit");
-        set => WithProperty("cpu_limit", value);
+        set => SetProperty("cpu_limit", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => WithProperty("environment_variables", value);
+        set => SetProperty("environment_variables", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
     /// <summary>
@@ -61,8 +56,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
     public required TerraformProperty<double> Memory
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("memory");
-        set => WithProperty("memory", value);
+        set => SetProperty("memory", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MemoryLimit
     {
-        get => GetProperty<TerraformProperty<double>>("memory_limit");
-        set => WithProperty("memory_limit", value);
+        set => SetProperty("memory_limit", value);
     }
 
     /// <summary>
@@ -80,8 +73,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -89,8 +81,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? SecureEnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("secure_environment_variables");
-        set => WithProperty("secure_environment_variables", value);
+        set => SetProperty("secure_environment_variables", value);
     }
 
 }
@@ -115,8 +106,7 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Nameservers is required")]
     public List<TerraformProperty<string>>? Nameservers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("nameservers");
-        set => WithProperty("nameservers", value);
+        set => SetProperty("nameservers", value);
     }
 
     /// <summary>
@@ -124,8 +114,7 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Options
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("options");
-        set => WithProperty("options", value);
+        set => SetProperty("options", value);
     }
 
     /// <summary>
@@ -133,8 +122,7 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SearchDomains
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("search_domains");
-        set => WithProperty("search_domains", value);
+        set => SetProperty("search_domains", value);
     }
 
 }
@@ -150,8 +138,7 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -159,8 +146,7 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -168,8 +154,7 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -178,8 +163,7 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -195,8 +179,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -205,8 +188,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server");
-        set => WithProperty("server", value);
+        set => SetProperty("server", value);
     }
 
     /// <summary>
@@ -214,8 +196,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
-        set => WithProperty("user_assigned_identity_id", value);
+        set => SetProperty("user_assigned_identity_id", value);
     }
 
     /// <summary>
@@ -223,8 +204,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -240,8 +220,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Commands
     {
-        get => GetProperty<List<TerraformProperty<string>>>("commands");
-        set => WithProperty("commands", value);
+        set => SetProperty("commands", value);
     }
 
     /// <summary>
@@ -249,8 +228,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => WithProperty("environment_variables", value);
+        set => SetProperty("environment_variables", value);
     }
 
     /// <summary>
@@ -259,8 +237,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
     /// <summary>
@@ -269,8 +246,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -278,8 +254,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? SecureEnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("secure_environment_variables");
-        set => WithProperty("secure_environment_variables", value);
+        set => SetProperty("secure_environment_variables", value);
     }
 
 }
@@ -295,8 +270,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -304,8 +278,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -313,8 +286,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -322,8 +294,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -341,71 +312,89 @@ public class AzurermContainerGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fqdn");
-        this.WithOutput("ip_address");
+        SetOutput("fqdn");
+        SetOutput("ip_address");
+        SetOutput("dns_name_label");
+        SetOutput("dns_name_label_reuse_policy");
+        SetOutput("exposed_port");
+        SetOutput("id");
+        SetOutput("ip_address_type");
+        SetOutput("key_vault_key_id");
+        SetOutput("key_vault_user_assigned_identity_id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network_profile_id");
+        SetOutput("os_type");
+        SetOutput("priority");
+        SetOutput("resource_group_name");
+        SetOutput("restart_policy");
+        SetOutput("sku");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("zones");
     }
 
     /// <summary>
     /// The dns_name_label attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsNameLabel
+    public TerraformProperty<string> DnsNameLabel
     {
-        get => GetProperty<TerraformProperty<string>>("dns_name_label");
-        set => this.WithProperty("dns_name_label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_name_label");
+        set => SetProperty("dns_name_label", value);
     }
 
     /// <summary>
     /// The dns_name_label_reuse_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsNameLabelReusePolicy
+    public TerraformProperty<string> DnsNameLabelReusePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("dns_name_label_reuse_policy");
-        set => this.WithProperty("dns_name_label_reuse_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_name_label_reuse_policy");
+        set => SetProperty("dns_name_label_reuse_policy", value);
     }
 
     /// <summary>
     /// The exposed_port attribute.
     /// </summary>
-    public HashSet<TerraformProperty<object>>? ExposedPort
+    public HashSet<TerraformProperty<object>> ExposedPort
     {
-        get => GetProperty<HashSet<TerraformProperty<object>>>("exposed_port");
-        set => this.WithProperty("exposed_port", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<object>>>("exposed_port");
+        set => SetProperty("exposed_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddressType
+    public TerraformProperty<string> IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => this.WithProperty("ip_address_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_address_type");
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
+    public TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => this.WithProperty("key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
     /// The key_vault_user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultUserAssignedIdentityId
+    public TerraformProperty<string> KeyVaultUserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_user_assigned_identity_id");
-        set => this.WithProperty("key_vault_user_assigned_identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_user_assigned_identity_id");
+        set => SetProperty("key_vault_user_assigned_identity_id", value);
     }
 
     /// <summary>
@@ -414,8 +403,8 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -424,18 +413,18 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_profile_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? NetworkProfileId
+    public TerraformProperty<string> NetworkProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("network_profile_id");
-        set => this.WithProperty("network_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_profile_id");
+        set => SetProperty("network_profile_id", value);
     }
 
     /// <summary>
@@ -444,17 +433,17 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformProperty<string> OsType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("os_type");
-        set => this.WithProperty("os_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("os_type");
+        set => SetProperty("os_type", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<string>? Priority
+    public TerraformProperty<string> Priority
     {
-        get => GetProperty<TerraformProperty<string>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -463,64 +452,64 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The restart_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? RestartPolicy
+    public TerraformProperty<string> RestartPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("restart_policy");
-        set => this.WithProperty("restart_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("restart_policy");
+        set => SetProperty("restart_policy", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    public TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
     /// Block for container.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Container block(s) required")]
     public List<AzurermContainerGroupContainerBlock>? Container
     {
-        get => GetProperty<List<AzurermContainerGroupContainerBlock>>("container");
-        set => this.WithProperty("container", value);
+        set => SetProperty("container", value);
     }
 
     /// <summary>
@@ -530,8 +519,7 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Diagnostics block(s) allowed")]
     public List<AzurermContainerGroupDiagnosticsBlock>? Diagnostics
     {
-        get => GetProperty<List<AzurermContainerGroupDiagnosticsBlock>>("diagnostics");
-        set => this.WithProperty("diagnostics", value);
+        set => SetProperty("diagnostics", value);
     }
 
     /// <summary>
@@ -541,8 +529,7 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
     public List<AzurermContainerGroupDnsConfigBlock>? DnsConfig
     {
-        get => GetProperty<List<AzurermContainerGroupDnsConfigBlock>>("dns_config");
-        set => this.WithProperty("dns_config", value);
+        set => SetProperty("dns_config", value);
     }
 
     /// <summary>
@@ -552,8 +539,7 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermContainerGroupIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermContainerGroupIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -562,8 +548,7 @@ public class AzurermContainerGroup : TerraformResource
     /// </summary>
     public List<AzurermContainerGroupImageRegistryCredentialBlock>? ImageRegistryCredential
     {
-        get => GetProperty<List<AzurermContainerGroupImageRegistryCredentialBlock>>("image_registry_credential");
-        set => this.WithProperty("image_registry_credential", value);
+        set => SetProperty("image_registry_credential", value);
     }
 
     /// <summary>
@@ -572,8 +557,7 @@ public class AzurermContainerGroup : TerraformResource
     /// </summary>
     public List<AzurermContainerGroupInitContainerBlock>? InitContainer
     {
-        get => GetProperty<List<AzurermContainerGroupInitContainerBlock>>("init_container");
-        set => this.WithProperty("init_container", value);
+        set => SetProperty("init_container", value);
     }
 
     /// <summary>
@@ -582,8 +566,7 @@ public class AzurermContainerGroup : TerraformResource
     /// </summary>
     public AzurermContainerGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

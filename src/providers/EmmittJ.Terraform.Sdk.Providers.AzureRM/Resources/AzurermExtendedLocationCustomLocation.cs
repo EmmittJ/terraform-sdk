@@ -13,8 +13,7 @@ public class AzurermExtendedLocationCustomLocationAuthenticationBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermExtendedLocationCustomLocationAuthenticationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,25 +80,34 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cluster_extension_ids");
+        SetOutput("display_name");
+        SetOutput("host_resource_id");
+        SetOutput("host_type");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("namespace");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The cluster_extension_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterExtensionIds is required")]
-    public List<TerraformProperty<string>>? ClusterExtensionIds
+    public List<TerraformProperty<string>> ClusterExtensionIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("cluster_extension_ids");
-        set => this.WithProperty("cluster_extension_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("cluster_extension_ids");
+        set => SetProperty("cluster_extension_ids", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -113,26 +116,26 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostResourceId is required")]
     public required TerraformProperty<string> HostResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_resource_id");
-        set => this.WithProperty("host_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_resource_id");
+        set => SetProperty("host_resource_id", value);
     }
 
     /// <summary>
     /// The host_type attribute.
     /// </summary>
-    public TerraformProperty<string>? HostType
+    public TerraformProperty<string> HostType
     {
-        get => GetProperty<TerraformProperty<string>>("host_type");
-        set => this.WithProperty("host_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_type");
+        set => SetProperty("host_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -141,8 +144,8 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -151,8 +154,8 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -161,8 +164,8 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
-        set => this.WithProperty("namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
@@ -171,8 +174,8 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -182,8 +185,7 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     public List<AzurermExtendedLocationCustomLocationAuthenticationBlock>? Authentication
     {
-        get => GetProperty<List<AzurermExtendedLocationCustomLocationAuthenticationBlock>>("authentication");
-        set => this.WithProperty("authentication", value);
+        set => SetProperty("authentication", value);
     }
 
     /// <summary>
@@ -192,8 +194,7 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// </summary>
     public AzurermExtendedLocationCustomLocationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermExtendedLocationCustomLocationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

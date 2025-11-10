@@ -13,8 +13,7 @@ public class AzurermNetappSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetappSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetappSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,13 @@ public class AzurermNetappSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("pool_name");
+        SetOutput("resource_group_name");
+        SetOutput("volume_name");
     }
 
     /// <summary>
@@ -57,17 +61,17 @@ public class AzurermNetappSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +80,8 @@ public class AzurermNetappSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -86,8 +90,8 @@ public class AzurermNetappSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -96,8 +100,8 @@ public class AzurermNetappSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
     public required TerraformProperty<string> PoolName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pool_name");
-        set => this.WithProperty("pool_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool_name");
+        set => SetProperty("pool_name", value);
     }
 
     /// <summary>
@@ -106,8 +110,8 @@ public class AzurermNetappSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -116,8 +120,8 @@ public class AzurermNetappSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformProperty<string> VolumeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_name");
-        set => this.WithProperty("volume_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_name");
+        set => SetProperty("volume_name", value);
     }
 
     /// <summary>
@@ -126,8 +130,7 @@ public class AzurermNetappSnapshot : TerraformResource
     /// </summary>
     public AzurermNetappSnapshotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappSnapshotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

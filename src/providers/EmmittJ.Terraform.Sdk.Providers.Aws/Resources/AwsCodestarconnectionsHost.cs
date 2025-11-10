@@ -13,8 +13,7 @@ public class AwsCodestarconnectionsHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCodestarconnectionsHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCodestarconnectionsHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TlsCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("tls_certificate");
-        set => WithProperty("tls_certificate", value);
+        set => SetProperty("tls_certificate", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -97,17 +90,22 @@ public class AwsCodestarconnectionsHost : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("provider_endpoint");
+        SetOutput("provider_type");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -116,8 +114,8 @@ public class AwsCodestarconnectionsHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -126,8 +124,8 @@ public class AwsCodestarconnectionsHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderEndpoint is required")]
     public required TerraformProperty<string> ProviderEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provider_endpoint");
-        set => this.WithProperty("provider_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_endpoint");
+        set => SetProperty("provider_endpoint", value);
     }
 
     /// <summary>
@@ -136,17 +134,17 @@ public class AwsCodestarconnectionsHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
     public required TerraformProperty<string> ProviderType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provider_type");
-        set => this.WithProperty("provider_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_type");
+        set => SetProperty("provider_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -155,8 +153,7 @@ public class AwsCodestarconnectionsHost : TerraformResource
     /// </summary>
     public AwsCodestarconnectionsHostTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCodestarconnectionsHostTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -166,8 +163,7 @@ public class AwsCodestarconnectionsHost : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     public List<AwsCodestarconnectionsHostVpcConfigurationBlock>? VpcConfiguration
     {
-        get => GetProperty<List<AwsCodestarconnectionsHostVpcConfigurationBlock>>("vpc_configuration");
-        set => this.WithProperty("vpc_configuration", value);
+        set => SetProperty("vpc_configuration", value);
     }
 
     /// <summary>

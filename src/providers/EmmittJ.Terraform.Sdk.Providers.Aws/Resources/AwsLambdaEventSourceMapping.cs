@@ -13,8 +13,7 @@ public class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock
     /// </summary>
     public TerraformProperty<string>? ConsumerGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("consumer_group_id");
-        set => WithProperty("consumer_group_id", value);
+        set => SetProperty("consumer_group_id", value);
     }
 
 }
@@ -38,8 +37,7 @@ public class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? CollectionName
     {
-        get => GetProperty<TerraformProperty<string>>("collection_name");
-        set => WithProperty("collection_name", value);
+        set => SetProperty("collection_name", value);
     }
 
     /// <summary>
@@ -48,8 +46,7 @@ public class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? FullDocument
     {
-        get => GetProperty<TerraformProperty<string>>("full_document");
-        set => WithProperty("full_document", value);
+        set => SetProperty("full_document", value);
     }
 
 }
@@ -83,8 +79,7 @@ public class AwsLambdaEventSourceMappingMetricsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metrics is required")]
     public HashSet<TerraformProperty<string>>? Metrics
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("metrics");
-        set => WithProperty("metrics", value);
+        set => SetProperty("metrics", value);
     }
 
 }
@@ -100,8 +95,7 @@ public class AwsLambdaEventSourceMappingProvisionedPollerConfigBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? MaximumPollers
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_pollers");
-        set => WithProperty("maximum_pollers", value);
+        set => SetProperty("maximum_pollers", value);
     }
 
     /// <summary>
@@ -109,8 +103,7 @@ public class AwsLambdaEventSourceMappingProvisionedPollerConfigBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? MinimumPollers
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_pollers");
-        set => WithProperty("minimum_pollers", value);
+        set => SetProperty("minimum_pollers", value);
     }
 
 }
@@ -126,8 +119,7 @@ public class AwsLambdaEventSourceMappingScalingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumConcurrency
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_concurrency");
-        set => WithProperty("maximum_concurrency", value);
+        set => SetProperty("maximum_concurrency", value);
     }
 
 }
@@ -144,8 +136,7 @@ public class AwsLambdaEventSourceMappingSelfManagedEventSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoints is required")]
     public Dictionary<string, TerraformProperty<string>>? Endpoints
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("endpoints");
-        set => WithProperty("endpoints", value);
+        set => SetProperty("endpoints", value);
     }
 
 }
@@ -161,8 +152,7 @@ public class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock :
     /// </summary>
     public TerraformProperty<string>? ConsumerGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("consumer_group_id");
-        set => WithProperty("consumer_group_id", value);
+        set => SetProperty("consumer_group_id", value);
     }
 
 }
@@ -179,8 +169,7 @@ public class AwsLambdaEventSourceMappingSourceAccessConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -189,8 +178,7 @@ public class AwsLambdaEventSourceMappingSourceAccessConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -208,49 +196,69 @@ public class AwsLambdaEventSourceMapping : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("function_arn");
-        this.WithOutput("last_modified");
-        this.WithOutput("last_processing_result");
-        this.WithOutput("state");
-        this.WithOutput("state_transition_reason");
-        this.WithOutput("uuid");
+        SetOutput("arn");
+        SetOutput("function_arn");
+        SetOutput("last_modified");
+        SetOutput("last_processing_result");
+        SetOutput("state");
+        SetOutput("state_transition_reason");
+        SetOutput("uuid");
+        SetOutput("batch_size");
+        SetOutput("bisect_batch_on_function_error");
+        SetOutput("enabled");
+        SetOutput("event_source_arn");
+        SetOutput("function_name");
+        SetOutput("function_response_types");
+        SetOutput("id");
+        SetOutput("kms_key_arn");
+        SetOutput("maximum_batching_window_in_seconds");
+        SetOutput("maximum_record_age_in_seconds");
+        SetOutput("maximum_retry_attempts");
+        SetOutput("parallelization_factor");
+        SetOutput("queues");
+        SetOutput("region");
+        SetOutput("starting_position");
+        SetOutput("starting_position_timestamp");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("topics");
+        SetOutput("tumbling_window_in_seconds");
     }
 
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformProperty<double>? BatchSize
+    public TerraformProperty<double> BatchSize
     {
-        get => GetProperty<TerraformProperty<double>>("batch_size");
-        set => this.WithProperty("batch_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("batch_size");
+        set => SetProperty("batch_size", value);
     }
 
     /// <summary>
     /// The bisect_batch_on_function_error attribute.
     /// </summary>
-    public TerraformProperty<bool>? BisectBatchOnFunctionError
+    public TerraformProperty<bool> BisectBatchOnFunctionError
     {
-        get => GetProperty<TerraformProperty<bool>>("bisect_batch_on_function_error");
-        set => this.WithProperty("bisect_batch_on_function_error", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bisect_batch_on_function_error");
+        set => SetProperty("bisect_batch_on_function_error", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The event_source_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? EventSourceArn
+    public TerraformProperty<string> EventSourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_source_arn");
-        set => this.WithProperty("event_source_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_source_arn");
+        set => SetProperty("event_source_arn", value);
     }
 
     /// <summary>
@@ -259,143 +267,143 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
     /// The function_response_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? FunctionResponseTypes
+    public HashSet<TerraformProperty<string>> FunctionResponseTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("function_response_types");
-        set => this.WithProperty("function_response_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("function_response_types");
+        set => SetProperty("function_response_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The maximum_batching_window_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumBatchingWindowInSeconds
+    public TerraformProperty<double> MaximumBatchingWindowInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_batching_window_in_seconds");
-        set => this.WithProperty("maximum_batching_window_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_batching_window_in_seconds");
+        set => SetProperty("maximum_batching_window_in_seconds", value);
     }
 
     /// <summary>
     /// The maximum_record_age_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumRecordAgeInSeconds
+    public TerraformProperty<double> MaximumRecordAgeInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_record_age_in_seconds");
-        set => this.WithProperty("maximum_record_age_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_record_age_in_seconds");
+        set => SetProperty("maximum_record_age_in_seconds", value);
     }
 
     /// <summary>
     /// The maximum_retry_attempts attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumRetryAttempts
+    public TerraformProperty<double> MaximumRetryAttempts
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_retry_attempts");
-        set => this.WithProperty("maximum_retry_attempts", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_retry_attempts");
+        set => SetProperty("maximum_retry_attempts", value);
     }
 
     /// <summary>
     /// The parallelization_factor attribute.
     /// </summary>
-    public TerraformProperty<double>? ParallelizationFactor
+    public TerraformProperty<double> ParallelizationFactor
     {
-        get => GetProperty<TerraformProperty<double>>("parallelization_factor");
-        set => this.WithProperty("parallelization_factor", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("parallelization_factor");
+        set => SetProperty("parallelization_factor", value);
     }
 
     /// <summary>
     /// The queues attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Queues
+    public List<TerraformProperty<string>> Queues
     {
-        get => GetProperty<List<TerraformProperty<string>>>("queues");
-        set => this.WithProperty("queues", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("queues");
+        set => SetProperty("queues", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The starting_position attribute.
     /// </summary>
-    public TerraformProperty<string>? StartingPosition
+    public TerraformProperty<string> StartingPosition
     {
-        get => GetProperty<TerraformProperty<string>>("starting_position");
-        set => this.WithProperty("starting_position", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("starting_position");
+        set => SetProperty("starting_position", value);
     }
 
     /// <summary>
     /// The starting_position_timestamp attribute.
     /// </summary>
-    public TerraformProperty<string>? StartingPositionTimestamp
+    public TerraformProperty<string> StartingPositionTimestamp
     {
-        get => GetProperty<TerraformProperty<string>>("starting_position_timestamp");
-        set => this.WithProperty("starting_position_timestamp", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("starting_position_timestamp");
+        set => SetProperty("starting_position_timestamp", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The topics attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Topics
+    public HashSet<TerraformProperty<string>> Topics
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("topics");
-        set => this.WithProperty("topics", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("topics");
+        set => SetProperty("topics", value);
     }
 
     /// <summary>
     /// The tumbling_window_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? TumblingWindowInSeconds
+    public TerraformProperty<double> TumblingWindowInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("tumbling_window_in_seconds");
-        set => this.WithProperty("tumbling_window_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("tumbling_window_in_seconds");
+        set => SetProperty("tumbling_window_in_seconds", value);
     }
 
     /// <summary>
@@ -405,8 +413,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AmazonManagedKafkaEventSourceConfig block(s) allowed")]
     public List<AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock>? AmazonManagedKafkaEventSourceConfig
     {
-        get => GetProperty<List<AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock>>("amazon_managed_kafka_event_source_config");
-        set => this.WithProperty("amazon_managed_kafka_event_source_config", value);
+        set => SetProperty("amazon_managed_kafka_event_source_config", value);
     }
 
     /// <summary>
@@ -416,8 +423,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfig block(s) allowed")]
     public List<AwsLambdaEventSourceMappingDestinationConfigBlock>? DestinationConfig
     {
-        get => GetProperty<List<AwsLambdaEventSourceMappingDestinationConfigBlock>>("destination_config");
-        set => this.WithProperty("destination_config", value);
+        set => SetProperty("destination_config", value);
     }
 
     /// <summary>
@@ -427,8 +433,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DocumentDbEventSourceConfig block(s) allowed")]
     public List<AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock>? DocumentDbEventSourceConfig
     {
-        get => GetProperty<List<AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock>>("document_db_event_source_config");
-        set => this.WithProperty("document_db_event_source_config", value);
+        set => SetProperty("document_db_event_source_config", value);
     }
 
     /// <summary>
@@ -438,8 +443,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterCriteria block(s) allowed")]
     public List<AwsLambdaEventSourceMappingFilterCriteriaBlock>? FilterCriteria
     {
-        get => GetProperty<List<AwsLambdaEventSourceMappingFilterCriteriaBlock>>("filter_criteria");
-        set => this.WithProperty("filter_criteria", value);
+        set => SetProperty("filter_criteria", value);
     }
 
     /// <summary>
@@ -449,8 +453,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricsConfig block(s) allowed")]
     public List<AwsLambdaEventSourceMappingMetricsConfigBlock>? MetricsConfig
     {
-        get => GetProperty<List<AwsLambdaEventSourceMappingMetricsConfigBlock>>("metrics_config");
-        set => this.WithProperty("metrics_config", value);
+        set => SetProperty("metrics_config", value);
     }
 
     /// <summary>
@@ -460,8 +463,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProvisionedPollerConfig block(s) allowed")]
     public List<AwsLambdaEventSourceMappingProvisionedPollerConfigBlock>? ProvisionedPollerConfig
     {
-        get => GetProperty<List<AwsLambdaEventSourceMappingProvisionedPollerConfigBlock>>("provisioned_poller_config");
-        set => this.WithProperty("provisioned_poller_config", value);
+        set => SetProperty("provisioned_poller_config", value);
     }
 
     /// <summary>
@@ -471,8 +473,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
     public List<AwsLambdaEventSourceMappingScalingConfigBlock>? ScalingConfig
     {
-        get => GetProperty<List<AwsLambdaEventSourceMappingScalingConfigBlock>>("scaling_config");
-        set => this.WithProperty("scaling_config", value);
+        set => SetProperty("scaling_config", value);
     }
 
     /// <summary>
@@ -482,8 +483,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManagedEventSource block(s) allowed")]
     public List<AwsLambdaEventSourceMappingSelfManagedEventSourceBlock>? SelfManagedEventSource
     {
-        get => GetProperty<List<AwsLambdaEventSourceMappingSelfManagedEventSourceBlock>>("self_managed_event_source");
-        set => this.WithProperty("self_managed_event_source", value);
+        set => SetProperty("self_managed_event_source", value);
     }
 
     /// <summary>
@@ -493,8 +493,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManagedKafkaEventSourceConfig block(s) allowed")]
     public List<AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock>? SelfManagedKafkaEventSourceConfig
     {
-        get => GetProperty<List<AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock>>("self_managed_kafka_event_source_config");
-        set => this.WithProperty("self_managed_kafka_event_source_config", value);
+        set => SetProperty("self_managed_kafka_event_source_config", value);
     }
 
     /// <summary>
@@ -504,8 +503,7 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(22, ErrorMessage = "Maximum 22 SourceAccessConfiguration block(s) allowed")]
     public HashSet<AwsLambdaEventSourceMappingSourceAccessConfigurationBlock>? SourceAccessConfiguration
     {
-        get => GetProperty<HashSet<AwsLambdaEventSourceMappingSourceAccessConfigurationBlock>>("source_access_configuration");
-        set => this.WithProperty("source_access_configuration", value);
+        set => SetProperty("source_access_configuration", value);
     }
 
     /// <summary>

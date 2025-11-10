@@ -13,8 +13,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DayOfMonth
     {
-        get => GetProperty<TerraformProperty<string>>("day_of_month");
-        set => WithProperty("day_of_month", value);
+        set => SetProperty("day_of_month", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DayOfWeek
     {
-        get => GetProperty<TerraformProperty<string>>("day_of_week");
-        set => WithProperty("day_of_week", value);
+        set => SetProperty("day_of_week", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformProperty<double> HourOfDay
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("hour_of_day");
-        set => WithProperty("hour_of_day", value);
+        set => SetProperty("hour_of_day", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinuteOfHour
     {
-        get => GetProperty<TerraformProperty<double>>("minute_of_hour");
-        set => WithProperty("minute_of_hour", value);
+        set => SetProperty("minute_of_hour", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? ActiveDirectoryStatus
     {
-        get => GetProperty<TerraformProperty<string>>("active_directory_status");
-        set => WithProperty("active_directory_status", value);
+        set => SetProperty("active_directory_status", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     /// </summary>
     public HashSet<TerraformProperty<string>>? DomainControllers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("domain_controllers");
-        set => WithProperty("domain_controllers", value);
+        set => SetProperty("domain_controllers", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => WithProperty("domain_name", value);
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? OrganizationalUnit
     {
-        get => GetProperty<TerraformProperty<string>>("organizational_unit");
-        set => WithProperty("organizational_unit", value);
+        set => SetProperty("organizational_unit", value);
     }
 
     /// <summary>
@@ -96,8 +88,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -105,8 +96,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? TimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_in_seconds");
-        set => WithProperty("timeout_in_seconds", value);
+        set => SetProperty("timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -115,8 +105,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -132,8 +121,7 @@ public class AwsStoragegatewayGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -151,57 +139,75 @@ public class AwsStoragegatewayGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("ec2_instance_id");
-        this.WithOutput("endpoint_type");
-        this.WithOutput("gateway_id");
-        this.WithOutput("gateway_network_interface");
-        this.WithOutput("host_environment");
+        SetOutput("arn");
+        SetOutput("ec2_instance_id");
+        SetOutput("endpoint_type");
+        SetOutput("gateway_id");
+        SetOutput("gateway_network_interface");
+        SetOutput("host_environment");
+        SetOutput("activation_key");
+        SetOutput("average_download_rate_limit_in_bits_per_sec");
+        SetOutput("average_upload_rate_limit_in_bits_per_sec");
+        SetOutput("cloudwatch_log_group_arn");
+        SetOutput("gateway_ip_address");
+        SetOutput("gateway_name");
+        SetOutput("gateway_timezone");
+        SetOutput("gateway_type");
+        SetOutput("gateway_vpc_endpoint");
+        SetOutput("id");
+        SetOutput("medium_changer_type");
+        SetOutput("region");
+        SetOutput("smb_file_share_visibility");
+        SetOutput("smb_guest_password");
+        SetOutput("smb_security_strategy");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("tape_drive_type");
     }
 
     /// <summary>
     /// The activation_key attribute.
     /// </summary>
-    public TerraformProperty<string>? ActivationKey
+    public TerraformProperty<string> ActivationKey
     {
-        get => GetProperty<TerraformProperty<string>>("activation_key");
-        set => this.WithProperty("activation_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("activation_key");
+        set => SetProperty("activation_key", value);
     }
 
     /// <summary>
     /// The average_download_rate_limit_in_bits_per_sec attribute.
     /// </summary>
-    public TerraformProperty<double>? AverageDownloadRateLimitInBitsPerSec
+    public TerraformProperty<double> AverageDownloadRateLimitInBitsPerSec
     {
-        get => GetProperty<TerraformProperty<double>>("average_download_rate_limit_in_bits_per_sec");
-        set => this.WithProperty("average_download_rate_limit_in_bits_per_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("average_download_rate_limit_in_bits_per_sec");
+        set => SetProperty("average_download_rate_limit_in_bits_per_sec", value);
     }
 
     /// <summary>
     /// The average_upload_rate_limit_in_bits_per_sec attribute.
     /// </summary>
-    public TerraformProperty<double>? AverageUploadRateLimitInBitsPerSec
+    public TerraformProperty<double> AverageUploadRateLimitInBitsPerSec
     {
-        get => GetProperty<TerraformProperty<double>>("average_upload_rate_limit_in_bits_per_sec");
-        set => this.WithProperty("average_upload_rate_limit_in_bits_per_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("average_upload_rate_limit_in_bits_per_sec");
+        set => SetProperty("average_upload_rate_limit_in_bits_per_sec", value);
     }
 
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudwatchLogGroupArn
+    public TerraformProperty<string> CloudwatchLogGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("cloudwatch_log_group_arn");
-        set => this.WithProperty("cloudwatch_log_group_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloudwatch_log_group_arn");
+        set => SetProperty("cloudwatch_log_group_arn", value);
     }
 
     /// <summary>
     /// The gateway_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayIpAddress
+    public TerraformProperty<string> GatewayIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_ip_address");
-        set => this.WithProperty("gateway_ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_ip_address");
+        set => SetProperty("gateway_ip_address", value);
     }
 
     /// <summary>
@@ -210,8 +216,8 @@ public class AwsStoragegatewayGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformProperty<string> GatewayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gateway_name");
-        set => this.WithProperty("gateway_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_name");
+        set => SetProperty("gateway_name", value);
     }
 
     /// <summary>
@@ -220,107 +226,107 @@ public class AwsStoragegatewayGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayTimezone is required")]
     public required TerraformProperty<string> GatewayTimezone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gateway_timezone");
-        set => this.WithProperty("gateway_timezone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_timezone");
+        set => SetProperty("gateway_timezone", value);
     }
 
     /// <summary>
     /// The gateway_type attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayType
+    public TerraformProperty<string> GatewayType
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_type");
-        set => this.WithProperty("gateway_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_type");
+        set => SetProperty("gateway_type", value);
     }
 
     /// <summary>
     /// The gateway_vpc_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayVpcEndpoint
+    public TerraformProperty<string> GatewayVpcEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_vpc_endpoint");
-        set => this.WithProperty("gateway_vpc_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_vpc_endpoint");
+        set => SetProperty("gateway_vpc_endpoint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The medium_changer_type attribute.
     /// </summary>
-    public TerraformProperty<string>? MediumChangerType
+    public TerraformProperty<string> MediumChangerType
     {
-        get => GetProperty<TerraformProperty<string>>("medium_changer_type");
-        set => this.WithProperty("medium_changer_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("medium_changer_type");
+        set => SetProperty("medium_changer_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The smb_file_share_visibility attribute.
     /// </summary>
-    public TerraformProperty<bool>? SmbFileShareVisibility
+    public TerraformProperty<bool> SmbFileShareVisibility
     {
-        get => GetProperty<TerraformProperty<bool>>("smb_file_share_visibility");
-        set => this.WithProperty("smb_file_share_visibility", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("smb_file_share_visibility");
+        set => SetProperty("smb_file_share_visibility", value);
     }
 
     /// <summary>
     /// The smb_guest_password attribute.
     /// </summary>
-    public TerraformProperty<string>? SmbGuestPassword
+    public TerraformProperty<string> SmbGuestPassword
     {
-        get => GetProperty<TerraformProperty<string>>("smb_guest_password");
-        set => this.WithProperty("smb_guest_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("smb_guest_password");
+        set => SetProperty("smb_guest_password", value);
     }
 
     /// <summary>
     /// The smb_security_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? SmbSecurityStrategy
+    public TerraformProperty<string> SmbSecurityStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("smb_security_strategy");
-        set => this.WithProperty("smb_security_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("smb_security_strategy");
+        set => SetProperty("smb_security_strategy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tape_drive_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TapeDriveType
+    public TerraformProperty<string> TapeDriveType
     {
-        get => GetProperty<TerraformProperty<string>>("tape_drive_type");
-        set => this.WithProperty("tape_drive_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tape_drive_type");
+        set => SetProperty("tape_drive_type", value);
     }
 
     /// <summary>
@@ -330,8 +336,7 @@ public class AwsStoragegatewayGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceStartTime block(s) allowed")]
     public List<AwsStoragegatewayGatewayMaintenanceStartTimeBlock>? MaintenanceStartTime
     {
-        get => GetProperty<List<AwsStoragegatewayGatewayMaintenanceStartTimeBlock>>("maintenance_start_time");
-        set => this.WithProperty("maintenance_start_time", value);
+        set => SetProperty("maintenance_start_time", value);
     }
 
     /// <summary>
@@ -341,8 +346,7 @@ public class AwsStoragegatewayGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmbActiveDirectorySettings block(s) allowed")]
     public List<AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock>? SmbActiveDirectorySettings
     {
-        get => GetProperty<List<AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock>>("smb_active_directory_settings");
-        set => this.WithProperty("smb_active_directory_settings", value);
+        set => SetProperty("smb_active_directory_settings", value);
     }
 
     /// <summary>
@@ -351,8 +355,7 @@ public class AwsStoragegatewayGateway : TerraformResource
     /// </summary>
     public AwsStoragegatewayGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsStoragegatewayGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

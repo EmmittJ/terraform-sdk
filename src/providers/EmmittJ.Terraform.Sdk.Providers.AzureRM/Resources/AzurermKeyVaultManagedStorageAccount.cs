@@ -13,8 +13,7 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,23 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("key_vault_id");
+        SetOutput("name");
+        SetOutput("regenerate_key_automatically");
+        SetOutput("regeneration_period");
+        SetOutput("storage_account_id");
+        SetOutput("storage_account_key");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +79,8 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -85,26 +89,26 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The regenerate_key_automatically attribute.
     /// </summary>
-    public TerraformProperty<bool>? RegenerateKeyAutomatically
+    public TerraformProperty<bool> RegenerateKeyAutomatically
     {
-        get => GetProperty<TerraformProperty<bool>>("regenerate_key_automatically");
-        set => this.WithProperty("regenerate_key_automatically", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("regenerate_key_automatically");
+        set => SetProperty("regenerate_key_automatically", value);
     }
 
     /// <summary>
     /// The regeneration_period attribute.
     /// </summary>
-    public TerraformProperty<string>? RegenerationPeriod
+    public TerraformProperty<string> RegenerationPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("regeneration_period");
-        set => this.WithProperty("regeneration_period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("regeneration_period");
+        set => SetProperty("regeneration_period", value);
     }
 
     /// <summary>
@@ -113,8 +117,8 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -123,17 +127,17 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
-        set => this.WithProperty("storage_account_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_key");
+        set => SetProperty("storage_account_key", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -142,8 +146,7 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// </summary>
     public AzurermKeyVaultManagedStorageAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultManagedStorageAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

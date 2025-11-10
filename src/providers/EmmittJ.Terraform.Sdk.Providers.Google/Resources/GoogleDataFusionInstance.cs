@@ -14,8 +14,7 @@ public class GoogleDataFusionInstanceAcceleratorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorType is required")]
     public required TerraformProperty<string> AcceleratorType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("accelerator_type");
-        set => WithProperty("accelerator_type", value);
+        set => SetProperty("accelerator_type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleDataFusionInstanceAcceleratorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class GoogleDataFusionInstanceCryptoKeyConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyReference is required")]
     public required TerraformProperty<string> KeyReference
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_reference");
-        set => WithProperty("key_reference", value);
+        set => SetProperty("key_reference", value);
     }
 
 }
@@ -60,8 +57,7 @@ public class GoogleDataFusionInstanceEventPublishConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -70,8 +66,7 @@ public class GoogleDataFusionInstanceEventPublishConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -89,8 +84,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionType
     {
-        get => GetProperty<TerraformProperty<string>>("connection_type");
-        set => WithProperty("connection_type", value);
+        set => SetProperty("connection_type", value);
     }
 
     /// <summary>
@@ -99,8 +93,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpAllocation
     {
-        get => GetProperty<TerraformProperty<string>>("ip_allocation");
-        set => WithProperty("ip_allocation", value);
+        set => SetProperty("ip_allocation", value);
     }
 
     /// <summary>
@@ -110,8 +103,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
 }
@@ -127,8 +119,7 @@ public class GoogleDataFusionInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -136,8 +127,7 @@ public class GoogleDataFusionInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -145,8 +135,7 @@ public class GoogleDataFusionInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -164,80 +153,97 @@ public class GoogleDataFusionInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_endpoint");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("gcs_bucket");
-        this.WithOutput("p4_service_account");
-        this.WithOutput("service_endpoint");
-        this.WithOutput("state");
-        this.WithOutput("state_message");
-        this.WithOutput("tenant_project_id");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("api_endpoint");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("gcs_bucket");
+        SetOutput("p4_service_account");
+        SetOutput("service_endpoint");
+        SetOutput("state");
+        SetOutput("state_message");
+        SetOutput("tenant_project_id");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("dataproc_service_account");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("enable_rbac");
+        SetOutput("enable_stackdriver_logging");
+        SetOutput("enable_stackdriver_monitoring");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("options");
+        SetOutput("private_instance");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("type");
+        SetOutput("version");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run data processing pipelines.
     /// </summary>
-    public TerraformProperty<string>? DataprocServiceAccount
+    public TerraformProperty<string> DataprocServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("dataproc_service_account");
-        set => this.WithProperty("dataproc_service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataproc_service_account");
+        set => SetProperty("dataproc_service_account", value);
     }
 
     /// <summary>
     /// An optional description of the instance.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Display name for an instance.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Option to enable granular role-based access control.
     /// </summary>
-    public TerraformProperty<bool>? EnableRbac
+    public TerraformProperty<bool> EnableRbac
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_rbac");
-        set => this.WithProperty("enable_rbac", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_rbac");
+        set => SetProperty("enable_rbac", value);
     }
 
     /// <summary>
     /// Option to enable Stackdriver Logging.
     /// </summary>
-    public TerraformProperty<bool>? EnableStackdriverLogging
+    public TerraformProperty<bool> EnableStackdriverLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_stackdriver_logging");
-        set => this.WithProperty("enable_stackdriver_logging", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_stackdriver_logging");
+        set => SetProperty("enable_stackdriver_logging", value);
     }
 
     /// <summary>
     /// Option to enable Stackdriver Monitoring.
     /// </summary>
-    public TerraformProperty<bool>? EnableStackdriverMonitoring
+    public TerraformProperty<bool> EnableStackdriverMonitoring
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_stackdriver_monitoring");
-        set => this.WithProperty("enable_stackdriver_monitoring", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_stackdriver_monitoring");
+        set => SetProperty("enable_stackdriver_monitoring", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -248,10 +254,10 @@ public class GoogleDataFusionInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -260,17 +266,17 @@ public class GoogleDataFusionInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Map of additional options used to configure the behavior of Data Fusion instance.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Options
+    public Dictionary<string, TerraformProperty<string>> Options
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("options");
-        set => this.WithProperty("options", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("options");
+        set => SetProperty("options", value);
     }
 
     /// <summary>
@@ -278,28 +284,28 @@ public class GoogleDataFusionInstance : TerraformResource
     /// true, all Data Fusion nodes will have private IP addresses and will not be
     /// able to access the public internet.
     /// </summary>
-    public TerraformProperty<bool>? PrivateInstance
+    public TerraformProperty<bool> PrivateInstance
     {
-        get => GetProperty<TerraformProperty<bool>>("private_instance");
-        set => this.WithProperty("private_instance", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_instance");
+        set => SetProperty("private_instance", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region of the Data Fusion instance.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -308,10 +314,10 @@ public class GoogleDataFusionInstance : TerraformResource
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -329,26 +335,26 @@ public class GoogleDataFusionInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Current version of the Data Fusion.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
     /// Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances use this field.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -357,8 +363,7 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     public List<GoogleDataFusionInstanceAcceleratorsBlock>? Accelerators
     {
-        get => GetProperty<List<GoogleDataFusionInstanceAcceleratorsBlock>>("accelerators");
-        set => this.WithProperty("accelerators", value);
+        set => SetProperty("accelerators", value);
     }
 
     /// <summary>
@@ -368,8 +373,7 @@ public class GoogleDataFusionInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CryptoKeyConfig block(s) allowed")]
     public List<GoogleDataFusionInstanceCryptoKeyConfigBlock>? CryptoKeyConfig
     {
-        get => GetProperty<List<GoogleDataFusionInstanceCryptoKeyConfigBlock>>("crypto_key_config");
-        set => this.WithProperty("crypto_key_config", value);
+        set => SetProperty("crypto_key_config", value);
     }
 
     /// <summary>
@@ -379,8 +383,7 @@ public class GoogleDataFusionInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventPublishConfig block(s) allowed")]
     public List<GoogleDataFusionInstanceEventPublishConfigBlock>? EventPublishConfig
     {
-        get => GetProperty<List<GoogleDataFusionInstanceEventPublishConfigBlock>>("event_publish_config");
-        set => this.WithProperty("event_publish_config", value);
+        set => SetProperty("event_publish_config", value);
     }
 
     /// <summary>
@@ -390,8 +393,7 @@ public class GoogleDataFusionInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<GoogleDataFusionInstanceNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<GoogleDataFusionInstanceNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -400,8 +402,7 @@ public class GoogleDataFusionInstance : TerraformResource
     /// </summary>
     public GoogleDataFusionInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataFusionInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

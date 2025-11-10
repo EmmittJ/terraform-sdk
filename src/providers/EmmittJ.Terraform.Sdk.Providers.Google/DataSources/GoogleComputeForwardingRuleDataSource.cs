@@ -14,48 +14,52 @@ public class GoogleComputeForwardingRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("all_ports");
-        this.WithOutput("allow_global_access");
-        this.WithOutput("allow_psc_global_access");
-        this.WithOutput("backend_service");
-        this.WithOutput("base_forwarding_rule");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("description");
-        this.WithOutput("effective_labels");
-        this.WithOutput("forwarding_rule_id");
-        this.WithOutput("ip_address");
-        this.WithOutput("ip_collection");
-        this.WithOutput("ip_protocol");
-        this.WithOutput("ip_version");
-        this.WithOutput("is_mirroring_collector");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("labels");
-        this.WithOutput("load_balancing_scheme");
-        this.WithOutput("network");
-        this.WithOutput("network_tier");
-        this.WithOutput("no_automate_dns_zone");
-        this.WithOutput("port_range");
-        this.WithOutput("ports");
-        this.WithOutput("psc_connection_id");
-        this.WithOutput("psc_connection_status");
-        this.WithOutput("recreate_closed_psc");
-        this.WithOutput("self_link");
-        this.WithOutput("service_directory_registrations");
-        this.WithOutput("service_label");
-        this.WithOutput("service_name");
-        this.WithOutput("source_ip_ranges");
-        this.WithOutput("subnetwork");
-        this.WithOutput("target");
-        this.WithOutput("terraform_labels");
+        SetOutput("all_ports");
+        SetOutput("allow_global_access");
+        SetOutput("allow_psc_global_access");
+        SetOutput("backend_service");
+        SetOutput("base_forwarding_rule");
+        SetOutput("creation_timestamp");
+        SetOutput("description");
+        SetOutput("effective_labels");
+        SetOutput("forwarding_rule_id");
+        SetOutput("ip_address");
+        SetOutput("ip_collection");
+        SetOutput("ip_protocol");
+        SetOutput("ip_version");
+        SetOutput("is_mirroring_collector");
+        SetOutput("label_fingerprint");
+        SetOutput("labels");
+        SetOutput("load_balancing_scheme");
+        SetOutput("network");
+        SetOutput("network_tier");
+        SetOutput("no_automate_dns_zone");
+        SetOutput("port_range");
+        SetOutput("ports");
+        SetOutput("psc_connection_id");
+        SetOutput("psc_connection_status");
+        SetOutput("recreate_closed_psc");
+        SetOutput("self_link");
+        SetOutput("service_directory_registrations");
+        SetOutput("service_label");
+        SetOutput("service_name");
+        SetOutput("source_ip_ranges");
+        SetOutput("subnetwork");
+        SetOutput("target");
+        SetOutput("terraform_labels");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,17 +80,17 @@ public class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -94,10 +98,10 @@ public class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// 
     /// This field is not applicable to global forwarding rules.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

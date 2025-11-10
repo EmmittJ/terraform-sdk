@@ -14,8 +14,13 @@ public class AwsQuicksightTemplateAlias : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("alias_name");
+        SetOutput("aws_account_id");
+        SetOutput("region");
+        SetOutput("template_id");
+        SetOutput("template_version_number");
     }
 
     /// <summary>
@@ -24,26 +29,26 @@ public class AwsQuicksightTemplateAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasName is required")]
     public required TerraformProperty<string> AliasName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alias_name");
-        set => this.WithProperty("alias_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias_name");
+        set => SetProperty("alias_name", value);
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -52,8 +57,8 @@ public class AwsQuicksightTemplateAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformProperty<string> TemplateId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("template_id");
-        set => this.WithProperty("template_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
+        set => SetProperty("template_id", value);
     }
 
     /// <summary>
@@ -62,8 +67,8 @@ public class AwsQuicksightTemplateAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateVersionNumber is required")]
     public required TerraformProperty<double> TemplateVersionNumber
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("template_version_number");
-        set => this.WithProperty("template_version_number", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("template_version_number");
+        set => SetProperty("template_version_number", value);
     }
 
     /// <summary>

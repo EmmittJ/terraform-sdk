@@ -13,8 +13,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Management
     {
-        get => GetProperty<TerraformProperty<string>>("management");
-        set => WithProperty("management", value);
+        set => SetProperty("management", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleGkeHubFeatureMembershipMeshBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? ControlPlane
     {
-        get => GetProperty<TerraformProperty<string>>("control_plane");
-        set => WithProperty("control_plane", value);
+        set => SetProperty("control_plane", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleGkeHubFeatureMembershipMeshBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Management
     {
-        get => GetProperty<TerraformProperty<string>>("management");
-        set => WithProperty("management", value);
+        set => SetProperty("management", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -83,8 +78,7 @@ public class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -92,8 +86,7 @@ public class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -101,8 +94,7 @@ public class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -120,6 +112,12 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("feature");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("membership");
+        SetOutput("membership_location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -128,17 +126,17 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformProperty<string> Feature
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("feature");
-        set => this.WithProperty("feature", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("feature");
+        set => SetProperty("feature", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -147,8 +145,8 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -157,26 +155,26 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Membership is required")]
     public required TerraformProperty<string> Membership
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("membership");
-        set => this.WithProperty("membership", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("membership");
+        set => SetProperty("membership", value);
     }
 
     /// <summary>
     /// The location of the membership
     /// </summary>
-    public TerraformProperty<string>? MembershipLocation
+    public TerraformProperty<string> MembershipLocation
     {
-        get => GetProperty<TerraformProperty<string>>("membership_location");
-        set => this.WithProperty("membership_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("membership_location");
+        set => SetProperty("membership_location", value);
     }
 
     /// <summary>
     /// The project of the feature
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -186,8 +184,7 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configmanagement block(s) allowed")]
     public List<GoogleGkeHubFeatureMembershipConfigmanagementBlock>? Configmanagement
     {
-        get => GetProperty<List<GoogleGkeHubFeatureMembershipConfigmanagementBlock>>("configmanagement");
-        set => this.WithProperty("configmanagement", value);
+        set => SetProperty("configmanagement", value);
     }
 
     /// <summary>
@@ -197,8 +194,7 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mesh block(s) allowed")]
     public List<GoogleGkeHubFeatureMembershipMeshBlock>? Mesh
     {
-        get => GetProperty<List<GoogleGkeHubFeatureMembershipMeshBlock>>("mesh");
-        set => this.WithProperty("mesh", value);
+        set => SetProperty("mesh", value);
     }
 
     /// <summary>
@@ -208,8 +204,7 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Policycontroller block(s) allowed")]
     public List<GoogleGkeHubFeatureMembershipPolicycontrollerBlock>? Policycontroller
     {
-        get => GetProperty<List<GoogleGkeHubFeatureMembershipPolicycontrollerBlock>>("policycontroller");
-        set => this.WithProperty("policycontroller", value);
+        set => SetProperty("policycontroller", value);
     }
 
     /// <summary>
@@ -218,8 +213,7 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     /// </summary>
     public GoogleGkeHubFeatureMembershipTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGkeHubFeatureMembershipTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

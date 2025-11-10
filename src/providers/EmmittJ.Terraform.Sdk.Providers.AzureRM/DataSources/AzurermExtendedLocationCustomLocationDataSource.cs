@@ -13,8 +13,7 @@ public class AzurermExtendedLocationCustomLocationDataSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,22 +30,25 @@ public class AzurermExtendedLocationCustomLocationDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authentication");
-        this.WithOutput("cluster_extension_ids");
-        this.WithOutput("display_name");
-        this.WithOutput("host_resource_id");
-        this.WithOutput("host_type");
-        this.WithOutput("location");
-        this.WithOutput("namespace");
+        SetOutput("authentication");
+        SetOutput("cluster_extension_ids");
+        SetOutput("display_name");
+        SetOutput("host_resource_id");
+        SetOutput("host_type");
+        SetOutput("location");
+        SetOutput("namespace");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,8 +57,8 @@ public class AzurermExtendedLocationCustomLocationDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermExtendedLocationCustomLocationDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -75,8 +77,7 @@ public class AzurermExtendedLocationCustomLocationDataSource : TerraformDataSour
     /// </summary>
     public AzurermExtendedLocationCustomLocationDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermExtendedLocationCustomLocationDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

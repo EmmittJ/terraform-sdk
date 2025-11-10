@@ -13,8 +13,7 @@ public class AzurermSentinelDataConnectorAwsCloudTrailTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSentinelDataConnectorAwsCloudTrailTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSentinelDataConnectorAwsCloudTrailTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSentinelDataConnectorAwsCloudTrailTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzurermSentinelDataConnectorAwsCloudTrail : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("aws_role_arn");
+        SetOutput("id");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -66,17 +66,17 @@ public class AzurermSentinelDataConnectorAwsCloudTrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRoleArn is required")]
     public required TerraformProperty<string> AwsRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aws_role_arn");
-        set => this.WithProperty("aws_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_role_arn");
+        set => SetProperty("aws_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +85,8 @@ public class AzurermSentinelDataConnectorAwsCloudTrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzurermSentinelDataConnectorAwsCloudTrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzurermSentinelDataConnectorAwsCloudTrail : TerraformResource
     /// </summary>
     public AzurermSentinelDataConnectorAwsCloudTrailTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSentinelDataConnectorAwsCloudTrailTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

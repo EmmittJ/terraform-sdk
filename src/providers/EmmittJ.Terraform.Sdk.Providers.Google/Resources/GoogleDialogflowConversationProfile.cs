@@ -15,8 +15,7 @@ public class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Agent is required")]
     public required TerraformProperty<string> Agent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent");
-        set => WithProperty("agent", value);
+        set => SetProperty("agent", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock : Terr
     /// </summary>
     public TerraformProperty<string>? SessionTtl
     {
-        get => GetProperty<TerraformProperty<string>>("session_ttl");
-        set => WithProperty("session_ttl", value);
+        set => SetProperty("session_ttl", value);
     }
 
 }
@@ -57,8 +55,7 @@ public class GoogleDialogflowConversationProfileLoggingConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? EnableStackdriverLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_stackdriver_logging");
-        set => WithProperty("enable_stackdriver_logging", value);
+        set => SetProperty("enable_stackdriver_logging", value);
     }
 
 }
@@ -74,8 +71,7 @@ public class GoogleDialogflowConversationProfileNewMessageEventNotificationConfi
     /// </summary>
     public TerraformProperty<string>? MessageFormat
     {
-        get => GetProperty<TerraformProperty<string>>("message_format");
-        set => WithProperty("message_format", value);
+        set => SetProperty("message_format", value);
     }
 
     /// <summary>
@@ -83,8 +79,7 @@ public class GoogleDialogflowConversationProfileNewMessageEventNotificationConfi
     /// </summary>
     public TerraformProperty<string>? Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -100,8 +95,7 @@ public class GoogleDialogflowConversationProfileNewRecognitionResultNotification
     /// </summary>
     public TerraformProperty<string>? MessageFormat
     {
-        get => GetProperty<TerraformProperty<string>>("message_format");
-        set => WithProperty("message_format", value);
+        set => SetProperty("message_format", value);
     }
 
     /// <summary>
@@ -112,8 +106,7 @@ public class GoogleDialogflowConversationProfileNewRecognitionResultNotification
     /// </summary>
     public TerraformProperty<string>? Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -129,8 +122,7 @@ public class GoogleDialogflowConversationProfileNotificationConfigBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? MessageFormat
     {
-        get => GetProperty<TerraformProperty<string>>("message_format");
-        set => WithProperty("message_format", value);
+        set => SetProperty("message_format", value);
     }
 
     /// <summary>
@@ -138,8 +130,7 @@ public class GoogleDialogflowConversationProfileNotificationConfigBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -155,8 +146,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AudioEncoding
     {
-        get => GetProperty<TerraformProperty<string>>("audio_encoding");
-        set => WithProperty("audio_encoding", value);
+        set => SetProperty("audio_encoding", value);
     }
 
     /// <summary>
@@ -164,8 +154,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableWordInfo
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_word_info");
-        set => WithProperty("enable_word_info", value);
+        set => SetProperty("enable_word_info", value);
     }
 
     /// <summary>
@@ -173,8 +162,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
-        set => WithProperty("language_code", value);
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
@@ -183,8 +171,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Model
     {
-        get => GetProperty<TerraformProperty<string>>("model");
-        set => WithProperty("model", value);
+        set => SetProperty("model", value);
     }
 
     /// <summary>
@@ -192,8 +179,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SampleRateHertz
     {
-        get => GetProperty<TerraformProperty<double>>("sample_rate_hertz");
-        set => WithProperty("sample_rate_hertz", value);
+        set => SetProperty("sample_rate_hertz", value);
     }
 
     /// <summary>
@@ -201,8 +187,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SpeechModelVariant
     {
-        get => GetProperty<TerraformProperty<string>>("speech_model_variant");
-        set => WithProperty("speech_model_variant", value);
+        set => SetProperty("speech_model_variant", value);
     }
 
     /// <summary>
@@ -210,8 +195,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseTimeoutBasedEndpointing
     {
-        get => GetProperty<TerraformProperty<bool>>("use_timeout_based_endpointing");
-        set => WithProperty("use_timeout_based_endpointing", value);
+        set => SetProperty("use_timeout_based_endpointing", value);
     }
 
 }
@@ -227,8 +211,7 @@ public class GoogleDialogflowConversationProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -236,8 +219,7 @@ public class GoogleDialogflowConversationProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -245,8 +227,7 @@ public class GoogleDialogflowConversationProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -262,8 +243,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? EffectsProfileId
     {
-        get => GetProperty<List<TerraformProperty<string>>>("effects_profile_id");
-        set => WithProperty("effects_profile_id", value);
+        set => SetProperty("effects_profile_id", value);
     }
 
     /// <summary>
@@ -271,8 +251,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Pitch
     {
-        get => GetProperty<TerraformProperty<double>>("pitch");
-        set => WithProperty("pitch", value);
+        set => SetProperty("pitch", value);
     }
 
     /// <summary>
@@ -280,8 +259,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SpeakingRate
     {
-        get => GetProperty<TerraformProperty<double>>("speaking_rate");
-        set => WithProperty("speaking_rate", value);
+        set => SetProperty("speaking_rate", value);
     }
 
     /// <summary>
@@ -289,8 +267,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? VolumeGainDb
     {
-        get => GetProperty<TerraformProperty<double>>("volume_gain_db");
-        set => WithProperty("volume_gain_db", value);
+        set => SetProperty("volume_gain_db", value);
     }
 
 }
@@ -308,7 +285,14 @@ public class GoogleDialogflowConversationProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("language_code");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("security_settings");
+        SetOutput("time_zone");
     }
 
     /// <summary>
@@ -317,26 +301,26 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Language code for the conversation profile. This should be a BCP-47 language tag.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
+    public TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
-        set => this.WithProperty("language_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
@@ -345,35 +329,35 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Name of the CX SecuritySettings reference for the agent.
     /// </summary>
-    public TerraformProperty<string>? SecuritySettings
+    public TerraformProperty<string> SecuritySettings
     {
-        get => GetProperty<TerraformProperty<string>>("security_settings");
-        set => this.WithProperty("security_settings", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_settings");
+        set => SetProperty("security_settings", value);
     }
 
     /// <summary>
     /// The time zone of this conversational profile.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    public TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
@@ -383,8 +367,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedAgentConfig block(s) allowed")]
     public List<GoogleDialogflowConversationProfileAutomatedAgentConfigBlock>? AutomatedAgentConfig
     {
-        get => GetProperty<List<GoogleDialogflowConversationProfileAutomatedAgentConfigBlock>>("automated_agent_config");
-        set => this.WithProperty("automated_agent_config", value);
+        set => SetProperty("automated_agent_config", value);
     }
 
     /// <summary>
@@ -394,8 +377,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanAgentAssistantConfig block(s) allowed")]
     public List<GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock>? HumanAgentAssistantConfig
     {
-        get => GetProperty<List<GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock>>("human_agent_assistant_config");
-        set => this.WithProperty("human_agent_assistant_config", value);
+        set => SetProperty("human_agent_assistant_config", value);
     }
 
     /// <summary>
@@ -405,8 +387,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanAgentHandoffConfig block(s) allowed")]
     public List<GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock>? HumanAgentHandoffConfig
     {
-        get => GetProperty<List<GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock>>("human_agent_handoff_config");
-        set => this.WithProperty("human_agent_handoff_config", value);
+        set => SetProperty("human_agent_handoff_config", value);
     }
 
     /// <summary>
@@ -416,8 +397,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     public List<GoogleDialogflowConversationProfileLoggingConfigBlock>? LoggingConfig
     {
-        get => GetProperty<List<GoogleDialogflowConversationProfileLoggingConfigBlock>>("logging_config");
-        set => this.WithProperty("logging_config", value);
+        set => SetProperty("logging_config", value);
     }
 
     /// <summary>
@@ -427,8 +407,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewMessageEventNotificationConfig block(s) allowed")]
     public List<GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock>? NewMessageEventNotificationConfig
     {
-        get => GetProperty<List<GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock>>("new_message_event_notification_config");
-        set => this.WithProperty("new_message_event_notification_config", value);
+        set => SetProperty("new_message_event_notification_config", value);
     }
 
     /// <summary>
@@ -438,8 +417,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewRecognitionResultNotificationConfig block(s) allowed")]
     public List<GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock>? NewRecognitionResultNotificationConfig
     {
-        get => GetProperty<List<GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock>>("new_recognition_result_notification_config");
-        set => this.WithProperty("new_recognition_result_notification_config", value);
+        set => SetProperty("new_recognition_result_notification_config", value);
     }
 
     /// <summary>
@@ -449,8 +427,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     public List<GoogleDialogflowConversationProfileNotificationConfigBlock>? NotificationConfig
     {
-        get => GetProperty<List<GoogleDialogflowConversationProfileNotificationConfigBlock>>("notification_config");
-        set => this.WithProperty("notification_config", value);
+        set => SetProperty("notification_config", value);
     }
 
     /// <summary>
@@ -460,8 +437,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SttConfig block(s) allowed")]
     public List<GoogleDialogflowConversationProfileSttConfigBlock>? SttConfig
     {
-        get => GetProperty<List<GoogleDialogflowConversationProfileSttConfigBlock>>("stt_config");
-        set => this.WithProperty("stt_config", value);
+        set => SetProperty("stt_config", value);
     }
 
     /// <summary>
@@ -470,8 +446,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     public GoogleDialogflowConversationProfileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowConversationProfileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -481,8 +456,7 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TtsConfig block(s) allowed")]
     public List<GoogleDialogflowConversationProfileTtsConfigBlock>? TtsConfig
     {
-        get => GetProperty<List<GoogleDialogflowConversationProfileTtsConfigBlock>>("tts_config");
-        set => this.WithProperty("tts_config", value);
+        set => SetProperty("tts_config", value);
     }
 
     /// <summary>

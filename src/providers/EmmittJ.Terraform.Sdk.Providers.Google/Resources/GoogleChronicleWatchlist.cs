@@ -21,8 +21,7 @@ public class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class GoogleChronicleWatchlistWatchlistUserPreferencesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? Pinned
     {
-        get => GetProperty<TerraformProperty<bool>>("pinned");
-        set => WithProperty("pinned", value);
+        set => SetProperty("pinned", value);
     }
 
 }
@@ -75,19 +71,27 @@ public class GoogleChronicleWatchlist : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("entity_count");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("entity_count");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("location");
+        SetOutput("multiplying_factor");
+        SetOutput("project");
+        SetOutput("watchlist_id");
     }
 
     /// <summary>
     /// Optional. Description of the watchlist.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -98,17 +102,17 @@ public class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -117,8 +121,8 @@ public class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -127,8 +131,8 @@ public class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -136,19 +140,19 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// in this watchlist.
     /// The default is 1.0 if it is not specified.
     /// </summary>
-    public TerraformProperty<double>? MultiplyingFactor
+    public TerraformProperty<double> MultiplyingFactor
     {
-        get => GetProperty<TerraformProperty<double>>("multiplying_factor");
-        set => this.WithProperty("multiplying_factor", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("multiplying_factor");
+        set => SetProperty("multiplying_factor", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -157,22 +161,22 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// This value should be 4-63 characters, and valid characters
     /// are /a-z-/.
     /// </summary>
-    public TerraformProperty<string>? WatchlistId
+    public TerraformProperty<string> WatchlistId
     {
-        get => GetProperty<TerraformProperty<string>>("watchlist_id");
-        set => this.WithProperty("watchlist_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("watchlist_id");
+        set => SetProperty("watchlist_id", value);
     }
 
     /// <summary>
     /// Block for entity_population_mechanism.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityPopulationMechanism is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EntityPopulationMechanism block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntityPopulationMechanism block(s) allowed")]
     public List<GoogleChronicleWatchlistEntityPopulationMechanismBlock>? EntityPopulationMechanism
     {
-        get => GetProperty<List<GoogleChronicleWatchlistEntityPopulationMechanismBlock>>("entity_population_mechanism");
-        set => this.WithProperty("entity_population_mechanism", value);
+        set => SetProperty("entity_population_mechanism", value);
     }
 
     /// <summary>
@@ -181,8 +185,7 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     public GoogleChronicleWatchlistTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleChronicleWatchlistTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -192,8 +195,7 @@ public class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WatchlistUserPreferences block(s) allowed")]
     public List<GoogleChronicleWatchlistWatchlistUserPreferencesBlock>? WatchlistUserPreferences
     {
-        get => GetProperty<List<GoogleChronicleWatchlistWatchlistUserPreferencesBlock>>("watchlist_user_preferences");
-        set => this.WithProperty("watchlist_user_preferences", value);
+        set => SetProperty("watchlist_user_preferences", value);
     }
 
     /// <summary>

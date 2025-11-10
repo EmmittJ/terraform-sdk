@@ -14,8 +14,7 @@ public class GoogleCloudbuildTriggerApprovalConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ApprovalRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("approval_required");
-        set => WithProperty("approval_required", value);
+        set => SetProperty("approval_required", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BitbucketServerConfigResource is required")]
     public required TerraformProperty<string> BitbucketServerConfigResource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bitbucket_server_config_resource");
-        set => WithProperty("bitbucket_server_config_resource", value);
+        set => SetProperty("bitbucket_server_config_resource", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
     public required TerraformProperty<string> ProjectKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_key");
-        set => WithProperty("project_key", value);
+        set => SetProperty("project_key", value);
     }
 
     /// <summary>
@@ -53,8 +50,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
     public required TerraformProperty<string> RepoSlug
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repo_slug");
-        set => WithProperty("repo_slug", value);
+        set => SetProperty("repo_slug", value);
     }
 
 }
@@ -73,8 +69,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Images
     {
-        get => GetProperty<List<TerraformProperty<string>>>("images");
-        set => WithProperty("images", value);
+        set => SetProperty("images", value);
     }
 
     /// <summary>
@@ -83,8 +78,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LogsBucket
     {
-        get => GetProperty<TerraformProperty<string>>("logs_bucket");
-        set => WithProperty("logs_bucket", value);
+        set => SetProperty("logs_bucket", value);
     }
 
     /// <summary>
@@ -95,8 +89,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? QueueTtl
     {
-        get => GetProperty<TerraformProperty<string>>("queue_ttl");
-        set => WithProperty("queue_ttl", value);
+        set => SetProperty("queue_ttl", value);
     }
 
     /// <summary>
@@ -104,8 +97,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Substitutions
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("substitutions");
-        set => WithProperty("substitutions", value);
+        set => SetProperty("substitutions", value);
     }
 
     /// <summary>
@@ -113,8 +105,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Tags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -126,8 +117,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Timeout
     {
-        get => GetProperty<TerraformProperty<string>>("timeout");
-        set => WithProperty("timeout", value);
+        set => SetProperty("timeout", value);
     }
 
 }
@@ -144,8 +134,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepositoryLink is required")]
     public required TerraformProperty<string> GitRepositoryLink
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("git_repository_link");
-        set => WithProperty("git_repository_link", value);
+        set => SetProperty("git_repository_link", value);
     }
 
     /// <summary>
@@ -153,8 +142,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? GitRepositoryLinkType
     {
-        get => GetProperty<TerraformProperty<string>>("git_repository_link_type");
-        set => WithProperty("git_repository_link_type", value);
+        set => SetProperty("git_repository_link_type", value);
     }
 
 }
@@ -171,8 +159,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BitbucketServerConfig
     {
-        get => GetProperty<TerraformProperty<string>>("bitbucket_server_config");
-        set => WithProperty("bitbucket_server_config", value);
+        set => SetProperty("bitbucket_server_config", value);
     }
 
     /// <summary>
@@ -181,8 +168,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GithubEnterpriseConfig
     {
-        get => GetProperty<TerraformProperty<string>>("github_enterprise_config");
-        set => WithProperty("github_enterprise_config", value);
+        set => SetProperty("github_enterprise_config", value);
     }
 
     /// <summary>
@@ -191,8 +177,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -202,8 +187,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
     public required TerraformProperty<string> RepoType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repo_type");
-        set => WithProperty("repo_type", value);
+        set => SetProperty("repo_type", value);
     }
 
     /// <summary>
@@ -212,8 +196,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
-        set => WithProperty("repository", value);
+        set => SetProperty("repository", value);
     }
 
     /// <summary>
@@ -223,8 +206,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Revision
     {
-        get => GetProperty<TerraformProperty<string>>("revision");
-        set => WithProperty("revision", value);
+        set => SetProperty("revision", value);
     }
 
     /// <summary>
@@ -233,8 +215,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -251,8 +232,7 @@ public class GoogleCloudbuildTriggerGithubBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EnterpriseConfigResourceName
     {
-        get => GetProperty<TerraformProperty<string>>("enterprise_config_resource_name");
-        set => WithProperty("enterprise_config_resource_name", value);
+        set => SetProperty("enterprise_config_resource_name", value);
     }
 
     /// <summary>
@@ -261,8 +241,7 @@ public class GoogleCloudbuildTriggerGithubBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -271,8 +250,7 @@ public class GoogleCloudbuildTriggerGithubBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Owner
     {
-        get => GetProperty<TerraformProperty<string>>("owner");
-        set => WithProperty("owner", value);
+        set => SetProperty("owner", value);
     }
 
 }
@@ -288,8 +266,7 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountEmail
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_email");
-        set => WithProperty("service_account_email", value);
+        set => SetProperty("service_account_email", value);
     }
 
     /// <summary>
@@ -298,8 +275,7 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -307,8 +283,7 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subscription
     {
-        get => GetProperty<TerraformProperty<string>>("subscription");
-        set => WithProperty("subscription", value);
+        set => SetProperty("subscription", value);
     }
 
     /// <summary>
@@ -317,8 +292,7 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -334,8 +308,7 @@ public class GoogleCloudbuildTriggerRepositoryEventConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
-        set => WithProperty("repository", value);
+        set => SetProperty("repository", value);
     }
 
 }
@@ -352,8 +325,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BitbucketServerConfig
     {
-        get => GetProperty<TerraformProperty<string>>("bitbucket_server_config");
-        set => WithProperty("bitbucket_server_config", value);
+        set => SetProperty("bitbucket_server_config", value);
     }
 
     /// <summary>
@@ -362,8 +334,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GithubEnterpriseConfig
     {
-        get => GetProperty<TerraformProperty<string>>("github_enterprise_config");
-        set => WithProperty("github_enterprise_config", value);
+        set => SetProperty("github_enterprise_config", value);
     }
 
     /// <summary>
@@ -372,8 +343,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ref is required")]
     public required TerraformProperty<string> Ref
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ref");
-        set => WithProperty("ref", value);
+        set => SetProperty("ref", value);
     }
 
     /// <summary>
@@ -383,8 +353,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
     public required TerraformProperty<string> RepoType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repo_type");
-        set => WithProperty("repo_type", value);
+        set => SetProperty("repo_type", value);
     }
 
     /// <summary>
@@ -393,8 +362,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
-        set => WithProperty("repository", value);
+        set => SetProperty("repository", value);
     }
 
     /// <summary>
@@ -402,8 +370,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -419,8 +386,7 @@ public class GoogleCloudbuildTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -428,8 +394,7 @@ public class GoogleCloudbuildTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -437,8 +402,7 @@ public class GoogleCloudbuildTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -455,8 +419,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BranchName
     {
-        get => GetProperty<TerraformProperty<string>>("branch_name");
-        set => WithProperty("branch_name", value);
+        set => SetProperty("branch_name", value);
     }
 
     /// <summary>
@@ -464,8 +427,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CommitSha
     {
-        get => GetProperty<TerraformProperty<string>>("commit_sha");
-        set => WithProperty("commit_sha", value);
+        set => SetProperty("commit_sha", value);
     }
 
     /// <summary>
@@ -477,8 +439,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Dir
     {
-        get => GetProperty<TerraformProperty<string>>("dir");
-        set => WithProperty("dir", value);
+        set => SetProperty("dir", value);
     }
 
     /// <summary>
@@ -486,8 +447,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InvertRegex
     {
-        get => GetProperty<TerraformProperty<bool>>("invert_regex");
-        set => WithProperty("invert_regex", value);
+        set => SetProperty("invert_regex", value);
     }
 
     /// <summary>
@@ -496,8 +456,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>
@@ -505,8 +464,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RepoName
     {
-        get => GetProperty<TerraformProperty<string>>("repo_name");
-        set => WithProperty("repo_name", value);
+        set => SetProperty("repo_name", value);
     }
 
     /// <summary>
@@ -515,8 +473,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TagName
     {
-        get => GetProperty<TerraformProperty<string>>("tag_name");
-        set => WithProperty("tag_name", value);
+        set => SetProperty("tag_name", value);
     }
 
 }
@@ -533,8 +490,7 @@ public class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret");
-        set => WithProperty("secret", value);
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
@@ -543,8 +499,7 @@ public class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -562,26 +517,40 @@ public class GoogleCloudbuildTrigger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("trigger_id");
+        SetOutput("create_time");
+        SetOutput("trigger_id");
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("filename");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("ignored_files");
+        SetOutput("include_build_logs");
+        SetOutput("included_files");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("service_account");
+        SetOutput("substitutions");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// Human-readable description of the trigger.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -589,28 +558,28 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Either a filename or build template must be provided. Set this only when using trigger_template or github.
     /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
     /// </summary>
-    public TerraformProperty<string>? Filename
+    public TerraformProperty<string> Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
-        set => this.WithProperty("filename", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filename");
+        set => SetProperty("filename", value);
     }
 
     /// <summary>
     /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -624,10 +593,10 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// of the ignored_file globs. If the change has no files that are outside
     /// of the ignoredFiles globs, then we do not trigger a build.
     /// </summary>
-    public List<TerraformProperty<string>>? IgnoredFiles
+    public List<TerraformProperty<string>> IgnoredFiles
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ignored_files");
-        set => this.WithProperty("ignored_files", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ignored_files");
+        set => SetProperty("ignored_files", value);
     }
 
     /// <summary>
@@ -635,10 +604,10 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// result.  Values can be INCLUDE_BUILD_LOGS_UNSPECIFIED or
     /// INCLUDE_BUILD_LOGS_WITH_STATUS Possible values: [&amp;quot;INCLUDE_BUILD_LOGS_UNSPECIFIED&amp;quot;, &amp;quot;INCLUDE_BUILD_LOGS_WITH_STATUS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? IncludeBuildLogs
+    public TerraformProperty<string> IncludeBuildLogs
     {
-        get => GetProperty<TerraformProperty<string>>("include_build_logs");
-        set => this.WithProperty("include_build_logs", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("include_build_logs");
+        set => SetProperty("include_build_logs", value);
     }
 
     /// <summary>
@@ -654,38 +623,38 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// those files matches a includedFiles glob. If not, then we do not trigger
     /// a build.
     /// </summary>
-    public List<TerraformProperty<string>>? IncludedFiles
+    public List<TerraformProperty<string>> IncludedFiles
     {
-        get => GetProperty<List<TerraformProperty<string>>>("included_files");
-        set => this.WithProperty("included_files", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("included_files");
+        set => SetProperty("included_files", value);
     }
 
     /// <summary>
     /// The [Cloud Build location](https://cloud.google.com/build/docs/locations) for the trigger.
     /// If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Name of the trigger. Must be unique within the project.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -697,28 +666,28 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// 
     /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
+    public TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => this.WithProperty("service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
     /// Substitutions data for Build resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Substitutions
+    public Dictionary<string, TerraformProperty<string>> Substitutions
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("substitutions");
-        set => this.WithProperty("substitutions", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("substitutions");
+        set => SetProperty("substitutions", value);
     }
 
     /// <summary>
     /// Tags for annotation of a BuildTrigger
     /// </summary>
-    public List<TerraformProperty<string>>? Tags
+    public List<TerraformProperty<string>> Tags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -728,8 +697,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalConfig block(s) allowed")]
     public List<GoogleCloudbuildTriggerApprovalConfigBlock>? ApprovalConfig
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerApprovalConfigBlock>>("approval_config");
-        set => this.WithProperty("approval_config", value);
+        set => SetProperty("approval_config", value);
     }
 
     /// <summary>
@@ -739,8 +707,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketServerTriggerConfig block(s) allowed")]
     public List<GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock>? BitbucketServerTriggerConfig
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock>>("bitbucket_server_trigger_config");
-        set => this.WithProperty("bitbucket_server_trigger_config", value);
+        set => SetProperty("bitbucket_server_trigger_config", value);
     }
 
     /// <summary>
@@ -750,8 +717,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Build block(s) allowed")]
     public List<GoogleCloudbuildTriggerBuildBlock>? Build
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerBuildBlock>>("build");
-        set => this.WithProperty("build", value);
+        set => SetProperty("build", value);
     }
 
     /// <summary>
@@ -761,8 +727,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeveloperConnectEventConfig block(s) allowed")]
     public List<GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock>? DeveloperConnectEventConfig
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock>>("developer_connect_event_config");
-        set => this.WithProperty("developer_connect_event_config", value);
+        set => SetProperty("developer_connect_event_config", value);
     }
 
     /// <summary>
@@ -772,8 +737,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitFileSource block(s) allowed")]
     public List<GoogleCloudbuildTriggerGitFileSourceBlock>? GitFileSource
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerGitFileSourceBlock>>("git_file_source");
-        set => this.WithProperty("git_file_source", value);
+        set => SetProperty("git_file_source", value);
     }
 
     /// <summary>
@@ -783,8 +747,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Github block(s) allowed")]
     public List<GoogleCloudbuildTriggerGithubBlock>? Github
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerGithubBlock>>("github");
-        set => this.WithProperty("github", value);
+        set => SetProperty("github", value);
     }
 
     /// <summary>
@@ -794,8 +757,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PubsubConfig block(s) allowed")]
     public List<GoogleCloudbuildTriggerPubsubConfigBlock>? PubsubConfig
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerPubsubConfigBlock>>("pubsub_config");
-        set => this.WithProperty("pubsub_config", value);
+        set => SetProperty("pubsub_config", value);
     }
 
     /// <summary>
@@ -805,8 +767,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RepositoryEventConfig block(s) allowed")]
     public List<GoogleCloudbuildTriggerRepositoryEventConfigBlock>? RepositoryEventConfig
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerRepositoryEventConfigBlock>>("repository_event_config");
-        set => this.WithProperty("repository_event_config", value);
+        set => SetProperty("repository_event_config", value);
     }
 
     /// <summary>
@@ -816,8 +777,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceToBuild block(s) allowed")]
     public List<GoogleCloudbuildTriggerSourceToBuildBlock>? SourceToBuild
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerSourceToBuildBlock>>("source_to_build");
-        set => this.WithProperty("source_to_build", value);
+        set => SetProperty("source_to_build", value);
     }
 
     /// <summary>
@@ -826,8 +786,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// </summary>
     public GoogleCloudbuildTriggerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudbuildTriggerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -837,8 +796,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TriggerTemplate block(s) allowed")]
     public List<GoogleCloudbuildTriggerTriggerTemplateBlock>? TriggerTemplate
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerTriggerTemplateBlock>>("trigger_template");
-        set => this.WithProperty("trigger_template", value);
+        set => SetProperty("trigger_template", value);
     }
 
     /// <summary>
@@ -848,8 +806,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebhookConfig block(s) allowed")]
     public List<GoogleCloudbuildTriggerWebhookConfigBlock>? WebhookConfig
     {
-        get => GetProperty<List<GoogleCloudbuildTriggerWebhookConfigBlock>>("webhook_config");
-        set => this.WithProperty("webhook_config", value);
+        set => SetProperty("webhook_config", value);
     }
 
     /// <summary>

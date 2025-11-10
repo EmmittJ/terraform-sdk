@@ -14,8 +14,7 @@ public class GoogleComputeInterconnectGroupIntentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TopologyCapability
     {
-        get => GetProperty<TerraformProperty<string>>("topology_capability");
-        set => WithProperty("topology_capability", value);
+        set => SetProperty("topology_capability", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleComputeInterconnectGroupInterconnectsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Interconnect
     {
-        get => GetProperty<TerraformProperty<string>>("interconnect");
-        set => WithProperty("interconnect", value);
+        set => SetProperty("interconnect", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleComputeInterconnectGroupInterconnectsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class GoogleComputeInterconnectGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class GoogleComputeInterconnectGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class GoogleComputeInterconnectGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,27 +89,31 @@ public class GoogleComputeInterconnectGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("configured");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("physical_structure");
+        SetOutput("configured");
+        SetOutput("creation_timestamp");
+        SetOutput("physical_structure");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -128,29 +126,29 @@ public class GoogleComputeInterconnectGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for intent.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Intent is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Intent block(s) allowed")]
     public List<GoogleComputeInterconnectGroupIntentBlock>? Intent
     {
-        get => GetProperty<List<GoogleComputeInterconnectGroupIntentBlock>>("intent");
-        set => this.WithProperty("intent", value);
+        set => SetProperty("intent", value);
     }
 
     /// <summary>
@@ -159,8 +157,7 @@ public class GoogleComputeInterconnectGroup : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeInterconnectGroupInterconnectsBlock>? Interconnects
     {
-        get => GetProperty<HashSet<GoogleComputeInterconnectGroupInterconnectsBlock>>("interconnects");
-        set => this.WithProperty("interconnects", value);
+        set => SetProperty("interconnects", value);
     }
 
     /// <summary>
@@ -169,8 +166,7 @@ public class GoogleComputeInterconnectGroup : TerraformResource
     /// </summary>
     public GoogleComputeInterconnectGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeInterconnectGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

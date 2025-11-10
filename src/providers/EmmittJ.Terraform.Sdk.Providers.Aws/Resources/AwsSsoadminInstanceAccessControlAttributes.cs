@@ -14,8 +14,7 @@ public class AwsSsoadminInstanceAccessControlAttributesAttributeBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
 }
@@ -33,17 +32,20 @@ public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("id");
+        SetOutput("instance_arn");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,28 +54,28 @@ public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
-        set => this.WithProperty("instance_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
+        set => SetProperty("instance_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for attribute.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attribute is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Attribute block(s) required")]
     public HashSet<AwsSsoadminInstanceAccessControlAttributesAttributeBlock>? Attribute
     {
-        get => GetProperty<HashSet<AwsSsoadminInstanceAccessControlAttributesAttributeBlock>>("attribute");
-        set => this.WithProperty("attribute", value);
+        set => SetProperty("attribute", value);
     }
 
     /// <summary>

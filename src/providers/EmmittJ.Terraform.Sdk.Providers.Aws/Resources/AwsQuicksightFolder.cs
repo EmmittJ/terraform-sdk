@@ -14,8 +14,7 @@ public class AwsQuicksightFolderPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public HashSet<TerraformProperty<string>>? Actions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
-        set => WithProperty("actions", value);
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsQuicksightFolderPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => WithProperty("principal", value);
+        set => SetProperty("principal", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsQuicksightFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsQuicksightFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsQuicksightFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsQuicksightFolderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,19 +81,28 @@ public class AwsQuicksightFolder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_time");
-        this.WithOutput("folder_path");
-        this.WithOutput("last_updated_time");
+        SetOutput("arn");
+        SetOutput("created_time");
+        SetOutput("folder_path");
+        SetOutput("last_updated_time");
+        SetOutput("aws_account_id");
+        SetOutput("folder_id");
+        SetOutput("folder_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent_folder_arn");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -108,71 +111,71 @@ public class AwsQuicksightFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformProperty<string> FolderId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder_id");
-        set => this.WithProperty("folder_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder_id");
+        set => SetProperty("folder_id", value);
     }
 
     /// <summary>
     /// The folder_type attribute.
     /// </summary>
-    public TerraformProperty<string>? FolderType
+    public TerraformProperty<string> FolderType
     {
-        get => GetProperty<TerraformProperty<string>>("folder_type");
-        set => this.WithProperty("folder_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder_type");
+        set => SetProperty("folder_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parent_folder_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentFolderArn
+    public TerraformProperty<string> ParentFolderArn
     {
-        get => GetProperty<TerraformProperty<string>>("parent_folder_arn");
-        set => this.WithProperty("parent_folder_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_folder_arn");
+        set => SetProperty("parent_folder_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -182,8 +185,7 @@ public class AwsQuicksightFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
     public HashSet<AwsQuicksightFolderPermissionsBlock>? Permissions
     {
-        get => GetProperty<HashSet<AwsQuicksightFolderPermissionsBlock>>("permissions");
-        set => this.WithProperty("permissions", value);
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
@@ -192,8 +194,7 @@ public class AwsQuicksightFolder : TerraformResource
     /// </summary>
     public AwsQuicksightFolderTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsQuicksightFolderTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

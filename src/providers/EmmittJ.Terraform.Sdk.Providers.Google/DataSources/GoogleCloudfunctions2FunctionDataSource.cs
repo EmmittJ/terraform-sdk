@@ -14,27 +14,31 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("build_config");
-        this.WithOutput("description");
-        this.WithOutput("effective_labels");
-        this.WithOutput("environment");
-        this.WithOutput("event_trigger");
-        this.WithOutput("kms_key_name");
-        this.WithOutput("labels");
-        this.WithOutput("service_config");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
-        this.WithOutput("url");
+        SetOutput("build_config");
+        SetOutput("description");
+        SetOutput("effective_labels");
+        SetOutput("environment");
+        SetOutput("event_trigger");
+        SetOutput("kms_key_name");
+        SetOutput("labels");
+        SetOutput("service_config");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("url");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,8 +47,8 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -54,17 +58,17 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

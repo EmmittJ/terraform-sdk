@@ -13,8 +13,7 @@ public class GoogleSecurityposturePostureDeploymentTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSecurityposturePostureDeploymentTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSecurityposturePostureDeploymentTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,33 +46,41 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("desired_posture_id");
-        this.WithOutput("desired_posture_revision_id");
-        this.WithOutput("etag");
-        this.WithOutput("failure_message");
-        this.WithOutput("name");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("desired_posture_id");
+        SetOutput("desired_posture_revision_id");
+        SetOutput("etag");
+        SetOutput("failure_message");
+        SetOutput("name");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("parent");
+        SetOutput("posture_deployment_id");
+        SetOutput("posture_id");
+        SetOutput("posture_revision_id");
+        SetOutput("target_resource");
     }
 
     /// <summary>
     /// Description of the posture deployment.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +89,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -94,8 +99,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -104,8 +109,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureDeploymentId is required")]
     public required TerraformProperty<string> PostureDeploymentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("posture_deployment_id");
-        set => this.WithProperty("posture_deployment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("posture_deployment_id");
+        set => SetProperty("posture_deployment_id", value);
     }
 
     /// <summary>
@@ -115,8 +120,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
     public required TerraformProperty<string> PostureId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("posture_id");
-        set => this.WithProperty("posture_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("posture_id");
+        set => SetProperty("posture_id", value);
     }
 
     /// <summary>
@@ -125,8 +130,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureRevisionId is required")]
     public required TerraformProperty<string> PostureRevisionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("posture_revision_id");
-        set => this.WithProperty("posture_revision_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("posture_revision_id");
+        set => SetProperty("posture_revision_id", value);
     }
 
     /// <summary>
@@ -138,8 +143,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResource is required")]
     public required TerraformProperty<string> TargetResource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource");
-        set => this.WithProperty("target_resource", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource");
+        set => SetProperty("target_resource", value);
     }
 
     /// <summary>
@@ -148,8 +153,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// </summary>
     public GoogleSecurityposturePostureDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSecurityposturePostureDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

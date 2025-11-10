@@ -13,8 +13,7 @@ public class GoogleApigeeControlPlaneAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeControlPlaneAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeControlPlaneAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,6 +46,10 @@ public class GoogleApigeeControlPlaneAccess : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("analytics_publisher_identities");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("synchronizer_identities");
     }
 
     /// <summary>
@@ -58,19 +59,19 @@ public class GoogleApigeeControlPlaneAccess : TerraformResource
     /// 
     /// You might specify multiple service accounts, for example, if you have multiple environments and wish to assign a unique service account to each one.
     /// </summary>
-    public List<TerraformProperty<string>>? AnalyticsPublisherIdentities
+    public List<TerraformProperty<string>> AnalyticsPublisherIdentities
     {
-        get => GetProperty<List<TerraformProperty<string>>>("analytics_publisher_identities");
-        set => this.WithProperty("analytics_publisher_identities", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("analytics_publisher_identities");
+        set => SetProperty("analytics_publisher_identities", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -79,8 +80,8 @@ public class GoogleApigeeControlPlaneAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -92,10 +93,10 @@ public class GoogleApigeeControlPlaneAccess : TerraformResource
     /// 
     /// The service accounts must have **Apigee Synchronizer Manager** role. See also [Create service accounts](https://cloud.google.com/apigee/docs/hybrid/v1.8/sa-about#create-the-service-accounts).
     /// </summary>
-    public List<TerraformProperty<string>>? SynchronizerIdentities
+    public List<TerraformProperty<string>> SynchronizerIdentities
     {
-        get => GetProperty<List<TerraformProperty<string>>>("synchronizer_identities");
-        set => this.WithProperty("synchronizer_identities", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("synchronizer_identities");
+        set => SetProperty("synchronizer_identities", value);
     }
 
     /// <summary>
@@ -104,8 +105,7 @@ public class GoogleApigeeControlPlaneAccess : TerraformResource
     /// </summary>
     public GoogleApigeeControlPlaneAccessTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeControlPlaneAccessTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

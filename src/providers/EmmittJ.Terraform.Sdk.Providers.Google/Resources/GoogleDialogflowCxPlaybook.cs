@@ -13,8 +13,7 @@ public class GoogleDialogflowCxPlaybookInstructionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Guidelines
     {
-        get => GetProperty<TerraformProperty<string>>("guidelines");
-        set => WithProperty("guidelines", value);
+        set => SetProperty("guidelines", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleDialogflowCxPlaybookLlmModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Model
     {
-        get => GetProperty<TerraformProperty<string>>("model");
-        set => WithProperty("model", value);
+        set => SetProperty("model", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleDialogflowCxPlaybookLlmModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PromptText
     {
-        get => GetProperty<TerraformProperty<string>>("prompt_text");
-        set => WithProperty("prompt_text", value);
+        set => SetProperty("prompt_text", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class GoogleDialogflowCxPlaybookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class GoogleDialogflowCxPlaybookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class GoogleDialogflowCxPlaybookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -93,12 +87,18 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("referenced_flows");
-        this.WithOutput("referenced_playbooks");
-        this.WithOutput("token_count");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("referenced_flows");
+        SetOutput("referenced_playbooks");
+        SetOutput("token_count");
+        SetOutput("update_time");
+        SetOutput("display_name");
+        SetOutput("goal");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("playbook_type");
+        SetOutput("referenced_tools");
     }
 
     /// <summary>
@@ -107,8 +107,8 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -117,45 +117,45 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
     public required TerraformProperty<string> Goal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("goal");
-        set => this.WithProperty("goal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("goal");
+        set => SetProperty("goal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The agent to create a Playbook for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// Type of the playbook. Possible values: [&amp;quot;PLAYBOOK_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;TASK&amp;quot;, &amp;quot;ROUTINE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PlaybookType
+    public TerraformProperty<string> PlaybookType
     {
-        get => GetProperty<TerraformProperty<string>>("playbook_type");
-        set => this.WithProperty("playbook_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("playbook_type");
+        set => SetProperty("playbook_type", value);
     }
 
     /// <summary>
     /// The resource name of tools referenced by the current playbook in the instructions. If not provided explicitly, they are will be implied using the tool being referenced in goal and steps.
     /// </summary>
-    public List<TerraformProperty<string>>? ReferencedTools
+    public List<TerraformProperty<string>> ReferencedTools
     {
-        get => GetProperty<List<TerraformProperty<string>>>("referenced_tools");
-        set => this.WithProperty("referenced_tools", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("referenced_tools");
+        set => SetProperty("referenced_tools", value);
     }
 
     /// <summary>
@@ -165,8 +165,7 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Instruction block(s) allowed")]
     public List<GoogleDialogflowCxPlaybookInstructionBlock>? Instruction
     {
-        get => GetProperty<List<GoogleDialogflowCxPlaybookInstructionBlock>>("instruction");
-        set => this.WithProperty("instruction", value);
+        set => SetProperty("instruction", value);
     }
 
     /// <summary>
@@ -176,8 +175,7 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
     public List<GoogleDialogflowCxPlaybookLlmModelSettingsBlock>? LlmModelSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxPlaybookLlmModelSettingsBlock>>("llm_model_settings");
-        set => this.WithProperty("llm_model_settings", value);
+        set => SetProperty("llm_model_settings", value);
     }
 
     /// <summary>
@@ -186,8 +184,7 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// </summary>
     public GoogleDialogflowCxPlaybookTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowCxPlaybookTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

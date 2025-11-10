@@ -22,8 +22,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataIdentifiers is required")]
     public HashSet<TerraformProperty<string>>? DataIdentifiers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("data_identifiers");
-        set => WithProperty("data_identifiers", value);
+        set => SetProperty("data_identifiers", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBloc
     /// </summary>
     public TerraformProperty<string>? Sid
     {
-        get => GetProperty<TerraformProperty<string>>("sid");
-        set => WithProperty("sid", value);
+        set => SetProperty("sid", value);
     }
 
 }
@@ -50,25 +48,29 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
 
     private void InitializeOutputs()
     {
-        this.WithOutput("json");
+        SetOutput("json");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,17 +79,17 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -97,8 +99,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     public List<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock>? Configuration
     {
-        get => GetProperty<List<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock>>("configuration");
-        set => this.WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>
@@ -109,8 +110,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Statement block(s) allowed")]
     public List<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock>? Statement
     {
-        get => GetProperty<List<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock>>("statement");
-        set => this.WithProperty("statement", value);
+        set => SetProperty("statement", value);
     }
 
     /// <summary>

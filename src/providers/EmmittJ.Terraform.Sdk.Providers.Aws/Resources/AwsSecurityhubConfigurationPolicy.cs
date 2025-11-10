@@ -13,8 +13,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : Terrafo
     /// </summary>
     public HashSet<TerraformProperty<string>>? EnabledStandardArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_standard_arns");
-        set => WithProperty("enabled_standard_arns", value);
+        set => SetProperty("enabled_standard_arns", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceEnabled is required")]
     public required TerraformProperty<bool> ServiceEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("service_enabled");
-        set => WithProperty("service_enabled", value);
+        set => SetProperty("service_enabled", value);
     }
 
 }
@@ -42,25 +40,29 @@ public class AwsSecurityhubConfigurationPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,29 +71,29 @@ public class AwsSecurityhubConfigurationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for configuration_policy.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConfigurationPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigurationPolicy block(s) allowed")]
     public List<AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock>? ConfigurationPolicy
     {
-        get => GetProperty<List<AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock>>("configuration_policy");
-        set => this.WithProperty("configuration_policy", value);
+        set => SetProperty("configuration_policy", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,6 +46,14 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("export_custom_routes");
+        SetOutput("export_subnet_routes_with_public_ip");
+        SetOutput("id");
+        SetOutput("import_custom_routes");
+        SetOutput("import_subnet_routes_with_public_ip");
+        SetOutput("network");
+        SetOutput("peering");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -57,8 +62,8 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportCustomRoutes is required")]
     public required TerraformProperty<bool> ExportCustomRoutes
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("export_custom_routes");
-        set => this.WithProperty("export_custom_routes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("export_custom_routes");
+        set => SetProperty("export_custom_routes", value);
     }
 
     /// <summary>
@@ -66,19 +71,19 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// IPv4 special-use ranges are always exported to peers and
     /// are not controlled by this field.
     /// </summary>
-    public TerraformProperty<bool>? ExportSubnetRoutesWithPublicIp
+    public TerraformProperty<bool> ExportSubnetRoutesWithPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("export_subnet_routes_with_public_ip");
-        set => this.WithProperty("export_subnet_routes_with_public_ip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("export_subnet_routes_with_public_ip");
+        set => SetProperty("export_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,8 +92,8 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportCustomRoutes is required")]
     public required TerraformProperty<bool> ImportCustomRoutes
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("import_custom_routes");
-        set => this.WithProperty("import_custom_routes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("import_custom_routes");
+        set => SetProperty("import_custom_routes", value);
     }
 
     /// <summary>
@@ -96,10 +101,10 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// IPv4 special-use ranges are always imported from peers and
     /// are not controlled by this field.
     /// </summary>
-    public TerraformProperty<bool>? ImportSubnetRoutesWithPublicIp
+    public TerraformProperty<bool> ImportSubnetRoutesWithPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("import_subnet_routes_with_public_ip");
-        set => this.WithProperty("import_subnet_routes_with_public_ip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("import_subnet_routes_with_public_ip");
+        set => SetProperty("import_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
@@ -108,8 +113,8 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -118,17 +123,17 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformProperty<string> Peering
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peering");
-        set => this.WithProperty("peering", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peering");
+        set => SetProperty("peering", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -137,8 +142,7 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// </summary>
     public GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

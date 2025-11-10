@@ -13,8 +13,7 @@ public class AzurermSourceControlTokenDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,17 +30,19 @@ public class AzurermSourceControlTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("token");
-        this.WithOutput("token_secret");
+        SetOutput("token");
+        SetOutput("token_secret");
+        SetOutput("id");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +51,8 @@ public class AzurermSourceControlTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -60,8 +61,7 @@ public class AzurermSourceControlTokenDataSource : TerraformDataSource
     /// </summary>
     public AzurermSourceControlTokenDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSourceControlTokenDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleApigeeEndpointAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeEndpointAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,9 +38,14 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connection_state");
-        this.WithOutput("host");
-        this.WithOutput("name");
+        SetOutput("connection_state");
+        SetOutput("host");
+        SetOutput("name");
+        SetOutput("endpoint_attachment_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("org_id");
+        SetOutput("service_attachment");
     }
 
     /// <summary>
@@ -51,17 +54,17 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointAttachmentId is required")]
     public required TerraformProperty<string> EndpointAttachmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_attachment_id");
-        set => this.WithProperty("endpoint_attachment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_attachment_id");
+        set => SetProperty("endpoint_attachment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -70,8 +73,8 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -81,8 +84,8 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -91,8 +94,8 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     public required TerraformProperty<string> ServiceAttachment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_attachment");
-        set => this.WithProperty("service_attachment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_attachment");
+        set => SetProperty("service_attachment", value);
     }
 
     /// <summary>
@@ -101,8 +104,7 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     /// </summary>
     public GoogleApigeeEndpointAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeEndpointAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,6 +14,11 @@ public class AwsEc2TransitGatewayMulticastGroupSource : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("group_ip_address");
+        SetOutput("id");
+        SetOutput("network_interface_id");
+        SetOutput("region");
+        SetOutput("transit_gateway_multicast_domain_id");
     }
 
     /// <summary>
@@ -22,17 +27,17 @@ public class AwsEc2TransitGatewayMulticastGroupSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupIpAddress is required")]
     public required TerraformProperty<string> GroupIpAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_ip_address");
-        set => this.WithProperty("group_ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_ip_address");
+        set => SetProperty("group_ip_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,17 +46,17 @@ public class AwsEc2TransitGatewayMulticastGroupSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
-        set => this.WithProperty("network_interface_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
+        set => SetProperty("network_interface_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -60,8 +65,8 @@ public class AwsEc2TransitGatewayMulticastGroupSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayMulticastDomainId is required")]
     public required TerraformProperty<string> TransitGatewayMulticastDomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_multicast_domain_id");
-        set => this.WithProperty("transit_gateway_multicast_domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_multicast_domain_id");
+        set => SetProperty("transit_gateway_multicast_domain_id", value);
     }
 
 }

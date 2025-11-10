@@ -14,24 +14,28 @@ public class AwsVerifiedaccessInstanceTrustProviderAttachment : TerraformResourc
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("verifiedaccess_instance_id");
+        SetOutput("verifiedaccess_trust_provider_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -40,8 +44,8 @@ public class AwsVerifiedaccessInstanceTrustProviderAttachment : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
     public required TerraformProperty<string> VerifiedaccessInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("verifiedaccess_instance_id");
-        set => this.WithProperty("verifiedaccess_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("verifiedaccess_instance_id");
+        set => SetProperty("verifiedaccess_instance_id", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class AwsVerifiedaccessInstanceTrustProviderAttachment : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessTrustProviderId is required")]
     public required TerraformProperty<string> VerifiedaccessTrustProviderId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("verifiedaccess_trust_provider_id");
-        set => this.WithProperty("verifiedaccess_trust_provider_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("verifiedaccess_trust_provider_id");
+        set => SetProperty("verifiedaccess_trust_provider_id", value);
     }
 
 }

@@ -14,15 +14,17 @@ public class AwsBedrockFoundationModelDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("customizations_supported");
-        this.WithOutput("id");
-        this.WithOutput("inference_types_supported");
-        this.WithOutput("input_modalities");
-        this.WithOutput("model_arn");
-        this.WithOutput("model_name");
-        this.WithOutput("output_modalities");
-        this.WithOutput("provider_name");
-        this.WithOutput("response_streaming_supported");
+        SetOutput("customizations_supported");
+        SetOutput("id");
+        SetOutput("inference_types_supported");
+        SetOutput("input_modalities");
+        SetOutput("model_arn");
+        SetOutput("model_name");
+        SetOutput("output_modalities");
+        SetOutput("provider_name");
+        SetOutput("response_streaming_supported");
+        SetOutput("model_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -31,17 +33,17 @@ public class AwsBedrockFoundationModelDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
     public required TerraformProperty<string> ModelId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("model_id");
-        set => this.WithProperty("model_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("model_id");
+        set => SetProperty("model_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

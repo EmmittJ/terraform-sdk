@@ -14,30 +14,34 @@ public class GoogleVmwareenginePrivateCloudDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("deletion_delay_hours");
-        this.WithOutput("description");
-        this.WithOutput("expire_time");
-        this.WithOutput("hcx");
-        this.WithOutput("management_cluster");
-        this.WithOutput("network_config");
-        this.WithOutput("nsx");
-        this.WithOutput("send_deletion_delay_hours_if_zero");
-        this.WithOutput("state");
-        this.WithOutput("type");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("vcenter");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("deletion_delay_hours");
+        SetOutput("description");
+        SetOutput("expire_time");
+        SetOutput("hcx");
+        SetOutput("management_cluster");
+        SetOutput("network_config");
+        SetOutput("nsx");
+        SetOutput("send_deletion_delay_hours_if_zero");
+        SetOutput("state");
+        SetOutput("type");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("vcenter");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -46,8 +50,8 @@ public class GoogleVmwareenginePrivateCloudDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -56,17 +60,17 @@ public class GoogleVmwareenginePrivateCloudDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

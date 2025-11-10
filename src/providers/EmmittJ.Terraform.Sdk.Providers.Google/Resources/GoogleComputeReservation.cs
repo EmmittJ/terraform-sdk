@@ -13,8 +13,7 @@ public class GoogleComputeReservationDeleteAfterDurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Nanos
     {
-        get => GetProperty<TerraformProperty<double>>("nanos");
-        set => WithProperty("nanos", value);
+        set => SetProperty("nanos", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeReservationDeleteAfterDurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Seconds
     {
-        get => GetProperty<TerraformProperty<string>>("seconds");
-        set => WithProperty("seconds", value);
+        set => SetProperty("seconds", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleComputeReservationReservationSharingPolicyBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? ServiceShareType
     {
-        get => GetProperty<TerraformProperty<string>>("service_share_type");
-        set => WithProperty("service_share_type", value);
+        set => SetProperty("service_share_type", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class GoogleComputeReservationShareSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ShareType
     {
-        get => GetProperty<TerraformProperty<string>>("share_type");
-        set => WithProperty("share_type", value);
+        set => SetProperty("share_type", value);
     }
 
 }
@@ -74,8 +70,7 @@ public class GoogleComputeReservationSpecificReservationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("count");
-        set => WithProperty("count", value);
+        set => SetProperty("count", value);
     }
 
     /// <summary>
@@ -83,8 +78,7 @@ public class GoogleComputeReservationSpecificReservationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? InUseCount
     {
-        get => GetProperty<TerraformProperty<double>>("in_use_count");
-        set => WithProperty("in_use_count", value);
+        set => SetProperty("in_use_count", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class GoogleComputeReservationSpecificReservationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceInstanceTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("source_instance_template");
-        set => WithProperty("source_instance_template", value);
+        set => SetProperty("source_instance_template", value);
     }
 
 }
@@ -110,8 +103,7 @@ public class GoogleComputeReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -119,8 +111,7 @@ public class GoogleComputeReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -128,8 +119,7 @@ public class GoogleComputeReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -147,38 +137,45 @@ public class GoogleComputeReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("commitment");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("self_link");
-        this.WithOutput("status");
+        SetOutput("commitment");
+        SetOutput("creation_timestamp");
+        SetOutput("self_link");
+        SetOutput("status");
+        SetOutput("delete_at_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("specific_reservation_required");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// Absolute time in future when the reservation will be auto-deleted by Compute Engine. Timestamp is represented in RFC3339 text format.
     /// Cannot be used with delete_after_duration.
     /// </summary>
-    public TerraformProperty<string>? DeleteAtTime
+    public TerraformProperty<string> DeleteAtTime
     {
-        get => GetProperty<TerraformProperty<string>>("delete_at_time");
-        set => this.WithProperty("delete_at_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delete_at_time");
+        set => SetProperty("delete_at_time", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -193,17 +190,17 @@ public class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -211,10 +208,10 @@ public class GoogleComputeReservation : TerraformResource
     /// consume this reservation. Otherwise, it can be consumed by VMs with
     /// affinity for any reservation. Defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? SpecificReservationRequired
+    public TerraformProperty<bool> SpecificReservationRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("specific_reservation_required");
-        set => this.WithProperty("specific_reservation_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("specific_reservation_required");
+        set => SetProperty("specific_reservation_required", value);
     }
 
     /// <summary>
@@ -223,8 +220,8 @@ public class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -234,8 +231,7 @@ public class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeleteAfterDuration block(s) allowed")]
     public List<GoogleComputeReservationDeleteAfterDurationBlock>? DeleteAfterDuration
     {
-        get => GetProperty<List<GoogleComputeReservationDeleteAfterDurationBlock>>("delete_after_duration");
-        set => this.WithProperty("delete_after_duration", value);
+        set => SetProperty("delete_after_duration", value);
     }
 
     /// <summary>
@@ -245,8 +241,7 @@ public class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationSharingPolicy block(s) allowed")]
     public List<GoogleComputeReservationReservationSharingPolicyBlock>? ReservationSharingPolicy
     {
-        get => GetProperty<List<GoogleComputeReservationReservationSharingPolicyBlock>>("reservation_sharing_policy");
-        set => this.WithProperty("reservation_sharing_policy", value);
+        set => SetProperty("reservation_sharing_policy", value);
     }
 
     /// <summary>
@@ -256,20 +251,19 @@ public class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareSettings block(s) allowed")]
     public List<GoogleComputeReservationShareSettingsBlock>? ShareSettings
     {
-        get => GetProperty<List<GoogleComputeReservationShareSettingsBlock>>("share_settings");
-        set => this.WithProperty("share_settings", value);
+        set => SetProperty("share_settings", value);
     }
 
     /// <summary>
     /// Block for specific_reservation.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpecificReservation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SpecificReservation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpecificReservation block(s) allowed")]
     public List<GoogleComputeReservationSpecificReservationBlock>? SpecificReservation
     {
-        get => GetProperty<List<GoogleComputeReservationSpecificReservationBlock>>("specific_reservation");
-        set => this.WithProperty("specific_reservation", value);
+        set => SetProperty("specific_reservation", value);
     }
 
     /// <summary>
@@ -278,8 +272,7 @@ public class GoogleComputeReservation : TerraformResource
     /// </summary>
     public GoogleComputeReservationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeReservationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsServicecatalogOrganizationsAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,6 +30,8 @@ public class AwsServicecatalogOrganizationsAccess : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("enabled");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -39,17 +40,17 @@ public class AwsServicecatalogOrganizationsAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -58,8 +59,7 @@ public class AwsServicecatalogOrganizationsAccess : TerraformResource
     /// </summary>
     public AwsServicecatalogOrganizationsAccessTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsServicecatalogOrganizationsAccessTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

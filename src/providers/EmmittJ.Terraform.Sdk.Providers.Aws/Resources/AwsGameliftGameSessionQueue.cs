@@ -14,8 +14,7 @@ public class AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumIndividualPlayerLatencyMilliseconds is required")]
     public required TerraformProperty<double> MaximumIndividualPlayerLatencyMilliseconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("maximum_individual_player_latency_milliseconds");
-        set => WithProperty("maximum_individual_player_latency_milliseconds", value);
+        set => SetProperty("maximum_individual_player_latency_milliseconds", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? PolicyDurationSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("policy_duration_seconds");
-        set => WithProperty("policy_duration_seconds", value);
+        set => SetProperty("policy_duration_seconds", value);
     }
 
 }
@@ -41,34 +39,43 @@ public class AwsGameliftGameSessionQueue : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("custom_event_data");
+        SetOutput("destinations");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("notification_target");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("timeout_in_seconds");
     }
 
     /// <summary>
     /// The custom_event_data attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomEventData
+    public TerraformProperty<string> CustomEventData
     {
-        get => GetProperty<TerraformProperty<string>>("custom_event_data");
-        set => this.WithProperty("custom_event_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_event_data");
+        set => SetProperty("custom_event_data", value);
     }
 
     /// <summary>
     /// The destinations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Destinations
+    public List<TerraformProperty<string>> Destinations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destinations");
-        set => this.WithProperty("destinations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("destinations");
+        set => SetProperty("destinations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,53 +84,53 @@ public class AwsGameliftGameSessionQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The notification_target attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationTarget
+    public TerraformProperty<string> NotificationTarget
     {
-        get => GetProperty<TerraformProperty<string>>("notification_target");
-        set => this.WithProperty("notification_target", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_target");
+        set => SetProperty("notification_target", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? TimeoutInSeconds
+    public TerraformProperty<double> TimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_in_seconds");
-        set => this.WithProperty("timeout_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout_in_seconds");
+        set => SetProperty("timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -132,8 +139,7 @@ public class AwsGameliftGameSessionQueue : TerraformResource
     /// </summary>
     public List<AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock>? PlayerLatencyPolicy
     {
-        get => GetProperty<List<AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock>>("player_latency_policy");
-        set => this.WithProperty("player_latency_policy", value);
+        set => SetProperty("player_latency_policy", value);
     }
 
     /// <summary>

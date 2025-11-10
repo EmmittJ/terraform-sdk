@@ -14,8 +14,7 @@ public class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultValue is required")]
     public required TerraformProperty<string> DefaultValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_value");
-        set => WithProperty("default_value", value);
+        set => SetProperty("default_value", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DimensionName is required")]
     public required TerraformProperty<string> DimensionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dimension_name");
-        set => WithProperty("dimension_name", value);
+        set => SetProperty("dimension_name", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueSource is required")]
     public required TerraformProperty<string> ValueSource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value_source");
-        set => WithProperty("value_source", value);
+        set => SetProperty("value_source", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class AwsSesEventDestinationKinesisDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class AwsSesEventDestinationKinesisDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformProperty<string> StreamArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_arn");
-        set => WithProperty("stream_arn", value);
+        set => SetProperty("stream_arn", value);
     }
 
 }
@@ -80,8 +75,7 @@ public class AwsSesEventDestinationSnsDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformProperty<string> TopicArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic_arn");
-        set => WithProperty("topic_arn", value);
+        set => SetProperty("topic_arn", value);
     }
 
 }
@@ -99,7 +93,13 @@ public class AwsSesEventDestination : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("configuration_set_name");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("matching_types");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -108,36 +108,36 @@ public class AwsSesEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformProperty<string> ConfigurationSetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_set_name");
-        set => this.WithProperty("configuration_set_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_set_name");
+        set => SetProperty("configuration_set_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The matching_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingTypes is required")]
-    public HashSet<TerraformProperty<string>>? MatchingTypes
+    public HashSet<TerraformProperty<string>> MatchingTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("matching_types");
-        set => this.WithProperty("matching_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("matching_types");
+        set => SetProperty("matching_types", value);
     }
 
     /// <summary>
@@ -146,17 +146,17 @@ public class AwsSesEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -165,8 +165,7 @@ public class AwsSesEventDestination : TerraformResource
     /// </summary>
     public HashSet<AwsSesEventDestinationCloudwatchDestinationBlock>? CloudwatchDestination
     {
-        get => GetProperty<HashSet<AwsSesEventDestinationCloudwatchDestinationBlock>>("cloudwatch_destination");
-        set => this.WithProperty("cloudwatch_destination", value);
+        set => SetProperty("cloudwatch_destination", value);
     }
 
     /// <summary>
@@ -176,8 +175,7 @@ public class AwsSesEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisDestination block(s) allowed")]
     public List<AwsSesEventDestinationKinesisDestinationBlock>? KinesisDestination
     {
-        get => GetProperty<List<AwsSesEventDestinationKinesisDestinationBlock>>("kinesis_destination");
-        set => this.WithProperty("kinesis_destination", value);
+        set => SetProperty("kinesis_destination", value);
     }
 
     /// <summary>
@@ -187,8 +185,7 @@ public class AwsSesEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnsDestination block(s) allowed")]
     public List<AwsSesEventDestinationSnsDestinationBlock>? SnsDestination
     {
-        get => GetProperty<List<AwsSesEventDestinationSnsDestinationBlock>>("sns_destination");
-        set => this.WithProperty("sns_destination", value);
+        set => SetProperty("sns_destination", value);
     }
 
     /// <summary>

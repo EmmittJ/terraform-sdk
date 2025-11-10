@@ -14,8 +14,7 @@ public class GoogleSpannerInstanceConfigReplicasBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DefaultLeaderLocation
     {
-        get => GetProperty<TerraformProperty<bool>>("default_leader_location");
-        set => WithProperty("default_leader_location", value);
+        set => SetProperty("default_leader_location", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleSpannerInstanceConfigReplicasBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleSpannerInstanceConfigReplicasBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class GoogleSpannerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class GoogleSpannerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class GoogleSpannerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -88,9 +82,15 @@ public class GoogleSpannerInstanceConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("config_type");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("config_type");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("base_config");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -98,10 +98,10 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     /// Only set for user managed configurations.
     /// baseConfig must refer to a configuration of type GOOGLE_MANAGED in the same project as this configuration.
     /// </summary>
-    public TerraformProperty<string>? BaseConfig
+    public TerraformProperty<string> BaseConfig
     {
-        get => GetProperty<TerraformProperty<string>>("base_config");
-        set => this.WithProperty("base_config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("base_config");
+        set => SetProperty("base_config", value);
     }
 
     /// <summary>
@@ -110,17 +110,17 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,40 +131,40 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// A unique identifier for the instance configuration. Values are of the
     /// form projects/&amp;lt;project&amp;gt;/instanceConfigs/[a-z][-a-z0-9]*
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for replicas.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replicas is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replicas block(s) required")]
     public HashSet<GoogleSpannerInstanceConfigReplicasBlock>? Replicas
     {
-        get => GetProperty<HashSet<GoogleSpannerInstanceConfigReplicasBlock>>("replicas");
-        set => this.WithProperty("replicas", value);
+        set => SetProperty("replicas", value);
     }
 
     /// <summary>
@@ -173,8 +173,7 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     /// </summary>
     public GoogleSpannerInstanceConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSpannerInstanceConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

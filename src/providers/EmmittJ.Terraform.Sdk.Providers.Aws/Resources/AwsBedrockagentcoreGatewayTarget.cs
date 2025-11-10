@@ -29,8 +29,7 @@ public class AwsBedrockagentcoreGatewayTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -38,8 +37,7 @@ public class AwsBedrockagentcoreGatewayTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -47,8 +45,7 @@ public class AwsBedrockagentcoreGatewayTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -65,16 +62,20 @@ public class AwsBedrockagentcoreGatewayTarget : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("target_id");
+        SetOutput("target_id");
+        SetOutput("description");
+        SetOutput("gateway_identifier");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -83,8 +84,8 @@ public class AwsBedrockagentcoreGatewayTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayIdentifier is required")]
     public required TerraformProperty<string> GatewayIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gateway_identifier");
-        set => this.WithProperty("gateway_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_identifier");
+        set => SetProperty("gateway_identifier", value);
     }
 
     /// <summary>
@@ -93,17 +94,17 @@ public class AwsBedrockagentcoreGatewayTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -112,8 +113,7 @@ public class AwsBedrockagentcoreGatewayTarget : TerraformResource
     /// </summary>
     public List<AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBlock>? CredentialProviderConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBlock>>("credential_provider_configuration");
-        set => this.WithProperty("credential_provider_configuration", value);
+        set => SetProperty("credential_provider_configuration", value);
     }
 
     /// <summary>
@@ -122,8 +122,7 @@ public class AwsBedrockagentcoreGatewayTarget : TerraformResource
     /// </summary>
     public List<AwsBedrockagentcoreGatewayTargetTargetConfigurationBlock>? TargetConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentcoreGatewayTargetTargetConfigurationBlock>>("target_configuration");
-        set => this.WithProperty("target_configuration", value);
+        set => SetProperty("target_configuration", value);
     }
 
     /// <summary>
@@ -132,8 +131,7 @@ public class AwsBedrockagentcoreGatewayTarget : TerraformResource
     /// </summary>
     public AwsBedrockagentcoreGatewayTargetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentcoreGatewayTargetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

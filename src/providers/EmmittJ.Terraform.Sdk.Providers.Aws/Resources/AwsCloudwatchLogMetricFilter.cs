@@ -13,8 +13,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? DefaultValue
     {
-        get => GetProperty<TerraformProperty<string>>("default_value");
-        set => WithProperty("default_value", value);
+        set => SetProperty("default_value", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Dimensions
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("dimensions");
-        set => WithProperty("dimensions", value);
+        set => SetProperty("dimensions", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
-        set => WithProperty("namespace", value);
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Unit
     {
-        get => GetProperty<TerraformProperty<string>>("unit");
-        set => WithProperty("unit", value);
+        set => SetProperty("unit", value);
     }
 
     /// <summary>
@@ -61,8 +56,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -80,24 +74,30 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("apply_on_transformed_logs");
+        SetOutput("id");
+        SetOutput("log_group_name");
+        SetOutput("name");
+        SetOutput("pattern");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The apply_on_transformed_logs attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplyOnTransformedLogs
+    public TerraformProperty<bool> ApplyOnTransformedLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("apply_on_transformed_logs");
-        set => this.WithProperty("apply_on_transformed_logs", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("apply_on_transformed_logs");
+        set => SetProperty("apply_on_transformed_logs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -106,8 +106,8 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
-        set => this.WithProperty("log_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_group_name");
+        set => SetProperty("log_group_name", value);
     }
 
     /// <summary>
@@ -116,8 +116,8 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -126,29 +126,29 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformProperty<string> Pattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pattern");
-        set => this.WithProperty("pattern", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pattern");
+        set => SetProperty("pattern", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for metric_transformation.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricTransformation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MetricTransformation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricTransformation block(s) allowed")]
     public List<AwsCloudwatchLogMetricFilterMetricTransformationBlock>? MetricTransformation
     {
-        get => GetProperty<List<AwsCloudwatchLogMetricFilterMetricTransformationBlock>>("metric_transformation");
-        set => this.WithProperty("metric_transformation", value);
+        set => SetProperty("metric_transformation", value);
     }
 
 }

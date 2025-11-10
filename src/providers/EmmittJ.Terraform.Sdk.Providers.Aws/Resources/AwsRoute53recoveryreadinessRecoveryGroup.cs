@@ -13,8 +13,7 @@ public class AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -31,25 +30,30 @@ public class AwsRoute53recoveryreadinessRecoveryGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("cells");
+        SetOutput("id");
+        SetOutput("recovery_group_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cells attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Cells
+    public List<TerraformProperty<string>> Cells
     {
-        get => GetProperty<List<TerraformProperty<string>>>("cells");
-        set => this.WithProperty("cells", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("cells");
+        set => SetProperty("cells", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -58,26 +62,26 @@ public class AwsRoute53recoveryreadinessRecoveryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryGroupName is required")]
     public required TerraformProperty<string> RecoveryGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_group_name");
-        set => this.WithProperty("recovery_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_group_name");
+        set => SetProperty("recovery_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -86,8 +90,7 @@ public class AwsRoute53recoveryreadinessRecoveryGroup : TerraformResource
     /// </summary>
     public AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

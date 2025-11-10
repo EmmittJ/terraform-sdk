@@ -14,8 +14,7 @@ public class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformProperty<string> KeyAlgorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_algorithm");
-        set => WithProperty("key_algorithm", value);
+        set => SetProperty("key_algorithm", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformProperty<string> SigningAlgorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signing_algorithm");
-        set => WithProperty("signing_algorithm", value);
+        set => SetProperty("signing_algorithm", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsAcmpcaCertificateAuthorityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -68,106 +65,115 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("certificate");
-        this.WithOutput("certificate_chain");
-        this.WithOutput("certificate_signing_request");
-        this.WithOutput("not_after");
-        this.WithOutput("not_before");
-        this.WithOutput("serial");
+        SetOutput("arn");
+        SetOutput("certificate");
+        SetOutput("certificate_chain");
+        SetOutput("certificate_signing_request");
+        SetOutput("not_after");
+        SetOutput("not_before");
+        SetOutput("serial");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("key_storage_security_standard");
+        SetOutput("permanent_deletion_time_in_days");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
+        SetOutput("usage_mode");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_storage_security_standard attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyStorageSecurityStandard
+    public TerraformProperty<string> KeyStorageSecurityStandard
     {
-        get => GetProperty<TerraformProperty<string>>("key_storage_security_standard");
-        set => this.WithProperty("key_storage_security_standard", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_storage_security_standard");
+        set => SetProperty("key_storage_security_standard", value);
     }
 
     /// <summary>
     /// The permanent_deletion_time_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? PermanentDeletionTimeInDays
+    public TerraformProperty<double> PermanentDeletionTimeInDays
     {
-        get => GetProperty<TerraformProperty<double>>("permanent_deletion_time_in_days");
-        set => this.WithProperty("permanent_deletion_time_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("permanent_deletion_time_in_days");
+        set => SetProperty("permanent_deletion_time_in_days", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The usage_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? UsageMode
+    public TerraformProperty<string> UsageMode
     {
-        get => GetProperty<TerraformProperty<string>>("usage_mode");
-        set => this.WithProperty("usage_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("usage_mode");
+        set => SetProperty("usage_mode", value);
     }
 
     /// <summary>
     /// Block for certificate_authority_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CertificateAuthorityConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthorityConfiguration block(s) allowed")]
     public List<AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock>? CertificateAuthorityConfiguration
     {
-        get => GetProperty<List<AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock>>("certificate_authority_configuration");
-        set => this.WithProperty("certificate_authority_configuration", value);
+        set => SetProperty("certificate_authority_configuration", value);
     }
 
     /// <summary>
@@ -177,8 +183,7 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RevocationConfiguration block(s) allowed")]
     public List<AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock>? RevocationConfiguration
     {
-        get => GetProperty<List<AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock>>("revocation_configuration");
-        set => this.WithProperty("revocation_configuration", value);
+        set => SetProperty("revocation_configuration", value);
     }
 
     /// <summary>
@@ -187,8 +192,7 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     public AwsAcmpcaCertificateAuthorityTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAcmpcaCertificateAuthorityTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

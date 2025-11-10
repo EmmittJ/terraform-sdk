@@ -14,8 +14,7 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? AuthorizationAttemptInfo
     {
-        get => GetProperty<List<TerraformProperty<object>>>("authorization_attempt_info");
-        set => WithProperty("authorization_attempt_info", value);
+        set => SetProperty("authorization_attempt_info", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DnsAuthorizations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_authorizations");
-        set => WithProperty("dns_authorizations", value);
+        set => SetProperty("dns_authorizations", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Domains
     {
-        get => GetProperty<List<TerraformProperty<string>>>("domains");
-        set => WithProperty("domains", value);
+        set => SetProperty("domains", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IssuanceConfig
     {
-        get => GetProperty<TerraformProperty<string>>("issuance_config");
-        set => WithProperty("issuance_config", value);
+        set => SetProperty("issuance_config", value);
     }
 
     /// <summary>
@@ -53,8 +49,7 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? ProvisioningIssue
     {
-        get => GetProperty<List<TerraformProperty<object>>>("provisioning_issue");
-        set => WithProperty("provisioning_issue", value);
+        set => SetProperty("provisioning_issue", value);
     }
 
     /// <summary>
@@ -62,8 +57,7 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -82,8 +76,7 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBloc
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? CertificatePem
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_pem");
-        set => WithProperty("certificate_pem", value);
+        set => SetProperty("certificate_pem", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PemCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("pem_certificate");
-        set => WithProperty("pem_certificate", value);
+        set => SetProperty("pem_certificate", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PemPrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("pem_private_key");
-        set => WithProperty("pem_private_key", value);
+        set => SetProperty("pem_private_key", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBloc
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? PrivateKeyPem
     {
-        get => GetProperty<TerraformProperty<string>>("private_key_pem");
-        set => WithProperty("private_key_pem", value);
+        set => SetProperty("private_key_pem", value);
     }
 
 }
@@ -129,8 +119,7 @@ public class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -147,8 +135,7 @@ public class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -166,27 +153,34 @@ public class GoogleCertificateManagerCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("san_dnsnames");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("san_dnsnames");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -195,19 +189,19 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The Certificate Manager location. If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -218,17 +212,17 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -246,10 +240,10 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// CLIENT_AUTH: Certificates with CLIENT_AUTH scope are used by a load balancer (TLS client) to be presented to the backend (TLS server) when backend mTLS is configured.
     /// See https://cloud.google.com/load-balancing/docs/backend-authenticated-tls-backend-mtls#client-certificate.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    public TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -259,8 +253,7 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Managed block(s) allowed")]
     public List<GoogleCertificateManagerCertificateManagedBlock>? Managed
     {
-        get => GetProperty<List<GoogleCertificateManagerCertificateManagedBlock>>("managed");
-        set => this.WithProperty("managed", value);
+        set => SetProperty("managed", value);
     }
 
     /// <summary>
@@ -270,8 +263,7 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManaged block(s) allowed")]
     public List<GoogleCertificateManagerCertificateSelfManagedBlock>? SelfManaged
     {
-        get => GetProperty<List<GoogleCertificateManagerCertificateSelfManagedBlock>>("self_managed");
-        set => this.WithProperty("self_managed", value);
+        set => SetProperty("self_managed", value);
     }
 
     /// <summary>
@@ -280,8 +272,7 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// </summary>
     public GoogleCertificateManagerCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCertificateManagerCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,15 +14,30 @@ public class AwsSsmMaintenanceWindow : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("allow_unassociated_targets");
+        SetOutput("cutoff");
+        SetOutput("description");
+        SetOutput("duration");
+        SetOutput("enabled");
+        SetOutput("end_date");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("schedule");
+        SetOutput("schedule_offset");
+        SetOutput("schedule_timezone");
+        SetOutput("start_date");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The allow_unassociated_targets attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowUnassociatedTargets
+    public TerraformProperty<bool> AllowUnassociatedTargets
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_unassociated_targets");
-        set => this.WithProperty("allow_unassociated_targets", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_unassociated_targets");
+        set => SetProperty("allow_unassociated_targets", value);
     }
 
     /// <summary>
@@ -31,17 +46,17 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cutoff is required")]
     public required TerraformProperty<double> Cutoff
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("cutoff");
-        set => this.WithProperty("cutoff", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cutoff");
+        set => SetProperty("cutoff", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -50,35 +65,35 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("duration");
-        set => this.WithProperty("duration", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("duration");
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public TerraformProperty<string>? EndDate
+    public TerraformProperty<string> EndDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_date");
-        set => this.WithProperty("end_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date");
+        set => SetProperty("end_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,17 +102,17 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -106,53 +121,53 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformProperty<string> Schedule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule");
-        set => this.WithProperty("schedule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule");
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
     /// The schedule_offset attribute.
     /// </summary>
-    public TerraformProperty<double>? ScheduleOffset
+    public TerraformProperty<double> ScheduleOffset
     {
-        get => GetProperty<TerraformProperty<double>>("schedule_offset");
-        set => this.WithProperty("schedule_offset", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("schedule_offset");
+        set => SetProperty("schedule_offset", value);
     }
 
     /// <summary>
     /// The schedule_timezone attribute.
     /// </summary>
-    public TerraformProperty<string>? ScheduleTimezone
+    public TerraformProperty<string> ScheduleTimezone
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_timezone");
-        set => this.WithProperty("schedule_timezone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule_timezone");
+        set => SetProperty("schedule_timezone", value);
     }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    public TerraformProperty<string>? StartDate
+    public TerraformProperty<string> StartDate
     {
-        get => GetProperty<TerraformProperty<string>>("start_date");
-        set => this.WithProperty("start_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_date");
+        set => SetProperty("start_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
 }

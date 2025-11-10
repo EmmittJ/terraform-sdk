@@ -14,10 +14,15 @@ public class AwsLocationGeofenceCollectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("collection_arn");
-        this.WithOutput("create_time");
-        this.WithOutput("description");
-        this.WithOutput("update_time");
+        SetOutput("collection_arn");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("update_time");
+        SetOutput("collection_name");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -26,44 +31,44 @@ public class AwsLocationGeofenceCollectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionName is required")]
     public required TerraformProperty<string> CollectionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection_name");
-        set => this.WithProperty("collection_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collection_name");
+        set => SetProperty("collection_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

@@ -14,44 +14,47 @@ public class GoogleStorageBucketDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("autoclass");
-        this.WithOutput("cors");
-        this.WithOutput("custom_placement_config");
-        this.WithOutput("default_event_based_hold");
-        this.WithOutput("effective_labels");
-        this.WithOutput("enable_object_retention");
-        this.WithOutput("encryption");
-        this.WithOutput("force_destroy");
-        this.WithOutput("hierarchical_namespace");
-        this.WithOutput("ip_filter");
-        this.WithOutput("labels");
-        this.WithOutput("lifecycle_rule");
-        this.WithOutput("location");
-        this.WithOutput("logging");
-        this.WithOutput("project_number");
-        this.WithOutput("public_access_prevention");
-        this.WithOutput("requester_pays");
-        this.WithOutput("retention_policy");
-        this.WithOutput("rpo");
-        this.WithOutput("self_link");
-        this.WithOutput("soft_delete_policy");
-        this.WithOutput("storage_class");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("time_created");
-        this.WithOutput("uniform_bucket_level_access");
-        this.WithOutput("updated");
-        this.WithOutput("url");
-        this.WithOutput("versioning");
-        this.WithOutput("website");
+        SetOutput("autoclass");
+        SetOutput("cors");
+        SetOutput("custom_placement_config");
+        SetOutput("default_event_based_hold");
+        SetOutput("effective_labels");
+        SetOutput("enable_object_retention");
+        SetOutput("encryption");
+        SetOutput("force_destroy");
+        SetOutput("hierarchical_namespace");
+        SetOutput("ip_filter");
+        SetOutput("labels");
+        SetOutput("lifecycle_rule");
+        SetOutput("location");
+        SetOutput("logging");
+        SetOutput("project_number");
+        SetOutput("public_access_prevention");
+        SetOutput("requester_pays");
+        SetOutput("retention_policy");
+        SetOutput("rpo");
+        SetOutput("self_link");
+        SetOutput("soft_delete_policy");
+        SetOutput("storage_class");
+        SetOutput("terraform_labels");
+        SetOutput("time_created");
+        SetOutput("uniform_bucket_level_access");
+        SetOutput("updated");
+        SetOutput("url");
+        SetOutput("versioning");
+        SetOutput("website");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,17 +63,17 @@ public class GoogleStorageBucketDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

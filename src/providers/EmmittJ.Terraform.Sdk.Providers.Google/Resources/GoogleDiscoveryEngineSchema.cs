@@ -13,8 +13,7 @@ public class GoogleDiscoveryEngineSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDiscoveryEngineSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,7 +38,13 @@ public class GoogleDiscoveryEngineSchema : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("data_store_id");
+        SetOutput("id");
+        SetOutput("json_schema");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("schema_id");
     }
 
     /// <summary>
@@ -49,26 +53,26 @@ public class GoogleDiscoveryEngineSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformProperty<string> DataStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_store_id");
-        set => this.WithProperty("data_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_store_id");
+        set => SetProperty("data_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The JSON representation of the schema.
     /// </summary>
-    public TerraformProperty<string>? JsonSchema
+    public TerraformProperty<string> JsonSchema
     {
-        get => GetProperty<TerraformProperty<string>>("json_schema");
-        set => this.WithProperty("json_schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("json_schema");
+        set => SetProperty("json_schema", value);
     }
 
     /// <summary>
@@ -78,17 +82,17 @@ public class GoogleDiscoveryEngineSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -97,8 +101,8 @@ public class GoogleDiscoveryEngineSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaId is required")]
     public required TerraformProperty<string> SchemaId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schema_id");
-        set => this.WithProperty("schema_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema_id");
+        set => SetProperty("schema_id", value);
     }
 
     /// <summary>
@@ -107,8 +111,7 @@ public class GoogleDiscoveryEngineSchema : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineSchemaTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineSchemaTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

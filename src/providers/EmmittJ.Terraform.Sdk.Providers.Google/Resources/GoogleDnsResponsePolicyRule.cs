@@ -21,8 +21,7 @@ public class GoogleDnsResponsePolicyRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleDnsResponsePolicyRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleDnsResponsePolicyRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +55,11 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dns_name");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("response_policy");
+        SetOutput("rule_name");
     }
 
     /// <summary>
@@ -66,26 +68,26 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
     public required TerraformProperty<string> DnsName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns_name");
-        set => this.WithProperty("dns_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_name");
+        set => SetProperty("dns_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -94,8 +96,8 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicy is required")]
     public required TerraformProperty<string> ResponsePolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("response_policy");
-        set => this.WithProperty("response_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("response_policy");
+        set => SetProperty("response_policy", value);
     }
 
     /// <summary>
@@ -104,8 +106,8 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
-        set => this.WithProperty("rule_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
+        set => SetProperty("rule_name", value);
     }
 
     /// <summary>
@@ -115,8 +117,7 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalData block(s) allowed")]
     public List<GoogleDnsResponsePolicyRuleLocalDataBlock>? LocalData
     {
-        get => GetProperty<List<GoogleDnsResponsePolicyRuleLocalDataBlock>>("local_data");
-        set => this.WithProperty("local_data", value);
+        set => SetProperty("local_data", value);
     }
 
     /// <summary>
@@ -125,8 +126,7 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     /// </summary>
     public GoogleDnsResponsePolicyRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDnsResponsePolicyRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

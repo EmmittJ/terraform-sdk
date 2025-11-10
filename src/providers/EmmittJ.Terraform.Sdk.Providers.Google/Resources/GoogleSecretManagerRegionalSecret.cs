@@ -14,8 +14,7 @@ public class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
 }
@@ -33,8 +32,7 @@ public class GoogleSecretManagerRegionalSecretRotationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NextRotationTime
     {
-        get => GetProperty<TerraformProperty<string>>("next_rotation_time");
-        set => WithProperty("next_rotation_time", value);
+        set => SetProperty("next_rotation_time", value);
     }
 
     /// <summary>
@@ -45,8 +43,7 @@ public class GoogleSecretManagerRegionalSecretRotationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RotationPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("rotation_period");
-        set => WithProperty("rotation_period", value);
+        set => SetProperty("rotation_period", value);
     }
 
 }
@@ -62,8 +59,7 @@ public class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -71,8 +67,7 @@ public class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -80,8 +75,7 @@ public class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -100,8 +94,7 @@ public class GoogleSecretManagerRegionalSecretTopicsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -119,11 +112,23 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("annotations");
+        SetOutput("deletion_protection");
+        SetOutput("expire_time");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("secret_id");
+        SetOutput("tags");
+        SetOutput("ttl");
+        SetOutput("version_aliases");
+        SetOutput("version_destroy_ttl");
     }
 
     /// <summary>
@@ -146,10 +151,10 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -157,10 +162,10 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// When the field is set to true in Terraform state, a &#39;terraform apply&#39;
     /// or &#39;terraform destroy&#39; that would delete the federation will fail.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
@@ -169,19 +174,19 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;. Only one of &#39;expire_time&#39; or &#39;ttl&#39; can be provided.
     /// </summary>
-    public TerraformProperty<string>? ExpireTime
+    public TerraformProperty<string> ExpireTime
     {
-        get => GetProperty<TerraformProperty<string>>("expire_time");
-        set => this.WithProperty("expire_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expire_time");
+        set => SetProperty("expire_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -202,10 +207,10 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -214,17 +219,17 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -233,8 +238,8 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
-        set => this.WithProperty("secret_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_id");
+        set => SetProperty("secret_id", value);
     }
 
     /// <summary>
@@ -242,20 +247,20 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The TTL for the regional secret. A duration in seconds with up to nine fractional digits,
     /// terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. Only one of &#39;ttl&#39; or &#39;expire_time&#39; can be provided.
     /// </summary>
-    public TerraformProperty<string>? Ttl
+    public TerraformProperty<string> Ttl
     {
-        get => GetProperty<TerraformProperty<string>>("ttl");
-        set => this.WithProperty("ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ttl");
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>
@@ -269,10 +274,10 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example:
     /// { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? VersionAliases
+    public Dictionary<string, TerraformProperty<string>> VersionAliases
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("version_aliases");
-        set => this.WithProperty("version_aliases", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("version_aliases");
+        set => SetProperty("version_aliases", value);
     }
 
     /// <summary>
@@ -282,10 +287,10 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// on calling destroy instead the version goes to a disabled state and
     /// the actual destruction happens after this TTL expires. It must be atleast 24h.
     /// </summary>
-    public TerraformProperty<string>? VersionDestroyTtl
+    public TerraformProperty<string> VersionDestroyTtl
     {
-        get => GetProperty<TerraformProperty<string>>("version_destroy_ttl");
-        set => this.WithProperty("version_destroy_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_destroy_ttl");
+        set => SetProperty("version_destroy_ttl", value);
     }
 
     /// <summary>
@@ -295,8 +300,7 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedEncryption block(s) allowed")]
     public List<GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock>? CustomerManagedEncryption
     {
-        get => GetProperty<List<GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock>>("customer_managed_encryption");
-        set => this.WithProperty("customer_managed_encryption", value);
+        set => SetProperty("customer_managed_encryption", value);
     }
 
     /// <summary>
@@ -306,8 +310,7 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rotation block(s) allowed")]
     public List<GoogleSecretManagerRegionalSecretRotationBlock>? Rotation
     {
-        get => GetProperty<List<GoogleSecretManagerRegionalSecretRotationBlock>>("rotation");
-        set => this.WithProperty("rotation", value);
+        set => SetProperty("rotation", value);
     }
 
     /// <summary>
@@ -316,8 +319,7 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     public GoogleSecretManagerRegionalSecretTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSecretManagerRegionalSecretTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -326,8 +328,7 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     public List<GoogleSecretManagerRegionalSecretTopicsBlock>? Topics
     {
-        get => GetProperty<List<GoogleSecretManagerRegionalSecretTopicsBlock>>("topics");
-        set => this.WithProperty("topics", value);
+        set => SetProperty("topics", value);
     }
 
     /// <summary>

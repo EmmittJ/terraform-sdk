@@ -13,8 +13,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? AdditionalLoginParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_login_parameters");
-        set => WithProperty("additional_login_parameters", value);
+        set => SetProperty("additional_login_parameters", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedExternalRedirectUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_external_redirect_urls");
-        set => WithProperty("allowed_external_redirect_urls", value);
+        set => SetProperty("allowed_external_redirect_urls", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultProvider
     {
-        get => GetProperty<TerraformProperty<string>>("default_provider");
-        set => WithProperty("default_provider", value);
+        set => SetProperty("default_provider", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
-        set => WithProperty("issuer", value);
+        set => SetProperty("issuer", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
-        set => WithProperty("runtime_version", value);
+        set => SetProperty("runtime_version", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TokenRefreshExtensionHours
     {
-        get => GetProperty<TerraformProperty<double>>("token_refresh_extension_hours");
-        set => WithProperty("token_refresh_extension_hours", value);
+        set => SetProperty("token_refresh_extension_hours", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? TokenStoreEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("token_store_enabled");
-        set => WithProperty("token_store_enabled", value);
+        set => SetProperty("token_store_enabled", value);
     }
 
     /// <summary>
@@ -86,8 +78,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UnauthenticatedClientAction
     {
-        get => GetProperty<TerraformProperty<string>>("unauthenticated_client_action");
-        set => WithProperty("unauthenticated_client_action", value);
+        set => SetProperty("unauthenticated_client_action", value);
     }
 
 }
@@ -103,8 +94,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auth_enabled");
-        set => WithProperty("auth_enabled", value);
+        set => SetProperty("auth_enabled", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConfigFilePath
     {
-        get => GetProperty<TerraformProperty<string>>("config_file_path");
-        set => WithProperty("config_file_path", value);
+        set => SetProperty("config_file_path", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultProvider
     {
-        get => GetProperty<TerraformProperty<string>>("default_provider");
-        set => WithProperty("default_provider", value);
+        set => SetProperty("default_provider", value);
     }
 
     /// <summary>
@@ -130,8 +118,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ExcludedPaths
     {
-        get => GetProperty<List<TerraformProperty<string>>>("excluded_paths");
-        set => WithProperty("excluded_paths", value);
+        set => SetProperty("excluded_paths", value);
     }
 
     /// <summary>
@@ -139,8 +126,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ForwardProxyConvention
     {
-        get => GetProperty<TerraformProperty<string>>("forward_proxy_convention");
-        set => WithProperty("forward_proxy_convention", value);
+        set => SetProperty("forward_proxy_convention", value);
     }
 
     /// <summary>
@@ -148,8 +134,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ForwardProxyCustomHostHeaderName
     {
-        get => GetProperty<TerraformProperty<string>>("forward_proxy_custom_host_header_name");
-        set => WithProperty("forward_proxy_custom_host_header_name", value);
+        set => SetProperty("forward_proxy_custom_host_header_name", value);
     }
 
     /// <summary>
@@ -157,8 +142,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ForwardProxyCustomSchemeHeaderName
     {
-        get => GetProperty<TerraformProperty<string>>("forward_proxy_custom_scheme_header_name");
-        set => WithProperty("forward_proxy_custom_scheme_header_name", value);
+        set => SetProperty("forward_proxy_custom_scheme_header_name", value);
     }
 
     /// <summary>
@@ -166,8 +150,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpRouteApiPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("http_route_api_prefix");
-        set => WithProperty("http_route_api_prefix", value);
+        set => SetProperty("http_route_api_prefix", value);
     }
 
     /// <summary>
@@ -175,8 +158,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequireAuthentication
     {
-        get => GetProperty<TerraformProperty<bool>>("require_authentication");
-        set => WithProperty("require_authentication", value);
+        set => SetProperty("require_authentication", value);
     }
 
     /// <summary>
@@ -184,8 +166,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequireHttps
     {
-        get => GetProperty<TerraformProperty<bool>>("require_https");
-        set => WithProperty("require_https", value);
+        set => SetProperty("require_https", value);
     }
 
     /// <summary>
@@ -193,8 +174,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
-        set => WithProperty("runtime_version", value);
+        set => SetProperty("runtime_version", value);
     }
 
     /// <summary>
@@ -202,8 +182,7 @@ public class AzurermLinuxFunctionAppSlotAuthSettingsV2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UnauthenticatedAction
     {
-        get => GetProperty<TerraformProperty<string>>("unauthenticated_action");
-        set => WithProperty("unauthenticated_action", value);
+        set => SetProperty("unauthenticated_action", value);
     }
 
 }
@@ -219,8 +198,7 @@ public class AzurermLinuxFunctionAppSlotBackupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -229,8 +207,7 @@ public class AzurermLinuxFunctionAppSlotBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -239,8 +216,7 @@ public class AzurermLinuxFunctionAppSlotBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountUrl is required")]
     public required TerraformProperty<string> StorageAccountUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_url");
-        set => WithProperty("storage_account_url", value);
+        set => SetProperty("storage_account_url", value);
     }
 
 }
@@ -257,8 +233,7 @@ public class AzurermLinuxFunctionAppSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -267,8 +242,7 @@ public class AzurermLinuxFunctionAppSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -277,8 +251,7 @@ public class AzurermLinuxFunctionAppSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -294,8 +267,7 @@ public class AzurermLinuxFunctionAppSlotIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -303,8 +275,7 @@ public class AzurermLinuxFunctionAppSlotIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -312,8 +283,7 @@ public class AzurermLinuxFunctionAppSlotIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -322,8 +292,7 @@ public class AzurermLinuxFunctionAppSlotIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -339,8 +308,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AlwaysOn
     {
-        get => GetProperty<TerraformProperty<bool>>("always_on");
-        set => WithProperty("always_on", value);
+        set => SetProperty("always_on", value);
     }
 
     /// <summary>
@@ -348,8 +316,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApiDefinitionUrl
     {
-        get => GetProperty<TerraformProperty<string>>("api_definition_url");
-        set => WithProperty("api_definition_url", value);
+        set => SetProperty("api_definition_url", value);
     }
 
     /// <summary>
@@ -357,8 +324,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApiManagementApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_api_id");
-        set => WithProperty("api_management_api_id", value);
+        set => SetProperty("api_management_api_id", value);
     }
 
     /// <summary>
@@ -366,8 +332,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AppCommandLine
     {
-        get => GetProperty<TerraformProperty<string>>("app_command_line");
-        set => WithProperty("app_command_line", value);
+        set => SetProperty("app_command_line", value);
     }
 
     /// <summary>
@@ -375,8 +340,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AppScaleLimit
     {
-        get => GetProperty<TerraformProperty<double>>("app_scale_limit");
-        set => WithProperty("app_scale_limit", value);
+        set => SetProperty("app_scale_limit", value);
     }
 
     /// <summary>
@@ -384,8 +348,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApplicationInsightsConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("application_insights_connection_string");
-        set => WithProperty("application_insights_connection_string", value);
+        set => SetProperty("application_insights_connection_string", value);
     }
 
     /// <summary>
@@ -393,8 +356,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApplicationInsightsKey
     {
-        get => GetProperty<TerraformProperty<string>>("application_insights_key");
-        set => WithProperty("application_insights_key", value);
+        set => SetProperty("application_insights_key", value);
     }
 
     /// <summary>
@@ -402,8 +364,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AutoSwapSlotName
     {
-        get => GetProperty<TerraformProperty<string>>("auto_swap_slot_name");
-        set => WithProperty("auto_swap_slot_name", value);
+        set => SetProperty("auto_swap_slot_name", value);
     }
 
     /// <summary>
@@ -411,8 +372,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerRegistryManagedIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("container_registry_managed_identity_client_id");
-        set => WithProperty("container_registry_managed_identity_client_id", value);
+        set => SetProperty("container_registry_managed_identity_client_id", value);
     }
 
     /// <summary>
@@ -420,8 +380,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ContainerRegistryUseManagedIdentity
     {
-        get => GetProperty<TerraformProperty<bool>>("container_registry_use_managed_identity");
-        set => WithProperty("container_registry_use_managed_identity", value);
+        set => SetProperty("container_registry_use_managed_identity", value);
     }
 
     /// <summary>
@@ -429,8 +388,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DefaultDocuments
     {
-        get => GetProperty<List<TerraformProperty<string>>>("default_documents");
-        set => WithProperty("default_documents", value);
+        set => SetProperty("default_documents", value);
     }
 
     /// <summary>
@@ -438,8 +396,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DetailedErrorLoggingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("detailed_error_logging_enabled");
-        set => WithProperty("detailed_error_logging_enabled", value);
+        set => SetProperty("detailed_error_logging_enabled", value);
     }
 
     /// <summary>
@@ -447,8 +404,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ElasticInstanceMinimum
     {
-        get => GetProperty<TerraformProperty<double>>("elastic_instance_minimum");
-        set => WithProperty("elastic_instance_minimum", value);
+        set => SetProperty("elastic_instance_minimum", value);
     }
 
     /// <summary>
@@ -456,8 +412,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FtpsState
     {
-        get => GetProperty<TerraformProperty<string>>("ftps_state");
-        set => WithProperty("ftps_state", value);
+        set => SetProperty("ftps_state", value);
     }
 
     /// <summary>
@@ -465,8 +420,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? HealthCheckEvictionTimeInMin
     {
-        get => GetProperty<TerraformProperty<double>>("health_check_eviction_time_in_min");
-        set => WithProperty("health_check_eviction_time_in_min", value);
+        set => SetProperty("health_check_eviction_time_in_min", value);
     }
 
     /// <summary>
@@ -474,8 +428,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HealthCheckPath
     {
-        get => GetProperty<TerraformProperty<string>>("health_check_path");
-        set => WithProperty("health_check_path", value);
+        set => SetProperty("health_check_path", value);
     }
 
     /// <summary>
@@ -483,8 +436,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Http2Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("http2_enabled");
-        set => WithProperty("http2_enabled", value);
+        set => SetProperty("http2_enabled", value);
     }
 
     /// <summary>
@@ -492,8 +444,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpRestrictionDefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("ip_restriction_default_action");
-        set => WithProperty("ip_restriction_default_action", value);
+        set => SetProperty("ip_restriction_default_action", value);
     }
 
     /// <summary>
@@ -501,8 +452,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LinuxFxVersion
     {
-        get => GetProperty<TerraformProperty<string>>("linux_fx_version");
-        set => WithProperty("linux_fx_version", value);
+        set => SetProperty("linux_fx_version", value);
     }
 
     /// <summary>
@@ -510,8 +460,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LoadBalancingMode
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancing_mode");
-        set => WithProperty("load_balancing_mode", value);
+        set => SetProperty("load_balancing_mode", value);
     }
 
     /// <summary>
@@ -519,8 +468,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedPipelineMode
     {
-        get => GetProperty<TerraformProperty<string>>("managed_pipeline_mode");
-        set => WithProperty("managed_pipeline_mode", value);
+        set => SetProperty("managed_pipeline_mode", value);
     }
 
     /// <summary>
@@ -528,8 +476,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinimumTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_tls_version");
-        set => WithProperty("minimum_tls_version", value);
+        set => SetProperty("minimum_tls_version", value);
     }
 
     /// <summary>
@@ -537,8 +484,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? PreWarmedInstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("pre_warmed_instance_count");
-        set => WithProperty("pre_warmed_instance_count", value);
+        set => SetProperty("pre_warmed_instance_count", value);
     }
 
     /// <summary>
@@ -546,8 +492,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RemoteDebuggingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("remote_debugging_enabled");
-        set => WithProperty("remote_debugging_enabled", value);
+        set => SetProperty("remote_debugging_enabled", value);
     }
 
     /// <summary>
@@ -555,8 +500,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RemoteDebuggingVersion
     {
-        get => GetProperty<TerraformProperty<string>>("remote_debugging_version");
-        set => WithProperty("remote_debugging_version", value);
+        set => SetProperty("remote_debugging_version", value);
     }
 
     /// <summary>
@@ -564,8 +508,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RuntimeScaleMonitoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("runtime_scale_monitoring_enabled");
-        set => WithProperty("runtime_scale_monitoring_enabled", value);
+        set => SetProperty("runtime_scale_monitoring_enabled", value);
     }
 
     /// <summary>
@@ -573,8 +516,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScmIpRestrictionDefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("scm_ip_restriction_default_action");
-        set => WithProperty("scm_ip_restriction_default_action", value);
+        set => SetProperty("scm_ip_restriction_default_action", value);
     }
 
     /// <summary>
@@ -582,8 +524,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScmMinimumTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("scm_minimum_tls_version");
-        set => WithProperty("scm_minimum_tls_version", value);
+        set => SetProperty("scm_minimum_tls_version", value);
     }
 
     /// <summary>
@@ -591,8 +532,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScmType
     {
-        get => GetProperty<TerraformProperty<string>>("scm_type");
-        set => WithProperty("scm_type", value);
+        set => SetProperty("scm_type", value);
     }
 
     /// <summary>
@@ -600,8 +540,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ScmUseMainIpRestriction
     {
-        get => GetProperty<TerraformProperty<bool>>("scm_use_main_ip_restriction");
-        set => WithProperty("scm_use_main_ip_restriction", value);
+        set => SetProperty("scm_use_main_ip_restriction", value);
     }
 
     /// <summary>
@@ -609,8 +548,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Use32BitWorker
     {
-        get => GetProperty<TerraformProperty<bool>>("use_32_bit_worker");
-        set => WithProperty("use_32_bit_worker", value);
+        set => SetProperty("use_32_bit_worker", value);
     }
 
     /// <summary>
@@ -618,8 +556,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? VnetRouteAllEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("vnet_route_all_enabled");
-        set => WithProperty("vnet_route_all_enabled", value);
+        set => SetProperty("vnet_route_all_enabled", value);
     }
 
     /// <summary>
@@ -627,8 +564,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WebsocketsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("websockets_enabled");
-        set => WithProperty("websockets_enabled", value);
+        set => SetProperty("websockets_enabled", value);
     }
 
     /// <summary>
@@ -636,8 +572,7 @@ public class AzurermLinuxFunctionAppSlotSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? WorkerCount
     {
-        get => GetProperty<TerraformProperty<double>>("worker_count");
-        set => WithProperty("worker_count", value);
+        set => SetProperty("worker_count", value);
     }
 
 }
@@ -654,8 +589,7 @@ public class AzurermLinuxFunctionAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKey is required")]
     public required TerraformProperty<string> AccessKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_key");
-        set => WithProperty("access_key", value);
+        set => SetProperty("access_key", value);
     }
 
     /// <summary>
@@ -664,8 +598,7 @@ public class AzurermLinuxFunctionAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => WithProperty("account_name", value);
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
@@ -673,8 +606,7 @@ public class AzurermLinuxFunctionAppSlotStorageAccountBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MountPath
     {
-        get => GetProperty<TerraformProperty<string>>("mount_path");
-        set => WithProperty("mount_path", value);
+        set => SetProperty("mount_path", value);
     }
 
     /// <summary>
@@ -683,8 +615,7 @@ public class AzurermLinuxFunctionAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -693,8 +624,7 @@ public class AzurermLinuxFunctionAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformProperty<string> ShareName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("share_name");
-        set => WithProperty("share_name", value);
+        set => SetProperty("share_name", value);
     }
 
     /// <summary>
@@ -703,8 +633,7 @@ public class AzurermLinuxFunctionAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -720,8 +649,7 @@ public class AzurermLinuxFunctionAppSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -729,8 +657,7 @@ public class AzurermLinuxFunctionAppSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -738,8 +665,7 @@ public class AzurermLinuxFunctionAppSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -747,8 +673,7 @@ public class AzurermLinuxFunctionAppSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -766,96 +691,122 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("custom_domain_verification_id");
-        this.WithOutput("default_hostname");
-        this.WithOutput("hosting_environment_id");
-        this.WithOutput("kind");
-        this.WithOutput("outbound_ip_address_list");
-        this.WithOutput("outbound_ip_addresses");
-        this.WithOutput("possible_outbound_ip_address_list");
-        this.WithOutput("possible_outbound_ip_addresses");
-        this.WithOutput("site_credential");
+        SetOutput("custom_domain_verification_id");
+        SetOutput("default_hostname");
+        SetOutput("hosting_environment_id");
+        SetOutput("kind");
+        SetOutput("outbound_ip_address_list");
+        SetOutput("outbound_ip_addresses");
+        SetOutput("possible_outbound_ip_address_list");
+        SetOutput("possible_outbound_ip_addresses");
+        SetOutput("site_credential");
+        SetOutput("app_settings");
+        SetOutput("builtin_logging_enabled");
+        SetOutput("client_certificate_enabled");
+        SetOutput("client_certificate_exclusion_paths");
+        SetOutput("client_certificate_mode");
+        SetOutput("content_share_force_disabled");
+        SetOutput("daily_memory_time_quota");
+        SetOutput("enabled");
+        SetOutput("ftp_publish_basic_authentication_enabled");
+        SetOutput("function_app_id");
+        SetOutput("functions_extension_version");
+        SetOutput("https_only");
+        SetOutput("id");
+        SetOutput("key_vault_reference_identity_id");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("service_plan_id");
+        SetOutput("storage_account_access_key");
+        SetOutput("storage_account_name");
+        SetOutput("storage_key_vault_secret_id");
+        SetOutput("storage_uses_managed_identity");
+        SetOutput("tags");
+        SetOutput("virtual_network_backup_restore_enabled");
+        SetOutput("virtual_network_subnet_id");
+        SetOutput("vnet_image_pull_enabled");
+        SetOutput("webdeploy_publish_basic_authentication_enabled");
     }
 
     /// <summary>
     /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AppSettings
+    public Dictionary<string, TerraformProperty<string>> AppSettings
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("app_settings");
-        set => this.WithProperty("app_settings", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("app_settings");
+        set => SetProperty("app_settings", value);
     }
 
     /// <summary>
     /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
     /// </summary>
-    public TerraformProperty<bool>? BuiltinLoggingEnabled
+    public TerraformProperty<bool> BuiltinLoggingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("builtin_logging_enabled");
-        set => this.WithProperty("builtin_logging_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("builtin_logging_enabled");
+        set => SetProperty("builtin_logging_enabled", value);
     }
 
     /// <summary>
     /// Should the Function App Slot use Client Certificates.
     /// </summary>
-    public TerraformProperty<bool>? ClientCertificateEnabled
+    public TerraformProperty<bool> ClientCertificateEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("client_certificate_enabled");
-        set => this.WithProperty("client_certificate_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("client_certificate_enabled");
+        set => SetProperty("client_certificate_enabled", value);
     }
 
     /// <summary>
     /// Paths to exclude when using client certificates, separated by ;
     /// </summary>
-    public TerraformProperty<string>? ClientCertificateExclusionPaths
+    public TerraformProperty<string> ClientCertificateExclusionPaths
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate_exclusion_paths");
-        set => this.WithProperty("client_certificate_exclusion_paths", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_certificate_exclusion_paths");
+        set => SetProperty("client_certificate_exclusion_paths", value);
     }
 
     /// <summary>
     /// The mode of the Function App Slot&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
     /// </summary>
-    public TerraformProperty<string>? ClientCertificateMode
+    public TerraformProperty<string> ClientCertificateMode
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate_mode");
-        set => this.WithProperty("client_certificate_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_certificate_mode");
+        set => SetProperty("client_certificate_mode", value);
     }
 
     /// <summary>
     /// Force disable the content share settings.
     /// </summary>
-    public TerraformProperty<bool>? ContentShareForceDisabled
+    public TerraformProperty<bool> ContentShareForceDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("content_share_force_disabled");
-        set => this.WithProperty("content_share_force_disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("content_share_force_disabled");
+        set => SetProperty("content_share_force_disabled", value);
     }
 
     /// <summary>
     /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
     /// </summary>
-    public TerraformProperty<double>? DailyMemoryTimeQuota
+    public TerraformProperty<double> DailyMemoryTimeQuota
     {
-        get => GetProperty<TerraformProperty<double>>("daily_memory_time_quota");
-        set => this.WithProperty("daily_memory_time_quota", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("daily_memory_time_quota");
+        set => SetProperty("daily_memory_time_quota", value);
     }
 
     /// <summary>
     /// Is the Linux Function App Slot enabled.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The ftp_publish_basic_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FtpPublishBasicAuthenticationEnabled
+    public TerraformProperty<bool> FtpPublishBasicAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ftp_publish_basic_authentication_enabled");
-        set => this.WithProperty("ftp_publish_basic_authentication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ftp_publish_basic_authentication_enabled");
+        set => SetProperty("ftp_publish_basic_authentication_enabled", value);
     }
 
     /// <summary>
@@ -864,44 +815,44 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformProperty<string> FunctionAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_app_id");
-        set => this.WithProperty("function_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_app_id");
+        set => SetProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The runtime version associated with the Function App Slot.
     /// </summary>
-    public TerraformProperty<string>? FunctionsExtensionVersion
+    public TerraformProperty<string> FunctionsExtensionVersion
     {
-        get => GetProperty<TerraformProperty<string>>("functions_extension_version");
-        set => this.WithProperty("functions_extension_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("functions_extension_version");
+        set => SetProperty("functions_extension_version", value);
     }
 
     /// <summary>
     /// Can the Function App Slot only be accessed via HTTPS?
     /// </summary>
-    public TerraformProperty<bool>? HttpsOnly
+    public TerraformProperty<bool> HttpsOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("https_only");
-        set => this.WithProperty("https_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("https_only");
+        set => SetProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The User Assigned Identity to use for Key Vault access.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultReferenceIdentityId
+    public TerraformProperty<string> KeyVaultReferenceIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_reference_identity_id");
-        set => this.WithProperty("key_vault_reference_identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_reference_identity_id");
+        set => SetProperty("key_vault_reference_identity_id", value);
     }
 
     /// <summary>
@@ -910,107 +861,107 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The service_plan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServicePlanId
+    public TerraformProperty<string> ServicePlanId
     {
-        get => GetProperty<TerraformProperty<string>>("service_plan_id");
-        set => this.WithProperty("service_plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_plan_id");
+        set => SetProperty("service_plan_id", value);
     }
 
     /// <summary>
     /// The access key which will be used to access the storage account for the Function App Slot.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountAccessKey
+    public TerraformProperty<string> StorageAccountAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_access_key");
-        set => this.WithProperty("storage_account_access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_access_key");
+        set => SetProperty("storage_account_access_key", value);
     }
 
     /// <summary>
     /// The backend storage account name which will be used by this Function App Slot.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountName
+    public TerraformProperty<string> StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
-        set => this.WithProperty("storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
+        set => SetProperty("storage_account_name", value);
     }
 
     /// <summary>
     /// The Key Vault Secret ID, including version, that contains the Connection String to connect to the storage account for this Function App.
     /// </summary>
-    public TerraformProperty<string>? StorageKeyVaultSecretId
+    public TerraformProperty<string> StorageKeyVaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_key_vault_secret_id");
-        set => this.WithProperty("storage_key_vault_secret_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_key_vault_secret_id");
+        set => SetProperty("storage_key_vault_secret_id", value);
     }
 
     /// <summary>
     /// Should the Function App Slot use its Managed Identity to access storage?
     /// </summary>
-    public TerraformProperty<bool>? StorageUsesManagedIdentity
+    public TerraformProperty<bool> StorageUsesManagedIdentity
     {
-        get => GetProperty<TerraformProperty<bool>>("storage_uses_managed_identity");
-        set => this.WithProperty("storage_uses_managed_identity", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("storage_uses_managed_identity");
+        set => SetProperty("storage_uses_managed_identity", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_network_backup_restore_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? VirtualNetworkBackupRestoreEnabled
+    public TerraformProperty<bool> VirtualNetworkBackupRestoreEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("virtual_network_backup_restore_enabled");
-        set => this.WithProperty("virtual_network_backup_restore_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("virtual_network_backup_restore_enabled");
+        set => SetProperty("virtual_network_backup_restore_enabled", value);
     }
 
     /// <summary>
     /// The virtual_network_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualNetworkSubnetId
+    public TerraformProperty<string> VirtualNetworkSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_subnet_id");
-        set => this.WithProperty("virtual_network_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_subnet_id");
+        set => SetProperty("virtual_network_subnet_id", value);
     }
 
     /// <summary>
     /// Is container image pull over virtual network enabled? Defaults to `false`.
     /// </summary>
-    public TerraformProperty<bool>? VnetImagePullEnabled
+    public TerraformProperty<bool> VnetImagePullEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("vnet_image_pull_enabled");
-        set => this.WithProperty("vnet_image_pull_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("vnet_image_pull_enabled");
+        set => SetProperty("vnet_image_pull_enabled", value);
     }
 
     /// <summary>
     /// The webdeploy_publish_basic_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? WebdeployPublishBasicAuthenticationEnabled
+    public TerraformProperty<bool> WebdeployPublishBasicAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("webdeploy_publish_basic_authentication_enabled");
-        set => this.WithProperty("webdeploy_publish_basic_authentication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("webdeploy_publish_basic_authentication_enabled");
+        set => SetProperty("webdeploy_publish_basic_authentication_enabled", value);
     }
 
     /// <summary>
@@ -1020,8 +971,7 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     public List<AzurermLinuxFunctionAppSlotAuthSettingsBlock>? AuthSettings
     {
-        get => GetProperty<List<AzurermLinuxFunctionAppSlotAuthSettingsBlock>>("auth_settings");
-        set => this.WithProperty("auth_settings", value);
+        set => SetProperty("auth_settings", value);
     }
 
     /// <summary>
@@ -1031,8 +981,7 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
     public List<AzurermLinuxFunctionAppSlotAuthSettingsV2Block>? AuthSettingsV2
     {
-        get => GetProperty<List<AzurermLinuxFunctionAppSlotAuthSettingsV2Block>>("auth_settings_v2");
-        set => this.WithProperty("auth_settings_v2", value);
+        set => SetProperty("auth_settings_v2", value);
     }
 
     /// <summary>
@@ -1042,8 +991,7 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     public List<AzurermLinuxFunctionAppSlotBackupBlock>? Backup
     {
-        get => GetProperty<List<AzurermLinuxFunctionAppSlotBackupBlock>>("backup");
-        set => this.WithProperty("backup", value);
+        set => SetProperty("backup", value);
     }
 
     /// <summary>
@@ -1052,8 +1000,7 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     /// </summary>
     public HashSet<AzurermLinuxFunctionAppSlotConnectionStringBlock>? ConnectionString
     {
-        get => GetProperty<HashSet<AzurermLinuxFunctionAppSlotConnectionStringBlock>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -1063,20 +1010,19 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermLinuxFunctionAppSlotIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermLinuxFunctionAppSlotIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
     /// Block for site_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     public List<AzurermLinuxFunctionAppSlotSiteConfigBlock>? SiteConfig
     {
-        get => GetProperty<List<AzurermLinuxFunctionAppSlotSiteConfigBlock>>("site_config");
-        set => this.WithProperty("site_config", value);
+        set => SetProperty("site_config", value);
     }
 
     /// <summary>
@@ -1085,8 +1031,7 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     /// </summary>
     public HashSet<AzurermLinuxFunctionAppSlotStorageAccountBlock>? StorageAccount
     {
-        get => GetProperty<HashSet<AzurermLinuxFunctionAppSlotStorageAccountBlock>>("storage_account");
-        set => this.WithProperty("storage_account", value);
+        set => SetProperty("storage_account", value);
     }
 
     /// <summary>
@@ -1095,8 +1040,7 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     /// </summary>
     public AzurermLinuxFunctionAppSlotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLinuxFunctionAppSlotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

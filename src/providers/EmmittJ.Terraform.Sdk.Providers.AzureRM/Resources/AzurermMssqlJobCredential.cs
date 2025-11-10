@@ -13,8 +13,7 @@ public class AzurermMssqlJobCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMssqlJobCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMssqlJobCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMssqlJobCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,22 @@ public class AzurermMssqlJobCredential : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("job_agent_id");
+        SetOutput("name");
+        SetOutput("password");
+        SetOutput("password_wo");
+        SetOutput("password_wo_version");
+        SetOutput("username");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AzurermMssqlJobCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobAgentId is required")]
     public required TerraformProperty<string> JobAgentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("job_agent_id");
-        set => this.WithProperty("job_agent_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_agent_id");
+        set => SetProperty("job_agent_id", value);
     }
 
     /// <summary>
@@ -85,35 +88,35 @@ public class AzurermMssqlJobCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// The password_wo attribute.
     /// </summary>
-    public TerraformProperty<string>? PasswordWo
+    public TerraformProperty<string> PasswordWo
     {
-        get => GetProperty<TerraformProperty<string>>("password_wo");
-        set => this.WithProperty("password_wo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password_wo");
+        set => SetProperty("password_wo", value);
     }
 
     /// <summary>
     /// The password_wo_version attribute.
     /// </summary>
-    public TerraformProperty<double>? PasswordWoVersion
+    public TerraformProperty<double> PasswordWoVersion
     {
-        get => GetProperty<TerraformProperty<double>>("password_wo_version");
-        set => this.WithProperty("password_wo_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("password_wo_version");
+        set => SetProperty("password_wo_version", value);
     }
 
     /// <summary>
@@ -122,8 +125,8 @@ public class AzurermMssqlJobCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -132,8 +135,7 @@ public class AzurermMssqlJobCredential : TerraformResource
     /// </summary>
     public AzurermMssqlJobCredentialTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlJobCredentialTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

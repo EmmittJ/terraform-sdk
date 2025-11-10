@@ -13,8 +13,7 @@ public class AwsNetworkmanagerDxGatewayAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerDxGatewayAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsNetworkmanagerDxGatewayAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,15 +46,19 @@ public class AwsNetworkmanagerDxGatewayAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("attachment_policy_rule_number");
-        this.WithOutput("attachment_type");
-        this.WithOutput("core_network_arn");
-        this.WithOutput("id");
-        this.WithOutput("owner_account_id");
-        this.WithOutput("segment_name");
-        this.WithOutput("state");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("attachment_policy_rule_number");
+        SetOutput("attachment_type");
+        SetOutput("core_network_arn");
+        SetOutput("id");
+        SetOutput("owner_account_id");
+        SetOutput("segment_name");
+        SetOutput("state");
+        SetOutput("tags_all");
+        SetOutput("core_network_id");
+        SetOutput("direct_connect_gateway_arn");
+        SetOutput("edge_locations");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AwsNetworkmanagerDxGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
-        set => this.WithProperty("core_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("core_network_id");
+        set => SetProperty("core_network_id", value);
     }
 
     /// <summary>
@@ -76,27 +77,27 @@ public class AwsNetworkmanagerDxGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectConnectGatewayArn is required")]
     public required TerraformProperty<string> DirectConnectGatewayArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("direct_connect_gateway_arn");
-        set => this.WithProperty("direct_connect_gateway_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("direct_connect_gateway_arn");
+        set => SetProperty("direct_connect_gateway_arn", value);
     }
 
     /// <summary>
     /// The edge_locations attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeLocations is required")]
-    public List<TerraformProperty<string>>? EdgeLocations
+    public List<TerraformProperty<string>> EdgeLocations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("edge_locations");
-        set => this.WithProperty("edge_locations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("edge_locations");
+        set => SetProperty("edge_locations", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -105,8 +106,7 @@ public class AwsNetworkmanagerDxGatewayAttachment : TerraformResource
     /// </summary>
     public AwsNetworkmanagerDxGatewayAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerDxGatewayAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

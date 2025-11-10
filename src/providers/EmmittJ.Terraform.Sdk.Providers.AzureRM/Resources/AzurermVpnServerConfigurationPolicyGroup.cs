@@ -14,8 +14,7 @@ public class AzurermVpnServerConfigurationPolicyGroupPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermVpnServerConfigurationPolicyGroupPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermVpnServerConfigurationPolicyGroupPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -97,24 +90,29 @@ public class AzurermVpnServerConfigurationPolicyGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("is_default");
+        SetOutput("name");
+        SetOutput("priority");
+        SetOutput("vpn_server_configuration_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsDefault
+    public TerraformProperty<bool> IsDefault
     {
-        get => GetProperty<TerraformProperty<bool>>("is_default");
-        set => this.WithProperty("is_default", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_default");
+        set => SetProperty("is_default", value);
     }
 
     /// <summary>
@@ -123,17 +121,17 @@ public class AzurermVpnServerConfigurationPolicyGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -142,19 +140,19 @@ public class AzurermVpnServerConfigurationPolicyGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnServerConfigurationId is required")]
     public required TerraformProperty<string> VpnServerConfigurationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpn_server_configuration_id");
-        set => this.WithProperty("vpn_server_configuration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpn_server_configuration_id");
+        set => SetProperty("vpn_server_configuration_id", value);
     }
 
     /// <summary>
     /// Block for policy.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Policy block(s) required")]
     public HashSet<AzurermVpnServerConfigurationPolicyGroupPolicyBlock>? Policy
     {
-        get => GetProperty<HashSet<AzurermVpnServerConfigurationPolicyGroupPolicyBlock>>("policy");
-        set => this.WithProperty("policy", value);
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
@@ -163,8 +161,7 @@ public class AzurermVpnServerConfigurationPolicyGroup : TerraformResource
     /// </summary>
     public AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

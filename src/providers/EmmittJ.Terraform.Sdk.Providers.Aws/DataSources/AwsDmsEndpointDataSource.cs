@@ -14,30 +14,34 @@ public class AwsDmsEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate_arn");
-        this.WithOutput("database_name");
-        this.WithOutput("elasticsearch_settings");
-        this.WithOutput("endpoint_arn");
-        this.WithOutput("endpoint_type");
-        this.WithOutput("engine_name");
-        this.WithOutput("extra_connection_attributes");
-        this.WithOutput("kafka_settings");
-        this.WithOutput("kinesis_settings");
-        this.WithOutput("kms_key_arn");
-        this.WithOutput("mongodb_settings");
-        this.WithOutput("mysql_settings");
-        this.WithOutput("password");
-        this.WithOutput("port");
-        this.WithOutput("postgres_settings");
-        this.WithOutput("redis_settings");
-        this.WithOutput("redshift_settings");
-        this.WithOutput("s3_settings");
-        this.WithOutput("secrets_manager_access_role_arn");
-        this.WithOutput("secrets_manager_arn");
-        this.WithOutput("server_name");
-        this.WithOutput("service_access_role");
-        this.WithOutput("ssl_mode");
-        this.WithOutput("username");
+        SetOutput("certificate_arn");
+        SetOutput("database_name");
+        SetOutput("elasticsearch_settings");
+        SetOutput("endpoint_arn");
+        SetOutput("endpoint_type");
+        SetOutput("engine_name");
+        SetOutput("extra_connection_attributes");
+        SetOutput("kafka_settings");
+        SetOutput("kinesis_settings");
+        SetOutput("kms_key_arn");
+        SetOutput("mongodb_settings");
+        SetOutput("mysql_settings");
+        SetOutput("password");
+        SetOutput("port");
+        SetOutput("postgres_settings");
+        SetOutput("redis_settings");
+        SetOutput("redshift_settings");
+        SetOutput("s3_settings");
+        SetOutput("secrets_manager_access_role_arn");
+        SetOutput("secrets_manager_arn");
+        SetOutput("server_name");
+        SetOutput("service_access_role");
+        SetOutput("ssl_mode");
+        SetOutput("username");
+        SetOutput("endpoint_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -46,35 +50,35 @@ public class AwsDmsEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
     public required TerraformProperty<string> EndpointId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_id");
-        set => this.WithProperty("endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_id");
+        set => SetProperty("endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

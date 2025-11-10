@@ -14,16 +14,17 @@ public class AwsBillingViewsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("billing_view");
+        SetOutput("billing_view");
+        SetOutput("billing_view_types");
     }
 
     /// <summary>
     /// The billing_view_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? BillingViewTypes
+    public List<TerraformProperty<string>> BillingViewTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("billing_view_types");
-        set => this.WithProperty("billing_view_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("billing_view_types");
+        set => SetProperty("billing_view_types", value);
     }
 
     /// <summary>

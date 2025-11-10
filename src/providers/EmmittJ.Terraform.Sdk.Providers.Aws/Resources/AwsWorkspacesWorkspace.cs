@@ -13,8 +13,7 @@ public class AwsWorkspacesWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsWorkspacesWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsWorkspacesWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ComputeTypeName
     {
-        get => GetProperty<TerraformProperty<string>>("compute_type_name");
-        set => WithProperty("compute_type_name", value);
+        set => SetProperty("compute_type_name", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RootVolumeSizeGib
     {
-        get => GetProperty<TerraformProperty<double>>("root_volume_size_gib");
-        set => WithProperty("root_volume_size_gib", value);
+        set => SetProperty("root_volume_size_gib", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RunningMode
     {
-        get => GetProperty<TerraformProperty<string>>("running_mode");
-        set => WithProperty("running_mode", value);
+        set => SetProperty("running_mode", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RunningModeAutoStopTimeoutInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("running_mode_auto_stop_timeout_in_minutes");
-        set => WithProperty("running_mode_auto_stop_timeout_in_minutes", value);
+        set => SetProperty("running_mode_auto_stop_timeout_in_minutes", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? UserVolumeSizeGib
     {
-        get => GetProperty<TerraformProperty<double>>("user_volume_size_gib");
-        set => WithProperty("user_volume_size_gib", value);
+        set => SetProperty("user_volume_size_gib", value);
     }
 
 }
@@ -103,9 +95,19 @@ public class AwsWorkspacesWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("computer_name");
-        this.WithOutput("ip_address");
-        this.WithOutput("state");
+        SetOutput("computer_name");
+        SetOutput("ip_address");
+        SetOutput("state");
+        SetOutput("bundle_id");
+        SetOutput("directory_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("root_volume_encryption_enabled");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("user_name");
+        SetOutput("user_volume_encryption_enabled");
+        SetOutput("volume_encryption_key");
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     public required TerraformProperty<string> BundleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bundle_id");
-        set => this.WithProperty("bundle_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bundle_id");
+        set => SetProperty("bundle_id", value);
     }
 
     /// <summary>
@@ -124,53 +126,53 @@ public class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
-        set => this.WithProperty("directory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
+        set => SetProperty("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The root_volume_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RootVolumeEncryptionEnabled
+    public TerraformProperty<bool> RootVolumeEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("root_volume_encryption_enabled");
-        set => this.WithProperty("root_volume_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("root_volume_encryption_enabled");
+        set => SetProperty("root_volume_encryption_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -179,26 +181,26 @@ public class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
     /// The user_volume_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? UserVolumeEncryptionEnabled
+    public TerraformProperty<bool> UserVolumeEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("user_volume_encryption_enabled");
-        set => this.WithProperty("user_volume_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("user_volume_encryption_enabled");
+        set => SetProperty("user_volume_encryption_enabled", value);
     }
 
     /// <summary>
     /// The volume_encryption_key attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeEncryptionKey
+    public TerraformProperty<string> VolumeEncryptionKey
     {
-        get => GetProperty<TerraformProperty<string>>("volume_encryption_key");
-        set => this.WithProperty("volume_encryption_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_encryption_key");
+        set => SetProperty("volume_encryption_key", value);
     }
 
     /// <summary>
@@ -207,8 +209,7 @@ public class AwsWorkspacesWorkspace : TerraformResource
     /// </summary>
     public AwsWorkspacesWorkspaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsWorkspacesWorkspaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -218,8 +219,7 @@ public class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkspaceProperties block(s) allowed")]
     public List<AwsWorkspacesWorkspaceWorkspacePropertiesBlock>? WorkspaceProperties
     {
-        get => GetProperty<List<AwsWorkspacesWorkspaceWorkspacePropertiesBlock>>("workspace_properties");
-        set => this.WithProperty("workspace_properties", value);
+        set => SetProperty("workspace_properties", value);
     }
 
     /// <summary>

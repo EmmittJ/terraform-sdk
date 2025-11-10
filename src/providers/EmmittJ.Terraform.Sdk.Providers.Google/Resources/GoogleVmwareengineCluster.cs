@@ -17,8 +17,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CoolDownPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("cool_down_period");
-        set => WithProperty("cool_down_period", value);
+        set => SetProperty("cool_down_period", value);
     }
 
     /// <summary>
@@ -27,8 +26,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxClusterNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_cluster_node_count");
-        set => WithProperty("max_cluster_node_count", value);
+        set => SetProperty("max_cluster_node_count", value);
     }
 
     /// <summary>
@@ -37,8 +35,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinClusterNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_cluster_node_count");
-        set => WithProperty("min_cluster_node_count", value);
+        set => SetProperty("min_cluster_node_count", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CustomCoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("custom_core_count");
-        set => WithProperty("custom_core_count", value);
+        set => SetProperty("custom_core_count", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
-        set => WithProperty("node_count", value);
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
     public required TerraformProperty<string> NodeTypeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_type_id");
-        set => WithProperty("node_type_id", value);
+        set => SetProperty("node_type_id", value);
     }
 
 }
@@ -94,8 +88,7 @@ public class GoogleVmwareengineClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class GoogleVmwareengineClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -112,8 +104,7 @@ public class GoogleVmwareengineClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -131,20 +122,23 @@ public class GoogleVmwareengineCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("management");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("management");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -153,8 +147,8 @@ public class GoogleVmwareengineCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -165,8 +159,8 @@ public class GoogleVmwareengineCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -176,8 +170,7 @@ public class GoogleVmwareengineCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingSettings block(s) allowed")]
     public List<GoogleVmwareengineClusterAutoscalingSettingsBlock>? AutoscalingSettings
     {
-        get => GetProperty<List<GoogleVmwareengineClusterAutoscalingSettingsBlock>>("autoscaling_settings");
-        set => this.WithProperty("autoscaling_settings", value);
+        set => SetProperty("autoscaling_settings", value);
     }
 
     /// <summary>
@@ -186,8 +179,7 @@ public class GoogleVmwareengineCluster : TerraformResource
     /// </summary>
     public HashSet<GoogleVmwareengineClusterNodeTypeConfigsBlock>? NodeTypeConfigs
     {
-        get => GetProperty<HashSet<GoogleVmwareengineClusterNodeTypeConfigsBlock>>("node_type_configs");
-        set => this.WithProperty("node_type_configs", value);
+        set => SetProperty("node_type_configs", value);
     }
 
     /// <summary>
@@ -196,8 +188,7 @@ public class GoogleVmwareengineCluster : TerraformResource
     /// </summary>
     public GoogleVmwareengineClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVmwareengineClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

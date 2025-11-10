@@ -14,16 +14,19 @@ public class GoogleFolderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("configured_capabilities");
-        this.WithOutput("create_time");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("display_name");
-        this.WithOutput("folder_id");
-        this.WithOutput("lifecycle_state");
-        this.WithOutput("management_project");
-        this.WithOutput("name");
-        this.WithOutput("organization");
-        this.WithOutput("parent");
+        SetOutput("configured_capabilities");
+        SetOutput("create_time");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("folder_id");
+        SetOutput("lifecycle_state");
+        SetOutput("management_project");
+        SetOutput("name");
+        SetOutput("organization");
+        SetOutput("parent");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("lookup_organization");
     }
 
     /// <summary>
@@ -32,26 +35,26 @@ public class GoogleFolderDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The lookup_organization attribute.
     /// </summary>
-    public TerraformProperty<bool>? LookupOrganization
+    public TerraformProperty<bool> LookupOrganization
     {
-        get => GetProperty<TerraformProperty<bool>>("lookup_organization");
-        set => this.WithProperty("lookup_organization", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("lookup_organization");
+        set => SetProperty("lookup_organization", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => WithProperty("cluster_id", value);
+        set => SetProperty("cluster_id", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : Terr
     /// </summary>
     public TerraformProperty<string>? CloudSqlId
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_sql_id");
-        set => WithProperty("cloud_sql_id", value);
+        set => SetProperty("cloud_sql_id", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : Terr
     /// </summary>
     public TerraformProperty<string>? PrivateIp
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip");
-        set => WithProperty("private_ip", value);
+        set => SetProperty("private_ip", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : Terr
     /// </summary>
     public TerraformProperty<string>? PublicIp
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip");
-        set => WithProperty("public_ip", value);
+        set => SetProperty("public_ip", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? CloudSqlId
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_sql_id");
-        set => WithProperty("cloud_sql_id", value);
+        set => SetProperty("cloud_sql_id", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? PasswordSet
     {
-        get => GetProperty<TerraformProperty<bool>>("password_set");
-        set => WithProperty("password_set", value);
+        set => SetProperty("password_set", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -130,8 +120,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseService is required")]
     public required TerraformProperty<string> DatabaseService
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_service");
-        set => WithProperty("database_service", value);
+        set => SetProperty("database_service", value);
     }
 
     /// <summary>
@@ -140,8 +129,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -151,8 +139,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -160,8 +147,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? PasswordSet
     {
-        get => GetProperty<TerraformProperty<bool>>("password_set");
-        set => WithProperty("password_set", value);
+        set => SetProperty("password_set", value);
     }
 
     /// <summary>
@@ -170,8 +156,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -180,8 +165,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -197,8 +181,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformProperty<string>? AlloydbClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("alloydb_cluster_id");
-        set => WithProperty("alloydb_cluster_id", value);
+        set => SetProperty("alloydb_cluster_id", value);
     }
 
     /// <summary>
@@ -206,8 +189,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformProperty<string>? CloudSqlId
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_sql_id");
-        set => WithProperty("cloud_sql_id", value);
+        set => SetProperty("cloud_sql_id", value);
     }
 
     /// <summary>
@@ -215,8 +197,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -224,8 +205,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformProperty<string>? NetworkArchitecture
     {
-        get => GetProperty<TerraformProperty<string>>("network_architecture");
-        set => WithProperty("network_architecture", value);
+        set => SetProperty("network_architecture", value);
     }
 
     /// <summary>
@@ -234,8 +214,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -243,8 +222,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformProperty<bool>? PasswordSet
     {
-        get => GetProperty<TerraformProperty<bool>>("password_set");
-        set => WithProperty("password_set", value);
+        set => SetProperty("password_set", value);
     }
 
     /// <summary>
@@ -252,8 +230,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -261,8 +238,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -278,8 +254,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -287,8 +262,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -296,8 +270,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -315,13 +288,19 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("dbprovider");
-        this.WithOutput("effective_labels");
-        this.WithOutput("error");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("dbprovider");
+        SetOutput("effective_labels");
+        SetOutput("error");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("connection_profile_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -330,26 +309,26 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionProfileId is required")]
     public required TerraformProperty<string> ConnectionProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_profile_id");
-        set => this.WithProperty("connection_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_profile_id");
+        set => SetProperty("connection_profile_id", value);
     }
 
     /// <summary>
     /// The connection profile display name.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -359,28 +338,28 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location where the connection profile should reside.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -390,8 +369,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Alloydb block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock>? Alloydb
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock>>("alloydb");
-        set => this.WithProperty("alloydb", value);
+        set => SetProperty("alloydb", value);
     }
 
     /// <summary>
@@ -401,8 +379,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cloudsql block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock>? Cloudsql
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock>>("cloudsql");
-        set => this.WithProperty("cloudsql", value);
+        set => SetProperty("cloudsql", value);
     }
 
     /// <summary>
@@ -412,8 +389,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mysql block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock>? Mysql
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock>>("mysql");
-        set => this.WithProperty("mysql", value);
+        set => SetProperty("mysql", value);
     }
 
     /// <summary>
@@ -423,8 +399,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oracle block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceConnectionProfileOracleBlock>? Oracle
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceConnectionProfileOracleBlock>>("oracle");
-        set => this.WithProperty("oracle", value);
+        set => SetProperty("oracle", value);
     }
 
     /// <summary>
@@ -434,8 +409,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Postgresql block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock>? Postgresql
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock>>("postgresql");
-        set => this.WithProperty("postgresql", value);
+        set => SetProperty("postgresql", value);
     }
 
     /// <summary>
@@ -444,8 +418,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     /// </summary>
     public GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

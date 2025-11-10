@@ -13,8 +13,7 @@ public class GoogleDataCatalogPolicyTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDataCatalogPolicyTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleDataCatalogPolicyTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,13 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("child_policy_tags");
-        this.WithOutput("name");
+        SetOutput("child_policy_tags");
+        SetOutput("name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("parent_policy_tag");
+        SetOutput("taxonomy");
     }
 
     /// <summary>
@@ -59,10 +61,10 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// encoded in UTF-8. If not set, defaults to an empty description.
     /// If not set, defaults to an empty description.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -73,17 +75,17 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -91,10 +93,10 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// If empty, it means this policy tag is a top level policy tag.
     /// If not set, defaults to an empty string.
     /// </summary>
-    public TerraformProperty<string>? ParentPolicyTag
+    public TerraformProperty<string> ParentPolicyTag
     {
-        get => GetProperty<TerraformProperty<string>>("parent_policy_tag");
-        set => this.WithProperty("parent_policy_tag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_policy_tag");
+        set => SetProperty("parent_policy_tag", value);
     }
 
     /// <summary>
@@ -103,8 +105,8 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Taxonomy is required")]
     public required TerraformProperty<string> Taxonomy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("taxonomy");
-        set => this.WithProperty("taxonomy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("taxonomy");
+        set => SetProperty("taxonomy", value);
     }
 
     /// <summary>
@@ -113,8 +115,7 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// </summary>
     public GoogleDataCatalogPolicyTagTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataCatalogPolicyTagTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,35 +14,38 @@ public class GoogleStorageProjectServiceAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("email_address");
-        this.WithOutput("member");
+        SetOutput("email_address");
+        SetOutput("member");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("user_project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The user_project attribute.
     /// </summary>
-    public TerraformProperty<string>? UserProject
+    public TerraformProperty<string> UserProject
     {
-        get => GetProperty<TerraformProperty<string>>("user_project");
-        set => this.WithProperty("user_project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_project");
+        set => SetProperty("user_project", value);
     }
 
     /// <summary>

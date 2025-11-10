@@ -13,8 +13,7 @@ public class AzurermMaintenanceAssignmentVirtualMachineTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMaintenanceAssignmentVirtualMachineTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMaintenanceAssignmentVirtualMachineTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,19 @@ public class AzurermMaintenanceAssignmentVirtualMachine : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("maintenance_configuration_id");
+        SetOutput("virtual_machine_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AzurermMaintenanceAssignmentVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AzurermMaintenanceAssignmentVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
     public required TerraformProperty<string> MaintenanceConfigurationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("maintenance_configuration_id");
-        set => this.WithProperty("maintenance_configuration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_configuration_id");
+        set => SetProperty("maintenance_configuration_id", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class AzurermMaintenanceAssignmentVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
-        set => this.WithProperty("virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
+        set => SetProperty("virtual_machine_id", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class AzurermMaintenanceAssignmentVirtualMachine : TerraformResource
     /// </summary>
     public AzurermMaintenanceAssignmentVirtualMachineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMaintenanceAssignmentVirtualMachineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

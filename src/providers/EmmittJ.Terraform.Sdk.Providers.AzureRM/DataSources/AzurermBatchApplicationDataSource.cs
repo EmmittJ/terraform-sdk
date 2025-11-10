@@ -13,8 +13,7 @@ public class AzurermBatchApplicationDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,9 +30,13 @@ public class AzurermBatchApplicationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allow_updates");
-        this.WithOutput("default_version");
-        this.WithOutput("display_name");
+        SetOutput("allow_updates");
+        SetOutput("default_version");
+        SetOutput("display_name");
+        SetOutput("account_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -42,17 +45,17 @@ public class AzurermBatchApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +64,8 @@ public class AzurermBatchApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,8 +74,8 @@ public class AzurermBatchApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -81,8 +84,7 @@ public class AzurermBatchApplicationDataSource : TerraformDataSource
     /// </summary>
     public AzurermBatchApplicationDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBatchApplicationDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

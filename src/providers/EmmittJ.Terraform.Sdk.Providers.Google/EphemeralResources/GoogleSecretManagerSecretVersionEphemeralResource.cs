@@ -15,29 +15,33 @@ public class GoogleSecretManagerSecretVersionEphemeralResource : TerraformEpheme
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("destroy_time");
-        this.WithOutput("enabled");
-        this.WithOutput("name");
-        this.WithOutput("secret_data");
+        SetOutput("create_time");
+        SetOutput("destroy_time");
+        SetOutput("enabled");
+        SetOutput("name");
+        SetOutput("secret_data");
+        SetOutput("is_secret_data_base64");
+        SetOutput("project");
+        SetOutput("secret");
+        SetOutput("version");
     }
 
     /// <summary>
     /// If true, the secret data returned will not get base64 decoded. Defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? IsSecretDataBase64
+    public TerraformProperty<bool> IsSecretDataBase64
     {
-        get => GetProperty<TerraformProperty<bool>>("is_secret_data_base64");
-        set => this.WithProperty("is_secret_data_base64", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_secret_data_base64");
+        set => SetProperty("is_secret_data_base64", value);
     }
 
     /// <summary>
     /// The project to get the secret version for. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -46,17 +50,17 @@ public class GoogleSecretManagerSecretVersionEphemeralResource : TerraformEpheme
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret");
-        set => this.WithProperty("secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret");
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
     /// The version of the secret to get. If it is not provided, the latest version is retrieved.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

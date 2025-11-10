@@ -14,8 +14,7 @@ public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountIds is required")]
     public List<TerraformProperty<string>>? AccountIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("account_ids");
-        set => WithProperty("account_ids", value);
+        set => SetProperty("account_ids", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? AllRegions
     {
-        get => GetProperty<TerraformProperty<bool>>("all_regions");
-        set => WithProperty("all_regions", value);
+        set => SetProperty("all_regions", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : Ter
     /// </summary>
     public List<TerraformProperty<string>>? Regions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("regions");
-        set => WithProperty("regions", value);
+        set => SetProperty("regions", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock 
     /// </summary>
     public TerraformProperty<bool>? AllRegions
     {
-        get => GetProperty<TerraformProperty<bool>>("all_regions");
-        set => WithProperty("all_regions", value);
+        set => SetProperty("all_regions", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock 
     /// </summary>
     public List<TerraformProperty<string>>? Regions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("regions");
-        set => WithProperty("regions", value);
+        set => SetProperty("regions", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -87,16 +81,21 @@ public class AwsConfigConfigurationAggregator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,35 +104,35 @@ public class AwsConfigConfigurationAggregator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -143,8 +142,7 @@ public class AwsConfigConfigurationAggregator : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountAggregationSource block(s) allowed")]
     public List<AwsConfigConfigurationAggregatorAccountAggregationSourceBlock>? AccountAggregationSource
     {
-        get => GetProperty<List<AwsConfigConfigurationAggregatorAccountAggregationSourceBlock>>("account_aggregation_source");
-        set => this.WithProperty("account_aggregation_source", value);
+        set => SetProperty("account_aggregation_source", value);
     }
 
     /// <summary>
@@ -154,8 +152,7 @@ public class AwsConfigConfigurationAggregator : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrganizationAggregationSource block(s) allowed")]
     public List<AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock>? OrganizationAggregationSource
     {
-        get => GetProperty<List<AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock>>("organization_aggregation_source");
-        set => this.WithProperty("organization_aggregation_source", value);
+        set => SetProperty("organization_aggregation_source", value);
     }
 
     /// <summary>

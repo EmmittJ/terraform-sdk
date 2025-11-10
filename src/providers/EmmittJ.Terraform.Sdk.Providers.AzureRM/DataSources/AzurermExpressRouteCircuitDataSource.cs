@@ -13,8 +13,7 @@ public class AzurermExpressRouteCircuitDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,24 @@ public class AzurermExpressRouteCircuitDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("location");
-        this.WithOutput("peerings");
-        this.WithOutput("service_key");
-        this.WithOutput("service_provider_properties");
-        this.WithOutput("service_provider_provisioning_state");
-        this.WithOutput("sku");
+        SetOutput("location");
+        SetOutput("peerings");
+        SetOutput("service_key");
+        SetOutput("service_provider_properties");
+        SetOutput("service_provider_provisioning_state");
+        SetOutput("sku");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +56,8 @@ public class AzurermExpressRouteCircuitDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermExpressRouteCircuitDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermExpressRouteCircuitDataSource : TerraformDataSource
     /// </summary>
     public AzurermExpressRouteCircuitDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermExpressRouteCircuitDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

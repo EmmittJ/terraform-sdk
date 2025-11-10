@@ -14,44 +14,47 @@ public class AwsAutoscalingGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zones");
-        this.WithOutput("default_cooldown");
-        this.WithOutput("desired_capacity");
-        this.WithOutput("desired_capacity_type");
-        this.WithOutput("enabled_metrics");
-        this.WithOutput("health_check_grace_period");
-        this.WithOutput("health_check_type");
-        this.WithOutput("instance_maintenance_policy");
-        this.WithOutput("launch_configuration");
-        this.WithOutput("launch_template");
-        this.WithOutput("load_balancers");
-        this.WithOutput("max_instance_lifetime");
-        this.WithOutput("max_size");
-        this.WithOutput("min_size");
-        this.WithOutput("mixed_instances_policy");
-        this.WithOutput("new_instances_protected_from_scale_in");
-        this.WithOutput("placement_group");
-        this.WithOutput("predicted_capacity");
-        this.WithOutput("service_linked_role_arn");
-        this.WithOutput("status");
-        this.WithOutput("suspended_processes");
-        this.WithOutput("tag");
-        this.WithOutput("target_group_arns");
-        this.WithOutput("termination_policies");
-        this.WithOutput("traffic_source");
-        this.WithOutput("vpc_zone_identifier");
-        this.WithOutput("warm_pool");
-        this.WithOutput("warm_pool_size");
+        SetOutput("arn");
+        SetOutput("availability_zones");
+        SetOutput("default_cooldown");
+        SetOutput("desired_capacity");
+        SetOutput("desired_capacity_type");
+        SetOutput("enabled_metrics");
+        SetOutput("health_check_grace_period");
+        SetOutput("health_check_type");
+        SetOutput("instance_maintenance_policy");
+        SetOutput("launch_configuration");
+        SetOutput("launch_template");
+        SetOutput("load_balancers");
+        SetOutput("max_instance_lifetime");
+        SetOutput("max_size");
+        SetOutput("min_size");
+        SetOutput("mixed_instances_policy");
+        SetOutput("new_instances_protected_from_scale_in");
+        SetOutput("placement_group");
+        SetOutput("predicted_capacity");
+        SetOutput("service_linked_role_arn");
+        SetOutput("status");
+        SetOutput("suspended_processes");
+        SetOutput("tag");
+        SetOutput("target_group_arns");
+        SetOutput("termination_policies");
+        SetOutput("traffic_source");
+        SetOutput("vpc_zone_identifier");
+        SetOutput("warm_pool");
+        SetOutput("warm_pool_size");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,17 +63,17 @@ public class AwsAutoscalingGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

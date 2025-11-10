@@ -13,8 +13,7 @@ public class GoogleAlloydbBackupEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleAlloydbBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleAlloydbBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleAlloydbBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,22 +63,32 @@ public class GoogleAlloydbBackup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cluster_uid");
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("encryption_info");
-        this.WithOutput("etag");
-        this.WithOutput("expiry_quantity");
-        this.WithOutput("expiry_time");
-        this.WithOutput("name");
-        this.WithOutput("reconciling");
-        this.WithOutput("size_bytes");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("cluster_uid");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("encryption_info");
+        SetOutput("etag");
+        SetOutput("expiry_quantity");
+        SetOutput("expiry_time");
+        SetOutput("name");
+        SetOutput("reconciling");
+        SetOutput("size_bytes");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("backup_id");
+        SetOutput("cluster_name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -93,10 +99,10 @@ public class GoogleAlloydbBackup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -105,8 +111,8 @@ public class GoogleAlloydbBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupId is required")]
     public required TerraformProperty<string> BackupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_id");
-        set => this.WithProperty("backup_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_id");
+        set => SetProperty("backup_id", value);
     }
 
     /// <summary>
@@ -115,35 +121,35 @@ public class GoogleAlloydbBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// User-provided description of the backup.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// User-settable and human-readable display name for the Backup.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -153,10 +159,10 @@ public class GoogleAlloydbBackup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -165,26 +171,26 @@ public class GoogleAlloydbBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The backup type, which suggests the trigger for the backup. Possible values: [&amp;quot;TYPE_UNSPECIFIED&amp;quot;, &amp;quot;ON_DEMAND&amp;quot;, &amp;quot;AUTOMATED&amp;quot;, &amp;quot;CONTINUOUS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -194,8 +200,7 @@ public class GoogleAlloydbBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     public List<GoogleAlloydbBackupEncryptionConfigBlock>? EncryptionConfig
     {
-        get => GetProperty<List<GoogleAlloydbBackupEncryptionConfigBlock>>("encryption_config");
-        set => this.WithProperty("encryption_config", value);
+        set => SetProperty("encryption_config", value);
     }
 
     /// <summary>
@@ -204,8 +209,7 @@ public class GoogleAlloydbBackup : TerraformResource
     /// </summary>
     public GoogleAlloydbBackupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAlloydbBackupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

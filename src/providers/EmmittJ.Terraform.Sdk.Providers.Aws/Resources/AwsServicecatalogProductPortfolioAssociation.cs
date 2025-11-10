@@ -13,8 +13,7 @@ public class AwsServicecatalogProductPortfolioAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsServicecatalogProductPortfolioAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsServicecatalogProductPortfolioAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,24 +46,30 @@ public class AwsServicecatalogProductPortfolioAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("accept_language");
+        SetOutput("id");
+        SetOutput("portfolio_id");
+        SetOutput("product_id");
+        SetOutput("region");
+        SetOutput("source_portfolio_id");
     }
 
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    public TerraformProperty<string>? AcceptLanguage
+    public TerraformProperty<string> AcceptLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("accept_language");
-        set => this.WithProperty("accept_language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("accept_language");
+        set => SetProperty("accept_language", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AwsServicecatalogProductPortfolioAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
     public required TerraformProperty<string> PortfolioId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("portfolio_id");
-        set => this.WithProperty("portfolio_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("portfolio_id");
+        set => SetProperty("portfolio_id", value);
     }
 
     /// <summary>
@@ -85,26 +88,26 @@ public class AwsServicecatalogProductPortfolioAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
-        set => this.WithProperty("product_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_id");
+        set => SetProperty("product_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The source_portfolio_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourcePortfolioId
+    public TerraformProperty<string> SourcePortfolioId
     {
-        get => GetProperty<TerraformProperty<string>>("source_portfolio_id");
-        set => this.WithProperty("source_portfolio_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_portfolio_id");
+        set => SetProperty("source_portfolio_id", value);
     }
 
     /// <summary>
@@ -113,8 +116,7 @@ public class AwsServicecatalogProductPortfolioAssociation : TerraformResource
     /// </summary>
     public AwsServicecatalogProductPortfolioAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsServicecatalogProductPortfolioAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

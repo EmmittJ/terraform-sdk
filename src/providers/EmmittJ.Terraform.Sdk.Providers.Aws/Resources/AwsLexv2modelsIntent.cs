@@ -13,8 +13,7 @@ public class AwsLexv2modelsIntentClosingSettingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Active
     {
-        get => GetProperty<TerraformProperty<bool>>("active");
-        set => WithProperty("active", value);
+        set => SetProperty("active", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Active
     {
-        get => GetProperty<TerraformProperty<bool>>("active");
-        set => WithProperty("active", value);
+        set => SetProperty("active", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsLexv2modelsIntentDialogCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -65,8 +62,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Active
     {
-        get => GetProperty<TerraformProperty<bool>>("active");
-        set => WithProperty("active", value);
+        set => SetProperty("active", value);
     }
 
     /// <summary>
@@ -75,8 +71,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -101,8 +96,7 @@ public class AwsLexv2modelsIntentInputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -119,8 +113,7 @@ public class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KendraIndex is required")]
     public required TerraformProperty<string> KendraIndex
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kendra_index");
-        set => WithProperty("kendra_index", value);
+        set => SetProperty("kendra_index", value);
     }
 
     /// <summary>
@@ -128,8 +121,7 @@ public class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? QueryFilterString
     {
-        get => GetProperty<TerraformProperty<string>>("query_filter_string");
-        set => WithProperty("query_filter_string", value);
+        set => SetProperty("query_filter_string", value);
     }
 
     /// <summary>
@@ -137,8 +129,7 @@ public class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? QueryFilterStringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("query_filter_string_enabled");
-        set => WithProperty("query_filter_string_enabled", value);
+        set => SetProperty("query_filter_string_enabled", value);
     }
 
 }
@@ -155,8 +146,7 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -165,8 +155,7 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeToLiveInSeconds is required")]
     public required TerraformProperty<double> TimeToLiveInSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("time_to_live_in_seconds");
-        set => WithProperty("time_to_live_in_seconds", value);
+        set => SetProperty("time_to_live_in_seconds", value);
     }
 
     /// <summary>
@@ -175,8 +164,7 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TurnsToLive is required")]
     public required TerraformProperty<double> TurnsToLive
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("turns_to_live");
-        set => WithProperty("turns_to_live", value);
+        set => SetProperty("turns_to_live", value);
     }
 
 }
@@ -193,8 +181,7 @@ public class AwsLexv2modelsIntentSampleUtteranceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Utterance is required")]
     public required TerraformProperty<string> Utterance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("utterance");
-        set => WithProperty("utterance", value);
+        set => SetProperty("utterance", value);
     }
 
 }
@@ -211,8 +198,7 @@ public class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -221,8 +207,7 @@ public class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
     public required TerraformProperty<string> SlotId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("slot_id");
-        set => WithProperty("slot_id", value);
+        set => SetProperty("slot_id", value);
     }
 
 }
@@ -238,8 +223,7 @@ public class AwsLexv2modelsIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -247,8 +231,7 @@ public class AwsLexv2modelsIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -256,8 +239,7 @@ public class AwsLexv2modelsIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -274,10 +256,17 @@ public class AwsLexv2modelsIntent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_date_time");
-        this.WithOutput("id");
-        this.WithOutput("intent_id");
-        this.WithOutput("last_updated_date_time");
+        SetOutput("creation_date_time");
+        SetOutput("id");
+        SetOutput("intent_id");
+        SetOutput("last_updated_date_time");
+        SetOutput("bot_id");
+        SetOutput("bot_version");
+        SetOutput("description");
+        SetOutput("locale_id");
+        SetOutput("name");
+        SetOutput("parent_intent_signature");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -286,8 +275,8 @@ public class AwsLexv2modelsIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformProperty<string> BotId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_id");
-        set => this.WithProperty("bot_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_id");
+        set => SetProperty("bot_id", value);
     }
 
     /// <summary>
@@ -296,17 +285,17 @@ public class AwsLexv2modelsIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformProperty<string> BotVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_version");
-        set => this.WithProperty("bot_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_version");
+        set => SetProperty("bot_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -315,8 +304,8 @@ public class AwsLexv2modelsIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformProperty<string> LocaleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("locale_id");
-        set => this.WithProperty("locale_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("locale_id");
+        set => SetProperty("locale_id", value);
     }
 
     /// <summary>
@@ -325,26 +314,26 @@ public class AwsLexv2modelsIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parent_intent_signature attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentIntentSignature
+    public TerraformProperty<string> ParentIntentSignature
     {
-        get => GetProperty<TerraformProperty<string>>("parent_intent_signature");
-        set => this.WithProperty("parent_intent_signature", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_intent_signature");
+        set => SetProperty("parent_intent_signature", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -353,8 +342,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentClosingSettingBlock>? ClosingSetting
     {
-        get => GetProperty<List<AwsLexv2modelsIntentClosingSettingBlock>>("closing_setting");
-        set => this.WithProperty("closing_setting", value);
+        set => SetProperty("closing_setting", value);
     }
 
     /// <summary>
@@ -363,8 +351,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentConfirmationSettingBlock>? ConfirmationSetting
     {
-        get => GetProperty<List<AwsLexv2modelsIntentConfirmationSettingBlock>>("confirmation_setting");
-        set => this.WithProperty("confirmation_setting", value);
+        set => SetProperty("confirmation_setting", value);
     }
 
     /// <summary>
@@ -373,8 +360,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentDialogCodeHookBlock>? DialogCodeHook
     {
-        get => GetProperty<List<AwsLexv2modelsIntentDialogCodeHookBlock>>("dialog_code_hook");
-        set => this.WithProperty("dialog_code_hook", value);
+        set => SetProperty("dialog_code_hook", value);
     }
 
     /// <summary>
@@ -383,8 +369,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentFulfillmentCodeHookBlock>? FulfillmentCodeHook
     {
-        get => GetProperty<List<AwsLexv2modelsIntentFulfillmentCodeHookBlock>>("fulfillment_code_hook");
-        set => this.WithProperty("fulfillment_code_hook", value);
+        set => SetProperty("fulfillment_code_hook", value);
     }
 
     /// <summary>
@@ -393,8 +378,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentInitialResponseSettingBlock>? InitialResponseSetting
     {
-        get => GetProperty<List<AwsLexv2modelsIntentInitialResponseSettingBlock>>("initial_response_setting");
-        set => this.WithProperty("initial_response_setting", value);
+        set => SetProperty("initial_response_setting", value);
     }
 
     /// <summary>
@@ -403,8 +387,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentInputContextBlock>? InputContext
     {
-        get => GetProperty<List<AwsLexv2modelsIntentInputContextBlock>>("input_context");
-        set => this.WithProperty("input_context", value);
+        set => SetProperty("input_context", value);
     }
 
     /// <summary>
@@ -413,8 +396,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentKendraConfigurationBlock>? KendraConfiguration
     {
-        get => GetProperty<List<AwsLexv2modelsIntentKendraConfigurationBlock>>("kendra_configuration");
-        set => this.WithProperty("kendra_configuration", value);
+        set => SetProperty("kendra_configuration", value);
     }
 
     /// <summary>
@@ -423,8 +405,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentOutputContextBlock>? OutputContext
     {
-        get => GetProperty<List<AwsLexv2modelsIntentOutputContextBlock>>("output_context");
-        set => this.WithProperty("output_context", value);
+        set => SetProperty("output_context", value);
     }
 
     /// <summary>
@@ -433,8 +414,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentSampleUtteranceBlock>? SampleUtterance
     {
-        get => GetProperty<List<AwsLexv2modelsIntentSampleUtteranceBlock>>("sample_utterance");
-        set => this.WithProperty("sample_utterance", value);
+        set => SetProperty("sample_utterance", value);
     }
 
     /// <summary>
@@ -443,8 +423,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsIntentSlotPriorityBlock>? SlotPriority
     {
-        get => GetProperty<List<AwsLexv2modelsIntentSlotPriorityBlock>>("slot_priority");
-        set => this.WithProperty("slot_priority", value);
+        set => SetProperty("slot_priority", value);
     }
 
     /// <summary>
@@ -453,8 +432,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     /// </summary>
     public AwsLexv2modelsIntentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLexv2modelsIntentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

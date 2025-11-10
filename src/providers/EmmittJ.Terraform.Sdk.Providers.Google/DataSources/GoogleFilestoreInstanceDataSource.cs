@@ -14,42 +14,46 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("deletion_protection_enabled");
-        this.WithOutput("deletion_protection_reason");
-        this.WithOutput("description");
-        this.WithOutput("effective_labels");
-        this.WithOutput("effective_replication");
-        this.WithOutput("etag");
-        this.WithOutput("file_shares");
-        this.WithOutput("initial_replication");
-        this.WithOutput("kms_key_name");
-        this.WithOutput("labels");
-        this.WithOutput("networks");
-        this.WithOutput("performance_config");
-        this.WithOutput("protocol");
-        this.WithOutput("tags");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("tier");
-        this.WithOutput("zone");
+        SetOutput("create_time");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("deletion_protection_reason");
+        SetOutput("description");
+        SetOutput("effective_labels");
+        SetOutput("effective_replication");
+        SetOutput("etag");
+        SetOutput("file_shares");
+        SetOutput("initial_replication");
+        SetOutput("kms_key_name");
+        SetOutput("labels");
+        SetOutput("networks");
+        SetOutput("performance_config");
+        SetOutput("protocol");
+        SetOutput("tags");
+        SetOutput("terraform_labels");
+        SetOutput("tier");
+        SetOutput("zone");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -58,17 +62,17 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

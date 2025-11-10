@@ -13,8 +13,7 @@ public class AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,28 +46,32 @@ public class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("resource_arn");
-        this.WithOutput("resource_created_time");
-        this.WithOutput("resource_description");
-        this.WithOutput("resource_name");
+        SetOutput("resource_arn");
+        SetOutput("resource_created_time");
+        SetOutput("resource_description");
+        SetOutput("resource_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("resource_id");
+        SetOutput("tag_option_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -79,8 +80,8 @@ public class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -89,8 +90,8 @@ public class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagOptionId is required")]
     public required TerraformProperty<string> TagOptionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tag_option_id");
-        set => this.WithProperty("tag_option_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag_option_id");
+        set => SetProperty("tag_option_id", value);
     }
 
     /// <summary>
@@ -99,8 +100,7 @@ public class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
     /// </summary>
     public AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

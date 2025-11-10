@@ -13,8 +13,7 @@ public class AwsRdsShardGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRdsShardGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRdsShardGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,19 +46,27 @@ public class AwsRdsShardGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("db_shard_group_resource_id");
-        this.WithOutput("endpoint");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("db_shard_group_resource_id");
+        SetOutput("endpoint");
+        SetOutput("tags_all");
+        SetOutput("compute_redundancy");
+        SetOutput("db_cluster_identifier");
+        SetOutput("db_shard_group_identifier");
+        SetOutput("max_acu");
+        SetOutput("min_acu");
+        SetOutput("publicly_accessible");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The compute_redundancy attribute.
     /// </summary>
-    public TerraformProperty<double>? ComputeRedundancy
+    public TerraformProperty<double> ComputeRedundancy
     {
-        get => GetProperty<TerraformProperty<double>>("compute_redundancy");
-        set => this.WithProperty("compute_redundancy", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("compute_redundancy");
+        set => SetProperty("compute_redundancy", value);
     }
 
     /// <summary>
@@ -70,8 +75,8 @@ public class AwsRdsShardGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
     public required TerraformProperty<string> DbClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_cluster_identifier");
-        set => this.WithProperty("db_cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_cluster_identifier");
+        set => SetProperty("db_cluster_identifier", value);
     }
 
     /// <summary>
@@ -80,8 +85,8 @@ public class AwsRdsShardGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbShardGroupIdentifier is required")]
     public required TerraformProperty<string> DbShardGroupIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_shard_group_identifier");
-        set => this.WithProperty("db_shard_group_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_shard_group_identifier");
+        set => SetProperty("db_shard_group_identifier", value);
     }
 
     /// <summary>
@@ -90,44 +95,44 @@ public class AwsRdsShardGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAcu is required")]
     public required TerraformProperty<double> MaxAcu
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_acu");
-        set => this.WithProperty("max_acu", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_acu");
+        set => SetProperty("max_acu", value);
     }
 
     /// <summary>
     /// The min_acu attribute.
     /// </summary>
-    public TerraformProperty<double>? MinAcu
+    public TerraformProperty<double> MinAcu
     {
-        get => GetProperty<TerraformProperty<double>>("min_acu");
-        set => this.WithProperty("min_acu", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_acu");
+        set => SetProperty("min_acu", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool> PubliclyAccessible
     {
-        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
-        set => this.WithProperty("publicly_accessible", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
+        set => SetProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -136,8 +141,7 @@ public class AwsRdsShardGroup : TerraformResource
     /// </summary>
     public AwsRdsShardGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRdsShardGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

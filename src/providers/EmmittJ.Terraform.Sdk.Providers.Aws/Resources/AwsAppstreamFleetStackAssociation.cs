@@ -14,6 +14,10 @@ public class AwsAppstreamFleetStackAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("fleet_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("stack_name");
     }
 
     /// <summary>
@@ -22,26 +26,26 @@ public class AwsAppstreamFleetStackAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FleetName is required")]
     public required TerraformProperty<string> FleetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("fleet_name");
-        set => this.WithProperty("fleet_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fleet_name");
+        set => SetProperty("fleet_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class AwsAppstreamFleetStackAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackName is required")]
     public required TerraformProperty<string> StackName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stack_name");
-        set => this.WithProperty("stack_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stack_name");
+        set => SetProperty("stack_name", value);
     }
 
 }

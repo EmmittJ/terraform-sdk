@@ -13,8 +13,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlock : Terrafo
     /// </summary>
     public List<TerraformProperty<string>>? ContentOptions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("content_options");
-        set => WithProperty("content_options", value);
+        set => SetProperty("content_options", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? ExcludeInfoTypes
     {
-        get => GetProperty<TerraformProperty<bool>>("exclude_info_types");
-        set => WithProperty("exclude_info_types", value);
+        set => SetProperty("exclude_info_types", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? IncludeQuote
     {
-        get => GetProperty<TerraformProperty<bool>>("include_quote");
-        set => WithProperty("include_quote", value);
+        set => SetProperty("include_quote", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? MinLikelihood
     {
-        get => GetProperty<TerraformProperty<string>>("min_likelihood");
-        set => WithProperty("min_likelihood", value);
+        set => SetProperty("min_likelihood", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class GoogleDataLossPreventionInspectTemplateTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class GoogleDataLossPreventionInspectTemplateTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class GoogleDataLossPreventionInspectTemplateTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,34 +87,39 @@ public class GoogleDataLossPreventionInspectTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("template_id");
     }
 
     /// <summary>
     /// A description of the inspect template.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// User set display name of the inspect template.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -135,8 +133,8 @@ public class GoogleDataLossPreventionInspectTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -144,10 +142,10 @@ public class GoogleDataLossPreventionInspectTemplate : TerraformResource
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is
     /// 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformProperty<string>? TemplateId
+    public TerraformProperty<string> TemplateId
     {
-        get => GetProperty<TerraformProperty<string>>("template_id");
-        set => this.WithProperty("template_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
+        set => SetProperty("template_id", value);
     }
 
     /// <summary>
@@ -157,8 +155,7 @@ public class GoogleDataLossPreventionInspectTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InspectConfig block(s) allowed")]
     public List<GoogleDataLossPreventionInspectTemplateInspectConfigBlock>? InspectConfig
     {
-        get => GetProperty<List<GoogleDataLossPreventionInspectTemplateInspectConfigBlock>>("inspect_config");
-        set => this.WithProperty("inspect_config", value);
+        set => SetProperty("inspect_config", value);
     }
 
     /// <summary>
@@ -167,8 +164,7 @@ public class GoogleDataLossPreventionInspectTemplate : TerraformResource
     /// </summary>
     public GoogleDataLossPreventionInspectTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataLossPreventionInspectTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

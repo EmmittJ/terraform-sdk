@@ -21,8 +21,7 @@ public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BillingCycle
     {
-        get => GetProperty<TerraformProperty<string>>("billing_cycle");
-        set => WithProperty("billing_cycle", value);
+        set => SetProperty("billing_cycle", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EffectiveDate
     {
-        get => GetProperty<TerraformProperty<string>>("effective_date");
-        set => WithProperty("effective_date", value);
+        set => SetProperty("effective_date", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformProperty<string> Plan
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("plan");
-        set => WithProperty("plan", value);
+        set => SetProperty("plan", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UsageType
     {
-        get => GetProperty<TerraformProperty<string>>("usage_type");
-        set => WithProperty("usage_type", value);
+        set => SetProperty("usage_type", value);
     }
 
 }
@@ -102,8 +95,7 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -111,8 +103,7 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -129,8 +119,7 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -147,8 +136,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Country is required")]
     public required TerraformProperty<string> Country
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("country");
-        set => WithProperty("country", value);
+        set => SetProperty("country", value);
     }
 
     /// <summary>
@@ -157,8 +145,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -167,8 +154,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     public required TerraformProperty<string> FirstName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("first_name");
-        set => WithProperty("first_name", value);
+        set => SetProperty("first_name", value);
     }
 
     /// <summary>
@@ -177,8 +163,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     public required TerraformProperty<string> LastName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("last_name");
-        set => WithProperty("last_name", value);
+        set => SetProperty("last_name", value);
     }
 
     /// <summary>
@@ -187,8 +172,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformProperty<string> PhoneNumber
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("phone_number");
-        set => WithProperty("phone_number", value);
+        set => SetProperty("phone_number", value);
     }
 
 }
@@ -206,15 +190,22 @@ public class AzurermDynatraceMonitor : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("marketplace_subscription");
+        SetOutput("monitoring_enabled");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -223,8 +214,8 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -233,17 +224,17 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MarketplaceSubscription is required")]
     public required TerraformProperty<string> MarketplaceSubscription
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("marketplace_subscription");
-        set => this.WithProperty("marketplace_subscription", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("marketplace_subscription");
+        set => SetProperty("marketplace_subscription", value);
     }
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MonitoringEnabled
+    public TerraformProperty<bool> MonitoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("monitoring_enabled");
-        set => this.WithProperty("monitoring_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("monitoring_enabled");
+        set => SetProperty("monitoring_enabled", value);
     }
 
     /// <summary>
@@ -252,8 +243,8 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -262,17 +253,17 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -281,32 +272,31 @@ public class AzurermDynatraceMonitor : TerraformResource
     /// </summary>
     public List<AzurermDynatraceMonitorEnvironmentPropertiesBlock>? EnvironmentProperties
     {
-        get => GetProperty<List<AzurermDynatraceMonitorEnvironmentPropertiesBlock>>("environment_properties");
-        set => this.WithProperty("environment_properties", value);
+        set => SetProperty("environment_properties", value);
     }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermDynatraceMonitorIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermDynatraceMonitorIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
     /// Block for plan.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     public List<AzurermDynatraceMonitorPlanBlock>? Plan
     {
-        get => GetProperty<List<AzurermDynatraceMonitorPlanBlock>>("plan");
-        set => this.WithProperty("plan", value);
+        set => SetProperty("plan", value);
     }
 
     /// <summary>
@@ -315,20 +305,19 @@ public class AzurermDynatraceMonitor : TerraformResource
     /// </summary>
     public AzurermDynatraceMonitorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDynatraceMonitorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for user.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
     public List<AzurermDynatraceMonitorUserBlock>? User
     {
-        get => GetProperty<List<AzurermDynatraceMonitorUserBlock>>("user");
-        set => this.WithProperty("user", value);
+        set => SetProperty("user", value);
     }
 
 }

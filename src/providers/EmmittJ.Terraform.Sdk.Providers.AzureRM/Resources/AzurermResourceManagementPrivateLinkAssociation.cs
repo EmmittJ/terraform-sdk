@@ -13,8 +13,7 @@ public class AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,16 +46,21 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputenant_id");
+        SetOutput("tenant_id");
+        SetOutput("id");
+        SetOutput("management_group_id");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_management_private_link_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,17 +69,17 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
-        set => this.WithProperty("management_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("management_group_id");
+        set => SetProperty("management_group_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -86,8 +88,8 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetworkAccessEnabled is required")]
     public required TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -96,8 +98,8 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceManagementPrivateLinkId is required")]
     public required TerraformProperty<string> ResourceManagementPrivateLinkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_management_private_link_id");
-        set => this.WithProperty("resource_management_private_link_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_management_private_link_id");
+        set => SetProperty("resource_management_private_link_id", value);
     }
 
     /// <summary>
@@ -106,8 +108,7 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     /// </summary>
     public AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

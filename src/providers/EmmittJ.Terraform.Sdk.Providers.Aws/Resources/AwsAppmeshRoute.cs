@@ -13,8 +13,7 @@ public class AwsAppmeshRouteSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
 }
@@ -32,19 +31,27 @@ public class AwsAppmeshRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputreated_date");
-        this.WithOutputast_updated_date");
-        this.WithOutputesource_owner");
+        SetOutput("arn");
+        SetOutput("created_date");
+        SetOutput("last_updated_date");
+        SetOutput("resource_owner");
+        SetOutput("id");
+        SetOutput("mesh_name");
+        SetOutput("mesh_owner");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("virtual_router_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,17 +60,17 @@ public class AwsAppmeshRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshName is required")]
     public required TerraformProperty<string> MeshName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mesh_name");
-        set => this.WithProperty("mesh_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mesh_name");
+        set => SetProperty("mesh_name", value);
     }
 
     /// <summary>
     /// The mesh_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? MeshOwner
+    public TerraformProperty<string> MeshOwner
     {
-        get => GetProperty<TerraformProperty<string>>("mesh_owner");
-        set => this.WithProperty("mesh_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mesh_owner");
+        set => SetProperty("mesh_owner", value);
     }
 
     /// <summary>
@@ -72,35 +79,35 @@ public class AwsAppmeshRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -109,20 +116,20 @@ public class AwsAppmeshRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualRouterName is required")]
     public required TerraformProperty<string> VirtualRouterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_router_name");
-        set => this.WithProperty("virtual_router_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_router_name");
+        set => SetProperty("virtual_router_name", value);
     }
 
     /// <summary>
     /// Block for spec.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Spec is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Spec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     public List<AwsAppmeshRouteSpecBlock>? Spec
     {
-        get => GetProperty<List<AwsAppmeshRouteSpecBlock>>("spec");
-        set => this.WithProperty("spec", value);
+        set => SetProperty("spec", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? DayOfWeek
     {
-        get => GetProperty<TerraformProperty<double>>("day_of_week");
-        set => WithProperty("day_of_week", value);
+        set => SetProperty("day_of_week", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? StartHour
     {
-        get => GetProperty<TerraformProperty<double>>("start_hour");
-        set => WithProperty("start_hour", value);
+        set => SetProperty("start_hour", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? StartMinute
     {
-        get => GetProperty<TerraformProperty<double>>("start_minute");
-        set => WithProperty("start_minute", value);
+        set => SetProperty("start_minute", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,80 +87,103 @@ public class AzurermCosmosdbPostgresqlCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("earliest_restore_time");
-        this.WithOutput("servers");
+        SetOutput("earliest_restore_time");
+        SetOutput("servers");
+        SetOutput("administrator_login_password");
+        SetOutput("citus_version");
+        SetOutput("coordinator_public_ip_access_enabled");
+        SetOutput("coordinator_server_edition");
+        SetOutput("coordinator_storage_quota_in_mb");
+        SetOutput("coordinator_vcore_count");
+        SetOutput("ha_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("node_count");
+        SetOutput("node_public_ip_access_enabled");
+        SetOutput("node_server_edition");
+        SetOutput("node_storage_quota_in_mb");
+        SetOutput("node_vcores");
+        SetOutput("point_in_time_in_utc");
+        SetOutput("preferred_primary_zone");
+        SetOutput("resource_group_name");
+        SetOutput("shards_on_coordinator_enabled");
+        SetOutput("source_location");
+        SetOutput("source_resource_id");
+        SetOutput("sql_version");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The administrator_login_password attribute.
     /// </summary>
-    public TerraformProperty<string>? AdministratorLoginPassword
+    public TerraformProperty<string> AdministratorLoginPassword
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_login_password");
-        set => this.WithProperty("administrator_login_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administrator_login_password");
+        set => SetProperty("administrator_login_password", value);
     }
 
     /// <summary>
     /// The citus_version attribute.
     /// </summary>
-    public TerraformProperty<string>? CitusVersion
+    public TerraformProperty<string> CitusVersion
     {
-        get => GetProperty<TerraformProperty<string>>("citus_version");
-        set => this.WithProperty("citus_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("citus_version");
+        set => SetProperty("citus_version", value);
     }
 
     /// <summary>
     /// The coordinator_public_ip_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CoordinatorPublicIpAccessEnabled
+    public TerraformProperty<bool> CoordinatorPublicIpAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("coordinator_public_ip_access_enabled");
-        set => this.WithProperty("coordinator_public_ip_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("coordinator_public_ip_access_enabled");
+        set => SetProperty("coordinator_public_ip_access_enabled", value);
     }
 
     /// <summary>
     /// The coordinator_server_edition attribute.
     /// </summary>
-    public TerraformProperty<string>? CoordinatorServerEdition
+    public TerraformProperty<string> CoordinatorServerEdition
     {
-        get => GetProperty<TerraformProperty<string>>("coordinator_server_edition");
-        set => this.WithProperty("coordinator_server_edition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("coordinator_server_edition");
+        set => SetProperty("coordinator_server_edition", value);
     }
 
     /// <summary>
     /// The coordinator_storage_quota_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? CoordinatorStorageQuotaInMb
+    public TerraformProperty<double> CoordinatorStorageQuotaInMb
     {
-        get => GetProperty<TerraformProperty<double>>("coordinator_storage_quota_in_mb");
-        set => this.WithProperty("coordinator_storage_quota_in_mb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("coordinator_storage_quota_in_mb");
+        set => SetProperty("coordinator_storage_quota_in_mb", value);
     }
 
     /// <summary>
     /// The coordinator_vcore_count attribute.
     /// </summary>
-    public TerraformProperty<double>? CoordinatorVcoreCount
+    public TerraformProperty<double> CoordinatorVcoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("coordinator_vcore_count");
-        set => this.WithProperty("coordinator_vcore_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("coordinator_vcore_count");
+        set => SetProperty("coordinator_vcore_count", value);
     }
 
     /// <summary>
     /// The ha_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HaEnabled
+    public TerraformProperty<bool> HaEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ha_enabled");
-        set => this.WithProperty("ha_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ha_enabled");
+        set => SetProperty("ha_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -176,8 +192,8 @@ public class AzurermCosmosdbPostgresqlCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -186,8 +202,8 @@ public class AzurermCosmosdbPostgresqlCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -196,62 +212,62 @@ public class AzurermCosmosdbPostgresqlCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
-        set => this.WithProperty("node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
     /// The node_public_ip_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? NodePublicIpAccessEnabled
+    public TerraformProperty<bool> NodePublicIpAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("node_public_ip_access_enabled");
-        set => this.WithProperty("node_public_ip_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("node_public_ip_access_enabled");
+        set => SetProperty("node_public_ip_access_enabled", value);
     }
 
     /// <summary>
     /// The node_server_edition attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeServerEdition
+    public TerraformProperty<string> NodeServerEdition
     {
-        get => GetProperty<TerraformProperty<string>>("node_server_edition");
-        set => this.WithProperty("node_server_edition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_server_edition");
+        set => SetProperty("node_server_edition", value);
     }
 
     /// <summary>
     /// The node_storage_quota_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? NodeStorageQuotaInMb
+    public TerraformProperty<double> NodeStorageQuotaInMb
     {
-        get => GetProperty<TerraformProperty<double>>("node_storage_quota_in_mb");
-        set => this.WithProperty("node_storage_quota_in_mb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("node_storage_quota_in_mb");
+        set => SetProperty("node_storage_quota_in_mb", value);
     }
 
     /// <summary>
     /// The node_vcores attribute.
     /// </summary>
-    public TerraformProperty<double>? NodeVcores
+    public TerraformProperty<double> NodeVcores
     {
-        get => GetProperty<TerraformProperty<double>>("node_vcores");
-        set => this.WithProperty("node_vcores", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("node_vcores");
+        set => SetProperty("node_vcores", value);
     }
 
     /// <summary>
     /// The point_in_time_in_utc attribute.
     /// </summary>
-    public TerraformProperty<string>? PointInTimeInUtc
+    public TerraformProperty<string> PointInTimeInUtc
     {
-        get => GetProperty<TerraformProperty<string>>("point_in_time_in_utc");
-        set => this.WithProperty("point_in_time_in_utc", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("point_in_time_in_utc");
+        set => SetProperty("point_in_time_in_utc", value);
     }
 
     /// <summary>
     /// The preferred_primary_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredPrimaryZone
+    public TerraformProperty<string> PreferredPrimaryZone
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_primary_zone");
-        set => this.WithProperty("preferred_primary_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_primary_zone");
+        set => SetProperty("preferred_primary_zone", value);
     }
 
     /// <summary>
@@ -260,53 +276,53 @@ public class AzurermCosmosdbPostgresqlCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The shards_on_coordinator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ShardsOnCoordinatorEnabled
+    public TerraformProperty<bool> ShardsOnCoordinatorEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("shards_on_coordinator_enabled");
-        set => this.WithProperty("shards_on_coordinator_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("shards_on_coordinator_enabled");
+        set => SetProperty("shards_on_coordinator_enabled", value);
     }
 
     /// <summary>
     /// The source_location attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceLocation
+    public TerraformProperty<string> SourceLocation
     {
-        get => GetProperty<TerraformProperty<string>>("source_location");
-        set => this.WithProperty("source_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_location");
+        set => SetProperty("source_location", value);
     }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceResourceId
+    public TerraformProperty<string> SourceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_resource_id");
-        set => this.WithProperty("source_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_resource_id");
+        set => SetProperty("source_resource_id", value);
     }
 
     /// <summary>
     /// The sql_version attribute.
     /// </summary>
-    public TerraformProperty<string>? SqlVersion
+    public TerraformProperty<string> SqlVersion
     {
-        get => GetProperty<TerraformProperty<string>>("sql_version");
-        set => this.WithProperty("sql_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sql_version");
+        set => SetProperty("sql_version", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -316,8 +332,7 @@ public class AzurermCosmosdbPostgresqlCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     public List<AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetProperty<List<AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
@@ -326,8 +341,7 @@ public class AzurermCosmosdbPostgresqlCluster : TerraformResource
     /// </summary>
     public AzurermCosmosdbPostgresqlClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbPostgresqlClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermPublicIpPrefixDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,22 +30,25 @@ public class AzurermPublicIpPrefixDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ip_prefix");
-        this.WithOutput("location");
-        this.WithOutput("prefix_length");
-        this.WithOutput("sku");
-        this.WithOutput("sku_tier");
-        this.WithOutput("tags");
-        this.WithOutput("zones");
+        SetOutput("ip_prefix");
+        SetOutput("location");
+        SetOutput("prefix_length");
+        SetOutput("sku");
+        SetOutput("sku_tier");
+        SetOutput("tags");
+        SetOutput("zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,8 +57,8 @@ public class AzurermPublicIpPrefixDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermPublicIpPrefixDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -75,8 +77,7 @@ public class AzurermPublicIpPrefixDataSource : TerraformDataSource
     /// </summary>
     public AzurermPublicIpPrefixDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPublicIpPrefixDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

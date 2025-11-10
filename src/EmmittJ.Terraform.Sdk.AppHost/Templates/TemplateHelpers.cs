@@ -41,6 +41,10 @@ public static class TemplateHelpers
         // - Property is not a value type with nullable wrapper
         bool useRequiredKeyword = property.IsRequired && !property.IsCollection;
 
+        // In Terraform, arguments can be referenced (IsComputed = true means it's both input and output)
+        // Attributes cannot be referenced (IsComputed = false means it's input only)
+        bool isArgument = property.IsComputed || property.IsRequired || property.IsOptional;
+
         return new
         {
             property.Name,
@@ -55,7 +59,8 @@ public static class TemplateHelpers
             PropertyWrapper = GetPropertyWrapper(property), // NOT escaped - goes in code
             SetterValue = GetSetterValue(property), // NOT escaped - goes in code
             UseRequiredKeyword = useRequiredKeyword,
-            UseNullable = !useRequiredKeyword // If not required, make it nullable
+            UseNullable = !useRequiredKeyword, // If not required, make it nullable
+            IsArgument = isArgument // Arguments can be referenced, attributes cannot
         };
     }
 

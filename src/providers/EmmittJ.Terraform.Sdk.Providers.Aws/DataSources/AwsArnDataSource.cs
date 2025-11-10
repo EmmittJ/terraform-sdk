@@ -14,11 +14,13 @@ public class AwsArnDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account");
-        this.WithOutput("partition");
-        this.WithOutput("region");
-        this.WithOutput("resource");
-        this.WithOutput("service");
+        SetOutput("account");
+        SetOutput("partition");
+        SetOutput("region");
+        SetOutput("resource");
+        SetOutput("service");
+        SetOutput("arn");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -27,17 +29,17 @@ public class AwsArnDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

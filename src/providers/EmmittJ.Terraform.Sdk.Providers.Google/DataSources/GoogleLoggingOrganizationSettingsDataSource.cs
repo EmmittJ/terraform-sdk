@@ -14,21 +14,23 @@ public class GoogleLoggingOrganizationSettingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("disable_default_sink");
-        this.WithOutput("kms_key_name");
-        this.WithOutput("kms_service_account_id");
-        this.WithOutput("logging_service_account_id");
-        this.WithOutput("name");
-        this.WithOutput("storage_location");
+        SetOutput("disable_default_sink");
+        SetOutput("kms_key_name");
+        SetOutput("kms_service_account_id");
+        SetOutput("logging_service_account_id");
+        SetOutput("name");
+        SetOutput("storage_location");
+        SetOutput("id");
+        SetOutput("organization");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -37,8 +39,8 @@ public class GoogleLoggingOrganizationSettingsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization");
-        set => this.WithProperty("organization", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization");
+        set => SetProperty("organization", value);
     }
 
     /// <summary>

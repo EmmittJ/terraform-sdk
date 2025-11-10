@@ -13,8 +13,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<bool>? GenerateWorkflowFile
     {
-        get => GetProperty<TerraformProperty<bool>>("generate_workflow_file");
-        set => WithProperty("generate_workflow_file", value);
+        set => SetProperty("generate_workflow_file", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<bool>? LinuxAction
     {
-        get => GetProperty<TerraformProperty<bool>>("linux_action");
-        set => WithProperty("linux_action", value);
+        set => SetProperty("linux_action", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermAppServiceSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermAppServiceSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermAppServiceSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -76,8 +71,16 @@ public class AzurermAppServiceSourceControl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("scm_type");
-        this.WithOutput("uses_github_action");
+        SetOutput("scm_type");
+        SetOutput("uses_github_action");
+        SetOutput("app_id");
+        SetOutput("branch");
+        SetOutput("id");
+        SetOutput("repo_url");
+        SetOutput("rollback_enabled");
+        SetOutput("use_local_git");
+        SetOutput("use_manual_integration");
+        SetOutput("use_mercurial");
     }
 
     /// <summary>
@@ -86,71 +89,71 @@ public class AzurermAppServiceSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
     /// The branch name to use for deployments.
     /// </summary>
-    public TerraformProperty<string>? Branch
+    public TerraformProperty<string> Branch
     {
-        get => GetProperty<TerraformProperty<string>>("branch");
-        set => this.WithProperty("branch", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("branch");
+        set => SetProperty("branch", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The URL for the repository.
     /// </summary>
-    public TerraformProperty<string>? RepoUrl
+    public TerraformProperty<string> RepoUrl
     {
-        get => GetProperty<TerraformProperty<string>>("repo_url");
-        set => this.WithProperty("repo_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repo_url");
+        set => SetProperty("repo_url", value);
     }
 
     /// <summary>
     /// Should the Deployment Rollback be enabled? Defaults to `false`.
     /// </summary>
-    public TerraformProperty<bool>? RollbackEnabled
+    public TerraformProperty<bool> RollbackEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("rollback_enabled");
-        set => this.WithProperty("rollback_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("rollback_enabled");
+        set => SetProperty("rollback_enabled", value);
     }
 
     /// <summary>
     /// Should the App use local Git configuration.
     /// </summary>
-    public TerraformProperty<bool>? UseLocalGit
+    public TerraformProperty<bool> UseLocalGit
     {
-        get => GetProperty<TerraformProperty<bool>>("use_local_git");
-        set => this.WithProperty("use_local_git", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("use_local_git");
+        set => SetProperty("use_local_git", value);
     }
 
     /// <summary>
     /// Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`.
     /// </summary>
-    public TerraformProperty<bool>? UseManualIntegration
+    public TerraformProperty<bool> UseManualIntegration
     {
-        get => GetProperty<TerraformProperty<bool>>("use_manual_integration");
-        set => this.WithProperty("use_manual_integration", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("use_manual_integration");
+        set => SetProperty("use_manual_integration", value);
     }
 
     /// <summary>
     /// The repository specified is Mercurial. Defaults to `false`.
     /// </summary>
-    public TerraformProperty<bool>? UseMercurial
+    public TerraformProperty<bool> UseMercurial
     {
-        get => GetProperty<TerraformProperty<bool>>("use_mercurial");
-        set => this.WithProperty("use_mercurial", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("use_mercurial");
+        set => SetProperty("use_mercurial", value);
     }
 
     /// <summary>
@@ -160,8 +163,7 @@ public class AzurermAppServiceSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubActionConfiguration block(s) allowed")]
     public List<AzurermAppServiceSourceControlGithubActionConfigurationBlock>? GithubActionConfiguration
     {
-        get => GetProperty<List<AzurermAppServiceSourceControlGithubActionConfigurationBlock>>("github_action_configuration");
-        set => this.WithProperty("github_action_configuration", value);
+        set => SetProperty("github_action_configuration", value);
     }
 
     /// <summary>
@@ -170,8 +172,7 @@ public class AzurermAppServiceSourceControl : TerraformResource
     /// </summary>
     public AzurermAppServiceSourceControlTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceSourceControlTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

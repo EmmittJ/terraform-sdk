@@ -13,8 +13,7 @@ public class AzurermSubscriptionsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,34 +30,37 @@ public class AzurermSubscriptionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("subscriptions");
+        SetOutput("subscriptions");
+        SetOutput("display_name_contains");
+        SetOutput("display_name_prefix");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The display_name_contains attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayNameContains
+    public TerraformProperty<string> DisplayNameContains
     {
-        get => GetProperty<TerraformProperty<string>>("display_name_contains");
-        set => this.WithProperty("display_name_contains", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name_contains");
+        set => SetProperty("display_name_contains", value);
     }
 
     /// <summary>
     /// The display_name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayNamePrefix
+    public TerraformProperty<string> DisplayNamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("display_name_prefix");
-        set => this.WithProperty("display_name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name_prefix");
+        set => SetProperty("display_name_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,8 +69,7 @@ public class AzurermSubscriptionsDataSource : TerraformDataSource
     /// </summary>
     public AzurermSubscriptionsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSubscriptionsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

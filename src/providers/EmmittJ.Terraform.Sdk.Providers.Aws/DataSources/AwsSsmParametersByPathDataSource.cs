@@ -14,19 +14,24 @@ public class AwsSsmParametersByPathDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arns");
-        this.WithOutput("names");
-        this.WithOutput("types");
-        this.WithOutput("values");
+        SetOutput("arns");
+        SetOutput("names");
+        SetOutput("types");
+        SetOutput("values");
+        SetOutput("id");
+        SetOutput("path");
+        SetOutput("recursive");
+        SetOutput("region");
+        SetOutput("with_decryption");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -35,35 +40,35 @@ public class AwsSsmParametersByPathDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => this.WithProperty("path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path");
+        set => SetProperty("path", value);
     }
 
     /// <summary>
     /// The recursive attribute.
     /// </summary>
-    public TerraformProperty<bool>? Recursive
+    public TerraformProperty<bool> Recursive
     {
-        get => GetProperty<TerraformProperty<bool>>("recursive");
-        set => this.WithProperty("recursive", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("recursive");
+        set => SetProperty("recursive", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The with_decryption attribute.
     /// </summary>
-    public TerraformProperty<bool>? WithDecryption
+    public TerraformProperty<bool> WithDecryption
     {
-        get => GetProperty<TerraformProperty<bool>>("with_decryption");
-        set => this.WithProperty("with_decryption", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("with_decryption");
+        set => SetProperty("with_decryption", value);
     }
 
     /// <summary>

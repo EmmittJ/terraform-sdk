@@ -13,8 +13,7 @@ public class AwsMacie2MemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsMacie2MemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,12 +38,22 @@ public class AwsMacie2Member : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("administrator_account_id");
-        this.WithOutput("arn");
-        this.WithOutput("invited_at");
-        this.WithOutput("master_account_id");
-        this.WithOutput("relationship_status");
-        this.WithOutput("updated_at");
+        SetOutput("administrator_account_id");
+        SetOutput("arn");
+        SetOutput("invited_at");
+        SetOutput("master_account_id");
+        SetOutput("relationship_status");
+        SetOutput("updated_at");
+        SetOutput("account_id");
+        SetOutput("email");
+        SetOutput("id");
+        SetOutput("invitation_disable_email_notification");
+        SetOutput("invitation_message");
+        SetOutput("invite");
+        SetOutput("region");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -54,8 +62,8 @@ public class AwsMacie2Member : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -64,80 +72,80 @@ public class AwsMacie2Member : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email");
-        set => this.WithProperty("email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email");
+        set => SetProperty("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The invitation_disable_email_notification attribute.
     /// </summary>
-    public TerraformProperty<bool>? InvitationDisableEmailNotification
+    public TerraformProperty<bool> InvitationDisableEmailNotification
     {
-        get => GetProperty<TerraformProperty<bool>>("invitation_disable_email_notification");
-        set => this.WithProperty("invitation_disable_email_notification", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("invitation_disable_email_notification");
+        set => SetProperty("invitation_disable_email_notification", value);
     }
 
     /// <summary>
     /// The invitation_message attribute.
     /// </summary>
-    public TerraformProperty<string>? InvitationMessage
+    public TerraformProperty<string> InvitationMessage
     {
-        get => GetProperty<TerraformProperty<string>>("invitation_message");
-        set => this.WithProperty("invitation_message", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("invitation_message");
+        set => SetProperty("invitation_message", value);
     }
 
     /// <summary>
     /// The invite attribute.
     /// </summary>
-    public TerraformProperty<bool>? Invite
+    public TerraformProperty<bool> Invite
     {
-        get => GetProperty<TerraformProperty<bool>>("invite");
-        set => this.WithProperty("invite", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("invite");
+        set => SetProperty("invite", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -146,8 +154,7 @@ public class AwsMacie2Member : TerraformResource
     /// </summary>
     public AwsMacie2MemberTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMacie2MemberTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformProperty<double> Asn
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("asn");
-        set => WithProperty("asn", value);
+        set => SetProperty("asn", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpPeeringAddress is required")]
     public required TerraformProperty<string> BgpPeeringAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bgp_peering_address");
-        set => WithProperty("bgp_peering_address", value);
+        set => SetProperty("bgp_peering_address", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? PeerWeight
     {
-        get => GetProperty<TerraformProperty<double>>("peer_weight");
-        set => WithProperty("peer_weight", value);
+        set => SetProperty("peer_weight", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -96,42 +89,50 @@ public class AzurermLocalNetworkGateway : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("address_space");
+        SetOutput("gateway_address");
+        SetOutput("gateway_fqdn");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The address_space attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AddressSpace
+    public List<TerraformProperty<string>> AddressSpace
     {
-        get => GetProperty<List<TerraformProperty<string>>>("address_space");
-        set => this.WithProperty("address_space", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("address_space");
+        set => SetProperty("address_space", value);
     }
 
     /// <summary>
     /// The gateway_address attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayAddress
+    public TerraformProperty<string> GatewayAddress
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_address");
-        set => this.WithProperty("gateway_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_address");
+        set => SetProperty("gateway_address", value);
     }
 
     /// <summary>
     /// The gateway_fqdn attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayFqdn
+    public TerraformProperty<string> GatewayFqdn
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_fqdn");
-        set => this.WithProperty("gateway_fqdn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_fqdn");
+        set => SetProperty("gateway_fqdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -140,8 +141,8 @@ public class AzurermLocalNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -150,8 +151,8 @@ public class AzurermLocalNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -160,17 +161,17 @@ public class AzurermLocalNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -180,8 +181,7 @@ public class AzurermLocalNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
     public List<AzurermLocalNetworkGatewayBgpSettingsBlock>? BgpSettings
     {
-        get => GetProperty<List<AzurermLocalNetworkGatewayBgpSettingsBlock>>("bgp_settings");
-        set => this.WithProperty("bgp_settings", value);
+        set => SetProperty("bgp_settings", value);
     }
 
     /// <summary>
@@ -190,8 +190,7 @@ public class AzurermLocalNetworkGateway : TerraformResource
     /// </summary>
     public AzurermLocalNetworkGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLocalNetworkGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

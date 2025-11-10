@@ -14,68 +14,74 @@ public class AwsWorkspacesWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("bundle_id");
-        this.WithOutput("computer_name");
-        this.WithOutput("ip_address");
-        this.WithOutput("root_volume_encryption_enabled");
-        this.WithOutput("state");
-        this.WithOutput("user_volume_encryption_enabled");
-        this.WithOutput("volume_encryption_key");
-        this.WithOutput("workspace_properties");
+        SetOutput("bundle_id");
+        SetOutput("computer_name");
+        SetOutput("ip_address");
+        SetOutput("root_volume_encryption_enabled");
+        SetOutput("state");
+        SetOutput("user_volume_encryption_enabled");
+        SetOutput("volume_encryption_key");
+        SetOutput("workspace_properties");
+        SetOutput("directory_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("user_name");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DirectoryId
+    public TerraformProperty<string> DirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_id");
-        set => this.WithProperty("directory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
+        set => SetProperty("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    public TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceId
+    public TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>

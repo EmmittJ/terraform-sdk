@@ -14,6 +14,11 @@ public class AwsCognitoUserInGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("group_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("user_pool_id");
+        SetOutput("username");
     }
 
     /// <summary>
@@ -22,26 +27,26 @@ public class AwsCognitoUserInGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformProperty<string> GroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_name");
-        set => this.WithProperty("group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_name");
+        set => SetProperty("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -50,8 +55,8 @@ public class AwsCognitoUserInGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>
@@ -60,8 +65,8 @@ public class AwsCognitoUserInGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
 }

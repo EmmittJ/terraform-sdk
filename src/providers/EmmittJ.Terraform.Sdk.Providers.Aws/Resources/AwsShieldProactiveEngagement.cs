@@ -13,8 +13,7 @@ public class AwsShieldProactiveEngagementEmergencyContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContactNotes
     {
-        get => GetProperty<TerraformProperty<string>>("contact_notes");
-        set => WithProperty("contact_notes", value);
+        set => SetProperty("contact_notes", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsShieldProactiveEngagementEmergencyContactBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformProperty<string> EmailAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_address");
-        set => WithProperty("email_address", value);
+        set => SetProperty("email_address", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsShieldProactiveEngagementEmergencyContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
-        set => WithProperty("phone_number", value);
+        set => SetProperty("phone_number", value);
     }
 
 }
@@ -50,7 +47,8 @@ public class AwsShieldProactiveEngagement : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("enabled");
     }
 
     /// <summary>
@@ -59,8 +57,8 @@ public class AwsShieldProactiveEngagement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -69,8 +67,7 @@ public class AwsShieldProactiveEngagement : TerraformResource
     /// </summary>
     public List<AwsShieldProactiveEngagementEmergencyContactBlock>? EmergencyContact
     {
-        get => GetProperty<List<AwsShieldProactiveEngagementEmergencyContactBlock>>("emergency_contact");
-        set => this.WithProperty("emergency_contact", value);
+        set => SetProperty("emergency_contact", value);
     }
 
     /// <summary>

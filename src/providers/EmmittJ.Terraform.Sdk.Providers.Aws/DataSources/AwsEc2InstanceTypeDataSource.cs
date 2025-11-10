@@ -13,8 +13,7 @@ public class AwsEc2InstanceTypeDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,77 +30,80 @@ public class AwsEc2InstanceTypeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("auto_recovery_supported");
-        this.WithOutput("bandwidth_weightings");
-        this.WithOutput("bare_metal");
-        this.WithOutput("boot_modes");
-        this.WithOutput("burstable_performance_supported");
-        this.WithOutput("current_generation");
-        this.WithOutput("dedicated_hosts_supported");
-        this.WithOutput("default_cores");
-        this.WithOutput("default_network_card_index");
-        this.WithOutput("default_threads_per_core");
-        this.WithOutput("default_vcpus");
-        this.WithOutput("ebs_encryption_support");
-        this.WithOutput("ebs_nvme_support");
-        this.WithOutput("ebs_optimized_support");
-        this.WithOutput("ebs_performance_baseline_bandwidth");
-        this.WithOutput("ebs_performance_baseline_iops");
-        this.WithOutput("ebs_performance_baseline_throughput");
-        this.WithOutput("ebs_performance_maximum_bandwidth");
-        this.WithOutput("ebs_performance_maximum_iops");
-        this.WithOutput("ebs_performance_maximum_throughput");
-        this.WithOutput("efa_maximum_interfaces");
-        this.WithOutput("efa_supported");
-        this.WithOutput("ena_srd_supported");
-        this.WithOutput("ena_support");
-        this.WithOutput("encryption_in_transit_supported");
-        this.WithOutput("fpgas");
-        this.WithOutput("free_tier_eligible");
-        this.WithOutput("gpus");
-        this.WithOutput("hibernation_supported");
-        this.WithOutput("hypervisor");
-        this.WithOutput("inference_accelerators");
-        this.WithOutput("instance_disks");
-        this.WithOutput("instance_storage_supported");
-        this.WithOutput("ipv6_supported");
-        this.WithOutput("maximum_ipv4_addresses_per_interface");
-        this.WithOutput("maximum_ipv6_addresses_per_interface");
-        this.WithOutput("maximum_network_cards");
-        this.WithOutput("maximum_network_interfaces");
-        this.WithOutput("media_accelerators");
-        this.WithOutput("memory_size");
-        this.WithOutput("network_cards");
-        this.WithOutput("network_performance");
-        this.WithOutput("neuron_devices");
-        this.WithOutput("nitro_enclaves_support");
-        this.WithOutput("nitro_tpm_support");
-        this.WithOutput("nitro_tpm_supported_versions");
-        this.WithOutput("phc_support");
-        this.WithOutput("supported_architectures");
-        this.WithOutput("supported_cpu_features");
-        this.WithOutput("supported_placement_strategies");
-        this.WithOutput("supported_root_device_types");
-        this.WithOutput("supported_usages_classes");
-        this.WithOutput("supported_virtualization_types");
-        this.WithOutput("sustained_clock_speed");
-        this.WithOutput("total_fpga_memory");
-        this.WithOutput("total_gpu_memory");
-        this.WithOutput("total_inference_memory");
-        this.WithOutput("total_instance_storage");
-        this.WithOutput("total_media_memory");
-        this.WithOutput("total_neuron_device_memory");
-        this.WithOutput("valid_cores");
-        this.WithOutput("valid_threads_per_core");
+        SetOutput("auto_recovery_supported");
+        SetOutput("bandwidth_weightings");
+        SetOutput("bare_metal");
+        SetOutput("boot_modes");
+        SetOutput("burstable_performance_supported");
+        SetOutput("current_generation");
+        SetOutput("dedicated_hosts_supported");
+        SetOutput("default_cores");
+        SetOutput("default_network_card_index");
+        SetOutput("default_threads_per_core");
+        SetOutput("default_vcpus");
+        SetOutput("ebs_encryption_support");
+        SetOutput("ebs_nvme_support");
+        SetOutput("ebs_optimized_support");
+        SetOutput("ebs_performance_baseline_bandwidth");
+        SetOutput("ebs_performance_baseline_iops");
+        SetOutput("ebs_performance_baseline_throughput");
+        SetOutput("ebs_performance_maximum_bandwidth");
+        SetOutput("ebs_performance_maximum_iops");
+        SetOutput("ebs_performance_maximum_throughput");
+        SetOutput("efa_maximum_interfaces");
+        SetOutput("efa_supported");
+        SetOutput("ena_srd_supported");
+        SetOutput("ena_support");
+        SetOutput("encryption_in_transit_supported");
+        SetOutput("fpgas");
+        SetOutput("free_tier_eligible");
+        SetOutput("gpus");
+        SetOutput("hibernation_supported");
+        SetOutput("hypervisor");
+        SetOutput("inference_accelerators");
+        SetOutput("instance_disks");
+        SetOutput("instance_storage_supported");
+        SetOutput("ipv6_supported");
+        SetOutput("maximum_ipv4_addresses_per_interface");
+        SetOutput("maximum_ipv6_addresses_per_interface");
+        SetOutput("maximum_network_cards");
+        SetOutput("maximum_network_interfaces");
+        SetOutput("media_accelerators");
+        SetOutput("memory_size");
+        SetOutput("network_cards");
+        SetOutput("network_performance");
+        SetOutput("neuron_devices");
+        SetOutput("nitro_enclaves_support");
+        SetOutput("nitro_tpm_support");
+        SetOutput("nitro_tpm_supported_versions");
+        SetOutput("phc_support");
+        SetOutput("supported_architectures");
+        SetOutput("supported_cpu_features");
+        SetOutput("supported_placement_strategies");
+        SetOutput("supported_root_device_types");
+        SetOutput("supported_usages_classes");
+        SetOutput("supported_virtualization_types");
+        SetOutput("sustained_clock_speed");
+        SetOutput("total_fpga_memory");
+        SetOutput("total_gpu_memory");
+        SetOutput("total_inference_memory");
+        SetOutput("total_instance_storage");
+        SetOutput("total_media_memory");
+        SetOutput("total_neuron_device_memory");
+        SetOutput("valid_cores");
+        SetOutput("valid_threads_per_core");
+        SetOutput("id");
+        SetOutput("instance_type");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -110,17 +112,17 @@ public class AwsEc2InstanceTypeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -129,8 +131,7 @@ public class AwsEc2InstanceTypeDataSource : TerraformDataSource
     /// </summary>
     public AwsEc2InstanceTypeDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2InstanceTypeDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

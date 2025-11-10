@@ -13,8 +13,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? AuthKey
     {
-        get => GetProperty<TerraformProperty<string>>("auth_key");
-        set => WithProperty("auth_key", value);
+        set => SetProperty("auth_key", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
-        set => WithProperty("auth_type", value);
+        set => SetProperty("auth_type", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock : Terrafor
     /// </summary>
     public TerraformProperty<bool>? BooleanValue
     {
-        get => GetProperty<TerraformProperty<bool>>("boolean_value");
-        set => WithProperty("boolean_value", value);
+        set => SetProperty("boolean_value", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? IntegerValue
     {
-        get => GetProperty<TerraformProperty<double>>("integer_value");
-        set => WithProperty("integer_value", value);
+        set => SetProperty("integer_value", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? StringValue
     {
-        get => GetProperty<TerraformProperty<string>>("string_value");
-        set => WithProperty("string_value", value);
+        set => SetProperty("string_value", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class GoogleIntegrationConnectorsConnectionDestinationConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
 }
@@ -103,8 +96,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlock : Terrafor
     /// </summary>
     public TerraformProperty<bool>? EnrichmentEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enrichment_enabled");
-        set => WithProperty("enrichment_enabled", value);
+        set => SetProperty("enrichment_enabled", value);
     }
 
 }
@@ -121,8 +113,7 @@ public class GoogleIntegrationConnectorsConnectionLockConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locked is required")]
     public required TerraformProperty<bool> Locked
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("locked");
-        set => WithProperty("locked", value);
+        set => SetProperty("locked", value);
     }
 
     /// <summary>
@@ -130,8 +121,7 @@ public class GoogleIntegrationConnectorsConnectionLockConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Reason
     {
-        get => GetProperty<TerraformProperty<string>>("reason");
-        set => WithProperty("reason", value);
+        set => SetProperty("reason", value);
     }
 
 }
@@ -148,8 +138,7 @@ public class GoogleIntegrationConnectorsConnectionLogConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -157,8 +146,7 @@ public class GoogleIntegrationConnectorsConnectionLogConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Level
     {
-        get => GetProperty<TerraformProperty<string>>("level");
-        set => WithProperty("level", value);
+        set => SetProperty("level", value);
     }
 
 }
@@ -174,8 +162,7 @@ public class GoogleIntegrationConnectorsConnectionNodeConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? MaxNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_node_count");
-        set => WithProperty("max_node_count", value);
+        set => SetProperty("max_node_count", value);
     }
 
     /// <summary>
@@ -183,8 +170,7 @@ public class GoogleIntegrationConnectorsConnectionNodeConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? MinNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_node_count");
-        set => WithProperty("min_node_count", value);
+        set => SetProperty("min_node_count", value);
     }
 
 }
@@ -200,8 +186,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ClientCertType
     {
-        get => GetProperty<TerraformProperty<string>>("client_cert_type");
-        set => WithProperty("client_cert_type", value);
+        set => SetProperty("client_cert_type", value);
     }
 
     /// <summary>
@@ -209,8 +194,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ServerCertType
     {
-        get => GetProperty<TerraformProperty<string>>("server_cert_type");
-        set => WithProperty("server_cert_type", value);
+        set => SetProperty("server_cert_type", value);
     }
 
     /// <summary>
@@ -218,8 +202,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? TrustModel
     {
-        get => GetProperty<TerraformProperty<string>>("trust_model");
-        set => WithProperty("trust_model", value);
+        set => SetProperty("trust_model", value);
     }
 
     /// <summary>
@@ -228,8 +211,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -237,8 +219,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? UseSsl
     {
-        get => GetProperty<TerraformProperty<bool>>("use_ssl");
-        set => WithProperty("use_ssl", value);
+        set => SetProperty("use_ssl", value);
     }
 
 }
@@ -254,8 +235,7 @@ public class GoogleIntegrationConnectorsConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -263,8 +243,7 @@ public class GoogleIntegrationConnectorsConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -272,8 +251,7 @@ public class GoogleIntegrationConnectorsConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -291,17 +269,27 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connection_revision");
-        this.WithOutput("connector_version_infra_config");
-        this.WithOutput("connector_version_launch_stage");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("eventing_runtime_data");
-        this.WithOutput("service_directory");
-        this.WithOutput("status");
-        this.WithOutput("subscription_type");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("connection_revision");
+        SetOutput("connector_version_infra_config");
+        SetOutput("connector_version_launch_stage");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("eventing_runtime_data");
+        SetOutput("service_directory");
+        SetOutput("status");
+        SetOutput("subscription_type");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("connector_version");
+        SetOutput("description");
+        SetOutput("eventing_enablement_type");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("service_account");
+        SetOutput("suspended");
     }
 
     /// <summary>
@@ -310,35 +298,35 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorVersion is required")]
     public required TerraformProperty<string> ConnectorVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connector_version");
-        set => this.WithProperty("connector_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connector_version");
+        set => SetProperty("connector_version", value);
     }
 
     /// <summary>
     /// An arbitrary description for the Connection.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Eventing enablement type. Will be nil if eventing is not enabled. Possible values: [&amp;quot;EVENTING_AND_CONNECTION&amp;quot;, &amp;quot;ONLY_EVENTING&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EventingEnablementType
+    public TerraformProperty<string> EventingEnablementType
     {
-        get => GetProperty<TerraformProperty<string>>("eventing_enablement_type");
-        set => this.WithProperty("eventing_enablement_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventing_enablement_type");
+        set => SetProperty("eventing_enablement_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -348,10 +336,10 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -360,8 +348,8 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -370,35 +358,35 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Service account needed for runtime plane to access Google Cloud resources.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
+    public TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => this.WithProperty("service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
     /// Suspended indicates if a user has suspended a connection or not.
     /// </summary>
-    public TerraformProperty<bool>? Suspended
+    public TerraformProperty<bool> Suspended
     {
-        get => GetProperty<TerraformProperty<bool>>("suspended");
-        set => this.WithProperty("suspended", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("suspended");
+        set => SetProperty("suspended", value);
     }
 
     /// <summary>
@@ -408,8 +396,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthConfig block(s) allowed")]
     public List<GoogleIntegrationConnectorsConnectionAuthConfigBlock>? AuthConfig
     {
-        get => GetProperty<List<GoogleIntegrationConnectorsConnectionAuthConfigBlock>>("auth_config");
-        set => this.WithProperty("auth_config", value);
+        set => SetProperty("auth_config", value);
     }
 
     /// <summary>
@@ -418,8 +405,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// </summary>
     public List<GoogleIntegrationConnectorsConnectionConfigVariableBlock>? ConfigVariable
     {
-        get => GetProperty<List<GoogleIntegrationConnectorsConnectionConfigVariableBlock>>("config_variable");
-        set => this.WithProperty("config_variable", value);
+        set => SetProperty("config_variable", value);
     }
 
     /// <summary>
@@ -428,8 +414,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// </summary>
     public List<GoogleIntegrationConnectorsConnectionDestinationConfigBlock>? DestinationConfig
     {
-        get => GetProperty<List<GoogleIntegrationConnectorsConnectionDestinationConfigBlock>>("destination_config");
-        set => this.WithProperty("destination_config", value);
+        set => SetProperty("destination_config", value);
     }
 
     /// <summary>
@@ -439,8 +424,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventingConfig block(s) allowed")]
     public List<GoogleIntegrationConnectorsConnectionEventingConfigBlock>? EventingConfig
     {
-        get => GetProperty<List<GoogleIntegrationConnectorsConnectionEventingConfigBlock>>("eventing_config");
-        set => this.WithProperty("eventing_config", value);
+        set => SetProperty("eventing_config", value);
     }
 
     /// <summary>
@@ -450,8 +434,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LockConfig block(s) allowed")]
     public List<GoogleIntegrationConnectorsConnectionLockConfigBlock>? LockConfig
     {
-        get => GetProperty<List<GoogleIntegrationConnectorsConnectionLockConfigBlock>>("lock_config");
-        set => this.WithProperty("lock_config", value);
+        set => SetProperty("lock_config", value);
     }
 
     /// <summary>
@@ -461,8 +444,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     public List<GoogleIntegrationConnectorsConnectionLogConfigBlock>? LogConfig
     {
-        get => GetProperty<List<GoogleIntegrationConnectorsConnectionLogConfigBlock>>("log_config");
-        set => this.WithProperty("log_config", value);
+        set => SetProperty("log_config", value);
     }
 
     /// <summary>
@@ -472,8 +454,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     public List<GoogleIntegrationConnectorsConnectionNodeConfigBlock>? NodeConfig
     {
-        get => GetProperty<List<GoogleIntegrationConnectorsConnectionNodeConfigBlock>>("node_config");
-        set => this.WithProperty("node_config", value);
+        set => SetProperty("node_config", value);
     }
 
     /// <summary>
@@ -483,8 +464,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslConfig block(s) allowed")]
     public List<GoogleIntegrationConnectorsConnectionSslConfigBlock>? SslConfig
     {
-        get => GetProperty<List<GoogleIntegrationConnectorsConnectionSslConfigBlock>>("ssl_config");
-        set => this.WithProperty("ssl_config", value);
+        set => SetProperty("ssl_config", value);
     }
 
     /// <summary>
@@ -493,8 +473,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// </summary>
     public GoogleIntegrationConnectorsConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIntegrationConnectorsConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

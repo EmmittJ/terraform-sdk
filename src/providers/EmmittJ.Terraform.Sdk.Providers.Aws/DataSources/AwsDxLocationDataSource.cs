@@ -14,19 +14,22 @@ public class AwsDxLocationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("available_macsec_port_speeds");
-        this.WithOutput("available_port_speeds");
-        this.WithOutput("available_providers");
-        this.WithOutput("location_name");
+        SetOutput("available_macsec_port_speeds");
+        SetOutput("available_port_speeds");
+        SetOutput("available_providers");
+        SetOutput("location_name");
+        SetOutput("id");
+        SetOutput("location_code");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -35,17 +38,17 @@ public class AwsDxLocationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationCode is required")]
     public required TerraformProperty<string> LocationCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location_code");
-        set => this.WithProperty("location_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location_code");
+        set => SetProperty("location_code", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

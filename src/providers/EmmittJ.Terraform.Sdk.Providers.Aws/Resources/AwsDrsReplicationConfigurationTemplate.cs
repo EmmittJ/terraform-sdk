@@ -13,8 +13,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("interval");
-        set => WithProperty("interval", value);
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDuration is required")]
     public required TerraformProperty<double> RetentionDuration
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("retention_duration");
-        set => WithProperty("retention_duration", value);
+        set => SetProperty("retention_duration", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? RuleId
     {
-        get => GetProperty<TerraformProperty<double>>("rule_id");
-        set => WithProperty("rule_id", value);
+        set => SetProperty("rule_id", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Units is required")]
     public required TerraformProperty<string> Units
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("units");
-        set => WithProperty("units", value);
+        set => SetProperty("units", value);
     }
 
 }
@@ -69,8 +64,7 @@ public class AwsDrsReplicationConfigurationTemplateTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AwsDrsReplicationConfigurationTemplateTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AwsDrsReplicationConfigurationTemplateTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -105,9 +97,24 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("associate_default_security_group");
+        SetOutput("auto_replicate_new_disks");
+        SetOutput("bandwidth_throttling");
+        SetOutput("create_public_ip");
+        SetOutput("data_plane_routing");
+        SetOutput("default_large_staging_disk_type");
+        SetOutput("ebs_encryption");
+        SetOutput("ebs_encryption_key_arn");
+        SetOutput("region");
+        SetOutput("replication_server_instance_type");
+        SetOutput("replication_servers_security_groups_ids");
+        SetOutput("staging_area_subnet_id");
+        SetOutput("staging_area_tags");
+        SetOutput("tags");
+        SetOutput("use_dedicated_replication_server");
     }
 
     /// <summary>
@@ -116,17 +123,17 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociateDefaultSecurityGroup is required")]
     public required TerraformProperty<bool> AssociateDefaultSecurityGroup
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("associate_default_security_group");
-        set => this.WithProperty("associate_default_security_group", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("associate_default_security_group");
+        set => SetProperty("associate_default_security_group", value);
     }
 
     /// <summary>
     /// The auto_replicate_new_disks attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoReplicateNewDisks
+    public TerraformProperty<bool> AutoReplicateNewDisks
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_replicate_new_disks");
-        set => this.WithProperty("auto_replicate_new_disks", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_replicate_new_disks");
+        set => SetProperty("auto_replicate_new_disks", value);
     }
 
     /// <summary>
@@ -135,8 +142,8 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthThrottling is required")]
     public required TerraformProperty<double> BandwidthThrottling
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("bandwidth_throttling");
-        set => this.WithProperty("bandwidth_throttling", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("bandwidth_throttling");
+        set => SetProperty("bandwidth_throttling", value);
     }
 
     /// <summary>
@@ -145,8 +152,8 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatePublicIp is required")]
     public required TerraformProperty<bool> CreatePublicIp
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("create_public_ip");
-        set => this.WithProperty("create_public_ip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_public_ip");
+        set => SetProperty("create_public_ip", value);
     }
 
     /// <summary>
@@ -155,8 +162,8 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPlaneRouting is required")]
     public required TerraformProperty<string> DataPlaneRouting
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_plane_routing");
-        set => this.WithProperty("data_plane_routing", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_plane_routing");
+        set => SetProperty("data_plane_routing", value);
     }
 
     /// <summary>
@@ -165,8 +172,8 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLargeStagingDiskType is required")]
     public required TerraformProperty<string> DefaultLargeStagingDiskType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_large_staging_disk_type");
-        set => this.WithProperty("default_large_staging_disk_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_large_staging_disk_type");
+        set => SetProperty("default_large_staging_disk_type", value);
     }
 
     /// <summary>
@@ -175,26 +182,26 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEncryption is required")]
     public required TerraformProperty<string> EbsEncryption
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ebs_encryption");
-        set => this.WithProperty("ebs_encryption", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ebs_encryption");
+        set => SetProperty("ebs_encryption", value);
     }
 
     /// <summary>
     /// The ebs_encryption_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? EbsEncryptionKeyArn
+    public TerraformProperty<string> EbsEncryptionKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("ebs_encryption_key_arn");
-        set => this.WithProperty("ebs_encryption_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ebs_encryption_key_arn");
+        set => SetProperty("ebs_encryption_key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -203,18 +210,18 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationServerInstanceType is required")]
     public required TerraformProperty<string> ReplicationServerInstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("replication_server_instance_type");
-        set => this.WithProperty("replication_server_instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_server_instance_type");
+        set => SetProperty("replication_server_instance_type", value);
     }
 
     /// <summary>
     /// The replication_servers_security_groups_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationServersSecurityGroupsIds is required")]
-    public List<TerraformProperty<string>>? ReplicationServersSecurityGroupsIds
+    public List<TerraformProperty<string>> ReplicationServersSecurityGroupsIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("replication_servers_security_groups_ids");
-        set => this.WithProperty("replication_servers_security_groups_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("replication_servers_security_groups_ids");
+        set => SetProperty("replication_servers_security_groups_ids", value);
     }
 
     /// <summary>
@@ -223,27 +230,27 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingAreaSubnetId is required")]
     public required TerraformProperty<string> StagingAreaSubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("staging_area_subnet_id");
-        set => this.WithProperty("staging_area_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("staging_area_subnet_id");
+        set => SetProperty("staging_area_subnet_id", value);
     }
 
     /// <summary>
     /// The staging_area_tags attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingAreaTags is required")]
-    public Dictionary<string, TerraformProperty<string>>? StagingAreaTags
+    public Dictionary<string, TerraformProperty<string>> StagingAreaTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("staging_area_tags");
-        set => this.WithProperty("staging_area_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("staging_area_tags");
+        set => SetProperty("staging_area_tags", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -252,8 +259,8 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseDedicatedReplicationServer is required")]
     public required TerraformProperty<bool> UseDedicatedReplicationServer
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("use_dedicated_replication_server");
-        set => this.WithProperty("use_dedicated_replication_server", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("use_dedicated_replication_server");
+        set => SetProperty("use_dedicated_replication_server", value);
     }
 
     /// <summary>
@@ -262,8 +269,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     /// </summary>
     public List<AwsDrsReplicationConfigurationTemplatePitPolicyBlock>? PitPolicy
     {
-        get => GetProperty<List<AwsDrsReplicationConfigurationTemplatePitPolicyBlock>>("pit_policy");
-        set => this.WithProperty("pit_policy", value);
+        set => SetProperty("pit_policy", value);
     }
 
     /// <summary>
@@ -272,8 +278,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     /// </summary>
     public AwsDrsReplicationConfigurationTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDrsReplicationConfigurationTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

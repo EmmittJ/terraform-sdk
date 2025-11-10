@@ -14,72 +14,78 @@ public class AwsCloudformationTypeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_version_id");
-        this.WithOutput("deprecated_status");
-        this.WithOutput("description");
-        this.WithOutput("documentation_url");
-        this.WithOutput("execution_role_arn");
-        this.WithOutput("is_default_version");
-        this.WithOutput("logging_config");
-        this.WithOutput("provisioning_type");
-        this.WithOutput("schema");
-        this.WithOutput("source_url");
-        this.WithOutput("type_arn");
-        this.WithOutput("visibility");
+        SetOutput("default_version_id");
+        SetOutput("deprecated_status");
+        SetOutput("description");
+        SetOutput("documentation_url");
+        SetOutput("execution_role_arn");
+        SetOutput("is_default_version");
+        SetOutput("logging_config");
+        SetOutput("provisioning_type");
+        SetOutput("schema");
+        SetOutput("source_url");
+        SetOutput("type_arn");
+        SetOutput("visibility");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("type");
+        SetOutput("type_name");
+        SetOutput("version_id");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TypeName
+    public TerraformProperty<string> TypeName
     {
-        get => GetProperty<TerraformProperty<string>>("type_name");
-        set => this.WithProperty("type_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type_name");
+        set => SetProperty("type_name", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionId
+    public TerraformProperty<string> VersionId
     {
-        get => GetProperty<TerraformProperty<string>>("version_id");
-        set => this.WithProperty("version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
+        set => SetProperty("version_id", value);
     }
 
     /// <summary>

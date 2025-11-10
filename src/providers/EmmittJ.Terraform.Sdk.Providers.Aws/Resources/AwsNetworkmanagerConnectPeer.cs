@@ -13,8 +13,7 @@ public class AwsNetworkmanagerConnectPeerBgpOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? PeerAsn
     {
-        get => GetProperty<TerraformProperty<double>>("peer_asn");
-        set => WithProperty("peer_asn", value);
+        set => SetProperty("peer_asn", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsNetworkmanagerConnectPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsNetworkmanagerConnectPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -58,13 +55,21 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("configuration");
-        this.WithOutput("connect_peer_id");
-        this.WithOutput("core_network_id");
-        this.WithOutput("created_at");
-        this.WithOutput("edge_location");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("configuration");
+        SetOutput("connect_peer_id");
+        SetOutput("core_network_id");
+        SetOutput("created_at");
+        SetOutput("edge_location");
+        SetOutput("state");
+        SetOutput("connect_attachment_id");
+        SetOutput("core_network_address");
+        SetOutput("id");
+        SetOutput("inside_cidr_blocks");
+        SetOutput("peer_address");
+        SetOutput("subnet_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -73,35 +78,35 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectAttachmentId is required")]
     public required TerraformProperty<string> ConnectAttachmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connect_attachment_id");
-        set => this.WithProperty("connect_attachment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connect_attachment_id");
+        set => SetProperty("connect_attachment_id", value);
     }
 
     /// <summary>
     /// The core_network_address attribute.
     /// </summary>
-    public TerraformProperty<string>? CoreNetworkAddress
+    public TerraformProperty<string> CoreNetworkAddress
     {
-        get => GetProperty<TerraformProperty<string>>("core_network_address");
-        set => this.WithProperty("core_network_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("core_network_address");
+        set => SetProperty("core_network_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The inside_cidr_blocks attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? InsideCidrBlocks
+    public List<TerraformProperty<string>> InsideCidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("inside_cidr_blocks");
-        set => this.WithProperty("inside_cidr_blocks", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("inside_cidr_blocks");
+        set => SetProperty("inside_cidr_blocks", value);
     }
 
     /// <summary>
@@ -110,35 +115,35 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAddress is required")]
     public required TerraformProperty<string> PeerAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_address");
-        set => this.WithProperty("peer_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_address");
+        set => SetProperty("peer_address", value);
     }
 
     /// <summary>
     /// The subnet_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetArn
+    public TerraformProperty<string> SubnetArn
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_arn");
-        set => this.WithProperty("subnet_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_arn");
+        set => SetProperty("subnet_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -148,8 +153,7 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpOptions block(s) allowed")]
     public List<AwsNetworkmanagerConnectPeerBgpOptionsBlock>? BgpOptions
     {
-        get => GetProperty<List<AwsNetworkmanagerConnectPeerBgpOptionsBlock>>("bgp_options");
-        set => this.WithProperty("bgp_options", value);
+        set => SetProperty("bgp_options", value);
     }
 
     /// <summary>
@@ -158,8 +162,7 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     /// </summary>
     public AwsNetworkmanagerConnectPeerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerConnectPeerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermEventhubNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermEventhubNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermEventhubNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermEventhubNamespaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermEventhubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermEventhubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermEventhubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermEventhubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,57 +96,71 @@ public class AzurermEventhubNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_primary_connection_string");
-        this.WithOutput("default_primary_connection_string_alias");
-        this.WithOutput("default_primary_key");
-        this.WithOutput("default_secondary_connection_string");
-        this.WithOutput("default_secondary_connection_string_alias");
-        this.WithOutput("default_secondary_key");
+        SetOutput("default_primary_connection_string");
+        SetOutput("default_primary_connection_string_alias");
+        SetOutput("default_primary_key");
+        SetOutput("default_secondary_connection_string");
+        SetOutput("default_secondary_connection_string_alias");
+        SetOutput("default_secondary_key");
+        SetOutput("auto_inflate_enabled");
+        SetOutput("capacity");
+        SetOutput("dedicated_cluster_id");
+        SetOutput("id");
+        SetOutput("local_authentication_enabled");
+        SetOutput("location");
+        SetOutput("maximum_throughput_units");
+        SetOutput("minimum_tls_version");
+        SetOutput("name");
+        SetOutput("network_rulesets");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The auto_inflate_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoInflateEnabled
+    public TerraformProperty<bool> AutoInflateEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_inflate_enabled");
-        set => this.WithProperty("auto_inflate_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_inflate_enabled");
+        set => SetProperty("auto_inflate_enabled", value);
     }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? Capacity
+    public TerraformProperty<double> Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
-        set => this.WithProperty("capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("capacity");
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
     /// The dedicated_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DedicatedClusterId
+    public TerraformProperty<string> DedicatedClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("dedicated_cluster_id");
-        set => this.WithProperty("dedicated_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dedicated_cluster_id");
+        set => SetProperty("dedicated_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthenticationEnabled
+    public TerraformProperty<bool> LocalAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_authentication_enabled");
-        set => this.WithProperty("local_authentication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
+        set => SetProperty("local_authentication_enabled", value);
     }
 
     /// <summary>
@@ -163,26 +169,26 @@ public class AzurermEventhubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The maximum_throughput_units attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumThroughputUnits
+    public TerraformProperty<double> MaximumThroughputUnits
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_throughput_units");
-        set => this.WithProperty("maximum_throughput_units", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_throughput_units");
+        set => SetProperty("maximum_throughput_units", value);
     }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MinimumTlsVersion
+    public TerraformProperty<string> MinimumTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_tls_version");
-        set => this.WithProperty("minimum_tls_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("minimum_tls_version");
+        set => SetProperty("minimum_tls_version", value);
     }
 
     /// <summary>
@@ -191,26 +197,26 @@ public class AzurermEventhubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_rulesets attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? NetworkRulesets
+    public List<TerraformProperty<object>> NetworkRulesets
     {
-        get => GetProperty<List<TerraformProperty<object>>>("network_rulesets");
-        set => this.WithProperty("network_rulesets", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("network_rulesets");
+        set => SetProperty("network_rulesets", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -219,8 +225,8 @@ public class AzurermEventhubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -229,17 +235,17 @@ public class AzurermEventhubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -249,8 +255,7 @@ public class AzurermEventhubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermEventhubNamespaceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermEventhubNamespaceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -259,8 +264,7 @@ public class AzurermEventhubNamespace : TerraformResource
     /// </summary>
     public AzurermEventhubNamespaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventhubNamespaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

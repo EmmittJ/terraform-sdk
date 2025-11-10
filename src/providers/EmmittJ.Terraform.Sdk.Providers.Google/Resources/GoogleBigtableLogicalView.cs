@@ -13,8 +13,7 @@ public class GoogleBigtableLogicalViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleBigtableLogicalViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleBigtableLogicalViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,34 +46,40 @@ public class GoogleBigtableLogicalView : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("deletion_protection");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("logical_view_id");
+        SetOutput("project");
+        SetOutput("query");
     }
 
     /// <summary>
     /// Set to true to make the logical view protected against deletion.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name of the instance to create the logical view within.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    public TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -85,17 +88,17 @@ public class GoogleBigtableLogicalView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicalViewId is required")]
     public required TerraformProperty<string> LogicalViewId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("logical_view_id");
-        set => this.WithProperty("logical_view_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logical_view_id");
+        set => SetProperty("logical_view_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class GoogleBigtableLogicalView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query");
-        set => this.WithProperty("query", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query");
+        set => SetProperty("query", value);
     }
 
     /// <summary>
@@ -114,8 +117,7 @@ public class GoogleBigtableLogicalView : TerraformResource
     /// </summary>
     public GoogleBigtableLogicalViewTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigtableLogicalViewTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

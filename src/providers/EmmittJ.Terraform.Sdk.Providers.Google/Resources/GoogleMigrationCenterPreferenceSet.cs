@@ -13,8 +13,7 @@ public class GoogleMigrationCenterPreferenceSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleMigrationCenterPreferenceSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleMigrationCenterPreferenceSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock : 
     /// </summary>
     public TerraformProperty<string>? CommitmentPlan
     {
-        get => GetProperty<TerraformProperty<string>>("commitment_plan");
-        set => WithProperty("commitment_plan", value);
+        set => SetProperty("commitment_plan", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock : 
     /// </summary>
     public TerraformProperty<string>? SizingOptimizationStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("sizing_optimization_strategy");
-        set => WithProperty("sizing_optimization_strategy", value);
+        set => SetProperty("sizing_optimization_strategy", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock : 
     /// </summary>
     public TerraformProperty<string>? TargetProduct
     {
-        get => GetProperty<TerraformProperty<string>>("target_product");
-        set => WithProperty("target_product", value);
+        set => SetProperty("target_product", value);
     }
 
 }
@@ -85,36 +79,42 @@ public class GoogleMigrationCenterPreferenceSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("preference_set_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// A description of the preference set.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// User-friendly display name. Maximum length is 63 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,8 +123,8 @@ public class GoogleMigrationCenterPreferenceSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -133,17 +133,17 @@ public class GoogleMigrationCenterPreferenceSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferenceSetId is required")]
     public required TerraformProperty<string> PreferenceSetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("preference_set_id");
-        set => this.WithProperty("preference_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preference_set_id");
+        set => SetProperty("preference_set_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -152,8 +152,7 @@ public class GoogleMigrationCenterPreferenceSet : TerraformResource
     /// </summary>
     public GoogleMigrationCenterPreferenceSetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMigrationCenterPreferenceSetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -163,8 +162,7 @@ public class GoogleMigrationCenterPreferenceSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachinePreferences block(s) allowed")]
     public List<GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock>? VirtualMachinePreferences
     {
-        get => GetProperty<List<GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock>>("virtual_machine_preferences");
-        set => this.WithProperty("virtual_machine_preferences", value);
+        set => SetProperty("virtual_machine_preferences", value);
     }
 
     /// <summary>

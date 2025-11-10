@@ -13,8 +13,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -31,7 +30,10 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("state");
+        SetOutput("state");
+        SetOutput("core_network_id");
+        SetOutput("id");
+        SetOutput("policy_document");
     }
 
     /// <summary>
@@ -40,17 +42,17 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
-        set => this.WithProperty("core_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("core_network_id");
+        set => SetProperty("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformProperty<string> PolicyDocument
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_document");
-        set => this.WithProperty("policy_document", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_document");
+        set => SetProperty("policy_document", value);
     }
 
     /// <summary>
@@ -69,8 +71,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
     /// </summary>
     public AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AdditionalLanguageCodes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("additional_language_codes");
-        set => WithProperty("additional_language_codes", value);
+        set => SetProperty("additional_language_codes", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Gender
     {
-        get => GetProperty<TerraformProperty<string>>("gender");
-        set => WithProperty("gender", value);
+        set => SetProperty("gender", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
-        set => WithProperty("language_code", value);
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LanguageName
     {
-        get => GetProperty<TerraformProperty<string>>("language_name");
-        set => WithProperty("language_name", value);
+        set => SetProperty("language_name", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SupportedEngines
     {
-        get => GetProperty<List<TerraformProperty<string>>>("supported_engines");
-        set => WithProperty("supported_engines", value);
+        set => SetProperty("supported_engines", value);
     }
 
 }
@@ -85,43 +78,47 @@ public class AwsPollyVoicesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("engine");
+        SetOutput("include_additional_language_codes");
+        SetOutput("language_code");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    public TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The include_additional_language_codes attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeAdditionalLanguageCodes
+    public TerraformProperty<bool> IncludeAdditionalLanguageCodes
     {
-        get => GetProperty<TerraformProperty<bool>>("include_additional_language_codes");
-        set => this.WithProperty("include_additional_language_codes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_additional_language_codes");
+        set => SetProperty("include_additional_language_codes", value);
     }
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
+    public TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
-        set => this.WithProperty("language_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -130,8 +127,7 @@ public class AwsPollyVoicesDataSource : TerraformDataSource
     /// </summary>
     public List<AwsPollyVoicesDataSourceVoicesBlock>? Voices
     {
-        get => GetProperty<List<AwsPollyVoicesDataSourceVoicesBlock>>("voices");
-        set => this.WithProperty("voices", value);
+        set => SetProperty("voices", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,25 +30,29 @@ public class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("provisioning_artifact_details");
+        SetOutput("provisioning_artifact_details");
+        SetOutput("accept_language");
+        SetOutput("id");
+        SetOutput("product_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    public TerraformProperty<string>? AcceptLanguage
+    public TerraformProperty<string> AcceptLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("accept_language");
-        set => this.WithProperty("accept_language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("accept_language");
+        set => SetProperty("accept_language", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -58,17 +61,17 @@ public class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
-        set => this.WithProperty("product_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_id");
+        set => SetProperty("product_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -77,8 +80,7 @@ public class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSou
     /// </summary>
     public AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

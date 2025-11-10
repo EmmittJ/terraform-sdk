@@ -13,8 +13,7 @@ public class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,15 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("update_time");
+        SetOutput("asset_type");
+        SetOutput("authorization_direction");
+        SetOutput("authorization_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("orgs");
+        SetOutput("parent");
     }
 
     /// <summary>
@@ -58,10 +62,10 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// evaluation, such as a device. Valid values are &amp;quot;ASSET_TYPE_DEVICE&amp;quot; and
     /// &amp;quot;ASSET_TYPE_CREDENTIAL_STRENGTH&amp;quot;. Possible values: [&amp;quot;ASSET_TYPE_DEVICE&amp;quot;, &amp;quot;ASSET_TYPE_CREDENTIAL_STRENGTH&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AssetType
+    public TerraformProperty<string> AssetType
     {
-        get => GetProperty<TerraformProperty<string>>("asset_type");
-        set => this.WithProperty("asset_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("asset_type");
+        set => SetProperty("asset_type", value);
     }
 
     /// <summary>
@@ -83,28 +87,28 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// &amp;quot;AUTHORIZATION_DIRECTION_FROM&amp;quot; as the authorization direction in their
     /// &amp;quot;AuthorizedOrgsDesc&amp;quot; resource. Possible values: [&amp;quot;AUTHORIZATION_DIRECTION_TO&amp;quot;, &amp;quot;AUTHORIZATION_DIRECTION_FROM&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AuthorizationDirection
+    public TerraformProperty<string> AuthorizationDirection
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_direction");
-        set => this.WithProperty("authorization_direction", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_direction");
+        set => SetProperty("authorization_direction", value);
     }
 
     /// <summary>
     /// A granular control type for authorization levels. Valid value is &amp;quot;AUTHORIZATION_TYPE_TRUST&amp;quot;. Possible values: [&amp;quot;AUTHORIZATION_TYPE_TRUST&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AuthorizationType
+    public TerraformProperty<string> AuthorizationType
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_type");
-        set => this.WithProperty("authorization_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_type");
+        set => SetProperty("authorization_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -117,8 +121,8 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -126,10 +130,10 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// Format: &#39;organizations/&amp;lt;org_number&amp;gt;&#39;
     /// Example: &#39;organizations/123456&#39;
     /// </summary>
-    public List<TerraformProperty<string>>? Orgs
+    public List<TerraformProperty<string>> Orgs
     {
-        get => GetProperty<List<TerraformProperty<string>>>("orgs");
-        set => this.WithProperty("orgs", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("orgs");
+        set => SetProperty("orgs", value);
     }
 
     /// <summary>
@@ -138,8 +142,8 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -148,8 +152,7 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// </summary>
     public GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

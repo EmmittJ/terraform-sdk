@@ -14,8 +14,7 @@ public class AwsPricingProductDataSourceFiltersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformProperty<string> Field
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("field");
-        set => WithProperty("field", value);
+        set => SetProperty("field", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsPricingProductDataSourceFiltersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -43,16 +41,18 @@ public class AwsPricingProductDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("result");
+        SetOutput("result");
+        SetOutput("id");
+        SetOutput("service_code");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,19 +61,19 @@ public class AwsPricingProductDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformProperty<string> ServiceCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_code");
-        set => this.WithProperty("service_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_code");
+        set => SetProperty("service_code", value);
     }
 
     /// <summary>
     /// Block for filters.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filters is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filters block(s) required")]
     public List<AwsPricingProductDataSourceFiltersBlock>? Filters
     {
-        get => GetProperty<List<AwsPricingProductDataSourceFiltersBlock>>("filters");
-        set => this.WithProperty("filters", value);
+        set => SetProperty("filters", value);
     }
 
     /// <summary>

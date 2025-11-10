@@ -13,8 +13,7 @@ public class GoogleComputeNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,53 +46,63 @@ public class GoogleComputeNetworkPeering : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("state");
-        this.WithOutput("state_details");
+        SetOutput("state");
+        SetOutput("state_details");
+        SetOutput("export_custom_routes");
+        SetOutput("export_subnet_routes_with_public_ip");
+        SetOutput("id");
+        SetOutput("import_custom_routes");
+        SetOutput("import_subnet_routes_with_public_ip");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("peer_network");
+        SetOutput("stack_type");
+        SetOutput("update_strategy");
     }
 
     /// <summary>
     /// Whether to export the custom routes to the peer network. Defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? ExportCustomRoutes
+    public TerraformProperty<bool> ExportCustomRoutes
     {
-        get => GetProperty<TerraformProperty<bool>>("export_custom_routes");
-        set => this.WithProperty("export_custom_routes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("export_custom_routes");
+        set => SetProperty("export_custom_routes", value);
     }
 
     /// <summary>
     /// The export_subnet_routes_with_public_ip attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExportSubnetRoutesWithPublicIp
+    public TerraformProperty<bool> ExportSubnetRoutesWithPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("export_subnet_routes_with_public_ip");
-        set => this.WithProperty("export_subnet_routes_with_public_ip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("export_subnet_routes_with_public_ip");
+        set => SetProperty("export_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Whether to export the custom routes from the peer network. Defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? ImportCustomRoutes
+    public TerraformProperty<bool> ImportCustomRoutes
     {
-        get => GetProperty<TerraformProperty<bool>>("import_custom_routes");
-        set => this.WithProperty("import_custom_routes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("import_custom_routes");
+        set => SetProperty("import_custom_routes", value);
     }
 
     /// <summary>
     /// The import_subnet_routes_with_public_ip attribute.
     /// </summary>
-    public TerraformProperty<bool>? ImportSubnetRoutesWithPublicIp
+    public TerraformProperty<bool> ImportSubnetRoutesWithPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("import_subnet_routes_with_public_ip");
-        set => this.WithProperty("import_subnet_routes_with_public_ip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("import_subnet_routes_with_public_ip");
+        set => SetProperty("import_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
@@ -104,8 +111,8 @@ public class GoogleComputeNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,8 +121,8 @@ public class GoogleComputeNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -124,26 +131,26 @@ public class GoogleComputeNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetwork is required")]
     public required TerraformProperty<string> PeerNetwork
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_network");
-        set => this.WithProperty("peer_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_network");
+        set => SetProperty("peer_network", value);
     }
 
     /// <summary>
     /// Which IP version(s) of traffic and routes are allowed to be imported or exported between peer networks. The default value is IPV4_ONLY. Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;IPV4_IPV6&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? StackType
+    public TerraformProperty<string> StackType
     {
-        get => GetProperty<TerraformProperty<string>>("stack_type");
-        set => this.WithProperty("stack_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stack_type");
+        set => SetProperty("stack_type", value);
     }
 
     /// <summary>
     /// The update strategy determines the semantics for updates and deletes to the peering connection configuration. The default value is INDEPENDENT. Possible values: [&amp;quot;INDEPENDENT&amp;quot;, &amp;quot;CONSENSUS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? UpdateStrategy
+    public TerraformProperty<string> UpdateStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("update_strategy");
-        set => this.WithProperty("update_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("update_strategy");
+        set => SetProperty("update_strategy", value);
     }
 
     /// <summary>
@@ -152,8 +159,7 @@ public class GoogleComputeNetworkPeering : TerraformResource
     /// </summary>
     public GoogleComputeNetworkPeeringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNetworkPeeringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

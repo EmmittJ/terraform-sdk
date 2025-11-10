@@ -13,8 +13,7 @@ public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastAccessedDate
     {
-        get => GetProperty<TerraformProperty<string>>("last_accessed_date");
-        set => WithProperty("last_accessed_date", value);
+        set => SetProperty("last_accessed_date", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StatusMessage
     {
-        get => GetProperty<TerraformProperty<string>>("status_message");
-        set => WithProperty("status_message", value);
+        set => SetProperty("status_message", value);
     }
 
 }
@@ -68,106 +63,117 @@ public class AwsSecretsmanagerSecret : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("force_overwrite_replica_secret");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("policy");
+        SetOutput("recovery_window_in_days");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The force_overwrite_replica_secret attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceOverwriteReplicaSecret
+    public TerraformProperty<bool> ForceOverwriteReplicaSecret
     {
-        get => GetProperty<TerraformProperty<bool>>("force_overwrite_replica_secret");
-        set => this.WithProperty("force_overwrite_replica_secret", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_overwrite_replica_secret");
+        set => SetProperty("force_overwrite_replica_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    public TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
     /// The recovery_window_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RecoveryWindowInDays
+    public TerraformProperty<double> RecoveryWindowInDays
     {
-        get => GetProperty<TerraformProperty<double>>("recovery_window_in_days");
-        set => this.WithProperty("recovery_window_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("recovery_window_in_days");
+        set => SetProperty("recovery_window_in_days", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -176,8 +182,7 @@ public class AwsSecretsmanagerSecret : TerraformResource
     /// </summary>
     public HashSet<AwsSecretsmanagerSecretReplicaBlock>? Replica
     {
-        get => GetProperty<HashSet<AwsSecretsmanagerSecretReplicaBlock>>("replica");
-        set => this.WithProperty("replica", value);
+        set => SetProperty("replica", value);
     }
 
     /// <summary>

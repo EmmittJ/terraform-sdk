@@ -14,7 +14,12 @@ public class AwsEksAddonVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("version");
+        SetOutput("version");
+        SetOutput("addon_name");
+        SetOutput("id");
+        SetOutput("kubernetes_version");
+        SetOutput("most_recent");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -23,17 +28,17 @@ public class AwsEksAddonVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddonName is required")]
     public required TerraformProperty<string> AddonName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("addon_name");
-        set => this.WithProperty("addon_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("addon_name");
+        set => SetProperty("addon_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,26 +47,26 @@ public class AwsEksAddonVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesVersion is required")]
     public required TerraformProperty<string> KubernetesVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_version");
-        set => this.WithProperty("kubernetes_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kubernetes_version");
+        set => SetProperty("kubernetes_version", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

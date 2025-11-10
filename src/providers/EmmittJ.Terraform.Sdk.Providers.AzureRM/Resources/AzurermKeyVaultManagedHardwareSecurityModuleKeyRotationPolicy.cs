@@ -13,8 +13,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeou
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeou
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeou
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeou
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,11 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
 
     private void InitializeOutputs()
     {
+        SetOutput("expire_after");
+        SetOutput("id");
+        SetOutput("managed_hsm_key_id");
+        SetOutput("time_after_creation");
+        SetOutput("time_before_expiry");
     }
 
     /// <summary>
@@ -66,17 +67,17 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpireAfter is required")]
     public required TerraformProperty<string> ExpireAfter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expire_after");
-        set => this.WithProperty("expire_after", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expire_after");
+        set => SetProperty("expire_after", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,26 +86,26 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmKeyId is required")]
     public required TerraformProperty<string> ManagedHsmKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_hsm_key_id");
-        set => this.WithProperty("managed_hsm_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_key_id");
+        set => SetProperty("managed_hsm_key_id", value);
     }
 
     /// <summary>
     /// The time_after_creation attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeAfterCreation
+    public TerraformProperty<string> TimeAfterCreation
     {
-        get => GetProperty<TerraformProperty<string>>("time_after_creation");
-        set => this.WithProperty("time_after_creation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_after_creation");
+        set => SetProperty("time_after_creation", value);
     }
 
     /// <summary>
     /// The time_before_expiry attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeBeforeExpiry
+    public TerraformProperty<string> TimeBeforeExpiry
     {
-        get => GetProperty<TerraformProperty<string>>("time_before_expiry");
-        set => this.WithProperty("time_before_expiry", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_before_expiry");
+        set => SetProperty("time_before_expiry", value);
     }
 
     /// <summary>
@@ -113,8 +114,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

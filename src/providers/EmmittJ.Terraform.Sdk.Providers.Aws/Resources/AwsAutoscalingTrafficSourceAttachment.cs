@@ -13,8 +13,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
-        set => WithProperty("identifier", value);
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -69,6 +65,9 @@ public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("autoscaling_group_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -77,26 +76,26 @@ public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformProperty<string> AutoscalingGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("autoscaling_group_name");
-        set => this.WithProperty("autoscaling_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_group_name");
+        set => SetProperty("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -105,8 +104,7 @@ public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     /// </summary>
     public AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -116,8 +114,7 @@ public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficSource block(s) allowed")]
     public List<AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock>? TrafficSource
     {
-        get => GetProperty<List<AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock>>("traffic_source");
-        set => this.WithProperty("traffic_source", value);
+        set => SetProperty("traffic_source", value);
     }
 
 }

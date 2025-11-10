@@ -13,8 +13,7 @@ public class AwsImagebuilderImageImageScanningConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? ImageScanningEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("image_scanning_enabled");
-        set => WithProperty("image_scanning_enabled", value);
+        set => SetProperty("image_scanning_enabled", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsImagebuilderImageImageTestsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ImageTestsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("image_tests_enabled");
-        set => WithProperty("image_tests_enabled", value);
+        set => SetProperty("image_tests_enabled", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsImagebuilderImageImageTestsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TimeoutMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_minutes");
-        set => WithProperty("timeout_minutes", value);
+        set => SetProperty("timeout_minutes", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class AwsImagebuilderImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -73,8 +69,7 @@ public class AwsImagebuilderImageWorkflowBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OnFailure
     {
-        get => GetProperty<TerraformProperty<string>>("on_failure");
-        set => WithProperty("on_failure", value);
+        set => SetProperty("on_failure", value);
     }
 
     /// <summary>
@@ -82,8 +77,7 @@ public class AwsImagebuilderImageWorkflowBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ParallelGroup
     {
-        get => GetProperty<TerraformProperty<string>>("parallel_group");
-        set => WithProperty("parallel_group", value);
+        set => SetProperty("parallel_group", value);
     }
 
     /// <summary>
@@ -92,8 +86,7 @@ public class AwsImagebuilderImageWorkflowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowArn is required")]
     public required TerraformProperty<string> WorkflowArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workflow_arn");
-        set => WithProperty("workflow_arn", value);
+        set => SetProperty("workflow_arn", value);
     }
 
 }
@@ -111,67 +104,77 @@ public class AwsImagebuilderImage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("date_created");
-        this.WithOutput("name");
-        this.WithOutput("os_version");
-        this.WithOutput("output_resources");
-        this.WithOutput("platform");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("date_created");
+        SetOutput("name");
+        SetOutput("os_version");
+        SetOutput("output_resources");
+        SetOutput("platform");
+        SetOutput("version");
+        SetOutput("container_recipe_arn");
+        SetOutput("distribution_configuration_arn");
+        SetOutput("enhanced_image_metadata_enabled");
+        SetOutput("execution_role");
+        SetOutput("id");
+        SetOutput("image_recipe_arn");
+        SetOutput("infrastructure_configuration_arn");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The container_recipe_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerRecipeArn
+    public TerraformProperty<string> ContainerRecipeArn
     {
-        get => GetProperty<TerraformProperty<string>>("container_recipe_arn");
-        set => this.WithProperty("container_recipe_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_recipe_arn");
+        set => SetProperty("container_recipe_arn", value);
     }
 
     /// <summary>
     /// The distribution_configuration_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DistributionConfigurationArn
+    public TerraformProperty<string> DistributionConfigurationArn
     {
-        get => GetProperty<TerraformProperty<string>>("distribution_configuration_arn");
-        set => this.WithProperty("distribution_configuration_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("distribution_configuration_arn");
+        set => SetProperty("distribution_configuration_arn", value);
     }
 
     /// <summary>
     /// The enhanced_image_metadata_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnhancedImageMetadataEnabled
+    public TerraformProperty<bool> EnhancedImageMetadataEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enhanced_image_metadata_enabled");
-        set => this.WithProperty("enhanced_image_metadata_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enhanced_image_metadata_enabled");
+        set => SetProperty("enhanced_image_metadata_enabled", value);
     }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionRole
+    public TerraformProperty<string> ExecutionRole
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role");
-        set => this.WithProperty("execution_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role");
+        set => SetProperty("execution_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The image_recipe_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageRecipeArn
+    public TerraformProperty<string> ImageRecipeArn
     {
-        get => GetProperty<TerraformProperty<string>>("image_recipe_arn");
-        set => this.WithProperty("image_recipe_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_recipe_arn");
+        set => SetProperty("image_recipe_arn", value);
     }
 
     /// <summary>
@@ -180,35 +183,35 @@ public class AwsImagebuilderImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureConfigurationArn is required")]
     public required TerraformProperty<string> InfrastructureConfigurationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("infrastructure_configuration_arn");
-        set => this.WithProperty("infrastructure_configuration_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("infrastructure_configuration_arn");
+        set => SetProperty("infrastructure_configuration_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -218,8 +221,7 @@ public class AwsImagebuilderImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageScanningConfiguration block(s) allowed")]
     public List<AwsImagebuilderImageImageScanningConfigurationBlock>? ImageScanningConfiguration
     {
-        get => GetProperty<List<AwsImagebuilderImageImageScanningConfigurationBlock>>("image_scanning_configuration");
-        set => this.WithProperty("image_scanning_configuration", value);
+        set => SetProperty("image_scanning_configuration", value);
     }
 
     /// <summary>
@@ -229,8 +231,7 @@ public class AwsImagebuilderImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageTestsConfiguration block(s) allowed")]
     public List<AwsImagebuilderImageImageTestsConfigurationBlock>? ImageTestsConfiguration
     {
-        get => GetProperty<List<AwsImagebuilderImageImageTestsConfigurationBlock>>("image_tests_configuration");
-        set => this.WithProperty("image_tests_configuration", value);
+        set => SetProperty("image_tests_configuration", value);
     }
 
     /// <summary>
@@ -239,8 +240,7 @@ public class AwsImagebuilderImage : TerraformResource
     /// </summary>
     public AwsImagebuilderImageTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsImagebuilderImageTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -249,8 +249,7 @@ public class AwsImagebuilderImage : TerraformResource
     /// </summary>
     public HashSet<AwsImagebuilderImageWorkflowBlock>? Workflow
     {
-        get => GetProperty<HashSet<AwsImagebuilderImageWorkflowBlock>>("workflow");
-        set => this.WithProperty("workflow", value);
+        set => SetProperty("workflow", value);
     }
 
     /// <summary>

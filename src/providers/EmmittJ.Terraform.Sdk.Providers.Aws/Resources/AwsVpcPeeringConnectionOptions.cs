@@ -13,8 +13,7 @@ public class AwsVpcPeeringConnectionOptionsAccepterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_remote_vpc_dns_resolution");
-        set => WithProperty("allow_remote_vpc_dns_resolution", value);
+        set => SetProperty("allow_remote_vpc_dns_resolution", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsVpcPeeringConnectionOptionsRequesterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_remote_vpc_dns_resolution");
-        set => WithProperty("allow_remote_vpc_dns_resolution", value);
+        set => SetProperty("allow_remote_vpc_dns_resolution", value);
     }
 
 }
@@ -49,24 +47,27 @@ public class AwsVpcPeeringConnectionOptions : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("vpc_peering_connection_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -75,8 +76,8 @@ public class AwsVpcPeeringConnectionOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcPeeringConnectionId is required")]
     public required TerraformProperty<string> VpcPeeringConnectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_peering_connection_id");
-        set => this.WithProperty("vpc_peering_connection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_peering_connection_id");
+        set => SetProperty("vpc_peering_connection_id", value);
     }
 
     /// <summary>
@@ -86,8 +87,7 @@ public class AwsVpcPeeringConnectionOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Accepter block(s) allowed")]
     public List<AwsVpcPeeringConnectionOptionsAccepterBlock>? Accepter
     {
-        get => GetProperty<List<AwsVpcPeeringConnectionOptionsAccepterBlock>>("accepter");
-        set => this.WithProperty("accepter", value);
+        set => SetProperty("accepter", value);
     }
 
     /// <summary>
@@ -97,8 +97,7 @@ public class AwsVpcPeeringConnectionOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requester block(s) allowed")]
     public List<AwsVpcPeeringConnectionOptionsRequesterBlock>? Requester
     {
-        get => GetProperty<List<AwsVpcPeeringConnectionOptionsRequesterBlock>>("requester");
-        set => this.WithProperty("requester", value);
+        set => SetProperty("requester", value);
     }
 
 }

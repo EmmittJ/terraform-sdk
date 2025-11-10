@@ -13,8 +13,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,14 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("private_key_set");
+        SetOutput("name");
+        SetOutput("private_key_set");
+        SetOutput("app_id");
+        SetOutput("id");
+        SetOutput("key_id");
+        SetOutput("private_key");
+        SetOutput("project");
+        SetOutput("token_ttl");
     }
 
     /// <summary>
@@ -60,17 +63,17 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -79,8 +82,8 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
-        set => this.WithProperty("key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
@@ -89,17 +92,17 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformProperty<string> PrivateKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_key");
-        set => this.WithProperty("private_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_key");
+        set => SetProperty("private_key", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -108,10 +111,10 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? TokenTtl
+    public TerraformProperty<string> TokenTtl
     {
-        get => GetProperty<TerraformProperty<string>>("token_ttl");
-        set => this.WithProperty("token_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("token_ttl");
+        set => SetProperty("token_ttl", value);
     }
 
     /// <summary>
@@ -120,8 +123,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// </summary>
     public GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

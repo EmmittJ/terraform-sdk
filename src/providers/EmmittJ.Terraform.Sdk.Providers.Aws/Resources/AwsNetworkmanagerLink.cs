@@ -13,8 +13,7 @@ public class AwsNetworkmanagerLinkBandwidthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DownloadSpeed
     {
-        get => GetProperty<TerraformProperty<double>>("download_speed");
-        set => WithProperty("download_speed", value);
+        set => SetProperty("download_speed", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerLinkBandwidthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? UploadSpeed
     {
-        get => GetProperty<TerraformProperty<double>>("upload_speed");
-        set => WithProperty("upload_speed", value);
+        set => SetProperty("upload_speed", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsNetworkmanagerLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsNetworkmanagerLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsNetworkmanagerLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,16 +71,24 @@ public class AwsNetworkmanagerLink : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("global_network_id");
+        SetOutput("id");
+        SetOutput("provider_name");
+        SetOutput("site_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -94,26 +97,26 @@ public class AwsNetworkmanagerLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
-        set => this.WithProperty("global_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
+        set => SetProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProviderName
+    public TerraformProperty<string> ProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("provider_name");
-        set => this.WithProperty("provider_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_name");
+        set => SetProperty("provider_name", value);
     }
 
     /// <summary>
@@ -122,47 +125,47 @@ public class AwsNetworkmanagerLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteId is required")]
     public required TerraformProperty<string> SiteId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("site_id");
-        set => this.WithProperty("site_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("site_id");
+        set => SetProperty("site_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Block for bandwidth.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bandwidth is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Bandwidth block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bandwidth block(s) allowed")]
     public List<AwsNetworkmanagerLinkBandwidthBlock>? Bandwidth
     {
-        get => GetProperty<List<AwsNetworkmanagerLinkBandwidthBlock>>("bandwidth");
-        set => this.WithProperty("bandwidth", value);
+        set => SetProperty("bandwidth", value);
     }
 
     /// <summary>
@@ -171,8 +174,7 @@ public class AwsNetworkmanagerLink : TerraformResource
     /// </summary>
     public AwsNetworkmanagerLinkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerLinkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

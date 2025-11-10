@@ -14,8 +14,7 @@ public class AwsVpcIpamsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsVpcIpamsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -42,25 +40,27 @@ public class AwsVpcIpamsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ipams");
+        SetOutput("ipams");
+        SetOutput("ipam_ids");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The ipam_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? IpamIds
+    public List<TerraformProperty<string>> IpamIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ipam_ids");
-        set => this.WithProperty("ipam_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ipam_ids");
+        set => SetProperty("ipam_ids", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,8 +69,7 @@ public class AwsVpcIpamsDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsVpcIpamsDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsVpcIpamsDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>

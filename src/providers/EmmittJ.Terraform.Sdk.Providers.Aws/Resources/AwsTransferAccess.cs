@@ -14,8 +14,7 @@ public class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entry is required")]
     public required TerraformProperty<string> Entry
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entry");
-        set => WithProperty("entry", value);
+        set => SetProperty("entry", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target");
-        set => WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AwsTransferAccessPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformProperty<double> Gid
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("gid");
-        set => WithProperty("gid", value);
+        set => SetProperty("gid", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AwsTransferAccessPosixProfileBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<double>>? SecondaryGids
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("secondary_gids");
-        set => WithProperty("secondary_gids", value);
+        set => SetProperty("secondary_gids", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AwsTransferAccessPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformProperty<double> Uid
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("uid");
-        set => WithProperty("uid", value);
+        set => SetProperty("uid", value);
     }
 
 }
@@ -80,6 +75,14 @@ public class AwsTransferAccess : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("external_id");
+        SetOutput("home_directory");
+        SetOutput("home_directory_type");
+        SetOutput("id");
+        SetOutput("policy");
+        SetOutput("region");
+        SetOutput("role");
+        SetOutput("server_id");
     }
 
     /// <summary>
@@ -88,62 +91,62 @@ public class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformProperty<string> ExternalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("external_id");
-        set => this.WithProperty("external_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("external_id");
+        set => SetProperty("external_id", value);
     }
 
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
-    public TerraformProperty<string>? HomeDirectory
+    public TerraformProperty<string> HomeDirectory
     {
-        get => GetProperty<TerraformProperty<string>>("home_directory");
-        set => this.WithProperty("home_directory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("home_directory");
+        set => SetProperty("home_directory", value);
     }
 
     /// <summary>
     /// The home_directory_type attribute.
     /// </summary>
-    public TerraformProperty<string>? HomeDirectoryType
+    public TerraformProperty<string> HomeDirectoryType
     {
-        get => GetProperty<TerraformProperty<string>>("home_directory_type");
-        set => this.WithProperty("home_directory_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("home_directory_type");
+        set => SetProperty("home_directory_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    public TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    public TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -152,8 +155,8 @@ public class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
-        set => this.WithProperty("server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
+        set => SetProperty("server_id", value);
     }
 
     /// <summary>
@@ -163,8 +166,7 @@ public class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 HomeDirectoryMappings block(s) allowed")]
     public List<AwsTransferAccessHomeDirectoryMappingsBlock>? HomeDirectoryMappings
     {
-        get => GetProperty<List<AwsTransferAccessHomeDirectoryMappingsBlock>>("home_directory_mappings");
-        set => this.WithProperty("home_directory_mappings", value);
+        set => SetProperty("home_directory_mappings", value);
     }
 
     /// <summary>
@@ -174,8 +176,7 @@ public class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixProfile block(s) allowed")]
     public List<AwsTransferAccessPosixProfileBlock>? PosixProfile
     {
-        get => GetProperty<List<AwsTransferAccessPosixProfileBlock>>("posix_profile");
-        set => this.WithProperty("posix_profile", value);
+        set => SetProperty("posix_profile", value);
     }
 
 }

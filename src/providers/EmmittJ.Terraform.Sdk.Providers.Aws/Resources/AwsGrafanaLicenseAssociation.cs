@@ -13,8 +13,7 @@ public class AwsGrafanaLicenseAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGrafanaLicenseAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,26 +38,31 @@ public class AwsGrafanaLicenseAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("free_trial_expiration");
-        this.WithOutput("license_expiration");
+        SetOutput("free_trial_expiration");
+        SetOutput("license_expiration");
+        SetOutput("grafana_token");
+        SetOutput("id");
+        SetOutput("license_type");
+        SetOutput("region");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The grafana_token attribute.
     /// </summary>
-    public TerraformProperty<string>? GrafanaToken
+    public TerraformProperty<string> GrafanaToken
     {
-        get => GetProperty<TerraformProperty<string>>("grafana_token");
-        set => this.WithProperty("grafana_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("grafana_token");
+        set => SetProperty("grafana_token", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,17 +71,17 @@ public class AwsGrafanaLicenseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformProperty<string> LicenseType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license_type");
-        set => this.WithProperty("license_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
+        set => SetProperty("license_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -87,8 +90,8 @@ public class AwsGrafanaLicenseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -97,8 +100,7 @@ public class AwsGrafanaLicenseAssociation : TerraformResource
     /// </summary>
     public AwsGrafanaLicenseAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsGrafanaLicenseAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

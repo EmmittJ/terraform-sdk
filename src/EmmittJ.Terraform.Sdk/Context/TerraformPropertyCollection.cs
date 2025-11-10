@@ -42,11 +42,11 @@ internal sealed class TerraformPropertyCollection
     /// <summary>
     /// Gets a property value as a specific type.
     /// </summary>
-    public T? Get<T>(string key) where T : class
+    public T? Get<T>(string key)
     {
         return _properties.TryGetValue(key, out var value) && value is T typedValue
             ? typedValue
-            : null;
+            : default;
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ internal sealed class TerraformPropertyCollection
     /// Throws if the property is null.
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown when the property value is null.</exception>
-    public T GetRequired<T>(string key) where T : class
+    public T GetRequired<T>(string key)
         => Get<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is null.");
 
     /// <summary>

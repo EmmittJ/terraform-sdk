@@ -13,8 +13,7 @@ public class AwsIotTopicRuleDestinationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsIotTopicRuleDestinationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsIotTopicRuleDestinationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsIotTopicRuleDestinationVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsIotTopicRuleDestinationVpcConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => WithProperty("security_groups", value);
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsIotTopicRuleDestinationVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AwsIotTopicRuleDestinationVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -97,34 +90,37 @@ public class AwsIotTopicRuleDestination : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -133,20 +129,19 @@ public class AwsIotTopicRuleDestination : TerraformResource
     /// </summary>
     public AwsIotTopicRuleDestinationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsIotTopicRuleDestinationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for vpc_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     public List<AwsIotTopicRuleDestinationVpcConfigurationBlock>? VpcConfiguration
     {
-        get => GetProperty<List<AwsIotTopicRuleDestinationVpcConfigurationBlock>>("vpc_configuration");
-        set => this.WithProperty("vpc_configuration", value);
+        set => SetProperty("vpc_configuration", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? EmailSubject
     {
-        get => GetProperty<TerraformProperty<string>>("email_subject");
-        set => WithProperty("email_subject", value);
+        set => SetProperty("email_subject", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ids is required")]
     public HashSet<TerraformProperty<string>>? Ids
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ids");
-        set => WithProperty("ids", value);
+        set => SetProperty("ids", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? WebhookPayload
     {
-        get => GetProperty<TerraformProperty<string>>("webhook_payload");
-        set => WithProperty("webhook_payload", value);
+        set => SetProperty("webhook_payload", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,15 +88,26 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("detector_type");
+        SetOutput("enabled");
+        SetOutput("frequency");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("scope_resource_ids");
+        SetOutput("severity");
+        SetOutput("tags");
+        SetOutput("throttling_duration");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -112,17 +116,17 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorType is required")]
     public required TerraformProperty<string> DetectorType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("detector_type");
-        set => this.WithProperty("detector_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("detector_type");
+        set => SetProperty("detector_type", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -131,17 +135,17 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
-        set => this.WithProperty("frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -150,8 +154,8 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -160,18 +164,18 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scope_resource_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeResourceIds is required")]
-    public HashSet<TerraformProperty<string>>? ScopeResourceIds
+    public HashSet<TerraformProperty<string>> ScopeResourceIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scope_resource_ids");
-        set => this.WithProperty("scope_resource_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scope_resource_ids");
+        set => SetProperty("scope_resource_ids", value);
     }
 
     /// <summary>
@@ -180,38 +184,38 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformProperty<string> Severity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("severity");
-        set => this.WithProperty("severity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("severity");
+        set => SetProperty("severity", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The throttling_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? ThrottlingDuration
+    public TerraformProperty<string> ThrottlingDuration
     {
-        get => GetProperty<TerraformProperty<string>>("throttling_duration");
-        set => this.WithProperty("throttling_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("throttling_duration");
+        set => SetProperty("throttling_duration", value);
     }
 
     /// <summary>
     /// Block for action_group.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionGroup block(s) allowed")]
     public List<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock>? ActionGroup
     {
-        get => GetProperty<List<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock>>("action_group");
-        set => this.WithProperty("action_group", value);
+        set => SetProperty("action_group", value);
     }
 
     /// <summary>
@@ -220,8 +224,7 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// </summary>
     public AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

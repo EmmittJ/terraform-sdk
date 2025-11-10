@@ -13,8 +13,7 @@ public class AzurermCosmosdbSqlTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCosmosdbSqlTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCosmosdbSqlTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCosmosdbSqlTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("body");
+        SetOutput("container_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("operation");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("body");
-        set => this.WithProperty("body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("body");
+        set => SetProperty("body", value);
     }
 
     /// <summary>
@@ -76,17 +78,17 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformProperty<string> ContainerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_id");
-        set => this.WithProperty("container_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_id");
+        set => SetProperty("container_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
     public required TerraformProperty<string> Operation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("operation");
-        set => this.WithProperty("operation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("operation");
+        set => SetProperty("operation", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     /// </summary>
     public AzurermCosmosdbSqlTriggerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbSqlTriggerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

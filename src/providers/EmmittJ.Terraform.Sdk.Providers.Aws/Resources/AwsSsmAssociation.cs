@@ -14,8 +14,7 @@ public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
-        set => WithProperty("s3_bucket_name", value);
+        set => SetProperty("s3_bucket_name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? S3KeyPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("s3_key_prefix");
-        set => WithProperty("s3_key_prefix", value);
+        set => SetProperty("s3_key_prefix", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? S3Region
     {
-        get => GetProperty<TerraformProperty<string>>("s3_region");
-        set => WithProperty("s3_region", value);
+        set => SetProperty("s3_region", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AwsSsmAssociationTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsSsmAssociationTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public List<TerraformProperty<string>>? Values
     {
-        get => GetProperty<List<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -79,80 +74,96 @@ public class AwsSsmAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("association_id");
+        SetOutput("arn");
+        SetOutput("association_id");
+        SetOutput("apply_only_at_cron_interval");
+        SetOutput("association_name");
+        SetOutput("automation_target_parameter_name");
+        SetOutput("compliance_severity");
+        SetOutput("document_version");
+        SetOutput("id");
+        SetOutput("max_concurrency");
+        SetOutput("max_errors");
+        SetOutput("name");
+        SetOutput("parameters");
+        SetOutput("region");
+        SetOutput("schedule_expression");
+        SetOutput("sync_compliance");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("wait_for_success_timeout_seconds");
     }
 
     /// <summary>
     /// The apply_only_at_cron_interval attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplyOnlyAtCronInterval
+    public TerraformProperty<bool> ApplyOnlyAtCronInterval
     {
-        get => GetProperty<TerraformProperty<bool>>("apply_only_at_cron_interval");
-        set => this.WithProperty("apply_only_at_cron_interval", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("apply_only_at_cron_interval");
+        set => SetProperty("apply_only_at_cron_interval", value);
     }
 
     /// <summary>
     /// The association_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AssociationName
+    public TerraformProperty<string> AssociationName
     {
-        get => GetProperty<TerraformProperty<string>>("association_name");
-        set => this.WithProperty("association_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("association_name");
+        set => SetProperty("association_name", value);
     }
 
     /// <summary>
     /// The automation_target_parameter_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AutomationTargetParameterName
+    public TerraformProperty<string> AutomationTargetParameterName
     {
-        get => GetProperty<TerraformProperty<string>>("automation_target_parameter_name");
-        set => this.WithProperty("automation_target_parameter_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automation_target_parameter_name");
+        set => SetProperty("automation_target_parameter_name", value);
     }
 
     /// <summary>
     /// The compliance_severity attribute.
     /// </summary>
-    public TerraformProperty<string>? ComplianceSeverity
+    public TerraformProperty<string> ComplianceSeverity
     {
-        get => GetProperty<TerraformProperty<string>>("compliance_severity");
-        set => this.WithProperty("compliance_severity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compliance_severity");
+        set => SetProperty("compliance_severity", value);
     }
 
     /// <summary>
     /// The document_version attribute.
     /// </summary>
-    public TerraformProperty<string>? DocumentVersion
+    public TerraformProperty<string> DocumentVersion
     {
-        get => GetProperty<TerraformProperty<string>>("document_version");
-        set => this.WithProperty("document_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("document_version");
+        set => SetProperty("document_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformProperty<string>? MaxConcurrency
+    public TerraformProperty<string> MaxConcurrency
     {
-        get => GetProperty<TerraformProperty<string>>("max_concurrency");
-        set => this.WithProperty("max_concurrency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("max_concurrency");
+        set => SetProperty("max_concurrency", value);
     }
 
     /// <summary>
     /// The max_errors attribute.
     /// </summary>
-    public TerraformProperty<string>? MaxErrors
+    public TerraformProperty<string> MaxErrors
     {
-        get => GetProperty<TerraformProperty<string>>("max_errors");
-        set => this.WithProperty("max_errors", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("max_errors");
+        set => SetProperty("max_errors", value);
     }
 
     /// <summary>
@@ -161,71 +172,71 @@ public class AwsSsmAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The schedule_expression attribute.
     /// </summary>
-    public TerraformProperty<string>? ScheduleExpression
+    public TerraformProperty<string> ScheduleExpression
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression");
-        set => this.WithProperty("schedule_expression", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule_expression");
+        set => SetProperty("schedule_expression", value);
     }
 
     /// <summary>
     /// The sync_compliance attribute.
     /// </summary>
-    public TerraformProperty<string>? SyncCompliance
+    public TerraformProperty<string> SyncCompliance
     {
-        get => GetProperty<TerraformProperty<string>>("sync_compliance");
-        set => this.WithProperty("sync_compliance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sync_compliance");
+        set => SetProperty("sync_compliance", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The wait_for_success_timeout_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? WaitForSuccessTimeoutSeconds
+    public TerraformProperty<double> WaitForSuccessTimeoutSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("wait_for_success_timeout_seconds");
-        set => this.WithProperty("wait_for_success_timeout_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("wait_for_success_timeout_seconds");
+        set => SetProperty("wait_for_success_timeout_seconds", value);
     }
 
     /// <summary>
@@ -235,8 +246,7 @@ public class AwsSsmAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputLocation block(s) allowed")]
     public List<AwsSsmAssociationOutputLocationBlock>? OutputLocation
     {
-        get => GetProperty<List<AwsSsmAssociationOutputLocationBlock>>("output_location");
-        set => this.WithProperty("output_location", value);
+        set => SetProperty("output_location", value);
     }
 
     /// <summary>
@@ -246,8 +256,7 @@ public class AwsSsmAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Targets block(s) allowed")]
     public List<AwsSsmAssociationTargetsBlock>? Targets
     {
-        get => GetProperty<List<AwsSsmAssociationTargetsBlock>>("targets");
-        set => this.WithProperty("targets", value);
+        set => SetProperty("targets", value);
     }
 
     /// <summary>

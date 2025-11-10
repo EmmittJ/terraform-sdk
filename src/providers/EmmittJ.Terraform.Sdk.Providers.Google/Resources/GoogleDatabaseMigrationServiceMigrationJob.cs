@@ -21,8 +21,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock : 
     /// </summary>
     public TerraformProperty<string>? DumpParallelLevel
     {
-        get => GetProperty<TerraformProperty<string>>("dump_parallel_level");
-        set => WithProperty("dump_parallel_level", value);
+        set => SetProperty("dump_parallel_level", value);
     }
 
 }
@@ -39,8 +38,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     public TerraformProperty<string>? Vm
     {
-        get => GetProperty<TerraformProperty<string>>("vm");
-        set => WithProperty("vm", value);
+        set => SetProperty("vm", value);
     }
 
     /// <summary>
@@ -49,8 +47,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     public TerraformProperty<string>? VmIp
     {
-        get => GetProperty<TerraformProperty<string>>("vm_ip");
-        set => WithProperty("vm_ip", value);
+        set => SetProperty("vm_ip", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     public TerraformProperty<double>? VmPort
     {
-        get => GetProperty<TerraformProperty<double>>("vm_port");
-        set => WithProperty("vm_port", value);
+        set => SetProperty("vm_port", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     public TerraformProperty<string>? Vpc
     {
-        get => GetProperty<TerraformProperty<string>>("vpc");
-        set => WithProperty("vpc", value);
+        set => SetProperty("vpc", value);
     }
 
 }
@@ -93,8 +88,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -102,8 +96,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -111,8 +104,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -128,8 +120,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlo
     /// </summary>
     public TerraformProperty<string>? Vpc
     {
-        get => GetProperty<TerraformProperty<string>>("vpc");
-        set => WithProperty("vpc", value);
+        set => SetProperty("vpc", value);
     }
 
 }
@@ -147,13 +138,24 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("error");
-        this.WithOutput("name");
-        this.WithOutput("phase");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("error");
+        SetOutput("name");
+        SetOutput("phase");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("destination");
+        SetOutput("display_name");
+        SetOutput("dump_path");
+        SetOutput("dump_type");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("migration_job_id");
+        SetOutput("project");
+        SetOutput("source");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -162,17 +164,17 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination");
-        set => this.WithProperty("destination", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination");
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// The migration job display name.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -180,29 +182,29 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// in the format: (gs://[BUCKET_NAME]/[OBJECT_NAME]).
     /// This field and the &amp;quot;dump_flags&amp;quot; field are mutually exclusive.
     /// </summary>
-    public TerraformProperty<string>? DumpPath
+    public TerraformProperty<string> DumpPath
     {
-        get => GetProperty<TerraformProperty<string>>("dump_path");
-        set => this.WithProperty("dump_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dump_path");
+        set => SetProperty("dump_path", value);
     }
 
     /// <summary>
     /// The type of the data dump. Supported for MySQL to CloudSQL for MySQL
     /// migrations only. Possible values: [&amp;quot;LOGICAL&amp;quot;, &amp;quot;PHYSICAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DumpType
+    public TerraformProperty<string> DumpType
     {
-        get => GetProperty<TerraformProperty<string>>("dump_type");
-        set => this.WithProperty("dump_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dump_type");
+        set => SetProperty("dump_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -212,19 +214,19 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location where the migration job should reside.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -233,17 +235,17 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MigrationJobId is required")]
     public required TerraformProperty<string> MigrationJobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("migration_job_id");
-        set => this.WithProperty("migration_job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("migration_job_id");
+        set => SetProperty("migration_job_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -252,8 +254,8 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -262,8 +264,8 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -273,8 +275,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DumpFlags block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock>? DumpFlags
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock>>("dump_flags");
-        set => this.WithProperty("dump_flags", value);
+        set => SetProperty("dump_flags", value);
     }
 
     /// <summary>
@@ -284,8 +285,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerformanceConfig block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock>? PerformanceConfig
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock>>("performance_config");
-        set => this.WithProperty("performance_config", value);
+        set => SetProperty("performance_config", value);
     }
 
     /// <summary>
@@ -295,8 +295,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseSshConnectivity block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock>? ReverseSshConnectivity
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock>>("reverse_ssh_connectivity");
-        set => this.WithProperty("reverse_ssh_connectivity", value);
+        set => SetProperty("reverse_ssh_connectivity", value);
     }
 
     /// <summary>
@@ -306,8 +305,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticIpConnectivity block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock>? StaticIpConnectivity
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock>>("static_ip_connectivity");
-        set => this.WithProperty("static_ip_connectivity", value);
+        set => SetProperty("static_ip_connectivity", value);
     }
 
     /// <summary>
@@ -316,8 +314,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// </summary>
     public GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -327,8 +324,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConnectivity block(s) allowed")]
     public List<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock>? VpcPeeringConnectivity
     {
-        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock>>("vpc_peering_connectivity");
-        set => this.WithProperty("vpc_peering_connectivity", value);
+        set => SetProperty("vpc_peering_connectivity", value);
     }
 
     /// <summary>

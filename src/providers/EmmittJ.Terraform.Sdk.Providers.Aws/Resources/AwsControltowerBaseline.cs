@@ -14,8 +14,7 @@ public class AwsControltowerBaselineParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsControltowerBaselineParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsControltowerBaselineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsControltowerBaselineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsControltowerBaselineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,9 +72,14 @@ public class AwsControltowerBaseline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("operation_identifier");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("operation_identifier");
+        SetOutput("tags_all");
+        SetOutput("baseline_identifier");
+        SetOutput("baseline_version");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("target_identifier");
     }
 
     /// <summary>
@@ -88,8 +88,8 @@ public class AwsControltowerBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineIdentifier is required")]
     public required TerraformProperty<string> BaselineIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("baseline_identifier");
-        set => this.WithProperty("baseline_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("baseline_identifier");
+        set => SetProperty("baseline_identifier", value);
     }
 
     /// <summary>
@@ -98,26 +98,26 @@ public class AwsControltowerBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineVersion is required")]
     public required TerraformProperty<string> BaselineVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("baseline_version");
-        set => this.WithProperty("baseline_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("baseline_version");
+        set => SetProperty("baseline_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -126,8 +126,8 @@ public class AwsControltowerBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIdentifier is required")]
     public required TerraformProperty<string> TargetIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_identifier");
-        set => this.WithProperty("target_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_identifier");
+        set => SetProperty("target_identifier", value);
     }
 
     /// <summary>
@@ -136,8 +136,7 @@ public class AwsControltowerBaseline : TerraformResource
     /// </summary>
     public List<AwsControltowerBaselineParametersBlock>? Parameters
     {
-        get => GetProperty<List<AwsControltowerBaselineParametersBlock>>("parameters");
-        set => this.WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -146,8 +145,7 @@ public class AwsControltowerBaseline : TerraformResource
     /// </summary>
     public AwsControltowerBaselineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsControltowerBaselineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

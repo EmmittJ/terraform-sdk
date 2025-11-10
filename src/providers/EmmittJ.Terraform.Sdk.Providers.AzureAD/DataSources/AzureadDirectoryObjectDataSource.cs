@@ -13,8 +13,7 @@ public class AzureadDirectoryObjectDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,18 @@ public class AzureadDirectoryObjectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("type");
+        SetOutput("type");
+        SetOutput("id");
+        SetOutput("object_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +50,8 @@ public class AzureadDirectoryObjectDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
-        set => this.WithProperty("object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
@@ -59,8 +60,7 @@ public class AzureadDirectoryObjectDataSource : TerraformDataSource
     /// </summary>
     public AzureadDirectoryObjectDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadDirectoryObjectDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

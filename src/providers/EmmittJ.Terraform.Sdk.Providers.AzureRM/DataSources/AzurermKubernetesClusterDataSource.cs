@@ -13,8 +13,7 @@ public class AzurermKubernetesClusterDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,54 +30,57 @@ public class AzurermKubernetesClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("aci_connector_linux");
-        this.WithOutput("agent_pool_profile");
-        this.WithOutput("api_server_authorized_ip_ranges");
-        this.WithOutput("azure_active_directory_role_based_access_control");
-        this.WithOutput("azure_policy_enabled");
-        this.WithOutput("current_kubernetes_version");
-        this.WithOutput("disk_encryption_set_id");
-        this.WithOutput("dns_prefix");
-        this.WithOutput("fqdn");
-        this.WithOutput("http_application_routing_enabled");
-        this.WithOutput("http_application_routing_zone_name");
-        this.WithOutput("identity");
-        this.WithOutput("ingress_application_gateway");
-        this.WithOutput("key_management_service");
-        this.WithOutput("key_vault_secrets_provider");
-        this.WithOutput("kube_admin_config");
-        this.WithOutput("kube_admin_config_raw");
-        this.WithOutput("kube_config");
-        this.WithOutput("kube_config_raw");
-        this.WithOutput("kubelet_identity");
-        this.WithOutput("kubernetes_version");
-        this.WithOutput("linux_profile");
-        this.WithOutput("location");
-        this.WithOutput("microsoft_defender");
-        this.WithOutput("network_profile");
-        this.WithOutput("node_resource_group");
-        this.WithOutput("node_resource_group_id");
-        this.WithOutput("oidc_issuer_enabled");
-        this.WithOutput("oidc_issuer_url");
-        this.WithOutput("oms_agent");
-        this.WithOutput("open_service_mesh_enabled");
-        this.WithOutput("private_cluster_enabled");
-        this.WithOutput("private_fqdn");
-        this.WithOutput("role_based_access_control_enabled");
-        this.WithOutput("service_mesh_profile");
-        this.WithOutput("service_principal");
-        this.WithOutput("storage_profile");
-        this.WithOutput("tags");
-        this.WithOutput("windows_profile");
+        SetOutput("aci_connector_linux");
+        SetOutput("agent_pool_profile");
+        SetOutput("api_server_authorized_ip_ranges");
+        SetOutput("azure_active_directory_role_based_access_control");
+        SetOutput("azure_policy_enabled");
+        SetOutput("current_kubernetes_version");
+        SetOutput("disk_encryption_set_id");
+        SetOutput("dns_prefix");
+        SetOutput("fqdn");
+        SetOutput("http_application_routing_enabled");
+        SetOutput("http_application_routing_zone_name");
+        SetOutput("identity");
+        SetOutput("ingress_application_gateway");
+        SetOutput("key_management_service");
+        SetOutput("key_vault_secrets_provider");
+        SetOutput("kube_admin_config");
+        SetOutput("kube_admin_config_raw");
+        SetOutput("kube_config");
+        SetOutput("kube_config_raw");
+        SetOutput("kubelet_identity");
+        SetOutput("kubernetes_version");
+        SetOutput("linux_profile");
+        SetOutput("location");
+        SetOutput("microsoft_defender");
+        SetOutput("network_profile");
+        SetOutput("node_resource_group");
+        SetOutput("node_resource_group_id");
+        SetOutput("oidc_issuer_enabled");
+        SetOutput("oidc_issuer_url");
+        SetOutput("oms_agent");
+        SetOutput("open_service_mesh_enabled");
+        SetOutput("private_cluster_enabled");
+        SetOutput("private_fqdn");
+        SetOutput("role_based_access_control_enabled");
+        SetOutput("service_mesh_profile");
+        SetOutput("service_principal");
+        SetOutput("storage_profile");
+        SetOutput("tags");
+        SetOutput("windows_profile");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,8 +89,8 @@ public class AzurermKubernetesClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -97,8 +99,8 @@ public class AzurermKubernetesClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -107,8 +109,7 @@ public class AzurermKubernetesClusterDataSource : TerraformDataSource
     /// </summary>
     public AzurermKubernetesClusterDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKubernetesClusterDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

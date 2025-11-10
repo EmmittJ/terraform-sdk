@@ -13,8 +13,7 @@ public class AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? DescriptionFormat
     {
-        get => GetProperty<TerraformProperty<string>>("description_format");
-        set => WithProperty("description_format", value);
+        set => SetProperty("description_format", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? DisplayNameFormat
     {
-        get => GetProperty<TerraformProperty<string>>("display_name_format");
-        set => WithProperty("display_name_format", value);
+        set => SetProperty("display_name_format", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? SeverityColumnName
     {
-        get => GetProperty<TerraformProperty<string>>("severity_column_name");
-        set => WithProperty("severity_column_name", value);
+        set => SetProperty("severity_column_name", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? TacticsColumnName
     {
-        get => GetProperty<TerraformProperty<string>>("tactics_column_name");
-        set => WithProperty("tactics_column_name", value);
+        set => SetProperty("tactics_column_name", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermSentinelAlertRuleNrtEntityMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformProperty<string> EntityType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entity_type");
-        set => WithProperty("entity_type", value);
+        set => SetProperty("entity_type", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class AzurermSentinelAlertRuleNrtEventGroupingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AggregationMethod is required")]
     public required TerraformProperty<string> AggregationMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aggregation_method");
-        set => WithProperty("aggregation_method", value);
+        set => SetProperty("aggregation_method", value);
     }
 
 }
@@ -94,8 +88,7 @@ public class AzurermSentinelAlertRuleNrtIncidentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateIncidentEnabled is required")]
     public required TerraformProperty<bool> CreateIncidentEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("create_incident_enabled");
-        set => WithProperty("create_incident_enabled", value);
+        set => SetProperty("create_incident_enabled", value);
     }
 
 }
@@ -112,8 +105,7 @@ public class AzurermSentinelAlertRuleNrtSentinelEntityMappingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformProperty<string> ColumnName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("column_name");
-        set => WithProperty("column_name", value);
+        set => SetProperty("column_name", value);
     }
 
 }
@@ -129,8 +121,7 @@ public class AzurermSentinelAlertRuleNrtTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -138,8 +129,7 @@ public class AzurermSentinelAlertRuleNrtTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -147,8 +137,7 @@ public class AzurermSentinelAlertRuleNrtTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -156,8 +145,7 @@ public class AzurermSentinelAlertRuleNrtTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -175,42 +163,57 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("alert_rule_template_guid");
+        SetOutput("alert_rule_template_version");
+        SetOutput("custom_details");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("name");
+        SetOutput("query");
+        SetOutput("severity");
+        SetOutput("suppression_duration");
+        SetOutput("suppression_enabled");
+        SetOutput("tactics");
+        SetOutput("techniques");
     }
 
     /// <summary>
     /// The alert_rule_template_guid attribute.
     /// </summary>
-    public TerraformProperty<string>? AlertRuleTemplateGuid
+    public TerraformProperty<string> AlertRuleTemplateGuid
     {
-        get => GetProperty<TerraformProperty<string>>("alert_rule_template_guid");
-        set => this.WithProperty("alert_rule_template_guid", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alert_rule_template_guid");
+        set => SetProperty("alert_rule_template_guid", value);
     }
 
     /// <summary>
     /// The alert_rule_template_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AlertRuleTemplateVersion
+    public TerraformProperty<string> AlertRuleTemplateVersion
     {
-        get => GetProperty<TerraformProperty<string>>("alert_rule_template_version");
-        set => this.WithProperty("alert_rule_template_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alert_rule_template_version");
+        set => SetProperty("alert_rule_template_version", value);
     }
 
     /// <summary>
     /// The custom_details attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? CustomDetails
+    public Dictionary<string, TerraformProperty<string>> CustomDetails
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("custom_details");
-        set => this.WithProperty("custom_details", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("custom_details");
+        set => SetProperty("custom_details", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -219,26 +222,26 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -247,8 +250,8 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -257,8 +260,8 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -267,8 +270,8 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query");
-        set => this.WithProperty("query", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query");
+        set => SetProperty("query", value);
     }
 
     /// <summary>
@@ -277,44 +280,44 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformProperty<string> Severity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("severity");
-        set => this.WithProperty("severity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("severity");
+        set => SetProperty("severity", value);
     }
 
     /// <summary>
     /// The suppression_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? SuppressionDuration
+    public TerraformProperty<string> SuppressionDuration
     {
-        get => GetProperty<TerraformProperty<string>>("suppression_duration");
-        set => this.WithProperty("suppression_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("suppression_duration");
+        set => SetProperty("suppression_duration", value);
     }
 
     /// <summary>
     /// The suppression_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SuppressionEnabled
+    public TerraformProperty<bool> SuppressionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("suppression_enabled");
-        set => this.WithProperty("suppression_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("suppression_enabled");
+        set => SetProperty("suppression_enabled", value);
     }
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Tactics
+    public HashSet<TerraformProperty<string>> Tactics
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("tactics");
-        set => this.WithProperty("tactics", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("tactics");
+        set => SetProperty("tactics", value);
     }
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Techniques
+    public HashSet<TerraformProperty<string>> Techniques
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("techniques");
-        set => this.WithProperty("techniques", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("techniques");
+        set => SetProperty("techniques", value);
     }
 
     /// <summary>
@@ -323,8 +326,7 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     /// </summary>
     public List<AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlock>? AlertDetailsOverride
     {
-        get => GetProperty<List<AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlock>>("alert_details_override");
-        set => this.WithProperty("alert_details_override", value);
+        set => SetProperty("alert_details_override", value);
     }
 
     /// <summary>
@@ -334,20 +336,19 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 EntityMapping block(s) allowed")]
     public List<AzurermSentinelAlertRuleNrtEntityMappingBlock>? EntityMapping
     {
-        get => GetProperty<List<AzurermSentinelAlertRuleNrtEntityMappingBlock>>("entity_mapping");
-        set => this.WithProperty("entity_mapping", value);
+        set => SetProperty("entity_mapping", value);
     }
 
     /// <summary>
     /// Block for event_grouping.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventGrouping is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EventGrouping block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventGrouping block(s) allowed")]
     public List<AzurermSentinelAlertRuleNrtEventGroupingBlock>? EventGrouping
     {
-        get => GetProperty<List<AzurermSentinelAlertRuleNrtEventGroupingBlock>>("event_grouping");
-        set => this.WithProperty("event_grouping", value);
+        set => SetProperty("event_grouping", value);
     }
 
     /// <summary>
@@ -357,8 +358,7 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Incident block(s) allowed")]
     public List<AzurermSentinelAlertRuleNrtIncidentBlock>? Incident
     {
-        get => GetProperty<List<AzurermSentinelAlertRuleNrtIncidentBlock>>("incident");
-        set => this.WithProperty("incident", value);
+        set => SetProperty("incident", value);
     }
 
     /// <summary>
@@ -368,8 +368,7 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 SentinelEntityMapping block(s) allowed")]
     public List<AzurermSentinelAlertRuleNrtSentinelEntityMappingBlock>? SentinelEntityMapping
     {
-        get => GetProperty<List<AzurermSentinelAlertRuleNrtSentinelEntityMappingBlock>>("sentinel_entity_mapping");
-        set => this.WithProperty("sentinel_entity_mapping", value);
+        set => SetProperty("sentinel_entity_mapping", value);
     }
 
     /// <summary>
@@ -378,8 +377,7 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     /// </summary>
     public AzurermSentinelAlertRuleNrtTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSentinelAlertRuleNrtTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

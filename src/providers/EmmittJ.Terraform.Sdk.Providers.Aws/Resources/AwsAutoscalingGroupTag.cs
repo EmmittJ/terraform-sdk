@@ -14,8 +14,7 @@ public class AwsAutoscalingGroupTagTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsAutoscalingGroupTagTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropagateAtLaunch is required")]
     public required TerraformProperty<bool> PropagateAtLaunch
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("propagate_at_launch");
-        set => WithProperty("propagate_at_launch", value);
+        set => SetProperty("propagate_at_launch", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsAutoscalingGroupTagTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -53,6 +50,9 @@ public class AwsAutoscalingGroupTag : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("autoscaling_group_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -61,38 +61,38 @@ public class AwsAutoscalingGroupTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformProperty<string> AutoscalingGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("autoscaling_group_name");
-        set => this.WithProperty("autoscaling_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_group_name");
+        set => SetProperty("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for tag.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tag block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tag block(s) allowed")]
     public List<AwsAutoscalingGroupTagTagBlock>? Tag
     {
-        get => GetProperty<List<AwsAutoscalingGroupTagTagBlock>>("tag");
-        set => this.WithProperty("tag", value);
+        set => SetProperty("tag", value);
     }
 
 }

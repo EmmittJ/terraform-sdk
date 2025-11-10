@@ -14,36 +14,40 @@ public class AwsEksClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_config");
-        this.WithOutput("arn");
-        this.WithOutput("certificate_authority");
-        this.WithOutput("cluster_id");
-        this.WithOutput("compute_config");
-        this.WithOutput("created_at");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("enabled_cluster_log_types");
-        this.WithOutput("endpoint");
-        this.WithOutput("identity");
-        this.WithOutput("kubernetes_network_config");
-        this.WithOutput("outpost_config");
-        this.WithOutput("platform_version");
-        this.WithOutput("remote_network_config");
-        this.WithOutput("role_arn");
-        this.WithOutput("status");
-        this.WithOutput("storage_config");
-        this.WithOutput("upgrade_policy");
-        this.WithOutput("version");
-        this.WithOutput("vpc_config");
-        this.WithOutput("zonal_shift_config");
+        SetOutput("access_config");
+        SetOutput("arn");
+        SetOutput("certificate_authority");
+        SetOutput("cluster_id");
+        SetOutput("compute_config");
+        SetOutput("created_at");
+        SetOutput("deletion_protection");
+        SetOutput("enabled_cluster_log_types");
+        SetOutput("endpoint");
+        SetOutput("identity");
+        SetOutput("kubernetes_network_config");
+        SetOutput("outpost_config");
+        SetOutput("platform_version");
+        SetOutput("remote_network_config");
+        SetOutput("role_arn");
+        SetOutput("status");
+        SetOutput("storage_config");
+        SetOutput("upgrade_policy");
+        SetOutput("version");
+        SetOutput("vpc_config");
+        SetOutput("zonal_shift_config");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,26 +56,26 @@ public class AwsEksClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

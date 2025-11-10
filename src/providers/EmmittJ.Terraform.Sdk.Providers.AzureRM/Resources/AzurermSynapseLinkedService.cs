@@ -14,8 +14,7 @@ public class AzurermSynapseLinkedServiceIntegrationRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermSynapseLinkedServiceIntegrationRuntimeBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermSynapseLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermSynapseLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermSynapseLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermSynapseLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,42 +80,51 @@ public class AzurermSynapseLinkedService : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("additional_properties");
+        SetOutput("annotations");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parameters");
+        SetOutput("synapse_workspace_id");
+        SetOutput("type");
+        SetOutput("type_properties_json");
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => this.WithProperty("additional_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Annotations
+    public List<TerraformProperty<string>> Annotations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -130,17 +133,17 @@ public class AzurermSynapseLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -149,8 +152,8 @@ public class AzurermSynapseLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
-        set => this.WithProperty("synapse_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("synapse_workspace_id");
+        set => SetProperty("synapse_workspace_id", value);
     }
 
     /// <summary>
@@ -159,8 +162,8 @@ public class AzurermSynapseLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -169,8 +172,8 @@ public class AzurermSynapseLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypePropertiesJson is required")]
     public required TerraformProperty<string> TypePropertiesJson
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type_properties_json");
-        set => this.WithProperty("type_properties_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type_properties_json");
+        set => SetProperty("type_properties_json", value);
     }
 
     /// <summary>
@@ -180,8 +183,7 @@ public class AzurermSynapseLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IntegrationRuntime block(s) allowed")]
     public List<AzurermSynapseLinkedServiceIntegrationRuntimeBlock>? IntegrationRuntime
     {
-        get => GetProperty<List<AzurermSynapseLinkedServiceIntegrationRuntimeBlock>>("integration_runtime");
-        set => this.WithProperty("integration_runtime", value);
+        set => SetProperty("integration_runtime", value);
     }
 
     /// <summary>
@@ -190,8 +192,7 @@ public class AzurermSynapseLinkedService : TerraformResource
     /// </summary>
     public AzurermSynapseLinkedServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSynapseLinkedServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

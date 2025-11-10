@@ -13,8 +13,7 @@ public class AwsEksAccessEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEksAccessEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,9 +38,18 @@ public class AwsEksAccessEntry : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_entry_arn");
-        this.WithOutput("created_at");
-        this.WithOutput("modified_at");
+        SetOutput("access_entry_arn");
+        SetOutput("created_at");
+        SetOutput("modified_at");
+        SetOutput("cluster_name");
+        SetOutput("id");
+        SetOutput("kubernetes_groups");
+        SetOutput("principal_arn");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
+        SetOutput("user_name");
     }
 
     /// <summary>
@@ -51,26 +58,26 @@ public class AwsEksAccessEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kubernetes_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? KubernetesGroups
+    public HashSet<TerraformProperty<string>> KubernetesGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("kubernetes_groups");
-        set => this.WithProperty("kubernetes_groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("kubernetes_groups");
+        set => SetProperty("kubernetes_groups", value);
     }
 
     /// <summary>
@@ -79,53 +86,53 @@ public class AwsEksAccessEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformProperty<string> PrincipalArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_arn");
-        set => this.WithProperty("principal_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_arn");
+        set => SetProperty("principal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    public TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
@@ -134,8 +141,7 @@ public class AwsEksAccessEntry : TerraformResource
     /// </summary>
     public AwsEksAccessEntryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEksAccessEntryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

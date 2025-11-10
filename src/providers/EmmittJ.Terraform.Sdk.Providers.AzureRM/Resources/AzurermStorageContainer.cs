@@ -13,8 +13,7 @@ public class AzurermStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,54 +54,62 @@ public class AzurermStorageContainer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputas_immutability_policy");
-        this.WithOutputas_legal_hold");
-        this.WithOutputesource_manager_id");
+        SetOutput("has_immutability_policy");
+        SetOutput("has_legal_hold");
+        SetOutput("resource_manager_id");
+        SetOutput("container_access_type");
+        SetOutput("default_encryption_scope");
+        SetOutput("encryption_scope_override_enabled");
+        SetOutput("id");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("storage_account_id");
+        SetOutput("storage_account_name");
     }
 
     /// <summary>
     /// The container_access_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerAccessType
+    public TerraformProperty<string> ContainerAccessType
     {
-        get => GetProperty<TerraformProperty<string>>("container_access_type");
-        set => this.WithProperty("container_access_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_access_type");
+        set => SetProperty("container_access_type", value);
     }
 
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultEncryptionScope
+    public TerraformProperty<string> DefaultEncryptionScope
     {
-        get => GetProperty<TerraformProperty<string>>("default_encryption_scope");
-        set => this.WithProperty("default_encryption_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_encryption_scope");
+        set => SetProperty("default_encryption_scope", value);
     }
 
     /// <summary>
     /// The encryption_scope_override_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EncryptionScopeOverrideEnabled
+    public TerraformProperty<bool> EncryptionScopeOverrideEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("encryption_scope_override_enabled");
-        set => this.WithProperty("encryption_scope_override_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("encryption_scope_override_enabled");
+        set => SetProperty("encryption_scope_override_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -114,27 +118,27 @@ public class AzurermStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    public TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? StorageAccountName
+    public TerraformProperty<string> StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
-        set => this.WithProperty("storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
+        set => SetProperty("storage_account_name", value);
     }
 
     /// <summary>
@@ -143,8 +147,7 @@ public class AzurermStorageContainer : TerraformResource
     /// </summary>
     public AzurermStorageContainerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageContainerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

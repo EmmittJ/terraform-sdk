@@ -13,8 +13,7 @@ public class AzurermContainerAppDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,31 +30,34 @@ public class AzurermContainerAppDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("container_app_environment_id");
-        this.WithOutput("custom_domain_verification_id");
-        this.WithOutput("dapr");
-        this.WithOutput("identity");
-        this.WithOutput("ingress");
-        this.WithOutput("latest_revision_fqdn");
-        this.WithOutput("latest_revision_name");
-        this.WithOutput("location");
-        this.WithOutput("max_inactive_revisions");
-        this.WithOutput("outbound_ip_addresses");
-        this.WithOutput("registry");
-        this.WithOutput("revision_mode");
-        this.WithOutput("secret");
-        this.WithOutput("tags");
-        this.WithOutput("template");
-        this.WithOutput("workload_profile_name");
+        SetOutput("container_app_environment_id");
+        SetOutput("custom_domain_verification_id");
+        SetOutput("dapr");
+        SetOutput("identity");
+        SetOutput("ingress");
+        SetOutput("latest_revision_fqdn");
+        SetOutput("latest_revision_name");
+        SetOutput("location");
+        SetOutput("max_inactive_revisions");
+        SetOutput("outbound_ip_addresses");
+        SetOutput("registry");
+        SetOutput("revision_mode");
+        SetOutput("secret");
+        SetOutput("tags");
+        SetOutput("template");
+        SetOutput("workload_profile_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermContainerAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -74,8 +76,8 @@ public class AzurermContainerAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -84,8 +86,7 @@ public class AzurermContainerAppDataSource : TerraformDataSource
     /// </summary>
     public AzurermContainerAppDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerAppDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermUserAssignedIdentityDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermUserAssignedIdentityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("client_id");
-        this.WithOutput("location");
-        this.WithOutput("principal_id");
-        this.WithOutput("tags");
-        this.WithOutput("tenant_id");
+        SetOutput("client_id");
+        SetOutput("location");
+        SetOutput("principal_id");
+        SetOutput("tags");
+        SetOutput("tenant_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermUserAssignedIdentityDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermUserAssignedIdentityDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermUserAssignedIdentityDataSource : TerraformDataSource
     /// </summary>
     public AzurermUserAssignedIdentityDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermUserAssignedIdentityDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

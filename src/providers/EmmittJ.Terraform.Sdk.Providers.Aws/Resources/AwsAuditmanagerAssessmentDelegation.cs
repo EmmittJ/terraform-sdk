@@ -14,9 +14,15 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("delegation_id");
-        this.WithOutput("id");
-        this.WithOutput("status");
+        SetOutput("delegation_id");
+        SetOutput("id");
+        SetOutput("status");
+        SetOutput("assessment_id");
+        SetOutput("comment");
+        SetOutput("control_set_id");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("role_type");
     }
 
     /// <summary>
@@ -25,17 +31,17 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentId is required")]
     public required TerraformProperty<string> AssessmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("assessment_id");
-        set => this.WithProperty("assessment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("assessment_id");
+        set => SetProperty("assessment_id", value);
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
@@ -44,17 +50,17 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlSetId is required")]
     public required TerraformProperty<string> ControlSetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("control_set_id");
-        set => this.WithProperty("control_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("control_set_id");
+        set => SetProperty("control_set_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -63,8 +69,8 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -73,8 +79,8 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
     public required TerraformProperty<string> RoleType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_type");
-        set => this.WithProperty("role_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_type");
+        set => SetProperty("role_type", value);
     }
 
     /// <summary>

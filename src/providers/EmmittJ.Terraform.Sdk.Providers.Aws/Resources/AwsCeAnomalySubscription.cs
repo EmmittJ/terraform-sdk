@@ -14,8 +14,7 @@ public class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformProperty<string> Address
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("address");
-        set => WithProperty("address", value);
+        set => SetProperty("address", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -51,16 +49,23 @@ public class AwsCeAnomalySubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("account_id");
+        SetOutput("frequency");
+        SetOutput("id");
+        SetOutput("monitor_arn_list");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -69,27 +74,27 @@ public class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
-        set => this.WithProperty("frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The monitor_arn_list attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorArnList is required")]
-    public List<TerraformProperty<string>>? MonitorArnList
+    public List<TerraformProperty<string>> MonitorArnList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("monitor_arn_list");
-        set => this.WithProperty("monitor_arn_list", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("monitor_arn_list");
+        set => SetProperty("monitor_arn_list", value);
     }
 
     /// <summary>
@@ -98,37 +103,37 @@ public class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for subscriber.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subscriber is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subscriber block(s) required")]
     public HashSet<AwsCeAnomalySubscriptionSubscriberBlock>? Subscriber
     {
-        get => GetProperty<HashSet<AwsCeAnomalySubscriptionSubscriberBlock>>("subscriber");
-        set => this.WithProperty("subscriber", value);
+        set => SetProperty("subscriber", value);
     }
 
     /// <summary>
@@ -138,8 +143,7 @@ public class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThresholdExpression block(s) allowed")]
     public List<AwsCeAnomalySubscriptionThresholdExpressionBlock>? ThresholdExpression
     {
-        get => GetProperty<List<AwsCeAnomalySubscriptionThresholdExpressionBlock>>("threshold_expression");
-        set => this.WithProperty("threshold_expression", value);
+        set => SetProperty("threshold_expression", value);
     }
 
     /// <summary>

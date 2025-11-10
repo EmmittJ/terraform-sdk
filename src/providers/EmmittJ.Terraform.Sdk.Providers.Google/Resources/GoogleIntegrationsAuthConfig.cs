@@ -14,8 +14,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptedPrivateKey is required")]
     public required TerraformProperty<string> EncryptedPrivateKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("encrypted_private_key");
-        set => WithProperty("encrypted_private_key", value);
+        set => SetProperty("encrypted_private_key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Passphrase
     {
-        get => GetProperty<TerraformProperty<string>>("passphrase");
-        set => WithProperty("passphrase", value);
+        set => SetProperty("passphrase", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslCertificate is required")]
     public required TerraformProperty<string> SslCertificate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ssl_certificate");
-        set => WithProperty("ssl_certificate", value);
+        set => SetProperty("ssl_certificate", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialType is required")]
     public required TerraformProperty<string> CredentialType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("credential_type");
-        set => WithProperty("credential_type", value);
+        set => SetProperty("credential_type", value);
     }
 
 }
@@ -69,8 +65,7 @@ public class GoogleIntegrationsAuthConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -78,8 +73,7 @@ public class GoogleIntegrationsAuthConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class GoogleIntegrationsAuthConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -106,26 +99,34 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate_id");
-        this.WithOutput("create_time");
-        this.WithOutput("creator_email");
-        this.WithOutput("credential_type");
-        this.WithOutput("encrypted_credential");
-        this.WithOutput("last_modifier_email");
-        this.WithOutput("name");
-        this.WithOutput("reason");
-        this.WithOutput("state");
-        this.WithOutput("update_time");
-        this.WithOutput("valid_time");
+        SetOutput("certificate_id");
+        SetOutput("create_time");
+        SetOutput("creator_email");
+        SetOutput("credential_type");
+        SetOutput("encrypted_credential");
+        SetOutput("last_modifier_email");
+        SetOutput("name");
+        SetOutput("reason");
+        SetOutput("state");
+        SetOutput("update_time");
+        SetOutput("valid_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("expiry_notification_duration");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("override_valid_time");
+        SetOutput("project");
+        SetOutput("visibility");
     }
 
     /// <summary>
     /// A description of the auth config.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -134,8 +135,8 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -143,19 +144,19 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public List<TerraformProperty<string>>? ExpiryNotificationDuration
+    public List<TerraformProperty<string>> ExpiryNotificationDuration
     {
-        get => GetProperty<List<TerraformProperty<string>>>("expiry_notification_duration");
-        set => this.WithProperty("expiry_notification_duration", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("expiry_notification_duration");
+        set => SetProperty("expiry_notification_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -164,8 +165,8 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -173,28 +174,28 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     /// 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? OverrideValidTime
+    public TerraformProperty<string> OverrideValidTime
     {
-        get => GetProperty<TerraformProperty<string>>("override_valid_time");
-        set => this.WithProperty("override_valid_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("override_valid_time");
+        set => SetProperty("override_valid_time", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The visibility of the auth config. Possible values: [&amp;quot;PRIVATE&amp;quot;, &amp;quot;CLIENT_VISIBLE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Visibility
+    public TerraformProperty<string> Visibility
     {
-        get => GetProperty<TerraformProperty<string>>("visibility");
-        set => this.WithProperty("visibility", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("visibility");
+        set => SetProperty("visibility", value);
     }
 
     /// <summary>
@@ -204,8 +205,7 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificate block(s) allowed")]
     public List<GoogleIntegrationsAuthConfigClientCertificateBlock>? ClientCertificate
     {
-        get => GetProperty<List<GoogleIntegrationsAuthConfigClientCertificateBlock>>("client_certificate");
-        set => this.WithProperty("client_certificate", value);
+        set => SetProperty("client_certificate", value);
     }
 
     /// <summary>
@@ -215,8 +215,7 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DecryptedCredential block(s) allowed")]
     public List<GoogleIntegrationsAuthConfigDecryptedCredentialBlock>? DecryptedCredential
     {
-        get => GetProperty<List<GoogleIntegrationsAuthConfigDecryptedCredentialBlock>>("decrypted_credential");
-        set => this.WithProperty("decrypted_credential", value);
+        set => SetProperty("decrypted_credential", value);
     }
 
     /// <summary>
@@ -225,8 +224,7 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     /// </summary>
     public GoogleIntegrationsAuthConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIntegrationsAuthConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

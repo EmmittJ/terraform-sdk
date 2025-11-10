@@ -14,8 +14,7 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RegionalEndpointEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("regional_endpoint_enabled");
-        set => WithProperty("regional_endpoint_enabled", value);
+        set => SetProperty("regional_endpoint_enabled", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ZoneRedundancyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_redundancy_enabled");
-        set => WithProperty("zone_redundancy_enabled", value);
+        set => SetProperty("zone_redundancy_enabled", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -103,8 +95,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -149,64 +137,82 @@ public class AzurermContainerRegistry : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("admin_password");
-        this.WithOutput("admin_username");
-        this.WithOutput("data_endpoint_host_names");
-        this.WithOutput("login_server");
+        SetOutput("admin_password");
+        SetOutput("admin_username");
+        SetOutput("data_endpoint_host_names");
+        SetOutput("login_server");
+        SetOutput("admin_enabled");
+        SetOutput("anonymous_pull_enabled");
+        SetOutput("data_endpoint_enabled");
+        SetOutput("encryption");
+        SetOutput("export_policy_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network_rule_bypass_option");
+        SetOutput("network_rule_set");
+        SetOutput("public_network_access_enabled");
+        SetOutput("quarantine_policy_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("retention_policy_in_days");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("trust_policy_enabled");
+        SetOutput("zone_redundancy_enabled");
     }
 
     /// <summary>
     /// The admin_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AdminEnabled
+    public TerraformProperty<bool> AdminEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("admin_enabled");
-        set => this.WithProperty("admin_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("admin_enabled");
+        set => SetProperty("admin_enabled", value);
     }
 
     /// <summary>
     /// The anonymous_pull_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AnonymousPullEnabled
+    public TerraformProperty<bool> AnonymousPullEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("anonymous_pull_enabled");
-        set => this.WithProperty("anonymous_pull_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("anonymous_pull_enabled");
+        set => SetProperty("anonymous_pull_enabled", value);
     }
 
     /// <summary>
     /// The data_endpoint_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DataEndpointEnabled
+    public TerraformProperty<bool> DataEndpointEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("data_endpoint_enabled");
-        set => this.WithProperty("data_endpoint_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("data_endpoint_enabled");
+        set => SetProperty("data_endpoint_enabled", value);
     }
 
     /// <summary>
     /// The encryption attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? Encryption
+    public List<TerraformProperty<object>> Encryption
     {
-        get => GetProperty<List<TerraformProperty<object>>>("encryption");
-        set => this.WithProperty("encryption", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("encryption");
+        set => SetProperty("encryption", value);
     }
 
     /// <summary>
     /// The export_policy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExportPolicyEnabled
+    public TerraformProperty<bool> ExportPolicyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("export_policy_enabled");
-        set => this.WithProperty("export_policy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("export_policy_enabled");
+        set => SetProperty("export_policy_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -215,8 +221,8 @@ public class AzurermContainerRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -225,44 +231,44 @@ public class AzurermContainerRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_rule_bypass_option attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkRuleBypassOption
+    public TerraformProperty<string> NetworkRuleBypassOption
     {
-        get => GetProperty<TerraformProperty<string>>("network_rule_bypass_option");
-        set => this.WithProperty("network_rule_bypass_option", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_rule_bypass_option");
+        set => SetProperty("network_rule_bypass_option", value);
     }
 
     /// <summary>
     /// The network_rule_set attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? NetworkRuleSet
+    public List<TerraformProperty<object>> NetworkRuleSet
     {
-        get => GetProperty<List<TerraformProperty<object>>>("network_rule_set");
-        set => this.WithProperty("network_rule_set", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("network_rule_set");
+        set => SetProperty("network_rule_set", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The quarantine_policy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? QuarantinePolicyEnabled
+    public TerraformProperty<bool> QuarantinePolicyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("quarantine_policy_enabled");
-        set => this.WithProperty("quarantine_policy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("quarantine_policy_enabled");
+        set => SetProperty("quarantine_policy_enabled", value);
     }
 
     /// <summary>
@@ -271,17 +277,17 @@ public class AzurermContainerRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_policy_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionPolicyInDays
+    public TerraformProperty<double> RetentionPolicyInDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_policy_in_days");
-        set => this.WithProperty("retention_policy_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_policy_in_days");
+        set => SetProperty("retention_policy_in_days", value);
     }
 
     /// <summary>
@@ -290,35 +296,35 @@ public class AzurermContainerRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The trust_policy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TrustPolicyEnabled
+    public TerraformProperty<bool> TrustPolicyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("trust_policy_enabled");
-        set => this.WithProperty("trust_policy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("trust_policy_enabled");
+        set => SetProperty("trust_policy_enabled", value);
     }
 
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ZoneRedundancyEnabled
+    public TerraformProperty<bool> ZoneRedundancyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_redundancy_enabled");
-        set => this.WithProperty("zone_redundancy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("zone_redundancy_enabled");
+        set => SetProperty("zone_redundancy_enabled", value);
     }
 
     /// <summary>
@@ -327,8 +333,7 @@ public class AzurermContainerRegistry : TerraformResource
     /// </summary>
     public List<AzurermContainerRegistryGeoreplicationsBlock>? Georeplications
     {
-        get => GetProperty<List<AzurermContainerRegistryGeoreplicationsBlock>>("georeplications");
-        set => this.WithProperty("georeplications", value);
+        set => SetProperty("georeplications", value);
     }
 
     /// <summary>
@@ -338,8 +343,7 @@ public class AzurermContainerRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermContainerRegistryIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermContainerRegistryIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -348,8 +352,7 @@ public class AzurermContainerRegistry : TerraformResource
     /// </summary>
     public AzurermContainerRegistryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

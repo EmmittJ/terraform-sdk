@@ -13,8 +13,7 @@ public class AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,12 +30,16 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("last_modified");
-        this.WithOutput("target_scope");
-        this.WithOutput("time_created");
-        this.WithOutput("type");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("last_modified");
+        SetOutput("target_scope");
+        SetOutput("time_created");
+        SetOutput("type");
+        SetOutput("blueprint_name");
+        SetOutput("id");
+        SetOutput("scope_id");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -45,17 +48,17 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintName is required")]
     public required TerraformProperty<string> BlueprintName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("blueprint_name");
-        set => this.WithProperty("blueprint_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blueprint_name");
+        set => SetProperty("blueprint_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -64,8 +67,8 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformProperty<string> ScopeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope_id");
-        set => this.WithProperty("scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope_id");
+        set => SetProperty("scope_id", value);
     }
 
     /// <summary>
@@ -74,8 +77,8 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -84,8 +87,7 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
     /// </summary>
     public AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -38,8 +38,7 @@ public class AwsWafv2WebAclCustomResponseBodyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -48,8 +47,7 @@ public class AwsWafv2WebAclCustomResponseBodyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformProperty<string> ContentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content_type");
-        set => WithProperty("content_type", value);
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
@@ -58,8 +56,7 @@ public class AwsWafv2WebAclCustomResponseBodyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
 }
@@ -92,8 +89,7 @@ public class AwsWafv2WebAclRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -102,8 +98,7 @@ public class AwsWafv2WebAclRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
 }
@@ -120,8 +115,7 @@ public class AwsWafv2WebAclVisibilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchMetricsEnabled is required")]
     public required TerraformProperty<bool> CloudwatchMetricsEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("cloudwatch_metrics_enabled");
-        set => WithProperty("cloudwatch_metrics_enabled", value);
+        set => SetProperty("cloudwatch_metrics_enabled", value);
     }
 
     /// <summary>
@@ -130,8 +124,7 @@ public class AwsWafv2WebAclVisibilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
-        set => WithProperty("metric_name", value);
+        set => SetProperty("metric_name", value);
     }
 
     /// <summary>
@@ -140,8 +133,7 @@ public class AwsWafv2WebAclVisibilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SampledRequestsEnabled is required")]
     public required TerraformProperty<bool> SampledRequestsEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("sampled_requests_enabled");
-        set => WithProperty("sampled_requests_enabled", value);
+        set => SetProperty("sampled_requests_enabled", value);
     }
 
 }
@@ -159,64 +151,74 @@ public class AwsWafv2WebAcl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("application_integration_url");
-        this.WithOutput("arn");
-        this.WithOutput("capacity");
-        this.WithOutput("lock_token");
+        SetOutput("application_integration_url");
+        SetOutput("arn");
+        SetOutput("capacity");
+        SetOutput("lock_token");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("region");
+        SetOutput("rule_json");
+        SetOutput("scope");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("token_domains");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The rule_json attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleJson
+    public TerraformProperty<string> RuleJson
     {
-        get => GetProperty<TerraformProperty<string>>("rule_json");
-        set => this.WithProperty("rule_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_json");
+        set => SetProperty("rule_json", value);
     }
 
     /// <summary>
@@ -225,35 +227,35 @@ public class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The token_domains attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? TokenDomains
+    public HashSet<TerraformProperty<string>> TokenDomains
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("token_domains");
-        set => this.WithProperty("token_domains", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("token_domains");
+        set => SetProperty("token_domains", value);
     }
 
     /// <summary>
@@ -263,8 +265,7 @@ public class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssociationConfig block(s) allowed")]
     public List<AwsWafv2WebAclAssociationConfigBlock>? AssociationConfig
     {
-        get => GetProperty<List<AwsWafv2WebAclAssociationConfigBlock>>("association_config");
-        set => this.WithProperty("association_config", value);
+        set => SetProperty("association_config", value);
     }
 
     /// <summary>
@@ -274,8 +275,7 @@ public class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CaptchaConfig block(s) allowed")]
     public List<AwsWafv2WebAclCaptchaConfigBlock>? CaptchaConfig
     {
-        get => GetProperty<List<AwsWafv2WebAclCaptchaConfigBlock>>("captcha_config");
-        set => this.WithProperty("captcha_config", value);
+        set => SetProperty("captcha_config", value);
     }
 
     /// <summary>
@@ -285,8 +285,7 @@ public class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ChallengeConfig block(s) allowed")]
     public List<AwsWafv2WebAclChallengeConfigBlock>? ChallengeConfig
     {
-        get => GetProperty<List<AwsWafv2WebAclChallengeConfigBlock>>("challenge_config");
-        set => this.WithProperty("challenge_config", value);
+        set => SetProperty("challenge_config", value);
     }
 
     /// <summary>
@@ -295,8 +294,7 @@ public class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     public HashSet<AwsWafv2WebAclCustomResponseBodyBlock>? CustomResponseBody
     {
-        get => GetProperty<HashSet<AwsWafv2WebAclCustomResponseBodyBlock>>("custom_response_body");
-        set => this.WithProperty("custom_response_body", value);
+        set => SetProperty("custom_response_body", value);
     }
 
     /// <summary>
@@ -306,20 +304,19 @@ public class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionConfig block(s) allowed")]
     public List<AwsWafv2WebAclDataProtectionConfigBlock>? DataProtectionConfig
     {
-        get => GetProperty<List<AwsWafv2WebAclDataProtectionConfigBlock>>("data_protection_config");
-        set => this.WithProperty("data_protection_config", value);
+        set => SetProperty("data_protection_config", value);
     }
 
     /// <summary>
     /// Block for default_action.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAction block(s) allowed")]
     public List<AwsWafv2WebAclDefaultActionBlock>? DefaultAction
     {
-        get => GetProperty<List<AwsWafv2WebAclDefaultActionBlock>>("default_action");
-        set => this.WithProperty("default_action", value);
+        set => SetProperty("default_action", value);
     }
 
     /// <summary>
@@ -328,20 +325,19 @@ public class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     public HashSet<AwsWafv2WebAclRuleBlock>? Rule
     {
-        get => GetProperty<HashSet<AwsWafv2WebAclRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
     /// Block for visibility_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VisibilityConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VisibilityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VisibilityConfig block(s) allowed")]
     public List<AwsWafv2WebAclVisibilityConfigBlock>? VisibilityConfig
     {
-        get => GetProperty<List<AwsWafv2WebAclVisibilityConfigBlock>>("visibility_config");
-        set => this.WithProperty("visibility_config", value);
+        set => SetProperty("visibility_config", value);
     }
 
     /// <summary>

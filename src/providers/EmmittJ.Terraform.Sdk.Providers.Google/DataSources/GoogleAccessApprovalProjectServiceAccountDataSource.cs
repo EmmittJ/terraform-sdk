@@ -14,17 +14,19 @@ public class GoogleAccessApprovalProjectServiceAccountDataSource : TerraformData
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_email");
-        this.WithOutput("name");
+        SetOutput("account_email");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("project_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,8 +35,8 @@ public class GoogleAccessApprovalProjectServiceAccountDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
-        set => this.WithProperty("project_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_id");
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>

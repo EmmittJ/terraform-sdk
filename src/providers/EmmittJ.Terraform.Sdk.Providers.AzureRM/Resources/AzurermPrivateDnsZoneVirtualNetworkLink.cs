@@ -13,8 +13,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,23 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("private_dns_zone_name");
+        SetOutput("registration_enabled");
+        SetOutput("resolution_policy");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("virtual_network_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +79,8 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,26 +89,26 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneName is required")]
     public required TerraformProperty<string> PrivateDnsZoneName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_dns_zone_name");
-        set => this.WithProperty("private_dns_zone_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_dns_zone_name");
+        set => SetProperty("private_dns_zone_name", value);
     }
 
     /// <summary>
     /// The registration_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RegistrationEnabled
+    public TerraformProperty<bool> RegistrationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("registration_enabled");
-        set => this.WithProperty("registration_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("registration_enabled");
+        set => SetProperty("registration_enabled", value);
     }
 
     /// <summary>
     /// The resolution_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? ResolutionPolicy
+    public TerraformProperty<string> ResolutionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("resolution_policy");
-        set => this.WithProperty("resolution_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resolution_policy");
+        set => SetProperty("resolution_policy", value);
     }
 
     /// <summary>
@@ -113,17 +117,17 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -132,8 +136,8 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
-        set => this.WithProperty("virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
+        set => SetProperty("virtual_network_id", value);
     }
 
     /// <summary>
@@ -142,8 +146,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     /// </summary>
     public AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateDnsZoneVirtualNetworkLinkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

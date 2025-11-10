@@ -21,8 +21,7 @@ public class AwsImagebuilderLifecyclePolicyResourceSelectionBlock : TerraformBlo
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? TagMap
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tag_map");
-        set => WithProperty("tag_map", value);
+        set => SetProperty("tag_map", value);
     }
 
 }
@@ -39,18 +38,25 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("execution_role");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("resource_type");
+        SetOutput("status");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -59,8 +65,8 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformProperty<string> ExecutionRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execution_role");
-        set => this.WithProperty("execution_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role");
+        set => SetProperty("execution_role", value);
     }
 
     /// <summary>
@@ -69,17 +75,17 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -88,26 +94,26 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => this.WithProperty("resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -116,8 +122,7 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     /// </summary>
     public HashSet<AwsImagebuilderLifecyclePolicyPolicyDetailBlock>? PolicyDetail
     {
-        get => GetProperty<HashSet<AwsImagebuilderLifecyclePolicyPolicyDetailBlock>>("policy_detail");
-        set => this.WithProperty("policy_detail", value);
+        set => SetProperty("policy_detail", value);
     }
 
     /// <summary>
@@ -126,8 +131,7 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     /// </summary>
     public List<AwsImagebuilderLifecyclePolicyResourceSelectionBlock>? ResourceSelection
     {
-        get => GetProperty<List<AwsImagebuilderLifecyclePolicyResourceSelectionBlock>>("resource_selection");
-        set => this.WithProperty("resource_selection", value);
+        set => SetProperty("resource_selection", value);
     }
 
     /// <summary>

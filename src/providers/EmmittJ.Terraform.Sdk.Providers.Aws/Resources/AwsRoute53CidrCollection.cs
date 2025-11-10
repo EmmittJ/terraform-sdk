@@ -14,9 +14,10 @@ public class AwsRoute53CidrCollection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputd");
-        this.WithOutputersion");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("version");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -25,8 +26,8 @@ public class AwsRoute53CidrCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

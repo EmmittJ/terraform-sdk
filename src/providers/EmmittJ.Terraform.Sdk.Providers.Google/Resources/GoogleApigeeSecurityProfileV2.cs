@@ -14,8 +14,7 @@ public class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assessment is required")]
     public required TerraformProperty<string> Assessment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("assessment");
-        set => WithProperty("assessment", value);
+        set => SetProperty("assessment", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformProperty<string> Weight
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("weight");
-        set => WithProperty("weight", value);
+        set => SetProperty("weight", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleApigeeSecurityProfileV2TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleApigeeSecurityProfileV2TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleApigeeSecurityProfileV2TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -78,27 +73,31 @@ public class GoogleApigeeSecurityProfileV2 : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("org_id");
+        SetOutput("profile_id");
     }
 
     /// <summary>
     /// Description of the security profile.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -108,8 +107,8 @@ public class GoogleApigeeSecurityProfileV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -118,19 +117,19 @@ public class GoogleApigeeSecurityProfileV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformProperty<string> ProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("profile_id");
-        set => this.WithProperty("profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_id");
+        set => SetProperty("profile_id", value);
     }
 
     /// <summary>
     /// Block for profile_assessment_configs.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileAssessmentConfigs is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProfileAssessmentConfigs block(s) required")]
     public HashSet<GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock>? ProfileAssessmentConfigs
     {
-        get => GetProperty<HashSet<GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock>>("profile_assessment_configs");
-        set => this.WithProperty("profile_assessment_configs", value);
+        set => SetProperty("profile_assessment_configs", value);
     }
 
     /// <summary>
@@ -139,8 +138,7 @@ public class GoogleApigeeSecurityProfileV2 : TerraformResource
     /// </summary>
     public GoogleApigeeSecurityProfileV2TimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeSecurityProfileV2TimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

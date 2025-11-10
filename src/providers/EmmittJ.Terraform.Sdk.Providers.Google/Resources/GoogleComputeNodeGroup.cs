@@ -14,8 +14,7 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxNodes
     {
-        get => GetProperty<TerraformProperty<double>>("max_nodes");
-        set => WithProperty("max_nodes", value);
+        set => SetProperty("max_nodes", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinNodes
     {
-        get => GetProperty<TerraformProperty<double>>("min_nodes");
-        set => WithProperty("min_nodes", value);
+        set => SetProperty("min_nodes", value);
     }
 
     /// <summary>
@@ -38,8 +36,7 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class GoogleComputeNodeGroupMaintenanceWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformProperty<string> StartTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
 }
@@ -74,8 +70,7 @@ public class GoogleComputeNodeGroupShareSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareType is required")]
     public required TerraformProperty<string> ShareType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("share_type");
-        set => WithProperty("share_type", value);
+        set => SetProperty("share_type", value);
     }
 
 }
@@ -91,8 +86,7 @@ public class GoogleComputeNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -100,8 +94,7 @@ public class GoogleComputeNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -109,8 +102,7 @@ public class GoogleComputeNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -128,45 +120,53 @@ public class GoogleComputeNodeGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("self_link");
-        this.WithOutput("size");
+        SetOutput("creation_timestamp");
+        SetOutput("self_link");
+        SetOutput("size");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("initial_size");
+        SetOutput("maintenance_policy");
+        SetOutput("name");
+        SetOutput("node_template");
+        SetOutput("project");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// An optional textual description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The initial number of nodes in the node group. One of &#39;initial_size&#39; or &#39;autoscaling_policy&#39; must be configured on resource creation.
     /// </summary>
-    public TerraformProperty<double>? InitialSize
+    public TerraformProperty<double> InitialSize
     {
-        get => GetProperty<TerraformProperty<double>>("initial_size");
-        set => this.WithProperty("initial_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("initial_size");
+        set => SetProperty("initial_size", value);
     }
 
     /// <summary>
     /// Specifies how to handle instances when a node in the group undergoes maintenance. Set to one of: DEFAULT, RESTART_IN_PLACE, or MIGRATE_WITHIN_NODE_GROUP. The default value is DEFAULT.
     /// </summary>
-    public TerraformProperty<string>? MaintenancePolicy
+    public TerraformProperty<string> MaintenancePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_policy");
-        set => this.WithProperty("maintenance_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_policy");
+        set => SetProperty("maintenance_policy", value);
     }
 
     /// <summary>
@@ -175,8 +175,8 @@ public class GoogleComputeNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -185,26 +185,26 @@ public class GoogleComputeNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTemplate is required")]
     public required TerraformProperty<string> NodeTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_template");
-        set => this.WithProperty("node_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_template");
+        set => SetProperty("node_template", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Zone where this node group is located
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -214,8 +214,7 @@ public class GoogleComputeNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingPolicy block(s) allowed")]
     public List<GoogleComputeNodeGroupAutoscalingPolicyBlock>? AutoscalingPolicy
     {
-        get => GetProperty<List<GoogleComputeNodeGroupAutoscalingPolicyBlock>>("autoscaling_policy");
-        set => this.WithProperty("autoscaling_policy", value);
+        set => SetProperty("autoscaling_policy", value);
     }
 
     /// <summary>
@@ -225,8 +224,7 @@ public class GoogleComputeNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     public List<GoogleComputeNodeGroupMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetProperty<List<GoogleComputeNodeGroupMaintenanceWindowBlock>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
@@ -236,8 +234,7 @@ public class GoogleComputeNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareSettings block(s) allowed")]
     public List<GoogleComputeNodeGroupShareSettingsBlock>? ShareSettings
     {
-        get => GetProperty<List<GoogleComputeNodeGroupShareSettingsBlock>>("share_settings");
-        set => this.WithProperty("share_settings", value);
+        set => SetProperty("share_settings", value);
     }
 
     /// <summary>
@@ -246,8 +243,7 @@ public class GoogleComputeNodeGroup : TerraformResource
     /// </summary>
     public GoogleComputeNodeGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNodeGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

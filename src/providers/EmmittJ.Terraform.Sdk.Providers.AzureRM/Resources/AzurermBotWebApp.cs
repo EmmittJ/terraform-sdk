@@ -13,8 +13,7 @@ public class AzurermBotWebAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBotWebAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBotWebAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermBotWebAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,60 +54,74 @@ public class AzurermBotWebApp : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("developer_app_insights_api_key");
+        SetOutput("developer_app_insights_application_id");
+        SetOutput("developer_app_insights_key");
+        SetOutput("display_name");
+        SetOutput("endpoint");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("luis_app_ids");
+        SetOutput("luis_key");
+        SetOutput("microsoft_app_id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The developer_app_insights_api_key attribute.
     /// </summary>
-    public TerraformProperty<string>? DeveloperAppInsightsApiKey
+    public TerraformProperty<string> DeveloperAppInsightsApiKey
     {
-        get => GetProperty<TerraformProperty<string>>("developer_app_insights_api_key");
-        set => this.WithProperty("developer_app_insights_api_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("developer_app_insights_api_key");
+        set => SetProperty("developer_app_insights_api_key", value);
     }
 
     /// <summary>
     /// The developer_app_insights_application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DeveloperAppInsightsApplicationId
+    public TerraformProperty<string> DeveloperAppInsightsApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("developer_app_insights_application_id");
-        set => this.WithProperty("developer_app_insights_application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("developer_app_insights_application_id");
+        set => SetProperty("developer_app_insights_application_id", value);
     }
 
     /// <summary>
     /// The developer_app_insights_key attribute.
     /// </summary>
-    public TerraformProperty<string>? DeveloperAppInsightsKey
+    public TerraformProperty<string> DeveloperAppInsightsKey
     {
-        get => GetProperty<TerraformProperty<string>>("developer_app_insights_key");
-        set => this.WithProperty("developer_app_insights_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("developer_app_insights_key");
+        set => SetProperty("developer_app_insights_key", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? Endpoint
+    public TerraformProperty<string> Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
-        set => this.WithProperty("endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint");
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -120,26 +130,26 @@ public class AzurermBotWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The luis_app_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? LuisAppIds
+    public List<TerraformProperty<string>> LuisAppIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("luis_app_ids");
-        set => this.WithProperty("luis_app_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("luis_app_ids");
+        set => SetProperty("luis_app_ids", value);
     }
 
     /// <summary>
     /// The luis_key attribute.
     /// </summary>
-    public TerraformProperty<string>? LuisKey
+    public TerraformProperty<string> LuisKey
     {
-        get => GetProperty<TerraformProperty<string>>("luis_key");
-        set => this.WithProperty("luis_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("luis_key");
+        set => SetProperty("luis_key", value);
     }
 
     /// <summary>
@@ -148,8 +158,8 @@ public class AzurermBotWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MicrosoftAppId is required")]
     public required TerraformProperty<string> MicrosoftAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("microsoft_app_id");
-        set => this.WithProperty("microsoft_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("microsoft_app_id");
+        set => SetProperty("microsoft_app_id", value);
     }
 
     /// <summary>
@@ -158,8 +168,8 @@ public class AzurermBotWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -168,8 +178,8 @@ public class AzurermBotWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -178,17 +188,17 @@ public class AzurermBotWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -197,8 +207,7 @@ public class AzurermBotWebApp : TerraformResource
     /// </summary>
     public AzurermBotWebAppTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBotWebAppTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

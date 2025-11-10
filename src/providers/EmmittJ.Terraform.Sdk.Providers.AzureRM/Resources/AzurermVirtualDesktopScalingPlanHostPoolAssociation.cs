@@ -13,8 +13,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
 
     private void InitializeOutputs()
     {
+        SetOutput("enabled");
+        SetOutput("host_pool_id");
+        SetOutput("id");
+        SetOutput("scaling_plan_id");
     }
 
     /// <summary>
@@ -66,8 +66,8 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -76,17 +76,17 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostPoolId is required")]
     public required TerraformProperty<string> HostPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_pool_id");
-        set => this.WithProperty("host_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_pool_id");
+        set => SetProperty("host_pool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingPlanId is required")]
     public required TerraformProperty<string> ScalingPlanId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scaling_plan_id");
-        set => this.WithProperty("scaling_plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scaling_plan_id");
+        set => SetProperty("scaling_plan_id", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     /// </summary>
     public AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class GoogleStorageBucketAccessControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleStorageBucketAccessControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleStorageBucketAccessControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,12 @@ public class GoogleStorageBucketAccessControl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("domain");
-        this.WithOutput("email");
+        SetOutput("domain");
+        SetOutput("email");
+        SetOutput("bucket");
+        SetOutput("entity");
+        SetOutput("id");
+        SetOutput("role");
     }
 
     /// <summary>
@@ -59,8 +60,8 @@ public class GoogleStorageBucketAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
@@ -83,26 +84,26 @@ public class GoogleStorageBucketAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
     public required TerraformProperty<string> Entity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entity");
-        set => this.WithProperty("entity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entity");
+        set => SetProperty("entity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The access permission for the entity. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;READER&amp;quot;, &amp;quot;WRITER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Role
+    public TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -111,8 +112,7 @@ public class GoogleStorageBucketAccessControl : TerraformResource
     /// </summary>
     public GoogleStorageBucketAccessControlTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageBucketAccessControlTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

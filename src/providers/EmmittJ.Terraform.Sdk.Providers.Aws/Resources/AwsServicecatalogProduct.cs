@@ -13,8 +13,7 @@ public class AwsServicecatalogProductProvisioningArtifactParametersBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsServicecatalogProductProvisioningArtifactParametersBlock : Terra
     /// </summary>
     public TerraformProperty<bool>? DisableTemplateValidation
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_template_validation");
-        set => WithProperty("disable_template_validation", value);
+        set => SetProperty("disable_template_validation", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsServicecatalogProductProvisioningArtifactParametersBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsServicecatalogProductProvisioningArtifactParametersBlock : Terra
     /// </summary>
     public TerraformProperty<string>? TemplatePhysicalId
     {
-        get => GetProperty<TerraformProperty<string>>("template_physical_id");
-        set => WithProperty("template_physical_id", value);
+        set => SetProperty("template_physical_id", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsServicecatalogProductProvisioningArtifactParametersBlock : Terra
     /// </summary>
     public TerraformProperty<string>? TemplateUrl
     {
-        get => GetProperty<TerraformProperty<string>>("template_url");
-        set => WithProperty("template_url", value);
+        set => SetProperty("template_url", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsServicecatalogProductProvisioningArtifactParametersBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -75,8 +69,7 @@ public class AwsServicecatalogProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AwsServicecatalogProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AwsServicecatalogProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AwsServicecatalogProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,46 +111,59 @@ public class AwsServicecatalogProduct : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_time");
-        this.WithOutput("has_default_path");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("created_time");
+        SetOutput("has_default_path");
+        SetOutput("status");
+        SetOutput("accept_language");
+        SetOutput("description");
+        SetOutput("distributor");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("owner");
+        SetOutput("region");
+        SetOutput("support_description");
+        SetOutput("support_email");
+        SetOutput("support_url");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    public TerraformProperty<string>? AcceptLanguage
+    public TerraformProperty<string> AcceptLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("accept_language");
-        set => this.WithProperty("accept_language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("accept_language");
+        set => SetProperty("accept_language", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The distributor attribute.
     /// </summary>
-    public TerraformProperty<string>? Distributor
+    public TerraformProperty<string> Distributor
     {
-        get => GetProperty<TerraformProperty<string>>("distributor");
-        set => this.WithProperty("distributor", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("distributor");
+        set => SetProperty("distributor", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -169,8 +172,8 @@ public class AwsServicecatalogProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -179,62 +182,62 @@ public class AwsServicecatalogProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformProperty<string> Owner
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("owner");
-        set => this.WithProperty("owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner");
+        set => SetProperty("owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The support_description attribute.
     /// </summary>
-    public TerraformProperty<string>? SupportDescription
+    public TerraformProperty<string> SupportDescription
     {
-        get => GetProperty<TerraformProperty<string>>("support_description");
-        set => this.WithProperty("support_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("support_description");
+        set => SetProperty("support_description", value);
     }
 
     /// <summary>
     /// The support_email attribute.
     /// </summary>
-    public TerraformProperty<string>? SupportEmail
+    public TerraformProperty<string> SupportEmail
     {
-        get => GetProperty<TerraformProperty<string>>("support_email");
-        set => this.WithProperty("support_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("support_email");
+        set => SetProperty("support_email", value);
     }
 
     /// <summary>
     /// The support_url attribute.
     /// </summary>
-    public TerraformProperty<string>? SupportUrl
+    public TerraformProperty<string> SupportUrl
     {
-        get => GetProperty<TerraformProperty<string>>("support_url");
-        set => this.WithProperty("support_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("support_url");
+        set => SetProperty("support_url", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -243,20 +246,20 @@ public class AwsServicecatalogProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Block for provisioning_artifact_parameters.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisioningArtifactParameters is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProvisioningArtifactParameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProvisioningArtifactParameters block(s) allowed")]
     public List<AwsServicecatalogProductProvisioningArtifactParametersBlock>? ProvisioningArtifactParameters
     {
-        get => GetProperty<List<AwsServicecatalogProductProvisioningArtifactParametersBlock>>("provisioning_artifact_parameters");
-        set => this.WithProperty("provisioning_artifact_parameters", value);
+        set => SetProperty("provisioning_artifact_parameters", value);
     }
 
     /// <summary>
@@ -265,8 +268,7 @@ public class AwsServicecatalogProduct : TerraformResource
     /// </summary>
     public AwsServicecatalogProductTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsServicecatalogProductTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

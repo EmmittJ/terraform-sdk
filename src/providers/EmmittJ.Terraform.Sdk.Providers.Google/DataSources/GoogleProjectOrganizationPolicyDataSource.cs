@@ -14,12 +14,15 @@ public class GoogleProjectOrganizationPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("boolean_policy");
-        this.WithOutput("etag");
-        this.WithOutput("list_policy");
-        this.WithOutput("restore_policy");
-        this.WithOutput("update_time");
-        this.WithOutput("version");
+        SetOutput("boolean_policy");
+        SetOutput("etag");
+        SetOutput("list_policy");
+        SetOutput("restore_policy");
+        SetOutput("update_time");
+        SetOutput("version");
+        SetOutput("constraint");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -28,17 +31,17 @@ public class GoogleProjectOrganizationPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     public required TerraformProperty<string> Constraint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("constraint");
-        set => this.WithProperty("constraint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("constraint");
+        set => SetProperty("constraint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -47,8 +50,8 @@ public class GoogleProjectOrganizationPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -62,7 +65,7 @@ public class GoogleProjectOrganizationPolicyDataSource : TerraformDataSource
     public TerraformExpression Etag => this["etag"];
 
     /// <summary>
-    /// A policy that can define specific values that are allowed or denied for the given constraint. It can also be used to allow or deny all values.
+    /// A policy that can define specific values that are allowed or denied for the given constraint. It can also be used to allow or deny all values. 
     /// </summary>
     public TerraformExpression ListPolicy => this["list_policy"];
 

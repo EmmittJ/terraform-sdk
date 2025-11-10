@@ -14,8 +14,7 @@ public class AzureadSynchronizationJobProvisionOnDemandParameterBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     public required TerraformProperty<string> RuleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule_id");
-        set => WithProperty("rule_id", value);
+        set => SetProperty("rule_id", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -68,15 +64,19 @@ public class AzureadSynchronizationJobProvisionOnDemand : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("service_principal_id");
+        SetOutput("synchronization_job_id");
+        SetOutput("triggers");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +85,8 @@ public class AzureadSynchronizationJobProvisionOnDemand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformProperty<string> ServicePrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_id");
-        set => this.WithProperty("service_principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_principal_id");
+        set => SetProperty("service_principal_id", value);
     }
 
     /// <summary>
@@ -95,28 +95,28 @@ public class AzureadSynchronizationJobProvisionOnDemand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynchronizationJobId is required")]
     public required TerraformProperty<string> SynchronizationJobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("synchronization_job_id");
-        set => this.WithProperty("synchronization_job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("synchronization_job_id");
+        set => SetProperty("synchronization_job_id", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Triggers
+    public Dictionary<string, TerraformProperty<string>> Triggers
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
-        set => this.WithProperty("triggers", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("triggers");
+        set => SetProperty("triggers", value);
     }
 
     /// <summary>
     /// Block for parameter.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Parameter block(s) required")]
     public List<AzureadSynchronizationJobProvisionOnDemandParameterBlock>? Parameter
     {
-        get => GetProperty<List<AzureadSynchronizationJobProvisionOnDemandParameterBlock>>("parameter");
-        set => this.WithProperty("parameter", value);
+        set => SetProperty("parameter", value);
     }
 
     /// <summary>
@@ -125,8 +125,7 @@ public class AzureadSynchronizationJobProvisionOnDemand : TerraformResource
     /// </summary>
     public AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

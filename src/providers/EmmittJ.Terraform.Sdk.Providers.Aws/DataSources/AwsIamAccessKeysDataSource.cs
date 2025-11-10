@@ -14,16 +14,18 @@ public class AwsIamAccessKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_keys");
+        SetOutput("access_keys");
+        SetOutput("id");
+        SetOutput("user");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,8 +34,8 @@ public class AwsIamAccessKeysDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user");
-        set => this.WithProperty("user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user");
+        set => SetProperty("user", value);
     }
 
     /// <summary>

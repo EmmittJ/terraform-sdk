@@ -14,6 +14,11 @@ public class AwsS3tablesTablePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("name");
+        SetOutput("namespace");
+        SetOutput("region");
+        SetOutput("resource_policy");
+        SetOutput("table_bucket_arn");
     }
 
     /// <summary>
@@ -22,8 +27,8 @@ public class AwsS3tablesTablePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -32,17 +37,17 @@ public class AwsS3tablesTablePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
-        set => this.WithProperty("namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -51,8 +56,8 @@ public class AwsS3tablesTablePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourcePolicy is required")]
     public required TerraformProperty<string> ResourcePolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_policy");
-        set => this.WithProperty("resource_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_policy");
+        set => SetProperty("resource_policy", value);
     }
 
     /// <summary>
@@ -61,8 +66,8 @@ public class AwsS3tablesTablePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
     public required TerraformProperty<string> TableBucketArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_bucket_arn");
-        set => this.WithProperty("table_bucket_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_bucket_arn");
+        set => SetProperty("table_bucket_arn", value);
     }
 
 }

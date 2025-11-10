@@ -13,8 +13,7 @@ public class AwsEc2CapacityBlockReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,21 +30,25 @@ public class AwsEc2CapacityBlockReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone");
-        this.WithOutput("created_date");
-        this.WithOutput("ebs_optimized");
-        this.WithOutput("end_date");
-        this.WithOutput("end_date_type");
-        this.WithOutput("id");
-        this.WithOutput("instance_count");
-        this.WithOutput("instance_type");
-        this.WithOutput("outpost_arn");
-        this.WithOutput("placement_group_arn");
-        this.WithOutput("reservation_type");
-        this.WithOutput("start_date");
-        this.WithOutput("tags_all");
-        this.WithOutput("tenancy");
+        SetOutput("arn");
+        SetOutput("availability_zone");
+        SetOutput("created_date");
+        SetOutput("ebs_optimized");
+        SetOutput("end_date");
+        SetOutput("end_date_type");
+        SetOutput("id");
+        SetOutput("instance_count");
+        SetOutput("instance_type");
+        SetOutput("outpost_arn");
+        SetOutput("placement_group_arn");
+        SetOutput("reservation_type");
+        SetOutput("start_date");
+        SetOutput("tags_all");
+        SetOutput("tenancy");
+        SetOutput("capacity_block_offering_id");
+        SetOutput("instance_platform");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -54,8 +57,8 @@ public class AwsEc2CapacityBlockReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityBlockOfferingId is required")]
     public required TerraformProperty<string> CapacityBlockOfferingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capacity_block_offering_id");
-        set => this.WithProperty("capacity_block_offering_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capacity_block_offering_id");
+        set => SetProperty("capacity_block_offering_id", value);
     }
 
     /// <summary>
@@ -64,26 +67,26 @@ public class AwsEc2CapacityBlockReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePlatform is required")]
     public required TerraformProperty<string> InstancePlatform
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_platform");
-        set => this.WithProperty("instance_platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_platform");
+        set => SetProperty("instance_platform", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -92,8 +95,7 @@ public class AwsEc2CapacityBlockReservation : TerraformResource
     /// </summary>
     public AwsEc2CapacityBlockReservationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2CapacityBlockReservationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

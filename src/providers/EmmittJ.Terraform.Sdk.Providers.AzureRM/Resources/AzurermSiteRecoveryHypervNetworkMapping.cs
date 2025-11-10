@@ -13,8 +13,7 @@ public class AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,21 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recovery_vault_id");
+        SetOutput("source_network_name");
+        SetOutput("source_system_center_virtual_machine_manager_name");
+        SetOutput("target_network_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +69,8 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +79,8 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
-        set => this.WithProperty("recovery_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_id");
+        set => SetProperty("recovery_vault_id", value);
     }
 
     /// <summary>
@@ -86,8 +89,8 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceNetworkName is required")]
     public required TerraformProperty<string> SourceNetworkName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_network_name");
-        set => this.WithProperty("source_network_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_network_name");
+        set => SetProperty("source_network_name", value);
     }
 
     /// <summary>
@@ -96,8 +99,8 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSystemCenterVirtualMachineManagerName is required")]
     public required TerraformProperty<string> SourceSystemCenterVirtualMachineManagerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_system_center_virtual_machine_manager_name");
-        set => this.WithProperty("source_system_center_virtual_machine_manager_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_system_center_virtual_machine_manager_name");
+        set => SetProperty("source_system_center_virtual_machine_manager_name", value);
     }
 
     /// <summary>
@@ -106,8 +109,8 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     public required TerraformProperty<string> TargetNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_network_id");
-        set => this.WithProperty("target_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_network_id");
+        set => SetProperty("target_network_id", value);
     }
 
     /// <summary>
@@ -116,8 +119,7 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     /// </summary>
     public AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSiteRecoveryHypervNetworkMappingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

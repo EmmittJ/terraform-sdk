@@ -14,10 +14,12 @@ public class AwsVpcIpamOrganizationAdminAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("email");
-        this.WithOutput("name");
-        this.WithOutput("service_principal");
+        SetOutput("arn");
+        SetOutput("email");
+        SetOutput("name");
+        SetOutput("service_principal");
+        SetOutput("delegated_admin_account_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -26,17 +28,17 @@ public class AwsVpcIpamOrganizationAdminAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedAdminAccountId is required")]
     public required TerraformProperty<string> DelegatedAdminAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("delegated_admin_account_id");
-        set => this.WithProperty("delegated_admin_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delegated_admin_account_id");
+        set => SetProperty("delegated_admin_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

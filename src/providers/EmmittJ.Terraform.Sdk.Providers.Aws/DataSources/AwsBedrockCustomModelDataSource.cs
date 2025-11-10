@@ -14,22 +14,24 @@ public class AwsBedrockCustomModelDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("base_model_arn");
-        this.WithOutput("creation_time");
-        this.WithOutput("hyperparameters");
-        this.WithOutput("id");
-        this.WithOutput("job_arn");
-        this.WithOutput("job_name");
-        this.WithOutput("job_tags");
-        this.WithOutput("model_arn");
-        this.WithOutput("model_kms_key_arn");
-        this.WithOutput("model_name");
-        this.WithOutput("model_tags");
-        this.WithOutput("output_data_config");
-        this.WithOutput("training_data_config");
-        this.WithOutput("training_metrics");
-        this.WithOutput("validation_data_config");
-        this.WithOutput("validation_metrics");
+        SetOutput("base_model_arn");
+        SetOutput("creation_time");
+        SetOutput("hyperparameters");
+        SetOutput("id");
+        SetOutput("job_arn");
+        SetOutput("job_name");
+        SetOutput("job_tags");
+        SetOutput("model_arn");
+        SetOutput("model_kms_key_arn");
+        SetOutput("model_name");
+        SetOutput("model_tags");
+        SetOutput("output_data_config");
+        SetOutput("training_data_config");
+        SetOutput("training_metrics");
+        SetOutput("validation_data_config");
+        SetOutput("validation_metrics");
+        SetOutput("model_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -38,17 +40,17 @@ public class AwsBedrockCustomModelDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
     public required TerraformProperty<string> ModelId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("model_id");
-        set => this.WithProperty("model_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("model_id");
+        set => SetProperty("model_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

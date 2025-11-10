@@ -14,6 +14,11 @@ public class AwsIotLoggingOptions : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("default_log_level");
+        SetOutput("disable_all_logs");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("role_arn");
     }
 
     /// <summary>
@@ -22,35 +27,35 @@ public class AwsIotLoggingOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLogLevel is required")]
     public required TerraformProperty<string> DefaultLogLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_log_level");
-        set => this.WithProperty("default_log_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_log_level");
+        set => SetProperty("default_log_level", value);
     }
 
     /// <summary>
     /// The disable_all_logs attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableAllLogs
+    public TerraformProperty<bool> DisableAllLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_all_logs");
-        set => this.WithProperty("disable_all_logs", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_all_logs");
+        set => SetProperty("disable_all_logs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -59,8 +64,8 @@ public class AwsIotLoggingOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
 }

@@ -23,8 +23,7 @@ public class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Flow
     {
-        get => GetProperty<TerraformProperty<string>>("flow");
-        set => WithProperty("flow", value);
+        set => SetProperty("flow", value);
     }
 
     /// <summary>
@@ -34,8 +33,7 @@ public class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Page
     {
-        get => GetProperty<TerraformProperty<string>>("page");
-        set => WithProperty("page", value);
+        set => SetProperty("page", value);
     }
 
     /// <summary>
@@ -43,8 +41,7 @@ public class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? TrackingParameters
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tracking_parameters");
-        set => WithProperty("tracking_parameters", value);
+        set => SetProperty("tracking_parameters", value);
     }
 
 }
@@ -60,8 +57,7 @@ public class GoogleDialogflowCxTestCaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class GoogleDialogflowCxTestCaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -78,8 +73,7 @@ public class GoogleDialogflowCxTestCaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -97,9 +91,14 @@ public class GoogleDialogflowCxTestCase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_time");
-        this.WithOutput("last_test_result");
-        this.WithOutput("name");
+        SetOutput("creation_time");
+        SetOutput("last_test_result");
+        SetOutput("name");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("notes");
+        SetOutput("parent");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -108,46 +107,46 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Additional freeform notes about the test case. Limit of 400 characters.
     /// </summary>
-    public TerraformProperty<string>? Notes
+    public TerraformProperty<string> Notes
     {
-        get => GetProperty<TerraformProperty<string>>("notes");
-        set => this.WithProperty("notes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notes");
+        set => SetProperty("notes", value);
     }
 
     /// <summary>
     /// The agent to create the test case for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// Tags are short descriptions that users may apply to test cases for organizational and filtering purposes.
     /// Each tag should start with &amp;quot;#&amp;quot; and has a limit of 30 characters
     /// </summary>
-    public List<TerraformProperty<string>>? Tags
+    public List<TerraformProperty<string>> Tags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -156,8 +155,7 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     public List<GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock>? TestCaseConversationTurns
     {
-        get => GetProperty<List<GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock>>("test_case_conversation_turns");
-        set => this.WithProperty("test_case_conversation_turns", value);
+        set => SetProperty("test_case_conversation_turns", value);
     }
 
     /// <summary>
@@ -167,8 +165,7 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TestConfig block(s) allowed")]
     public List<GoogleDialogflowCxTestCaseTestConfigBlock>? TestConfig
     {
-        get => GetProperty<List<GoogleDialogflowCxTestCaseTestConfigBlock>>("test_config");
-        set => this.WithProperty("test_config", value);
+        set => SetProperty("test_config", value);
     }
 
     /// <summary>
@@ -177,8 +174,7 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     public GoogleDialogflowCxTestCaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowCxTestCaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

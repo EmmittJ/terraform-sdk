@@ -13,8 +13,7 @@ public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,21 @@ public class AzurermApplicationInsightsSmartDetectionRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("additional_email_recipients");
+        SetOutput("application_insights_id");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("send_emails_to_subscription_owners");
     }
 
     /// <summary>
     /// The additional_email_recipients attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AdditionalEmailRecipients
+    public HashSet<TerraformProperty<string>> AdditionalEmailRecipients
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("additional_email_recipients");
-        set => this.WithProperty("additional_email_recipients", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("additional_email_recipients");
+        set => SetProperty("additional_email_recipients", value);
     }
 
     /// <summary>
@@ -75,26 +77,26 @@ public class AzurermApplicationInsightsSmartDetectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformProperty<string> ApplicationInsightsId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_insights_id");
-        set => this.WithProperty("application_insights_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_insights_id");
+        set => SetProperty("application_insights_id", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,17 +105,17 @@ public class AzurermApplicationInsightsSmartDetectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The send_emails_to_subscription_owners attribute.
     /// </summary>
-    public TerraformProperty<bool>? SendEmailsToSubscriptionOwners
+    public TerraformProperty<bool> SendEmailsToSubscriptionOwners
     {
-        get => GetProperty<TerraformProperty<bool>>("send_emails_to_subscription_owners");
-        set => this.WithProperty("send_emails_to_subscription_owners", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("send_emails_to_subscription_owners");
+        set => SetProperty("send_emails_to_subscription_owners", value);
     }
 
     /// <summary>
@@ -122,8 +124,7 @@ public class AzurermApplicationInsightsSmartDetectionRule : TerraformResource
     /// </summary>
     public AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

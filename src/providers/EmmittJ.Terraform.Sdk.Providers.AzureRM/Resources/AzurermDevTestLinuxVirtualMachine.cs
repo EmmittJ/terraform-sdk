@@ -14,8 +14,7 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformProperty<string> Offer
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("offer");
-        set => WithProperty("offer", value);
+        set => SetProperty("offer", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
-        set => WithProperty("publisher", value);
+        set => SetProperty("publisher", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -62,8 +58,7 @@ public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
     public required TerraformProperty<double> BackendPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("backend_port");
-        set => WithProperty("backend_port", value);
+        set => SetProperty("backend_port", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? FrontendPort
     {
-        get => GetProperty<TerraformProperty<double>>("frontend_port");
-        set => WithProperty("frontend_port", value);
+        set => SetProperty("frontend_port", value);
     }
 
     /// <summary>
@@ -81,8 +75,7 @@ public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
 }
@@ -98,8 +91,7 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -107,8 +99,7 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -116,8 +107,7 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -125,8 +115,7 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -144,35 +133,51 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputqdn");
-        this.WithOutputnique_identifier");
+        SetOutput("fqdn");
+        SetOutput("unique_identifier");
+        SetOutput("allow_claim");
+        SetOutput("disallow_public_ip_address");
+        SetOutput("id");
+        SetOutput("lab_name");
+        SetOutput("lab_subnet_name");
+        SetOutput("lab_virtual_network_id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("notes");
+        SetOutput("password");
+        SetOutput("resource_group_name");
+        SetOutput("size");
+        SetOutput("ssh_key");
+        SetOutput("storage_type");
+        SetOutput("tags");
+        SetOutput("username");
     }
 
     /// <summary>
     /// The allow_claim attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowClaim
+    public TerraformProperty<bool> AllowClaim
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_claim");
-        set => this.WithProperty("allow_claim", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_claim");
+        set => SetProperty("allow_claim", value);
     }
 
     /// <summary>
     /// The disallow_public_ip_address attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisallowPublicIpAddress
+    public TerraformProperty<bool> DisallowPublicIpAddress
     {
-        get => GetProperty<TerraformProperty<bool>>("disallow_public_ip_address");
-        set => this.WithProperty("disallow_public_ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disallow_public_ip_address");
+        set => SetProperty("disallow_public_ip_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -181,8 +186,8 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformProperty<string> LabName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lab_name");
-        set => this.WithProperty("lab_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lab_name");
+        set => SetProperty("lab_name", value);
     }
 
     /// <summary>
@@ -191,8 +196,8 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabSubnetName is required")]
     public required TerraformProperty<string> LabSubnetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lab_subnet_name");
-        set => this.WithProperty("lab_subnet_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lab_subnet_name");
+        set => SetProperty("lab_subnet_name", value);
     }
 
     /// <summary>
@@ -201,8 +206,8 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabVirtualNetworkId is required")]
     public required TerraformProperty<string> LabVirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lab_virtual_network_id");
-        set => this.WithProperty("lab_virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lab_virtual_network_id");
+        set => SetProperty("lab_virtual_network_id", value);
     }
 
     /// <summary>
@@ -211,8 +216,8 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -221,26 +226,26 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    public TerraformProperty<string>? Notes
+    public TerraformProperty<string> Notes
     {
-        get => GetProperty<TerraformProperty<string>>("notes");
-        set => this.WithProperty("notes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notes");
+        set => SetProperty("notes", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -249,8 +254,8 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -259,17 +264,17 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformProperty<string> Size
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("size");
-        set => this.WithProperty("size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("size");
+        set => SetProperty("size", value);
     }
 
     /// <summary>
     /// The ssh_key attribute.
     /// </summary>
-    public TerraformProperty<string>? SshKey
+    public TerraformProperty<string> SshKey
     {
-        get => GetProperty<TerraformProperty<string>>("ssh_key");
-        set => this.WithProperty("ssh_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ssh_key");
+        set => SetProperty("ssh_key", value);
     }
 
     /// <summary>
@@ -278,17 +283,17 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     public required TerraformProperty<string> StorageType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_type");
-        set => this.WithProperty("storage_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
+        set => SetProperty("storage_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -297,20 +302,20 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
     /// Block for gallery_image_reference.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryImageReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GalleryImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GalleryImageReference block(s) allowed")]
     public List<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock>? GalleryImageReference
     {
-        get => GetProperty<List<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock>>("gallery_image_reference");
-        set => this.WithProperty("gallery_image_reference", value);
+        set => SetProperty("gallery_image_reference", value);
     }
 
     /// <summary>
@@ -319,8 +324,7 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// </summary>
     public HashSet<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock>? InboundNatRule
     {
-        get => GetProperty<HashSet<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock>>("inbound_nat_rule");
-        set => this.WithProperty("inbound_nat_rule", value);
+        set => SetProperty("inbound_nat_rule", value);
     }
 
     /// <summary>
@@ -329,8 +333,7 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     /// </summary>
     public AzurermDevTestLinuxVirtualMachineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDevTestLinuxVirtualMachineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

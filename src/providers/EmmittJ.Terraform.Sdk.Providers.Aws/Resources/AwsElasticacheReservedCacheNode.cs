@@ -13,8 +13,7 @@ public class AwsElasticacheReservedCacheNodeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsElasticacheReservedCacheNodeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsElasticacheReservedCacheNodeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,44 +46,49 @@ public class AwsElasticacheReservedCacheNode : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cache_node_type");
-        this.WithOutput("duration");
-        this.WithOutput("fixed_price");
-        this.WithOutput("offering_type");
-        this.WithOutput("product_description");
-        this.WithOutput("recurring_charges");
-        this.WithOutput("start_time");
-        this.WithOutput("state");
-        this.WithOutput("tags_all");
-        this.WithOutput("usage_price");
+        SetOutput("arn");
+        SetOutput("cache_node_type");
+        SetOutput("duration");
+        SetOutput("fixed_price");
+        SetOutput("offering_type");
+        SetOutput("product_description");
+        SetOutput("recurring_charges");
+        SetOutput("start_time");
+        SetOutput("state");
+        SetOutput("tags_all");
+        SetOutput("usage_price");
+        SetOutput("cache_node_count");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("reserved_cache_nodes_offering_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The cache_node_count attribute.
     /// </summary>
-    public TerraformProperty<double>? CacheNodeCount
+    public TerraformProperty<double> CacheNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("cache_node_count");
-        set => this.WithProperty("cache_node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cache_node_count");
+        set => SetProperty("cache_node_count", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -95,17 +97,17 @@ public class AwsElasticacheReservedCacheNode : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedCacheNodesOfferingId is required")]
     public required TerraformProperty<string> ReservedCacheNodesOfferingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("reserved_cache_nodes_offering_id");
-        set => this.WithProperty("reserved_cache_nodes_offering_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reserved_cache_nodes_offering_id");
+        set => SetProperty("reserved_cache_nodes_offering_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -114,8 +116,7 @@ public class AwsElasticacheReservedCacheNode : TerraformResource
     /// </summary>
     public AwsElasticacheReservedCacheNodeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsElasticacheReservedCacheNodeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

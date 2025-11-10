@@ -13,8 +13,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Failover
     {
-        get => GetProperty<TerraformProperty<string>>("failover");
-        set => WithProperty("failover", value);
+        set => SetProperty("failover", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HealthCheckId
     {
-        get => GetProperty<TerraformProperty<string>>("health_check_id");
-        set => WithProperty("health_check_id", value);
+        set => SetProperty("health_check_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MultiValueAnswer
     {
-        get => GetProperty<TerraformProperty<bool>>("multi_value_answer");
-        set => WithProperty("multi_value_answer", value);
+        set => SetProperty("multi_value_answer", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SetIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("set_identifier");
-        set => WithProperty("set_identifier", value);
+        set => SetProperty("set_identifier", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TrafficPolicyInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("traffic_policy_instance_id");
-        set => WithProperty("traffic_policy_instance_id", value);
+        set => SetProperty("traffic_policy_instance_id", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Ttl
     {
-        get => GetProperty<TerraformProperty<double>>("ttl");
-        set => WithProperty("ttl", value);
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>
@@ -86,8 +78,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -95,8 +86,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
-        set => WithProperty("weight", value);
+        set => SetProperty("weight", value);
     }
 
 }
@@ -112,8 +102,7 @@ public class AwsRoute53RecordsExclusiveTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class AwsRoute53RecordsExclusiveTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -139,6 +127,7 @@ public class AwsRoute53RecordsExclusive : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("zone_id");
     }
 
     /// <summary>
@@ -147,8 +136,8 @@ public class AwsRoute53RecordsExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
-        set => this.WithProperty("zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
+        set => SetProperty("zone_id", value);
     }
 
     /// <summary>
@@ -157,8 +146,7 @@ public class AwsRoute53RecordsExclusive : TerraformResource
     /// </summary>
     public HashSet<AwsRoute53RecordsExclusiveResourceRecordSetBlock>? ResourceRecordSet
     {
-        get => GetProperty<HashSet<AwsRoute53RecordsExclusiveResourceRecordSetBlock>>("resource_record_set");
-        set => this.WithProperty("resource_record_set", value);
+        set => SetProperty("resource_record_set", value);
     }
 
     /// <summary>
@@ -167,8 +155,7 @@ public class AwsRoute53RecordsExclusive : TerraformResource
     /// </summary>
     public AwsRoute53RecordsExclusiveTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53RecordsExclusiveTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

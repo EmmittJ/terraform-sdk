@@ -13,8 +13,7 @@ public class AzurermDevTestPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDevTestPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDevTestPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDevTestPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,25 @@ public class AzurermDevTestPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("evaluator_type");
+        SetOutput("fact_data");
+        SetOutput("id");
+        SetOutput("lab_name");
+        SetOutput("name");
+        SetOutput("policy_set_name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("threshold");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -75,26 +81,26 @@ public class AzurermDevTestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluatorType is required")]
     public required TerraformProperty<string> EvaluatorType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("evaluator_type");
-        set => this.WithProperty("evaluator_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("evaluator_type");
+        set => SetProperty("evaluator_type", value);
     }
 
     /// <summary>
     /// The fact_data attribute.
     /// </summary>
-    public TerraformProperty<string>? FactData
+    public TerraformProperty<string> FactData
     {
-        get => GetProperty<TerraformProperty<string>>("fact_data");
-        set => this.WithProperty("fact_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fact_data");
+        set => SetProperty("fact_data", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,8 +109,8 @@ public class AzurermDevTestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformProperty<string> LabName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lab_name");
-        set => this.WithProperty("lab_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lab_name");
+        set => SetProperty("lab_name", value);
     }
 
     /// <summary>
@@ -113,8 +119,8 @@ public class AzurermDevTestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -123,8 +129,8 @@ public class AzurermDevTestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySetName is required")]
     public required TerraformProperty<string> PolicySetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_set_name");
-        set => this.WithProperty("policy_set_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_set_name");
+        set => SetProperty("policy_set_name", value);
     }
 
     /// <summary>
@@ -133,17 +139,17 @@ public class AzurermDevTestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -152,8 +158,8 @@ public class AzurermDevTestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformProperty<string> Threshold
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("threshold");
-        set => this.WithProperty("threshold", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("threshold");
+        set => SetProperty("threshold", value);
     }
 
     /// <summary>
@@ -162,8 +168,7 @@ public class AzurermDevTestPolicy : TerraformResource
     /// </summary>
     public AzurermDevTestPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDevTestPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

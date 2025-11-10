@@ -13,8 +13,7 @@ public class AzurermNetappVolumeGroupOracleDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,10 +30,14 @@ public class AzurermNetappVolumeGroupOracleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("application_identifier");
-        this.WithOutput("group_description");
-        this.WithOutput("location");
-        this.WithOutput("volume");
+        SetOutput("application_identifier");
+        SetOutput("group_description");
+        SetOutput("location");
+        SetOutput("volume");
+        SetOutput("account_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -43,17 +46,17 @@ public class AzurermNetappVolumeGroupOracleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +65,8 @@ public class AzurermNetappVolumeGroupOracleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +75,8 @@ public class AzurermNetappVolumeGroupOracleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -82,8 +85,7 @@ public class AzurermNetappVolumeGroupOracleDataSource : TerraformDataSource
     /// </summary>
     public AzurermNetappVolumeGroupOracleDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappVolumeGroupOracleDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

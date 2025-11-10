@@ -13,8 +13,7 @@ public class AzurermImageDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,38 +30,43 @@ public class AzurermImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("data_disk");
-        this.WithOutput("location");
-        this.WithOutput("os_disk");
-        this.WithOutput("tags");
-        this.WithOutput("zone_resilient");
+        SetOutput("data_disk");
+        SetOutput("location");
+        SetOutput("os_disk");
+        SetOutput("tags");
+        SetOutput("zone_resilient");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_regex");
+        SetOutput("resource_group_name");
+        SetOutput("sort_descending");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string>? NameRegex
+    public TerraformProperty<string> NameRegex
     {
-        get => GetProperty<TerraformProperty<string>>("name_regex");
-        set => this.WithProperty("name_regex", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
+        set => SetProperty("name_regex", value);
     }
 
     /// <summary>
@@ -71,17 +75,17 @@ public class AzurermImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sort_descending attribute.
     /// </summary>
-    public TerraformProperty<bool>? SortDescending
+    public TerraformProperty<bool> SortDescending
     {
-        get => GetProperty<TerraformProperty<bool>>("sort_descending");
-        set => this.WithProperty("sort_descending", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("sort_descending");
+        set => SetProperty("sort_descending", value);
     }
 
     /// <summary>
@@ -90,8 +94,7 @@ public class AzurermImageDataSource : TerraformDataSource
     /// </summary>
     public AzurermImageDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermImageDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

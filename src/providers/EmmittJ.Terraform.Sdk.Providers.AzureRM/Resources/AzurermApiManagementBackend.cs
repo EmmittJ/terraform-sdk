@@ -13,8 +13,7 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Certificate
     {
-        get => GetProperty<List<TerraformProperty<string>>>("certificate");
-        set => WithProperty("certificate", value);
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Header
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("header");
-        set => WithProperty("header", value);
+        set => SetProperty("header", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Query
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("query");
-        set => WithProperty("query", value);
+        set => SetProperty("query", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -85,8 +79,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? ClientCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate_id");
-        set => WithProperty("client_certificate_id", value);
+        set => SetProperty("client_certificate_id", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? ClientCertificateThumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate_thumbprint");
-        set => WithProperty("client_certificate_thumbprint", value);
+        set => SetProperty("client_certificate_thumbprint", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementEndpoints is required")]
     public HashSet<TerraformProperty<string>>? ManagementEndpoints
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("management_endpoints");
-        set => WithProperty("management_endpoints", value);
+        set => SetProperty("management_endpoints", value);
     }
 
     /// <summary>
@@ -114,8 +105,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPartitionResolutionRetries is required")]
     public required TerraformProperty<double> MaxPartitionResolutionRetries
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_partition_resolution_retries");
-        set => WithProperty("max_partition_resolution_retries", value);
+        set => SetProperty("max_partition_resolution_retries", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// </summary>
     public HashSet<TerraformProperty<string>>? ServerCertificateThumbprints
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("server_certificate_thumbprints");
-        set => WithProperty("server_certificate_thumbprints", value);
+        set => SetProperty("server_certificate_thumbprints", value);
     }
 
 }
@@ -140,8 +129,7 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -149,8 +137,7 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -158,8 +145,7 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -167,8 +153,7 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -184,8 +169,7 @@ public class AzurermApiManagementBackendTlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ValidateCertificateChain
     {
-        get => GetProperty<TerraformProperty<bool>>("validate_certificate_chain");
-        set => WithProperty("validate_certificate_chain", value);
+        set => SetProperty("validate_certificate_chain", value);
     }
 
     /// <summary>
@@ -193,8 +177,7 @@ public class AzurermApiManagementBackendTlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ValidateCertificateName
     {
-        get => GetProperty<TerraformProperty<bool>>("validate_certificate_name");
-        set => WithProperty("validate_certificate_name", value);
+        set => SetProperty("validate_certificate_name", value);
     }
 
 }
@@ -212,6 +195,15 @@ public class AzurermApiManagementBackend : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("protocol");
+        SetOutput("resource_group_name");
+        SetOutput("resource_id");
+        SetOutput("title");
+        SetOutput("url");
     }
 
     /// <summary>
@@ -220,26 +212,26 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -248,8 +240,8 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -258,8 +250,8 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -268,26 +260,26 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    public TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    public TerraformProperty<string>? Title
+    public TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
-        set => this.WithProperty("title", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("title");
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -296,8 +288,8 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => this.WithProperty("url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url");
+        set => SetProperty("url", value);
     }
 
     /// <summary>
@@ -307,8 +299,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Credentials block(s) allowed")]
     public List<AzurermApiManagementBackendCredentialsBlock>? Credentials
     {
-        get => GetProperty<List<AzurermApiManagementBackendCredentialsBlock>>("credentials");
-        set => this.WithProperty("credentials", value);
+        set => SetProperty("credentials", value);
     }
 
     /// <summary>
@@ -318,8 +309,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     public List<AzurermApiManagementBackendProxyBlock>? Proxy
     {
-        get => GetProperty<List<AzurermApiManagementBackendProxyBlock>>("proxy");
-        set => this.WithProperty("proxy", value);
+        set => SetProperty("proxy", value);
     }
 
     /// <summary>
@@ -329,8 +319,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceFabricCluster block(s) allowed")]
     public List<AzurermApiManagementBackendServiceFabricClusterBlock>? ServiceFabricCluster
     {
-        get => GetProperty<List<AzurermApiManagementBackendServiceFabricClusterBlock>>("service_fabric_cluster");
-        set => this.WithProperty("service_fabric_cluster", value);
+        set => SetProperty("service_fabric_cluster", value);
     }
 
     /// <summary>
@@ -339,8 +328,7 @@ public class AzurermApiManagementBackend : TerraformResource
     /// </summary>
     public AzurermApiManagementBackendTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementBackendTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -350,8 +338,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
     public List<AzurermApiManagementBackendTlsBlock>? Tls
     {
-        get => GetProperty<List<AzurermApiManagementBackendTlsBlock>>("tls");
-        set => this.WithProperty("tls", value);
+        set => SetProperty("tls", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExternalTablesToExclude
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("external_tables_to_exclude");
-        set => WithProperty("external_tables_to_exclude", value);
+        set => SetProperty("external_tables_to_exclude", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExternalTablesToInclude
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("external_tables_to_include");
-        set => WithProperty("external_tables_to_include", value);
+        set => SetProperty("external_tables_to_include", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? MaterializedViewsToExclude
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("materialized_views_to_exclude");
-        set => WithProperty("materialized_views_to_exclude", value);
+        set => SetProperty("materialized_views_to_exclude", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? MaterializedViewsToInclude
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("materialized_views_to_include");
-        set => WithProperty("materialized_views_to_include", value);
+        set => SetProperty("materialized_views_to_include", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? TablesToExclude
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("tables_to_exclude");
-        set => WithProperty("tables_to_exclude", value);
+        set => SetProperty("tables_to_exclude", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? TablesToInclude
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("tables_to_include");
-        set => WithProperty("tables_to_include", value);
+        set => SetProperty("tables_to_include", value);
     }
 
 }
@@ -75,8 +69,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,16 +111,25 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("attached_database_names");
+        SetOutput("attached_database_names");
+        SetOutput("cluster_id");
+        SetOutput("cluster_name");
+        SetOutput("cluster_resource_id");
+        SetOutput("database_name");
+        SetOutput("default_principal_modification_kind");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterId
+    public TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
@@ -139,18 +138,18 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The cluster_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? ClusterResourceId
+    public TerraformProperty<string> ClusterResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_resource_id");
-        set => this.WithProperty("cluster_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_resource_id");
+        set => SetProperty("cluster_resource_id", value);
     }
 
     /// <summary>
@@ -159,26 +158,26 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The default_principal_modification_kind attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultPrincipalModificationKind
+    public TerraformProperty<string> DefaultPrincipalModificationKind
     {
-        get => GetProperty<TerraformProperty<string>>("default_principal_modification_kind");
-        set => this.WithProperty("default_principal_modification_kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_principal_modification_kind");
+        set => SetProperty("default_principal_modification_kind", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -187,8 +186,8 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -197,8 +196,8 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -207,8 +206,8 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -218,8 +217,7 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sharing block(s) allowed")]
     public List<AzurermKustoAttachedDatabaseConfigurationSharingBlock>? Sharing
     {
-        get => GetProperty<List<AzurermKustoAttachedDatabaseConfigurationSharingBlock>>("sharing");
-        set => this.WithProperty("sharing", value);
+        set => SetProperty("sharing", value);
     }
 
     /// <summary>
@@ -228,8 +226,7 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
     /// </summary>
     public AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     /// </summary>
     public List<TerraformProperty<string>>? Command
     {
-        get => GetProperty<List<TerraformProperty<string>>>("command");
-        set => WithProperty("command", value);
+        set => SetProperty("command", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => WithProperty("container_name", value);
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Environment
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment");
-        set => WithProperty("environment", value);
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Ports
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("ports");
-        set => WithProperty("ports", value);
+        set => SetProperty("ports", value);
     }
 
 }
@@ -69,8 +64,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => WithProperty("container_name", value);
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerPort is required")]
     public required TerraformProperty<double> ContainerPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("container_port");
-        set => WithProperty("container_port", value);
+        set => SetProperty("container_port", value);
     }
 
 }
@@ -96,8 +89,7 @@ public class AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -115,27 +107,30 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("state");
-        this.WithOutput("version");
+        SetOutput("created_at");
+        SetOutput("state");
+        SetOutput("version");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("service_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -144,20 +139,20 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
     /// Block for container.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Container block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(53, ErrorMessage = "Maximum 53 Container block(s) allowed")]
     public HashSet<AwsLightsailContainerServiceDeploymentVersionContainerBlock>? Container
     {
-        get => GetProperty<HashSet<AwsLightsailContainerServiceDeploymentVersionContainerBlock>>("container");
-        set => this.WithProperty("container", value);
+        set => SetProperty("container", value);
     }
 
     /// <summary>
@@ -167,8 +162,7 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicEndpoint block(s) allowed")]
     public List<AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock>? PublicEndpoint
     {
-        get => GetProperty<List<AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock>>("public_endpoint");
-        set => this.WithProperty("public_endpoint", value);
+        set => SetProperty("public_endpoint", value);
     }
 
     /// <summary>
@@ -177,8 +171,7 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
     /// </summary>
     public AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

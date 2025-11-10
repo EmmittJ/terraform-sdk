@@ -14,8 +14,14 @@ public class AwsPinpointSmsChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("promotional_messages_per_second");
-        this.WithOutput("transactional_messages_per_second");
+        SetOutput("promotional_messages_per_second");
+        SetOutput("transactional_messages_per_second");
+        SetOutput("application_id");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("sender_id");
+        SetOutput("short_code");
     }
 
     /// <summary>
@@ -24,53 +30,53 @@ public class AwsPinpointSmsChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The sender_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SenderId
+    public TerraformProperty<string> SenderId
     {
-        get => GetProperty<TerraformProperty<string>>("sender_id");
-        set => this.WithProperty("sender_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sender_id");
+        set => SetProperty("sender_id", value);
     }
 
     /// <summary>
     /// The short_code attribute.
     /// </summary>
-    public TerraformProperty<string>? ShortCode
+    public TerraformProperty<string> ShortCode
     {
-        get => GetProperty<TerraformProperty<string>>("short_code");
-        set => this.WithProperty("short_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("short_code");
+        set => SetProperty("short_code", value);
     }
 
     /// <summary>

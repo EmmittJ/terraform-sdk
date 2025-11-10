@@ -13,8 +13,7 @@ public class AzurermBotChannelEmailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBotChannelEmailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBotChannelEmailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermBotChannelEmailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermBotChannelEmail : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bot_name");
+        SetOutput("email_address");
+        SetOutput("email_password");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("magic_code");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -66,8 +69,8 @@ public class AzurermBotChannelEmail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
-        set => this.WithProperty("bot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_name");
+        set => SetProperty("bot_name", value);
     }
 
     /// <summary>
@@ -76,26 +79,26 @@ public class AzurermBotChannelEmail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformProperty<string> EmailAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_address");
-        set => this.WithProperty("email_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_address");
+        set => SetProperty("email_address", value);
     }
 
     /// <summary>
     /// The email_password attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailPassword
+    public TerraformProperty<string> EmailPassword
     {
-        get => GetProperty<TerraformProperty<string>>("email_password");
-        set => this.WithProperty("email_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_password");
+        set => SetProperty("email_password", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,17 +107,17 @@ public class AzurermBotChannelEmail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The magic_code attribute.
     /// </summary>
-    public TerraformProperty<string>? MagicCode
+    public TerraformProperty<string> MagicCode
     {
-        get => GetProperty<TerraformProperty<string>>("magic_code");
-        set => this.WithProperty("magic_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("magic_code");
+        set => SetProperty("magic_code", value);
     }
 
     /// <summary>
@@ -123,8 +126,8 @@ public class AzurermBotChannelEmail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -133,8 +136,7 @@ public class AzurermBotChannelEmail : TerraformResource
     /// </summary>
     public AzurermBotChannelEmailTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBotChannelEmailTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

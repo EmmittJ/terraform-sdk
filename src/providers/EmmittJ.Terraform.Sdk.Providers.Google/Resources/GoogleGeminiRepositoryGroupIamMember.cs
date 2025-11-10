@@ -13,8 +13,7 @@ public class GoogleGeminiRepositoryGroupIamMemberConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleGeminiRepositoryGroupIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleGeminiRepositoryGroupIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -52,7 +49,14 @@ public class GoogleGeminiRepositoryGroupIamMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("code_repository_index");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("member");
+        SetOutput("project");
+        SetOutput("repository_group_id");
+        SetOutput("role");
     }
 
     /// <summary>
@@ -61,26 +65,26 @@ public class GoogleGeminiRepositoryGroupIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndex is required")]
     public required TerraformProperty<string> CodeRepositoryIndex
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("code_repository_index");
-        set => this.WithProperty("code_repository_index", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("code_repository_index");
+        set => SetProperty("code_repository_index", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -89,17 +93,17 @@ public class GoogleGeminiRepositoryGroupIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformProperty<string> Member
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("member");
-        set => this.WithProperty("member", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member");
+        set => SetProperty("member", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -108,8 +112,8 @@ public class GoogleGeminiRepositoryGroupIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryGroupId is required")]
     public required TerraformProperty<string> RepositoryGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_group_id");
-        set => this.WithProperty("repository_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_group_id");
+        set => SetProperty("repository_group_id", value);
     }
 
     /// <summary>
@@ -118,8 +122,8 @@ public class GoogleGeminiRepositoryGroupIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -129,8 +133,7 @@ public class GoogleGeminiRepositoryGroupIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     public List<GoogleGeminiRepositoryGroupIamMemberConditionBlock>? Condition
     {
-        get => GetProperty<List<GoogleGeminiRepositoryGroupIamMemberConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>

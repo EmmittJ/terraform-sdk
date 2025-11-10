@@ -13,8 +13,7 @@ public class AwsAmplifyDomainAssociationCertificateSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? CertificateVerificationDnsRecord
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_verification_dns_record");
-        set => WithProperty("certificate_verification_dns_record", value);
+        set => SetProperty("certificate_verification_dns_record", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAmplifyDomainAssociationCertificateSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? CustomCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("custom_certificate_arn");
-        set => WithProperty("custom_certificate_arn", value);
+        set => SetProperty("custom_certificate_arn", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsAmplifyDomainAssociationCertificateSettingsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformProperty<string> BranchName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("branch_name");
-        set => WithProperty("branch_name", value);
+        set => SetProperty("branch_name", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DnsRecord
     {
-        get => GetProperty<TerraformProperty<string>>("dns_record");
-        set => WithProperty("dns_record", value);
+        set => SetProperty("dns_record", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformProperty<string> Prefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("prefix");
-        set => WithProperty("prefix", value);
+        set => SetProperty("prefix", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Verified
     {
-        get => GetProperty<TerraformProperty<bool>>("verified");
-        set => WithProperty("verified", value);
+        set => SetProperty("verified", value);
     }
 
 }
@@ -97,8 +90,14 @@ public class AwsAmplifyDomainAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("certificate_verification_dns_record");
+        SetOutput("arn");
+        SetOutput("certificate_verification_dns_record");
+        SetOutput("app_id");
+        SetOutput("domain_name");
+        SetOutput("enable_auto_sub_domain");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("wait_for_verification");
     }
 
     /// <summary>
@@ -107,8 +106,8 @@ public class AwsAmplifyDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
@@ -117,44 +116,44 @@ public class AwsAmplifyDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The enable_auto_sub_domain attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableAutoSubDomain
+    public TerraformProperty<bool> EnableAutoSubDomain
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_auto_sub_domain");
-        set => this.WithProperty("enable_auto_sub_domain", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_auto_sub_domain");
+        set => SetProperty("enable_auto_sub_domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The wait_for_verification attribute.
     /// </summary>
-    public TerraformProperty<bool>? WaitForVerification
+    public TerraformProperty<bool> WaitForVerification
     {
-        get => GetProperty<TerraformProperty<bool>>("wait_for_verification");
-        set => this.WithProperty("wait_for_verification", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_verification");
+        set => SetProperty("wait_for_verification", value);
     }
 
     /// <summary>
@@ -164,19 +163,18 @@ public class AwsAmplifyDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateSettings block(s) allowed")]
     public List<AwsAmplifyDomainAssociationCertificateSettingsBlock>? CertificateSettings
     {
-        get => GetProperty<List<AwsAmplifyDomainAssociationCertificateSettingsBlock>>("certificate_settings");
-        set => this.WithProperty("certificate_settings", value);
+        set => SetProperty("certificate_settings", value);
     }
 
     /// <summary>
     /// Block for sub_domain.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubDomain is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SubDomain block(s) required")]
     public HashSet<AwsAmplifyDomainAssociationSubDomainBlock>? SubDomain
     {
-        get => GetProperty<HashSet<AwsAmplifyDomainAssociationSubDomainBlock>>("sub_domain");
-        set => this.WithProperty("sub_domain", value);
+        set => SetProperty("sub_domain", value);
     }
 
     /// <summary>

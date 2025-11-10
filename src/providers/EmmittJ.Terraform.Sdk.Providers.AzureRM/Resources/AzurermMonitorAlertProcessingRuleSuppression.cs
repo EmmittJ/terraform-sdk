@@ -21,8 +21,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? EffectiveFrom
     {
-        get => GetProperty<TerraformProperty<string>>("effective_from");
-        set => WithProperty("effective_from", value);
+        set => SetProperty("effective_from", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? EffectiveUntil
     {
-        get => GetProperty<TerraformProperty<string>>("effective_until");
-        set => WithProperty("effective_until", value);
+        set => SetProperty("effective_until", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -102,33 +95,40 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("scopes");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -137,8 +137,8 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -147,27 +147,27 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public List<TerraformProperty<string>>? Scopes
+    public List<TerraformProperty<string>> Scopes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("scopes");
-        set => this.WithProperty("scopes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("scopes");
+        set => SetProperty("scopes", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -177,8 +177,7 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     public List<AzurermMonitorAlertProcessingRuleSuppressionConditionBlock>? Condition
     {
-        get => GetProperty<List<AzurermMonitorAlertProcessingRuleSuppressionConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
@@ -188,8 +187,7 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     public List<AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock>? Schedule
     {
-        get => GetProperty<List<AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -198,8 +196,7 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     /// </summary>
     public AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

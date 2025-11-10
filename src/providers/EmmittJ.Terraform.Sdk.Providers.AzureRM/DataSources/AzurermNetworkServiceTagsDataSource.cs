@@ -13,8 +13,7 @@ public class AzurermNetworkServiceTagsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,19 +30,23 @@ public class AzurermNetworkServiceTagsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("address_prefixes");
-        this.WithOutput("ipv4_cidrs");
-        this.WithOutput("ipv6_cidrs");
-        this.WithOutput("name");
+        SetOutput("address_prefixes");
+        SetOutput("ipv4_cidrs");
+        SetOutput("ipv6_cidrs");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("location_filter");
+        SetOutput("service");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,17 +55,17 @@ public class AzurermNetworkServiceTagsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The location_filter attribute.
     /// </summary>
-    public TerraformProperty<string>? LocationFilter
+    public TerraformProperty<string> LocationFilter
     {
-        get => GetProperty<TerraformProperty<string>>("location_filter");
-        set => this.WithProperty("location_filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location_filter");
+        set => SetProperty("location_filter", value);
     }
 
     /// <summary>
@@ -71,8 +74,8 @@ public class AzurermNetworkServiceTagsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
@@ -81,8 +84,7 @@ public class AzurermNetworkServiceTagsDataSource : TerraformDataSource
     /// </summary>
     public AzurermNetworkServiceTagsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkServiceTagsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

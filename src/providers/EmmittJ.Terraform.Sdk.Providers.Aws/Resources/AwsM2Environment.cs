@@ -14,8 +14,7 @@ public class AwsM2EnvironmentHighAvailabilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredCapacity is required")]
     public required TerraformProperty<double> DesiredCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("desired_capacity");
-        set => WithProperty("desired_capacity", value);
+        set => SetProperty("desired_capacity", value);
     }
 
 }
@@ -39,8 +38,7 @@ public class AwsM2EnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +46,7 @@ public class AwsM2EnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class AwsM2EnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -75,29 +71,43 @@ public class AwsM2Environment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("environment_id");
-        this.WithOutput("id");
-        this.WithOutput("load_balancer_arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("environment_id");
+        SetOutput("id");
+        SetOutput("load_balancer_arn");
+        SetOutput("tags_all");
+        SetOutput("apply_changes_during_maintenance_window");
+        SetOutput("description");
+        SetOutput("engine_type");
+        SetOutput("engine_version");
+        SetOutput("force_update");
+        SetOutput("instance_type");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("preferred_maintenance_window");
+        SetOutput("publicly_accessible");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The apply_changes_during_maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplyChangesDuringMaintenanceWindow
+    public TerraformProperty<bool> ApplyChangesDuringMaintenanceWindow
     {
-        get => GetProperty<TerraformProperty<bool>>("apply_changes_during_maintenance_window");
-        set => this.WithProperty("apply_changes_during_maintenance_window", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("apply_changes_during_maintenance_window");
+        set => SetProperty("apply_changes_during_maintenance_window", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -106,26 +116,26 @@ public class AwsM2Environment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformProperty<string> EngineType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_type");
-        set => this.WithProperty("engine_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_type");
+        set => SetProperty("engine_type", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
     /// The force_update attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceUpdate
+    public TerraformProperty<bool> ForceUpdate
     {
-        get => GetProperty<TerraformProperty<bool>>("force_update");
-        set => this.WithProperty("force_update", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_update");
+        set => SetProperty("force_update", value);
     }
 
     /// <summary>
@@ -134,17 +144,17 @@ public class AwsM2Environment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -153,62 +163,62 @@ public class AwsM2Environment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredMaintenanceWindow
+    public TerraformProperty<string> PreferredMaintenanceWindow
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_maintenance_window");
-        set => this.WithProperty("preferred_maintenance_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_maintenance_window");
+        set => SetProperty("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool> PubliclyAccessible
     {
-        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
-        set => this.WithProperty("publicly_accessible", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
+        set => SetProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -217,8 +227,7 @@ public class AwsM2Environment : TerraformResource
     /// </summary>
     public List<AwsM2EnvironmentHighAvailabilityConfigBlock>? HighAvailabilityConfig
     {
-        get => GetProperty<List<AwsM2EnvironmentHighAvailabilityConfigBlock>>("high_availability_config");
-        set => this.WithProperty("high_availability_config", value);
+        set => SetProperty("high_availability_config", value);
     }
 
     /// <summary>
@@ -227,8 +236,7 @@ public class AwsM2Environment : TerraformResource
     /// </summary>
     public List<AwsM2EnvironmentStorageConfigurationBlock>? StorageConfiguration
     {
-        get => GetProperty<List<AwsM2EnvironmentStorageConfigurationBlock>>("storage_configuration");
-        set => this.WithProperty("storage_configuration", value);
+        set => SetProperty("storage_configuration", value);
     }
 
     /// <summary>
@@ -237,8 +245,7 @@ public class AwsM2Environment : TerraformResource
     /// </summary>
     public AwsM2EnvironmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsM2EnvironmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

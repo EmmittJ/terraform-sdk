@@ -14,17 +14,22 @@ public class AwsApiGatewayUsagePlanKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("value");
+        SetOutput("name");
+        SetOutput("value");
+        SetOutput("id");
+        SetOutput("key_id");
+        SetOutput("key_type");
+        SetOutput("region");
+        SetOutput("usage_plan_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,8 +38,8 @@ public class AwsApiGatewayUsagePlanKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
-        set => this.WithProperty("key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
@@ -43,17 +48,17 @@ public class AwsApiGatewayUsagePlanKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformProperty<string> KeyType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_type");
-        set => this.WithProperty("key_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_type");
+        set => SetProperty("key_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -62,8 +67,8 @@ public class AwsApiGatewayUsagePlanKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsagePlanId is required")]
     public required TerraformProperty<string> UsagePlanId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("usage_plan_id");
-        set => this.WithProperty("usage_plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("usage_plan_id");
+        set => SetProperty("usage_plan_id", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsAvailabilityZoneDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsAvailabilityZoneDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsAvailabilityZoneDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,68 +56,74 @@ public class AwsAvailabilityZoneDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("group_long_name");
-        this.WithOutput("group_name");
-        this.WithOutput("name_suffix");
-        this.WithOutput("network_border_group");
-        this.WithOutput("opt_in_status");
-        this.WithOutput("parent_zone_id");
-        this.WithOutput("parent_zone_name");
-        this.WithOutput("zone_type");
+        SetOutput("group_long_name");
+        SetOutput("group_name");
+        SetOutput("name_suffix");
+        SetOutput("network_border_group");
+        SetOutput("opt_in_status");
+        SetOutput("parent_zone_id");
+        SetOutput("parent_zone_name");
+        SetOutput("zone_type");
+        SetOutput("all_availability_zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("state");
+        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The all_availability_zones attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllAvailabilityZones
+    public TerraformProperty<bool> AllAvailabilityZones
     {
-        get => GetProperty<TerraformProperty<bool>>("all_availability_zones");
-        set => this.WithProperty("all_availability_zones", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("all_availability_zones");
+        set => SetProperty("all_availability_zones", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ZoneId
+    public TerraformProperty<string> ZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("zone_id");
-        set => this.WithProperty("zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
+        set => SetProperty("zone_id", value);
     }
 
     /// <summary>
@@ -129,8 +132,7 @@ public class AwsAvailabilityZoneDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsAvailabilityZoneDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsAvailabilityZoneDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -139,8 +141,7 @@ public class AwsAvailabilityZoneDataSource : TerraformDataSource
     /// </summary>
     public AwsAvailabilityZoneDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAvailabilityZoneDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -22,8 +22,7 @@ public class GoogleDialogflowCxToolFunctionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InputSchema
     {
-        get => GetProperty<TerraformProperty<string>>("input_schema");
-        set => WithProperty("input_schema", value);
+        set => SetProperty("input_schema", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class GoogleDialogflowCxToolFunctionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutputSchema
     {
-        get => GetProperty<TerraformProperty<string>>("output_schema");
-        set => WithProperty("output_schema", value);
+        set => SetProperty("output_schema", value);
     }
 
 }
@@ -51,8 +49,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextSchema is required")]
     public required TerraformProperty<string> TextSchema
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("text_schema");
-        set => WithProperty("text_schema", value);
+        set => SetProperty("text_schema", value);
     }
 
 }
@@ -68,8 +65,7 @@ public class GoogleDialogflowCxToolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +73,7 @@ public class GoogleDialogflowCxToolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +81,7 @@ public class GoogleDialogflowCxToolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -105,8 +99,12 @@ public class GoogleDialogflowCxTool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("tool_type");
+        SetOutput("name");
+        SetOutput("tool_type");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("parent");
     }
 
     /// <summary>
@@ -115,8 +113,8 @@ public class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -125,27 +123,27 @@ public class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The agent to create a Tool for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -155,8 +153,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataStoreSpec block(s) allowed")]
     public List<GoogleDialogflowCxToolDataStoreSpecBlock>? DataStoreSpec
     {
-        get => GetProperty<List<GoogleDialogflowCxToolDataStoreSpecBlock>>("data_store_spec");
-        set => this.WithProperty("data_store_spec", value);
+        set => SetProperty("data_store_spec", value);
     }
 
     /// <summary>
@@ -166,8 +163,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FunctionSpec block(s) allowed")]
     public List<GoogleDialogflowCxToolFunctionSpecBlock>? FunctionSpec
     {
-        get => GetProperty<List<GoogleDialogflowCxToolFunctionSpecBlock>>("function_spec");
-        set => this.WithProperty("function_spec", value);
+        set => SetProperty("function_spec", value);
     }
 
     /// <summary>
@@ -177,8 +173,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApiSpec block(s) allowed")]
     public List<GoogleDialogflowCxToolOpenApiSpecBlock>? OpenApiSpec
     {
-        get => GetProperty<List<GoogleDialogflowCxToolOpenApiSpecBlock>>("open_api_spec");
-        set => this.WithProperty("open_api_spec", value);
+        set => SetProperty("open_api_spec", value);
     }
 
     /// <summary>
@@ -187,8 +182,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     public GoogleDialogflowCxToolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowCxToolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

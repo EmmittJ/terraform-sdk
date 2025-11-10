@@ -13,8 +13,7 @@ public class AzurermKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,7 +54,14 @@ public class AzurermKustoDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("size");
+        SetOutput("size");
+        SetOutput("cluster_name");
+        SetOutput("hot_cache_period");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("soft_delete_period");
     }
 
     /// <summary>
@@ -67,26 +70,26 @@ public class AzurermKustoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The hot_cache_period attribute.
     /// </summary>
-    public TerraformProperty<string>? HotCachePeriod
+    public TerraformProperty<string> HotCachePeriod
     {
-        get => GetProperty<TerraformProperty<string>>("hot_cache_period");
-        set => this.WithProperty("hot_cache_period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hot_cache_period");
+        set => SetProperty("hot_cache_period", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +98,8 @@ public class AzurermKustoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -105,8 +108,8 @@ public class AzurermKustoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -115,17 +118,17 @@ public class AzurermKustoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The soft_delete_period attribute.
     /// </summary>
-    public TerraformProperty<string>? SoftDeletePeriod
+    public TerraformProperty<string> SoftDeletePeriod
     {
-        get => GetProperty<TerraformProperty<string>>("soft_delete_period");
-        set => this.WithProperty("soft_delete_period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("soft_delete_period");
+        set => SetProperty("soft_delete_period", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class AzurermKustoDatabase : TerraformResource
     /// </summary>
     public AzurermKustoDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKustoDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

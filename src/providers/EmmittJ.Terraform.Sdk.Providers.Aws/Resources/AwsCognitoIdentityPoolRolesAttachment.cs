@@ -13,8 +13,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? AmbiguousRoleResolution
     {
-        get => GetProperty<TerraformProperty<string>>("ambiguous_role_resolution");
-        set => WithProperty("ambiguous_role_resolution", value);
+        set => SetProperty("ambiguous_role_resolution", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProvider is required")]
     public required TerraformProperty<string> IdentityProvider
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_provider");
-        set => WithProperty("identity_provider", value);
+        set => SetProperty("identity_provider", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -51,15 +48,19 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("identity_pool_id");
+        SetOutput("region");
+        SetOutput("roles");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,27 +69,27 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformProperty<string> IdentityPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_id");
-        set => this.WithProperty("identity_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_pool_id");
+        set => SetProperty("identity_pool_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The roles attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
-    public Dictionary<string, TerraformProperty<string>>? Roles
+    public Dictionary<string, TerraformProperty<string>> Roles
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("roles");
-        set => this.WithProperty("roles", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("roles");
+        set => SetProperty("roles", value);
     }
 
     /// <summary>
@@ -97,8 +98,7 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     /// </summary>
     public HashSet<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock>? RoleMapping
     {
-        get => GetProperty<HashSet<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock>>("role_mapping");
-        set => this.WithProperty("role_mapping", value);
+        set => SetProperty("role_mapping", value);
     }
 
 }

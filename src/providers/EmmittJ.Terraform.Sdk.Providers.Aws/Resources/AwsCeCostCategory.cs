@@ -13,8 +13,7 @@ public class AwsCeCostCategoryRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCeCostCategoryRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformProperty<string> Method
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("method");
-        set => WithProperty("method", value);
+        set => SetProperty("method", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Targets is required")]
     public HashSet<TerraformProperty<string>>? Targets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("targets");
-        set => WithProperty("targets", value);
+        set => SetProperty("targets", value);
     }
 
 }
@@ -79,35 +74,42 @@ public class AwsCeCostCategory : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("effective_end");
+        SetOutput("arn");
+        SetOutput("effective_end");
+        SetOutput("default_value");
+        SetOutput("effective_start");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("rule_version");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The default_value attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultValue
+    public TerraformProperty<string> DefaultValue
     {
-        get => GetProperty<TerraformProperty<string>>("default_value");
-        set => this.WithProperty("default_value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_value");
+        set => SetProperty("default_value", value);
     }
 
     /// <summary>
     /// The effective_start attribute.
     /// </summary>
-    public TerraformProperty<string>? EffectiveStart
+    public TerraformProperty<string> EffectiveStart
     {
-        get => GetProperty<TerraformProperty<string>>("effective_start");
-        set => this.WithProperty("effective_start", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("effective_start");
+        set => SetProperty("effective_start", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -116,8 +118,8 @@ public class AwsCeCostCategory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -126,37 +128,37 @@ public class AwsCeCostCategory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleVersion is required")]
     public required TerraformProperty<string> RuleVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule_version");
-        set => this.WithProperty("rule_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_version");
+        set => SetProperty("rule_version", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     public List<AwsCeCostCategoryRuleBlock>? Rule
     {
-        get => GetProperty<List<AwsCeCostCategoryRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
@@ -165,8 +167,7 @@ public class AwsCeCostCategory : TerraformResource
     /// </summary>
     public HashSet<AwsCeCostCategorySplitChargeRuleBlock>? SplitChargeRule
     {
-        get => GetProperty<HashSet<AwsCeCostCategorySplitChargeRuleBlock>>("split_charge_rule");
-        set => this.WithProperty("split_charge_rule", value);
+        set => SetProperty("split_charge_rule", value);
     }
 
     /// <summary>

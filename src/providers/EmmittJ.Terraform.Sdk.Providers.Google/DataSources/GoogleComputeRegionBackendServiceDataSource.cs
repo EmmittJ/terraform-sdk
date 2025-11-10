@@ -14,45 +14,49 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("affinity_cookie_ttl_sec");
-        this.WithOutput("backend");
-        this.WithOutput("cdn_policy");
-        this.WithOutput("circuit_breakers");
-        this.WithOutput("connection_draining_timeout_sec");
-        this.WithOutput("consistent_hash");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("custom_metrics");
-        this.WithOutput("description");
-        this.WithOutput("enable_cdn");
-        this.WithOutput("failover_policy");
-        this.WithOutput("fingerprint");
-        this.WithOutput("generated_id");
-        this.WithOutput("ha_policy");
-        this.WithOutput("health_checks");
-        this.WithOutput("iap");
-        this.WithOutput("ip_address_selection_policy");
-        this.WithOutput("load_balancing_scheme");
-        this.WithOutput("locality_lb_policy");
-        this.WithOutput("log_config");
-        this.WithOutput("network");
-        this.WithOutput("outlier_detection");
-        this.WithOutput("params");
-        this.WithOutput("port_name");
-        this.WithOutput("protocol");
-        this.WithOutput("security_policy");
-        this.WithOutput("self_link");
-        this.WithOutput("session_affinity");
-        this.WithOutput("strong_session_affinity_cookie");
-        this.WithOutput("timeout_sec");
+        SetOutput("affinity_cookie_ttl_sec");
+        SetOutput("backend");
+        SetOutput("cdn_policy");
+        SetOutput("circuit_breakers");
+        SetOutput("connection_draining_timeout_sec");
+        SetOutput("consistent_hash");
+        SetOutput("creation_timestamp");
+        SetOutput("custom_metrics");
+        SetOutput("description");
+        SetOutput("enable_cdn");
+        SetOutput("failover_policy");
+        SetOutput("fingerprint");
+        SetOutput("generated_id");
+        SetOutput("ha_policy");
+        SetOutput("health_checks");
+        SetOutput("iap");
+        SetOutput("ip_address_selection_policy");
+        SetOutput("load_balancing_scheme");
+        SetOutput("locality_lb_policy");
+        SetOutput("log_config");
+        SetOutput("network");
+        SetOutput("outlier_detection");
+        SetOutput("params");
+        SetOutput("port_name");
+        SetOutput("protocol");
+        SetOutput("security_policy");
+        SetOutput("self_link");
+        SetOutput("session_affinity");
+        SetOutput("strong_session_affinity_cookie");
+        SetOutput("timeout_sec");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,27 +71,27 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The Region in which the created backend service should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

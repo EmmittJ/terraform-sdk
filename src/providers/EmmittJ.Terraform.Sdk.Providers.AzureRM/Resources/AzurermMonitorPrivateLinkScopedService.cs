@@ -13,8 +13,7 @@ public class AzurermMonitorPrivateLinkScopedServiceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMonitorPrivateLinkScopedServiceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMonitorPrivateLinkScopedServiceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,20 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("linked_resource_id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("scope_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedResourceId is required")]
     public required TerraformProperty<string> LinkedResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_resource_id");
-        set => this.WithProperty("linked_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("linked_resource_id");
+        set => SetProperty("linked_resource_id", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -86,8 +88,8 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -96,8 +98,8 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeName is required")]
     public required TerraformProperty<string> ScopeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope_name");
-        set => this.WithProperty("scope_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope_name");
+        set => SetProperty("scope_name", value);
     }
 
     /// <summary>
@@ -106,8 +108,7 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     /// </summary>
     public AzurermMonitorPrivateLinkScopedServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorPrivateLinkScopedServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

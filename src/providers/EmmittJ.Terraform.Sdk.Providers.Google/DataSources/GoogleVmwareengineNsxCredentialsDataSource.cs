@@ -14,17 +14,19 @@ public class GoogleVmwareengineNsxCredentialsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("password");
-        this.WithOutput("username");
+        SetOutput("password");
+        SetOutput("username");
+        SetOutput("id");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -35,8 +37,8 @@ public class GoogleVmwareengineNsxCredentialsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>

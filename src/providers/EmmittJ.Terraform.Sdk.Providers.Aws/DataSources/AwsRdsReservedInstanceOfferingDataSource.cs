@@ -14,9 +14,16 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("currency_code");
-        this.WithOutput("fixed_price");
-        this.WithOutput("offering_id");
+        SetOutput("currency_code");
+        SetOutput("fixed_price");
+        SetOutput("offering_id");
+        SetOutput("db_instance_class");
+        SetOutput("duration");
+        SetOutput("id");
+        SetOutput("multi_az");
+        SetOutput("offering_type");
+        SetOutput("product_description");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -25,8 +32,8 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceClass is required")]
     public required TerraformProperty<string> DbInstanceClass
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_instance_class");
-        set => this.WithProperty("db_instance_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_class");
+        set => SetProperty("db_instance_class", value);
     }
 
     /// <summary>
@@ -35,17 +42,17 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("duration");
-        set => this.WithProperty("duration", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("duration");
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +61,8 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiAz is required")]
     public required TerraformProperty<bool> MultiAz
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("multi_az");
-        set => this.WithProperty("multi_az", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multi_az");
+        set => SetProperty("multi_az", value);
     }
 
     /// <summary>
@@ -64,8 +71,8 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingType is required")]
     public required TerraformProperty<string> OfferingType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("offering_type");
-        set => this.WithProperty("offering_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("offering_type");
+        set => SetProperty("offering_type", value);
     }
 
     /// <summary>
@@ -74,17 +81,17 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductDescription is required")]
     public required TerraformProperty<string> ProductDescription
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product_description");
-        set => this.WithProperty("product_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_description");
+        set => SetProperty("product_description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

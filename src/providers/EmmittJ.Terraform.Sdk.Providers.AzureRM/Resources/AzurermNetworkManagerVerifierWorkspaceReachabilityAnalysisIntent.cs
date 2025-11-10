@@ -14,8 +14,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIps is required")]
     public List<TerraformProperty<string>>? DestinationIps
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destination_ips");
-        set => WithProperty("destination_ips", value);
+        set => SetProperty("destination_ips", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
     public List<TerraformProperty<string>>? DestinationPorts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destination_ports");
-        set => WithProperty("destination_ports", value);
+        set => SetProperty("destination_ports", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     public List<TerraformProperty<string>>? Protocols
     {
-        get => GetProperty<List<TerraformProperty<string>>>("protocols");
-        set => WithProperty("protocols", value);
+        set => SetProperty("protocols", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIps is required")]
     public List<TerraformProperty<string>>? SourceIps
     {
-        get => GetProperty<List<TerraformProperty<string>>>("source_ips");
-        set => WithProperty("source_ips", value);
+        set => SetProperty("source_ips", value);
     }
 
     /// <summary>
@@ -54,8 +50,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePorts is required")]
     public List<TerraformProperty<string>>? SourcePorts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("source_ports");
-        set => WithProperty("source_ports", value);
+        set => SetProperty("source_ports", value);
     }
 
 }
@@ -71,8 +66,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -80,8 +74,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -89,8 +82,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -108,15 +100,21 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("destination_resource_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("source_resource_id");
+        SetOutput("verifier_workspace_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -125,17 +123,17 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceId is required")]
     public required TerraformProperty<string> DestinationResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_resource_id");
-        set => this.WithProperty("destination_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_resource_id");
+        set => SetProperty("destination_resource_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -144,8 +142,8 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -154,8 +152,8 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformProperty<string> SourceResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_resource_id");
-        set => this.WithProperty("source_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_resource_id");
+        set => SetProperty("source_resource_id", value);
     }
 
     /// <summary>
@@ -164,20 +162,20 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifierWorkspaceId is required")]
     public required TerraformProperty<string> VerifierWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("verifier_workspace_id");
-        set => this.WithProperty("verifier_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("verifier_workspace_id");
+        set => SetProperty("verifier_workspace_id", value);
     }
 
     /// <summary>
     /// Block for ip_traffic.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpTraffic is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpTraffic block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpTraffic block(s) allowed")]
     public List<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>? IpTraffic
     {
-        get => GetProperty<List<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>>("ip_traffic");
-        set => this.WithProperty("ip_traffic", value);
+        set => SetProperty("ip_traffic", value);
     }
 
     /// <summary>
@@ -186,8 +184,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     /// </summary>
     public AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

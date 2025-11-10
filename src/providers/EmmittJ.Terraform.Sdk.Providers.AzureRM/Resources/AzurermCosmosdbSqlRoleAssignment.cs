@@ -13,8 +13,7 @@ public class AzurermCosmosdbSqlRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCosmosdbSqlRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCosmosdbSqlRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCosmosdbSqlRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermCosmosdbSqlRoleAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("principal_id");
+        SetOutput("resource_group_name");
+        SetOutput("role_definition_id");
+        SetOutput("scope");
     }
 
     /// <summary>
@@ -66,26 +69,26 @@ public class AzurermCosmosdbSqlRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -94,8 +97,8 @@ public class AzurermCosmosdbSqlRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class AzurermCosmosdbSqlRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -114,8 +117,8 @@ public class AzurermCosmosdbSqlRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
-        set => this.WithProperty("role_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
+        set => SetProperty("role_definition_id", value);
     }
 
     /// <summary>
@@ -124,8 +127,8 @@ public class AzurermCosmosdbSqlRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class AzurermCosmosdbSqlRoleAssignment : TerraformResource
     /// </summary>
     public AzurermCosmosdbSqlRoleAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbSqlRoleAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsDxPublicVirtualInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDxPublicVirtualInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,9 +38,22 @@ public class AwsDxPublicVirtualInterface : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("amazon_side_asn");
-        this.WithOutput("arn");
-        this.WithOutput("aws_device");
+        SetOutput("amazon_side_asn");
+        SetOutput("arn");
+        SetOutput("aws_device");
+        SetOutput("address_family");
+        SetOutput("amazon_address");
+        SetOutput("bgp_asn");
+        SetOutput("bgp_auth_key");
+        SetOutput("connection_id");
+        SetOutput("customer_address");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("route_filter_prefixes");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vlan");
     }
 
     /// <summary>
@@ -51,17 +62,17 @@ public class AwsDxPublicVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformProperty<string> AddressFamily
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("address_family");
-        set => this.WithProperty("address_family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address_family");
+        set => SetProperty("address_family", value);
     }
 
     /// <summary>
     /// The amazon_address attribute.
     /// </summary>
-    public TerraformProperty<string>? AmazonAddress
+    public TerraformProperty<string> AmazonAddress
     {
-        get => GetProperty<TerraformProperty<string>>("amazon_address");
-        set => this.WithProperty("amazon_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("amazon_address");
+        set => SetProperty("amazon_address", value);
     }
 
     /// <summary>
@@ -70,17 +81,17 @@ public class AwsDxPublicVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
     public required TerraformProperty<double> BgpAsn
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("bgp_asn");
-        set => this.WithProperty("bgp_asn", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("bgp_asn");
+        set => SetProperty("bgp_asn", value);
     }
 
     /// <summary>
     /// The bgp_auth_key attribute.
     /// </summary>
-    public TerraformProperty<string>? BgpAuthKey
+    public TerraformProperty<string> BgpAuthKey
     {
-        get => GetProperty<TerraformProperty<string>>("bgp_auth_key");
-        set => this.WithProperty("bgp_auth_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bgp_auth_key");
+        set => SetProperty("bgp_auth_key", value);
     }
 
     /// <summary>
@@ -89,26 +100,26 @@ public class AwsDxPublicVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
-        set => this.WithProperty("connection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_id");
+        set => SetProperty("connection_id", value);
     }
 
     /// <summary>
     /// The customer_address attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerAddress
+    public TerraformProperty<string> CustomerAddress
     {
-        get => GetProperty<TerraformProperty<string>>("customer_address");
-        set => this.WithProperty("customer_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_address");
+        set => SetProperty("customer_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -117,45 +128,45 @@ public class AwsDxPublicVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The route_filter_prefixes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteFilterPrefixes is required")]
-    public HashSet<TerraformProperty<string>>? RouteFilterPrefixes
+    public HashSet<TerraformProperty<string>> RouteFilterPrefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("route_filter_prefixes");
-        set => this.WithProperty("route_filter_prefixes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("route_filter_prefixes");
+        set => SetProperty("route_filter_prefixes", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -164,8 +175,8 @@ public class AwsDxPublicVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
     public required TerraformProperty<double> Vlan
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("vlan");
-        set => this.WithProperty("vlan", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("vlan");
+        set => SetProperty("vlan", value);
     }
 
     /// <summary>
@@ -174,8 +185,7 @@ public class AwsDxPublicVirtualInterface : TerraformResource
     /// </summary>
     public AwsDxPublicVirtualInterfaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDxPublicVirtualInterfaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

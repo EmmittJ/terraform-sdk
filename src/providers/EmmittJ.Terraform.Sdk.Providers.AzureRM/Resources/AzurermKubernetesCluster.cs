@@ -13,8 +13,7 @@ public class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? ConnectorIdentity
     {
-        get => GetProperty<List<TerraformProperty<object>>>("connector_identity");
-        set => WithProperty("connector_identity", value);
+        set => SetProperty("connector_identity", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetName is required")]
     public required TerraformProperty<string> SubnetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_name");
-        set => WithProperty("subnet_name", value);
+        set => SetProperty("subnet_name", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermKubernetesClusterApiServerAccessProfileBlock : TerraformBloc
     /// </summary>
     public HashSet<TerraformProperty<string>>? AuthorizedIpRanges
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("authorized_ip_ranges");
-        set => WithProperty("authorized_ip_ranges", value);
+        set => SetProperty("authorized_ip_ranges", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermKubernetesClusterApiServerAccessProfileBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermKubernetesClusterApiServerAccessProfileBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? VirtualNetworkIntegrationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("virtual_network_integration_enabled");
-        set => WithProperty("virtual_network_integration_enabled", value);
+        set => SetProperty("virtual_network_integration_enabled", value);
     }
 
 }
@@ -75,8 +70,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? BalanceSimilarNodeGroups
     {
-        get => GetProperty<TerraformProperty<bool>>("balance_similar_node_groups");
-        set => WithProperty("balance_similar_node_groups", value);
+        set => SetProperty("balance_similar_node_groups", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DaemonsetEvictionForEmptyNodesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("daemonset_eviction_for_empty_nodes_enabled");
-        set => WithProperty("daemonset_eviction_for_empty_nodes_enabled", value);
+        set => SetProperty("daemonset_eviction_for_empty_nodes_enabled", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DaemonsetEvictionForOccupiedNodesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("daemonset_eviction_for_occupied_nodes_enabled");
-        set => WithProperty("daemonset_eviction_for_occupied_nodes_enabled", value);
+        set => SetProperty("daemonset_eviction_for_occupied_nodes_enabled", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EmptyBulkDeleteMax
     {
-        get => GetProperty<TerraformProperty<string>>("empty_bulk_delete_max");
-        set => WithProperty("empty_bulk_delete_max", value);
+        set => SetProperty("empty_bulk_delete_max", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Expander
     {
-        get => GetProperty<TerraformProperty<string>>("expander");
-        set => WithProperty("expander", value);
+        set => SetProperty("expander", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IgnoreDaemonsetsUtilizationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_daemonsets_utilization_enabled");
-        set => WithProperty("ignore_daemonsets_utilization_enabled", value);
+        set => SetProperty("ignore_daemonsets_utilization_enabled", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxGracefulTerminationSec
     {
-        get => GetProperty<TerraformProperty<string>>("max_graceful_termination_sec");
-        set => WithProperty("max_graceful_termination_sec", value);
+        set => SetProperty("max_graceful_termination_sec", value);
     }
 
     /// <summary>
@@ -138,8 +126,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxNodeProvisioningTime
     {
-        get => GetProperty<TerraformProperty<string>>("max_node_provisioning_time");
-        set => WithProperty("max_node_provisioning_time", value);
+        set => SetProperty("max_node_provisioning_time", value);
     }
 
     /// <summary>
@@ -147,8 +134,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxUnreadyNodes
     {
-        get => GetProperty<TerraformProperty<double>>("max_unready_nodes");
-        set => WithProperty("max_unready_nodes", value);
+        set => SetProperty("max_unready_nodes", value);
     }
 
     /// <summary>
@@ -156,8 +142,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxUnreadyPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("max_unready_percentage");
-        set => WithProperty("max_unready_percentage", value);
+        set => SetProperty("max_unready_percentage", value);
     }
 
     /// <summary>
@@ -165,8 +150,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NewPodScaleUpDelay
     {
-        get => GetProperty<TerraformProperty<string>>("new_pod_scale_up_delay");
-        set => WithProperty("new_pod_scale_up_delay", value);
+        set => SetProperty("new_pod_scale_up_delay", value);
     }
 
     /// <summary>
@@ -174,8 +158,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScaleDownDelayAfterAdd
     {
-        get => GetProperty<TerraformProperty<string>>("scale_down_delay_after_add");
-        set => WithProperty("scale_down_delay_after_add", value);
+        set => SetProperty("scale_down_delay_after_add", value);
     }
 
     /// <summary>
@@ -183,8 +166,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScaleDownDelayAfterDelete
     {
-        get => GetProperty<TerraformProperty<string>>("scale_down_delay_after_delete");
-        set => WithProperty("scale_down_delay_after_delete", value);
+        set => SetProperty("scale_down_delay_after_delete", value);
     }
 
     /// <summary>
@@ -192,8 +174,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScaleDownDelayAfterFailure
     {
-        get => GetProperty<TerraformProperty<string>>("scale_down_delay_after_failure");
-        set => WithProperty("scale_down_delay_after_failure", value);
+        set => SetProperty("scale_down_delay_after_failure", value);
     }
 
     /// <summary>
@@ -201,8 +182,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScaleDownUnneeded
     {
-        get => GetProperty<TerraformProperty<string>>("scale_down_unneeded");
-        set => WithProperty("scale_down_unneeded", value);
+        set => SetProperty("scale_down_unneeded", value);
     }
 
     /// <summary>
@@ -210,8 +190,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScaleDownUnready
     {
-        get => GetProperty<TerraformProperty<string>>("scale_down_unready");
-        set => WithProperty("scale_down_unready", value);
+        set => SetProperty("scale_down_unready", value);
     }
 
     /// <summary>
@@ -219,8 +198,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScaleDownUtilizationThreshold
     {
-        get => GetProperty<TerraformProperty<string>>("scale_down_utilization_threshold");
-        set => WithProperty("scale_down_utilization_threshold", value);
+        set => SetProperty("scale_down_utilization_threshold", value);
     }
 
     /// <summary>
@@ -228,8 +206,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScanInterval
     {
-        get => GetProperty<TerraformProperty<string>>("scan_interval");
-        set => WithProperty("scan_interval", value);
+        set => SetProperty("scan_interval", value);
     }
 
     /// <summary>
@@ -237,8 +214,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SkipNodesWithLocalStorage
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_nodes_with_local_storage");
-        set => WithProperty("skip_nodes_with_local_storage", value);
+        set => SetProperty("skip_nodes_with_local_storage", value);
     }
 
     /// <summary>
@@ -246,8 +222,7 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SkipNodesWithSystemPods
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_nodes_with_system_pods");
-        set => WithProperty("skip_nodes_with_system_pods", value);
+        set => SetProperty("skip_nodes_with_system_pods", value);
     }
 
 }
@@ -263,8 +238,7 @@ public class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlB
     /// </summary>
     public List<TerraformProperty<string>>? AdminGroupObjectIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("admin_group_object_ids");
-        set => WithProperty("admin_group_object_ids", value);
+        set => SetProperty("admin_group_object_ids", value);
     }
 
     /// <summary>
@@ -272,8 +246,7 @@ public class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlB
     /// </summary>
     public TerraformProperty<bool>? AzureRbacEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("azure_rbac_enabled");
-        set => WithProperty("azure_rbac_enabled", value);
+        set => SetProperty("azure_rbac_enabled", value);
     }
 
     /// <summary>
@@ -281,8 +254,7 @@ public class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlB
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
 }
@@ -298,8 +270,7 @@ public class AzurermKubernetesClusterBootstrapProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ArtifactSource
     {
-        get => GetProperty<TerraformProperty<string>>("artifact_source");
-        set => WithProperty("artifact_source", value);
+        set => SetProperty("artifact_source", value);
     }
 
     /// <summary>
@@ -307,8 +278,7 @@ public class AzurermKubernetesClusterBootstrapProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerRegistryId
     {
-        get => GetProperty<TerraformProperty<string>>("container_registry_id");
-        set => WithProperty("container_registry_id", value);
+        set => SetProperty("container_registry_id", value);
     }
 
 }
@@ -325,8 +295,7 @@ public class AzurermKubernetesClusterConfidentialComputingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SgxQuoteHelperEnabled is required")]
     public required TerraformProperty<bool> SgxQuoteHelperEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("sgx_quote_helper_enabled");
-        set => WithProperty("sgx_quote_helper_enabled", value);
+        set => SetProperty("sgx_quote_helper_enabled", value);
     }
 
 }
@@ -342,8 +311,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AutoScalingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_scaling_enabled");
-        set => WithProperty("auto_scaling_enabled", value);
+        set => SetProperty("auto_scaling_enabled", value);
     }
 
     /// <summary>
@@ -351,8 +319,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CapacityReservationGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_reservation_group_id");
-        set => WithProperty("capacity_reservation_group_id", value);
+        set => SetProperty("capacity_reservation_group_id", value);
     }
 
     /// <summary>
@@ -360,8 +327,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? FipsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("fips_enabled");
-        set => WithProperty("fips_enabled", value);
+        set => SetProperty("fips_enabled", value);
     }
 
     /// <summary>
@@ -369,8 +335,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GpuDriver
     {
-        get => GetProperty<TerraformProperty<string>>("gpu_driver");
-        set => WithProperty("gpu_driver", value);
+        set => SetProperty("gpu_driver", value);
     }
 
     /// <summary>
@@ -378,8 +343,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GpuInstance
     {
-        get => GetProperty<TerraformProperty<string>>("gpu_instance");
-        set => WithProperty("gpu_instance", value);
+        set => SetProperty("gpu_instance", value);
     }
 
     /// <summary>
@@ -387,8 +351,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? HostEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("host_encryption_enabled");
-        set => WithProperty("host_encryption_enabled", value);
+        set => SetProperty("host_encryption_enabled", value);
     }
 
     /// <summary>
@@ -396,8 +359,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HostGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("host_group_id");
-        set => WithProperty("host_group_id", value);
+        set => SetProperty("host_group_id", value);
     }
 
     /// <summary>
@@ -405,8 +367,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KubeletDiskType
     {
-        get => GetProperty<TerraformProperty<string>>("kubelet_disk_type");
-        set => WithProperty("kubelet_disk_type", value);
+        set => SetProperty("kubelet_disk_type", value);
     }
 
     /// <summary>
@@ -414,8 +375,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_count");
-        set => WithProperty("max_count", value);
+        set => SetProperty("max_count", value);
     }
 
     /// <summary>
@@ -423,8 +383,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxPods
     {
-        get => GetProperty<TerraformProperty<double>>("max_pods");
-        set => WithProperty("max_pods", value);
+        set => SetProperty("max_pods", value);
     }
 
     /// <summary>
@@ -432,8 +391,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_count");
-        set => WithProperty("min_count", value);
+        set => SetProperty("min_count", value);
     }
 
     /// <summary>
@@ -442,8 +400,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -451,8 +408,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
-        set => WithProperty("node_count", value);
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
@@ -460,8 +416,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? NodeLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("node_labels");
-        set => WithProperty("node_labels", value);
+        set => SetProperty("node_labels", value);
     }
 
     /// <summary>
@@ -469,8 +424,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NodePublicIpEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("node_public_ip_enabled");
-        set => WithProperty("node_public_ip_enabled", value);
+        set => SetProperty("node_public_ip_enabled", value);
     }
 
     /// <summary>
@@ -478,8 +432,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NodePublicIpPrefixId
     {
-        get => GetProperty<TerraformProperty<string>>("node_public_ip_prefix_id");
-        set => WithProperty("node_public_ip_prefix_id", value);
+        set => SetProperty("node_public_ip_prefix_id", value);
     }
 
     /// <summary>
@@ -487,8 +440,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? OnlyCriticalAddonsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("only_critical_addons_enabled");
-        set => WithProperty("only_critical_addons_enabled", value);
+        set => SetProperty("only_critical_addons_enabled", value);
     }
 
     /// <summary>
@@ -496,8 +448,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OrchestratorVersion
     {
-        get => GetProperty<TerraformProperty<string>>("orchestrator_version");
-        set => WithProperty("orchestrator_version", value);
+        set => SetProperty("orchestrator_version", value);
     }
 
     /// <summary>
@@ -505,8 +456,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? OsDiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("os_disk_size_gb");
-        set => WithProperty("os_disk_size_gb", value);
+        set => SetProperty("os_disk_size_gb", value);
     }
 
     /// <summary>
@@ -514,8 +464,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OsDiskType
     {
-        get => GetProperty<TerraformProperty<string>>("os_disk_type");
-        set => WithProperty("os_disk_type", value);
+        set => SetProperty("os_disk_type", value);
     }
 
     /// <summary>
@@ -523,8 +472,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OsSku
     {
-        get => GetProperty<TerraformProperty<string>>("os_sku");
-        set => WithProperty("os_sku", value);
+        set => SetProperty("os_sku", value);
     }
 
     /// <summary>
@@ -532,8 +480,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PodSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("pod_subnet_id");
-        set => WithProperty("pod_subnet_id", value);
+        set => SetProperty("pod_subnet_id", value);
     }
 
     /// <summary>
@@ -541,8 +488,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProximityPlacementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("proximity_placement_group_id");
-        set => WithProperty("proximity_placement_group_id", value);
+        set => SetProperty("proximity_placement_group_id", value);
     }
 
     /// <summary>
@@ -550,8 +496,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScaleDownMode
     {
-        get => GetProperty<TerraformProperty<string>>("scale_down_mode");
-        set => WithProperty("scale_down_mode", value);
+        set => SetProperty("scale_down_mode", value);
     }
 
     /// <summary>
@@ -559,8 +504,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SnapshotId
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_id");
-        set => WithProperty("snapshot_id", value);
+        set => SetProperty("snapshot_id", value);
     }
 
     /// <summary>
@@ -568,8 +512,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -577,8 +520,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TemporaryNameForRotation
     {
-        get => GetProperty<TerraformProperty<string>>("temporary_name_for_rotation");
-        set => WithProperty("temporary_name_for_rotation", value);
+        set => SetProperty("temporary_name_for_rotation", value);
     }
 
     /// <summary>
@@ -586,8 +528,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -595,8 +536,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UltraSsdEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ultra_ssd_enabled");
-        set => WithProperty("ultra_ssd_enabled", value);
+        set => SetProperty("ultra_ssd_enabled", value);
     }
 
     /// <summary>
@@ -604,8 +544,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VmSize
     {
-        get => GetProperty<TerraformProperty<string>>("vm_size");
-        set => WithProperty("vm_size", value);
+        set => SetProperty("vm_size", value);
     }
 
     /// <summary>
@@ -613,8 +552,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VnetSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("vnet_subnet_id");
-        set => WithProperty("vnet_subnet_id", value);
+        set => SetProperty("vnet_subnet_id", value);
     }
 
     /// <summary>
@@ -622,8 +560,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WorkloadRuntime
     {
-        get => GetProperty<TerraformProperty<string>>("workload_runtime");
-        set => WithProperty("workload_runtime", value);
+        set => SetProperty("workload_runtime", value);
     }
 
     /// <summary>
@@ -631,8 +568,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => WithProperty("zones", value);
+        set => SetProperty("zones", value);
     }
 
 }
@@ -648,8 +584,7 @@ public class AzurermKubernetesClusterHttpProxyConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpProxy
     {
-        get => GetProperty<TerraformProperty<string>>("http_proxy");
-        set => WithProperty("http_proxy", value);
+        set => SetProperty("http_proxy", value);
     }
 
     /// <summary>
@@ -657,8 +592,7 @@ public class AzurermKubernetesClusterHttpProxyConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpsProxy
     {
-        get => GetProperty<TerraformProperty<string>>("https_proxy");
-        set => WithProperty("https_proxy", value);
+        set => SetProperty("https_proxy", value);
     }
 
     /// <summary>
@@ -666,8 +600,7 @@ public class AzurermKubernetesClusterHttpProxyConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? NoProxy
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("no_proxy");
-        set => WithProperty("no_proxy", value);
+        set => SetProperty("no_proxy", value);
     }
 
     /// <summary>
@@ -675,8 +608,7 @@ public class AzurermKubernetesClusterHttpProxyConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TrustedCa
     {
-        get => GetProperty<TerraformProperty<string>>("trusted_ca");
-        set => WithProperty("trusted_ca", value);
+        set => SetProperty("trusted_ca", value);
     }
 
 }
@@ -692,8 +624,7 @@ public class AzurermKubernetesClusterIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -701,8 +632,7 @@ public class AzurermKubernetesClusterIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -710,8 +640,7 @@ public class AzurermKubernetesClusterIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -720,8 +649,7 @@ public class AzurermKubernetesClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -737,8 +665,7 @@ public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? EffectiveGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("effective_gateway_id");
-        set => WithProperty("effective_gateway_id", value);
+        set => SetProperty("effective_gateway_id", value);
     }
 
     /// <summary>
@@ -746,8 +673,7 @@ public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? GatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_id");
-        set => WithProperty("gateway_id", value);
+        set => SetProperty("gateway_id", value);
     }
 
     /// <summary>
@@ -755,8 +681,7 @@ public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? GatewayName
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_name");
-        set => WithProperty("gateway_name", value);
+        set => SetProperty("gateway_name", value);
     }
 
     /// <summary>
@@ -764,8 +689,7 @@ public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<object>>? IngressApplicationGatewayIdentity
     {
-        get => GetProperty<List<TerraformProperty<object>>>("ingress_application_gateway_identity");
-        set => WithProperty("ingress_application_gateway_identity", value);
+        set => SetProperty("ingress_application_gateway_identity", value);
     }
 
     /// <summary>
@@ -773,8 +697,7 @@ public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? SubnetCidr
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_cidr");
-        set => WithProperty("subnet_cidr", value);
+        set => SetProperty("subnet_cidr", value);
     }
 
     /// <summary>
@@ -782,8 +705,7 @@ public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -800,8 +722,7 @@ public class AzurermKubernetesClusterKeyManagementServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => WithProperty("key_vault_key_id", value);
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -809,8 +730,7 @@ public class AzurermKubernetesClusterKeyManagementServiceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultNetworkAccess
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_network_access");
-        set => WithProperty("key_vault_network_access", value);
+        set => SetProperty("key_vault_network_access", value);
     }
 
 }
@@ -826,8 +746,7 @@ public class AzurermKubernetesClusterKeyVaultSecretsProviderBlock : TerraformBlo
     /// </summary>
     public List<TerraformProperty<object>>? SecretIdentity
     {
-        get => GetProperty<List<TerraformProperty<object>>>("secret_identity");
-        set => WithProperty("secret_identity", value);
+        set => SetProperty("secret_identity", value);
     }
 
     /// <summary>
@@ -835,8 +754,7 @@ public class AzurermKubernetesClusterKeyVaultSecretsProviderBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? SecretRotationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("secret_rotation_enabled");
-        set => WithProperty("secret_rotation_enabled", value);
+        set => SetProperty("secret_rotation_enabled", value);
     }
 
     /// <summary>
@@ -844,8 +762,7 @@ public class AzurermKubernetesClusterKeyVaultSecretsProviderBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? SecretRotationInterval
     {
-        get => GetProperty<TerraformProperty<string>>("secret_rotation_interval");
-        set => WithProperty("secret_rotation_interval", value);
+        set => SetProperty("secret_rotation_interval", value);
     }
 
 }
@@ -861,8 +778,7 @@ public class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -870,8 +786,7 @@ public class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
-        set => WithProperty("object_id", value);
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
@@ -879,8 +794,7 @@ public class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
-        set => WithProperty("user_assigned_identity_id", value);
+        set => SetProperty("user_assigned_identity_id", value);
     }
 
 }
@@ -897,8 +811,7 @@ public class AzurermKubernetesClusterLinuxProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformProperty<string> AdminUsername
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_username");
-        set => WithProperty("admin_username", value);
+        set => SetProperty("admin_username", value);
     }
 
 }
@@ -922,8 +835,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? DayOfMonth
     {
-        get => GetProperty<TerraformProperty<double>>("day_of_month");
-        set => WithProperty("day_of_month", value);
+        set => SetProperty("day_of_month", value);
     }
 
     /// <summary>
@@ -931,8 +843,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? DayOfWeek
     {
-        get => GetProperty<TerraformProperty<string>>("day_of_week");
-        set => WithProperty("day_of_week", value);
+        set => SetProperty("day_of_week", value);
     }
 
     /// <summary>
@@ -941,8 +852,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("duration");
-        set => WithProperty("duration", value);
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
@@ -951,8 +861,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
-        set => WithProperty("frequency", value);
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
@@ -961,8 +870,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("interval");
-        set => WithProperty("interval", value);
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
@@ -970,8 +878,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? StartDate
     {
-        get => GetProperty<TerraformProperty<string>>("start_date");
-        set => WithProperty("start_date", value);
+        set => SetProperty("start_date", value);
     }
 
     /// <summary>
@@ -979,8 +886,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
@@ -988,8 +894,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? UtcOffset
     {
-        get => GetProperty<TerraformProperty<string>>("utc_offset");
-        set => WithProperty("utc_offset", value);
+        set => SetProperty("utc_offset", value);
     }
 
     /// <summary>
@@ -997,8 +902,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? WeekIndex
     {
-        get => GetProperty<TerraformProperty<string>>("week_index");
-        set => WithProperty("week_index", value);
+        set => SetProperty("week_index", value);
     }
 
 }
@@ -1014,8 +918,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? DayOfMonth
     {
-        get => GetProperty<TerraformProperty<double>>("day_of_month");
-        set => WithProperty("day_of_month", value);
+        set => SetProperty("day_of_month", value);
     }
 
     /// <summary>
@@ -1023,8 +926,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? DayOfWeek
     {
-        get => GetProperty<TerraformProperty<string>>("day_of_week");
-        set => WithProperty("day_of_week", value);
+        set => SetProperty("day_of_week", value);
     }
 
     /// <summary>
@@ -1033,8 +935,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("duration");
-        set => WithProperty("duration", value);
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
@@ -1043,8 +944,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
-        set => WithProperty("frequency", value);
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
@@ -1053,8 +953,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("interval");
-        set => WithProperty("interval", value);
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
@@ -1062,8 +961,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? StartDate
     {
-        get => GetProperty<TerraformProperty<string>>("start_date");
-        set => WithProperty("start_date", value);
+        set => SetProperty("start_date", value);
     }
 
     /// <summary>
@@ -1071,8 +969,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
@@ -1080,8 +977,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? UtcOffset
     {
-        get => GetProperty<TerraformProperty<string>>("utc_offset");
-        set => WithProperty("utc_offset", value);
+        set => SetProperty("utc_offset", value);
     }
 
     /// <summary>
@@ -1089,8 +985,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? WeekIndex
     {
-        get => GetProperty<TerraformProperty<string>>("week_index");
-        set => WithProperty("week_index", value);
+        set => SetProperty("week_index", value);
     }
 
 }
@@ -1107,8 +1002,7 @@ public class AzurermKubernetesClusterMicrosoftDefenderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => WithProperty("log_analytics_workspace_id", value);
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
 }
@@ -1124,8 +1018,7 @@ public class AzurermKubernetesClusterMonitorMetricsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AnnotationsAllowed
     {
-        get => GetProperty<TerraformProperty<string>>("annotations_allowed");
-        set => WithProperty("annotations_allowed", value);
+        set => SetProperty("annotations_allowed", value);
     }
 
     /// <summary>
@@ -1133,8 +1026,7 @@ public class AzurermKubernetesClusterMonitorMetricsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LabelsAllowed
     {
-        get => GetProperty<TerraformProperty<string>>("labels_allowed");
-        set => WithProperty("labels_allowed", value);
+        set => SetProperty("labels_allowed", value);
     }
 
 }
@@ -1150,8 +1042,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DnsServiceIp
     {
-        get => GetProperty<TerraformProperty<string>>("dns_service_ip");
-        set => WithProperty("dns_service_ip", value);
+        set => SetProperty("dns_service_ip", value);
     }
 
     /// <summary>
@@ -1159,8 +1050,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? IpVersions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ip_versions");
-        set => WithProperty("ip_versions", value);
+        set => SetProperty("ip_versions", value);
     }
 
     /// <summary>
@@ -1168,8 +1058,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LoadBalancerSku
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer_sku");
-        set => WithProperty("load_balancer_sku", value);
+        set => SetProperty("load_balancer_sku", value);
     }
 
     /// <summary>
@@ -1177,8 +1066,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NetworkDataPlane
     {
-        get => GetProperty<TerraformProperty<string>>("network_data_plane");
-        set => WithProperty("network_data_plane", value);
+        set => SetProperty("network_data_plane", value);
     }
 
     /// <summary>
@@ -1186,8 +1074,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NetworkMode
     {
-        get => GetProperty<TerraformProperty<string>>("network_mode");
-        set => WithProperty("network_mode", value);
+        set => SetProperty("network_mode", value);
     }
 
     /// <summary>
@@ -1196,8 +1083,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkPlugin is required")]
     public required TerraformProperty<string> NetworkPlugin
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_plugin");
-        set => WithProperty("network_plugin", value);
+        set => SetProperty("network_plugin", value);
     }
 
     /// <summary>
@@ -1205,8 +1091,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NetworkPluginMode
     {
-        get => GetProperty<TerraformProperty<string>>("network_plugin_mode");
-        set => WithProperty("network_plugin_mode", value);
+        set => SetProperty("network_plugin_mode", value);
     }
 
     /// <summary>
@@ -1214,8 +1099,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NetworkPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("network_policy");
-        set => WithProperty("network_policy", value);
+        set => SetProperty("network_policy", value);
     }
 
     /// <summary>
@@ -1223,8 +1107,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutboundType
     {
-        get => GetProperty<TerraformProperty<string>>("outbound_type");
-        set => WithProperty("outbound_type", value);
+        set => SetProperty("outbound_type", value);
     }
 
     /// <summary>
@@ -1232,8 +1115,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PodCidr
     {
-        get => GetProperty<TerraformProperty<string>>("pod_cidr");
-        set => WithProperty("pod_cidr", value);
+        set => SetProperty("pod_cidr", value);
     }
 
     /// <summary>
@@ -1241,8 +1123,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? PodCidrs
     {
-        get => GetProperty<List<TerraformProperty<string>>>("pod_cidrs");
-        set => WithProperty("pod_cidrs", value);
+        set => SetProperty("pod_cidrs", value);
     }
 
     /// <summary>
@@ -1250,8 +1131,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceCidr
     {
-        get => GetProperty<TerraformProperty<string>>("service_cidr");
-        set => WithProperty("service_cidr", value);
+        set => SetProperty("service_cidr", value);
     }
 
     /// <summary>
@@ -1259,8 +1139,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ServiceCidrs
     {
-        get => GetProperty<List<TerraformProperty<string>>>("service_cidrs");
-        set => WithProperty("service_cidrs", value);
+        set => SetProperty("service_cidrs", value);
     }
 
 }
@@ -1277,8 +1156,7 @@ public class AzurermKubernetesClusterOmsAgentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => WithProperty("log_analytics_workspace_id", value);
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -1286,8 +1164,7 @@ public class AzurermKubernetesClusterOmsAgentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MsiAuthForMonitoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("msi_auth_for_monitoring_enabled");
-        set => WithProperty("msi_auth_for_monitoring_enabled", value);
+        set => SetProperty("msi_auth_for_monitoring_enabled", value);
     }
 
     /// <summary>
@@ -1295,8 +1172,7 @@ public class AzurermKubernetesClusterOmsAgentBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? OmsAgentIdentity
     {
-        get => GetProperty<List<TerraformProperty<object>>>("oms_agent_identity");
-        set => WithProperty("oms_agent_identity", value);
+        set => SetProperty("oms_agent_identity", value);
     }
 
 }
@@ -1312,8 +1188,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ExternalIngressGatewayEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("external_ingress_gateway_enabled");
-        set => WithProperty("external_ingress_gateway_enabled", value);
+        set => SetProperty("external_ingress_gateway_enabled", value);
     }
 
     /// <summary>
@@ -1321,8 +1196,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InternalIngressGatewayEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("internal_ingress_gateway_enabled");
-        set => WithProperty("internal_ingress_gateway_enabled", value);
+        set => SetProperty("internal_ingress_gateway_enabled", value);
     }
 
     /// <summary>
@@ -1331,8 +1205,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -1341,8 +1214,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revisions is required")]
     public List<TerraformProperty<string>>? Revisions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("revisions");
-        set => WithProperty("revisions", value);
+        set => SetProperty("revisions", value);
     }
 
 }
@@ -1359,8 +1231,7 @@ public class AzurermKubernetesClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -1369,8 +1240,7 @@ public class AzurermKubernetesClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
-        set => WithProperty("client_secret", value);
+        set => SetProperty("client_secret", value);
     }
 
 }
@@ -1386,8 +1256,7 @@ public class AzurermKubernetesClusterStorageProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? BlobDriverEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("blob_driver_enabled");
-        set => WithProperty("blob_driver_enabled", value);
+        set => SetProperty("blob_driver_enabled", value);
     }
 
     /// <summary>
@@ -1395,8 +1264,7 @@ public class AzurermKubernetesClusterStorageProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DiskDriverEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disk_driver_enabled");
-        set => WithProperty("disk_driver_enabled", value);
+        set => SetProperty("disk_driver_enabled", value);
     }
 
     /// <summary>
@@ -1404,8 +1272,7 @@ public class AzurermKubernetesClusterStorageProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? FileDriverEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("file_driver_enabled");
-        set => WithProperty("file_driver_enabled", value);
+        set => SetProperty("file_driver_enabled", value);
     }
 
     /// <summary>
@@ -1413,8 +1280,7 @@ public class AzurermKubernetesClusterStorageProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SnapshotControllerEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("snapshot_controller_enabled");
-        set => WithProperty("snapshot_controller_enabled", value);
+        set => SetProperty("snapshot_controller_enabled", value);
     }
 
 }
@@ -1430,8 +1296,7 @@ public class AzurermKubernetesClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -1439,8 +1304,7 @@ public class AzurermKubernetesClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -1448,8 +1312,7 @@ public class AzurermKubernetesClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -1457,8 +1320,7 @@ public class AzurermKubernetesClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -1474,8 +1336,7 @@ public class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EffectiveUntil
     {
-        get => GetProperty<TerraformProperty<string>>("effective_until");
-        set => WithProperty("effective_until", value);
+        set => SetProperty("effective_until", value);
     }
 
     /// <summary>
@@ -1484,8 +1345,7 @@ public class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForceUpgradeEnabled is required")]
     public required TerraformProperty<bool> ForceUpgradeEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("force_upgrade_enabled");
-        set => WithProperty("force_upgrade_enabled", value);
+        set => SetProperty("force_upgrade_enabled", value);
     }
 
 }
@@ -1501,8 +1361,7 @@ public class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultNginxController
     {
-        get => GetProperty<TerraformProperty<string>>("default_nginx_controller");
-        set => WithProperty("default_nginx_controller", value);
+        set => SetProperty("default_nginx_controller", value);
     }
 
     /// <summary>
@@ -1511,8 +1370,7 @@ public class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsZoneIds is required")]
     public List<TerraformProperty<string>>? DnsZoneIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_zone_ids");
-        set => WithProperty("dns_zone_ids", value);
+        set => SetProperty("dns_zone_ids", value);
     }
 
     /// <summary>
@@ -1520,8 +1378,7 @@ public class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? WebAppRoutingIdentity
     {
-        get => GetProperty<List<TerraformProperty<object>>>("web_app_routing_identity");
-        set => WithProperty("web_app_routing_identity", value);
+        set => SetProperty("web_app_routing_identity", value);
     }
 
 }
@@ -1538,8 +1395,7 @@ public class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformProperty<string> AdminPassword
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_password");
-        set => WithProperty("admin_password", value);
+        set => SetProperty("admin_password", value);
     }
 
     /// <summary>
@@ -1548,8 +1404,7 @@ public class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformProperty<string> AdminUsername
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_username");
-        set => WithProperty("admin_username", value);
+        set => SetProperty("admin_username", value);
     }
 
     /// <summary>
@@ -1557,8 +1412,7 @@ public class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? License
     {
-        get => GetProperty<TerraformProperty<string>>("license");
-        set => WithProperty("license", value);
+        set => SetProperty("license", value);
     }
 
 }
@@ -1574,8 +1428,7 @@ public class AzurermKubernetesClusterWorkloadAutoscalerProfileBlock : TerraformB
     /// </summary>
     public TerraformProperty<bool>? KedaEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("keda_enabled");
-        set => WithProperty("keda_enabled", value);
+        set => SetProperty("keda_enabled", value);
     }
 
     /// <summary>
@@ -1583,8 +1436,7 @@ public class AzurermKubernetesClusterWorkloadAutoscalerProfileBlock : TerraformB
     /// </summary>
     public TerraformProperty<bool>? VerticalPodAutoscalerEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("vertical_pod_autoscaler_enabled");
-        set => WithProperty("vertical_pod_autoscaler_enabled", value);
+        set => SetProperty("vertical_pod_autoscaler_enabled", value);
     }
 
 }
@@ -1602,152 +1454,183 @@ public class AzurermKubernetesCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("current_kubernetes_version");
-        this.WithOutput("fqdn");
-        this.WithOutput("http_application_routing_zone_name");
-        this.WithOutput("kube_admin_config");
-        this.WithOutput("kube_admin_config_raw");
-        this.WithOutput("kube_config");
-        this.WithOutput("kube_config_raw");
-        this.WithOutput("node_resource_group_id");
-        this.WithOutput("oidc_issuer_url");
-        this.WithOutput("portal_fqdn");
-        this.WithOutput("private_fqdn");
+        SetOutput("current_kubernetes_version");
+        SetOutput("fqdn");
+        SetOutput("http_application_routing_zone_name");
+        SetOutput("kube_admin_config");
+        SetOutput("kube_admin_config_raw");
+        SetOutput("kube_config");
+        SetOutput("kube_config_raw");
+        SetOutput("node_resource_group_id");
+        SetOutput("oidc_issuer_url");
+        SetOutput("portal_fqdn");
+        SetOutput("private_fqdn");
+        SetOutput("ai_toolchain_operator_enabled");
+        SetOutput("automatic_upgrade_channel");
+        SetOutput("azure_policy_enabled");
+        SetOutput("cost_analysis_enabled");
+        SetOutput("custom_ca_trust_certificates_base64");
+        SetOutput("disk_encryption_set_id");
+        SetOutput("dns_prefix");
+        SetOutput("dns_prefix_private_cluster");
+        SetOutput("edge_zone");
+        SetOutput("http_application_routing_enabled");
+        SetOutput("id");
+        SetOutput("image_cleaner_enabled");
+        SetOutput("image_cleaner_interval_hours");
+        SetOutput("kubernetes_version");
+        SetOutput("local_account_disabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("node_os_upgrade_channel");
+        SetOutput("node_resource_group");
+        SetOutput("oidc_issuer_enabled");
+        SetOutput("open_service_mesh_enabled");
+        SetOutput("private_cluster_enabled");
+        SetOutput("private_cluster_public_fqdn_enabled");
+        SetOutput("private_dns_zone_id");
+        SetOutput("resource_group_name");
+        SetOutput("role_based_access_control_enabled");
+        SetOutput("run_command_enabled");
+        SetOutput("sku_tier");
+        SetOutput("support_plan");
+        SetOutput("tags");
+        SetOutput("workload_identity_enabled");
     }
 
     /// <summary>
     /// The ai_toolchain_operator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AiToolchainOperatorEnabled
+    public TerraformProperty<bool> AiToolchainOperatorEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ai_toolchain_operator_enabled");
-        set => this.WithProperty("ai_toolchain_operator_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ai_toolchain_operator_enabled");
+        set => SetProperty("ai_toolchain_operator_enabled", value);
     }
 
     /// <summary>
     /// The automatic_upgrade_channel attribute.
     /// </summary>
-    public TerraformProperty<string>? AutomaticUpgradeChannel
+    public TerraformProperty<string> AutomaticUpgradeChannel
     {
-        get => GetProperty<TerraformProperty<string>>("automatic_upgrade_channel");
-        set => this.WithProperty("automatic_upgrade_channel", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automatic_upgrade_channel");
+        set => SetProperty("automatic_upgrade_channel", value);
     }
 
     /// <summary>
     /// The azure_policy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AzurePolicyEnabled
+    public TerraformProperty<bool> AzurePolicyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("azure_policy_enabled");
-        set => this.WithProperty("azure_policy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("azure_policy_enabled");
+        set => SetProperty("azure_policy_enabled", value);
     }
 
     /// <summary>
     /// The cost_analysis_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CostAnalysisEnabled
+    public TerraformProperty<bool> CostAnalysisEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cost_analysis_enabled");
-        set => this.WithProperty("cost_analysis_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cost_analysis_enabled");
+        set => SetProperty("cost_analysis_enabled", value);
     }
 
     /// <summary>
     /// The custom_ca_trust_certificates_base64 attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? CustomCaTrustCertificatesBase64
+    public List<TerraformProperty<string>> CustomCaTrustCertificatesBase64
     {
-        get => GetProperty<List<TerraformProperty<string>>>("custom_ca_trust_certificates_base64");
-        set => this.WithProperty("custom_ca_trust_certificates_base64", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("custom_ca_trust_certificates_base64");
+        set => SetProperty("custom_ca_trust_certificates_base64", value);
     }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskEncryptionSetId
+    public TerraformProperty<string> DiskEncryptionSetId
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_set_id");
-        set => this.WithProperty("disk_encryption_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk_encryption_set_id");
+        set => SetProperty("disk_encryption_set_id", value);
     }
 
     /// <summary>
     /// The dns_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsPrefix
+    public TerraformProperty<string> DnsPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("dns_prefix");
-        set => this.WithProperty("dns_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_prefix");
+        set => SetProperty("dns_prefix", value);
     }
 
     /// <summary>
     /// The dns_prefix_private_cluster attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsPrefixPrivateCluster
+    public TerraformProperty<string> DnsPrefixPrivateCluster
     {
-        get => GetProperty<TerraformProperty<string>>("dns_prefix_private_cluster");
-        set => this.WithProperty("dns_prefix_private_cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_prefix_private_cluster");
+        set => SetProperty("dns_prefix_private_cluster", value);
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? EdgeZone
+    public TerraformProperty<string> EdgeZone
     {
-        get => GetProperty<TerraformProperty<string>>("edge_zone");
-        set => this.WithProperty("edge_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
+        set => SetProperty("edge_zone", value);
     }
 
     /// <summary>
     /// The http_application_routing_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HttpApplicationRoutingEnabled
+    public TerraformProperty<bool> HttpApplicationRoutingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("http_application_routing_enabled");
-        set => this.WithProperty("http_application_routing_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("http_application_routing_enabled");
+        set => SetProperty("http_application_routing_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The image_cleaner_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ImageCleanerEnabled
+    public TerraformProperty<bool> ImageCleanerEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("image_cleaner_enabled");
-        set => this.WithProperty("image_cleaner_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("image_cleaner_enabled");
+        set => SetProperty("image_cleaner_enabled", value);
     }
 
     /// <summary>
     /// The image_cleaner_interval_hours attribute.
     /// </summary>
-    public TerraformProperty<double>? ImageCleanerIntervalHours
+    public TerraformProperty<double> ImageCleanerIntervalHours
     {
-        get => GetProperty<TerraformProperty<double>>("image_cleaner_interval_hours");
-        set => this.WithProperty("image_cleaner_interval_hours", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("image_cleaner_interval_hours");
+        set => SetProperty("image_cleaner_interval_hours", value);
     }
 
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
-    public TerraformProperty<string>? KubernetesVersion
+    public TerraformProperty<string> KubernetesVersion
     {
-        get => GetProperty<TerraformProperty<string>>("kubernetes_version");
-        set => this.WithProperty("kubernetes_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kubernetes_version");
+        set => SetProperty("kubernetes_version", value);
     }
 
     /// <summary>
     /// The local_account_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAccountDisabled
+    public TerraformProperty<bool> LocalAccountDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_account_disabled");
-        set => this.WithProperty("local_account_disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_account_disabled");
+        set => SetProperty("local_account_disabled", value);
     }
 
     /// <summary>
@@ -1756,8 +1639,8 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -1766,71 +1649,71 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The node_os_upgrade_channel attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeOsUpgradeChannel
+    public TerraformProperty<string> NodeOsUpgradeChannel
     {
-        get => GetProperty<TerraformProperty<string>>("node_os_upgrade_channel");
-        set => this.WithProperty("node_os_upgrade_channel", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_os_upgrade_channel");
+        set => SetProperty("node_os_upgrade_channel", value);
     }
 
     /// <summary>
     /// The node_resource_group attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeResourceGroup
+    public TerraformProperty<string> NodeResourceGroup
     {
-        get => GetProperty<TerraformProperty<string>>("node_resource_group");
-        set => this.WithProperty("node_resource_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_resource_group");
+        set => SetProperty("node_resource_group", value);
     }
 
     /// <summary>
     /// The oidc_issuer_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? OidcIssuerEnabled
+    public TerraformProperty<bool> OidcIssuerEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("oidc_issuer_enabled");
-        set => this.WithProperty("oidc_issuer_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("oidc_issuer_enabled");
+        set => SetProperty("oidc_issuer_enabled", value);
     }
 
     /// <summary>
     /// The open_service_mesh_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? OpenServiceMeshEnabled
+    public TerraformProperty<bool> OpenServiceMeshEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("open_service_mesh_enabled");
-        set => this.WithProperty("open_service_mesh_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("open_service_mesh_enabled");
+        set => SetProperty("open_service_mesh_enabled", value);
     }
 
     /// <summary>
     /// The private_cluster_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivateClusterEnabled
+    public TerraformProperty<bool> PrivateClusterEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_cluster_enabled");
-        set => this.WithProperty("private_cluster_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_cluster_enabled");
+        set => SetProperty("private_cluster_enabled", value);
     }
 
     /// <summary>
     /// The private_cluster_public_fqdn_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivateClusterPublicFqdnEnabled
+    public TerraformProperty<bool> PrivateClusterPublicFqdnEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_cluster_public_fqdn_enabled");
-        set => this.WithProperty("private_cluster_public_fqdn_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_cluster_public_fqdn_enabled");
+        set => SetProperty("private_cluster_public_fqdn_enabled", value);
     }
 
     /// <summary>
     /// The private_dns_zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateDnsZoneId
+    public TerraformProperty<string> PrivateDnsZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("private_dns_zone_id");
-        set => this.WithProperty("private_dns_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_dns_zone_id");
+        set => SetProperty("private_dns_zone_id", value);
     }
 
     /// <summary>
@@ -1839,62 +1722,62 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The role_based_access_control_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RoleBasedAccessControlEnabled
+    public TerraformProperty<bool> RoleBasedAccessControlEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("role_based_access_control_enabled");
-        set => this.WithProperty("role_based_access_control_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("role_based_access_control_enabled");
+        set => SetProperty("role_based_access_control_enabled", value);
     }
 
     /// <summary>
     /// The run_command_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RunCommandEnabled
+    public TerraformProperty<bool> RunCommandEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("run_command_enabled");
-        set => this.WithProperty("run_command_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("run_command_enabled");
+        set => SetProperty("run_command_enabled", value);
     }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuTier
+    public TerraformProperty<string> SkuTier
     {
-        get => GetProperty<TerraformProperty<string>>("sku_tier");
-        set => this.WithProperty("sku_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_tier");
+        set => SetProperty("sku_tier", value);
     }
 
     /// <summary>
     /// The support_plan attribute.
     /// </summary>
-    public TerraformProperty<string>? SupportPlan
+    public TerraformProperty<string> SupportPlan
     {
-        get => GetProperty<TerraformProperty<string>>("support_plan");
-        set => this.WithProperty("support_plan", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("support_plan");
+        set => SetProperty("support_plan", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The workload_identity_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? WorkloadIdentityEnabled
+    public TerraformProperty<bool> WorkloadIdentityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("workload_identity_enabled");
-        set => this.WithProperty("workload_identity_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("workload_identity_enabled");
+        set => SetProperty("workload_identity_enabled", value);
     }
 
     /// <summary>
@@ -1904,8 +1787,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AciConnectorLinux block(s) allowed")]
     public List<AzurermKubernetesClusterAciConnectorLinuxBlock>? AciConnectorLinux
     {
-        get => GetProperty<List<AzurermKubernetesClusterAciConnectorLinuxBlock>>("aci_connector_linux");
-        set => this.WithProperty("aci_connector_linux", value);
+        set => SetProperty("aci_connector_linux", value);
     }
 
     /// <summary>
@@ -1915,8 +1797,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiServerAccessProfile block(s) allowed")]
     public List<AzurermKubernetesClusterApiServerAccessProfileBlock>? ApiServerAccessProfile
     {
-        get => GetProperty<List<AzurermKubernetesClusterApiServerAccessProfileBlock>>("api_server_access_profile");
-        set => this.WithProperty("api_server_access_profile", value);
+        set => SetProperty("api_server_access_profile", value);
     }
 
     /// <summary>
@@ -1926,8 +1807,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalerProfile block(s) allowed")]
     public List<AzurermKubernetesClusterAutoScalerProfileBlock>? AutoScalerProfile
     {
-        get => GetProperty<List<AzurermKubernetesClusterAutoScalerProfileBlock>>("auto_scaler_profile");
-        set => this.WithProperty("auto_scaler_profile", value);
+        set => SetProperty("auto_scaler_profile", value);
     }
 
     /// <summary>
@@ -1937,8 +1817,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectoryRoleBasedAccessControl block(s) allowed")]
     public List<AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlBlock>? AzureActiveDirectoryRoleBasedAccessControl
     {
-        get => GetProperty<List<AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlBlock>>("azure_active_directory_role_based_access_control");
-        set => this.WithProperty("azure_active_directory_role_based_access_control", value);
+        set => SetProperty("azure_active_directory_role_based_access_control", value);
     }
 
     /// <summary>
@@ -1948,8 +1827,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootstrapProfile block(s) allowed")]
     public List<AzurermKubernetesClusterBootstrapProfileBlock>? BootstrapProfile
     {
-        get => GetProperty<List<AzurermKubernetesClusterBootstrapProfileBlock>>("bootstrap_profile");
-        set => this.WithProperty("bootstrap_profile", value);
+        set => SetProperty("bootstrap_profile", value);
     }
 
     /// <summary>
@@ -1959,20 +1837,19 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfidentialComputing block(s) allowed")]
     public List<AzurermKubernetesClusterConfidentialComputingBlock>? ConfidentialComputing
     {
-        get => GetProperty<List<AzurermKubernetesClusterConfidentialComputingBlock>>("confidential_computing");
-        set => this.WithProperty("confidential_computing", value);
+        set => SetProperty("confidential_computing", value);
     }
 
     /// <summary>
     /// Block for default_node_pool.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultNodePool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultNodePool block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultNodePool block(s) allowed")]
     public List<AzurermKubernetesClusterDefaultNodePoolBlock>? DefaultNodePool
     {
-        get => GetProperty<List<AzurermKubernetesClusterDefaultNodePoolBlock>>("default_node_pool");
-        set => this.WithProperty("default_node_pool", value);
+        set => SetProperty("default_node_pool", value);
     }
 
     /// <summary>
@@ -1982,8 +1859,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpProxyConfig block(s) allowed")]
     public List<AzurermKubernetesClusterHttpProxyConfigBlock>? HttpProxyConfig
     {
-        get => GetProperty<List<AzurermKubernetesClusterHttpProxyConfigBlock>>("http_proxy_config");
-        set => this.WithProperty("http_proxy_config", value);
+        set => SetProperty("http_proxy_config", value);
     }
 
     /// <summary>
@@ -1993,8 +1869,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermKubernetesClusterIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermKubernetesClusterIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -2004,8 +1879,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressApplicationGateway block(s) allowed")]
     public List<AzurermKubernetesClusterIngressApplicationGatewayBlock>? IngressApplicationGateway
     {
-        get => GetProperty<List<AzurermKubernetesClusterIngressApplicationGatewayBlock>>("ingress_application_gateway");
-        set => this.WithProperty("ingress_application_gateway", value);
+        set => SetProperty("ingress_application_gateway", value);
     }
 
     /// <summary>
@@ -2015,8 +1889,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyManagementService block(s) allowed")]
     public List<AzurermKubernetesClusterKeyManagementServiceBlock>? KeyManagementService
     {
-        get => GetProperty<List<AzurermKubernetesClusterKeyManagementServiceBlock>>("key_management_service");
-        set => this.WithProperty("key_management_service", value);
+        set => SetProperty("key_management_service", value);
     }
 
     /// <summary>
@@ -2026,8 +1899,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultSecretsProvider block(s) allowed")]
     public List<AzurermKubernetesClusterKeyVaultSecretsProviderBlock>? KeyVaultSecretsProvider
     {
-        get => GetProperty<List<AzurermKubernetesClusterKeyVaultSecretsProviderBlock>>("key_vault_secrets_provider");
-        set => this.WithProperty("key_vault_secrets_provider", value);
+        set => SetProperty("key_vault_secrets_provider", value);
     }
 
     /// <summary>
@@ -2037,8 +1909,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletIdentity block(s) allowed")]
     public List<AzurermKubernetesClusterKubeletIdentityBlock>? KubeletIdentity
     {
-        get => GetProperty<List<AzurermKubernetesClusterKubeletIdentityBlock>>("kubelet_identity");
-        set => this.WithProperty("kubelet_identity", value);
+        set => SetProperty("kubelet_identity", value);
     }
 
     /// <summary>
@@ -2048,8 +1919,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinuxProfile block(s) allowed")]
     public List<AzurermKubernetesClusterLinuxProfileBlock>? LinuxProfile
     {
-        get => GetProperty<List<AzurermKubernetesClusterLinuxProfileBlock>>("linux_profile");
-        set => this.WithProperty("linux_profile", value);
+        set => SetProperty("linux_profile", value);
     }
 
     /// <summary>
@@ -2059,8 +1929,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     public List<AzurermKubernetesClusterMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetProperty<List<AzurermKubernetesClusterMaintenanceWindowBlock>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
@@ -2070,8 +1939,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindowAutoUpgrade block(s) allowed")]
     public List<AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock>? MaintenanceWindowAutoUpgrade
     {
-        get => GetProperty<List<AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock>>("maintenance_window_auto_upgrade");
-        set => this.WithProperty("maintenance_window_auto_upgrade", value);
+        set => SetProperty("maintenance_window_auto_upgrade", value);
     }
 
     /// <summary>
@@ -2081,8 +1949,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindowNodeOs block(s) allowed")]
     public List<AzurermKubernetesClusterMaintenanceWindowNodeOsBlock>? MaintenanceWindowNodeOs
     {
-        get => GetProperty<List<AzurermKubernetesClusterMaintenanceWindowNodeOsBlock>>("maintenance_window_node_os");
-        set => this.WithProperty("maintenance_window_node_os", value);
+        set => SetProperty("maintenance_window_node_os", value);
     }
 
     /// <summary>
@@ -2092,8 +1959,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MicrosoftDefender block(s) allowed")]
     public List<AzurermKubernetesClusterMicrosoftDefenderBlock>? MicrosoftDefender
     {
-        get => GetProperty<List<AzurermKubernetesClusterMicrosoftDefenderBlock>>("microsoft_defender");
-        set => this.WithProperty("microsoft_defender", value);
+        set => SetProperty("microsoft_defender", value);
     }
 
     /// <summary>
@@ -2103,8 +1969,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorMetrics block(s) allowed")]
     public List<AzurermKubernetesClusterMonitorMetricsBlock>? MonitorMetrics
     {
-        get => GetProperty<List<AzurermKubernetesClusterMonitorMetricsBlock>>("monitor_metrics");
-        set => this.WithProperty("monitor_metrics", value);
+        set => SetProperty("monitor_metrics", value);
     }
 
     /// <summary>
@@ -2114,8 +1979,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     public List<AzurermKubernetesClusterNetworkProfileBlock>? NetworkProfile
     {
-        get => GetProperty<List<AzurermKubernetesClusterNetworkProfileBlock>>("network_profile");
-        set => this.WithProperty("network_profile", value);
+        set => SetProperty("network_profile", value);
     }
 
     /// <summary>
@@ -2125,8 +1989,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OmsAgent block(s) allowed")]
     public List<AzurermKubernetesClusterOmsAgentBlock>? OmsAgent
     {
-        get => GetProperty<List<AzurermKubernetesClusterOmsAgentBlock>>("oms_agent");
-        set => this.WithProperty("oms_agent", value);
+        set => SetProperty("oms_agent", value);
     }
 
     /// <summary>
@@ -2136,8 +1999,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceMeshProfile block(s) allowed")]
     public List<AzurermKubernetesClusterServiceMeshProfileBlock>? ServiceMeshProfile
     {
-        get => GetProperty<List<AzurermKubernetesClusterServiceMeshProfileBlock>>("service_mesh_profile");
-        set => this.WithProperty("service_mesh_profile", value);
+        set => SetProperty("service_mesh_profile", value);
     }
 
     /// <summary>
@@ -2147,8 +2009,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipal block(s) allowed")]
     public List<AzurermKubernetesClusterServicePrincipalBlock>? ServicePrincipal
     {
-        get => GetProperty<List<AzurermKubernetesClusterServicePrincipalBlock>>("service_principal");
-        set => this.WithProperty("service_principal", value);
+        set => SetProperty("service_principal", value);
     }
 
     /// <summary>
@@ -2158,8 +2019,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageProfile block(s) allowed")]
     public List<AzurermKubernetesClusterStorageProfileBlock>? StorageProfile
     {
-        get => GetProperty<List<AzurermKubernetesClusterStorageProfileBlock>>("storage_profile");
-        set => this.WithProperty("storage_profile", value);
+        set => SetProperty("storage_profile", value);
     }
 
     /// <summary>
@@ -2168,8 +2028,7 @@ public class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     public AzurermKubernetesClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKubernetesClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -2179,8 +2038,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeOverride block(s) allowed")]
     public List<AzurermKubernetesClusterUpgradeOverrideBlock>? UpgradeOverride
     {
-        get => GetProperty<List<AzurermKubernetesClusterUpgradeOverrideBlock>>("upgrade_override");
-        set => this.WithProperty("upgrade_override", value);
+        set => SetProperty("upgrade_override", value);
     }
 
     /// <summary>
@@ -2190,8 +2048,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebAppRouting block(s) allowed")]
     public List<AzurermKubernetesClusterWebAppRoutingBlock>? WebAppRouting
     {
-        get => GetProperty<List<AzurermKubernetesClusterWebAppRoutingBlock>>("web_app_routing");
-        set => this.WithProperty("web_app_routing", value);
+        set => SetProperty("web_app_routing", value);
     }
 
     /// <summary>
@@ -2201,8 +2058,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsProfile block(s) allowed")]
     public List<AzurermKubernetesClusterWindowsProfileBlock>? WindowsProfile
     {
-        get => GetProperty<List<AzurermKubernetesClusterWindowsProfileBlock>>("windows_profile");
-        set => this.WithProperty("windows_profile", value);
+        set => SetProperty("windows_profile", value);
     }
 
     /// <summary>
@@ -2212,8 +2068,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadAutoscalerProfile block(s) allowed")]
     public List<AzurermKubernetesClusterWorkloadAutoscalerProfileBlock>? WorkloadAutoscalerProfile
     {
-        get => GetProperty<List<AzurermKubernetesClusterWorkloadAutoscalerProfileBlock>>("workload_autoscaler_profile");
-        set => this.WithProperty("workload_autoscaler_profile", value);
+        set => SetProperty("workload_autoscaler_profile", value);
     }
 
     /// <summary>

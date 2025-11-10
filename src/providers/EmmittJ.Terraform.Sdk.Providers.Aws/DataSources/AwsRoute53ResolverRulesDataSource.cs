@@ -14,70 +14,77 @@ public class AwsRoute53ResolverRulesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputesolver_rule_ids");
+        SetOutput("resolver_rule_ids");
+        SetOutput("id");
+        SetOutput("name_regex");
+        SetOutput("owner_id");
+        SetOutput("region");
+        SetOutput("resolver_endpoint_id");
+        SetOutput("rule_type");
+        SetOutput("share_status");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string>? NameRegex
+    public TerraformProperty<string> NameRegex
     {
-        get => GetProperty<TerraformProperty<string>>("name_regex");
-        set => this.WithProperty("name_regex", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
+        set => SetProperty("name_regex", value);
     }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OwnerId
+    public TerraformProperty<string> OwnerId
     {
-        get => GetProperty<TerraformProperty<string>>("owner_id");
-        set => this.WithProperty("owner_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner_id");
+        set => SetProperty("owner_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resolver_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResolverEndpointId
+    public TerraformProperty<string> ResolverEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("resolver_endpoint_id");
-        set => this.WithProperty("resolver_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resolver_endpoint_id");
+        set => SetProperty("resolver_endpoint_id", value);
     }
 
     /// <summary>
     /// The rule_type attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleType
+    public TerraformProperty<string> RuleType
     {
-        get => GetProperty<TerraformProperty<string>>("rule_type");
-        set => this.WithProperty("rule_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_type");
+        set => SetProperty("rule_type", value);
     }
 
     /// <summary>
     /// The share_status attribute.
     /// </summary>
-    public TerraformProperty<string>? ShareStatus
+    public TerraformProperty<string> ShareStatus
     {
-        get => GetProperty<TerraformProperty<string>>("share_status");
-        set => this.WithProperty("share_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("share_status");
+        set => SetProperty("share_status", value);
     }
 
     /// <summary>

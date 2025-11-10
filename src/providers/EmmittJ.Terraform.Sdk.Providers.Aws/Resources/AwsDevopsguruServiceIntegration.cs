@@ -13,8 +13,7 @@ public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : Terra
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : Terra
     /// </summary>
     public TerraformProperty<string>? OptInStatus
     {
-        get => GetProperty<TerraformProperty<string>>("opt_in_status");
-        set => WithProperty("opt_in_status", value);
+        set => SetProperty("opt_in_status", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? OptInStatus
     {
-        get => GetProperty<TerraformProperty<string>>("opt_in_status");
-        set => WithProperty("opt_in_status", value);
+        set => SetProperty("opt_in_status", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class AwsDevopsguruServiceIntegrationOpsCenterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OptInStatus
     {
-        get => GetProperty<TerraformProperty<string>>("opt_in_status");
-        set => WithProperty("opt_in_status", value);
+        set => SetProperty("opt_in_status", value);
     }
 
 }
@@ -83,16 +78,17 @@ public class AwsDevopsguruServiceIntegration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -101,8 +97,7 @@ public class AwsDevopsguruServiceIntegration : TerraformResource
     /// </summary>
     public List<AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock>? KmsServerSideEncryption
     {
-        get => GetProperty<List<AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock>>("kms_server_side_encryption");
-        set => this.WithProperty("kms_server_side_encryption", value);
+        set => SetProperty("kms_server_side_encryption", value);
     }
 
     /// <summary>
@@ -111,8 +106,7 @@ public class AwsDevopsguruServiceIntegration : TerraformResource
     /// </summary>
     public List<AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock>? LogsAnomalyDetection
     {
-        get => GetProperty<List<AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock>>("logs_anomaly_detection");
-        set => this.WithProperty("logs_anomaly_detection", value);
+        set => SetProperty("logs_anomaly_detection", value);
     }
 
     /// <summary>
@@ -121,8 +115,7 @@ public class AwsDevopsguruServiceIntegration : TerraformResource
     /// </summary>
     public List<AwsDevopsguruServiceIntegrationOpsCenterBlock>? OpsCenter
     {
-        get => GetProperty<List<AwsDevopsguruServiceIntegrationOpsCenterBlock>>("ops_center");
-        set => this.WithProperty("ops_center", value);
+        set => SetProperty("ops_center", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsSsoadminPermissionSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -31,26 +30,35 @@ public class AwsSsoadminPermissionSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_date");
+        SetOutput("arn");
+        SetOutput("created_date");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("instance_arn");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("relay_state");
+        SetOutput("session_duration");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +67,8 @@ public class AwsSsoadminPermissionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
-        set => this.WithProperty("instance_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
+        set => SetProperty("instance_arn", value);
     }
 
     /// <summary>
@@ -69,53 +77,53 @@ public class AwsSsoadminPermissionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The relay_state attribute.
     /// </summary>
-    public TerraformProperty<string>? RelayState
+    public TerraformProperty<string> RelayState
     {
-        get => GetProperty<TerraformProperty<string>>("relay_state");
-        set => this.WithProperty("relay_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("relay_state");
+        set => SetProperty("relay_state", value);
     }
 
     /// <summary>
     /// The session_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? SessionDuration
+    public TerraformProperty<string> SessionDuration
     {
-        get => GetProperty<TerraformProperty<string>>("session_duration");
-        set => this.WithProperty("session_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("session_duration");
+        set => SetProperty("session_duration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -124,8 +132,7 @@ public class AwsSsoadminPermissionSet : TerraformResource
     /// </summary>
     public AwsSsoadminPermissionSetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSsoadminPermissionSetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

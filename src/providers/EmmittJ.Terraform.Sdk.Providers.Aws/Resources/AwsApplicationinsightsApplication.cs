@@ -14,79 +14,90 @@ public class AwsApplicationinsightsApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("auto_config_enabled");
+        SetOutput("auto_create");
+        SetOutput("cwe_monitor_enabled");
+        SetOutput("grouping_type");
+        SetOutput("id");
+        SetOutput("ops_center_enabled");
+        SetOutput("ops_item_sns_topic_arn");
+        SetOutput("region");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The auto_config_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoConfigEnabled
+    public TerraformProperty<bool> AutoConfigEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_config_enabled");
-        set => this.WithProperty("auto_config_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_config_enabled");
+        set => SetProperty("auto_config_enabled", value);
     }
 
     /// <summary>
     /// The auto_create attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoCreate
+    public TerraformProperty<bool> AutoCreate
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_create");
-        set => this.WithProperty("auto_create", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_create");
+        set => SetProperty("auto_create", value);
     }
 
     /// <summary>
     /// The cwe_monitor_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CweMonitorEnabled
+    public TerraformProperty<bool> CweMonitorEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cwe_monitor_enabled");
-        set => this.WithProperty("cwe_monitor_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cwe_monitor_enabled");
+        set => SetProperty("cwe_monitor_enabled", value);
     }
 
     /// <summary>
     /// The grouping_type attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupingType
+    public TerraformProperty<string> GroupingType
     {
-        get => GetProperty<TerraformProperty<string>>("grouping_type");
-        set => this.WithProperty("grouping_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("grouping_type");
+        set => SetProperty("grouping_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ops_center_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? OpsCenterEnabled
+    public TerraformProperty<bool> OpsCenterEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ops_center_enabled");
-        set => this.WithProperty("ops_center_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ops_center_enabled");
+        set => SetProperty("ops_center_enabled", value);
     }
 
     /// <summary>
     /// The ops_item_sns_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? OpsItemSnsTopicArn
+    public TerraformProperty<string> OpsItemSnsTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("ops_item_sns_topic_arn");
-        set => this.WithProperty("ops_item_sns_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ops_item_sns_topic_arn");
+        set => SetProperty("ops_item_sns_topic_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -95,26 +106,26 @@ public class AwsApplicationinsightsApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermDataFactoryDataFlowSinkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermDataFactoryDataFlowSinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermDataFactoryDataFlowSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermDataFactoryDataFlowSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class AzurermDataFactoryDataFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AzurermDataFactoryDataFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzurermDataFactoryDataFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AzurermDataFactoryDataFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,8 +103,7 @@ public class AzurermDataFactoryDataFlowTransformationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -121,8 +112,7 @@ public class AzurermDataFactoryDataFlowTransformationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -140,15 +130,23 @@ public class AzurermDataFactoryDataFlow : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("annotations");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("script");
+        SetOutput("script_lines");
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Annotations
+    public List<TerraformProperty<string>> Annotations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -157,35 +155,35 @@ public class AzurermDataFactoryDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    public TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -194,48 +192,48 @@ public class AzurermDataFactoryDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The script attribute.
     /// </summary>
-    public TerraformProperty<string>? Script
+    public TerraformProperty<string> Script
     {
-        get => GetProperty<TerraformProperty<string>>("script");
-        set => this.WithProperty("script", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("script");
+        set => SetProperty("script", value);
     }
 
     /// <summary>
     /// The script_lines attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ScriptLines
+    public List<TerraformProperty<string>> ScriptLines
     {
-        get => GetProperty<List<TerraformProperty<string>>>("script_lines");
-        set => this.WithProperty("script_lines", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("script_lines");
+        set => SetProperty("script_lines", value);
     }
 
     /// <summary>
     /// Block for sink.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sink is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sink block(s) required")]
     public List<AzurermDataFactoryDataFlowSinkBlock>? Sink
     {
-        get => GetProperty<List<AzurermDataFactoryDataFlowSinkBlock>>("sink");
-        set => this.WithProperty("sink", value);
+        set => SetProperty("sink", value);
     }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     public List<AzurermDataFactoryDataFlowSourceBlock>? Source
     {
-        get => GetProperty<List<AzurermDataFactoryDataFlowSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -244,8 +242,7 @@ public class AzurermDataFactoryDataFlow : TerraformResource
     /// </summary>
     public AzurermDataFactoryDataFlowTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryDataFlowTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -254,8 +251,7 @@ public class AzurermDataFactoryDataFlow : TerraformResource
     /// </summary>
     public List<AzurermDataFactoryDataFlowTransformationBlock>? Transformation
     {
-        get => GetProperty<List<AzurermDataFactoryDataFlowTransformationBlock>>("transformation");
-        set => this.WithProperty("transformation", value);
+        set => SetProperty("transformation", value);
     }
 
 }

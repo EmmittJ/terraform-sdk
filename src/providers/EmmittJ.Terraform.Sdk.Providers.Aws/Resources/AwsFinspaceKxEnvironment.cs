@@ -14,8 +14,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerIp is required")]
     public required TerraformProperty<string> CustomDnsServerIp
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_dns_server_ip");
-        set => WithProperty("custom_dns_server_ip", value);
+        set => SetProperty("custom_dns_server_ip", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerName is required")]
     public required TerraformProperty<string> CustomDnsServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_dns_server_name");
-        set => WithProperty("custom_dns_server_name", value);
+        set => SetProperty("custom_dns_server_name", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsFinspaceKxEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsFinspaceKxEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsFinspaceKxEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,8 +72,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutableCidrSpace is required")]
     public required TerraformProperty<string> RoutableCidrSpace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("routable_cidr_space");
-        set => WithProperty("routable_cidr_space", value);
+        set => SetProperty("routable_cidr_space", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformProperty<string> TransitGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_id");
-        set => WithProperty("transit_gateway_id", value);
+        set => SetProperty("transit_gateway_id", value);
     }
 
 }
@@ -106,22 +99,28 @@ public class AwsFinspaceKxEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zones");
-        this.WithOutput("created_timestamp");
-        this.WithOutput("id");
-        this.WithOutput("infrastructure_account_id");
-        this.WithOutput("last_modified_timestamp");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("availability_zones");
+        SetOutput("created_timestamp");
+        SetOutput("id");
+        SetOutput("infrastructure_account_id");
+        SetOutput("last_modified_timestamp");
+        SetOutput("status");
+        SetOutput("description");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -130,8 +129,8 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformProperty<string> KmsKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -140,35 +139,35 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -177,8 +176,7 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     /// </summary>
     public List<AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock>? CustomDnsConfiguration
     {
-        get => GetProperty<List<AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock>>("custom_dns_configuration");
-        set => this.WithProperty("custom_dns_configuration", value);
+        set => SetProperty("custom_dns_configuration", value);
     }
 
     /// <summary>
@@ -187,8 +185,7 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     /// </summary>
     public AwsFinspaceKxEnvironmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFinspaceKxEnvironmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -198,8 +195,7 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TransitGatewayConfiguration block(s) allowed")]
     public List<AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock>? TransitGatewayConfiguration
     {
-        get => GetProperty<List<AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock>>("transit_gateway_configuration");
-        set => this.WithProperty("transit_gateway_configuration", value);
+        set => SetProperty("transit_gateway_configuration", value);
     }
 
     /// <summary>

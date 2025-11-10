@@ -14,8 +14,10 @@ public class GoogleAccessApprovalFolderServiceAccountDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_email");
-        this.WithOutput("name");
+        SetOutput("account_email");
+        SetOutput("name");
+        SetOutput("folder_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -24,17 +26,17 @@ public class GoogleAccessApprovalFolderServiceAccountDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformProperty<string> FolderId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder_id");
-        set => this.WithProperty("folder_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder_id");
+        set => SetProperty("folder_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

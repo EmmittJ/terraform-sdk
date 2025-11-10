@@ -14,8 +14,13 @@ public class AwsSecurityhubMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("master_id");
-        this.WithOutput("member_status");
+        SetOutput("master_id");
+        SetOutput("member_status");
+        SetOutput("account_id");
+        SetOutput("email");
+        SetOutput("id");
+        SetOutput("invite");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,44 +29,44 @@ public class AwsSecurityhubMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformProperty<string>? Email
+    public TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => this.WithProperty("email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email");
+        set => SetProperty("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The invite attribute.
     /// </summary>
-    public TerraformProperty<bool>? Invite
+    public TerraformProperty<bool> Invite
     {
-        get => GetProperty<TerraformProperty<bool>>("invite");
-        set => this.WithProperty("invite", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("invite");
+        set => SetProperty("invite", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleBigqueryRowAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleBigqueryRowAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleBigqueryRowAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,15 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_time");
-        this.WithOutput("last_modified_time");
+        SetOutput("creation_time");
+        SetOutput("last_modified_time");
+        SetOutput("dataset_id");
+        SetOutput("filter_predicate");
+        SetOutput("grantees");
+        SetOutput("id");
+        SetOutput("policy_id");
+        SetOutput("project");
+        SetOutput("table_id");
     }
 
     /// <summary>
@@ -59,8 +63,8 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
-        set => this.WithProperty("dataset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
+        set => SetProperty("dataset_id", value);
     }
 
     /// <summary>
@@ -78,8 +82,8 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPredicate is required")]
     public required TerraformProperty<string> FilterPredicate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter_predicate");
-        set => this.WithProperty("filter_predicate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter_predicate");
+        set => SetProperty("filter_predicate", value);
     }
 
     /// <summary>
@@ -106,19 +110,19 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// BigQuery requires authentication before a user can access the service,
     /// allUsers includes only authenticated users.
     /// </summary>
-    public List<TerraformProperty<string>>? Grantees
+    public List<TerraformProperty<string>> Grantees
     {
-        get => GetProperty<List<TerraformProperty<string>>>("grantees");
-        set => this.WithProperty("grantees", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("grantees");
+        set => SetProperty("grantees", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -129,17 +133,17 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
-        set => this.WithProperty("policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
+        set => SetProperty("policy_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -148,8 +152,8 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformProperty<string> TableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_id");
-        set => this.WithProperty("table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_id");
+        set => SetProperty("table_id", value);
     }
 
     /// <summary>
@@ -158,8 +162,7 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// </summary>
     public GoogleBigqueryRowAccessPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryRowAccessPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

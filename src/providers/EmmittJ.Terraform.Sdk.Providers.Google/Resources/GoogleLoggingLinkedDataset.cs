@@ -16,8 +16,7 @@ public class GoogleLoggingLinkedDatasetBigqueryDatasetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_id");
-        set => WithProperty("dataset_id", value);
+        set => SetProperty("dataset_id", value);
     }
 
 }
@@ -33,8 +32,7 @@ public class GoogleLoggingLinkedDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleLoggingLinkedDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -60,9 +57,15 @@ public class GoogleLoggingLinkedDataset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("lifecycle_state");
-        this.WithOutput("name");
+        SetOutput("create_time");
+        SetOutput("lifecycle_state");
+        SetOutput("name");
+        SetOutput("bucket");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("link_id");
+        SetOutput("location");
+        SetOutput("parent");
     }
 
     /// <summary>
@@ -71,26 +74,26 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// Describes this link. The maximum length of the description is 8000 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -99,26 +102,26 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
     public required TerraformProperty<string> LinkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("link_id");
-        set => this.WithProperty("link_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("link_id");
+        set => SetProperty("link_id", value);
     }
 
     /// <summary>
     /// The location of the linked dataset.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The parent of the linked dataset.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -127,8 +130,7 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     /// </summary>
     public List<GoogleLoggingLinkedDatasetBigqueryDatasetBlock>? BigqueryDataset
     {
-        get => GetProperty<List<GoogleLoggingLinkedDatasetBigqueryDatasetBlock>>("bigquery_dataset");
-        set => this.WithProperty("bigquery_dataset", value);
+        set => SetProperty("bigquery_dataset", value);
     }
 
     /// <summary>
@@ -137,8 +139,7 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     /// </summary>
     public GoogleLoggingLinkedDatasetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleLoggingLinkedDatasetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

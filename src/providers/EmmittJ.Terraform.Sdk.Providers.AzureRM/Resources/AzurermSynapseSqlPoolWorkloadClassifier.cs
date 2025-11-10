@@ -13,8 +13,7 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,51 +54,60 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("context");
+        SetOutput("end_time");
+        SetOutput("id");
+        SetOutput("importance");
+        SetOutput("label");
+        SetOutput("member_name");
+        SetOutput("name");
+        SetOutput("start_time");
+        SetOutput("workload_group_id");
     }
 
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformProperty<string>? Context
+    public TerraformProperty<string> Context
     {
-        get => GetProperty<TerraformProperty<string>>("context");
-        set => this.WithProperty("context", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("context");
+        set => SetProperty("context", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformProperty<string>? EndTime
+    public TerraformProperty<string> EndTime
     {
-        get => GetProperty<TerraformProperty<string>>("end_time");
-        set => this.WithProperty("end_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_time");
+        set => SetProperty("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The importance attribute.
     /// </summary>
-    public TerraformProperty<string>? Importance
+    public TerraformProperty<string> Importance
     {
-        get => GetProperty<TerraformProperty<string>>("importance");
-        set => this.WithProperty("importance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("importance");
+        set => SetProperty("importance", value);
     }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string>? Label
+    public TerraformProperty<string> Label
     {
-        get => GetProperty<TerraformProperty<string>>("label");
-        set => this.WithProperty("label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("label");
+        set => SetProperty("label", value);
     }
 
     /// <summary>
@@ -111,8 +116,8 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberName is required")]
     public required TerraformProperty<string> MemberName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("member_name");
-        set => this.WithProperty("member_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member_name");
+        set => SetProperty("member_name", value);
     }
 
     /// <summary>
@@ -121,17 +126,17 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
@@ -140,8 +145,8 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadGroupId is required")]
     public required TerraformProperty<string> WorkloadGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workload_group_id");
-        set => this.WithProperty("workload_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_group_id");
+        set => SetProperty("workload_group_id", value);
     }
 
     /// <summary>
@@ -150,8 +155,7 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// </summary>
     public AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

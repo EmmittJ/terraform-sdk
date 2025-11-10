@@ -20,8 +20,7 @@ public class GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? ErrorService
     {
-        get => GetProperty<TerraformProperty<string>>("error_service");
-        set => WithProperty("error_service", value);
+        set => SetProperty("error_service", value);
     }
 
 }
@@ -46,8 +45,7 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HostRedirect
     {
-        get => GetProperty<TerraformProperty<string>>("host_redirect");
-        set => WithProperty("host_redirect", value);
+        set => SetProperty("host_redirect", value);
     }
 
     /// <summary>
@@ -58,8 +56,7 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? HttpsRedirect
     {
-        get => GetProperty<TerraformProperty<bool>>("https_redirect");
-        set => WithProperty("https_redirect", value);
+        set => SetProperty("https_redirect", value);
     }
 
     /// <summary>
@@ -71,8 +68,7 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PathRedirect
     {
-        get => GetProperty<TerraformProperty<string>>("path_redirect");
-        set => WithProperty("path_redirect", value);
+        set => SetProperty("path_redirect", value);
     }
 
     /// <summary>
@@ -84,8 +80,7 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrefixRedirect
     {
-        get => GetProperty<TerraformProperty<string>>("prefix_redirect");
-        set => WithProperty("prefix_redirect", value);
+        set => SetProperty("prefix_redirect", value);
     }
 
     /// <summary>
@@ -105,8 +100,7 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RedirectResponseCode
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_response_code");
-        set => WithProperty("redirect_response_code", value);
+        set => SetProperty("redirect_response_code", value);
     }
 
     /// <summary>
@@ -118,8 +112,7 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
     public required TerraformProperty<bool> StripQuery
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("strip_query");
-        set => WithProperty("strip_query", value);
+        set => SetProperty("strip_query", value);
     }
 
 }
@@ -136,8 +129,7 @@ public class GoogleComputeUrlMapHeaderActionBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? RequestHeadersToRemove
     {
-        get => GetProperty<List<TerraformProperty<string>>>("request_headers_to_remove");
-        set => WithProperty("request_headers_to_remove", value);
+        set => SetProperty("request_headers_to_remove", value);
     }
 
     /// <summary>
@@ -146,8 +138,7 @@ public class GoogleComputeUrlMapHeaderActionBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ResponseHeadersToRemove
     {
-        get => GetProperty<List<TerraformProperty<string>>>("response_headers_to_remove");
-        set => WithProperty("response_headers_to_remove", value);
+        set => SetProperty("response_headers_to_remove", value);
     }
 
 }
@@ -164,8 +155,7 @@ public class GoogleComputeUrlMapHostRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -176,8 +166,7 @@ public class GoogleComputeUrlMapHostRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hosts is required")]
     public HashSet<TerraformProperty<string>>? Hosts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("hosts");
-        set => WithProperty("hosts", value);
+        set => SetProperty("hosts", value);
     }
 
     /// <summary>
@@ -187,8 +176,7 @@ public class GoogleComputeUrlMapHostRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathMatcher is required")]
     public required TerraformProperty<string> PathMatcher
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path_matcher");
-        set => WithProperty("path_matcher", value);
+        set => SetProperty("path_matcher", value);
     }
 
 }
@@ -204,8 +192,7 @@ public class GoogleComputeUrlMapPathMatcherBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultService
     {
-        get => GetProperty<TerraformProperty<string>>("default_service");
-        set => WithProperty("default_service", value);
+        set => SetProperty("default_service", value);
     }
 
     /// <summary>
@@ -214,8 +201,7 @@ public class GoogleComputeUrlMapPathMatcherBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -224,8 +210,7 @@ public class GoogleComputeUrlMapPathMatcherBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -241,8 +226,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -256,8 +240,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExpectedOutputUrl
     {
-        get => GetProperty<TerraformProperty<string>>("expected_output_url");
-        set => WithProperty("expected_output_url", value);
+        set => SetProperty("expected_output_url", value);
     }
 
     /// <summary>
@@ -267,8 +250,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ExpectedRedirectResponseCode
     {
-        get => GetProperty<TerraformProperty<double>>("expected_redirect_response_code");
-        set => WithProperty("expected_redirect_response_code", value);
+        set => SetProperty("expected_redirect_response_code", value);
     }
 
     /// <summary>
@@ -277,8 +259,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -287,8 +268,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -296,8 +276,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
-        set => WithProperty("service", value);
+        set => SetProperty("service", value);
     }
 
 }
@@ -313,8 +292,7 @@ public class GoogleComputeUrlMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -322,8 +300,7 @@ public class GoogleComputeUrlMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -331,8 +308,7 @@ public class GoogleComputeUrlMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -350,38 +326,43 @@ public class GoogleComputeUrlMap : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("fingerprint");
-        this.WithOutput("map_id");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("fingerprint");
+        SetOutput("map_id");
+        SetOutput("self_link");
+        SetOutput("default_service");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The backend service or backend bucket to use when none of the given rules match.
     /// </summary>
-    public TerraformProperty<string>? DefaultService
+    public TerraformProperty<string> DefaultService
     {
-        get => GetProperty<TerraformProperty<string>>("default_service");
-        set => this.WithProperty("default_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_service");
+        set => SetProperty("default_service", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create
     /// the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -395,17 +376,17 @@ public class GoogleComputeUrlMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -415,8 +396,7 @@ public class GoogleComputeUrlMap : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultCustomErrorResponsePolicy block(s) allowed")]
     public List<GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock>? DefaultCustomErrorResponsePolicy
     {
-        get => GetProperty<List<GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock>>("default_custom_error_response_policy");
-        set => this.WithProperty("default_custom_error_response_policy", value);
+        set => SetProperty("default_custom_error_response_policy", value);
     }
 
     /// <summary>
@@ -426,8 +406,7 @@ public class GoogleComputeUrlMap : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRouteAction block(s) allowed")]
     public List<GoogleComputeUrlMapDefaultRouteActionBlock>? DefaultRouteAction
     {
-        get => GetProperty<List<GoogleComputeUrlMapDefaultRouteActionBlock>>("default_route_action");
-        set => this.WithProperty("default_route_action", value);
+        set => SetProperty("default_route_action", value);
     }
 
     /// <summary>
@@ -437,8 +416,7 @@ public class GoogleComputeUrlMap : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultUrlRedirect block(s) allowed")]
     public List<GoogleComputeUrlMapDefaultUrlRedirectBlock>? DefaultUrlRedirect
     {
-        get => GetProperty<List<GoogleComputeUrlMapDefaultUrlRedirectBlock>>("default_url_redirect");
-        set => this.WithProperty("default_url_redirect", value);
+        set => SetProperty("default_url_redirect", value);
     }
 
     /// <summary>
@@ -448,8 +426,7 @@ public class GoogleComputeUrlMap : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeaderAction block(s) allowed")]
     public List<GoogleComputeUrlMapHeaderActionBlock>? HeaderAction
     {
-        get => GetProperty<List<GoogleComputeUrlMapHeaderActionBlock>>("header_action");
-        set => this.WithProperty("header_action", value);
+        set => SetProperty("header_action", value);
     }
 
     /// <summary>
@@ -458,8 +435,7 @@ public class GoogleComputeUrlMap : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeUrlMapHostRuleBlock>? HostRule
     {
-        get => GetProperty<HashSet<GoogleComputeUrlMapHostRuleBlock>>("host_rule");
-        set => this.WithProperty("host_rule", value);
+        set => SetProperty("host_rule", value);
     }
 
     /// <summary>
@@ -468,8 +444,7 @@ public class GoogleComputeUrlMap : TerraformResource
     /// </summary>
     public List<GoogleComputeUrlMapPathMatcherBlock>? PathMatcher
     {
-        get => GetProperty<List<GoogleComputeUrlMapPathMatcherBlock>>("path_matcher");
-        set => this.WithProperty("path_matcher", value);
+        set => SetProperty("path_matcher", value);
     }
 
     /// <summary>
@@ -478,8 +453,7 @@ public class GoogleComputeUrlMap : TerraformResource
     /// </summary>
     public List<GoogleComputeUrlMapTestBlock>? Test
     {
-        get => GetProperty<List<GoogleComputeUrlMapTestBlock>>("test");
-        set => this.WithProperty("test", value);
+        set => SetProperty("test", value);
     }
 
     /// <summary>
@@ -488,8 +462,7 @@ public class GoogleComputeUrlMap : TerraformResource
     /// </summary>
     public GoogleComputeUrlMapTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeUrlMapTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

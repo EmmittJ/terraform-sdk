@@ -14,49 +14,54 @@ public class AwsServicequotasServiceQuotaDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("adjustable");
-        this.WithOutput("arn");
-        this.WithOutput("default_value");
-        this.WithOutput("global_quota");
-        this.WithOutput("service_name");
-        this.WithOutput("usage_metric");
-        this.WithOutput("value");
+        SetOutput("adjustable");
+        SetOutput("arn");
+        SetOutput("default_value");
+        SetOutput("global_quota");
+        SetOutput("service_name");
+        SetOutput("usage_metric");
+        SetOutput("value");
+        SetOutput("id");
+        SetOutput("quota_code");
+        SetOutput("quota_name");
+        SetOutput("region");
+        SetOutput("service_code");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The quota_code attribute.
     /// </summary>
-    public TerraformProperty<string>? QuotaCode
+    public TerraformProperty<string> QuotaCode
     {
-        get => GetProperty<TerraformProperty<string>>("quota_code");
-        set => this.WithProperty("quota_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("quota_code");
+        set => SetProperty("quota_code", value);
     }
 
     /// <summary>
     /// The quota_name attribute.
     /// </summary>
-    public TerraformProperty<string>? QuotaName
+    public TerraformProperty<string> QuotaName
     {
-        get => GetProperty<TerraformProperty<string>>("quota_name");
-        set => this.WithProperty("quota_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("quota_name");
+        set => SetProperty("quota_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -65,8 +70,8 @@ public class AwsServicequotasServiceQuotaDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformProperty<string> ServiceCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_code");
-        set => this.WithProperty("service_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_code");
+        set => SetProperty("service_code", value);
     }
 
     /// <summary>

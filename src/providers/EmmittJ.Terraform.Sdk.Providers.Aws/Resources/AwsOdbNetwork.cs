@@ -13,8 +13,7 @@ public class AwsOdbNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsOdbNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsOdbNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,30 +46,43 @@ public class AwsOdbNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("id");
-        this.WithOutput("managed_services");
-        this.WithOutput("oci_dns_forwarding_configs");
-        this.WithOutput("oci_network_anchor_id");
-        this.WithOutput("oci_network_anchor_url");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("oci_vcn_id");
-        this.WithOutput("oci_vcn_url");
-        this.WithOutput("peered_cidrs");
-        this.WithOutput("percent_progress");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("id");
+        SetOutput("managed_services");
+        SetOutput("oci_dns_forwarding_configs");
+        SetOutput("oci_network_anchor_id");
+        SetOutput("oci_network_anchor_url");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("oci_vcn_id");
+        SetOutput("oci_vcn_url");
+        SetOutput("peered_cidrs");
+        SetOutput("percent_progress");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("tags_all");
+        SetOutput("availability_zone");
+        SetOutput("availability_zone_id");
+        SetOutput("backup_subnet_cidr");
+        SetOutput("client_subnet_cidr");
+        SetOutput("custom_domain_name");
+        SetOutput("default_dns_prefix");
+        SetOutput("delete_associated_resources");
+        SetOutput("display_name");
+        SetOutput("region");
+        SetOutput("s3_access");
+        SetOutput("s3_policy_document");
+        SetOutput("tags");
+        SetOutput("zero_etl_access");
     }
 
     /// <summary>
     /// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZone
+    public TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
-        set => this.WithProperty("availability_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
@@ -81,8 +91,8 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone_id");
-        set => this.WithProperty("availability_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone_id");
+        set => SetProperty("availability_zone_id", value);
     }
 
     /// <summary>
@@ -100,8 +110,8 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupSubnetCidr is required")]
     public required TerraformProperty<string> BackupSubnetCidr
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_subnet_cidr");
-        set => this.WithProperty("backup_subnet_cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_subnet_cidr");
+        set => SetProperty("backup_subnet_cidr", value);
     }
 
     /// <summary>
@@ -119,35 +129,35 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnetCidr is required")]
     public required TerraformProperty<string> ClientSubnetCidr
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_subnet_cidr");
-        set => this.WithProperty("client_subnet_cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_subnet_cidr");
+        set => SetProperty("client_subnet_cidr", value);
     }
 
     /// <summary>
     /// The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can&#39;t be given.
     /// </summary>
-    public TerraformProperty<string>? CustomDomainName
+    public TerraformProperty<string> CustomDomainName
     {
-        get => GetProperty<TerraformProperty<string>>("custom_domain_name");
-        set => this.WithProperty("custom_domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_domain_name");
+        set => SetProperty("custom_domain_name", value);
     }
 
     /// <summary>
     /// The default DNS prefix for the network resource. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformProperty<string>? DefaultDnsPrefix
+    public TerraformProperty<string> DefaultDnsPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("default_dns_prefix");
-        set => this.WithProperty("default_dns_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_dns_prefix");
+        set => SetProperty("default_dns_prefix", value);
     }
 
     /// <summary>
     /// If set to true deletes associated OCI resources. Default false.
     /// </summary>
-    public TerraformProperty<bool>? DeleteAssociatedResources
+    public TerraformProperty<bool> DeleteAssociatedResources
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_associated_resources");
-        set => this.WithProperty("delete_associated_resources", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_associated_resources");
+        set => SetProperty("delete_associated_resources", value);
     }
 
     /// <summary>
@@ -156,17 +166,17 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -175,26 +185,26 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Access is required")]
     public required TerraformProperty<string> S3Access
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_access");
-        set => this.WithProperty("s3_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_access");
+        set => SetProperty("s3_access", value);
     }
 
     /// <summary>
     /// Specifies the endpoint policy for Amazon S3 access from the ODB network.
     /// </summary>
-    public TerraformProperty<string>? S3PolicyDocument
+    public TerraformProperty<string> S3PolicyDocument
     {
-        get => GetProperty<TerraformProperty<string>>("s3_policy_document");
-        set => this.WithProperty("s3_policy_document", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_policy_document");
+        set => SetProperty("s3_policy_document", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -203,8 +213,8 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZeroEtlAccess is required")]
     public required TerraformProperty<string> ZeroEtlAccess
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zero_etl_access");
-        set => this.WithProperty("zero_etl_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zero_etl_access");
+        set => SetProperty("zero_etl_access", value);
     }
 
     /// <summary>
@@ -213,8 +223,7 @@ public class AwsOdbNetwork : TerraformResource
     /// </summary>
     public AwsOdbNetworkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsOdbNetworkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleProjectUsageExportBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleProjectUsageExportBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,10 @@ public class GoogleProjectUsageExportBucket : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket_name");
+        SetOutput("id");
+        SetOutput("prefix");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -48,35 +50,35 @@ public class GoogleProjectUsageExportBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
-        set => this.WithProperty("bucket_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket_name");
+        set => SetProperty("bucket_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// A prefix for the reports, for instance, the project name.
     /// </summary>
-    public TerraformProperty<string>? Prefix
+    public TerraformProperty<string> Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
-        set => this.WithProperty("prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
+        set => SetProperty("prefix", value);
     }
 
     /// <summary>
     /// The project to set the export bucket on. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -85,8 +87,7 @@ public class GoogleProjectUsageExportBucket : TerraformResource
     /// </summary>
     public GoogleProjectUsageExportBucketTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleProjectUsageExportBucketTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,8 +14,7 @@ public class AzurermVirtualMachineAdditionalCapabilitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UltraSsdEnabled is required")]
     public required TerraformProperty<bool> UltraSsdEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("ultra_ssd_enabled");
-        set => WithProperty("ultra_ssd_enabled", value);
+        set => SetProperty("ultra_ssd_enabled", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AzurermVirtualMachineBootDiagnosticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class AzurermVirtualMachineBootDiagnosticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     public required TerraformProperty<string> StorageUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_uri");
-        set => WithProperty("storage_uri", value);
+        set => SetProperty("storage_uri", value);
     }
 
 }
@@ -59,8 +56,7 @@ public class AzurermVirtualMachineIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class AzurermVirtualMachineIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AzurermVirtualMachineIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class AzurermVirtualMachineIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -104,8 +97,7 @@ public class AzurermVirtualMachineOsProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AdminPassword
     {
-        get => GetProperty<TerraformProperty<string>>("admin_password");
-        set => WithProperty("admin_password", value);
+        set => SetProperty("admin_password", value);
     }
 
     /// <summary>
@@ -114,8 +106,7 @@ public class AzurermVirtualMachineOsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformProperty<string> AdminUsername
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_username");
-        set => WithProperty("admin_username", value);
+        set => SetProperty("admin_username", value);
     }
 
     /// <summary>
@@ -124,8 +115,7 @@ public class AzurermVirtualMachineOsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputerName is required")]
     public required TerraformProperty<string> ComputerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("computer_name");
-        set => WithProperty("computer_name", value);
+        set => SetProperty("computer_name", value);
     }
 
     /// <summary>
@@ -133,8 +123,7 @@ public class AzurermVirtualMachineOsProfileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomData
     {
-        get => GetProperty<TerraformProperty<string>>("custom_data");
-        set => WithProperty("custom_data", value);
+        set => SetProperty("custom_data", value);
     }
 
 }
@@ -151,8 +140,7 @@ public class AzurermVirtualMachineOsProfileLinuxConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisablePasswordAuthentication is required")]
     public required TerraformProperty<bool> DisablePasswordAuthentication
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("disable_password_authentication");
-        set => WithProperty("disable_password_authentication", value);
+        set => SetProperty("disable_password_authentication", value);
     }
 
 }
@@ -169,8 +157,7 @@ public class AzurermVirtualMachineOsProfileSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformProperty<string> SourceVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_vault_id");
-        set => WithProperty("source_vault_id", value);
+        set => SetProperty("source_vault_id", value);
     }
 
 }
@@ -186,8 +173,7 @@ public class AzurermVirtualMachineOsProfileWindowsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableAutomaticUpgrades
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_automatic_upgrades");
-        set => WithProperty("enable_automatic_upgrades", value);
+        set => SetProperty("enable_automatic_upgrades", value);
     }
 
     /// <summary>
@@ -195,8 +181,7 @@ public class AzurermVirtualMachineOsProfileWindowsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ProvisionVmAgent
     {
-        get => GetProperty<TerraformProperty<bool>>("provision_vm_agent");
-        set => WithProperty("provision_vm_agent", value);
+        set => SetProperty("provision_vm_agent", value);
     }
 
     /// <summary>
@@ -204,8 +189,7 @@ public class AzurermVirtualMachineOsProfileWindowsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Timezone
     {
-        get => GetProperty<TerraformProperty<string>>("timezone");
-        set => WithProperty("timezone", value);
+        set => SetProperty("timezone", value);
     }
 
 }
@@ -222,8 +206,7 @@ public class AzurermVirtualMachinePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -232,8 +215,7 @@ public class AzurermVirtualMachinePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product");
-        set => WithProperty("product", value);
+        set => SetProperty("product", value);
     }
 
     /// <summary>
@@ -242,8 +224,7 @@ public class AzurermVirtualMachinePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
-        set => WithProperty("publisher", value);
+        set => SetProperty("publisher", value);
     }
 
 }
@@ -259,8 +240,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
-        set => WithProperty("caching", value);
+        set => SetProperty("caching", value);
     }
 
     /// <summary>
@@ -269,8 +249,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformProperty<string> CreateOption
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("create_option");
-        set => WithProperty("create_option", value);
+        set => SetProperty("create_option", value);
     }
 
     /// <summary>
@@ -278,8 +257,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
-        set => WithProperty("disk_size_gb", value);
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
@@ -288,8 +266,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformProperty<double> Lun
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("lun");
-        set => WithProperty("lun", value);
+        set => SetProperty("lun", value);
     }
 
     /// <summary>
@@ -297,8 +274,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedDiskId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_id");
-        set => WithProperty("managed_disk_id", value);
+        set => SetProperty("managed_disk_id", value);
     }
 
     /// <summary>
@@ -306,8 +282,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedDiskType
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_type");
-        set => WithProperty("managed_disk_type", value);
+        set => SetProperty("managed_disk_type", value);
     }
 
     /// <summary>
@@ -316,8 +291,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -325,8 +299,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VhdUri
     {
-        get => GetProperty<TerraformProperty<string>>("vhd_uri");
-        set => WithProperty("vhd_uri", value);
+        set => SetProperty("vhd_uri", value);
     }
 
     /// <summary>
@@ -334,8 +307,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WriteAcceleratorEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("write_accelerator_enabled");
-        set => WithProperty("write_accelerator_enabled", value);
+        set => SetProperty("write_accelerator_enabled", value);
     }
 
 }
@@ -351,8 +323,7 @@ public class AzurermVirtualMachineStorageImageReferenceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -360,8 +331,7 @@ public class AzurermVirtualMachineStorageImageReferenceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Offer
     {
-        get => GetProperty<TerraformProperty<string>>("offer");
-        set => WithProperty("offer", value);
+        set => SetProperty("offer", value);
     }
 
     /// <summary>
@@ -369,8 +339,7 @@ public class AzurermVirtualMachineStorageImageReferenceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
-        set => WithProperty("publisher", value);
+        set => SetProperty("publisher", value);
     }
 
     /// <summary>
@@ -378,8 +347,7 @@ public class AzurermVirtualMachineStorageImageReferenceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
-        set => WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -387,8 +355,7 @@ public class AzurermVirtualMachineStorageImageReferenceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -404,8 +371,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
-        set => WithProperty("caching", value);
+        set => SetProperty("caching", value);
     }
 
     /// <summary>
@@ -414,8 +380,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformProperty<string> CreateOption
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("create_option");
-        set => WithProperty("create_option", value);
+        set => SetProperty("create_option", value);
     }
 
     /// <summary>
@@ -423,8 +388,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
-        set => WithProperty("disk_size_gb", value);
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
@@ -432,8 +396,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImageUri
     {
-        get => GetProperty<TerraformProperty<string>>("image_uri");
-        set => WithProperty("image_uri", value);
+        set => SetProperty("image_uri", value);
     }
 
     /// <summary>
@@ -441,8 +404,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedDiskId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_id");
-        set => WithProperty("managed_disk_id", value);
+        set => SetProperty("managed_disk_id", value);
     }
 
     /// <summary>
@@ -450,8 +412,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedDiskType
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_type");
-        set => WithProperty("managed_disk_type", value);
+        set => SetProperty("managed_disk_type", value);
     }
 
     /// <summary>
@@ -460,8 +421,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -469,8 +429,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OsType
     {
-        get => GetProperty<TerraformProperty<string>>("os_type");
-        set => WithProperty("os_type", value);
+        set => SetProperty("os_type", value);
     }
 
     /// <summary>
@@ -478,8 +437,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VhdUri
     {
-        get => GetProperty<TerraformProperty<string>>("vhd_uri");
-        set => WithProperty("vhd_uri", value);
+        set => SetProperty("vhd_uri", value);
     }
 
     /// <summary>
@@ -487,8 +445,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WriteAcceleratorEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("write_accelerator_enabled");
-        set => WithProperty("write_accelerator_enabled", value);
+        set => SetProperty("write_accelerator_enabled", value);
     }
 
 }
@@ -504,8 +461,7 @@ public class AzurermVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -513,8 +469,7 @@ public class AzurermVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -522,8 +477,7 @@ public class AzurermVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -531,8 +485,7 @@ public class AzurermVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -550,51 +503,65 @@ public class AzurermVirtualMachine : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("availability_set_id");
+        SetOutput("delete_data_disks_on_termination");
+        SetOutput("delete_os_disk_on_termination");
+        SetOutput("id");
+        SetOutput("license_type");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network_interface_ids");
+        SetOutput("primary_network_interface_id");
+        SetOutput("proximity_placement_group_id");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("vm_size");
+        SetOutput("zones");
     }
 
     /// <summary>
     /// The availability_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilitySetId
+    public TerraformProperty<string> AvailabilitySetId
     {
-        get => GetProperty<TerraformProperty<string>>("availability_set_id");
-        set => this.WithProperty("availability_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_set_id");
+        set => SetProperty("availability_set_id", value);
     }
 
     /// <summary>
     /// The delete_data_disks_on_termination attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeleteDataDisksOnTermination
+    public TerraformProperty<bool> DeleteDataDisksOnTermination
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_data_disks_on_termination");
-        set => this.WithProperty("delete_data_disks_on_termination", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_data_disks_on_termination");
+        set => SetProperty("delete_data_disks_on_termination", value);
     }
 
     /// <summary>
     /// The delete_os_disk_on_termination attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeleteOsDiskOnTermination
+    public TerraformProperty<bool> DeleteOsDiskOnTermination
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_os_disk_on_termination");
-        set => this.WithProperty("delete_os_disk_on_termination", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_os_disk_on_termination");
+        set => SetProperty("delete_os_disk_on_termination", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseType
+    public TerraformProperty<string> LicenseType
     {
-        get => GetProperty<TerraformProperty<string>>("license_type");
-        set => this.WithProperty("license_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
+        set => SetProperty("license_type", value);
     }
 
     /// <summary>
@@ -603,8 +570,8 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -613,36 +580,36 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceIds is required")]
-    public List<TerraformProperty<string>>? NetworkInterfaceIds
+    public List<TerraformProperty<string>> NetworkInterfaceIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("network_interface_ids");
-        set => this.WithProperty("network_interface_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("network_interface_ids");
+        set => SetProperty("network_interface_ids", value);
     }
 
     /// <summary>
     /// The primary_network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrimaryNetworkInterfaceId
+    public TerraformProperty<string> PrimaryNetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("primary_network_interface_id");
-        set => this.WithProperty("primary_network_interface_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_network_interface_id");
+        set => SetProperty("primary_network_interface_id", value);
     }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProximityPlacementGroupId
+    public TerraformProperty<string> ProximityPlacementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("proximity_placement_group_id");
-        set => this.WithProperty("proximity_placement_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("proximity_placement_group_id");
+        set => SetProperty("proximity_placement_group_id", value);
     }
 
     /// <summary>
@@ -651,17 +618,17 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -670,17 +637,17 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformProperty<string> VmSize
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vm_size");
-        set => this.WithProperty("vm_size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vm_size");
+        set => SetProperty("vm_size", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Zones
+    public List<TerraformProperty<string>> Zones
     {
-        get => GetProperty<List<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
@@ -690,8 +657,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
     public List<AzurermVirtualMachineAdditionalCapabilitiesBlock>? AdditionalCapabilities
     {
-        get => GetProperty<List<AzurermVirtualMachineAdditionalCapabilitiesBlock>>("additional_capabilities");
-        set => this.WithProperty("additional_capabilities", value);
+        set => SetProperty("additional_capabilities", value);
     }
 
     /// <summary>
@@ -701,8 +667,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
     public List<AzurermVirtualMachineBootDiagnosticsBlock>? BootDiagnostics
     {
-        get => GetProperty<List<AzurermVirtualMachineBootDiagnosticsBlock>>("boot_diagnostics");
-        set => this.WithProperty("boot_diagnostics", value);
+        set => SetProperty("boot_diagnostics", value);
     }
 
     /// <summary>
@@ -712,8 +677,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermVirtualMachineIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermVirtualMachineIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -723,8 +687,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfile block(s) allowed")]
     public HashSet<AzurermVirtualMachineOsProfileBlock>? OsProfile
     {
-        get => GetProperty<HashSet<AzurermVirtualMachineOsProfileBlock>>("os_profile");
-        set => this.WithProperty("os_profile", value);
+        set => SetProperty("os_profile", value);
     }
 
     /// <summary>
@@ -734,8 +697,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfileLinuxConfig block(s) allowed")]
     public HashSet<AzurermVirtualMachineOsProfileLinuxConfigBlock>? OsProfileLinuxConfig
     {
-        get => GetProperty<HashSet<AzurermVirtualMachineOsProfileLinuxConfigBlock>>("os_profile_linux_config");
-        set => this.WithProperty("os_profile_linux_config", value);
+        set => SetProperty("os_profile_linux_config", value);
     }
 
     /// <summary>
@@ -744,8 +706,7 @@ public class AzurermVirtualMachine : TerraformResource
     /// </summary>
     public List<AzurermVirtualMachineOsProfileSecretsBlock>? OsProfileSecrets
     {
-        get => GetProperty<List<AzurermVirtualMachineOsProfileSecretsBlock>>("os_profile_secrets");
-        set => this.WithProperty("os_profile_secrets", value);
+        set => SetProperty("os_profile_secrets", value);
     }
 
     /// <summary>
@@ -755,8 +716,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfileWindowsConfig block(s) allowed")]
     public HashSet<AzurermVirtualMachineOsProfileWindowsConfigBlock>? OsProfileWindowsConfig
     {
-        get => GetProperty<HashSet<AzurermVirtualMachineOsProfileWindowsConfigBlock>>("os_profile_windows_config");
-        set => this.WithProperty("os_profile_windows_config", value);
+        set => SetProperty("os_profile_windows_config", value);
     }
 
     /// <summary>
@@ -766,8 +726,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     public List<AzurermVirtualMachinePlanBlock>? Plan
     {
-        get => GetProperty<List<AzurermVirtualMachinePlanBlock>>("plan");
-        set => this.WithProperty("plan", value);
+        set => SetProperty("plan", value);
     }
 
     /// <summary>
@@ -776,8 +735,7 @@ public class AzurermVirtualMachine : TerraformResource
     /// </summary>
     public List<AzurermVirtualMachineStorageDataDiskBlock>? StorageDataDisk
     {
-        get => GetProperty<List<AzurermVirtualMachineStorageDataDiskBlock>>("storage_data_disk");
-        set => this.WithProperty("storage_data_disk", value);
+        set => SetProperty("storage_data_disk", value);
     }
 
     /// <summary>
@@ -787,20 +745,19 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageImageReference block(s) allowed")]
     public HashSet<AzurermVirtualMachineStorageImageReferenceBlock>? StorageImageReference
     {
-        get => GetProperty<HashSet<AzurermVirtualMachineStorageImageReferenceBlock>>("storage_image_reference");
-        set => this.WithProperty("storage_image_reference", value);
+        set => SetProperty("storage_image_reference", value);
     }
 
     /// <summary>
     /// Block for storage_os_disk.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageOsDisk is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageOsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageOsDisk block(s) allowed")]
     public List<AzurermVirtualMachineStorageOsDiskBlock>? StorageOsDisk
     {
-        get => GetProperty<List<AzurermVirtualMachineStorageOsDiskBlock>>("storage_os_disk");
-        set => this.WithProperty("storage_os_disk", value);
+        set => SetProperty("storage_os_disk", value);
     }
 
     /// <summary>
@@ -809,8 +766,7 @@ public class AzurermVirtualMachine : TerraformResource
     /// </summary>
     public AzurermVirtualMachineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualMachineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

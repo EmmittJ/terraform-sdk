@@ -13,8 +13,7 @@ public class AzurermApiManagementEmailTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementEmailTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementEmailTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementEmailTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,8 +54,14 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("title");
+        SetOutput("description");
+        SetOutput("title");
+        SetOutput("api_management_name");
+        SetOutput("body");
+        SetOutput("id");
+        SetOutput("resource_group_name");
+        SetOutput("subject");
+        SetOutput("template_name");
     }
 
     /// <summary>
@@ -68,8 +70,8 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
@@ -78,17 +80,17 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("body");
-        set => this.WithProperty("body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("body");
+        set => SetProperty("body", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -97,8 +99,8 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -107,8 +109,8 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformProperty<string> Subject
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subject");
-        set => this.WithProperty("subject", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subject");
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -117,8 +119,8 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
     public required TerraformProperty<string> TemplateName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("template_name");
-        set => this.WithProperty("template_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_name");
+        set => SetProperty("template_name", value);
     }
 
     /// <summary>
@@ -127,8 +129,7 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     /// </summary>
     public AzurermApiManagementEmailTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementEmailTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

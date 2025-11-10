@@ -13,8 +13,7 @@ public class AzurermKeyVaultSecretsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,17 +30,19 @@ public class AzurermKeyVaultSecretsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("names");
-        this.WithOutput("secrets");
+        SetOutput("names");
+        SetOutput("secrets");
+        SetOutput("id");
+        SetOutput("key_vault_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +51,8 @@ public class AzurermKeyVaultSecretsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -60,8 +61,7 @@ public class AzurermKeyVaultSecretsDataSource : TerraformDataSource
     /// </summary>
     public AzurermKeyVaultSecretsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultSecretsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

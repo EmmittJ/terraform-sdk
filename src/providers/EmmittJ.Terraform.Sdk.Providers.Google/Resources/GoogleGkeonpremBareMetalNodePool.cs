@@ -22,8 +22,7 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : TerraformBloc
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? OperatingSystem
     {
-        get => GetProperty<TerraformProperty<string>>("operating_system");
-        set => WithProperty("operating_system", value);
+        set => SetProperty("operating_system", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,15 +80,22 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("etag");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("status");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_annotations");
+        SetOutput("etag");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("status");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("bare_metal_cluster");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -110,10 +112,10 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -122,26 +124,26 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BareMetalCluster is required")]
     public required TerraformProperty<string> BareMetalCluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bare_metal_cluster");
-        set => this.WithProperty("bare_metal_cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bare_metal_cluster");
+        set => SetProperty("bare_metal_cluster", value);
     }
 
     /// <summary>
     /// The display name for the Bare Metal Node Pool.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -150,8 +152,8 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -160,29 +162,29 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for node_pool_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodePoolConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodePoolConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolConfig block(s) allowed")]
     public List<GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock>? NodePoolConfig
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock>>("node_pool_config");
-        set => this.WithProperty("node_pool_config", value);
+        set => SetProperty("node_pool_config", value);
     }
 
     /// <summary>
@@ -191,8 +193,7 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     /// </summary>
     public GoogleGkeonpremBareMetalNodePoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGkeonpremBareMetalNodePoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

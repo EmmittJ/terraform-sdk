@@ -13,8 +13,7 @@ public class AwsEfsMountTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEfsMountTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,13 +38,21 @@ public class AwsEfsMountTarget : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("availability_zone_id");
-        this.WithOutput("availability_zone_name");
-        this.WithOutput("dns_name");
-        this.WithOutput("file_system_arn");
-        this.WithOutput("mount_target_dns_name");
-        this.WithOutput("network_interface_id");
-        this.WithOutput("owner_id");
+        SetOutput("availability_zone_id");
+        SetOutput("availability_zone_name");
+        SetOutput("dns_name");
+        SetOutput("file_system_arn");
+        SetOutput("mount_target_dns_name");
+        SetOutput("network_interface_id");
+        SetOutput("owner_id");
+        SetOutput("file_system_id");
+        SetOutput("id");
+        SetOutput("ip_address");
+        SetOutput("ip_address_type");
+        SetOutput("ipv6_address");
+        SetOutput("region");
+        SetOutput("security_groups");
+        SetOutput("subnet_id");
     }
 
     /// <summary>
@@ -55,62 +61,62 @@ public class AwsEfsMountTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
-        set => this.WithProperty("file_system_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_system_id");
+        set => SetProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
+    public TerraformProperty<string> IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => this.WithProperty("ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_address");
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddressType
+    public TerraformProperty<string> IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => this.WithProperty("ip_address_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_address_type");
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// The ipv6_address attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6Address
+    public TerraformProperty<string> Ipv6Address
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_address");
-        set => this.WithProperty("ipv6_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_address");
+        set => SetProperty("ipv6_address", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>> SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => this.WithProperty("security_groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_groups");
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
@@ -119,8 +125,8 @@ public class AwsEfsMountTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -129,8 +135,7 @@ public class AwsEfsMountTarget : TerraformResource
     /// </summary>
     public AwsEfsMountTargetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEfsMountTargetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

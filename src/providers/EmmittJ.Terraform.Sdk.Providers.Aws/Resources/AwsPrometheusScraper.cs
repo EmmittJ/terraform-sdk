@@ -21,8 +21,7 @@ public class AwsPrometheusScraperRoleConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_role_arn");
-        set => WithProperty("source_role_arn", value);
+        set => SetProperty("source_role_arn", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsPrometheusScraperRoleConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_role_arn");
-        set => WithProperty("target_role_arn", value);
+        set => SetProperty("target_role_arn", value);
     }
 
 }
@@ -55,8 +53,7 @@ public class AwsPrometheusScraperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -64,8 +61,7 @@ public class AwsPrometheusScraperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -73,8 +69,7 @@ public class AwsPrometheusScraperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -91,28 +86,32 @@ public class AwsPrometheusScraper : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("role_arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("role_arn");
+        SetOutput("tags_all");
+        SetOutput("alias");
+        SetOutput("region");
+        SetOutput("scrape_configuration");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformProperty<string>? Alias
+    public TerraformProperty<string> Alias
     {
-        get => GetProperty<TerraformProperty<string>>("alias");
-        set => this.WithProperty("alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias");
+        set => SetProperty("alias", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -121,17 +120,17 @@ public class AwsPrometheusScraper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScrapeConfiguration is required")]
     public required TerraformProperty<string> ScrapeConfiguration
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scrape_configuration");
-        set => this.WithProperty("scrape_configuration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scrape_configuration");
+        set => SetProperty("scrape_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -140,8 +139,7 @@ public class AwsPrometheusScraper : TerraformResource
     /// </summary>
     public List<AwsPrometheusScraperDestinationBlock>? Destination
     {
-        get => GetProperty<List<AwsPrometheusScraperDestinationBlock>>("destination");
-        set => this.WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
@@ -150,8 +148,7 @@ public class AwsPrometheusScraper : TerraformResource
     /// </summary>
     public List<AwsPrometheusScraperRoleConfigurationBlock>? RoleConfiguration
     {
-        get => GetProperty<List<AwsPrometheusScraperRoleConfigurationBlock>>("role_configuration");
-        set => this.WithProperty("role_configuration", value);
+        set => SetProperty("role_configuration", value);
     }
 
     /// <summary>
@@ -160,8 +157,7 @@ public class AwsPrometheusScraper : TerraformResource
     /// </summary>
     public List<AwsPrometheusScraperSourceBlock>? Source
     {
-        get => GetProperty<List<AwsPrometheusScraperSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -170,8 +166,7 @@ public class AwsPrometheusScraper : TerraformResource
     /// </summary>
     public AwsPrometheusScraperTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsPrometheusScraperTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

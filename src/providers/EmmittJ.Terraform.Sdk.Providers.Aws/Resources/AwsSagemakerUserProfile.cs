@@ -13,8 +13,7 @@ public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AutoMountHomeEfs
     {
-        get => GetProperty<TerraformProperty<string>>("auto_mount_home_efs");
-        set => WithProperty("auto_mount_home_efs", value);
+        set => SetProperty("auto_mount_home_efs", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultLandingUri
     {
-        get => GetProperty<TerraformProperty<string>>("default_landing_uri");
-        set => WithProperty("default_landing_uri", value);
+        set => SetProperty("default_landing_uri", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformProperty<string> ExecutionRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execution_role");
-        set => WithProperty("execution_role", value);
+        set => SetProperty("execution_role", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => WithProperty("security_groups", value);
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StudioWebPortal
     {
-        get => GetProperty<TerraformProperty<string>>("studio_web_portal");
-        set => WithProperty("studio_web_portal", value);
+        set => SetProperty("studio_web_portal", value);
     }
 
 }
@@ -69,8 +64,16 @@ public class AwsSagemakerUserProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("home_efs_file_system_uid");
+        SetOutput("arn");
+        SetOutput("home_efs_file_system_uid");
+        SetOutput("domain_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("single_sign_on_user_identifier");
+        SetOutput("single_sign_on_user_value");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("user_profile_name");
     }
 
     /// <summary>
@@ -79,62 +82,62 @@ public class AwsSagemakerUserProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
-        set => this.WithProperty("domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_id");
+        set => SetProperty("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The single_sign_on_user_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SingleSignOnUserIdentifier
+    public TerraformProperty<string> SingleSignOnUserIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("single_sign_on_user_identifier");
-        set => this.WithProperty("single_sign_on_user_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("single_sign_on_user_identifier");
+        set => SetProperty("single_sign_on_user_identifier", value);
     }
 
     /// <summary>
     /// The single_sign_on_user_value attribute.
     /// </summary>
-    public TerraformProperty<string>? SingleSignOnUserValue
+    public TerraformProperty<string> SingleSignOnUserValue
     {
-        get => GetProperty<TerraformProperty<string>>("single_sign_on_user_value");
-        set => this.WithProperty("single_sign_on_user_value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("single_sign_on_user_value");
+        set => SetProperty("single_sign_on_user_value", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -143,8 +146,8 @@ public class AwsSagemakerUserProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserProfileName is required")]
     public required TerraformProperty<string> UserProfileName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_profile_name");
-        set => this.WithProperty("user_profile_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_profile_name");
+        set => SetProperty("user_profile_name", value);
     }
 
     /// <summary>
@@ -154,8 +157,7 @@ public class AwsSagemakerUserProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserSettings block(s) allowed")]
     public List<AwsSagemakerUserProfileUserSettingsBlock>? UserSettings
     {
-        get => GetProperty<List<AwsSagemakerUserProfileUserSettingsBlock>>("user_settings");
-        set => this.WithProperty("user_settings", value);
+        set => SetProperty("user_settings", value);
     }
 
     /// <summary>

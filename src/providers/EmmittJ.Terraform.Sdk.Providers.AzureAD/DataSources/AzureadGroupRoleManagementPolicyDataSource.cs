@@ -13,8 +13,7 @@ public class AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,8 +30,11 @@ public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("display_name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("group_id");
+        SetOutput("id");
+        SetOutput("role_id");
     }
 
     /// <summary>
@@ -41,17 +43,17 @@ public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformProperty<string> GroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_id");
-        set => this.WithProperty("group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_id");
+        set => SetProperty("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +62,8 @@ public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
-        set => this.WithProperty("role_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_id");
+        set => SetProperty("role_id", value);
     }
 
     /// <summary>
@@ -70,8 +72,7 @@ public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
     /// </summary>
     public AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

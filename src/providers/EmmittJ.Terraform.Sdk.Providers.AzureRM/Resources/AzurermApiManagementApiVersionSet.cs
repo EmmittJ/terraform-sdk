@@ -13,8 +13,7 @@ public class AzurermApiManagementApiVersionSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementApiVersionSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementApiVersionSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementApiVersionSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,15 @@ public class AzurermApiManagementApiVersionSet : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("version_header_name");
+        SetOutput("version_query_name");
+        SetOutput("versioning_scheme");
     }
 
     /// <summary>
@@ -66,17 +71,17 @@ public class AzurermApiManagementApiVersionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -85,17 +90,17 @@ public class AzurermApiManagementApiVersionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,8 +109,8 @@ public class AzurermApiManagementApiVersionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,26 +119,26 @@ public class AzurermApiManagementApiVersionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The version_header_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionHeaderName
+    public TerraformProperty<string> VersionHeaderName
     {
-        get => GetProperty<TerraformProperty<string>>("version_header_name");
-        set => this.WithProperty("version_header_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_header_name");
+        set => SetProperty("version_header_name", value);
     }
 
     /// <summary>
     /// The version_query_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionQueryName
+    public TerraformProperty<string> VersionQueryName
     {
-        get => GetProperty<TerraformProperty<string>>("version_query_name");
-        set => this.WithProperty("version_query_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_query_name");
+        set => SetProperty("version_query_name", value);
     }
 
     /// <summary>
@@ -142,8 +147,8 @@ public class AzurermApiManagementApiVersionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersioningScheme is required")]
     public required TerraformProperty<string> VersioningScheme
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("versioning_scheme");
-        set => this.WithProperty("versioning_scheme", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("versioning_scheme");
+        set => SetProperty("versioning_scheme", value);
     }
 
     /// <summary>
@@ -152,8 +157,7 @@ public class AzurermApiManagementApiVersionSet : TerraformResource
     /// </summary>
     public AzurermApiManagementApiVersionSetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementApiVersionSetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

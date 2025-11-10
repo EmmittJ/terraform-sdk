@@ -13,8 +13,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
-        set => WithProperty("certificate", value);
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Secret
     {
-        get => GetProperty<TerraformProperty<string>>("secret");
-        set => WithProperty("secret", value);
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
-        set => WithProperty("subscription_id", value);
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -86,8 +79,7 @@ public class AzurermFunctionAppConnectionSecretStoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => WithProperty("key_vault_id", value);
+        set => SetProperty("key_vault_id", value);
     }
 
 }
@@ -103,8 +95,7 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -149,15 +137,21 @@ public class AzurermFunctionAppConnection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("client_type");
+        SetOutput("function_app_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("target_resource_id");
+        SetOutput("vnet_solution");
     }
 
     /// <summary>
     /// The client_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientType
+    public TerraformProperty<string> ClientType
     {
-        get => GetProperty<TerraformProperty<string>>("client_type");
-        set => this.WithProperty("client_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_type");
+        set => SetProperty("client_type", value);
     }
 
     /// <summary>
@@ -166,17 +160,17 @@ public class AzurermFunctionAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformProperty<string> FunctionAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_app_id");
-        set => this.WithProperty("function_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_app_id");
+        set => SetProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -185,8 +179,8 @@ public class AzurermFunctionAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -195,29 +189,29 @@ public class AzurermFunctionAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
     /// The vnet_solution attribute.
     /// </summary>
-    public TerraformProperty<string>? VnetSolution
+    public TerraformProperty<string> VnetSolution
     {
-        get => GetProperty<TerraformProperty<string>>("vnet_solution");
-        set => this.WithProperty("vnet_solution", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vnet_solution");
+        set => SetProperty("vnet_solution", value);
     }
 
     /// <summary>
     /// Block for authentication.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     public List<AzurermFunctionAppConnectionAuthenticationBlock>? Authentication
     {
-        get => GetProperty<List<AzurermFunctionAppConnectionAuthenticationBlock>>("authentication");
-        set => this.WithProperty("authentication", value);
+        set => SetProperty("authentication", value);
     }
 
     /// <summary>
@@ -227,8 +221,7 @@ public class AzurermFunctionAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretStore block(s) allowed")]
     public List<AzurermFunctionAppConnectionSecretStoreBlock>? SecretStore
     {
-        get => GetProperty<List<AzurermFunctionAppConnectionSecretStoreBlock>>("secret_store");
-        set => this.WithProperty("secret_store", value);
+        set => SetProperty("secret_store", value);
     }
 
     /// <summary>
@@ -237,8 +230,7 @@ public class AzurermFunctionAppConnection : TerraformResource
     /// </summary>
     public AzurermFunctionAppConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFunctionAppConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

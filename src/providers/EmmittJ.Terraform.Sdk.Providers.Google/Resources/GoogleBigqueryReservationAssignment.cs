@@ -13,8 +13,7 @@ public class GoogleBigqueryReservationAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleBigqueryReservationAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,8 +38,14 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("assignee");
+        SetOutput("id");
+        SetOutput("job_type");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("reservation");
     }
 
     /// <summary>
@@ -50,17 +54,17 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assignee is required")]
     public required TerraformProperty<string> Assignee
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("assignee");
-        set => this.WithProperty("assignee", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("assignee");
+        set => SetProperty("assignee", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,26 +73,26 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
     public required TerraformProperty<string> JobType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("job_type");
-        set => this.WithProperty("job_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_type");
+        set => SetProperty("job_type", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -97,8 +101,8 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reservation is required")]
     public required TerraformProperty<string> Reservation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("reservation");
-        set => this.WithProperty("reservation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reservation");
+        set => SetProperty("reservation", value);
     }
 
     /// <summary>
@@ -107,8 +111,7 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     /// </summary>
     public GoogleBigqueryReservationAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryReservationAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

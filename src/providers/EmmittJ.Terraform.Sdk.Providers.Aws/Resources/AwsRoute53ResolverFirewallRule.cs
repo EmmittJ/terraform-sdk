@@ -14,6 +14,19 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("action");
+        SetOutput("block_override_dns_type");
+        SetOutput("block_override_domain");
+        SetOutput("block_override_ttl");
+        SetOutput("block_response");
+        SetOutput("firewall_domain_list_id");
+        SetOutput("firewall_domain_redirection_action");
+        SetOutput("firewall_rule_group_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("priority");
+        SetOutput("q_type");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,44 +35,44 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// The block_override_dns_type attribute.
     /// </summary>
-    public TerraformProperty<string>? BlockOverrideDnsType
+    public TerraformProperty<string> BlockOverrideDnsType
     {
-        get => GetProperty<TerraformProperty<string>>("block_override_dns_type");
-        set => this.WithProperty("block_override_dns_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("block_override_dns_type");
+        set => SetProperty("block_override_dns_type", value);
     }
 
     /// <summary>
     /// The block_override_domain attribute.
     /// </summary>
-    public TerraformProperty<string>? BlockOverrideDomain
+    public TerraformProperty<string> BlockOverrideDomain
     {
-        get => GetProperty<TerraformProperty<string>>("block_override_domain");
-        set => this.WithProperty("block_override_domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("block_override_domain");
+        set => SetProperty("block_override_domain", value);
     }
 
     /// <summary>
     /// The block_override_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? BlockOverrideTtl
+    public TerraformProperty<double> BlockOverrideTtl
     {
-        get => GetProperty<TerraformProperty<double>>("block_override_ttl");
-        set => this.WithProperty("block_override_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("block_override_ttl");
+        set => SetProperty("block_override_ttl", value);
     }
 
     /// <summary>
     /// The block_response attribute.
     /// </summary>
-    public TerraformProperty<string>? BlockResponse
+    public TerraformProperty<string> BlockResponse
     {
-        get => GetProperty<TerraformProperty<string>>("block_response");
-        set => this.WithProperty("block_response", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("block_response");
+        set => SetProperty("block_response", value);
     }
 
     /// <summary>
@@ -68,17 +81,17 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallDomainListId is required")]
     public required TerraformProperty<string> FirewallDomainListId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("firewall_domain_list_id");
-        set => this.WithProperty("firewall_domain_list_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firewall_domain_list_id");
+        set => SetProperty("firewall_domain_list_id", value);
     }
 
     /// <summary>
     /// The firewall_domain_redirection_action attribute.
     /// </summary>
-    public TerraformProperty<string>? FirewallDomainRedirectionAction
+    public TerraformProperty<string> FirewallDomainRedirectionAction
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_domain_redirection_action");
-        set => this.WithProperty("firewall_domain_redirection_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firewall_domain_redirection_action");
+        set => SetProperty("firewall_domain_redirection_action", value);
     }
 
     /// <summary>
@@ -87,17 +100,17 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
     public required TerraformProperty<string> FirewallRuleGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("firewall_rule_group_id");
-        set => this.WithProperty("firewall_rule_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firewall_rule_group_id");
+        set => SetProperty("firewall_rule_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -106,8 +119,8 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -116,26 +129,26 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// The q_type attribute.
     /// </summary>
-    public TerraformProperty<string>? QType
+    public TerraformProperty<string> QType
     {
-        get => GetProperty<TerraformProperty<string>>("q_type");
-        set => this.WithProperty("q_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("q_type");
+        set => SetProperty("q_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

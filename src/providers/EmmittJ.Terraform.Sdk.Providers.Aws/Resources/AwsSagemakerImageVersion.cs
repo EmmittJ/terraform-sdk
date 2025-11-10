@@ -14,19 +14,31 @@ public class AwsSagemakerImageVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("container_image");
-        this.WithOutput("image_arn");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("container_image");
+        SetOutput("image_arn");
+        SetOutput("version");
+        SetOutput("aliases");
+        SetOutput("base_image");
+        SetOutput("horovod");
+        SetOutput("id");
+        SetOutput("image_name");
+        SetOutput("job_type");
+        SetOutput("ml_framework");
+        SetOutput("processor");
+        SetOutput("programming_lang");
+        SetOutput("region");
+        SetOutput("release_notes");
+        SetOutput("vendor_guidance");
     }
 
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Aliases
+    public HashSet<TerraformProperty<string>> Aliases
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("aliases");
-        set => this.WithProperty("aliases", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("aliases");
+        set => SetProperty("aliases", value);
     }
 
     /// <summary>
@@ -35,26 +47,26 @@ public class AwsSagemakerImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseImage is required")]
     public required TerraformProperty<string> BaseImage
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("base_image");
-        set => this.WithProperty("base_image", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("base_image");
+        set => SetProperty("base_image", value);
     }
 
     /// <summary>
     /// The horovod attribute.
     /// </summary>
-    public TerraformProperty<bool>? Horovod
+    public TerraformProperty<bool> Horovod
     {
-        get => GetProperty<TerraformProperty<bool>>("horovod");
-        set => this.WithProperty("horovod", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("horovod");
+        set => SetProperty("horovod", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,71 +75,71 @@ public class AwsSagemakerImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformProperty<string> ImageName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image_name");
-        set => this.WithProperty("image_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
+        set => SetProperty("image_name", value);
     }
 
     /// <summary>
     /// The job_type attribute.
     /// </summary>
-    public TerraformProperty<string>? JobType
+    public TerraformProperty<string> JobType
     {
-        get => GetProperty<TerraformProperty<string>>("job_type");
-        set => this.WithProperty("job_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_type");
+        set => SetProperty("job_type", value);
     }
 
     /// <summary>
     /// The ml_framework attribute.
     /// </summary>
-    public TerraformProperty<string>? MlFramework
+    public TerraformProperty<string> MlFramework
     {
-        get => GetProperty<TerraformProperty<string>>("ml_framework");
-        set => this.WithProperty("ml_framework", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ml_framework");
+        set => SetProperty("ml_framework", value);
     }
 
     /// <summary>
     /// The processor attribute.
     /// </summary>
-    public TerraformProperty<string>? Processor
+    public TerraformProperty<string> Processor
     {
-        get => GetProperty<TerraformProperty<string>>("processor");
-        set => this.WithProperty("processor", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("processor");
+        set => SetProperty("processor", value);
     }
 
     /// <summary>
     /// The programming_lang attribute.
     /// </summary>
-    public TerraformProperty<string>? ProgrammingLang
+    public TerraformProperty<string> ProgrammingLang
     {
-        get => GetProperty<TerraformProperty<string>>("programming_lang");
-        set => this.WithProperty("programming_lang", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("programming_lang");
+        set => SetProperty("programming_lang", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The release_notes attribute.
     /// </summary>
-    public TerraformProperty<string>? ReleaseNotes
+    public TerraformProperty<string> ReleaseNotes
     {
-        get => GetProperty<TerraformProperty<string>>("release_notes");
-        set => this.WithProperty("release_notes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_notes");
+        set => SetProperty("release_notes", value);
     }
 
     /// <summary>
     /// The vendor_guidance attribute.
     /// </summary>
-    public TerraformProperty<string>? VendorGuidance
+    public TerraformProperty<string> VendorGuidance
     {
-        get => GetProperty<TerraformProperty<string>>("vendor_guidance");
-        set => this.WithProperty("vendor_guidance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vendor_guidance");
+        set => SetProperty("vendor_guidance", value);
     }
 
     /// <summary>

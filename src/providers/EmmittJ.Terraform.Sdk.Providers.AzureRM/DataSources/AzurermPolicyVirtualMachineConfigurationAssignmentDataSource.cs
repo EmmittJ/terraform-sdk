@@ -13,8 +13,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourceTimeout
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,25 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSource : Terr
 
     private void InitializeOutputs()
     {
-        this.WithOutput("assignment_hash");
-        this.WithOutput("compliance_status");
-        this.WithOutput("content_hash");
-        this.WithOutput("content_uri");
-        this.WithOutput("last_compliance_status_checked");
-        this.WithOutput("latest_report_id");
+        SetOutput("assignment_hash");
+        SetOutput("compliance_status");
+        SetOutput("content_hash");
+        SetOutput("content_uri");
+        SetOutput("last_compliance_status_checked");
+        SetOutput("latest_report_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("virtual_machine_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +57,8 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -64,8 +67,8 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -74,8 +77,8 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineName is required")]
     public required TerraformProperty<string> VirtualMachineName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_name");
-        set => this.WithProperty("virtual_machine_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_name");
+        set => SetProperty("virtual_machine_name", value);
     }
 
     /// <summary>
@@ -84,8 +87,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSource : Terr
     /// </summary>
     public AzurermPolicyVirtualMachineConfigurationAssignmentDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPolicyVirtualMachineConfigurationAssignmentDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

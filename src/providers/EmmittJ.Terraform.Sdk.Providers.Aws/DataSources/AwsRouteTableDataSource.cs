@@ -14,8 +14,7 @@ public class AwsRouteTableDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsRouteTableDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsRouteTableDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,73 +56,80 @@ public class AwsRouteTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputssociations");
-        this.WithOutputwner_id");
-        this.WithOutputoutes");
+        SetOutput("arn");
+        SetOutput("associations");
+        SetOutput("owner_id");
+        SetOutput("routes");
+        SetOutput("gateway_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("route_table_id");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayId
+    public TerraformProperty<string> GatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_id");
-        set => this.WithProperty("gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_id");
+        set => SetProperty("gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RouteTableId
+    public TerraformProperty<string> RouteTableId
     {
-        get => GetProperty<TerraformProperty<string>>("route_table_id");
-        set => this.WithProperty("route_table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("route_table_id");
+        set => SetProperty("route_table_id", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    public TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    public TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -134,8 +138,7 @@ public class AwsRouteTableDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsRouteTableDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsRouteTableDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -144,8 +147,7 @@ public class AwsRouteTableDataSource : TerraformDataSource
     /// </summary>
     public AwsRouteTableDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRouteTableDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

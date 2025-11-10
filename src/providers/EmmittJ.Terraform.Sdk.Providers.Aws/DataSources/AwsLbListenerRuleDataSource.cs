@@ -13,8 +13,7 @@ public class AwsLbListenerRuleDataSourceActionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
-        set => WithProperty("order", value);
+        set => SetProperty("order", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsLbListenerRuleDataSourceActionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -47,8 +45,7 @@ public class AwsLbListenerRuleDataSourceTransformBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -65,43 +62,47 @@ public class AwsLbListenerRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("tags");
+        SetOutput("tags");
+        SetOutput("arn");
+        SetOutput("listener_arn");
+        SetOutput("priority");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ListenerArn
+    public TerraformProperty<string> ListenerArn
     {
-        get => GetProperty<TerraformProperty<string>>("listener_arn");
-        set => this.WithProperty("listener_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("listener_arn");
+        set => SetProperty("listener_arn", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -110,8 +111,7 @@ public class AwsLbListenerRuleDataSource : TerraformDataSource
     /// </summary>
     public List<AwsLbListenerRuleDataSourceActionBlock>? Action
     {
-        get => GetProperty<List<AwsLbListenerRuleDataSourceActionBlock>>("action");
-        set => this.WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -120,8 +120,7 @@ public class AwsLbListenerRuleDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsLbListenerRuleDataSourceConditionBlock>? Condition
     {
-        get => GetProperty<HashSet<AwsLbListenerRuleDataSourceConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
@@ -130,8 +129,7 @@ public class AwsLbListenerRuleDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsLbListenerRuleDataSourceTransformBlock>? Transform
     {
-        get => GetProperty<HashSet<AwsLbListenerRuleDataSourceTransformBlock>>("transform");
-        set => this.WithProperty("transform", value);
+        set => SetProperty("transform", value);
     }
 
     /// <summary>

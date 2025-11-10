@@ -13,8 +13,7 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SystemEvents
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("system_events");
-        set => WithProperty("system_events", value);
+        set => SetProperty("system_events", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
     public required TerraformProperty<string> UrlTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url_template");
-        set => WithProperty("url_template", value);
+        set => SetProperty("url_template", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserEventPattern
     {
-        get => GetProperty<TerraformProperty<string>>("user_event_pattern");
-        set => WithProperty("user_event_pattern", value);
+        set => SetProperty("user_event_pattern", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformProperty<string> EventhubName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_name");
-        set => WithProperty("eventhub_name", value);
+        set => SetProperty("eventhub_name", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
     public required TerraformProperty<string> EventhubNamespaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_namespace_name");
-        set => WithProperty("eventhub_namespace_name", value);
+        set => SetProperty("eventhub_namespace_name", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SystemEventNameFilter
     {
-        get => GetProperty<List<TerraformProperty<string>>>("system_event_name_filter");
-        set => WithProperty("system_event_name_filter", value);
+        set => SetProperty("system_event_name_filter", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? UserEventNameFilter
     {
-        get => GetProperty<List<TerraformProperty<string>>>("user_event_name_filter");
-        set => WithProperty("user_event_name_filter", value);
+        set => SetProperty("user_event_name_filter", value);
     }
 
 }
@@ -95,8 +88,7 @@ public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -140,24 +129,28 @@ public class AzurermWebPubsubHub : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("anonymous_connections_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("web_pubsub_id");
     }
 
     /// <summary>
     /// The anonymous_connections_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AnonymousConnectionsEnabled
+    public TerraformProperty<bool> AnonymousConnectionsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("anonymous_connections_enabled");
-        set => this.WithProperty("anonymous_connections_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("anonymous_connections_enabled");
+        set => SetProperty("anonymous_connections_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -166,8 +159,8 @@ public class AzurermWebPubsubHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -176,8 +169,8 @@ public class AzurermWebPubsubHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformProperty<string> WebPubsubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("web_pubsub_id");
-        set => this.WithProperty("web_pubsub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("web_pubsub_id");
+        set => SetProperty("web_pubsub_id", value);
     }
 
     /// <summary>
@@ -186,8 +179,7 @@ public class AzurermWebPubsubHub : TerraformResource
     /// </summary>
     public List<AzurermWebPubsubHubEventHandlerBlock>? EventHandler
     {
-        get => GetProperty<List<AzurermWebPubsubHubEventHandlerBlock>>("event_handler");
-        set => this.WithProperty("event_handler", value);
+        set => SetProperty("event_handler", value);
     }
 
     /// <summary>
@@ -196,8 +188,7 @@ public class AzurermWebPubsubHub : TerraformResource
     /// </summary>
     public List<AzurermWebPubsubHubEventListenerBlock>? EventListener
     {
-        get => GetProperty<List<AzurermWebPubsubHubEventListenerBlock>>("event_listener");
-        set => this.WithProperty("event_listener", value);
+        set => SetProperty("event_listener", value);
     }
 
     /// <summary>
@@ -206,8 +197,7 @@ public class AzurermWebPubsubHub : TerraformResource
     /// </summary>
     public AzurermWebPubsubHubTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermWebPubsubHubTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

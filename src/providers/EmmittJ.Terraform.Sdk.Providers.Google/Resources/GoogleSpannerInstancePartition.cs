@@ -13,8 +13,7 @@ public class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,15 @@ public class GoogleSpannerInstancePartition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("state");
+        SetOutput("state");
+        SetOutput("config");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("name");
+        SetOutput("node_count");
+        SetOutput("processing_units");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -59,8 +64,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     public required TerraformProperty<string> Config
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("config");
-        set => this.WithProperty("config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("config");
+        set => SetProperty("config", value);
     }
 
     /// <summary>
@@ -70,17 +75,17 @@ public class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -89,8 +94,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -101,8 +106,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -110,29 +115,29 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// 1000 processing units. Exactly one of either node_count or processing_units
     /// must be present.
     /// </summary>
-    public TerraformProperty<double>? NodeCount
+    public TerraformProperty<double> NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
-        set => this.WithProperty("node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
     /// The number of processing units allocated to this instance partition.
     /// Exactly one of either node_count or processing_units must be present.
     /// </summary>
-    public TerraformProperty<double>? ProcessingUnits
+    public TerraformProperty<double> ProcessingUnits
     {
-        get => GetProperty<TerraformProperty<double>>("processing_units");
-        set => this.WithProperty("processing_units", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("processing_units");
+        set => SetProperty("processing_units", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -141,8 +146,7 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// </summary>
     public GoogleSpannerInstancePartitionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSpannerInstancePartitionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

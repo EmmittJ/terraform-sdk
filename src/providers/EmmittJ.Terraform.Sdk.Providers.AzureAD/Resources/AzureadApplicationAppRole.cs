@@ -13,8 +13,7 @@ public class AzureadApplicationAppRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadApplicationAppRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadApplicationAppRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadApplicationAppRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +54,23 @@ public class AzureadApplicationAppRole : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("allowed_member_types");
+        SetOutput("application_id");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("role_id");
+        SetOutput("value");
     }
 
     /// <summary>
     /// Specifies whether this app role definition can be assigned to users and groups by setting to `User`, or to other applications (that are accessing this application in a standalone scenario) by setting to `Application`, or to both
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMemberTypes is required")]
-    public HashSet<TerraformProperty<string>>? AllowedMemberTypes
+    public HashSet<TerraformProperty<string>> AllowedMemberTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_member_types");
-        set => this.WithProperty("allowed_member_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_member_types");
+        set => SetProperty("allowed_member_types", value);
     }
 
     /// <summary>
@@ -76,8 +79,8 @@ public class AzureadApplicationAppRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -86,8 +89,8 @@ public class AzureadApplicationAppRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -96,17 +99,17 @@ public class AzureadApplicationAppRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -115,17 +118,17 @@ public class AzureadApplicationAppRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
-        set => this.WithProperty("role_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_id");
+        set => SetProperty("role_id", value);
     }
 
     /// <summary>
     /// The value that is used for the `roles` claim in ID tokens and OAuth access tokens that are authenticating an assigned service or user principal
     /// </summary>
-    public TerraformProperty<string>? Value
+    public TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class AzureadApplicationAppRole : TerraformResource
     /// </summary>
     public AzureadApplicationAppRoleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationAppRoleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

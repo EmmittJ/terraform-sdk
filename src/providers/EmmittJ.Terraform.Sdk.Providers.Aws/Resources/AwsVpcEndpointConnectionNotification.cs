@@ -14,18 +14,24 @@ public class AwsVpcEndpointConnectionNotification : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("notification_type");
-        this.WithOutput("state");
+        SetOutput("notification_type");
+        SetOutput("state");
+        SetOutput("connection_events");
+        SetOutput("connection_notification_arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("vpc_endpoint_id");
+        SetOutput("vpc_endpoint_service_id");
     }
 
     /// <summary>
     /// The connection_events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionEvents is required")]
-    public HashSet<TerraformProperty<string>>? ConnectionEvents
+    public HashSet<TerraformProperty<string>> ConnectionEvents
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("connection_events");
-        set => this.WithProperty("connection_events", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("connection_events");
+        set => SetProperty("connection_events", value);
     }
 
     /// <summary>
@@ -34,44 +40,44 @@ public class AwsVpcEndpointConnectionNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionNotificationArn is required")]
     public required TerraformProperty<string> ConnectionNotificationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_notification_arn");
-        set => this.WithProperty("connection_notification_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_notification_arn");
+        set => SetProperty("connection_notification_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointId
+    public TerraformProperty<string> VpcEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
-        set => this.WithProperty("vpc_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_endpoint_id");
+        set => SetProperty("vpc_endpoint_id", value);
     }
 
     /// <summary>
     /// The vpc_endpoint_service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointServiceId
+    public TerraformProperty<string> VpcEndpointServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_service_id");
-        set => this.WithProperty("vpc_endpoint_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_endpoint_service_id");
+        set => SetProperty("vpc_endpoint_service_id", value);
     }
 
     /// <summary>

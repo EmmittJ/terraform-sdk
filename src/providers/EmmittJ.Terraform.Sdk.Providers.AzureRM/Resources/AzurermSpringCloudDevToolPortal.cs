@@ -13,8 +13,7 @@ public class AzurermSpringCloudDevToolPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudDevToolPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
-        set => WithProperty("client_secret", value);
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudDevToolPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MetadataUrl
     {
-        get => GetProperty<TerraformProperty<string>>("metadata_url");
-        set => WithProperty("metadata_url", value);
+        set => SetProperty("metadata_url", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudDevToolPortalSsoBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Scope
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AzurermSpringCloudDevToolPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermSpringCloudDevToolPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermSpringCloudDevToolPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermSpringCloudDevToolPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -103,33 +95,39 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("application_accelerator_enabled");
+        SetOutput("application_live_view_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The application_accelerator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplicationAcceleratorEnabled
+    public TerraformProperty<bool> ApplicationAcceleratorEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("application_accelerator_enabled");
-        set => this.WithProperty("application_accelerator_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("application_accelerator_enabled");
+        set => SetProperty("application_accelerator_enabled", value);
     }
 
     /// <summary>
     /// The application_live_view_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplicationLiveViewEnabled
+    public TerraformProperty<bool> ApplicationLiveViewEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("application_live_view_enabled");
-        set => this.WithProperty("application_live_view_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("application_live_view_enabled");
+        set => SetProperty("application_live_view_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -138,17 +136,17 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -157,8 +155,8 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
-        set => this.WithProperty("spring_cloud_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
+        set => SetProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
@@ -168,8 +166,7 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
     public List<AzurermSpringCloudDevToolPortalSsoBlock>? Sso
     {
-        get => GetProperty<List<AzurermSpringCloudDevToolPortalSsoBlock>>("sso");
-        set => this.WithProperty("sso", value);
+        set => SetProperty("sso", value);
     }
 
     /// <summary>
@@ -178,8 +175,7 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     /// </summary>
     public AzurermSpringCloudDevToolPortalTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudDevToolPortalTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

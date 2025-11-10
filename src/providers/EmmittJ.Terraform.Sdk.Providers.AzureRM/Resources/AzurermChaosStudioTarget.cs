@@ -13,8 +13,7 @@ public class AzurermChaosStudioTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermChaosStudioTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermChaosStudioTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,19 @@ public class AzurermChaosStudioTarget : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("target_resource_id");
+        SetOutput("target_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AzurermChaosStudioTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AzurermChaosStudioTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class AzurermChaosStudioTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetType is required")]
     public required TerraformProperty<string> TargetType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_type");
-        set => this.WithProperty("target_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_type");
+        set => SetProperty("target_type", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class AzurermChaosStudioTarget : TerraformResource
     /// </summary>
     public AzurermChaosStudioTargetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermChaosStudioTargetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

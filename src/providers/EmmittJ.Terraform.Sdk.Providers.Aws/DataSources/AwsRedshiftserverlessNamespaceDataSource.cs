@@ -14,23 +14,26 @@ public class AwsRedshiftserverlessNamespaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("admin_username");
-        this.WithOutput("arn");
-        this.WithOutput("db_name");
-        this.WithOutput("default_iam_role_arn");
-        this.WithOutput("iam_roles");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("log_exports");
-        this.WithOutput("namespace_id");
+        SetOutput("admin_username");
+        SetOutput("arn");
+        SetOutput("db_name");
+        SetOutput("default_iam_role_arn");
+        SetOutput("iam_roles");
+        SetOutput("kms_key_id");
+        SetOutput("log_exports");
+        SetOutput("namespace_id");
+        SetOutput("id");
+        SetOutput("namespace_name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -39,17 +42,17 @@ public class AwsRedshiftserverlessNamespaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
-        set => this.WithProperty("namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
+        set => SetProperty("namespace_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

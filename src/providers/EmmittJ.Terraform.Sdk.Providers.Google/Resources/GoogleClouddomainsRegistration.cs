@@ -15,8 +15,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Privacy is required")]
     public required TerraformProperty<string> Privacy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("privacy");
-        set => WithProperty("privacy", value);
+        set => SetProperty("privacy", value);
     }
 
 }
@@ -47,8 +46,7 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PreferredRenewalMethod
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_renewal_method");
-        set => WithProperty("preferred_renewal_method", value);
+        set => SetProperty("preferred_renewal_method", value);
     }
 
     /// <summary>
@@ -59,8 +57,7 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? RenewalMethod
     {
-        get => GetProperty<TerraformProperty<string>>("renewal_method");
-        set => WithProperty("renewal_method", value);
+        set => SetProperty("renewal_method", value);
     }
 
     /// <summary>
@@ -68,8 +65,7 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? TransferLockState
     {
-        get => GetProperty<TerraformProperty<string>>("transfer_lock_state");
-        set => WithProperty("transfer_lock_state", value);
+        set => SetProperty("transfer_lock_state", value);
     }
 
 }
@@ -85,8 +81,7 @@ public class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -94,8 +89,7 @@ public class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -103,8 +97,7 @@ public class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -120,8 +113,7 @@ public class GoogleClouddomainsRegistrationYearlyPriceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CurrencyCode
     {
-        get => GetProperty<TerraformProperty<string>>("currency_code");
-        set => WithProperty("currency_code", value);
+        set => SetProperty("currency_code", value);
     }
 
     /// <summary>
@@ -129,8 +121,7 @@ public class GoogleClouddomainsRegistrationYearlyPriceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Units
     {
-        get => GetProperty<TerraformProperty<string>>("units");
-        set => WithProperty("units", value);
+        set => SetProperty("units", value);
     }
 
 }
@@ -148,24 +139,31 @@ public class GoogleClouddomainsRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("expire_time");
-        this.WithOutput("issues");
-        this.WithOutput("name");
-        this.WithOutput("register_failure_reason");
-        this.WithOutput("state");
-        this.WithOutput("supported_privacy");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("expire_time");
+        SetOutput("issues");
+        SetOutput("name");
+        SetOutput("register_failure_reason");
+        SetOutput("state");
+        SetOutput("supported_privacy");
+        SetOutput("terraform_labels");
+        SetOutput("contact_notices");
+        SetOutput("domain_name");
+        SetOutput("domain_notices");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The list of contact notices that the caller acknowledges. Possible value is PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT
     /// </summary>
-    public List<TerraformProperty<string>>? ContactNotices
+    public List<TerraformProperty<string>> ContactNotices
     {
-        get => GetProperty<List<TerraformProperty<string>>>("contact_notices");
-        set => this.WithProperty("contact_notices", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("contact_notices");
+        set => SetProperty("contact_notices", value);
     }
 
     /// <summary>
@@ -174,26 +172,26 @@ public class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The list of domain notices that you acknowledge. Possible value is HSTS_PRELOADED
     /// </summary>
-    public List<TerraformProperty<string>>? DomainNotices
+    public List<TerraformProperty<string>> DomainNotices
     {
-        get => GetProperty<List<TerraformProperty<string>>>("domain_notices");
-        set => this.WithProperty("domain_notices", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("domain_notices");
+        set => SetProperty("domain_notices", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -202,10 +200,10 @@ public class GoogleClouddomainsRegistration : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -214,29 +212,29 @@ public class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for contact_settings.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContactSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContactSettings block(s) allowed")]
     public List<GoogleClouddomainsRegistrationContactSettingsBlock>? ContactSettings
     {
-        get => GetProperty<List<GoogleClouddomainsRegistrationContactSettingsBlock>>("contact_settings");
-        set => this.WithProperty("contact_settings", value);
+        set => SetProperty("contact_settings", value);
     }
 
     /// <summary>
@@ -246,8 +244,7 @@ public class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
     public List<GoogleClouddomainsRegistrationDnsSettingsBlock>? DnsSettings
     {
-        get => GetProperty<List<GoogleClouddomainsRegistrationDnsSettingsBlock>>("dns_settings");
-        set => this.WithProperty("dns_settings", value);
+        set => SetProperty("dns_settings", value);
     }
 
     /// <summary>
@@ -257,8 +254,7 @@ public class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementSettings block(s) allowed")]
     public List<GoogleClouddomainsRegistrationManagementSettingsBlock>? ManagementSettings
     {
-        get => GetProperty<List<GoogleClouddomainsRegistrationManagementSettingsBlock>>("management_settings");
-        set => this.WithProperty("management_settings", value);
+        set => SetProperty("management_settings", value);
     }
 
     /// <summary>
@@ -267,20 +263,19 @@ public class GoogleClouddomainsRegistration : TerraformResource
     /// </summary>
     public GoogleClouddomainsRegistrationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleClouddomainsRegistrationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for yearly_price.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "YearlyPrice is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 YearlyPrice block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 YearlyPrice block(s) allowed")]
     public List<GoogleClouddomainsRegistrationYearlyPriceBlock>? YearlyPrice
     {
-        get => GetProperty<List<GoogleClouddomainsRegistrationYearlyPriceBlock>>("yearly_price");
-        set => this.WithProperty("yearly_price", value);
+        set => SetProperty("yearly_price", value);
     }
 
     /// <summary>

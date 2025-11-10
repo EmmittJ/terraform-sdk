@@ -13,8 +13,7 @@ public class AwsDocdbelasticClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDocdbelasticClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDocdbelasticClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,24 @@ public class AwsDocdbelasticCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("endpoint");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("endpoint");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("admin_user_name");
+        SetOutput("admin_user_password");
+        SetOutput("auth_type");
+        SetOutput("backup_retention_period");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("preferred_backup_window");
+        SetOutput("preferred_maintenance_window");
+        SetOutput("region");
+        SetOutput("shard_capacity");
+        SetOutput("shard_count");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("vpc_security_group_ids");
     }
 
     /// <summary>
@@ -61,8 +72,8 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUserName is required")]
     public required TerraformProperty<string> AdminUserName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_user_name");
-        set => this.WithProperty("admin_user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admin_user_name");
+        set => SetProperty("admin_user_name", value);
     }
 
     /// <summary>
@@ -71,8 +82,8 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUserPassword is required")]
     public required TerraformProperty<string> AdminUserPassword
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_user_password");
-        set => this.WithProperty("admin_user_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admin_user_password");
+        set => SetProperty("admin_user_password", value);
     }
 
     /// <summary>
@@ -81,26 +92,26 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
-        set => this.WithProperty("auth_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auth_type");
+        set => SetProperty("auth_type", value);
     }
 
     /// <summary>
     /// The backup_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? BackupRetentionPeriod
+    public TerraformProperty<double> BackupRetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("backup_retention_period");
-        set => this.WithProperty("backup_retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("backup_retention_period");
+        set => SetProperty("backup_retention_period", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -109,35 +120,35 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredBackupWindow
+    public TerraformProperty<string> PreferredBackupWindow
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_backup_window");
-        set => this.WithProperty("preferred_backup_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_backup_window");
+        set => SetProperty("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredMaintenanceWindow
+    public TerraformProperty<string> PreferredMaintenanceWindow
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_maintenance_window");
-        set => this.WithProperty("preferred_maintenance_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_maintenance_window");
+        set => SetProperty("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -146,8 +157,8 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCapacity is required")]
     public required TerraformProperty<double> ShardCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("shard_capacity");
-        set => this.WithProperty("shard_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("shard_capacity");
+        set => SetProperty("shard_capacity", value);
     }
 
     /// <summary>
@@ -156,35 +167,35 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     public required TerraformProperty<double> ShardCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("shard_count");
-        set => this.WithProperty("shard_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("shard_count");
+        set => SetProperty("shard_count", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => this.WithProperty("vpc_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
+        set => SetProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
@@ -193,8 +204,7 @@ public class AwsDocdbelasticCluster : TerraformResource
     /// </summary>
     public AwsDocdbelasticClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDocdbelasticClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

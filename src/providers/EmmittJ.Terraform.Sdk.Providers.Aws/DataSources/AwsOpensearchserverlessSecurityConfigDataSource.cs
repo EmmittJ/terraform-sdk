@@ -13,8 +13,7 @@ public class AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? GroupAttribute
     {
-        get => GetProperty<TerraformProperty<string>>("group_attribute");
-        set => WithProperty("group_attribute", value);
+        set => SetProperty("group_attribute", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? Metadata
     {
-        get => GetProperty<TerraformProperty<string>>("metadata");
-        set => WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock : T
     /// </summary>
     public TerraformProperty<double>? SessionTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("session_timeout");
-        set => WithProperty("session_timeout", value);
+        set => SetProperty("session_timeout", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock : T
     /// </summary>
     public TerraformProperty<string>? UserAttribute
     {
-        get => GetProperty<TerraformProperty<string>>("user_attribute");
-        set => WithProperty("user_attribute", value);
+        set => SetProperty("user_attribute", value);
     }
 
 }
@@ -58,11 +54,13 @@ public class AwsOpensearchserverlessSecurityConfigDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("config_version");
-        this.WithOutput("created_date");
-        this.WithOutput("description");
-        this.WithOutput("last_modified_date");
-        this.WithOutput("type");
+        SetOutput("config_version");
+        SetOutput("created_date");
+        SetOutput("description");
+        SetOutput("last_modified_date");
+        SetOutput("type");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -71,17 +69,17 @@ public class AwsOpensearchserverlessSecurityConfigDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -90,8 +88,7 @@ public class AwsOpensearchserverlessSecurityConfigDataSource : TerraformDataSour
     /// </summary>
     public List<AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock>? SamlOptions
     {
-        get => GetProperty<List<AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock>>("saml_options");
-        set => this.WithProperty("saml_options", value);
+        set => SetProperty("saml_options", value);
     }
 
     /// <summary>

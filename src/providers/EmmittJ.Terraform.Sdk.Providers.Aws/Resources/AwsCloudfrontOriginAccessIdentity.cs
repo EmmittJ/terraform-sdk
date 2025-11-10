@@ -14,30 +14,32 @@ public class AwsCloudfrontOriginAccessIdentity : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("caller_reference");
-        this.WithOutput("cloudfront_access_identity_path");
-        this.WithOutput("etag");
-        this.WithOutput("iam_arn");
-        this.WithOutput("s3_canonical_user_id");
+        SetOutput("arn");
+        SetOutput("caller_reference");
+        SetOutput("cloudfront_access_identity_path");
+        SetOutput("etag");
+        SetOutput("iam_arn");
+        SetOutput("s3_canonical_user_id");
+        SetOutput("comment");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

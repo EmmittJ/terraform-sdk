@@ -13,8 +13,7 @@ public class AwsEc2ClientVpnRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2ClientVpnRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,8 +38,14 @@ public class AwsEc2ClientVpnRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrigin");
-        this.WithOutputype");
+        SetOutput("origin");
+        SetOutput("type");
+        SetOutput("client_vpn_endpoint_id");
+        SetOutput("description");
+        SetOutput("destination_cidr_block");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("target_vpc_subnet_id");
     }
 
     /// <summary>
@@ -50,17 +54,17 @@ public class AwsEc2ClientVpnRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
     public required TerraformProperty<string> ClientVpnEndpointId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_vpn_endpoint_id");
-        set => this.WithProperty("client_vpn_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_vpn_endpoint_id");
+        set => SetProperty("client_vpn_endpoint_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -69,26 +73,26 @@ public class AwsEc2ClientVpnRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     public required TerraformProperty<string> DestinationCidrBlock
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_cidr_block");
-        set => this.WithProperty("destination_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_cidr_block");
+        set => SetProperty("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -97,8 +101,8 @@ public class AwsEc2ClientVpnRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpcSubnetId is required")]
     public required TerraformProperty<string> TargetVpcSubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_vpc_subnet_id");
-        set => this.WithProperty("target_vpc_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_vpc_subnet_id");
+        set => SetProperty("target_vpc_subnet_id", value);
     }
 
     /// <summary>
@@ -107,8 +111,7 @@ public class AwsEc2ClientVpnRoute : TerraformResource
     /// </summary>
     public AwsEc2ClientVpnRouteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2ClientVpnRouteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

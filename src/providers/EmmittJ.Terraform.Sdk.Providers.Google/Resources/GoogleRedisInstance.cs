@@ -15,8 +15,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateTime
     {
-        get => GetProperty<TerraformProperty<string>>("create_time");
-        set => WithProperty("create_time", value);
+        set => SetProperty("create_time", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -37,8 +35,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("update_time");
-        set => WithProperty("update_time", value);
+        set => SetProperty("update_time", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class GoogleRedisInstancePersistenceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PersistenceMode
     {
-        get => GetProperty<TerraformProperty<string>>("persistence_mode");
-        set => WithProperty("persistence_mode", value);
+        set => SetProperty("persistence_mode", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class GoogleRedisInstancePersistenceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RdbNextSnapshotTime
     {
-        get => GetProperty<TerraformProperty<string>>("rdb_next_snapshot_time");
-        set => WithProperty("rdb_next_snapshot_time", value);
+        set => SetProperty("rdb_next_snapshot_time", value);
     }
 
     /// <summary>
@@ -83,8 +78,7 @@ public class GoogleRedisInstancePersistenceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RdbSnapshotPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("rdb_snapshot_period");
-        set => WithProperty("rdb_snapshot_period", value);
+        set => SetProperty("rdb_snapshot_period", value);
     }
 
     /// <summary>
@@ -97,8 +91,7 @@ public class GoogleRedisInstancePersistenceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RdbSnapshotStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("rdb_snapshot_start_time");
-        set => WithProperty("rdb_snapshot_start_time", value);
+        set => SetProperty("rdb_snapshot_start_time", value);
     }
 
 }
@@ -114,8 +107,7 @@ public class GoogleRedisInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -123,8 +115,7 @@ public class GoogleRedisInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -132,8 +123,7 @@ public class GoogleRedisInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -151,20 +141,43 @@ public class GoogleRedisInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("auth_string");
-        this.WithOutput("create_time");
-        this.WithOutput("current_location_id");
-        this.WithOutput("effective_labels");
-        this.WithOutput("effective_reserved_ip_range");
-        this.WithOutput("host");
-        this.WithOutput("maintenance_schedule");
-        this.WithOutput("nodes");
-        this.WithOutput("persistence_iam_identity");
-        this.WithOutput("port");
-        this.WithOutput("read_endpoint");
-        this.WithOutput("read_endpoint_port");
-        this.WithOutput("server_ca_certs");
-        this.WithOutput("terraform_labels");
+        SetOutput("auth_string");
+        SetOutput("create_time");
+        SetOutput("current_location_id");
+        SetOutput("effective_labels");
+        SetOutput("effective_reserved_ip_range");
+        SetOutput("host");
+        SetOutput("maintenance_schedule");
+        SetOutput("nodes");
+        SetOutput("persistence_iam_identity");
+        SetOutput("port");
+        SetOutput("read_endpoint");
+        SetOutput("read_endpoint_port");
+        SetOutput("server_ca_certs");
+        SetOutput("terraform_labels");
+        SetOutput("alternative_location_id");
+        SetOutput("auth_enabled");
+        SetOutput("authorized_network");
+        SetOutput("connect_mode");
+        SetOutput("customer_managed_key");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location_id");
+        SetOutput("maintenance_version");
+        SetOutput("memory_size_gb");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("read_replicas_mode");
+        SetOutput("redis_configs");
+        SetOutput("redis_version");
+        SetOutput("region");
+        SetOutput("replica_count");
+        SetOutput("reserved_ip_range");
+        SetOutput("secondary_ip_range");
+        SetOutput("tier");
+        SetOutput("transit_encryption_mode");
     }
 
     /// <summary>
@@ -173,10 +186,10 @@ public class GoogleRedisInstance : TerraformResource
     /// If provided, it must be a different zone from the one provided in
     /// [locationId].
     /// </summary>
-    public TerraformProperty<string>? AlternativeLocationId
+    public TerraformProperty<string> AlternativeLocationId
     {
-        get => GetProperty<TerraformProperty<string>>("alternative_location_id");
-        set => this.WithProperty("alternative_location_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alternative_location_id");
+        set => SetProperty("alternative_location_id", value);
     }
 
     /// <summary>
@@ -184,10 +197,10 @@ public class GoogleRedisInstance : TerraformResource
     /// instance. If set to &amp;quot;true&amp;quot; AUTH is enabled on the instance.
     /// Default value is &amp;quot;false&amp;quot; meaning AUTH is disabled.
     /// </summary>
-    public TerraformProperty<bool>? AuthEnabled
+    public TerraformProperty<bool> AuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auth_enabled");
-        set => this.WithProperty("auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auth_enabled");
+        set => SetProperty("auth_enabled", value);
     }
 
     /// <summary>
@@ -195,29 +208,29 @@ public class GoogleRedisInstance : TerraformResource
     /// instance is connected. If left unspecified, the default network
     /// will be used.
     /// </summary>
-    public TerraformProperty<string>? AuthorizedNetwork
+    public TerraformProperty<string> AuthorizedNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("authorized_network");
-        set => this.WithProperty("authorized_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorized_network");
+        set => SetProperty("authorized_network", value);
     }
 
     /// <summary>
     /// The connection mode of the Redis instance. Default value: &amp;quot;DIRECT_PEERING&amp;quot; Possible values: [&amp;quot;DIRECT_PEERING&amp;quot;, &amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ConnectMode
+    public TerraformProperty<string> ConnectMode
     {
-        get => GetProperty<TerraformProperty<string>>("connect_mode");
-        set => this.WithProperty("connect_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connect_mode");
+        set => SetProperty("connect_mode", value);
     }
 
     /// <summary>
     /// Optional. The KMS key reference that you want to use to encrypt the data at rest for this Redis
     /// instance. If this is provided, CMEK is enabled.
     /// </summary>
-    public TerraformProperty<string>? CustomerManagedKey
+    public TerraformProperty<string> CustomerManagedKey
     {
-        get => GetProperty<TerraformProperty<string>>("customer_managed_key");
-        set => this.WithProperty("customer_managed_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_managed_key");
+        set => SetProperty("customer_managed_key", value);
     }
 
     /// <summary>
@@ -228,28 +241,28 @@ public class GoogleRedisInstance : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the instance will fail.
     /// When the field is set to false, deleting the instance is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// An arbitrary and optional user-provided name for the instance.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -258,10 +271,10 @@ public class GoogleRedisInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -271,19 +284,19 @@ public class GoogleRedisInstance : TerraformResource
     /// zonal failures. If [alternativeLocationId] is also provided, it must
     /// be different from [locationId].
     /// </summary>
-    public TerraformProperty<string>? LocationId
+    public TerraformProperty<string> LocationId
     {
-        get => GetProperty<TerraformProperty<string>>("location_id");
-        set => this.WithProperty("location_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location_id");
+        set => SetProperty("location_id", value);
     }
 
     /// <summary>
     /// The self service update maintenance version.
     /// </summary>
-    public TerraformProperty<string>? MaintenanceVersion
+    public TerraformProperty<string> MaintenanceVersion
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_version");
-        set => this.WithProperty("maintenance_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_version");
+        set => SetProperty("maintenance_version", value);
     }
 
     /// <summary>
@@ -292,8 +305,8 @@ public class GoogleRedisInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeGb is required")]
     public required TerraformProperty<double> MemorySizeGb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("memory_size_gb");
-        set => this.WithProperty("memory_size_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("memory_size_gb");
+        set => SetProperty("memory_size_gb", value);
     }
 
     /// <summary>
@@ -302,17 +315,17 @@ public class GoogleRedisInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -323,10 +336,10 @@ public class GoogleRedisInstance : TerraformResource
     /// - READ_REPLICAS_ENABLED: If enabled, read endpoint will be provided and the instance
     /// can scale up and down the number of replicas. Possible values: [&amp;quot;READ_REPLICAS_DISABLED&amp;quot;, &amp;quot;READ_REPLICAS_ENABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ReadReplicasMode
+    public TerraformProperty<string> ReadReplicasMode
     {
-        get => GetProperty<TerraformProperty<string>>("read_replicas_mode");
-        set => this.WithProperty("read_replicas_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("read_replicas_mode");
+        set => SetProperty("read_replicas_mode", value);
     }
 
     /// <summary>
@@ -334,10 +347,10 @@ public class GoogleRedisInstance : TerraformResource
     /// Please check Memorystore documentation for the list of supported parameters:
     /// https://cloud.google.com/memorystore/docs/redis/reference/rest/v1/projects.locations.instances#Instance.FIELDS.redis_configs
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? RedisConfigs
+    public Dictionary<string, TerraformProperty<string>> RedisConfigs
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("redis_configs");
-        set => this.WithProperty("redis_configs", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("redis_configs");
+        set => SetProperty("redis_configs", value);
     }
 
     /// <summary>
@@ -345,19 +358,19 @@ public class GoogleRedisInstance : TerraformResource
     /// version will be used. Please check the API documentation linked
     /// at the top for the latest valid values.
     /// </summary>
-    public TerraformProperty<string>? RedisVersion
+    public TerraformProperty<string> RedisVersion
     {
-        get => GetProperty<TerraformProperty<string>>("redis_version");
-        set => this.WithProperty("redis_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redis_version");
+        set => SetProperty("redis_version", value);
     }
 
     /// <summary>
     /// The name of the Redis region of the instance.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -366,10 +379,10 @@ public class GoogleRedisInstance : TerraformResource
     /// for a Standard Tier instance, the only valid value is 1 and the default is 1.
     /// The valid value for basic tier is 0 and the default is also 0.
     /// </summary>
-    public TerraformProperty<double>? ReplicaCount
+    public TerraformProperty<double> ReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("replica_count");
-        set => this.WithProperty("replica_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("replica_count");
+        set => SetProperty("replica_count", value);
     }
 
     /// <summary>
@@ -379,10 +392,10 @@ public class GoogleRedisInstance : TerraformResource
     /// unique and non-overlapping with existing subnets in an authorized
     /// network.
     /// </summary>
-    public TerraformProperty<string>? ReservedIpRange
+    public TerraformProperty<string> ReservedIpRange
     {
-        get => GetProperty<TerraformProperty<string>>("reserved_ip_range");
-        set => this.WithProperty("reserved_ip_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reserved_ip_range");
+        set => SetProperty("reserved_ip_range", value);
     }
 
     /// <summary>
@@ -391,10 +404,10 @@ public class GoogleRedisInstance : TerraformResource
     /// &amp;quot;auto&amp;quot;. For PRIVATE_SERVICE_ACCESS mode value must be the name of an allocated address
     /// range associated with the private service access connection, or &amp;quot;auto&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? SecondaryIpRange
+    public TerraformProperty<string> SecondaryIpRange
     {
-        get => GetProperty<TerraformProperty<string>>("secondary_ip_range");
-        set => this.WithProperty("secondary_ip_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secondary_ip_range");
+        set => SetProperty("secondary_ip_range", value);
     }
 
     /// <summary>
@@ -403,10 +416,10 @@ public class GoogleRedisInstance : TerraformResource
     /// - BASIC: standalone instance
     /// - STANDARD_HA: highly available primary/replica instances Default value: &amp;quot;BASIC&amp;quot; Possible values: [&amp;quot;BASIC&amp;quot;, &amp;quot;STANDARD_HA&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Tier
+    public TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
@@ -414,10 +427,10 @@ public class GoogleRedisInstance : TerraformResource
     /// 
     /// - SERVER_AUTHENTICATION: Client to Server traffic encryption enabled with server authentication Default value: &amp;quot;DISABLED&amp;quot; Possible values: [&amp;quot;SERVER_AUTHENTICATION&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? TransitEncryptionMode
+    public TerraformProperty<string> TransitEncryptionMode
     {
-        get => GetProperty<TerraformProperty<string>>("transit_encryption_mode");
-        set => this.WithProperty("transit_encryption_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_encryption_mode");
+        set => SetProperty("transit_encryption_mode", value);
     }
 
     /// <summary>
@@ -427,8 +440,7 @@ public class GoogleRedisInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     public List<GoogleRedisInstanceMaintenancePolicyBlock>? MaintenancePolicy
     {
-        get => GetProperty<List<GoogleRedisInstanceMaintenancePolicyBlock>>("maintenance_policy");
-        set => this.WithProperty("maintenance_policy", value);
+        set => SetProperty("maintenance_policy", value);
     }
 
     /// <summary>
@@ -438,8 +450,7 @@ public class GoogleRedisInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
     public List<GoogleRedisInstancePersistenceConfigBlock>? PersistenceConfig
     {
-        get => GetProperty<List<GoogleRedisInstancePersistenceConfigBlock>>("persistence_config");
-        set => this.WithProperty("persistence_config", value);
+        set => SetProperty("persistence_config", value);
     }
 
     /// <summary>
@@ -448,8 +459,7 @@ public class GoogleRedisInstance : TerraformResource
     /// </summary>
     public GoogleRedisInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleRedisInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermApiManagementProductDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,13 +30,17 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("approval_required");
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("published");
-        this.WithOutput("subscription_required");
-        this.WithOutput("subscriptions_limit");
-        this.WithOutput("terms");
+        SetOutput("approval_required");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("published");
+        SetOutput("subscription_required");
+        SetOutput("subscriptions_limit");
+        SetOutput("terms");
+        SetOutput("api_management_name");
+        SetOutput("id");
+        SetOutput("product_id");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -46,17 +49,17 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -65,8 +68,8 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
-        set => this.WithProperty("product_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_id");
+        set => SetProperty("product_id", value);
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -85,8 +88,7 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
     /// </summary>
     public AzurermApiManagementProductDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementProductDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

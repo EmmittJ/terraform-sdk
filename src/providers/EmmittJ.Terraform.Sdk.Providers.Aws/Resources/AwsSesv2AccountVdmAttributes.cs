@@ -13,8 +13,7 @@ public class AwsSesv2AccountVdmAttributesDashboardAttributesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? EngagementMetrics
     {
-        get => GetProperty<TerraformProperty<string>>("engagement_metrics");
-        set => WithProperty("engagement_metrics", value);
+        set => SetProperty("engagement_metrics", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsSesv2AccountVdmAttributesGuardianAttributesBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? OptimizedSharedDelivery
     {
-        get => GetProperty<TerraformProperty<string>>("optimized_shared_delivery");
-        set => WithProperty("optimized_shared_delivery", value);
+        set => SetProperty("optimized_shared_delivery", value);
     }
 
 }
@@ -49,24 +47,27 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("vdm_enabled");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -75,8 +76,8 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VdmEnabled is required")]
     public required TerraformProperty<string> VdmEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vdm_enabled");
-        set => this.WithProperty("vdm_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vdm_enabled");
+        set => SetProperty("vdm_enabled", value);
     }
 
     /// <summary>
@@ -86,8 +87,7 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DashboardAttributes block(s) allowed")]
     public List<AwsSesv2AccountVdmAttributesDashboardAttributesBlock>? DashboardAttributes
     {
-        get => GetProperty<List<AwsSesv2AccountVdmAttributesDashboardAttributesBlock>>("dashboard_attributes");
-        set => this.WithProperty("dashboard_attributes", value);
+        set => SetProperty("dashboard_attributes", value);
     }
 
     /// <summary>
@@ -97,8 +97,7 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GuardianAttributes block(s) allowed")]
     public List<AwsSesv2AccountVdmAttributesGuardianAttributesBlock>? GuardianAttributes
     {
-        get => GetProperty<List<AwsSesv2AccountVdmAttributesGuardianAttributesBlock>>("guardian_attributes");
-        set => this.WithProperty("guardian_attributes", value);
+        set => SetProperty("guardian_attributes", value);
     }
 
 }

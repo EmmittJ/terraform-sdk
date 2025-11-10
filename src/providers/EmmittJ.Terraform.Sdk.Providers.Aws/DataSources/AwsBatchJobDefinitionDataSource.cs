@@ -14,61 +14,66 @@ public class AwsBatchJobDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn_prefix");
-        this.WithOutput("container_orchestration_type");
-        this.WithOutput("eks_properties");
-        this.WithOutput("id");
-        this.WithOutput("node_properties");
-        this.WithOutput("retry_strategy");
-        this.WithOutput("scheduling_priority");
-        this.WithOutput("tags");
-        this.WithOutput("timeout");
-        this.WithOutput("type");
+        SetOutput("arn_prefix");
+        SetOutput("container_orchestration_type");
+        SetOutput("eks_properties");
+        SetOutput("id");
+        SetOutput("node_properties");
+        SetOutput("retry_strategy");
+        SetOutput("scheduling_priority");
+        SetOutput("tags");
+        SetOutput("timeout");
+        SetOutput("type");
+        SetOutput("arn");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("revision");
+        SetOutput("status");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
-    public TerraformProperty<double>? Revision
+    public TerraformProperty<double> Revision
     {
-        get => GetProperty<TerraformProperty<double>>("revision");
-        set => this.WithProperty("revision", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("revision");
+        set => SetProperty("revision", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>

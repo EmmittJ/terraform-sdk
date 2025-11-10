@@ -13,8 +13,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AllocationStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("allocation_strategy");
-        set => WithProperty("allocation_strategy", value);
+        set => SetProperty("allocation_strategy", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? BidPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("bid_percentage");
-        set => WithProperty("bid_percentage", value);
+        set => SetProperty("bid_percentage", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DesiredVcpus
     {
-        get => GetProperty<TerraformProperty<double>>("desired_vcpus");
-        set => WithProperty("desired_vcpus", value);
+        set => SetProperty("desired_vcpus", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ec2KeyPair
     {
-        get => GetProperty<TerraformProperty<string>>("ec2_key_pair");
-        set => WithProperty("ec2_key_pair", value);
+        set => SetProperty("ec2_key_pair", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImageId
     {
-        get => GetProperty<TerraformProperty<string>>("image_id");
-        set => WithProperty("image_id", value);
+        set => SetProperty("image_id", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceRole
     {
-        get => GetProperty<TerraformProperty<string>>("instance_role");
-        set => WithProperty("instance_role", value);
+        set => SetProperty("instance_role", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? InstanceType
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxVcpus is required")]
     public required TerraformProperty<double> MaxVcpus
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_vcpus");
-        set => WithProperty("max_vcpus", value);
+        set => SetProperty("max_vcpus", value);
     }
 
     /// <summary>
@@ -86,8 +78,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinVcpus
     {
-        get => GetProperty<TerraformProperty<double>>("min_vcpus");
-        set => WithProperty("min_vcpus", value);
+        set => SetProperty("min_vcpus", value);
     }
 
     /// <summary>
@@ -95,8 +86,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PlacementGroup
     {
-        get => GetProperty<TerraformProperty<string>>("placement_group");
-        set => WithProperty("placement_group", value);
+        set => SetProperty("placement_group", value);
     }
 
     /// <summary>
@@ -104,8 +94,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -113,8 +102,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SpotIamFleetRole
     {
-        get => GetProperty<TerraformProperty<string>>("spot_iam_fleet_role");
-        set => WithProperty("spot_iam_fleet_role", value);
+        set => SetProperty("spot_iam_fleet_role", value);
     }
 
     /// <summary>
@@ -123,8 +111,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
-        set => WithProperty("subnets", value);
+        set => SetProperty("subnets", value);
     }
 
     /// <summary>
@@ -132,8 +119,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -142,8 +128,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -160,8 +145,7 @@ public class AwsBatchComputeEnvironmentEksConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EksClusterArn is required")]
     public required TerraformProperty<string> EksClusterArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eks_cluster_arn");
-        set => WithProperty("eks_cluster_arn", value);
+        set => SetProperty("eks_cluster_arn", value);
     }
 
     /// <summary>
@@ -170,8 +154,7 @@ public class AwsBatchComputeEnvironmentEksConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesNamespace is required")]
     public required TerraformProperty<string> KubernetesNamespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_namespace");
-        set => WithProperty("kubernetes_namespace", value);
+        set => SetProperty("kubernetes_namespace", value);
     }
 
 }
@@ -187,8 +170,7 @@ public class AwsBatchComputeEnvironmentUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? JobExecutionTimeoutMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("job_execution_timeout_minutes");
-        set => WithProperty("job_execution_timeout_minutes", value);
+        set => SetProperty("job_execution_timeout_minutes", value);
     }
 
     /// <summary>
@@ -196,8 +178,7 @@ public class AwsBatchComputeEnvironmentUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? TerminateJobsOnUpdate
     {
-        get => GetProperty<TerraformProperty<bool>>("terminate_jobs_on_update");
-        set => WithProperty("terminate_jobs_on_update", value);
+        set => SetProperty("terminate_jobs_on_update", value);
     }
 
 }
@@ -215,82 +196,91 @@ public class AwsBatchComputeEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputcs_cluster_arn");
-        this.WithOutputtatus");
-        this.WithOutputtatus_reason");
+        SetOutput("arn");
+        SetOutput("ecs_cluster_arn");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("region");
+        SetOutput("service_role");
+        SetOutput("state");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceRole
+    public TerraformProperty<string> ServiceRole
     {
-        get => GetProperty<TerraformProperty<string>>("service_role");
-        set => this.WithProperty("service_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_role");
+        set => SetProperty("service_role", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -299,8 +289,8 @@ public class AwsBatchComputeEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -310,8 +300,7 @@ public class AwsBatchComputeEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeResources block(s) allowed")]
     public List<AwsBatchComputeEnvironmentComputeResourcesBlock>? ComputeResources
     {
-        get => GetProperty<List<AwsBatchComputeEnvironmentComputeResourcesBlock>>("compute_resources");
-        set => this.WithProperty("compute_resources", value);
+        set => SetProperty("compute_resources", value);
     }
 
     /// <summary>
@@ -321,8 +310,7 @@ public class AwsBatchComputeEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EksConfiguration block(s) allowed")]
     public List<AwsBatchComputeEnvironmentEksConfigurationBlock>? EksConfiguration
     {
-        get => GetProperty<List<AwsBatchComputeEnvironmentEksConfigurationBlock>>("eks_configuration");
-        set => this.WithProperty("eks_configuration", value);
+        set => SetProperty("eks_configuration", value);
     }
 
     /// <summary>
@@ -332,8 +320,7 @@ public class AwsBatchComputeEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdatePolicy block(s) allowed")]
     public List<AwsBatchComputeEnvironmentUpdatePolicyBlock>? UpdatePolicy
     {
-        get => GetProperty<List<AwsBatchComputeEnvironmentUpdatePolicyBlock>>("update_policy");
-        set => this.WithProperty("update_policy", value);
+        set => SetProperty("update_policy", value);
     }
 
     /// <summary>

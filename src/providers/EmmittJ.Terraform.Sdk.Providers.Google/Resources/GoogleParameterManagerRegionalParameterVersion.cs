@@ -13,8 +13,7 @@ public class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,29 +46,34 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("kms_key_version");
-        this.WithOutput("location");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("kms_key_version");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("disabled");
+        SetOutput("id");
+        SetOutput("parameter");
+        SetOutput("parameter_data");
+        SetOutput("parameter_version_id");
     }
 
     /// <summary>
     /// The current state of Regional Parameter Version. This field is only applicable for updating Regional Parameter Version.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -80,8 +82,8 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     public required TerraformProperty<string> Parameter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter");
-        set => this.WithProperty("parameter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter");
+        set => SetProperty("parameter", value);
     }
 
     /// <summary>
@@ -90,8 +92,8 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterData is required")]
     public required TerraformProperty<string> ParameterData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter_data");
-        set => this.WithProperty("parameter_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_data");
+        set => SetProperty("parameter_data", value);
     }
 
     /// <summary>
@@ -100,8 +102,8 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
     public required TerraformProperty<string> ParameterVersionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter_version_id");
-        set => this.WithProperty("parameter_version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_version_id");
+        set => SetProperty("parameter_version_id", value);
     }
 
     /// <summary>
@@ -110,8 +112,7 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     /// </summary>
     public GoogleParameterManagerRegionalParameterVersionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleParameterManagerRegionalParameterVersionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

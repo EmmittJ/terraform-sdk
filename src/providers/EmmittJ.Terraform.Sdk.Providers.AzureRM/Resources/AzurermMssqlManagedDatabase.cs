@@ -13,8 +13,7 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformProperty<bool>? ImmutableBackupsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("immutable_backups_enabled");
-        set => WithProperty("immutable_backups_enabled", value);
+        set => SetProperty("immutable_backups_enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? MonthlyRetention
     {
-        get => GetProperty<TerraformProperty<string>>("monthly_retention");
-        set => WithProperty("monthly_retention", value);
+        set => SetProperty("monthly_retention", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? WeekOfYear
     {
-        get => GetProperty<TerraformProperty<double>>("week_of_year");
-        set => WithProperty("week_of_year", value);
+        set => SetProperty("week_of_year", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? WeeklyRetention
     {
-        get => GetProperty<TerraformProperty<string>>("weekly_retention");
-        set => WithProperty("weekly_retention", value);
+        set => SetProperty("weekly_retention", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? YearlyRetention
     {
-        get => GetProperty<TerraformProperty<string>>("yearly_retention");
-        set => WithProperty("yearly_retention", value);
+        set => SetProperty("yearly_retention", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestorePointInTime is required")]
     public required TerraformProperty<string> RestorePointInTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("restore_point_in_time");
-        set => WithProperty("restore_point_in_time", value);
+        set => SetProperty("restore_point_in_time", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
     public required TerraformProperty<string> SourceDatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_database_id");
-        set => WithProperty("source_database_id", value);
+        set => SetProperty("source_database_id", value);
     }
 
 }
@@ -94,8 +87,7 @@ public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -140,15 +129,20 @@ public class AzurermMssqlManagedDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("managed_instance_id");
+        SetOutput("name");
+        SetOutput("short_term_retention_days");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -157,8 +151,8 @@ public class AzurermMssqlManagedDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
-        set => this.WithProperty("managed_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_instance_id");
+        set => SetProperty("managed_instance_id", value);
     }
 
     /// <summary>
@@ -167,26 +161,26 @@ public class AzurermMssqlManagedDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The short_term_retention_days attribute.
     /// </summary>
-    public TerraformProperty<double>? ShortTermRetentionDays
+    public TerraformProperty<double> ShortTermRetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("short_term_retention_days");
-        set => this.WithProperty("short_term_retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("short_term_retention_days");
+        set => SetProperty("short_term_retention_days", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -196,8 +190,7 @@ public class AzurermMssqlManagedDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
     public List<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>? LongTermRetentionPolicy
     {
-        get => GetProperty<List<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>>("long_term_retention_policy");
-        set => this.WithProperty("long_term_retention_policy", value);
+        set => SetProperty("long_term_retention_policy", value);
     }
 
     /// <summary>
@@ -207,8 +200,7 @@ public class AzurermMssqlManagedDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRestore block(s) allowed")]
     public List<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>? PointInTimeRestore
     {
-        get => GetProperty<List<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>>("point_in_time_restore");
-        set => this.WithProperty("point_in_time_restore", value);
+        set => SetProperty("point_in_time_restore", value);
     }
 
     /// <summary>
@@ -217,8 +209,7 @@ public class AzurermMssqlManagedDatabase : TerraformResource
     /// </summary>
     public AzurermMssqlManagedDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlManagedDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

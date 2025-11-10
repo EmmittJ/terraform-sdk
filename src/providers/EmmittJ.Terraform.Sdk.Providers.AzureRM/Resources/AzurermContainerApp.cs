@@ -14,8 +14,7 @@ public class AzurermContainerAppDaprBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => WithProperty("app_id", value);
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermContainerAppDaprBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AppPort
     {
-        get => GetProperty<TerraformProperty<double>>("app_port");
-        set => WithProperty("app_port", value);
+        set => SetProperty("app_port", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermContainerAppDaprBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AppProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("app_protocol");
-        set => WithProperty("app_protocol", value);
+        set => SetProperty("app_protocol", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermContainerAppIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermContainerAppIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermContainerAppIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermContainerAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -94,8 +87,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowInsecureConnections
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_insecure_connections");
-        set => WithProperty("allow_insecure_connections", value);
+        set => SetProperty("allow_insecure_connections", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientCertificateMode
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate_mode");
-        set => WithProperty("client_certificate_mode", value);
+        set => SetProperty("client_certificate_mode", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? CustomDomain
     {
-        get => GetProperty<List<TerraformProperty<object>>>("custom_domain");
-        set => WithProperty("custom_domain", value);
+        set => SetProperty("custom_domain", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ExposedPort
     {
-        get => GetProperty<TerraformProperty<double>>("exposed_port");
-        set => WithProperty("exposed_port", value);
+        set => SetProperty("exposed_port", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ExternalEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("external_enabled");
-        set => WithProperty("external_enabled", value);
+        set => SetProperty("external_enabled", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Fqdn
     {
-        get => GetProperty<TerraformProperty<string>>("fqdn");
-        set => WithProperty("fqdn", value);
+        set => SetProperty("fqdn", value);
     }
 
     /// <summary>
@@ -149,8 +136,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPort is required")]
     public required TerraformProperty<double> TargetPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("target_port");
-        set => WithProperty("target_port", value);
+        set => SetProperty("target_port", value);
     }
 
     /// <summary>
@@ -158,8 +144,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Transport
     {
-        get => GetProperty<TerraformProperty<string>>("transport");
-        set => WithProperty("transport", value);
+        set => SetProperty("transport", value);
     }
 
 }
@@ -175,8 +160,7 @@ public class AzurermContainerAppRegistryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Identity
     {
-        get => GetProperty<TerraformProperty<string>>("identity");
-        set => WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -184,8 +168,7 @@ public class AzurermContainerAppRegistryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PasswordSecretName
     {
-        get => GetProperty<TerraformProperty<string>>("password_secret_name");
-        set => WithProperty("password_secret_name", value);
+        set => SetProperty("password_secret_name", value);
     }
 
     /// <summary>
@@ -194,8 +177,7 @@ public class AzurermContainerAppRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server");
-        set => WithProperty("server", value);
+        set => SetProperty("server", value);
     }
 
     /// <summary>
@@ -203,8 +185,7 @@ public class AzurermContainerAppRegistryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -220,8 +201,7 @@ public class AzurermContainerAppSecretBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Identity
     {
-        get => GetProperty<TerraformProperty<string>>("identity");
-        set => WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -229,8 +209,7 @@ public class AzurermContainerAppSecretBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_secret_id");
-        set => WithProperty("key_vault_secret_id", value);
+        set => SetProperty("key_vault_secret_id", value);
     }
 
     /// <summary>
@@ -239,8 +218,7 @@ public class AzurermContainerAppSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -248,8 +226,7 @@ public class AzurermContainerAppSecretBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -265,8 +242,7 @@ public class AzurermContainerAppTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxReplicas
     {
-        get => GetProperty<TerraformProperty<double>>("max_replicas");
-        set => WithProperty("max_replicas", value);
+        set => SetProperty("max_replicas", value);
     }
 
     /// <summary>
@@ -274,8 +250,7 @@ public class AzurermContainerAppTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinReplicas
     {
-        get => GetProperty<TerraformProperty<double>>("min_replicas");
-        set => WithProperty("min_replicas", value);
+        set => SetProperty("min_replicas", value);
     }
 
     /// <summary>
@@ -283,8 +258,7 @@ public class AzurermContainerAppTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RevisionSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("revision_suffix");
-        set => WithProperty("revision_suffix", value);
+        set => SetProperty("revision_suffix", value);
     }
 
     /// <summary>
@@ -292,8 +266,7 @@ public class AzurermContainerAppTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TerminationGracePeriodSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("termination_grace_period_seconds");
-        set => WithProperty("termination_grace_period_seconds", value);
+        set => SetProperty("termination_grace_period_seconds", value);
     }
 
 }
@@ -309,8 +282,7 @@ public class AzurermContainerAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -318,8 +290,7 @@ public class AzurermContainerAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -327,8 +298,7 @@ public class AzurermContainerAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -336,8 +306,7 @@ public class AzurermContainerAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -355,11 +324,19 @@ public class AzurermContainerApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("custom_domain_verification_id");
-        this.WithOutput("latest_revision_fqdn");
-        this.WithOutput("latest_revision_name");
-        this.WithOutput("location");
-        this.WithOutput("outbound_ip_addresses");
+        SetOutput("custom_domain_verification_id");
+        SetOutput("latest_revision_fqdn");
+        SetOutput("latest_revision_name");
+        SetOutput("location");
+        SetOutput("outbound_ip_addresses");
+        SetOutput("container_app_environment_id");
+        SetOutput("id");
+        SetOutput("max_inactive_revisions");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("revision_mode");
+        SetOutput("tags");
+        SetOutput("workload_profile_name");
     }
 
     /// <summary>
@@ -368,26 +345,26 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
-        set => this.WithProperty("container_app_environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_app_environment_id");
+        set => SetProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_inactive_revisions attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxInactiveRevisions
+    public TerraformProperty<double> MaxInactiveRevisions
     {
-        get => GetProperty<TerraformProperty<double>>("max_inactive_revisions");
-        set => this.WithProperty("max_inactive_revisions", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_inactive_revisions");
+        set => SetProperty("max_inactive_revisions", value);
     }
 
     /// <summary>
@@ -396,8 +373,8 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -406,8 +383,8 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -416,26 +393,26 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevisionMode is required")]
     public required TerraformProperty<string> RevisionMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("revision_mode");
-        set => this.WithProperty("revision_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revision_mode");
+        set => SetProperty("revision_mode", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The workload_profile_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkloadProfileName
+    public TerraformProperty<string> WorkloadProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("workload_profile_name");
-        set => this.WithProperty("workload_profile_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_profile_name");
+        set => SetProperty("workload_profile_name", value);
     }
 
     /// <summary>
@@ -445,8 +422,7 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dapr block(s) allowed")]
     public List<AzurermContainerAppDaprBlock>? Dapr
     {
-        get => GetProperty<List<AzurermContainerAppDaprBlock>>("dapr");
-        set => this.WithProperty("dapr", value);
+        set => SetProperty("dapr", value);
     }
 
     /// <summary>
@@ -456,8 +432,7 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermContainerAppIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermContainerAppIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -467,8 +442,7 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ingress block(s) allowed")]
     public List<AzurermContainerAppIngressBlock>? Ingress
     {
-        get => GetProperty<List<AzurermContainerAppIngressBlock>>("ingress");
-        set => this.WithProperty("ingress", value);
+        set => SetProperty("ingress", value);
     }
 
     /// <summary>
@@ -477,8 +451,7 @@ public class AzurermContainerApp : TerraformResource
     /// </summary>
     public List<AzurermContainerAppRegistryBlock>? Registry
     {
-        get => GetProperty<List<AzurermContainerAppRegistryBlock>>("registry");
-        set => this.WithProperty("registry", value);
+        set => SetProperty("registry", value);
     }
 
     /// <summary>
@@ -487,20 +460,19 @@ public class AzurermContainerApp : TerraformResource
     /// </summary>
     public HashSet<AzurermContainerAppSecretBlock>? Secret
     {
-        get => GetProperty<HashSet<AzurermContainerAppSecretBlock>>("secret");
-        set => this.WithProperty("secret", value);
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
     /// Block for template.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     public List<AzurermContainerAppTemplateBlock>? Template
     {
-        get => GetProperty<List<AzurermContainerAppTemplateBlock>>("template");
-        set => this.WithProperty("template", value);
+        set => SetProperty("template", value);
     }
 
     /// <summary>
@@ -509,8 +481,7 @@ public class AzurermContainerApp : TerraformResource
     /// </summary>
     public AzurermContainerAppTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerAppTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

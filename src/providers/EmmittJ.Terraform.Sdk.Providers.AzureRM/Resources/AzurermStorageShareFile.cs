@@ -13,8 +13,7 @@ public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,61 +54,71 @@ public class AzurermStorageShareFile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("content_length");
+        SetOutput("content_length");
+        SetOutput("content_disposition");
+        SetOutput("content_encoding");
+        SetOutput("content_md5");
+        SetOutput("content_type");
+        SetOutput("id");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("path");
+        SetOutput("source");
+        SetOutput("storage_share_id");
     }
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentDisposition
+    public TerraformProperty<string> ContentDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("content_disposition");
-        set => this.WithProperty("content_disposition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_disposition");
+        set => SetProperty("content_disposition", value);
     }
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentEncoding
+    public TerraformProperty<string> ContentEncoding
     {
-        get => GetProperty<TerraformProperty<string>>("content_encoding");
-        set => this.WithProperty("content_encoding", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_encoding");
+        set => SetProperty("content_encoding", value);
     }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentMd5
+    public TerraformProperty<string> ContentMd5
     {
-        get => GetProperty<TerraformProperty<string>>("content_md5");
-        set => this.WithProperty("content_md5", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_md5");
+        set => SetProperty("content_md5", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    public TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => this.WithProperty("content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -121,26 +127,26 @@ public class AzurermStorageShareFile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
+    public TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => this.WithProperty("path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path");
+        set => SetProperty("path", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string>? Source
+    public TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -149,8 +155,8 @@ public class AzurermStorageShareFile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageShareId is required")]
     public required TerraformProperty<string> StorageShareId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_share_id");
-        set => this.WithProperty("storage_share_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_share_id");
+        set => SetProperty("storage_share_id", value);
     }
 
     /// <summary>
@@ -159,8 +165,7 @@ public class AzurermStorageShareFile : TerraformResource
     /// </summary>
     public AzurermStorageShareFileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageShareFileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

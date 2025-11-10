@@ -13,8 +13,7 @@ public class AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,8 +38,12 @@ public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("application_version_id");
-        this.WithOutput("snapshot_creation_timestamp");
+        SetOutput("application_version_id");
+        SetOutput("snapshot_creation_timestamp");
+        SetOutput("application_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("snapshot_name");
     }
 
     /// <summary>
@@ -50,26 +52,26 @@ public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationName is required")]
     public required TerraformProperty<string> ApplicationName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_name");
-        set => this.WithProperty("application_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_name");
+        set => SetProperty("application_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +80,8 @@ public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotName is required")]
     public required TerraformProperty<string> SnapshotName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_name");
-        set => this.WithProperty("snapshot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_name");
+        set => SetProperty("snapshot_name", value);
     }
 
     /// <summary>
@@ -88,8 +90,7 @@ public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
     /// </summary>
     public AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

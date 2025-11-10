@@ -13,8 +13,7 @@ public class AzurermApiManagementIdentityProviderAadTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementIdentityProviderAadTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementIdentityProviderAadTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementIdentityProviderAadTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +54,24 @@ public class AzurermApiManagementIdentityProviderAad : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("allowed_tenants");
+        SetOutput("api_management_name");
+        SetOutput("client_id");
+        SetOutput("client_library");
+        SetOutput("client_secret");
+        SetOutput("id");
+        SetOutput("resource_group_name");
+        SetOutput("signin_tenant");
     }
 
     /// <summary>
     /// The allowed_tenants attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedTenants is required")]
-    public List<TerraformProperty<string>>? AllowedTenants
+    public List<TerraformProperty<string>> AllowedTenants
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_tenants");
-        set => this.WithProperty("allowed_tenants", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("allowed_tenants");
+        set => SetProperty("allowed_tenants", value);
     }
 
     /// <summary>
@@ -76,8 +80,8 @@ public class AzurermApiManagementIdentityProviderAad : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
@@ -86,17 +90,17 @@ public class AzurermApiManagementIdentityProviderAad : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// The client_library attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientLibrary
+    public TerraformProperty<string> ClientLibrary
     {
-        get => GetProperty<TerraformProperty<string>>("client_library");
-        set => this.WithProperty("client_library", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_library");
+        set => SetProperty("client_library", value);
     }
 
     /// <summary>
@@ -105,17 +109,17 @@ public class AzurermApiManagementIdentityProviderAad : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
-        set => this.WithProperty("client_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_secret");
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -124,17 +128,17 @@ public class AzurermApiManagementIdentityProviderAad : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The signin_tenant attribute.
     /// </summary>
-    public TerraformProperty<string>? SigninTenant
+    public TerraformProperty<string> SigninTenant
     {
-        get => GetProperty<TerraformProperty<string>>("signin_tenant");
-        set => this.WithProperty("signin_tenant", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("signin_tenant");
+        set => SetProperty("signin_tenant", value);
     }
 
     /// <summary>
@@ -143,8 +147,7 @@ public class AzurermApiManagementIdentityProviderAad : TerraformResource
     /// </summary>
     public AzurermApiManagementIdentityProviderAadTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementIdentityProviderAadTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

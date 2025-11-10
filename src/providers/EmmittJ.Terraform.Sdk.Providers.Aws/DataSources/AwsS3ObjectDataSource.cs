@@ -14,32 +14,40 @@ public class AwsS3ObjectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("body");
-        this.WithOutput("bucket_key_enabled");
-        this.WithOutput("cache_control");
-        this.WithOutput("checksum_crc32");
-        this.WithOutput("checksum_crc32c");
-        this.WithOutput("checksum_crc64nvme");
-        this.WithOutput("checksum_sha1");
-        this.WithOutput("checksum_sha256");
-        this.WithOutput("content_disposition");
-        this.WithOutput("content_encoding");
-        this.WithOutput("content_language");
-        this.WithOutput("content_length");
-        this.WithOutput("content_type");
-        this.WithOutput("etag");
-        this.WithOutput("expiration");
-        this.WithOutput("expires");
-        this.WithOutput("last_modified");
-        this.WithOutput("metadata");
-        this.WithOutput("object_lock_legal_hold_status");
-        this.WithOutput("object_lock_mode");
-        this.WithOutput("object_lock_retain_until_date");
-        this.WithOutput("server_side_encryption");
-        this.WithOutput("sse_kms_key_id");
-        this.WithOutput("storage_class");
-        this.WithOutput("website_redirect_location");
+        SetOutput("arn");
+        SetOutput("body");
+        SetOutput("bucket_key_enabled");
+        SetOutput("cache_control");
+        SetOutput("checksum_crc32");
+        SetOutput("checksum_crc32c");
+        SetOutput("checksum_crc64nvme");
+        SetOutput("checksum_sha1");
+        SetOutput("checksum_sha256");
+        SetOutput("content_disposition");
+        SetOutput("content_encoding");
+        SetOutput("content_language");
+        SetOutput("content_length");
+        SetOutput("content_type");
+        SetOutput("etag");
+        SetOutput("expiration");
+        SetOutput("expires");
+        SetOutput("last_modified");
+        SetOutput("metadata");
+        SetOutput("object_lock_legal_hold_status");
+        SetOutput("object_lock_mode");
+        SetOutput("object_lock_retain_until_date");
+        SetOutput("server_side_encryption");
+        SetOutput("sse_kms_key_id");
+        SetOutput("storage_class");
+        SetOutput("website_redirect_location");
+        SetOutput("bucket");
+        SetOutput("checksum_mode");
+        SetOutput("id");
+        SetOutput("key");
+        SetOutput("range");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("version_id");
     }
 
     /// <summary>
@@ -48,26 +56,26 @@ public class AwsS3ObjectDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The checksum_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ChecksumMode
+    public TerraformProperty<string> ChecksumMode
     {
-        get => GetProperty<TerraformProperty<string>>("checksum_mode");
-        set => this.WithProperty("checksum_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("checksum_mode");
+        set => SetProperty("checksum_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,44 +84,44 @@ public class AwsS3ObjectDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => this.WithProperty("key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key");
+        set => SetProperty("key", value);
     }
 
     /// <summary>
     /// The range attribute.
     /// </summary>
-    public TerraformProperty<string>? Range
+    public TerraformProperty<string> Range
     {
-        get => GetProperty<TerraformProperty<string>>("range");
-        set => this.WithProperty("range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("range");
+        set => SetProperty("range", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionId
+    public TerraformProperty<string> VersionId
     {
-        get => GetProperty<TerraformProperty<string>>("version_id");
-        set => this.WithProperty("version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
+        set => SetProperty("version_id", value);
     }
 
     /// <summary>

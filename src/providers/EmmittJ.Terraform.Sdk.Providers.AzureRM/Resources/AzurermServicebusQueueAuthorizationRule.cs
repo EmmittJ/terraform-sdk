@@ -13,8 +13,7 @@ public class AzurermServicebusQueueAuthorizationRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermServicebusQueueAuthorizationRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermServicebusQueueAuthorizationRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermServicebusQueueAuthorizationRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,39 +54,45 @@ public class AzurermServicebusQueueAuthorizationRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrimary_connection_string");
-        this.WithOutputrimary_connection_string_alias");
-        this.WithOutputrimary_key");
-        this.WithOutputecondary_connection_string");
-        this.WithOutputecondary_connection_string_alias");
-        this.WithOutputecondary_key");
+        SetOutput("primary_connection_string");
+        SetOutput("primary_connection_string_alias");
+        SetOutput("primary_key");
+        SetOutput("secondary_connection_string");
+        SetOutput("secondary_connection_string_alias");
+        SetOutput("secondary_key");
+        SetOutput("id");
+        SetOutput("listen");
+        SetOutput("manage");
+        SetOutput("name");
+        SetOutput("queue_id");
+        SetOutput("send");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
-    public TerraformProperty<bool>? Listen
+    public TerraformProperty<bool> Listen
     {
-        get => GetProperty<TerraformProperty<bool>>("listen");
-        set => this.WithProperty("listen", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("listen");
+        set => SetProperty("listen", value);
     }
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
-    public TerraformProperty<bool>? Manage
+    public TerraformProperty<bool> Manage
     {
-        get => GetProperty<TerraformProperty<bool>>("manage");
-        set => this.WithProperty("manage", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("manage");
+        set => SetProperty("manage", value);
     }
 
     /// <summary>
@@ -99,8 +101,8 @@ public class AzurermServicebusQueueAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -109,17 +111,17 @@ public class AzurermServicebusQueueAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueId is required")]
     public required TerraformProperty<string> QueueId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("queue_id");
-        set => this.WithProperty("queue_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("queue_id");
+        set => SetProperty("queue_id", value);
     }
 
     /// <summary>
     /// The send attribute.
     /// </summary>
-    public TerraformProperty<bool>? Send
+    public TerraformProperty<bool> Send
     {
-        get => GetProperty<TerraformProperty<bool>>("send");
-        set => this.WithProperty("send", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("send");
+        set => SetProperty("send", value);
     }
 
     /// <summary>
@@ -128,8 +130,7 @@ public class AzurermServicebusQueueAuthorizationRule : TerraformResource
     /// </summary>
     public AzurermServicebusQueueAuthorizationRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermServicebusQueueAuthorizationRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

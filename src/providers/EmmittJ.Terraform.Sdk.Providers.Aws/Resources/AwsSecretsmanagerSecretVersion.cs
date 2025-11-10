@@ -14,36 +14,44 @@ public class AwsSecretsmanagerSecretVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("has_secret_string_wo");
-        this.WithOutput("version_id");
+        SetOutput("arn");
+        SetOutput("has_secret_string_wo");
+        SetOutput("version_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("secret_binary");
+        SetOutput("secret_id");
+        SetOutput("secret_string");
+        SetOutput("secret_string_wo");
+        SetOutput("secret_string_wo_version");
+        SetOutput("version_stages");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The secret_binary attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretBinary
+    public TerraformProperty<string> SecretBinary
     {
-        get => GetProperty<TerraformProperty<string>>("secret_binary");
-        set => this.WithProperty("secret_binary", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_binary");
+        set => SetProperty("secret_binary", value);
     }
 
     /// <summary>
@@ -52,44 +60,44 @@ public class AwsSecretsmanagerSecretVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
-        set => this.WithProperty("secret_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_id");
+        set => SetProperty("secret_id", value);
     }
 
     /// <summary>
     /// The secret_string attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretString
+    public TerraformProperty<string> SecretString
     {
-        get => GetProperty<TerraformProperty<string>>("secret_string");
-        set => this.WithProperty("secret_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_string");
+        set => SetProperty("secret_string", value);
     }
 
     /// <summary>
     /// The secret_string_wo attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretStringWo
+    public TerraformProperty<string> SecretStringWo
     {
-        get => GetProperty<TerraformProperty<string>>("secret_string_wo");
-        set => this.WithProperty("secret_string_wo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_string_wo");
+        set => SetProperty("secret_string_wo", value);
     }
 
     /// <summary>
     /// The secret_string_wo_version attribute.
     /// </summary>
-    public TerraformProperty<double>? SecretStringWoVersion
+    public TerraformProperty<double> SecretStringWoVersion
     {
-        get => GetProperty<TerraformProperty<double>>("secret_string_wo_version");
-        set => this.WithProperty("secret_string_wo_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("secret_string_wo_version");
+        set => SetProperty("secret_string_wo_version", value);
     }
 
     /// <summary>
     /// The version_stages attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VersionStages
+    public HashSet<TerraformProperty<string>> VersionStages
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("version_stages");
-        set => this.WithProperty("version_stages", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("version_stages");
+        set => SetProperty("version_stages", value);
     }
 
     /// <summary>

@@ -14,15 +14,20 @@ public class AwsIotThingPrincipalAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("principal");
+        SetOutput("region");
+        SetOutput("thing");
+        SetOutput("thing_principal_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,17 +36,17 @@ public class AwsIotThingPrincipalAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => this.WithProperty("principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal");
+        set => SetProperty("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -50,17 +55,17 @@ public class AwsIotThingPrincipalAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thing is required")]
     public required TerraformProperty<string> Thing
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("thing");
-        set => this.WithProperty("thing", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("thing");
+        set => SetProperty("thing", value);
     }
 
     /// <summary>
     /// The thing_principal_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ThingPrincipalType
+    public TerraformProperty<string> ThingPrincipalType
     {
-        get => GetProperty<TerraformProperty<string>>("thing_principal_type");
-        set => this.WithProperty("thing_principal_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("thing_principal_type");
+        set => SetProperty("thing_principal_type", value);
     }
 
 }

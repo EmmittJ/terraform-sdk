@@ -13,8 +13,7 @@ public class GoogleProjectIamAuditConfigAuditLogConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExemptedMembers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("exempted_members");
-        set => WithProperty("exempted_members", value);
+        set => SetProperty("exempted_members", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleProjectIamAuditConfigAuditLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformProperty<string> LogType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_type");
-        set => WithProperty("log_type", value);
+        set => SetProperty("log_type", value);
     }
 
 }
@@ -42,16 +40,19 @@ public class GoogleProjectIamAuditConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("service");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +61,8 @@ public class GoogleProjectIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -70,19 +71,19 @@ public class GoogleProjectIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
     /// Block for audit_log_config.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuditLogConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuditLogConfig block(s) required")]
     public HashSet<GoogleProjectIamAuditConfigAuditLogConfigBlock>? AuditLogConfig
     {
-        get => GetProperty<HashSet<GoogleProjectIamAuditConfigAuditLogConfigBlock>>("audit_log_config");
-        set => this.WithProperty("audit_log_config", value);
+        set => SetProperty("audit_log_config", value);
     }
 
     /// <summary>

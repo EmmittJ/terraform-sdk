@@ -13,8 +13,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("application_consistent_snapshot_frequency_in_hours");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recovery_point_retention_in_hours");
+        SetOutput("recovery_vault_id");
+        SetOutput("replication_interval_in_seconds");
     }
 
     /// <summary>
@@ -66,17 +68,17 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationConsistentSnapshotFrequencyInHours is required")]
     public required TerraformProperty<double> ApplicationConsistentSnapshotFrequencyInHours
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("application_consistent_snapshot_frequency_in_hours");
-        set => this.WithProperty("application_consistent_snapshot_frequency_in_hours", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("application_consistent_snapshot_frequency_in_hours");
+        set => SetProperty("application_consistent_snapshot_frequency_in_hours", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointRetentionInHours is required")]
     public required TerraformProperty<double> RecoveryPointRetentionInHours
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("recovery_point_retention_in_hours");
-        set => this.WithProperty("recovery_point_retention_in_hours", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("recovery_point_retention_in_hours");
+        set => SetProperty("recovery_point_retention_in_hours", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
-        set => this.WithProperty("recovery_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_id");
+        set => SetProperty("recovery_vault_id", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationIntervalInSeconds is required")]
     public required TerraformProperty<double> ReplicationIntervalInSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("replication_interval_in_seconds");
-        set => this.WithProperty("replication_interval_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("replication_interval_in_seconds");
+        set => SetProperty("replication_interval_in_seconds", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     /// </summary>
     public AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

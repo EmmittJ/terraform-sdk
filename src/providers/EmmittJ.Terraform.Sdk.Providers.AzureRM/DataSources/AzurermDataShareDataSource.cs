@@ -13,8 +13,7 @@ public class AzurermDataShareDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,10 +30,13 @@ public class AzurermDataShareDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("kind");
-        this.WithOutput("snapshot_schedule");
-        this.WithOutput("terms");
+        SetOutput("description");
+        SetOutput("kind");
+        SetOutput("snapshot_schedule");
+        SetOutput("terms");
+        SetOutput("account_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -43,17 +45,17 @@ public class AzurermDataShareDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +64,8 @@ public class AzurermDataShareDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +74,7 @@ public class AzurermDataShareDataSource : TerraformDataSource
     /// </summary>
     public AzurermDataShareDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataShareDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

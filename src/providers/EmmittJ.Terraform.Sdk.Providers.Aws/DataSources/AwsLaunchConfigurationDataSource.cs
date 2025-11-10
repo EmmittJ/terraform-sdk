@@ -14,31 +14,34 @@ public class AwsLaunchConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("associate_public_ip_address");
-        this.WithOutput("ebs_block_device");
-        this.WithOutput("ebs_optimized");
-        this.WithOutput("enable_monitoring");
-        this.WithOutput("ephemeral_block_device");
-        this.WithOutput("iam_instance_profile");
-        this.WithOutput("image_id");
-        this.WithOutput("instance_type");
-        this.WithOutput("key_name");
-        this.WithOutput("metadata_options");
-        this.WithOutput("placement_tenancy");
-        this.WithOutput("root_block_device");
-        this.WithOutput("security_groups");
-        this.WithOutput("spot_price");
-        this.WithOutput("user_data");
+        SetOutput("arn");
+        SetOutput("associate_public_ip_address");
+        SetOutput("ebs_block_device");
+        SetOutput("ebs_optimized");
+        SetOutput("enable_monitoring");
+        SetOutput("ephemeral_block_device");
+        SetOutput("iam_instance_profile");
+        SetOutput("image_id");
+        SetOutput("instance_type");
+        SetOutput("key_name");
+        SetOutput("metadata_options");
+        SetOutput("placement_tenancy");
+        SetOutput("root_block_device");
+        SetOutput("security_groups");
+        SetOutput("spot_price");
+        SetOutput("user_data");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -47,17 +50,17 @@ public class AwsLaunchConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

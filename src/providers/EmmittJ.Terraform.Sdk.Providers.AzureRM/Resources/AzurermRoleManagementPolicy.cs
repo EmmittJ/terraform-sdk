@@ -13,8 +13,7 @@ public class AzurermRoleManagementPolicyActivationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaximumDuration
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_duration");
-        set => WithProperty("maximum_duration", value);
+        set => SetProperty("maximum_duration", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermRoleManagementPolicyActivationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequireApproval
     {
-        get => GetProperty<TerraformProperty<bool>>("require_approval");
-        set => WithProperty("require_approval", value);
+        set => SetProperty("require_approval", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermRoleManagementPolicyActivationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequireJustification
     {
-        get => GetProperty<TerraformProperty<bool>>("require_justification");
-        set => WithProperty("require_justification", value);
+        set => SetProperty("require_justification", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermRoleManagementPolicyActivationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequireMultifactorAuthentication
     {
-        get => GetProperty<TerraformProperty<bool>>("require_multifactor_authentication");
-        set => WithProperty("require_multifactor_authentication", value);
+        set => SetProperty("require_multifactor_authentication", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermRoleManagementPolicyActivationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequireTicketInfo
     {
-        get => GetProperty<TerraformProperty<bool>>("require_ticket_info");
-        set => WithProperty("require_ticket_info", value);
+        set => SetProperty("require_ticket_info", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermRoleManagementPolicyActivationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RequiredConditionalAccessAuthenticationContext
     {
-        get => GetProperty<TerraformProperty<string>>("required_conditional_access_authentication_context");
-        set => WithProperty("required_conditional_access_authentication_context", value);
+        set => SetProperty("required_conditional_access_authentication_context", value);
     }
 
 }
@@ -75,8 +69,7 @@ public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? ExpirationRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("expiration_required");
-        set => WithProperty("expiration_required", value);
+        set => SetProperty("expiration_required", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? ExpireAfter
     {
-        get => GetProperty<TerraformProperty<string>>("expire_after");
-        set => WithProperty("expire_after", value);
+        set => SetProperty("expire_after", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? RequireJustification
     {
-        get => GetProperty<TerraformProperty<bool>>("require_justification");
-        set => WithProperty("require_justification", value);
+        set => SetProperty("require_justification", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? RequireMultifactorAuthentication
     {
-        get => GetProperty<TerraformProperty<bool>>("require_multifactor_authentication");
-        set => WithProperty("require_multifactor_authentication", value);
+        set => SetProperty("require_multifactor_authentication", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? RequireTicketInfo
     {
-        get => GetProperty<TerraformProperty<bool>>("require_ticket_info");
-        set => WithProperty("require_ticket_info", value);
+        set => SetProperty("require_ticket_info", value);
     }
 
 }
@@ -128,8 +117,7 @@ public class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock : Terraform
     /// </summary>
     public TerraformProperty<bool>? ExpirationRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("expiration_required");
-        set => WithProperty("expiration_required", value);
+        set => SetProperty("expiration_required", value);
     }
 
     /// <summary>
@@ -137,8 +125,7 @@ public class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? ExpireAfter
     {
-        get => GetProperty<TerraformProperty<string>>("expire_after");
-        set => WithProperty("expire_after", value);
+        set => SetProperty("expire_after", value);
     }
 
 }
@@ -162,8 +149,7 @@ public class AzurermRoleManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -171,8 +157,7 @@ public class AzurermRoleManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -180,8 +165,7 @@ public class AzurermRoleManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -189,8 +173,7 @@ public class AzurermRoleManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -208,17 +191,20 @@ public class AzurermRoleManagementPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputescription");
-        this.WithOutputame");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("role_definition_id");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -227,8 +213,8 @@ public class AzurermRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
-        set => this.WithProperty("role_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
+        set => SetProperty("role_definition_id", value);
     }
 
     /// <summary>
@@ -237,8 +223,8 @@ public class AzurermRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -248,8 +234,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActivationRules block(s) allowed")]
     public List<AzurermRoleManagementPolicyActivationRulesBlock>? ActivationRules
     {
-        get => GetProperty<List<AzurermRoleManagementPolicyActivationRulesBlock>>("activation_rules");
-        set => this.WithProperty("activation_rules", value);
+        set => SetProperty("activation_rules", value);
     }
 
     /// <summary>
@@ -259,8 +244,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveAssignmentRules block(s) allowed")]
     public List<AzurermRoleManagementPolicyActiveAssignmentRulesBlock>? ActiveAssignmentRules
     {
-        get => GetProperty<List<AzurermRoleManagementPolicyActiveAssignmentRulesBlock>>("active_assignment_rules");
-        set => this.WithProperty("active_assignment_rules", value);
+        set => SetProperty("active_assignment_rules", value);
     }
 
     /// <summary>
@@ -270,8 +254,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EligibleAssignmentRules block(s) allowed")]
     public List<AzurermRoleManagementPolicyEligibleAssignmentRulesBlock>? EligibleAssignmentRules
     {
-        get => GetProperty<List<AzurermRoleManagementPolicyEligibleAssignmentRulesBlock>>("eligible_assignment_rules");
-        set => this.WithProperty("eligible_assignment_rules", value);
+        set => SetProperty("eligible_assignment_rules", value);
     }
 
     /// <summary>
@@ -281,8 +264,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationRules block(s) allowed")]
     public List<AzurermRoleManagementPolicyNotificationRulesBlock>? NotificationRules
     {
-        get => GetProperty<List<AzurermRoleManagementPolicyNotificationRulesBlock>>("notification_rules");
-        set => this.WithProperty("notification_rules", value);
+        set => SetProperty("notification_rules", value);
     }
 
     /// <summary>
@@ -291,8 +273,7 @@ public class AzurermRoleManagementPolicy : TerraformResource
     /// </summary>
     public AzurermRoleManagementPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRoleManagementPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

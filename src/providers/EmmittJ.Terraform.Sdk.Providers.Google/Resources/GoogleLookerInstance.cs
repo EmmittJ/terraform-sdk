@@ -18,8 +18,7 @@ public class GoogleLookerInstanceAdminSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedEmailDomains
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_email_domains");
-        set => WithProperty("allowed_email_domains", value);
+        set => SetProperty("allowed_email_domains", value);
     }
 
 }
@@ -35,8 +34,7 @@ public class GoogleLookerInstanceCustomDomainBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => WithProperty("domain", value);
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
@@ -44,8 +42,7 @@ public class GoogleLookerInstanceCustomDomainBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -69,8 +66,7 @@ public class GoogleLookerInstanceEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -78,8 +74,7 @@ public class GoogleLookerInstanceEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyNameVersion
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name_version");
-        set => WithProperty("kms_key_name_version", value);
+        set => SetProperty("kms_key_name_version", value);
     }
 
     /// <summary>
@@ -87,8 +82,7 @@ public class GoogleLookerInstanceEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyState
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_state");
-        set => WithProperty("kms_key_state", value);
+        set => SetProperty("kms_key_state", value);
     }
 
 }
@@ -113,8 +107,7 @@ public class GoogleLookerInstanceMaintenanceWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformProperty<string> DayOfWeek
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("day_of_week");
-        set => WithProperty("day_of_week", value);
+        set => SetProperty("day_of_week", value);
     }
 
 }
@@ -131,8 +124,7 @@ public class GoogleLookerInstanceOauthConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -141,8 +133,7 @@ public class GoogleLookerInstanceOauthConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
-        set => WithProperty("client_secret", value);
+        set => SetProperty("client_secret", value);
     }
 
 }
@@ -158,8 +149,7 @@ public class GoogleLookerInstancePscConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedVpcs
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_vpcs");
-        set => WithProperty("allowed_vpcs", value);
+        set => SetProperty("allowed_vpcs", value);
     }
 
     /// <summary>
@@ -167,8 +157,7 @@ public class GoogleLookerInstancePscConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LookerServiceAttachmentUri
     {
-        get => GetProperty<TerraformProperty<string>>("looker_service_attachment_uri");
-        set => WithProperty("looker_service_attachment_uri", value);
+        set => SetProperty("looker_service_attachment_uri", value);
     }
 
 }
@@ -184,8 +173,7 @@ public class GoogleLookerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -193,8 +181,7 @@ public class GoogleLookerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -202,8 +189,7 @@ public class GoogleLookerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -219,8 +205,7 @@ public class GoogleLookerInstanceUserMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AdditionalDeveloperUserCount
     {
-        get => GetProperty<TerraformProperty<double>>("additional_developer_user_count");
-        set => WithProperty("additional_developer_user_count", value);
+        set => SetProperty("additional_developer_user_count", value);
     }
 
     /// <summary>
@@ -228,8 +213,7 @@ public class GoogleLookerInstanceUserMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AdditionalStandardUserCount
     {
-        get => GetProperty<TerraformProperty<double>>("additional_standard_user_count");
-        set => WithProperty("additional_standard_user_count", value);
+        set => SetProperty("additional_standard_user_count", value);
     }
 
     /// <summary>
@@ -237,8 +221,7 @@ public class GoogleLookerInstanceUserMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AdditionalViewerUserCount
     {
-        get => GetProperty<TerraformProperty<double>>("additional_viewer_user_count");
-        set => WithProperty("additional_viewer_user_count", value);
+        set => SetProperty("additional_viewer_user_count", value);
     }
 
 }
@@ -256,13 +239,26 @@ public class GoogleLookerInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("egress_public_ip");
-        this.WithOutput("ingress_private_ip");
-        this.WithOutput("ingress_public_ip");
-        this.WithOutput("looker_uri");
-        this.WithOutput("looker_version");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("egress_public_ip");
+        SetOutput("ingress_private_ip");
+        SetOutput("ingress_public_ip");
+        SetOutput("looker_uri");
+        SetOutput("looker_version");
+        SetOutput("update_time");
+        SetOutput("consumer_network");
+        SetOutput("deletion_policy");
+        SetOutput("fips_enabled");
+        SetOutput("gemini_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("platform_edition");
+        SetOutput("private_ip_enabled");
+        SetOutput("project");
+        SetOutput("psc_enabled");
+        SetOutput("public_ip_enabled");
+        SetOutput("region");
+        SetOutput("reserved_range");
     }
 
     /// <summary>
@@ -270,10 +266,10 @@ public class GoogleLookerInstance : TerraformResource
     /// Note that the consumer network may be in a different GCP project than the consumer
     /// project that is hosting the Looker Instance.
     /// </summary>
-    public TerraformProperty<string>? ConsumerNetwork
+    public TerraformProperty<string> ConsumerNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("consumer_network");
-        set => this.WithProperty("consumer_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("consumer_network");
+        set => SetProperty("consumer_network", value);
     }
 
     /// <summary>
@@ -282,37 +278,37 @@ public class GoogleLookerInstance : TerraformResource
     /// of its nested resources. If set to &amp;quot;DEFAULT&amp;quot;, Looker instances that still have
     /// nested resources will return an error. Possible values: DEFAULT, FORCE
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// FIPS 140-2 Encryption enablement for Looker (Google Cloud Core).
     /// </summary>
-    public TerraformProperty<bool>? FipsEnabled
+    public TerraformProperty<bool> FipsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("fips_enabled");
-        set => this.WithProperty("fips_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("fips_enabled");
+        set => SetProperty("fips_enabled", value);
     }
 
     /// <summary>
     /// Gemini enablement for Looker (Google Cloud Core).
     /// </summary>
-    public TerraformProperty<bool>? GeminiEnabled
+    public TerraformProperty<bool> GeminiEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("gemini_enabled");
-        set => this.WithProperty("gemini_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("gemini_enabled");
+        set => SetProperty("gemini_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -321,8 +317,8 @@ public class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -339,65 +335,65 @@ public class GoogleLookerInstance : TerraformResource
     /// - LOOKER_CORE_TRIAL_ENTERPRISE: An enterprise trial edition of Looker (Google Cloud core) product.
     /// - LOOKER_CORE_TRIAL_EMBED: An embed trial edition of Looker (Google Cloud core) product. Default value: &amp;quot;LOOKER_CORE_TRIAL&amp;quot; Possible values: [&amp;quot;LOOKER_CORE_TRIAL&amp;quot;, &amp;quot;LOOKER_CORE_STANDARD&amp;quot;, &amp;quot;LOOKER_CORE_STANDARD_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_ENTERPRISE_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_EMBED_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_NONPROD_STANDARD_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_NONPROD_EMBED_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_TRIAL_STANDARD&amp;quot;, &amp;quot;LOOKER_CORE_TRIAL_ENTERPRISE&amp;quot;, &amp;quot;LOOKER_CORE_TRIAL_EMBED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PlatformEdition
+    public TerraformProperty<string> PlatformEdition
     {
-        get => GetProperty<TerraformProperty<string>>("platform_edition");
-        set => this.WithProperty("platform_edition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform_edition");
+        set => SetProperty("platform_edition", value);
     }
 
     /// <summary>
     /// Whether private IP is enabled on the Looker instance.
     /// </summary>
-    public TerraformProperty<bool>? PrivateIpEnabled
+    public TerraformProperty<bool> PrivateIpEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_ip_enabled");
-        set => this.WithProperty("private_ip_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_ip_enabled");
+        set => SetProperty("private_ip_enabled", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Whether Public Service Connect (PSC) is enabled on the Looker instance
     /// </summary>
-    public TerraformProperty<bool>? PscEnabled
+    public TerraformProperty<bool> PscEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("psc_enabled");
-        set => this.WithProperty("psc_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("psc_enabled");
+        set => SetProperty("psc_enabled", value);
     }
 
     /// <summary>
     /// Whether public IP is enabled on the Looker instance.
     /// </summary>
-    public TerraformProperty<bool>? PublicIpEnabled
+    public TerraformProperty<bool> PublicIpEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_ip_enabled");
-        set => this.WithProperty("public_ip_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_ip_enabled");
+        set => SetProperty("public_ip_enabled", value);
     }
 
     /// <summary>
     /// The name of the Looker region of the instance.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Name of a reserved IP address range within the consumer network, to be used for
     /// private service access connection. User may or may not specify this in a request.
     /// </summary>
-    public TerraformProperty<string>? ReservedRange
+    public TerraformProperty<string> ReservedRange
     {
-        get => GetProperty<TerraformProperty<string>>("reserved_range");
-        set => this.WithProperty("reserved_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reserved_range");
+        set => SetProperty("reserved_range", value);
     }
 
     /// <summary>
@@ -407,8 +403,7 @@ public class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminSettings block(s) allowed")]
     public List<GoogleLookerInstanceAdminSettingsBlock>? AdminSettings
     {
-        get => GetProperty<List<GoogleLookerInstanceAdminSettingsBlock>>("admin_settings");
-        set => this.WithProperty("admin_settings", value);
+        set => SetProperty("admin_settings", value);
     }
 
     /// <summary>
@@ -418,8 +413,7 @@ public class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDomain block(s) allowed")]
     public List<GoogleLookerInstanceCustomDomainBlock>? CustomDomain
     {
-        get => GetProperty<List<GoogleLookerInstanceCustomDomainBlock>>("custom_domain");
-        set => this.WithProperty("custom_domain", value);
+        set => SetProperty("custom_domain", value);
     }
 
     /// <summary>
@@ -429,8 +423,7 @@ public class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DenyMaintenancePeriod block(s) allowed")]
     public List<GoogleLookerInstanceDenyMaintenancePeriodBlock>? DenyMaintenancePeriod
     {
-        get => GetProperty<List<GoogleLookerInstanceDenyMaintenancePeriodBlock>>("deny_maintenance_period");
-        set => this.WithProperty("deny_maintenance_period", value);
+        set => SetProperty("deny_maintenance_period", value);
     }
 
     /// <summary>
@@ -440,8 +433,7 @@ public class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     public List<GoogleLookerInstanceEncryptionConfigBlock>? EncryptionConfig
     {
-        get => GetProperty<List<GoogleLookerInstanceEncryptionConfigBlock>>("encryption_config");
-        set => this.WithProperty("encryption_config", value);
+        set => SetProperty("encryption_config", value);
     }
 
     /// <summary>
@@ -451,20 +443,19 @@ public class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     public List<GoogleLookerInstanceMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetProperty<List<GoogleLookerInstanceMaintenanceWindowBlock>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
     /// Block for oauth_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OauthConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OauthConfig block(s) allowed")]
     public List<GoogleLookerInstanceOauthConfigBlock>? OauthConfig
     {
-        get => GetProperty<List<GoogleLookerInstanceOauthConfigBlock>>("oauth_config");
-        set => this.WithProperty("oauth_config", value);
+        set => SetProperty("oauth_config", value);
     }
 
     /// <summary>
@@ -474,8 +465,7 @@ public class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
     public List<GoogleLookerInstancePscConfigBlock>? PscConfig
     {
-        get => GetProperty<List<GoogleLookerInstancePscConfigBlock>>("psc_config");
-        set => this.WithProperty("psc_config", value);
+        set => SetProperty("psc_config", value);
     }
 
     /// <summary>
@@ -484,8 +474,7 @@ public class GoogleLookerInstance : TerraformResource
     /// </summary>
     public GoogleLookerInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleLookerInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -495,8 +484,7 @@ public class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserMetadata block(s) allowed")]
     public List<GoogleLookerInstanceUserMetadataBlock>? UserMetadata
     {
-        get => GetProperty<List<GoogleLookerInstanceUserMetadataBlock>>("user_metadata");
-        set => this.WithProperty("user_metadata", value);
+        set => SetProperty("user_metadata", value);
     }
 
     /// <summary>

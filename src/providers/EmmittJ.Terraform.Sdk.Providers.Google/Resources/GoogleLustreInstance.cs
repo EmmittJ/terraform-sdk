@@ -13,8 +13,7 @@ public class GoogleLustreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleLustreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleLustreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,13 +46,24 @@ public class GoogleLustreInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("mount_point");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("mount_point");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("capacity_gib");
+        SetOutput("description");
+        SetOutput("filesystem");
+        SetOutput("gke_support_enabled");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("network");
+        SetOutput("per_unit_storage_throughput");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -65,17 +73,17 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformProperty<string> CapacityGib
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capacity_gib");
-        set => this.WithProperty("capacity_gib", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capacity_gib");
+        set => SetProperty("capacity_gib", value);
     }
 
     /// <summary>
     /// A user-readable description of the instance.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -86,27 +94,27 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filesystem is required")]
     public required TerraformProperty<string> Filesystem
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filesystem");
-        set => this.WithProperty("filesystem", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filesystem");
+        set => SetProperty("filesystem", value);
     }
 
     /// <summary>
     /// Indicates whether you want to enable support for GKE clients. By default,
     /// GKE clients are not supported.
     /// </summary>
-    public TerraformProperty<bool>? GkeSupportEnabled
+    public TerraformProperty<bool> GkeSupportEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("gke_support_enabled");
-        set => this.WithProperty("gke_support_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("gke_support_enabled");
+        set => SetProperty("gke_support_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -120,8 +128,8 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -130,10 +138,10 @@ public class GoogleLustreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -142,8 +150,8 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -154,8 +162,8 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -165,17 +173,17 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerUnitStorageThroughput is required")]
     public required TerraformProperty<string> PerUnitStorageThroughput
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("per_unit_storage_throughput");
-        set => this.WithProperty("per_unit_storage_throughput", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("per_unit_storage_throughput");
+        set => SetProperty("per_unit_storage_throughput", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -184,8 +192,7 @@ public class GoogleLustreInstance : TerraformResource
     /// </summary>
     public GoogleLustreInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleLustreInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

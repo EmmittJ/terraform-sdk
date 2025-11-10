@@ -14,8 +14,7 @@ public class AzurermSubscriptionCostManagementViewDatasetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Granularity is required")]
     public required TerraformProperty<string> Granularity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("granularity");
-        set => WithProperty("granularity", value);
+        set => SetProperty("granularity", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AzurermSubscriptionCostManagementViewKpiBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -50,8 +48,7 @@ public class AzurermSubscriptionCostManagementViewPivotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -60,8 +57,7 @@ public class AzurermSubscriptionCostManagementViewPivotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -77,8 +73,7 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -86,8 +81,7 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -95,8 +89,7 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -104,8 +97,7 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -123,6 +115,14 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("accumulated");
+        SetOutput("chart_type");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("report_type");
+        SetOutput("subscription_id");
+        SetOutput("timeframe");
     }
 
     /// <summary>
@@ -131,8 +131,8 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Accumulated is required")]
     public required TerraformProperty<bool> Accumulated
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("accumulated");
-        set => this.WithProperty("accumulated", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("accumulated");
+        set => SetProperty("accumulated", value);
     }
 
     /// <summary>
@@ -141,8 +141,8 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChartType is required")]
     public required TerraformProperty<string> ChartType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("chart_type");
-        set => this.WithProperty("chart_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("chart_type");
+        set => SetProperty("chart_type", value);
     }
 
     /// <summary>
@@ -151,17 +151,17 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -170,8 +170,8 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -180,8 +180,8 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportType is required")]
     public required TerraformProperty<string> ReportType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("report_type");
-        set => this.WithProperty("report_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("report_type");
+        set => SetProperty("report_type", value);
     }
 
     /// <summary>
@@ -190,8 +190,8 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -200,20 +200,20 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeframe is required")]
     public required TerraformProperty<string> Timeframe
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("timeframe");
-        set => this.WithProperty("timeframe", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("timeframe");
+        set => SetProperty("timeframe", value);
     }
 
     /// <summary>
     /// Block for dataset.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Dataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
     public List<AzurermSubscriptionCostManagementViewDatasetBlock>? Dataset
     {
-        get => GetProperty<List<AzurermSubscriptionCostManagementViewDatasetBlock>>("dataset");
-        set => this.WithProperty("dataset", value);
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
@@ -222,8 +222,7 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// </summary>
     public List<AzurermSubscriptionCostManagementViewKpiBlock>? Kpi
     {
-        get => GetProperty<List<AzurermSubscriptionCostManagementViewKpiBlock>>("kpi");
-        set => this.WithProperty("kpi", value);
+        set => SetProperty("kpi", value);
     }
 
     /// <summary>
@@ -232,8 +231,7 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// </summary>
     public List<AzurermSubscriptionCostManagementViewPivotBlock>? Pivot
     {
-        get => GetProperty<List<AzurermSubscriptionCostManagementViewPivotBlock>>("pivot");
-        set => this.WithProperty("pivot", value);
+        set => SetProperty("pivot", value);
     }
 
     /// <summary>
@@ -242,8 +240,7 @@ public class AzurermSubscriptionCostManagementView : TerraformResource
     /// </summary>
     public AzurermSubscriptionCostManagementViewTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSubscriptionCostManagementViewTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

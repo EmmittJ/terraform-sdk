@@ -14,12 +14,15 @@ public class GoogleFolderOrganizationPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("boolean_policy");
-        this.WithOutput("etag");
-        this.WithOutput("list_policy");
-        this.WithOutput("restore_policy");
-        this.WithOutput("update_time");
-        this.WithOutput("version");
+        SetOutput("boolean_policy");
+        SetOutput("etag");
+        SetOutput("list_policy");
+        SetOutput("restore_policy");
+        SetOutput("update_time");
+        SetOutput("version");
+        SetOutput("constraint");
+        SetOutput("folder");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -28,8 +31,8 @@ public class GoogleFolderOrganizationPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     public required TerraformProperty<string> Constraint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("constraint");
-        set => this.WithProperty("constraint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("constraint");
+        set => SetProperty("constraint", value);
     }
 
     /// <summary>
@@ -38,17 +41,17 @@ public class GoogleFolderOrganizationPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

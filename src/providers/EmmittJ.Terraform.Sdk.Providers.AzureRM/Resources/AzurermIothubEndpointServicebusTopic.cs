@@ -13,8 +13,7 @@ public class AzurermIothubEndpointServicebusTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubEndpointServicebusTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIothubEndpointServicebusTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIothubEndpointServicebusTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,60 +54,70 @@ public class AzurermIothubEndpointServicebusTopic : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("authentication_type");
+        SetOutput("connection_string");
+        SetOutput("endpoint_uri");
+        SetOutput("entity_path");
+        SetOutput("id");
+        SetOutput("identity_id");
+        SetOutput("iothub_id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationType
+    public TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
-        set => this.WithProperty("authentication_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
+    public TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointUri
+    public TerraformProperty<string> EndpointUri
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_uri");
-        set => this.WithProperty("endpoint_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_uri");
+        set => SetProperty("endpoint_uri", value);
     }
 
     /// <summary>
     /// The entity_path attribute.
     /// </summary>
-    public TerraformProperty<string>? EntityPath
+    public TerraformProperty<string> EntityPath
     {
-        get => GetProperty<TerraformProperty<string>>("entity_path");
-        set => this.WithProperty("entity_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entity_path");
+        set => SetProperty("entity_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityId
+    public TerraformProperty<string> IdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_id");
-        set => this.WithProperty("identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_id");
+        set => SetProperty("identity_id", value);
     }
 
     /// <summary>
@@ -120,8 +126,8 @@ public class AzurermIothubEndpointServicebusTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
-        set => this.WithProperty("iothub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
+        set => SetProperty("iothub_id", value);
     }
 
     /// <summary>
@@ -130,8 +136,8 @@ public class AzurermIothubEndpointServicebusTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -140,17 +146,17 @@ public class AzurermIothubEndpointServicebusTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionId
+    public TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -159,8 +165,7 @@ public class AzurermIothubEndpointServicebusTopic : TerraformResource
     /// </summary>
     public AzurermIothubEndpointServicebusTopicTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubEndpointServicebusTopicTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

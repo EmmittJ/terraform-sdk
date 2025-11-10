@@ -21,8 +21,7 @@ public class GoogleColabScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleColabScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleColabScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,17 +55,28 @@ public class GoogleColabSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("allow_queueing");
+        SetOutput("cron");
+        SetOutput("desired_state");
+        SetOutput("display_name");
+        SetOutput("end_time");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("max_concurrent_run_count");
+        SetOutput("max_run_count");
+        SetOutput("project");
+        SetOutput("start_time");
     }
 
     /// <summary>
     /// Whether new scheduled runs can be queued when max_concurrent_runs limit is reached. If set to true, new runs will be queued instead of skipped. Default to false.
     /// </summary>
-    public TerraformProperty<bool>? AllowQueueing
+    public TerraformProperty<bool> AllowQueueing
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_queueing");
-        set => this.WithProperty("allow_queueing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_queueing");
+        set => SetProperty("allow_queueing", value);
     }
 
     /// <summary>
@@ -77,17 +85,17 @@ public class GoogleColabSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cron is required")]
     public required TerraformProperty<string> Cron
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cron");
-        set => this.WithProperty("cron", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cron");
+        set => SetProperty("cron", value);
     }
 
     /// <summary>
     /// Desired state of the Colab Schedule. Set this field to &#39;ACTIVE&#39; to start/resume the schedule, and &#39;PAUSED&#39; to pause the schedule.
     /// </summary>
-    public TerraformProperty<string>? DesiredState
+    public TerraformProperty<string> DesiredState
     {
-        get => GetProperty<TerraformProperty<string>>("desired_state");
-        set => this.WithProperty("desired_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("desired_state");
+        set => SetProperty("desired_state", value);
     }
 
     /// <summary>
@@ -96,26 +104,26 @@ public class GoogleColabSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Timestamp after which no new runs can be scheduled. If specified, the schedule will be completed when either end_time is reached or when scheduled_run_count &amp;gt;= max_run_count. Must be in the RFC 3339 (https://www.ietf.org/rfc/rfc3339.txt) format.
     /// </summary>
-    public TerraformProperty<string>? EndTime
+    public TerraformProperty<string> EndTime
     {
-        get => GetProperty<TerraformProperty<string>>("end_time");
-        set => this.WithProperty("end_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_time");
+        set => SetProperty("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -124,8 +132,8 @@ public class GoogleColabSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -134,47 +142,47 @@ public class GoogleColabSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConcurrentRunCount is required")]
     public required TerraformProperty<string> MaxConcurrentRunCount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("max_concurrent_run_count");
-        set => this.WithProperty("max_concurrent_run_count", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("max_concurrent_run_count");
+        set => SetProperty("max_concurrent_run_count", value);
     }
 
     /// <summary>
     /// Maximum run count of the schedule. If specified, The schedule will be completed when either startedRunCount &amp;gt;= maxRunCount or when endTime is reached. If not specified, new runs will keep getting scheduled until this Schedule is paused or deleted. Already scheduled runs will be allowed to complete. Unset if not specified.
     /// </summary>
-    public TerraformProperty<string>? MaxRunCount
+    public TerraformProperty<string> MaxRunCount
     {
-        get => GetProperty<TerraformProperty<string>>("max_run_count");
-        set => this.WithProperty("max_run_count", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("max_run_count");
+        set => SetProperty("max_run_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The timestamp after which the first run can be scheduled. Defaults to the schedule creation time. Must be in the RFC 3339 (https://www.ietf.org/rfc/rfc3339.txt) format.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
     /// Block for create_notebook_execution_job_request.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateNotebookExecutionJobRequest is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CreateNotebookExecutionJobRequest block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreateNotebookExecutionJobRequest block(s) allowed")]
     public List<GoogleColabScheduleCreateNotebookExecutionJobRequestBlock>? CreateNotebookExecutionJobRequest
     {
-        get => GetProperty<List<GoogleColabScheduleCreateNotebookExecutionJobRequestBlock>>("create_notebook_execution_job_request");
-        set => this.WithProperty("create_notebook_execution_job_request", value);
+        set => SetProperty("create_notebook_execution_job_request", value);
     }
 
     /// <summary>
@@ -183,8 +191,7 @@ public class GoogleColabSchedule : TerraformResource
     /// </summary>
     public GoogleColabScheduleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleColabScheduleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

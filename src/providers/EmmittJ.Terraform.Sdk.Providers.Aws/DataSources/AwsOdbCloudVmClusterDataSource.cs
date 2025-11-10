@@ -14,46 +14,48 @@ public class AwsOdbCloudVmClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cloud_exadata_infrastructure_id");
-        this.WithOutput("cluster_name");
-        this.WithOutput("compute_model");
-        this.WithOutput("cpu_core_count");
-        this.WithOutput("created_at");
-        this.WithOutput("data_collection_options");
-        this.WithOutput("data_storage_size_in_tbs");
-        this.WithOutput("db_node_storage_size_in_gbs");
-        this.WithOutput("db_servers");
-        this.WithOutput("disk_redundancy");
-        this.WithOutput("display_name");
-        this.WithOutput("domain");
-        this.WithOutput("gi_version");
-        this.WithOutput("hostname_prefix_computed");
-        this.WithOutput("iorm_config_cache");
-        this.WithOutput("is_local_backup_enabled");
-        this.WithOutput("is_sparse_disk_group_enabled");
-        this.WithOutput("last_update_history_entry_id");
-        this.WithOutput("license_model");
-        this.WithOutput("listener_port");
-        this.WithOutput("memory_size_in_gbs");
-        this.WithOutput("node_count");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("oci_url");
-        this.WithOutput("ocid");
-        this.WithOutput("odb_network_id");
-        this.WithOutput("percent_progress");
-        this.WithOutput("scan_dns_name");
-        this.WithOutput("scan_dns_record_id");
-        this.WithOutput("scan_ip_ids");
-        this.WithOutput("shape");
-        this.WithOutput("ssh_public_keys");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("storage_size_in_gbs");
-        this.WithOutput("system_version");
-        this.WithOutput("tags");
-        this.WithOutput("timezone");
-        this.WithOutput("vip_ids");
+        SetOutput("arn");
+        SetOutput("cloud_exadata_infrastructure_id");
+        SetOutput("cluster_name");
+        SetOutput("compute_model");
+        SetOutput("cpu_core_count");
+        SetOutput("created_at");
+        SetOutput("data_collection_options");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("db_node_storage_size_in_gbs");
+        SetOutput("db_servers");
+        SetOutput("disk_redundancy");
+        SetOutput("display_name");
+        SetOutput("domain");
+        SetOutput("gi_version");
+        SetOutput("hostname_prefix_computed");
+        SetOutput("iorm_config_cache");
+        SetOutput("is_local_backup_enabled");
+        SetOutput("is_sparse_disk_group_enabled");
+        SetOutput("last_update_history_entry_id");
+        SetOutput("license_model");
+        SetOutput("listener_port");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("node_count");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("oci_url");
+        SetOutput("ocid");
+        SetOutput("odb_network_id");
+        SetOutput("percent_progress");
+        SetOutput("scan_dns_name");
+        SetOutput("scan_dns_record_id");
+        SetOutput("scan_ip_ids");
+        SetOutput("shape");
+        SetOutput("ssh_public_keys");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("storage_size_in_gbs");
+        SetOutput("system_version");
+        SetOutput("tags");
+        SetOutput("timezone");
+        SetOutput("vip_ids");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -62,17 +64,17 @@ public class AwsOdbCloudVmClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

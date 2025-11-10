@@ -14,56 +14,61 @@ public class AwsIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("attachment_count");
-        this.WithOutput("description");
-        this.WithOutput("path");
-        this.WithOutput("policy");
-        this.WithOutput("policy_id");
+        SetOutput("attachment_count");
+        SetOutput("description");
+        SetOutput("path");
+        SetOutput("policy");
+        SetOutput("policy_id");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("path_prefix");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? PathPrefix
+    public TerraformProperty<string> PathPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("path_prefix");
-        set => this.WithProperty("path_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path_prefix");
+        set => SetProperty("path_prefix", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

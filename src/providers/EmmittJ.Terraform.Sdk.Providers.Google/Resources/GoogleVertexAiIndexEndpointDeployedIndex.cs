@@ -15,8 +15,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : T
     /// </summary>
     public TerraformProperty<double>? MaxReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_replica_count");
-        set => WithProperty("max_replica_count", value);
+        set => SetProperty("max_replica_count", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : T
     /// </summary>
     public TerraformProperty<double>? MinReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_replica_count");
-        set => WithProperty("min_replica_count", value);
+        set => SetProperty("min_replica_count", value);
     }
 
 }
@@ -43,8 +41,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : T
     /// </summary>
     public TerraformProperty<double>? MaxReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_replica_count");
-        set => WithProperty("max_replica_count", value);
+        set => SetProperty("max_replica_count", value);
     }
 
     /// <summary>
@@ -53,8 +50,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     public required TerraformProperty<double> MinReplicaCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_replica_count");
-        set => WithProperty("min_replica_count", value);
+        set => SetProperty("min_replica_count", value);
     }
 
 }
@@ -78,8 +74,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -87,8 +82,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -96,8 +90,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,10 +108,19 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("index_sync_time");
-        this.WithOutput("name");
-        this.WithOutput("private_endpoints");
+        SetOutput("create_time");
+        SetOutput("index_sync_time");
+        SetOutput("name");
+        SetOutput("private_endpoints");
+        SetOutput("deployed_index_id");
+        SetOutput("deployment_group");
+        SetOutput("display_name");
+        SetOutput("enable_access_logging");
+        SetOutput("id");
+        SetOutput("index");
+        SetOutput("index_endpoint");
+        SetOutput("region");
+        SetOutput("reserved_ip_ranges");
     }
 
     /// <summary>
@@ -127,8 +129,8 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeployedIndexId is required")]
     public required TerraformProperty<string> DeployedIndexId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deployed_index_id");
-        set => this.WithProperty("deployed_index_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployed_index_id");
+        set => SetProperty("deployed_index_id", value);
     }
 
     /// <summary>
@@ -136,37 +138,37 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// Creating deployment_groups with reserved_ip_ranges is a recommended practice when the peered network has multiple peering ranges. This creates your deployments from predictable IP spaces for easier traffic administration. Also, one deployment_group (except &#39;default&#39;) can only be used with the same reserved_ip_ranges which means if the deployment_group has been used with reserved_ip_ranges: [a, b, c], using it with [a, b] or [d, e] is disallowed. [See the official documentation here](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.indexEndpoints#DeployedIndex.FIELDS.deployment_group).
     /// Note: we only support up to 5 deployment groups (not including &#39;default&#39;).
     /// </summary>
-    public TerraformProperty<string>? DeploymentGroup
+    public TerraformProperty<string> DeploymentGroup
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_group");
-        set => this.WithProperty("deployment_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_group");
+        set => SetProperty("deployment_group", value);
     }
 
     /// <summary>
     /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// If true, private endpoint&#39;s access logs are sent to Cloud Logging.
     /// </summary>
-    public TerraformProperty<bool>? EnableAccessLogging
+    public TerraformProperty<bool> EnableAccessLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_access_logging");
-        set => this.WithProperty("enable_access_logging", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_access_logging");
+        set => SetProperty("enable_access_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -175,8 +177,8 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
     public required TerraformProperty<string> Index
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("index");
-        set => this.WithProperty("index", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("index");
+        set => SetProperty("index", value);
     }
 
     /// <summary>
@@ -186,17 +188,17 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexEndpoint is required")]
     public required TerraformProperty<string> IndexEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("index_endpoint");
-        set => this.WithProperty("index_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("index_endpoint");
+        set => SetProperty("index_endpoint", value);
     }
 
     /// <summary>
     /// The region of the index endpoint deployment. eg us-central1
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -207,10 +209,10 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// 
     /// For more information about subnets and network IP ranges, please see https://cloud.google.com/vpc/docs/subnets#manually_created_subnet_ip_ranges.
     /// </summary>
-    public List<TerraformProperty<string>>? ReservedIpRanges
+    public List<TerraformProperty<string>> ReservedIpRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("reserved_ip_ranges");
-        set => this.WithProperty("reserved_ip_ranges", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("reserved_ip_ranges");
+        set => SetProperty("reserved_ip_ranges", value);
     }
 
     /// <summary>
@@ -220,8 +222,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticResources block(s) allowed")]
     public List<GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock>? AutomaticResources
     {
-        get => GetProperty<List<GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock>>("automatic_resources");
-        set => this.WithProperty("automatic_resources", value);
+        set => SetProperty("automatic_resources", value);
     }
 
     /// <summary>
@@ -231,8 +232,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedResources block(s) allowed")]
     public List<GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock>? DedicatedResources
     {
-        get => GetProperty<List<GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock>>("dedicated_resources");
-        set => this.WithProperty("dedicated_resources", value);
+        set => SetProperty("dedicated_resources", value);
     }
 
     /// <summary>
@@ -242,8 +242,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeployedIndexAuthConfig block(s) allowed")]
     public List<GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock>? DeployedIndexAuthConfig
     {
-        get => GetProperty<List<GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock>>("deployed_index_auth_config");
-        set => this.WithProperty("deployed_index_auth_config", value);
+        set => SetProperty("deployed_index_auth_config", value);
     }
 
     /// <summary>
@@ -252,8 +251,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// </summary>
     public GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

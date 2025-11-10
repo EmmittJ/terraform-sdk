@@ -14,8 +14,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultSubscriptionStatus is required")]
     public required TerraformProperty<string> DefaultSubscriptionStatus
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_subscription_status");
-        set => WithProperty("default_subscription_status", value);
+        set => SetProperty("default_subscription_status", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformProperty<string> TopicName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic_name");
-        set => WithProperty("topic_name", value);
+        set => SetProperty("topic_name", value);
     }
 
 }
@@ -61,9 +57,15 @@ public class AwsSesv2ContactList : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_timestamp");
-        this.WithOutput("last_updated_timestamp");
+        SetOutput("arn");
+        SetOutput("created_timestamp");
+        SetOutput("last_updated_timestamp");
+        SetOutput("contact_list_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -72,53 +74,53 @@ public class AwsSesv2ContactList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactListName is required")]
     public required TerraformProperty<string> ContactListName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("contact_list_name");
-        set => this.WithProperty("contact_list_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("contact_list_name");
+        set => SetProperty("contact_list_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -127,8 +129,7 @@ public class AwsSesv2ContactList : TerraformResource
     /// </summary>
     public HashSet<AwsSesv2ContactListTopicBlock>? Topic
     {
-        get => GetProperty<HashSet<AwsSesv2ContactListTopicBlock>>("topic");
-        set => this.WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
     /// <summary>

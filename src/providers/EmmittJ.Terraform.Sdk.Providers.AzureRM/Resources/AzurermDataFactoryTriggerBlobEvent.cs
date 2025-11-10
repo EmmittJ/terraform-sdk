@@ -14,8 +14,7 @@ public class AzurermDataFactoryTriggerBlobEventPipelineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermDataFactoryTriggerBlobEventPipelineBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermDataFactoryTriggerBlobEventTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermDataFactoryTriggerBlobEventTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermDataFactoryTriggerBlobEventTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermDataFactoryTriggerBlobEventTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,51 +80,63 @@ public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("activated");
+        SetOutput("additional_properties");
+        SetOutput("annotations");
+        SetOutput("blob_path_begins_with");
+        SetOutput("blob_path_ends_with");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("events");
+        SetOutput("id");
+        SetOutput("ignore_empty_blobs");
+        SetOutput("name");
+        SetOutput("storage_account_id");
     }
 
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    public TerraformProperty<bool>? Activated
+    public TerraformProperty<bool> Activated
     {
-        get => GetProperty<TerraformProperty<bool>>("activated");
-        set => this.WithProperty("activated", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("activated");
+        set => SetProperty("activated", value);
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => this.WithProperty("additional_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Annotations
+    public List<TerraformProperty<string>> Annotations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// The blob_path_begins_with attribute.
     /// </summary>
-    public TerraformProperty<string>? BlobPathBeginsWith
+    public TerraformProperty<string> BlobPathBeginsWith
     {
-        get => GetProperty<TerraformProperty<string>>("blob_path_begins_with");
-        set => this.WithProperty("blob_path_begins_with", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blob_path_begins_with");
+        set => SetProperty("blob_path_begins_with", value);
     }
 
     /// <summary>
     /// The blob_path_ends_with attribute.
     /// </summary>
-    public TerraformProperty<string>? BlobPathEndsWith
+    public TerraformProperty<string> BlobPathEndsWith
     {
-        get => GetProperty<TerraformProperty<string>>("blob_path_ends_with");
-        set => this.WithProperty("blob_path_ends_with", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blob_path_ends_with");
+        set => SetProperty("blob_path_ends_with", value);
     }
 
     /// <summary>
@@ -139,45 +145,45 @@ public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
-    public HashSet<TerraformProperty<string>>? Events
+    public HashSet<TerraformProperty<string>> Events
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("events");
-        set => this.WithProperty("events", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("events");
+        set => SetProperty("events", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ignore_empty_blobs attribute.
     /// </summary>
-    public TerraformProperty<bool>? IgnoreEmptyBlobs
+    public TerraformProperty<bool> IgnoreEmptyBlobs
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_empty_blobs");
-        set => this.WithProperty("ignore_empty_blobs", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_empty_blobs");
+        set => SetProperty("ignore_empty_blobs", value);
     }
 
     /// <summary>
@@ -186,8 +192,8 @@ public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -196,19 +202,19 @@ public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// Block for pipeline.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
     public HashSet<AzurermDataFactoryTriggerBlobEventPipelineBlock>? Pipeline
     {
-        get => GetProperty<HashSet<AzurermDataFactoryTriggerBlobEventPipelineBlock>>("pipeline");
-        set => this.WithProperty("pipeline", value);
+        set => SetProperty("pipeline", value);
     }
 
     /// <summary>
@@ -217,8 +223,7 @@ public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     /// </summary>
     public AzurermDataFactoryTriggerBlobEventTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryTriggerBlobEventTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

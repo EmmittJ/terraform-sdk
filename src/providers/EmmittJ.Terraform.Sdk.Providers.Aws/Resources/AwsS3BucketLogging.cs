@@ -14,8 +14,7 @@ public class AwsS3BucketLoggingTargetGrantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformProperty<string> Permission
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("permission");
-        set => WithProperty("permission", value);
+        set => SetProperty("permission", value);
     }
 
 }
@@ -41,6 +40,12 @@ public class AwsS3BucketLogging : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket");
+        SetOutput("expected_bucket_owner");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("target_bucket");
+        SetOutput("target_prefix");
     }
 
     /// <summary>
@@ -49,35 +54,35 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpectedBucketOwner
+    public TerraformProperty<string> ExpectedBucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("expected_bucket_owner");
-        set => this.WithProperty("expected_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
+        set => SetProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -86,8 +91,8 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetBucket is required")]
     public required TerraformProperty<string> TargetBucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_bucket");
-        set => this.WithProperty("target_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_bucket");
+        set => SetProperty("target_bucket", value);
     }
 
     /// <summary>
@@ -96,8 +101,8 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPrefix is required")]
     public required TerraformProperty<string> TargetPrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_prefix");
-        set => this.WithProperty("target_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_prefix");
+        set => SetProperty("target_prefix", value);
     }
 
     /// <summary>
@@ -106,8 +111,7 @@ public class AwsS3BucketLogging : TerraformResource
     /// </summary>
     public HashSet<AwsS3BucketLoggingTargetGrantBlock>? TargetGrant
     {
-        get => GetProperty<HashSet<AwsS3BucketLoggingTargetGrantBlock>>("target_grant");
-        set => this.WithProperty("target_grant", value);
+        set => SetProperty("target_grant", value);
     }
 
     /// <summary>
@@ -117,8 +121,7 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetObjectKeyFormat block(s) allowed")]
     public List<AwsS3BucketLoggingTargetObjectKeyFormatBlock>? TargetObjectKeyFormat
     {
-        get => GetProperty<List<AwsS3BucketLoggingTargetObjectKeyFormatBlock>>("target_object_key_format");
-        set => this.WithProperty("target_object_key_format", value);
+        set => SetProperty("target_object_key_format", value);
     }
 
 }

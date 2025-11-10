@@ -13,8 +13,7 @@ public class AzurermBatchJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBatchJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBatchJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermBatchJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermBatchJob : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("batch_pool_id");
+        SetOutput("common_environment_properties");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("priority");
+        SetOutput("task_retry_maximum");
     }
 
     /// <summary>
@@ -66,35 +69,35 @@ public class AzurermBatchJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchPoolId is required")]
     public required TerraformProperty<string> BatchPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("batch_pool_id");
-        set => this.WithProperty("batch_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("batch_pool_id");
+        set => SetProperty("batch_pool_id", value);
     }
 
     /// <summary>
     /// The common_environment_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? CommonEnvironmentProperties
+    public Dictionary<string, TerraformProperty<string>> CommonEnvironmentProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("common_environment_properties");
-        set => this.WithProperty("common_environment_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("common_environment_properties");
+        set => SetProperty("common_environment_properties", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,26 +106,26 @@ public class AzurermBatchJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// The task_retry_maximum attribute.
     /// </summary>
-    public TerraformProperty<double>? TaskRetryMaximum
+    public TerraformProperty<double> TaskRetryMaximum
     {
-        get => GetProperty<TerraformProperty<double>>("task_retry_maximum");
-        set => this.WithProperty("task_retry_maximum", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("task_retry_maximum");
+        set => SetProperty("task_retry_maximum", value);
     }
 
     /// <summary>
@@ -131,8 +134,7 @@ public class AzurermBatchJob : TerraformResource
     /// </summary>
     public AzurermBatchJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBatchJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

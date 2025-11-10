@@ -13,8 +13,7 @@ public class GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,11 @@ public class GoogleComputeDiskResourcePolicyAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("disk");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("zone");
     }
 
     /// <summary>
@@ -48,17 +51,17 @@ public class GoogleComputeDiskResourcePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformProperty<string> Disk
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("disk");
-        set => this.WithProperty("disk", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk");
+        set => SetProperty("disk", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,26 +71,26 @@ public class GoogleComputeDiskResourcePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// A reference to the zone where the disk resides.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -96,8 +99,7 @@ public class GoogleComputeDiskResourcePolicyAttachment : TerraformResource
     /// </summary>
     public GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

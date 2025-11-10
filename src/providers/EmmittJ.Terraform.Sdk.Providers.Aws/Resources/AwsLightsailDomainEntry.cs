@@ -14,6 +14,13 @@ public class AwsLightsailDomainEntry : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("is_alias");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("target");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -22,26 +29,26 @@ public class AwsLightsailDomainEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The is_alias attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsAlias
+    public TerraformProperty<bool> IsAlias
     {
-        get => GetProperty<TerraformProperty<bool>>("is_alias");
-        set => this.WithProperty("is_alias", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_alias");
+        set => SetProperty("is_alias", value);
     }
 
     /// <summary>
@@ -50,17 +57,17 @@ public class AwsLightsailDomainEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,8 +76,8 @@ public class AwsLightsailDomainEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target");
-        set => this.WithProperty("target", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target");
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -79,8 +86,8 @@ public class AwsLightsailDomainEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
 }

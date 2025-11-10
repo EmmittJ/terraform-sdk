@@ -21,8 +21,7 @@ public class AwsPrometheusQueryLoggingConfigurationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsPrometheusQueryLoggingConfigurationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsPrometheusQueryLoggingConfigurationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,15 +54,17 @@ public class AwsPrometheusQueryLoggingConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("region");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -74,8 +73,8 @@ public class AwsPrometheusQueryLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -84,8 +83,7 @@ public class AwsPrometheusQueryLoggingConfiguration : TerraformResource
     /// </summary>
     public List<AwsPrometheusQueryLoggingConfigurationDestinationBlock>? Destination
     {
-        get => GetProperty<List<AwsPrometheusQueryLoggingConfigurationDestinationBlock>>("destination");
-        set => this.WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
@@ -94,8 +92,7 @@ public class AwsPrometheusQueryLoggingConfiguration : TerraformResource
     /// </summary>
     public AwsPrometheusQueryLoggingConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsPrometheusQueryLoggingConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class GoogleEssentialContactsContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleEssentialContactsContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleEssentialContactsContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,12 @@ public class GoogleEssentialContactsContact : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("email");
+        SetOutput("id");
+        SetOutput("language_tag");
+        SetOutput("notification_category_subscriptions");
+        SetOutput("parent");
     }
 
     /// <summary>
@@ -58,17 +60,17 @@ public class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email");
-        set => this.WithProperty("email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email");
+        set => SetProperty("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,18 +79,18 @@ public class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageTag is required")]
     public required TerraformProperty<string> LanguageTag
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("language_tag");
-        set => this.WithProperty("language_tag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language_tag");
+        set => SetProperty("language_tag", value);
     }
 
     /// <summary>
     /// The categories of notifications that the contact will receive communications for.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationCategorySubscriptions is required")]
-    public List<TerraformProperty<string>>? NotificationCategorySubscriptions
+    public List<TerraformProperty<string>> NotificationCategorySubscriptions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("notification_category_subscriptions");
-        set => this.WithProperty("notification_category_subscriptions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("notification_category_subscriptions");
+        set => SetProperty("notification_category_subscriptions", value);
     }
 
     /// <summary>
@@ -97,8 +99,8 @@ public class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -107,8 +109,7 @@ public class GoogleEssentialContactsContact : TerraformResource
     /// </summary>
     public GoogleEssentialContactsContactTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleEssentialContactsContactTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

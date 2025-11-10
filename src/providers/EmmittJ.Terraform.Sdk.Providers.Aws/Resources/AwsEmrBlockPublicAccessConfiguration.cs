@@ -14,8 +14,7 @@ public class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRange is required")]
     public required TerraformProperty<double> MaxRange
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_range");
-        set => WithProperty("max_range", value);
+        set => SetProperty("max_range", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinRange is required")]
     public required TerraformProperty<double> MinRange
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_range");
-        set => WithProperty("min_range", value);
+        set => SetProperty("min_range", value);
     }
 
 }
@@ -42,6 +40,9 @@ public class AwsEmrBlockPublicAccessConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("block_public_security_group_rules");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -50,26 +51,26 @@ public class AwsEmrBlockPublicAccessConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockPublicSecurityGroupRules is required")]
     public required TerraformProperty<bool> BlockPublicSecurityGroupRules
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("block_public_security_group_rules");
-        set => this.WithProperty("block_public_security_group_rules", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("block_public_security_group_rules");
+        set => SetProperty("block_public_security_group_rules", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +79,7 @@ public class AwsEmrBlockPublicAccessConfiguration : TerraformResource
     /// </summary>
     public List<AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeBlock>? PermittedPublicSecurityGroupRuleRange
     {
-        get => GetProperty<List<AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeBlock>>("permitted_public_security_group_rule_range");
-        set => this.WithProperty("permitted_public_security_group_rule_range", value);
+        set => SetProperty("permitted_public_security_group_rule_range", value);
     }
 
 }

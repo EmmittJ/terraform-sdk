@@ -13,8 +13,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock : 
     /// </summary>
     public TerraformProperty<string>? MaxCapacityBreachBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("max_capacity_breach_behavior");
-        set => WithProperty("max_capacity_breach_behavior", value);
+        set => SetProperty("max_capacity_breach_behavior", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock : 
     /// </summary>
     public TerraformProperty<double>? MaxCapacityBuffer
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity_buffer");
-        set => WithProperty("max_capacity_buffer", value);
+        set => SetProperty("max_capacity_buffer", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock : 
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock : 
     /// </summary>
     public TerraformProperty<double>? SchedulingBufferTime
     {
-        get => GetProperty<TerraformProperty<double>>("scheduling_buffer_time");
-        set => WithProperty("scheduling_buffer_time", value);
+        set => SetProperty("scheduling_buffer_time", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? AdjustmentType
     {
-        get => GetProperty<TerraformProperty<string>>("adjustment_type");
-        set => WithProperty("adjustment_type", value);
+        set => SetProperty("adjustment_type", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? Cooldown
     {
-        get => GetProperty<TerraformProperty<double>>("cooldown");
-        set => WithProperty("cooldown", value);
+        set => SetProperty("cooldown", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? MetricAggregationType
     {
-        get => GetProperty<TerraformProperty<string>>("metric_aggregation_type");
-        set => WithProperty("metric_aggregation_type", value);
+        set => SetProperty("metric_aggregation_type", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? MinAdjustmentMagnitude
     {
-        get => GetProperty<TerraformProperty<double>>("min_adjustment_magnitude");
-        set => WithProperty("min_adjustment_magnitude", value);
+        set => SetProperty("min_adjustment_magnitude", value);
     }
 
 }
@@ -101,8 +93,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformProperty<bool>? DisableScaleIn
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_scale_in");
-        set => WithProperty("disable_scale_in", value);
+        set => SetProperty("disable_scale_in", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformProperty<double>? ScaleInCooldown
     {
-        get => GetProperty<TerraformProperty<double>>("scale_in_cooldown");
-        set => WithProperty("scale_in_cooldown", value);
+        set => SetProperty("scale_in_cooldown", value);
     }
 
     /// <summary>
@@ -119,8 +109,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformProperty<double>? ScaleOutCooldown
     {
-        get => GetProperty<TerraformProperty<double>>("scale_out_cooldown");
-        set => WithProperty("scale_out_cooldown", value);
+        set => SetProperty("scale_out_cooldown", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetValue is required")]
     public required TerraformProperty<double> TargetValue
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("target_value");
-        set => WithProperty("target_value", value);
+        set => SetProperty("target_value", value);
     }
 
 }
@@ -148,17 +136,24 @@ public class AwsAppautoscalingPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("alarm_arns");
-        this.WithOutput("arn");
+        SetOutput("alarm_arns");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("policy_type");
+        SetOutput("region");
+        SetOutput("resource_id");
+        SetOutput("scalable_dimension");
+        SetOutput("service_namespace");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -167,26 +162,26 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyType
+    public TerraformProperty<string> PolicyType
     {
-        get => GetProperty<TerraformProperty<string>>("policy_type");
-        set => this.WithProperty("policy_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_type");
+        set => SetProperty("policy_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -195,8 +190,8 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -205,8 +200,8 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     public required TerraformProperty<string> ScalableDimension
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scalable_dimension");
-        set => this.WithProperty("scalable_dimension", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scalable_dimension");
+        set => SetProperty("scalable_dimension", value);
     }
 
     /// <summary>
@@ -215,8 +210,8 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformProperty<string> ServiceNamespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_namespace");
-        set => this.WithProperty("service_namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_namespace");
+        set => SetProperty("service_namespace", value);
     }
 
     /// <summary>
@@ -226,8 +221,7 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredictiveScalingPolicyConfiguration block(s) allowed")]
     public List<AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock>? PredictiveScalingPolicyConfiguration
     {
-        get => GetProperty<List<AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock>>("predictive_scaling_policy_configuration");
-        set => this.WithProperty("predictive_scaling_policy_configuration", value);
+        set => SetProperty("predictive_scaling_policy_configuration", value);
     }
 
     /// <summary>
@@ -237,8 +231,7 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StepScalingPolicyConfiguration block(s) allowed")]
     public List<AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock>? StepScalingPolicyConfiguration
     {
-        get => GetProperty<List<AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock>>("step_scaling_policy_configuration");
-        set => this.WithProperty("step_scaling_policy_configuration", value);
+        set => SetProperty("step_scaling_policy_configuration", value);
     }
 
     /// <summary>
@@ -248,8 +241,7 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTrackingScalingPolicyConfiguration block(s) allowed")]
     public List<AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBlock>? TargetTrackingScalingPolicyConfiguration
     {
-        get => GetProperty<List<AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBlock>>("target_tracking_scaling_policy_configuration");
-        set => this.WithProperty("target_tracking_scaling_policy_configuration", value);
+        set => SetProperty("target_tracking_scaling_policy_configuration", value);
     }
 
     /// <summary>

@@ -16,8 +16,7 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -33,8 +32,7 @@ public class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -69,16 +65,23 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("errors");
-        this.WithOutput("name");
-        this.WithOutput("reconciling");
-        this.WithOutput("runtime_configs");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("errors");
+        SetOutput("name");
+        SetOutput("reconciling");
+        SetOutput("runtime_configs");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("app_hub_application");
+        SetOutput("id");
+        SetOutput("insights_config_id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -88,10 +91,10 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -102,17 +105,17 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppHubApplication is required")]
     public required TerraformProperty<string> AppHubApplication
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_hub_application");
-        set => this.WithProperty("app_hub_application", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_hub_application");
+        set => SetProperty("app_hub_application", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,8 +124,8 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsConfigId is required")]
     public required TerraformProperty<string> InsightsConfigId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("insights_config_id");
-        set => this.WithProperty("insights_config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("insights_config_id");
+        set => SetProperty("insights_config_id", value);
     }
 
     /// <summary>
@@ -131,10 +134,10 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -143,17 +146,17 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -162,8 +165,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     public List<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock>? ArtifactConfigs
     {
-        get => GetProperty<List<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock>>("artifact_configs");
-        set => this.WithProperty("artifact_configs", value);
+        set => SetProperty("artifact_configs", value);
     }
 
     /// <summary>
@@ -172,8 +174,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     public GoogleDeveloperConnectInsightsConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDeveloperConnectInsightsConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

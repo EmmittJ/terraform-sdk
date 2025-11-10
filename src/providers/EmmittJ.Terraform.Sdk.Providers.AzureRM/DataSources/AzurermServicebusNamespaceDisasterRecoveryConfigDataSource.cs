@@ -13,8 +13,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSourceTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,29 +30,35 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_primary_key");
-        this.WithOutput("default_secondary_key");
-        this.WithOutput("partner_namespace_id");
-        this.WithOutput("primary_connection_string_alias");
-        this.WithOutput("secondary_connection_string_alias");
+        SetOutput("default_primary_key");
+        SetOutput("default_secondary_key");
+        SetOutput("partner_namespace_id");
+        SetOutput("primary_connection_string_alias");
+        SetOutput("secondary_connection_string_alias");
+        SetOutput("alias_authorization_rule_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("namespace_id");
+        SetOutput("namespace_name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The alias_authorization_rule_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AliasAuthorizationRuleId
+    public TerraformProperty<string> AliasAuthorizationRuleId
     {
-        get => GetProperty<TerraformProperty<string>>("alias_authorization_rule_id");
-        set => this.WithProperty("alias_authorization_rule_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias_authorization_rule_id");
+        set => SetProperty("alias_authorization_rule_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,37 +67,37 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NamespaceId
+    public TerraformProperty<string> NamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_id");
-        set => this.WithProperty("namespace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_id");
+        set => SetProperty("namespace_id", value);
     }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? NamespaceName
+    public TerraformProperty<string> NamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_name");
-        set => this.WithProperty("namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
+        set => SetProperty("namespace_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? ResourceGroupName
+    public TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -101,8 +106,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
     /// </summary>
     public AzurermServicebusNamespaceDisasterRecoveryConfigDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermServicebusNamespaceDisasterRecoveryConfigDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzureadSynchronizationJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadSynchronizationJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadSynchronizationJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadSynchronizationJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,29 @@ public class AzureadSynchronizationJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("schedule");
+        SetOutput("schedule");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("service_principal_id");
+        SetOutput("template_id");
     }
 
     /// <summary>
     /// Whether or not the synchronization job is enabled
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +85,8 @@ public class AzureadSynchronizationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformProperty<string> ServicePrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_id");
-        set => this.WithProperty("service_principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_principal_id");
+        set => SetProperty("service_principal_id", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzureadSynchronizationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformProperty<string> TemplateId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("template_id");
-        set => this.WithProperty("template_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
+        set => SetProperty("template_id", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzureadSynchronizationJob : TerraformResource
     /// </summary>
     public AzureadSynchronizationJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadSynchronizationJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

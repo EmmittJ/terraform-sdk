@@ -21,8 +21,7 @@ public class AwsResiliencehubResiliencyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsResiliencehubResiliencyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsResiliencehubResiliencyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,27 +54,33 @@ public class AwsResiliencehubResiliencyPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("estimated_cost_tier");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("estimated_cost_tier");
+        SetOutput("tags_all");
+        SetOutput("data_location_constraint");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tier");
     }
 
     /// <summary>
     /// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
     /// </summary>
-    public TerraformProperty<string>? DataLocationConstraint
+    public TerraformProperty<string> DataLocationConstraint
     {
-        get => GetProperty<TerraformProperty<string>>("data_location_constraint");
-        set => this.WithProperty("data_location_constraint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_location_constraint");
+        set => SetProperty("data_location_constraint", value);
     }
 
     /// <summary>
     /// The description for the policy.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -86,26 +89,26 @@ public class AwsResiliencehubResiliencyPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -114,8 +117,8 @@ public class AwsResiliencehubResiliencyPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
@@ -124,8 +127,7 @@ public class AwsResiliencehubResiliencyPolicy : TerraformResource
     /// </summary>
     public List<AwsResiliencehubResiliencyPolicyPolicyBlock>? Policy
     {
-        get => GetProperty<List<AwsResiliencehubResiliencyPolicyPolicyBlock>>("policy");
-        set => this.WithProperty("policy", value);
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
@@ -134,8 +136,7 @@ public class AwsResiliencehubResiliencyPolicy : TerraformResource
     /// </summary>
     public AwsResiliencehubResiliencyPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsResiliencehubResiliencyPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

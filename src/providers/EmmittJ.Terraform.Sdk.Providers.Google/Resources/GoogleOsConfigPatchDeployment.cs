@@ -13,8 +13,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? All
     {
-        get => GetProperty<TerraformProperty<bool>>("all");
-        set => WithProperty("all", value);
+        set => SetProperty("all", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? InstanceNamePrefixes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("instance_name_prefixes");
-        set => WithProperty("instance_name_prefixes", value);
+        set => SetProperty("instance_name_prefixes", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Instances
     {
-        get => GetProperty<List<TerraformProperty<string>>>("instances");
-        set => WithProperty("instances", value);
+        set => SetProperty("instances", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Zones
     {
-        get => GetProperty<List<TerraformProperty<string>>>("zones");
-        set => WithProperty("zones", value);
+        set => SetProperty("zones", value);
     }
 
 }
@@ -62,8 +58,7 @@ public class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecuteTime is required")]
     public required TerraformProperty<string> ExecuteTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execute_time");
-        set => WithProperty("execute_time", value);
+        set => SetProperty("execute_time", value);
     }
 
 }
@@ -79,8 +74,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MigInstancesAllowed
     {
-        get => GetProperty<TerraformProperty<bool>>("mig_instances_allowed");
-        set => WithProperty("mig_instances_allowed", value);
+        set => SetProperty("mig_instances_allowed", value);
     }
 
     /// <summary>
@@ -88,8 +82,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RebootConfig
     {
-        get => GetProperty<TerraformProperty<string>>("reboot_config");
-        set => WithProperty("reboot_config", value);
+        set => SetProperty("reboot_config", value);
     }
 
 }
@@ -106,8 +99,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? EndTime
     {
-        get => GetProperty<TerraformProperty<string>>("end_time");
-        set => WithProperty("end_time", value);
+        set => SetProperty("end_time", value);
     }
 
     /// <summary>
@@ -116,8 +108,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? LastExecuteTime
     {
-        get => GetProperty<TerraformProperty<string>>("last_execute_time");
-        set => WithProperty("last_execute_time", value);
+        set => SetProperty("last_execute_time", value);
     }
 
     /// <summary>
@@ -126,8 +117,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? NextExecuteTime
     {
-        get => GetProperty<TerraformProperty<string>>("next_execute_time");
-        set => WithProperty("next_execute_time", value);
+        set => SetProperty("next_execute_time", value);
     }
 
     /// <summary>
@@ -136,8 +126,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
 }
@@ -154,8 +143,7 @@ public class GoogleOsConfigPatchDeploymentRolloutBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -171,8 +159,7 @@ public class GoogleOsConfigPatchDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -180,8 +167,7 @@ public class GoogleOsConfigPatchDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -199,38 +185,43 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("last_execute_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("last_execute_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("duration");
+        SetOutput("id");
+        SetOutput("patch_deployment_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Description of the patch deployment. Length of the description is limited to 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Duration of the patch. After the duration ends, the patch times out.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? Duration
+    public TerraformProperty<string> Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
-        set => this.WithProperty("duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("duration");
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -244,29 +235,29 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchDeploymentId is required")]
     public required TerraformProperty<string> PatchDeploymentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("patch_deployment_id");
-        set => this.WithProperty("patch_deployment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("patch_deployment_id");
+        set => SetProperty("patch_deployment_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for instance_filter.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceFilter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InstanceFilter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceFilter block(s) allowed")]
     public List<GoogleOsConfigPatchDeploymentInstanceFilterBlock>? InstanceFilter
     {
-        get => GetProperty<List<GoogleOsConfigPatchDeploymentInstanceFilterBlock>>("instance_filter");
-        set => this.WithProperty("instance_filter", value);
+        set => SetProperty("instance_filter", value);
     }
 
     /// <summary>
@@ -276,8 +267,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OneTimeSchedule block(s) allowed")]
     public List<GoogleOsConfigPatchDeploymentOneTimeScheduleBlock>? OneTimeSchedule
     {
-        get => GetProperty<List<GoogleOsConfigPatchDeploymentOneTimeScheduleBlock>>("one_time_schedule");
-        set => this.WithProperty("one_time_schedule", value);
+        set => SetProperty("one_time_schedule", value);
     }
 
     /// <summary>
@@ -287,8 +277,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PatchConfig block(s) allowed")]
     public List<GoogleOsConfigPatchDeploymentPatchConfigBlock>? PatchConfig
     {
-        get => GetProperty<List<GoogleOsConfigPatchDeploymentPatchConfigBlock>>("patch_config");
-        set => this.WithProperty("patch_config", value);
+        set => SetProperty("patch_config", value);
     }
 
     /// <summary>
@@ -298,8 +287,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecurringSchedule block(s) allowed")]
     public List<GoogleOsConfigPatchDeploymentRecurringScheduleBlock>? RecurringSchedule
     {
-        get => GetProperty<List<GoogleOsConfigPatchDeploymentRecurringScheduleBlock>>("recurring_schedule");
-        set => this.WithProperty("recurring_schedule", value);
+        set => SetProperty("recurring_schedule", value);
     }
 
     /// <summary>
@@ -309,8 +297,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rollout block(s) allowed")]
     public List<GoogleOsConfigPatchDeploymentRolloutBlock>? Rollout
     {
-        get => GetProperty<List<GoogleOsConfigPatchDeploymentRolloutBlock>>("rollout");
-        set => this.WithProperty("rollout", value);
+        set => SetProperty("rollout", value);
     }
 
     /// <summary>
@@ -319,8 +306,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     public GoogleOsConfigPatchDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOsConfigPatchDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

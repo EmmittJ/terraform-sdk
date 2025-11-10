@@ -13,8 +13,7 @@ public class AzurermRedisFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermRedisFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermRedisFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermRedisFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermRedisFirewallRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("end_ip");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("redis_cache_name");
+        SetOutput("resource_group_name");
+        SetOutput("start_ip");
     }
 
     /// <summary>
@@ -66,17 +68,17 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIp is required")]
     public required TerraformProperty<string> EndIp
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("end_ip");
-        set => this.WithProperty("end_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_ip");
+        set => SetProperty("end_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheName is required")]
     public required TerraformProperty<string> RedisCacheName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("redis_cache_name");
-        set => this.WithProperty("redis_cache_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redis_cache_name");
+        set => SetProperty("redis_cache_name", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIp is required")]
     public required TerraformProperty<string> StartIp
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_ip");
-        set => this.WithProperty("start_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_ip");
+        set => SetProperty("start_ip", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermRedisFirewallRule : TerraformResource
     /// </summary>
     public AzurermRedisFirewallRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRedisFirewallRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

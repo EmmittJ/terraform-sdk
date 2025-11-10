@@ -13,8 +13,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
-        set => WithProperty("format", value);
+        set => SetProperty("format", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeySpec is required")]
     public required TerraformProperty<string> KeySpec
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_spec");
-        set => WithProperty("key_spec", value);
+        set => SetProperty("key_spec", value);
     }
 
     /// <summary>
@@ -46,8 +43,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NotAfterTime
     {
-        get => GetProperty<TerraformProperty<string>>("not_after_time");
-        set => WithProperty("not_after_time", value);
+        set => SetProperty("not_after_time", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NotBeforeTime
     {
-        get => GetProperty<TerraformProperty<string>>("not_before_time");
-        set => WithProperty("not_before_time", value);
+        set => SetProperty("not_before_time", value);
     }
 
 }
@@ -77,8 +72,7 @@ public class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -105,18 +98,24 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("expire_time");
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("expire_time");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("id");
+        SetOutput("key_id");
+        SetOutput("location");
+        SetOutput("provider_id");
+        SetOutput("use");
+        SetOutput("workforce_pool_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -125,8 +124,8 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
-        set => this.WithProperty("key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
@@ -135,8 +134,8 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -145,8 +144,8 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformProperty<string> ProviderId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provider_id");
-        set => this.WithProperty("provider_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_id");
+        set => SetProperty("provider_id", value);
     }
 
     /// <summary>
@@ -155,8 +154,8 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Use is required")]
     public required TerraformProperty<string> Use
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("use");
-        set => this.WithProperty("use", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("use");
+        set => SetProperty("use", value);
     }
 
     /// <summary>
@@ -165,20 +164,20 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
-        set => this.WithProperty("workforce_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workforce_pool_id");
+        set => SetProperty("workforce_pool_id", value);
     }
 
     /// <summary>
     /// Block for key_data.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyData is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KeyData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyData block(s) allowed")]
     public List<GoogleIamWorkforcePoolProviderKeyKeyDataBlock>? KeyData
     {
-        get => GetProperty<List<GoogleIamWorkforcePoolProviderKeyKeyDataBlock>>("key_data");
-        set => this.WithProperty("key_data", value);
+        set => SetProperty("key_data", value);
     }
 
     /// <summary>
@@ -187,8 +186,7 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// </summary>
     public GoogleIamWorkforcePoolProviderKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamWorkforcePoolProviderKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

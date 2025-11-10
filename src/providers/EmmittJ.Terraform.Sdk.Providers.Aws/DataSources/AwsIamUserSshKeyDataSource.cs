@@ -14,9 +14,13 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fingerprint");
-        this.WithOutput("public_key");
-        this.WithOutput("status");
+        SetOutput("fingerprint");
+        SetOutput("public_key");
+        SetOutput("status");
+        SetOutput("encoding");
+        SetOutput("id");
+        SetOutput("ssh_public_key_id");
+        SetOutput("username");
     }
 
     /// <summary>
@@ -25,17 +29,17 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     public required TerraformProperty<string> Encoding
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("encoding");
-        set => this.WithProperty("encoding", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encoding");
+        set => SetProperty("encoding", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -44,8 +48,8 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeyId is required")]
     public required TerraformProperty<string> SshPublicKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ssh_public_key_id");
-        set => this.WithProperty("ssh_public_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ssh_public_key_id");
+        set => SetProperty("ssh_public_key_id", value);
     }
 
     /// <summary>
@@ -54,8 +58,8 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>

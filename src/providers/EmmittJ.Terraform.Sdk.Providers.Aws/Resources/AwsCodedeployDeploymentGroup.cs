@@ -13,8 +13,7 @@ public class AwsCodedeployDeploymentGroupAlarmConfigurationBlock : TerraformBloc
     /// </summary>
     public HashSet<TerraformProperty<string>>? Alarms
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("alarms");
-        set => WithProperty("alarms", value);
+        set => SetProperty("alarms", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCodedeployDeploymentGroupAlarmConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCodedeployDeploymentGroupAlarmConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? IgnorePollAlarmFailure
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_poll_alarm_failure");
-        set => WithProperty("ignore_poll_alarm_failure", value);
+        set => SetProperty("ignore_poll_alarm_failure", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock : Terraf
     /// </summary>
     public HashSet<TerraformProperty<string>>? Events
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("events");
-        set => WithProperty("events", value);
+        set => SetProperty("events", value);
     }
 
 }
@@ -82,8 +77,7 @@ public class AwsCodedeployDeploymentGroupDeploymentStyleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeploymentOption
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_option");
-        set => WithProperty("deployment_option", value);
+        set => SetProperty("deployment_option", value);
     }
 
     /// <summary>
@@ -91,8 +85,7 @@ public class AwsCodedeployDeploymentGroupDeploymentStyleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeploymentType
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_type");
-        set => WithProperty("deployment_type", value);
+        set => SetProperty("deployment_type", value);
     }
 
 }
@@ -108,8 +101,7 @@ public class AwsCodedeployDeploymentGroupEc2TagFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -117,8 +109,7 @@ public class AwsCodedeployDeploymentGroupEc2TagFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -126,8 +117,7 @@ public class AwsCodedeployDeploymentGroupEc2TagFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -152,8 +142,7 @@ public class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => WithProperty("cluster_name", value);
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
@@ -162,8 +151,7 @@ public class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => WithProperty("service_name", value);
+        set => SetProperty("service_name", value);
     }
 
 }
@@ -187,8 +175,7 @@ public class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -196,8 +183,7 @@ public class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -205,8 +191,7 @@ public class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -223,8 +208,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerEvents is required")]
     public HashSet<TerraformProperty<string>>? TriggerEvents
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("trigger_events");
-        set => WithProperty("trigger_events", value);
+        set => SetProperty("trigger_events", value);
     }
 
     /// <summary>
@@ -233,8 +217,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerName is required")]
     public required TerraformProperty<string> TriggerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trigger_name");
-        set => WithProperty("trigger_name", value);
+        set => SetProperty("trigger_name", value);
     }
 
     /// <summary>
@@ -243,8 +226,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTargetArn is required")]
     public required TerraformProperty<string> TriggerTargetArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trigger_target_arn");
-        set => WithProperty("trigger_target_arn", value);
+        set => SetProperty("trigger_target_arn", value);
     }
 
 }
@@ -262,9 +244,20 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("compute_platform");
-        this.WithOutput("deployment_group_id");
+        SetOutput("arn");
+        SetOutput("compute_platform");
+        SetOutput("deployment_group_id");
+        SetOutput("app_name");
+        SetOutput("autoscaling_groups");
+        SetOutput("deployment_config_name");
+        SetOutput("deployment_group_name");
+        SetOutput("id");
+        SetOutput("outdated_instances_strategy");
+        SetOutput("region");
+        SetOutput("service_role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("termination_hook_enabled");
     }
 
     /// <summary>
@@ -273,26 +266,26 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformProperty<string> AppName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_name");
-        set => this.WithProperty("app_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_name");
+        set => SetProperty("app_name", value);
     }
 
     /// <summary>
     /// The autoscaling_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AutoscalingGroups
+    public HashSet<TerraformProperty<string>> AutoscalingGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("autoscaling_groups");
-        set => this.WithProperty("autoscaling_groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("autoscaling_groups");
+        set => SetProperty("autoscaling_groups", value);
     }
 
     /// <summary>
     /// The deployment_config_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentConfigName
+    public TerraformProperty<string> DeploymentConfigName
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_config_name");
-        set => this.WithProperty("deployment_config_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_config_name");
+        set => SetProperty("deployment_config_name", value);
     }
 
     /// <summary>
@@ -301,35 +294,35 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentGroupName is required")]
     public required TerraformProperty<string> DeploymentGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deployment_group_name");
-        set => this.WithProperty("deployment_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_group_name");
+        set => SetProperty("deployment_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The outdated_instances_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? OutdatedInstancesStrategy
+    public TerraformProperty<string> OutdatedInstancesStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("outdated_instances_strategy");
-        set => this.WithProperty("outdated_instances_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("outdated_instances_strategy");
+        set => SetProperty("outdated_instances_strategy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -338,35 +331,35 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRoleArn is required")]
     public required TerraformProperty<string> ServiceRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_role_arn");
-        set => this.WithProperty("service_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_role_arn");
+        set => SetProperty("service_role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The termination_hook_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TerminationHookEnabled
+    public TerraformProperty<bool> TerminationHookEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("termination_hook_enabled");
-        set => this.WithProperty("termination_hook_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("termination_hook_enabled");
+        set => SetProperty("termination_hook_enabled", value);
     }
 
     /// <summary>
@@ -376,8 +369,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlarmConfiguration block(s) allowed")]
     public List<AwsCodedeployDeploymentGroupAlarmConfigurationBlock>? AlarmConfiguration
     {
-        get => GetProperty<List<AwsCodedeployDeploymentGroupAlarmConfigurationBlock>>("alarm_configuration");
-        set => this.WithProperty("alarm_configuration", value);
+        set => SetProperty("alarm_configuration", value);
     }
 
     /// <summary>
@@ -387,8 +379,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoRollbackConfiguration block(s) allowed")]
     public List<AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock>? AutoRollbackConfiguration
     {
-        get => GetProperty<List<AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock>>("auto_rollback_configuration");
-        set => this.WithProperty("auto_rollback_configuration", value);
+        set => SetProperty("auto_rollback_configuration", value);
     }
 
     /// <summary>
@@ -398,8 +389,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlueGreenDeploymentConfig block(s) allowed")]
     public List<AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock>? BlueGreenDeploymentConfig
     {
-        get => GetProperty<List<AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock>>("blue_green_deployment_config");
-        set => this.WithProperty("blue_green_deployment_config", value);
+        set => SetProperty("blue_green_deployment_config", value);
     }
 
     /// <summary>
@@ -409,8 +399,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentStyle block(s) allowed")]
     public List<AwsCodedeployDeploymentGroupDeploymentStyleBlock>? DeploymentStyle
     {
-        get => GetProperty<List<AwsCodedeployDeploymentGroupDeploymentStyleBlock>>("deployment_style");
-        set => this.WithProperty("deployment_style", value);
+        set => SetProperty("deployment_style", value);
     }
 
     /// <summary>
@@ -419,8 +408,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     public HashSet<AwsCodedeployDeploymentGroupEc2TagFilterBlock>? Ec2TagFilter
     {
-        get => GetProperty<HashSet<AwsCodedeployDeploymentGroupEc2TagFilterBlock>>("ec2_tag_filter");
-        set => this.WithProperty("ec2_tag_filter", value);
+        set => SetProperty("ec2_tag_filter", value);
     }
 
     /// <summary>
@@ -429,8 +417,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     public HashSet<AwsCodedeployDeploymentGroupEc2TagSetBlock>? Ec2TagSet
     {
-        get => GetProperty<HashSet<AwsCodedeployDeploymentGroupEc2TagSetBlock>>("ec2_tag_set");
-        set => this.WithProperty("ec2_tag_set", value);
+        set => SetProperty("ec2_tag_set", value);
     }
 
     /// <summary>
@@ -440,8 +427,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EcsService block(s) allowed")]
     public List<AwsCodedeployDeploymentGroupEcsServiceBlock>? EcsService
     {
-        get => GetProperty<List<AwsCodedeployDeploymentGroupEcsServiceBlock>>("ecs_service");
-        set => this.WithProperty("ecs_service", value);
+        set => SetProperty("ecs_service", value);
     }
 
     /// <summary>
@@ -451,8 +437,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerInfo block(s) allowed")]
     public List<AwsCodedeployDeploymentGroupLoadBalancerInfoBlock>? LoadBalancerInfo
     {
-        get => GetProperty<List<AwsCodedeployDeploymentGroupLoadBalancerInfoBlock>>("load_balancer_info");
-        set => this.WithProperty("load_balancer_info", value);
+        set => SetProperty("load_balancer_info", value);
     }
 
     /// <summary>
@@ -461,8 +446,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     public HashSet<AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock>? OnPremisesInstanceTagFilter
     {
-        get => GetProperty<HashSet<AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock>>("on_premises_instance_tag_filter");
-        set => this.WithProperty("on_premises_instance_tag_filter", value);
+        set => SetProperty("on_premises_instance_tag_filter", value);
     }
 
     /// <summary>
@@ -471,8 +455,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// </summary>
     public HashSet<AwsCodedeployDeploymentGroupTriggerConfigurationBlock>? TriggerConfiguration
     {
-        get => GetProperty<HashSet<AwsCodedeployDeploymentGroupTriggerConfigurationBlock>>("trigger_configuration");
-        set => this.WithProperty("trigger_configuration", value);
+        set => SetProperty("trigger_configuration", value);
     }
 
     /// <summary>

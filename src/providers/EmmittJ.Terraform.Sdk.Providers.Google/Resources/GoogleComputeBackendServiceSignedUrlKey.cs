@@ -13,8 +13,7 @@ public class GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,11 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("backend_service");
+        SetOutput("id");
+        SetOutput("key_value");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -48,17 +51,17 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformProperty<string> BackendService
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backend_service");
-        set => this.WithProperty("backend_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backend_service");
+        set => SetProperty("backend_service", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +71,8 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValue is required")]
     public required TerraformProperty<string> KeyValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_value");
-        set => this.WithProperty("key_value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_value");
+        set => SetProperty("key_value", value);
     }
 
     /// <summary>
@@ -78,17 +81,17 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -97,8 +100,7 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     /// </summary>
     public GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,6 +14,14 @@ public class AwsAppsyncApiCache : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_caching_behavior");
+        SetOutput("api_id");
+        SetOutput("at_rest_encryption_enabled");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("transit_encryption_enabled");
+        SetOutput("ttl");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -22,8 +30,8 @@ public class AwsAppsyncApiCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiCachingBehavior is required")]
     public required TerraformProperty<string> ApiCachingBehavior
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_caching_behavior");
-        set => this.WithProperty("api_caching_behavior", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_caching_behavior");
+        set => SetProperty("api_caching_behavior", value);
     }
 
     /// <summary>
@@ -32,44 +40,44 @@ public class AwsAppsyncApiCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The at_rest_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AtRestEncryptionEnabled
+    public TerraformProperty<bool> AtRestEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("at_rest_encryption_enabled");
-        set => this.WithProperty("at_rest_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("at_rest_encryption_enabled");
+        set => SetProperty("at_rest_encryption_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TransitEncryptionEnabled
+    public TerraformProperty<bool> TransitEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("transit_encryption_enabled");
-        set => this.WithProperty("transit_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("transit_encryption_enabled");
+        set => SetProperty("transit_encryption_enabled", value);
     }
 
     /// <summary>
@@ -78,8 +86,8 @@ public class AwsAppsyncApiCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<double> Ttl
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("ttl");
-        set => this.WithProperty("ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ttl");
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>
@@ -88,8 +96,8 @@ public class AwsAppsyncApiCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
 }

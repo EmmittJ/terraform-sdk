@@ -13,8 +13,7 @@ public class GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? AllocationStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("allocation_strategy");
-        set => WithProperty("allocation_strategy", value);
+        set => SetProperty("allocation_strategy", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock : Terr
     /// </summary>
     public TerraformProperty<double>? FirstAvailableRangesLookupSize
     {
-        get => GetProperty<TerraformProperty<double>>("first_available_ranges_lookup_size");
-        set => WithProperty("first_available_ranges_lookup_size", value);
+        set => SetProperty("first_available_ranges_lookup_size", value);
     }
 
 }
@@ -44,8 +42,7 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target");
-        set => WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
 }
@@ -74,8 +70,7 @@ public class GoogleNetworkConnectivityInternalRangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -83,8 +78,7 @@ public class GoogleNetworkConnectivityInternalRangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -92,8 +86,7 @@ public class GoogleNetworkConnectivityInternalRangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,46 +104,60 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("users");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("users");
+        SetOutput("description");
+        SetOutput("exclude_cidr_ranges");
+        SetOutput("id");
+        SetOutput("immutable");
+        SetOutput("ip_cidr_range");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("overlaps");
+        SetOutput("peering");
+        SetOutput("prefix_length");
+        SetOutput("project");
+        SetOutput("target_cidr_range");
+        SetOutput("usage");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Optional. List of IP CIDR ranges to be excluded. Resulting reserved Internal Range will not overlap with any CIDR blocks mentioned in this list.
     /// Only IPv4 CIDR ranges are supported.
     /// </summary>
-    public List<TerraformProperty<string>>? ExcludeCidrRanges
+    public List<TerraformProperty<string>> ExcludeCidrRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("exclude_cidr_ranges");
-        set => this.WithProperty("exclude_cidr_ranges", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("exclude_cidr_ranges");
+        set => SetProperty("exclude_cidr_ranges", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Immutable ranges cannot have their fields modified, except for labels and description.
     /// </summary>
-    public TerraformProperty<bool>? Immutable
+    public TerraformProperty<bool> Immutable
     {
-        get => GetProperty<TerraformProperty<bool>>("immutable");
-        set => this.WithProperty("immutable", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("immutable");
+        set => SetProperty("immutable", value);
     }
 
     /// <summary>
@@ -158,10 +165,10 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// NOTE: IPv6 ranges are limited to usage=EXTERNAL_TO_VPC and peering=FOR_SELF
     /// NOTE: For IPv6 Ranges this field is compulsory, i.e. the address range must be specified explicitly.
     /// </summary>
-    public TerraformProperty<string>? IpCidrRange
+    public TerraformProperty<string> IpCidrRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
-        set => this.WithProperty("ip_cidr_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_cidr_range");
+        set => SetProperty("ip_cidr_range", value);
     }
 
     /// <summary>
@@ -171,10 +178,10 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -183,8 +190,8 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -193,17 +200,17 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// Optional. Types of resources that are allowed to overlap with the current internal range. Possible values: [&amp;quot;OVERLAP_ROUTE_RANGE&amp;quot;, &amp;quot;OVERLAP_EXISTING_SUBNET_RANGE&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? Overlaps
+    public List<TerraformProperty<string>> Overlaps
     {
-        get => GetProperty<List<TerraformProperty<string>>>("overlaps");
-        set => this.WithProperty("overlaps", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("overlaps");
+        set => SetProperty("overlaps", value);
     }
 
     /// <summary>
@@ -212,8 +219,8 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformProperty<string> Peering
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peering");
-        set => this.WithProperty("peering", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peering");
+        set => SetProperty("peering", value);
     }
 
     /// <summary>
@@ -222,29 +229,29 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// NOTE: For IPv6 this field only works if ip_cidr_range is set as well, and both fields must match. In other words, with IPv6 this field only works as
     /// a redundant parameter.
     /// </summary>
-    public TerraformProperty<double>? PrefixLength
+    public TerraformProperty<double> PrefixLength
     {
-        get => GetProperty<TerraformProperty<double>>("prefix_length");
-        set => this.WithProperty("prefix_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("prefix_length");
+        set => SetProperty("prefix_length", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Optional. Can be set to narrow down or pick a different address space while searching for a free range.
     /// If not set, defaults to the &amp;quot;10.0.0.0/8&amp;quot; address space. This can be used to search in other rfc-1918 address spaces like &amp;quot;172.16.0.0/12&amp;quot; and &amp;quot;192.168.0.0/16&amp;quot; or non-rfc-1918 address spaces used in the VPC.
     /// </summary>
-    public List<TerraformProperty<string>>? TargetCidrRange
+    public List<TerraformProperty<string>> TargetCidrRange
     {
-        get => GetProperty<List<TerraformProperty<string>>>("target_cidr_range");
-        set => this.WithProperty("target_cidr_range", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("target_cidr_range");
+        set => SetProperty("target_cidr_range", value);
     }
 
     /// <summary>
@@ -253,8 +260,8 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
     public required TerraformProperty<string> Usage
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("usage");
-        set => this.WithProperty("usage", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("usage");
+        set => SetProperty("usage", value);
     }
 
     /// <summary>
@@ -264,8 +271,7 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllocationOptions block(s) allowed")]
     public List<GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock>? AllocationOptions
     {
-        get => GetProperty<List<GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock>>("allocation_options");
-        set => this.WithProperty("allocation_options", value);
+        set => SetProperty("allocation_options", value);
     }
 
     /// <summary>
@@ -275,8 +281,7 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Migration block(s) allowed")]
     public List<GoogleNetworkConnectivityInternalRangeMigrationBlock>? Migration
     {
-        get => GetProperty<List<GoogleNetworkConnectivityInternalRangeMigrationBlock>>("migration");
-        set => this.WithProperty("migration", value);
+        set => SetProperty("migration", value);
     }
 
     /// <summary>
@@ -285,8 +290,7 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// </summary>
     public GoogleNetworkConnectivityInternalRangeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkConnectivityInternalRangeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

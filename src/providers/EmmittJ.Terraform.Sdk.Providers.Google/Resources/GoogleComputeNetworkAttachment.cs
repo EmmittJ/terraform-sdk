@@ -13,8 +13,7 @@ public class GoogleComputeNetworkAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeNetworkAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeNetworkAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,14 +46,22 @@ public class GoogleComputeNetworkAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connection_endpoints");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("fingerprint");
-        this.WithOutput("id");
-        this.WithOutput("kind");
-        this.WithOutput("network");
-        this.WithOutput("self_link");
-        this.WithOutput("self_link_with_id");
+        SetOutput("connection_endpoints");
+        SetOutput("creation_timestamp");
+        SetOutput("fingerprint");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("network");
+        SetOutput("self_link");
+        SetOutput("self_link_with_id");
+        SetOutput("connection_preference");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("producer_accept_lists");
+        SetOutput("producer_reject_lists");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("subnetworks");
     }
 
     /// <summary>
@@ -65,17 +70,17 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     public required TerraformProperty<string> ConnectionPreference
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_preference");
-        set => this.WithProperty("connection_preference", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_preference");
+        set => SetProperty("connection_preference", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -84,54 +89,54 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Projects that are allowed to connect to this network attachment. The project can be specified using its id or number.
     /// </summary>
-    public List<TerraformProperty<string>>? ProducerAcceptLists
+    public List<TerraformProperty<string>> ProducerAcceptLists
     {
-        get => GetProperty<List<TerraformProperty<string>>>("producer_accept_lists");
-        set => this.WithProperty("producer_accept_lists", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("producer_accept_lists");
+        set => SetProperty("producer_accept_lists", value);
     }
 
     /// <summary>
     /// Projects that are not allowed to connect to this network attachment. The project can be specified using its id or number.
     /// </summary>
-    public List<TerraformProperty<string>>? ProducerRejectLists
+    public List<TerraformProperty<string>> ProducerRejectLists
     {
-        get => GetProperty<List<TerraformProperty<string>>>("producer_reject_lists");
-        set => this.WithProperty("producer_reject_lists", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("producer_reject_lists");
+        set => SetProperty("producer_reject_lists", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetworks is required")]
-    public List<TerraformProperty<string>>? Subnetworks
+    public List<TerraformProperty<string>> Subnetworks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subnetworks");
-        set => this.WithProperty("subnetworks", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("subnetworks");
+        set => SetProperty("subnetworks", value);
     }
 
     /// <summary>
@@ -140,8 +145,7 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     /// </summary>
     public GoogleComputeNetworkAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNetworkAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

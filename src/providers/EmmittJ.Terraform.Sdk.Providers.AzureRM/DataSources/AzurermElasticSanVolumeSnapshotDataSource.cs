@@ -13,8 +13,7 @@ public class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,18 +30,21 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("source_id");
-        this.WithOutput("source_volume_size_in_gib");
-        this.WithOutput("volume_name");
+        SetOutput("source_id");
+        SetOutput("source_volume_size_in_gib");
+        SetOutput("volume_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("volume_group_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +53,8 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
     public required TerraformProperty<string> VolumeGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_group_id");
-        set => this.WithProperty("volume_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_group_id");
+        set => SetProperty("volume_group_id", value);
     }
 
     /// <summary>
@@ -71,8 +73,7 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     /// </summary>
     public AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

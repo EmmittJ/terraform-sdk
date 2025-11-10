@@ -14,8 +14,7 @@ public class AzurermManagedLustreFileSystemEncryptionKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUrl is required")]
     public required TerraformProperty<string> KeyUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_url");
-        set => WithProperty("key_url", value);
+        set => SetProperty("key_url", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermManagedLustreFileSystemEncryptionKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformProperty<string> SourceVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_vault_id");
-        set => WithProperty("source_vault_id", value);
+        set => SetProperty("source_vault_id", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformProperty<string> ContainerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_id");
-        set => WithProperty("container_id", value);
+        set => SetProperty("container_id", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImportPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("import_prefix");
-        set => WithProperty("import_prefix", value);
+        set => SetProperty("import_prefix", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoggingContainerId is required")]
     public required TerraformProperty<string> LoggingContainerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("logging_container_id");
-        set => WithProperty("logging_container_id", value);
+        set => SetProperty("logging_container_id", value);
     }
 
 }
@@ -79,8 +74,7 @@ public class AzurermManagedLustreFileSystemIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -89,8 +83,7 @@ public class AzurermManagedLustreFileSystemIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -107,8 +100,7 @@ public class AzurermManagedLustreFileSystemMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformProperty<string> DayOfWeek
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("day_of_week");
-        set => WithProperty("day_of_week", value);
+        set => SetProperty("day_of_week", value);
     }
 
     /// <summary>
@@ -117,8 +109,7 @@ public class AzurermManagedLustreFileSystemMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfDayInUtc is required")]
     public required TerraformProperty<string> TimeOfDayInUtc
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_of_day_in_utc");
-        set => WithProperty("time_of_day_in_utc", value);
+        set => SetProperty("time_of_day_in_utc", value);
     }
 
 }
@@ -135,8 +126,7 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -145,8 +135,7 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoSquashNids is required")]
     public required TerraformProperty<string> NoSquashNids
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("no_squash_nids");
-        set => WithProperty("no_squash_nids", value);
+        set => SetProperty("no_squash_nids", value);
     }
 
     /// <summary>
@@ -154,8 +143,7 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SquashGid
     {
-        get => GetProperty<TerraformProperty<double>>("squash_gid");
-        set => WithProperty("squash_gid", value);
+        set => SetProperty("squash_gid", value);
     }
 
     /// <summary>
@@ -163,8 +151,7 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SquashUid
     {
-        get => GetProperty<TerraformProperty<double>>("squash_uid");
-        set => WithProperty("squash_uid", value);
+        set => SetProperty("squash_uid", value);
     }
 
 }
@@ -180,8 +167,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -189,8 +175,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -198,8 +183,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -207,8 +191,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -226,16 +209,25 @@ public class AzurermManagedLustreFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("mgs_address");
+        SetOutput("mgs_address");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("storage_capacity_in_tb");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("zones");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -244,8 +236,8 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -254,8 +246,8 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -264,8 +256,8 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -274,8 +266,8 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
@@ -284,8 +276,8 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityInTb is required")]
     public required TerraformProperty<double> StorageCapacityInTb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("storage_capacity_in_tb");
-        set => this.WithProperty("storage_capacity_in_tb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity_in_tb");
+        set => SetProperty("storage_capacity_in_tb", value);
     }
 
     /// <summary>
@@ -294,27 +286,27 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
@@ -324,8 +316,7 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionKey block(s) allowed")]
     public List<AzurermManagedLustreFileSystemEncryptionKeyBlock>? EncryptionKey
     {
-        get => GetProperty<List<AzurermManagedLustreFileSystemEncryptionKeyBlock>>("encryption_key");
-        set => this.WithProperty("encryption_key", value);
+        set => SetProperty("encryption_key", value);
     }
 
     /// <summary>
@@ -335,8 +326,7 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HsmSetting block(s) allowed")]
     public List<AzurermManagedLustreFileSystemHsmSettingBlock>? HsmSetting
     {
-        get => GetProperty<List<AzurermManagedLustreFileSystemHsmSettingBlock>>("hsm_setting");
-        set => this.WithProperty("hsm_setting", value);
+        set => SetProperty("hsm_setting", value);
     }
 
     /// <summary>
@@ -346,20 +336,19 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermManagedLustreFileSystemIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermManagedLustreFileSystemIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
     /// Block for maintenance_window.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceWindow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaintenanceWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     public List<AzurermManagedLustreFileSystemMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetProperty<List<AzurermManagedLustreFileSystemMaintenanceWindowBlock>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
@@ -369,8 +358,7 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootSquash block(s) allowed")]
     public List<AzurermManagedLustreFileSystemRootSquashBlock>? RootSquash
     {
-        get => GetProperty<List<AzurermManagedLustreFileSystemRootSquashBlock>>("root_squash");
-        set => this.WithProperty("root_squash", value);
+        set => SetProperty("root_squash", value);
     }
 
     /// <summary>
@@ -379,8 +367,7 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     public AzurermManagedLustreFileSystemTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagedLustreFileSystemTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

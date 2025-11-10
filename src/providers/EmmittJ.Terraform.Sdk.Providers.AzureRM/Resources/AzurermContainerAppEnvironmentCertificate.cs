@@ -13,8 +13,7 @@ public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,11 +54,17 @@ public class AzurermContainerAppEnvironmentCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("expiration_date");
-        this.WithOutput("issue_date");
-        this.WithOutput("issuer");
-        this.WithOutput("subject_name");
-        this.WithOutput("thumbprint");
+        SetOutput("expiration_date");
+        SetOutput("issue_date");
+        SetOutput("issuer");
+        SetOutput("subject_name");
+        SetOutput("thumbprint");
+        SetOutput("certificate_blob_base64");
+        SetOutput("certificate_password");
+        SetOutput("container_app_environment_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -71,8 +73,8 @@ public class AzurermContainerAppEnvironmentCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBlobBase64 is required")]
     public required TerraformProperty<string> CertificateBlobBase64
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_blob_base64");
-        set => this.WithProperty("certificate_blob_base64", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_blob_base64");
+        set => SetProperty("certificate_blob_base64", value);
     }
 
     /// <summary>
@@ -81,8 +83,8 @@ public class AzurermContainerAppEnvironmentCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificatePassword is required")]
     public required TerraformProperty<string> CertificatePassword
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_password");
-        set => this.WithProperty("certificate_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_password");
+        set => SetProperty("certificate_password", value);
     }
 
     /// <summary>
@@ -91,17 +93,17 @@ public class AzurermContainerAppEnvironmentCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
-        set => this.WithProperty("container_app_environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_app_environment_id");
+        set => SetProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -110,17 +112,17 @@ public class AzurermContainerAppEnvironmentCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -129,8 +131,7 @@ public class AzurermContainerAppEnvironmentCertificate : TerraformResource
     /// </summary>
     public AzurermContainerAppEnvironmentCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerAppEnvironmentCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

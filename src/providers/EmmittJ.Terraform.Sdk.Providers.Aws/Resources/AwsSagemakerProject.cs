@@ -13,8 +13,7 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? PathId
     {
-        get => GetProperty<TerraformProperty<string>>("path_id");
-        set => WithProperty("path_id", value);
+        set => SetProperty("path_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
-        set => WithProperty("product_id", value);
+        set => SetProperty("product_id", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? ProvisioningArtifactId
     {
-        get => GetProperty<TerraformProperty<string>>("provisioning_artifact_id");
-        set => WithProperty("provisioning_artifact_id", value);
+        set => SetProperty("provisioning_artifact_id", value);
     }
 
 }
@@ -51,26 +48,32 @@ public class AwsSagemakerProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("project_id");
+        SetOutput("arn");
+        SetOutput("project_id");
+        SetOutput("id");
+        SetOutput("project_description");
+        SetOutput("project_name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project_description attribute.
     /// </summary>
-    public TerraformProperty<string>? ProjectDescription
+    public TerraformProperty<string> ProjectDescription
     {
-        get => GetProperty<TerraformProperty<string>>("project_description");
-        set => this.WithProperty("project_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_description");
+        set => SetProperty("project_description", value);
     }
 
     /// <summary>
@@ -79,47 +82,47 @@ public class AwsSagemakerProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
-        set => this.WithProperty("project_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_name");
+        set => SetProperty("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for service_catalog_provisioning_details.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCatalogProvisioningDetails is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceCatalogProvisioningDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceCatalogProvisioningDetails block(s) allowed")]
     public List<AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock>? ServiceCatalogProvisioningDetails
     {
-        get => GetProperty<List<AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock>>("service_catalog_provisioning_details");
-        set => this.WithProperty("service_catalog_provisioning_details", value);
+        set => SetProperty("service_catalog_provisioning_details", value);
     }
 
     /// <summary>

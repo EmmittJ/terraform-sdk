@@ -14,33 +14,40 @@ public class AwsAmiLaunchPermission : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_id");
+        SetOutput("group");
+        SetOutput("id");
+        SetOutput("image_id");
+        SetOutput("organization_arn");
+        SetOutput("organizational_unit_arn");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformProperty<string>? Group
+    public TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
-        set => this.WithProperty("group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group");
+        set => SetProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,35 +56,35 @@ public class AwsAmiLaunchPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
     public required TerraformProperty<string> ImageId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image_id");
-        set => this.WithProperty("image_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_id");
+        set => SetProperty("image_id", value);
     }
 
     /// <summary>
     /// The organization_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? OrganizationArn
+    public TerraformProperty<string> OrganizationArn
     {
-        get => GetProperty<TerraformProperty<string>>("organization_arn");
-        set => this.WithProperty("organization_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization_arn");
+        set => SetProperty("organization_arn", value);
     }
 
     /// <summary>
     /// The organizational_unit_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? OrganizationalUnitArn
+    public TerraformProperty<string> OrganizationalUnitArn
     {
-        get => GetProperty<TerraformProperty<string>>("organizational_unit_arn");
-        set => this.WithProperty("organizational_unit_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organizational_unit_arn");
+        set => SetProperty("organizational_unit_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

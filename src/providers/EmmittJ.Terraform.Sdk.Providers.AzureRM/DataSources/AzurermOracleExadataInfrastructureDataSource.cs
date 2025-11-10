@@ -13,8 +13,7 @@ public class AzurermOracleExadataInfrastructureDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,52 +30,55 @@ public class AzurermOracleExadataInfrastructureDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("activated_storage_count");
-        this.WithOutput("additional_storage_count");
-        this.WithOutput("available_storage_size_in_gbs");
-        this.WithOutput("compute_count");
-        this.WithOutput("compute_model");
-        this.WithOutput("cpu_count");
-        this.WithOutput("customer_contacts");
-        this.WithOutput("data_storage_size_in_tbs");
-        this.WithOutput("database_server_type");
-        this.WithOutput("db_node_storage_size_in_gbs");
-        this.WithOutput("db_server_version");
-        this.WithOutput("defined_file_system_configuration");
-        this.WithOutput("display_name");
-        this.WithOutput("estimated_patching_time");
-        this.WithOutput("last_maintenance_run_id");
-        this.WithOutput("lifecycle_details");
-        this.WithOutput("lifecycle_state");
-        this.WithOutput("location");
-        this.WithOutput("maintenance_window");
-        this.WithOutput("max_cpu_count");
-        this.WithOutput("max_data_storage_in_tbs");
-        this.WithOutput("max_db_node_storage_size_in_gbs");
-        this.WithOutput("max_memory_in_gbs");
-        this.WithOutput("memory_size_in_gbs");
-        this.WithOutput("monthly_db_server_version");
-        this.WithOutput("monthly_storage_server_version");
-        this.WithOutput("next_maintenance_run_id");
-        this.WithOutput("oci_url");
-        this.WithOutput("ocid");
-        this.WithOutput("shape");
-        this.WithOutput("storage_count");
-        this.WithOutput("storage_server_type");
-        this.WithOutput("storage_server_version");
-        this.WithOutput("tags");
-        this.WithOutput("time_created");
-        this.WithOutput("total_storage_size_in_gbs");
-        this.WithOutput("zones");
+        SetOutput("activated_storage_count");
+        SetOutput("additional_storage_count");
+        SetOutput("available_storage_size_in_gbs");
+        SetOutput("compute_count");
+        SetOutput("compute_model");
+        SetOutput("cpu_count");
+        SetOutput("customer_contacts");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("database_server_type");
+        SetOutput("db_node_storage_size_in_gbs");
+        SetOutput("db_server_version");
+        SetOutput("defined_file_system_configuration");
+        SetOutput("display_name");
+        SetOutput("estimated_patching_time");
+        SetOutput("last_maintenance_run_id");
+        SetOutput("lifecycle_details");
+        SetOutput("lifecycle_state");
+        SetOutput("location");
+        SetOutput("maintenance_window");
+        SetOutput("max_cpu_count");
+        SetOutput("max_data_storage_in_tbs");
+        SetOutput("max_db_node_storage_size_in_gbs");
+        SetOutput("max_memory_in_gbs");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("monthly_db_server_version");
+        SetOutput("monthly_storage_server_version");
+        SetOutput("next_maintenance_run_id");
+        SetOutput("oci_url");
+        SetOutput("ocid");
+        SetOutput("shape");
+        SetOutput("storage_count");
+        SetOutput("storage_server_type");
+        SetOutput("storage_server_version");
+        SetOutput("tags");
+        SetOutput("time_created");
+        SetOutput("total_storage_size_in_gbs");
+        SetOutput("zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermOracleExadataInfrastructureDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermOracleExadataInfrastructureDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -105,8 +107,7 @@ public class AzurermOracleExadataInfrastructureDataSource : TerraformDataSource
     /// </summary>
     public AzurermOracleExadataInfrastructureDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleExadataInfrastructureDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleHealthcareConsentStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleHealthcareConsentStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleHealthcareConsentStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,14 @@ public class GoogleHealthcareConsentStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("dataset");
+        SetOutput("default_consent_ttl");
+        SetOutput("enable_consent_create_on_update");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -60,8 +63,8 @@ public class GoogleHealthcareConsentStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
-        set => this.WithProperty("dataset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
@@ -69,28 +72,28 @@ public class GoogleHealthcareConsentStore : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? DefaultConsentTtl
+    public TerraformProperty<string> DefaultConsentTtl
     {
-        get => GetProperty<TerraformProperty<string>>("default_consent_ttl");
-        set => this.WithProperty("default_consent_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_consent_ttl");
+        set => SetProperty("default_consent_ttl", value);
     }
 
     /// <summary>
     /// If true, [consents.patch] [google.cloud.healthcare.v1.consent.UpdateConsent] creates the consent if it does not already exist.
     /// </summary>
-    public TerraformProperty<bool>? EnableConsentCreateOnUpdate
+    public TerraformProperty<bool> EnableConsentCreateOnUpdate
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_consent_create_on_update");
-        set => this.WithProperty("enable_consent_create_on_update", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_consent_create_on_update");
+        set => SetProperty("enable_consent_create_on_update", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -111,10 +114,10 @@ public class GoogleHealthcareConsentStore : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -124,8 +127,8 @@ public class GoogleHealthcareConsentStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class GoogleHealthcareConsentStore : TerraformResource
     /// </summary>
     public GoogleHealthcareConsentStoreTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleHealthcareConsentStoreTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

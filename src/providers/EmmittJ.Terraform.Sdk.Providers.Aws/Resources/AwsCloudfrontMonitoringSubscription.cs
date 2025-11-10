@@ -23,6 +23,8 @@ public class AwsCloudfrontMonitoringSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("distribution_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -31,29 +33,29 @@ public class AwsCloudfrontMonitoringSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionId is required")]
     public required TerraformProperty<string> DistributionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("distribution_id");
-        set => this.WithProperty("distribution_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("distribution_id");
+        set => SetProperty("distribution_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Block for monitoring_subscription.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitoringSubscription is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitoringSubscription block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringSubscription block(s) allowed")]
     public List<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock>? MonitoringSubscription
     {
-        get => GetProperty<List<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock>>("monitoring_subscription");
-        set => this.WithProperty("monitoring_subscription", value);
+        set => SetProperty("monitoring_subscription", value);
     }
 
 }

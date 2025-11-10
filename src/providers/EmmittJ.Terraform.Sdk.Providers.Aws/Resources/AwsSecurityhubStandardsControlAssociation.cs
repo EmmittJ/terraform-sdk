@@ -14,7 +14,12 @@ public class AwsSecurityhubStandardsControlAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("association_status");
+        SetOutput("region");
+        SetOutput("security_control_id");
+        SetOutput("standards_arn");
+        SetOutput("updated_reason");
     }
 
     /// <summary>
@@ -23,17 +28,17 @@ public class AwsSecurityhubStandardsControlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociationStatus is required")]
     public required TerraformProperty<string> AssociationStatus
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("association_status");
-        set => this.WithProperty("association_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("association_status");
+        set => SetProperty("association_status", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -42,8 +47,8 @@ public class AwsSecurityhubStandardsControlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
     public required TerraformProperty<string> SecurityControlId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("security_control_id");
-        set => this.WithProperty("security_control_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_control_id");
+        set => SetProperty("security_control_id", value);
     }
 
     /// <summary>
@@ -52,17 +57,17 @@ public class AwsSecurityhubStandardsControlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StandardsArn is required")]
     public required TerraformProperty<string> StandardsArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("standards_arn");
-        set => this.WithProperty("standards_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("standards_arn");
+        set => SetProperty("standards_arn", value);
     }
 
     /// <summary>
     /// The updated_reason attribute.
     /// </summary>
-    public TerraformProperty<string>? UpdatedReason
+    public TerraformProperty<string> UpdatedReason
     {
-        get => GetProperty<TerraformProperty<string>>("updated_reason");
-        set => this.WithProperty("updated_reason", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("updated_reason");
+        set => SetProperty("updated_reason", value);
     }
 
     /// <summary>

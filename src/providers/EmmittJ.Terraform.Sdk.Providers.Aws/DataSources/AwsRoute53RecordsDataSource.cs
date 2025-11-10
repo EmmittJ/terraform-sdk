@@ -14,16 +14,18 @@ public class AwsRoute53RecordsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputesource_record_sets");
+        SetOutput("resource_record_sets");
+        SetOutput("name_regex");
+        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string>? NameRegex
+    public TerraformProperty<string> NameRegex
     {
-        get => GetProperty<TerraformProperty<string>>("name_regex");
-        set => this.WithProperty("name_regex", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
+        set => SetProperty("name_regex", value);
     }
 
     /// <summary>
@@ -32,8 +34,8 @@ public class AwsRoute53RecordsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
-        set => this.WithProperty("zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
+        set => SetProperty("zone_id", value);
     }
 
     /// <summary>

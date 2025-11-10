@@ -14,32 +14,34 @@ public class AwsCloudfrontResponseHeadersPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("comment");
-        this.WithOutput("cors_config");
-        this.WithOutput("custom_headers_config");
-        this.WithOutput("etag");
-        this.WithOutput("remove_headers_config");
-        this.WithOutput("security_headers_config");
-        this.WithOutput("server_timing_headers_config");
+        SetOutput("arn");
+        SetOutput("comment");
+        SetOutput("cors_config");
+        SetOutput("custom_headers_config");
+        SetOutput("etag");
+        SetOutput("remove_headers_config");
+        SetOutput("security_headers_config");
+        SetOutput("server_timing_headers_config");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

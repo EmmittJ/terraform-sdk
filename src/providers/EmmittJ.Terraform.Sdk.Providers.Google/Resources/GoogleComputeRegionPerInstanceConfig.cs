@@ -13,8 +13,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlock : Terraform
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleComputeRegionPerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleComputeRegionPerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleComputeRegionPerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,15 +63,24 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("minimal_action");
+        SetOutput("most_disruptive_allowed_action");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("region_instance_group_manager");
+        SetOutput("remove_instance_on_destroy");
+        SetOutput("remove_instance_state_on_destroy");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,10 +91,10 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// * REFRESH
     /// * NONE
     /// </summary>
-    public TerraformProperty<string>? MinimalAction
+    public TerraformProperty<string> MinimalAction
     {
-        get => GetProperty<TerraformProperty<string>>("minimal_action");
-        set => this.WithProperty("minimal_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("minimal_action");
+        set => SetProperty("minimal_action", value);
     }
 
     /// <summary>
@@ -100,10 +105,10 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// * REFRESH
     /// * NONE
     /// </summary>
-    public TerraformProperty<string>? MostDisruptiveAllowedAction
+    public TerraformProperty<string> MostDisruptiveAllowedAction
     {
-        get => GetProperty<TerraformProperty<string>>("most_disruptive_allowed_action");
-        set => this.WithProperty("most_disruptive_allowed_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("most_disruptive_allowed_action");
+        set => SetProperty("most_disruptive_allowed_action", value);
     }
 
     /// <summary>
@@ -112,26 +117,26 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where the containing instance group manager is located
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -140,18 +145,18 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionInstanceGroupManager is required")]
     public required TerraformProperty<string> RegionInstanceGroupManager
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region_instance_group_manager");
-        set => this.WithProperty("region_instance_group_manager", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region_instance_group_manager");
+        set => SetProperty("region_instance_group_manager", value);
     }
 
     /// <summary>
     /// When true, deleting this config will immediately remove the underlying instance.
     /// When false, deleting this config will use the behavior as determined by remove_instance_on_destroy.
     /// </summary>
-    public TerraformProperty<bool>? RemoveInstanceOnDestroy
+    public TerraformProperty<bool> RemoveInstanceOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("remove_instance_on_destroy");
-        set => this.WithProperty("remove_instance_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("remove_instance_on_destroy");
+        set => SetProperty("remove_instance_on_destroy", value);
     }
 
     /// <summary>
@@ -159,10 +164,10 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// When false, deleting this config will *not* immediately remove any state from the underlying instance.
     /// State will be removed on the next instance recreation or update.
     /// </summary>
-    public TerraformProperty<bool>? RemoveInstanceStateOnDestroy
+    public TerraformProperty<bool> RemoveInstanceStateOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("remove_instance_state_on_destroy");
-        set => this.WithProperty("remove_instance_state_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("remove_instance_state_on_destroy");
+        set => SetProperty("remove_instance_state_on_destroy", value);
     }
 
     /// <summary>
@@ -172,8 +177,7 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreservedState block(s) allowed")]
     public List<GoogleComputeRegionPerInstanceConfigPreservedStateBlock>? PreservedState
     {
-        get => GetProperty<List<GoogleComputeRegionPerInstanceConfigPreservedStateBlock>>("preserved_state");
-        set => this.WithProperty("preserved_state", value);
+        set => SetProperty("preserved_state", value);
     }
 
     /// <summary>
@@ -182,8 +186,7 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// </summary>
     public GoogleComputeRegionPerInstanceConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRegionPerInstanceConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

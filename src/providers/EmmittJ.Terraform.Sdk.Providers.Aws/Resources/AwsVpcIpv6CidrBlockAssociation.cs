@@ -13,8 +13,7 @@ public class AwsVpcIpv6CidrBlockAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpcIpv6CidrBlockAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,71 +38,79 @@ public class AwsVpcIpv6CidrBlockAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ip_source");
-        this.WithOutput("ipv6_address_attribute");
+        SetOutput("ip_source");
+        SetOutput("ipv6_address_attribute");
+        SetOutput("assign_generated_ipv6_cidr_block");
+        SetOutput("id");
+        SetOutput("ipv6_cidr_block");
+        SetOutput("ipv6_ipam_pool_id");
+        SetOutput("ipv6_netmask_length");
+        SetOutput("ipv6_pool");
+        SetOutput("region");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The assign_generated_ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<bool>? AssignGeneratedIpv6CidrBlock
+    public TerraformProperty<bool> AssignGeneratedIpv6CidrBlock
     {
-        get => GetProperty<TerraformProperty<bool>>("assign_generated_ipv6_cidr_block");
-        set => this.WithProperty("assign_generated_ipv6_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("assign_generated_ipv6_cidr_block");
+        set => SetProperty("assign_generated_ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6CidrBlock
+    public TerraformProperty<string> Ipv6CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_cidr_block");
-        set => this.WithProperty("ipv6_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_cidr_block");
+        set => SetProperty("ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The ipv6_ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6IpamPoolId
+    public TerraformProperty<string> Ipv6IpamPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_ipam_pool_id");
-        set => this.WithProperty("ipv6_ipam_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_ipam_pool_id");
+        set => SetProperty("ipv6_ipam_pool_id", value);
     }
 
     /// <summary>
     /// The ipv6_netmask_length attribute.
     /// </summary>
-    public TerraformProperty<double>? Ipv6NetmaskLength
+    public TerraformProperty<double> Ipv6NetmaskLength
     {
-        get => GetProperty<TerraformProperty<double>>("ipv6_netmask_length");
-        set => this.WithProperty("ipv6_netmask_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ipv6_netmask_length");
+        set => SetProperty("ipv6_netmask_length", value);
     }
 
     /// <summary>
     /// The ipv6_pool attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6Pool
+    public TerraformProperty<string> Ipv6Pool
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_pool");
-        set => this.WithProperty("ipv6_pool", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_pool");
+        set => SetProperty("ipv6_pool", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -113,8 +119,8 @@ public class AwsVpcIpv6CidrBlockAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -123,8 +129,7 @@ public class AwsVpcIpv6CidrBlockAssociation : TerraformResource
     /// </summary>
     public AwsVpcIpv6CidrBlockAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcIpv6CidrBlockAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

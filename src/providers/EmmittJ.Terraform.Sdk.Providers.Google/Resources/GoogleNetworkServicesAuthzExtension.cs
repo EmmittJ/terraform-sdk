@@ -13,8 +13,7 @@ public class GoogleNetworkServicesAuthzExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetworkServicesAuthzExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetworkServicesAuthzExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,24 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("authority");
+        SetOutput("description");
+        SetOutput("fail_open");
+        SetOutput("forward_headers");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("load_balancing_scheme");
+        SetOutput("location");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("service");
+        SetOutput("timeout");
+        SetOutput("wire_format");
     }
 
     /// <summary>
@@ -61,17 +72,17 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     public required TerraformProperty<string> Authority
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authority");
-        set => this.WithProperty("authority", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authority");
+        set => SetProperty("authority", value);
     }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -80,28 +91,28 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// * If response headers have not been delivered to the downstream client, a generic 500 error is returned to the client. The error response can be tailored by configuring a custom error response in the load balancer.
     /// * If response headers have been delivered, then the HTTP stream to the downstream client is reset.
     /// </summary>
-    public TerraformProperty<bool>? FailOpen
+    public TerraformProperty<bool> FailOpen
     {
-        get => GetProperty<TerraformProperty<bool>>("fail_open");
-        set => this.WithProperty("fail_open", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("fail_open");
+        set => SetProperty("fail_open", value);
     }
 
     /// <summary>
     /// List of the HTTP headers to forward to the extension (from the client). If omitted, all headers are sent. Each element is a string indicating the header name.
     /// </summary>
-    public List<TerraformProperty<string>>? ForwardHeaders
+    public List<TerraformProperty<string>> ForwardHeaders
     {
-        get => GetProperty<List<TerraformProperty<string>>>("forward_headers");
-        set => this.WithProperty("forward_headers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("forward_headers");
+        set => SetProperty("forward_headers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -111,10 +122,10 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -124,8 +135,8 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     public required TerraformProperty<string> LoadBalancingScheme
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("load_balancing_scheme");
-        set => this.WithProperty("load_balancing_scheme", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("load_balancing_scheme");
+        set => SetProperty("load_balancing_scheme", value);
     }
 
     /// <summary>
@@ -134,8 +145,8 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -143,10 +154,10 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// 
     /// {forwarding_rule_id} - substituted with the forwarding rule&#39;s fully qualified resource name.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -155,17 +166,17 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -176,8 +187,8 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
@@ -186,17 +197,17 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformProperty<string> Timeout
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("timeout");
-        set => this.WithProperty("timeout", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("timeout");
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>
     /// The format of communication supported by the callout extension. Will be set to EXT_PROC_GRPC by the backend if no value is set. Possible values: [&amp;quot;WIRE_FORMAT_UNSPECIFIED&amp;quot;, &amp;quot;EXT_PROC_GRPC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? WireFormat
+    public TerraformProperty<string> WireFormat
     {
-        get => GetProperty<TerraformProperty<string>>("wire_format");
-        set => this.WithProperty("wire_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("wire_format");
+        set => SetProperty("wire_format", value);
     }
 
     /// <summary>
@@ -205,8 +216,7 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// </summary>
     public GoogleNetworkServicesAuthzExtensionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkServicesAuthzExtensionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

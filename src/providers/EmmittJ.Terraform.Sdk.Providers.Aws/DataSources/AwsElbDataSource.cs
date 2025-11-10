@@ -14,33 +14,37 @@ public class AwsElbDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_logs");
-        this.WithOutput("arn");
-        this.WithOutput("availability_zones");
-        this.WithOutput("connection_draining");
-        this.WithOutput("connection_draining_timeout");
-        this.WithOutput("cross_zone_load_balancing");
-        this.WithOutput("desync_mitigation_mode");
-        this.WithOutput("dns_name");
-        this.WithOutput("health_check");
-        this.WithOutput("idle_timeout");
-        this.WithOutput("instances");
-        this.WithOutput("internal");
-        this.WithOutput("listener");
-        this.WithOutput("security_groups");
-        this.WithOutput("source_security_group");
-        this.WithOutput("source_security_group_id");
-        this.WithOutput("subnets");
-        this.WithOutput("zone_id");
+        SetOutput("access_logs");
+        SetOutput("arn");
+        SetOutput("availability_zones");
+        SetOutput("connection_draining");
+        SetOutput("connection_draining_timeout");
+        SetOutput("cross_zone_load_balancing");
+        SetOutput("desync_mitigation_mode");
+        SetOutput("dns_name");
+        SetOutput("health_check");
+        SetOutput("idle_timeout");
+        SetOutput("instances");
+        SetOutput("internal");
+        SetOutput("listener");
+        SetOutput("security_groups");
+        SetOutput("source_security_group");
+        SetOutput("source_security_group_id");
+        SetOutput("subnets");
+        SetOutput("zone_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,26 +53,26 @@ public class AwsElbDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

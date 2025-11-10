@@ -14,24 +14,28 @@ public class GoogleParameterManagerRegionalParameterDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("format");
-        this.WithOutput("kms_key");
-        this.WithOutput("labels");
-        this.WithOutput("name");
-        this.WithOutput("policy_member");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("format");
+        SetOutput("kms_key");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("policy_member");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("parameter_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -40,8 +44,8 @@ public class GoogleParameterManagerRegionalParameterDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -50,17 +54,17 @@ public class GoogleParameterManagerRegionalParameterDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterId is required")]
     public required TerraformProperty<string> ParameterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter_id");
-        set => this.WithProperty("parameter_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_id");
+        set => SetProperty("parameter_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsSagemakerSpaceOwnershipSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerUserProfileName is required")]
     public required TerraformProperty<string> OwnerUserProfileName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("owner_user_profile_name");
-        set => WithProperty("owner_user_profile_name", value);
+        set => SetProperty("owner_user_profile_name", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AppType
     {
-        get => GetProperty<TerraformProperty<string>>("app_type");
-        set => WithProperty("app_type", value);
+        set => SetProperty("app_type", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsSagemakerSpaceSpaceSharingSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharingType is required")]
     public required TerraformProperty<string> SharingType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sharing_type");
-        set => WithProperty("sharing_type", value);
+        set => SetProperty("sharing_type", value);
     }
 
 }
@@ -68,9 +65,16 @@ public class AwsSagemakerSpace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("home_efs_file_system_uid");
-        this.WithOutput("url");
+        SetOutput("arn");
+        SetOutput("home_efs_file_system_uid");
+        SetOutput("url");
+        SetOutput("domain_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("space_display_name");
+        SetOutput("space_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -79,35 +83,35 @@ public class AwsSagemakerSpace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
-        set => this.WithProperty("domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_id");
+        set => SetProperty("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The space_display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SpaceDisplayName
+    public TerraformProperty<string> SpaceDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("space_display_name");
-        set => this.WithProperty("space_display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("space_display_name");
+        set => SetProperty("space_display_name", value);
     }
 
     /// <summary>
@@ -116,26 +120,26 @@ public class AwsSagemakerSpace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     public required TerraformProperty<string> SpaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("space_name");
-        set => this.WithProperty("space_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("space_name");
+        set => SetProperty("space_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -145,8 +149,7 @@ public class AwsSagemakerSpace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OwnershipSettings block(s) allowed")]
     public List<AwsSagemakerSpaceOwnershipSettingsBlock>? OwnershipSettings
     {
-        get => GetProperty<List<AwsSagemakerSpaceOwnershipSettingsBlock>>("ownership_settings");
-        set => this.WithProperty("ownership_settings", value);
+        set => SetProperty("ownership_settings", value);
     }
 
     /// <summary>
@@ -156,8 +159,7 @@ public class AwsSagemakerSpace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpaceSettings block(s) allowed")]
     public List<AwsSagemakerSpaceSpaceSettingsBlock>? SpaceSettings
     {
-        get => GetProperty<List<AwsSagemakerSpaceSpaceSettingsBlock>>("space_settings");
-        set => this.WithProperty("space_settings", value);
+        set => SetProperty("space_settings", value);
     }
 
     /// <summary>
@@ -167,8 +169,7 @@ public class AwsSagemakerSpace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpaceSharingSettings block(s) allowed")]
     public List<AwsSagemakerSpaceSpaceSharingSettingsBlock>? SpaceSharingSettings
     {
-        get => GetProperty<List<AwsSagemakerSpaceSpaceSharingSettingsBlock>>("space_sharing_settings");
-        set => this.WithProperty("space_sharing_settings", value);
+        set => SetProperty("space_sharing_settings", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsOdbNetworkPeeringConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsOdbNetworkPeeringConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsOdbNetworkPeeringConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,16 +46,21 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("id");
-        this.WithOutput("odb_network_arn");
-        this.WithOutput("odb_peering_connection_type");
-        this.WithOutput("peer_network_arn");
-        this.WithOutput("percent_progress");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("id");
+        SetOutput("odb_network_arn");
+        SetOutput("odb_peering_connection_type");
+        SetOutput("peer_network_arn");
+        SetOutput("percent_progress");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("tags_all");
+        SetOutput("display_name");
+        SetOutput("odb_network_id");
+        SetOutput("peer_network_id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -77,8 +79,8 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformProperty<string> OdbNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("odb_network_id");
-        set => this.WithProperty("odb_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("odb_network_id");
+        set => SetProperty("odb_network_id", value);
     }
 
     /// <summary>
@@ -87,26 +89,26 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetworkId is required")]
     public required TerraformProperty<string> PeerNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_network_id");
-        set => this.WithProperty("peer_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_network_id");
+        set => SetProperty("peer_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -115,8 +117,7 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
     /// </summary>
     public AwsOdbNetworkPeeringConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsOdbNetworkPeeringConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

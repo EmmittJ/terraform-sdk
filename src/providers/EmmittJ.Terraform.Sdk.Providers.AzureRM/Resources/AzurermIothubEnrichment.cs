@@ -13,8 +13,7 @@ public class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,31 @@ public class AzurermIothubEnrichment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("endpoint_names");
+        SetOutput("id");
+        SetOutput("iothub_name");
+        SetOutput("key");
+        SetOutput("resource_group_name");
+        SetOutput("value");
     }
 
     /// <summary>
     /// The endpoint_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointNames is required")]
-    public List<TerraformProperty<string>>? EndpointNames
+    public List<TerraformProperty<string>> EndpointNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("endpoint_names");
-        set => this.WithProperty("endpoint_names", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("endpoint_names");
+        set => SetProperty("endpoint_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermIothubEnrichment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
     public required TerraformProperty<string> IothubName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_name");
-        set => this.WithProperty("iothub_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_name");
+        set => SetProperty("iothub_name", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermIothubEnrichment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => this.WithProperty("key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key");
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermIothubEnrichment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermIothubEnrichment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermIothubEnrichment : TerraformResource
     /// </summary>
     public AzurermIothubEnrichmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubEnrichmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

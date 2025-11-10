@@ -13,8 +13,7 @@ public class AwsLexIntentConclusionStatementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResponseCard
     {
-        get => GetProperty<TerraformProperty<string>>("response_card");
-        set => WithProperty("response_card", value);
+        set => SetProperty("response_card", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsLexIntentConfirmationPromptBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     public required TerraformProperty<double> MaxAttempts
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_attempts");
-        set => WithProperty("max_attempts", value);
+        set => SetProperty("max_attempts", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsLexIntentConfirmationPromptBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResponseCard
     {
-        get => GetProperty<TerraformProperty<string>>("response_card");
-        set => WithProperty("response_card", value);
+        set => SetProperty("response_card", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AwsLexIntentDialogCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageVersion is required")]
     public required TerraformProperty<string> MessageVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("message_version");
-        set => WithProperty("message_version", value);
+        set => SetProperty("message_version", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class AwsLexIntentDialogCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -94,8 +89,7 @@ public class AwsLexIntentFulfillmentActivityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -111,8 +105,7 @@ public class AwsLexIntentRejectionStatementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResponseCard
     {
-        get => GetProperty<TerraformProperty<string>>("response_card");
-        set => WithProperty("response_card", value);
+        set => SetProperty("response_card", value);
     }
 
 }
@@ -128,8 +121,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -138,8 +130,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -147,8 +138,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -156,8 +146,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResponseCard
     {
-        get => GetProperty<TerraformProperty<string>>("response_card");
-        set => WithProperty("response_card", value);
+        set => SetProperty("response_card", value);
     }
 
     /// <summary>
@@ -165,8 +154,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SampleUtterances
     {
-        get => GetProperty<List<TerraformProperty<string>>>("sample_utterances");
-        set => WithProperty("sample_utterances", value);
+        set => SetProperty("sample_utterances", value);
     }
 
     /// <summary>
@@ -175,8 +163,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotConstraint is required")]
     public required TerraformProperty<string> SlotConstraint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("slot_constraint");
-        set => WithProperty("slot_constraint", value);
+        set => SetProperty("slot_constraint", value);
     }
 
     /// <summary>
@@ -185,8 +172,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotType is required")]
     public required TerraformProperty<string> SlotType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("slot_type");
-        set => WithProperty("slot_type", value);
+        set => SetProperty("slot_type", value);
     }
 
     /// <summary>
@@ -194,8 +180,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SlotTypeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("slot_type_version");
-        set => WithProperty("slot_type_version", value);
+        set => SetProperty("slot_type_version", value);
     }
 
 }
@@ -211,8 +196,7 @@ public class AwsLexIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -220,8 +204,7 @@ public class AwsLexIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -229,8 +212,7 @@ public class AwsLexIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -248,38 +230,45 @@ public class AwsLexIntent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("checksum");
-        this.WithOutput("created_date");
-        this.WithOutput("last_updated_date");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("checksum");
+        SetOutput("created_date");
+        SetOutput("last_updated_date");
+        SetOutput("version");
+        SetOutput("create_version");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent_intent_signature");
+        SetOutput("region");
+        SetOutput("sample_utterances");
     }
 
     /// <summary>
     /// The create_version attribute.
     /// </summary>
-    public TerraformProperty<bool>? CreateVersion
+    public TerraformProperty<bool> CreateVersion
     {
-        get => GetProperty<TerraformProperty<bool>>("create_version");
-        set => this.WithProperty("create_version", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_version");
+        set => SetProperty("create_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -288,35 +277,35 @@ public class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parent_intent_signature attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentIntentSignature
+    public TerraformProperty<string> ParentIntentSignature
     {
-        get => GetProperty<TerraformProperty<string>>("parent_intent_signature");
-        set => this.WithProperty("parent_intent_signature", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_intent_signature");
+        set => SetProperty("parent_intent_signature", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The sample_utterances attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SampleUtterances
+    public HashSet<TerraformProperty<string>> SampleUtterances
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("sample_utterances");
-        set => this.WithProperty("sample_utterances", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("sample_utterances");
+        set => SetProperty("sample_utterances", value);
     }
 
     /// <summary>
@@ -326,8 +315,7 @@ public class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConclusionStatement block(s) allowed")]
     public List<AwsLexIntentConclusionStatementBlock>? ConclusionStatement
     {
-        get => GetProperty<List<AwsLexIntentConclusionStatementBlock>>("conclusion_statement");
-        set => this.WithProperty("conclusion_statement", value);
+        set => SetProperty("conclusion_statement", value);
     }
 
     /// <summary>
@@ -337,8 +325,7 @@ public class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfirmationPrompt block(s) allowed")]
     public List<AwsLexIntentConfirmationPromptBlock>? ConfirmationPrompt
     {
-        get => GetProperty<List<AwsLexIntentConfirmationPromptBlock>>("confirmation_prompt");
-        set => this.WithProperty("confirmation_prompt", value);
+        set => SetProperty("confirmation_prompt", value);
     }
 
     /// <summary>
@@ -348,8 +335,7 @@ public class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DialogCodeHook block(s) allowed")]
     public List<AwsLexIntentDialogCodeHookBlock>? DialogCodeHook
     {
-        get => GetProperty<List<AwsLexIntentDialogCodeHookBlock>>("dialog_code_hook");
-        set => this.WithProperty("dialog_code_hook", value);
+        set => SetProperty("dialog_code_hook", value);
     }
 
     /// <summary>
@@ -359,20 +345,19 @@ public class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FollowUpPrompt block(s) allowed")]
     public List<AwsLexIntentFollowUpPromptBlock>? FollowUpPrompt
     {
-        get => GetProperty<List<AwsLexIntentFollowUpPromptBlock>>("follow_up_prompt");
-        set => this.WithProperty("follow_up_prompt", value);
+        set => SetProperty("follow_up_prompt", value);
     }
 
     /// <summary>
     /// Block for fulfillment_activity.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FulfillmentActivity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FulfillmentActivity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FulfillmentActivity block(s) allowed")]
     public List<AwsLexIntentFulfillmentActivityBlock>? FulfillmentActivity
     {
-        get => GetProperty<List<AwsLexIntentFulfillmentActivityBlock>>("fulfillment_activity");
-        set => this.WithProperty("fulfillment_activity", value);
+        set => SetProperty("fulfillment_activity", value);
     }
 
     /// <summary>
@@ -382,8 +367,7 @@ public class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RejectionStatement block(s) allowed")]
     public List<AwsLexIntentRejectionStatementBlock>? RejectionStatement
     {
-        get => GetProperty<List<AwsLexIntentRejectionStatementBlock>>("rejection_statement");
-        set => this.WithProperty("rejection_statement", value);
+        set => SetProperty("rejection_statement", value);
     }
 
     /// <summary>
@@ -393,8 +377,7 @@ public class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Slot block(s) allowed")]
     public HashSet<AwsLexIntentSlotBlock>? Slot
     {
-        get => GetProperty<HashSet<AwsLexIntentSlotBlock>>("slot");
-        set => this.WithProperty("slot", value);
+        set => SetProperty("slot", value);
     }
 
     /// <summary>
@@ -403,8 +386,7 @@ public class AwsLexIntent : TerraformResource
     /// </summary>
     public AwsLexIntentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLexIntentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

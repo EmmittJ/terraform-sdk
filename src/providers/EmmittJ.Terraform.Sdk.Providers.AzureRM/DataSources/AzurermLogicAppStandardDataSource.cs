@@ -13,8 +13,7 @@ public class AzurermLogicAppStandardDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,42 +30,45 @@ public class AzurermLogicAppStandardDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_service_plan_id");
-        this.WithOutput("app_settings");
-        this.WithOutput("bundle_version");
-        this.WithOutput("client_affinity_enabled");
-        this.WithOutput("client_certificate_mode");
-        this.WithOutput("connection_string");
-        this.WithOutput("custom_domain_verification_id");
-        this.WithOutput("default_hostname");
-        this.WithOutput("enabled");
-        this.WithOutput("ftp_publish_basic_authentication_enabled");
-        this.WithOutput("https_only");
-        this.WithOutput("identity");
-        this.WithOutput("kind");
-        this.WithOutput("location");
-        this.WithOutput("outbound_ip_addresses");
-        this.WithOutput("possible_outbound_ip_addresses");
-        this.WithOutput("public_network_access");
-        this.WithOutput("scm_publish_basic_authentication_enabled");
-        this.WithOutput("site_config");
-        this.WithOutput("site_credential");
-        this.WithOutput("storage_account_access_key");
-        this.WithOutput("storage_account_name");
-        this.WithOutput("storage_account_share_name");
-        this.WithOutput("tags");
-        this.WithOutput("use_extension_bundle");
-        this.WithOutput("version");
-        this.WithOutput("virtual_network_subnet_id");
+        SetOutput("app_service_plan_id");
+        SetOutput("app_settings");
+        SetOutput("bundle_version");
+        SetOutput("client_affinity_enabled");
+        SetOutput("client_certificate_mode");
+        SetOutput("connection_string");
+        SetOutput("custom_domain_verification_id");
+        SetOutput("default_hostname");
+        SetOutput("enabled");
+        SetOutput("ftp_publish_basic_authentication_enabled");
+        SetOutput("https_only");
+        SetOutput("identity");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("outbound_ip_addresses");
+        SetOutput("possible_outbound_ip_addresses");
+        SetOutput("public_network_access");
+        SetOutput("scm_publish_basic_authentication_enabled");
+        SetOutput("site_config");
+        SetOutput("site_credential");
+        SetOutput("storage_account_access_key");
+        SetOutput("storage_account_name");
+        SetOutput("storage_account_share_name");
+        SetOutput("tags");
+        SetOutput("use_extension_bundle");
+        SetOutput("version");
+        SetOutput("virtual_network_subnet_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +77,8 @@ public class AzurermLogicAppStandardDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermLogicAppStandardDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -95,8 +97,7 @@ public class AzurermLogicAppStandardDataSource : TerraformDataSource
     /// </summary>
     public AzurermLogicAppStandardDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogicAppStandardDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

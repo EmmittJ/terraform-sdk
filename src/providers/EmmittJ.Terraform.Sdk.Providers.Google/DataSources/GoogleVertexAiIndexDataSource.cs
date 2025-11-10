@@ -14,29 +14,33 @@ public class GoogleVertexAiIndexDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("deployed_indexes");
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("effective_labels");
-        this.WithOutput("encryption_spec");
-        this.WithOutput("etag");
-        this.WithOutput("index_stats");
-        this.WithOutput("index_update_method");
-        this.WithOutput("labels");
-        this.WithOutput("metadata");
-        this.WithOutput("metadata_schema_uri");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("deployed_indexes");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("effective_labels");
+        SetOutput("encryption_spec");
+        SetOutput("etag");
+        SetOutput("index_stats");
+        SetOutput("index_update_method");
+        SetOutput("labels");
+        SetOutput("metadata");
+        SetOutput("metadata_schema_uri");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -45,17 +49,17 @@ public class GoogleVertexAiIndexDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -64,8 +68,8 @@ public class GoogleVertexAiIndexDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

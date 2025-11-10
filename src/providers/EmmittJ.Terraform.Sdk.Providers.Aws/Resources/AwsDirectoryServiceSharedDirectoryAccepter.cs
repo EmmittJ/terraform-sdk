@@ -13,8 +13,7 @@ public class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,28 +38,31 @@ public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputethod");
-        this.WithOutputotes");
-        this.WithOutputwner_account_id");
-        this.WithOutputwner_directory_id");
+        SetOutput("method");
+        SetOutput("notes");
+        SetOutput("owner_account_id");
+        SetOutput("owner_directory_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("shared_directory_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -70,8 +71,8 @@ public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedDirectoryId is required")]
     public required TerraformProperty<string> SharedDirectoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("shared_directory_id");
-        set => this.WithProperty("shared_directory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shared_directory_id");
+        set => SetProperty("shared_directory_id", value);
     }
 
     /// <summary>
@@ -80,8 +81,7 @@ public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
     /// </summary>
     public AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,19 @@ public class AzurermDataFactoryTriggerScheduleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("activated");
-        this.WithOutput("annotations");
-        this.WithOutput("description");
-        this.WithOutput("end_time");
-        this.WithOutput("frequency");
-        this.WithOutput("interval");
-        this.WithOutput("pipeline_name");
-        this.WithOutput("schedule");
-        this.WithOutput("start_time");
-        this.WithOutput("time_zone");
+        SetOutput("activated");
+        SetOutput("annotations");
+        SetOutput("description");
+        SetOutput("end_time");
+        SetOutput("frequency");
+        SetOutput("interval");
+        SetOutput("pipeline_name");
+        SetOutput("schedule");
+        SetOutput("start_time");
+        SetOutput("time_zone");
+        SetOutput("data_factory_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -49,17 +51,17 @@ public class AzurermDataFactoryTriggerScheduleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +70,8 @@ public class AzurermDataFactoryTriggerScheduleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -78,8 +80,7 @@ public class AzurermDataFactoryTriggerScheduleDataSource : TerraformDataSource
     /// </summary>
     public AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

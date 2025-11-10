@@ -13,8 +13,7 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,44 +54,54 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("address_space_prefixes");
-        this.WithOutput("virtual_network_id");
+        SetOutput("address_space_prefixes");
+        SetOutput("virtual_network_id");
+        SetOutput("allow_forwarded_traffic");
+        SetOutput("allow_gateway_transit");
+        SetOutput("allow_virtual_network_access");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("remote_address_space_prefixes");
+        SetOutput("remote_virtual_network_id");
+        SetOutput("resource_group_name");
+        SetOutput("use_remote_gateways");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The allow_forwarded_traffic attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowForwardedTraffic
+    public TerraformProperty<bool> AllowForwardedTraffic
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_forwarded_traffic");
-        set => this.WithProperty("allow_forwarded_traffic", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_forwarded_traffic");
+        set => SetProperty("allow_forwarded_traffic", value);
     }
 
     /// <summary>
     /// The allow_gateway_transit attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowGatewayTransit
+    public TerraformProperty<bool> AllowGatewayTransit
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_gateway_transit");
-        set => this.WithProperty("allow_gateway_transit", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_gateway_transit");
+        set => SetProperty("allow_gateway_transit", value);
     }
 
     /// <summary>
     /// The allow_virtual_network_access attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowVirtualNetworkAccess
+    public TerraformProperty<bool> AllowVirtualNetworkAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_virtual_network_access");
-        set => this.WithProperty("allow_virtual_network_access", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_virtual_network_access");
+        set => SetProperty("allow_virtual_network_access", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,18 +110,18 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The remote_address_space_prefixes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteAddressSpacePrefixes is required")]
-    public List<TerraformProperty<string>>? RemoteAddressSpacePrefixes
+    public List<TerraformProperty<string>> RemoteAddressSpacePrefixes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("remote_address_space_prefixes");
-        set => this.WithProperty("remote_address_space_prefixes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("remote_address_space_prefixes");
+        set => SetProperty("remote_address_space_prefixes", value);
     }
 
     /// <summary>
@@ -124,8 +130,8 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
     public required TerraformProperty<string> RemoteVirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("remote_virtual_network_id");
-        set => this.WithProperty("remote_virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("remote_virtual_network_id");
+        set => SetProperty("remote_virtual_network_id", value);
     }
 
     /// <summary>
@@ -134,17 +140,17 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The use_remote_gateways attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseRemoteGateways
+    public TerraformProperty<bool> UseRemoteGateways
     {
-        get => GetProperty<TerraformProperty<bool>>("use_remote_gateways");
-        set => this.WithProperty("use_remote_gateways", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("use_remote_gateways");
+        set => SetProperty("use_remote_gateways", value);
     }
 
     /// <summary>
@@ -153,8 +159,8 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -163,8 +169,7 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// </summary>
     public AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

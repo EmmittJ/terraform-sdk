@@ -13,8 +13,7 @@ public class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? JsonParsing
     {
-        get => GetProperty<TerraformProperty<string>>("json_parsing");
-        set => WithProperty("json_parsing", value);
+        set => SetProperty("json_parsing", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? LogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("log_level");
-        set => WithProperty("log_level", value);
+        set => SetProperty("log_level", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock : Terra
     /// </summary>
     public HashSet<TerraformProperty<string>>? UserIpRequestHeaders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("user_ip_request_headers");
-        set => WithProperty("user_ip_request_headers", value);
+        set => SetProperty("user_ip_request_headers", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DdosProtection is required")]
     public required TerraformProperty<string> DdosProtection
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ddos_protection");
-        set => WithProperty("ddos_protection", value);
+        set => SetProperty("ddos_protection", value);
     }
 
 }
@@ -80,8 +76,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -89,8 +84,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -98,8 +92,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Preview
     {
-        get => GetProperty<TerraformProperty<bool>>("preview");
-        set => WithProperty("preview", value);
+        set => SetProperty("preview", value);
     }
 
     /// <summary>
@@ -110,8 +103,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
 }
@@ -127,8 +119,7 @@ public class GoogleComputeRegionSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -136,8 +127,7 @@ public class GoogleComputeRegionSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -145,8 +135,7 @@ public class GoogleComputeRegionSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -167,8 +156,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Base is required")]
     public required TerraformProperty<string> Base
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("base");
-        set => WithProperty("base", value);
+        set => SetProperty("base", value);
     }
 
     /// <summary>
@@ -178,8 +166,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Mask
     {
-        get => GetProperty<TerraformProperty<string>>("mask");
-        set => WithProperty("mask", value);
+        set => SetProperty("mask", value);
     }
 
     /// <summary>
@@ -187,8 +174,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -196,8 +182,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? Offset
     {
-        get => GetProperty<TerraformProperty<double>>("offset");
-        set => WithProperty("offset", value);
+        set => SetProperty("offset", value);
     }
 
     /// <summary>
@@ -205,8 +190,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? Size
     {
-        get => GetProperty<TerraformProperty<double>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
 }
@@ -224,28 +208,34 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fingerprint");
-        this.WithOutput("policy_id");
-        this.WithOutput("self_link");
-        this.WithOutput("self_link_with_policy_id");
+        SetOutput("fingerprint");
+        SetOutput("policy_id");
+        SetOutput("self_link");
+        SetOutput("self_link_with_policy_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -255,27 +245,27 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The Region in which the created Region Security Policy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -285,10 +275,10 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// - CLOUD_ARMOR_NETWORK: Cloud Armor network policies can be configured to filter packets targeting network load balancing resources such as backend services, target pools, target instances, and instances with external IPs. They filter requests before the request is served from the application.
     /// This field can be set only at resource creation time. Possible values: [&amp;quot;CLOUD_ARMOR&amp;quot;, &amp;quot;CLOUD_ARMOR_EDGE&amp;quot;, &amp;quot;CLOUD_ARMOR_NETWORK&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -298,8 +288,7 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedOptionsConfig block(s) allowed")]
     public List<GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock>? AdvancedOptionsConfig
     {
-        get => GetProperty<List<GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock>>("advanced_options_config");
-        set => this.WithProperty("advanced_options_config", value);
+        set => SetProperty("advanced_options_config", value);
     }
 
     /// <summary>
@@ -309,8 +298,7 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionConfig block(s) allowed")]
     public List<GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock>? DdosProtectionConfig
     {
-        get => GetProperty<List<GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock>>("ddos_protection_config");
-        set => this.WithProperty("ddos_protection_config", value);
+        set => SetProperty("ddos_protection_config", value);
     }
 
     /// <summary>
@@ -319,8 +307,7 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// </summary>
     public List<GoogleComputeRegionSecurityPolicyRulesBlock>? Rules
     {
-        get => GetProperty<List<GoogleComputeRegionSecurityPolicyRulesBlock>>("rules");
-        set => this.WithProperty("rules", value);
+        set => SetProperty("rules", value);
     }
 
     /// <summary>
@@ -329,8 +316,7 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// </summary>
     public GoogleComputeRegionSecurityPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRegionSecurityPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -339,8 +325,7 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// </summary>
     public List<GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock>? UserDefinedFields
     {
-        get => GetProperty<List<GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock>>("user_defined_fields");
-        set => this.WithProperty("user_defined_fields", value);
+        set => SetProperty("user_defined_fields", value);
     }
 
     /// <summary>

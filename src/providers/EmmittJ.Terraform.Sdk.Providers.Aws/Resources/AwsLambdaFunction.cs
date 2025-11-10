@@ -14,8 +14,7 @@ public class AwsLambdaFunctionDeadLetterConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
-        set => WithProperty("target_arn", value);
+        set => SetProperty("target_arn", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsLambdaFunctionEnvironmentBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Variables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("variables");
-        set => WithProperty("variables", value);
+        set => SetProperty("variables", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsLambdaFunctionEphemeralStorageBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Size
     {
-        get => GetProperty<TerraformProperty<double>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
 }
@@ -66,8 +63,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => WithProperty("arn", value);
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
@@ -76,8 +72,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalMountPath is required")]
     public required TerraformProperty<string> LocalMountPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("local_mount_path");
-        set => WithProperty("local_mount_path", value);
+        set => SetProperty("local_mount_path", value);
     }
 
 }
@@ -93,8 +88,7 @@ public class AwsLambdaFunctionImageConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Command
     {
-        get => GetProperty<List<TerraformProperty<string>>>("command");
-        set => WithProperty("command", value);
+        set => SetProperty("command", value);
     }
 
     /// <summary>
@@ -102,8 +96,7 @@ public class AwsLambdaFunctionImageConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? EntryPoint
     {
-        get => GetProperty<List<TerraformProperty<string>>>("entry_point");
-        set => WithProperty("entry_point", value);
+        set => SetProperty("entry_point", value);
     }
 
     /// <summary>
@@ -111,8 +104,7 @@ public class AwsLambdaFunctionImageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WorkingDirectory
     {
-        get => GetProperty<TerraformProperty<string>>("working_directory");
-        set => WithProperty("working_directory", value);
+        set => SetProperty("working_directory", value);
     }
 
 }
@@ -128,8 +120,7 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApplicationLogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("application_log_level");
-        set => WithProperty("application_log_level", value);
+        set => SetProperty("application_log_level", value);
     }
 
     /// <summary>
@@ -138,8 +129,7 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     public required TerraformProperty<string> LogFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_format");
-        set => WithProperty("log_format", value);
+        set => SetProperty("log_format", value);
     }
 
     /// <summary>
@@ -147,8 +137,7 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LogGroup
     {
-        get => GetProperty<TerraformProperty<string>>("log_group");
-        set => WithProperty("log_group", value);
+        set => SetProperty("log_group", value);
     }
 
     /// <summary>
@@ -156,8 +145,7 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SystemLogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("system_log_level");
-        set => WithProperty("system_log_level", value);
+        set => SetProperty("system_log_level", value);
     }
 
 }
@@ -174,8 +162,7 @@ public class AwsLambdaFunctionSnapStartBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplyOn is required")]
     public required TerraformProperty<string> ApplyOn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("apply_on");
-        set => WithProperty("apply_on", value);
+        set => SetProperty("apply_on", value);
     }
 
     /// <summary>
@@ -183,8 +170,7 @@ public class AwsLambdaFunctionSnapStartBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OptimizationStatus
     {
-        get => GetProperty<TerraformProperty<string>>("optimization_status");
-        set => WithProperty("optimization_status", value);
+        set => SetProperty("optimization_status", value);
     }
 
 }
@@ -200,8 +186,7 @@ public class AwsLambdaFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -209,8 +194,7 @@ public class AwsLambdaFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -218,8 +202,7 @@ public class AwsLambdaFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -236,8 +219,7 @@ public class AwsLambdaFunctionTracingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -253,8 +235,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Ipv6AllowedForDualStack
     {
-        get => GetProperty<TerraformProperty<bool>>("ipv6_allowed_for_dual_stack");
-        set => WithProperty("ipv6_allowed_for_dual_stack", value);
+        set => SetProperty("ipv6_allowed_for_dual_stack", value);
     }
 
     /// <summary>
@@ -263,8 +244,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -273,8 +253,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
@@ -282,8 +261,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -301,52 +279,80 @@ public class AwsLambdaFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("code_sha256");
-        this.WithOutput("invoke_arn");
-        this.WithOutput("last_modified");
-        this.WithOutput("qualified_arn");
-        this.WithOutput("qualified_invoke_arn");
-        this.WithOutput("signing_job_arn");
-        this.WithOutput("signing_profile_version_arn");
-        this.WithOutput("source_code_size");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("code_sha256");
+        SetOutput("invoke_arn");
+        SetOutput("last_modified");
+        SetOutput("qualified_arn");
+        SetOutput("qualified_invoke_arn");
+        SetOutput("signing_job_arn");
+        SetOutput("signing_profile_version_arn");
+        SetOutput("source_code_size");
+        SetOutput("version");
+        SetOutput("architectures");
+        SetOutput("code_signing_config_arn");
+        SetOutput("description");
+        SetOutput("filename");
+        SetOutput("function_name");
+        SetOutput("handler");
+        SetOutput("id");
+        SetOutput("image_uri");
+        SetOutput("kms_key_arn");
+        SetOutput("layers");
+        SetOutput("memory_size");
+        SetOutput("package_type");
+        SetOutput("publish");
+        SetOutput("region");
+        SetOutput("replace_security_groups_on_destroy");
+        SetOutput("replacement_security_group_ids");
+        SetOutput("reserved_concurrent_executions");
+        SetOutput("role");
+        SetOutput("runtime");
+        SetOutput("s3_bucket");
+        SetOutput("s3_key");
+        SetOutput("s3_object_version");
+        SetOutput("skip_destroy");
+        SetOutput("source_code_hash");
+        SetOutput("source_kms_key_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("timeout");
     }
 
     /// <summary>
     /// The architectures attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Architectures
+    public List<TerraformProperty<string>> Architectures
     {
-        get => GetProperty<List<TerraformProperty<string>>>("architectures");
-        set => this.WithProperty("architectures", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("architectures");
+        set => SetProperty("architectures", value);
     }
 
     /// <summary>
     /// The code_signing_config_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CodeSigningConfigArn
+    public TerraformProperty<string> CodeSigningConfigArn
     {
-        get => GetProperty<TerraformProperty<string>>("code_signing_config_arn");
-        set => this.WithProperty("code_signing_config_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("code_signing_config_arn");
+        set => SetProperty("code_signing_config_arn", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public TerraformProperty<string>? Filename
+    public TerraformProperty<string> Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
-        set => this.WithProperty("filename", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filename");
+        set => SetProperty("filename", value);
     }
 
     /// <summary>
@@ -355,116 +361,116 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
     /// The handler attribute.
     /// </summary>
-    public TerraformProperty<string>? Handler
+    public TerraformProperty<string> Handler
     {
-        get => GetProperty<TerraformProperty<string>>("handler");
-        set => this.WithProperty("handler", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("handler");
+        set => SetProperty("handler", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The image_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageUri
+    public TerraformProperty<string> ImageUri
     {
-        get => GetProperty<TerraformProperty<string>>("image_uri");
-        set => this.WithProperty("image_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_uri");
+        set => SetProperty("image_uri", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The layers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Layers
+    public List<TerraformProperty<string>> Layers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("layers");
-        set => this.WithProperty("layers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("layers");
+        set => SetProperty("layers", value);
     }
 
     /// <summary>
     /// The memory_size attribute.
     /// </summary>
-    public TerraformProperty<double>? MemorySize
+    public TerraformProperty<double> MemorySize
     {
-        get => GetProperty<TerraformProperty<double>>("memory_size");
-        set => this.WithProperty("memory_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("memory_size");
+        set => SetProperty("memory_size", value);
     }
 
     /// <summary>
     /// The package_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PackageType
+    public TerraformProperty<string> PackageType
     {
-        get => GetProperty<TerraformProperty<string>>("package_type");
-        set => this.WithProperty("package_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("package_type");
+        set => SetProperty("package_type", value);
     }
 
     /// <summary>
     /// The publish attribute.
     /// </summary>
-    public TerraformProperty<bool>? Publish
+    public TerraformProperty<bool> Publish
     {
-        get => GetProperty<TerraformProperty<bool>>("publish");
-        set => this.WithProperty("publish", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publish");
+        set => SetProperty("publish", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The replace_security_groups_on_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReplaceSecurityGroupsOnDestroy
+    public TerraformProperty<bool> ReplaceSecurityGroupsOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("replace_security_groups_on_destroy");
-        set => this.WithProperty("replace_security_groups_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("replace_security_groups_on_destroy");
+        set => SetProperty("replace_security_groups_on_destroy", value);
     }
 
     /// <summary>
     /// The replacement_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ReplacementSecurityGroupIds
+    public HashSet<TerraformProperty<string>> ReplacementSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("replacement_security_group_ids");
-        set => this.WithProperty("replacement_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("replacement_security_group_ids");
+        set => SetProperty("replacement_security_group_ids", value);
     }
 
     /// <summary>
     /// The reserved_concurrent_executions attribute.
     /// </summary>
-    public TerraformProperty<double>? ReservedConcurrentExecutions
+    public TerraformProperty<double> ReservedConcurrentExecutions
     {
-        get => GetProperty<TerraformProperty<double>>("reserved_concurrent_executions");
-        set => this.WithProperty("reserved_concurrent_executions", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("reserved_concurrent_executions");
+        set => SetProperty("reserved_concurrent_executions", value);
     }
 
     /// <summary>
@@ -473,98 +479,98 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
-    public TerraformProperty<string>? Runtime
+    public TerraformProperty<string> Runtime
     {
-        get => GetProperty<TerraformProperty<string>>("runtime");
-        set => this.WithProperty("runtime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime");
+        set => SetProperty("runtime", value);
     }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Bucket
+    public TerraformProperty<string> S3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket");
-        set => this.WithProperty("s3_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket");
+        set => SetProperty("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Key
+    public TerraformProperty<string> S3Key
     {
-        get => GetProperty<TerraformProperty<string>>("s3_key");
-        set => this.WithProperty("s3_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_key");
+        set => SetProperty("s3_key", value);
     }
 
     /// <summary>
     /// The s3_object_version attribute.
     /// </summary>
-    public TerraformProperty<string>? S3ObjectVersion
+    public TerraformProperty<string> S3ObjectVersion
     {
-        get => GetProperty<TerraformProperty<string>>("s3_object_version");
-        set => this.WithProperty("s3_object_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_object_version");
+        set => SetProperty("s3_object_version", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceCodeHash
+    public TerraformProperty<string> SourceCodeHash
     {
-        get => GetProperty<TerraformProperty<string>>("source_code_hash");
-        set => this.WithProperty("source_code_hash", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_code_hash");
+        set => SetProperty("source_code_hash", value);
     }
 
     /// <summary>
     /// The source_kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceKmsKeyArn
+    public TerraformProperty<string> SourceKmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_kms_key_arn");
-        set => this.WithProperty("source_kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_kms_key_arn");
+        set => SetProperty("source_kms_key_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? Timeout
+    public TerraformProperty<double> Timeout
     {
-        get => GetProperty<TerraformProperty<double>>("timeout");
-        set => this.WithProperty("timeout", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout");
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>
@@ -574,8 +580,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterConfig block(s) allowed")]
     public List<AwsLambdaFunctionDeadLetterConfigBlock>? DeadLetterConfig
     {
-        get => GetProperty<List<AwsLambdaFunctionDeadLetterConfigBlock>>("dead_letter_config");
-        set => this.WithProperty("dead_letter_config", value);
+        set => SetProperty("dead_letter_config", value);
     }
 
     /// <summary>
@@ -585,8 +590,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Environment block(s) allowed")]
     public List<AwsLambdaFunctionEnvironmentBlock>? Environment
     {
-        get => GetProperty<List<AwsLambdaFunctionEnvironmentBlock>>("environment");
-        set => this.WithProperty("environment", value);
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
@@ -596,8 +600,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EphemeralStorage block(s) allowed")]
     public List<AwsLambdaFunctionEphemeralStorageBlock>? EphemeralStorage
     {
-        get => GetProperty<List<AwsLambdaFunctionEphemeralStorageBlock>>("ephemeral_storage");
-        set => this.WithProperty("ephemeral_storage", value);
+        set => SetProperty("ephemeral_storage", value);
     }
 
     /// <summary>
@@ -607,8 +610,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileSystemConfig block(s) allowed")]
     public List<AwsLambdaFunctionFileSystemConfigBlock>? FileSystemConfig
     {
-        get => GetProperty<List<AwsLambdaFunctionFileSystemConfigBlock>>("file_system_config");
-        set => this.WithProperty("file_system_config", value);
+        set => SetProperty("file_system_config", value);
     }
 
     /// <summary>
@@ -618,8 +620,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageConfig block(s) allowed")]
     public List<AwsLambdaFunctionImageConfigBlock>? ImageConfig
     {
-        get => GetProperty<List<AwsLambdaFunctionImageConfigBlock>>("image_config");
-        set => this.WithProperty("image_config", value);
+        set => SetProperty("image_config", value);
     }
 
     /// <summary>
@@ -629,8 +630,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     public List<AwsLambdaFunctionLoggingConfigBlock>? LoggingConfig
     {
-        get => GetProperty<List<AwsLambdaFunctionLoggingConfigBlock>>("logging_config");
-        set => this.WithProperty("logging_config", value);
+        set => SetProperty("logging_config", value);
     }
 
     /// <summary>
@@ -640,8 +640,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapStart block(s) allowed")]
     public List<AwsLambdaFunctionSnapStartBlock>? SnapStart
     {
-        get => GetProperty<List<AwsLambdaFunctionSnapStartBlock>>("snap_start");
-        set => this.WithProperty("snap_start", value);
+        set => SetProperty("snap_start", value);
     }
 
     /// <summary>
@@ -650,8 +649,7 @@ public class AwsLambdaFunction : TerraformResource
     /// </summary>
     public AwsLambdaFunctionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLambdaFunctionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -661,8 +659,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TracingConfig block(s) allowed")]
     public List<AwsLambdaFunctionTracingConfigBlock>? TracingConfig
     {
-        get => GetProperty<List<AwsLambdaFunctionTracingConfigBlock>>("tracing_config");
-        set => this.WithProperty("tracing_config", value);
+        set => SetProperty("tracing_config", value);
     }
 
     /// <summary>
@@ -672,8 +669,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     public List<AwsLambdaFunctionVpcConfigBlock>? VpcConfig
     {
-        get => GetProperty<List<AwsLambdaFunctionVpcConfigBlock>>("vpc_config");
-        set => this.WithProperty("vpc_config", value);
+        set => SetProperty("vpc_config", value);
     }
 
     /// <summary>

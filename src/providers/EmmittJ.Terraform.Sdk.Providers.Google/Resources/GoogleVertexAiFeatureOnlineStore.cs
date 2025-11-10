@@ -21,8 +21,7 @@ public class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock : Ter
     /// </summary>
     public TerraformProperty<string>? PublicEndpointDomainName
     {
-        get => GetProperty<TerraformProperty<string>>("public_endpoint_domain_name");
-        set => WithProperty("public_endpoint_domain_name", value);
+        set => SetProperty("public_endpoint_domain_name", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock : Ter
     /// </summary>
     public TerraformProperty<string>? ServiceAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("service_attachment");
-        set => WithProperty("service_attachment", value);
+        set => SetProperty("service_attachment", value);
     }
 
 }
@@ -55,8 +53,7 @@ public class GoogleVertexAiFeatureOnlineStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -64,8 +61,7 @@ public class GoogleVertexAiFeatureOnlineStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -73,8 +69,7 @@ public class GoogleVertexAiFeatureOnlineStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -92,30 +87,36 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// If set to true, any FeatureViews and Features for this FeatureOnlineStore will also be deleted.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -124,10 +125,10 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -136,26 +137,26 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region of feature online store. eg us-central1
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -165,8 +166,7 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bigtable block(s) allowed")]
     public List<GoogleVertexAiFeatureOnlineStoreBigtableBlock>? Bigtable
     {
-        get => GetProperty<List<GoogleVertexAiFeatureOnlineStoreBigtableBlock>>("bigtable");
-        set => this.WithProperty("bigtable", value);
+        set => SetProperty("bigtable", value);
     }
 
     /// <summary>
@@ -176,8 +176,7 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedServingEndpoint block(s) allowed")]
     public List<GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock>? DedicatedServingEndpoint
     {
-        get => GetProperty<List<GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock>>("dedicated_serving_endpoint");
-        set => this.WithProperty("dedicated_serving_endpoint", value);
+        set => SetProperty("dedicated_serving_endpoint", value);
     }
 
     /// <summary>
@@ -187,8 +186,7 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Optimized block(s) allowed")]
     public List<GoogleVertexAiFeatureOnlineStoreOptimizedBlock>? Optimized
     {
-        get => GetProperty<List<GoogleVertexAiFeatureOnlineStoreOptimizedBlock>>("optimized");
-        set => this.WithProperty("optimized", value);
+        set => SetProperty("optimized", value);
     }
 
     /// <summary>
@@ -197,8 +195,7 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// </summary>
     public GoogleVertexAiFeatureOnlineStoreTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVertexAiFeatureOnlineStoreTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

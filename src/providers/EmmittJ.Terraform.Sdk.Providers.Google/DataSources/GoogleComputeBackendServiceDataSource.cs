@@ -14,53 +14,56 @@ public class GoogleComputeBackendServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("affinity_cookie_ttl_sec");
-        this.WithOutput("backend");
-        this.WithOutput("cdn_policy");
-        this.WithOutput("circuit_breakers");
-        this.WithOutput("compression_mode");
-        this.WithOutput("connection_draining_timeout_sec");
-        this.WithOutput("consistent_hash");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("custom_metrics");
-        this.WithOutput("custom_request_headers");
-        this.WithOutput("custom_response_headers");
-        this.WithOutput("description");
-        this.WithOutput("edge_security_policy");
-        this.WithOutput("enable_cdn");
-        this.WithOutput("external_managed_migration_state");
-        this.WithOutput("external_managed_migration_testing_percentage");
-        this.WithOutput("fingerprint");
-        this.WithOutput("generated_id");
-        this.WithOutput("health_checks");
-        this.WithOutput("iap");
-        this.WithOutput("ip_address_selection_policy");
-        this.WithOutput("load_balancing_scheme");
-        this.WithOutput("locality_lb_policies");
-        this.WithOutput("locality_lb_policy");
-        this.WithOutput("log_config");
-        this.WithOutput("max_stream_duration");
-        this.WithOutput("outlier_detection");
-        this.WithOutput("params");
-        this.WithOutput("port_name");
-        this.WithOutput("protocol");
-        this.WithOutput("security_policy");
-        this.WithOutput("security_settings");
-        this.WithOutput("self_link");
-        this.WithOutput("service_lb_policy");
-        this.WithOutput("session_affinity");
-        this.WithOutput("strong_session_affinity_cookie");
-        this.WithOutput("timeout_sec");
-        this.WithOutput("tls_settings");
+        SetOutput("affinity_cookie_ttl_sec");
+        SetOutput("backend");
+        SetOutput("cdn_policy");
+        SetOutput("circuit_breakers");
+        SetOutput("compression_mode");
+        SetOutput("connection_draining_timeout_sec");
+        SetOutput("consistent_hash");
+        SetOutput("creation_timestamp");
+        SetOutput("custom_metrics");
+        SetOutput("custom_request_headers");
+        SetOutput("custom_response_headers");
+        SetOutput("description");
+        SetOutput("edge_security_policy");
+        SetOutput("enable_cdn");
+        SetOutput("external_managed_migration_state");
+        SetOutput("external_managed_migration_testing_percentage");
+        SetOutput("fingerprint");
+        SetOutput("generated_id");
+        SetOutput("health_checks");
+        SetOutput("iap");
+        SetOutput("ip_address_selection_policy");
+        SetOutput("load_balancing_scheme");
+        SetOutput("locality_lb_policies");
+        SetOutput("locality_lb_policy");
+        SetOutput("log_config");
+        SetOutput("max_stream_duration");
+        SetOutput("outlier_detection");
+        SetOutput("params");
+        SetOutput("port_name");
+        SetOutput("protocol");
+        SetOutput("security_policy");
+        SetOutput("security_settings");
+        SetOutput("self_link");
+        SetOutput("service_lb_policy");
+        SetOutput("session_affinity");
+        SetOutput("strong_session_affinity_cookie");
+        SetOutput("timeout_sec");
+        SetOutput("tls_settings");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,17 +78,17 @@ public class GoogleComputeBackendServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

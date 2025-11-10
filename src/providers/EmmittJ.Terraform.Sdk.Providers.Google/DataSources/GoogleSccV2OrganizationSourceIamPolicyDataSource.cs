@@ -14,17 +14,20 @@ public class GoogleSccV2OrganizationSourceIamPolicyDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("id");
+        SetOutput("organization");
+        SetOutput("source");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,8 +36,8 @@ public class GoogleSccV2OrganizationSourceIamPolicyDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization");
-        set => this.WithProperty("organization", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization");
+        set => SetProperty("organization", value);
     }
 
     /// <summary>
@@ -43,8 +46,8 @@ public class GoogleSccV2OrganizationSourceIamPolicyDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>

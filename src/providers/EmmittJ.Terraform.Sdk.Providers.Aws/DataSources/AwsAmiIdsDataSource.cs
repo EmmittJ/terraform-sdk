@@ -14,8 +14,7 @@ public class AwsAmiIdsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsAmiIdsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsAmiIdsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,71 +56,78 @@ public class AwsAmiIdsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ids");
+        SetOutput("ids");
+        SetOutput("executable_users");
+        SetOutput("id");
+        SetOutput("include_deprecated");
+        SetOutput("name_regex");
+        SetOutput("owners");
+        SetOutput("region");
+        SetOutput("sort_ascending");
     }
 
     /// <summary>
     /// The executable_users attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ExecutableUsers
+    public List<TerraformProperty<string>> ExecutableUsers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("executable_users");
-        set => this.WithProperty("executable_users", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("executable_users");
+        set => SetProperty("executable_users", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_deprecated attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeDeprecated
+    public TerraformProperty<bool> IncludeDeprecated
     {
-        get => GetProperty<TerraformProperty<bool>>("include_deprecated");
-        set => this.WithProperty("include_deprecated", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_deprecated");
+        set => SetProperty("include_deprecated", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string>? NameRegex
+    public TerraformProperty<string> NameRegex
     {
-        get => GetProperty<TerraformProperty<string>>("name_regex");
-        set => this.WithProperty("name_regex", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
+        set => SetProperty("name_regex", value);
     }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owners is required")]
-    public List<TerraformProperty<string>>? Owners
+    public List<TerraformProperty<string>> Owners
     {
-        get => GetProperty<List<TerraformProperty<string>>>("owners");
-        set => this.WithProperty("owners", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("owners");
+        set => SetProperty("owners", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The sort_ascending attribute.
     /// </summary>
-    public TerraformProperty<bool>? SortAscending
+    public TerraformProperty<bool> SortAscending
     {
-        get => GetProperty<TerraformProperty<bool>>("sort_ascending");
-        set => this.WithProperty("sort_ascending", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("sort_ascending");
+        set => SetProperty("sort_ascending", value);
     }
 
     /// <summary>
@@ -132,8 +136,7 @@ public class AwsAmiIdsDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsAmiIdsDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsAmiIdsDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -142,8 +145,7 @@ public class AwsAmiIdsDataSource : TerraformDataSource
     /// </summary>
     public AwsAmiIdsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAmiIdsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

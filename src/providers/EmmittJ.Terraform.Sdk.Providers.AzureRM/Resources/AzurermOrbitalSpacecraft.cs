@@ -14,8 +14,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthMhz is required")]
     public required TerraformProperty<double> BandwidthMhz
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("bandwidth_mhz");
-        set => WithProperty("bandwidth_mhz", value);
+        set => SetProperty("bandwidth_mhz", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CenterFrequencyMhz is required")]
     public required TerraformProperty<double> CenterFrequencyMhz
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("center_frequency_mhz");
-        set => WithProperty("center_frequency_mhz", value);
+        set => SetProperty("center_frequency_mhz", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("direction");
-        set => WithProperty("direction", value);
+        set => SetProperty("direction", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -54,8 +50,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Polarization is required")]
     public required TerraformProperty<string> Polarization
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("polarization");
-        set => WithProperty("polarization", value);
+        set => SetProperty("polarization", value);
     }
 
 }
@@ -71,8 +66,7 @@ public class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -80,8 +74,7 @@ public class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -89,8 +82,7 @@ public class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -98,8 +90,7 @@ public class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -118,15 +109,23 @@ public class AzurermOrbitalSpacecraft : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("norad_id");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("title_line");
+        SetOutput("two_line_elements");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -135,8 +134,8 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -145,8 +144,8 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -155,8 +154,8 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoradId is required")]
     public required TerraformProperty<string> NoradId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("norad_id");
-        set => this.WithProperty("norad_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("norad_id");
+        set => SetProperty("norad_id", value);
     }
 
     /// <summary>
@@ -165,17 +164,17 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -184,29 +183,29 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TitleLine is required")]
     public required TerraformProperty<string> TitleLine
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title_line");
-        set => this.WithProperty("title_line", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("title_line");
+        set => SetProperty("title_line", value);
     }
 
     /// <summary>
     /// The two_line_elements attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TwoLineElements is required")]
-    public List<TerraformProperty<string>>? TwoLineElements
+    public List<TerraformProperty<string>> TwoLineElements
     {
-        get => GetProperty<List<TerraformProperty<string>>>("two_line_elements");
-        set => this.WithProperty("two_line_elements", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("two_line_elements");
+        set => SetProperty("two_line_elements", value);
     }
 
     /// <summary>
     /// Block for links.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Links is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Links block(s) required")]
     public List<AzurermOrbitalSpacecraftLinksBlock>? Links
     {
-        get => GetProperty<List<AzurermOrbitalSpacecraftLinksBlock>>("links");
-        set => this.WithProperty("links", value);
+        set => SetProperty("links", value);
     }
 
     /// <summary>
@@ -215,8 +214,7 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     /// </summary>
     public AzurermOrbitalSpacecraftTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOrbitalSpacecraftTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

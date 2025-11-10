@@ -14,13 +14,16 @@ public class AwsOrganizationsDelegatedAdministrator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("delegation_enabled_date");
-        this.WithOutput("email");
-        this.WithOutput("joined_method");
-        this.WithOutput("joined_timestamp");
-        this.WithOutput("name");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("delegation_enabled_date");
+        SetOutput("email");
+        SetOutput("joined_method");
+        SetOutput("joined_timestamp");
+        SetOutput("name");
+        SetOutput("status");
+        SetOutput("account_id");
+        SetOutput("id");
+        SetOutput("service_principal");
     }
 
     /// <summary>
@@ -29,17 +32,17 @@ public class AwsOrganizationsDelegatedAdministrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -48,8 +51,8 @@ public class AwsOrganizationsDelegatedAdministrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipal is required")]
     public required TerraformProperty<string> ServicePrincipal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_principal");
-        set => this.WithProperty("service_principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_principal");
+        set => SetProperty("service_principal", value);
     }
 
     /// <summary>

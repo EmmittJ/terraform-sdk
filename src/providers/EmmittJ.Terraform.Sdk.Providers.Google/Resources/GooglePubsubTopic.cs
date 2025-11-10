@@ -27,8 +27,7 @@ public class GooglePubsubTopicMessageStoragePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedPersistenceRegions is required")]
     public HashSet<TerraformProperty<string>>? AllowedPersistenceRegions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_persistence_regions");
-        set => WithProperty("allowed_persistence_regions", value);
+        set => SetProperty("allowed_persistence_regions", value);
     }
 
     /// <summary>
@@ -39,8 +38,7 @@ public class GooglePubsubTopicMessageStoragePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnforceInTransit
     {
-        get => GetProperty<TerraformProperty<bool>>("enforce_in_transit");
-        set => WithProperty("enforce_in_transit", value);
+        set => SetProperty("enforce_in_transit", value);
     }
 
 }
@@ -57,8 +55,7 @@ public class GooglePubsubTopicMessageTransformsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => WithProperty("disabled", value);
+        set => SetProperty("disabled", value);
     }
 
 }
@@ -74,8 +71,7 @@ public class GooglePubsubTopicSchemaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Encoding
     {
-        get => GetProperty<TerraformProperty<string>>("encoding");
-        set => WithProperty("encoding", value);
+        set => SetProperty("encoding", value);
     }
 
     /// <summary>
@@ -87,8 +83,7 @@ public class GooglePubsubTopicSchemaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformProperty<string> Schema
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schema");
-        set => WithProperty("schema", value);
+        set => SetProperty("schema", value);
     }
 
 }
@@ -104,8 +99,7 @@ public class GooglePubsubTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -113,8 +107,7 @@ public class GooglePubsubTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -122,8 +115,7 @@ public class GooglePubsubTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -141,17 +133,24 @@ public class GooglePubsubTopic : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("id");
+        SetOutput("kms_key_name");
+        SetOutput("labels");
+        SetOutput("message_retention_duration");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -161,10 +160,10 @@ public class GooglePubsubTopic : TerraformResource
     /// &#39;roles/cloudkms.cryptoKeyEncrypterDecrypter&#39; to use this feature.
     /// The expected format is &#39;projects/*/locations/*/keyRings/*/cryptoKeys/*&#39;
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -174,10 +173,10 @@ public class GooglePubsubTopic : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -190,10 +189,10 @@ public class GooglePubsubTopic : TerraformResource
     /// The rotation period has the format of a decimal number, followed by the
     /// letter &#39;s&#39; (seconds). Cannot be more than 31 days or less than 10 minutes.
     /// </summary>
-    public TerraformProperty<string>? MessageRetentionDuration
+    public TerraformProperty<string> MessageRetentionDuration
     {
-        get => GetProperty<TerraformProperty<string>>("message_retention_duration");
-        set => this.WithProperty("message_retention_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("message_retention_duration");
+        set => SetProperty("message_retention_duration", value);
     }
 
     /// <summary>
@@ -202,17 +201,17 @@ public class GooglePubsubTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -225,10 +224,10 @@ public class GooglePubsubTopic : TerraformResource
     /// apply tags to an existing resource, see the &#39;google_tags_tag_value&#39;
     /// resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -238,8 +237,7 @@ public class GooglePubsubTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngestionDataSourceSettings block(s) allowed")]
     public List<GooglePubsubTopicIngestionDataSourceSettingsBlock>? IngestionDataSourceSettings
     {
-        get => GetProperty<List<GooglePubsubTopicIngestionDataSourceSettingsBlock>>("ingestion_data_source_settings");
-        set => this.WithProperty("ingestion_data_source_settings", value);
+        set => SetProperty("ingestion_data_source_settings", value);
     }
 
     /// <summary>
@@ -249,8 +247,7 @@ public class GooglePubsubTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageStoragePolicy block(s) allowed")]
     public List<GooglePubsubTopicMessageStoragePolicyBlock>? MessageStoragePolicy
     {
-        get => GetProperty<List<GooglePubsubTopicMessageStoragePolicyBlock>>("message_storage_policy");
-        set => this.WithProperty("message_storage_policy", value);
+        set => SetProperty("message_storage_policy", value);
     }
 
     /// <summary>
@@ -259,8 +256,7 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     public List<GooglePubsubTopicMessageTransformsBlock>? MessageTransforms
     {
-        get => GetProperty<List<GooglePubsubTopicMessageTransformsBlock>>("message_transforms");
-        set => this.WithProperty("message_transforms", value);
+        set => SetProperty("message_transforms", value);
     }
 
     /// <summary>
@@ -270,8 +266,7 @@ public class GooglePubsubTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaSettings block(s) allowed")]
     public List<GooglePubsubTopicSchemaSettingsBlock>? SchemaSettings
     {
-        get => GetProperty<List<GooglePubsubTopicSchemaSettingsBlock>>("schema_settings");
-        set => this.WithProperty("schema_settings", value);
+        set => SetProperty("schema_settings", value);
     }
 
     /// <summary>
@@ -280,8 +275,7 @@ public class GooglePubsubTopic : TerraformResource
     /// </summary>
     public GooglePubsubTopicTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GooglePubsubTopicTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

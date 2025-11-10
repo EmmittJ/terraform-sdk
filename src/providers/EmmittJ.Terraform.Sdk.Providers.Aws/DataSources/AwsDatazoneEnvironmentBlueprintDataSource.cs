@@ -14,9 +14,13 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("blueprint_provider");
-        this.WithOutput("description");
-        this.WithOutput("id");
+        SetOutput("blueprint_provider");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("domain_id");
+        SetOutput("managed");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -25,8 +29,8 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
-        set => this.WithProperty("domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_id");
+        set => SetProperty("domain_id", value);
     }
 
     /// <summary>
@@ -35,8 +39,8 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Managed is required")]
     public required TerraformProperty<bool> Managed
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("managed");
-        set => this.WithProperty("managed", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("managed");
+        set => SetProperty("managed", value);
     }
 
     /// <summary>
@@ -45,17 +49,17 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

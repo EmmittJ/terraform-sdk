@@ -14,8 +14,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VendorName is required")]
     public required TerraformProperty<string> VendorName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vendor_name");
-        set => WithProperty("vendor_name", value);
+        set => SetProperty("vendor_name", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => WithProperty("arn", value);
+        set => SetProperty("arn", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,15 +97,20 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("override_action");
+        SetOutput("priority");
+        SetOutput("region");
+        SetOutput("rule_name");
+        SetOutput("web_acl_arn");
     }
 
     /// <summary>
     /// Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
     /// </summary>
-    public TerraformProperty<string>? OverrideAction
+    public TerraformProperty<string> OverrideAction
     {
-        get => GetProperty<TerraformProperty<string>>("override_action");
-        set => this.WithProperty("override_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("override_action");
+        set => SetProperty("override_action", value);
     }
 
     /// <summary>
@@ -121,17 +119,17 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -140,8 +138,8 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
-        set => this.WithProperty("rule_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
+        set => SetProperty("rule_name", value);
     }
 
     /// <summary>
@@ -150,8 +148,8 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAclArn is required")]
     public required TerraformProperty<string> WebAclArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("web_acl_arn");
-        set => this.WithProperty("web_acl_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("web_acl_arn");
+        set => SetProperty("web_acl_arn", value);
     }
 
     /// <summary>
@@ -160,8 +158,7 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     /// </summary>
     public List<AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock>? ManagedRuleGroup
     {
-        get => GetProperty<List<AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock>>("managed_rule_group");
-        set => this.WithProperty("managed_rule_group", value);
+        set => SetProperty("managed_rule_group", value);
     }
 
     /// <summary>
@@ -170,8 +167,7 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     /// </summary>
     public List<AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock>? RuleGroupReference
     {
-        get => GetProperty<List<AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock>>("rule_group_reference");
-        set => this.WithProperty("rule_group_reference", value);
+        set => SetProperty("rule_group_reference", value);
     }
 
     /// <summary>
@@ -180,8 +176,7 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     /// </summary>
     public AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsWafv2WebAclRuleGroupAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

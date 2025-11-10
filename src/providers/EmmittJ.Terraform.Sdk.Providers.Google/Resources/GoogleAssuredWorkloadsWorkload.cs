@@ -14,8 +14,7 @@ public class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextRotationTime is required")]
     public required TerraformProperty<string> NextRotationTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("next_rotation_time");
-        set => WithProperty("next_rotation_time", value);
+        set => SetProperty("next_rotation_time", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationPeriod is required")]
     public required TerraformProperty<string> RotationPeriod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rotation_period");
-        set => WithProperty("rotation_period", value);
+        set => SetProperty("rotation_period", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? AssuredWorkloadsMonitoring
     {
-        get => GetProperty<TerraformProperty<bool>>("assured_workloads_monitoring");
-        set => WithProperty("assured_workloads_monitoring", value);
+        set => SetProperty("assured_workloads_monitoring", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? DataLogsViewer
     {
-        get => GetProperty<TerraformProperty<bool>>("data_logs_viewer");
-        set => WithProperty("data_logs_viewer", value);
+        set => SetProperty("data_logs_viewer", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? ServiceAccessApprover
     {
-        get => GetProperty<TerraformProperty<bool>>("service_access_approver");
-        set => WithProperty("service_access_approver", value);
+        set => SetProperty("service_access_approver", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class GoogleAssuredWorkloadsWorkloadResourceSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleAssuredWorkloadsWorkloadResourceSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
-        set => WithProperty("resource_id", value);
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class GoogleAssuredWorkloadsWorkloadResourceSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
 }
@@ -111,8 +103,7 @@ public class GoogleAssuredWorkloadsWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class GoogleAssuredWorkloadsWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -129,8 +119,7 @@ public class GoogleAssuredWorkloadsWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -146,8 +135,7 @@ public class GoogleAssuredWorkloadsWorkloadWorkloadOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KajEnrollmentType
     {
-        get => GetProperty<TerraformProperty<string>>("kaj_enrollment_type");
-        set => WithProperty("kaj_enrollment_type", value);
+        set => SetProperty("kaj_enrollment_type", value);
     }
 
 }
@@ -165,25 +153,37 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("compliance_status");
-        this.WithOutput("compliant_but_disallowed_services");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("ekm_provisioning_response");
-        this.WithOutput("kaj_enrollment_state");
-        this.WithOutput("name");
-        this.WithOutput("resources");
-        this.WithOutput("saa_enrollment_response");
-        this.WithOutput("terraform_labels");
+        SetOutput("compliance_status");
+        SetOutput("compliant_but_disallowed_services");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("ekm_provisioning_response");
+        SetOutput("kaj_enrollment_state");
+        SetOutput("name");
+        SetOutput("resources");
+        SetOutput("saa_enrollment_response");
+        SetOutput("terraform_labels");
+        SetOutput("billing_account");
+        SetOutput("compliance_regime");
+        SetOutput("display_name");
+        SetOutput("enable_sovereign_controls");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("organization");
+        SetOutput("partner");
+        SetOutput("partner_services_billing_account");
+        SetOutput("provisioned_resources_parent");
+        SetOutput("violation_notifications_enabled");
     }
 
     /// <summary>
     /// Optional. Input only. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/{billing_account_id}`. For example, `billingAccounts/012345-567890-ABCDEF`.
     /// </summary>
-    public TerraformProperty<string>? BillingAccount
+    public TerraformProperty<string> BillingAccount
     {
-        get => GetProperty<TerraformProperty<string>>("billing_account");
-        set => this.WithProperty("billing_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_account");
+        set => SetProperty("billing_account", value);
     }
 
     /// <summary>
@@ -192,8 +192,8 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComplianceRegime is required")]
     public required TerraformProperty<string> ComplianceRegime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("compliance_regime");
-        set => this.WithProperty("compliance_regime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compliance_regime");
+        set => SetProperty("compliance_regime", value);
     }
 
     /// <summary>
@@ -202,26 +202,26 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Optional. Indicates the sovereignty status of the given workload. Currently meant to be used by Europe/Canada customers.
     /// </summary>
-    public TerraformProperty<bool>? EnableSovereignControls
+    public TerraformProperty<bool> EnableSovereignControls
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_sovereign_controls");
-        set => this.WithProperty("enable_sovereign_controls", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_sovereign_controls");
+        set => SetProperty("enable_sovereign_controls", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -230,10 +230,10 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -242,8 +242,8 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -252,44 +252,44 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization");
-        set => this.WithProperty("organization", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization");
+        set => SetProperty("organization", value);
     }
 
     /// <summary>
     /// Optional. Partner regime associated with this workload. Possible values: PARTNER_UNSPECIFIED, LOCAL_CONTROLS_BY_S3NS, SOVEREIGN_CONTROLS_BY_T_SYSTEMS, SOVEREIGN_CONTROLS_BY_SIA_MINSAIT, SOVEREIGN_CONTROLS_BY_PSN, SOVEREIGN_CONTROLS_BY_CNTXT, SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM
     /// </summary>
-    public TerraformProperty<string>? Partner
+    public TerraformProperty<string> Partner
     {
-        get => GetProperty<TerraformProperty<string>>("partner");
-        set => this.WithProperty("partner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partner");
+        set => SetProperty("partner", value);
     }
 
     /// <summary>
     /// Optional. Input only. Billing account necessary for purchasing services from Sovereign Partners. This field is required for creating SIA/PSN/CNTXT partner workloads. The caller should have &#39;billing.resourceAssociations.create&#39; IAM permission on this billing-account. The format of this string is billingAccounts/AAAAAA-BBBBBB-CCCCCC.
     /// </summary>
-    public TerraformProperty<string>? PartnerServicesBillingAccount
+    public TerraformProperty<string> PartnerServicesBillingAccount
     {
-        get => GetProperty<TerraformProperty<string>>("partner_services_billing_account");
-        set => this.WithProperty("partner_services_billing_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partner_services_billing_account");
+        set => SetProperty("partner_services_billing_account", value);
     }
 
     /// <summary>
     /// Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/{folder_id}
     /// </summary>
-    public TerraformProperty<string>? ProvisionedResourcesParent
+    public TerraformProperty<string> ProvisionedResourcesParent
     {
-        get => GetProperty<TerraformProperty<string>>("provisioned_resources_parent");
-        set => this.WithProperty("provisioned_resources_parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provisioned_resources_parent");
+        set => SetProperty("provisioned_resources_parent", value);
     }
 
     /// <summary>
     /// Optional. Indicates whether the e-mail notification for a violation is enabled for a workload. This value will be by default True, and if not present will be considered as true. This should only be updated via updateWorkload call. Any Changes to this field during the createWorkload call will not be honored. This will always be true while creating the workload.
     /// </summary>
-    public TerraformProperty<bool>? ViolationNotificationsEnabled
+    public TerraformProperty<bool> ViolationNotificationsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("violation_notifications_enabled");
-        set => this.WithProperty("violation_notifications_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("violation_notifications_enabled");
+        set => SetProperty("violation_notifications_enabled", value);
     }
 
     /// <summary>
@@ -299,8 +299,7 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KmsSettings block(s) allowed")]
     public List<GoogleAssuredWorkloadsWorkloadKmsSettingsBlock>? KmsSettings
     {
-        get => GetProperty<List<GoogleAssuredWorkloadsWorkloadKmsSettingsBlock>>("kms_settings");
-        set => this.WithProperty("kms_settings", value);
+        set => SetProperty("kms_settings", value);
     }
 
     /// <summary>
@@ -310,8 +309,7 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartnerPermissions block(s) allowed")]
     public List<GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock>? PartnerPermissions
     {
-        get => GetProperty<List<GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock>>("partner_permissions");
-        set => this.WithProperty("partner_permissions", value);
+        set => SetProperty("partner_permissions", value);
     }
 
     /// <summary>
@@ -320,8 +318,7 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     /// </summary>
     public List<GoogleAssuredWorkloadsWorkloadResourceSettingsBlock>? ResourceSettings
     {
-        get => GetProperty<List<GoogleAssuredWorkloadsWorkloadResourceSettingsBlock>>("resource_settings");
-        set => this.WithProperty("resource_settings", value);
+        set => SetProperty("resource_settings", value);
     }
 
     /// <summary>
@@ -330,8 +327,7 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     /// </summary>
     public GoogleAssuredWorkloadsWorkloadTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAssuredWorkloadsWorkloadTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -341,8 +337,7 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadOptions block(s) allowed")]
     public List<GoogleAssuredWorkloadsWorkloadWorkloadOptionsBlock>? WorkloadOptions
     {
-        get => GetProperty<List<GoogleAssuredWorkloadsWorkloadWorkloadOptionsBlock>>("workload_options");
-        set => this.WithProperty("workload_options", value);
+        set => SetProperty("workload_options", value);
     }
 
     /// <summary>

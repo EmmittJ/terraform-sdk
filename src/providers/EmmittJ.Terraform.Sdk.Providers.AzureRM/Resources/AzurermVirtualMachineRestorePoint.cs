@@ -13,8 +13,7 @@ public class AzurermVirtualMachineRestorePointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualMachineRestorePointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualMachineRestorePointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,33 +46,38 @@ public class AzurermVirtualMachineRestorePoint : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("crash_consistency_mode_enabled");
+        SetOutput("excluded_disks");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("virtual_machine_restore_point_collection_id");
     }
 
     /// <summary>
     /// The crash_consistency_mode_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CrashConsistencyModeEnabled
+    public TerraformProperty<bool> CrashConsistencyModeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("crash_consistency_mode_enabled");
-        set => this.WithProperty("crash_consistency_mode_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("crash_consistency_mode_enabled");
+        set => SetProperty("crash_consistency_mode_enabled", value);
     }
 
     /// <summary>
     /// The excluded_disks attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExcludedDisks
+    public HashSet<TerraformProperty<string>> ExcludedDisks
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_disks");
-        set => this.WithProperty("excluded_disks", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("excluded_disks");
+        set => SetProperty("excluded_disks", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +86,8 @@ public class AzurermVirtualMachineRestorePoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -94,8 +96,8 @@ public class AzurermVirtualMachineRestorePoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineRestorePointCollectionId is required")]
     public required TerraformProperty<string> VirtualMachineRestorePointCollectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_restore_point_collection_id");
-        set => this.WithProperty("virtual_machine_restore_point_collection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_restore_point_collection_id");
+        set => SetProperty("virtual_machine_restore_point_collection_id", value);
     }
 
     /// <summary>
@@ -104,8 +106,7 @@ public class AzurermVirtualMachineRestorePoint : TerraformResource
     /// </summary>
     public AzurermVirtualMachineRestorePointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualMachineRestorePointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

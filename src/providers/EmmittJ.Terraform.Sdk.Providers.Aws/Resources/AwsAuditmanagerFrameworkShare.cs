@@ -14,17 +14,22 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputd");
-        this.WithOutputtatus");
+        SetOutput("id");
+        SetOutput("status");
+        SetOutput("comment");
+        SetOutput("destination_account");
+        SetOutput("destination_region");
+        SetOutput("framework_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
@@ -33,8 +38,8 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationAccount is required")]
     public required TerraformProperty<string> DestinationAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_account");
-        set => this.WithProperty("destination_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_account");
+        set => SetProperty("destination_account", value);
     }
 
     /// <summary>
@@ -43,8 +48,8 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
     public required TerraformProperty<string> DestinationRegion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_region");
-        set => this.WithProperty("destination_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_region");
+        set => SetProperty("destination_region", value);
     }
 
     /// <summary>
@@ -53,17 +58,17 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     public required TerraformProperty<string> FrameworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("framework_id");
-        set => this.WithProperty("framework_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("framework_id");
+        set => SetProperty("framework_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

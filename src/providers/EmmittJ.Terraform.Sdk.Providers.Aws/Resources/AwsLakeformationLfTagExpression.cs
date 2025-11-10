@@ -14,8 +14,7 @@ public class AwsLakeformationLfTagExpressionExpressionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     public required TerraformProperty<string> TagKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tag_key");
-        set => WithProperty("tag_key", value);
+        set => SetProperty("tag_key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsLakeformationLfTagExpressionExpressionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValues is required")]
     public HashSet<TerraformProperty<string>>? TagValues
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("tag_values");
-        set => WithProperty("tag_values", value);
+        set => SetProperty("tag_values", value);
     }
 
 }
@@ -42,24 +40,28 @@ public class AwsLakeformationLfTagExpression : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("catalog_id");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The ID of the Data Catalog.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
     /// A description of the LF-Tag Expression.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -68,17 +70,17 @@ public class AwsLakeformationLfTagExpression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -87,8 +89,7 @@ public class AwsLakeformationLfTagExpression : TerraformResource
     /// </summary>
     public HashSet<AwsLakeformationLfTagExpressionExpressionBlock>? Expression
     {
-        get => GetProperty<HashSet<AwsLakeformationLfTagExpressionExpressionBlock>>("expression");
-        set => this.WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
 }

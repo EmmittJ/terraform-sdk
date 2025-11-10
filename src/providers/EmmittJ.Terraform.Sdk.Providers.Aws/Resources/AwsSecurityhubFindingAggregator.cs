@@ -14,15 +14,19 @@ public class AwsSecurityhubFindingAggregator : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("linking_mode");
+        SetOutput("region");
+        SetOutput("specified_regions");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,26 +35,26 @@ public class AwsSecurityhubFindingAggregator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkingMode is required")]
     public required TerraformProperty<string> LinkingMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linking_mode");
-        set => this.WithProperty("linking_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("linking_mode");
+        set => SetProperty("linking_mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The specified_regions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SpecifiedRegions
+    public HashSet<TerraformProperty<string>> SpecifiedRegions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("specified_regions");
-        set => this.WithProperty("specified_regions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("specified_regions");
+        set => SetProperty("specified_regions", value);
     }
 
 }

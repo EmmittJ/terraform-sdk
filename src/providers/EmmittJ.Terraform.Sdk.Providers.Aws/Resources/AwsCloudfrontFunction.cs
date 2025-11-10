@@ -14,10 +14,17 @@ public class AwsCloudfrontFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("etag");
-        this.WithOutput("live_stage_etag");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("etag");
+        SetOutput("live_stage_etag");
+        SetOutput("status");
+        SetOutput("code");
+        SetOutput("comment");
+        SetOutput("id");
+        SetOutput("key_value_store_associations");
+        SetOutput("name");
+        SetOutput("publish");
+        SetOutput("runtime");
     }
 
     /// <summary>
@@ -26,35 +33,35 @@ public class AwsCloudfrontFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformProperty<string> Code
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("code");
-        set => this.WithProperty("code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("code");
+        set => SetProperty("code", value);
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_value_store_associations attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? KeyValueStoreAssociations
+    public HashSet<TerraformProperty<string>> KeyValueStoreAssociations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("key_value_store_associations");
-        set => this.WithProperty("key_value_store_associations", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("key_value_store_associations");
+        set => SetProperty("key_value_store_associations", value);
     }
 
     /// <summary>
@@ -63,17 +70,17 @@ public class AwsCloudfrontFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The publish attribute.
     /// </summary>
-    public TerraformProperty<bool>? Publish
+    public TerraformProperty<bool> Publish
     {
-        get => GetProperty<TerraformProperty<bool>>("publish");
-        set => this.WithProperty("publish", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publish");
+        set => SetProperty("publish", value);
     }
 
     /// <summary>
@@ -82,8 +89,8 @@ public class AwsCloudfrontFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformProperty<string> Runtime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runtime");
-        set => this.WithProperty("runtime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime");
+        set => SetProperty("runtime", value);
     }
 
     /// <summary>

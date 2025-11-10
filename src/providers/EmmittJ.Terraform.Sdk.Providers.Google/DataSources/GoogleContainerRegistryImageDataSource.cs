@@ -15,25 +15,31 @@ public class GoogleContainerRegistryImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("image_url");
+        SetOutput("image_url");
+        SetOutput("digest");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("tag");
     }
 
     /// <summary>
     /// The digest attribute.
     /// </summary>
-    public TerraformProperty<string>? Digest
+    public TerraformProperty<string> Digest
     {
-        get => GetProperty<TerraformProperty<string>>("digest");
-        set => this.WithProperty("digest", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("digest");
+        set => SetProperty("digest", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,35 +48,35 @@ public class GoogleContainerRegistryImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
-    public TerraformProperty<string>? Tag
+    public TerraformProperty<string> Tag
     {
-        get => GetProperty<TerraformProperty<string>>("tag");
-        set => this.WithProperty("tag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag");
+        set => SetProperty("tag", value);
     }
 
     /// <summary>

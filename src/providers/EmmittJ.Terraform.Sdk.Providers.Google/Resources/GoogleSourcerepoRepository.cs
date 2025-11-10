@@ -16,8 +16,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageFormat is required")]
     public required TerraformProperty<string> MessageFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("message_format");
-        set => WithProperty("message_format", value);
+        set => SetProperty("message_format", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountEmail
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_email");
-        set => WithProperty("service_account_email", value);
+        set => SetProperty("service_account_email", value);
     }
 
     /// <summary>
@@ -38,8 +36,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -55,8 +52,7 @@ public class GoogleSourcerepoRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -64,8 +60,7 @@ public class GoogleSourcerepoRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -73,8 +68,7 @@ public class GoogleSourcerepoRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -91,26 +85,30 @@ public class GoogleSourcerepoRepository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("size");
-        this.WithOutput("url");
+        SetOutput("size");
+        SetOutput("url");
+        SetOutput("create_ignore_already_exists");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// If set to true, skip repository creation if a repository with the same name already exists.
     /// </summary>
-    public TerraformProperty<bool>? CreateIgnoreAlreadyExists
+    public TerraformProperty<bool> CreateIgnoreAlreadyExists
     {
-        get => GetProperty<TerraformProperty<bool>>("create_ignore_already_exists");
-        set => this.WithProperty("create_ignore_already_exists", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_ignore_already_exists");
+        set => SetProperty("create_ignore_already_exists", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -120,17 +118,17 @@ public class GoogleSourcerepoRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -139,8 +137,7 @@ public class GoogleSourcerepoRepository : TerraformResource
     /// </summary>
     public HashSet<GoogleSourcerepoRepositoryPubsubConfigsBlock>? PubsubConfigs
     {
-        get => GetProperty<HashSet<GoogleSourcerepoRepositoryPubsubConfigsBlock>>("pubsub_configs");
-        set => this.WithProperty("pubsub_configs", value);
+        set => SetProperty("pubsub_configs", value);
     }
 
     /// <summary>
@@ -149,8 +146,7 @@ public class GoogleSourcerepoRepository : TerraformResource
     /// </summary>
     public GoogleSourcerepoRepositoryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSourcerepoRepositoryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

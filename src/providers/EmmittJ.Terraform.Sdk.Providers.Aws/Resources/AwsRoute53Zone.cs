@@ -13,8 +13,7 @@ public class AwsRoute53ZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRoute53ZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRoute53ZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsRoute53ZoneVpcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsRoute53ZoneVpcBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VpcRegion
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_region");
-        set => WithProperty("vpc_region", value);
+        set => SetProperty("vpc_region", value);
     }
 
 }
@@ -76,46 +71,53 @@ public class AwsRoute53Zone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("name_servers");
-        this.WithOutput("primary_name_server");
-        this.WithOutput("zone_id");
+        SetOutput("arn");
+        SetOutput("name_servers");
+        SetOutput("primary_name_server");
+        SetOutput("zone_id");
+        SetOutput("comment");
+        SetOutput("delegation_set_id");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
     /// The delegation_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DelegationSetId
+    public TerraformProperty<string> DelegationSetId
     {
-        get => GetProperty<TerraformProperty<string>>("delegation_set_id");
-        set => this.WithProperty("delegation_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delegation_set_id");
+        set => SetProperty("delegation_set_id", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -124,26 +126,26 @@ public class AwsRoute53Zone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -152,8 +154,7 @@ public class AwsRoute53Zone : TerraformResource
     /// </summary>
     public AwsRoute53ZoneTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53ZoneTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -162,8 +163,7 @@ public class AwsRoute53Zone : TerraformResource
     /// </summary>
     public HashSet<AwsRoute53ZoneVpcBlock>? Vpc
     {
-        get => GetProperty<HashSet<AwsRoute53ZoneVpcBlock>>("vpc");
-        set => this.WithProperty("vpc", value);
+        set => SetProperty("vpc", value);
     }
 
     /// <summary>

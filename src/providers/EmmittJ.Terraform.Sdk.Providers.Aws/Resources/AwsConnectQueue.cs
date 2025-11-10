@@ -13,8 +13,7 @@ public class AwsConnectQueueOutboundCallerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutboundCallerIdName
     {
-        get => GetProperty<TerraformProperty<string>>("outbound_caller_id_name");
-        set => WithProperty("outbound_caller_id_name", value);
+        set => SetProperty("outbound_caller_id_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsConnectQueueOutboundCallerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutboundCallerIdNumberId
     {
-        get => GetProperty<TerraformProperty<string>>("outbound_caller_id_number_id");
-        set => WithProperty("outbound_caller_id_number_id", value);
+        set => SetProperty("outbound_caller_id_number_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsConnectQueueOutboundCallerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutboundFlowId
     {
-        get => GetProperty<TerraformProperty<string>>("outbound_flow_id");
-        set => WithProperty("outbound_flow_id", value);
+        set => SetProperty("outbound_flow_id", value);
     }
 
 }
@@ -50,17 +47,28 @@ public class AwsConnectQueue : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("queue_id");
+        SetOutput("arn");
+        SetOutput("queue_id");
+        SetOutput("description");
+        SetOutput("hours_of_operation_id");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("max_contacts");
+        SetOutput("name");
+        SetOutput("quick_connect_ids");
+        SetOutput("region");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -69,17 +77,17 @@ public class AwsConnectQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HoursOfOperationId is required")]
     public required TerraformProperty<string> HoursOfOperationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hours_of_operation_id");
-        set => this.WithProperty("hours_of_operation_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hours_of_operation_id");
+        set => SetProperty("hours_of_operation_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -88,17 +96,17 @@ public class AwsConnectQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// The max_contacts attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxContacts
+    public TerraformProperty<double> MaxContacts
     {
-        get => GetProperty<TerraformProperty<double>>("max_contacts");
-        set => this.WithProperty("max_contacts", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_contacts");
+        set => SetProperty("max_contacts", value);
     }
 
     /// <summary>
@@ -107,53 +115,53 @@ public class AwsConnectQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The quick_connect_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? QuickConnectIds
+    public HashSet<TerraformProperty<string>> QuickConnectIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("quick_connect_ids");
-        set => this.WithProperty("quick_connect_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("quick_connect_ids");
+        set => SetProperty("quick_connect_ids", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -163,8 +171,7 @@ public class AwsConnectQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutboundCallerConfig block(s) allowed")]
     public List<AwsConnectQueueOutboundCallerConfigBlock>? OutboundCallerConfig
     {
-        get => GetProperty<List<AwsConnectQueueOutboundCallerConfigBlock>>("outbound_caller_config");
-        set => this.WithProperty("outbound_caller_config", value);
+        set => SetProperty("outbound_caller_config", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AddressLine1
     {
-        get => GetProperty<TerraformProperty<string>>("address_line_1");
-        set => WithProperty("address_line_1", value);
+        set => SetProperty("address_line_1", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AddressLine2
     {
-        get => GetProperty<TerraformProperty<string>>("address_line_2");
-        set => WithProperty("address_line_2", value);
+        set => SetProperty("address_line_2", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? City
     {
-        get => GetProperty<TerraformProperty<string>>("city");
-        set => WithProperty("city", value);
+        set => SetProperty("city", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContactType
     {
-        get => GetProperty<TerraformProperty<string>>("contact_type");
-        set => WithProperty("contact_type", value);
+        set => SetProperty("contact_type", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CountryCode
     {
-        get => GetProperty<TerraformProperty<string>>("country_code");
-        set => WithProperty("country_code", value);
+        set => SetProperty("country_code", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Fax
     {
-        get => GetProperty<TerraformProperty<string>>("fax");
-        set => WithProperty("fax", value);
+        set => SetProperty("fax", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FirstName
     {
-        get => GetProperty<TerraformProperty<string>>("first_name");
-        set => WithProperty("first_name", value);
+        set => SetProperty("first_name", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastName
     {
-        get => GetProperty<TerraformProperty<string>>("last_name");
-        set => WithProperty("last_name", value);
+        set => SetProperty("last_name", value);
     }
 
     /// <summary>
@@ -94,8 +85,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OrganizationName
     {
-        get => GetProperty<TerraformProperty<string>>("organization_name");
-        set => WithProperty("organization_name", value);
+        set => SetProperty("organization_name", value);
     }
 
     /// <summary>
@@ -103,8 +93,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
-        set => WithProperty("phone_number", value);
+        set => SetProperty("phone_number", value);
     }
 
     /// <summary>
@@ -112,8 +101,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -121,8 +109,7 @@ public class AwsRoute53domainsDomainAdminContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ZipCode
     {
-        get => GetProperty<TerraformProperty<string>>("zip_code");
-        set => WithProperty("zip_code", value);
+        set => SetProperty("zip_code", value);
     }
 
 }
@@ -138,8 +125,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AddressLine1
     {
-        get => GetProperty<TerraformProperty<string>>("address_line_1");
-        set => WithProperty("address_line_1", value);
+        set => SetProperty("address_line_1", value);
     }
 
     /// <summary>
@@ -147,8 +133,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AddressLine2
     {
-        get => GetProperty<TerraformProperty<string>>("address_line_2");
-        set => WithProperty("address_line_2", value);
+        set => SetProperty("address_line_2", value);
     }
 
     /// <summary>
@@ -156,8 +141,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? City
     {
-        get => GetProperty<TerraformProperty<string>>("city");
-        set => WithProperty("city", value);
+        set => SetProperty("city", value);
     }
 
     /// <summary>
@@ -165,8 +149,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContactType
     {
-        get => GetProperty<TerraformProperty<string>>("contact_type");
-        set => WithProperty("contact_type", value);
+        set => SetProperty("contact_type", value);
     }
 
     /// <summary>
@@ -174,8 +157,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CountryCode
     {
-        get => GetProperty<TerraformProperty<string>>("country_code");
-        set => WithProperty("country_code", value);
+        set => SetProperty("country_code", value);
     }
 
     /// <summary>
@@ -183,8 +165,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -192,8 +173,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Fax
     {
-        get => GetProperty<TerraformProperty<string>>("fax");
-        set => WithProperty("fax", value);
+        set => SetProperty("fax", value);
     }
 
     /// <summary>
@@ -201,8 +181,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FirstName
     {
-        get => GetProperty<TerraformProperty<string>>("first_name");
-        set => WithProperty("first_name", value);
+        set => SetProperty("first_name", value);
     }
 
     /// <summary>
@@ -210,8 +189,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastName
     {
-        get => GetProperty<TerraformProperty<string>>("last_name");
-        set => WithProperty("last_name", value);
+        set => SetProperty("last_name", value);
     }
 
     /// <summary>
@@ -219,8 +197,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OrganizationName
     {
-        get => GetProperty<TerraformProperty<string>>("organization_name");
-        set => WithProperty("organization_name", value);
+        set => SetProperty("organization_name", value);
     }
 
     /// <summary>
@@ -228,8 +205,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
-        set => WithProperty("phone_number", value);
+        set => SetProperty("phone_number", value);
     }
 
     /// <summary>
@@ -237,8 +213,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -246,8 +221,7 @@ public class AwsRoute53domainsDomainRegistrantContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ZipCode
     {
-        get => GetProperty<TerraformProperty<string>>("zip_code");
-        set => WithProperty("zip_code", value);
+        set => SetProperty("zip_code", value);
     }
 
 }
@@ -263,8 +237,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AddressLine1
     {
-        get => GetProperty<TerraformProperty<string>>("address_line_1");
-        set => WithProperty("address_line_1", value);
+        set => SetProperty("address_line_1", value);
     }
 
     /// <summary>
@@ -272,8 +245,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AddressLine2
     {
-        get => GetProperty<TerraformProperty<string>>("address_line_2");
-        set => WithProperty("address_line_2", value);
+        set => SetProperty("address_line_2", value);
     }
 
     /// <summary>
@@ -281,8 +253,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? City
     {
-        get => GetProperty<TerraformProperty<string>>("city");
-        set => WithProperty("city", value);
+        set => SetProperty("city", value);
     }
 
     /// <summary>
@@ -290,8 +261,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContactType
     {
-        get => GetProperty<TerraformProperty<string>>("contact_type");
-        set => WithProperty("contact_type", value);
+        set => SetProperty("contact_type", value);
     }
 
     /// <summary>
@@ -299,8 +269,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CountryCode
     {
-        get => GetProperty<TerraformProperty<string>>("country_code");
-        set => WithProperty("country_code", value);
+        set => SetProperty("country_code", value);
     }
 
     /// <summary>
@@ -308,8 +277,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -317,8 +285,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Fax
     {
-        get => GetProperty<TerraformProperty<string>>("fax");
-        set => WithProperty("fax", value);
+        set => SetProperty("fax", value);
     }
 
     /// <summary>
@@ -326,8 +293,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FirstName
     {
-        get => GetProperty<TerraformProperty<string>>("first_name");
-        set => WithProperty("first_name", value);
+        set => SetProperty("first_name", value);
     }
 
     /// <summary>
@@ -335,8 +301,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastName
     {
-        get => GetProperty<TerraformProperty<string>>("last_name");
-        set => WithProperty("last_name", value);
+        set => SetProperty("last_name", value);
     }
 
     /// <summary>
@@ -344,8 +309,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OrganizationName
     {
-        get => GetProperty<TerraformProperty<string>>("organization_name");
-        set => WithProperty("organization_name", value);
+        set => SetProperty("organization_name", value);
     }
 
     /// <summary>
@@ -353,8 +317,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
-        set => WithProperty("phone_number", value);
+        set => SetProperty("phone_number", value);
     }
 
     /// <summary>
@@ -362,8 +325,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -371,8 +333,7 @@ public class AwsRoute53domainsDomainTechContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ZipCode
     {
-        get => GetProperty<TerraformProperty<string>>("zip_code");
-        set => WithProperty("zip_code", value);
+        set => SetProperty("zip_code", value);
     }
 
 }
@@ -388,8 +349,7 @@ public class AwsRoute53domainsDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -397,8 +357,7 @@ public class AwsRoute53domainsDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -406,8 +365,7 @@ public class AwsRoute53domainsDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -424,53 +382,64 @@ public class AwsRoute53domainsDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("abuse_contact_email");
-        this.WithOutput("abuse_contact_phone");
-        this.WithOutput("creation_date");
-        this.WithOutput("expiration_date");
-        this.WithOutput("hosted_zone_id");
-        this.WithOutput("registrar_name");
-        this.WithOutput("registrar_url");
-        this.WithOutput("status_list");
-        this.WithOutput("tags_all");
-        this.WithOutput("updated_date");
-        this.WithOutput("whois_server");
+        SetOutput("abuse_contact_email");
+        SetOutput("abuse_contact_phone");
+        SetOutput("creation_date");
+        SetOutput("expiration_date");
+        SetOutput("hosted_zone_id");
+        SetOutput("registrar_name");
+        SetOutput("registrar_url");
+        SetOutput("status_list");
+        SetOutput("tags_all");
+        SetOutput("updated_date");
+        SetOutput("whois_server");
+        SetOutput("admin_privacy");
+        SetOutput("auto_renew");
+        SetOutput("billing_contact");
+        SetOutput("billing_privacy");
+        SetOutput("domain_name");
+        SetOutput("duration_in_years");
+        SetOutput("name_server");
+        SetOutput("registrant_privacy");
+        SetOutput("tags");
+        SetOutput("tech_privacy");
+        SetOutput("transfer_lock");
     }
 
     /// <summary>
     /// The admin_privacy attribute.
     /// </summary>
-    public TerraformProperty<bool>? AdminPrivacy
+    public TerraformProperty<bool> AdminPrivacy
     {
-        get => GetProperty<TerraformProperty<bool>>("admin_privacy");
-        set => this.WithProperty("admin_privacy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("admin_privacy");
+        set => SetProperty("admin_privacy", value);
     }
 
     /// <summary>
     /// The auto_renew attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoRenew
+    public TerraformProperty<bool> AutoRenew
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_renew");
-        set => this.WithProperty("auto_renew", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_renew");
+        set => SetProperty("auto_renew", value);
     }
 
     /// <summary>
     /// The billing_contact attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? BillingContact
+    public List<TerraformProperty<object>> BillingContact
     {
-        get => GetProperty<List<TerraformProperty<object>>>("billing_contact");
-        set => this.WithProperty("billing_contact", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("billing_contact");
+        set => SetProperty("billing_contact", value);
     }
 
     /// <summary>
     /// The billing_privacy attribute.
     /// </summary>
-    public TerraformProperty<bool>? BillingPrivacy
+    public TerraformProperty<bool> BillingPrivacy
     {
-        get => GetProperty<TerraformProperty<bool>>("billing_privacy");
-        set => this.WithProperty("billing_privacy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("billing_privacy");
+        set => SetProperty("billing_privacy", value);
     }
 
     /// <summary>
@@ -479,62 +448,62 @@ public class AwsRoute53domainsDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The duration_in_years attribute.
     /// </summary>
-    public TerraformProperty<double>? DurationInYears
+    public TerraformProperty<double> DurationInYears
     {
-        get => GetProperty<TerraformProperty<double>>("duration_in_years");
-        set => this.WithProperty("duration_in_years", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("duration_in_years");
+        set => SetProperty("duration_in_years", value);
     }
 
     /// <summary>
     /// The name_server attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? NameServer
+    public List<TerraformProperty<object>> NameServer
     {
-        get => GetProperty<List<TerraformProperty<object>>>("name_server");
-        set => this.WithProperty("name_server", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("name_server");
+        set => SetProperty("name_server", value);
     }
 
     /// <summary>
     /// The registrant_privacy attribute.
     /// </summary>
-    public TerraformProperty<bool>? RegistrantPrivacy
+    public TerraformProperty<bool> RegistrantPrivacy
     {
-        get => GetProperty<TerraformProperty<bool>>("registrant_privacy");
-        set => this.WithProperty("registrant_privacy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("registrant_privacy");
+        set => SetProperty("registrant_privacy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tech_privacy attribute.
     /// </summary>
-    public TerraformProperty<bool>? TechPrivacy
+    public TerraformProperty<bool> TechPrivacy
     {
-        get => GetProperty<TerraformProperty<bool>>("tech_privacy");
-        set => this.WithProperty("tech_privacy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tech_privacy");
+        set => SetProperty("tech_privacy", value);
     }
 
     /// <summary>
     /// The transfer_lock attribute.
     /// </summary>
-    public TerraformProperty<bool>? TransferLock
+    public TerraformProperty<bool> TransferLock
     {
-        get => GetProperty<TerraformProperty<bool>>("transfer_lock");
-        set => this.WithProperty("transfer_lock", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("transfer_lock");
+        set => SetProperty("transfer_lock", value);
     }
 
     /// <summary>
@@ -543,8 +512,7 @@ public class AwsRoute53domainsDomain : TerraformResource
     /// </summary>
     public List<AwsRoute53domainsDomainAdminContactBlock>? AdminContact
     {
-        get => GetProperty<List<AwsRoute53domainsDomainAdminContactBlock>>("admin_contact");
-        set => this.WithProperty("admin_contact", value);
+        set => SetProperty("admin_contact", value);
     }
 
     /// <summary>
@@ -553,8 +521,7 @@ public class AwsRoute53domainsDomain : TerraformResource
     /// </summary>
     public List<AwsRoute53domainsDomainRegistrantContactBlock>? RegistrantContact
     {
-        get => GetProperty<List<AwsRoute53domainsDomainRegistrantContactBlock>>("registrant_contact");
-        set => this.WithProperty("registrant_contact", value);
+        set => SetProperty("registrant_contact", value);
     }
 
     /// <summary>
@@ -563,8 +530,7 @@ public class AwsRoute53domainsDomain : TerraformResource
     /// </summary>
     public List<AwsRoute53domainsDomainTechContactBlock>? TechContact
     {
-        get => GetProperty<List<AwsRoute53domainsDomainTechContactBlock>>("tech_contact");
-        set => this.WithProperty("tech_contact", value);
+        set => SetProperty("tech_contact", value);
     }
 
     /// <summary>
@@ -573,8 +539,7 @@ public class AwsRoute53domainsDomain : TerraformResource
     /// </summary>
     public AwsRoute53domainsDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53domainsDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

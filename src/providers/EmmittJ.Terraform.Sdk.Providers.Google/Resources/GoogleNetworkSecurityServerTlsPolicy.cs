@@ -14,8 +14,7 @@ public class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ClientValidationMode
     {
-        get => GetProperty<TerraformProperty<string>>("client_validation_mode");
-        set => WithProperty("client_validation_mode", value);
+        set => SetProperty("client_validation_mode", value);
     }
 
     /// <summary>
@@ -25,8 +24,7 @@ public class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ClientValidationTrustConfig
     {
-        get => GetProperty<TerraformProperty<string>>("client_validation_trust_config");
-        set => WithProperty("client_validation_trust_config", value);
+        set => SetProperty("client_validation_trust_config", value);
     }
 
 }
@@ -50,8 +48,7 @@ public class GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,10 +82,17 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("allow_open");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -98,28 +100,28 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     /// Determines if server allows plaintext connections. If set to true, server allows plain text connections. By default, it is set to false. This setting is not exclusive of other encryption modes. For example, if allowOpen and mtlsPolicy are set, server allows both plain text and mTLS connections. See documentation of other encryption modes to confirm compatibility.
     /// Consider using it if you wish to upgrade in place your deployment to TLS while having mixed TLS and non-TLS traffic reaching port :80.
     /// </summary>
-    public TerraformProperty<bool>? AllowOpen
+    public TerraformProperty<bool> AllowOpen
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_open");
-        set => this.WithProperty("allow_open", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_open");
+        set => SetProperty("allow_open", value);
     }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -128,20 +130,20 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the server tls policy.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -150,17 +152,17 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -170,8 +172,7 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MtlsPolicy block(s) allowed")]
     public List<GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock>? MtlsPolicy
     {
-        get => GetProperty<List<GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock>>("mtls_policy");
-        set => this.WithProperty("mtls_policy", value);
+        set => SetProperty("mtls_policy", value);
     }
 
     /// <summary>
@@ -181,8 +182,7 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerCertificate block(s) allowed")]
     public List<GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock>? ServerCertificate
     {
-        get => GetProperty<List<GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock>>("server_certificate");
-        set => this.WithProperty("server_certificate", value);
+        set => SetProperty("server_certificate", value);
     }
 
     /// <summary>
@@ -191,8 +191,7 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     /// </summary>
     public GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermApiManagementStandaloneGatewaySkuBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
-        set => WithProperty("capacity", value);
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermApiManagementStandaloneGatewaySkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermApiManagementStandaloneGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermApiManagementStandaloneGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermApiManagementStandaloneGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermApiManagementStandaloneGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,24 +80,31 @@ public class AzurermApiManagementStandaloneGateway : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("backend_subnet_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("virtual_network_type");
     }
 
     /// <summary>
     /// The backend_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BackendSubnetId
+    public TerraformProperty<string> BackendSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("backend_subnet_id");
-        set => this.WithProperty("backend_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backend_subnet_id");
+        set => SetProperty("backend_subnet_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,8 +113,8 @@ public class AzurermApiManagementStandaloneGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -122,8 +123,8 @@ public class AzurermApiManagementStandaloneGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -132,38 +133,38 @@ public class AzurermApiManagementStandaloneGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_network_type attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualNetworkType
+    public TerraformProperty<string> VirtualNetworkType
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_type");
-        set => this.WithProperty("virtual_network_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_type");
+        set => SetProperty("virtual_network_type", value);
     }
 
     /// <summary>
     /// Block for sku.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     public List<AzurermApiManagementStandaloneGatewaySkuBlock>? Sku
     {
-        get => GetProperty<List<AzurermApiManagementStandaloneGatewaySkuBlock>>("sku");
-        set => this.WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -172,8 +173,7 @@ public class AzurermApiManagementStandaloneGateway : TerraformResource
     /// </summary>
     public AzurermApiManagementStandaloneGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementStandaloneGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

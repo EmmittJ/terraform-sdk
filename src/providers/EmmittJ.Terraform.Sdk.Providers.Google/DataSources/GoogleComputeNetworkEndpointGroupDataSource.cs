@@ -14,22 +14,27 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_port");
-        this.WithOutput("description");
-        this.WithOutput("generated_id");
-        this.WithOutput("network");
-        this.WithOutput("network_endpoint_type");
-        this.WithOutput("size");
-        this.WithOutput("subnetwork");
+        SetOutput("default_port");
+        SetOutput("description");
+        SetOutput("generated_id");
+        SetOutput("network");
+        SetOutput("network_endpoint_type");
+        SetOutput("size");
+        SetOutput("subnetwork");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("self_link");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,37 +46,37 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformProperty<string>? SelfLink
+    public TerraformProperty<string> SelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("self_link");
-        set => this.WithProperty("self_link", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("self_link");
+        set => SetProperty("self_link", value);
     }
 
     /// <summary>
     /// Zone where the network endpoint group is located.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>

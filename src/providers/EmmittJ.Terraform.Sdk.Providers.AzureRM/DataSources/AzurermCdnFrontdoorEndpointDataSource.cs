@@ -13,8 +13,7 @@ public class AzurermCdnFrontdoorEndpointDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,18 +30,22 @@ public class AzurermCdnFrontdoorEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("enabled");
-        this.WithOutput("host_name");
-        this.WithOutput("tags");
+        SetOutput("enabled");
+        SetOutput("host_name");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("profile_name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +54,8 @@ public class AzurermCdnFrontdoorEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -61,8 +64,8 @@ public class AzurermCdnFrontdoorEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformProperty<string> ProfileName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("profile_name");
-        set => this.WithProperty("profile_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_name");
+        set => SetProperty("profile_name", value);
     }
 
     /// <summary>
@@ -71,8 +74,8 @@ public class AzurermCdnFrontdoorEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -81,8 +84,7 @@ public class AzurermCdnFrontdoorEndpointDataSource : TerraformDataSource
     /// </summary>
     public AzurermCdnFrontdoorEndpointDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCdnFrontdoorEndpointDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enable
     {
-        get => GetProperty<TerraformProperty<bool>>("enable");
-        set => WithProperty("enable", value);
+        set => SetProperty("enable", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinLogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("min_log_level");
-        set => WithProperty("min_log_level", value);
+        set => SetProperty("min_log_level", value);
     }
 
     /// <summary>
@@ -36,8 +34,7 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SampleRate
     {
-        get => GetProperty<TerraformProperty<double>>("sample_rate");
-        set => WithProperty("sample_rate", value);
+        set => SetProperty("sample_rate", value);
     }
 
 }
@@ -53,8 +50,7 @@ public class GoogleNetworkServicesWasmPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class GoogleNetworkServicesWasmPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class GoogleNetworkServicesWasmPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -88,8 +82,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateTime
     {
-        get => GetProperty<TerraformProperty<string>>("create_time");
-        set => WithProperty("create_time", value);
+        set => SetProperty("create_time", value);
     }
 
     /// <summary>
@@ -97,8 +90,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -107,8 +99,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImageDigest
     {
-        get => GetProperty<TerraformProperty<string>>("image_digest");
-        set => WithProperty("image_digest", value);
+        set => SetProperty("image_digest", value);
     }
 
     /// <summary>
@@ -117,8 +108,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImageUri
     {
-        get => GetProperty<TerraformProperty<string>>("image_uri");
-        set => WithProperty("image_uri", value);
+        set => SetProperty("image_uri", value);
     }
 
     /// <summary>
@@ -126,8 +116,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -137,8 +126,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PluginConfigData
     {
-        get => GetProperty<TerraformProperty<string>>("plugin_config_data");
-        set => WithProperty("plugin_config_data", value);
+        set => SetProperty("plugin_config_data", value);
     }
 
     /// <summary>
@@ -147,8 +135,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PluginConfigDigest
     {
-        get => GetProperty<TerraformProperty<string>>("plugin_config_digest");
-        set => WithProperty("plugin_config_digest", value);
+        set => SetProperty("plugin_config_digest", value);
     }
 
     /// <summary>
@@ -159,8 +146,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PluginConfigUri
     {
-        get => GetProperty<TerraformProperty<string>>("plugin_config_uri");
-        set => WithProperty("plugin_config_uri", value);
+        set => SetProperty("plugin_config_uri", value);
     }
 
     /// <summary>
@@ -168,8 +154,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("update_time");
-        set => WithProperty("update_time", value);
+        set => SetProperty("update_time", value);
     }
 
     /// <summary>
@@ -178,8 +163,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionName is required")]
     public required TerraformProperty<string> VersionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version_name");
-        set => WithProperty("version_name", value);
+        set => SetProperty("version_name", value);
     }
 
 }
@@ -197,29 +181,36 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
-        this.WithOutput("used_by");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("used_by");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("main_version_id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Optional. A human-readable description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -228,19 +219,19 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the traffic extension
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -249,8 +240,8 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainVersionId is required")]
     public required TerraformProperty<string> MainVersionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("main_version_id");
-        set => this.WithProperty("main_version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("main_version_id");
+        set => SetProperty("main_version_id", value);
     }
 
     /// <summary>
@@ -259,17 +250,17 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -279,8 +270,7 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     public List<GoogleNetworkServicesWasmPluginLogConfigBlock>? LogConfig
     {
-        get => GetProperty<List<GoogleNetworkServicesWasmPluginLogConfigBlock>>("log_config");
-        set => this.WithProperty("log_config", value);
+        set => SetProperty("log_config", value);
     }
 
     /// <summary>
@@ -289,19 +279,18 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     /// </summary>
     public GoogleNetworkServicesWasmPluginTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkServicesWasmPluginTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for versions.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Versions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Versions block(s) required")]
     public HashSet<GoogleNetworkServicesWasmPluginVersionsBlock>? Versions
     {
-        get => GetProperty<HashSet<GoogleNetworkServicesWasmPluginVersionsBlock>>("versions");
-        set => this.WithProperty("versions", value);
+        set => SetProperty("versions", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoolnessPeriodInDays is required")]
     public required TerraformProperty<double> CoolnessPeriodInDays
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("coolness_period_in_days");
-        set => WithProperty("coolness_period_in_days", value);
+        set => SetProperty("coolness_period_in_days", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetrievalPolicy is required")]
     public required TerraformProperty<string> RetrievalPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("retrieval_policy");
-        set => WithProperty("retrieval_policy", value);
+        set => SetProperty("retrieval_policy", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TieringPolicy is required")]
     public required TerraformProperty<string> TieringPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tiering_policy");
-        set => WithProperty("tiering_policy", value);
+        set => SetProperty("tiering_policy", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformProperty<string> BackupPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_policy_id");
-        set => WithProperty("backup_policy_id", value);
+        set => SetProperty("backup_policy_id", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
     public required TerraformProperty<string> BackupVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_vault_id");
-        set => WithProperty("backup_vault_id", value);
+        set => SetProperty("backup_vault_id", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PolicyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("policy_enabled");
-        set => WithProperty("policy_enabled", value);
+        set => SetProperty("policy_enabled", value);
     }
 
 }
@@ -88,8 +82,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_type");
-        set => WithProperty("endpoint_type", value);
+        set => SetProperty("endpoint_type", value);
     }
 
     /// <summary>
@@ -98,8 +91,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeLocation is required")]
     public required TerraformProperty<string> RemoteVolumeLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("remote_volume_location");
-        set => WithProperty("remote_volume_location", value);
+        set => SetProperty("remote_volume_location", value);
     }
 
     /// <summary>
@@ -108,8 +100,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeResourceId is required")]
     public required TerraformProperty<string> RemoteVolumeResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("remote_volume_resource_id");
-        set => WithProperty("remote_volume_resource_id", value);
+        set => SetProperty("remote_volume_resource_id", value);
     }
 
     /// <summary>
@@ -118,8 +109,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFrequency is required")]
     public required TerraformProperty<string> ReplicationFrequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("replication_frequency");
-        set => WithProperty("replication_frequency", value);
+        set => SetProperty("replication_frequency", value);
     }
 
 }
@@ -136,8 +126,7 @@ public class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotPolicyId is required")]
     public required TerraformProperty<string> SnapshotPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_policy_id");
-        set => WithProperty("snapshot_policy_id", value);
+        set => SetProperty("snapshot_policy_id", value);
     }
 
 }
@@ -154,8 +143,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedClients is required")]
     public HashSet<TerraformProperty<string>>? AllowedClients
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_clients");
-        set => WithProperty("allowed_clients", value);
+        set => SetProperty("allowed_clients", value);
     }
 
     /// <summary>
@@ -163,8 +151,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Kerberos5ReadOnlyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_5_read_only_enabled");
-        set => WithProperty("kerberos_5_read_only_enabled", value);
+        set => SetProperty("kerberos_5_read_only_enabled", value);
     }
 
     /// <summary>
@@ -172,8 +159,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Kerberos5ReadWriteEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_5_read_write_enabled");
-        set => WithProperty("kerberos_5_read_write_enabled", value);
+        set => SetProperty("kerberos_5_read_write_enabled", value);
     }
 
     /// <summary>
@@ -181,8 +167,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Kerberos5iReadOnlyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_5i_read_only_enabled");
-        set => WithProperty("kerberos_5i_read_only_enabled", value);
+        set => SetProperty("kerberos_5i_read_only_enabled", value);
     }
 
     /// <summary>
@@ -190,8 +175,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Kerberos5iReadWriteEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_5i_read_write_enabled");
-        set => WithProperty("kerberos_5i_read_write_enabled", value);
+        set => SetProperty("kerberos_5i_read_write_enabled", value);
     }
 
     /// <summary>
@@ -199,8 +183,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Kerberos5pReadOnlyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_5p_read_only_enabled");
-        set => WithProperty("kerberos_5p_read_only_enabled", value);
+        set => SetProperty("kerberos_5p_read_only_enabled", value);
     }
 
     /// <summary>
@@ -208,8 +191,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Kerberos5pReadWriteEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_5p_read_write_enabled");
-        set => WithProperty("kerberos_5p_read_write_enabled", value);
+        set => SetProperty("kerberos_5p_read_write_enabled", value);
     }
 
     /// <summary>
@@ -217,8 +199,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Protocol
     {
-        get => GetProperty<List<TerraformProperty<string>>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -227,8 +208,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public List<TerraformProperty<string>>? ProtocolsEnabled
     {
-        get => GetProperty<List<TerraformProperty<string>>>("protocols_enabled");
-        set => WithProperty("protocols_enabled", value);
+        set => SetProperty("protocols_enabled", value);
     }
 
     /// <summary>
@@ -236,8 +216,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RootAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("root_access_enabled");
-        set => WithProperty("root_access_enabled", value);
+        set => SetProperty("root_access_enabled", value);
     }
 
     /// <summary>
@@ -246,8 +225,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleIndex is required")]
     public required TerraformProperty<double> RuleIndex
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("rule_index");
-        set => WithProperty("rule_index", value);
+        set => SetProperty("rule_index", value);
     }
 
     /// <summary>
@@ -255,8 +233,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UnixReadOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("unix_read_only");
-        set => WithProperty("unix_read_only", value);
+        set => SetProperty("unix_read_only", value);
     }
 
     /// <summary>
@@ -264,8 +241,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UnixReadWrite
     {
-        get => GetProperty<TerraformProperty<bool>>("unix_read_write");
-        set => WithProperty("unix_read_write", value);
+        set => SetProperty("unix_read_write", value);
     }
 
 }
@@ -281,8 +257,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -290,8 +265,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -299,8 +273,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -308,8 +281,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -327,16 +299,44 @@ public class AzurermNetappVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("mount_ip_addresses");
+        SetOutput("mount_ip_addresses");
+        SetOutput("accept_grow_capacity_pool_for_short_term_clone_split");
+        SetOutput("account_name");
+        SetOutput("azure_vmware_data_store_enabled");
+        SetOutput("create_from_snapshot_resource_id");
+        SetOutput("encryption_key_source");
+        SetOutput("id");
+        SetOutput("kerberos_enabled");
+        SetOutput("key_vault_private_endpoint_id");
+        SetOutput("large_volume_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network_features");
+        SetOutput("pool_name");
+        SetOutput("protocols");
+        SetOutput("resource_group_name");
+        SetOutput("security_style");
+        SetOutput("service_level");
+        SetOutput("smb3_protocol_encryption_enabled");
+        SetOutput("smb_access_based_enumeration_enabled");
+        SetOutput("smb_continuous_availability_enabled");
+        SetOutput("smb_non_browsable_enabled");
+        SetOutput("snapshot_directory_visible");
+        SetOutput("storage_quota_in_gb");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("throughput_in_mibps");
+        SetOutput("volume_path");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as accepted. Can only be used in conjunction with `create_from_snapshot_resource_id`.
     /// </summary>
-    public TerraformProperty<string>? AcceptGrowCapacityPoolForShortTermCloneSplit
+    public TerraformProperty<string> AcceptGrowCapacityPoolForShortTermCloneSplit
     {
-        get => GetProperty<TerraformProperty<string>>("accept_grow_capacity_pool_for_short_term_clone_split");
-        set => this.WithProperty("accept_grow_capacity_pool_for_short_term_clone_split", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("accept_grow_capacity_pool_for_short_term_clone_split");
+        set => SetProperty("accept_grow_capacity_pool_for_short_term_clone_split", value);
     }
 
     /// <summary>
@@ -345,71 +345,71 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The azure_vmware_data_store_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AzureVmwareDataStoreEnabled
+    public TerraformProperty<bool> AzureVmwareDataStoreEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("azure_vmware_data_store_enabled");
-        set => this.WithProperty("azure_vmware_data_store_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("azure_vmware_data_store_enabled");
+        set => SetProperty("azure_vmware_data_store_enabled", value);
     }
 
     /// <summary>
     /// The create_from_snapshot_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CreateFromSnapshotResourceId
+    public TerraformProperty<string> CreateFromSnapshotResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("create_from_snapshot_resource_id");
-        set => this.WithProperty("create_from_snapshot_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_from_snapshot_resource_id");
+        set => SetProperty("create_from_snapshot_resource_id", value);
     }
 
     /// <summary>
     /// The encryption_key_source attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionKeySource
+    public TerraformProperty<string> EncryptionKeySource
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key_source");
-        set => this.WithProperty("encryption_key_source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key_source");
+        set => SetProperty("encryption_key_source", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azurerm_netapp_account` having a defined AD connection.
     /// </summary>
-    public TerraformProperty<bool>? KerberosEnabled
+    public TerraformProperty<bool> KerberosEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_enabled");
-        set => this.WithProperty("kerberos_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("kerberos_enabled");
+        set => SetProperty("kerberos_enabled", value);
     }
 
     /// <summary>
     /// The key_vault_private_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultPrivateEndpointId
+    public TerraformProperty<string> KeyVaultPrivateEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_private_endpoint_id");
-        set => this.WithProperty("key_vault_private_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_private_endpoint_id");
+        set => SetProperty("key_vault_private_endpoint_id", value);
     }
 
     /// <summary>
     /// Indicates whether the volume is a large volume.
     /// </summary>
-    public TerraformProperty<bool>? LargeVolumeEnabled
+    public TerraformProperty<bool> LargeVolumeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("large_volume_enabled");
-        set => this.WithProperty("large_volume_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("large_volume_enabled");
+        set => SetProperty("large_volume_enabled", value);
     }
 
     /// <summary>
@@ -418,8 +418,8 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -428,17 +428,17 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_features attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkFeatures
+    public TerraformProperty<string> NetworkFeatures
     {
-        get => GetProperty<TerraformProperty<string>>("network_features");
-        set => this.WithProperty("network_features", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_features");
+        set => SetProperty("network_features", value);
     }
 
     /// <summary>
@@ -447,17 +447,17 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
     public required TerraformProperty<string> PoolName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pool_name");
-        set => this.WithProperty("pool_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool_name");
+        set => SetProperty("pool_name", value);
     }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Protocols
+    public HashSet<TerraformProperty<string>> Protocols
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("protocols");
-        set => this.WithProperty("protocols", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("protocols");
+        set => SetProperty("protocols", value);
     }
 
     /// <summary>
@@ -466,17 +466,17 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityStyle
+    public TerraformProperty<string> SecurityStyle
     {
-        get => GetProperty<TerraformProperty<string>>("security_style");
-        set => this.WithProperty("security_style", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_style");
+        set => SetProperty("security_style", value);
     }
 
     /// <summary>
@@ -485,53 +485,53 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformProperty<string> ServiceLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_level");
-        set => this.WithProperty("service_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_level");
+        set => SetProperty("service_level", value);
     }
 
     /// <summary>
     /// SMB3 encryption option should be used only for SMB/DualProtocol volumes. Using it for any other workloads is not supported.
     /// </summary>
-    public TerraformProperty<bool>? Smb3ProtocolEncryptionEnabled
+    public TerraformProperty<bool> Smb3ProtocolEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("smb3_protocol_encryption_enabled");
-        set => this.WithProperty("smb3_protocol_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("smb3_protocol_encryption_enabled");
+        set => SetProperty("smb3_protocol_encryption_enabled", value);
     }
 
     /// <summary>
     /// Enable access based enumeration setting for SMB/Dual Protocol volume. When enabled, users who do not have permission to access a shared folder or file underneath it, do not see that shared resource displayed in their environment.
     /// </summary>
-    public TerraformProperty<bool>? SmbAccessBasedEnumerationEnabled
+    public TerraformProperty<bool> SmbAccessBasedEnumerationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("smb_access_based_enumeration_enabled");
-        set => this.WithProperty("smb_access_based_enumeration_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("smb_access_based_enumeration_enabled");
+        set => SetProperty("smb_access_based_enumeration_enabled", value);
     }
 
     /// <summary>
     /// Continuous availability option should be used only for SQL and FSLogix workloads. Using it for any other SMB workloads is not supported.
     /// </summary>
-    public TerraformProperty<bool>? SmbContinuousAvailabilityEnabled
+    public TerraformProperty<bool> SmbContinuousAvailabilityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("smb_continuous_availability_enabled");
-        set => this.WithProperty("smb_continuous_availability_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("smb_continuous_availability_enabled");
+        set => SetProperty("smb_continuous_availability_enabled", value);
     }
 
     /// <summary>
     /// Enable non browsable share setting for SMB/Dual Protocol volume. When enabled, it restricts windows clients to browse the share
     /// </summary>
-    public TerraformProperty<bool>? SmbNonBrowsableEnabled
+    public TerraformProperty<bool> SmbNonBrowsableEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("smb_non_browsable_enabled");
-        set => this.WithProperty("smb_non_browsable_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("smb_non_browsable_enabled");
+        set => SetProperty("smb_non_browsable_enabled", value);
     }
 
     /// <summary>
     /// The snapshot_directory_visible attribute.
     /// </summary>
-    public TerraformProperty<bool>? SnapshotDirectoryVisible
+    public TerraformProperty<bool> SnapshotDirectoryVisible
     {
-        get => GetProperty<TerraformProperty<bool>>("snapshot_directory_visible");
-        set => this.WithProperty("snapshot_directory_visible", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("snapshot_directory_visible");
+        set => SetProperty("snapshot_directory_visible", value);
     }
 
     /// <summary>
@@ -540,8 +540,8 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageQuotaInGb is required")]
     public required TerraformProperty<double> StorageQuotaInGb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("storage_quota_in_gb");
-        set => this.WithProperty("storage_quota_in_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_quota_in_gb");
+        set => SetProperty("storage_quota_in_gb", value);
     }
 
     /// <summary>
@@ -550,26 +550,26 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The throughput_in_mibps attribute.
     /// </summary>
-    public TerraformProperty<double>? ThroughputInMibps
+    public TerraformProperty<double> ThroughputInMibps
     {
-        get => GetProperty<TerraformProperty<double>>("throughput_in_mibps");
-        set => this.WithProperty("throughput_in_mibps", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput_in_mibps");
+        set => SetProperty("throughput_in_mibps", value);
     }
 
     /// <summary>
@@ -578,17 +578,17 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumePath is required")]
     public required TerraformProperty<string> VolumePath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_path");
-        set => this.WithProperty("volume_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_path");
+        set => SetProperty("volume_path", value);
     }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -598,8 +598,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CoolAccess block(s) allowed")]
     public List<AzurermNetappVolumeCoolAccessBlock>? CoolAccess
     {
-        get => GetProperty<List<AzurermNetappVolumeCoolAccessBlock>>("cool_access");
-        set => this.WithProperty("cool_access", value);
+        set => SetProperty("cool_access", value);
     }
 
     /// <summary>
@@ -609,8 +608,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionBackupPolicy block(s) allowed")]
     public List<AzurermNetappVolumeDataProtectionBackupPolicyBlock>? DataProtectionBackupPolicy
     {
-        get => GetProperty<List<AzurermNetappVolumeDataProtectionBackupPolicyBlock>>("data_protection_backup_policy");
-        set => this.WithProperty("data_protection_backup_policy", value);
+        set => SetProperty("data_protection_backup_policy", value);
     }
 
     /// <summary>
@@ -620,8 +618,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionReplication block(s) allowed")]
     public List<AzurermNetappVolumeDataProtectionReplicationBlock>? DataProtectionReplication
     {
-        get => GetProperty<List<AzurermNetappVolumeDataProtectionReplicationBlock>>("data_protection_replication");
-        set => this.WithProperty("data_protection_replication", value);
+        set => SetProperty("data_protection_replication", value);
     }
 
     /// <summary>
@@ -631,8 +628,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionSnapshotPolicy block(s) allowed")]
     public List<AzurermNetappVolumeDataProtectionSnapshotPolicyBlock>? DataProtectionSnapshotPolicy
     {
-        get => GetProperty<List<AzurermNetappVolumeDataProtectionSnapshotPolicyBlock>>("data_protection_snapshot_policy");
-        set => this.WithProperty("data_protection_snapshot_policy", value);
+        set => SetProperty("data_protection_snapshot_policy", value);
     }
 
     /// <summary>
@@ -642,8 +638,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ExportPolicyRule block(s) allowed")]
     public List<AzurermNetappVolumeExportPolicyRuleBlock>? ExportPolicyRule
     {
-        get => GetProperty<List<AzurermNetappVolumeExportPolicyRuleBlock>>("export_policy_rule");
-        set => this.WithProperty("export_policy_rule", value);
+        set => SetProperty("export_policy_rule", value);
     }
 
     /// <summary>
@@ -652,8 +647,7 @@ public class AzurermNetappVolume : TerraformResource
     /// </summary>
     public AzurermNetappVolumeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappVolumeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

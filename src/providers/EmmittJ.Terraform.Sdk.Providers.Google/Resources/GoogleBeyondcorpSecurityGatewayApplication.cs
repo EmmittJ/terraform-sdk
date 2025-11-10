@@ -14,8 +14,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
-        set => WithProperty("hostname", value);
+        set => SetProperty("hostname", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
     public List<TerraformProperty<double>>? Ports
     {
-        get => GetProperty<List<TerraformProperty<double>>>("ports");
-        set => WithProperty("ports", value);
+        set => SetProperty("ports", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,9 +80,15 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("application_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("schema");
+        SetOutput("security_gateway_id");
     }
 
     /// <summary>
@@ -99,45 +100,45 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// Optional. An arbitrary user-provided name for the Application resource.
     /// Cannot exceed 64 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Type of the external application. Possible values: [&amp;quot;PROXY_GATEWAY&amp;quot;, &amp;quot;API_GATEWAY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Schema
+    public TerraformProperty<string> Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
-        set => this.WithProperty("schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema");
+        set => SetProperty("schema", value);
     }
 
     /// <summary>
@@ -146,8 +147,8 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformProperty<string> SecurityGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("security_gateway_id");
-        set => this.WithProperty("security_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_gateway_id");
+        set => SetProperty("security_gateway_id", value);
     }
 
     /// <summary>
@@ -156,8 +157,7 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     /// </summary>
     public List<GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock>? EndpointMatchers
     {
-        get => GetProperty<List<GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock>>("endpoint_matchers");
-        set => this.WithProperty("endpoint_matchers", value);
+        set => SetProperty("endpoint_matchers", value);
     }
 
     /// <summary>
@@ -166,8 +166,7 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     /// </summary>
     public GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -176,8 +175,7 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     /// </summary>
     public List<GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock>? Upstreams
     {
-        get => GetProperty<List<GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock>>("upstreams");
-        set => this.WithProperty("upstreams", value);
+        set => SetProperty("upstreams", value);
     }
 
     /// <summary>

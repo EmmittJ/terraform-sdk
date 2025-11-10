@@ -14,8 +14,7 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
     public required TerraformProperty<string> VirtualPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_path");
-        set => WithProperty("virtual_path", value);
+        set => SetProperty("virtual_path", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContentHash
     {
-        get => GetProperty<TerraformProperty<string>>("content_hash");
-        set => WithProperty("content_hash", value);
+        set => SetProperty("content_hash", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
     public required TerraformProperty<string> VirtualPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_path");
-        set => WithProperty("virtual_path", value);
+        set => SetProperty("virtual_path", value);
     }
 
 }
@@ -78,8 +73,7 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -123,15 +114,19 @@ public class AzurermNginxConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("nginx_deployment_id");
+        SetOutput("package_data");
+        SetOutput("root_file");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -140,17 +135,17 @@ public class AzurermNginxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
-        set => this.WithProperty("nginx_deployment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nginx_deployment_id");
+        set => SetProperty("nginx_deployment_id", value);
     }
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PackageData
+    public TerraformProperty<string> PackageData
     {
-        get => GetProperty<TerraformProperty<string>>("package_data");
-        set => this.WithProperty("package_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("package_data");
+        set => SetProperty("package_data", value);
     }
 
     /// <summary>
@@ -159,8 +154,8 @@ public class AzurermNginxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFile is required")]
     public required TerraformProperty<string> RootFile
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("root_file");
-        set => this.WithProperty("root_file", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("root_file");
+        set => SetProperty("root_file", value);
     }
 
     /// <summary>
@@ -169,8 +164,7 @@ public class AzurermNginxConfiguration : TerraformResource
     /// </summary>
     public HashSet<AzurermNginxConfigurationConfigFileBlock>? ConfigFile
     {
-        get => GetProperty<HashSet<AzurermNginxConfigurationConfigFileBlock>>("config_file");
-        set => this.WithProperty("config_file", value);
+        set => SetProperty("config_file", value);
     }
 
     /// <summary>
@@ -179,8 +173,7 @@ public class AzurermNginxConfiguration : TerraformResource
     /// </summary>
     public HashSet<AzurermNginxConfigurationProtectedFileBlock>? ProtectedFile
     {
-        get => GetProperty<HashSet<AzurermNginxConfigurationProtectedFileBlock>>("protected_file");
-        set => this.WithProperty("protected_file", value);
+        set => SetProperty("protected_file", value);
     }
 
     /// <summary>
@@ -189,8 +182,7 @@ public class AzurermNginxConfiguration : TerraformResource
     /// </summary>
     public AzurermNginxConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNginxConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

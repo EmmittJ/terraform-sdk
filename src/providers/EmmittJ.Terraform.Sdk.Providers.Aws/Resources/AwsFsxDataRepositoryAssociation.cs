@@ -21,8 +21,7 @@ public class AwsFsxDataRepositoryAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsFsxDataRepositoryAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsFsxDataRepositoryAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,17 +55,27 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputssociation_id");
+        SetOutput("arn");
+        SetOutput("association_id");
+        SetOutput("batch_import_meta_data_on_create");
+        SetOutput("data_repository_path");
+        SetOutput("delete_data_in_filesystem");
+        SetOutput("file_system_id");
+        SetOutput("file_system_path");
+        SetOutput("id");
+        SetOutput("imported_file_chunk_size");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The batch_import_meta_data_on_create attribute.
     /// </summary>
-    public TerraformProperty<bool>? BatchImportMetaDataOnCreate
+    public TerraformProperty<bool> BatchImportMetaDataOnCreate
     {
-        get => GetProperty<TerraformProperty<bool>>("batch_import_meta_data_on_create");
-        set => this.WithProperty("batch_import_meta_data_on_create", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("batch_import_meta_data_on_create");
+        set => SetProperty("batch_import_meta_data_on_create", value);
     }
 
     /// <summary>
@@ -77,17 +84,17 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRepositoryPath is required")]
     public required TerraformProperty<string> DataRepositoryPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_repository_path");
-        set => this.WithProperty("data_repository_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_repository_path");
+        set => SetProperty("data_repository_path", value);
     }
 
     /// <summary>
     /// The delete_data_in_filesystem attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeleteDataInFilesystem
+    public TerraformProperty<bool> DeleteDataInFilesystem
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_data_in_filesystem");
-        set => this.WithProperty("delete_data_in_filesystem", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_data_in_filesystem");
+        set => SetProperty("delete_data_in_filesystem", value);
     }
 
     /// <summary>
@@ -96,8 +103,8 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
-        set => this.WithProperty("file_system_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_system_id");
+        set => SetProperty("file_system_id", value);
     }
 
     /// <summary>
@@ -106,53 +113,53 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemPath is required")]
     public required TerraformProperty<string> FileSystemPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_system_path");
-        set => this.WithProperty("file_system_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_system_path");
+        set => SetProperty("file_system_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The imported_file_chunk_size attribute.
     /// </summary>
-    public TerraformProperty<double>? ImportedFileChunkSize
+    public TerraformProperty<double> ImportedFileChunkSize
     {
-        get => GetProperty<TerraformProperty<double>>("imported_file_chunk_size");
-        set => this.WithProperty("imported_file_chunk_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("imported_file_chunk_size");
+        set => SetProperty("imported_file_chunk_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -162,8 +169,7 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3 block(s) allowed")]
     public List<AwsFsxDataRepositoryAssociationS3Block>? S3
     {
-        get => GetProperty<List<AwsFsxDataRepositoryAssociationS3Block>>("s3");
-        set => this.WithProperty("s3", value);
+        set => SetProperty("s3", value);
     }
 
     /// <summary>
@@ -172,8 +178,7 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     /// </summary>
     public AwsFsxDataRepositoryAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFsxDataRepositoryAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

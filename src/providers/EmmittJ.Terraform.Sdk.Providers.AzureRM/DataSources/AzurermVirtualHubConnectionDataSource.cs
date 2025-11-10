@@ -13,8 +13,7 @@ public class AzurermVirtualHubConnectionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,19 +30,23 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("internet_security_enabled");
-        this.WithOutput("remote_virtual_network_id");
-        this.WithOutput("routing");
-        this.WithOutput("virtual_hub_id");
+        SetOutput("internet_security_enabled");
+        SetOutput("remote_virtual_network_id");
+        SetOutput("routing");
+        SetOutput("virtual_hub_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("virtual_hub_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,8 +55,8 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -62,8 +65,8 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -72,8 +75,8 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubName is required")]
     public required TerraformProperty<string> VirtualHubName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_name");
-        set => this.WithProperty("virtual_hub_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_name");
+        set => SetProperty("virtual_hub_name", value);
     }
 
     /// <summary>
@@ -82,8 +85,7 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     /// </summary>
     public AzurermVirtualHubConnectionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualHubConnectionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

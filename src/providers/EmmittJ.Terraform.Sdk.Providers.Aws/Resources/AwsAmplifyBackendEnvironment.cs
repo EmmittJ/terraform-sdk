@@ -14,7 +14,13 @@ public class AwsAmplifyBackendEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("app_id");
+        SetOutput("deployment_artifacts");
+        SetOutput("environment_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("stack_name");
     }
 
     /// <summary>
@@ -23,17 +29,17 @@ public class AwsAmplifyBackendEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
     /// The deployment_artifacts attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentArtifacts
+    public TerraformProperty<string> DeploymentArtifacts
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_artifacts");
-        set => this.WithProperty("deployment_artifacts", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_artifacts");
+        set => SetProperty("deployment_artifacts", value);
     }
 
     /// <summary>
@@ -42,35 +48,35 @@ public class AwsAmplifyBackendEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentName is required")]
     public required TerraformProperty<string> EnvironmentName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment_name");
-        set => this.WithProperty("environment_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_name");
+        set => SetProperty("environment_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The stack_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StackName
+    public TerraformProperty<string> StackName
     {
-        get => GetProperty<TerraformProperty<string>>("stack_name");
-        set => this.WithProperty("stack_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stack_name");
+        set => SetProperty("stack_name", value);
     }
 
     /// <summary>

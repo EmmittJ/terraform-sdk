@@ -13,8 +13,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformProperty<string> Feature
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("feature");
-        set => WithProperty("feature", value);
+        set => SetProperty("feature", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Variation is required")]
     public required TerraformProperty<string> Variation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("variation");
-        set => WithProperty("variation", value);
+        set => SetProperty("variation", value);
     }
 
 }
@@ -76,8 +72,7 @@ public class AwsEvidentlyLaunchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -85,8 +80,7 @@ public class AwsEvidentlyLaunchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class AwsEvidentlyLaunchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,31 +107,39 @@ public class AwsEvidentlyLaunch : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_time");
-        this.WithOutput("execution");
-        this.WithOutput("last_updated_time");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("type");
+        SetOutput("arn");
+        SetOutput("created_time");
+        SetOutput("execution");
+        SetOutput("last_updated_time");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("randomization_salt");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -147,8 +148,8 @@ public class AwsEvidentlyLaunch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -157,56 +158,56 @@ public class AwsEvidentlyLaunch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The randomization_salt attribute.
     /// </summary>
-    public TerraformProperty<string>? RandomizationSalt
+    public TerraformProperty<string> RandomizationSalt
     {
-        get => GetProperty<TerraformProperty<string>>("randomization_salt");
-        set => this.WithProperty("randomization_salt", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("randomization_salt");
+        set => SetProperty("randomization_salt", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for groups.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Groups is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Groups block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Groups block(s) allowed")]
     public List<AwsEvidentlyLaunchGroupsBlock>? Groups
     {
-        get => GetProperty<List<AwsEvidentlyLaunchGroupsBlock>>("groups");
-        set => this.WithProperty("groups", value);
+        set => SetProperty("groups", value);
     }
 
     /// <summary>
@@ -216,8 +217,7 @@ public class AwsEvidentlyLaunch : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 MetricMonitors block(s) allowed")]
     public List<AwsEvidentlyLaunchMetricMonitorsBlock>? MetricMonitors
     {
-        get => GetProperty<List<AwsEvidentlyLaunchMetricMonitorsBlock>>("metric_monitors");
-        set => this.WithProperty("metric_monitors", value);
+        set => SetProperty("metric_monitors", value);
     }
 
     /// <summary>
@@ -227,8 +227,7 @@ public class AwsEvidentlyLaunch : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledSplitsConfig block(s) allowed")]
     public List<AwsEvidentlyLaunchScheduledSplitsConfigBlock>? ScheduledSplitsConfig
     {
-        get => GetProperty<List<AwsEvidentlyLaunchScheduledSplitsConfigBlock>>("scheduled_splits_config");
-        set => this.WithProperty("scheduled_splits_config", value);
+        set => SetProperty("scheduled_splits_config", value);
     }
 
     /// <summary>
@@ -237,8 +236,7 @@ public class AwsEvidentlyLaunch : TerraformResource
     /// </summary>
     public AwsEvidentlyLaunchTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEvidentlyLaunchTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

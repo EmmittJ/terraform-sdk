@@ -13,8 +13,7 @@ public class AzurermSearchSharedPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSearchSharedPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSearchSharedPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSearchSharedPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +54,22 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("status");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("request_message");
+        SetOutput("search_service_id");
+        SetOutput("subresource_name");
+        SetOutput("target_resource_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,17 +78,17 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
-    public TerraformProperty<string>? RequestMessage
+    public TerraformProperty<string> RequestMessage
     {
-        get => GetProperty<TerraformProperty<string>>("request_message");
-        set => this.WithProperty("request_message", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("request_message");
+        set => SetProperty("request_message", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SearchServiceId is required")]
     public required TerraformProperty<string> SearchServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("search_service_id");
-        set => this.WithProperty("search_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("search_service_id");
+        set => SetProperty("search_service_id", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubresourceName is required")]
     public required TerraformProperty<string> SubresourceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subresource_name");
-        set => this.WithProperty("subresource_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subresource_name");
+        set => SetProperty("subresource_name", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
     /// </summary>
     public AzurermSearchSharedPrivateLinkServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSearchSharedPrivateLinkServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

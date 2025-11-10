@@ -14,8 +14,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CacheMode
     {
-        get => GetProperty<TerraformProperty<string>>("cache_mode");
-        set => WithProperty("cache_mode", value);
+        set => SetProperty("cache_mode", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ClientTtl
     {
-        get => GetProperty<TerraformProperty<double>>("client_ttl");
-        set => WithProperty("client_ttl", value);
+        set => SetProperty("client_ttl", value);
     }
 
     /// <summary>
@@ -35,8 +33,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DefaultTtl
     {
-        get => GetProperty<TerraformProperty<double>>("default_ttl");
-        set => WithProperty("default_ttl", value);
+        set => SetProperty("default_ttl", value);
     }
 
     /// <summary>
@@ -45,8 +42,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxTtl
     {
-        get => GetProperty<TerraformProperty<double>>("max_ttl");
-        set => WithProperty("max_ttl", value);
+        set => SetProperty("max_ttl", value);
     }
 
     /// <summary>
@@ -54,8 +50,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NegativeCaching
     {
-        get => GetProperty<TerraformProperty<bool>>("negative_caching");
-        set => WithProperty("negative_caching", value);
+        set => SetProperty("negative_caching", value);
     }
 
     /// <summary>
@@ -63,8 +58,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RequestCoalescing
     {
-        get => GetProperty<TerraformProperty<bool>>("request_coalescing");
-        set => WithProperty("request_coalescing", value);
+        set => SetProperty("request_coalescing", value);
     }
 
     /// <summary>
@@ -72,8 +66,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ServeWhileStale
     {
-        get => GetProperty<TerraformProperty<double>>("serve_while_stale");
-        set => WithProperty("serve_while_stale", value);
+        set => SetProperty("serve_while_stale", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SignedUrlCacheMaxAgeSec
     {
-        get => GetProperty<TerraformProperty<double>>("signed_url_cache_max_age_sec");
-        set => WithProperty("signed_url_cache_max_age_sec", value);
+        set => SetProperty("signed_url_cache_max_age_sec", value);
     }
 
 }
@@ -107,8 +99,7 @@ public class GoogleComputeBackendBucketParamsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
-        set => WithProperty("resource_manager_tags", value);
+        set => SetProperty("resource_manager_tags", value);
     }
 
 }
@@ -124,8 +115,7 @@ public class GoogleComputeBackendBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -133,8 +123,7 @@ public class GoogleComputeBackendBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -142,8 +131,7 @@ public class GoogleComputeBackendBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -161,8 +149,18 @@ public class GoogleComputeBackendBucket : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("self_link");
+        SetOutput("bucket_name");
+        SetOutput("compression_mode");
+        SetOutput("custom_response_headers");
+        SetOutput("description");
+        SetOutput("edge_security_policy");
+        SetOutput("enable_cdn");
+        SetOutput("id");
+        SetOutput("load_balancing_scheme");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -171,64 +169,64 @@ public class GoogleComputeBackendBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
-        set => this.WithProperty("bucket_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket_name");
+        set => SetProperty("bucket_name", value);
     }
 
     /// <summary>
     /// Compress text responses using Brotli or gzip compression, based on the client&#39;s Accept-Encoding header. Possible values: [&amp;quot;AUTOMATIC&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? CompressionMode
+    public TerraformProperty<string> CompressionMode
     {
-        get => GetProperty<TerraformProperty<string>>("compression_mode");
-        set => this.WithProperty("compression_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compression_mode");
+        set => SetProperty("compression_mode", value);
     }
 
     /// <summary>
     /// Headers that the HTTP/S load balancer should add to proxied responses.
     /// </summary>
-    public List<TerraformProperty<string>>? CustomResponseHeaders
+    public List<TerraformProperty<string>> CustomResponseHeaders
     {
-        get => GetProperty<List<TerraformProperty<string>>>("custom_response_headers");
-        set => this.WithProperty("custom_response_headers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("custom_response_headers");
+        set => SetProperty("custom_response_headers", value);
     }
 
     /// <summary>
     /// An optional textual description of the resource; provided by the
     /// client when the resource is created.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The security policy associated with this backend bucket.
     /// </summary>
-    public TerraformProperty<string>? EdgeSecurityPolicy
+    public TerraformProperty<string> EdgeSecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("edge_security_policy");
-        set => this.WithProperty("edge_security_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_security_policy");
+        set => SetProperty("edge_security_policy", value);
     }
 
     /// <summary>
     /// If true, enable Cloud CDN for this BackendBucket.
     /// Note: This cannot be set to true when loadBalancingScheme is set to INTERNAL_MANAGED.
     /// </summary>
-    public TerraformProperty<bool>? EnableCdn
+    public TerraformProperty<bool> EnableCdn
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_cdn");
-        set => this.WithProperty("enable_cdn", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_cdn");
+        set => SetProperty("enable_cdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -236,10 +234,10 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// If loadBalancingScheme is not specified, the backend bucket can be used by classic global external load balancers, or global application external load balancers, or both.
     /// Important: CDN cannot be enabled (enableCdn cannot be set to true) when loadBalancingScheme is set to INTERNAL_MANAGED. Possible values: [&amp;quot;INTERNAL_MANAGED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? LoadBalancingScheme
+    public TerraformProperty<string> LoadBalancingScheme
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancing_scheme");
-        set => this.WithProperty("load_balancing_scheme", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("load_balancing_scheme");
+        set => SetProperty("load_balancing_scheme", value);
     }
 
     /// <summary>
@@ -254,17 +252,17 @@ public class GoogleComputeBackendBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -274,8 +272,7 @@ public class GoogleComputeBackendBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnPolicy block(s) allowed")]
     public List<GoogleComputeBackendBucketCdnPolicyBlock>? CdnPolicy
     {
-        get => GetProperty<List<GoogleComputeBackendBucketCdnPolicyBlock>>("cdn_policy");
-        set => this.WithProperty("cdn_policy", value);
+        set => SetProperty("cdn_policy", value);
     }
 
     /// <summary>
@@ -285,8 +282,7 @@ public class GoogleComputeBackendBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     public List<GoogleComputeBackendBucketParamsBlock>? Params
     {
-        get => GetProperty<List<GoogleComputeBackendBucketParamsBlock>>("params");
-        set => this.WithProperty("params", value);
+        set => SetProperty("params", value);
     }
 
     /// <summary>
@@ -295,8 +291,7 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// </summary>
     public GoogleComputeBackendBucketTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeBackendBucketTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

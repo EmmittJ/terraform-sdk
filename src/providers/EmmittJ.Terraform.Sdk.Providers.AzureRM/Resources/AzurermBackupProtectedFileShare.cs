@@ -13,8 +13,7 @@ public class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermBackupProtectedFileShare : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("backup_policy_id");
+        SetOutput("id");
+        SetOutput("recovery_vault_name");
+        SetOutput("resource_group_name");
+        SetOutput("source_file_share_name");
+        SetOutput("source_storage_account_id");
     }
 
     /// <summary>
@@ -66,17 +68,17 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformProperty<string> BackupPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_policy_id");
-        set => this.WithProperty("backup_policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_policy_id");
+        set => SetProperty("backup_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
-        set => this.WithProperty("recovery_vault_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_name");
+        set => SetProperty("recovery_vault_name", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShareName is required")]
     public required TerraformProperty<string> SourceFileShareName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_file_share_name");
-        set => this.WithProperty("source_file_share_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_file_share_name");
+        set => SetProperty("source_file_share_name", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
     public required TerraformProperty<string> SourceStorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_storage_account_id");
-        set => this.WithProperty("source_storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_storage_account_id");
+        set => SetProperty("source_storage_account_id", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     /// </summary>
     public AzurermBackupProtectedFileShareTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBackupProtectedFileShareTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

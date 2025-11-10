@@ -13,8 +13,7 @@ public class AzurermSharedImageDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,24 +30,28 @@ public class AzurermSharedImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("accelerated_network_support_enabled");
-        this.WithOutput("architecture");
-        this.WithOutput("confidential_vm_enabled");
-        this.WithOutput("confidential_vm_supported");
-        this.WithOutput("description");
-        this.WithOutput("eula");
-        this.WithOutput("hibernation_enabled");
-        this.WithOutput("hyper_v_generation");
-        this.WithOutput("identifier");
-        this.WithOutput("location");
-        this.WithOutput("os_type");
-        this.WithOutput("privacy_statement_uri");
-        this.WithOutput("purchase_plan");
-        this.WithOutput("release_note_uri");
-        this.WithOutput("specialized");
-        this.WithOutput("tags");
-        this.WithOutput("trusted_launch_enabled");
-        this.WithOutput("trusted_launch_supported");
+        SetOutput("accelerated_network_support_enabled");
+        SetOutput("architecture");
+        SetOutput("confidential_vm_enabled");
+        SetOutput("confidential_vm_supported");
+        SetOutput("description");
+        SetOutput("eula");
+        SetOutput("hibernation_enabled");
+        SetOutput("hyper_v_generation");
+        SetOutput("identifier");
+        SetOutput("location");
+        SetOutput("os_type");
+        SetOutput("privacy_statement_uri");
+        SetOutput("purchase_plan");
+        SetOutput("release_note_uri");
+        SetOutput("specialized");
+        SetOutput("tags");
+        SetOutput("trusted_launch_enabled");
+        SetOutput("trusted_launch_supported");
+        SetOutput("gallery_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -57,17 +60,17 @@ public class AzurermSharedImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     public required TerraformProperty<string> GalleryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gallery_name");
-        set => this.WithProperty("gallery_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gallery_name");
+        set => SetProperty("gallery_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +79,8 @@ public class AzurermSharedImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -86,8 +89,8 @@ public class AzurermSharedImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -96,8 +99,7 @@ public class AzurermSharedImageDataSource : TerraformDataSource
     /// </summary>
     public AzurermSharedImageDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSharedImageDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

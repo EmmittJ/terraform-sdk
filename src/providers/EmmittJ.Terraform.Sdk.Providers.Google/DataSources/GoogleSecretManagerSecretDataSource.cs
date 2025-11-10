@@ -14,40 +14,43 @@ public class GoogleSecretManagerSecretDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("annotations");
-        this.WithOutput("create_time");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("expire_time");
-        this.WithOutput("labels");
-        this.WithOutput("name");
-        this.WithOutput("replication");
-        this.WithOutput("rotation");
-        this.WithOutput("tags");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("topics");
-        this.WithOutput("ttl");
-        this.WithOutput("version_aliases");
-        this.WithOutput("version_destroy_ttl");
+        SetOutput("annotations");
+        SetOutput("create_time");
+        SetOutput("deletion_protection");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("expire_time");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("replication");
+        SetOutput("rotation");
+        SetOutput("tags");
+        SetOutput("terraform_labels");
+        SetOutput("topics");
+        SetOutput("ttl");
+        SetOutput("version_aliases");
+        SetOutput("version_destroy_ttl");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("secret_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -56,8 +59,8 @@ public class GoogleSecretManagerSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
-        set => this.WithProperty("secret_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_id");
+        set => SetProperty("secret_id", value);
     }
 
     /// <summary>

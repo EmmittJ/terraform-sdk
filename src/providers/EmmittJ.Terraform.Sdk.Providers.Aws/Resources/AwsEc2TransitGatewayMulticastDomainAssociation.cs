@@ -13,8 +13,7 @@ public class AwsEc2TransitGatewayMulticastDomainAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2TransitGatewayMulticastDomainAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,24 +38,29 @@ public class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("subnet_id");
+        SetOutput("transit_gateway_attachment_id");
+        SetOutput("transit_gateway_multicast_domain_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -66,8 +69,8 @@ public class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -76,8 +79,8 @@ public class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
     public required TerraformProperty<string> TransitGatewayAttachmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
-        set => this.WithProperty("transit_gateway_attachment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_attachment_id");
+        set => SetProperty("transit_gateway_attachment_id", value);
     }
 
     /// <summary>
@@ -86,8 +89,8 @@ public class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayMulticastDomainId is required")]
     public required TerraformProperty<string> TransitGatewayMulticastDomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_multicast_domain_id");
-        set => this.WithProperty("transit_gateway_multicast_domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_multicast_domain_id");
+        set => SetProperty("transit_gateway_multicast_domain_id", value);
     }
 
     /// <summary>
@@ -96,8 +99,7 @@ public class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformResource
     /// </summary>
     public AwsEc2TransitGatewayMulticastDomainAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2TransitGatewayMulticastDomainAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

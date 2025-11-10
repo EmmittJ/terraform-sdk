@@ -14,11 +14,12 @@ public class AwsCloudtrailOrganizationDelegatedAdminAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("email");
-        this.WithOutput("id");
-        this.WithOutput("name");
-        this.WithOutput("service_principal");
+        SetOutput("arn");
+        SetOutput("email");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("service_principal");
+        SetOutput("account_id");
     }
 
     /// <summary>
@@ -27,8 +28,8 @@ public class AwsCloudtrailOrganizationDelegatedAdminAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>

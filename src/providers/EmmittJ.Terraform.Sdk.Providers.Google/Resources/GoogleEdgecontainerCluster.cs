@@ -32,8 +32,7 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => WithProperty("kms_key", value);
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
@@ -42,8 +41,7 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? KmsKeyActiveVersion
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_active_version");
-        set => WithProperty("kms_key_active_version", value);
+        set => SetProperty("kms_key_active_version", value);
     }
 
     /// <summary>
@@ -54,8 +52,7 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? KmsKeyState
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_state");
-        set => WithProperty("kms_key_state", value);
+        set => SetProperty("kms_key_state", value);
     }
 
     /// <summary>
@@ -65,8 +62,7 @@ public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<object>>? KmsStatus
     {
-        get => GetProperty<List<TerraformProperty<object>>>("kms_status");
-        set => WithProperty("kms_status", value);
+        set => SetProperty("kms_status", value);
     }
 
 }
@@ -84,8 +80,7 @@ public class GoogleEdgecontainerClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Membership
     {
-        get => GetProperty<TerraformProperty<string>>("membership");
-        set => WithProperty("membership", value);
+        set => SetProperty("membership", value);
     }
 
     /// <summary>
@@ -96,8 +91,7 @@ public class GoogleEdgecontainerClusterFleetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => WithProperty("project", value);
+        set => SetProperty("project", value);
     }
 
 }
@@ -124,8 +118,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIpv4CidrBlocks is required")]
     public List<TerraformProperty<string>>? ClusterIpv4CidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("cluster_ipv4_cidr_blocks");
-        set => WithProperty("cluster_ipv4_cidr_blocks", value);
+        set => SetProperty("cluster_ipv4_cidr_blocks", value);
     }
 
     /// <summary>
@@ -136,8 +129,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ClusterIpv6CidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("cluster_ipv6_cidr_blocks");
-        set => WithProperty("cluster_ipv6_cidr_blocks", value);
+        set => SetProperty("cluster_ipv6_cidr_blocks", value);
     }
 
     /// <summary>
@@ -145,8 +137,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NetworkType
     {
-        get => GetProperty<TerraformProperty<string>>("network_type");
-        set => WithProperty("network_type", value);
+        set => SetProperty("network_type", value);
     }
 
     /// <summary>
@@ -157,8 +148,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicesIpv4CidrBlocks is required")]
     public List<TerraformProperty<string>>? ServicesIpv4CidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("services_ipv4_cidr_blocks");
-        set => WithProperty("services_ipv4_cidr_blocks", value);
+        set => SetProperty("services_ipv4_cidr_blocks", value);
     }
 
     /// <summary>
@@ -169,8 +159,7 @@ public class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ServicesIpv6CidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("services_ipv6_cidr_blocks");
-        set => WithProperty("services_ipv6_cidr_blocks", value);
+        set => SetProperty("services_ipv6_cidr_blocks", value);
     }
 
 }
@@ -194,8 +183,7 @@ public class GoogleEdgecontainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -203,8 +191,7 @@ public class GoogleEdgecontainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -212,8 +199,7 @@ public class GoogleEdgecontainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -231,17 +217,26 @@ public class GoogleEdgecontainerCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cluster_ca_certificate");
-        this.WithOutput("control_plane_version");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("endpoint");
-        this.WithOutput("maintenance_events");
-        this.WithOutput("node_version");
-        this.WithOutput("port");
-        this.WithOutput("status");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("cluster_ca_certificate");
+        SetOutput("control_plane_version");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("endpoint");
+        SetOutput("maintenance_events");
+        SetOutput("node_version");
+        SetOutput("port");
+        SetOutput("status");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("default_max_pods_per_node");
+        SetOutput("external_load_balancer_ipv4_address_pools");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("release_channel");
+        SetOutput("target_version");
     }
 
     /// <summary>
@@ -249,28 +244,28 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// specified explicitly for a node pool in this cluster. If unspecified, the
     /// Kubernetes default value will be used.
     /// </summary>
-    public TerraformProperty<double>? DefaultMaxPodsPerNode
+    public TerraformProperty<double> DefaultMaxPodsPerNode
     {
-        get => GetProperty<TerraformProperty<double>>("default_max_pods_per_node");
-        set => this.WithProperty("default_max_pods_per_node", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_max_pods_per_node");
+        set => SetProperty("default_max_pods_per_node", value);
     }
 
     /// <summary>
     /// Address pools for cluster data plane external load balancing.
     /// </summary>
-    public List<TerraformProperty<string>>? ExternalLoadBalancerIpv4AddressPools
+    public List<TerraformProperty<string>> ExternalLoadBalancerIpv4AddressPools
     {
-        get => GetProperty<List<TerraformProperty<string>>>("external_load_balancer_ipv4_address_pools");
-        set => this.WithProperty("external_load_balancer_ipv4_address_pools", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("external_load_balancer_ipv4_address_pools");
+        set => SetProperty("external_load_balancer_ipv4_address_pools", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -279,10 +274,10 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -291,8 +286,8 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -301,47 +296,47 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The release channel a cluster is subscribed to. Possible values: [&amp;quot;RELEASE_CHANNEL_UNSPECIFIED&amp;quot;, &amp;quot;NONE&amp;quot;, &amp;quot;REGULAR&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ReleaseChannel
+    public TerraformProperty<string> ReleaseChannel
     {
-        get => GetProperty<TerraformProperty<string>>("release_channel");
-        set => this.WithProperty("release_channel", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_channel");
+        set => SetProperty("release_channel", value);
     }
 
     /// <summary>
     /// The target cluster version. For example: &amp;quot;1.5.0&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? TargetVersion
+    public TerraformProperty<string> TargetVersion
     {
-        get => GetProperty<TerraformProperty<string>>("target_version");
-        set => this.WithProperty("target_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_version");
+        set => SetProperty("target_version", value);
     }
 
     /// <summary>
     /// Block for authorization.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authorization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     public List<GoogleEdgecontainerClusterAuthorizationBlock>? Authorization
     {
-        get => GetProperty<List<GoogleEdgecontainerClusterAuthorizationBlock>>("authorization");
-        set => this.WithProperty("authorization", value);
+        set => SetProperty("authorization", value);
     }
 
     /// <summary>
@@ -351,8 +346,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     public List<GoogleEdgecontainerClusterControlPlaneBlock>? ControlPlane
     {
-        get => GetProperty<List<GoogleEdgecontainerClusterControlPlaneBlock>>("control_plane");
-        set => this.WithProperty("control_plane", value);
+        set => SetProperty("control_plane", value);
     }
 
     /// <summary>
@@ -362,20 +356,19 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneEncryption block(s) allowed")]
     public List<GoogleEdgecontainerClusterControlPlaneEncryptionBlock>? ControlPlaneEncryption
     {
-        get => GetProperty<List<GoogleEdgecontainerClusterControlPlaneEncryptionBlock>>("control_plane_encryption");
-        set => this.WithProperty("control_plane_encryption", value);
+        set => SetProperty("control_plane_encryption", value);
     }
 
     /// <summary>
     /// Block for fleet.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fleet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     public List<GoogleEdgecontainerClusterFleetBlock>? Fleet
     {
-        get => GetProperty<List<GoogleEdgecontainerClusterFleetBlock>>("fleet");
-        set => this.WithProperty("fleet", value);
+        set => SetProperty("fleet", value);
     }
 
     /// <summary>
@@ -385,20 +378,19 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     public List<GoogleEdgecontainerClusterMaintenancePolicyBlock>? MaintenancePolicy
     {
-        get => GetProperty<List<GoogleEdgecontainerClusterMaintenancePolicyBlock>>("maintenance_policy");
-        set => this.WithProperty("maintenance_policy", value);
+        set => SetProperty("maintenance_policy", value);
     }
 
     /// <summary>
     /// Block for networking.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Networking is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
     public List<GoogleEdgecontainerClusterNetworkingBlock>? Networking
     {
-        get => GetProperty<List<GoogleEdgecontainerClusterNetworkingBlock>>("networking");
-        set => this.WithProperty("networking", value);
+        set => SetProperty("networking", value);
     }
 
     /// <summary>
@@ -408,8 +400,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SystemAddonsConfig block(s) allowed")]
     public List<GoogleEdgecontainerClusterSystemAddonsConfigBlock>? SystemAddonsConfig
     {
-        get => GetProperty<List<GoogleEdgecontainerClusterSystemAddonsConfigBlock>>("system_addons_config");
-        set => this.WithProperty("system_addons_config", value);
+        set => SetProperty("system_addons_config", value);
     }
 
     /// <summary>
@@ -418,8 +409,7 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     public GoogleEdgecontainerClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleEdgecontainerClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermMssqlServerSecurityAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMssqlServerSecurityAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMssqlServerSecurityAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMssqlServerSecurityAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,42 +54,52 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("disabled_alerts");
+        SetOutput("email_account_admins");
+        SetOutput("email_addresses");
+        SetOutput("id");
+        SetOutput("resource_group_name");
+        SetOutput("retention_days");
+        SetOutput("server_name");
+        SetOutput("state");
+        SetOutput("storage_account_access_key");
+        SetOutput("storage_endpoint");
     }
 
     /// <summary>
     /// The disabled_alerts attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DisabledAlerts
+    public HashSet<TerraformProperty<string>> DisabledAlerts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("disabled_alerts");
-        set => this.WithProperty("disabled_alerts", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("disabled_alerts");
+        set => SetProperty("disabled_alerts", value);
     }
 
     /// <summary>
     /// The email_account_admins attribute.
     /// </summary>
-    public TerraformProperty<bool>? EmailAccountAdmins
+    public TerraformProperty<bool> EmailAccountAdmins
     {
-        get => GetProperty<TerraformProperty<bool>>("email_account_admins");
-        set => this.WithProperty("email_account_admins", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("email_account_admins");
+        set => SetProperty("email_account_admins", value);
     }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EmailAddresses
+    public HashSet<TerraformProperty<string>> EmailAddresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("email_addresses");
-        set => this.WithProperty("email_addresses", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("email_addresses");
+        set => SetProperty("email_addresses", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -102,17 +108,17 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionDays
+    public TerraformProperty<double> RetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_days");
-        set => this.WithProperty("retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_days");
+        set => SetProperty("retention_days", value);
     }
 
     /// <summary>
@@ -121,8 +127,8 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
-        set => this.WithProperty("server_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_name");
+        set => SetProperty("server_name", value);
     }
 
     /// <summary>
@@ -131,26 +137,26 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountAccessKey
+    public TerraformProperty<string> StorageAccountAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_access_key");
-        set => this.WithProperty("storage_account_access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_access_key");
+        set => SetProperty("storage_account_access_key", value);
     }
 
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageEndpoint
+    public TerraformProperty<string> StorageEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("storage_endpoint");
-        set => this.WithProperty("storage_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_endpoint");
+        set => SetProperty("storage_endpoint", value);
     }
 
     /// <summary>
@@ -159,8 +165,7 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     /// </summary>
     public AzurermMssqlServerSecurityAlertPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlServerSecurityAlertPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock : Terr
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock : Terr
     /// </summary>
     public TerraformProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
-        set => WithProperty("object_id", value);
+        set => SetProperty("object_id", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock : Ter
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock : Ter
     /// </summary>
     public TerraformProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
-        set => WithProperty("object_id", value);
+        set => SetProperty("object_id", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -94,8 +88,7 @@ public class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,8 +97,7 @@ public class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -121,8 +113,7 @@ public class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CommandId
     {
-        get => GetProperty<TerraformProperty<string>>("command_id");
-        set => WithProperty("command_id", value);
+        set => SetProperty("command_id", value);
     }
 
     /// <summary>
@@ -130,8 +121,7 @@ public class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Script
     {
-        get => GetProperty<TerraformProperty<string>>("script");
-        set => WithProperty("script", value);
+        set => SetProperty("script", value);
     }
 
     /// <summary>
@@ -139,8 +129,7 @@ public class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScriptUri
     {
-        get => GetProperty<TerraformProperty<string>>("script_uri");
-        set => WithProperty("script_uri", value);
+        set => SetProperty("script_uri", value);
     }
 
 }
@@ -156,8 +145,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -165,8 +153,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -174,8 +161,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -183,8 +169,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -202,25 +187,34 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputnstance_view");
+        SetOutput("instance_view");
+        SetOutput("error_blob_uri");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("output_blob_uri");
+        SetOutput("run_as_password");
+        SetOutput("run_as_user");
+        SetOutput("tags");
+        SetOutput("virtual_machine_id");
     }
 
     /// <summary>
     /// The error_blob_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? ErrorBlobUri
+    public TerraformProperty<string> ErrorBlobUri
     {
-        get => GetProperty<TerraformProperty<string>>("error_blob_uri");
-        set => this.WithProperty("error_blob_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("error_blob_uri");
+        set => SetProperty("error_blob_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -229,8 +223,8 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -239,44 +233,44 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The output_blob_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? OutputBlobUri
+    public TerraformProperty<string> OutputBlobUri
     {
-        get => GetProperty<TerraformProperty<string>>("output_blob_uri");
-        set => this.WithProperty("output_blob_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("output_blob_uri");
+        set => SetProperty("output_blob_uri", value);
     }
 
     /// <summary>
     /// The run_as_password attribute.
     /// </summary>
-    public TerraformProperty<string>? RunAsPassword
+    public TerraformProperty<string> RunAsPassword
     {
-        get => GetProperty<TerraformProperty<string>>("run_as_password");
-        set => this.WithProperty("run_as_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("run_as_password");
+        set => SetProperty("run_as_password", value);
     }
 
     /// <summary>
     /// The run_as_user attribute.
     /// </summary>
-    public TerraformProperty<string>? RunAsUser
+    public TerraformProperty<string> RunAsUser
     {
-        get => GetProperty<TerraformProperty<string>>("run_as_user");
-        set => this.WithProperty("run_as_user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("run_as_user");
+        set => SetProperty("run_as_user", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -285,8 +279,8 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
-        set => this.WithProperty("virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
+        set => SetProperty("virtual_machine_id", value);
     }
 
     /// <summary>
@@ -296,8 +290,7 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorBlobManagedIdentity block(s) allowed")]
     public List<AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock>? ErrorBlobManagedIdentity
     {
-        get => GetProperty<List<AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock>>("error_blob_managed_identity");
-        set => this.WithProperty("error_blob_managed_identity", value);
+        set => SetProperty("error_blob_managed_identity", value);
     }
 
     /// <summary>
@@ -307,8 +300,7 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputBlobManagedIdentity block(s) allowed")]
     public List<AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock>? OutputBlobManagedIdentity
     {
-        get => GetProperty<List<AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock>>("output_blob_managed_identity");
-        set => this.WithProperty("output_blob_managed_identity", value);
+        set => SetProperty("output_blob_managed_identity", value);
     }
 
     /// <summary>
@@ -317,8 +309,7 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     /// </summary>
     public List<AzurermVirtualMachineRunCommandParameterBlock>? Parameter
     {
-        get => GetProperty<List<AzurermVirtualMachineRunCommandParameterBlock>>("parameter");
-        set => this.WithProperty("parameter", value);
+        set => SetProperty("parameter", value);
     }
 
     /// <summary>
@@ -327,20 +318,19 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     /// </summary>
     public List<AzurermVirtualMachineRunCommandProtectedParameterBlock>? ProtectedParameter
     {
-        get => GetProperty<List<AzurermVirtualMachineRunCommandProtectedParameterBlock>>("protected_parameter");
-        set => this.WithProperty("protected_parameter", value);
+        set => SetProperty("protected_parameter", value);
     }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     public List<AzurermVirtualMachineRunCommandSourceBlock>? Source
     {
-        get => GetProperty<List<AzurermVirtualMachineRunCommandSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -349,8 +339,7 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     /// </summary>
     public AzurermVirtualMachineRunCommandTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualMachineRunCommandTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

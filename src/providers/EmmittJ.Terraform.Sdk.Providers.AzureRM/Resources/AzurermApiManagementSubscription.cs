@@ -13,8 +13,7 @@ public class AzurermApiManagementSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,36 @@ public class AzurermApiManagementSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("allow_tracing");
+        SetOutput("api_id");
+        SetOutput("api_management_name");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("primary_key");
+        SetOutput("product_id");
+        SetOutput("resource_group_name");
+        SetOutput("secondary_key");
+        SetOutput("state");
+        SetOutput("subscription_id");
+        SetOutput("user_id");
     }
 
     /// <summary>
     /// The allow_tracing attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowTracing
+    public TerraformProperty<bool> AllowTracing
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_tracing");
-        set => this.WithProperty("allow_tracing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_tracing");
+        set => SetProperty("allow_tracing", value);
     }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    public TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
@@ -84,8 +92,8 @@ public class AzurermApiManagementSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
@@ -94,35 +102,35 @@ public class AzurermApiManagementSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PrimaryKey
+    public TerraformProperty<string> PrimaryKey
     {
-        get => GetProperty<TerraformProperty<string>>("primary_key");
-        set => this.WithProperty("primary_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_key");
+        set => SetProperty("primary_key", value);
     }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductId
+    public TerraformProperty<string> ProductId
     {
-        get => GetProperty<TerraformProperty<string>>("product_id");
-        set => this.WithProperty("product_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_id");
+        set => SetProperty("product_id", value);
     }
 
     /// <summary>
@@ -131,44 +139,44 @@ public class AzurermApiManagementSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformProperty<string>? SecondaryKey
+    public TerraformProperty<string> SecondaryKey
     {
-        get => GetProperty<TerraformProperty<string>>("secondary_key");
-        set => this.WithProperty("secondary_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secondary_key");
+        set => SetProperty("secondary_key", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionId
+    public TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserId
+    public TerraformProperty<string> UserId
     {
-        get => GetProperty<TerraformProperty<string>>("user_id");
-        set => this.WithProperty("user_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_id");
+        set => SetProperty("user_id", value);
     }
 
     /// <summary>
@@ -177,8 +185,7 @@ public class AzurermApiManagementSubscription : TerraformResource
     /// </summary>
     public AzurermApiManagementSubscriptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementSubscriptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

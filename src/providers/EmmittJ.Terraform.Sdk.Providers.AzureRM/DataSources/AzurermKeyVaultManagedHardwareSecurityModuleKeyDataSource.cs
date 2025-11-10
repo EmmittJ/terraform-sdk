@@ -13,8 +13,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSourceTimeoutsBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,24 +30,27 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource : Terrafo
 
     private void InitializeOutputs()
     {
-        this.WithOutput("curve");
-        this.WithOutput("expiration_date");
-        this.WithOutput("key_opts");
-        this.WithOutput("key_size");
-        this.WithOutput("key_type");
-        this.WithOutput("not_before_date");
-        this.WithOutput("tags");
-        this.WithOutput("version");
-        this.WithOutput("versioned_id");
+        SetOutput("curve");
+        SetOutput("expiration_date");
+        SetOutput("key_opts");
+        SetOutput("key_size");
+        SetOutput("key_type");
+        SetOutput("not_before_date");
+        SetOutput("tags");
+        SetOutput("version");
+        SetOutput("versioned_id");
+        SetOutput("id");
+        SetOutput("managed_hsm_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -57,8 +59,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformProperty<string> ManagedHsmId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_hsm_id");
-        set => this.WithProperty("managed_hsm_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_id");
+        set => SetProperty("managed_hsm_id", value);
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -77,8 +79,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource : Terrafo
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

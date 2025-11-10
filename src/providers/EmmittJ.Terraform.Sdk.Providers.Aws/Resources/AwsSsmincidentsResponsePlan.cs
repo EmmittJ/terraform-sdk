@@ -21,8 +21,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DedupeString
     {
-        get => GetProperty<TerraformProperty<string>>("dedupe_string");
-        set => WithProperty("dedupe_string", value);
+        set => SetProperty("dedupe_string", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Impact is required")]
     public required TerraformProperty<double> Impact
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("impact");
-        set => WithProperty("impact", value);
+        set => SetProperty("impact", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? IncidentTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("incident_tags");
-        set => WithProperty("incident_tags", value);
+        set => SetProperty("incident_tags", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Summary
     {
-        get => GetProperty<TerraformProperty<string>>("summary");
-        set => WithProperty("summary", value);
+        set => SetProperty("summary", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -86,43 +81,51 @@ public class AwsSsmincidentsResponsePlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("chat_channel");
+        SetOutput("display_name");
+        SetOutput("engagements");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The chat_channel attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ChatChannel
+    public HashSet<TerraformProperty<string>> ChatChannel
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("chat_channel");
-        set => this.WithProperty("chat_channel", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("chat_channel");
+        set => SetProperty("chat_channel", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The engagements attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Engagements
+    public HashSet<TerraformProperty<string>> Engagements
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("engagements");
-        set => this.WithProperty("engagements", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("engagements");
+        set => SetProperty("engagements", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,35 +134,35 @@ public class AwsSsmincidentsResponsePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -169,20 +172,19 @@ public class AwsSsmincidentsResponsePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
     public List<AwsSsmincidentsResponsePlanActionBlock>? Action
     {
-        get => GetProperty<List<AwsSsmincidentsResponsePlanActionBlock>>("action");
-        set => this.WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// Block for incident_template.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncidentTemplate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IncidentTemplate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncidentTemplate block(s) allowed")]
     public List<AwsSsmincidentsResponsePlanIncidentTemplateBlock>? IncidentTemplate
     {
-        get => GetProperty<List<AwsSsmincidentsResponsePlanIncidentTemplateBlock>>("incident_template");
-        set => this.WithProperty("incident_template", value);
+        set => SetProperty("incident_template", value);
     }
 
     /// <summary>
@@ -192,8 +194,7 @@ public class AwsSsmincidentsResponsePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Integration block(s) allowed")]
     public List<AwsSsmincidentsResponsePlanIntegrationBlock>? Integration
     {
-        get => GetProperty<List<AwsSsmincidentsResponsePlanIntegrationBlock>>("integration");
-        set => this.WithProperty("integration", value);
+        set => SetProperty("integration", value);
     }
 
     /// <summary>

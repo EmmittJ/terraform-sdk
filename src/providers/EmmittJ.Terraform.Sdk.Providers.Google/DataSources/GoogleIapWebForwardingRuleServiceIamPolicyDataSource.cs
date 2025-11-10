@@ -14,8 +14,11 @@ public class GoogleIapWebForwardingRuleServiceIamPolicyDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("forwarding_rule_service_name");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -24,26 +27,26 @@ public class GoogleIapWebForwardingRuleServiceIamPolicyDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRuleServiceName is required")]
     public required TerraformProperty<string> ForwardingRuleServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("forwarding_rule_service_name");
-        set => this.WithProperty("forwarding_rule_service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("forwarding_rule_service_name");
+        set => SetProperty("forwarding_rule_service_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

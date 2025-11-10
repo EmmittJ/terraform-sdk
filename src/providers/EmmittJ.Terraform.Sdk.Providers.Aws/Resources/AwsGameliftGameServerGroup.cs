@@ -13,8 +13,7 @@ public class AwsGameliftGameServerGroupAutoScalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? EstimatedInstanceWarmup
     {
-        get => GetProperty<TerraformProperty<double>>("estimated_instance_warmup");
-        set => WithProperty("estimated_instance_warmup", value);
+        set => SetProperty("estimated_instance_warmup", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsGameliftGameServerGroupInstanceDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsGameliftGameServerGroupInstanceDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WeightedCapacity
     {
-        get => GetProperty<TerraformProperty<string>>("weighted_capacity");
-        set => WithProperty("weighted_capacity", value);
+        set => SetProperty("weighted_capacity", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -92,8 +86,7 @@ public class AwsGameliftGameServerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -101,8 +94,7 @@ public class AwsGameliftGameServerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -120,17 +112,28 @@ public class AwsGameliftGameServerGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("auto_scaling_group_arn");
+        SetOutput("arn");
+        SetOutput("auto_scaling_group_arn");
+        SetOutput("balancing_strategy");
+        SetOutput("game_server_group_name");
+        SetOutput("game_server_protection_policy");
+        SetOutput("id");
+        SetOutput("max_size");
+        SetOutput("min_size");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_subnets");
     }
 
     /// <summary>
     /// The balancing_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? BalancingStrategy
+    public TerraformProperty<string> BalancingStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("balancing_strategy");
-        set => this.WithProperty("balancing_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("balancing_strategy");
+        set => SetProperty("balancing_strategy", value);
     }
 
     /// <summary>
@@ -139,26 +142,26 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GameServerGroupName is required")]
     public required TerraformProperty<string> GameServerGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("game_server_group_name");
-        set => this.WithProperty("game_server_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("game_server_group_name");
+        set => SetProperty("game_server_group_name", value);
     }
 
     /// <summary>
     /// The game_server_protection_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? GameServerProtectionPolicy
+    public TerraformProperty<string> GameServerProtectionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("game_server_protection_policy");
-        set => this.WithProperty("game_server_protection_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("game_server_protection_policy");
+        set => SetProperty("game_server_protection_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -167,8 +170,8 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
     public required TerraformProperty<double> MaxSize
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_size");
-        set => this.WithProperty("max_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_size");
+        set => SetProperty("max_size", value);
     }
 
     /// <summary>
@@ -177,17 +180,17 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
     public required TerraformProperty<double> MinSize
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_size");
-        set => this.WithProperty("min_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_size");
+        set => SetProperty("min_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -196,35 +199,35 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_subnets attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSubnets
+    public HashSet<TerraformProperty<string>> VpcSubnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_subnets");
-        set => this.WithProperty("vpc_subnets", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_subnets");
+        set => SetProperty("vpc_subnets", value);
     }
 
     /// <summary>
@@ -234,8 +237,7 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingPolicy block(s) allowed")]
     public List<AwsGameliftGameServerGroupAutoScalingPolicyBlock>? AutoScalingPolicy
     {
-        get => GetProperty<List<AwsGameliftGameServerGroupAutoScalingPolicyBlock>>("auto_scaling_policy");
-        set => this.WithProperty("auto_scaling_policy", value);
+        set => SetProperty("auto_scaling_policy", value);
     }
 
     /// <summary>
@@ -246,20 +248,19 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 InstanceDefinition block(s) allowed")]
     public HashSet<AwsGameliftGameServerGroupInstanceDefinitionBlock>? InstanceDefinition
     {
-        get => GetProperty<HashSet<AwsGameliftGameServerGroupInstanceDefinitionBlock>>("instance_definition");
-        set => this.WithProperty("instance_definition", value);
+        set => SetProperty("instance_definition", value);
     }
 
     /// <summary>
     /// Block for launch_template.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LaunchTemplate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LaunchTemplate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
     public List<AwsGameliftGameServerGroupLaunchTemplateBlock>? LaunchTemplate
     {
-        get => GetProperty<List<AwsGameliftGameServerGroupLaunchTemplateBlock>>("launch_template");
-        set => this.WithProperty("launch_template", value);
+        set => SetProperty("launch_template", value);
     }
 
     /// <summary>
@@ -268,8 +269,7 @@ public class AwsGameliftGameServerGroup : TerraformResource
     /// </summary>
     public AwsGameliftGameServerGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsGameliftGameServerGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

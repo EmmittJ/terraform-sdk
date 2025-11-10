@@ -13,8 +13,7 @@ public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
     public required TerraformProperty<string> LogStreamArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_stream_arn");
-        set => WithProperty("log_stream_arn", value);
+        set => SetProperty("log_stream_arn", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePrefix is required")]
     public required TerraformProperty<string> NamePrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name_prefix");
-        set => WithProperty("name_prefix", value);
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? StreamNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("stream_names");
-        set => WithProperty("stream_names", value);
+        set => SetProperty("stream_names", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -113,8 +105,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,8 +114,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => WithProperty("table_name", value);
+        set => SetProperty("table_name", value);
     }
 
 }
@@ -143,38 +133,46 @@ public class AwsKinesisAnalyticsApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("create_timestamp");
-        this.WithOutput("last_update_timestamp");
-        this.WithOutput("status");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("create_timestamp");
+        SetOutput("last_update_timestamp");
+        SetOutput("status");
+        SetOutput("version");
+        SetOutput("code");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("start_application");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The code attribute.
     /// </summary>
-    public TerraformProperty<string>? Code
+    public TerraformProperty<string> Code
     {
-        get => GetProperty<TerraformProperty<string>>("code");
-        set => this.WithProperty("code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("code");
+        set => SetProperty("code", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -183,44 +181,44 @@ public class AwsKinesisAnalyticsApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The start_application attribute.
     /// </summary>
-    public TerraformProperty<bool>? StartApplication
+    public TerraformProperty<bool> StartApplication
     {
-        get => GetProperty<TerraformProperty<bool>>("start_application");
-        set => this.WithProperty("start_application", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("start_application");
+        set => SetProperty("start_application", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -230,8 +228,7 @@ public class AwsKinesisAnalyticsApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudwatchLoggingOptions block(s) allowed")]
     public List<AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock>? CloudwatchLoggingOptions
     {
-        get => GetProperty<List<AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock>>("cloudwatch_logging_options");
-        set => this.WithProperty("cloudwatch_logging_options", value);
+        set => SetProperty("cloudwatch_logging_options", value);
     }
 
     /// <summary>
@@ -241,8 +238,7 @@ public class AwsKinesisAnalyticsApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Inputs block(s) allowed")]
     public List<AwsKinesisAnalyticsApplicationInputsBlock>? Inputs
     {
-        get => GetProperty<List<AwsKinesisAnalyticsApplicationInputsBlock>>("inputs");
-        set => this.WithProperty("inputs", value);
+        set => SetProperty("inputs", value);
     }
 
     /// <summary>
@@ -252,8 +248,7 @@ public class AwsKinesisAnalyticsApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 Outputs block(s) allowed")]
     public HashSet<AwsKinesisAnalyticsApplicationOutputsBlock>? Outputs
     {
-        get => GetProperty<HashSet<AwsKinesisAnalyticsApplicationOutputsBlock>>("outputs");
-        set => this.WithProperty("outputs", value);
+        set => SetProperty("outputs", value);
     }
 
     /// <summary>
@@ -263,8 +258,7 @@ public class AwsKinesisAnalyticsApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReferenceDataSources block(s) allowed")]
     public List<AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock>? ReferenceDataSources
     {
-        get => GetProperty<List<AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock>>("reference_data_sources");
-        set => this.WithProperty("reference_data_sources", value);
+        set => SetProperty("reference_data_sources", value);
     }
 
     /// <summary>

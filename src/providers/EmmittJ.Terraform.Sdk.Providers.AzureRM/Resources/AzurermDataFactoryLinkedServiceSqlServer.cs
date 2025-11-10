@@ -14,8 +14,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
-        set => WithProperty("linked_service_name", value);
+        set => SetProperty("linked_service_name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
-        set => WithProperty("secret_name", value);
+        set => SetProperty("secret_name", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
-        set => WithProperty("linked_service_name", value);
+        set => SetProperty("linked_service_name", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
-        set => WithProperty("secret_name", value);
+        set => SetProperty("secret_name", value);
     }
 
 }
@@ -69,8 +65,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -78,8 +73,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,33 +107,43 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("additional_properties");
+        SetOutput("annotations");
+        SetOutput("connection_string");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("integration_runtime_name");
+        SetOutput("name");
+        SetOutput("parameters");
+        SetOutput("user_name");
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => this.WithProperty("additional_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Annotations
+    public List<TerraformProperty<string>> Annotations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
+    public TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -150,35 +152,35 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IntegrationRuntimeName
+    public TerraformProperty<string> IntegrationRuntimeName
     {
-        get => GetProperty<TerraformProperty<string>>("integration_runtime_name");
-        set => this.WithProperty("integration_runtime_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("integration_runtime_name");
+        set => SetProperty("integration_runtime_name", value);
     }
 
     /// <summary>
@@ -187,26 +189,26 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    public TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
@@ -216,8 +218,7 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultConnectionString block(s) allowed")]
     public List<AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlock>? KeyVaultConnectionString
     {
-        get => GetProperty<List<AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlock>>("key_vault_connection_string");
-        set => this.WithProperty("key_vault_connection_string", value);
+        set => SetProperty("key_vault_connection_string", value);
     }
 
     /// <summary>
@@ -227,8 +228,7 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
     public List<AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock>? KeyVaultPassword
     {
-        get => GetProperty<List<AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock>>("key_vault_password");
-        set => this.WithProperty("key_vault_password", value);
+        set => SetProperty("key_vault_password", value);
     }
 
     /// <summary>
@@ -237,8 +237,7 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     /// </summary>
     public AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

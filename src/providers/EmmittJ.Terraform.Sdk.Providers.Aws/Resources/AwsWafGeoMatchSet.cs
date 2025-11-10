@@ -14,8 +14,7 @@ public class AwsWafGeoMatchSetGeoMatchConstraintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsWafGeoMatchSetGeoMatchConstraintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -42,16 +40,18 @@ public class AwsWafGeoMatchSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +60,8 @@ public class AwsWafGeoMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -70,8 +70,7 @@ public class AwsWafGeoMatchSet : TerraformResource
     /// </summary>
     public HashSet<AwsWafGeoMatchSetGeoMatchConstraintBlock>? GeoMatchConstraint
     {
-        get => GetProperty<HashSet<AwsWafGeoMatchSetGeoMatchConstraintBlock>>("geo_match_constraint");
-        set => this.WithProperty("geo_match_constraint", value);
+        set => SetProperty("geo_match_constraint", value);
     }
 
     /// <summary>

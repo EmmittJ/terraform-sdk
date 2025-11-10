@@ -14,35 +14,38 @@ public class AwsIamUsersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arns");
-        this.WithOutput("names");
+        SetOutput("arns");
+        SetOutput("names");
+        SetOutput("id");
+        SetOutput("name_regex");
+        SetOutput("path_prefix");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string>? NameRegex
+    public TerraformProperty<string> NameRegex
     {
-        get => GetProperty<TerraformProperty<string>>("name_regex");
-        set => this.WithProperty("name_regex", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
+        set => SetProperty("name_regex", value);
     }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? PathPrefix
+    public TerraformProperty<string> PathPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("path_prefix");
-        set => this.WithProperty("path_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path_prefix");
+        set => SetProperty("path_prefix", value);
     }
 
     /// <summary>

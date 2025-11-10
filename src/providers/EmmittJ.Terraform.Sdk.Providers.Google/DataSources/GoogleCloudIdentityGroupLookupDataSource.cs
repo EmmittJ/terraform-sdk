@@ -16,8 +16,7 @@ public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
-        set => WithProperty("namespace", value);
+        set => SetProperty("namespace", value);
     }
 
 }
@@ -45,28 +43,29 @@ public class GoogleCloudIdentityGroupLookupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Block for group_key.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupKey is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GroupKey block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupKey block(s) allowed")]
     public List<GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock>? GroupKey
     {
-        get => GetProperty<List<GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock>>("group_key");
-        set => this.WithProperty("group_key", value);
+        set => SetProperty("group_key", value);
     }
 
     /// <summary>

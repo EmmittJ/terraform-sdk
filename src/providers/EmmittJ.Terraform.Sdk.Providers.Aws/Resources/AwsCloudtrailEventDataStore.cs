@@ -13,8 +13,7 @@ public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsCloudtrailEventDataStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsCloudtrailEventDataStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsCloudtrailEventDataStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -66,43 +62,55 @@ public class AwsCloudtrailEventDataStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("billing_mode");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("multi_region_enabled");
+        SetOutput("name");
+        SetOutput("organization_enabled");
+        SetOutput("region");
+        SetOutput("retention_period");
+        SetOutput("suspend");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("termination_protection_enabled");
     }
 
     /// <summary>
     /// The billing_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? BillingMode
+    public TerraformProperty<string> BillingMode
     {
-        get => GetProperty<TerraformProperty<string>>("billing_mode");
-        set => this.WithProperty("billing_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_mode");
+        set => SetProperty("billing_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The multi_region_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MultiRegionEnabled
+    public TerraformProperty<bool> MultiRegionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("multi_region_enabled");
-        set => this.WithProperty("multi_region_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multi_region_enabled");
+        set => SetProperty("multi_region_enabled", value);
     }
 
     /// <summary>
@@ -111,71 +119,71 @@ public class AwsCloudtrailEventDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The organization_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? OrganizationEnabled
+    public TerraformProperty<bool> OrganizationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("organization_enabled");
-        set => this.WithProperty("organization_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("organization_enabled");
+        set => SetProperty("organization_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionPeriod
+    public TerraformProperty<double> RetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("retention_period");
-        set => this.WithProperty("retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_period");
+        set => SetProperty("retention_period", value);
     }
 
     /// <summary>
     /// The suspend attribute.
     /// </summary>
-    public TerraformProperty<string>? Suspend
+    public TerraformProperty<string> Suspend
     {
-        get => GetProperty<TerraformProperty<string>>("suspend");
-        set => this.WithProperty("suspend", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("suspend");
+        set => SetProperty("suspend", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The termination_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TerminationProtectionEnabled
+    public TerraformProperty<bool> TerminationProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("termination_protection_enabled");
-        set => this.WithProperty("termination_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("termination_protection_enabled");
+        set => SetProperty("termination_protection_enabled", value);
     }
 
     /// <summary>
@@ -184,8 +192,7 @@ public class AwsCloudtrailEventDataStore : TerraformResource
     /// </summary>
     public List<AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock>? AdvancedEventSelector
     {
-        get => GetProperty<List<AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock>>("advanced_event_selector");
-        set => this.WithProperty("advanced_event_selector", value);
+        set => SetProperty("advanced_event_selector", value);
     }
 
     /// <summary>
@@ -194,8 +201,7 @@ public class AwsCloudtrailEventDataStore : TerraformResource
     /// </summary>
     public AwsCloudtrailEventDataStoreTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCloudtrailEventDataStoreTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

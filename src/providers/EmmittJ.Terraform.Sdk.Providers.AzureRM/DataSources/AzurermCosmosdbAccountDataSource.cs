@@ -13,8 +13,7 @@ public class AzurermCosmosdbAccountDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,44 +30,47 @@ public class AzurermCosmosdbAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("automatic_failover_enabled");
-        this.WithOutput("capabilities");
-        this.WithOutput("consistency_policy");
-        this.WithOutput("endpoint");
-        this.WithOutput("free_tier_enabled");
-        this.WithOutput("geo_location");
-        this.WithOutput("ip_range_filter");
-        this.WithOutput("is_virtual_network_filter_enabled");
-        this.WithOutput("key_vault_key_id");
-        this.WithOutput("kind");
-        this.WithOutput("location");
-        this.WithOutput("multiple_write_locations_enabled");
-        this.WithOutput("offer_type");
-        this.WithOutput("primary_key");
-        this.WithOutput("primary_mongodb_connection_string");
-        this.WithOutput("primary_readonly_key");
-        this.WithOutput("primary_readonly_mongodb_connection_string");
-        this.WithOutput("primary_readonly_sql_connection_string");
-        this.WithOutput("primary_sql_connection_string");
-        this.WithOutput("read_endpoints");
-        this.WithOutput("secondary_key");
-        this.WithOutput("secondary_mongodb_connection_string");
-        this.WithOutput("secondary_readonly_key");
-        this.WithOutput("secondary_readonly_mongodb_connection_string");
-        this.WithOutput("secondary_readonly_sql_connection_string");
-        this.WithOutput("secondary_sql_connection_string");
-        this.WithOutput("tags");
-        this.WithOutput("virtual_network_rule");
-        this.WithOutput("write_endpoints");
+        SetOutput("automatic_failover_enabled");
+        SetOutput("capabilities");
+        SetOutput("consistency_policy");
+        SetOutput("endpoint");
+        SetOutput("free_tier_enabled");
+        SetOutput("geo_location");
+        SetOutput("ip_range_filter");
+        SetOutput("is_virtual_network_filter_enabled");
+        SetOutput("key_vault_key_id");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("multiple_write_locations_enabled");
+        SetOutput("offer_type");
+        SetOutput("primary_key");
+        SetOutput("primary_mongodb_connection_string");
+        SetOutput("primary_readonly_key");
+        SetOutput("primary_readonly_mongodb_connection_string");
+        SetOutput("primary_readonly_sql_connection_string");
+        SetOutput("primary_sql_connection_string");
+        SetOutput("read_endpoints");
+        SetOutput("secondary_key");
+        SetOutput("secondary_mongodb_connection_string");
+        SetOutput("secondary_readonly_key");
+        SetOutput("secondary_readonly_mongodb_connection_string");
+        SetOutput("secondary_readonly_sql_connection_string");
+        SetOutput("secondary_sql_connection_string");
+        SetOutput("tags");
+        SetOutput("virtual_network_rule");
+        SetOutput("write_endpoints");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,8 +79,8 @@ public class AzurermCosmosdbAccountDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -87,8 +89,8 @@ public class AzurermCosmosdbAccountDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -97,8 +99,7 @@ public class AzurermCosmosdbAccountDataSource : TerraformDataSource
     /// </summary>
     public AzurermCosmosdbAccountDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbAccountDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

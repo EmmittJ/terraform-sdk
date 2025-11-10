@@ -13,8 +13,7 @@ public class AzurermAppConfigurationKeysDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,7 +30,11 @@ public class AzurermAppConfigurationKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("items");
+        SetOutput("items");
+        SetOutput("configuration_store_id");
+        SetOutput("id");
+        SetOutput("key");
+        SetOutput("label");
     }
 
     /// <summary>
@@ -40,35 +43,35 @@ public class AzurermAppConfigurationKeysDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformProperty<string> ConfigurationStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_store_id");
-        set => this.WithProperty("configuration_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_store_id");
+        set => SetProperty("configuration_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string>? Key
+    public TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => this.WithProperty("key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key");
+        set => SetProperty("key", value);
     }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string>? Label
+    public TerraformProperty<string> Label
     {
-        get => GetProperty<TerraformProperty<string>>("label");
-        set => this.WithProperty("label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("label");
+        set => SetProperty("label", value);
     }
 
     /// <summary>
@@ -77,8 +80,7 @@ public class AzurermAppConfigurationKeysDataSource : TerraformDataSource
     /// </summary>
     public AzurermAppConfigurationKeysDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppConfigurationKeysDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

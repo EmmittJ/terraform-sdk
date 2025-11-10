@@ -13,8 +13,7 @@ public class GoogleNetappVolumeBackupConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? BackupPolicies
     {
-        get => GetProperty<List<TerraformProperty<string>>>("backup_policies");
-        set => WithProperty("backup_policies", value);
+        set => SetProperty("backup_policies", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleNetappVolumeBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BackupVault
     {
-        get => GetProperty<TerraformProperty<string>>("backup_vault");
-        set => WithProperty("backup_vault", value);
+        set => SetProperty("backup_vault", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleNetappVolumeBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ScheduledBackupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("scheduled_backup_enabled");
-        set => WithProperty("scheduled_backup_enabled", value);
+        set => SetProperty("scheduled_backup_enabled", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? HostGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("host_groups");
-        set => WithProperty("host_groups", value);
+        set => SetProperty("host_groups", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
-        set => WithProperty("identifier", value);
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -88,8 +82,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformProperty<string> OsType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("os_type");
-        set => WithProperty("os_type", value);
+        set => SetProperty("os_type", value);
     }
 
     /// <summary>
@@ -100,8 +93,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SizeGib
     {
-        get => GetProperty<TerraformProperty<double>>("size_gib");
-        set => WithProperty("size_gib", value);
+        set => SetProperty("size_gib", value);
     }
 
 }
@@ -125,8 +117,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterLocation
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_location");
-        set => WithProperty("cluster_location", value);
+        set => SetProperty("cluster_location", value);
     }
 
     /// <summary>
@@ -134,8 +125,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -143,8 +133,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HybridReplicationType
     {
-        get => GetProperty<TerraformProperty<string>>("hybrid_replication_type");
-        set => WithProperty("hybrid_replication_type", value);
+        set => SetProperty("hybrid_replication_type", value);
     }
 
     /// <summary>
@@ -153,8 +142,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -162,8 +150,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? LargeVolumeConstituentCount
     {
-        get => GetProperty<TerraformProperty<double>>("large_volume_constituent_count");
-        set => WithProperty("large_volume_constituent_count", value);
+        set => SetProperty("large_volume_constituent_count", value);
     }
 
     /// <summary>
@@ -171,8 +158,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PeerClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("peer_cluster_name");
-        set => WithProperty("peer_cluster_name", value);
+        set => SetProperty("peer_cluster_name", value);
     }
 
     /// <summary>
@@ -180,8 +166,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? PeerIpAddresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("peer_ip_addresses");
-        set => WithProperty("peer_ip_addresses", value);
+        set => SetProperty("peer_ip_addresses", value);
     }
 
     /// <summary>
@@ -189,8 +174,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PeerSvmName
     {
-        get => GetProperty<TerraformProperty<string>>("peer_svm_name");
-        set => WithProperty("peer_svm_name", value);
+        set => SetProperty("peer_svm_name", value);
     }
 
     /// <summary>
@@ -198,8 +182,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PeerVolumeName
     {
-        get => GetProperty<TerraformProperty<string>>("peer_volume_name");
-        set => WithProperty("peer_volume_name", value);
+        set => SetProperty("peer_volume_name", value);
     }
 
     /// <summary>
@@ -207,8 +190,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Replication
     {
-        get => GetProperty<TerraformProperty<string>>("replication");
-        set => WithProperty("replication", value);
+        set => SetProperty("replication", value);
     }
 
     /// <summary>
@@ -216,8 +198,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ReplicationSchedule
     {
-        get => GetProperty<TerraformProperty<string>>("replication_schedule");
-        set => WithProperty("replication_schedule", value);
+        set => SetProperty("replication_schedule", value);
     }
 
 }
@@ -235,8 +216,7 @@ public class GoogleNetappVolumeRestoreParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceBackup
     {
-        get => GetProperty<TerraformProperty<string>>("source_backup");
-        set => WithProperty("source_backup", value);
+        set => SetProperty("source_backup", value);
     }
 
     /// <summary>
@@ -246,8 +226,7 @@ public class GoogleNetappVolumeRestoreParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceSnapshot
     {
-        get => GetProperty<TerraformProperty<string>>("source_snapshot");
-        set => WithProperty("source_snapshot", value);
+        set => SetProperty("source_snapshot", value);
     }
 
 }
@@ -264,8 +243,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -282,8 +260,7 @@ public class GoogleNetappVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CoolingThresholdDays
     {
-        get => GetProperty<TerraformProperty<double>>("cooling_threshold_days");
-        set => WithProperty("cooling_threshold_days", value);
+        set => SetProperty("cooling_threshold_days", value);
     }
 
     /// <summary>
@@ -292,8 +269,7 @@ public class GoogleNetappVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? HotTierBypassModeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("hot_tier_bypass_mode_enabled");
-        set => WithProperty("hot_tier_bypass_mode_enabled", value);
+        set => SetProperty("hot_tier_bypass_mode_enabled", value);
     }
 
     /// <summary>
@@ -301,8 +277,7 @@ public class GoogleNetappVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TierAction
     {
-        get => GetProperty<TerraformProperty<string>>("tier_action");
-        set => WithProperty("tier_action", value);
+        set => SetProperty("tier_action", value);
     }
 
 }
@@ -318,8 +293,7 @@ public class GoogleNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -327,8 +301,7 @@ public class GoogleNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -336,8 +309,7 @@ public class GoogleNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -355,25 +327,45 @@ public class GoogleNetappVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("active_directory");
-        this.WithOutput("cold_tier_size_gib");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("encryption_type");
-        this.WithOutput("has_replication");
-        this.WithOutput("hot_tier_size_used_gib");
-        this.WithOutput("kms_config");
-        this.WithOutput("ldap_enabled");
-        this.WithOutput("mount_options");
-        this.WithOutput("network");
-        this.WithOutput("psa_range");
-        this.WithOutput("replica_zone");
-        this.WithOutput("service_level");
-        this.WithOutput("state");
-        this.WithOutput("state_details");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("used_gib");
-        this.WithOutput("zone");
+        SetOutput("active_directory");
+        SetOutput("cold_tier_size_gib");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("encryption_type");
+        SetOutput("has_replication");
+        SetOutput("hot_tier_size_used_gib");
+        SetOutput("kms_config");
+        SetOutput("ldap_enabled");
+        SetOutput("mount_options");
+        SetOutput("network");
+        SetOutput("psa_range");
+        SetOutput("replica_zone");
+        SetOutput("service_level");
+        SetOutput("state");
+        SetOutput("state_details");
+        SetOutput("terraform_labels");
+        SetOutput("used_gib");
+        SetOutput("zone");
+        SetOutput("capacity_gib");
+        SetOutput("deletion_policy");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("kerberos_enabled");
+        SetOutput("labels");
+        SetOutput("large_capacity");
+        SetOutput("location");
+        SetOutput("multiple_endpoints");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("protocols");
+        SetOutput("restricted_actions");
+        SetOutput("security_style");
+        SetOutput("share_name");
+        SetOutput("smb_settings");
+        SetOutput("snapshot_directory");
+        SetOutput("storage_pool");
+        SetOutput("throughput_mibps");
+        SetOutput("unix_permissions");
     }
 
     /// <summary>
@@ -382,8 +374,8 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformProperty<string> CapacityGib
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capacity_gib");
-        set => this.WithProperty("capacity_gib", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capacity_gib");
+        set => SetProperty("capacity_gib", value);
     }
 
     /// <summary>
@@ -392,37 +384,37 @@ public class GoogleNetappVolume : TerraformResource
     /// Setting this parameter to FORCE will delete volumes including nested snapshots.
     /// Possible values: DEFAULT, FORCE.
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Flag indicating if the volume is a kerberos volume or not, export policy rules control kerberos security modes (krb5, krb5i, krb5p).
     /// </summary>
-    public TerraformProperty<bool>? KerberosEnabled
+    public TerraformProperty<bool> KerberosEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("kerberos_enabled");
-        set => this.WithProperty("kerberos_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("kerberos_enabled");
+        set => SetProperty("kerberos_enabled", value);
     }
 
     /// <summary>
@@ -432,19 +424,19 @@ public class GoogleNetappVolume : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// Optional. Flag indicating if the volume will be a large capacity volume or a regular volume.
     /// </summary>
-    public TerraformProperty<bool>? LargeCapacity
+    public TerraformProperty<bool> LargeCapacity
     {
-        get => GetProperty<TerraformProperty<bool>>("large_capacity");
-        set => this.WithProperty("large_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("large_capacity");
+        set => SetProperty("large_capacity", value);
     }
 
     /// <summary>
@@ -453,18 +445,18 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Optional. Flag indicating if the volume will have an IP address per node for volumes supporting multiple IP endpoints.
     /// Only the volume with largeCapacity will be allowed to have multiple endpoints.
     /// </summary>
-    public TerraformProperty<bool>? MultipleEndpoints
+    public TerraformProperty<bool> MultipleEndpoints
     {
-        get => GetProperty<TerraformProperty<bool>>("multiple_endpoints");
-        set => this.WithProperty("multiple_endpoints", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multiple_endpoints");
+        set => SetProperty("multiple_endpoints", value);
     }
 
     /// <summary>
@@ -473,73 +465,73 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The protocol of the volume. Allowed combinations are &#39;[&#39;NFSV3&#39;]&#39;, &#39;[&#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;]&#39;, &#39;[&#39;NFSV3&#39;, &#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;, &#39;NFSV3&#39;]&#39; and &#39;[&#39;SMB&#39;, &#39;NFSV4&#39;]&#39;. Possible values: [&amp;quot;NFSV3&amp;quot;, &amp;quot;NFSV4&amp;quot;, &amp;quot;SMB&amp;quot;, &amp;quot;ISCSI&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
-    public List<TerraformProperty<string>>? Protocols
+    public List<TerraformProperty<string>> Protocols
     {
-        get => GetProperty<List<TerraformProperty<string>>>("protocols");
-        set => this.WithProperty("protocols", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("protocols");
+        set => SetProperty("protocols", value);
     }
 
     /// <summary>
     /// List of actions that are restricted on this volume. Possible values: [&amp;quot;DELETE&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? RestrictedActions
+    public List<TerraformProperty<string>> RestrictedActions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("restricted_actions");
-        set => this.WithProperty("restricted_actions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("restricted_actions");
+        set => SetProperty("restricted_actions", value);
     }
 
     /// <summary>
     /// Security Style of the Volume. Use UNIX to use UNIX or NFSV4 ACLs for file permissions.
     /// Use NTFS to use NTFS ACLs for file permissions. Can only be set for volumes which use SMB together with NFS as protocol. Possible values: [&amp;quot;NTFS&amp;quot;, &amp;quot;UNIX&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? SecurityStyle
+    public TerraformProperty<string> SecurityStyle
     {
-        get => GetProperty<TerraformProperty<string>>("security_style");
-        set => this.WithProperty("security_style", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_style");
+        set => SetProperty("security_style", value);
     }
 
     /// <summary>
     /// Share name (SMB) or export path (NFS) of the volume. Needs to be unique per location.
     /// </summary>
-    public TerraformProperty<string>? ShareName
+    public TerraformProperty<string> ShareName
     {
-        get => GetProperty<TerraformProperty<string>>("share_name");
-        set => this.WithProperty("share_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("share_name");
+        set => SetProperty("share_name", value);
     }
 
     /// <summary>
     /// Settings for volumes with SMB access. Possible values: [&amp;quot;ENCRYPT_DATA&amp;quot;, &amp;quot;BROWSABLE&amp;quot;, &amp;quot;CHANGE_NOTIFY&amp;quot;, &amp;quot;NON_BROWSABLE&amp;quot;, &amp;quot;OPLOCKS&amp;quot;, &amp;quot;SHOW_SNAPSHOT&amp;quot;, &amp;quot;SHOW_PREVIOUS_VERSIONS&amp;quot;, &amp;quot;ACCESS_BASED_ENUMERATION&amp;quot;, &amp;quot;CONTINUOUSLY_AVAILABLE&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? SmbSettings
+    public List<TerraformProperty<string>> SmbSettings
     {
-        get => GetProperty<List<TerraformProperty<string>>>("smb_settings");
-        set => this.WithProperty("smb_settings", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("smb_settings");
+        set => SetProperty("smb_settings", value);
     }
 
     /// <summary>
     /// If enabled, a NFS volume will contain a read-only .snapshot directory which provides access to each of the volume&#39;s snapshots. Will enable &amp;quot;Previous Versions&amp;quot; support for SMB.
     /// </summary>
-    public TerraformProperty<bool>? SnapshotDirectory
+    public TerraformProperty<bool> SnapshotDirectory
     {
-        get => GetProperty<TerraformProperty<bool>>("snapshot_directory");
-        set => this.WithProperty("snapshot_directory", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("snapshot_directory");
+        set => SetProperty("snapshot_directory", value);
     }
 
     /// <summary>
@@ -548,26 +540,26 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
     public required TerraformProperty<string> StoragePool
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_pool");
-        set => this.WithProperty("storage_pool", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_pool");
+        set => SetProperty("storage_pool", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
-    public TerraformProperty<double>? ThroughputMibps
+    public TerraformProperty<double> ThroughputMibps
     {
-        get => GetProperty<TerraformProperty<double>>("throughput_mibps");
-        set => this.WithProperty("throughput_mibps", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput_mibps");
+        set => SetProperty("throughput_mibps", value);
     }
 
     /// <summary>
     /// Unix permission the mount point will be created with. Default is 0770. Applicable for UNIX security style volumes only.
     /// </summary>
-    public TerraformProperty<string>? UnixPermissions
+    public TerraformProperty<string> UnixPermissions
     {
-        get => GetProperty<TerraformProperty<string>>("unix_permissions");
-        set => this.WithProperty("unix_permissions", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("unix_permissions");
+        set => SetProperty("unix_permissions", value);
     }
 
     /// <summary>
@@ -577,8 +569,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupConfig block(s) allowed")]
     public List<GoogleNetappVolumeBackupConfigBlock>? BackupConfig
     {
-        get => GetProperty<List<GoogleNetappVolumeBackupConfigBlock>>("backup_config");
-        set => this.WithProperty("backup_config", value);
+        set => SetProperty("backup_config", value);
     }
 
     /// <summary>
@@ -587,8 +578,7 @@ public class GoogleNetappVolume : TerraformResource
     /// </summary>
     public List<GoogleNetappVolumeBlockDevicesBlock>? BlockDevices
     {
-        get => GetProperty<List<GoogleNetappVolumeBlockDevicesBlock>>("block_devices");
-        set => this.WithProperty("block_devices", value);
+        set => SetProperty("block_devices", value);
     }
 
     /// <summary>
@@ -598,8 +588,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportPolicy block(s) allowed")]
     public List<GoogleNetappVolumeExportPolicyBlock>? ExportPolicy
     {
-        get => GetProperty<List<GoogleNetappVolumeExportPolicyBlock>>("export_policy");
-        set => this.WithProperty("export_policy", value);
+        set => SetProperty("export_policy", value);
     }
 
     /// <summary>
@@ -609,8 +598,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HybridReplicationParameters block(s) allowed")]
     public List<GoogleNetappVolumeHybridReplicationParametersBlock>? HybridReplicationParameters
     {
-        get => GetProperty<List<GoogleNetappVolumeHybridReplicationParametersBlock>>("hybrid_replication_parameters");
-        set => this.WithProperty("hybrid_replication_parameters", value);
+        set => SetProperty("hybrid_replication_parameters", value);
     }
 
     /// <summary>
@@ -620,8 +608,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreParameters block(s) allowed")]
     public List<GoogleNetappVolumeRestoreParametersBlock>? RestoreParameters
     {
-        get => GetProperty<List<GoogleNetappVolumeRestoreParametersBlock>>("restore_parameters");
-        set => this.WithProperty("restore_parameters", value);
+        set => SetProperty("restore_parameters", value);
     }
 
     /// <summary>
@@ -631,8 +618,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotPolicy block(s) allowed")]
     public List<GoogleNetappVolumeSnapshotPolicyBlock>? SnapshotPolicy
     {
-        get => GetProperty<List<GoogleNetappVolumeSnapshotPolicyBlock>>("snapshot_policy");
-        set => this.WithProperty("snapshot_policy", value);
+        set => SetProperty("snapshot_policy", value);
     }
 
     /// <summary>
@@ -642,8 +628,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TieringPolicy block(s) allowed")]
     public List<GoogleNetappVolumeTieringPolicyBlock>? TieringPolicy
     {
-        get => GetProperty<List<GoogleNetappVolumeTieringPolicyBlock>>("tiering_policy");
-        set => this.WithProperty("tiering_policy", value);
+        set => SetProperty("tiering_policy", value);
     }
 
     /// <summary>
@@ -652,8 +637,7 @@ public class GoogleNetappVolume : TerraformResource
     /// </summary>
     public GoogleNetappVolumeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetappVolumeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

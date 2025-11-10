@@ -19,8 +19,7 @@ public class GoogleLoggingProjectBucketConfigCmekSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -33,8 +32,7 @@ public class GoogleLoggingProjectBucketConfigCmekSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyVersionName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_version_name");
-        set => WithProperty("kms_key_version_name", value);
+        set => SetProperty("kms_key_version_name", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleLoggingProjectBucketConfigCmekSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -53,8 +50,7 @@ public class GoogleLoggingProjectBucketConfigCmekSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_id");
-        set => WithProperty("service_account_id", value);
+        set => SetProperty("service_account_id", value);
     }
 
 }
@@ -71,8 +67,7 @@ public class GoogleLoggingProjectBucketConfigIndexConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldPath is required")]
     public required TerraformProperty<string> FieldPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("field_path");
-        set => WithProperty("field_path", value);
+        set => SetProperty("field_path", value);
     }
 
     /// <summary>
@@ -83,8 +78,7 @@ public class GoogleLoggingProjectBucketConfigIndexConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -102,8 +96,16 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("lifecycle_state");
-        this.WithOutput("name");
+        SetOutput("lifecycle_state");
+        SetOutput("name");
+        SetOutput("bucket_id");
+        SetOutput("description");
+        SetOutput("enable_analytics");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("locked");
+        SetOutput("project");
+        SetOutput("retention_days");
     }
 
     /// <summary>
@@ -112,35 +114,35 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketId is required")]
     public required TerraformProperty<string> BucketId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_id");
-        set => this.WithProperty("bucket_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket_id");
+        set => SetProperty("bucket_id", value);
     }
 
     /// <summary>
     /// An optional description for this bucket.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Enable log analytics for the bucket. Cannot be disabled once enabled.
     /// </summary>
-    public TerraformProperty<bool>? EnableAnalytics
+    public TerraformProperty<bool> EnableAnalytics
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_analytics");
-        set => this.WithProperty("enable_analytics", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_analytics");
+        set => SetProperty("enable_analytics", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -149,17 +151,17 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Whether the bucket is locked. The retention period on a locked bucket cannot be changed. Locked buckets may only be deleted if they are empty.
     /// </summary>
-    public TerraformProperty<bool>? Locked
+    public TerraformProperty<bool> Locked
     {
-        get => GetProperty<TerraformProperty<bool>>("locked");
-        set => this.WithProperty("locked", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("locked");
+        set => SetProperty("locked", value);
     }
 
     /// <summary>
@@ -168,17 +170,17 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at bucket creation time, the default time of 30 days will be used.
     /// </summary>
-    public TerraformProperty<double>? RetentionDays
+    public TerraformProperty<double> RetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_days");
-        set => this.WithProperty("retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_days");
+        set => SetProperty("retention_days", value);
     }
 
     /// <summary>
@@ -188,8 +190,7 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CmekSettings block(s) allowed")]
     public List<GoogleLoggingProjectBucketConfigCmekSettingsBlock>? CmekSettings
     {
-        get => GetProperty<List<GoogleLoggingProjectBucketConfigCmekSettingsBlock>>("cmek_settings");
-        set => this.WithProperty("cmek_settings", value);
+        set => SetProperty("cmek_settings", value);
     }
 
     /// <summary>
@@ -199,8 +200,7 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 IndexConfigs block(s) allowed")]
     public HashSet<GoogleLoggingProjectBucketConfigIndexConfigsBlock>? IndexConfigs
     {
-        get => GetProperty<HashSet<GoogleLoggingProjectBucketConfigIndexConfigsBlock>>("index_configs");
-        set => this.WithProperty("index_configs", value);
+        set => SetProperty("index_configs", value);
     }
 
     /// <summary>

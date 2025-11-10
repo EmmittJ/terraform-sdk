@@ -13,8 +13,7 @@ public class AzureadAccessPackageCatalogRoleAssignmentTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadAccessPackageCatalogRoleAssignmentTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadAccessPackageCatalogRoleAssignmentTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadAccessPackageCatalogRoleAssignmentTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("catalog_id");
+        SetOutput("id");
+        SetOutput("principal_object_id");
+        SetOutput("role_id");
     }
 
     /// <summary>
@@ -66,17 +66,17 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +85,8 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
     public required TerraformProperty<string> PrincipalObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_object_id");
-        set => this.WithProperty("principal_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_object_id");
+        set => SetProperty("principal_object_id", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
-        set => this.WithProperty("role_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_id");
+        set => SetProperty("role_id", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
     /// </summary>
     public AzureadAccessPackageCatalogRoleAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAccessPackageCatalogRoleAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

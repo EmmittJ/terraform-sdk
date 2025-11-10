@@ -13,8 +13,7 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Channel
     {
-        get => GetProperty<TerraformProperty<string>>("channel");
-        set => WithProperty("channel", value);
+        set => SetProperty("channel", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? ConfiguredBy
     {
-        get => GetProperty<TerraformProperty<string>>("configured_by");
-        set => WithProperty("configured_by", value);
+        set => SetProperty("configured_by", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Event
     {
-        get => GetProperty<TerraformProperty<string>>("event");
-        set => WithProperty("event", value);
+        set => SetProperty("event", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? Threshold
     {
-        get => GetProperty<TerraformProperty<double>>("threshold");
-        set => WithProperty("threshold", value);
+        set => SetProperty("threshold", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AwsRolesanywhereTrustAnchorSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformProperty<string> SourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_type");
-        set => WithProperty("source_type", value);
+        set => SetProperty("source_type", value);
     }
 
 }
@@ -86,25 +80,30 @@ public class AwsRolesanywhereTrustAnchor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,26 +112,26 @@ public class AwsRolesanywhereTrustAnchor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -142,20 +141,19 @@ public class AwsRolesanywhereTrustAnchor : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 NotificationSettings block(s) allowed")]
     public HashSet<AwsRolesanywhereTrustAnchorNotificationSettingsBlock>? NotificationSettings
     {
-        get => GetProperty<HashSet<AwsRolesanywhereTrustAnchorNotificationSettingsBlock>>("notification_settings");
-        set => this.WithProperty("notification_settings", value);
+        set => SetProperty("notification_settings", value);
     }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     public List<AwsRolesanywhereTrustAnchorSourceBlock>? Source
     {
-        get => GetProperty<List<AwsRolesanywhereTrustAnchorSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>

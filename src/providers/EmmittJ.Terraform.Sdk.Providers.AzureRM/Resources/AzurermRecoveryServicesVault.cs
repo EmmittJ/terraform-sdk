@@ -14,8 +14,7 @@ public class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureEncryptionEnabled is required")]
     public required TerraformProperty<bool> InfrastructureEncryptionEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("infrastructure_encryption_enabled");
-        set => WithProperty("infrastructure_encryption_enabled", value);
+        set => SetProperty("infrastructure_encryption_enabled", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
-        set => WithProperty("key_id", value);
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseSystemAssignedIdentity
     {
-        get => GetProperty<TerraformProperty<bool>>("use_system_assigned_identity");
-        set => WithProperty("use_system_assigned_identity", value);
+        set => SetProperty("use_system_assigned_identity", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
-        set => WithProperty("user_assigned_identity_id", value);
+        set => SetProperty("user_assigned_identity_id", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermRecoveryServicesVaultIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermRecoveryServicesVaultIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermRecoveryServicesVaultIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AzurermRecoveryServicesVaultIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -104,8 +96,7 @@ public class AzurermRecoveryServicesVaultMonitoringBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AlertsForAllJobFailuresEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("alerts_for_all_job_failures_enabled");
-        set => WithProperty("alerts_for_all_job_failures_enabled", value);
+        set => SetProperty("alerts_for_all_job_failures_enabled", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermRecoveryServicesVaultMonitoringBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AlertsForCriticalOperationFailuresEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("alerts_for_critical_operation_failures_enabled");
-        set => WithProperty("alerts_for_critical_operation_failures_enabled", value);
+        set => SetProperty("alerts_for_critical_operation_failures_enabled", value);
     }
 
 }
@@ -130,8 +120,7 @@ public class AzurermRecoveryServicesVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -139,8 +128,7 @@ public class AzurermRecoveryServicesVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -148,8 +136,7 @@ public class AzurermRecoveryServicesVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -157,8 +144,7 @@ public class AzurermRecoveryServicesVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -176,42 +162,54 @@ public class AzurermRecoveryServicesVault : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("classic_vmware_replication_enabled");
+        SetOutput("cross_region_restore_enabled");
+        SetOutput("id");
+        SetOutput("immutability");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("soft_delete_enabled");
+        SetOutput("storage_mode_type");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The classic_vmware_replication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ClassicVmwareReplicationEnabled
+    public TerraformProperty<bool> ClassicVmwareReplicationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("classic_vmware_replication_enabled");
-        set => this.WithProperty("classic_vmware_replication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("classic_vmware_replication_enabled");
+        set => SetProperty("classic_vmware_replication_enabled", value);
     }
 
     /// <summary>
     /// The cross_region_restore_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CrossRegionRestoreEnabled
+    public TerraformProperty<bool> CrossRegionRestoreEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cross_region_restore_enabled");
-        set => this.WithProperty("cross_region_restore_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cross_region_restore_enabled");
+        set => SetProperty("cross_region_restore_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The immutability attribute.
     /// </summary>
-    public TerraformProperty<string>? Immutability
+    public TerraformProperty<string> Immutability
     {
-        get => GetProperty<TerraformProperty<string>>("immutability");
-        set => this.WithProperty("immutability", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("immutability");
+        set => SetProperty("immutability", value);
     }
 
     /// <summary>
@@ -220,8 +218,8 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -230,17 +228,17 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -249,8 +247,8 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -259,35 +257,35 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The soft_delete_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SoftDeleteEnabled
+    public TerraformProperty<bool> SoftDeleteEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("soft_delete_enabled");
-        set => this.WithProperty("soft_delete_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("soft_delete_enabled");
+        set => SetProperty("soft_delete_enabled", value);
     }
 
     /// <summary>
     /// The storage_mode_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageModeType
+    public TerraformProperty<string> StorageModeType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_mode_type");
-        set => this.WithProperty("storage_mode_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_mode_type");
+        set => SetProperty("storage_mode_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -297,8 +295,7 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     public List<AzurermRecoveryServicesVaultEncryptionBlock>? Encryption
     {
-        get => GetProperty<List<AzurermRecoveryServicesVaultEncryptionBlock>>("encryption");
-        set => this.WithProperty("encryption", value);
+        set => SetProperty("encryption", value);
     }
 
     /// <summary>
@@ -308,8 +305,7 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermRecoveryServicesVaultIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermRecoveryServicesVaultIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -319,8 +315,7 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitoring block(s) allowed")]
     public List<AzurermRecoveryServicesVaultMonitoringBlock>? Monitoring
     {
-        get => GetProperty<List<AzurermRecoveryServicesVaultMonitoringBlock>>("monitoring");
-        set => this.WithProperty("monitoring", value);
+        set => SetProperty("monitoring", value);
     }
 
     /// <summary>
@@ -329,8 +324,7 @@ public class AzurermRecoveryServicesVault : TerraformResource
     /// </summary>
     public AzurermRecoveryServicesVaultTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRecoveryServicesVaultTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

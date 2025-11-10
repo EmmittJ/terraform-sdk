@@ -14,25 +14,28 @@ public class AwsOdbDbServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("autonomous_virtual_machine_ids");
-        this.WithOutput("autonomous_vm_cluster_ids");
-        this.WithOutput("compute_model");
-        this.WithOutput("cpu_core_count");
-        this.WithOutput("created_at");
-        this.WithOutput("db_node_storage_size_in_gbs");
-        this.WithOutput("db_server_patching_details");
-        this.WithOutput("display_name");
-        this.WithOutput("exadata_infrastructure_id");
-        this.WithOutput("max_cpu_count");
-        this.WithOutput("max_db_node_storage_in_gbs");
-        this.WithOutput("max_memory_in_gbs");
-        this.WithOutput("memory_size_in_gbs");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("ocid");
-        this.WithOutput("shape");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("vm_cluster_ids");
+        SetOutput("autonomous_virtual_machine_ids");
+        SetOutput("autonomous_vm_cluster_ids");
+        SetOutput("compute_model");
+        SetOutput("cpu_core_count");
+        SetOutput("created_at");
+        SetOutput("db_node_storage_size_in_gbs");
+        SetOutput("db_server_patching_details");
+        SetOutput("display_name");
+        SetOutput("exadata_infrastructure_id");
+        SetOutput("max_cpu_count");
+        SetOutput("max_db_node_storage_in_gbs");
+        SetOutput("max_memory_in_gbs");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("ocid");
+        SetOutput("shape");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("vm_cluster_ids");
+        SetOutput("cloud_exadata_infrastructure_id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -41,8 +44,8 @@ public class AwsOdbDbServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
-        set => this.WithProperty("cloud_exadata_infrastructure_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        set => SetProperty("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
@@ -51,17 +54,17 @@ public class AwsOdbDbServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -38,8 +38,7 @@ public class GoogleSccV2FolderNotificationConfigStreamingConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
 }
@@ -55,8 +54,7 @@ public class GoogleSccV2FolderNotificationConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -64,8 +62,7 @@ public class GoogleSccV2FolderNotificationConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -73,8 +70,7 @@ public class GoogleSccV2FolderNotificationConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -92,8 +88,14 @@ public class GoogleSccV2FolderNotificationConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("service_account");
+        SetOutput("name");
+        SetOutput("service_account");
+        SetOutput("config_id");
+        SetOutput("description");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("pubsub_topic");
     }
 
     /// <summary>
@@ -102,17 +104,17 @@ public class GoogleSccV2FolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformProperty<string> ConfigId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("config_id");
-        set => this.WithProperty("config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("config_id");
+        set => SetProperty("config_id", value);
     }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -121,26 +123,26 @@ public class GoogleSccV2FolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Location ID of the parent organization. If not provided, &#39;global&#39; will be used as the default location.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -150,20 +152,20 @@ public class GoogleSccV2FolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
-        set => this.WithProperty("pubsub_topic", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pubsub_topic");
+        set => SetProperty("pubsub_topic", value);
     }
 
     /// <summary>
     /// Block for streaming_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamingConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StreamingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingConfig block(s) allowed")]
     public List<GoogleSccV2FolderNotificationConfigStreamingConfigBlock>? StreamingConfig
     {
-        get => GetProperty<List<GoogleSccV2FolderNotificationConfigStreamingConfigBlock>>("streaming_config");
-        set => this.WithProperty("streaming_config", value);
+        set => SetProperty("streaming_config", value);
     }
 
     /// <summary>
@@ -172,8 +174,7 @@ public class GoogleSccV2FolderNotificationConfig : TerraformResource
     /// </summary>
     public GoogleSccV2FolderNotificationConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSccV2FolderNotificationConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

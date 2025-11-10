@@ -14,9 +14,14 @@ public class AwsAppsyncType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("description");
-        this.WithOutput("name");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("api_id");
+        SetOutput("definition");
+        SetOutput("format");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -25,8 +30,8 @@ public class AwsAppsyncType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
@@ -35,8 +40,8 @@ public class AwsAppsyncType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     public required TerraformProperty<string> Definition
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("definition");
-        set => this.WithProperty("definition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("definition");
+        set => SetProperty("definition", value);
     }
 
     /// <summary>
@@ -45,26 +50,26 @@ public class AwsAppsyncType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("format");
-        set => this.WithProperty("format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("format");
+        set => SetProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

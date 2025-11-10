@@ -13,8 +13,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? CaCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("ca_certificate_id");
-        set => WithProperty("ca_certificate_id", value);
+        set => SetProperty("ca_certificate_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? HostKey
     {
-        get => GetProperty<TerraformProperty<string>>("host_key");
-        set => WithProperty("host_key", value);
+        set => SetProperty("host_key", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? HostKeyAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("host_key_algorithm");
-        set => WithProperty("host_key_algorithm", value);
+        set => SetProperty("host_key_algorithm", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Label is required")]
     public required TerraformProperty<string> Label
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("label");
-        set => WithProperty("label", value);
+        set => SetProperty("label", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Patterns is required")]
     public HashSet<TerraformProperty<string>>? Patterns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("patterns");
-        set => WithProperty("patterns", value);
+        set => SetProperty("patterns", value);
     }
 
     /// <summary>
@@ -79,8 +72,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("private_key");
-        set => WithProperty("private_key", value);
+        set => SetProperty("private_key", value);
     }
 
     /// <summary>
@@ -88,8 +80,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? SearchPaths
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("search_paths");
-        set => WithProperty("search_paths", value);
+        set => SetProperty("search_paths", value);
     }
 
     /// <summary>
@@ -97,8 +88,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? StrictHostKeyChecking
     {
-        get => GetProperty<TerraformProperty<bool>>("strict_host_key_checking");
-        set => WithProperty("strict_host_key_checking", value);
+        set => SetProperty("strict_host_key_checking", value);
     }
 
     /// <summary>
@@ -107,8 +97,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
     /// <summary>
@@ -116,8 +105,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -133,8 +121,7 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -142,8 +129,7 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -151,8 +137,7 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -160,8 +145,7 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -178,24 +162,29 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("generation");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("refresh_interval_in_seconds");
+        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The generation attribute.
     /// </summary>
-    public TerraformProperty<string>? Generation
+    public TerraformProperty<string> Generation
     {
-        get => GetProperty<TerraformProperty<string>>("generation");
-        set => this.WithProperty("generation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("generation");
+        set => SetProperty("generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -204,17 +193,17 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The refresh_interval_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? RefreshIntervalInSeconds
+    public TerraformProperty<double> RefreshIntervalInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("refresh_interval_in_seconds");
-        set => this.WithProperty("refresh_interval_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("refresh_interval_in_seconds");
+        set => SetProperty("refresh_interval_in_seconds", value);
     }
 
     /// <summary>
@@ -223,8 +212,8 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
-        set => this.WithProperty("spring_cloud_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
+        set => SetProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
@@ -233,8 +222,7 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// </summary>
     public List<AzurermSpringCloudConfigurationServiceRepositoryBlock>? Repository
     {
-        get => GetProperty<List<AzurermSpringCloudConfigurationServiceRepositoryBlock>>("repository");
-        set => this.WithProperty("repository", value);
+        set => SetProperty("repository", value);
     }
 
     /// <summary>
@@ -243,8 +231,7 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// </summary>
     public AzurermSpringCloudConfigurationServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudConfigurationServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

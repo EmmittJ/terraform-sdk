@@ -13,8 +13,7 @@ public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => WithProperty("comment", value);
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UploadEnd
     {
-        get => GetProperty<TerraformProperty<string>>("upload_end");
-        set => WithProperty("upload_end", value);
+        set => SetProperty("upload_end", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? UploadSize
     {
-        get => GetProperty<TerraformProperty<double>>("upload_size");
-        set => WithProperty("upload_size", value);
+        set => SetProperty("upload_size", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UploadStart
     {
-        get => GetProperty<TerraformProperty<string>>("upload_start");
-        set => WithProperty("upload_start", value);
+        set => SetProperty("upload_start", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("format");
-        set => WithProperty("format", value);
+        set => SetProperty("format", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AwsEbsSnapshotImportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AwsEbsSnapshotImportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -121,112 +112,123 @@ public class AwsEbsSnapshotImport : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("data_encryption_key_id");
-        this.WithOutput("outpost_arn");
-        this.WithOutput("owner_alias");
-        this.WithOutput("owner_id");
-        this.WithOutput("volume_id");
-        this.WithOutput("volume_size");
+        SetOutput("arn");
+        SetOutput("data_encryption_key_id");
+        SetOutput("outpost_arn");
+        SetOutput("owner_alias");
+        SetOutput("owner_id");
+        SetOutput("volume_id");
+        SetOutput("volume_size");
+        SetOutput("description");
+        SetOutput("encrypted");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("permanent_restore");
+        SetOutput("region");
+        SetOutput("role_name");
+        SetOutput("storage_tier");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("temporary_restore_days");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool>? Encrypted
+    public TerraformProperty<bool> Encrypted
     {
-        get => GetProperty<TerraformProperty<bool>>("encrypted");
-        set => this.WithProperty("encrypted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("encrypted");
+        set => SetProperty("encrypted", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The permanent_restore attribute.
     /// </summary>
-    public TerraformProperty<bool>? PermanentRestore
+    public TerraformProperty<bool> PermanentRestore
     {
-        get => GetProperty<TerraformProperty<bool>>("permanent_restore");
-        set => this.WithProperty("permanent_restore", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("permanent_restore");
+        set => SetProperty("permanent_restore", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleName
+    public TerraformProperty<string> RoleName
     {
-        get => GetProperty<TerraformProperty<string>>("role_name");
-        set => this.WithProperty("role_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
+        set => SetProperty("role_name", value);
     }
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageTier
+    public TerraformProperty<string> StorageTier
     {
-        get => GetProperty<TerraformProperty<string>>("storage_tier");
-        set => this.WithProperty("storage_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_tier");
+        set => SetProperty("storage_tier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The temporary_restore_days attribute.
     /// </summary>
-    public TerraformProperty<double>? TemporaryRestoreDays
+    public TerraformProperty<double> TemporaryRestoreDays
     {
-        get => GetProperty<TerraformProperty<double>>("temporary_restore_days");
-        set => this.WithProperty("temporary_restore_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("temporary_restore_days");
+        set => SetProperty("temporary_restore_days", value);
     }
 
     /// <summary>
@@ -236,20 +238,19 @@ public class AwsEbsSnapshotImport : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientData block(s) allowed")]
     public List<AwsEbsSnapshotImportClientDataBlock>? ClientData
     {
-        get => GetProperty<List<AwsEbsSnapshotImportClientDataBlock>>("client_data");
-        set => this.WithProperty("client_data", value);
+        set => SetProperty("client_data", value);
     }
 
     /// <summary>
     /// Block for disk_container.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskContainer is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DiskContainer block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskContainer block(s) allowed")]
     public List<AwsEbsSnapshotImportDiskContainerBlock>? DiskContainer
     {
-        get => GetProperty<List<AwsEbsSnapshotImportDiskContainerBlock>>("disk_container");
-        set => this.WithProperty("disk_container", value);
+        set => SetProperty("disk_container", value);
     }
 
     /// <summary>
@@ -258,8 +259,7 @@ public class AwsEbsSnapshotImport : TerraformResource
     /// </summary>
     public AwsEbsSnapshotImportTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEbsSnapshotImportTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

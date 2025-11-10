@@ -13,8 +13,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => WithProperty("table_name", value);
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseCallerCredentials
     {
-        get => GetProperty<TerraformProperty<bool>>("use_caller_credentials");
-        set => WithProperty("use_caller_credentials", value);
+        set => SetProperty("use_caller_credentials", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Versioned
     {
-        get => GetProperty<TerraformProperty<bool>>("versioned");
-        set => WithProperty("versioned", value);
+        set => SetProperty("versioned", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AwsAppsyncDatasourceElasticsearchConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
-        set => WithProperty("endpoint", value);
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsAppsyncDatasourceElasticsearchConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class AwsAppsyncDatasourceEventBridgeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
     public required TerraformProperty<string> EventBusArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("event_bus_arn");
-        set => WithProperty("event_bus_arn", value);
+        set => SetProperty("event_bus_arn", value);
     }
 
 }
@@ -104,8 +97,7 @@ public class AwsAppsyncDatasourceHttpConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
-        set => WithProperty("endpoint", value);
+        set => SetProperty("endpoint", value);
     }
 
 }
@@ -122,8 +114,7 @@ public class AwsAppsyncDatasourceLambdaConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformProperty<string> FunctionArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_arn");
-        set => WithProperty("function_arn", value);
+        set => SetProperty("function_arn", value);
     }
 
 }
@@ -140,8 +131,7 @@ public class AwsAppsyncDatasourceOpensearchserviceConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
-        set => WithProperty("endpoint", value);
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
@@ -149,8 +139,7 @@ public class AwsAppsyncDatasourceOpensearchserviceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
 }
@@ -166,8 +155,7 @@ public class AwsAppsyncDatasourceRelationalDatabaseConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceType
     {
-        get => GetProperty<TerraformProperty<string>>("source_type");
-        set => WithProperty("source_type", value);
+        set => SetProperty("source_type", value);
     }
 
 }
@@ -185,7 +173,14 @@ public class AwsAppsyncDatasource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("api_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("service_role_arn");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -194,26 +189,26 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -222,26 +217,26 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceRoleArn
+    public TerraformProperty<string> ServiceRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_role_arn");
-        set => this.WithProperty("service_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_role_arn");
+        set => SetProperty("service_role_arn", value);
     }
 
     /// <summary>
@@ -250,8 +245,8 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -261,8 +256,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamodbConfig block(s) allowed")]
     public List<AwsAppsyncDatasourceDynamodbConfigBlock>? DynamodbConfig
     {
-        get => GetProperty<List<AwsAppsyncDatasourceDynamodbConfigBlock>>("dynamodb_config");
-        set => this.WithProperty("dynamodb_config", value);
+        set => SetProperty("dynamodb_config", value);
     }
 
     /// <summary>
@@ -272,8 +266,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchConfig block(s) allowed")]
     public List<AwsAppsyncDatasourceElasticsearchConfigBlock>? ElasticsearchConfig
     {
-        get => GetProperty<List<AwsAppsyncDatasourceElasticsearchConfigBlock>>("elasticsearch_config");
-        set => this.WithProperty("elasticsearch_config", value);
+        set => SetProperty("elasticsearch_config", value);
     }
 
     /// <summary>
@@ -283,8 +276,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventBridgeConfig block(s) allowed")]
     public List<AwsAppsyncDatasourceEventBridgeConfigBlock>? EventBridgeConfig
     {
-        get => GetProperty<List<AwsAppsyncDatasourceEventBridgeConfigBlock>>("event_bridge_config");
-        set => this.WithProperty("event_bridge_config", value);
+        set => SetProperty("event_bridge_config", value);
     }
 
     /// <summary>
@@ -294,8 +286,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpConfig block(s) allowed")]
     public List<AwsAppsyncDatasourceHttpConfigBlock>? HttpConfig
     {
-        get => GetProperty<List<AwsAppsyncDatasourceHttpConfigBlock>>("http_config");
-        set => this.WithProperty("http_config", value);
+        set => SetProperty("http_config", value);
     }
 
     /// <summary>
@@ -305,8 +296,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LambdaConfig block(s) allowed")]
     public List<AwsAppsyncDatasourceLambdaConfigBlock>? LambdaConfig
     {
-        get => GetProperty<List<AwsAppsyncDatasourceLambdaConfigBlock>>("lambda_config");
-        set => this.WithProperty("lambda_config", value);
+        set => SetProperty("lambda_config", value);
     }
 
     /// <summary>
@@ -316,8 +306,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchserviceConfig block(s) allowed")]
     public List<AwsAppsyncDatasourceOpensearchserviceConfigBlock>? OpensearchserviceConfig
     {
-        get => GetProperty<List<AwsAppsyncDatasourceOpensearchserviceConfigBlock>>("opensearchservice_config");
-        set => this.WithProperty("opensearchservice_config", value);
+        set => SetProperty("opensearchservice_config", value);
     }
 
     /// <summary>
@@ -327,8 +316,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RelationalDatabaseConfig block(s) allowed")]
     public List<AwsAppsyncDatasourceRelationalDatabaseConfigBlock>? RelationalDatabaseConfig
     {
-        get => GetProperty<List<AwsAppsyncDatasourceRelationalDatabaseConfigBlock>>("relational_database_config");
-        set => this.WithProperty("relational_database_config", value);
+        set => SetProperty("relational_database_config", value);
     }
 
     /// <summary>

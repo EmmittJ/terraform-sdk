@@ -14,9 +14,12 @@ public class AwsResourceexplorer2SearchDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("resource_count");
-        this.WithOutput("resources");
+        SetOutput("id");
+        SetOutput("resource_count");
+        SetOutput("resources");
+        SetOutput("query_string");
+        SetOutput("region");
+        SetOutput("view_arn");
     }
 
     /// <summary>
@@ -25,26 +28,26 @@ public class AwsResourceexplorer2SearchDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
     public required TerraformProperty<string> QueryString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query_string");
-        set => this.WithProperty("query_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_string");
+        set => SetProperty("query_string", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The view_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ViewArn
+    public TerraformProperty<string> ViewArn
     {
-        get => GetProperty<TerraformProperty<string>>("view_arn");
-        set => this.WithProperty("view_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("view_arn");
+        set => SetProperty("view_arn", value);
     }
 
     /// <summary>

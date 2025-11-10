@@ -13,8 +13,7 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BuiltInTransform
     {
-        get => GetProperty<TerraformProperty<string>>("built_in_transform");
-        set => WithProperty("built_in_transform", value);
+        set => SetProperty("built_in_transform", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     public List<TerraformProperty<string>>? Destinations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destinations");
-        set => WithProperty("destinations", value);
+        set => SetProperty("destinations", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutputStream
     {
-        get => GetProperty<TerraformProperty<string>>("output_stream");
-        set => WithProperty("output_stream", value);
+        set => SetProperty("output_stream", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Streams is required")]
     public List<TerraformProperty<string>>? Streams
     {
-        get => GetProperty<List<TerraformProperty<string>>>("streams");
-        set => WithProperty("streams", value);
+        set => SetProperty("streams", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TransformKql
     {
-        get => GetProperty<TerraformProperty<string>>("transform_kql");
-        set => WithProperty("transform_kql", value);
+        set => SetProperty("transform_kql", value);
     }
 
 }
@@ -84,8 +79,7 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -102,8 +95,7 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -112,8 +104,7 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -130,8 +121,7 @@ public class AzurermMonitorDataCollectionRuleStreamDeclarationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformProperty<string> StreamName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_name");
-        set => WithProperty("stream_name", value);
+        set => SetProperty("stream_name", value);
     }
 
 }
@@ -147,8 +137,7 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -156,8 +145,7 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -165,8 +153,7 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -174,8 +161,7 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -193,43 +179,51 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("immutable_id");
+        SetOutput("immutable_id");
+        SetOutput("data_collection_endpoint_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The data_collection_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataCollectionEndpointId
+    public TerraformProperty<string> DataCollectionEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("data_collection_endpoint_id");
-        set => this.WithProperty("data_collection_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_collection_endpoint_id");
+        set => SetProperty("data_collection_endpoint_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformProperty<string>? Kind
+    public TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
-        set => this.WithProperty("kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kind");
+        set => SetProperty("kind", value);
     }
 
     /// <summary>
@@ -238,8 +232,8 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -248,8 +242,8 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -258,28 +252,28 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for data_flow.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFlow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataFlow block(s) required")]
     public List<AzurermMonitorDataCollectionRuleDataFlowBlock>? DataFlow
     {
-        get => GetProperty<List<AzurermMonitorDataCollectionRuleDataFlowBlock>>("data_flow");
-        set => this.WithProperty("data_flow", value);
+        set => SetProperty("data_flow", value);
     }
 
     /// <summary>
@@ -289,20 +283,19 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSources block(s) allowed")]
     public List<AzurermMonitorDataCollectionRuleDataSourcesBlock>? DataSources
     {
-        get => GetProperty<List<AzurermMonitorDataCollectionRuleDataSourcesBlock>>("data_sources");
-        set => this.WithProperty("data_sources", value);
+        set => SetProperty("data_sources", value);
     }
 
     /// <summary>
     /// Block for destinations.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destinations block(s) allowed")]
     public List<AzurermMonitorDataCollectionRuleDestinationsBlock>? Destinations
     {
-        get => GetProperty<List<AzurermMonitorDataCollectionRuleDestinationsBlock>>("destinations");
-        set => this.WithProperty("destinations", value);
+        set => SetProperty("destinations", value);
     }
 
     /// <summary>
@@ -312,8 +305,7 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermMonitorDataCollectionRuleIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermMonitorDataCollectionRuleIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -322,8 +314,7 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// </summary>
     public HashSet<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>? StreamDeclaration
     {
-        get => GetProperty<HashSet<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>>("stream_declaration");
-        set => this.WithProperty("stream_declaration", value);
+        set => SetProperty("stream_declaration", value);
     }
 
     /// <summary>
@@ -332,8 +323,7 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// </summary>
     public AzurermMonitorDataCollectionRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorDataCollectionRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

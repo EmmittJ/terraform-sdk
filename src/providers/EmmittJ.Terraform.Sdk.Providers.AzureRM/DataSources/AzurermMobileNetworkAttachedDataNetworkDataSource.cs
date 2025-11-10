@@ -13,8 +13,7 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,25 +30,28 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.WithOutput("dns_addresses");
-        this.WithOutput("location");
-        this.WithOutput("network_address_port_translation");
-        this.WithOutput("tags");
-        this.WithOutput("user_equipment_address_pool_prefixes");
-        this.WithOutput("user_equipment_static_address_pool_prefixes");
-        this.WithOutput("user_plane_access_ipv4_address");
-        this.WithOutput("user_plane_access_ipv4_gateway");
-        this.WithOutput("user_plane_access_ipv4_subnet");
-        this.WithOutput("user_plane_access_name");
+        SetOutput("dns_addresses");
+        SetOutput("location");
+        SetOutput("network_address_port_translation");
+        SetOutput("tags");
+        SetOutput("user_equipment_address_pool_prefixes");
+        SetOutput("user_equipment_static_address_pool_prefixes");
+        SetOutput("user_plane_access_ipv4_address");
+        SetOutput("user_plane_access_ipv4_gateway");
+        SetOutput("user_plane_access_ipv4_subnet");
+        SetOutput("user_plane_access_name");
+        SetOutput("id");
+        SetOutput("mobile_network_data_network_name");
+        SetOutput("mobile_network_packet_core_data_plane_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -58,8 +60,8 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkDataNetworkName is required")]
     public required TerraformProperty<string> MobileNetworkDataNetworkName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_data_network_name");
-        set => this.WithProperty("mobile_network_data_network_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_data_network_name");
+        set => SetProperty("mobile_network_data_network_name", value);
     }
 
     /// <summary>
@@ -68,8 +70,8 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreDataPlaneId is required")]
     public required TerraformProperty<string> MobileNetworkPacketCoreDataPlaneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_packet_core_data_plane_id");
-        set => this.WithProperty("mobile_network_packet_core_data_plane_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_packet_core_data_plane_id");
+        set => SetProperty("mobile_network_packet_core_data_plane_id", value);
     }
 
     /// <summary>
@@ -78,8 +80,7 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSo
     /// </summary>
     public AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

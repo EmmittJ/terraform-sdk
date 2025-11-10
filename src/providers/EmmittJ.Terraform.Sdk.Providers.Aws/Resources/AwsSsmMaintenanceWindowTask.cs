@@ -14,8 +14,7 @@ public class AwsSsmMaintenanceWindowTaskTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsSsmMaintenanceWindowTaskTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public List<TerraformProperty<string>>? Values
     {
-        get => GetProperty<List<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -51,89 +49,101 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("window_task_id");
+        SetOutput("arn");
+        SetOutput("window_task_id");
+        SetOutput("cutoff_behavior");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("max_concurrency");
+        SetOutput("max_errors");
+        SetOutput("name");
+        SetOutput("priority");
+        SetOutput("region");
+        SetOutput("service_role_arn");
+        SetOutput("task_arn");
+        SetOutput("task_type");
+        SetOutput("window_id");
     }
 
     /// <summary>
     /// The cutoff_behavior attribute.
     /// </summary>
-    public TerraformProperty<string>? CutoffBehavior
+    public TerraformProperty<string> CutoffBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("cutoff_behavior");
-        set => this.WithProperty("cutoff_behavior", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cutoff_behavior");
+        set => SetProperty("cutoff_behavior", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformProperty<string>? MaxConcurrency
+    public TerraformProperty<string> MaxConcurrency
     {
-        get => GetProperty<TerraformProperty<string>>("max_concurrency");
-        set => this.WithProperty("max_concurrency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("max_concurrency");
+        set => SetProperty("max_concurrency", value);
     }
 
     /// <summary>
     /// The max_errors attribute.
     /// </summary>
-    public TerraformProperty<string>? MaxErrors
+    public TerraformProperty<string> MaxErrors
     {
-        get => GetProperty<TerraformProperty<string>>("max_errors");
-        set => this.WithProperty("max_errors", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("max_errors");
+        set => SetProperty("max_errors", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceRoleArn
+    public TerraformProperty<string> ServiceRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_role_arn");
-        set => this.WithProperty("service_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_role_arn");
+        set => SetProperty("service_role_arn", value);
     }
 
     /// <summary>
@@ -142,8 +152,8 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskArn is required")]
     public required TerraformProperty<string> TaskArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_arn");
-        set => this.WithProperty("task_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_arn");
+        set => SetProperty("task_arn", value);
     }
 
     /// <summary>
@@ -152,8 +162,8 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformProperty<string> TaskType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_type");
-        set => this.WithProperty("task_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_type");
+        set => SetProperty("task_type", value);
     }
 
     /// <summary>
@@ -162,8 +172,8 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowId is required")]
     public required TerraformProperty<string> WindowId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("window_id");
-        set => this.WithProperty("window_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("window_id");
+        set => SetProperty("window_id", value);
     }
 
     /// <summary>
@@ -173,8 +183,7 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Targets block(s) allowed")]
     public List<AwsSsmMaintenanceWindowTaskTargetsBlock>? Targets
     {
-        get => GetProperty<List<AwsSsmMaintenanceWindowTaskTargetsBlock>>("targets");
-        set => this.WithProperty("targets", value);
+        set => SetProperty("targets", value);
     }
 
     /// <summary>
@@ -184,8 +193,7 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskInvocationParameters block(s) allowed")]
     public List<AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock>? TaskInvocationParameters
     {
-        get => GetProperty<List<AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock>>("task_invocation_parameters");
-        set => this.WithProperty("task_invocation_parameters", value);
+        set => SetProperty("task_invocation_parameters", value);
     }
 
     /// <summary>

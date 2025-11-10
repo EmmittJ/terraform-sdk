@@ -17,8 +17,7 @@ public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionType is required")]
     public required TerraformProperty<string> ConnectionType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_type");
-        set => WithProperty("connection_type", value);
+        set => SetProperty("connection_type", value);
     }
 
     /// <summary>
@@ -29,8 +28,7 @@ public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? NccHub
     {
-        get => GetProperty<TerraformProperty<string>>("ncc_hub");
-        set => WithProperty("ncc_hub", value);
+        set => SetProperty("ncc_hub", value);
     }
 
 }
@@ -46,8 +44,7 @@ public class GoogleNetworkServicesMulticastDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -55,8 +52,7 @@ public class GoogleNetworkServicesMulticastDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -64,8 +60,7 @@ public class GoogleNetworkServicesMulticastDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -83,12 +78,20 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("unique_id");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("unique_id");
+        SetOutput("update_time");
+        SetOutput("admin_network");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("multicast_domain_group");
+        SetOutput("multicast_domain_id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -99,26 +102,26 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminNetwork is required")]
     public required TerraformProperty<string> AdminNetwork
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_network");
-        set => this.WithProperty("admin_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admin_network");
+        set => SetProperty("admin_network", value);
     }
 
     /// <summary>
     /// An optional text description of the multicast domain.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -127,10 +130,10 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -139,8 +142,8 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -148,10 +151,10 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// Use the following format:
     /// &#39;projects/{project}/locations/global/multicastDomainGroups/{multicast_domain_group}&#39;.
     /// </summary>
-    public TerraformProperty<string>? MulticastDomainGroup
+    public TerraformProperty<string> MulticastDomainGroup
     {
-        get => GetProperty<TerraformProperty<string>>("multicast_domain_group");
-        set => this.WithProperty("multicast_domain_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("multicast_domain_group");
+        set => SetProperty("multicast_domain_group", value);
     }
 
     /// <summary>
@@ -163,29 +166,29 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MulticastDomainId is required")]
     public required TerraformProperty<string> MulticastDomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("multicast_domain_id");
-        set => this.WithProperty("multicast_domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("multicast_domain_id");
+        set => SetProperty("multicast_domain_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for connection_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionConfig block(s) allowed")]
     public List<GoogleNetworkServicesMulticastDomainConnectionConfigBlock>? ConnectionConfig
     {
-        get => GetProperty<List<GoogleNetworkServicesMulticastDomainConnectionConfigBlock>>("connection_config");
-        set => this.WithProperty("connection_config", value);
+        set => SetProperty("connection_config", value);
     }
 
     /// <summary>
@@ -194,8 +197,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// </summary>
     public GoogleNetworkServicesMulticastDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkServicesMulticastDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

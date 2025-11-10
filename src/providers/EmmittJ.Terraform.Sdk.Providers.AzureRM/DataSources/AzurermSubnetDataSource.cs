@@ -13,8 +13,7 @@ public class AzurermSubnetDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,27 @@ public class AzurermSubnetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("address_prefix");
-        this.WithOutput("address_prefixes");
-        this.WithOutput("default_outbound_access_enabled");
-        this.WithOutput("network_security_group_id");
-        this.WithOutput("private_endpoint_network_policies");
-        this.WithOutput("private_link_service_network_policies_enabled");
-        this.WithOutput("route_table_id");
-        this.WithOutput("service_endpoints");
+        SetOutput("address_prefix");
+        SetOutput("address_prefixes");
+        SetOutput("default_outbound_access_enabled");
+        SetOutput("network_security_group_id");
+        SetOutput("private_endpoint_network_policies");
+        SetOutput("private_link_service_network_policies_enabled");
+        SetOutput("route_table_id");
+        SetOutput("service_endpoints");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("virtual_network_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -56,8 +59,8 @@ public class AzurermSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -66,8 +69,8 @@ public class AzurermSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -76,8 +79,8 @@ public class AzurermSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
     public required TerraformProperty<string> VirtualNetworkName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_name");
-        set => this.WithProperty("virtual_network_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_name");
+        set => SetProperty("virtual_network_name", value);
     }
 
     /// <summary>
@@ -86,8 +89,7 @@ public class AzurermSubnetDataSource : TerraformDataSource
     /// </summary>
     public AzurermSubnetDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSubnetDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

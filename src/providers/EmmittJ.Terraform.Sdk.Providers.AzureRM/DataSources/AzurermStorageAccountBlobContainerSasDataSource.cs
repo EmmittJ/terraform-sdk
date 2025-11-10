@@ -14,8 +14,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Add is required")]
     public required TerraformProperty<bool> Add
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("add");
-        set => WithProperty("add", value);
+        set => SetProperty("add", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Create is required")]
     public required TerraformProperty<bool> Create
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
     public required TerraformProperty<bool> Delete
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "List is required")]
     public required TerraformProperty<bool> List
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("list");
-        set => WithProperty("list", value);
+        set => SetProperty("list", value);
     }
 
     /// <summary>
@@ -54,8 +50,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
     public required TerraformProperty<bool> Read
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -64,8 +59,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
     public required TerraformProperty<bool> Write
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("write");
-        set => WithProperty("write", value);
+        set => SetProperty("write", value);
     }
 
 }
@@ -81,8 +75,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -100,16 +93,28 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("sas");
+        SetOutput("sas");
+        SetOutput("cache_control");
+        SetOutput("connection_string");
+        SetOutput("container_name");
+        SetOutput("content_disposition");
+        SetOutput("content_encoding");
+        SetOutput("content_language");
+        SetOutput("content_type");
+        SetOutput("expiry");
+        SetOutput("https_only");
+        SetOutput("id");
+        SetOutput("ip_address");
+        SetOutput("start");
     }
 
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
-    public TerraformProperty<string>? CacheControl
+    public TerraformProperty<string> CacheControl
     {
-        get => GetProperty<TerraformProperty<string>>("cache_control");
-        set => this.WithProperty("cache_control", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cache_control");
+        set => SetProperty("cache_control", value);
     }
 
     /// <summary>
@@ -118,8 +123,8 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -128,44 +133,44 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => this.WithProperty("container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentDisposition
+    public TerraformProperty<string> ContentDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("content_disposition");
-        set => this.WithProperty("content_disposition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_disposition");
+        set => SetProperty("content_disposition", value);
     }
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentEncoding
+    public TerraformProperty<string> ContentEncoding
     {
-        get => GetProperty<TerraformProperty<string>>("content_encoding");
-        set => this.WithProperty("content_encoding", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_encoding");
+        set => SetProperty("content_encoding", value);
     }
 
     /// <summary>
     /// The content_language attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentLanguage
+    public TerraformProperty<string> ContentLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("content_language");
-        set => this.WithProperty("content_language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_language");
+        set => SetProperty("content_language", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    public TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => this.WithProperty("content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
@@ -174,35 +179,35 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     public required TerraformProperty<string> Expiry
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expiry");
-        set => this.WithProperty("expiry", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiry");
+        set => SetProperty("expiry", value);
     }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? HttpsOnly
+    public TerraformProperty<bool> HttpsOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("https_only");
-        set => this.WithProperty("https_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("https_only");
+        set => SetProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
+    public TerraformProperty<string> IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => this.WithProperty("ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_address");
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
@@ -211,20 +216,20 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformProperty<string> Start
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start");
-        set => this.WithProperty("start", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start");
+        set => SetProperty("start", value);
     }
 
     /// <summary>
     /// Block for permissions.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Permissions block(s) allowed")]
     public List<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock>? Permissions
     {
-        get => GetProperty<List<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock>>("permissions");
-        set => this.WithProperty("permissions", value);
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
@@ -233,8 +238,7 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// </summary>
     public AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

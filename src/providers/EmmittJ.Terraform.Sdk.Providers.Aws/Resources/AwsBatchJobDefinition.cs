@@ -21,8 +21,7 @@ public class AwsBatchJobDefinitionRetryStrategyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Attempts
     {
-        get => GetProperty<TerraformProperty<double>>("attempts");
-        set => WithProperty("attempts", value);
+        set => SetProperty("attempts", value);
     }
 
 }
@@ -38,8 +37,7 @@ public class AwsBatchJobDefinitionTimeoutBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AttemptDurationSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("attempt_duration_seconds");
-        set => WithProperty("attempt_duration_seconds", value);
+        set => SetProperty("attempt_duration_seconds", value);
     }
 
 }
@@ -57,45 +55,59 @@ public class AwsBatchJobDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("arn_prefix");
-        this.WithOutput("revision");
+        SetOutput("arn");
+        SetOutput("arn_prefix");
+        SetOutput("revision");
+        SetOutput("container_properties");
+        SetOutput("deregister_on_new_revision");
+        SetOutput("ecs_properties");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("node_properties");
+        SetOutput("parameters");
+        SetOutput("platform_capabilities");
+        SetOutput("propagate_tags");
+        SetOutput("region");
+        SetOutput("scheduling_priority");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The container_properties attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerProperties
+    public TerraformProperty<string> ContainerProperties
     {
-        get => GetProperty<TerraformProperty<string>>("container_properties");
-        set => this.WithProperty("container_properties", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_properties");
+        set => SetProperty("container_properties", value);
     }
 
     /// <summary>
     /// The deregister_on_new_revision attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeregisterOnNewRevision
+    public TerraformProperty<bool> DeregisterOnNewRevision
     {
-        get => GetProperty<TerraformProperty<bool>>("deregister_on_new_revision");
-        set => this.WithProperty("deregister_on_new_revision", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deregister_on_new_revision");
+        set => SetProperty("deregister_on_new_revision", value);
     }
 
     /// <summary>
     /// The ecs_properties attribute.
     /// </summary>
-    public TerraformProperty<string>? EcsProperties
+    public TerraformProperty<string> EcsProperties
     {
-        get => GetProperty<TerraformProperty<string>>("ecs_properties");
-        set => this.WithProperty("ecs_properties", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ecs_properties");
+        set => SetProperty("ecs_properties", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,80 +116,80 @@ public class AwsBatchJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The node_properties attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeProperties
+    public TerraformProperty<string> NodeProperties
     {
-        get => GetProperty<TerraformProperty<string>>("node_properties");
-        set => this.WithProperty("node_properties", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_properties");
+        set => SetProperty("node_properties", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// The platform_capabilities attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? PlatformCapabilities
+    public HashSet<TerraformProperty<string>> PlatformCapabilities
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("platform_capabilities");
-        set => this.WithProperty("platform_capabilities", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("platform_capabilities");
+        set => SetProperty("platform_capabilities", value);
     }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
-    public TerraformProperty<bool>? PropagateTags
+    public TerraformProperty<bool> PropagateTags
     {
-        get => GetProperty<TerraformProperty<bool>>("propagate_tags");
-        set => this.WithProperty("propagate_tags", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("propagate_tags");
+        set => SetProperty("propagate_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The scheduling_priority attribute.
     /// </summary>
-    public TerraformProperty<double>? SchedulingPriority
+    public TerraformProperty<double> SchedulingPriority
     {
-        get => GetProperty<TerraformProperty<double>>("scheduling_priority");
-        set => this.WithProperty("scheduling_priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scheduling_priority");
+        set => SetProperty("scheduling_priority", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -186,8 +198,8 @@ public class AwsBatchJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -197,8 +209,7 @@ public class AwsBatchJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EksProperties block(s) allowed")]
     public List<AwsBatchJobDefinitionEksPropertiesBlock>? EksProperties
     {
-        get => GetProperty<List<AwsBatchJobDefinitionEksPropertiesBlock>>("eks_properties");
-        set => this.WithProperty("eks_properties", value);
+        set => SetProperty("eks_properties", value);
     }
 
     /// <summary>
@@ -208,8 +219,7 @@ public class AwsBatchJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryStrategy block(s) allowed")]
     public List<AwsBatchJobDefinitionRetryStrategyBlock>? RetryStrategy
     {
-        get => GetProperty<List<AwsBatchJobDefinitionRetryStrategyBlock>>("retry_strategy");
-        set => this.WithProperty("retry_strategy", value);
+        set => SetProperty("retry_strategy", value);
     }
 
     /// <summary>
@@ -219,8 +229,7 @@ public class AwsBatchJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Timeout block(s) allowed")]
     public List<AwsBatchJobDefinitionTimeoutBlock>? Timeout
     {
-        get => GetProperty<List<AwsBatchJobDefinitionTimeoutBlock>>("timeout");
-        set => this.WithProperty("timeout", value);
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>

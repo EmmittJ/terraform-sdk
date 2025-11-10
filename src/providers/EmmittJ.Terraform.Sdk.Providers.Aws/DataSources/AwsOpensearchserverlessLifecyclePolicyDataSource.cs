@@ -14,12 +14,15 @@ public class AwsOpensearchserverlessLifecyclePolicyDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_date");
-        this.WithOutput("description");
-        this.WithOutput("id");
-        this.WithOutput("last_modified_date");
-        this.WithOutput("policy");
-        this.WithOutput("policy_version");
+        SetOutput("created_date");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("last_modified_date");
+        SetOutput("policy");
+        SetOutput("policy_version");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -28,17 +31,17 @@ public class AwsOpensearchserverlessLifecyclePolicyDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -47,8 +50,8 @@ public class AwsOpensearchserverlessLifecyclePolicyDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>

@@ -22,25 +22,32 @@ public class AwsS3tablesTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("created_by");
-        this.WithOutput("metadata_location");
-        this.WithOutput("modified_at");
-        this.WithOutput("modified_by");
-        this.WithOutput("owner_account_id");
-        this.WithOutput("type");
-        this.WithOutput("version_token");
-        this.WithOutput("warehouse_location");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("created_by");
+        SetOutput("metadata_location");
+        SetOutput("modified_at");
+        SetOutput("modified_by");
+        SetOutput("owner_account_id");
+        SetOutput("type");
+        SetOutput("version_token");
+        SetOutput("warehouse_location");
+        SetOutput("encryption_configuration");
+        SetOutput("format");
+        SetOutput("maintenance_configuration");
+        SetOutput("name");
+        SetOutput("namespace");
+        SetOutput("region");
+        SetOutput("table_bucket_arn");
     }
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformProperty<object>? EncryptionConfiguration
+    public TerraformProperty<object> EncryptionConfiguration
     {
-        get => GetProperty<TerraformProperty<object>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        get => GetRequiredOutput<TerraformProperty<object>>("encryption_configuration");
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -49,17 +56,17 @@ public class AwsS3tablesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("format");
-        set => this.WithProperty("format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("format");
+        set => SetProperty("format", value);
     }
 
     /// <summary>
     /// The maintenance_configuration attribute.
     /// </summary>
-    public TerraformProperty<object>? MaintenanceConfiguration
+    public TerraformProperty<object> MaintenanceConfiguration
     {
-        get => GetProperty<TerraformProperty<object>>("maintenance_configuration");
-        set => this.WithProperty("maintenance_configuration", value);
+        get => GetRequiredOutput<TerraformProperty<object>>("maintenance_configuration");
+        set => SetProperty("maintenance_configuration", value);
     }
 
     /// <summary>
@@ -68,8 +75,8 @@ public class AwsS3tablesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -78,17 +85,17 @@ public class AwsS3tablesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
-        set => this.WithProperty("namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -97,8 +104,8 @@ public class AwsS3tablesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
     public required TerraformProperty<string> TableBucketArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_bucket_arn");
-        set => this.WithProperty("table_bucket_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_bucket_arn");
+        set => SetProperty("table_bucket_arn", value);
     }
 
     /// <summary>
@@ -107,8 +114,7 @@ public class AwsS3tablesTable : TerraformResource
     /// </summary>
     public List<AwsS3tablesTableMetadataBlock>? Metadata
     {
-        get => GetProperty<List<AwsS3tablesTableMetadataBlock>>("metadata");
-        set => this.WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermIothubCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("certificate_content");
+        SetOutput("id");
+        SetOutput("iothub_name");
+        SetOutput("is_verified");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -66,17 +68,17 @@ public class AzurermIothubCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateContent is required")]
     public required TerraformProperty<string> CertificateContent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_content");
-        set => this.WithProperty("certificate_content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_content");
+        set => SetProperty("certificate_content", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,17 +87,17 @@ public class AzurermIothubCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
     public required TerraformProperty<string> IothubName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_name");
-        set => this.WithProperty("iothub_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_name");
+        set => SetProperty("iothub_name", value);
     }
 
     /// <summary>
     /// The is_verified attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsVerified
+    public TerraformProperty<bool> IsVerified
     {
-        get => GetProperty<TerraformProperty<bool>>("is_verified");
-        set => this.WithProperty("is_verified", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_verified");
+        set => SetProperty("is_verified", value);
     }
 
     /// <summary>
@@ -104,8 +106,8 @@ public class AzurermIothubCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AzurermIothubCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermIothubCertificate : TerraformResource
     /// </summary>
     public AzurermIothubCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

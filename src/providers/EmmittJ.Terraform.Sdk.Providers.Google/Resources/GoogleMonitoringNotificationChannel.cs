@@ -13,8 +13,7 @@ public class GoogleMonitoringNotificationChannelSensitiveLabelsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? AuthToken
     {
-        get => GetProperty<TerraformProperty<string>>("auth_token");
-        set => WithProperty("auth_token", value);
+        set => SetProperty("auth_token", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleMonitoringNotificationChannelSensitiveLabelsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleMonitoringNotificationChannelSensitiveLabelsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? ServiceKey
     {
-        get => GetProperty<TerraformProperty<string>>("service_key");
-        set => WithProperty("service_key", value);
+        set => SetProperty("service_key", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class GoogleMonitoringNotificationChannelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleMonitoringNotificationChannelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class GoogleMonitoringNotificationChannelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,35 +79,44 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("verification_status");
+        SetOutput("name");
+        SetOutput("verification_status");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("enabled");
+        SetOutput("force_delete");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("project");
+        SetOutput("type");
+        SetOutput("user_labels");
     }
 
     /// <summary>
     /// An optional human-readable description of this notification channel. This description may provide additional details, beyond the display name, for the channel. This may not exceed 1024 Unicode characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// An optional human-readable name for this notification channel. It is recommended that you specify a non-empty and unique name in order to make it easier to identify the channels in your project, though this is not enforced. The display name is limited to 512 Unicode characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether notifications are forwarded to the described channel. This makes it possible to disable delivery of notifications to a particular channel without removing the channel from all alerting policies that reference the channel. This is a more convenient approach when the change is temporary and you want to receive notifications from the same set of alerting policies on the channel at some point in the future.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -123,19 +126,19 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
     /// referenced by an existing alerting policy will fail to be
     /// deleted in a delete operation.
     /// </summary>
-    public TerraformProperty<bool>? ForceDelete
+    public TerraformProperty<bool> ForceDelete
     {
-        get => GetProperty<TerraformProperty<bool>>("force_delete");
-        set => this.WithProperty("force_delete", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete");
+        set => SetProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -147,19 +150,19 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
     /// determine if there are upstream changes to these fields. They can also be configured via
     /// the sensitive_labels block, but cannot be configured in both places.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -168,17 +171,17 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor&#39;s schema, unlike the labels field. This field is intended to be used for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? UserLabels
+    public Dictionary<string, TerraformProperty<string>> UserLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_labels");
-        set => this.WithProperty("user_labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("user_labels");
+        set => SetProperty("user_labels", value);
     }
 
     /// <summary>
@@ -188,8 +191,7 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SensitiveLabels block(s) allowed")]
     public List<GoogleMonitoringNotificationChannelSensitiveLabelsBlock>? SensitiveLabels
     {
-        get => GetProperty<List<GoogleMonitoringNotificationChannelSensitiveLabelsBlock>>("sensitive_labels");
-        set => this.WithProperty("sensitive_labels", value);
+        set => SetProperty("sensitive_labels", value);
     }
 
     /// <summary>
@@ -198,8 +200,7 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
     /// </summary>
     public GoogleMonitoringNotificationChannelTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMonitoringNotificationChannelTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

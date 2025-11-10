@@ -13,8 +13,7 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AdminEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("admin_enabled");
-        set => WithProperty("admin_enabled", value);
+        set => SetProperty("admin_enabled", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectorType
     {
-        get => GetProperty<TerraformProperty<string>>("connector_type");
-        set => WithProperty("connector_type", value);
+        set => SetProperty("connector_type", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InterfaceName
     {
-        get => GetProperty<TerraformProperty<string>>("interface_name");
-        set => WithProperty("interface_name", value);
+        set => SetProperty("interface_name", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MacsecCakKeyvaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("macsec_cak_keyvault_secret_id");
-        set => WithProperty("macsec_cak_keyvault_secret_id", value);
+        set => SetProperty("macsec_cak_keyvault_secret_id", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MacsecCipher
     {
-        get => GetProperty<TerraformProperty<string>>("macsec_cipher");
-        set => WithProperty("macsec_cipher", value);
+        set => SetProperty("macsec_cipher", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MacsecCknKeyvaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("macsec_ckn_keyvault_secret_id");
-        set => WithProperty("macsec_ckn_keyvault_secret_id", value);
+        set => SetProperty("macsec_ckn_keyvault_secret_id", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MacsecSciEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("macsec_sci_enabled");
-        set => WithProperty("macsec_sci_enabled", value);
+        set => SetProperty("macsec_sci_enabled", value);
     }
 
     /// <summary>
@@ -130,8 +118,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PatchPanelId
     {
-        get => GetProperty<TerraformProperty<string>>("patch_panel_id");
-        set => WithProperty("patch_panel_id", value);
+        set => SetProperty("patch_panel_id", value);
     }
 
     /// <summary>
@@ -139,8 +126,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RackId
     {
-        get => GetProperty<TerraformProperty<string>>("rack_id");
-        set => WithProperty("rack_id", value);
+        set => SetProperty("rack_id", value);
     }
 
     /// <summary>
@@ -148,8 +134,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RouterName
     {
-        get => GetProperty<TerraformProperty<string>>("router_name");
-        set => WithProperty("router_name", value);
+        set => SetProperty("router_name", value);
     }
 
 }
@@ -165,8 +150,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AdminEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("admin_enabled");
-        set => WithProperty("admin_enabled", value);
+        set => SetProperty("admin_enabled", value);
     }
 
     /// <summary>
@@ -174,8 +158,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectorType
     {
-        get => GetProperty<TerraformProperty<string>>("connector_type");
-        set => WithProperty("connector_type", value);
+        set => SetProperty("connector_type", value);
     }
 
     /// <summary>
@@ -183,8 +166,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -192,8 +174,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InterfaceName
     {
-        get => GetProperty<TerraformProperty<string>>("interface_name");
-        set => WithProperty("interface_name", value);
+        set => SetProperty("interface_name", value);
     }
 
     /// <summary>
@@ -201,8 +182,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MacsecCakKeyvaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("macsec_cak_keyvault_secret_id");
-        set => WithProperty("macsec_cak_keyvault_secret_id", value);
+        set => SetProperty("macsec_cak_keyvault_secret_id", value);
     }
 
     /// <summary>
@@ -210,8 +190,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MacsecCipher
     {
-        get => GetProperty<TerraformProperty<string>>("macsec_cipher");
-        set => WithProperty("macsec_cipher", value);
+        set => SetProperty("macsec_cipher", value);
     }
 
     /// <summary>
@@ -219,8 +198,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MacsecCknKeyvaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("macsec_ckn_keyvault_secret_id");
-        set => WithProperty("macsec_ckn_keyvault_secret_id", value);
+        set => SetProperty("macsec_ckn_keyvault_secret_id", value);
     }
 
     /// <summary>
@@ -228,8 +206,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MacsecSciEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("macsec_sci_enabled");
-        set => WithProperty("macsec_sci_enabled", value);
+        set => SetProperty("macsec_sci_enabled", value);
     }
 
     /// <summary>
@@ -237,8 +214,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PatchPanelId
     {
-        get => GetProperty<TerraformProperty<string>>("patch_panel_id");
-        set => WithProperty("patch_panel_id", value);
+        set => SetProperty("patch_panel_id", value);
     }
 
     /// <summary>
@@ -246,8 +222,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RackId
     {
-        get => GetProperty<TerraformProperty<string>>("rack_id");
-        set => WithProperty("rack_id", value);
+        set => SetProperty("rack_id", value);
     }
 
     /// <summary>
@@ -255,8 +230,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RouterName
     {
-        get => GetProperty<TerraformProperty<string>>("router_name");
-        set => WithProperty("router_name", value);
+        set => SetProperty("router_name", value);
     }
 
 }
@@ -272,8 +246,7 @@ public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -281,8 +254,7 @@ public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -290,8 +262,7 @@ public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -299,8 +270,7 @@ public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -318,9 +288,18 @@ public class AzurermExpressRoutePort : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ethertype");
-        this.WithOutput("guid");
-        this.WithOutput("mtu");
+        SetOutput("ethertype");
+        SetOutput("guid");
+        SetOutput("mtu");
+        SetOutput("bandwidth_in_gbps");
+        SetOutput("billing_type");
+        SetOutput("encapsulation");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("peering_location");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -329,17 +308,17 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthInGbps is required")]
     public required TerraformProperty<double> BandwidthInGbps
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("bandwidth_in_gbps");
-        set => this.WithProperty("bandwidth_in_gbps", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("bandwidth_in_gbps");
+        set => SetProperty("bandwidth_in_gbps", value);
     }
 
     /// <summary>
     /// The billing_type attribute.
     /// </summary>
-    public TerraformProperty<string>? BillingType
+    public TerraformProperty<string> BillingType
     {
-        get => GetProperty<TerraformProperty<string>>("billing_type");
-        set => this.WithProperty("billing_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_type");
+        set => SetProperty("billing_type", value);
     }
 
     /// <summary>
@@ -348,17 +327,17 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encapsulation is required")]
     public required TerraformProperty<string> Encapsulation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("encapsulation");
-        set => this.WithProperty("encapsulation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encapsulation");
+        set => SetProperty("encapsulation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -367,8 +346,8 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -377,8 +356,8 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -387,8 +366,8 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringLocation is required")]
     public required TerraformProperty<string> PeeringLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peering_location");
-        set => this.WithProperty("peering_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peering_location");
+        set => SetProperty("peering_location", value);
     }
 
     /// <summary>
@@ -397,17 +376,17 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -417,8 +396,7 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermExpressRoutePortIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermExpressRoutePortIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -428,8 +406,7 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Link1 block(s) allowed")]
     public List<AzurermExpressRoutePortLink1Block>? Link1
     {
-        get => GetProperty<List<AzurermExpressRoutePortLink1Block>>("link1");
-        set => this.WithProperty("link1", value);
+        set => SetProperty("link1", value);
     }
 
     /// <summary>
@@ -439,8 +416,7 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Link2 block(s) allowed")]
     public List<AzurermExpressRoutePortLink2Block>? Link2
     {
-        get => GetProperty<List<AzurermExpressRoutePortLink2Block>>("link2");
-        set => this.WithProperty("link2", value);
+        set => SetProperty("link2", value);
     }
 
     /// <summary>
@@ -449,8 +425,7 @@ public class AzurermExpressRoutePort : TerraformResource
     /// </summary>
     public AzurermExpressRoutePortTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermExpressRoutePortTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

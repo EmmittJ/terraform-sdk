@@ -13,8 +13,7 @@ public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlo
     /// </summary>
     public HashSet<TerraformProperty<string>>? Permissions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("permissions");
-        set => WithProperty("permissions", value);
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlo
     /// </summary>
     public TerraformProperty<string>? Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
-        set => WithProperty("principal", value);
+        set => SetProperty("principal", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock 
     /// </summary>
     public HashSet<TerraformProperty<string>>? Permissions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("permissions");
-        set => WithProperty("permissions", value);
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock 
     /// </summary>
     public TerraformProperty<string>? Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
-        set => WithProperty("principal", value);
+        set => SetProperty("principal", value);
     }
 
 }
@@ -67,105 +63,116 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("admins");
+        SetOutput("allow_external_data_filtering");
+        SetOutput("allow_full_table_external_data_access");
+        SetOutput("authorized_session_tag_value_list");
+        SetOutput("catalog_id");
+        SetOutput("external_data_filtering_allow_list");
+        SetOutput("id");
+        SetOutput("parameters");
+        SetOutput("read_only_admins");
+        SetOutput("region");
+        SetOutput("trusted_resource_owners");
     }
 
     /// <summary>
     /// The admins attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Admins
+    public HashSet<TerraformProperty<string>> Admins
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("admins");
-        set => this.WithProperty("admins", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("admins");
+        set => SetProperty("admins", value);
     }
 
     /// <summary>
     /// The allow_external_data_filtering attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowExternalDataFiltering
+    public TerraformProperty<bool> AllowExternalDataFiltering
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_external_data_filtering");
-        set => this.WithProperty("allow_external_data_filtering", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_external_data_filtering");
+        set => SetProperty("allow_external_data_filtering", value);
     }
 
     /// <summary>
     /// The allow_full_table_external_data_access attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowFullTableExternalDataAccess
+    public TerraformProperty<bool> AllowFullTableExternalDataAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_full_table_external_data_access");
-        set => this.WithProperty("allow_full_table_external_data_access", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_full_table_external_data_access");
+        set => SetProperty("allow_full_table_external_data_access", value);
     }
 
     /// <summary>
     /// The authorized_session_tag_value_list attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AuthorizedSessionTagValueList
+    public List<TerraformProperty<string>> AuthorizedSessionTagValueList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("authorized_session_tag_value_list");
-        set => this.WithProperty("authorized_session_tag_value_list", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("authorized_session_tag_value_list");
+        set => SetProperty("authorized_session_tag_value_list", value);
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The external_data_filtering_allow_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExternalDataFilteringAllowList
+    public HashSet<TerraformProperty<string>> ExternalDataFilteringAllowList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("external_data_filtering_allow_list");
-        set => this.WithProperty("external_data_filtering_allow_list", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("external_data_filtering_allow_list");
+        set => SetProperty("external_data_filtering_allow_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// The read_only_admins attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ReadOnlyAdmins
+    public HashSet<TerraformProperty<string>> ReadOnlyAdmins
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("read_only_admins");
-        set => this.WithProperty("read_only_admins", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("read_only_admins");
+        set => SetProperty("read_only_admins", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The trusted_resource_owners attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? TrustedResourceOwners
+    public List<TerraformProperty<string>> TrustedResourceOwners
     {
-        get => GetProperty<List<TerraformProperty<string>>>("trusted_resource_owners");
-        set => this.WithProperty("trusted_resource_owners", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("trusted_resource_owners");
+        set => SetProperty("trusted_resource_owners", value);
     }
 
     /// <summary>
@@ -175,8 +182,7 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 CreateDatabaseDefaultPermissions block(s) allowed")]
     public List<AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock>? CreateDatabaseDefaultPermissions
     {
-        get => GetProperty<List<AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock>>("create_database_default_permissions");
-        set => this.WithProperty("create_database_default_permissions", value);
+        set => SetProperty("create_database_default_permissions", value);
     }
 
     /// <summary>
@@ -186,8 +192,7 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 CreateTableDefaultPermissions block(s) allowed")]
     public List<AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock>? CreateTableDefaultPermissions
     {
-        get => GetProperty<List<AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock>>("create_table_default_permissions");
-        set => this.WithProperty("create_table_default_permissions", value);
+        set => SetProperty("create_table_default_permissions", value);
     }
 
 }

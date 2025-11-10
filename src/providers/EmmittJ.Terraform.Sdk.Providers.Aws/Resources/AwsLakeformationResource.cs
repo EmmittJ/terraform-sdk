@@ -14,7 +14,15 @@ public class AwsLakeformationResource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("last_modified");
+        SetOutput("last_modified");
+        SetOutput("arn");
+        SetOutput("hybrid_access_enabled");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("use_service_linked_role");
+        SetOutput("with_federation");
+        SetOutput("with_privileged_access");
     }
 
     /// <summary>
@@ -23,71 +31,71 @@ public class AwsLakeformationResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The hybrid_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HybridAccessEnabled
+    public TerraformProperty<bool> HybridAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("hybrid_access_enabled");
-        set => this.WithProperty("hybrid_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("hybrid_access_enabled");
+        set => SetProperty("hybrid_access_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The use_service_linked_role attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseServiceLinkedRole
+    public TerraformProperty<bool> UseServiceLinkedRole
     {
-        get => GetProperty<TerraformProperty<bool>>("use_service_linked_role");
-        set => this.WithProperty("use_service_linked_role", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("use_service_linked_role");
+        set => SetProperty("use_service_linked_role", value);
     }
 
     /// <summary>
     /// The with_federation attribute.
     /// </summary>
-    public TerraformProperty<bool>? WithFederation
+    public TerraformProperty<bool> WithFederation
     {
-        get => GetProperty<TerraformProperty<bool>>("with_federation");
-        set => this.WithProperty("with_federation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("with_federation");
+        set => SetProperty("with_federation", value);
     }
 
     /// <summary>
     /// The with_privileged_access attribute.
     /// </summary>
-    public TerraformProperty<bool>? WithPrivilegedAccess
+    public TerraformProperty<bool> WithPrivilegedAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("with_privileged_access");
-        set => this.WithProperty("with_privileged_access", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("with_privileged_access");
+        set => SetProperty("with_privileged_access", value);
     }
 
     /// <summary>

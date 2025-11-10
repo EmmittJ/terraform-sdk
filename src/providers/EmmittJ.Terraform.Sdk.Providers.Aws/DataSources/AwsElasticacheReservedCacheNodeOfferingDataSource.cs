@@ -14,8 +14,13 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fixed_price");
-        this.WithOutput("offering_id");
+        SetOutput("fixed_price");
+        SetOutput("offering_id");
+        SetOutput("cache_node_type");
+        SetOutput("duration");
+        SetOutput("offering_type");
+        SetOutput("product_description");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,8 +29,8 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheNodeType is required")]
     public required TerraformProperty<string> CacheNodeType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cache_node_type");
-        set => this.WithProperty("cache_node_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cache_node_type");
+        set => SetProperty("cache_node_type", value);
     }
 
     /// <summary>
@@ -34,8 +39,8 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<string> Duration
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("duration");
-        set => this.WithProperty("duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("duration");
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
@@ -44,8 +49,8 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingType is required")]
     public required TerraformProperty<string> OfferingType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("offering_type");
-        set => this.WithProperty("offering_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("offering_type");
+        set => SetProperty("offering_type", value);
     }
 
     /// <summary>
@@ -54,17 +59,17 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductDescription is required")]
     public required TerraformProperty<string> ProductDescription
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product_description");
-        set => this.WithProperty("product_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_description");
+        set => SetProperty("product_description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermApiManagementGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,8 +30,11 @@ public class AzurermApiManagementGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("location_data");
+        SetOutput("description");
+        SetOutput("location_data");
+        SetOutput("api_management_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -41,17 +43,17 @@ public class AzurermApiManagementGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
-        set => this.WithProperty("api_management_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_id");
+        set => SetProperty("api_management_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +62,8 @@ public class AzurermApiManagementGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -70,8 +72,7 @@ public class AzurermApiManagementGatewayDataSource : TerraformDataSource
     /// </summary>
     public AzurermApiManagementGatewayDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementGatewayDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

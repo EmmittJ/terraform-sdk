@@ -14,8 +14,11 @@ public class GoogleHealthcareConsentStoreIamPolicyDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("consent_store_id");
+        SetOutput("dataset");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -24,8 +27,8 @@ public class GoogleHealthcareConsentStoreIamPolicyDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsentStoreId is required")]
     public required TerraformProperty<string> ConsentStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("consent_store_id");
-        set => this.WithProperty("consent_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("consent_store_id");
+        set => SetProperty("consent_store_id", value);
     }
 
     /// <summary>
@@ -34,17 +37,17 @@ public class GoogleHealthcareConsentStoreIamPolicyDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
-        set => this.WithProperty("dataset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

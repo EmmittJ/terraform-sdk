@@ -14,12 +14,14 @@ public class GoogleTagsTagValueDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("description");
-        this.WithOutput("id");
-        this.WithOutput("name");
-        this.WithOutput("namespaced_name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("namespaced_name");
+        SetOutput("update_time");
+        SetOutput("parent");
+        SetOutput("short_name");
     }
 
     /// <summary>
@@ -28,8 +30,8 @@ public class GoogleTagsTagValueDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -38,8 +40,8 @@ public class GoogleTagsTagValueDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     public required TerraformProperty<string> ShortName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("short_name");
-        set => this.WithProperty("short_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("short_name");
+        set => SetProperty("short_name", value);
     }
 
     /// <summary>

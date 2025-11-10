@@ -15,8 +15,7 @@ public class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchPattern is required")]
     public required TerraformProperty<string> BranchPattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("branch_pattern");
-        set => WithProperty("branch_pattern", value);
+        set => SetProperty("branch_pattern", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource");
-        set => WithProperty("resource", value);
+        set => SetProperty("resource", value);
     }
 
 }
@@ -43,8 +41,7 @@ public class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -80,11 +75,17 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("code_repository_index");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("repository_group_id");
     }
 
     /// <summary>
@@ -93,17 +94,17 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndex is required")]
     public required TerraformProperty<string> CodeRepositoryIndex
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("code_repository_index");
-        set => this.WithProperty("code_repository_index", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("code_repository_index");
+        set => SetProperty("code_repository_index", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,10 +113,10 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -124,17 +125,17 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -143,19 +144,19 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryGroupId is required")]
     public required TerraformProperty<string> RepositoryGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_group_id");
-        set => this.WithProperty("repository_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_group_id");
+        set => SetProperty("repository_group_id", value);
     }
 
     /// <summary>
     /// Block for repositories.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repositories is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Repositories block(s) required")]
     public List<GoogleGeminiRepositoryGroupRepositoriesBlock>? Repositories
     {
-        get => GetProperty<List<GoogleGeminiRepositoryGroupRepositoriesBlock>>("repositories");
-        set => this.WithProperty("repositories", value);
+        set => SetProperty("repositories", value);
     }
 
     /// <summary>
@@ -164,8 +165,7 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     /// </summary>
     public GoogleGeminiRepositoryGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGeminiRepositoryGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlAllowCredentials is required")]
     public required TerraformProperty<bool> AccessControlAllowCredentials
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("access_control_allow_credentials");
-        set => WithProperty("access_control_allow_credentials", value);
+        set => SetProperty("access_control_allow_credentials", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AccessControlMaxAgeSec
     {
-        get => GetProperty<TerraformProperty<double>>("access_control_max_age_sec");
-        set => WithProperty("access_control_max_age_sec", value);
+        set => SetProperty("access_control_max_age_sec", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginOverride is required")]
     public required TerraformProperty<bool> OriginOverride
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("origin_override");
-        set => WithProperty("origin_override", value);
+        set => SetProperty("origin_override", value);
     }
 
 }
@@ -75,8 +72,7 @@ public class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -85,8 +81,7 @@ public class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
     public required TerraformProperty<double> SamplingRate
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("sampling_rate");
-        set => WithProperty("sampling_rate", value);
+        set => SetProperty("sampling_rate", value);
     }
 
 }
@@ -104,26 +99,29 @@ public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("etag");
+        SetOutput("arn");
+        SetOutput("etag");
+        SetOutput("comment");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -132,8 +130,8 @@ public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -143,8 +141,7 @@ public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfig block(s) allowed")]
     public List<AwsCloudfrontResponseHeadersPolicyCorsConfigBlock>? CorsConfig
     {
-        get => GetProperty<List<AwsCloudfrontResponseHeadersPolicyCorsConfigBlock>>("cors_config");
-        set => this.WithProperty("cors_config", value);
+        set => SetProperty("cors_config", value);
     }
 
     /// <summary>
@@ -154,8 +151,7 @@ public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomHeadersConfig block(s) allowed")]
     public List<AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock>? CustomHeadersConfig
     {
-        get => GetProperty<List<AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock>>("custom_headers_config");
-        set => this.WithProperty("custom_headers_config", value);
+        set => SetProperty("custom_headers_config", value);
     }
 
     /// <summary>
@@ -165,8 +161,7 @@ public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoveHeadersConfig block(s) allowed")]
     public List<AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock>? RemoveHeadersConfig
     {
-        get => GetProperty<List<AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock>>("remove_headers_config");
-        set => this.WithProperty("remove_headers_config", value);
+        set => SetProperty("remove_headers_config", value);
     }
 
     /// <summary>
@@ -176,8 +171,7 @@ public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityHeadersConfig block(s) allowed")]
     public List<AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock>? SecurityHeadersConfig
     {
-        get => GetProperty<List<AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock>>("security_headers_config");
-        set => this.WithProperty("security_headers_config", value);
+        set => SetProperty("security_headers_config", value);
     }
 
     /// <summary>
@@ -187,8 +181,7 @@ public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerTimingHeadersConfig block(s) allowed")]
     public List<AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock>? ServerTimingHeadersConfig
     {
-        get => GetProperty<List<AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock>>("server_timing_headers_config");
-        set => this.WithProperty("server_timing_headers_config", value);
+        set => SetProperty("server_timing_headers_config", value);
     }
 
     /// <summary>

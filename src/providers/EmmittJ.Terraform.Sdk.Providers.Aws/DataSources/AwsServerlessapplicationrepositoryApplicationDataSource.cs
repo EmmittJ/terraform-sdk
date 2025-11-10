@@ -14,10 +14,14 @@ public class AwsServerlessapplicationrepositoryApplicationDataSource : Terraform
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("required_capabilities");
-        this.WithOutput("source_code_url");
-        this.WithOutput("template_url");
+        SetOutput("name");
+        SetOutput("required_capabilities");
+        SetOutput("source_code_url");
+        SetOutput("template_url");
+        SetOutput("application_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("semantic_version");
     }
 
     /// <summary>
@@ -26,35 +30,35 @@ public class AwsServerlessapplicationrepositoryApplicationDataSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The semantic_version attribute.
     /// </summary>
-    public TerraformProperty<string>? SemanticVersion
+    public TerraformProperty<string> SemanticVersion
     {
-        get => GetProperty<TerraformProperty<string>>("semantic_version");
-        set => this.WithProperty("semantic_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("semantic_version");
+        set => SetProperty("semantic_version", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public List<TerraformProperty<string>>? DaysOfWeek
     {
-        get => GetProperty<List<TerraformProperty<string>>>("days_of_week");
-        set => WithProperty("days_of_week", value);
+        set => SetProperty("days_of_week", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public List<TerraformProperty<double>>? HoursOfDay
     {
-        get => GetProperty<List<TerraformProperty<double>>>("hours_of_day");
-        set => WithProperty("hours_of_day", value);
+        set => SetProperty("hours_of_day", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? LeadTimeInWeeks
     {
-        get => GetProperty<TerraformProperty<double>>("lead_time_in_weeks");
-        set => WithProperty("lead_time_in_weeks", value);
+        set => SetProperty("lead_time_in_weeks", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public List<TerraformProperty<string>>? Months
     {
-        get => GetProperty<List<TerraformProperty<string>>>("months");
-        set => WithProperty("months", value);
+        set => SetProperty("months", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? PatchingMode
     {
-        get => GetProperty<TerraformProperty<string>>("patching_mode");
-        set => WithProperty("patching_mode", value);
+        set => SetProperty("patching_mode", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Preference
     {
-        get => GetProperty<TerraformProperty<string>>("preference");
-        set => WithProperty("preference", value);
+        set => SetProperty("preference", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// </summary>
     public List<TerraformProperty<double>>? WeeksOfMonth
     {
-        get => GetProperty<List<TerraformProperty<double>>>("weeks_of_month");
-        set => WithProperty("weeks_of_month", value);
+        set => SetProperty("weeks_of_month", value);
     }
 
 }
@@ -84,8 +77,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -129,6 +118,19 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("compute_count");
+        SetOutput("customer_contacts");
+        SetOutput("database_server_type");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("shape");
+        SetOutput("storage_count");
+        SetOutput("storage_server_type");
+        SetOutput("tags");
+        SetOutput("zones");
     }
 
     /// <summary>
@@ -137,26 +139,26 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
     public required TerraformProperty<double> ComputeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("compute_count");
-        set => this.WithProperty("compute_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("compute_count");
+        set => SetProperty("compute_count", value);
     }
 
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? CustomerContacts
+    public List<TerraformProperty<string>> CustomerContacts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("customer_contacts");
-        set => this.WithProperty("customer_contacts", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("customer_contacts");
+        set => SetProperty("customer_contacts", value);
     }
 
     /// <summary>
     /// The database_server_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseServerType
+    public TerraformProperty<string> DatabaseServerType
     {
-        get => GetProperty<TerraformProperty<string>>("database_server_type");
-        set => this.WithProperty("database_server_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_server_type");
+        set => SetProperty("database_server_type", value);
     }
 
     /// <summary>
@@ -165,17 +167,17 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -184,8 +186,8 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -194,8 +196,8 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -204,8 +206,8 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -214,8 +216,8 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformProperty<string> Shape
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("shape");
-        set => this.WithProperty("shape", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shape");
+        set => SetProperty("shape", value);
     }
 
     /// <summary>
@@ -224,36 +226,36 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCount is required")]
     public required TerraformProperty<double> StorageCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("storage_count");
-        set => this.WithProperty("storage_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_count");
+        set => SetProperty("storage_count", value);
     }
 
     /// <summary>
     /// The storage_server_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageServerType
+    public TerraformProperty<string> StorageServerType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_server_type");
-        set => this.WithProperty("storage_server_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_server_type");
+        set => SetProperty("storage_server_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
@@ -262,8 +264,7 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     /// </summary>
     public List<AzurermOracleExadataInfrastructureMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetProperty<List<AzurermOracleExadataInfrastructureMaintenanceWindowBlock>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
@@ -272,8 +273,7 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     /// </summary>
     public AzurermOracleExadataInfrastructureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleExadataInfrastructureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

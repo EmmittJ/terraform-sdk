@@ -14,8 +14,12 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("custom_domain_certificate_expiry_time");
-        this.WithOutput("id");
+        SetOutput("custom_domain_certificate_expiry_time");
+        SetOutput("id");
+        SetOutput("custom_domain_certificate_arn");
+        SetOutput("custom_domain_name");
+        SetOutput("region");
+        SetOutput("workgroup_name");
     }
 
     /// <summary>
@@ -24,8 +28,8 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDomainCertificateArn is required")]
     public required TerraformProperty<string> CustomDomainCertificateArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_domain_certificate_arn");
-        set => this.WithProperty("custom_domain_certificate_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_domain_certificate_arn");
+        set => SetProperty("custom_domain_certificate_arn", value);
     }
 
     /// <summary>
@@ -34,17 +38,17 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDomainName is required")]
     public required TerraformProperty<string> CustomDomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_domain_name");
-        set => this.WithProperty("custom_domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_domain_name");
+        set => SetProperty("custom_domain_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -53,8 +57,8 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformProperty<string> WorkgroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workgroup_name");
-        set => this.WithProperty("workgroup_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workgroup_name");
+        set => SetProperty("workgroup_name", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? CommonName
     {
-        get => GetProperty<TerraformProperty<string>>("common_name");
-        set => WithProperty("common_name", value);
+        set => SetProperty("common_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? CountryCode
     {
-        get => GetProperty<TerraformProperty<string>>("country_code");
-        set => WithProperty("country_code", value);
+        set => SetProperty("country_code", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Locality
     {
-        get => GetProperty<TerraformProperty<string>>("locality");
-        set => WithProperty("locality", value);
+        set => SetProperty("locality", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Org
     {
-        get => GetProperty<TerraformProperty<string>>("org");
-        set => WithProperty("org", value);
+        set => SetProperty("org", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? OrgUnit
     {
-        get => GetProperty<TerraformProperty<string>>("org_unit");
-        set => WithProperty("org_unit", value);
+        set => SetProperty("org_unit", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -84,8 +77,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsName
     /// </summary>
     public TerraformProperty<string>? SubjectAlternativeName
     {
-        get => GetProperty<TerraformProperty<string>>("subject_alternative_name");
-        set => WithProperty("subject_alternative_name", value);
+        set => SetProperty("subject_alternative_name", value);
     }
 
 }
@@ -101,8 +93,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -129,8 +119,16 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certs_info");
-        this.WithOutput("type");
+        SetOutput("certs_info");
+        SetOutput("type");
+        SetOutput("alias");
+        SetOutput("cert_validity_in_days");
+        SetOutput("environment");
+        SetOutput("id");
+        SetOutput("key_size");
+        SetOutput("keystore");
+        SetOutput("org_id");
+        SetOutput("sig_alg");
     }
 
     /// <summary>
@@ -141,17 +139,17 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformProperty<string> Alias
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alias");
-        set => this.WithProperty("alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias");
+        set => SetProperty("alias", value);
     }
 
     /// <summary>
     /// Validity duration of certificate, in days. Accepts positive non-zero value. Defaults to 365.
     /// </summary>
-    public TerraformProperty<double>? CertValidityInDays
+    public TerraformProperty<double> CertValidityInDays
     {
-        get => GetProperty<TerraformProperty<double>>("cert_validity_in_days");
-        set => this.WithProperty("cert_validity_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cert_validity_in_days");
+        set => SetProperty("cert_validity_in_days", value);
     }
 
     /// <summary>
@@ -160,26 +158,26 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment");
-        set => this.WithProperty("environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment");
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Key size. Default and maximum value is 2048 bits.
     /// </summary>
-    public TerraformProperty<string>? KeySize
+    public TerraformProperty<string> KeySize
     {
-        get => GetProperty<TerraformProperty<string>>("key_size");
-        set => this.WithProperty("key_size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_size");
+        set => SetProperty("key_size", value);
     }
 
     /// <summary>
@@ -188,8 +186,8 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
     public required TerraformProperty<string> Keystore
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("keystore");
-        set => this.WithProperty("keystore", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("keystore");
+        set => SetProperty("keystore", value);
     }
 
     /// <summary>
@@ -198,8 +196,8 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -208,20 +206,20 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigAlg is required")]
     public required TerraformProperty<string> SigAlg
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sig_alg");
-        set => this.WithProperty("sig_alg", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sig_alg");
+        set => SetProperty("sig_alg", value);
     }
 
     /// <summary>
     /// Block for subject.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subject block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subject block(s) allowed")]
     public List<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock>? Subject
     {
-        get => GetProperty<List<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock>>("subject");
-        set => this.WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -231,8 +229,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubjectAlternativeDnsNames block(s) allowed")]
     public List<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock>? SubjectAlternativeDnsNames
     {
-        get => GetProperty<List<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock>>("subject_alternative_dns_names");
-        set => this.WithProperty("subject_alternative_dns_names", value);
+        set => SetProperty("subject_alternative_dns_names", value);
     }
 
     /// <summary>
@@ -241,8 +238,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     /// </summary>
     public GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

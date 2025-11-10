@@ -14,8 +14,14 @@ public class GoogleDataprocMetastoreTableIamPolicyDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("database_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("service_id");
+        SetOutput("table");
     }
 
     /// <summary>
@@ -24,35 +30,35 @@ public class GoogleDataprocMetastoreTableIamPolicyDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformProperty<string> DatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_id");
-        set => this.WithProperty("database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_id");
+        set => SetProperty("database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -61,8 +67,8 @@ public class GoogleDataprocMetastoreTableIamPolicyDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
-        set => this.WithProperty("service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
+        set => SetProperty("service_id", value);
     }
 
     /// <summary>
@@ -71,8 +77,8 @@ public class GoogleDataprocMetastoreTableIamPolicyDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table");
-        set => this.WithProperty("table", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table");
+        set => SetProperty("table", value);
     }
 
     /// <summary>

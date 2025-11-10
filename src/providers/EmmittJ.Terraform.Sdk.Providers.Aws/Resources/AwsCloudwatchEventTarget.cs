@@ -13,8 +13,7 @@ public class AwsCloudwatchEventTargetAppsyncTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GraphqlOperation
     {
-        get => GetProperty<TerraformProperty<string>>("graphql_operation");
-        set => WithProperty("graphql_operation", value);
+        set => SetProperty("graphql_operation", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ArraySize
     {
-        get => GetProperty<TerraformProperty<double>>("array_size");
-        set => WithProperty("array_size", value);
+        set => SetProperty("array_size", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? JobAttempts
     {
-        get => GetProperty<TerraformProperty<double>>("job_attempts");
-        set => WithProperty("job_attempts", value);
+        set => SetProperty("job_attempts", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobDefinition is required")]
     public required TerraformProperty<string> JobDefinition
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("job_definition");
-        set => WithProperty("job_definition", value);
+        set => SetProperty("job_definition", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformProperty<string> JobName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("job_name");
-        set => WithProperty("job_name", value);
+        set => SetProperty("job_name", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class AwsCloudwatchEventTargetDeadLetterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => WithProperty("arn", value);
+        set => SetProperty("arn", value);
     }
 
 }
@@ -93,8 +87,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableEcsManagedTags
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_ecs_managed_tags");
-        set => WithProperty("enable_ecs_managed_tags", value);
+        set => SetProperty("enable_ecs_managed_tags", value);
     }
 
     /// <summary>
@@ -102,8 +95,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableExecuteCommand
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_execute_command");
-        set => WithProperty("enable_execute_command", value);
+        set => SetProperty("enable_execute_command", value);
     }
 
     /// <summary>
@@ -111,8 +103,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
-        set => WithProperty("group", value);
+        set => SetProperty("group", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LaunchType
     {
-        get => GetProperty<TerraformProperty<string>>("launch_type");
-        set => WithProperty("launch_type", value);
+        set => SetProperty("launch_type", value);
     }
 
     /// <summary>
@@ -129,8 +119,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PlatformVersion
     {
-        get => GetProperty<TerraformProperty<string>>("platform_version");
-        set => WithProperty("platform_version", value);
+        set => SetProperty("platform_version", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PropagateTags
     {
-        get => GetProperty<TerraformProperty<string>>("propagate_tags");
-        set => WithProperty("propagate_tags", value);
+        set => SetProperty("propagate_tags", value);
     }
 
     /// <summary>
@@ -147,8 +135,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -156,8 +143,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TaskCount
     {
-        get => GetProperty<TerraformProperty<double>>("task_count");
-        set => WithProperty("task_count", value);
+        set => SetProperty("task_count", value);
     }
 
     /// <summary>
@@ -166,8 +152,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinitionArn is required")]
     public required TerraformProperty<string> TaskDefinitionArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_definition_arn");
-        set => WithProperty("task_definition_arn", value);
+        set => SetProperty("task_definition_arn", value);
     }
 
 }
@@ -183,8 +168,7 @@ public class AwsCloudwatchEventTargetHttpTargetBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? HeaderParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("header_parameters");
-        set => WithProperty("header_parameters", value);
+        set => SetProperty("header_parameters", value);
     }
 
     /// <summary>
@@ -192,8 +176,7 @@ public class AwsCloudwatchEventTargetHttpTargetBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? PathParameterValues
     {
-        get => GetProperty<List<TerraformProperty<string>>>("path_parameter_values");
-        set => WithProperty("path_parameter_values", value);
+        set => SetProperty("path_parameter_values", value);
     }
 
     /// <summary>
@@ -201,8 +184,7 @@ public class AwsCloudwatchEventTargetHttpTargetBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? QueryStringParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("query_string_parameters");
-        set => WithProperty("query_string_parameters", value);
+        set => SetProperty("query_string_parameters", value);
     }
 
 }
@@ -218,8 +200,7 @@ public class AwsCloudwatchEventTargetInputTransformerBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? InputPaths
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("input_paths");
-        set => WithProperty("input_paths", value);
+        set => SetProperty("input_paths", value);
     }
 
     /// <summary>
@@ -228,8 +209,7 @@ public class AwsCloudwatchEventTargetInputTransformerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputTemplate is required")]
     public required TerraformProperty<string> InputTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("input_template");
-        set => WithProperty("input_template", value);
+        set => SetProperty("input_template", value);
     }
 
 }
@@ -245,8 +225,7 @@ public class AwsCloudwatchEventTargetKinesisTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PartitionKeyPath
     {
-        get => GetProperty<TerraformProperty<string>>("partition_key_path");
-        set => WithProperty("partition_key_path", value);
+        set => SetProperty("partition_key_path", value);
     }
 
 }
@@ -263,8 +242,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database");
-        set => WithProperty("database", value);
+        set => SetProperty("database", value);
     }
 
     /// <summary>
@@ -272,8 +250,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DbUser
     {
-        get => GetProperty<TerraformProperty<string>>("db_user");
-        set => WithProperty("db_user", value);
+        set => SetProperty("db_user", value);
     }
 
     /// <summary>
@@ -281,8 +258,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SecretsManagerArn
     {
-        get => GetProperty<TerraformProperty<string>>("secrets_manager_arn");
-        set => WithProperty("secrets_manager_arn", value);
+        set => SetProperty("secrets_manager_arn", value);
     }
 
     /// <summary>
@@ -290,8 +266,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Sql
     {
-        get => GetProperty<TerraformProperty<string>>("sql");
-        set => WithProperty("sql", value);
+        set => SetProperty("sql", value);
     }
 
     /// <summary>
@@ -299,8 +274,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StatementName
     {
-        get => GetProperty<TerraformProperty<string>>("statement_name");
-        set => WithProperty("statement_name", value);
+        set => SetProperty("statement_name", value);
     }
 
     /// <summary>
@@ -308,8 +282,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WithEvent
     {
-        get => GetProperty<TerraformProperty<bool>>("with_event");
-        set => WithProperty("with_event", value);
+        set => SetProperty("with_event", value);
     }
 
 }
@@ -325,8 +298,7 @@ public class AwsCloudwatchEventTargetRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumEventAgeInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_event_age_in_seconds");
-        set => WithProperty("maximum_event_age_in_seconds", value);
+        set => SetProperty("maximum_event_age_in_seconds", value);
     }
 
     /// <summary>
@@ -334,8 +306,7 @@ public class AwsCloudwatchEventTargetRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumRetryAttempts
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_retry_attempts");
-        set => WithProperty("maximum_retry_attempts", value);
+        set => SetProperty("maximum_retry_attempts", value);
     }
 
 }
@@ -352,8 +323,7 @@ public class AwsCloudwatchEventTargetRunCommandTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -362,8 +332,7 @@ public class AwsCloudwatchEventTargetRunCommandTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public List<TerraformProperty<string>>? Values
     {
-        get => GetProperty<List<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -387,8 +356,7 @@ public class AwsCloudwatchEventTargetSqsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MessageGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("message_group_id");
-        set => WithProperty("message_group_id", value);
+        set => SetProperty("message_group_id", value);
     }
 
 }
@@ -406,6 +374,16 @@ public class AwsCloudwatchEventTarget : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("arn");
+        SetOutput("event_bus_name");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("input");
+        SetOutput("input_path");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("rule");
+        SetOutput("target_id");
     }
 
     /// <summary>
@@ -414,71 +392,71 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The event_bus_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EventBusName
+    public TerraformProperty<string> EventBusName
     {
-        get => GetProperty<TerraformProperty<string>>("event_bus_name");
-        set => this.WithProperty("event_bus_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_bus_name");
+        set => SetProperty("event_bus_name", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The input attribute.
     /// </summary>
-    public TerraformProperty<string>? Input
+    public TerraformProperty<string> Input
     {
-        get => GetProperty<TerraformProperty<string>>("input");
-        set => this.WithProperty("input", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("input");
+        set => SetProperty("input", value);
     }
 
     /// <summary>
     /// The input_path attribute.
     /// </summary>
-    public TerraformProperty<string>? InputPath
+    public TerraformProperty<string> InputPath
     {
-        get => GetProperty<TerraformProperty<string>>("input_path");
-        set => this.WithProperty("input_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("input_path");
+        set => SetProperty("input_path", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -487,17 +465,17 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformProperty<string> Rule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule");
-        set => this.WithProperty("rule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule");
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetId
+    public TerraformProperty<string> TargetId
     {
-        get => GetProperty<TerraformProperty<string>>("target_id");
-        set => this.WithProperty("target_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_id");
+        set => SetProperty("target_id", value);
     }
 
     /// <summary>
@@ -507,8 +485,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppsyncTarget block(s) allowed")]
     public List<AwsCloudwatchEventTargetAppsyncTargetBlock>? AppsyncTarget
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetAppsyncTargetBlock>>("appsync_target");
-        set => this.WithProperty("appsync_target", value);
+        set => SetProperty("appsync_target", value);
     }
 
     /// <summary>
@@ -518,8 +495,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BatchTarget block(s) allowed")]
     public List<AwsCloudwatchEventTargetBatchTargetBlock>? BatchTarget
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetBatchTargetBlock>>("batch_target");
-        set => this.WithProperty("batch_target", value);
+        set => SetProperty("batch_target", value);
     }
 
     /// <summary>
@@ -529,8 +505,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterConfig block(s) allowed")]
     public List<AwsCloudwatchEventTargetDeadLetterConfigBlock>? DeadLetterConfig
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetDeadLetterConfigBlock>>("dead_letter_config");
-        set => this.WithProperty("dead_letter_config", value);
+        set => SetProperty("dead_letter_config", value);
     }
 
     /// <summary>
@@ -540,8 +515,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EcsTarget block(s) allowed")]
     public List<AwsCloudwatchEventTargetEcsTargetBlock>? EcsTarget
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetEcsTargetBlock>>("ecs_target");
-        set => this.WithProperty("ecs_target", value);
+        set => SetProperty("ecs_target", value);
     }
 
     /// <summary>
@@ -551,8 +525,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpTarget block(s) allowed")]
     public List<AwsCloudwatchEventTargetHttpTargetBlock>? HttpTarget
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetHttpTargetBlock>>("http_target");
-        set => this.WithProperty("http_target", value);
+        set => SetProperty("http_target", value);
     }
 
     /// <summary>
@@ -562,8 +535,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputTransformer block(s) allowed")]
     public List<AwsCloudwatchEventTargetInputTransformerBlock>? InputTransformer
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetInputTransformerBlock>>("input_transformer");
-        set => this.WithProperty("input_transformer", value);
+        set => SetProperty("input_transformer", value);
     }
 
     /// <summary>
@@ -573,8 +545,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisTarget block(s) allowed")]
     public List<AwsCloudwatchEventTargetKinesisTargetBlock>? KinesisTarget
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetKinesisTargetBlock>>("kinesis_target");
-        set => this.WithProperty("kinesis_target", value);
+        set => SetProperty("kinesis_target", value);
     }
 
     /// <summary>
@@ -584,8 +555,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftTarget block(s) allowed")]
     public List<AwsCloudwatchEventTargetRedshiftTargetBlock>? RedshiftTarget
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetRedshiftTargetBlock>>("redshift_target");
-        set => this.WithProperty("redshift_target", value);
+        set => SetProperty("redshift_target", value);
     }
 
     /// <summary>
@@ -595,8 +565,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     public List<AwsCloudwatchEventTargetRetryPolicyBlock>? RetryPolicy
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetRetryPolicyBlock>>("retry_policy");
-        set => this.WithProperty("retry_policy", value);
+        set => SetProperty("retry_policy", value);
     }
 
     /// <summary>
@@ -606,8 +575,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 RunCommandTargets block(s) allowed")]
     public List<AwsCloudwatchEventTargetRunCommandTargetsBlock>? RunCommandTargets
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetRunCommandTargetsBlock>>("run_command_targets");
-        set => this.WithProperty("run_command_targets", value);
+        set => SetProperty("run_command_targets", value);
     }
 
     /// <summary>
@@ -617,8 +585,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SagemakerPipelineTarget block(s) allowed")]
     public List<AwsCloudwatchEventTargetSagemakerPipelineTargetBlock>? SagemakerPipelineTarget
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetSagemakerPipelineTargetBlock>>("sagemaker_pipeline_target");
-        set => this.WithProperty("sagemaker_pipeline_target", value);
+        set => SetProperty("sagemaker_pipeline_target", value);
     }
 
     /// <summary>
@@ -628,8 +595,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SqsTarget block(s) allowed")]
     public List<AwsCloudwatchEventTargetSqsTargetBlock>? SqsTarget
     {
-        get => GetProperty<List<AwsCloudwatchEventTargetSqsTargetBlock>>("sqs_target");
-        set => this.WithProperty("sqs_target", value);
+        set => SetProperty("sqs_target", value);
     }
 
 }

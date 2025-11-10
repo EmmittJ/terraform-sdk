@@ -13,8 +13,7 @@ public class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,12 +46,19 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("data_source");
-        this.WithOutput("last_successful_backup_consistency_time");
-        this.WithOutput("name");
-        this.WithOutput("rules_config_info");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("data_source");
+        SetOutput("last_successful_backup_consistency_time");
+        SetOutput("name");
+        SetOutput("rules_config_info");
+        SetOutput("update_time");
+        SetOutput("backup_plan");
+        SetOutput("backup_plan_association_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("resource");
+        SetOutput("resource_type");
     }
 
     /// <summary>
@@ -66,8 +70,8 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
     public required TerraformProperty<string> BackupPlan
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_plan");
-        set => this.WithProperty("backup_plan", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_plan");
+        set => SetProperty("backup_plan", value);
     }
 
     /// <summary>
@@ -76,17 +80,17 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
     public required TerraformProperty<string> BackupPlanAssociationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_plan_association_id");
-        set => this.WithProperty("backup_plan_association_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_plan_association_id");
+        set => SetProperty("backup_plan_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,17 +99,17 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -114,8 +118,8 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource");
-        set => this.WithProperty("resource", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource");
+        set => SetProperty("resource", value);
     }
 
     /// <summary>
@@ -125,8 +129,8 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => this.WithProperty("resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
@@ -135,8 +139,7 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     /// </summary>
     public GoogleBackupDrBackupPlanAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBackupDrBackupPlanAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsNetworkmanagerConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsNetworkmanagerConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,16 @@ public class AwsNetworkmanagerConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("connected_device_id");
+        SetOutput("connected_link_id");
+        SetOutput("description");
+        SetOutput("device_id");
+        SetOutput("global_network_id");
+        SetOutput("id");
+        SetOutput("link_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -58,26 +64,26 @@ public class AwsNetworkmanagerConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectedDeviceId is required")]
     public required TerraformProperty<string> ConnectedDeviceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connected_device_id");
-        set => this.WithProperty("connected_device_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connected_device_id");
+        set => SetProperty("connected_device_id", value);
     }
 
     /// <summary>
     /// The connected_link_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectedLinkId
+    public TerraformProperty<string> ConnectedLinkId
     {
-        get => GetProperty<TerraformProperty<string>>("connected_link_id");
-        set => this.WithProperty("connected_link_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connected_link_id");
+        set => SetProperty("connected_link_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -86,8 +92,8 @@ public class AwsNetworkmanagerConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
     public required TerraformProperty<string> DeviceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("device_id");
-        set => this.WithProperty("device_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_id");
+        set => SetProperty("device_id", value);
     }
 
     /// <summary>
@@ -96,44 +102,44 @@ public class AwsNetworkmanagerConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
-        set => this.WithProperty("global_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
+        set => SetProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LinkId
+    public TerraformProperty<string> LinkId
     {
-        get => GetProperty<TerraformProperty<string>>("link_id");
-        set => this.WithProperty("link_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("link_id");
+        set => SetProperty("link_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -142,8 +148,7 @@ public class AwsNetworkmanagerConnection : TerraformResource
     /// </summary>
     public AwsNetworkmanagerConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

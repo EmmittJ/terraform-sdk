@@ -13,8 +13,7 @@ public class GoogleFilestoreBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleFilestoreBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleFilestoreBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,33 +46,42 @@ public class GoogleFilestoreBackup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("capacity_gb");
-        this.WithOutput("create_time");
-        this.WithOutput("download_bytes");
-        this.WithOutput("effective_labels");
-        this.WithOutput("kms_key_name");
-        this.WithOutput("source_instance_tier");
-        this.WithOutput("state");
-        this.WithOutput("storage_bytes");
-        this.WithOutput("terraform_labels");
+        SetOutput("capacity_gb");
+        SetOutput("create_time");
+        SetOutput("download_bytes");
+        SetOutput("effective_labels");
+        SetOutput("kms_key_name");
+        SetOutput("source_instance_tier");
+        SetOutput("state");
+        SetOutput("storage_bytes");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("source_file_share");
+        SetOutput("source_instance");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// A description of the backup with 2048 characters or less. Requests with longer descriptions will be rejected.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,10 +91,10 @@ public class GoogleFilestoreBackup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -97,8 +103,8 @@ public class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -114,17 +120,17 @@ public class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -133,8 +139,8 @@ public class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShare is required")]
     public required TerraformProperty<string> SourceFileShare
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_file_share");
-        set => this.WithProperty("source_file_share", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_file_share");
+        set => SetProperty("source_file_share", value);
     }
 
     /// <summary>
@@ -143,8 +149,8 @@ public class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstance is required")]
     public required TerraformProperty<string> SourceInstance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_instance");
-        set => this.WithProperty("source_instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_instance");
+        set => SetProperty("source_instance", value);
     }
 
     /// <summary>
@@ -153,10 +159,10 @@ public class GoogleFilestoreBackup : TerraformResource
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -165,8 +171,7 @@ public class GoogleFilestoreBackup : TerraformResource
     /// </summary>
     public GoogleFilestoreBackupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFilestoreBackupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

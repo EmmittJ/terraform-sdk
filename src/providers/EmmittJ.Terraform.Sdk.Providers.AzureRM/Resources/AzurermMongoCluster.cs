@@ -13,8 +13,7 @@ public class AzurermMongoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMongoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMongoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMongoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,61 +54,78 @@ public class AzurermMongoCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connection_strings");
+        SetOutput("connection_strings");
+        SetOutput("administrator_password");
+        SetOutput("administrator_username");
+        SetOutput("compute_tier");
+        SetOutput("create_mode");
+        SetOutput("high_availability_mode");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("preview_features");
+        SetOutput("public_network_access");
+        SetOutput("resource_group_name");
+        SetOutput("shard_count");
+        SetOutput("source_location");
+        SetOutput("source_server_id");
+        SetOutput("storage_size_in_gb");
+        SetOutput("tags");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The administrator_password attribute.
     /// </summary>
-    public TerraformProperty<string>? AdministratorPassword
+    public TerraformProperty<string> AdministratorPassword
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_password");
-        set => this.WithProperty("administrator_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administrator_password");
+        set => SetProperty("administrator_password", value);
     }
 
     /// <summary>
     /// The administrator_username attribute.
     /// </summary>
-    public TerraformProperty<string>? AdministratorUsername
+    public TerraformProperty<string> AdministratorUsername
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_username");
-        set => this.WithProperty("administrator_username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administrator_username");
+        set => SetProperty("administrator_username", value);
     }
 
     /// <summary>
     /// The compute_tier attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputeTier
+    public TerraformProperty<string> ComputeTier
     {
-        get => GetProperty<TerraformProperty<string>>("compute_tier");
-        set => this.WithProperty("compute_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compute_tier");
+        set => SetProperty("compute_tier", value);
     }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? CreateMode
+    public TerraformProperty<string> CreateMode
     {
-        get => GetProperty<TerraformProperty<string>>("create_mode");
-        set => this.WithProperty("create_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_mode");
+        set => SetProperty("create_mode", value);
     }
 
     /// <summary>
     /// The high_availability_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? HighAvailabilityMode
+    public TerraformProperty<string> HighAvailabilityMode
     {
-        get => GetProperty<TerraformProperty<string>>("high_availability_mode");
-        set => this.WithProperty("high_availability_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("high_availability_mode");
+        set => SetProperty("high_availability_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,8 +134,8 @@ public class AzurermMongoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -131,26 +144,26 @@ public class AzurermMongoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The preview_features attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PreviewFeatures
+    public List<TerraformProperty<string>> PreviewFeatures
     {
-        get => GetProperty<List<TerraformProperty<string>>>("preview_features");
-        set => this.WithProperty("preview_features", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("preview_features");
+        set => SetProperty("preview_features", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string> PublicNetworkAccess
     {
-        get => GetProperty<TerraformProperty<string>>("public_network_access");
-        set => this.WithProperty("public_network_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_network_access");
+        set => SetProperty("public_network_access", value);
     }
 
     /// <summary>
@@ -159,62 +172,62 @@ public class AzurermMongoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
-    public TerraformProperty<double>? ShardCount
+    public TerraformProperty<double> ShardCount
     {
-        get => GetProperty<TerraformProperty<double>>("shard_count");
-        set => this.WithProperty("shard_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("shard_count");
+        set => SetProperty("shard_count", value);
     }
 
     /// <summary>
     /// The source_location attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceLocation
+    public TerraformProperty<string> SourceLocation
     {
-        get => GetProperty<TerraformProperty<string>>("source_location");
-        set => this.WithProperty("source_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_location");
+        set => SetProperty("source_location", value);
     }
 
     /// <summary>
     /// The source_server_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceServerId
+    public TerraformProperty<string> SourceServerId
     {
-        get => GetProperty<TerraformProperty<string>>("source_server_id");
-        set => this.WithProperty("source_server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_server_id");
+        set => SetProperty("source_server_id", value);
     }
 
     /// <summary>
     /// The storage_size_in_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? StorageSizeInGb
+    public TerraformProperty<double> StorageSizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("storage_size_in_gb");
-        set => this.WithProperty("storage_size_in_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_size_in_gb");
+        set => SetProperty("storage_size_in_gb", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -223,8 +236,7 @@ public class AzurermMongoCluster : TerraformResource
     /// </summary>
     public AzurermMongoClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMongoClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -31,8 +31,14 @@ public class AwsCloudwatchEventConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("secret_arn");
+        SetOutput("arn");
+        SetOutput("secret_arn");
+        SetOutput("authorization_type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("kms_key_identifier");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -41,35 +47,35 @@ public class AwsCloudwatchEventConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
     public required TerraformProperty<string> AuthorizationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorization_type");
-        set => this.WithProperty("authorization_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_type");
+        set => SetProperty("authorization_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyIdentifier
+    public TerraformProperty<string> KmsKeyIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_identifier");
-        set => this.WithProperty("kms_key_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
+        set => SetProperty("kms_key_identifier", value);
     }
 
     /// <summary>
@@ -78,29 +84,29 @@ public class AwsCloudwatchEventConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for auth_parameters.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthParameters is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthParameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthParameters block(s) allowed")]
     public List<AwsCloudwatchEventConnectionAuthParametersBlock>? AuthParameters
     {
-        get => GetProperty<List<AwsCloudwatchEventConnectionAuthParametersBlock>>("auth_parameters");
-        set => this.WithProperty("auth_parameters", value);
+        set => SetProperty("auth_parameters", value);
     }
 
     /// <summary>
@@ -110,8 +116,7 @@ public class AwsCloudwatchEventConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InvocationConnectivityParameters block(s) allowed")]
     public List<AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock>? InvocationConnectivityParameters
     {
-        get => GetProperty<List<AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock>>("invocation_connectivity_parameters");
-        set => this.WithProperty("invocation_connectivity_parameters", value);
+        set => SetProperty("invocation_connectivity_parameters", value);
     }
 
     /// <summary>

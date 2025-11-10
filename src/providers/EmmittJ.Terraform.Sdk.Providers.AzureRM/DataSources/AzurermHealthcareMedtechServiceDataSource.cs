@@ -13,8 +13,7 @@ public class AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("device_mapping_json");
-        this.WithOutput("eventhub_consumer_group_name");
-        this.WithOutput("eventhub_name");
-        this.WithOutput("eventhub_namespace_name");
-        this.WithOutput("identity");
+        SetOutput("device_mapping_json");
+        SetOutput("eventhub_consumer_group_name");
+        SetOutput("eventhub_name");
+        SetOutput("eventhub_namespace_name");
+        SetOutput("identity");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
     /// </summary>
     public AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

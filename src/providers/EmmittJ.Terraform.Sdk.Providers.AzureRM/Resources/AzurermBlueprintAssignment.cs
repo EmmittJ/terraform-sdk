@@ -13,8 +13,7 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,19 +96,29 @@ public class AzurermBlueprintAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("blueprint_name");
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("type");
+        SetOutput("blueprint_name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("type");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("lock_exclude_actions");
+        SetOutput("lock_exclude_principals");
+        SetOutput("lock_mode");
+        SetOutput("name");
+        SetOutput("parameter_values");
+        SetOutput("resource_groups");
+        SetOutput("target_subscription_id");
+        SetOutput("version_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -125,35 +127,35 @@ public class AzurermBlueprintAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The lock_exclude_actions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? LockExcludeActions
+    public List<TerraformProperty<string>> LockExcludeActions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("lock_exclude_actions");
-        set => this.WithProperty("lock_exclude_actions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("lock_exclude_actions");
+        set => SetProperty("lock_exclude_actions", value);
     }
 
     /// <summary>
     /// The lock_exclude_principals attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? LockExcludePrincipals
+    public List<TerraformProperty<string>> LockExcludePrincipals
     {
-        get => GetProperty<List<TerraformProperty<string>>>("lock_exclude_principals");
-        set => this.WithProperty("lock_exclude_principals", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("lock_exclude_principals");
+        set => SetProperty("lock_exclude_principals", value);
     }
 
     /// <summary>
     /// The lock_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? LockMode
+    public TerraformProperty<string> LockMode
     {
-        get => GetProperty<TerraformProperty<string>>("lock_mode");
-        set => this.WithProperty("lock_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lock_mode");
+        set => SetProperty("lock_mode", value);
     }
 
     /// <summary>
@@ -162,26 +164,26 @@ public class AzurermBlueprintAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameter_values attribute.
     /// </summary>
-    public TerraformProperty<string>? ParameterValues
+    public TerraformProperty<string> ParameterValues
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_values");
-        set => this.WithProperty("parameter_values", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_values");
+        set => SetProperty("parameter_values", value);
     }
 
     /// <summary>
     /// The resource_groups attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroups
+    public TerraformProperty<string> ResourceGroups
     {
-        get => GetProperty<TerraformProperty<string>>("resource_groups");
-        set => this.WithProperty("resource_groups", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_groups");
+        set => SetProperty("resource_groups", value);
     }
 
     /// <summary>
@@ -190,8 +192,8 @@ public class AzurermBlueprintAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetSubscriptionId is required")]
     public required TerraformProperty<string> TargetSubscriptionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_subscription_id");
-        set => this.WithProperty("target_subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_subscription_id");
+        set => SetProperty("target_subscription_id", value);
     }
 
     /// <summary>
@@ -200,20 +202,20 @@ public class AzurermBlueprintAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
     public required TerraformProperty<string> VersionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version_id");
-        set => this.WithProperty("version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
+        set => SetProperty("version_id", value);
     }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermBlueprintAssignmentIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermBlueprintAssignmentIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -222,8 +224,7 @@ public class AzurermBlueprintAssignment : TerraformResource
     /// </summary>
     public AzurermBlueprintAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBlueprintAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

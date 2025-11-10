@@ -14,8 +14,7 @@ public class AwsRbinRuleExcludeResourceTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTagKey is required")]
     public required TerraformProperty<string> ResourceTagKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_tag_key");
-        set => WithProperty("resource_tag_key", value);
+        set => SetProperty("resource_tag_key", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsRbinRuleExcludeResourceTagsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceTagValue
     {
-        get => GetProperty<TerraformProperty<string>>("resource_tag_value");
-        set => WithProperty("resource_tag_value", value);
+        set => SetProperty("resource_tag_value", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsRbinRuleResourceTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTagKey is required")]
     public required TerraformProperty<string> ResourceTagKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_tag_key");
-        set => WithProperty("resource_tag_key", value);
+        set => SetProperty("resource_tag_key", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsRbinRuleResourceTagsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceTagValue
     {
-        get => GetProperty<TerraformProperty<string>>("resource_tag_value");
-        set => WithProperty("resource_tag_value", value);
+        set => SetProperty("resource_tag_value", value);
     }
 
 }
@@ -76,8 +72,7 @@ public class AwsRbinRuleRetentionPeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodUnit is required")]
     public required TerraformProperty<string> RetentionPeriodUnit
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("retention_period_unit");
-        set => WithProperty("retention_period_unit", value);
+        set => SetProperty("retention_period_unit", value);
     }
 
     /// <summary>
@@ -86,8 +81,7 @@ public class AwsRbinRuleRetentionPeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodValue is required")]
     public required TerraformProperty<double> RetentionPeriodValue
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("retention_period_value");
-        set => WithProperty("retention_period_value", value);
+        set => SetProperty("retention_period_value", value);
     }
 
 }
@@ -103,8 +97,7 @@ public class AwsRbinRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -112,8 +105,7 @@ public class AwsRbinRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -121,8 +113,7 @@ public class AwsRbinRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -140,29 +131,34 @@ public class AwsRbinRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("lock_end_time");
-        this.WithOutput("lock_state");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("lock_end_time");
+        SetOutput("lock_state");
+        SetOutput("status");
+        SetOutput("description");
+        SetOutput("region");
+        SetOutput("resource_type");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -171,26 +167,26 @@ public class AwsRbinRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => this.WithProperty("resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -200,8 +196,7 @@ public class AwsRbinRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ExcludeResourceTags block(s) allowed")]
     public HashSet<AwsRbinRuleExcludeResourceTagsBlock>? ExcludeResourceTags
     {
-        get => GetProperty<HashSet<AwsRbinRuleExcludeResourceTagsBlock>>("exclude_resource_tags");
-        set => this.WithProperty("exclude_resource_tags", value);
+        set => SetProperty("exclude_resource_tags", value);
     }
 
     /// <summary>
@@ -211,8 +206,7 @@ public class AwsRbinRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LockConfiguration block(s) allowed")]
     public List<AwsRbinRuleLockConfigurationBlock>? LockConfiguration
     {
-        get => GetProperty<List<AwsRbinRuleLockConfigurationBlock>>("lock_configuration");
-        set => this.WithProperty("lock_configuration", value);
+        set => SetProperty("lock_configuration", value);
     }
 
     /// <summary>
@@ -222,20 +216,19 @@ public class AwsRbinRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 ResourceTags block(s) allowed")]
     public HashSet<AwsRbinRuleResourceTagsBlock>? ResourceTags
     {
-        get => GetProperty<HashSet<AwsRbinRuleResourceTagsBlock>>("resource_tags");
-        set => this.WithProperty("resource_tags", value);
+        set => SetProperty("resource_tags", value);
     }
 
     /// <summary>
     /// Block for retention_period.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriod is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RetentionPeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPeriod block(s) allowed")]
     public List<AwsRbinRuleRetentionPeriodBlock>? RetentionPeriod
     {
-        get => GetProperty<List<AwsRbinRuleRetentionPeriodBlock>>("retention_period");
-        set => this.WithProperty("retention_period", value);
+        set => SetProperty("retention_period", value);
     }
 
     /// <summary>
@@ -244,8 +237,7 @@ public class AwsRbinRule : TerraformResource
     /// </summary>
     public AwsRbinRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRbinRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

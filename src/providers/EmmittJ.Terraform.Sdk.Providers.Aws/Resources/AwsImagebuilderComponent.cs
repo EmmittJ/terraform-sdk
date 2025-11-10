@@ -14,56 +14,70 @@ public class AwsImagebuilderComponent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("date_created");
-        this.WithOutput("encrypted");
-        this.WithOutput("owner");
-        this.WithOutput("type");
+        SetOutput("arn");
+        SetOutput("date_created");
+        SetOutput("encrypted");
+        SetOutput("owner");
+        SetOutput("type");
+        SetOutput("change_description");
+        SetOutput("data");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("platform");
+        SetOutput("region");
+        SetOutput("skip_destroy");
+        SetOutput("supported_os_versions");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("uri");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The change_description attribute.
     /// </summary>
-    public TerraformProperty<string>? ChangeDescription
+    public TerraformProperty<string> ChangeDescription
     {
-        get => GetProperty<TerraformProperty<string>>("change_description");
-        set => this.WithProperty("change_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("change_description");
+        set => SetProperty("change_description", value);
     }
 
     /// <summary>
     /// The data attribute.
     /// </summary>
-    public TerraformProperty<string>? Data
+    public TerraformProperty<string> Data
     {
-        get => GetProperty<TerraformProperty<string>>("data");
-        set => this.WithProperty("data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data");
+        set => SetProperty("data", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -72,8 +86,8 @@ public class AwsImagebuilderComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -82,62 +96,62 @@ public class AwsImagebuilderComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platform is required")]
     public required TerraformProperty<string> Platform
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("platform");
-        set => this.WithProperty("platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform");
+        set => SetProperty("platform", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The supported_os_versions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SupportedOsVersions
+    public HashSet<TerraformProperty<string>> SupportedOsVersions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("supported_os_versions");
-        set => this.WithProperty("supported_os_versions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("supported_os_versions");
+        set => SetProperty("supported_os_versions", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformProperty<string>? Uri
+    public TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => this.WithProperty("uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("uri");
+        set => SetProperty("uri", value);
     }
 
     /// <summary>
@@ -146,8 +160,8 @@ public class AwsImagebuilderComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

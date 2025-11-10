@@ -14,40 +14,44 @@ public class AwsRdsClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zones");
-        this.WithOutput("backtrack_window");
-        this.WithOutput("backup_retention_period");
-        this.WithOutput("cluster_members");
-        this.WithOutput("cluster_resource_id");
-        this.WithOutput("cluster_scalability_type");
-        this.WithOutput("database_insights_mode");
-        this.WithOutput("database_name");
-        this.WithOutput("db_cluster_parameter_group_name");
-        this.WithOutput("db_subnet_group_name");
-        this.WithOutput("db_system_id");
-        this.WithOutput("enabled_cloudwatch_logs_exports");
-        this.WithOutput("endpoint");
-        this.WithOutput("engine");
-        this.WithOutput("engine_mode");
-        this.WithOutput("engine_version");
-        this.WithOutput("final_snapshot_identifier");
-        this.WithOutput("hosted_zone_id");
-        this.WithOutput("iam_database_authentication_enabled");
-        this.WithOutput("iam_roles");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("master_user_secret");
-        this.WithOutput("master_username");
-        this.WithOutput("monitoring_interval");
-        this.WithOutput("monitoring_role_arn");
-        this.WithOutput("network_type");
-        this.WithOutput("port");
-        this.WithOutput("preferred_backup_window");
-        this.WithOutput("preferred_maintenance_window");
-        this.WithOutput("reader_endpoint");
-        this.WithOutput("replication_source_identifier");
-        this.WithOutput("storage_encrypted");
-        this.WithOutput("vpc_security_group_ids");
+        SetOutput("arn");
+        SetOutput("availability_zones");
+        SetOutput("backtrack_window");
+        SetOutput("backup_retention_period");
+        SetOutput("cluster_members");
+        SetOutput("cluster_resource_id");
+        SetOutput("cluster_scalability_type");
+        SetOutput("database_insights_mode");
+        SetOutput("database_name");
+        SetOutput("db_cluster_parameter_group_name");
+        SetOutput("db_subnet_group_name");
+        SetOutput("db_system_id");
+        SetOutput("enabled_cloudwatch_logs_exports");
+        SetOutput("endpoint");
+        SetOutput("engine");
+        SetOutput("engine_mode");
+        SetOutput("engine_version");
+        SetOutput("final_snapshot_identifier");
+        SetOutput("hosted_zone_id");
+        SetOutput("iam_database_authentication_enabled");
+        SetOutput("iam_roles");
+        SetOutput("kms_key_id");
+        SetOutput("master_user_secret");
+        SetOutput("master_username");
+        SetOutput("monitoring_interval");
+        SetOutput("monitoring_role_arn");
+        SetOutput("network_type");
+        SetOutput("port");
+        SetOutput("preferred_backup_window");
+        SetOutput("preferred_maintenance_window");
+        SetOutput("reader_endpoint");
+        SetOutput("replication_source_identifier");
+        SetOutput("storage_encrypted");
+        SetOutput("vpc_security_group_ids");
+        SetOutput("cluster_identifier");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -56,35 +60,35 @@ public class AwsRdsClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

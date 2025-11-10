@@ -13,8 +13,7 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,25 @@ public class AzurermNetworkSecurityRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("access");
+        SetOutput("description");
+        SetOutput("destination_address_prefix");
+        SetOutput("destination_address_prefixes");
+        SetOutput("destination_application_security_group_ids");
+        SetOutput("destination_port_range");
+        SetOutput("destination_port_ranges");
+        SetOutput("direction");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_security_group_name");
+        SetOutput("priority");
+        SetOutput("protocol");
+        SetOutput("resource_group_name");
+        SetOutput("source_address_prefix");
+        SetOutput("source_address_prefixes");
+        SetOutput("source_application_security_group_ids");
+        SetOutput("source_port_range");
+        SetOutput("source_port_ranges");
     }
 
     /// <summary>
@@ -66,62 +81,62 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     public required TerraformProperty<string> Access
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access");
-        set => this.WithProperty("access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access");
+        set => SetProperty("access", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The destination_address_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationAddressPrefix
+    public TerraformProperty<string> DestinationAddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("destination_address_prefix");
-        set => this.WithProperty("destination_address_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_address_prefix");
+        set => SetProperty("destination_address_prefix", value);
     }
 
     /// <summary>
     /// The destination_address_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DestinationAddressPrefixes
+    public HashSet<TerraformProperty<string>> DestinationAddressPrefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("destination_address_prefixes");
-        set => this.WithProperty("destination_address_prefixes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("destination_address_prefixes");
+        set => SetProperty("destination_address_prefixes", value);
     }
 
     /// <summary>
     /// The destination_application_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DestinationApplicationSecurityGroupIds
+    public HashSet<TerraformProperty<string>> DestinationApplicationSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("destination_application_security_group_ids");
-        set => this.WithProperty("destination_application_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("destination_application_security_group_ids");
+        set => SetProperty("destination_application_security_group_ids", value);
     }
 
     /// <summary>
     /// The destination_port_range attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationPortRange
+    public TerraformProperty<string> DestinationPortRange
     {
-        get => GetProperty<TerraformProperty<string>>("destination_port_range");
-        set => this.WithProperty("destination_port_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_port_range");
+        set => SetProperty("destination_port_range", value);
     }
 
     /// <summary>
     /// The destination_port_ranges attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DestinationPortRanges
+    public HashSet<TerraformProperty<string>> DestinationPortRanges
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("destination_port_ranges");
-        set => this.WithProperty("destination_port_ranges", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("destination_port_ranges");
+        set => SetProperty("destination_port_ranges", value);
     }
 
     /// <summary>
@@ -130,17 +145,17 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("direction");
-        set => this.WithProperty("direction", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("direction");
+        set => SetProperty("direction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -149,8 +164,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -159,8 +174,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupName is required")]
     public required TerraformProperty<string> NetworkSecurityGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_security_group_name");
-        set => this.WithProperty("network_security_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_security_group_name");
+        set => SetProperty("network_security_group_name", value);
     }
 
     /// <summary>
@@ -169,8 +184,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -179,8 +194,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -189,53 +204,53 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_address_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceAddressPrefix
+    public TerraformProperty<string> SourceAddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("source_address_prefix");
-        set => this.WithProperty("source_address_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_address_prefix");
+        set => SetProperty("source_address_prefix", value);
     }
 
     /// <summary>
     /// The source_address_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SourceAddressPrefixes
+    public HashSet<TerraformProperty<string>> SourceAddressPrefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("source_address_prefixes");
-        set => this.WithProperty("source_address_prefixes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("source_address_prefixes");
+        set => SetProperty("source_address_prefixes", value);
     }
 
     /// <summary>
     /// The source_application_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SourceApplicationSecurityGroupIds
+    public HashSet<TerraformProperty<string>> SourceApplicationSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("source_application_security_group_ids");
-        set => this.WithProperty("source_application_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("source_application_security_group_ids");
+        set => SetProperty("source_application_security_group_ids", value);
     }
 
     /// <summary>
     /// The source_port_range attribute.
     /// </summary>
-    public TerraformProperty<string>? SourcePortRange
+    public TerraformProperty<string> SourcePortRange
     {
-        get => GetProperty<TerraformProperty<string>>("source_port_range");
-        set => this.WithProperty("source_port_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_port_range");
+        set => SetProperty("source_port_range", value);
     }
 
     /// <summary>
     /// The source_port_ranges attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SourcePortRanges
+    public HashSet<TerraformProperty<string>> SourcePortRanges
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("source_port_ranges");
-        set => this.WithProperty("source_port_ranges", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("source_port_ranges");
+        set => SetProperty("source_port_ranges", value);
     }
 
     /// <summary>
@@ -244,8 +259,7 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// </summary>
     public AzurermNetworkSecurityRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkSecurityRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ip
     {
-        get => GetProperty<TerraformProperty<string>>("ip");
-        set => WithProperty("ip", value);
+        set => SetProperty("ip", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpId
     {
-        get => GetProperty<TerraformProperty<string>>("ip_id");
-        set => WithProperty("ip_id", value);
+        set => SetProperty("ip_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ipv6
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6");
-        set => WithProperty("ipv6", value);
+        set => SetProperty("ipv6", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,8 +88,17 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("host_vpc_id");
+        SetOutput("arn");
+        SetOutput("host_vpc_id");
+        SetOutput("direction");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("protocols");
+        SetOutput("region");
+        SetOutput("resolver_endpoint_type");
+        SetOutput("security_group_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -105,81 +107,81 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("direction");
-        set => this.WithProperty("direction", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("direction");
+        set => SetProperty("direction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Protocols
+    public HashSet<TerraformProperty<string>> Protocols
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("protocols");
-        set => this.WithProperty("protocols", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("protocols");
+        set => SetProperty("protocols", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resolver_endpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResolverEndpointType
+    public TerraformProperty<string> ResolverEndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("resolver_endpoint_type");
-        set => this.WithProperty("resolver_endpoint_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resolver_endpoint_type");
+        set => SetProperty("resolver_endpoint_type", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -190,8 +192,7 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 IpAddress block(s) allowed")]
     public HashSet<AwsRoute53ResolverEndpointIpAddressBlock>? IpAddress
     {
-        get => GetProperty<HashSet<AwsRoute53ResolverEndpointIpAddressBlock>>("ip_address");
-        set => this.WithProperty("ip_address", value);
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
@@ -200,8 +201,7 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
     /// </summary>
     public AwsRoute53ResolverEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53ResolverEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformProperty<string> Disk
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("disk");
-        set => WithProperty("disk", value);
+        set => SetProperty("disk", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleComputeDiskAsyncReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleComputeDiskAsyncReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -68,15 +64,17 @@ public class GoogleComputeDiskAsyncReplication : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("primary_disk");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,20 +83,20 @@ public class GoogleComputeDiskAsyncReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryDisk is required")]
     public required TerraformProperty<string> PrimaryDisk
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("primary_disk");
-        set => this.WithProperty("primary_disk", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_disk");
+        set => SetProperty("primary_disk", value);
     }
 
     /// <summary>
     /// Block for secondary_disk.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondaryDisk is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecondaryDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryDisk block(s) allowed")]
     public List<GoogleComputeDiskAsyncReplicationSecondaryDiskBlock>? SecondaryDisk
     {
-        get => GetProperty<List<GoogleComputeDiskAsyncReplicationSecondaryDiskBlock>>("secondary_disk");
-        set => this.WithProperty("secondary_disk", value);
+        set => SetProperty("secondary_disk", value);
     }
 
     /// <summary>
@@ -107,8 +105,7 @@ public class GoogleComputeDiskAsyncReplication : TerraformResource
     /// </summary>
     public GoogleComputeDiskAsyncReplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeDiskAsyncReplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

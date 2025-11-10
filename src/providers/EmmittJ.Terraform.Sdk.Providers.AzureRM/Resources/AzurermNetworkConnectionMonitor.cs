@@ -13,8 +13,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
-        set => WithProperty("address", value);
+        set => SetProperty("address", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CoverageLevel
     {
-        get => GetProperty<TerraformProperty<string>>("coverage_level");
-        set => WithProperty("coverage_level", value);
+        set => SetProperty("coverage_level", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExcludedIpAddresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_ip_addresses");
-        set => WithProperty("excluded_ip_addresses", value);
+        set => SetProperty("excluded_ip_addresses", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IncludedIpAddresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("included_ip_addresses");
-        set => WithProperty("included_ip_addresses", value);
+        set => SetProperty("included_ip_addresses", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
-        set => WithProperty("target_resource_id", value);
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_type");
-        set => WithProperty("target_resource_type", value);
+        set => SetProperty("target_resource_type", value);
     }
 
 }
@@ -86,8 +79,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PreferredIpVersion
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_ip_version");
-        set => WithProperty("preferred_ip_version", value);
+        set => SetProperty("preferred_ip_version", value);
     }
 
     /// <summary>
@@ -105,8 +96,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -114,8 +104,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? TestFrequencyInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("test_frequency_in_seconds");
-        set => WithProperty("test_frequency_in_seconds", value);
+        set => SetProperty("test_frequency_in_seconds", value);
     }
 
 }
@@ -132,8 +121,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationEndpoints is required")]
     public HashSet<TerraformProperty<string>>? DestinationEndpoints
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("destination_endpoints");
-        set => WithProperty("destination_endpoints", value);
+        set => SetProperty("destination_endpoints", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -151,8 +138,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -161,8 +147,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEndpoints is required")]
     public HashSet<TerraformProperty<string>>? SourceEndpoints
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("source_endpoints");
-        set => WithProperty("source_endpoints", value);
+        set => SetProperty("source_endpoints", value);
     }
 
     /// <summary>
@@ -171,8 +156,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestConfigurationNames is required")]
     public HashSet<TerraformProperty<string>>? TestConfigurationNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("test_configuration_names");
-        set => WithProperty("test_configuration_names", value);
+        set => SetProperty("test_configuration_names", value);
     }
 
 }
@@ -188,8 +172,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -197,8 +180,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -206,8 +188,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -215,8 +196,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -234,15 +214,22 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network_watcher_id");
+        SetOutput("notes");
+        SetOutput("output_workspace_resource_ids");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -251,8 +238,8 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -261,8 +248,8 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -271,68 +258,68 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherId is required")]
     public required TerraformProperty<string> NetworkWatcherId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_watcher_id");
-        set => this.WithProperty("network_watcher_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_watcher_id");
+        set => SetProperty("network_watcher_id", value);
     }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    public TerraformProperty<string>? Notes
+    public TerraformProperty<string> Notes
     {
-        get => GetProperty<TerraformProperty<string>>("notes");
-        set => this.WithProperty("notes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notes");
+        set => SetProperty("notes", value);
     }
 
     /// <summary>
     /// The output_workspace_resource_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? OutputWorkspaceResourceIds
+    public HashSet<TerraformProperty<string>> OutputWorkspaceResourceIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("output_workspace_resource_ids");
-        set => this.WithProperty("output_workspace_resource_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("output_workspace_resource_ids");
+        set => SetProperty("output_workspace_resource_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for endpoint.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
     public HashSet<AzurermNetworkConnectionMonitorEndpointBlock>? Endpoint
     {
-        get => GetProperty<HashSet<AzurermNetworkConnectionMonitorEndpointBlock>>("endpoint");
-        set => this.WithProperty("endpoint", value);
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
     /// Block for test_configuration.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TestConfiguration block(s) required")]
     public HashSet<AzurermNetworkConnectionMonitorTestConfigurationBlock>? TestConfiguration
     {
-        get => GetProperty<HashSet<AzurermNetworkConnectionMonitorTestConfigurationBlock>>("test_configuration");
-        set => this.WithProperty("test_configuration", value);
+        set => SetProperty("test_configuration", value);
     }
 
     /// <summary>
     /// Block for test_group.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TestGroup block(s) required")]
     public HashSet<AzurermNetworkConnectionMonitorTestGroupBlock>? TestGroup
     {
-        get => GetProperty<HashSet<AzurermNetworkConnectionMonitorTestGroupBlock>>("test_group");
-        set => this.WithProperty("test_group", value);
+        set => SetProperty("test_group", value);
     }
 
     /// <summary>
@@ -341,8 +328,7 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     /// </summary>
     public AzurermNetworkConnectionMonitorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkConnectionMonitorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

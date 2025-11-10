@@ -13,8 +13,7 @@ public class AzurermSystemCenterVirtualMachineManagerServerTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSystemCenterVirtualMachineManagerServerTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSystemCenterVirtualMachineManagerServerTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSystemCenterVirtualMachineManagerServerTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,16 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("custom_location_id");
+        SetOutput("fqdn");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("password");
+        SetOutput("port");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("username");
     }
 
     /// <summary>
@@ -66,8 +72,8 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformProperty<string> CustomLocationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_location_id");
-        set => this.WithProperty("custom_location_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_location_id");
+        set => SetProperty("custom_location_id", value);
     }
 
     /// <summary>
@@ -76,17 +82,17 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fqdn is required")]
     public required TerraformProperty<string> Fqdn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("fqdn");
-        set => this.WithProperty("fqdn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fqdn");
+        set => SetProperty("fqdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +101,8 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -105,8 +111,8 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -115,17 +121,17 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -134,17 +140,17 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -153,8 +159,8 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -163,8 +169,7 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     /// </summary>
     public AzurermSystemCenterVirtualMachineManagerServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSystemCenterVirtualMachineManagerServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

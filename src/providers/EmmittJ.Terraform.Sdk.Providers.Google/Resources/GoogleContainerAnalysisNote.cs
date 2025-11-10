@@ -21,8 +21,7 @@ public class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Label
     {
-        get => GetProperty<TerraformProperty<string>>("label");
-        set => WithProperty("label", value);
+        set => SetProperty("label", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class GoogleContainerAnalysisNoteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class GoogleContainerAnalysisNoteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class GoogleContainerAnalysisNoteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,36 +80,43 @@ public class GoogleContainerAnalysisNote : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("kind");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("kind");
+        SetOutput("update_time");
+        SetOutput("expiration_time");
+        SetOutput("id");
+        SetOutput("long_description");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("related_note_names");
+        SetOutput("short_description");
     }
 
     /// <summary>
     /// Time of expiration for this note. Leave empty if note does not expire.
     /// </summary>
-    public TerraformProperty<string>? ExpirationTime
+    public TerraformProperty<string> ExpirationTime
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_time");
-        set => this.WithProperty("expiration_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration_time");
+        set => SetProperty("expiration_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// A detailed description of the note
     /// </summary>
-    public TerraformProperty<string>? LongDescription
+    public TerraformProperty<string> LongDescription
     {
-        get => GetProperty<TerraformProperty<string>>("long_description");
-        set => this.WithProperty("long_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("long_description");
+        set => SetProperty("long_description", value);
     }
 
     /// <summary>
@@ -123,47 +125,47 @@ public class GoogleContainerAnalysisNote : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Names of other notes related to this note.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? RelatedNoteNames
+    public HashSet<TerraformProperty<string>> RelatedNoteNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("related_note_names");
-        set => this.WithProperty("related_note_names", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("related_note_names");
+        set => SetProperty("related_note_names", value);
     }
 
     /// <summary>
     /// A one sentence description of the note.
     /// </summary>
-    public TerraformProperty<string>? ShortDescription
+    public TerraformProperty<string> ShortDescription
     {
-        get => GetProperty<TerraformProperty<string>>("short_description");
-        set => this.WithProperty("short_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("short_description");
+        set => SetProperty("short_description", value);
     }
 
     /// <summary>
     /// Block for attestation_authority.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttestationAuthority is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AttestationAuthority block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AttestationAuthority block(s) allowed")]
     public List<GoogleContainerAnalysisNoteAttestationAuthorityBlock>? AttestationAuthority
     {
-        get => GetProperty<List<GoogleContainerAnalysisNoteAttestationAuthorityBlock>>("attestation_authority");
-        set => this.WithProperty("attestation_authority", value);
+        set => SetProperty("attestation_authority", value);
     }
 
     /// <summary>
@@ -172,8 +174,7 @@ public class GoogleContainerAnalysisNote : TerraformResource
     /// </summary>
     public HashSet<GoogleContainerAnalysisNoteRelatedUrlBlock>? RelatedUrl
     {
-        get => GetProperty<HashSet<GoogleContainerAnalysisNoteRelatedUrlBlock>>("related_url");
-        set => this.WithProperty("related_url", value);
+        set => SetProperty("related_url", value);
     }
 
     /// <summary>
@@ -182,8 +183,7 @@ public class GoogleContainerAnalysisNote : TerraformResource
     /// </summary>
     public GoogleContainerAnalysisNoteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleContainerAnalysisNoteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

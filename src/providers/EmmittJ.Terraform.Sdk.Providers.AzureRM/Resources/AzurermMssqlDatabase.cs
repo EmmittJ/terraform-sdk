@@ -14,8 +14,7 @@ public class AzurermMssqlDatabaseIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermMssqlDatabaseIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLogin is required")]
     public required TerraformProperty<string> AdministratorLogin
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("administrator_login");
-        set => WithProperty("administrator_login", value);
+        set => SetProperty("administrator_login", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLoginPassword is required")]
     public required TerraformProperty<string> AdministratorLoginPassword
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("administrator_login_password");
-        set => WithProperty("administrator_login_password", value);
+        set => SetProperty("administrator_login_password", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
-        set => WithProperty("authentication_type", value);
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => WithProperty("storage_account_id", value);
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -81,8 +75,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKey is required")]
     public required TerraformProperty<string> StorageKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_key");
-        set => WithProperty("storage_key", value);
+        set => SetProperty("storage_key", value);
     }
 
     /// <summary>
@@ -91,8 +84,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKeyType is required")]
     public required TerraformProperty<string> StorageKeyType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_key_type");
-        set => WithProperty("storage_key_type", value);
+        set => SetProperty("storage_key_type", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     public required TerraformProperty<string> StorageUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_uri");
-        set => WithProperty("storage_uri", value);
+        set => SetProperty("storage_uri", value);
     }
 
 }
@@ -118,8 +109,7 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ImmutableBackupsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("immutable_backups_enabled");
-        set => WithProperty("immutable_backups_enabled", value);
+        set => SetProperty("immutable_backups_enabled", value);
     }
 
     /// <summary>
@@ -127,8 +117,7 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MonthlyRetention
     {
-        get => GetProperty<TerraformProperty<string>>("monthly_retention");
-        set => WithProperty("monthly_retention", value);
+        set => SetProperty("monthly_retention", value);
     }
 
     /// <summary>
@@ -136,8 +125,7 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? WeekOfYear
     {
-        get => GetProperty<TerraformProperty<double>>("week_of_year");
-        set => WithProperty("week_of_year", value);
+        set => SetProperty("week_of_year", value);
     }
 
     /// <summary>
@@ -145,8 +133,7 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WeeklyRetention
     {
-        get => GetProperty<TerraformProperty<string>>("weekly_retention");
-        set => WithProperty("weekly_retention", value);
+        set => SetProperty("weekly_retention", value);
     }
 
     /// <summary>
@@ -154,8 +141,7 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? YearlyRetention
     {
-        get => GetProperty<TerraformProperty<string>>("yearly_retention");
-        set => WithProperty("yearly_retention", value);
+        set => SetProperty("yearly_retention", value);
     }
 
 }
@@ -171,8 +157,7 @@ public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? BackupIntervalInHours
     {
-        get => GetProperty<TerraformProperty<double>>("backup_interval_in_hours");
-        set => WithProperty("backup_interval_in_hours", value);
+        set => SetProperty("backup_interval_in_hours", value);
     }
 
     /// <summary>
@@ -181,8 +166,7 @@ public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDays is required")]
     public required TerraformProperty<double> RetentionDays
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("retention_days");
-        set => WithProperty("retention_days", value);
+        set => SetProperty("retention_days", value);
     }
 
 }
@@ -198,8 +182,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? DisabledAlerts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("disabled_alerts");
-        set => WithProperty("disabled_alerts", value);
+        set => SetProperty("disabled_alerts", value);
     }
 
     /// <summary>
@@ -207,8 +190,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EmailAccountAdmins
     {
-        get => GetProperty<TerraformProperty<string>>("email_account_admins");
-        set => WithProperty("email_account_admins", value);
+        set => SetProperty("email_account_admins", value);
     }
 
     /// <summary>
@@ -216,8 +198,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? EmailAddresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("email_addresses");
-        set => WithProperty("email_addresses", value);
+        set => SetProperty("email_addresses", value);
     }
 
     /// <summary>
@@ -225,8 +206,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_days");
-        set => WithProperty("retention_days", value);
+        set => SetProperty("retention_days", value);
     }
 
     /// <summary>
@@ -234,8 +214,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -243,8 +222,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageAccountAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_access_key");
-        set => WithProperty("storage_account_access_key", value);
+        set => SetProperty("storage_account_access_key", value);
     }
 
     /// <summary>
@@ -252,8 +230,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("storage_endpoint");
-        set => WithProperty("storage_endpoint", value);
+        set => SetProperty("storage_endpoint", value);
     }
 
 }
@@ -269,8 +246,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -278,8 +254,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -287,8 +262,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -296,8 +270,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -315,123 +288,154 @@ public class AzurermMssqlDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("auto_pause_delay_in_minutes");
+        SetOutput("collation");
+        SetOutput("create_mode");
+        SetOutput("creation_source_database_id");
+        SetOutput("elastic_pool_id");
+        SetOutput("enclave_type");
+        SetOutput("geo_backup_enabled");
+        SetOutput("id");
+        SetOutput("ledger_enabled");
+        SetOutput("license_type");
+        SetOutput("maintenance_configuration_name");
+        SetOutput("max_size_gb");
+        SetOutput("min_capacity");
+        SetOutput("name");
+        SetOutput("read_replica_count");
+        SetOutput("read_scale");
+        SetOutput("recover_database_id");
+        SetOutput("recovery_point_id");
+        SetOutput("restore_dropped_database_id");
+        SetOutput("restore_long_term_retention_backup_id");
+        SetOutput("restore_point_in_time");
+        SetOutput("sample_name");
+        SetOutput("secondary_type");
+        SetOutput("server_id");
+        SetOutput("sku_name");
+        SetOutput("storage_account_type");
+        SetOutput("tags");
+        SetOutput("transparent_data_encryption_enabled");
+        SetOutput("transparent_data_encryption_key_automatic_rotation_enabled");
+        SetOutput("transparent_data_encryption_key_vault_key_id");
+        SetOutput("zone_redundant");
     }
 
     /// <summary>
     /// The auto_pause_delay_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? AutoPauseDelayInMinutes
+    public TerraformProperty<double> AutoPauseDelayInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("auto_pause_delay_in_minutes");
-        set => this.WithProperty("auto_pause_delay_in_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("auto_pause_delay_in_minutes");
+        set => SetProperty("auto_pause_delay_in_minutes", value);
     }
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    public TerraformProperty<string>? Collation
+    public TerraformProperty<string> Collation
     {
-        get => GetProperty<TerraformProperty<string>>("collation");
-        set => this.WithProperty("collation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collation");
+        set => SetProperty("collation", value);
     }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? CreateMode
+    public TerraformProperty<string> CreateMode
     {
-        get => GetProperty<TerraformProperty<string>>("create_mode");
-        set => this.WithProperty("create_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_mode");
+        set => SetProperty("create_mode", value);
     }
 
     /// <summary>
     /// The creation_source_database_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CreationSourceDatabaseId
+    public TerraformProperty<string> CreationSourceDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("creation_source_database_id");
-        set => this.WithProperty("creation_source_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("creation_source_database_id");
+        set => SetProperty("creation_source_database_id", value);
     }
 
     /// <summary>
     /// The elastic_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ElasticPoolId
+    public TerraformProperty<string> ElasticPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("elastic_pool_id");
-        set => this.WithProperty("elastic_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("elastic_pool_id");
+        set => SetProperty("elastic_pool_id", value);
     }
 
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EnclaveType
+    public TerraformProperty<string> EnclaveType
     {
-        get => GetProperty<TerraformProperty<string>>("enclave_type");
-        set => this.WithProperty("enclave_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enclave_type");
+        set => SetProperty("enclave_type", value);
     }
 
     /// <summary>
     /// The geo_backup_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? GeoBackupEnabled
+    public TerraformProperty<bool> GeoBackupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("geo_backup_enabled");
-        set => this.WithProperty("geo_backup_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("geo_backup_enabled");
+        set => SetProperty("geo_backup_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ledger_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LedgerEnabled
+    public TerraformProperty<bool> LedgerEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ledger_enabled");
-        set => this.WithProperty("ledger_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ledger_enabled");
+        set => SetProperty("ledger_enabled", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseType
+    public TerraformProperty<string> LicenseType
     {
-        get => GetProperty<TerraformProperty<string>>("license_type");
-        set => this.WithProperty("license_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
+        set => SetProperty("license_type", value);
     }
 
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MaintenanceConfigurationName
+    public TerraformProperty<string> MaintenanceConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_configuration_name");
-        set => this.WithProperty("maintenance_configuration_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_configuration_name");
+        set => SetProperty("maintenance_configuration_name", value);
     }
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxSizeGb
+    public TerraformProperty<double> MaxSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("max_size_gb");
-        set => this.WithProperty("max_size_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_size_gb");
+        set => SetProperty("max_size_gb", value);
     }
 
     /// <summary>
     /// The min_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MinCapacity
+    public TerraformProperty<double> MinCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_capacity");
-        set => this.WithProperty("min_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_capacity");
+        set => SetProperty("min_capacity", value);
     }
 
     /// <summary>
@@ -440,89 +444,89 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The read_replica_count attribute.
     /// </summary>
-    public TerraformProperty<double>? ReadReplicaCount
+    public TerraformProperty<double> ReadReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("read_replica_count");
-        set => this.WithProperty("read_replica_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("read_replica_count");
+        set => SetProperty("read_replica_count", value);
     }
 
     /// <summary>
     /// The read_scale attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReadScale
+    public TerraformProperty<bool> ReadScale
     {
-        get => GetProperty<TerraformProperty<bool>>("read_scale");
-        set => this.WithProperty("read_scale", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("read_scale");
+        set => SetProperty("read_scale", value);
     }
 
     /// <summary>
     /// The recover_database_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RecoverDatabaseId
+    public TerraformProperty<string> RecoverDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("recover_database_id");
-        set => this.WithProperty("recover_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recover_database_id");
+        set => SetProperty("recover_database_id", value);
     }
 
     /// <summary>
     /// The recovery_point_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RecoveryPointId
+    public TerraformProperty<string> RecoveryPointId
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_point_id");
-        set => this.WithProperty("recovery_point_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_point_id");
+        set => SetProperty("recovery_point_id", value);
     }
 
     /// <summary>
     /// The restore_dropped_database_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestoreDroppedDatabaseId
+    public TerraformProperty<string> RestoreDroppedDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("restore_dropped_database_id");
-        set => this.WithProperty("restore_dropped_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("restore_dropped_database_id");
+        set => SetProperty("restore_dropped_database_id", value);
     }
 
     /// <summary>
     /// The restore_long_term_retention_backup_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestoreLongTermRetentionBackupId
+    public TerraformProperty<string> RestoreLongTermRetentionBackupId
     {
-        get => GetProperty<TerraformProperty<string>>("restore_long_term_retention_backup_id");
-        set => this.WithProperty("restore_long_term_retention_backup_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("restore_long_term_retention_backup_id");
+        set => SetProperty("restore_long_term_retention_backup_id", value);
     }
 
     /// <summary>
     /// The restore_point_in_time attribute.
     /// </summary>
-    public TerraformProperty<string>? RestorePointInTime
+    public TerraformProperty<string> RestorePointInTime
     {
-        get => GetProperty<TerraformProperty<string>>("restore_point_in_time");
-        set => this.WithProperty("restore_point_in_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("restore_point_in_time");
+        set => SetProperty("restore_point_in_time", value);
     }
 
     /// <summary>
     /// The sample_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SampleName
+    public TerraformProperty<string> SampleName
     {
-        get => GetProperty<TerraformProperty<string>>("sample_name");
-        set => this.WithProperty("sample_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sample_name");
+        set => SetProperty("sample_name", value);
     }
 
     /// <summary>
     /// The secondary_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SecondaryType
+    public TerraformProperty<string> SecondaryType
     {
-        get => GetProperty<TerraformProperty<string>>("secondary_type");
-        set => this.WithProperty("secondary_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secondary_type");
+        set => SetProperty("secondary_type", value);
     }
 
     /// <summary>
@@ -531,71 +535,71 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
-        set => this.WithProperty("server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
+        set => SetProperty("server_id", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuName
+    public TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountType
+    public TerraformProperty<string> StorageAccountType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_type");
-        set => this.WithProperty("storage_account_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_type");
+        set => SetProperty("storage_account_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The transparent_data_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TransparentDataEncryptionEnabled
+    public TerraformProperty<bool> TransparentDataEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("transparent_data_encryption_enabled");
-        set => this.WithProperty("transparent_data_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("transparent_data_encryption_enabled");
+        set => SetProperty("transparent_data_encryption_enabled", value);
     }
 
     /// <summary>
     /// The transparent_data_encryption_key_automatic_rotation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TransparentDataEncryptionKeyAutomaticRotationEnabled
+    public TerraformProperty<bool> TransparentDataEncryptionKeyAutomaticRotationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("transparent_data_encryption_key_automatic_rotation_enabled");
-        set => this.WithProperty("transparent_data_encryption_key_automatic_rotation_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("transparent_data_encryption_key_automatic_rotation_enabled");
+        set => SetProperty("transparent_data_encryption_key_automatic_rotation_enabled", value);
     }
 
     /// <summary>
     /// The transparent_data_encryption_key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TransparentDataEncryptionKeyVaultKeyId
+    public TerraformProperty<string> TransparentDataEncryptionKeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("transparent_data_encryption_key_vault_key_id");
-        set => this.WithProperty("transparent_data_encryption_key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transparent_data_encryption_key_vault_key_id");
+        set => SetProperty("transparent_data_encryption_key_vault_key_id", value);
     }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public TerraformProperty<bool>? ZoneRedundant
+    public TerraformProperty<bool> ZoneRedundant
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_redundant");
-        set => this.WithProperty("zone_redundant", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("zone_redundant");
+        set => SetProperty("zone_redundant", value);
     }
 
     /// <summary>
@@ -605,8 +609,7 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermMssqlDatabaseIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermMssqlDatabaseIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -616,8 +619,7 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
     public List<AzurermMssqlDatabaseImportBlock>? Import
     {
-        get => GetProperty<List<AzurermMssqlDatabaseImportBlock>>("import");
-        set => this.WithProperty("import", value);
+        set => SetProperty("import", value);
     }
 
     /// <summary>
@@ -627,8 +629,7 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
     public List<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>? LongTermRetentionPolicy
     {
-        get => GetProperty<List<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>>("long_term_retention_policy");
-        set => this.WithProperty("long_term_retention_policy", value);
+        set => SetProperty("long_term_retention_policy", value);
     }
 
     /// <summary>
@@ -638,8 +639,7 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShortTermRetentionPolicy block(s) allowed")]
     public List<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>? ShortTermRetentionPolicy
     {
-        get => GetProperty<List<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>>("short_term_retention_policy");
-        set => this.WithProperty("short_term_retention_policy", value);
+        set => SetProperty("short_term_retention_policy", value);
     }
 
     /// <summary>
@@ -649,8 +649,7 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatDetectionPolicy block(s) allowed")]
     public List<AzurermMssqlDatabaseThreatDetectionPolicyBlock>? ThreatDetectionPolicy
     {
-        get => GetProperty<List<AzurermMssqlDatabaseThreatDetectionPolicyBlock>>("threat_detection_policy");
-        set => this.WithProperty("threat_detection_policy", value);
+        set => SetProperty("threat_detection_policy", value);
     }
 
     /// <summary>
@@ -659,8 +658,7 @@ public class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     public AzurermMssqlDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class GoogleNetappBackupPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetappBackupPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetappBackupPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,11 +46,21 @@ public class GoogleNetappBackupPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("assigned_volume_count");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("assigned_volume_count");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("daily_backup_limit");
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("monthly_backup_limit");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("weekly_backup_limit");
     }
 
     /// <summary>
@@ -62,36 +69,36 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DailyBackupLimit is required")]
     public required TerraformProperty<double> DailyBackupLimit
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("daily_backup_limit");
-        set => this.WithProperty("daily_backup_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("daily_backup_limit");
+        set => SetProperty("daily_backup_limit", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// If enabled, make backups automatically according to the schedules.
     /// This will be applied to all volumes that have this policy attached and enforced on volume level.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -101,10 +108,10 @@ public class GoogleNetappBackupPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -113,8 +120,8 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -123,8 +130,8 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonthlyBackupLimit is required")]
     public required TerraformProperty<double> MonthlyBackupLimit
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("monthly_backup_limit");
-        set => this.WithProperty("monthly_backup_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("monthly_backup_limit");
+        set => SetProperty("monthly_backup_limit", value);
     }
 
     /// <summary>
@@ -133,17 +140,17 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -152,8 +159,8 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WeeklyBackupLimit is required")]
     public required TerraformProperty<double> WeeklyBackupLimit
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("weekly_backup_limit");
-        set => this.WithProperty("weekly_backup_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("weekly_backup_limit");
+        set => SetProperty("weekly_backup_limit", value);
     }
 
     /// <summary>
@@ -162,8 +169,7 @@ public class GoogleNetappBackupPolicy : TerraformResource
     /// </summary>
     public GoogleNetappBackupPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetappBackupPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

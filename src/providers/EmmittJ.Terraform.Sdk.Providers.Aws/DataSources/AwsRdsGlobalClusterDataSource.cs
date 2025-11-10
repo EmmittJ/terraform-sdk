@@ -14,17 +14,19 @@ public class AwsRdsGlobalClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("database_name");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("endpoint");
-        this.WithOutput("engine");
-        this.WithOutput("engine_lifecycle_support");
-        this.WithOutput("engine_version");
-        this.WithOutput("members");
-        this.WithOutput("resource_id");
-        this.WithOutput("storage_encrypted");
-        this.WithOutput("tags");
+        SetOutput("arn");
+        SetOutput("database_name");
+        SetOutput("deletion_protection");
+        SetOutput("endpoint");
+        SetOutput("engine");
+        SetOutput("engine_lifecycle_support");
+        SetOutput("engine_version");
+        SetOutput("members");
+        SetOutput("resource_id");
+        SetOutput("storage_encrypted");
+        SetOutput("tags");
+        SetOutput("identifier");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -33,17 +35,17 @@ public class AwsRdsGlobalClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
-        set => this.WithProperty("identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identifier");
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

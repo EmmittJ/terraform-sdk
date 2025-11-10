@@ -13,8 +13,7 @@ public class GoogleKmsSecretCiphertextTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleKmsSecretCiphertextTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,16 +38,20 @@ public class GoogleKmsSecretCiphertext : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ciphertext");
+        SetOutput("ciphertext");
+        SetOutput("additional_authenticated_data");
+        SetOutput("crypto_key");
+        SetOutput("id");
+        SetOutput("plaintext");
     }
 
     /// <summary>
     /// The additional authenticated data used for integrity checks during encryption and decryption.
     /// </summary>
-    public TerraformProperty<string>? AdditionalAuthenticatedData
+    public TerraformProperty<string> AdditionalAuthenticatedData
     {
-        get => GetProperty<TerraformProperty<string>>("additional_authenticated_data");
-        set => this.WithProperty("additional_authenticated_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("additional_authenticated_data");
+        set => SetProperty("additional_authenticated_data", value);
     }
 
     /// <summary>
@@ -59,17 +61,17 @@ public class GoogleKmsSecretCiphertext : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformProperty<string> CryptoKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("crypto_key");
-        set => this.WithProperty("crypto_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key");
+        set => SetProperty("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,8 +80,8 @@ public class GoogleKmsSecretCiphertext : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
     public required TerraformProperty<string> Plaintext
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("plaintext");
-        set => this.WithProperty("plaintext", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plaintext");
+        set => SetProperty("plaintext", value);
     }
 
     /// <summary>
@@ -88,8 +90,7 @@ public class GoogleKmsSecretCiphertext : TerraformResource
     /// </summary>
     public GoogleKmsSecretCiphertextTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleKmsSecretCiphertextTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

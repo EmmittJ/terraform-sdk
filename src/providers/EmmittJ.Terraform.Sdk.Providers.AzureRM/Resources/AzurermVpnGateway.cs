@@ -14,8 +14,7 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformProperty<double> Asn
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("asn");
-        set => WithProperty("asn", value);
+        set => SetProperty("asn", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BgpPeeringAddress
     {
-        get => GetProperty<TerraformProperty<string>>("bgp_peering_address");
-        set => WithProperty("bgp_peering_address", value);
+        set => SetProperty("bgp_peering_address", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerWeight is required")]
     public required TerraformProperty<double> PeerWeight
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("peer_weight");
-        set => WithProperty("peer_weight", value);
+        set => SetProperty("peer_weight", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -96,25 +89,34 @@ public class AzurermVpnGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputp_configuration");
+        SetOutput("ip_configuration");
+        SetOutput("bgp_route_translation_for_nat_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("routing_preference");
+        SetOutput("scale_unit");
+        SetOutput("tags");
+        SetOutput("virtual_hub_id");
     }
 
     /// <summary>
     /// The bgp_route_translation_for_nat_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BgpRouteTranslationForNatEnabled
+    public TerraformProperty<bool> BgpRouteTranslationForNatEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("bgp_route_translation_for_nat_enabled");
-        set => this.WithProperty("bgp_route_translation_for_nat_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bgp_route_translation_for_nat_enabled");
+        set => SetProperty("bgp_route_translation_for_nat_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,8 +125,8 @@ public class AzurermVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -133,8 +135,8 @@ public class AzurermVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -143,35 +145,35 @@ public class AzurermVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The routing_preference attribute.
     /// </summary>
-    public TerraformProperty<string>? RoutingPreference
+    public TerraformProperty<string> RoutingPreference
     {
-        get => GetProperty<TerraformProperty<string>>("routing_preference");
-        set => this.WithProperty("routing_preference", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("routing_preference");
+        set => SetProperty("routing_preference", value);
     }
 
     /// <summary>
     /// The scale_unit attribute.
     /// </summary>
-    public TerraformProperty<double>? ScaleUnit
+    public TerraformProperty<double> ScaleUnit
     {
-        get => GetProperty<TerraformProperty<double>>("scale_unit");
-        set => this.WithProperty("scale_unit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scale_unit");
+        set => SetProperty("scale_unit", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -180,8 +182,8 @@ public class AzurermVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
-        set => this.WithProperty("virtual_hub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_id");
+        set => SetProperty("virtual_hub_id", value);
     }
 
     /// <summary>
@@ -191,8 +193,7 @@ public class AzurermVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
     public List<AzurermVpnGatewayBgpSettingsBlock>? BgpSettings
     {
-        get => GetProperty<List<AzurermVpnGatewayBgpSettingsBlock>>("bgp_settings");
-        set => this.WithProperty("bgp_settings", value);
+        set => SetProperty("bgp_settings", value);
     }
 
     /// <summary>
@@ -201,8 +202,7 @@ public class AzurermVpnGateway : TerraformResource
     /// </summary>
     public AzurermVpnGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVpnGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsKmsGrantConstraintsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EncryptionContextEquals
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("encryption_context_equals");
-        set => WithProperty("encryption_context_equals", value);
+        set => SetProperty("encryption_context_equals", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsKmsGrantConstraintsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EncryptionContextSubset
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("encryption_context_subset");
-        set => WithProperty("encryption_context_subset", value);
+        set => SetProperty("encryption_context_subset", value);
     }
 
 }
@@ -40,17 +38,26 @@ public class AwsKmsGrant : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("grant_id");
-        this.WithOutput("grant_token");
+        SetOutput("grant_id");
+        SetOutput("grant_token");
+        SetOutput("grant_creation_tokens");
+        SetOutput("grantee_principal");
+        SetOutput("id");
+        SetOutput("key_id");
+        SetOutput("name");
+        SetOutput("operations");
+        SetOutput("region");
+        SetOutput("retire_on_delete");
+        SetOutput("retiring_principal");
     }
 
     /// <summary>
     /// The grant_creation_tokens attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? GrantCreationTokens
+    public HashSet<TerraformProperty<string>> GrantCreationTokens
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("grant_creation_tokens");
-        set => this.WithProperty("grant_creation_tokens", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("grant_creation_tokens");
+        set => SetProperty("grant_creation_tokens", value);
     }
 
     /// <summary>
@@ -59,17 +66,17 @@ public class AwsKmsGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteePrincipal is required")]
     public required TerraformProperty<string> GranteePrincipal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("grantee_principal");
-        set => this.WithProperty("grantee_principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("grantee_principal");
+        set => SetProperty("grantee_principal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,54 +85,54 @@ public class AwsKmsGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
-        set => this.WithProperty("key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The operations attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operations is required")]
-    public HashSet<TerraformProperty<string>>? Operations
+    public HashSet<TerraformProperty<string>> Operations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("operations");
-        set => this.WithProperty("operations", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("operations");
+        set => SetProperty("operations", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retire_on_delete attribute.
     /// </summary>
-    public TerraformProperty<bool>? RetireOnDelete
+    public TerraformProperty<bool> RetireOnDelete
     {
-        get => GetProperty<TerraformProperty<bool>>("retire_on_delete");
-        set => this.WithProperty("retire_on_delete", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("retire_on_delete");
+        set => SetProperty("retire_on_delete", value);
     }
 
     /// <summary>
     /// The retiring_principal attribute.
     /// </summary>
-    public TerraformProperty<string>? RetiringPrincipal
+    public TerraformProperty<string> RetiringPrincipal
     {
-        get => GetProperty<TerraformProperty<string>>("retiring_principal");
-        set => this.WithProperty("retiring_principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("retiring_principal");
+        set => SetProperty("retiring_principal", value);
     }
 
     /// <summary>
@@ -134,8 +141,7 @@ public class AwsKmsGrant : TerraformResource
     /// </summary>
     public HashSet<AwsKmsGrantConstraintsBlock>? Constraints
     {
-        get => GetProperty<HashSet<AwsKmsGrantConstraintsBlock>>("constraints");
-        set => this.WithProperty("constraints", value);
+        set => SetProperty("constraints", value);
     }
 
     /// <summary>

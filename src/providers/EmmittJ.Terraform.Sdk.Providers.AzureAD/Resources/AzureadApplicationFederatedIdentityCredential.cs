@@ -13,8 +13,7 @@ public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,7 +54,14 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("credential_id");
+        SetOutput("credential_id");
+        SetOutput("application_id");
+        SetOutput("audiences");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("issuer");
+        SetOutput("subject");
     }
 
     /// <summary>
@@ -67,27 +70,27 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// List of audiences that can appear in the external token. This specifies what should be accepted in the `aud` claim of incoming tokens.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audiences is required")]
-    public List<TerraformProperty<string>>? Audiences
+    public List<TerraformProperty<string>> Audiences
     {
-        get => GetProperty<List<TerraformProperty<string>>>("audiences");
-        set => this.WithProperty("audiences", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("audiences");
+        set => SetProperty("audiences", value);
     }
 
     /// <summary>
     /// A description for the federated identity credential
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -96,17 +99,17 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -115,8 +118,8 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
-        set => this.WithProperty("issuer", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("issuer");
+        set => SetProperty("issuer", value);
     }
 
     /// <summary>
@@ -125,8 +128,8 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformProperty<string> Subject
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subject");
-        set => this.WithProperty("subject", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subject");
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -135,8 +138,7 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     /// </summary>
     public AzureadApplicationFederatedIdentityCredentialTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationFederatedIdentityCredentialTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

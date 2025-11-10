@@ -13,8 +13,7 @@ public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,23 @@ public class AzurermKustoScript : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("continue_on_errors_enabled");
+        SetOutput("database_id");
+        SetOutput("force_an_update_when_value_changed");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("sas_token");
+        SetOutput("script_content");
+        SetOutput("url");
     }
 
     /// <summary>
     /// The continue_on_errors_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ContinueOnErrorsEnabled
+    public TerraformProperty<bool> ContinueOnErrorsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("continue_on_errors_enabled");
-        set => this.WithProperty("continue_on_errors_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("continue_on_errors_enabled");
+        set => SetProperty("continue_on_errors_enabled", value);
     }
 
     /// <summary>
@@ -75,26 +79,26 @@ public class AzurermKustoScript : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformProperty<string> DatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_id");
-        set => this.WithProperty("database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_id");
+        set => SetProperty("database_id", value);
     }
 
     /// <summary>
     /// The force_an_update_when_value_changed attribute.
     /// </summary>
-    public TerraformProperty<string>? ForceAnUpdateWhenValueChanged
+    public TerraformProperty<string> ForceAnUpdateWhenValueChanged
     {
-        get => GetProperty<TerraformProperty<string>>("force_an_update_when_value_changed");
-        set => this.WithProperty("force_an_update_when_value_changed", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("force_an_update_when_value_changed");
+        set => SetProperty("force_an_update_when_value_changed", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,35 +107,35 @@ public class AzurermKustoScript : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The sas_token attribute.
     /// </summary>
-    public TerraformProperty<string>? SasToken
+    public TerraformProperty<string> SasToken
     {
-        get => GetProperty<TerraformProperty<string>>("sas_token");
-        set => this.WithProperty("sas_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sas_token");
+        set => SetProperty("sas_token", value);
     }
 
     /// <summary>
     /// The script_content attribute.
     /// </summary>
-    public TerraformProperty<string>? ScriptContent
+    public TerraformProperty<string> ScriptContent
     {
-        get => GetProperty<TerraformProperty<string>>("script_content");
-        set => this.WithProperty("script_content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("script_content");
+        set => SetProperty("script_content", value);
     }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformProperty<string>? Url
+    public TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
-        set => this.WithProperty("url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url");
+        set => SetProperty("url", value);
     }
 
     /// <summary>
@@ -140,8 +144,7 @@ public class AzurermKustoScript : TerraformResource
     /// </summary>
     public AzurermKustoScriptTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKustoScriptTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

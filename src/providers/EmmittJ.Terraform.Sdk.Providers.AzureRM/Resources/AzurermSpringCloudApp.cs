@@ -13,8 +13,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? MountOptions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("mount_options");
-        set => WithProperty("mount_options", value);
+        set => SetProperty("mount_options", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformProperty<string> MountPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mount_path");
-        set => WithProperty("mount_path", value);
+        set => SetProperty("mount_path", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ReadOnlyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("read_only_enabled");
-        set => WithProperty("read_only_enabled", value);
+        set => SetProperty("read_only_enabled", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformProperty<string> ShareName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("share_name");
-        set => WithProperty("share_name", value);
+        set => SetProperty("share_name", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageName is required")]
     public required TerraformProperty<string> StorageName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_name");
-        set => WithProperty("storage_name", value);
+        set => SetProperty("storage_name", value);
     }
 
 }
@@ -69,8 +64,7 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -114,8 +105,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BackendProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("backend_protocol");
-        set => WithProperty("backend_protocol", value);
+        set => SetProperty("backend_protocol", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ReadTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("read_timeout_in_seconds");
-        set => WithProperty("read_timeout_in_seconds", value);
+        set => SetProperty("read_timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -132,8 +121,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SendTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("send_timeout_in_seconds");
-        set => WithProperty("send_timeout_in_seconds", value);
+        set => SetProperty("send_timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SessionAffinity
     {
-        get => GetProperty<TerraformProperty<string>>("session_affinity");
-        set => WithProperty("session_affinity", value);
+        set => SetProperty("session_affinity", value);
     }
 
     /// <summary>
@@ -150,8 +137,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SessionCookieMaxAge
     {
-        get => GetProperty<TerraformProperty<double>>("session_cookie_max_age");
-        set => WithProperty("session_cookie_max_age", value);
+        set => SetProperty("session_cookie_max_age", value);
     }
 
 }
@@ -167,8 +153,7 @@ public class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MountPath
     {
-        get => GetProperty<TerraformProperty<string>>("mount_path");
-        set => WithProperty("mount_path", value);
+        set => SetProperty("mount_path", value);
     }
 
     /// <summary>
@@ -177,8 +162,7 @@ public class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGb is required")]
     public required TerraformProperty<double> SizeInGb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("size_in_gb");
-        set => WithProperty("size_in_gb", value);
+        set => SetProperty("size_in_gb", value);
     }
 
 }
@@ -194,8 +178,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -203,8 +186,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -212,8 +194,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -221,8 +202,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -240,44 +220,53 @@ public class AzurermSpringCloudApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputqdn");
-        this.WithOutputrl");
+        SetOutput("fqdn");
+        SetOutput("url");
+        SetOutput("addon_json");
+        SetOutput("https_only");
+        SetOutput("id");
+        SetOutput("is_public");
+        SetOutput("name");
+        SetOutput("public_endpoint_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("service_name");
+        SetOutput("tls_enabled");
     }
 
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    public TerraformProperty<string>? AddonJson
+    public TerraformProperty<string> AddonJson
     {
-        get => GetProperty<TerraformProperty<string>>("addon_json");
-        set => this.WithProperty("addon_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("addon_json");
+        set => SetProperty("addon_json", value);
     }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? HttpsOnly
+    public TerraformProperty<bool> HttpsOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("https_only");
-        set => this.WithProperty("https_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("https_only");
+        set => SetProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The is_public attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsPublic
+    public TerraformProperty<bool> IsPublic
     {
-        get => GetProperty<TerraformProperty<bool>>("is_public");
-        set => this.WithProperty("is_public", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_public");
+        set => SetProperty("is_public", value);
     }
 
     /// <summary>
@@ -286,17 +275,17 @@ public class AzurermSpringCloudApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_endpoint_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicEndpointEnabled
+    public TerraformProperty<bool> PublicEndpointEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_endpoint_enabled");
-        set => this.WithProperty("public_endpoint_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_endpoint_enabled");
+        set => SetProperty("public_endpoint_enabled", value);
     }
 
     /// <summary>
@@ -305,8 +294,8 @@ public class AzurermSpringCloudApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -315,17 +304,17 @@ public class AzurermSpringCloudApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsEnabled
+    public TerraformProperty<bool> TlsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tls_enabled");
-        set => this.WithProperty("tls_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tls_enabled");
+        set => SetProperty("tls_enabled", value);
     }
 
     /// <summary>
@@ -334,8 +323,7 @@ public class AzurermSpringCloudApp : TerraformResource
     /// </summary>
     public List<AzurermSpringCloudAppCustomPersistentDiskBlock>? CustomPersistentDisk
     {
-        get => GetProperty<List<AzurermSpringCloudAppCustomPersistentDiskBlock>>("custom_persistent_disk");
-        set => this.WithProperty("custom_persistent_disk", value);
+        set => SetProperty("custom_persistent_disk", value);
     }
 
     /// <summary>
@@ -345,8 +333,7 @@ public class AzurermSpringCloudApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermSpringCloudAppIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermSpringCloudAppIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -356,8 +343,7 @@ public class AzurermSpringCloudApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressSettings block(s) allowed")]
     public List<AzurermSpringCloudAppIngressSettingsBlock>? IngressSettings
     {
-        get => GetProperty<List<AzurermSpringCloudAppIngressSettingsBlock>>("ingress_settings");
-        set => this.WithProperty("ingress_settings", value);
+        set => SetProperty("ingress_settings", value);
     }
 
     /// <summary>
@@ -367,8 +353,7 @@ public class AzurermSpringCloudApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistentDisk block(s) allowed")]
     public List<AzurermSpringCloudAppPersistentDiskBlock>? PersistentDisk
     {
-        get => GetProperty<List<AzurermSpringCloudAppPersistentDiskBlock>>("persistent_disk");
-        set => this.WithProperty("persistent_disk", value);
+        set => SetProperty("persistent_disk", value);
     }
 
     /// <summary>
@@ -377,8 +362,7 @@ public class AzurermSpringCloudApp : TerraformResource
     /// </summary>
     public AzurermSpringCloudAppTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudAppTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

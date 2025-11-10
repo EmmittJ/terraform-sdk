@@ -14,10 +14,16 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allowed_all_vpcs");
-        this.WithOutput("endpoint_count");
-        this.WithOutput("grantee");
-        this.WithOutput("grantor");
+        SetOutput("allowed_all_vpcs");
+        SetOutput("endpoint_count");
+        SetOutput("grantee");
+        SetOutput("grantor");
+        SetOutput("account");
+        SetOutput("cluster_identifier");
+        SetOutput("force_delete");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("vpc_ids");
     }
 
     /// <summary>
@@ -26,8 +32,8 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Account is required")]
     public required TerraformProperty<string> Account
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account");
-        set => this.WithProperty("account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account");
+        set => SetProperty("account", value);
     }
 
     /// <summary>
@@ -36,44 +42,44 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDelete
+    public TerraformProperty<bool> ForceDelete
     {
-        get => GetProperty<TerraformProperty<bool>>("force_delete");
-        set => this.WithProperty("force_delete", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete");
+        set => SetProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The vpc_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcIds
+    public HashSet<TerraformProperty<string>> VpcIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_ids");
-        set => this.WithProperty("vpc_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_ids");
+        set => SetProperty("vpc_ids", value);
     }
 
     /// <summary>

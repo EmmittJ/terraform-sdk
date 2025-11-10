@@ -13,8 +13,7 @@ public class AzurermDiskEncryptionSetIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDiskEncryptionSetIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDiskEncryptionSetIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermDiskEncryptionSetIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,52 +96,62 @@ public class AzurermDiskEncryptionSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("key_vault_key_url");
+        SetOutput("key_vault_key_url");
+        SetOutput("auto_key_rotation_enabled");
+        SetOutput("encryption_type");
+        SetOutput("federated_client_id");
+        SetOutput("id");
+        SetOutput("key_vault_key_id");
+        SetOutput("location");
+        SetOutput("managed_hsm_key_id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The auto_key_rotation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoKeyRotationEnabled
+    public TerraformProperty<bool> AutoKeyRotationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_key_rotation_enabled");
-        set => this.WithProperty("auto_key_rotation_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_key_rotation_enabled");
+        set => SetProperty("auto_key_rotation_enabled", value);
     }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionType
+    public TerraformProperty<string> EncryptionType
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_type");
-        set => this.WithProperty("encryption_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_type");
+        set => SetProperty("encryption_type", value);
     }
 
     /// <summary>
     /// The federated_client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FederatedClientId
+    public TerraformProperty<string> FederatedClientId
     {
-        get => GetProperty<TerraformProperty<string>>("federated_client_id");
-        set => this.WithProperty("federated_client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("federated_client_id");
+        set => SetProperty("federated_client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
+    public TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => this.WithProperty("key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -158,17 +160,17 @@ public class AzurermDiskEncryptionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedHsmKeyId
+    public TerraformProperty<string> ManagedHsmKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_hsm_key_id");
-        set => this.WithProperty("managed_hsm_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_key_id");
+        set => SetProperty("managed_hsm_key_id", value);
     }
 
     /// <summary>
@@ -177,8 +179,8 @@ public class AzurermDiskEncryptionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -187,29 +189,29 @@ public class AzurermDiskEncryptionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermDiskEncryptionSetIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermDiskEncryptionSetIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -218,8 +220,7 @@ public class AzurermDiskEncryptionSet : TerraformResource
     /// </summary>
     public AzurermDiskEncryptionSetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDiskEncryptionSetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

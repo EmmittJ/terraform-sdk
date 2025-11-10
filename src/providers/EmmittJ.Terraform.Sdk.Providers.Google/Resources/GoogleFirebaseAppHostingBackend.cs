@@ -18,8 +18,7 @@ public class GoogleFirebaseAppHostingBackendCodebaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository");
-        set => WithProperty("repository", value);
+        set => SetProperty("repository", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleFirebaseAppHostingBackendCodebaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RootDirectory
     {
-        get => GetProperty<TerraformProperty<string>>("root_directory");
-        set => WithProperty("root_directory", value);
+        set => SetProperty("root_directory", value);
     }
 
 }
@@ -45,8 +43,7 @@ public class GoogleFirebaseAppHostingBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -54,8 +51,7 @@ public class GoogleFirebaseAppHostingBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -63,8 +59,7 @@ public class GoogleFirebaseAppHostingBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -82,17 +77,28 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("managed_resources");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("uri");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("managed_resources");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("uri");
+        SetOutput("annotations");
+        SetOutput("app_id");
+        SetOutput("backend_id");
+        SetOutput("display_name");
+        SetOutput("environment");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("service_account");
+        SetOutput("serving_locality");
     }
 
     /// <summary>
@@ -103,10 +109,10 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -117,8 +123,8 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
@@ -128,36 +134,36 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendId is required")]
     public required TerraformProperty<string> BackendId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backend_id");
-        set => this.WithProperty("backend_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backend_id");
+        set => SetProperty("backend_id", value);
     }
 
     /// <summary>
     /// Human-readable name. 63 character limit.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The environment name of the backend, used to load environment variables
     /// from environment specific configuration.
     /// </summary>
-    public TerraformProperty<string>? Environment
+    public TerraformProperty<string> Environment
     {
-        get => GetProperty<TerraformProperty<string>>("environment");
-        set => this.WithProperty("environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment");
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -167,10 +173,10 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -179,17 +185,17 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -200,8 +206,8 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformProperty<string> ServiceAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_account");
-        set => this.WithProperty("service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
@@ -212,8 +218,8 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServingLocality is required")]
     public required TerraformProperty<string> ServingLocality
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("serving_locality");
-        set => this.WithProperty("serving_locality", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("serving_locality");
+        set => SetProperty("serving_locality", value);
     }
 
     /// <summary>
@@ -223,8 +229,7 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Codebase block(s) allowed")]
     public List<GoogleFirebaseAppHostingBackendCodebaseBlock>? Codebase
     {
-        get => GetProperty<List<GoogleFirebaseAppHostingBackendCodebaseBlock>>("codebase");
-        set => this.WithProperty("codebase", value);
+        set => SetProperty("codebase", value);
     }
 
     /// <summary>
@@ -233,8 +238,7 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// </summary>
     public GoogleFirebaseAppHostingBackendTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFirebaseAppHostingBackendTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

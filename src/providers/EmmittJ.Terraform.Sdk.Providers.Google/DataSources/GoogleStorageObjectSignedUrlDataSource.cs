@@ -14,7 +14,16 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("signed_url");
+        SetOutput("signed_url");
+        SetOutput("bucket");
+        SetOutput("content_md5");
+        SetOutput("content_type");
+        SetOutput("credentials");
+        SetOutput("duration");
+        SetOutput("extension_headers");
+        SetOutput("http_method");
+        SetOutput("id");
+        SetOutput("path");
     }
 
     /// <summary>
@@ -23,71 +32,71 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentMd5
+    public TerraformProperty<string> ContentMd5
     {
-        get => GetProperty<TerraformProperty<string>>("content_md5");
-        set => this.WithProperty("content_md5", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_md5");
+        set => SetProperty("content_md5", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    public TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => this.WithProperty("content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
     /// The credentials attribute.
     /// </summary>
-    public TerraformProperty<string>? Credentials
+    public TerraformProperty<string> Credentials
     {
-        get => GetProperty<TerraformProperty<string>>("credentials");
-        set => this.WithProperty("credentials", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("credentials");
+        set => SetProperty("credentials", value);
     }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformProperty<string>? Duration
+    public TerraformProperty<string> Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
-        set => this.WithProperty("duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("duration");
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
     /// The extension_headers attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ExtensionHeaders
+    public Dictionary<string, TerraformProperty<string>> ExtensionHeaders
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("extension_headers");
-        set => this.WithProperty("extension_headers", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("extension_headers");
+        set => SetProperty("extension_headers", value);
     }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
-    public TerraformProperty<string>? HttpMethod
+    public TerraformProperty<string> HttpMethod
     {
-        get => GetProperty<TerraformProperty<string>>("http_method");
-        set => this.WithProperty("http_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
+        set => SetProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -96,8 +105,8 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => this.WithProperty("path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path");
+        set => SetProperty("path", value);
     }
 
     /// <summary>

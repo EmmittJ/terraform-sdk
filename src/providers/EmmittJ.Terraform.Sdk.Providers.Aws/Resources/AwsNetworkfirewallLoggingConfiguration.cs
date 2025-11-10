@@ -23,15 +23,19 @@ public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("enable_monitoring_dashboard");
+        SetOutput("firewall_arn");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The enable_monitoring_dashboard attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableMonitoringDashboard
+    public TerraformProperty<bool> EnableMonitoringDashboard
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_monitoring_dashboard");
-        set => this.WithProperty("enable_monitoring_dashboard", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_monitoring_dashboard");
+        set => SetProperty("enable_monitoring_dashboard", value);
     }
 
     /// <summary>
@@ -40,38 +44,38 @@ public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
     public required TerraformProperty<string> FirewallArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("firewall_arn");
-        set => this.WithProperty("firewall_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firewall_arn");
+        set => SetProperty("firewall_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for logging_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoggingConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoggingConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     public List<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock>? LoggingConfiguration
     {
-        get => GetProperty<List<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock>>("logging_configuration");
-        set => this.WithProperty("logging_configuration", value);
+        set => SetProperty("logging_configuration", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Aggregates
     {
-        get => GetProperty<List<TerraformProperty<string>>>("aggregates");
-        set => WithProperty("aggregates", value);
+        set => SetProperty("aggregates", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ConstituentsPerAggregate
     {
-        get => GetProperty<TerraformProperty<double>>("constituents_per_aggregate");
-        set => WithProperty("constituents_per_aggregate", value);
+        set => SetProperty("constituents_per_aggregate", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TotalConstituents
     {
-        get => GetProperty<TerraformProperty<double>>("total_constituents");
-        set => WithProperty("total_constituents", value);
+        set => SetProperty("total_constituents", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AuditLogVolume
     {
-        get => GetProperty<TerraformProperty<bool>>("audit_log_volume");
-        set => WithProperty("audit_log_volume", value);
+        set => SetProperty("audit_log_volume", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivilegedDelete
     {
-        get => GetProperty<TerraformProperty<string>>("privileged_delete");
-        set => WithProperty("privileged_delete", value);
+        set => SetProperty("privileged_delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnaplockType is required")]
     public required TerraformProperty<string> SnaplockType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("snaplock_type");
-        set => WithProperty("snaplock_type", value);
+        set => SetProperty("snaplock_type", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? VolumeAppendModeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("volume_append_mode_enabled");
-        set => WithProperty("volume_append_mode_enabled", value);
+        set => SetProperty("volume_append_mode_enabled", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AwsFsxOntapVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CoolingPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("cooling_period");
-        set => WithProperty("cooling_period", value);
+        set => SetProperty("cooling_period", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AwsFsxOntapVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -119,8 +110,7 @@ public class AwsFsxOntapVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -128,8 +118,7 @@ public class AwsFsxOntapVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -137,8 +126,7 @@ public class AwsFsxOntapVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -156,55 +144,74 @@ public class AwsFsxOntapVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("file_system_id");
-        this.WithOutput("flexcache_endpoint_type");
-        this.WithOutput("uuid");
+        SetOutput("arn");
+        SetOutput("file_system_id");
+        SetOutput("flexcache_endpoint_type");
+        SetOutput("uuid");
+        SetOutput("bypass_snaplock_enterprise_retention");
+        SetOutput("copy_tags_to_backups");
+        SetOutput("final_backup_tags");
+        SetOutput("id");
+        SetOutput("junction_path");
+        SetOutput("name");
+        SetOutput("ontap_volume_type");
+        SetOutput("region");
+        SetOutput("security_style");
+        SetOutput("size_in_bytes");
+        SetOutput("size_in_megabytes");
+        SetOutput("skip_final_backup");
+        SetOutput("snapshot_policy");
+        SetOutput("storage_efficiency_enabled");
+        SetOutput("storage_virtual_machine_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("volume_style");
+        SetOutput("volume_type");
     }
 
     /// <summary>
     /// The bypass_snaplock_enterprise_retention attribute.
     /// </summary>
-    public TerraformProperty<bool>? BypassSnaplockEnterpriseRetention
+    public TerraformProperty<bool> BypassSnaplockEnterpriseRetention
     {
-        get => GetProperty<TerraformProperty<bool>>("bypass_snaplock_enterprise_retention");
-        set => this.WithProperty("bypass_snaplock_enterprise_retention", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bypass_snaplock_enterprise_retention");
+        set => SetProperty("bypass_snaplock_enterprise_retention", value);
     }
 
     /// <summary>
     /// The copy_tags_to_backups attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyTagsToBackups
+    public TerraformProperty<bool> CopyTagsToBackups
     {
-        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_backups");
-        set => this.WithProperty("copy_tags_to_backups", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags_to_backups");
+        set => SetProperty("copy_tags_to_backups", value);
     }
 
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? FinalBackupTags
+    public Dictionary<string, TerraformProperty<string>> FinalBackupTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
-        set => this.WithProperty("final_backup_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
+        set => SetProperty("final_backup_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The junction_path attribute.
     /// </summary>
-    public TerraformProperty<string>? JunctionPath
+    public TerraformProperty<string> JunctionPath
     {
-        get => GetProperty<TerraformProperty<string>>("junction_path");
-        set => this.WithProperty("junction_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("junction_path");
+        set => SetProperty("junction_path", value);
     }
 
     /// <summary>
@@ -213,80 +220,80 @@ public class AwsFsxOntapVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ontap_volume_type attribute.
     /// </summary>
-    public TerraformProperty<string>? OntapVolumeType
+    public TerraformProperty<string> OntapVolumeType
     {
-        get => GetProperty<TerraformProperty<string>>("ontap_volume_type");
-        set => this.WithProperty("ontap_volume_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ontap_volume_type");
+        set => SetProperty("ontap_volume_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityStyle
+    public TerraformProperty<string> SecurityStyle
     {
-        get => GetProperty<TerraformProperty<string>>("security_style");
-        set => this.WithProperty("security_style", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_style");
+        set => SetProperty("security_style", value);
     }
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<string>? SizeInBytes
+    public TerraformProperty<string> SizeInBytes
     {
-        get => GetProperty<TerraformProperty<string>>("size_in_bytes");
-        set => this.WithProperty("size_in_bytes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("size_in_bytes");
+        set => SetProperty("size_in_bytes", value);
     }
 
     /// <summary>
     /// The size_in_megabytes attribute.
     /// </summary>
-    public TerraformProperty<double>? SizeInMegabytes
+    public TerraformProperty<double> SizeInMegabytes
     {
-        get => GetProperty<TerraformProperty<double>>("size_in_megabytes");
-        set => this.WithProperty("size_in_megabytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("size_in_megabytes");
+        set => SetProperty("size_in_megabytes", value);
     }
 
     /// <summary>
     /// The skip_final_backup attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipFinalBackup
+    public TerraformProperty<bool> SkipFinalBackup
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_final_backup");
-        set => this.WithProperty("skip_final_backup", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_final_backup");
+        set => SetProperty("skip_final_backup", value);
     }
 
     /// <summary>
     /// The snapshot_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotPolicy
+    public TerraformProperty<string> SnapshotPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_policy");
-        set => this.WithProperty("snapshot_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_policy");
+        set => SetProperty("snapshot_policy", value);
     }
 
     /// <summary>
     /// The storage_efficiency_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? StorageEfficiencyEnabled
+    public TerraformProperty<bool> StorageEfficiencyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("storage_efficiency_enabled");
-        set => this.WithProperty("storage_efficiency_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("storage_efficiency_enabled");
+        set => SetProperty("storage_efficiency_enabled", value);
     }
 
     /// <summary>
@@ -295,44 +302,44 @@ public class AwsFsxOntapVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineId is required")]
     public required TerraformProperty<string> StorageVirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_virtual_machine_id");
-        set => this.WithProperty("storage_virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_virtual_machine_id");
+        set => SetProperty("storage_virtual_machine_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The volume_style attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeStyle
+    public TerraformProperty<string> VolumeStyle
     {
-        get => GetProperty<TerraformProperty<string>>("volume_style");
-        set => this.WithProperty("volume_style", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_style");
+        set => SetProperty("volume_style", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeType
+    public TerraformProperty<string> VolumeType
     {
-        get => GetProperty<TerraformProperty<string>>("volume_type");
-        set => this.WithProperty("volume_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_type");
+        set => SetProperty("volume_type", value);
     }
 
     /// <summary>
@@ -342,8 +349,7 @@ public class AwsFsxOntapVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AggregateConfiguration block(s) allowed")]
     public List<AwsFsxOntapVolumeAggregateConfigurationBlock>? AggregateConfiguration
     {
-        get => GetProperty<List<AwsFsxOntapVolumeAggregateConfigurationBlock>>("aggregate_configuration");
-        set => this.WithProperty("aggregate_configuration", value);
+        set => SetProperty("aggregate_configuration", value);
     }
 
     /// <summary>
@@ -353,8 +359,7 @@ public class AwsFsxOntapVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnaplockConfiguration block(s) allowed")]
     public List<AwsFsxOntapVolumeSnaplockConfigurationBlock>? SnaplockConfiguration
     {
-        get => GetProperty<List<AwsFsxOntapVolumeSnaplockConfigurationBlock>>("snaplock_configuration");
-        set => this.WithProperty("snaplock_configuration", value);
+        set => SetProperty("snaplock_configuration", value);
     }
 
     /// <summary>
@@ -364,8 +369,7 @@ public class AwsFsxOntapVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TieringPolicy block(s) allowed")]
     public List<AwsFsxOntapVolumeTieringPolicyBlock>? TieringPolicy
     {
-        get => GetProperty<List<AwsFsxOntapVolumeTieringPolicyBlock>>("tiering_policy");
-        set => this.WithProperty("tiering_policy", value);
+        set => SetProperty("tiering_policy", value);
     }
 
     /// <summary>
@@ -374,8 +378,7 @@ public class AwsFsxOntapVolume : TerraformResource
     /// </summary>
     public AwsFsxOntapVolumeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFsxOntapVolumeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

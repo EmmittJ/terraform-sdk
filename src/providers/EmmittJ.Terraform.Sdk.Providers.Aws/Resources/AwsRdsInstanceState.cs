@@ -13,8 +13,7 @@ public class AwsRdsInstanceStateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRdsInstanceStateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,6 +38,9 @@ public class AwsRdsInstanceState : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("identifier");
+        SetOutput("region");
+        SetOutput("state");
     }
 
     /// <summary>
@@ -48,17 +49,17 @@ public class AwsRdsInstanceState : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
-        set => this.WithProperty("identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identifier");
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -67,8 +68,8 @@ public class AwsRdsInstanceState : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -77,8 +78,7 @@ public class AwsRdsInstanceState : TerraformResource
     /// </summary>
     public AwsRdsInstanceStateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRdsInstanceStateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

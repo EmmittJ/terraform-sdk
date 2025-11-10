@@ -14,50 +14,55 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("chain_name");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("description");
-        this.WithOutput("disk_size_gb");
-        this.WithOutput("effective_labels");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("labels");
-        this.WithOutput("licenses");
-        this.WithOutput("self_link");
-        this.WithOutput("snapshot_encryption_key");
-        this.WithOutput("snapshot_id");
-        this.WithOutput("source_disk");
-        this.WithOutput("source_disk_encryption_key");
-        this.WithOutput("storage_bytes");
-        this.WithOutput("storage_locations");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("zone");
+        SetOutput("chain_name");
+        SetOutput("creation_timestamp");
+        SetOutput("description");
+        SetOutput("disk_size_gb");
+        SetOutput("effective_labels");
+        SetOutput("label_fingerprint");
+        SetOutput("labels");
+        SetOutput("licenses");
+        SetOutput("self_link");
+        SetOutput("snapshot_encryption_key");
+        SetOutput("snapshot_id");
+        SetOutput("source_disk");
+        SetOutput("source_disk_encryption_key");
+        SetOutput("storage_bytes");
+        SetOutput("storage_locations");
+        SetOutput("terraform_labels");
+        SetOutput("zone");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("most_recent");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
@@ -69,19 +74,19 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

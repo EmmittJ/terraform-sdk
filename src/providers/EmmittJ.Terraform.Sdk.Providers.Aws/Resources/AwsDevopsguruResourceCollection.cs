@@ -14,8 +14,7 @@ public class AwsDevopsguruResourceCollectionCloudformationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackNames is required")]
     public List<TerraformProperty<string>>? StackNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("stack_names");
-        set => WithProperty("stack_names", value);
+        set => SetProperty("stack_names", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBoundaryKey is required")]
     public required TerraformProperty<string> AppBoundaryKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_boundary_key");
-        set => WithProperty("app_boundary_key", value);
+        set => SetProperty("app_boundary_key", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValues is required")]
     public List<TerraformProperty<string>>? TagValues
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tag_values");
-        set => WithProperty("tag_values", value);
+        set => SetProperty("tag_values", value);
     }
 
 }
@@ -60,16 +57,18 @@ public class AwsDevopsguruResourceCollection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +77,8 @@ public class AwsDevopsguruResourceCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -88,8 +87,7 @@ public class AwsDevopsguruResourceCollection : TerraformResource
     /// </summary>
     public List<AwsDevopsguruResourceCollectionCloudformationBlock>? Cloudformation
     {
-        get => GetProperty<List<AwsDevopsguruResourceCollectionCloudformationBlock>>("cloudformation");
-        set => this.WithProperty("cloudformation", value);
+        set => SetProperty("cloudformation", value);
     }
 
     /// <summary>
@@ -98,8 +96,7 @@ public class AwsDevopsguruResourceCollection : TerraformResource
     /// </summary>
     public List<AwsDevopsguruResourceCollectionTagsBlock>? Tags
     {
-        get => GetProperty<List<AwsDevopsguruResourceCollectionTagsBlock>>("tags");
-        set => this.WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

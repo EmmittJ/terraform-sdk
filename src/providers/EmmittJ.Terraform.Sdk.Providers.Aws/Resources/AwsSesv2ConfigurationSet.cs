@@ -13,8 +13,7 @@ public class AwsSesv2ConfigurationSetDeliveryOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxDeliverySeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_delivery_seconds");
-        set => WithProperty("max_delivery_seconds", value);
+        set => SetProperty("max_delivery_seconds", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSesv2ConfigurationSetDeliveryOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SendingPoolName
     {
-        get => GetProperty<TerraformProperty<string>>("sending_pool_name");
-        set => WithProperty("sending_pool_name", value);
+        set => SetProperty("sending_pool_name", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSesv2ConfigurationSetDeliveryOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TlsPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("tls_policy");
-        set => WithProperty("tls_policy", value);
+        set => SetProperty("tls_policy", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsSesv2ConfigurationSetReputationOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastFreshStart
     {
-        get => GetProperty<TerraformProperty<string>>("last_fresh_start");
-        set => WithProperty("last_fresh_start", value);
+        set => SetProperty("last_fresh_start", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsSesv2ConfigurationSetReputationOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ReputationMetricsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("reputation_metrics_enabled");
-        set => WithProperty("reputation_metrics_enabled", value);
+        set => SetProperty("reputation_metrics_enabled", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class AwsSesv2ConfigurationSetSendingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SendingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sending_enabled");
-        set => WithProperty("sending_enabled", value);
+        set => SetProperty("sending_enabled", value);
     }
 
 }
@@ -91,8 +85,7 @@ public class AwsSesv2ConfigurationSetSuppressionOptionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SuppressedReasons
     {
-        get => GetProperty<List<TerraformProperty<string>>>("suppressed_reasons");
-        set => WithProperty("suppressed_reasons", value);
+        set => SetProperty("suppressed_reasons", value);
     }
 
 }
@@ -109,8 +102,7 @@ public class AwsSesv2ConfigurationSetTrackingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomRedirectDomain is required")]
     public required TerraformProperty<string> CustomRedirectDomain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_redirect_domain");
-        set => WithProperty("custom_redirect_domain", value);
+        set => SetProperty("custom_redirect_domain", value);
     }
 
     /// <summary>
@@ -118,8 +110,7 @@ public class AwsSesv2ConfigurationSetTrackingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpsPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("https_policy");
-        set => WithProperty("https_policy", value);
+        set => SetProperty("https_policy", value);
     }
 
 }
@@ -145,7 +136,12 @@ public class AwsSesv2ConfigurationSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("configuration_set_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -154,44 +150,44 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformProperty<string> ConfigurationSetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_set_name");
-        set => this.WithProperty("configuration_set_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_set_name");
+        set => SetProperty("configuration_set_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -201,8 +197,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryOptions block(s) allowed")]
     public List<AwsSesv2ConfigurationSetDeliveryOptionsBlock>? DeliveryOptions
     {
-        get => GetProperty<List<AwsSesv2ConfigurationSetDeliveryOptionsBlock>>("delivery_options");
-        set => this.WithProperty("delivery_options", value);
+        set => SetProperty("delivery_options", value);
     }
 
     /// <summary>
@@ -212,8 +207,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReputationOptions block(s) allowed")]
     public List<AwsSesv2ConfigurationSetReputationOptionsBlock>? ReputationOptions
     {
-        get => GetProperty<List<AwsSesv2ConfigurationSetReputationOptionsBlock>>("reputation_options");
-        set => this.WithProperty("reputation_options", value);
+        set => SetProperty("reputation_options", value);
     }
 
     /// <summary>
@@ -223,8 +217,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SendingOptions block(s) allowed")]
     public List<AwsSesv2ConfigurationSetSendingOptionsBlock>? SendingOptions
     {
-        get => GetProperty<List<AwsSesv2ConfigurationSetSendingOptionsBlock>>("sending_options");
-        set => this.WithProperty("sending_options", value);
+        set => SetProperty("sending_options", value);
     }
 
     /// <summary>
@@ -234,8 +227,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SuppressionOptions block(s) allowed")]
     public List<AwsSesv2ConfigurationSetSuppressionOptionsBlock>? SuppressionOptions
     {
-        get => GetProperty<List<AwsSesv2ConfigurationSetSuppressionOptionsBlock>>("suppression_options");
-        set => this.WithProperty("suppression_options", value);
+        set => SetProperty("suppression_options", value);
     }
 
     /// <summary>
@@ -245,8 +237,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrackingOptions block(s) allowed")]
     public List<AwsSesv2ConfigurationSetTrackingOptionsBlock>? TrackingOptions
     {
-        get => GetProperty<List<AwsSesv2ConfigurationSetTrackingOptionsBlock>>("tracking_options");
-        set => this.WithProperty("tracking_options", value);
+        set => SetProperty("tracking_options", value);
     }
 
     /// <summary>
@@ -256,8 +247,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VdmOptions block(s) allowed")]
     public List<AwsSesv2ConfigurationSetVdmOptionsBlock>? VdmOptions
     {
-        get => GetProperty<List<AwsSesv2ConfigurationSetVdmOptionsBlock>>("vdm_options");
-        set => this.WithProperty("vdm_options", value);
+        set => SetProperty("vdm_options", value);
     }
 
     /// <summary>

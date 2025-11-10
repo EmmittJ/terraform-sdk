@@ -14,15 +14,26 @@ public class AwsDxConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("aws_device");
-        this.WithOutput("has_logical_redundancy");
-        this.WithOutput("jumbo_frame_capable");
-        this.WithOutput("macsec_capable");
-        this.WithOutput("owner_account_id");
-        this.WithOutput("partner_name");
-        this.WithOutput("port_encryption_status");
-        this.WithOutput("vlan_id");
+        SetOutput("arn");
+        SetOutput("aws_device");
+        SetOutput("has_logical_redundancy");
+        SetOutput("jumbo_frame_capable");
+        SetOutput("macsec_capable");
+        SetOutput("owner_account_id");
+        SetOutput("partner_name");
+        SetOutput("port_encryption_status");
+        SetOutput("vlan_id");
+        SetOutput("bandwidth");
+        SetOutput("encryption_mode");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("provider_name");
+        SetOutput("region");
+        SetOutput("request_macsec");
+        SetOutput("skip_destroy");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -31,26 +42,26 @@ public class AwsDxConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bandwidth is required")]
     public required TerraformProperty<string> Bandwidth
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bandwidth");
-        set => this.WithProperty("bandwidth", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bandwidth");
+        set => SetProperty("bandwidth", value);
     }
 
     /// <summary>
     /// The encryption_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionMode
+    public TerraformProperty<string> EncryptionMode
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_mode");
-        set => this.WithProperty("encryption_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_mode");
+        set => SetProperty("encryption_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +70,8 @@ public class AwsDxConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -69,62 +80,62 @@ public class AwsDxConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProviderName
+    public TerraformProperty<string> ProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("provider_name");
-        set => this.WithProperty("provider_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_name");
+        set => SetProperty("provider_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The request_macsec attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequestMacsec
+    public TerraformProperty<bool> RequestMacsec
     {
-        get => GetProperty<TerraformProperty<bool>>("request_macsec");
-        set => this.WithProperty("request_macsec", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("request_macsec");
+        set => SetProperty("request_macsec", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

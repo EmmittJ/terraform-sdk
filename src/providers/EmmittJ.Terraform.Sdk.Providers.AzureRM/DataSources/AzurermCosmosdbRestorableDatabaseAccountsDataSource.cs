@@ -13,8 +13,7 @@ public class AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,19 @@ public class AzurermCosmosdbRestorableDatabaseAccountsDataSource : TerraformData
 
     private void InitializeOutputs()
     {
-        this.WithOutput("accounts");
+        SetOutput("accounts");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +51,8 @@ public class AzurermCosmosdbRestorableDatabaseAccountsDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class AzurermCosmosdbRestorableDatabaseAccountsDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -69,8 +71,7 @@ public class AzurermCosmosdbRestorableDatabaseAccountsDataSource : TerraformData
     /// </summary>
     public AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

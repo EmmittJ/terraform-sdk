@@ -13,8 +13,7 @@ public class AzurermLogicAppActionCustomTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogicAppActionCustomTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogicAppActionCustomTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogicAppActionCustomTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzurermLogicAppActionCustom : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("body");
+        SetOutput("id");
+        SetOutput("logic_app_id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -66,17 +66,17 @@ public class AzurermLogicAppActionCustom : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("body");
-        set => this.WithProperty("body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("body");
+        set => SetProperty("body", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +85,8 @@ public class AzurermLogicAppActionCustom : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformProperty<string> LogicAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("logic_app_id");
-        set => this.WithProperty("logic_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logic_app_id");
+        set => SetProperty("logic_app_id", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzurermLogicAppActionCustom : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzurermLogicAppActionCustom : TerraformResource
     /// </summary>
     public AzurermLogicAppActionCustomTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogicAppActionCustomTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

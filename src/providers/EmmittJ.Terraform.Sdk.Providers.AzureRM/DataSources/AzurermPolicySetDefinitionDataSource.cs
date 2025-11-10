@@ -13,8 +13,7 @@ public class AzurermPolicySetDefinitionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,49 +30,53 @@ public class AzurermPolicySetDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("metadata");
-        this.WithOutput("parameters");
-        this.WithOutput("policy_definition_group");
-        this.WithOutput("policy_definition_reference");
-        this.WithOutput("policy_definitions");
-        this.WithOutput("policy_type");
+        SetOutput("description");
+        SetOutput("metadata");
+        SetOutput("parameters");
+        SetOutput("policy_definition_group");
+        SetOutput("policy_definition_reference");
+        SetOutput("policy_definitions");
+        SetOutput("policy_type");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("management_group_name");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The management_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagementGroupName
+    public TerraformProperty<string> ManagementGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("management_group_name");
-        set => this.WithProperty("management_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("management_group_name");
+        set => SetProperty("management_group_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -82,8 +85,7 @@ public class AzurermPolicySetDefinitionDataSource : TerraformDataSource
     /// </summary>
     public AzurermPolicySetDefinitionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPolicySetDefinitionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

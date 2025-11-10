@@ -13,8 +13,7 @@ public class AwsSecurityhubAutomationRuleActionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -39,9 +38,16 @@ public class AwsSecurityhubAutomationRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("is_terminal");
+        SetOutput("region");
+        SetOutput("rule_name");
+        SetOutput("rule_order");
+        SetOutput("rule_status");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -50,26 +56,26 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The is_terminal attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsTerminal
+    public TerraformProperty<bool> IsTerminal
     {
-        get => GetProperty<TerraformProperty<bool>>("is_terminal");
-        set => this.WithProperty("is_terminal", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_terminal");
+        set => SetProperty("is_terminal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +84,8 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
-        set => this.WithProperty("rule_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
+        set => SetProperty("rule_name", value);
     }
 
     /// <summary>
@@ -88,26 +94,26 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleOrder is required")]
     public required TerraformProperty<double> RuleOrder
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("rule_order");
-        set => this.WithProperty("rule_order", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("rule_order");
+        set => SetProperty("rule_order", value);
     }
 
     /// <summary>
     /// The rule_status attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleStatus
+    public TerraformProperty<string> RuleStatus
     {
-        get => GetProperty<TerraformProperty<string>>("rule_status");
-        set => this.WithProperty("rule_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_status");
+        set => SetProperty("rule_status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -116,8 +122,7 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     /// </summary>
     public HashSet<AwsSecurityhubAutomationRuleActionsBlock>? Actions
     {
-        get => GetProperty<HashSet<AwsSecurityhubAutomationRuleActionsBlock>>("actions");
-        set => this.WithProperty("actions", value);
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -126,8 +131,7 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     /// </summary>
     public List<AwsSecurityhubAutomationRuleCriteriaBlock>? Criteria
     {
-        get => GetProperty<List<AwsSecurityhubAutomationRuleCriteriaBlock>>("criteria");
-        set => this.WithProperty("criteria", value);
+        set => SetProperty("criteria", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsXrayGroupInsightsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsEnabled is required")]
     public required TerraformProperty<bool> InsightsEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("insights_enabled");
-        set => WithProperty("insights_enabled", value);
+        set => SetProperty("insights_enabled", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsXrayGroupInsightsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NotificationsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("notifications_enabled");
-        set => WithProperty("notifications_enabled", value);
+        set => SetProperty("notifications_enabled", value);
     }
 
 }
@@ -42,7 +40,13 @@ public class AwsXrayGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("filter_expression");
+        SetOutput("group_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -51,8 +55,8 @@ public class AwsXrayGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterExpression is required")]
     public required TerraformProperty<string> FilterExpression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter_expression");
-        set => this.WithProperty("filter_expression", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter_expression");
+        set => SetProperty("filter_expression", value);
     }
 
     /// <summary>
@@ -61,44 +65,44 @@ public class AwsXrayGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformProperty<string> GroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_name");
-        set => this.WithProperty("group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_name");
+        set => SetProperty("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -108,8 +112,7 @@ public class AwsXrayGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InsightsConfiguration block(s) allowed")]
     public List<AwsXrayGroupInsightsConfigurationBlock>? InsightsConfiguration
     {
-        get => GetProperty<List<AwsXrayGroupInsightsConfigurationBlock>>("insights_configuration");
-        set => this.WithProperty("insights_configuration", value);
+        set => SetProperty("insights_configuration", value);
     }
 
     /// <summary>

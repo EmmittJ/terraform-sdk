@@ -22,8 +22,7 @@ public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -38,8 +37,7 @@ public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
-        set => WithProperty("namespace", value);
+        set => SetProperty("namespace", value);
     }
 
 }
@@ -56,8 +54,7 @@ public class GoogleCloudIdentityGroupMembershipRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -73,8 +70,7 @@ public class GoogleCloudIdentityGroupMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -82,8 +78,7 @@ public class GoogleCloudIdentityGroupMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -91,8 +86,7 @@ public class GoogleCloudIdentityGroupMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -110,19 +104,22 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("type");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("type");
+        SetOutput("update_time");
+        SetOutput("create_ignore_already_exists");
+        SetOutput("group");
+        SetOutput("id");
     }
 
     /// <summary>
     /// If set to true, skip group member creation if a membership with the same name already exists. Defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? CreateIgnoreAlreadyExists
+    public TerraformProperty<bool> CreateIgnoreAlreadyExists
     {
-        get => GetProperty<TerraformProperty<bool>>("create_ignore_already_exists");
-        set => this.WithProperty("create_ignore_already_exists", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_ignore_already_exists");
+        set => SetProperty("create_ignore_already_exists", value);
     }
 
     /// <summary>
@@ -131,17 +128,17 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformProperty<string> Group
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group");
-        set => this.WithProperty("group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group");
+        set => SetProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -151,19 +148,18 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreferredMemberKey block(s) allowed")]
     public List<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock>? PreferredMemberKey
     {
-        get => GetProperty<List<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock>>("preferred_member_key");
-        set => this.WithProperty("preferred_member_key", value);
+        set => SetProperty("preferred_member_key", value);
     }
 
     /// <summary>
     /// Block for roles.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     public HashSet<GoogleCloudIdentityGroupMembershipRolesBlock>? Roles
     {
-        get => GetProperty<HashSet<GoogleCloudIdentityGroupMembershipRolesBlock>>("roles");
-        set => this.WithProperty("roles", value);
+        set => SetProperty("roles", value);
     }
 
     /// <summary>
@@ -172,8 +168,7 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     /// </summary>
     public GoogleCloudIdentityGroupMembershipTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudIdentityGroupMembershipTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

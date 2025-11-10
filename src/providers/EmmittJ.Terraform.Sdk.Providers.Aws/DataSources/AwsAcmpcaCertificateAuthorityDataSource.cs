@@ -14,17 +14,21 @@ public class AwsAcmpcaCertificateAuthorityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate");
-        this.WithOutput("certificate_chain");
-        this.WithOutput("certificate_signing_request");
-        this.WithOutput("key_storage_security_standard");
-        this.WithOutput("not_after");
-        this.WithOutput("not_before");
-        this.WithOutput("revocation_configuration");
-        this.WithOutput("serial");
-        this.WithOutput("status");
-        this.WithOutput("type");
-        this.WithOutput("usage_mode");
+        SetOutput("certificate");
+        SetOutput("certificate_chain");
+        SetOutput("certificate_signing_request");
+        SetOutput("key_storage_security_standard");
+        SetOutput("not_after");
+        SetOutput("not_before");
+        SetOutput("revocation_configuration");
+        SetOutput("serial");
+        SetOutput("status");
+        SetOutput("type");
+        SetOutput("usage_mode");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -33,35 +37,35 @@ public class AwsAcmpcaCertificateAuthorityDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

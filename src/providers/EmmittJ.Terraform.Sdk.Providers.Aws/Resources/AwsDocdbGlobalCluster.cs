@@ -13,8 +13,7 @@ public class AwsDocdbGlobalClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDocdbGlobalClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDocdbGlobalClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,46 +46,55 @@ public class AwsDocdbGlobalCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("global_cluster_members");
-        this.WithOutput("global_cluster_resource_id");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("global_cluster_members");
+        SetOutput("global_cluster_resource_id");
+        SetOutput("status");
+        SetOutput("database_name");
+        SetOutput("deletion_protection");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("global_cluster_identifier");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("source_db_cluster_identifier");
+        SetOutput("storage_encrypted");
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
+    public TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    public TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
@@ -97,44 +103,44 @@ public class AwsDocdbGlobalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalClusterIdentifier is required")]
     public required TerraformProperty<string> GlobalClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_cluster_identifier");
-        set => this.WithProperty("global_cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_cluster_identifier");
+        set => SetProperty("global_cluster_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The source_db_cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceDbClusterIdentifier
+    public TerraformProperty<string> SourceDbClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("source_db_cluster_identifier");
-        set => this.WithProperty("source_db_cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_db_cluster_identifier");
+        set => SetProperty("source_db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool>? StorageEncrypted
+    public TerraformProperty<bool> StorageEncrypted
     {
-        get => GetProperty<TerraformProperty<bool>>("storage_encrypted");
-        set => this.WithProperty("storage_encrypted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("storage_encrypted");
+        set => SetProperty("storage_encrypted", value);
     }
 
     /// <summary>
@@ -143,8 +149,7 @@ public class AwsDocdbGlobalCluster : TerraformResource
     /// </summary>
     public AwsDocdbGlobalClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDocdbGlobalClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

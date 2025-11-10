@@ -14,8 +14,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Commitment is required")]
     public required TerraformProperty<string> Commitment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("commitment");
-        set => WithProperty("commitment", value);
+        set => SetProperty("commitment", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RenewalType is required")]
     public required TerraformProperty<string> RenewalType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("renewal_type");
-        set => WithProperty("renewal_type", value);
+        set => SetProperty("renewal_type", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedSlots is required")]
     public required TerraformProperty<double> ReservedSlots
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("reserved_slots");
-        set => WithProperty("reserved_slots", value);
+        set => SetProperty("reserved_slots", value);
     }
 
 }
@@ -53,34 +50,43 @@ public class AwsMediaConvertQueue : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("concurrent_jobs");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("pricing_plan");
+        SetOutput("region");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The concurrent_jobs attribute.
     /// </summary>
-    public TerraformProperty<double>? ConcurrentJobs
+    public TerraformProperty<double> ConcurrentJobs
     {
-        get => GetProperty<TerraformProperty<double>>("concurrent_jobs");
-        set => this.WithProperty("concurrent_jobs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("concurrent_jobs");
+        set => SetProperty("concurrent_jobs", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -89,53 +95,53 @@ public class AwsMediaConvertQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The pricing_plan attribute.
     /// </summary>
-    public TerraformProperty<string>? PricingPlan
+    public TerraformProperty<string> PricingPlan
     {
-        get => GetProperty<TerraformProperty<string>>("pricing_plan");
-        set => this.WithProperty("pricing_plan", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pricing_plan");
+        set => SetProperty("pricing_plan", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -145,8 +151,7 @@ public class AwsMediaConvertQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationPlanSettings block(s) allowed")]
     public List<AwsMediaConvertQueueReservationPlanSettingsBlock>? ReservationPlanSettings
     {
-        get => GetProperty<List<AwsMediaConvertQueueReservationPlanSettingsBlock>>("reservation_plan_settings");
-        set => this.WithProperty("reservation_plan_settings", value);
+        set => SetProperty("reservation_plan_settings", value);
     }
 
     /// <summary>

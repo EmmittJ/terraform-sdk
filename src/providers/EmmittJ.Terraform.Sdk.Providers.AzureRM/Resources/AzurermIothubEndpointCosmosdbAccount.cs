@@ -13,8 +13,7 @@ public class AzurermIothubEndpointCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubEndpointCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIothubEndpointCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIothubEndpointCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,29 @@ public class AzurermIothubEndpointCosmosdbAccount : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("authentication_type");
+        SetOutput("container_name");
+        SetOutput("database_name");
+        SetOutput("endpoint_uri");
+        SetOutput("id");
+        SetOutput("identity_id");
+        SetOutput("iothub_id");
+        SetOutput("name");
+        SetOutput("partition_key_name");
+        SetOutput("partition_key_template");
+        SetOutput("primary_key");
+        SetOutput("resource_group_name");
+        SetOutput("secondary_key");
+        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationType
+    public TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
-        set => this.WithProperty("authentication_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
@@ -75,8 +85,8 @@ public class AzurermIothubEndpointCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => this.WithProperty("container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
@@ -85,8 +95,8 @@ public class AzurermIothubEndpointCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -95,26 +105,26 @@ public class AzurermIothubEndpointCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointUri is required")]
     public required TerraformProperty<string> EndpointUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_uri");
-        set => this.WithProperty("endpoint_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_uri");
+        set => SetProperty("endpoint_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityId
+    public TerraformProperty<string> IdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_id");
-        set => this.WithProperty("identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_id");
+        set => SetProperty("identity_id", value);
     }
 
     /// <summary>
@@ -123,8 +133,8 @@ public class AzurermIothubEndpointCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
-        set => this.WithProperty("iothub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
+        set => SetProperty("iothub_id", value);
     }
 
     /// <summary>
@@ -133,35 +143,35 @@ public class AzurermIothubEndpointCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The partition_key_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PartitionKeyName
+    public TerraformProperty<string> PartitionKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("partition_key_name");
-        set => this.WithProperty("partition_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partition_key_name");
+        set => SetProperty("partition_key_name", value);
     }
 
     /// <summary>
     /// The partition_key_template attribute.
     /// </summary>
-    public TerraformProperty<string>? PartitionKeyTemplate
+    public TerraformProperty<string> PartitionKeyTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("partition_key_template");
-        set => this.WithProperty("partition_key_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partition_key_template");
+        set => SetProperty("partition_key_template", value);
     }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PrimaryKey
+    public TerraformProperty<string> PrimaryKey
     {
-        get => GetProperty<TerraformProperty<string>>("primary_key");
-        set => this.WithProperty("primary_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_key");
+        set => SetProperty("primary_key", value);
     }
 
     /// <summary>
@@ -170,26 +180,26 @@ public class AzurermIothubEndpointCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformProperty<string>? SecondaryKey
+    public TerraformProperty<string> SecondaryKey
     {
-        get => GetProperty<TerraformProperty<string>>("secondary_key");
-        set => this.WithProperty("secondary_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secondary_key");
+        set => SetProperty("secondary_key", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionId
+    public TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -198,8 +208,7 @@ public class AzurermIothubEndpointCosmosdbAccount : TerraformResource
     /// </summary>
     public AzurermIothubEndpointCosmosdbAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubEndpointCosmosdbAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

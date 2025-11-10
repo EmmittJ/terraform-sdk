@@ -13,8 +13,7 @@ public class AzurermDevCenterCatalogDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,8 +30,11 @@ public class AzurermDevCenterCatalogDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("catalog_adogit");
-        this.WithOutput("catalog_github");
+        SetOutput("catalog_adogit");
+        SetOutput("catalog_github");
+        SetOutput("dev_center_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -41,17 +43,17 @@ public class AzurermDevCenterCatalogDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     public required TerraformProperty<string> DevCenterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dev_center_id");
-        set => this.WithProperty("dev_center_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dev_center_id");
+        set => SetProperty("dev_center_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +62,8 @@ public class AzurermDevCenterCatalogDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -70,8 +72,7 @@ public class AzurermDevCenterCatalogDataSource : TerraformDataSource
     /// </summary>
     public AzurermDevCenterCatalogDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDevCenterCatalogDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

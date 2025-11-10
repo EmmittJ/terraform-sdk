@@ -14,7 +14,18 @@ public class AwsIotAuthorizer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("authorizer_function_arn");
+        SetOutput("enable_caching_for_http");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("signing_disabled");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("token_key_name");
+        SetOutput("token_signing_public_keys");
     }
 
     /// <summary>
@@ -23,26 +34,26 @@ public class AwsIotAuthorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerFunctionArn is required")]
     public required TerraformProperty<string> AuthorizerFunctionArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorizer_function_arn");
-        set => this.WithProperty("authorizer_function_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_function_arn");
+        set => SetProperty("authorizer_function_arn", value);
     }
 
     /// <summary>
     /// The enable_caching_for_http attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableCachingForHttp
+    public TerraformProperty<bool> EnableCachingForHttp
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_caching_for_http");
-        set => this.WithProperty("enable_caching_for_http", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_caching_for_http");
+        set => SetProperty("enable_caching_for_http", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,71 +62,71 @@ public class AwsIotAuthorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The signing_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SigningDisabled
+    public TerraformProperty<bool> SigningDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("signing_disabled");
-        set => this.WithProperty("signing_disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("signing_disabled");
+        set => SetProperty("signing_disabled", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The token_key_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TokenKeyName
+    public TerraformProperty<string> TokenKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("token_key_name");
-        set => this.WithProperty("token_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("token_key_name");
+        set => SetProperty("token_key_name", value);
     }
 
     /// <summary>
     /// The token_signing_public_keys attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TokenSigningPublicKeys
+    public Dictionary<string, TerraformProperty<string>> TokenSigningPublicKeys
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("token_signing_public_keys");
-        set => this.WithProperty("token_signing_public_keys", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("token_signing_public_keys");
+        set => SetProperty("token_signing_public_keys", value);
     }
 
     /// <summary>

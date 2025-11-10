@@ -13,8 +13,7 @@ public class AzurermNetworkManagerStaticMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkManagerStaticMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkManagerStaticMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,16 +46,20 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("region");
+        SetOutput("region");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_group_id");
+        SetOutput("target_virtual_network_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,8 +68,8 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -77,8 +78,8 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
     public required TerraformProperty<string> NetworkGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_group_id");
-        set => this.WithProperty("network_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_group_id");
+        set => SetProperty("network_group_id", value);
     }
 
     /// <summary>
@@ -87,8 +88,8 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVirtualNetworkId is required")]
     public required TerraformProperty<string> TargetVirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_virtual_network_id");
-        set => this.WithProperty("target_virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_virtual_network_id");
+        set => SetProperty("target_virtual_network_id", value);
     }
 
     /// <summary>
@@ -97,8 +98,7 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     /// </summary>
     public AzurermNetworkManagerStaticMemberTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerStaticMemberTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

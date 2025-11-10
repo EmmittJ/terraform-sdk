@@ -13,8 +13,7 @@ public class AzurermContainerRegistryAgentPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerRegistryAgentPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermContainerRegistryAgentPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermContainerRegistryAgentPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,15 @@ public class AzurermContainerRegistryAgentPool : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("container_registry_name");
+        SetOutput("id");
+        SetOutput("instance_count");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("tier");
+        SetOutput("virtual_network_subnet_id");
     }
 
     /// <summary>
@@ -66,26 +71,26 @@ public class AzurermContainerRegistryAgentPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryName is required")]
     public required TerraformProperty<string> ContainerRegistryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_name");
-        set => this.WithProperty("container_registry_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_name");
+        set => SetProperty("container_registry_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InstanceCount
+    public TerraformProperty<double> InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
-        set => this.WithProperty("instance_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -94,8 +99,8 @@ public class AzurermContainerRegistryAgentPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -104,8 +109,8 @@ public class AzurermContainerRegistryAgentPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,35 +119,35 @@ public class AzurermContainerRegistryAgentPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformProperty<string>? Tier
+    public TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
     /// The virtual_network_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualNetworkSubnetId
+    public TerraformProperty<string> VirtualNetworkSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_subnet_id");
-        set => this.WithProperty("virtual_network_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_subnet_id");
+        set => SetProperty("virtual_network_subnet_id", value);
     }
 
     /// <summary>
@@ -151,8 +156,7 @@ public class AzurermContainerRegistryAgentPool : TerraformResource
     /// </summary>
     public AzurermContainerRegistryAgentPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerRegistryAgentPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

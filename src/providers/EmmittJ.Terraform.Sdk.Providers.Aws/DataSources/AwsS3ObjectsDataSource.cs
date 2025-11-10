@@ -14,10 +14,20 @@ public class AwsS3ObjectsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("common_prefixes");
-        this.WithOutput("keys");
-        this.WithOutput("owners");
-        this.WithOutput("request_charged");
+        SetOutput("common_prefixes");
+        SetOutput("keys");
+        SetOutput("owners");
+        SetOutput("request_charged");
+        SetOutput("bucket");
+        SetOutput("delimiter");
+        SetOutput("encoding_type");
+        SetOutput("fetch_owner");
+        SetOutput("id");
+        SetOutput("max_keys");
+        SetOutput("prefix");
+        SetOutput("region");
+        SetOutput("request_payer");
+        SetOutput("start_after");
     }
 
     /// <summary>
@@ -26,89 +36,89 @@ public class AwsS3ObjectsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The delimiter attribute.
     /// </summary>
-    public TerraformProperty<string>? Delimiter
+    public TerraformProperty<string> Delimiter
     {
-        get => GetProperty<TerraformProperty<string>>("delimiter");
-        set => this.WithProperty("delimiter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delimiter");
+        set => SetProperty("delimiter", value);
     }
 
     /// <summary>
     /// The encoding_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EncodingType
+    public TerraformProperty<string> EncodingType
     {
-        get => GetProperty<TerraformProperty<string>>("encoding_type");
-        set => this.WithProperty("encoding_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encoding_type");
+        set => SetProperty("encoding_type", value);
     }
 
     /// <summary>
     /// The fetch_owner attribute.
     /// </summary>
-    public TerraformProperty<bool>? FetchOwner
+    public TerraformProperty<bool> FetchOwner
     {
-        get => GetProperty<TerraformProperty<bool>>("fetch_owner");
-        set => this.WithProperty("fetch_owner", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("fetch_owner");
+        set => SetProperty("fetch_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_keys attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxKeys
+    public TerraformProperty<double> MaxKeys
     {
-        get => GetProperty<TerraformProperty<double>>("max_keys");
-        set => this.WithProperty("max_keys", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_keys");
+        set => SetProperty("max_keys", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
+    public TerraformProperty<string> Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
-        set => this.WithProperty("prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
+        set => SetProperty("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The request_payer attribute.
     /// </summary>
-    public TerraformProperty<string>? RequestPayer
+    public TerraformProperty<string> RequestPayer
     {
-        get => GetProperty<TerraformProperty<string>>("request_payer");
-        set => this.WithProperty("request_payer", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("request_payer");
+        set => SetProperty("request_payer", value);
     }
 
     /// <summary>
     /// The start_after attribute.
     /// </summary>
-    public TerraformProperty<string>? StartAfter
+    public TerraformProperty<string> StartAfter
     {
-        get => GetProperty<TerraformProperty<string>>("start_after");
-        set => this.WithProperty("start_after", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_after");
+        set => SetProperty("start_after", value);
     }
 
     /// <summary>

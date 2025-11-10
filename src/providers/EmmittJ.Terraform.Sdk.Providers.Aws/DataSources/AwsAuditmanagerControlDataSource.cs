@@ -14,14 +14,17 @@ public class AwsAuditmanagerControlDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("action_plan_instructions");
-        this.WithOutput("action_plan_title");
-        this.WithOutput("arn");
-        this.WithOutput("control_mapping_sources");
-        this.WithOutput("description");
-        this.WithOutput("id");
-        this.WithOutput("tags");
-        this.WithOutput("testing_information");
+        SetOutput("action_plan_instructions");
+        SetOutput("action_plan_title");
+        SetOutput("arn");
+        SetOutput("control_mapping_sources");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("testing_information");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -30,17 +33,17 @@ public class AwsAuditmanagerControlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -49,8 +52,8 @@ public class AwsAuditmanagerControlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>

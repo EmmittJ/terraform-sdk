@@ -13,8 +13,7 @@ public class AwsEfsFileSystemLifecyclePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TransitionToArchive
     {
-        get => GetProperty<TerraformProperty<string>>("transition_to_archive");
-        set => WithProperty("transition_to_archive", value);
+        set => SetProperty("transition_to_archive", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEfsFileSystemLifecyclePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TransitionToIa
     {
-        get => GetProperty<TerraformProperty<string>>("transition_to_ia");
-        set => WithProperty("transition_to_ia", value);
+        set => SetProperty("transition_to_ia", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEfsFileSystemLifecyclePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TransitionToPrimaryStorageClass
     {
-        get => GetProperty<TerraformProperty<string>>("transition_to_primary_storage_class");
-        set => WithProperty("transition_to_primary_storage_class", value);
+        set => SetProperty("transition_to_primary_storage_class", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsEfsFileSystemProtectionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ReplicationOverwrite
     {
-        get => GetProperty<TerraformProperty<string>>("replication_overwrite");
-        set => WithProperty("replication_overwrite", value);
+        set => SetProperty("replication_overwrite", value);
     }
 
 }
@@ -67,112 +63,123 @@ public class AwsEfsFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone_id");
-        this.WithOutput("dns_name");
-        this.WithOutput("name");
-        this.WithOutput("number_of_mount_targets");
-        this.WithOutput("owner_id");
-        this.WithOutput("size_in_bytes");
+        SetOutput("arn");
+        SetOutput("availability_zone_id");
+        SetOutput("dns_name");
+        SetOutput("name");
+        SetOutput("number_of_mount_targets");
+        SetOutput("owner_id");
+        SetOutput("size_in_bytes");
+        SetOutput("availability_zone_name");
+        SetOutput("creation_token");
+        SetOutput("encrypted");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("performance_mode");
+        SetOutput("provisioned_throughput_in_mibps");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("throughput_mode");
     }
 
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZoneName
+    public TerraformProperty<string> AvailabilityZoneName
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone_name");
-        set => this.WithProperty("availability_zone_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone_name");
+        set => SetProperty("availability_zone_name", value);
     }
 
     /// <summary>
     /// The creation_token attribute.
     /// </summary>
-    public TerraformProperty<string>? CreationToken
+    public TerraformProperty<string> CreationToken
     {
-        get => GetProperty<TerraformProperty<string>>("creation_token");
-        set => this.WithProperty("creation_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("creation_token");
+        set => SetProperty("creation_token", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool>? Encrypted
+    public TerraformProperty<bool> Encrypted
     {
-        get => GetProperty<TerraformProperty<bool>>("encrypted");
-        set => this.WithProperty("encrypted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("encrypted");
+        set => SetProperty("encrypted", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The performance_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? PerformanceMode
+    public TerraformProperty<string> PerformanceMode
     {
-        get => GetProperty<TerraformProperty<string>>("performance_mode");
-        set => this.WithProperty("performance_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("performance_mode");
+        set => SetProperty("performance_mode", value);
     }
 
     /// <summary>
     /// The provisioned_throughput_in_mibps attribute.
     /// </summary>
-    public TerraformProperty<double>? ProvisionedThroughputInMibps
+    public TerraformProperty<double> ProvisionedThroughputInMibps
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_throughput_in_mibps");
-        set => this.WithProperty("provisioned_throughput_in_mibps", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("provisioned_throughput_in_mibps");
+        set => SetProperty("provisioned_throughput_in_mibps", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ThroughputMode
+    public TerraformProperty<string> ThroughputMode
     {
-        get => GetProperty<TerraformProperty<string>>("throughput_mode");
-        set => this.WithProperty("throughput_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("throughput_mode");
+        set => SetProperty("throughput_mode", value);
     }
 
     /// <summary>
@@ -182,8 +189,7 @@ public class AwsEfsFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 LifecyclePolicy block(s) allowed")]
     public List<AwsEfsFileSystemLifecyclePolicyBlock>? LifecyclePolicy
     {
-        get => GetProperty<List<AwsEfsFileSystemLifecyclePolicyBlock>>("lifecycle_policy");
-        set => this.WithProperty("lifecycle_policy", value);
+        set => SetProperty("lifecycle_policy", value);
     }
 
     /// <summary>
@@ -193,8 +199,7 @@ public class AwsEfsFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protection block(s) allowed")]
     public List<AwsEfsFileSystemProtectionBlock>? Protection
     {
-        get => GetProperty<List<AwsEfsFileSystemProtectionBlock>>("protection");
-        set => this.WithProperty("protection", value);
+        set => SetProperty("protection", value);
     }
 
     /// <summary>

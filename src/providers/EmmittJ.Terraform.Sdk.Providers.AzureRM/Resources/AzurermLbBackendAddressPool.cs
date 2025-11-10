@@ -13,8 +13,7 @@ public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<double> Identifier
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("identifier");
-        set => WithProperty("identifier", value);
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -106,19 +98,24 @@ public class AzurermLbBackendAddressPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backend_ip_configurations");
-        this.WithOutput("inbound_nat_rules");
-        this.WithOutput("load_balancing_rules");
-        this.WithOutput("outbound_rules");
+        SetOutput("backend_ip_configurations");
+        SetOutput("inbound_nat_rules");
+        SetOutput("load_balancing_rules");
+        SetOutput("outbound_rules");
+        SetOutput("id");
+        SetOutput("loadbalancer_id");
+        SetOutput("name");
+        SetOutput("synchronous_mode");
+        SetOutput("virtual_network_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -127,8 +124,8 @@ public class AzurermLbBackendAddressPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
-        set => this.WithProperty("loadbalancer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("loadbalancer_id");
+        set => SetProperty("loadbalancer_id", value);
     }
 
     /// <summary>
@@ -137,26 +134,26 @@ public class AzurermLbBackendAddressPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The synchronous_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? SynchronousMode
+    public TerraformProperty<string> SynchronousMode
     {
-        get => GetProperty<TerraformProperty<string>>("synchronous_mode");
-        set => this.WithProperty("synchronous_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("synchronous_mode");
+        set => SetProperty("synchronous_mode", value);
     }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualNetworkId
+    public TerraformProperty<string> VirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
-        set => this.WithProperty("virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
+        set => SetProperty("virtual_network_id", value);
     }
 
     /// <summary>
@@ -165,8 +162,7 @@ public class AzurermLbBackendAddressPool : TerraformResource
     /// </summary>
     public AzurermLbBackendAddressPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLbBackendAddressPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -175,8 +171,7 @@ public class AzurermLbBackendAddressPool : TerraformResource
     /// </summary>
     public List<AzurermLbBackendAddressPoolTunnelInterfaceBlock>? TunnelInterface
     {
-        get => GetProperty<List<AzurermLbBackendAddressPoolTunnelInterfaceBlock>>("tunnel_interface");
-        set => this.WithProperty("tunnel_interface", value);
+        set => SetProperty("tunnel_interface", value);
     }
 
     /// <summary>

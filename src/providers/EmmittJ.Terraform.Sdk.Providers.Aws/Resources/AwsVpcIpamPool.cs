@@ -13,8 +13,7 @@ public class AwsVpcIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpcIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsVpcIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,28 @@ public class AwsVpcIpamPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("ipam_scope_type");
-        this.WithOutput("pool_depth");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("ipam_scope_type");
+        SetOutput("pool_depth");
+        SetOutput("state");
+        SetOutput("address_family");
+        SetOutput("allocation_default_netmask_length");
+        SetOutput("allocation_max_netmask_length");
+        SetOutput("allocation_min_netmask_length");
+        SetOutput("allocation_resource_tags");
+        SetOutput("auto_import");
+        SetOutput("aws_service");
+        SetOutput("cascade");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("ipam_scope_id");
+        SetOutput("locale");
+        SetOutput("public_ip_source");
+        SetOutput("publicly_advertisable");
+        SetOutput("region");
+        SetOutput("source_ipam_pool_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -61,89 +76,89 @@ public class AwsVpcIpamPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformProperty<string> AddressFamily
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("address_family");
-        set => this.WithProperty("address_family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address_family");
+        set => SetProperty("address_family", value);
     }
 
     /// <summary>
     /// The allocation_default_netmask_length attribute.
     /// </summary>
-    public TerraformProperty<double>? AllocationDefaultNetmaskLength
+    public TerraformProperty<double> AllocationDefaultNetmaskLength
     {
-        get => GetProperty<TerraformProperty<double>>("allocation_default_netmask_length");
-        set => this.WithProperty("allocation_default_netmask_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("allocation_default_netmask_length");
+        set => SetProperty("allocation_default_netmask_length", value);
     }
 
     /// <summary>
     /// The allocation_max_netmask_length attribute.
     /// </summary>
-    public TerraformProperty<double>? AllocationMaxNetmaskLength
+    public TerraformProperty<double> AllocationMaxNetmaskLength
     {
-        get => GetProperty<TerraformProperty<double>>("allocation_max_netmask_length");
-        set => this.WithProperty("allocation_max_netmask_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("allocation_max_netmask_length");
+        set => SetProperty("allocation_max_netmask_length", value);
     }
 
     /// <summary>
     /// The allocation_min_netmask_length attribute.
     /// </summary>
-    public TerraformProperty<double>? AllocationMinNetmaskLength
+    public TerraformProperty<double> AllocationMinNetmaskLength
     {
-        get => GetProperty<TerraformProperty<double>>("allocation_min_netmask_length");
-        set => this.WithProperty("allocation_min_netmask_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("allocation_min_netmask_length");
+        set => SetProperty("allocation_min_netmask_length", value);
     }
 
     /// <summary>
     /// The allocation_resource_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AllocationResourceTags
+    public Dictionary<string, TerraformProperty<string>> AllocationResourceTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("allocation_resource_tags");
-        set => this.WithProperty("allocation_resource_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("allocation_resource_tags");
+        set => SetProperty("allocation_resource_tags", value);
     }
 
     /// <summary>
     /// The auto_import attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoImport
+    public TerraformProperty<bool> AutoImport
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_import");
-        set => this.WithProperty("auto_import", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_import");
+        set => SetProperty("auto_import", value);
     }
 
     /// <summary>
     /// The aws_service attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsService
+    public TerraformProperty<string> AwsService
     {
-        get => GetProperty<TerraformProperty<string>>("aws_service");
-        set => this.WithProperty("aws_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_service");
+        set => SetProperty("aws_service", value);
     }
 
     /// <summary>
     /// The cascade attribute.
     /// </summary>
-    public TerraformProperty<bool>? Cascade
+    public TerraformProperty<bool> Cascade
     {
-        get => GetProperty<TerraformProperty<bool>>("cascade");
-        set => this.WithProperty("cascade", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cascade");
+        set => SetProperty("cascade", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -152,71 +167,71 @@ public class AwsVpcIpamPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamScopeId is required")]
     public required TerraformProperty<string> IpamScopeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ipam_scope_id");
-        set => this.WithProperty("ipam_scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipam_scope_id");
+        set => SetProperty("ipam_scope_id", value);
     }
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
-    public TerraformProperty<string>? Locale
+    public TerraformProperty<string> Locale
     {
-        get => GetProperty<TerraformProperty<string>>("locale");
-        set => this.WithProperty("locale", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("locale");
+        set => SetProperty("locale", value);
     }
 
     /// <summary>
     /// The public_ip_source attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicIpSource
+    public TerraformProperty<string> PublicIpSource
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_source");
-        set => this.WithProperty("public_ip_source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_ip_source");
+        set => SetProperty("public_ip_source", value);
     }
 
     /// <summary>
     /// The publicly_advertisable attribute.
     /// </summary>
-    public TerraformProperty<bool>? PubliclyAdvertisable
+    public TerraformProperty<bool> PubliclyAdvertisable
     {
-        get => GetProperty<TerraformProperty<bool>>("publicly_advertisable");
-        set => this.WithProperty("publicly_advertisable", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_advertisable");
+        set => SetProperty("publicly_advertisable", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The source_ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceIpamPoolId
+    public TerraformProperty<string> SourceIpamPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("source_ipam_pool_id");
-        set => this.WithProperty("source_ipam_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_ipam_pool_id");
+        set => SetProperty("source_ipam_pool_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -225,8 +240,7 @@ public class AwsVpcIpamPool : TerraformResource
     /// </summary>
     public AwsVpcIpamPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcIpamPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

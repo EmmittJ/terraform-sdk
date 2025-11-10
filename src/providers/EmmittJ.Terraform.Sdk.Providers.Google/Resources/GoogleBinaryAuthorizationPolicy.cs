@@ -17,8 +17,7 @@ public class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePattern is required")]
     public required TerraformProperty<string> NamePattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name_pattern");
-        set => WithProperty("name_pattern", value);
+        set => SetProperty("name_pattern", value);
     }
 
 }
@@ -35,8 +34,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => WithProperty("cluster", value);
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
@@ -45,8 +43,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforcementMode is required")]
     public required TerraformProperty<string> EnforcementMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("enforcement_mode");
-        set => WithProperty("enforcement_mode", value);
+        set => SetProperty("enforcement_mode", value);
     }
 
     /// <summary>
@@ -55,8 +52,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationMode is required")]
     public required TerraformProperty<string> EvaluationMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("evaluation_mode");
-        set => WithProperty("evaluation_mode", value);
+        set => SetProperty("evaluation_mode", value);
     }
 
     /// <summary>
@@ -72,8 +68,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     /// </summary>
     public HashSet<TerraformProperty<string>>? RequireAttestationsBy
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("require_attestations_by");
-        set => WithProperty("require_attestations_by", value);
+        set => SetProperty("require_attestations_by", value);
     }
 
 }
@@ -90,8 +85,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforcementMode is required")]
     public required TerraformProperty<string> EnforcementMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("enforcement_mode");
-        set => WithProperty("enforcement_mode", value);
+        set => SetProperty("enforcement_mode", value);
     }
 
     /// <summary>
@@ -100,8 +94,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationMode is required")]
     public required TerraformProperty<string> EvaluationMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("evaluation_mode");
-        set => WithProperty("evaluation_mode", value);
+        set => SetProperty("evaluation_mode", value);
     }
 
     /// <summary>
@@ -117,8 +110,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : Terrafor
     /// </summary>
     public HashSet<TerraformProperty<string>>? RequireAttestationsBy
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("require_attestations_by");
-        set => WithProperty("require_attestations_by", value);
+        set => SetProperty("require_attestations_by", value);
     }
 
 }
@@ -134,8 +126,7 @@ public class GoogleBinaryAuthorizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -143,8 +134,7 @@ public class GoogleBinaryAuthorizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -152,8 +142,7 @@ public class GoogleBinaryAuthorizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -171,15 +160,19 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("global_policy_evaluation_mode");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// A descriptive comment.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -187,28 +180,28 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// for common system-level images. Images not covered by the global
     /// policy will be subject to the project admission policy. Possible values: [&amp;quot;ENABLE&amp;quot;, &amp;quot;DISABLE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? GlobalPolicyEvaluationMode
+    public TerraformProperty<string> GlobalPolicyEvaluationMode
     {
-        get => GetProperty<TerraformProperty<string>>("global_policy_evaluation_mode");
-        set => this.WithProperty("global_policy_evaluation_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_policy_evaluation_mode");
+        set => SetProperty("global_policy_evaluation_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -217,8 +210,7 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// </summary>
     public List<GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock>? AdmissionWhitelistPatterns
     {
-        get => GetProperty<List<GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock>>("admission_whitelist_patterns");
-        set => this.WithProperty("admission_whitelist_patterns", value);
+        set => SetProperty("admission_whitelist_patterns", value);
     }
 
     /// <summary>
@@ -227,20 +219,19 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// </summary>
     public HashSet<GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock>? ClusterAdmissionRules
     {
-        get => GetProperty<HashSet<GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock>>("cluster_admission_rules");
-        set => this.WithProperty("cluster_admission_rules", value);
+        set => SetProperty("cluster_admission_rules", value);
     }
 
     /// <summary>
     /// Block for default_admission_rule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAdmissionRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAdmissionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAdmissionRule block(s) allowed")]
     public List<GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock>? DefaultAdmissionRule
     {
-        get => GetProperty<List<GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock>>("default_admission_rule");
-        set => this.WithProperty("default_admission_rule", value);
+        set => SetProperty("default_admission_rule", value);
     }
 
     /// <summary>
@@ -249,8 +240,7 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// </summary>
     public GoogleBinaryAuthorizationPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBinaryAuthorizationPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

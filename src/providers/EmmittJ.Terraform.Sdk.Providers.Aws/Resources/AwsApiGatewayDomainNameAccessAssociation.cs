@@ -14,9 +14,14 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("access_association_source");
+        SetOutput("access_association_source_type");
+        SetOutput("domain_name_arn");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -25,8 +30,8 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSource is required")]
     public required TerraformProperty<string> AccessAssociationSource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_association_source");
-        set => this.WithProperty("access_association_source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_association_source");
+        set => SetProperty("access_association_source", value);
     }
 
     /// <summary>
@@ -35,8 +40,8 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSourceType is required")]
     public required TerraformProperty<string> AccessAssociationSourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_association_source_type");
-        set => this.WithProperty("access_association_source_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_association_source_type");
+        set => SetProperty("access_association_source_type", value);
     }
 
     /// <summary>
@@ -45,26 +50,26 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNameArn is required")]
     public required TerraformProperty<string> DomainNameArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name_arn");
-        set => this.WithProperty("domain_name_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name_arn");
+        set => SetProperty("domain_name_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

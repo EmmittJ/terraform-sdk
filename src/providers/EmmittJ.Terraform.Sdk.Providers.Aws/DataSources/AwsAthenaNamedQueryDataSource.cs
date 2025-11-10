@@ -14,18 +14,22 @@ public class AwsAthenaNamedQueryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("database");
-        this.WithOutput("description");
-        this.WithOutput("querystring");
+        SetOutput("database");
+        SetOutput("description");
+        SetOutput("querystring");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("workgroup");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -34,26 +38,26 @@ public class AwsAthenaNamedQueryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The workgroup attribute.
     /// </summary>
-    public TerraformProperty<string>? Workgroup
+    public TerraformProperty<string> Workgroup
     {
-        get => GetProperty<TerraformProperty<string>>("workgroup");
-        set => this.WithProperty("workgroup", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workgroup");
+        set => SetProperty("workgroup", value);
     }
 
     /// <summary>

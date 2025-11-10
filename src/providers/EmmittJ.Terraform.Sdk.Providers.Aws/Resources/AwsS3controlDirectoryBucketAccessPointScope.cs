@@ -13,8 +13,7 @@ public class AwsS3controlDirectoryBucketAccessPointScopeScopeBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<string>>? Permissions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("permissions");
-        set => WithProperty("permissions", value);
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsS3controlDirectoryBucketAccessPointScopeScopeBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<string>>? Prefixes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("prefixes");
-        set => WithProperty("prefixes", value);
+        set => SetProperty("prefixes", value);
     }
 
 }
@@ -40,6 +38,9 @@ public class AwsS3controlDirectoryBucketAccessPointScope : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -48,8 +49,8 @@ public class AwsS3controlDirectoryBucketAccessPointScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -58,17 +59,17 @@ public class AwsS3controlDirectoryBucketAccessPointScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -77,8 +78,7 @@ public class AwsS3controlDirectoryBucketAccessPointScope : TerraformResource
     /// </summary>
     public List<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock>? Scope
     {
-        get => GetProperty<List<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock>>("scope");
-        set => this.WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
 }

@@ -14,52 +14,57 @@ public class AwsQuicksightThemeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("base_theme_id");
-        this.WithOutput("configuration");
-        this.WithOutput("created_time");
-        this.WithOutput("last_updated_time");
-        this.WithOutput("name");
-        this.WithOutput("permissions");
-        this.WithOutput("status");
-        this.WithOutput("version_description");
-        this.WithOutput("version_number");
+        SetOutput("arn");
+        SetOutput("base_theme_id");
+        SetOutput("configuration");
+        SetOutput("created_time");
+        SetOutput("last_updated_time");
+        SetOutput("name");
+        SetOutput("permissions");
+        SetOutput("status");
+        SetOutput("version_description");
+        SetOutput("version_number");
+        SetOutput("aws_account_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("theme_id");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -68,8 +73,8 @@ public class AwsQuicksightThemeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThemeId is required")]
     public required TerraformProperty<string> ThemeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("theme_id");
-        set => this.WithProperty("theme_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("theme_id");
+        set => SetProperty("theme_id", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermManagementGroupTemplateDeploymentTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermManagementGroupTemplateDeploymentTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermManagementGroupTemplateDeploymentTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermManagementGroupTemplateDeploymentTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,34 @@ public class AzurermManagementGroupTemplateDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("output_content");
+        SetOutput("output_content");
+        SetOutput("debug_level");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("management_group_id");
+        SetOutput("name");
+        SetOutput("parameters_content");
+        SetOutput("tags");
+        SetOutput("template_content");
+        SetOutput("template_spec_version_id");
     }
 
     /// <summary>
     /// The debug_level attribute.
     /// </summary>
-    public TerraformProperty<string>? DebugLevel
+    public TerraformProperty<string> DebugLevel
     {
-        get => GetProperty<TerraformProperty<string>>("debug_level");
-        set => this.WithProperty("debug_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("debug_level");
+        set => SetProperty("debug_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +90,8 @@ public class AzurermManagementGroupTemplateDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -95,8 +100,8 @@ public class AzurermManagementGroupTemplateDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
-        set => this.WithProperty("management_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("management_group_id");
+        set => SetProperty("management_group_id", value);
     }
 
     /// <summary>
@@ -105,44 +110,44 @@ public class AzurermManagementGroupTemplateDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters_content attribute.
     /// </summary>
-    public TerraformProperty<string>? ParametersContent
+    public TerraformProperty<string> ParametersContent
     {
-        get => GetProperty<TerraformProperty<string>>("parameters_content");
-        set => this.WithProperty("parameters_content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameters_content");
+        set => SetProperty("parameters_content", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The template_content attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateContent
+    public TerraformProperty<string> TemplateContent
     {
-        get => GetProperty<TerraformProperty<string>>("template_content");
-        set => this.WithProperty("template_content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_content");
+        set => SetProperty("template_content", value);
     }
 
     /// <summary>
     /// The template_spec_version_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateSpecVersionId
+    public TerraformProperty<string> TemplateSpecVersionId
     {
-        get => GetProperty<TerraformProperty<string>>("template_spec_version_id");
-        set => this.WithProperty("template_spec_version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_spec_version_id");
+        set => SetProperty("template_spec_version_id", value);
     }
 
     /// <summary>
@@ -151,8 +156,7 @@ public class AzurermManagementGroupTemplateDeployment : TerraformResource
     /// </summary>
     public AzurermManagementGroupTemplateDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagementGroupTemplateDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

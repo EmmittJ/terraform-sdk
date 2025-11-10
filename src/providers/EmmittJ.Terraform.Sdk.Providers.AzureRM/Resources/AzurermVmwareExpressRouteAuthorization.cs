@@ -13,8 +13,7 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,17 +46,20 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("express_route_authorization_id");
-        this.WithOutput("express_route_authorization_key");
+        SetOutput("express_route_authorization_id");
+        SetOutput("express_route_authorization_key");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("private_cloud_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +68,8 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -78,8 +78,8 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateCloudId is required")]
     public required TerraformProperty<string> PrivateCloudId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_cloud_id");
-        set => this.WithProperty("private_cloud_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_cloud_id");
+        set => SetProperty("private_cloud_id", value);
     }
 
     /// <summary>
@@ -88,8 +88,7 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
     /// </summary>
     public AzurermVmwareExpressRouteAuthorizationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVmwareExpressRouteAuthorizationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

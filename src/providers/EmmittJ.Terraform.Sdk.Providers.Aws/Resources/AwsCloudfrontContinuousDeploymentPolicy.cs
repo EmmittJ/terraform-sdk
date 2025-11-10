@@ -13,8 +13,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesB
     /// </summary>
     public HashSet<TerraformProperty<string>>? Items
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("items");
-        set => WithProperty("items", value);
+        set => SetProperty("items", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quantity is required")]
     public required TerraformProperty<double> Quantity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("quantity");
-        set => WithProperty("quantity", value);
+        set => SetProperty("quantity", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -59,10 +56,11 @@ public class AwsCloudfrontContinuousDeploymentPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("etag");
-        this.WithOutput("id");
-        this.WithOutput("last_modified_time");
+        SetOutput("arn");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("last_modified_time");
+        SetOutput("enabled");
     }
 
     /// <summary>
@@ -71,8 +69,8 @@ public class AwsCloudfrontContinuousDeploymentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -81,8 +79,7 @@ public class AwsCloudfrontContinuousDeploymentPolicy : TerraformResource
     /// </summary>
     public List<AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock>? StagingDistributionDnsNames
     {
-        get => GetProperty<List<AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock>>("staging_distribution_dns_names");
-        set => this.WithProperty("staging_distribution_dns_names", value);
+        set => SetProperty("staging_distribution_dns_names", value);
     }
 
     /// <summary>
@@ -91,8 +88,7 @@ public class AwsCloudfrontContinuousDeploymentPolicy : TerraformResource
     /// </summary>
     public List<AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock>? TrafficConfig
     {
-        get => GetProperty<List<AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock>>("traffic_config");
-        set => this.WithProperty("traffic_config", value);
+        set => SetProperty("traffic_config", value);
     }
 
     /// <summary>

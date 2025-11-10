@@ -13,8 +13,7 @@ public class GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTarge
     /// </summary>
     public HashSet<TerraformProperty<string>>? AdminEmailRecipients
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("admin_email_recipients");
-        set => WithProperty("admin_email_recipients", value);
+        set => SetProperty("admin_email_recipients", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTarge
     /// </summary>
     public HashSet<TerraformProperty<string>>? RequesterEmailRecipients
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("requester_email_recipients");
-        set => WithProperty("requester_email_recipients", value);
+        set => SetProperty("requester_email_recipients", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principals is required")]
     public HashSet<TerraformProperty<string>>? Principals
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("principals");
-        set => WithProperty("principals", value);
+        set => SetProperty("principals", value);
     }
 
 }
@@ -81,8 +78,7 @@ public class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -90,8 +86,7 @@ public class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -99,8 +94,7 @@ public class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -118,11 +112,16 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("update_time");
+        SetOutput("entitlement_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("max_request_duration");
+        SetOutput("parent");
     }
 
     /// <summary>
@@ -133,17 +132,17 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntitlementId is required")]
     public required TerraformProperty<string> EntitlementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entitlement_id");
-        set => this.WithProperty("entitlement_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entitlement_id");
+        set => SetProperty("entitlement_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -152,8 +151,8 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -164,8 +163,8 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRequestDuration is required")]
     public required TerraformProperty<string> MaxRequestDuration
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("max_request_duration");
-        set => this.WithProperty("max_request_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("max_request_duration");
+        set => SetProperty("max_request_duration", value);
     }
 
     /// <summary>
@@ -174,8 +173,8 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -185,8 +184,7 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalNotificationTargets block(s) allowed")]
     public List<GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTargetsBlock>? AdditionalNotificationTargets
     {
-        get => GetProperty<List<GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTargetsBlock>>("additional_notification_targets");
-        set => this.WithProperty("additional_notification_targets", value);
+        set => SetProperty("additional_notification_targets", value);
     }
 
     /// <summary>
@@ -196,43 +194,42 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalWorkflow block(s) allowed")]
     public List<GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlock>? ApprovalWorkflow
     {
-        get => GetProperty<List<GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlock>>("approval_workflow");
-        set => this.WithProperty("approval_workflow", value);
+        set => SetProperty("approval_workflow", value);
     }
 
     /// <summary>
     /// Block for eligible_users.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EligibleUsers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EligibleUsers block(s) required")]
     public List<GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock>? EligibleUsers
     {
-        get => GetProperty<List<GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock>>("eligible_users");
-        set => this.WithProperty("eligible_users", value);
+        set => SetProperty("eligible_users", value);
     }
 
     /// <summary>
     /// Block for privileged_access.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivilegedAccess is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PrivilegedAccess block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivilegedAccess block(s) allowed")]
     public List<GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlock>? PrivilegedAccess
     {
-        get => GetProperty<List<GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlock>>("privileged_access");
-        set => this.WithProperty("privileged_access", value);
+        set => SetProperty("privileged_access", value);
     }
 
     /// <summary>
     /// Block for requester_justification_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequesterJustificationConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RequesterJustificationConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequesterJustificationConfig block(s) allowed")]
     public List<GooglePrivilegedAccessManagerEntitlementRequesterJustificationConfigBlock>? RequesterJustificationConfig
     {
-        get => GetProperty<List<GooglePrivilegedAccessManagerEntitlementRequesterJustificationConfigBlock>>("requester_justification_config");
-        set => this.WithProperty("requester_justification_config", value);
+        set => SetProperty("requester_justification_config", value);
     }
 
     /// <summary>
@@ -241,8 +238,7 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     /// </summary>
     public GooglePrivilegedAccessManagerEntitlementTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GooglePrivilegedAccessManagerEntitlementTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

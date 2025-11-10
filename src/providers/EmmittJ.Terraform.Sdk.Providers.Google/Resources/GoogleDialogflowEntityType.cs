@@ -17,8 +17,7 @@ public class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Synonyms is required")]
     public List<TerraformProperty<string>>? Synonyms
     {
-        get => GetProperty<List<TerraformProperty<string>>>("synonyms");
-        set => WithProperty("synonyms", value);
+        set => SetProperty("synonyms", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class GoogleDialogflowEntityTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class GoogleDialogflowEntityTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class GoogleDialogflowEntityTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,7 +80,12 @@ public class GoogleDialogflowEntityType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("display_name");
+        SetOutput("enable_fuzzy_extraction");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -94,26 +94,26 @@ public class GoogleDialogflowEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Enables fuzzy entity extraction during classification.
     /// </summary>
-    public TerraformProperty<bool>? EnableFuzzyExtraction
+    public TerraformProperty<bool> EnableFuzzyExtraction
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_fuzzy_extraction");
-        set => this.WithProperty("enable_fuzzy_extraction", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_fuzzy_extraction");
+        set => SetProperty("enable_fuzzy_extraction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -126,17 +126,17 @@ public class GoogleDialogflowEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kind");
-        set => this.WithProperty("kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kind");
+        set => SetProperty("kind", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -145,8 +145,7 @@ public class GoogleDialogflowEntityType : TerraformResource
     /// </summary>
     public List<GoogleDialogflowEntityTypeEntitiesBlock>? Entities
     {
-        get => GetProperty<List<GoogleDialogflowEntityTypeEntitiesBlock>>("entities");
-        set => this.WithProperty("entities", value);
+        set => SetProperty("entities", value);
     }
 
     /// <summary>
@@ -155,8 +154,7 @@ public class GoogleDialogflowEntityType : TerraformResource
     /// </summary>
     public GoogleDialogflowEntityTypeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowEntityTypeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Suffix is required")]
     public required TerraformProperty<string> Suffix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("suffix");
-        set => WithProperty("suffix", value);
+        set => SetProperty("suffix", value);
     }
 
 }
@@ -50,8 +48,7 @@ public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => WithProperty("host_name", value);
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
 }
@@ -86,8 +82,13 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("website_domain");
-        this.WithOutput("website_endpoint");
+        SetOutput("website_domain");
+        SetOutput("website_endpoint");
+        SetOutput("bucket");
+        SetOutput("expected_bucket_owner");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("routing_rules");
     }
 
     /// <summary>
@@ -96,44 +97,44 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpectedBucketOwner
+    public TerraformProperty<string> ExpectedBucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("expected_bucket_owner");
-        set => this.WithProperty("expected_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
+        set => SetProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
-    public TerraformProperty<string>? RoutingRules
+    public TerraformProperty<string> RoutingRules
     {
-        get => GetProperty<TerraformProperty<string>>("routing_rules");
-        set => this.WithProperty("routing_rules", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("routing_rules");
+        set => SetProperty("routing_rules", value);
     }
 
     /// <summary>
@@ -143,8 +144,7 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorDocument block(s) allowed")]
     public List<AwsS3BucketWebsiteConfigurationErrorDocumentBlock>? ErrorDocument
     {
-        get => GetProperty<List<AwsS3BucketWebsiteConfigurationErrorDocumentBlock>>("error_document");
-        set => this.WithProperty("error_document", value);
+        set => SetProperty("error_document", value);
     }
 
     /// <summary>
@@ -154,8 +154,7 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexDocument block(s) allowed")]
     public List<AwsS3BucketWebsiteConfigurationIndexDocumentBlock>? IndexDocument
     {
-        get => GetProperty<List<AwsS3BucketWebsiteConfigurationIndexDocumentBlock>>("index_document");
-        set => this.WithProperty("index_document", value);
+        set => SetProperty("index_document", value);
     }
 
     /// <summary>
@@ -165,8 +164,7 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectAllRequestsTo block(s) allowed")]
     public List<AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock>? RedirectAllRequestsTo
     {
-        get => GetProperty<List<AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock>>("redirect_all_requests_to");
-        set => this.WithProperty("redirect_all_requests_to", value);
+        set => SetProperty("redirect_all_requests_to", value);
     }
 
     /// <summary>
@@ -175,8 +173,7 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     public List<AwsS3BucketWebsiteConfigurationRoutingRuleBlock>? RoutingRule
     {
-        get => GetProperty<List<AwsS3BucketWebsiteConfigurationRoutingRuleBlock>>("routing_rule");
-        set => this.WithProperty("routing_rule", value);
+        set => SetProperty("routing_rule", value);
     }
 
     /// <summary>

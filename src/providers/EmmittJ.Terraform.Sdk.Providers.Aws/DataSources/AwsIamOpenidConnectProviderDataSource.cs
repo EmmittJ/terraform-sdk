@@ -14,44 +14,48 @@ public class AwsIamOpenidConnectProviderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("client_id_list");
-        this.WithOutput("thumbprint_list");
+        SetOutput("client_id_list");
+        SetOutput("thumbprint_list");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("url");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformProperty<string>? Url
+    public TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
-        set => this.WithProperty("url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url");
+        set => SetProperty("url", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleLoggingBillingAccountSinkBigqueryOptionsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsePartitionedTables is required")]
     public required TerraformProperty<bool> UsePartitionedTables
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("use_partitioned_tables");
-        set => WithProperty("use_partitioned_tables", value);
+        set => SetProperty("use_partitioned_tables", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => WithProperty("disabled", value);
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -79,7 +74,14 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("writer_identity");
+        SetOutput("writer_identity");
+        SetOutput("billing_account");
+        SetOutput("description");
+        SetOutput("destination");
+        SetOutput("disabled");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -88,17 +90,17 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformProperty<string> BillingAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("billing_account");
-        set => this.WithProperty("billing_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_account");
+        set => SetProperty("billing_account", value);
     }
 
     /// <summary>
     /// A description of this sink. The maximum length of the description is 8000 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -107,35 +109,35 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination");
-        set => this.WithProperty("destination", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination");
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// If set to True, then this sink is disabled and it does not export any log entries.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// The filter to apply when exporting logs. Only log entries that match the filter are exported.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -144,8 +146,8 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -155,8 +157,7 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryOptions block(s) allowed")]
     public List<GoogleLoggingBillingAccountSinkBigqueryOptionsBlock>? BigqueryOptions
     {
-        get => GetProperty<List<GoogleLoggingBillingAccountSinkBigqueryOptionsBlock>>("bigquery_options");
-        set => this.WithProperty("bigquery_options", value);
+        set => SetProperty("bigquery_options", value);
     }
 
     /// <summary>
@@ -165,8 +166,7 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     /// </summary>
     public List<GoogleLoggingBillingAccountSinkExclusionsBlock>? Exclusions
     {
-        get => GetProperty<List<GoogleLoggingBillingAccountSinkExclusionsBlock>>("exclusions");
-        set => this.WithProperty("exclusions", value);
+        set => SetProperty("exclusions", value);
     }
 
     /// <summary>

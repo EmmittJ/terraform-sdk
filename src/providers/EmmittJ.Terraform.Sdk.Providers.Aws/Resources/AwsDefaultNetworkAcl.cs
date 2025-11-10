@@ -14,8 +14,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("cidr_block");
-        set => WithProperty("cidr_block", value);
+        set => SetProperty("cidr_block", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformProperty<double> FromPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("from_port");
-        set => WithProperty("from_port", value);
+        set => SetProperty("from_port", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IcmpCode
     {
-        get => GetProperty<TerraformProperty<double>>("icmp_code");
-        set => WithProperty("icmp_code", value);
+        set => SetProperty("icmp_code", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IcmpType
     {
-        get => GetProperty<TerraformProperty<double>>("icmp_type");
-        set => WithProperty("icmp_type", value);
+        set => SetProperty("icmp_type", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ipv6CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_cidr_block");
-        set => WithProperty("ipv6_cidr_block", value);
+        set => SetProperty("ipv6_cidr_block", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -80,8 +73,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNo is required")]
     public required TerraformProperty<double> RuleNo
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("rule_no");
-        set => WithProperty("rule_no", value);
+        set => SetProperty("rule_no", value);
     }
 
     /// <summary>
@@ -90,8 +82,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformProperty<double> ToPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("to_port");
-        set => WithProperty("to_port", value);
+        set => SetProperty("to_port", value);
     }
 
 }
@@ -108,8 +99,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -117,8 +107,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("cidr_block");
-        set => WithProperty("cidr_block", value);
+        set => SetProperty("cidr_block", value);
     }
 
     /// <summary>
@@ -127,8 +116,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformProperty<double> FromPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("from_port");
-        set => WithProperty("from_port", value);
+        set => SetProperty("from_port", value);
     }
 
     /// <summary>
@@ -136,8 +124,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IcmpCode
     {
-        get => GetProperty<TerraformProperty<double>>("icmp_code");
-        set => WithProperty("icmp_code", value);
+        set => SetProperty("icmp_code", value);
     }
 
     /// <summary>
@@ -145,8 +132,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IcmpType
     {
-        get => GetProperty<TerraformProperty<double>>("icmp_type");
-        set => WithProperty("icmp_type", value);
+        set => SetProperty("icmp_type", value);
     }
 
     /// <summary>
@@ -154,8 +140,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ipv6CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_cidr_block");
-        set => WithProperty("ipv6_cidr_block", value);
+        set => SetProperty("ipv6_cidr_block", value);
     }
 
     /// <summary>
@@ -164,8 +149,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -174,8 +158,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNo is required")]
     public required TerraformProperty<double> RuleNo
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("rule_no");
-        set => WithProperty("rule_no", value);
+        set => SetProperty("rule_no", value);
     }
 
     /// <summary>
@@ -184,8 +167,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformProperty<double> ToPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("to_port");
-        set => WithProperty("to_port", value);
+        set => SetProperty("to_port", value);
     }
 
 }
@@ -202,9 +184,15 @@ public class AwsDefaultNetworkAcl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("owner_id");
-        this.WithOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("owner_id");
+        SetOutput("vpc_id");
+        SetOutput("default_network_acl_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -213,53 +201,53 @@ public class AwsDefaultNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultNetworkAclId is required")]
     public required TerraformProperty<string> DefaultNetworkAclId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_network_acl_id");
-        set => this.WithProperty("default_network_acl_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_network_acl_id");
+        set => SetProperty("default_network_acl_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -268,8 +256,7 @@ public class AwsDefaultNetworkAcl : TerraformResource
     /// </summary>
     public HashSet<AwsDefaultNetworkAclEgressBlock>? Egress
     {
-        get => GetProperty<HashSet<AwsDefaultNetworkAclEgressBlock>>("egress");
-        set => this.WithProperty("egress", value);
+        set => SetProperty("egress", value);
     }
 
     /// <summary>
@@ -278,8 +265,7 @@ public class AwsDefaultNetworkAcl : TerraformResource
     /// </summary>
     public HashSet<AwsDefaultNetworkAclIngressBlock>? Ingress
     {
-        get => GetProperty<HashSet<AwsDefaultNetworkAclIngressBlock>>("ingress");
-        set => this.WithProperty("ingress", value);
+        set => SetProperty("ingress", value);
     }
 
     /// <summary>

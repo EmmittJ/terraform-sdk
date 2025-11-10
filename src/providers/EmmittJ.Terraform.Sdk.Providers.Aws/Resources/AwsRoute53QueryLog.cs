@@ -14,7 +14,10 @@ public class AwsRoute53QueryLog : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("cloudwatch_log_group_arn");
+        SetOutput("id");
+        SetOutput("zone_id");
     }
 
     /// <summary>
@@ -23,17 +26,17 @@ public class AwsRoute53QueryLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
     public required TerraformProperty<string> CloudwatchLogGroupArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloudwatch_log_group_arn");
-        set => this.WithProperty("cloudwatch_log_group_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloudwatch_log_group_arn");
+        set => SetProperty("cloudwatch_log_group_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,8 +45,8 @@ public class AwsRoute53QueryLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
-        set => this.WithProperty("zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
+        set => SetProperty("zone_id", value);
     }
 
     /// <summary>

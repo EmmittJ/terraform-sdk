@@ -13,8 +13,7 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,60 +54,71 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("anti_spyware_profile");
+        SetOutput("anti_virus_profile");
+        SetOutput("description");
+        SetOutput("dns_subscription");
+        SetOutput("file_blocking_profile");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("url_filtering_profile");
+        SetOutput("vulnerability_profile");
     }
 
     /// <summary>
     /// The anti_spyware_profile attribute.
     /// </summary>
-    public TerraformProperty<string>? AntiSpywareProfile
+    public TerraformProperty<string> AntiSpywareProfile
     {
-        get => GetProperty<TerraformProperty<string>>("anti_spyware_profile");
-        set => this.WithProperty("anti_spyware_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("anti_spyware_profile");
+        set => SetProperty("anti_spyware_profile", value);
     }
 
     /// <summary>
     /// The anti_virus_profile attribute.
     /// </summary>
-    public TerraformProperty<string>? AntiVirusProfile
+    public TerraformProperty<string> AntiVirusProfile
     {
-        get => GetProperty<TerraformProperty<string>>("anti_virus_profile");
-        set => this.WithProperty("anti_virus_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("anti_virus_profile");
+        set => SetProperty("anti_virus_profile", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The dns_subscription attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsSubscription
+    public TerraformProperty<string> DnsSubscription
     {
-        get => GetProperty<TerraformProperty<string>>("dns_subscription");
-        set => this.WithProperty("dns_subscription", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_subscription");
+        set => SetProperty("dns_subscription", value);
     }
 
     /// <summary>
     /// The file_blocking_profile attribute.
     /// </summary>
-    public TerraformProperty<string>? FileBlockingProfile
+    public TerraformProperty<string> FileBlockingProfile
     {
-        get => GetProperty<TerraformProperty<string>>("file_blocking_profile");
-        set => this.WithProperty("file_blocking_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_blocking_profile");
+        set => SetProperty("file_blocking_profile", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -120,8 +127,8 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -130,8 +137,8 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -140,26 +147,26 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The url_filtering_profile attribute.
     /// </summary>
-    public TerraformProperty<string>? UrlFilteringProfile
+    public TerraformProperty<string> UrlFilteringProfile
     {
-        get => GetProperty<TerraformProperty<string>>("url_filtering_profile");
-        set => this.WithProperty("url_filtering_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url_filtering_profile");
+        set => SetProperty("url_filtering_profile", value);
     }
 
     /// <summary>
     /// The vulnerability_profile attribute.
     /// </summary>
-    public TerraformProperty<string>? VulnerabilityProfile
+    public TerraformProperty<string> VulnerabilityProfile
     {
-        get => GetProperty<TerraformProperty<string>>("vulnerability_profile");
-        set => this.WithProperty("vulnerability_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vulnerability_profile");
+        set => SetProperty("vulnerability_profile", value);
     }
 
     /// <summary>
@@ -168,8 +175,7 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// </summary>
     public AzurermPaloAltoLocalRulestackTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPaloAltoLocalRulestackTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

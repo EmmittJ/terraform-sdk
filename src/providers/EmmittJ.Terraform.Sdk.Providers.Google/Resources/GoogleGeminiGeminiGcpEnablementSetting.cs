@@ -13,8 +13,7 @@ public class GoogleGeminiGeminiGcpEnablementSettingTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleGeminiGeminiGcpEnablementSettingTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleGeminiGeminiGcpEnablementSettingTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,30 +46,38 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("disable_web_grounding");
+        SetOutput("enable_customer_data_sharing");
+        SetOutput("gemini_gcp_enablement_setting_id");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("web_grounding_type");
     }
 
     /// <summary>
     /// Whether web grounding should be disabled.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? DisableWebGrounding
+    public TerraformProperty<bool> DisableWebGrounding
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_web_grounding");
-        set => this.WithProperty("disable_web_grounding", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_web_grounding");
+        set => SetProperty("disable_web_grounding", value);
     }
 
     /// <summary>
     /// Whether customer data sharing should be enabled.
     /// </summary>
-    public TerraformProperty<bool>? EnableCustomerDataSharing
+    public TerraformProperty<bool> EnableCustomerDataSharing
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_customer_data_sharing");
-        set => this.WithProperty("enable_customer_data_sharing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_customer_data_sharing");
+        set => SetProperty("enable_customer_data_sharing", value);
     }
 
     /// <summary>
@@ -81,17 +86,17 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeminiGcpEnablementSettingId is required")]
     public required TerraformProperty<string> GeminiGcpEnablementSettingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gemini_gcp_enablement_setting_id");
-        set => this.WithProperty("gemini_gcp_enablement_setting_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gemini_gcp_enablement_setting_id");
+        set => SetProperty("gemini_gcp_enablement_setting_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -100,10 +105,10 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -112,17 +117,17 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -131,10 +136,10 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// GROUNDING_WITH_GOOGLE_SEARCH
     /// WEB_GROUNDING_FOR_ENTERPRISE
     /// </summary>
-    public TerraformProperty<string>? WebGroundingType
+    public TerraformProperty<string> WebGroundingType
     {
-        get => GetProperty<TerraformProperty<string>>("web_grounding_type");
-        set => this.WithProperty("web_grounding_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("web_grounding_type");
+        set => SetProperty("web_grounding_type", value);
     }
 
     /// <summary>
@@ -143,8 +148,7 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// </summary>
     public GoogleGeminiGeminiGcpEnablementSettingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGeminiGeminiGcpEnablementSettingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

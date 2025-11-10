@@ -13,8 +13,7 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,21 @@ public class AzurermSynapseRoleAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("principal_id");
+        SetOutput("principal_type");
+        SetOutput("role_name");
+        SetOutput("synapse_spark_pool_id");
+        SetOutput("synapse_workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,17 +69,17 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalType
+    public TerraformProperty<string> PrincipalType
     {
-        get => GetProperty<TerraformProperty<string>>("principal_type");
-        set => this.WithProperty("principal_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_type");
+        set => SetProperty("principal_type", value);
     }
 
     /// <summary>
@@ -85,26 +88,26 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformProperty<string> RoleName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_name");
-        set => this.WithProperty("role_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
+        set => SetProperty("role_name", value);
     }
 
     /// <summary>
     /// The synapse_spark_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SynapseSparkPoolId
+    public TerraformProperty<string> SynapseSparkPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_spark_pool_id");
-        set => this.WithProperty("synapse_spark_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("synapse_spark_pool_id");
+        set => SetProperty("synapse_spark_pool_id", value);
     }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SynapseWorkspaceId
+    public TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
-        set => this.WithProperty("synapse_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("synapse_workspace_id");
+        set => SetProperty("synapse_workspace_id", value);
     }
 
     /// <summary>
@@ -113,8 +116,7 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     /// </summary>
     public AzurermSynapseRoleAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSynapseRoleAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class GoogleKmsAutokeyConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleKmsAutokeyConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleKmsAutokeyConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,10 @@ public class GoogleKmsAutokeyConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("key_project");
     }
 
     /// <summary>
@@ -58,17 +58,17 @@ public class GoogleKmsAutokeyConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,10 +76,10 @@ public class GoogleKmsAutokeyConfig : TerraformResource
     /// CryptoKey for any new KeyHandle the Developer creates. Should have the form
     /// &#39;projects/&amp;lt;project_id_or_number&amp;gt;&#39;.
     /// </summary>
-    public TerraformProperty<string>? KeyProject
+    public TerraformProperty<string> KeyProject
     {
-        get => GetProperty<TerraformProperty<string>>("key_project");
-        set => this.WithProperty("key_project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_project");
+        set => SetProperty("key_project", value);
     }
 
     /// <summary>
@@ -88,8 +88,7 @@ public class GoogleKmsAutokeyConfig : TerraformResource
     /// </summary>
     public GoogleKmsAutokeyConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleKmsAutokeyConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

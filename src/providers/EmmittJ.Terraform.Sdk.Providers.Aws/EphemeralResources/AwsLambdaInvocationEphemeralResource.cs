@@ -15,20 +15,26 @@ public class AwsLambdaInvocationEphemeralResource : TerraformEphemeralResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("executed_version");
-        this.WithOutput("function_error");
-        this.WithOutput("log_result");
-        this.WithOutput("result");
-        this.WithOutput("status_code");
+        SetOutput("executed_version");
+        SetOutput("function_error");
+        SetOutput("log_result");
+        SetOutput("result");
+        SetOutput("status_code");
+        SetOutput("client_context");
+        SetOutput("function_name");
+        SetOutput("log_type");
+        SetOutput("payload");
+        SetOutput("qualifier");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The client_context attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientContext
+    public TerraformProperty<string> ClientContext
     {
-        get => GetProperty<TerraformProperty<string>>("client_context");
-        set => this.WithProperty("client_context", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_context");
+        set => SetProperty("client_context", value);
     }
 
     /// <summary>
@@ -37,17 +43,17 @@ public class AwsLambdaInvocationEphemeralResource : TerraformEphemeralResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
     /// The log_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LogType
+    public TerraformProperty<string> LogType
     {
-        get => GetProperty<TerraformProperty<string>>("log_type");
-        set => this.WithProperty("log_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_type");
+        set => SetProperty("log_type", value);
     }
 
     /// <summary>
@@ -56,26 +62,26 @@ public class AwsLambdaInvocationEphemeralResource : TerraformEphemeralResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformProperty<string> Payload
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("payload");
-        set => this.WithProperty("payload", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("payload");
+        set => SetProperty("payload", value);
     }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string>? Qualifier
+    public TerraformProperty<string> Qualifier
     {
-        get => GetProperty<TerraformProperty<string>>("qualifier");
-        set => this.WithProperty("qualifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
+        set => SetProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

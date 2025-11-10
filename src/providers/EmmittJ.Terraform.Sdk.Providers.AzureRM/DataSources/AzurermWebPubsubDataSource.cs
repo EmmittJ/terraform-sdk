@@ -13,8 +13,7 @@ public class AzurermWebPubsubDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,32 +30,35 @@ public class AzurermWebPubsubDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("aad_auth_enabled");
-        this.WithOutput("capacity");
-        this.WithOutput("external_ip");
-        this.WithOutput("hostname");
-        this.WithOutput("local_auth_enabled");
-        this.WithOutput("location");
-        this.WithOutput("primary_access_key");
-        this.WithOutput("primary_connection_string");
-        this.WithOutput("public_network_access_enabled");
-        this.WithOutput("public_port");
-        this.WithOutput("secondary_access_key");
-        this.WithOutput("secondary_connection_string");
-        this.WithOutput("server_port");
-        this.WithOutput("sku");
-        this.WithOutput("tags");
-        this.WithOutput("tls_client_cert_enabled");
-        this.WithOutput("version");
+        SetOutput("aad_auth_enabled");
+        SetOutput("capacity");
+        SetOutput("external_ip");
+        SetOutput("hostname");
+        SetOutput("local_auth_enabled");
+        SetOutput("location");
+        SetOutput("primary_access_key");
+        SetOutput("primary_connection_string");
+        SetOutput("public_network_access_enabled");
+        SetOutput("public_port");
+        SetOutput("secondary_access_key");
+        SetOutput("secondary_connection_string");
+        SetOutput("server_port");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("tls_client_cert_enabled");
+        SetOutput("version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermWebPubsubDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -75,8 +77,8 @@ public class AzurermWebPubsubDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -85,8 +87,7 @@ public class AzurermWebPubsubDataSource : TerraformDataSource
     /// </summary>
     public AzurermWebPubsubDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermWebPubsubDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

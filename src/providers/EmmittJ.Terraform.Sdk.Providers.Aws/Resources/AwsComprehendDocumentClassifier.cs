@@ -13,8 +13,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? DataFormat
     {
-        get => GetProperty<TerraformProperty<string>>("data_format");
-        set => WithProperty("data_format", value);
+        set => SetProperty("data_format", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? LabelDelimiter
     {
-        get => GetProperty<TerraformProperty<string>>("label_delimiter");
-        set => WithProperty("label_delimiter", value);
+        set => SetProperty("label_delimiter", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? S3Uri
     {
-        get => GetProperty<TerraformProperty<string>>("s3_uri");
-        set => WithProperty("s3_uri", value);
+        set => SetProperty("s3_uri", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? TestS3Uri
     {
-        get => GetProperty<TerraformProperty<string>>("test_s3_uri");
-        set => WithProperty("test_s3_uri", value);
+        set => SetProperty("test_s3_uri", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AwsComprehendDocumentClassifierOutputDataConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsComprehendDocumentClassifierOutputDataConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? OutputS3Uri
     {
-        get => GetProperty<TerraformProperty<string>>("output_s3_uri");
-        set => WithProperty("output_s3_uri", value);
+        set => SetProperty("output_s3_uri", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsComprehendDocumentClassifierOutputDataConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformProperty<string> S3Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_uri");
-        set => WithProperty("s3_uri", value);
+        set => SetProperty("s3_uri", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AwsComprehendDocumentClassifierTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AwsComprehendDocumentClassifierTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AwsComprehendDocumentClassifierTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -129,8 +119,7 @@ public class AwsComprehendDocumentClassifierVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -139,8 +128,7 @@ public class AwsComprehendDocumentClassifierVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
-        set => WithProperty("subnets", value);
+        set => SetProperty("subnets", value);
     }
 
 }
@@ -158,7 +146,19 @@ public class AwsComprehendDocumentClassifier : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
+        SetOutput("arn");
+        SetOutput("data_access_role_arn");
+        SetOutput("id");
+        SetOutput("language_code");
+        SetOutput("mode");
+        SetOutput("model_kms_key_id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("version_name");
+        SetOutput("version_name_prefix");
+        SetOutput("volume_kms_key_id");
     }
 
     /// <summary>
@@ -167,17 +167,17 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessRoleArn is required")]
     public required TerraformProperty<string> DataAccessRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_access_role_arn");
-        set => this.WithProperty("data_access_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_access_role_arn");
+        set => SetProperty("data_access_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -186,26 +186,26 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformProperty<string> LanguageCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("language_code");
-        set => this.WithProperty("language_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
+    public TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => this.WithProperty("mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mode");
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
     /// The model_kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ModelKmsKeyId
+    public TerraformProperty<string> ModelKmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("model_kms_key_id");
-        set => this.WithProperty("model_kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("model_kms_key_id");
+        set => SetProperty("model_kms_key_id", value);
     }
 
     /// <summary>
@@ -214,74 +214,74 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionName
+    public TerraformProperty<string> VersionName
     {
-        get => GetProperty<TerraformProperty<string>>("version_name");
-        set => this.WithProperty("version_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_name");
+        set => SetProperty("version_name", value);
     }
 
     /// <summary>
     /// The version_name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionNamePrefix
+    public TerraformProperty<string> VersionNamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("version_name_prefix");
-        set => this.WithProperty("version_name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_name_prefix");
+        set => SetProperty("version_name_prefix", value);
     }
 
     /// <summary>
     /// The volume_kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeKmsKeyId
+    public TerraformProperty<string> VolumeKmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("volume_kms_key_id");
-        set => this.WithProperty("volume_kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_kms_key_id");
+        set => SetProperty("volume_kms_key_id", value);
     }
 
     /// <summary>
     /// Block for input_data_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputDataConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputDataConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputDataConfig block(s) allowed")]
     public List<AwsComprehendDocumentClassifierInputDataConfigBlock>? InputDataConfig
     {
-        get => GetProperty<List<AwsComprehendDocumentClassifierInputDataConfigBlock>>("input_data_config");
-        set => this.WithProperty("input_data_config", value);
+        set => SetProperty("input_data_config", value);
     }
 
     /// <summary>
@@ -291,8 +291,7 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputDataConfig block(s) allowed")]
     public List<AwsComprehendDocumentClassifierOutputDataConfigBlock>? OutputDataConfig
     {
-        get => GetProperty<List<AwsComprehendDocumentClassifierOutputDataConfigBlock>>("output_data_config");
-        set => this.WithProperty("output_data_config", value);
+        set => SetProperty("output_data_config", value);
     }
 
     /// <summary>
@@ -301,8 +300,7 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     /// </summary>
     public AwsComprehendDocumentClassifierTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsComprehendDocumentClassifierTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -312,8 +310,7 @@ public class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     public List<AwsComprehendDocumentClassifierVpcConfigBlock>? VpcConfig
     {
-        get => GetProperty<List<AwsComprehendDocumentClassifierVpcConfigBlock>>("vpc_config");
-        set => this.WithProperty("vpc_config", value);
+        set => SetProperty("vpc_config", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,53 +54,63 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("versioned_id");
+        SetOutput("versioned_id");
+        SetOutput("curve");
+        SetOutput("expiration_date");
+        SetOutput("id");
+        SetOutput("key_opts");
+        SetOutput("key_size");
+        SetOutput("key_type");
+        SetOutput("managed_hsm_id");
+        SetOutput("name");
+        SetOutput("not_before_date");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The curve attribute.
     /// </summary>
-    public TerraformProperty<string>? Curve
+    public TerraformProperty<string> Curve
     {
-        get => GetProperty<TerraformProperty<string>>("curve");
-        set => this.WithProperty("curve", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("curve");
+        set => SetProperty("curve", value);
     }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpirationDate
+    public TerraformProperty<string> ExpirationDate
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_date");
-        set => this.WithProperty("expiration_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration_date");
+        set => SetProperty("expiration_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyOpts is required")]
-    public HashSet<TerraformProperty<string>>? KeyOpts
+    public HashSet<TerraformProperty<string>> KeyOpts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("key_opts");
-        set => this.WithProperty("key_opts", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("key_opts");
+        set => SetProperty("key_opts", value);
     }
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    public TerraformProperty<double>? KeySize
+    public TerraformProperty<double> KeySize
     {
-        get => GetProperty<TerraformProperty<double>>("key_size");
-        set => this.WithProperty("key_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("key_size");
+        set => SetProperty("key_size", value);
     }
 
     /// <summary>
@@ -113,8 +119,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformProperty<string> KeyType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_type");
-        set => this.WithProperty("key_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_type");
+        set => SetProperty("key_type", value);
     }
 
     /// <summary>
@@ -123,8 +129,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformProperty<string> ManagedHsmId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_hsm_id");
-        set => this.WithProperty("managed_hsm_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_id");
+        set => SetProperty("managed_hsm_id", value);
     }
 
     /// <summary>
@@ -133,26 +139,26 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
-    public TerraformProperty<string>? NotBeforeDate
+    public TerraformProperty<string> NotBeforeDate
     {
-        get => GetProperty<TerraformProperty<string>>("not_before_date");
-        set => this.WithProperty("not_before_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("not_before_date");
+        set => SetProperty("not_before_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -161,8 +167,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

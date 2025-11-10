@@ -14,44 +14,48 @@ public class AwsKmsKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("aws_account_id");
-        this.WithOutput("cloud_hsm_cluster_id");
-        this.WithOutput("creation_date");
-        this.WithOutput("custom_key_store_id");
-        this.WithOutput("customer_master_key_spec");
-        this.WithOutput("deletion_date");
-        this.WithOutput("description");
-        this.WithOutput("enabled");
-        this.WithOutput("expiration_model");
-        this.WithOutput("key_manager");
-        this.WithOutput("key_spec");
-        this.WithOutput("key_state");
-        this.WithOutput("key_usage");
-        this.WithOutput("multi_region");
-        this.WithOutput("multi_region_configuration");
-        this.WithOutput("origin");
-        this.WithOutput("pending_deletion_window_in_days");
-        this.WithOutput("valid_to");
-        this.WithOutput("xks_key_configuration");
+        SetOutput("arn");
+        SetOutput("aws_account_id");
+        SetOutput("cloud_hsm_cluster_id");
+        SetOutput("creation_date");
+        SetOutput("custom_key_store_id");
+        SetOutput("customer_master_key_spec");
+        SetOutput("deletion_date");
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("expiration_model");
+        SetOutput("key_manager");
+        SetOutput("key_spec");
+        SetOutput("key_state");
+        SetOutput("key_usage");
+        SetOutput("multi_region");
+        SetOutput("multi_region_configuration");
+        SetOutput("origin");
+        SetOutput("pending_deletion_window_in_days");
+        SetOutput("valid_to");
+        SetOutput("xks_key_configuration");
+        SetOutput("grant_tokens");
+        SetOutput("id");
+        SetOutput("key_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The grant_tokens attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? GrantTokens
+    public List<TerraformProperty<string>> GrantTokens
     {
-        get => GetProperty<List<TerraformProperty<string>>>("grant_tokens");
-        set => this.WithProperty("grant_tokens", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("grant_tokens");
+        set => SetProperty("grant_tokens", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,17 +64,17 @@ public class AwsKmsKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
-        set => this.WithProperty("key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

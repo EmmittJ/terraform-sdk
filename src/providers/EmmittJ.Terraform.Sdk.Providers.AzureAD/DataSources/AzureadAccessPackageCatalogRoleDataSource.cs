@@ -13,8 +13,7 @@ public class AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,35 +30,38 @@ public class AzureadAccessPackageCatalogRoleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("template_id");
+        SetOutput("description");
+        SetOutput("template_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("object_id");
     }
 
     /// <summary>
     /// The display name of the catalog role
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the catalog role
     /// </summary>
-    public TerraformProperty<string>? ObjectId
+    public TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
-        set => this.WithProperty("object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
@@ -68,8 +70,7 @@ public class AzureadAccessPackageCatalogRoleDataSource : TerraformDataSource
     /// </summary>
     public AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

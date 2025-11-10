@@ -15,8 +15,7 @@ public class GoogleNotebooksEnvironmentContainerImageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository");
-        set => WithProperty("repository", value);
+        set => SetProperty("repository", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleNotebooksEnvironmentContainerImageBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Tag
     {
-        get => GetProperty<TerraformProperty<string>>("tag");
-        set => WithProperty("tag", value);
+        set => SetProperty("tag", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleNotebooksEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleNotebooksEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleNotebooksEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class GoogleNotebooksEnvironmentVmImageBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImageFamily
     {
-        get => GetProperty<TerraformProperty<string>>("image_family");
-        set => WithProperty("image_family", value);
+        set => SetProperty("image_family", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleNotebooksEnvironmentVmImageBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImageName
     {
-        get => GetProperty<TerraformProperty<string>>("image_name");
-        set => WithProperty("image_name", value);
+        set => SetProperty("image_name", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class GoogleNotebooksEnvironmentVmImageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => WithProperty("project", value);
+        set => SetProperty("project", value);
     }
 
 }
@@ -115,34 +107,41 @@ public class GoogleNotebooksEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("post_startup_script");
+        SetOutput("project");
     }
 
     /// <summary>
     /// A brief description of this environment.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Display name of this environment for the UI.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -151,8 +150,8 @@ public class GoogleNotebooksEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -162,27 +161,27 @@ public class GoogleNotebooksEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Path to a Bash script that automatically runs after a notebook instance fully boots up.
     /// The path must be a URL or Cloud Storage path. Example: &amp;quot;gs://path-to-file/file-name&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? PostStartupScript
+    public TerraformProperty<string> PostStartupScript
     {
-        get => GetProperty<TerraformProperty<string>>("post_startup_script");
-        set => this.WithProperty("post_startup_script", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("post_startup_script");
+        set => SetProperty("post_startup_script", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -192,8 +191,7 @@ public class GoogleNotebooksEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerImage block(s) allowed")]
     public List<GoogleNotebooksEnvironmentContainerImageBlock>? ContainerImage
     {
-        get => GetProperty<List<GoogleNotebooksEnvironmentContainerImageBlock>>("container_image");
-        set => this.WithProperty("container_image", value);
+        set => SetProperty("container_image", value);
     }
 
     /// <summary>
@@ -202,8 +200,7 @@ public class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     public GoogleNotebooksEnvironmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNotebooksEnvironmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -213,8 +210,7 @@ public class GoogleNotebooksEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VmImage block(s) allowed")]
     public List<GoogleNotebooksEnvironmentVmImageBlock>? VmImage
     {
-        get => GetProperty<List<GoogleNotebooksEnvironmentVmImageBlock>>("vm_image");
-        set => this.WithProperty("vm_image", value);
+        set => SetProperty("vm_image", value);
     }
 
     /// <summary>

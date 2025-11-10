@@ -31,38 +31,42 @@ public class AwsSignerSigningJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("completed_at");
-        this.WithOutput("created_at");
-        this.WithOutput("job_id");
-        this.WithOutput("job_invoker");
-        this.WithOutput("job_owner");
-        this.WithOutput("platform_display_name");
-        this.WithOutput("platform_id");
-        this.WithOutput("profile_version");
-        this.WithOutput("requested_by");
-        this.WithOutput("revocation_record");
-        this.WithOutput("signature_expires_at");
-        this.WithOutput("signed_object");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
+        SetOutput("completed_at");
+        SetOutput("created_at");
+        SetOutput("job_id");
+        SetOutput("job_invoker");
+        SetOutput("job_owner");
+        SetOutput("platform_display_name");
+        SetOutput("platform_id");
+        SetOutput("profile_version");
+        SetOutput("requested_by");
+        SetOutput("revocation_record");
+        SetOutput("signature_expires_at");
+        SetOutput("signed_object");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("id");
+        SetOutput("ignore_signing_job_failure");
+        SetOutput("profile_name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ignore_signing_job_failure attribute.
     /// </summary>
-    public TerraformProperty<bool>? IgnoreSigningJobFailure
+    public TerraformProperty<bool> IgnoreSigningJobFailure
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_signing_job_failure");
-        set => this.WithProperty("ignore_signing_job_failure", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_signing_job_failure");
+        set => SetProperty("ignore_signing_job_failure", value);
     }
 
     /// <summary>
@@ -71,41 +75,41 @@ public class AwsSignerSigningJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformProperty<string> ProfileName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("profile_name");
-        set => this.WithProperty("profile_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_name");
+        set => SetProperty("profile_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for destination.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     public List<AwsSignerSigningJobDestinationBlock>? Destination
     {
-        get => GetProperty<List<AwsSignerSigningJobDestinationBlock>>("destination");
-        set => this.WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     public List<AwsSignerSigningJobSourceBlock>? Source
     {
-        get => GetProperty<List<AwsSignerSigningJobSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>

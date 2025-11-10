@@ -13,8 +13,7 @@ public class AwsRdsExportTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRdsExportTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,24 +38,32 @@ public class AwsRdsExportTask : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("failure_cause");
-        this.WithOutput("id");
-        this.WithOutput("percent_progress");
-        this.WithOutput("snapshot_time");
-        this.WithOutput("source_type");
-        this.WithOutput("status");
-        this.WithOutput("task_end_time");
-        this.WithOutput("task_start_time");
-        this.WithOutput("warning_message");
+        SetOutput("failure_cause");
+        SetOutput("id");
+        SetOutput("percent_progress");
+        SetOutput("snapshot_time");
+        SetOutput("source_type");
+        SetOutput("status");
+        SetOutput("task_end_time");
+        SetOutput("task_start_time");
+        SetOutput("warning_message");
+        SetOutput("export_only");
+        SetOutput("export_task_identifier");
+        SetOutput("iam_role_arn");
+        SetOutput("kms_key_id");
+        SetOutput("region");
+        SetOutput("s3_bucket_name");
+        SetOutput("s3_prefix");
+        SetOutput("source_arn");
     }
 
     /// <summary>
     /// The export_only attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ExportOnly
+    public List<TerraformProperty<string>> ExportOnly
     {
-        get => GetProperty<List<TerraformProperty<string>>>("export_only");
-        set => this.WithProperty("export_only", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("export_only");
+        set => SetProperty("export_only", value);
     }
 
     /// <summary>
@@ -66,8 +72,8 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportTaskIdentifier is required")]
     public required TerraformProperty<string> ExportTaskIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("export_task_identifier");
-        set => this.WithProperty("export_task_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("export_task_identifier");
+        set => SetProperty("export_task_identifier", value);
     }
 
     /// <summary>
@@ -76,8 +82,8 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
@@ -86,17 +92,17 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformProperty<string> KmsKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -105,17 +111,17 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
-        set => this.WithProperty("s3_bucket_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket_name");
+        set => SetProperty("s3_bucket_name", value);
     }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Prefix
+    public TerraformProperty<string> S3Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("s3_prefix");
-        set => this.WithProperty("s3_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_prefix");
+        set => SetProperty("s3_prefix", value);
     }
 
     /// <summary>
@@ -124,8 +130,8 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformProperty<string> SourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_arn");
-        set => this.WithProperty("source_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_arn");
+        set => SetProperty("source_arn", value);
     }
 
     /// <summary>
@@ -134,8 +140,7 @@ public class AwsRdsExportTask : TerraformResource
     /// </summary>
     public AwsRdsExportTaskTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRdsExportTaskTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

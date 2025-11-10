@@ -14,26 +14,28 @@ public class AwsSesv2AccountSuppressionAttributes : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("suppressed_reasons");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The suppressed_reasons attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SuppressedReasons is required")]
-    public HashSet<TerraformProperty<string>>? SuppressedReasons
+    public HashSet<TerraformProperty<string>> SuppressedReasons
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("suppressed_reasons");
-        set => this.WithProperty("suppressed_reasons", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("suppressed_reasons");
+        set => SetProperty("suppressed_reasons", value);
     }
 
     /// <summary>

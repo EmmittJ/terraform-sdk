@@ -21,8 +21,7 @@ public class GoogleIdentityPlatformConfigClientBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApiKey
     {
-        get => GetProperty<TerraformProperty<string>>("api_key");
-        set => WithProperty("api_key", value);
+        set => SetProperty("api_key", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleIdentityPlatformConfigClientBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FirebaseSubdomain
     {
-        get => GetProperty<TerraformProperty<string>>("firebase_subdomain");
-        set => WithProperty("firebase_subdomain", value);
+        set => SetProperty("firebase_subdomain", value);
     }
 
 }
@@ -47,8 +45,7 @@ public class GoogleIdentityPlatformConfigMfaBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? EnabledProviders
     {
-        get => GetProperty<List<TerraformProperty<string>>>("enabled_providers");
-        set => WithProperty("enabled_providers", value);
+        set => SetProperty("enabled_providers", value);
     }
 
     /// <summary>
@@ -56,8 +53,7 @@ public class GoogleIdentityPlatformConfigMfaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -81,8 +77,7 @@ public class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowTenants
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_tenants");
-        set => WithProperty("allow_tenants", value);
+        set => SetProperty("allow_tenants", value);
     }
 
     /// <summary>
@@ -92,8 +87,7 @@ public class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultTenantLocation
     {
-        get => GetProperty<TerraformProperty<string>>("default_tenant_location");
-        set => WithProperty("default_tenant_location", value);
+        set => SetProperty("default_tenant_location", value);
     }
 
 }
@@ -117,8 +111,7 @@ public class GoogleIdentityPlatformConfigSignInBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowDuplicateEmails
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_duplicate_emails");
-        set => WithProperty("allow_duplicate_emails", value);
+        set => SetProperty("allow_duplicate_emails", value);
     }
 
     /// <summary>
@@ -126,8 +119,7 @@ public class GoogleIdentityPlatformConfigSignInBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? HashConfig
     {
-        get => GetProperty<List<TerraformProperty<object>>>("hash_config");
-        set => WithProperty("hash_config", value);
+        set => SetProperty("hash_config", value);
     }
 
 }
@@ -151,8 +143,7 @@ public class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -160,8 +151,7 @@ public class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -169,8 +159,7 @@ public class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -188,43 +177,47 @@ public class GoogleIdentityPlatformConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("authorized_domains");
+        SetOutput("autodelete_anonymous_users");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// List of domains authorized for OAuth redirects.
     /// </summary>
-    public List<TerraformProperty<string>>? AuthorizedDomains
+    public List<TerraformProperty<string>> AuthorizedDomains
     {
-        get => GetProperty<List<TerraformProperty<string>>>("authorized_domains");
-        set => this.WithProperty("authorized_domains", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("authorized_domains");
+        set => SetProperty("authorized_domains", value);
     }
 
     /// <summary>
     /// Whether anonymous users will be auto-deleted after a period of 30 days
     /// </summary>
-    public TerraformProperty<bool>? AutodeleteAnonymousUsers
+    public TerraformProperty<bool> AutodeleteAnonymousUsers
     {
-        get => GetProperty<TerraformProperty<bool>>("autodelete_anonymous_users");
-        set => this.WithProperty("autodelete_anonymous_users", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("autodelete_anonymous_users");
+        set => SetProperty("autodelete_anonymous_users", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -234,8 +227,7 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlockingFunctions block(s) allowed")]
     public List<GoogleIdentityPlatformConfigBlockingFunctionsBlock>? BlockingFunctions
     {
-        get => GetProperty<List<GoogleIdentityPlatformConfigBlockingFunctionsBlock>>("blocking_functions");
-        set => this.WithProperty("blocking_functions", value);
+        set => SetProperty("blocking_functions", value);
     }
 
     /// <summary>
@@ -245,8 +237,7 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Client block(s) allowed")]
     public List<GoogleIdentityPlatformConfigClientBlock>? Client
     {
-        get => GetProperty<List<GoogleIdentityPlatformConfigClientBlock>>("client");
-        set => this.WithProperty("client", value);
+        set => SetProperty("client", value);
     }
 
     /// <summary>
@@ -256,8 +247,7 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mfa block(s) allowed")]
     public List<GoogleIdentityPlatformConfigMfaBlock>? Mfa
     {
-        get => GetProperty<List<GoogleIdentityPlatformConfigMfaBlock>>("mfa");
-        set => this.WithProperty("mfa", value);
+        set => SetProperty("mfa", value);
     }
 
     /// <summary>
@@ -267,8 +257,7 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitoring block(s) allowed")]
     public List<GoogleIdentityPlatformConfigMonitoringBlock>? Monitoring
     {
-        get => GetProperty<List<GoogleIdentityPlatformConfigMonitoringBlock>>("monitoring");
-        set => this.WithProperty("monitoring", value);
+        set => SetProperty("monitoring", value);
     }
 
     /// <summary>
@@ -278,8 +267,7 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiTenant block(s) allowed")]
     public List<GoogleIdentityPlatformConfigMultiTenantBlock>? MultiTenant
     {
-        get => GetProperty<List<GoogleIdentityPlatformConfigMultiTenantBlock>>("multi_tenant");
-        set => this.WithProperty("multi_tenant", value);
+        set => SetProperty("multi_tenant", value);
     }
 
     /// <summary>
@@ -289,8 +277,7 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
     public List<GoogleIdentityPlatformConfigQuotaBlock>? Quota
     {
-        get => GetProperty<List<GoogleIdentityPlatformConfigQuotaBlock>>("quota");
-        set => this.WithProperty("quota", value);
+        set => SetProperty("quota", value);
     }
 
     /// <summary>
@@ -300,8 +287,7 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignIn block(s) allowed")]
     public List<GoogleIdentityPlatformConfigSignInBlock>? SignIn
     {
-        get => GetProperty<List<GoogleIdentityPlatformConfigSignInBlock>>("sign_in");
-        set => this.WithProperty("sign_in", value);
+        set => SetProperty("sign_in", value);
     }
 
     /// <summary>
@@ -311,8 +297,7 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmsRegionConfig block(s) allowed")]
     public List<GoogleIdentityPlatformConfigSmsRegionConfigBlock>? SmsRegionConfig
     {
-        get => GetProperty<List<GoogleIdentityPlatformConfigSmsRegionConfigBlock>>("sms_region_config");
-        set => this.WithProperty("sms_region_config", value);
+        set => SetProperty("sms_region_config", value);
     }
 
     /// <summary>
@@ -321,8 +306,7 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     public GoogleIdentityPlatformConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIdentityPlatformConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

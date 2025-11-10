@@ -14,8 +14,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     /// </summary>
     public List<TerraformProperty<string>>? IncludeImportRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("include_import_ranges");
-        set => WithProperty("include_import_ranges", value);
+        set => SetProperty("include_import_ranges", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformProperty<bool> SiteToSiteDataTransfer
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
-        set => WithProperty("site_to_site_data_transfer", value);
+        set => SetProperty("site_to_site_data_transfer", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     public List<TerraformProperty<string>>? Uris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("uris");
-        set => WithProperty("uris", value);
+        set => SetProperty("uris", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     /// </summary>
     public List<TerraformProperty<string>>? ExcludeExportRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("exclude_export_ranges");
-        set => WithProperty("exclude_export_ranges", value);
+        set => SetProperty("exclude_export_ranges", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     /// </summary>
     public List<TerraformProperty<string>>? IncludeExportRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("include_export_ranges");
-        set => WithProperty("include_export_ranges", value);
+        set => SetProperty("include_export_ranges", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -80,8 +74,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformProperty<string> Peering
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peering");
-        set => WithProperty("peering", value);
+        set => SetProperty("peering", value);
     }
 
     /// <summary>
@@ -89,8 +82,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     /// </summary>
     public TerraformProperty<string>? ProducerNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("producer_network");
-        set => WithProperty("producer_network", value);
+        set => SetProperty("producer_network", value);
     }
 
 }
@@ -107,8 +99,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock :
     /// </summary>
     public List<TerraformProperty<string>>? IncludeImportRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("include_import_ranges");
-        set => WithProperty("include_import_ranges", value);
+        set => SetProperty("include_import_ranges", value);
     }
 
     /// <summary>
@@ -117,8 +108,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformProperty<bool> SiteToSiteDataTransfer
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
-        set => WithProperty("site_to_site_data_transfer", value);
+        set => SetProperty("site_to_site_data_transfer", value);
     }
 
 }
@@ -134,8 +124,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBloc
     /// </summary>
     public List<TerraformProperty<string>>? ExcludeExportRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("exclude_export_ranges");
-        set => WithProperty("exclude_export_ranges", value);
+        set => SetProperty("exclude_export_ranges", value);
     }
 
     /// <summary>
@@ -143,8 +132,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBloc
     /// </summary>
     public List<TerraformProperty<string>>? IncludeExportRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("include_export_ranges");
-        set => WithProperty("include_export_ranges", value);
+        set => SetProperty("include_export_ranges", value);
     }
 
     /// <summary>
@@ -153,8 +141,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -171,8 +158,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBloc
     /// </summary>
     public List<TerraformProperty<string>>? IncludeImportRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("include_import_ranges");
-        set => WithProperty("include_import_ranges", value);
+        set => SetProperty("include_import_ranges", value);
     }
 
     /// <summary>
@@ -181,8 +167,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformProperty<bool> SiteToSiteDataTransfer
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
-        set => WithProperty("site_to_site_data_transfer", value);
+        set => SetProperty("site_to_site_data_transfer", value);
     }
 
     /// <summary>
@@ -191,8 +176,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     public List<TerraformProperty<string>>? Uris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("uris");
-        set => WithProperty("uris", value);
+        set => SetProperty("uris", value);
     }
 
 }
@@ -208,8 +192,7 @@ public class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -217,8 +200,7 @@ public class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -226,8 +208,7 @@ public class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -245,31 +226,39 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("reasons");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("unique_id");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("reasons");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("unique_id");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("group");
+        SetOutput("hub");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// An optional description of the spoke.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The name of the group that this spoke is associated with.
     /// </summary>
-    public TerraformProperty<string>? Group
+    public TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
-        set => this.WithProperty("group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group");
+        set => SetProperty("group", value);
     }
 
     /// <summary>
@@ -278,17 +267,17 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hub is required")]
     public required TerraformProperty<string> Hub
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hub");
-        set => this.WithProperty("hub", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hub");
+        set => SetProperty("hub", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -297,10 +286,10 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -309,8 +298,8 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -319,17 +308,17 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -339,8 +328,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedInterconnectAttachments block(s) allowed")]
     public List<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock>? LinkedInterconnectAttachments
     {
-        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock>>("linked_interconnect_attachments");
-        set => this.WithProperty("linked_interconnect_attachments", value);
+        set => SetProperty("linked_interconnect_attachments", value);
     }
 
     /// <summary>
@@ -350,8 +338,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedProducerVpcNetwork block(s) allowed")]
     public List<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock>? LinkedProducerVpcNetwork
     {
-        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock>>("linked_producer_vpc_network");
-        set => this.WithProperty("linked_producer_vpc_network", value);
+        set => SetProperty("linked_producer_vpc_network", value);
     }
 
     /// <summary>
@@ -361,8 +348,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedRouterApplianceInstances block(s) allowed")]
     public List<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock>? LinkedRouterApplianceInstances
     {
-        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock>>("linked_router_appliance_instances");
-        set => this.WithProperty("linked_router_appliance_instances", value);
+        set => SetProperty("linked_router_appliance_instances", value);
     }
 
     /// <summary>
@@ -372,8 +358,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpcNetwork block(s) allowed")]
     public List<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock>? LinkedVpcNetwork
     {
-        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock>>("linked_vpc_network");
-        set => this.WithProperty("linked_vpc_network", value);
+        set => SetProperty("linked_vpc_network", value);
     }
 
     /// <summary>
@@ -383,8 +368,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpnTunnels block(s) allowed")]
     public List<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock>? LinkedVpnTunnels
     {
-        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock>>("linked_vpn_tunnels");
-        set => this.WithProperty("linked_vpn_tunnels", value);
+        set => SetProperty("linked_vpn_tunnels", value);
     }
 
     /// <summary>
@@ -393,8 +377,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     public GoogleNetworkConnectivitySpokeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkConnectivitySpokeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

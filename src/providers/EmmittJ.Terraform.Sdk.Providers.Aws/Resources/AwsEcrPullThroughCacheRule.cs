@@ -14,25 +14,32 @@ public class AwsEcrPullThroughCacheRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("registry_id");
+        SetOutput("registry_id");
+        SetOutput("credential_arn");
+        SetOutput("custom_role_arn");
+        SetOutput("ecr_repository_prefix");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("upstream_registry_url");
+        SetOutput("upstream_repository_prefix");
     }
 
     /// <summary>
     /// The credential_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CredentialArn
+    public TerraformProperty<string> CredentialArn
     {
-        get => GetProperty<TerraformProperty<string>>("credential_arn");
-        set => this.WithProperty("credential_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("credential_arn");
+        set => SetProperty("credential_arn", value);
     }
 
     /// <summary>
     /// The custom_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomRoleArn
+    public TerraformProperty<string> CustomRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("custom_role_arn");
-        set => this.WithProperty("custom_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_role_arn");
+        set => SetProperty("custom_role_arn", value);
     }
 
     /// <summary>
@@ -41,26 +48,26 @@ public class AwsEcrPullThroughCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EcrRepositoryPrefix is required")]
     public required TerraformProperty<string> EcrRepositoryPrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ecr_repository_prefix");
-        set => this.WithProperty("ecr_repository_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ecr_repository_prefix");
+        set => SetProperty("ecr_repository_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,17 +76,17 @@ public class AwsEcrPullThroughCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpstreamRegistryUrl is required")]
     public required TerraformProperty<string> UpstreamRegistryUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("upstream_registry_url");
-        set => this.WithProperty("upstream_registry_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("upstream_registry_url");
+        set => SetProperty("upstream_registry_url", value);
     }
 
     /// <summary>
     /// The upstream_repository_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? UpstreamRepositoryPrefix
+    public TerraformProperty<string> UpstreamRepositoryPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("upstream_repository_prefix");
-        set => this.WithProperty("upstream_repository_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("upstream_repository_prefix");
+        set => SetProperty("upstream_repository_prefix", value);
     }
 
     /// <summary>

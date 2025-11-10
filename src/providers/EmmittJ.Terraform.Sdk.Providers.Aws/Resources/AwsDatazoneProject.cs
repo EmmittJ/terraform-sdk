@@ -13,8 +13,7 @@ public class AwsDatazoneProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDatazoneProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,21 +38,27 @@ public class AwsDatazoneProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("created_by");
-        this.WithOutput("failure_reasons");
-        this.WithOutput("id");
-        this.WithOutput("last_updated_at");
-        this.WithOutput("project_status");
+        SetOutput("created_at");
+        SetOutput("created_by");
+        SetOutput("failure_reasons");
+        SetOutput("id");
+        SetOutput("last_updated_at");
+        SetOutput("project_status");
+        SetOutput("description");
+        SetOutput("domain_identifier");
+        SetOutput("glossary_terms");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("skip_deletion_check");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -63,17 +67,17 @@ public class AwsDatazoneProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
-        set => this.WithProperty("domain_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_identifier");
+        set => SetProperty("domain_identifier", value);
     }
 
     /// <summary>
     /// The glossary_terms attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? GlossaryTerms
+    public List<TerraformProperty<string>> GlossaryTerms
     {
-        get => GetProperty<List<TerraformProperty<string>>>("glossary_terms");
-        set => this.WithProperty("glossary_terms", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("glossary_terms");
+        set => SetProperty("glossary_terms", value);
     }
 
     /// <summary>
@@ -82,26 +86,26 @@ public class AwsDatazoneProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The skip_deletion_check attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDeletionCheck
+    public TerraformProperty<bool> SkipDeletionCheck
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_deletion_check");
-        set => this.WithProperty("skip_deletion_check", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_deletion_check");
+        set => SetProperty("skip_deletion_check", value);
     }
 
     /// <summary>
@@ -110,8 +114,7 @@ public class AwsDatazoneProject : TerraformResource
     /// </summary>
     public AwsDatazoneProjectTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDatazoneProjectTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

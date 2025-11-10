@@ -13,8 +13,7 @@ public class AwsEipDomainNameTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEipDomainNameTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEipDomainNameTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,11 @@ public class AwsEipDomainName : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("ptr_record");
+        SetOutput("id");
+        SetOutput("ptr_record");
+        SetOutput("allocation_id");
+        SetOutput("domain_name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -59,8 +59,8 @@ public class AwsEipDomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationId is required")]
     public required TerraformProperty<string> AllocationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("allocation_id");
-        set => this.WithProperty("allocation_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("allocation_id");
+        set => SetProperty("allocation_id", value);
     }
 
     /// <summary>
@@ -69,17 +69,17 @@ public class AwsEipDomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -88,8 +88,7 @@ public class AwsEipDomainName : TerraformResource
     /// </summary>
     public AwsEipDomainNameTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEipDomainNameTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,12 +14,16 @@ public class AwsNetworkmanagerConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("connected_device_id");
-        this.WithOutput("connected_link_id");
-        this.WithOutput("description");
-        this.WithOutput("device_id");
-        this.WithOutput("link_id");
+        SetOutput("arn");
+        SetOutput("connected_device_id");
+        SetOutput("connected_link_id");
+        SetOutput("description");
+        SetOutput("device_id");
+        SetOutput("link_id");
+        SetOutput("connection_id");
+        SetOutput("global_network_id");
+        SetOutput("id");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -28,8 +32,8 @@ public class AwsNetworkmanagerConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
-        set => this.WithProperty("connection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_id");
+        set => SetProperty("connection_id", value);
     }
 
     /// <summary>
@@ -38,26 +42,26 @@ public class AwsNetworkmanagerConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
-        set => this.WithProperty("global_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
+        set => SetProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

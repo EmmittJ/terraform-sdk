@@ -14,8 +14,10 @@ public class AwsSsoadminPermissionSetsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arns");
-        this.WithOutput("id");
+        SetOutput("arns");
+        SetOutput("id");
+        SetOutput("instance_arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,17 +26,17 @@ public class AwsSsoadminPermissionSetsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
-        set => this.WithProperty("instance_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
+        set => SetProperty("instance_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

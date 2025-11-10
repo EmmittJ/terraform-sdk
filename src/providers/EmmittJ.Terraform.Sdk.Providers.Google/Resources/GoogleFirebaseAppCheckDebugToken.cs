@@ -13,8 +13,7 @@ public class GoogleFirebaseAppCheckDebugTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleFirebaseAppCheckDebugTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleFirebaseAppCheckDebugTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,12 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("debug_token_id");
+        SetOutput("debug_token_id");
+        SetOutput("app_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("token");
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
-        set => this.WithProperty("app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
@@ -71,26 +73,26 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -106,8 +108,8 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformProperty<string> Token
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("token");
-        set => this.WithProperty("token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("token");
+        set => SetProperty("token", value);
     }
 
     /// <summary>
@@ -116,8 +118,7 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     /// </summary>
     public GoogleFirebaseAppCheckDebugTokenTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFirebaseAppCheckDebugTokenTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

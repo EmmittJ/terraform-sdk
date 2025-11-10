@@ -13,8 +13,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public List<TerraformProperty<object>>? AdditionalEndpoints
     {
-        get => GetProperty<List<TerraformProperty<object>>>("additional_endpoints");
-        set => WithProperty("additional_endpoints", value);
+        set => SetProperty("additional_endpoints", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? ApiEnableAdmin
     {
-        get => GetProperty<TerraformProperty<bool>>("api_enable_admin");
-        set => WithProperty("api_enable_admin", value);
+        set => SetProperty("api_enable_admin", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? ApiEnableDebug
     {
-        get => GetProperty<TerraformProperty<bool>>("api_enable_debug");
-        set => WithProperty("api_enable_debug", value);
+        set => SetProperty("api_enable_debug", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? ConsensusClient
     {
-        get => GetProperty<TerraformProperty<string>>("consensus_client");
-        set => WithProperty("consensus_client", value);
+        set => SetProperty("consensus_client", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? ExecutionClient
     {
-        get => GetProperty<TerraformProperty<string>>("execution_client");
-        set => WithProperty("execution_client", value);
+        set => SetProperty("execution_client", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
-        set => WithProperty("node_type", value);
+        set => SetProperty("node_type", value);
     }
 
 }
@@ -84,8 +77,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,12 +111,18 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connection_info");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("connection_info");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("blockchain_node_id");
+        SetOutput("blockchain_type");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -135,26 +131,26 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockchainNodeId is required")]
     public required TerraformProperty<string> BlockchainNodeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("blockchain_node_id");
-        set => this.WithProperty("blockchain_node_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blockchain_node_id");
+        set => SetProperty("blockchain_node_id", value);
     }
 
     /// <summary>
     /// User-provided key-value pairs Possible values: [&amp;quot;ETHEREUM&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? BlockchainType
+    public TerraformProperty<string> BlockchainType
     {
-        get => GetProperty<TerraformProperty<string>>("blockchain_type");
-        set => this.WithProperty("blockchain_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blockchain_type");
+        set => SetProperty("blockchain_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -164,10 +160,10 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -176,17 +172,17 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -196,8 +192,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EthereumDetails block(s) allowed")]
     public List<GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock>? EthereumDetails
     {
-        get => GetProperty<List<GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock>>("ethereum_details");
-        set => this.WithProperty("ethereum_details", value);
+        set => SetProperty("ethereum_details", value);
     }
 
     /// <summary>
@@ -206,8 +201,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     /// </summary>
     public GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

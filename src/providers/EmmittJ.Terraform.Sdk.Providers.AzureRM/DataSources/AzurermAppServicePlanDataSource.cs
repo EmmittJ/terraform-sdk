@@ -13,8 +13,7 @@ public class AzurermAppServicePlanDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -32,26 +31,29 @@ public class AzurermAppServicePlanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_service_environment_id");
-        this.WithOutput("is_xenon");
-        this.WithOutput("kind");
-        this.WithOutput("location");
-        this.WithOutput("maximum_elastic_worker_count");
-        this.WithOutput("maximum_number_of_workers");
-        this.WithOutput("per_site_scaling");
-        this.WithOutput("reserved");
-        this.WithOutput("sku");
-        this.WithOutput("tags");
-        this.WithOutput("zone_redundant");
+        SetOutput("app_service_environment_id");
+        SetOutput("is_xenon");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("maximum_elastic_worker_count");
+        SetOutput("maximum_number_of_workers");
+        SetOutput("per_site_scaling");
+        SetOutput("reserved");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("zone_redundant");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +62,8 @@ public class AzurermAppServicePlanDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -70,8 +72,8 @@ public class AzurermAppServicePlanDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -80,8 +82,7 @@ public class AzurermAppServicePlanDataSource : TerraformDataSource
     /// </summary>
     public AzurermAppServicePlanDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServicePlanDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,17 +14,25 @@ public class AwsTranscribeVocabularyFilter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("download_uri");
+        SetOutput("arn");
+        SetOutput("download_uri");
+        SetOutput("id");
+        SetOutput("language_code");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vocabulary_filter_file_uri");
+        SetOutput("vocabulary_filter_name");
+        SetOutput("words");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,44 +41,44 @@ public class AwsTranscribeVocabularyFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformProperty<string> LanguageCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("language_code");
-        set => this.WithProperty("language_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vocabulary_filter_file_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? VocabularyFilterFileUri
+    public TerraformProperty<string> VocabularyFilterFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("vocabulary_filter_file_uri");
-        set => this.WithProperty("vocabulary_filter_file_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vocabulary_filter_file_uri");
+        set => SetProperty("vocabulary_filter_file_uri", value);
     }
 
     /// <summary>
@@ -79,17 +87,17 @@ public class AwsTranscribeVocabularyFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VocabularyFilterName is required")]
     public required TerraformProperty<string> VocabularyFilterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vocabulary_filter_name");
-        set => this.WithProperty("vocabulary_filter_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vocabulary_filter_name");
+        set => SetProperty("vocabulary_filter_name", value);
     }
 
     /// <summary>
     /// The words attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Words
+    public List<TerraformProperty<string>> Words
     {
-        get => GetProperty<List<TerraformProperty<string>>>("words");
-        set => this.WithProperty("words", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("words");
+        set => SetProperty("words", value);
     }
 
     /// <summary>

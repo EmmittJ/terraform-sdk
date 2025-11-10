@@ -14,8 +14,7 @@ public class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     public required TerraformProperty<double> SizeInGib
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("size_in_gib");
-        set => WithProperty("size_in_gib", value);
+        set => SetProperty("size_in_gib", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -59,8 +56,7 @@ public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => WithProperty("container_name", value);
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -94,8 +88,7 @@ public class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CpuArchitecture
     {
-        get => GetProperty<TerraformProperty<string>>("cpu_architecture");
-        set => WithProperty("cpu_architecture", value);
+        set => SetProperty("cpu_architecture", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OperatingSystemFamily
     {
-        get => GetProperty<TerraformProperty<string>>("operating_system_family");
-        set => WithProperty("operating_system_family", value);
+        set => SetProperty("operating_system_family", value);
     }
 
 }
@@ -120,8 +112,7 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ConfigureAtLaunch
     {
-        get => GetProperty<TerraformProperty<bool>>("configure_at_launch");
-        set => WithProperty("configure_at_launch", value);
+        set => SetProperty("configure_at_launch", value);
     }
 
     /// <summary>
@@ -129,8 +120,7 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HostPath
     {
-        get => GetProperty<TerraformProperty<string>>("host_path");
-        set => WithProperty("host_path", value);
+        set => SetProperty("host_path", value);
     }
 
     /// <summary>
@@ -139,8 +129,7 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -158,9 +147,26 @@ public class AwsEcsTaskDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("arn_without_revision");
-        this.WithOutput("revision");
+        SetOutput("arn");
+        SetOutput("arn_without_revision");
+        SetOutput("revision");
+        SetOutput("container_definitions");
+        SetOutput("cpu");
+        SetOutput("enable_fault_injection");
+        SetOutput("execution_role_arn");
+        SetOutput("family");
+        SetOutput("id");
+        SetOutput("ipc_mode");
+        SetOutput("memory");
+        SetOutput("network_mode");
+        SetOutput("pid_mode");
+        SetOutput("region");
+        SetOutput("requires_compatibilities");
+        SetOutput("skip_destroy");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("task_role_arn");
+        SetOutput("track_latest");
     }
 
     /// <summary>
@@ -169,35 +175,35 @@ public class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerDefinitions is required")]
     public required TerraformProperty<string> ContainerDefinitions
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_definitions");
-        set => this.WithProperty("container_definitions", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_definitions");
+        set => SetProperty("container_definitions", value);
     }
 
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    public TerraformProperty<string>? Cpu
+    public TerraformProperty<string> Cpu
     {
-        get => GetProperty<TerraformProperty<string>>("cpu");
-        set => this.WithProperty("cpu", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cpu");
+        set => SetProperty("cpu", value);
     }
 
     /// <summary>
     /// The enable_fault_injection attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableFaultInjection
+    public TerraformProperty<bool> EnableFaultInjection
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_fault_injection");
-        set => this.WithProperty("enable_fault_injection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_fault_injection");
+        set => SetProperty("enable_fault_injection", value);
     }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionRoleArn
+    public TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
@@ -206,116 +212,116 @@ public class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformProperty<string> Family
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("family");
-        set => this.WithProperty("family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("family");
+        set => SetProperty("family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ipc_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? IpcMode
+    public TerraformProperty<string> IpcMode
     {
-        get => GetProperty<TerraformProperty<string>>("ipc_mode");
-        set => this.WithProperty("ipc_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipc_mode");
+        set => SetProperty("ipc_mode", value);
     }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformProperty<string>? Memory
+    public TerraformProperty<string> Memory
     {
-        get => GetProperty<TerraformProperty<string>>("memory");
-        set => this.WithProperty("memory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("memory");
+        set => SetProperty("memory", value);
     }
 
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkMode
+    public TerraformProperty<string> NetworkMode
     {
-        get => GetProperty<TerraformProperty<string>>("network_mode");
-        set => this.WithProperty("network_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_mode");
+        set => SetProperty("network_mode", value);
     }
 
     /// <summary>
     /// The pid_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? PidMode
+    public TerraformProperty<string> PidMode
     {
-        get => GetProperty<TerraformProperty<string>>("pid_mode");
-        set => this.WithProperty("pid_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pid_mode");
+        set => SetProperty("pid_mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The requires_compatibilities attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? RequiresCompatibilities
+    public HashSet<TerraformProperty<string>> RequiresCompatibilities
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("requires_compatibilities");
-        set => this.WithProperty("requires_compatibilities", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("requires_compatibilities");
+        set => SetProperty("requires_compatibilities", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The task_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TaskRoleArn
+    public TerraformProperty<string> TaskRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("task_role_arn");
-        set => this.WithProperty("task_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_role_arn");
+        set => SetProperty("task_role_arn", value);
     }
 
     /// <summary>
     /// The track_latest attribute.
     /// </summary>
-    public TerraformProperty<bool>? TrackLatest
+    public TerraformProperty<bool> TrackLatest
     {
-        get => GetProperty<TerraformProperty<bool>>("track_latest");
-        set => this.WithProperty("track_latest", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("track_latest");
+        set => SetProperty("track_latest", value);
     }
 
     /// <summary>
@@ -325,8 +331,7 @@ public class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EphemeralStorage block(s) allowed")]
     public List<AwsEcsTaskDefinitionEphemeralStorageBlock>? EphemeralStorage
     {
-        get => GetProperty<List<AwsEcsTaskDefinitionEphemeralStorageBlock>>("ephemeral_storage");
-        set => this.WithProperty("ephemeral_storage", value);
+        set => SetProperty("ephemeral_storage", value);
     }
 
     /// <summary>
@@ -336,8 +341,7 @@ public class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
     public HashSet<AwsEcsTaskDefinitionPlacementConstraintsBlock>? PlacementConstraints
     {
-        get => GetProperty<HashSet<AwsEcsTaskDefinitionPlacementConstraintsBlock>>("placement_constraints");
-        set => this.WithProperty("placement_constraints", value);
+        set => SetProperty("placement_constraints", value);
     }
 
     /// <summary>
@@ -347,8 +351,7 @@ public class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyConfiguration block(s) allowed")]
     public List<AwsEcsTaskDefinitionProxyConfigurationBlock>? ProxyConfiguration
     {
-        get => GetProperty<List<AwsEcsTaskDefinitionProxyConfigurationBlock>>("proxy_configuration");
-        set => this.WithProperty("proxy_configuration", value);
+        set => SetProperty("proxy_configuration", value);
     }
 
     /// <summary>
@@ -358,8 +361,7 @@ public class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimePlatform block(s) allowed")]
     public List<AwsEcsTaskDefinitionRuntimePlatformBlock>? RuntimePlatform
     {
-        get => GetProperty<List<AwsEcsTaskDefinitionRuntimePlatformBlock>>("runtime_platform");
-        set => this.WithProperty("runtime_platform", value);
+        set => SetProperty("runtime_platform", value);
     }
 
     /// <summary>
@@ -368,8 +370,7 @@ public class AwsEcsTaskDefinition : TerraformResource
     /// </summary>
     public HashSet<AwsEcsTaskDefinitionVolumeBlock>? Volume
     {
-        get => GetProperty<HashSet<AwsEcsTaskDefinitionVolumeBlock>>("volume");
-        set => this.WithProperty("volume", value);
+        set => SetProperty("volume", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsBedrockInferenceProfileModelSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyFrom is required")]
     public required TerraformProperty<string> CopyFrom
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("copy_from");
-        set => WithProperty("copy_from", value);
+        set => SetProperty("copy_from", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsBedrockInferenceProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsBedrockInferenceProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsBedrockInferenceProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,23 +63,27 @@ public class AwsBedrockInferenceProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("id");
-        this.WithOutput("models");
-        this.WithOutput("status");
-        this.WithOutput("tags_all");
-        this.WithOutput("type");
-        this.WithOutput("updated_at");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("id");
+        SetOutput("models");
+        SetOutput("status");
+        SetOutput("tags_all");
+        SetOutput("type");
+        SetOutput("updated_at");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -92,26 +92,26 @@ public class AwsBedrockInferenceProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -120,8 +120,7 @@ public class AwsBedrockInferenceProfile : TerraformResource
     /// </summary>
     public List<AwsBedrockInferenceProfileModelSourceBlock>? ModelSource
     {
-        get => GetProperty<List<AwsBedrockInferenceProfileModelSourceBlock>>("model_source");
-        set => this.WithProperty("model_source", value);
+        set => SetProperty("model_source", value);
     }
 
     /// <summary>
@@ -130,8 +129,7 @@ public class AwsBedrockInferenceProfile : TerraformResource
     /// </summary>
     public AwsBedrockInferenceProfileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockInferenceProfileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

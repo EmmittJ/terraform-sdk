@@ -13,8 +13,7 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Args
     {
-        get => GetProperty<TerraformProperty<string>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -96,17 +89,26 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrimary_access_key");
-        this.WithOutputecondary_access_key");
+        SetOutput("primary_access_key");
+        SetOutput("secondary_access_key");
+        SetOutput("client_protocol");
+        SetOutput("cluster_id");
+        SetOutput("clustering_policy");
+        SetOutput("eviction_policy");
+        SetOutput("id");
+        SetOutput("linked_database_group_nickname");
+        SetOutput("linked_database_id");
+        SetOutput("name");
+        SetOutput("port");
     }
 
     /// <summary>
     /// The client_protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientProtocol
+    public TerraformProperty<string> ClientProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("client_protocol");
-        set => this.WithProperty("client_protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_protocol");
+        set => SetProperty("client_protocol", value);
     }
 
     /// <summary>
@@ -115,71 +117,71 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The clustering_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusteringPolicy
+    public TerraformProperty<string> ClusteringPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("clustering_policy");
-        set => this.WithProperty("clustering_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("clustering_policy");
+        set => SetProperty("clustering_policy", value);
     }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? EvictionPolicy
+    public TerraformProperty<string> EvictionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("eviction_policy");
-        set => this.WithProperty("eviction_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eviction_policy");
+        set => SetProperty("eviction_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The linked_database_group_nickname attribute.
     /// </summary>
-    public TerraformProperty<string>? LinkedDatabaseGroupNickname
+    public TerraformProperty<string> LinkedDatabaseGroupNickname
     {
-        get => GetProperty<TerraformProperty<string>>("linked_database_group_nickname");
-        set => this.WithProperty("linked_database_group_nickname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("linked_database_group_nickname");
+        set => SetProperty("linked_database_group_nickname", value);
     }
 
     /// <summary>
     /// The linked_database_id attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? LinkedDatabaseId
+    public HashSet<TerraformProperty<string>> LinkedDatabaseId
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("linked_database_id");
-        set => this.WithProperty("linked_database_id", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("linked_database_id");
+        set => SetProperty("linked_database_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -189,8 +191,7 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 Module block(s) allowed")]
     public List<AzurermRedisEnterpriseDatabaseModuleBlock>? Module
     {
-        get => GetProperty<List<AzurermRedisEnterpriseDatabaseModuleBlock>>("module");
-        set => this.WithProperty("module", value);
+        set => SetProperty("module", value);
     }
 
     /// <summary>
@@ -199,8 +200,7 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// </summary>
     public AzurermRedisEnterpriseDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRedisEnterpriseDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -22,18 +22,24 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("client_token");
+        SetOutput("instance_arn");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("trusted_token_issuer_type");
     }
 
     /// <summary>
     /// The client_token attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientToken
+    public TerraformProperty<string> ClientToken
     {
-        get => GetProperty<TerraformProperty<string>>("client_token");
-        set => this.WithProperty("client_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_token");
+        set => SetProperty("client_token", value);
     }
 
     /// <summary>
@@ -42,8 +48,8 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
-        set => this.WithProperty("instance_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
+        set => SetProperty("instance_arn", value);
     }
 
     /// <summary>
@@ -52,26 +58,26 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -80,8 +86,8 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedTokenIssuerType is required")]
     public required TerraformProperty<string> TrustedTokenIssuerType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trusted_token_issuer_type");
-        set => this.WithProperty("trusted_token_issuer_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trusted_token_issuer_type");
+        set => SetProperty("trusted_token_issuer_type", value);
     }
 
     /// <summary>
@@ -90,8 +96,7 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     /// </summary>
     public List<AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlock>? TrustedTokenIssuerConfiguration
     {
-        get => GetProperty<List<AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlock>>("trusted_token_issuer_configuration");
-        set => this.WithProperty("trusted_token_issuer_configuration", value);
+        set => SetProperty("trusted_token_issuer_configuration", value);
     }
 
     /// <summary>

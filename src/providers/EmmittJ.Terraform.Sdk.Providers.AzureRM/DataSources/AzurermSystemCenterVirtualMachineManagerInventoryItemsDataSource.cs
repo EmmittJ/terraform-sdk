@@ -13,8 +13,7 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTim
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,19 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
 
     private void InitializeOutputs()
     {
-        this.WithOutput("inventory_items");
+        SetOutput("inventory_items");
+        SetOutput("id");
+        SetOutput("inventory_type");
+        SetOutput("system_center_virtual_machine_manager_server_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +51,8 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InventoryType is required")]
     public required TerraformProperty<string> InventoryType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("inventory_type");
-        set => this.WithProperty("inventory_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("inventory_type");
+        set => SetProperty("inventory_type", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SystemCenterVirtualMachineManagerServerId is required")]
     public required TerraformProperty<string> SystemCenterVirtualMachineManagerServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("system_center_virtual_machine_manager_server_id");
-        set => this.WithProperty("system_center_virtual_machine_manager_server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("system_center_virtual_machine_manager_server_id");
+        set => SetProperty("system_center_virtual_machine_manager_server_id", value);
     }
 
     /// <summary>
@@ -69,8 +71,7 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
     /// </summary>
     public AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

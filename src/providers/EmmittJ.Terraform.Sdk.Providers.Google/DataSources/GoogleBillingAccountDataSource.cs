@@ -14,54 +14,59 @@ public class GoogleBillingAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("currency_code");
-        this.WithOutput("name");
-        this.WithOutput("project_ids");
+        SetOutput("currency_code");
+        SetOutput("name");
+        SetOutput("project_ids");
+        SetOutput("billing_account");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("lookup_projects");
+        SetOutput("open");
     }
 
     /// <summary>
     /// The billing_account attribute.
     /// </summary>
-    public TerraformProperty<string>? BillingAccount
+    public TerraformProperty<string> BillingAccount
     {
-        get => GetProperty<TerraformProperty<string>>("billing_account");
-        set => this.WithProperty("billing_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_account");
+        set => SetProperty("billing_account", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The lookup_projects attribute.
     /// </summary>
-    public TerraformProperty<bool>? LookupProjects
+    public TerraformProperty<bool> LookupProjects
     {
-        get => GetProperty<TerraformProperty<bool>>("lookup_projects");
-        set => this.WithProperty("lookup_projects", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("lookup_projects");
+        set => SetProperty("lookup_projects", value);
     }
 
     /// <summary>
     /// The open attribute.
     /// </summary>
-    public TerraformProperty<bool>? Open
+    public TerraformProperty<bool> Open
     {
-        get => GetProperty<TerraformProperty<bool>>("open");
-        set => this.WithProperty("open", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("open");
+        set => SetProperty("open", value);
     }
 
     /// <summary>

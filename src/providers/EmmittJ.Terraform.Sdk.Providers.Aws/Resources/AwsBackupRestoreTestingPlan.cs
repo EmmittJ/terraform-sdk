@@ -14,8 +14,7 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformProperty<string> Algorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("algorithm");
-        set => WithProperty("algorithm", value);
+        set => SetProperty("algorithm", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExcludeVaults
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("exclude_vaults");
-        set => WithProperty("exclude_vaults", value);
+        set => SetProperty("exclude_vaults", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludeVaults is required")]
     public HashSet<TerraformProperty<string>>? IncludeVaults
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("include_vaults");
-        set => WithProperty("include_vaults", value);
+        set => SetProperty("include_vaults", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointTypes is required")]
     public HashSet<TerraformProperty<string>>? RecoveryPointTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("recovery_point_types");
-        set => WithProperty("recovery_point_types", value);
+        set => SetProperty("recovery_point_types", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? SelectionWindowDays
     {
-        get => GetProperty<TerraformProperty<double>>("selection_window_days");
-        set => WithProperty("selection_window_days", value);
+        set => SetProperty("selection_window_days", value);
     }
 
 }
@@ -70,8 +65,14 @@ public class AwsBackupRestoreTestingPlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("tags_all");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("schedule_expression");
+        SetOutput("schedule_expression_timezone");
+        SetOutput("start_window_hours");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -80,17 +81,17 @@ public class AwsBackupRestoreTestingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -99,35 +100,35 @@ public class AwsBackupRestoreTestingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformProperty<string> ScheduleExpression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule_expression");
-        set => this.WithProperty("schedule_expression", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule_expression");
+        set => SetProperty("schedule_expression", value);
     }
 
     /// <summary>
     /// The schedule_expression_timezone attribute.
     /// </summary>
-    public TerraformProperty<string>? ScheduleExpressionTimezone
+    public TerraformProperty<string> ScheduleExpressionTimezone
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression_timezone");
-        set => this.WithProperty("schedule_expression_timezone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule_expression_timezone");
+        set => SetProperty("schedule_expression_timezone", value);
     }
 
     /// <summary>
     /// The start_window_hours attribute.
     /// </summary>
-    public TerraformProperty<double>? StartWindowHours
+    public TerraformProperty<double> StartWindowHours
     {
-        get => GetProperty<TerraformProperty<double>>("start_window_hours");
-        set => this.WithProperty("start_window_hours", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("start_window_hours");
+        set => SetProperty("start_window_hours", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -136,8 +137,7 @@ public class AwsBackupRestoreTestingPlan : TerraformResource
     /// </summary>
     public List<AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock>? RecoveryPointSelection
     {
-        get => GetProperty<List<AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock>>("recovery_point_selection");
-        set => this.WithProperty("recovery_point_selection", value);
+        set => SetProperty("recovery_point_selection", value);
     }
 
     /// <summary>

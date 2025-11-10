@@ -13,8 +13,7 @@ public class AwsSagemakerAppResourceSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSagemakerAppResourceSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LifecycleConfigArn
     {
-        get => GetProperty<TerraformProperty<string>>("lifecycle_config_arn");
-        set => WithProperty("lifecycle_config_arn", value);
+        set => SetProperty("lifecycle_config_arn", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSagemakerAppResourceSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SagemakerImageArn
     {
-        get => GetProperty<TerraformProperty<string>>("sagemaker_image_arn");
-        set => WithProperty("sagemaker_image_arn", value);
+        set => SetProperty("sagemaker_image_arn", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsSagemakerAppResourceSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SagemakerImageVersionAlias
     {
-        get => GetProperty<TerraformProperty<string>>("sagemaker_image_version_alias");
-        set => WithProperty("sagemaker_image_version_alias", value);
+        set => SetProperty("sagemaker_image_version_alias", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsSagemakerAppResourceSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SagemakerImageVersionArn
     {
-        get => GetProperty<TerraformProperty<string>>("sagemaker_image_version_arn");
-        set => WithProperty("sagemaker_image_version_arn", value);
+        set => SetProperty("sagemaker_image_version_arn", value);
     }
 
 }
@@ -68,7 +63,16 @@ public class AwsSagemakerApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("app_name");
+        SetOutput("app_type");
+        SetOutput("domain_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("space_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("user_profile_name");
     }
 
     /// <summary>
@@ -77,8 +81,8 @@ public class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformProperty<string> AppName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_name");
-        set => this.WithProperty("app_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_name");
+        set => SetProperty("app_name", value);
     }
 
     /// <summary>
@@ -87,8 +91,8 @@ public class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppType is required")]
     public required TerraformProperty<string> AppType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_type");
-        set => this.WithProperty("app_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_type");
+        set => SetProperty("app_type", value);
     }
 
     /// <summary>
@@ -97,62 +101,62 @@ public class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
-        set => this.WithProperty("domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_id");
+        set => SetProperty("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The space_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SpaceName
+    public TerraformProperty<string> SpaceName
     {
-        get => GetProperty<TerraformProperty<string>>("space_name");
-        set => this.WithProperty("space_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("space_name");
+        set => SetProperty("space_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_profile_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserProfileName
+    public TerraformProperty<string> UserProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("user_profile_name");
-        set => this.WithProperty("user_profile_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_profile_name");
+        set => SetProperty("user_profile_name", value);
     }
 
     /// <summary>
@@ -162,8 +166,7 @@ public class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceSpec block(s) allowed")]
     public List<AwsSagemakerAppResourceSpecBlock>? ResourceSpec
     {
-        get => GetProperty<List<AwsSagemakerAppResourceSpecBlock>>("resource_spec");
-        set => this.WithProperty("resource_spec", value);
+        set => SetProperty("resource_spec", value);
     }
 
     /// <summary>

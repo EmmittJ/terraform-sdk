@@ -14,8 +14,7 @@ public class AwsWafByteMatchSetByteMatchTuplesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PositionalConstraint is required")]
     public required TerraformProperty<string> PositionalConstraint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("positional_constraint");
-        set => WithProperty("positional_constraint", value);
+        set => SetProperty("positional_constraint", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsWafByteMatchSetByteMatchTuplesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetString
     {
-        get => GetProperty<TerraformProperty<string>>("target_string");
-        set => WithProperty("target_string", value);
+        set => SetProperty("target_string", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsWafByteMatchSetByteMatchTuplesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformProperty<string> TextTransformation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("text_transformation");
-        set => WithProperty("text_transformation", value);
+        set => SetProperty("text_transformation", value);
     }
 
 }
@@ -51,16 +48,18 @@ public class AwsWafByteMatchSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,8 +68,8 @@ public class AwsWafByteMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -79,8 +78,7 @@ public class AwsWafByteMatchSet : TerraformResource
     /// </summary>
     public HashSet<AwsWafByteMatchSetByteMatchTuplesBlock>? ByteMatchTuples
     {
-        get => GetProperty<HashSet<AwsWafByteMatchSetByteMatchTuplesBlock>>("byte_match_tuples");
-        set => this.WithProperty("byte_match_tuples", value);
+        set => SetProperty("byte_match_tuples", value);
     }
 
     /// <summary>

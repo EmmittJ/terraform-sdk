@@ -14,18 +14,22 @@ public class AwsRoute53TrafficPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("type");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("type");
+        SetOutput("version");
+        SetOutput("comment");
+        SetOutput("document");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
@@ -34,17 +38,17 @@ public class AwsRoute53TrafficPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Document is required")]
     public required TerraformProperty<string> Document
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("document");
-        set => this.WithProperty("document", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("document");
+        set => SetProperty("document", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +57,8 @@ public class AwsRoute53TrafficPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

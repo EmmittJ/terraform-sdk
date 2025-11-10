@@ -13,8 +13,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowCookies
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_cookies");
-        set => WithProperty("allow_cookies", value);
+        set => SetProperty("allow_cookies", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableXray
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_xray");
-        set => WithProperty("enable_xray", value);
+        set => SetProperty("enable_xray", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExcludedPages
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_pages");
-        set => WithProperty("excluded_pages", value);
+        set => SetProperty("excluded_pages", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? FavoritePages
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("favorite_pages");
-        set => WithProperty("favorite_pages", value);
+        set => SetProperty("favorite_pages", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GuestRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("guest_role_arn");
-        set => WithProperty("guest_role_arn", value);
+        set => SetProperty("guest_role_arn", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdentityPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_pool_id");
-        set => WithProperty("identity_pool_id", value);
+        set => SetProperty("identity_pool_id", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IncludedPages
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("included_pages");
-        set => WithProperty("included_pages", value);
+        set => SetProperty("included_pages", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SessionSampleRate
     {
-        get => GetProperty<TerraformProperty<double>>("session_sample_rate");
-        set => WithProperty("session_sample_rate", value);
+        set => SetProperty("session_sample_rate", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Telemetries
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("telemetries");
-        set => WithProperty("telemetries", value);
+        set => SetProperty("telemetries", value);
     }
 
 }
@@ -102,8 +93,7 @@ public class AwsRumAppMonitorCustomEventsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -121,45 +111,53 @@ public class AwsRumAppMonitor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_monitor_id");
-        this.WithOutput("arn");
-        this.WithOutput("cw_log_group");
+        SetOutput("app_monitor_id");
+        SetOutput("arn");
+        SetOutput("cw_log_group");
+        SetOutput("cw_log_enabled");
+        SetOutput("domain");
+        SetOutput("domain_list");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cw_log_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CwLogEnabled
+    public TerraformProperty<bool> CwLogEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cw_log_enabled");
-        set => this.WithProperty("cw_log_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cw_log_enabled");
+        set => SetProperty("cw_log_enabled", value);
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    public TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The domain_list attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DomainList
+    public List<TerraformProperty<string>> DomainList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("domain_list");
-        set => this.WithProperty("domain_list", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("domain_list");
+        set => SetProperty("domain_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -168,35 +166,35 @@ public class AwsRumAppMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -206,8 +204,7 @@ public class AwsRumAppMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppMonitorConfiguration block(s) allowed")]
     public List<AwsRumAppMonitorAppMonitorConfigurationBlock>? AppMonitorConfiguration
     {
-        get => GetProperty<List<AwsRumAppMonitorAppMonitorConfigurationBlock>>("app_monitor_configuration");
-        set => this.WithProperty("app_monitor_configuration", value);
+        set => SetProperty("app_monitor_configuration", value);
     }
 
     /// <summary>
@@ -217,8 +214,7 @@ public class AwsRumAppMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomEvents block(s) allowed")]
     public List<AwsRumAppMonitorCustomEventsBlock>? CustomEvents
     {
-        get => GetProperty<List<AwsRumAppMonitorCustomEventsBlock>>("custom_events");
-        set => this.WithProperty("custom_events", value);
+        set => SetProperty("custom_events", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleComputeTargetTcpProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeTargetTcpProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeTargetTcpProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,9 +46,16 @@ public class GoogleComputeTargetTcpProxy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("proxy_id");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("proxy_id");
+        SetOutput("self_link");
+        SetOutput("backend_service");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("proxy_bind");
+        SetOutput("proxy_header");
     }
 
     /// <summary>
@@ -60,26 +64,26 @@ public class GoogleComputeTargetTcpProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformProperty<string> BackendService
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backend_service");
-        set => this.WithProperty("backend_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backend_service");
+        set => SetProperty("backend_service", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,37 +98,37 @@ public class GoogleComputeTargetTcpProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// This field only applies when the forwarding rule that references
     /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public TerraformProperty<bool>? ProxyBind
+    public TerraformProperty<bool> ProxyBind
     {
-        get => GetProperty<TerraformProperty<bool>>("proxy_bind");
-        set => this.WithProperty("proxy_bind", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("proxy_bind");
+        set => SetProperty("proxy_bind", value);
     }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to
     /// the backend. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PROXY_V1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ProxyHeader
+    public TerraformProperty<string> ProxyHeader
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_header");
-        set => this.WithProperty("proxy_header", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("proxy_header");
+        set => SetProperty("proxy_header", value);
     }
 
     /// <summary>
@@ -133,8 +137,7 @@ public class GoogleComputeTargetTcpProxy : TerraformResource
     /// </summary>
     public GoogleComputeTargetTcpProxyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeTargetTcpProxyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

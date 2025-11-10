@@ -13,8 +13,7 @@ public class AzurermSecurityCenterContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSecurityCenterContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSecurityCenterContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSecurityCenterContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermSecurityCenterContact : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("alert_notifications");
+        SetOutput("alerts_to_admins");
+        SetOutput("email");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("phone");
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertNotifications is required")]
     public required TerraformProperty<bool> AlertNotifications
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("alert_notifications");
-        set => this.WithProperty("alert_notifications", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("alert_notifications");
+        set => SetProperty("alert_notifications", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertsToAdmins is required")]
     public required TerraformProperty<bool> AlertsToAdmins
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("alerts_to_admins");
-        set => this.WithProperty("alerts_to_admins", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("alerts_to_admins");
+        set => SetProperty("alerts_to_admins", value);
     }
 
     /// <summary>
@@ -86,17 +88,17 @@ public class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email");
-        set => this.WithProperty("email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email");
+        set => SetProperty("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,17 +107,17 @@ public class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The phone attribute.
     /// </summary>
-    public TerraformProperty<string>? Phone
+    public TerraformProperty<string> Phone
     {
-        get => GetProperty<TerraformProperty<string>>("phone");
-        set => this.WithProperty("phone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("phone");
+        set => SetProperty("phone", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermSecurityCenterContact : TerraformResource
     /// </summary>
     public AzurermSecurityCenterContactTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSecurityCenterContactTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

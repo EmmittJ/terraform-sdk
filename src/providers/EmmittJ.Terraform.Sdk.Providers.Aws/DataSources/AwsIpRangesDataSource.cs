@@ -14,47 +14,51 @@ public class AwsIpRangesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cidr_blocks");
-        this.WithOutput("create_date");
-        this.WithOutput("ipv6_cidr_blocks");
-        this.WithOutput("sync_token");
+        SetOutput("cidr_blocks");
+        SetOutput("create_date");
+        SetOutput("ipv6_cidr_blocks");
+        SetOutput("sync_token");
+        SetOutput("id");
+        SetOutput("regions");
+        SetOutput("services");
+        SetOutput("url");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Regions
+    public HashSet<TerraformProperty<string>> Regions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("regions");
-        set => this.WithProperty("regions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("regions");
+        set => SetProperty("regions", value);
     }
 
     /// <summary>
     /// The services attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Services is required")]
-    public HashSet<TerraformProperty<string>>? Services
+    public HashSet<TerraformProperty<string>> Services
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("services");
-        set => this.WithProperty("services", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("services");
+        set => SetProperty("services", value);
     }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformProperty<string>? Url
+    public TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
-        set => this.WithProperty("url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url");
+        set => SetProperty("url", value);
     }
 
     /// <summary>

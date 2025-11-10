@@ -13,8 +13,7 @@ public class AzurermOracleAutonomousDatabaseDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,72 +30,75 @@ public class AzurermOracleAutonomousDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("actual_used_data_storage_size_in_tbs");
-        this.WithOutput("allocated_storage_size_in_tbs");
-        this.WithOutput("allowed_ips");
-        this.WithOutput("auto_scaling_enabled");
-        this.WithOutput("auto_scaling_for_storage_enabled");
-        this.WithOutput("autonomous_database_id");
-        this.WithOutput("available_upgrade_versions");
-        this.WithOutput("backup_retention_period_in_days");
-        this.WithOutput("character_set");
-        this.WithOutput("compute_count");
-        this.WithOutput("cpu_core_count");
-        this.WithOutput("data_storage_size_in_gbs");
-        this.WithOutput("data_storage_size_in_tbs");
-        this.WithOutput("db_node_storage_size_in_gbs");
-        this.WithOutput("db_version");
-        this.WithOutput("display_name");
-        this.WithOutput("failed_data_recovery_in_seconds");
-        this.WithOutput("in_memory_area_in_gbs");
-        this.WithOutput("lifecycle_details");
-        this.WithOutput("local_adg_auto_failover_max_data_loss_limit");
-        this.WithOutput("local_data_guard_enabled");
-        this.WithOutput("location");
-        this.WithOutput("long_term_backup_schedule");
-        this.WithOutput("memory_per_oracle_compute_unit_in_gbs");
-        this.WithOutput("mtls_connection_required");
-        this.WithOutput("national_character_set");
-        this.WithOutput("next_long_term_backup_time_stamp");
-        this.WithOutput("oci_url");
-        this.WithOutput("ocid");
-        this.WithOutput("peer_db_id");
-        this.WithOutput("peer_db_ids");
-        this.WithOutput("preview");
-        this.WithOutput("preview_version_with_service_terms_accepted");
-        this.WithOutput("private_endpoint");
-        this.WithOutput("private_endpoint_ip");
-        this.WithOutput("private_endpoint_label");
-        this.WithOutput("provisionable_cpus");
-        this.WithOutput("remote_data_guard_enabled");
-        this.WithOutput("service_console_url");
-        this.WithOutput("sql_web_developer_url");
-        this.WithOutput("subnet_id");
-        this.WithOutput("supported_regions_to_clone_to");
-        this.WithOutput("tags");
-        this.WithOutput("time_created");
-        this.WithOutput("time_data_guard_role_changed");
-        this.WithOutput("time_deletion_of_free_autonomous_database");
-        this.WithOutput("time_local_data_guard_enabled_on");
-        this.WithOutput("time_maintenance_begin");
-        this.WithOutput("time_maintenance_end");
-        this.WithOutput("time_of_last_failover");
-        this.WithOutput("time_of_last_refresh");
-        this.WithOutput("time_of_last_refresh_point");
-        this.WithOutput("time_of_last_switchover");
-        this.WithOutput("time_reclamation_of_free_autonomous_database");
-        this.WithOutput("used_data_storage_size_in_gbs");
-        this.WithOutput("used_data_storage_size_in_tbs");
-        this.WithOutput("virtual_network_id");
+        SetOutput("actual_used_data_storage_size_in_tbs");
+        SetOutput("allocated_storage_size_in_tbs");
+        SetOutput("allowed_ips");
+        SetOutput("auto_scaling_enabled");
+        SetOutput("auto_scaling_for_storage_enabled");
+        SetOutput("autonomous_database_id");
+        SetOutput("available_upgrade_versions");
+        SetOutput("backup_retention_period_in_days");
+        SetOutput("character_set");
+        SetOutput("compute_count");
+        SetOutput("cpu_core_count");
+        SetOutput("data_storage_size_in_gbs");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("db_node_storage_size_in_gbs");
+        SetOutput("db_version");
+        SetOutput("display_name");
+        SetOutput("failed_data_recovery_in_seconds");
+        SetOutput("in_memory_area_in_gbs");
+        SetOutput("lifecycle_details");
+        SetOutput("local_adg_auto_failover_max_data_loss_limit");
+        SetOutput("local_data_guard_enabled");
+        SetOutput("location");
+        SetOutput("long_term_backup_schedule");
+        SetOutput("memory_per_oracle_compute_unit_in_gbs");
+        SetOutput("mtls_connection_required");
+        SetOutput("national_character_set");
+        SetOutput("next_long_term_backup_time_stamp");
+        SetOutput("oci_url");
+        SetOutput("ocid");
+        SetOutput("peer_db_id");
+        SetOutput("peer_db_ids");
+        SetOutput("preview");
+        SetOutput("preview_version_with_service_terms_accepted");
+        SetOutput("private_endpoint");
+        SetOutput("private_endpoint_ip");
+        SetOutput("private_endpoint_label");
+        SetOutput("provisionable_cpus");
+        SetOutput("remote_data_guard_enabled");
+        SetOutput("service_console_url");
+        SetOutput("sql_web_developer_url");
+        SetOutput("subnet_id");
+        SetOutput("supported_regions_to_clone_to");
+        SetOutput("tags");
+        SetOutput("time_created");
+        SetOutput("time_data_guard_role_changed");
+        SetOutput("time_deletion_of_free_autonomous_database");
+        SetOutput("time_local_data_guard_enabled_on");
+        SetOutput("time_maintenance_begin");
+        SetOutput("time_maintenance_end");
+        SetOutput("time_of_last_failover");
+        SetOutput("time_of_last_refresh");
+        SetOutput("time_of_last_refresh_point");
+        SetOutput("time_of_last_switchover");
+        SetOutput("time_reclamation_of_free_autonomous_database");
+        SetOutput("used_data_storage_size_in_gbs");
+        SetOutput("used_data_storage_size_in_tbs");
+        SetOutput("virtual_network_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermOracleAutonomousDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermOracleAutonomousDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermOracleAutonomousDatabaseDataSource : TerraformDataSource
     /// </summary>
     public AzurermOracleAutonomousDatabaseDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleAutonomousDatabaseDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

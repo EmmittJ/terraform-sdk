@@ -14,6 +14,9 @@ public class AwsLambdaFunctionRecursionConfig : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("function_name");
+        SetOutput("recursive_loop");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,8 +25,8 @@ public class AwsLambdaFunctionRecursionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
@@ -32,17 +35,17 @@ public class AwsLambdaFunctionRecursionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecursiveLoop is required")]
     public required TerraformProperty<string> RecursiveLoop
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recursive_loop");
-        set => this.WithProperty("recursive_loop", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recursive_loop");
+        set => SetProperty("recursive_loop", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

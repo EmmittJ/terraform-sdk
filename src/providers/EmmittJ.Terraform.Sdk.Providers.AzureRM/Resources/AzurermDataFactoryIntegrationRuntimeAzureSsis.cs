@@ -13,8 +13,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformProperty<string>? AdministratorLogin
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_login");
-        set => WithProperty("administrator_login", value);
+        set => SetProperty("administrator_login", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformProperty<string>? AdministratorPassword
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_password");
-        set => WithProperty("administrator_password", value);
+        set => SetProperty("administrator_password", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformProperty<string>? DualStandbyPairName
     {
-        get => GetProperty<TerraformProperty<string>>("dual_standby_pair_name");
-        set => WithProperty("dual_standby_pair_name", value);
+        set => SetProperty("dual_standby_pair_name", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformProperty<string>? ElasticPoolName
     {
-        get => GetProperty<TerraformProperty<string>>("elastic_pool_name");
-        set => WithProperty("elastic_pool_name", value);
+        set => SetProperty("elastic_pool_name", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformProperty<string>? PricingTier
     {
-        get => GetProperty<TerraformProperty<string>>("pricing_tier");
-        set => WithProperty("pricing_tier", value);
+        set => SetProperty("pricing_tier", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerEndpoint is required")]
     public required TerraformProperty<string> ServerEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_endpoint");
-        set => WithProperty("server_endpoint", value);
+        set => SetProperty("server_endpoint", value);
     }
 
 }
@@ -76,8 +70,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock 
     /// </summary>
     public TerraformProperty<double>? DataIntegrationUnit
     {
-        get => GetProperty<TerraformProperty<double>>("data_integration_unit");
-        set => WithProperty("data_integration_unit", value);
+        set => SetProperty("data_integration_unit", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock 
     /// </summary>
     public TerraformProperty<double>? TimeToLive
     {
-        get => GetProperty<TerraformProperty<double>>("time_to_live");
-        set => WithProperty("time_to_live", value);
+        set => SetProperty("time_to_live", value);
     }
 
 }
@@ -103,8 +95,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobContainerUri is required")]
     public required TerraformProperty<string> BlobContainerUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("blob_container_uri");
-        set => WithProperty("blob_container_uri", value);
+        set => SetProperty("blob_container_uri", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasToken is required")]
     public required TerraformProperty<string> SasToken
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sas_token");
-        set => WithProperty("sas_token", value);
+        set => SetProperty("sas_token", value);
     }
 
 }
@@ -130,8 +120,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Environment
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment");
-        set => WithProperty("environment", value);
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
@@ -139,8 +128,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public TerraformProperty<string>? PowershellVersion
     {
-        get => GetProperty<TerraformProperty<string>>("powershell_version");
-        set => WithProperty("powershell_version", value);
+        set => SetProperty("powershell_version", value);
     }
 
 }
@@ -157,8 +145,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -175,8 +162,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
-        set => WithProperty("linked_service_name", value);
+        set => SetProperty("linked_service_name", value);
     }
 
     /// <summary>
@@ -185,8 +171,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -202,8 +187,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComput
     /// </summary>
     public TerraformProperty<double>? NumberOfExternalNodes
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_external_nodes");
-        set => WithProperty("number_of_external_nodes", value);
+        set => SetProperty("number_of_external_nodes", value);
     }
 
     /// <summary>
@@ -211,8 +195,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComput
     /// </summary>
     public TerraformProperty<double>? NumberOfPipelineNodes
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_pipeline_nodes");
-        set => WithProperty("number_of_pipeline_nodes", value);
+        set => SetProperty("number_of_pipeline_nodes", value);
     }
 
     /// <summary>
@@ -220,8 +203,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComput
     /// </summary>
     public TerraformProperty<double>? TimeToLive
     {
-        get => GetProperty<TerraformProperty<double>>("time_to_live");
-        set => WithProperty("time_to_live", value);
+        set => SetProperty("time_to_live", value);
     }
 
 }
@@ -237,8 +219,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -247,8 +228,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelfHostedIntegrationRuntimeName is required")]
     public required TerraformProperty<string> SelfHostedIntegrationRuntimeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("self_hosted_integration_runtime_name");
-        set => WithProperty("self_hosted_integration_runtime_name", value);
+        set => SetProperty("self_hosted_integration_runtime_name", value);
     }
 
     /// <summary>
@@ -257,8 +237,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingStorageLinkedServiceName is required")]
     public required TerraformProperty<string> StagingStorageLinkedServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("staging_storage_linked_service_name");
-        set => WithProperty("staging_storage_linked_service_name", value);
+        set => SetProperty("staging_storage_linked_service_name", value);
     }
 
 }
@@ -274,8 +253,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -283,8 +261,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -292,8 +269,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -301,8 +277,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -318,8 +293,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
     /// </summary>
     public List<TerraformProperty<string>>? PublicIps
     {
-        get => GetProperty<List<TerraformProperty<string>>>("public_ips");
-        set => WithProperty("public_ips", value);
+        set => SetProperty("public_ips", value);
     }
 
     /// <summary>
@@ -327,8 +301,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
     /// </summary>
     public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -336,8 +309,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
     /// </summary>
     public TerraformProperty<string>? SubnetName
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_name");
-        set => WithProperty("subnet_name", value);
+        set => SetProperty("subnet_name", value);
     }
 
     /// <summary>
@@ -345,8 +317,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
     /// </summary>
     public TerraformProperty<string>? VnetId
     {
-        get => GetProperty<TerraformProperty<string>>("vnet_id");
-        set => WithProperty("vnet_id", value);
+        set => SetProperty("vnet_id", value);
     }
 
 }
@@ -364,15 +335,26 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("credential_name");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("edition");
+        SetOutput("id");
+        SetOutput("license_type");
+        SetOutput("location");
+        SetOutput("max_parallel_executions_per_node");
+        SetOutput("name");
+        SetOutput("node_size");
+        SetOutput("number_of_nodes");
     }
 
     /// <summary>
     /// The credential_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CredentialName
+    public TerraformProperty<string> CredentialName
     {
-        get => GetProperty<TerraformProperty<string>>("credential_name");
-        set => this.WithProperty("credential_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("credential_name");
+        set => SetProperty("credential_name", value);
     }
 
     /// <summary>
@@ -381,44 +363,44 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
-    public TerraformProperty<string>? Edition
+    public TerraformProperty<string> Edition
     {
-        get => GetProperty<TerraformProperty<string>>("edition");
-        set => this.WithProperty("edition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edition");
+        set => SetProperty("edition", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseType
+    public TerraformProperty<string> LicenseType
     {
-        get => GetProperty<TerraformProperty<string>>("license_type");
-        set => this.WithProperty("license_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
+        set => SetProperty("license_type", value);
     }
 
     /// <summary>
@@ -427,17 +409,17 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The max_parallel_executions_per_node attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxParallelExecutionsPerNode
+    public TerraformProperty<double> MaxParallelExecutionsPerNode
     {
-        get => GetProperty<TerraformProperty<double>>("max_parallel_executions_per_node");
-        set => this.WithProperty("max_parallel_executions_per_node", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_parallel_executions_per_node");
+        set => SetProperty("max_parallel_executions_per_node", value);
     }
 
     /// <summary>
@@ -446,8 +428,8 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -456,17 +438,17 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSize is required")]
     public required TerraformProperty<string> NodeSize
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_size");
-        set => this.WithProperty("node_size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_size");
+        set => SetProperty("node_size", value);
     }
 
     /// <summary>
     /// The number_of_nodes attribute.
     /// </summary>
-    public TerraformProperty<double>? NumberOfNodes
+    public TerraformProperty<double> NumberOfNodes
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_nodes");
-        set => this.WithProperty("number_of_nodes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("number_of_nodes");
+        set => SetProperty("number_of_nodes", value);
     }
 
     /// <summary>
@@ -476,8 +458,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogInfo block(s) allowed")]
     public List<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>? CatalogInfo
     {
-        get => GetProperty<List<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>>("catalog_info");
-        set => this.WithProperty("catalog_info", value);
+        set => SetProperty("catalog_info", value);
     }
 
     /// <summary>
@@ -487,8 +468,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CopyComputeScale block(s) allowed")]
     public List<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>? CopyComputeScale
     {
-        get => GetProperty<List<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>>("copy_compute_scale");
-        set => this.WithProperty("copy_compute_scale", value);
+        set => SetProperty("copy_compute_scale", value);
     }
 
     /// <summary>
@@ -498,8 +478,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomSetupScript block(s) allowed")]
     public List<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>? CustomSetupScript
     {
-        get => GetProperty<List<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>>("custom_setup_script");
-        set => this.WithProperty("custom_setup_script", value);
+        set => SetProperty("custom_setup_script", value);
     }
 
     /// <summary>
@@ -509,8 +488,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressCustomSetup block(s) allowed")]
     public List<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>? ExpressCustomSetup
     {
-        get => GetProperty<List<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>>("express_custom_setup");
-        set => this.WithProperty("express_custom_setup", value);
+        set => SetProperty("express_custom_setup", value);
     }
 
     /// <summary>
@@ -520,8 +498,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressVnetIntegration block(s) allowed")]
     public List<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>? ExpressVnetIntegration
     {
-        get => GetProperty<List<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>>("express_vnet_integration");
-        set => this.WithProperty("express_vnet_integration", value);
+        set => SetProperty("express_vnet_integration", value);
     }
 
     /// <summary>
@@ -530,8 +507,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     public List<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>? PackageStore
     {
-        get => GetProperty<List<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>>("package_store");
-        set => this.WithProperty("package_store", value);
+        set => SetProperty("package_store", value);
     }
 
     /// <summary>
@@ -541,8 +517,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineExternalComputeScale block(s) allowed")]
     public List<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>? PipelineExternalComputeScale
     {
-        get => GetProperty<List<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>>("pipeline_external_compute_scale");
-        set => this.WithProperty("pipeline_external_compute_scale", value);
+        set => SetProperty("pipeline_external_compute_scale", value);
     }
 
     /// <summary>
@@ -552,8 +527,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     public List<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>? Proxy
     {
-        get => GetProperty<List<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>>("proxy");
-        set => this.WithProperty("proxy", value);
+        set => SetProperty("proxy", value);
     }
 
     /// <summary>
@@ -562,8 +536,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// </summary>
     public AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -573,8 +546,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VnetIntegration block(s) allowed")]
     public List<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>? VnetIntegration
     {
-        get => GetProperty<List<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>>("vnet_integration");
-        set => this.WithProperty("vnet_integration", value);
+        set => SetProperty("vnet_integration", value);
     }
 
 }

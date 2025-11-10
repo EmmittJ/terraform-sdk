@@ -14,8 +14,7 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("format");
-        set => WithProperty("format", value);
+        set => SetProperty("format", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
-        set => WithProperty("capacity", value);
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Family
     {
-        get => GetProperty<TerraformProperty<string>>("family");
-        set => WithProperty("family", value);
+        set => SetProperty("family", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Size
     {
-        get => GetProperty<TerraformProperty<string>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
-        set => WithProperty("tier", value);
+        set => SetProperty("tier", value);
     }
 
 }
@@ -104,8 +96,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -131,8 +120,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -150,6 +138,12 @@ public class AzurermCognitiveDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cognitive_account_id");
+        SetOutput("dynamic_throttling_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("rai_policy_name");
+        SetOutput("version_upgrade_option");
     }
 
     /// <summary>
@@ -158,26 +152,26 @@ public class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     public required TerraformProperty<string> CognitiveAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_account_id");
-        set => this.WithProperty("cognitive_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_account_id");
+        set => SetProperty("cognitive_account_id", value);
     }
 
     /// <summary>
     /// The dynamic_throttling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicThrottlingEnabled
+    public TerraformProperty<bool> DynamicThrottlingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_throttling_enabled");
-        set => this.WithProperty("dynamic_throttling_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("dynamic_throttling_enabled");
+        set => SetProperty("dynamic_throttling_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -186,50 +180,50 @@ public class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The rai_policy_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RaiPolicyName
+    public TerraformProperty<string> RaiPolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("rai_policy_name");
-        set => this.WithProperty("rai_policy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rai_policy_name");
+        set => SetProperty("rai_policy_name", value);
     }
 
     /// <summary>
     /// The version_upgrade_option attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionUpgradeOption
+    public TerraformProperty<string> VersionUpgradeOption
     {
-        get => GetProperty<TerraformProperty<string>>("version_upgrade_option");
-        set => this.WithProperty("version_upgrade_option", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_upgrade_option");
+        set => SetProperty("version_upgrade_option", value);
     }
 
     /// <summary>
     /// Block for model.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Model is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Model block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Model block(s) allowed")]
     public List<AzurermCognitiveDeploymentModelBlock>? Model
     {
-        get => GetProperty<List<AzurermCognitiveDeploymentModelBlock>>("model");
-        set => this.WithProperty("model", value);
+        set => SetProperty("model", value);
     }
 
     /// <summary>
     /// Block for sku.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     public List<AzurermCognitiveDeploymentSkuBlock>? Sku
     {
-        get => GetProperty<List<AzurermCognitiveDeploymentSkuBlock>>("sku");
-        set => this.WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -238,8 +232,7 @@ public class AzurermCognitiveDeployment : TerraformResource
     /// </summary>
     public AzurermCognitiveDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCognitiveDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

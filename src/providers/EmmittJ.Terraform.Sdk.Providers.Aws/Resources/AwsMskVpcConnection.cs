@@ -14,7 +14,16 @@ public class AwsMskVpcConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("authentication");
+        SetOutput("client_subnets");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("security_groups");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("target_cluster_arn");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
@@ -23,64 +32,64 @@ public class AwsMskVpcConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     public required TerraformProperty<string> Authentication
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authentication");
-        set => this.WithProperty("authentication", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication");
+        set => SetProperty("authentication", value);
     }
 
     /// <summary>
     /// The client_subnets attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnets is required")]
-    public HashSet<TerraformProperty<string>>? ClientSubnets
+    public HashSet<TerraformProperty<string>> ClientSubnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("client_subnets");
-        set => this.WithProperty("client_subnets", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("client_subnets");
+        set => SetProperty("client_subnets", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
-    public HashSet<TerraformProperty<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>> SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => this.WithProperty("security_groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_groups");
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -89,8 +98,8 @@ public class AwsMskVpcConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetClusterArn is required")]
     public required TerraformProperty<string> TargetClusterArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_cluster_arn");
-        set => this.WithProperty("target_cluster_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_cluster_arn");
+        set => SetProperty("target_cluster_arn", value);
     }
 
     /// <summary>
@@ -99,8 +108,8 @@ public class AwsMskVpcConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>

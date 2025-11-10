@@ -14,22 +14,26 @@ public class GoogleComputeNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("gateway_ipv4");
-        this.WithOutput("internal_ipv6_range");
-        this.WithOutput("network_id");
-        this.WithOutput("numeric_id");
-        this.WithOutput("self_link");
-        this.WithOutput("subnetworks_self_links");
+        SetOutput("description");
+        SetOutput("gateway_ipv4");
+        SetOutput("internal_ipv6_range");
+        SetOutput("network_id");
+        SetOutput("numeric_id");
+        SetOutput("self_link");
+        SetOutput("subnetworks_self_links");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_profile");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -38,26 +42,26 @@ public class GoogleComputeNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_profile attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkProfile
+    public TerraformProperty<string> NetworkProfile
     {
-        get => GetProperty<TerraformProperty<string>>("network_profile");
-        set => this.WithProperty("network_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_profile");
+        set => SetProperty("network_profile", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

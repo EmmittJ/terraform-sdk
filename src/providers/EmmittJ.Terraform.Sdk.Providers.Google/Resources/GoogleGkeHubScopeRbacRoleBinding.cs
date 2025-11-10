@@ -13,8 +13,7 @@ public class GoogleGkeHubScopeRbacRoleBindingRoleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomRole
     {
-        get => GetProperty<TerraformProperty<string>>("custom_role");
-        set => WithProperty("custom_role", value);
+        set => SetProperty("custom_role", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleGkeHubScopeRbacRoleBindingRoleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PredefinedRole
     {
-        get => GetProperty<TerraformProperty<string>>("predefined_role");
-        set => WithProperty("predefined_role", value);
+        set => SetProperty("predefined_role", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,14 +71,21 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("group");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("project");
+        SetOutput("scope_id");
+        SetOutput("scope_rbac_role_binding_id");
+        SetOutput("user");
     }
 
     /// <summary>
@@ -91,19 +93,19 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// is required). Updating one will unset the other automatically.
     /// group is the group, as seen by the kubernetes cluster.
     /// </summary>
-    public TerraformProperty<string>? Group
+    public TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
-        set => this.WithProperty("group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group");
+        set => SetProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,19 +115,19 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -134,8 +136,8 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformProperty<string> ScopeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope_id");
-        set => this.WithProperty("scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope_id");
+        set => SetProperty("scope_id", value);
     }
 
     /// <summary>
@@ -144,8 +146,8 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeRbacRoleBindingId is required")]
     public required TerraformProperty<string> ScopeRbacRoleBindingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope_rbac_role_binding_id");
-        set => this.WithProperty("scope_rbac_role_binding_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope_rbac_role_binding_id");
+        set => SetProperty("scope_rbac_role_binding_id", value);
     }
 
     /// <summary>
@@ -154,22 +156,22 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// user is the name of the user as seen by the kubernetes cluster, example
     /// &amp;quot;alice&amp;quot; or &amp;quot;alice@domain.tld&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? User
+    public TerraformProperty<string> User
     {
-        get => GetProperty<TerraformProperty<string>>("user");
-        set => this.WithProperty("user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user");
+        set => SetProperty("user", value);
     }
 
     /// <summary>
     /// Block for role.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Role block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Role block(s) allowed")]
     public List<GoogleGkeHubScopeRbacRoleBindingRoleBlock>? Role
     {
-        get => GetProperty<List<GoogleGkeHubScopeRbacRoleBindingRoleBlock>>("role");
-        set => this.WithProperty("role", value);
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -178,8 +180,7 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// </summary>
     public GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

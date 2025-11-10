@@ -13,8 +13,7 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,35 @@ public class AzurermNotificationHubNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("servicebus_endpoint");
+        SetOutput("servicebus_endpoint");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("namespace_type");
+        SetOutput("replication_region");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("tags");
+        SetOutput("zone_redundancy_enabled");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +91,8 @@ public class AzurermNotificationHubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -95,8 +101,8 @@ public class AzurermNotificationHubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,17 +111,17 @@ public class AzurermNotificationHubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceType is required")]
     public required TerraformProperty<string> NamespaceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace_type");
-        set => this.WithProperty("namespace_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_type");
+        set => SetProperty("namespace_type", value);
     }
 
     /// <summary>
     /// The replication_region attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationRegion
+    public TerraformProperty<string> ReplicationRegion
     {
-        get => GetProperty<TerraformProperty<string>>("replication_region");
-        set => this.WithProperty("replication_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_region");
+        set => SetProperty("replication_region", value);
     }
 
     /// <summary>
@@ -124,8 +130,8 @@ public class AzurermNotificationHubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -134,26 +140,26 @@ public class AzurermNotificationHubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ZoneRedundancyEnabled
+    public TerraformProperty<bool> ZoneRedundancyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_redundancy_enabled");
-        set => this.WithProperty("zone_redundancy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("zone_redundancy_enabled");
+        set => SetProperty("zone_redundancy_enabled", value);
     }
 
     /// <summary>
@@ -162,8 +168,7 @@ public class AzurermNotificationHubNamespace : TerraformResource
     /// </summary>
     public AzurermNotificationHubNamespaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNotificationHubNamespaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

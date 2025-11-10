@@ -13,8 +13,7 @@ public class GoogleGkeonpremBareMetalAdminClusterClusterOperationsBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? EnableApplicationLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_application_logs");
-        set => WithProperty("enable_application_logs", value);
+        set => SetProperty("enable_application_logs", value);
     }
 
 }
@@ -50,8 +49,7 @@ public class GoogleGkeonpremBareMetalAdminClusterMaintenanceConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceAddressCidrBlocks is required")]
     public List<TerraformProperty<string>>? MaintenanceAddressCidrBlocks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("maintenance_address_cidr_blocks");
-        set => WithProperty("maintenance_address_cidr_blocks", value);
+        set => SetProperty("maintenance_address_cidr_blocks", value);
     }
 
 }
@@ -76,8 +74,7 @@ public class GoogleGkeonpremBareMetalAdminClusterNodeAccessConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? LoginUser
     {
-        get => GetProperty<TerraformProperty<string>>("login_user");
-        set => WithProperty("login_user", value);
+        set => SetProperty("login_user", value);
     }
 
 }
@@ -94,8 +91,7 @@ public class GoogleGkeonpremBareMetalAdminClusterNodeConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? MaxPodsPerNode
     {
-        get => GetProperty<TerraformProperty<double>>("max_pods_per_node");
-        set => WithProperty("max_pods_per_node", value);
+        set => SetProperty("max_pods_per_node", value);
     }
 
 }
@@ -112,8 +108,7 @@ public class GoogleGkeonpremBareMetalAdminClusterProxyBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? NoProxy
     {
-        get => GetProperty<List<TerraformProperty<string>>>("no_proxy");
-        set => WithProperty("no_proxy", value);
+        set => SetProperty("no_proxy", value);
     }
 
     /// <summary>
@@ -125,8 +120,7 @@ public class GoogleGkeonpremBareMetalAdminClusterProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -158,8 +152,7 @@ public class GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -167,8 +160,7 @@ public class GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -176,8 +168,7 @@ public class GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -195,19 +186,26 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("endpoint");
-        this.WithOutput("etag");
-        this.WithOutput("fleet");
-        this.WithOutput("local_name");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("status");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("validation_check");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_annotations");
+        SetOutput("endpoint");
+        SetOutput("etag");
+        SetOutput("fleet");
+        SetOutput("local_name");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("status");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("validation_check");
+        SetOutput("annotations");
+        SetOutput("bare_metal_version");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -224,37 +222,37 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// A human readable description of this Bare Metal Admin Cluster.
     /// </summary>
-    public TerraformProperty<string>? BareMetalVersion
+    public TerraformProperty<string> BareMetalVersion
     {
-        get => GetProperty<TerraformProperty<string>>("bare_metal_version");
-        set => this.WithProperty("bare_metal_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bare_metal_version");
+        set => SetProperty("bare_metal_version", value);
     }
 
     /// <summary>
     /// A human readable description of this Bare Metal Admin Cluster.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -263,8 +261,8 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -273,17 +271,17 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -293,8 +291,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterOperations block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterClusterOperationsBlock>? ClusterOperations
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterClusterOperationsBlock>>("cluster_operations");
-        set => this.WithProperty("cluster_operations", value);
+        set => SetProperty("cluster_operations", value);
     }
 
     /// <summary>
@@ -304,8 +301,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterControlPlaneBlock>? ControlPlane
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterControlPlaneBlock>>("control_plane");
-        set => this.WithProperty("control_plane", value);
+        set => SetProperty("control_plane", value);
     }
 
     /// <summary>
@@ -315,8 +311,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancer block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlock>? LoadBalancer
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlock>>("load_balancer");
-        set => this.WithProperty("load_balancer", value);
+        set => SetProperty("load_balancer", value);
     }
 
     /// <summary>
@@ -326,8 +321,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceConfig block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterMaintenanceConfigBlock>? MaintenanceConfig
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterMaintenanceConfigBlock>>("maintenance_config");
-        set => this.WithProperty("maintenance_config", value);
+        set => SetProperty("maintenance_config", value);
     }
 
     /// <summary>
@@ -337,8 +331,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -348,8 +341,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeAccessConfig block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterNodeAccessConfigBlock>? NodeAccessConfig
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterNodeAccessConfigBlock>>("node_access_config");
-        set => this.WithProperty("node_access_config", value);
+        set => SetProperty("node_access_config", value);
     }
 
     /// <summary>
@@ -359,8 +351,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterNodeConfigBlock>? NodeConfig
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterNodeConfigBlock>>("node_config");
-        set => this.WithProperty("node_config", value);
+        set => SetProperty("node_config", value);
     }
 
     /// <summary>
@@ -370,8 +361,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterProxyBlock>? Proxy
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterProxyBlock>>("proxy");
-        set => this.WithProperty("proxy", value);
+        set => SetProperty("proxy", value);
     }
 
     /// <summary>
@@ -381,8 +371,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityConfig block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterSecurityConfigBlock>? SecurityConfig
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterSecurityConfigBlock>>("security_config");
-        set => this.WithProperty("security_config", value);
+        set => SetProperty("security_config", value);
     }
 
     /// <summary>
@@ -392,8 +381,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
     public List<GoogleGkeonpremBareMetalAdminClusterStorageBlock>? Storage
     {
-        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterStorageBlock>>("storage");
-        set => this.WithProperty("storage", value);
+        set => SetProperty("storage", value);
     }
 
     /// <summary>
@@ -402,8 +390,7 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     public GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

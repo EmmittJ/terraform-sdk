@@ -13,8 +13,7 @@ public class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformProperty<string> Algorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("algorithm");
-        set => WithProperty("algorithm", value);
+        set => SetProperty("algorithm", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProtectionLevel
     {
-        get => GetProperty<TerraformProperty<string>>("protection_level");
-        set => WithProperty("protection_level", value);
+        set => SetProperty("protection_level", value);
     }
 
 }
@@ -78,47 +73,57 @@ public class GoogleKmsCryptoKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("primary");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("primary");
+        SetOutput("terraform_labels");
+        SetOutput("crypto_key_backend");
+        SetOutput("destroy_scheduled_duration");
+        SetOutput("id");
+        SetOutput("import_only");
+        SetOutput("key_ring");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("purpose");
+        SetOutput("rotation_period");
+        SetOutput("skip_initial_version_creation");
     }
 
     /// <summary>
     /// The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.
     /// The resource name is in the format &amp;quot;projects/*/locations/*/ekmConnections/*&amp;quot; and only applies to &amp;quot;EXTERNAL_VPC&amp;quot; keys.
     /// </summary>
-    public TerraformProperty<string>? CryptoKeyBackend
+    public TerraformProperty<string> CryptoKeyBackend
     {
-        get => GetProperty<TerraformProperty<string>>("crypto_key_backend");
-        set => this.WithProperty("crypto_key_backend", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key_backend");
+        set => SetProperty("crypto_key_backend", value);
     }
 
     /// <summary>
     /// The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.
     /// If not specified at creation time, the default duration is 30 days.
     /// </summary>
-    public TerraformProperty<string>? DestroyScheduledDuration
+    public TerraformProperty<string> DestroyScheduledDuration
     {
-        get => GetProperty<TerraformProperty<string>>("destroy_scheduled_duration");
-        set => this.WithProperty("destroy_scheduled_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destroy_scheduled_duration");
+        set => SetProperty("destroy_scheduled_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Whether this key may contain imported versions only.
     /// </summary>
-    public TerraformProperty<bool>? ImportOnly
+    public TerraformProperty<bool> ImportOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("import_only");
-        set => this.WithProperty("import_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("import_only");
+        set => SetProperty("import_only", value);
     }
 
     /// <summary>
@@ -128,8 +133,8 @@ public class GoogleKmsCryptoKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformProperty<string> KeyRing
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_ring");
-        set => this.WithProperty("key_ring", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_ring");
+        set => SetProperty("key_ring", value);
     }
 
     /// <summary>
@@ -139,10 +144,10 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -151,8 +156,8 @@ public class GoogleKmsCryptoKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -161,10 +166,10 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// for possible inputs.
     /// Default value is &amp;quot;ENCRYPT_DECRYPT&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Purpose
+    public TerraformProperty<string> Purpose
     {
-        get => GetProperty<TerraformProperty<string>>("purpose");
-        set => this.WithProperty("purpose", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("purpose");
+        set => SetProperty("purpose", value);
     }
 
     /// <summary>
@@ -173,10 +178,10 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// the format of a decimal number with up to 9 fractional digits, followed by the
     /// letter &#39;s&#39; (seconds). It must be greater than a day (ie, 86400).
     /// </summary>
-    public TerraformProperty<string>? RotationPeriod
+    public TerraformProperty<string> RotationPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("rotation_period");
-        set => this.WithProperty("rotation_period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rotation_period");
+        set => SetProperty("rotation_period", value);
     }
 
     /// <summary>
@@ -185,10 +190,10 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// or &#39;google_kms_key_ring_import_job&#39; resource to import the CryptoKeyVersion.
     /// This field is only applicable during initial CryptoKey creation.
     /// </summary>
-    public TerraformProperty<bool>? SkipInitialVersionCreation
+    public TerraformProperty<bool> SkipInitialVersionCreation
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_initial_version_creation");
-        set => this.WithProperty("skip_initial_version_creation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_initial_version_creation");
+        set => SetProperty("skip_initial_version_creation", value);
     }
 
     /// <summary>
@@ -197,8 +202,7 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// </summary>
     public GoogleKmsCryptoKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleKmsCryptoKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -208,8 +212,7 @@ public class GoogleKmsCryptoKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VersionTemplate block(s) allowed")]
     public List<GoogleKmsCryptoKeyVersionTemplateBlock>? VersionTemplate
     {
-        get => GetProperty<List<GoogleKmsCryptoKeyVersionTemplateBlock>>("version_template");
-        set => this.WithProperty("version_template", value);
+        set => SetProperty("version_template", value);
     }
 
     /// <summary>

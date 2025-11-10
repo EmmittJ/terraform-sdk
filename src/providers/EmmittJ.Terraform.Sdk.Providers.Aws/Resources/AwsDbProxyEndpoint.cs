@@ -13,8 +13,7 @@ public class AwsDbProxyEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDbProxyEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDbProxyEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,19 @@ public class AwsDbProxyEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("endpoint");
-        this.WithOutput("is_default");
-        this.WithOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("endpoint");
+        SetOutput("is_default");
+        SetOutput("vpc_id");
+        SetOutput("db_proxy_endpoint_name");
+        SetOutput("db_proxy_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("target_role");
+        SetOutput("vpc_security_group_ids");
+        SetOutput("vpc_subnet_ids");
     }
 
     /// <summary>
@@ -61,8 +67,8 @@ public class AwsDbProxyEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyEndpointName is required")]
     public required TerraformProperty<string> DbProxyEndpointName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_proxy_endpoint_name");
-        set => this.WithProperty("db_proxy_endpoint_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_proxy_endpoint_name");
+        set => SetProperty("db_proxy_endpoint_name", value);
     }
 
     /// <summary>
@@ -71,72 +77,72 @@ public class AwsDbProxyEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
     public required TerraformProperty<string> DbProxyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_proxy_name");
-        set => this.WithProperty("db_proxy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_proxy_name");
+        set => SetProperty("db_proxy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_role attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetRole
+    public TerraformProperty<string> TargetRole
     {
-        get => GetProperty<TerraformProperty<string>>("target_role");
-        set => this.WithProperty("target_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_role");
+        set => SetProperty("target_role", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => this.WithProperty("vpc_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
+        set => SetProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
     /// The vpc_subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? VpcSubnetIds
+    public HashSet<TerraformProperty<string>> VpcSubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
-        set => this.WithProperty("vpc_subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
+        set => SetProperty("vpc_subnet_ids", value);
     }
 
     /// <summary>
@@ -145,8 +151,7 @@ public class AwsDbProxyEndpoint : TerraformResource
     /// </summary>
     public AwsDbProxyEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDbProxyEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

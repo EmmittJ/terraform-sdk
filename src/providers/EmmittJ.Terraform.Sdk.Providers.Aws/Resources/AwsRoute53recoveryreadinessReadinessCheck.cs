@@ -13,8 +13,7 @@ public class AwsRoute53recoveryreadinessReadinessCheckTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -31,16 +30,21 @@ public class AwsRoute53recoveryreadinessReadinessCheck : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("readiness_check_name");
+        SetOutput("resource_set_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +53,8 @@ public class AwsRoute53recoveryreadinessReadinessCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadinessCheckName is required")]
     public required TerraformProperty<string> ReadinessCheckName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("readiness_check_name");
-        set => this.WithProperty("readiness_check_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("readiness_check_name");
+        set => SetProperty("readiness_check_name", value);
     }
 
     /// <summary>
@@ -59,26 +63,26 @@ public class AwsRoute53recoveryreadinessReadinessCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetName is required")]
     public required TerraformProperty<string> ResourceSetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_set_name");
-        set => this.WithProperty("resource_set_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_set_name");
+        set => SetProperty("resource_set_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -87,8 +91,7 @@ public class AwsRoute53recoveryreadinessReadinessCheck : TerraformResource
     /// </summary>
     public AwsRoute53recoveryreadinessReadinessCheckTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53recoveryreadinessReadinessCheckTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

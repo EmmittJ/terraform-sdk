@@ -13,8 +13,7 @@ public class AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,24 @@ public class AzurermNetworkManagerConnectivityConfigurationDataSource : Terrafor
 
     private void InitializeOutputs()
     {
-        this.WithOutput("applies_to_group");
-        this.WithOutput("connectivity_topology");
-        this.WithOutput("delete_existing_peering_enabled");
-        this.WithOutput("description");
-        this.WithOutput("global_mesh_enabled");
-        this.WithOutput("hub");
+        SetOutput("applies_to_group");
+        SetOutput("connectivity_topology");
+        SetOutput("delete_existing_peering_enabled");
+        SetOutput("description");
+        SetOutput("global_mesh_enabled");
+        SetOutput("hub");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_manager_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +56,8 @@ public class AzurermNetworkManagerConnectivityConfigurationDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermNetworkManagerConnectivityConfigurationDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformProperty<string> NetworkManagerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_manager_id");
-        set => this.WithProperty("network_manager_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_manager_id");
+        set => SetProperty("network_manager_id", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermNetworkManagerConnectivityConfigurationDataSource : Terrafor
     /// </summary>
     public AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleCloudbuildWorkerPoolNetworkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeredNetwork is required")]
     public required TerraformProperty<string> PeeredNetwork
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peered_network");
-        set => WithProperty("peered_network", value);
+        set => SetProperty("peered_network", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleCloudbuildWorkerPoolNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PeeredNetworkIpRange
     {
-        get => GetProperty<TerraformProperty<string>>("peered_network_ip_range");
-        set => WithProperty("peered_network_ip_range", value);
+        set => SetProperty("peered_network_ip_range", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
     public required TerraformProperty<string> NetworkAttachment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_attachment");
-        set => WithProperty("network_attachment", value);
+        set => SetProperty("network_attachment", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? RouteAllTraffic
     {
-        get => GetProperty<TerraformProperty<bool>>("route_all_traffic");
-        set => WithProperty("route_all_traffic", value);
+        set => SetProperty("route_all_traffic", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class GoogleCloudbuildWorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class GoogleCloudbuildWorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleCloudbuildWorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -102,8 +95,7 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
-        set => WithProperty("disk_size_gb", value);
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
@@ -111,8 +103,7 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableNestedVirtualization
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_nested_virtualization");
-        set => WithProperty("enable_nested_virtualization", value);
+        set => SetProperty("enable_nested_virtualization", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
-        set => WithProperty("machine_type", value);
+        set => SetProperty("machine_type", value);
     }
 
     /// <summary>
@@ -129,8 +119,7 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NoExternalIp
     {
-        get => GetProperty<TerraformProperty<bool>>("no_external_ip");
-        set => WithProperty("no_external_ip", value);
+        set => SetProperty("no_external_ip", value);
     }
 
 }
@@ -148,12 +137,18 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_annotations");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -162,28 +157,28 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// A user-specified, human-readable name for the `WorkerPool`. If provided, this value must be 1-63 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -192,8 +187,8 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -202,17 +197,17 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -222,8 +217,7 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<GoogleCloudbuildWorkerPoolNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<GoogleCloudbuildWorkerPoolNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -233,8 +227,7 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnect block(s) allowed")]
     public List<GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock>? PrivateServiceConnect
     {
-        get => GetProperty<List<GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock>>("private_service_connect");
-        set => this.WithProperty("private_service_connect", value);
+        set => SetProperty("private_service_connect", value);
     }
 
     /// <summary>
@@ -243,8 +236,7 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
     /// </summary>
     public GoogleCloudbuildWorkerPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudbuildWorkerPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -254,8 +246,7 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfig block(s) allowed")]
     public List<GoogleCloudbuildWorkerPoolWorkerConfigBlock>? WorkerConfig
     {
-        get => GetProperty<List<GoogleCloudbuildWorkerPoolWorkerConfigBlock>>("worker_config");
-        set => this.WithProperty("worker_config", value);
+        set => SetProperty("worker_config", value);
     }
 
     /// <summary>

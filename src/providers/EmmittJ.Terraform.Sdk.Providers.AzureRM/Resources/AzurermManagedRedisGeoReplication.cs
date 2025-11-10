@@ -13,8 +13,7 @@ public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,28 @@ public class AzurermManagedRedisGeoReplication : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("linked_managed_redis_ids");
+        SetOutput("managed_redis_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The linked_managed_redis_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedManagedRedisIds is required")]
-    public HashSet<TerraformProperty<string>>? LinkedManagedRedisIds
+    public HashSet<TerraformProperty<string>> LinkedManagedRedisIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("linked_managed_redis_ids");
-        set => this.WithProperty("linked_managed_redis_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("linked_managed_redis_ids");
+        set => SetProperty("linked_managed_redis_ids", value);
     }
 
     /// <summary>
@@ -85,8 +84,8 @@ public class AzurermManagedRedisGeoReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedRedisId is required")]
     public required TerraformProperty<string> ManagedRedisId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_redis_id");
-        set => this.WithProperty("managed_redis_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_redis_id");
+        set => SetProperty("managed_redis_id", value);
     }
 
     /// <summary>
@@ -95,8 +94,7 @@ public class AzurermManagedRedisGeoReplication : TerraformResource
     /// </summary>
     public AzurermManagedRedisGeoReplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagedRedisGeoReplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

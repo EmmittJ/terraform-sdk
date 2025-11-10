@@ -14,35 +14,40 @@ public class AwsBedrockagentcoreApiKeyCredentialProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_key_secret_arn");
-        this.WithOutput("credential_provider_arn");
+        SetOutput("api_key_secret_arn");
+        SetOutput("credential_provider_arn");
+        SetOutput("api_key");
+        SetOutput("api_key_wo");
+        SetOutput("api_key_wo_version");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The api_key attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiKey
+    public TerraformProperty<string> ApiKey
     {
-        get => GetProperty<TerraformProperty<string>>("api_key");
-        set => this.WithProperty("api_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_key");
+        set => SetProperty("api_key", value);
     }
 
     /// <summary>
     /// The api_key_wo attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiKeyWo
+    public TerraformProperty<string> ApiKeyWo
     {
-        get => GetProperty<TerraformProperty<string>>("api_key_wo");
-        set => this.WithProperty("api_key_wo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_key_wo");
+        set => SetProperty("api_key_wo", value);
     }
 
     /// <summary>
     /// The api_key_wo_version attribute.
     /// </summary>
-    public TerraformProperty<double>? ApiKeyWoVersion
+    public TerraformProperty<double> ApiKeyWoVersion
     {
-        get => GetProperty<TerraformProperty<double>>("api_key_wo_version");
-        set => this.WithProperty("api_key_wo_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("api_key_wo_version");
+        set => SetProperty("api_key_wo_version", value);
     }
 
     /// <summary>
@@ -51,17 +56,17 @@ public class AwsBedrockagentcoreApiKeyCredentialProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -14,14 +14,15 @@ public class GoogleLoggingSinkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("bigquery_options");
-        this.WithOutput("description");
-        this.WithOutput("destination");
-        this.WithOutput("disabled");
-        this.WithOutput("exclusions");
-        this.WithOutput("filter");
-        this.WithOutput("name");
-        this.WithOutput("writer_identity");
+        SetOutput("bigquery_options");
+        SetOutput("description");
+        SetOutput("destination");
+        SetOutput("disabled");
+        SetOutput("exclusions");
+        SetOutput("filter");
+        SetOutput("name");
+        SetOutput("writer_identity");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -30,8 +31,8 @@ public class GoogleLoggingSinkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

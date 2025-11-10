@@ -13,8 +13,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerHostname
     {
-        get => GetProperty<TerraformProperty<string>>("container_hostname");
-        set => WithProperty("container_hostname", value);
+        set => SetProperty("container_hostname", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Environment
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment");
-        set => WithProperty("environment", value);
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InferenceSpecificationName
     {
-        get => GetProperty<TerraformProperty<string>>("inference_specification_name");
-        set => WithProperty("inference_specification_name", value);
+        set => SetProperty("inference_specification_name", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ModelDataUrl
     {
-        get => GetProperty<TerraformProperty<string>>("model_data_url");
-        set => WithProperty("model_data_url", value);
+        set => SetProperty("model_data_url", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ModelPackageName
     {
-        get => GetProperty<TerraformProperty<string>>("model_package_name");
-        set => WithProperty("model_package_name", value);
+        set => SetProperty("model_package_name", value);
     }
 
 }
@@ -85,8 +78,7 @@ public class AwsSagemakerModelInferenceExecutionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -102,8 +94,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerHostname
     {
-        get => GetProperty<TerraformProperty<string>>("container_hostname");
-        set => WithProperty("container_hostname", value);
+        set => SetProperty("container_hostname", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Environment
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment");
-        set => WithProperty("environment", value);
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InferenceSpecificationName
     {
-        get => GetProperty<TerraformProperty<string>>("inference_specification_name");
-        set => WithProperty("inference_specification_name", value);
+        set => SetProperty("inference_specification_name", value);
     }
 
     /// <summary>
@@ -138,8 +126,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -147,8 +134,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ModelDataUrl
     {
-        get => GetProperty<TerraformProperty<string>>("model_data_url");
-        set => WithProperty("model_data_url", value);
+        set => SetProperty("model_data_url", value);
     }
 
     /// <summary>
@@ -156,8 +142,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ModelPackageName
     {
-        get => GetProperty<TerraformProperty<string>>("model_package_name");
-        set => WithProperty("model_package_name", value);
+        set => SetProperty("model_package_name", value);
     }
 
 }
@@ -174,8 +159,7 @@ public class AwsSagemakerModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -184,8 +168,7 @@ public class AwsSagemakerModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
-        set => WithProperty("subnets", value);
+        set => SetProperty("subnets", value);
     }
 
 }
@@ -203,16 +186,23 @@ public class AwsSagemakerModel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("enable_network_isolation");
+        SetOutput("execution_role_arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The enable_network_isolation attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableNetworkIsolation
+    public TerraformProperty<bool> EnableNetworkIsolation
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_network_isolation");
-        set => this.WithProperty("enable_network_isolation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_network_isolation");
+        set => SetProperty("enable_network_isolation", value);
     }
 
     /// <summary>
@@ -221,53 +211,53 @@ public class AwsSagemakerModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -276,8 +266,7 @@ public class AwsSagemakerModel : TerraformResource
     /// </summary>
     public List<AwsSagemakerModelContainerBlock>? Container
     {
-        get => GetProperty<List<AwsSagemakerModelContainerBlock>>("container");
-        set => this.WithProperty("container", value);
+        set => SetProperty("container", value);
     }
 
     /// <summary>
@@ -287,8 +276,7 @@ public class AwsSagemakerModel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InferenceExecutionConfig block(s) allowed")]
     public List<AwsSagemakerModelInferenceExecutionConfigBlock>? InferenceExecutionConfig
     {
-        get => GetProperty<List<AwsSagemakerModelInferenceExecutionConfigBlock>>("inference_execution_config");
-        set => this.WithProperty("inference_execution_config", value);
+        set => SetProperty("inference_execution_config", value);
     }
 
     /// <summary>
@@ -298,8 +286,7 @@ public class AwsSagemakerModel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrimaryContainer block(s) allowed")]
     public List<AwsSagemakerModelPrimaryContainerBlock>? PrimaryContainer
     {
-        get => GetProperty<List<AwsSagemakerModelPrimaryContainerBlock>>("primary_container");
-        set => this.WithProperty("primary_container", value);
+        set => SetProperty("primary_container", value);
     }
 
     /// <summary>
@@ -309,8 +296,7 @@ public class AwsSagemakerModel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     public List<AwsSagemakerModelVpcConfigBlock>? VpcConfig
     {
-        get => GetProperty<List<AwsSagemakerModelVpcConfigBlock>>("vpc_config");
-        set => this.WithProperty("vpc_config", value);
+        set => SetProperty("vpc_config", value);
     }
 
     /// <summary>

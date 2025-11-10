@@ -14,8 +14,7 @@ public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformProperty<bool> Enable
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enable");
-        set => WithProperty("enable", value);
+        set => SetProperty("enable", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AzurermVirtualNetworkEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforcement is required")]
     public required TerraformProperty<string> Enforcement
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("enforcement");
-        set => WithProperty("enforcement", value);
+        set => SetProperty("enforcement", value);
     }
 
 }
@@ -59,8 +56,7 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllocatedIpAddressPrefixes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allocated_ip_address_prefixes");
-        set => WithProperty("allocated_ip_address_prefixes", value);
+        set => SetProperty("allocated_ip_address_prefixes", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -79,8 +74,7 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
     public required TerraformProperty<string> NumberOfIpAddresses
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("number_of_ip_addresses");
-        set => WithProperty("number_of_ip_addresses", value);
+        set => SetProperty("number_of_ip_addresses", value);
     }
 
 }
@@ -96,8 +90,7 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -105,8 +98,7 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -114,8 +106,7 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -123,8 +114,7 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -142,61 +132,73 @@ public class AzurermVirtualNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputuid");
+        SetOutput("guid");
+        SetOutput("address_space");
+        SetOutput("bgp_community");
+        SetOutput("dns_servers");
+        SetOutput("edge_zone");
+        SetOutput("flow_timeout_in_minutes");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("private_endpoint_vnet_policies");
+        SetOutput("resource_group_name");
+        SetOutput("subnet");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The address_space attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AddressSpace
+    public HashSet<TerraformProperty<string>> AddressSpace
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("address_space");
-        set => this.WithProperty("address_space", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("address_space");
+        set => SetProperty("address_space", value);
     }
 
     /// <summary>
     /// The bgp_community attribute.
     /// </summary>
-    public TerraformProperty<string>? BgpCommunity
+    public TerraformProperty<string> BgpCommunity
     {
-        get => GetProperty<TerraformProperty<string>>("bgp_community");
-        set => this.WithProperty("bgp_community", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bgp_community");
+        set => SetProperty("bgp_community", value);
     }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DnsServers
+    public List<TerraformProperty<string>> DnsServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
-        set => this.WithProperty("dns_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("dns_servers");
+        set => SetProperty("dns_servers", value);
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? EdgeZone
+    public TerraformProperty<string> EdgeZone
     {
-        get => GetProperty<TerraformProperty<string>>("edge_zone");
-        set => this.WithProperty("edge_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
+        set => SetProperty("edge_zone", value);
     }
 
     /// <summary>
     /// The flow_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? FlowTimeoutInMinutes
+    public TerraformProperty<double> FlowTimeoutInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("flow_timeout_in_minutes");
-        set => this.WithProperty("flow_timeout_in_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("flow_timeout_in_minutes");
+        set => SetProperty("flow_timeout_in_minutes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -205,8 +207,8 @@ public class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -215,17 +217,17 @@ public class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The private_endpoint_vnet_policies attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateEndpointVnetPolicies
+    public TerraformProperty<string> PrivateEndpointVnetPolicies
     {
-        get => GetProperty<TerraformProperty<string>>("private_endpoint_vnet_policies");
-        set => this.WithProperty("private_endpoint_vnet_policies", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_endpoint_vnet_policies");
+        set => SetProperty("private_endpoint_vnet_policies", value);
     }
 
     /// <summary>
@@ -234,26 +236,26 @@ public class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subnet attribute.
     /// </summary>
-    public HashSet<TerraformProperty<object>>? Subnet
+    public HashSet<TerraformProperty<object>> Subnet
     {
-        get => GetProperty<HashSet<TerraformProperty<object>>>("subnet");
-        set => this.WithProperty("subnet", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<object>>>("subnet");
+        set => SetProperty("subnet", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -263,8 +265,7 @@ public class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionPlan block(s) allowed")]
     public List<AzurermVirtualNetworkDdosProtectionPlanBlock>? DdosProtectionPlan
     {
-        get => GetProperty<List<AzurermVirtualNetworkDdosProtectionPlanBlock>>("ddos_protection_plan");
-        set => this.WithProperty("ddos_protection_plan", value);
+        set => SetProperty("ddos_protection_plan", value);
     }
 
     /// <summary>
@@ -274,8 +275,7 @@ public class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     public List<AzurermVirtualNetworkEncryptionBlock>? Encryption
     {
-        get => GetProperty<List<AzurermVirtualNetworkEncryptionBlock>>("encryption");
-        set => this.WithProperty("encryption", value);
+        set => SetProperty("encryption", value);
     }
 
     /// <summary>
@@ -285,8 +285,7 @@ public class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 IpAddressPool block(s) allowed")]
     public List<AzurermVirtualNetworkIpAddressPoolBlock>? IpAddressPool
     {
-        get => GetProperty<List<AzurermVirtualNetworkIpAddressPoolBlock>>("ip_address_pool");
-        set => this.WithProperty("ip_address_pool", value);
+        set => SetProperty("ip_address_pool", value);
     }
 
     /// <summary>
@@ -295,8 +294,7 @@ public class AzurermVirtualNetwork : TerraformResource
     /// </summary>
     public AzurermVirtualNetworkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualNetworkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

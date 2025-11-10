@@ -14,17 +14,21 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.WithOutput("additional_notification_targets");
-        this.WithOutput("approval_workflow");
-        this.WithOutput("create_time");
-        this.WithOutput("eligible_users");
-        this.WithOutput("etag");
-        this.WithOutput("max_request_duration");
-        this.WithOutput("name");
-        this.WithOutput("privileged_access");
-        this.WithOutput("requester_justification_config");
-        this.WithOutput("state");
-        this.WithOutput("update_time");
+        SetOutput("additional_notification_targets");
+        SetOutput("approval_workflow");
+        SetOutput("create_time");
+        SetOutput("eligible_users");
+        SetOutput("etag");
+        SetOutput("max_request_duration");
+        SetOutput("name");
+        SetOutput("privileged_access");
+        SetOutput("requester_justification_config");
+        SetOutput("state");
+        SetOutput("update_time");
+        SetOutput("entitlement_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("parent");
     }
 
     /// <summary>
@@ -32,37 +36,37 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
     /// This value should be 4-63 characters, and valid characters are &amp;quot;[a-z]&amp;quot;, &amp;quot;[0-9]&amp;quot;, and &amp;quot;-&amp;quot;. The first character should be from [a-z].
     /// This value should be unique among all other Entitlements under the specified &#39;parent&#39;.
     /// </summary>
-    public TerraformProperty<string>? EntitlementId
+    public TerraformProperty<string> EntitlementId
     {
-        get => GetProperty<TerraformProperty<string>>("entitlement_id");
-        set => this.WithProperty("entitlement_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entitlement_id");
+        set => SetProperty("entitlement_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The region of the Entitlement resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Format: projects/{project-id|project-number} or organizations/{organization-number} or folders/{folder-number}
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>

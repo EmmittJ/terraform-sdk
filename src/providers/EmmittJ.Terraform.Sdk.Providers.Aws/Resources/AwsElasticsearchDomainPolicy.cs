@@ -13,8 +13,7 @@ public class AwsElasticsearchDomainPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsElasticsearchDomainPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,6 +38,10 @@ public class AwsElasticsearchDomainPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("access_policies");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -48,8 +50,8 @@ public class AwsElasticsearchDomainPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicies is required")]
     public required TerraformProperty<string> AccessPolicies
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_policies");
-        set => this.WithProperty("access_policies", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_policies");
+        set => SetProperty("access_policies", value);
     }
 
     /// <summary>
@@ -58,26 +60,26 @@ public class AwsElasticsearchDomainPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -86,8 +88,7 @@ public class AwsElasticsearchDomainPolicy : TerraformResource
     /// </summary>
     public AwsElasticsearchDomainPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsElasticsearchDomainPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

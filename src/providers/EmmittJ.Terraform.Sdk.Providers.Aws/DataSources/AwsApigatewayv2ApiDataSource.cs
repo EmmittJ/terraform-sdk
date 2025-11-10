@@ -14,18 +14,22 @@ public class AwsApigatewayv2ApiDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_endpoint");
-        this.WithOutput("api_key_selection_expression");
-        this.WithOutput("arn");
-        this.WithOutput("cors_configuration");
-        this.WithOutput("description");
-        this.WithOutput("disable_execute_api_endpoint");
-        this.WithOutput("execution_arn");
-        this.WithOutput("ip_address_type");
-        this.WithOutput("name");
-        this.WithOutput("protocol_type");
-        this.WithOutput("route_selection_expression");
-        this.WithOutput("version");
+        SetOutput("api_endpoint");
+        SetOutput("api_key_selection_expression");
+        SetOutput("arn");
+        SetOutput("cors_configuration");
+        SetOutput("description");
+        SetOutput("disable_execute_api_endpoint");
+        SetOutput("execution_arn");
+        SetOutput("ip_address_type");
+        SetOutput("name");
+        SetOutput("protocol_type");
+        SetOutput("route_selection_expression");
+        SetOutput("version");
+        SetOutput("api_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -34,35 +38,35 @@ public class AwsApigatewayv2ApiDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsDbProxyAuthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthScheme
     {
-        get => GetProperty<TerraformProperty<string>>("auth_scheme");
-        set => WithProperty("auth_scheme", value);
+        set => SetProperty("auth_scheme", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDbProxyAuthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientPasswordAuthType
     {
-        get => GetProperty<TerraformProperty<string>>("client_password_auth_type");
-        set => WithProperty("client_password_auth_type", value);
+        set => SetProperty("client_password_auth_type", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDbProxyAuthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsDbProxyAuthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IamAuth
     {
-        get => GetProperty<TerraformProperty<string>>("iam_auth");
-        set => WithProperty("iam_auth", value);
+        set => SetProperty("iam_auth", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsDbProxyAuthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SecretArn
     {
-        get => GetProperty<TerraformProperty<string>>("secret_arn");
-        set => WithProperty("secret_arn", value);
+        set => SetProperty("secret_arn", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsDbProxyAuthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -75,8 +69,7 @@ public class AwsDbProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AwsDbProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AwsDbProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,26 +102,39 @@ public class AwsDbProxy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("endpoint");
+        SetOutput("arn");
+        SetOutput("endpoint");
+        SetOutput("debug_logging");
+        SetOutput("default_auth_scheme");
+        SetOutput("engine_family");
+        SetOutput("id");
+        SetOutput("idle_client_timeout");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("require_tls");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_security_group_ids");
+        SetOutput("vpc_subnet_ids");
     }
 
     /// <summary>
     /// The debug_logging attribute.
     /// </summary>
-    public TerraformProperty<bool>? DebugLogging
+    public TerraformProperty<bool> DebugLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("debug_logging");
-        set => this.WithProperty("debug_logging", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("debug_logging");
+        set => SetProperty("debug_logging", value);
     }
 
     /// <summary>
     /// The default_auth_scheme attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultAuthScheme
+    public TerraformProperty<string> DefaultAuthScheme
     {
-        get => GetProperty<TerraformProperty<string>>("default_auth_scheme");
-        set => this.WithProperty("default_auth_scheme", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_auth_scheme");
+        set => SetProperty("default_auth_scheme", value);
     }
 
     /// <summary>
@@ -139,26 +143,26 @@ public class AwsDbProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineFamily is required")]
     public required TerraformProperty<string> EngineFamily
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_family");
-        set => this.WithProperty("engine_family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_family");
+        set => SetProperty("engine_family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The idle_client_timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? IdleClientTimeout
+    public TerraformProperty<double> IdleClientTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("idle_client_timeout");
-        set => this.WithProperty("idle_client_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("idle_client_timeout");
+        set => SetProperty("idle_client_timeout", value);
     }
 
     /// <summary>
@@ -167,26 +171,26 @@ public class AwsDbProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The require_tls attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireTls
+    public TerraformProperty<bool> RequireTls
     {
-        get => GetProperty<TerraformProperty<bool>>("require_tls");
-        set => this.WithProperty("require_tls", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_tls");
+        set => SetProperty("require_tls", value);
     }
 
     /// <summary>
@@ -195,45 +199,45 @@ public class AwsDbProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => this.WithProperty("vpc_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
+        set => SetProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
     /// The vpc_subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? VpcSubnetIds
+    public HashSet<TerraformProperty<string>> VpcSubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
-        set => this.WithProperty("vpc_subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
+        set => SetProperty("vpc_subnet_ids", value);
     }
 
     /// <summary>
@@ -242,8 +246,7 @@ public class AwsDbProxy : TerraformResource
     /// </summary>
     public HashSet<AwsDbProxyAuthBlock>? Auth
     {
-        get => GetProperty<HashSet<AwsDbProxyAuthBlock>>("auth");
-        set => this.WithProperty("auth", value);
+        set => SetProperty("auth", value);
     }
 
     /// <summary>
@@ -252,8 +255,7 @@ public class AwsDbProxy : TerraformResource
     /// </summary>
     public AwsDbProxyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDbProxyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

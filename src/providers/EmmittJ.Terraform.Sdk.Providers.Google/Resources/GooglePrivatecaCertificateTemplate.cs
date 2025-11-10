@@ -14,8 +14,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectAltNamesPassthrough is required")]
     public required TerraformProperty<bool> AllowSubjectAltNamesPassthrough
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("allow_subject_alt_names_passthrough");
-        set => WithProperty("allow_subject_alt_names_passthrough", value);
+        set => SetProperty("allow_subject_alt_names_passthrough", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectPassthrough is required")]
     public required TerraformProperty<bool> AllowSubjectPassthrough
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("allow_subject_passthrough");
-        set => WithProperty("allow_subject_passthrough", value);
+        set => SetProperty("allow_subject_passthrough", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock : Terr
     /// </summary>
     public List<TerraformProperty<string>>? KnownExtensions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("known_extensions");
-        set => WithProperty("known_extensions", value);
+        set => SetProperty("known_extensions", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlock : Terraform
     /// </summary>
     public List<TerraformProperty<string>>? AiaOcspServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("aia_ocsp_servers");
-        set => WithProperty("aia_ocsp_servers", value);
+        set => SetProperty("aia_ocsp_servers", value);
     }
 
 }
@@ -75,8 +71,7 @@ public class GooglePrivatecaCertificateTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -84,8 +79,7 @@ public class GooglePrivatecaCertificateTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class GooglePrivatecaCertificateTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -112,28 +105,35 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("maximum_lifetime");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Optional. A human-readable description of scenarios this template is intended for.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -142,10 +142,10 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -154,17 +154,17 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Optional. The maximum lifetime allowed for all issued certificates that use this template. If the issuing CaPool&#39;s IssuancePolicy specifies a maximum lifetime the minimum of the two durations will be the maximum lifetime for issued. Note that if the issuing CertificateAuthority expires before a Certificate&#39;s requested maximum_lifetime, the effective lifetime will be explicitly truncated to match it.
     /// </summary>
-    public TerraformProperty<string>? MaximumLifetime
+    public TerraformProperty<string> MaximumLifetime
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_lifetime");
-        set => this.WithProperty("maximum_lifetime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maximum_lifetime");
+        set => SetProperty("maximum_lifetime", value);
     }
 
     /// <summary>
@@ -173,17 +173,17 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -193,8 +193,7 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdentityConstraints block(s) allowed")]
     public List<GooglePrivatecaCertificateTemplateIdentityConstraintsBlock>? IdentityConstraints
     {
-        get => GetProperty<List<GooglePrivatecaCertificateTemplateIdentityConstraintsBlock>>("identity_constraints");
-        set => this.WithProperty("identity_constraints", value);
+        set => SetProperty("identity_constraints", value);
     }
 
     /// <summary>
@@ -204,8 +203,7 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PassthroughExtensions block(s) allowed")]
     public List<GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock>? PassthroughExtensions
     {
-        get => GetProperty<List<GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock>>("passthrough_extensions");
-        set => this.WithProperty("passthrough_extensions", value);
+        set => SetProperty("passthrough_extensions", value);
     }
 
     /// <summary>
@@ -215,8 +213,7 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredefinedValues block(s) allowed")]
     public List<GooglePrivatecaCertificateTemplatePredefinedValuesBlock>? PredefinedValues
     {
-        get => GetProperty<List<GooglePrivatecaCertificateTemplatePredefinedValuesBlock>>("predefined_values");
-        set => this.WithProperty("predefined_values", value);
+        set => SetProperty("predefined_values", value);
     }
 
     /// <summary>
@@ -225,8 +222,7 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     public GooglePrivatecaCertificateTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GooglePrivatecaCertificateTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

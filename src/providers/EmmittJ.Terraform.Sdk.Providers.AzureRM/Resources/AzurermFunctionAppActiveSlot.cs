@@ -13,8 +13,7 @@ public class AzurermFunctionAppActiveSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermFunctionAppActiveSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermFunctionAppActiveSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermFunctionAppActiveSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,28 @@ public class AzurermFunctionAppActiveSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("last_successful_swap");
+        SetOutput("last_successful_swap");
+        SetOutput("id");
+        SetOutput("overwrite_network_config");
+        SetOutput("slot_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The swap action should overwrite the Production slot&#39;s network configuration with the configuration from this slot. Defaults to `true`.
     /// </summary>
-    public TerraformProperty<bool>? OverwriteNetworkConfig
+    public TerraformProperty<bool> OverwriteNetworkConfig
     {
-        get => GetProperty<TerraformProperty<bool>>("overwrite_network_config");
-        set => this.WithProperty("overwrite_network_config", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("overwrite_network_config");
+        set => SetProperty("overwrite_network_config", value);
     }
 
     /// <summary>
@@ -85,8 +84,8 @@ public class AzurermFunctionAppActiveSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
     public required TerraformProperty<string> SlotId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("slot_id");
-        set => this.WithProperty("slot_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("slot_id");
+        set => SetProperty("slot_id", value);
     }
 
     /// <summary>
@@ -95,8 +94,7 @@ public class AzurermFunctionAppActiveSlot : TerraformResource
     /// </summary>
     public AzurermFunctionAppActiveSlotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFunctionAppActiveSlotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

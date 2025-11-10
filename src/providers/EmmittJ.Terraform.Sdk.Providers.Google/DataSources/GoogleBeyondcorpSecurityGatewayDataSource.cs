@@ -14,35 +14,38 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delegating_service_account");
-        this.WithOutput("display_name");
-        this.WithOutput("external_ips");
-        this.WithOutput("hubs");
-        this.WithOutput("location");
-        this.WithOutput("name");
-        this.WithOutput("proxy_protocol_config");
-        this.WithOutput("service_discovery");
-        this.WithOutput("state");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("delegating_service_account");
+        SetOutput("display_name");
+        SetOutput("external_ips");
+        SetOutput("hubs");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("proxy_protocol_config");
+        SetOutput("service_discovery");
+        SetOutput("state");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("security_gateway_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -54,8 +57,8 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformProperty<string> SecurityGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("security_gateway_id");
-        set => this.WithProperty("security_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_gateway_id");
+        set => SetProperty("security_gateway_id", value);
     }
 
     /// <summary>

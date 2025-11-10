@@ -13,8 +13,7 @@ public class AzurermCognitiveAccountRaiBlocklistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCognitiveAccountRaiBlocklistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCognitiveAccountRaiBlocklistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCognitiveAccountRaiBlocklistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzurermCognitiveAccountRaiBlocklist : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cognitive_account_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -66,26 +66,26 @@ public class AzurermCognitiveAccountRaiBlocklist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     public required TerraformProperty<string> CognitiveAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_account_id");
-        set => this.WithProperty("cognitive_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_account_id");
+        set => SetProperty("cognitive_account_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class AzurermCognitiveAccountRaiBlocklist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,8 +104,7 @@ public class AzurermCognitiveAccountRaiBlocklist : TerraformResource
     /// </summary>
     public AzurermCognitiveAccountRaiBlocklistTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCognitiveAccountRaiBlocklistTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

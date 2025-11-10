@@ -24,62 +24,68 @@ public class AwsGuarddutyDetector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_id");
-        this.WithOutput("arn");
+        SetOutput("account_id");
+        SetOutput("arn");
+        SetOutput("enable");
+        SetOutput("finding_publishing_frequency");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The enable attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enable
+    public TerraformProperty<bool> Enable
     {
-        get => GetProperty<TerraformProperty<bool>>("enable");
-        set => this.WithProperty("enable", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable");
+        set => SetProperty("enable", value);
     }
 
     /// <summary>
     /// The finding_publishing_frequency attribute.
     /// </summary>
-    public TerraformProperty<string>? FindingPublishingFrequency
+    public TerraformProperty<string> FindingPublishingFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("finding_publishing_frequency");
-        set => this.WithProperty("finding_publishing_frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("finding_publishing_frequency");
+        set => SetProperty("finding_publishing_frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -90,8 +96,7 @@ public class AwsGuarddutyDetector : TerraformResource
     [Obsolete("This block is deprecated.")]
     public List<AwsGuarddutyDetectorDatasourcesBlock>? Datasources
     {
-        get => GetProperty<List<AwsGuarddutyDetectorDatasourcesBlock>>("datasources");
-        set => this.WithProperty("datasources", value);
+        set => SetProperty("datasources", value);
     }
 
     /// <summary>

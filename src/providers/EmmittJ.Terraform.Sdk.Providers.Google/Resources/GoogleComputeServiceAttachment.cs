@@ -15,8 +15,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionLimit is required")]
     public required TerraformProperty<double> ConnectionLimit
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("connection_limit");
-        set => WithProperty("connection_limit", value);
+        set => SetProperty("connection_limit", value);
     }
 
     /// <summary>
@@ -25,8 +24,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? NetworkUrl
     {
-        get => GetProperty<TerraformProperty<string>>("network_url");
-        set => WithProperty("network_url", value);
+        set => SetProperty("network_url", value);
     }
 
     /// <summary>
@@ -35,8 +33,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? ProjectIdOrNum
     {
-        get => GetProperty<TerraformProperty<string>>("project_id_or_num");
-        set => WithProperty("project_id_or_num", value);
+        set => SetProperty("project_id_or_num", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class GoogleComputeServiceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class GoogleComputeServiceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class GoogleComputeServiceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -88,10 +82,24 @@ public class GoogleComputeServiceAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connected_endpoints");
-        this.WithOutput("fingerprint");
-        this.WithOutput("psc_service_attachment_id");
-        this.WithOutput("self_link");
+        SetOutput("connected_endpoints");
+        SetOutput("fingerprint");
+        SetOutput("psc_service_attachment_id");
+        SetOutput("self_link");
+        SetOutput("connection_preference");
+        SetOutput("consumer_reject_lists");
+        SetOutput("description");
+        SetOutput("domain_names");
+        SetOutput("enable_proxy_protocol");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("nat_subnets");
+        SetOutput("project");
+        SetOutput("propagated_connection_limit");
+        SetOutput("reconcile_connections");
+        SetOutput("region");
+        SetOutput("send_propagated_connection_limit_if_zero");
+        SetOutput("target_service");
     }
 
     /// <summary>
@@ -101,27 +109,27 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     public required TerraformProperty<string> ConnectionPreference
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_preference");
-        set => this.WithProperty("connection_preference", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_preference");
+        set => SetProperty("connection_preference", value);
     }
 
     /// <summary>
     /// An array of projects that are not allowed to connect to this service
     /// attachment.
     /// </summary>
-    public List<TerraformProperty<string>>? ConsumerRejectLists
+    public List<TerraformProperty<string>> ConsumerRejectLists
     {
-        get => GetProperty<List<TerraformProperty<string>>>("consumer_reject_lists");
-        set => this.WithProperty("consumer_reject_lists", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("consumer_reject_lists");
+        set => SetProperty("consumer_reject_lists", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -130,10 +138,10 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// valid domain name: &amp;quot;p.mycompany.com.&amp;quot;. Current max number of domain names
     /// supported is 1.
     /// </summary>
-    public List<TerraformProperty<string>>? DomainNames
+    public List<TerraformProperty<string>> DomainNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("domain_names");
-        set => this.WithProperty("domain_names", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("domain_names");
+        set => SetProperty("domain_names", value);
     }
 
     /// <summary>
@@ -144,17 +152,17 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableProxyProtocol is required")]
     public required TerraformProperty<bool> EnableProxyProtocol
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enable_proxy_protocol");
-        set => this.WithProperty("enable_proxy_protocol", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_proxy_protocol");
+        set => SetProperty("enable_proxy_protocol", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -168,27 +176,27 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// An array of subnets that is provided for NAT in this service attachment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatSubnets is required")]
-    public List<TerraformProperty<string>>? NatSubnets
+    public List<TerraformProperty<string>> NatSubnets
     {
-        get => GetProperty<List<TerraformProperty<string>>>("nat_subnets");
-        set => this.WithProperty("nat_subnets", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("nat_subnets");
+        set => SetProperty("nat_subnets", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -200,10 +208,10 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// 
     /// If unspecified, the default propagated connection limit is 250. To explicitly send a zero value, set &#39;send_propagated_connection_limit_if_zero = true&#39;.
     /// </summary>
-    public TerraformProperty<double>? PropagatedConnectionLimit
+    public TerraformProperty<double> PropagatedConnectionLimit
     {
-        get => GetProperty<TerraformProperty<double>>("propagated_connection_limit");
-        set => this.WithProperty("propagated_connection_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("propagated_connection_limit");
+        set => SetProperty("propagated_connection_limit", value);
     }
 
     /// <summary>
@@ -212,19 +220,19 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// If false, connection policy update will only affect existing PENDING PSC endpoints. Existing ACCEPTED/REJECTED endpoints will remain untouched regardless how the connection policy is modified .
     /// If true, update will affect both PENDING and ACCEPTED/REJECTED PSC endpoints. For example, an ACCEPTED PSC endpoint will be moved to REJECTED if its project is added to the reject list.
     /// </summary>
-    public TerraformProperty<bool>? ReconcileConnections
+    public TerraformProperty<bool> ReconcileConnections
     {
-        get => GetProperty<TerraformProperty<bool>>("reconcile_connections");
-        set => this.WithProperty("reconcile_connections", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("reconcile_connections");
+        set => SetProperty("reconcile_connections", value);
     }
 
     /// <summary>
     /// URL of the region where the resource resides.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -233,10 +241,10 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// When true, the provider will set propagated_connection_limit to zero.
     /// Defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? SendPropagatedConnectionLimitIfZero
+    public TerraformProperty<bool> SendPropagatedConnectionLimitIfZero
     {
-        get => GetProperty<TerraformProperty<bool>>("send_propagated_connection_limit_if_zero");
-        set => this.WithProperty("send_propagated_connection_limit_if_zero", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("send_propagated_connection_limit_if_zero");
+        set => SetProperty("send_propagated_connection_limit_if_zero", value);
     }
 
     /// <summary>
@@ -245,8 +253,8 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetService is required")]
     public required TerraformProperty<string> TargetService
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_service");
-        set => this.WithProperty("target_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_service");
+        set => SetProperty("target_service", value);
     }
 
     /// <summary>
@@ -255,8 +263,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeServiceAttachmentConsumerAcceptListsBlock>? ConsumerAcceptLists
     {
-        get => GetProperty<HashSet<GoogleComputeServiceAttachmentConsumerAcceptListsBlock>>("consumer_accept_lists");
-        set => this.WithProperty("consumer_accept_lists", value);
+        set => SetProperty("consumer_accept_lists", value);
     }
 
     /// <summary>
@@ -265,8 +272,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     public GoogleComputeServiceAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeServiceAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

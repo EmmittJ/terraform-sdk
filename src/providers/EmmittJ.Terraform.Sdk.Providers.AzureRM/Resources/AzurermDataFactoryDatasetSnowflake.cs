@@ -14,8 +14,7 @@ public class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? Precision
     {
-        get => GetProperty<TerraformProperty<double>>("precision");
-        set => WithProperty("precision", value);
+        set => SetProperty("precision", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? Scale
     {
-        get => GetProperty<TerraformProperty<double>>("scale");
-        set => WithProperty("scale", value);
+        set => SetProperty("scale", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermDataFactoryDatasetSnowflakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermDataFactoryDatasetSnowflakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermDataFactoryDatasetSnowflakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermDataFactoryDatasetSnowflakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -103,24 +95,35 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("additional_properties");
+        SetOutput("annotations");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("linked_service_name");
+        SetOutput("name");
+        SetOutput("parameters");
+        SetOutput("schema_name");
+        SetOutput("table_name");
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => this.WithProperty("additional_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Annotations
+    public List<TerraformProperty<string>> Annotations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -129,35 +132,35 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    public TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -166,8 +169,8 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
-        set => this.WithProperty("linked_service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("linked_service_name");
+        set => SetProperty("linked_service_name", value);
     }
 
     /// <summary>
@@ -176,35 +179,35 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// The schema_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SchemaName
+    public TerraformProperty<string> SchemaName
     {
-        get => GetProperty<TerraformProperty<string>>("schema_name");
-        set => this.WithProperty("schema_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema_name");
+        set => SetProperty("schema_name", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    public TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
@@ -213,8 +216,7 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     /// </summary>
     public List<AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock>? SchemaColumn
     {
-        get => GetProperty<List<AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock>>("schema_column");
-        set => this.WithProperty("schema_column", value);
+        set => SetProperty("schema_column", value);
     }
 
     /// <summary>
@@ -223,8 +225,7 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     /// </summary>
     public AzurermDataFactoryDatasetSnowflakeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryDatasetSnowflakeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

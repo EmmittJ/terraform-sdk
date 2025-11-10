@@ -21,8 +21,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AccessTokens
     {
-        get => GetProperty<List<TerraformProperty<string>>>("access_tokens");
-        set => WithProperty("access_tokens", value);
+        set => SetProperty("access_tokens", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ApiKeys
     {
-        get => GetProperty<List<TerraformProperty<string>>>("api_keys");
-        set => WithProperty("api_keys", value);
+        set => SetProperty("api_keys", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ApiProducts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("api_products");
-        set => WithProperty("api_products", value);
+        set => SetProperty("api_products", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Asns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("asns");
-        set => WithProperty("asns", value);
+        set => SetProperty("asns", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? BotReasons
     {
-        get => GetProperty<List<TerraformProperty<string>>>("bot_reasons");
-        set => WithProperty("bot_reasons", value);
+        set => SetProperty("bot_reasons", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DeveloperApps
     {
-        get => GetProperty<List<TerraformProperty<string>>>("developer_apps");
-        set => WithProperty("developer_apps", value);
+        set => SetProperty("developer_apps", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Developers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("developers");
-        set => WithProperty("developers", value);
+        set => SetProperty("developers", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? HttpMethods
     {
-        get => GetProperty<List<TerraformProperty<string>>>("http_methods");
-        set => WithProperty("http_methods", value);
+        set => SetProperty("http_methods", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? IpAddressRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ip_address_ranges");
-        set => WithProperty("ip_address_ranges", value);
+        set => SetProperty("ip_address_ranges", value);
     }
 
     /// <summary>
@@ -106,8 +97,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? RegionCodes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("region_codes");
-        set => WithProperty("region_codes", value);
+        set => SetProperty("region_codes", value);
     }
 
     /// <summary>
@@ -115,8 +105,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? UserAgents
     {
-        get => GetProperty<List<TerraformProperty<string>>>("user_agents");
-        set => WithProperty("user_agents", value);
+        set => SetProperty("user_agents", value);
     }
 
 }
@@ -132,8 +121,7 @@ public class GoogleApigeeSecurityActionDenyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ResponseCode
     {
-        get => GetProperty<TerraformProperty<double>>("response_code");
-        set => WithProperty("response_code", value);
+        set => SetProperty("response_code", value);
     }
 
 }
@@ -157,8 +145,7 @@ public class GoogleApigeeSecurityActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -166,8 +153,7 @@ public class GoogleApigeeSecurityActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -185,8 +171,17 @@ public class GoogleApigeeSecurityAction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("update_time");
+        SetOutput("api_proxies");
+        SetOutput("description");
+        SetOutput("env_id");
+        SetOutput("expire_time");
+        SetOutput("id");
+        SetOutput("org_id");
+        SetOutput("security_action_id");
+        SetOutput("state");
+        SetOutput("ttl");
     }
 
     /// <summary>
@@ -196,19 +191,19 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// There can be at most 100 enabled actions with proxies set in an env.
     /// Several other restrictions apply on conditions and are detailed later.
     /// </summary>
-    public List<TerraformProperty<string>>? ApiProxies
+    public List<TerraformProperty<string>> ApiProxies
     {
-        get => GetProperty<List<TerraformProperty<string>>>("api_proxies");
-        set => this.WithProperty("api_proxies", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("api_proxies");
+        set => SetProperty("api_proxies", value);
     }
 
     /// <summary>
     /// An optional user provided description of the SecurityAction.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -217,8 +212,8 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
-        set => this.WithProperty("env_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
+        set => SetProperty("env_id", value);
     }
 
     /// <summary>
@@ -227,19 +222,19 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// fractional digits. Offsets other than &amp;quot;Z&amp;quot; are also accepted.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? ExpireTime
+    public TerraformProperty<string> ExpireTime
     {
-        get => GetProperty<TerraformProperty<string>>("expire_time");
-        set => this.WithProperty("expire_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expire_time");
+        set => SetProperty("expire_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -248,8 +243,8 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -259,8 +254,8 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityActionId is required")]
     public required TerraformProperty<string> SecurityActionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("security_action_id");
-        set => this.WithProperty("security_action_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_action_id");
+        set => SetProperty("security_action_id", value);
     }
 
     /// <summary>
@@ -269,18 +264,18 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The TTL for this SecurityAction.
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Ttl
+    public TerraformProperty<string> Ttl
     {
-        get => GetProperty<TerraformProperty<string>>("ttl");
-        set => this.WithProperty("ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ttl");
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>
@@ -290,20 +285,19 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Allow block(s) allowed")]
     public List<GoogleApigeeSecurityActionAllowBlock>? Allow
     {
-        get => GetProperty<List<GoogleApigeeSecurityActionAllowBlock>>("allow");
-        set => this.WithProperty("allow", value);
+        set => SetProperty("allow", value);
     }
 
     /// <summary>
     /// Block for condition_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConditionConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConditionConfig block(s) allowed")]
     public List<GoogleApigeeSecurityActionConditionConfigBlock>? ConditionConfig
     {
-        get => GetProperty<List<GoogleApigeeSecurityActionConditionConfigBlock>>("condition_config");
-        set => this.WithProperty("condition_config", value);
+        set => SetProperty("condition_config", value);
     }
 
     /// <summary>
@@ -313,8 +307,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deny block(s) allowed")]
     public List<GoogleApigeeSecurityActionDenyBlock>? Deny
     {
-        get => GetProperty<List<GoogleApigeeSecurityActionDenyBlock>>("deny");
-        set => this.WithProperty("deny", value);
+        set => SetProperty("deny", value);
     }
 
     /// <summary>
@@ -324,8 +317,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Flag block(s) allowed")]
     public List<GoogleApigeeSecurityActionFlagBlock>? Flag
     {
-        get => GetProperty<List<GoogleApigeeSecurityActionFlagBlock>>("flag");
-        set => this.WithProperty("flag", value);
+        set => SetProperty("flag", value);
     }
 
     /// <summary>
@@ -334,8 +326,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// </summary>
     public GoogleApigeeSecurityActionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeSecurityActionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

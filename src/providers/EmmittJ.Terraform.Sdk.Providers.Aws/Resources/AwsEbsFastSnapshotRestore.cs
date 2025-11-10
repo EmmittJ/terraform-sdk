@@ -13,8 +13,7 @@ public class AwsEbsFastSnapshotRestoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEbsFastSnapshotRestoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,8 +38,11 @@ public class AwsEbsFastSnapshotRestore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("state");
+        SetOutput("id");
+        SetOutput("state");
+        SetOutput("availability_zone");
+        SetOutput("region");
+        SetOutput("snapshot_id");
     }
 
     /// <summary>
@@ -50,17 +51,17 @@ public class AwsEbsFastSnapshotRestore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformProperty<string> AvailabilityZone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone");
-        set => this.WithProperty("availability_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,8 +70,8 @@ public class AwsEbsFastSnapshotRestore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotId is required")]
     public required TerraformProperty<string> SnapshotId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_id");
-        set => this.WithProperty("snapshot_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_id");
+        set => SetProperty("snapshot_id", value);
     }
 
     /// <summary>
@@ -79,8 +80,7 @@ public class AwsEbsFastSnapshotRestore : TerraformResource
     /// </summary>
     public AwsEbsFastSnapshotRestoreTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEbsFastSnapshotRestoreTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

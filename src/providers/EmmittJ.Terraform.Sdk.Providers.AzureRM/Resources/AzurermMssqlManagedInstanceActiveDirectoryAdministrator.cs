@@ -13,8 +13,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,30 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
 
     private void InitializeOutputs()
     {
+        SetOutput("azuread_authentication_only");
+        SetOutput("id");
+        SetOutput("login_username");
+        SetOutput("managed_instance_id");
+        SetOutput("object_id");
+        SetOutput("tenant_id");
     }
 
     /// <summary>
     /// The azuread_authentication_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? AzureadAuthenticationOnly
+    public TerraformProperty<bool> AzureadAuthenticationOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("azuread_authentication_only");
-        set => this.WithProperty("azuread_authentication_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("azuread_authentication_only");
+        set => SetProperty("azuread_authentication_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +86,8 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
     public required TerraformProperty<string> LoginUsername
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("login_username");
-        set => this.WithProperty("login_username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("login_username");
+        set => SetProperty("login_username", value);
     }
 
     /// <summary>
@@ -94,8 +96,8 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
-        set => this.WithProperty("managed_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_instance_id");
+        set => SetProperty("managed_instance_id", value);
     }
 
     /// <summary>
@@ -104,8 +106,8 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
-        set => this.WithProperty("object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
-        set => this.WithProperty("tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     /// </summary>
     public AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

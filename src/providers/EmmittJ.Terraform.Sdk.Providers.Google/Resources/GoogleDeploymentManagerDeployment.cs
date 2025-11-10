@@ -13,8 +13,7 @@ public class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -47,8 +45,7 @@ public class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -56,8 +53,7 @@ public class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -84,9 +79,16 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("deployment_id");
-        this.WithOutput("manifest");
-        this.WithOutput("self_link");
+        SetOutput("deployment_id");
+        SetOutput("manifest");
+        SetOutput("self_link");
+        SetOutput("create_policy");
+        SetOutput("delete_policy");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("preview");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -96,10 +98,10 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// the deployment will fail. Note that updating this field does not
     /// actually affect the deployment, just how it is updated. Default value: &amp;quot;CREATE_OR_ACQUIRE&amp;quot; Possible values: [&amp;quot;ACQUIRE&amp;quot;, &amp;quot;CREATE_OR_ACQUIRE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? CreatePolicy
+    public TerraformProperty<string> CreatePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("create_policy");
-        set => this.WithProperty("create_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_policy");
+        set => SetProperty("create_policy", value);
     }
 
     /// <summary>
@@ -110,28 +112,28 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// and is not actually deleted. Note that updating this field does not
     /// actually change the deployment, just how it is updated. Default value: &amp;quot;DELETE&amp;quot; Possible values: [&amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DeletePolicy
+    public TerraformProperty<string> DeletePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("delete_policy");
-        set => this.WithProperty("delete_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delete_policy");
+        set => SetProperty("delete_policy", value);
     }
 
     /// <summary>
     /// Optional user-provided description of deployment.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -140,8 +142,8 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -154,19 +156,19 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// Terraform will force-recreate deployments if either preview is updated
     /// to true or if other fields are updated while preview is true.
     /// </summary>
-    public TerraformProperty<bool>? Preview
+    public TerraformProperty<bool> Preview
     {
-        get => GetProperty<TerraformProperty<bool>>("preview");
-        set => this.WithProperty("preview", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("preview");
+        set => SetProperty("preview", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -175,20 +177,19 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// </summary>
     public HashSet<GoogleDeploymentManagerDeploymentLabelsBlock>? Labels
     {
-        get => GetProperty<HashSet<GoogleDeploymentManagerDeploymentLabelsBlock>>("labels");
-        set => this.WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// Block for target.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     public List<GoogleDeploymentManagerDeploymentTargetBlock>? Target
     {
-        get => GetProperty<List<GoogleDeploymentManagerDeploymentTargetBlock>>("target");
-        set => this.WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -197,8 +198,7 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// </summary>
     public GoogleDeploymentManagerDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDeploymentManagerDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

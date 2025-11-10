@@ -13,8 +13,7 @@ public class AwsConnectInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsConnectInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,64 +38,78 @@ public class AwsConnectInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_time");
-        this.WithOutput("service_role");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("created_time");
+        SetOutput("service_role");
+        SetOutput("status");
+        SetOutput("auto_resolve_best_voices_enabled");
+        SetOutput("contact_flow_logs_enabled");
+        SetOutput("contact_lens_enabled");
+        SetOutput("directory_id");
+        SetOutput("early_media_enabled");
+        SetOutput("id");
+        SetOutput("identity_management_type");
+        SetOutput("inbound_calls_enabled");
+        SetOutput("instance_alias");
+        SetOutput("multi_party_conference_enabled");
+        SetOutput("outbound_calls_enabled");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The auto_resolve_best_voices_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoResolveBestVoicesEnabled
+    public TerraformProperty<bool> AutoResolveBestVoicesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_resolve_best_voices_enabled");
-        set => this.WithProperty("auto_resolve_best_voices_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_resolve_best_voices_enabled");
+        set => SetProperty("auto_resolve_best_voices_enabled", value);
     }
 
     /// <summary>
     /// The contact_flow_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ContactFlowLogsEnabled
+    public TerraformProperty<bool> ContactFlowLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("contact_flow_logs_enabled");
-        set => this.WithProperty("contact_flow_logs_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("contact_flow_logs_enabled");
+        set => SetProperty("contact_flow_logs_enabled", value);
     }
 
     /// <summary>
     /// The contact_lens_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ContactLensEnabled
+    public TerraformProperty<bool> ContactLensEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("contact_lens_enabled");
-        set => this.WithProperty("contact_lens_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("contact_lens_enabled");
+        set => SetProperty("contact_lens_enabled", value);
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DirectoryId
+    public TerraformProperty<string> DirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_id");
-        set => this.WithProperty("directory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
+        set => SetProperty("directory_id", value);
     }
 
     /// <summary>
     /// The early_media_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EarlyMediaEnabled
+    public TerraformProperty<bool> EarlyMediaEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("early_media_enabled");
-        set => this.WithProperty("early_media_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("early_media_enabled");
+        set => SetProperty("early_media_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -106,8 +118,8 @@ public class AwsConnectInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityManagementType is required")]
     public required TerraformProperty<string> IdentityManagementType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_management_type");
-        set => this.WithProperty("identity_management_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_management_type");
+        set => SetProperty("identity_management_type", value);
     }
 
     /// <summary>
@@ -116,26 +128,26 @@ public class AwsConnectInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InboundCallsEnabled is required")]
     public required TerraformProperty<bool> InboundCallsEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("inbound_calls_enabled");
-        set => this.WithProperty("inbound_calls_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("inbound_calls_enabled");
+        set => SetProperty("inbound_calls_enabled", value);
     }
 
     /// <summary>
     /// The instance_alias attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceAlias
+    public TerraformProperty<string> InstanceAlias
     {
-        get => GetProperty<TerraformProperty<string>>("instance_alias");
-        set => this.WithProperty("instance_alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_alias");
+        set => SetProperty("instance_alias", value);
     }
 
     /// <summary>
     /// The multi_party_conference_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MultiPartyConferenceEnabled
+    public TerraformProperty<bool> MultiPartyConferenceEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("multi_party_conference_enabled");
-        set => this.WithProperty("multi_party_conference_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multi_party_conference_enabled");
+        set => SetProperty("multi_party_conference_enabled", value);
     }
 
     /// <summary>
@@ -144,35 +156,35 @@ public class AwsConnectInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutboundCallsEnabled is required")]
     public required TerraformProperty<bool> OutboundCallsEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("outbound_calls_enabled");
-        set => this.WithProperty("outbound_calls_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("outbound_calls_enabled");
+        set => SetProperty("outbound_calls_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -181,8 +193,7 @@ public class AwsConnectInstance : TerraformResource
     /// </summary>
     public AwsConnectInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsConnectInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleManagedKafkaTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleManagedKafkaTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleManagedKafkaTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,15 @@ public class GoogleManagedKafkaTopic : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("cluster");
+        SetOutput("configs");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("partition_count");
+        SetOutput("project");
+        SetOutput("replication_factor");
+        SetOutput("topic_id");
     }
 
     /// <summary>
@@ -58,26 +63,26 @@ public class GoogleManagedKafkaTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// Configuration for the topic that are overridden from the cluster defaults. The key of the map is a Kafka topic property name, for example: &#39;cleanup.policy=compact&#39;, &#39;compression.type=producer&#39;.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Configs
+    public Dictionary<string, TerraformProperty<string>> Configs
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("configs");
-        set => this.WithProperty("configs", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("configs");
+        set => SetProperty("configs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,26 +91,26 @@ public class GoogleManagedKafkaTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The number of partitions in a topic. You can increase the partition count for a topic, but you cannot decrease it. Increasing partitions for a topic that uses a key might change how messages are distributed.
     /// </summary>
-    public TerraformProperty<double>? PartitionCount
+    public TerraformProperty<double> PartitionCount
     {
-        get => GetProperty<TerraformProperty<double>>("partition_count");
-        set => this.WithProperty("partition_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("partition_count");
+        set => SetProperty("partition_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -114,8 +119,8 @@ public class GoogleManagedKafkaTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
     public required TerraformProperty<double> ReplicationFactor
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("replication_factor");
-        set => this.WithProperty("replication_factor", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("replication_factor");
+        set => SetProperty("replication_factor", value);
     }
 
     /// <summary>
@@ -124,8 +129,8 @@ public class GoogleManagedKafkaTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
     public required TerraformProperty<string> TopicId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic_id");
-        set => this.WithProperty("topic_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("topic_id");
+        set => SetProperty("topic_id", value);
     }
 
     /// <summary>
@@ -134,8 +139,7 @@ public class GoogleManagedKafkaTopic : TerraformResource
     /// </summary>
     public GoogleManagedKafkaTopicTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleManagedKafkaTopicTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

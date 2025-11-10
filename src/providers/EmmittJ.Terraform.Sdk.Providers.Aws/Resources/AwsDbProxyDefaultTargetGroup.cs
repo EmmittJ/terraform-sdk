@@ -13,8 +13,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? ConnectionBorrowTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("connection_borrow_timeout");
-        set => WithProperty("connection_borrow_timeout", value);
+        set => SetProperty("connection_borrow_timeout", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? InitQuery
     {
-        get => GetProperty<TerraformProperty<string>>("init_query");
-        set => WithProperty("init_query", value);
+        set => SetProperty("init_query", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? MaxConnectionsPercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_connections_percent");
-        set => WithProperty("max_connections_percent", value);
+        set => SetProperty("max_connections_percent", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? MaxIdleConnectionsPercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_idle_connections_percent");
-        set => WithProperty("max_idle_connections_percent", value);
+        set => SetProperty("max_idle_connections_percent", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? SessionPinningFilters
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("session_pinning_filters");
-        set => WithProperty("session_pinning_filters", value);
+        set => SetProperty("session_pinning_filters", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AwsDbProxyDefaultTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsDbProxyDefaultTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,8 +87,11 @@ public class AwsDbProxyDefaultTargetGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("name");
+        SetOutput("arn");
+        SetOutput("name");
+        SetOutput("db_proxy_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -104,26 +100,26 @@ public class AwsDbProxyDefaultTargetGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
     public required TerraformProperty<string> DbProxyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_proxy_name");
-        set => this.WithProperty("db_proxy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_proxy_name");
+        set => SetProperty("db_proxy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -133,8 +129,7 @@ public class AwsDbProxyDefaultTargetGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionPoolConfig block(s) allowed")]
     public List<AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock>? ConnectionPoolConfig
     {
-        get => GetProperty<List<AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock>>("connection_pool_config");
-        set => this.WithProperty("connection_pool_config", value);
+        set => SetProperty("connection_pool_config", value);
     }
 
     /// <summary>
@@ -143,8 +138,7 @@ public class AwsDbProxyDefaultTargetGroup : TerraformResource
     /// </summary>
     public AwsDbProxyDefaultTargetGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDbProxyDefaultTargetGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

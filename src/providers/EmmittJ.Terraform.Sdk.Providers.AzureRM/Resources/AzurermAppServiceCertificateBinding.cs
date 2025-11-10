@@ -13,8 +13,7 @@ public class AzurermAppServiceCertificateBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAppServiceCertificateBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAppServiceCertificateBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,9 +46,13 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_service_name");
-        this.WithOutput("hostname");
-        this.WithOutput("thumbprint");
+        SetOutput("app_service_name");
+        SetOutput("hostname");
+        SetOutput("thumbprint");
+        SetOutput("certificate_id");
+        SetOutput("hostname_binding_id");
+        SetOutput("id");
+        SetOutput("ssl_state");
     }
 
     /// <summary>
@@ -60,8 +61,8 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     public required TerraformProperty<string> CertificateId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_id");
-        set => this.WithProperty("certificate_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_id");
+        set => SetProperty("certificate_id", value);
     }
 
     /// <summary>
@@ -70,17 +71,17 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnameBindingId is required")]
     public required TerraformProperty<string> HostnameBindingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hostname_binding_id");
-        set => this.WithProperty("hostname_binding_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hostname_binding_id");
+        set => SetProperty("hostname_binding_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -89,8 +90,8 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslState is required")]
     public required TerraformProperty<string> SslState
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ssl_state");
-        set => this.WithProperty("ssl_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ssl_state");
+        set => SetProperty("ssl_state", value);
     }
 
     /// <summary>
@@ -99,8 +100,7 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     /// </summary>
     public AzurermAppServiceCertificateBindingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceCertificateBindingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

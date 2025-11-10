@@ -14,8 +14,7 @@ public class AwsOpensearchPackagePackageSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
-        set => WithProperty("s3_bucket_name", value);
+        set => SetProperty("s3_bucket_name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsOpensearchPackagePackageSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
     public required TerraformProperty<string> S3Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_key");
-        set => WithProperty("s3_key", value);
+        set => SetProperty("s3_key", value);
     }
 
 }
@@ -43,35 +41,41 @@ public class AwsOpensearchPackage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("available_package_version");
-        this.WithOutput("package_id");
+        SetOutput("available_package_version");
+        SetOutput("package_id");
+        SetOutput("engine_version");
+        SetOutput("id");
+        SetOutput("package_description");
+        SetOutput("package_name");
+        SetOutput("package_type");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The package_description attribute.
     /// </summary>
-    public TerraformProperty<string>? PackageDescription
+    public TerraformProperty<string> PackageDescription
     {
-        get => GetProperty<TerraformProperty<string>>("package_description");
-        set => this.WithProperty("package_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("package_description");
+        set => SetProperty("package_description", value);
     }
 
     /// <summary>
@@ -80,8 +84,8 @@ public class AwsOpensearchPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     public required TerraformProperty<string> PackageName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("package_name");
-        set => this.WithProperty("package_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("package_name");
+        set => SetProperty("package_name", value);
     }
 
     /// <summary>
@@ -90,29 +94,29 @@ public class AwsOpensearchPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageType is required")]
     public required TerraformProperty<string> PackageType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("package_type");
-        set => this.WithProperty("package_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("package_type");
+        set => SetProperty("package_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for package_source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageSource is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PackageSource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PackageSource block(s) allowed")]
     public List<AwsOpensearchPackagePackageSourceBlock>? PackageSource
     {
-        get => GetProperty<List<AwsOpensearchPackagePackageSourceBlock>>("package_source");
-        set => this.WithProperty("package_source", value);
+        set => SetProperty("package_source", value);
     }
 
     /// <summary>

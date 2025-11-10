@@ -14,8 +14,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination");
-        set => WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     public required TerraformProperty<string> DestinationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_type");
-        set => WithProperty("destination_type", value);
+        set => SetProperty("destination_type", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     public required TerraformProperty<string> LogFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_format");
-        set => WithProperty("log_format", value);
+        set => SetProperty("log_format", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformProperty<string> LogType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_type");
-        set => WithProperty("log_type", value);
+        set => SetProperty("log_type", value);
     }
 
 }
@@ -61,8 +57,7 @@ public class AwsElasticacheClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class AwsElasticacheClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AwsElasticacheClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -98,47 +91,78 @@ public class AwsElasticacheCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputache_nodes");
-        this.WithOutputluster_address");
-        this.WithOutputonfiguration_endpoint");
-        this.WithOutputngine_version_actual");
+        SetOutput("arn");
+        SetOutput("cache_nodes");
+        SetOutput("cluster_address");
+        SetOutput("configuration_endpoint");
+        SetOutput("engine_version_actual");
+        SetOutput("apply_immediately");
+        SetOutput("auto_minor_version_upgrade");
+        SetOutput("availability_zone");
+        SetOutput("az_mode");
+        SetOutput("cluster_id");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("final_snapshot_identifier");
+        SetOutput("id");
+        SetOutput("ip_discovery");
+        SetOutput("maintenance_window");
+        SetOutput("network_type");
+        SetOutput("node_type");
+        SetOutput("notification_topic_arn");
+        SetOutput("num_cache_nodes");
+        SetOutput("outpost_mode");
+        SetOutput("parameter_group_name");
+        SetOutput("port");
+        SetOutput("preferred_availability_zones");
+        SetOutput("preferred_outpost_arn");
+        SetOutput("region");
+        SetOutput("replication_group_id");
+        SetOutput("security_group_ids");
+        SetOutput("snapshot_arns");
+        SetOutput("snapshot_name");
+        SetOutput("snapshot_retention_limit");
+        SetOutput("snapshot_window");
+        SetOutput("subnet_group_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("transit_encryption_enabled");
     }
 
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplyImmediately
+    public TerraformProperty<bool> ApplyImmediately
     {
-        get => GetProperty<TerraformProperty<bool>>("apply_immediately");
-        set => this.WithProperty("apply_immediately", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("apply_immediately");
+        set => SetProperty("apply_immediately", value);
     }
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoMinorVersionUpgrade
+    public TerraformProperty<string> AutoMinorVersionUpgrade
     {
-        get => GetProperty<TerraformProperty<string>>("auto_minor_version_upgrade");
-        set => this.WithProperty("auto_minor_version_upgrade", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_minor_version_upgrade");
+        set => SetProperty("auto_minor_version_upgrade", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZone
+    public TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
-        set => this.WithProperty("availability_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The az_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AzMode
+    public TerraformProperty<string> AzMode
     {
-        get => GetProperty<TerraformProperty<string>>("az_mode");
-        set => this.WithProperty("az_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("az_mode");
+        set => SetProperty("az_mode", value);
     }
 
     /// <summary>
@@ -147,242 +171,242 @@ public class AwsElasticacheCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    public TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
     /// The final_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? FinalSnapshotIdentifier
+    public TerraformProperty<string> FinalSnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("final_snapshot_identifier");
-        set => this.WithProperty("final_snapshot_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("final_snapshot_identifier");
+        set => SetProperty("final_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_discovery attribute.
     /// </summary>
-    public TerraformProperty<string>? IpDiscovery
+    public TerraformProperty<string> IpDiscovery
     {
-        get => GetProperty<TerraformProperty<string>>("ip_discovery");
-        set => this.WithProperty("ip_discovery", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_discovery");
+        set => SetProperty("ip_discovery", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string>? MaintenanceWindow
+    public TerraformProperty<string> MaintenanceWindow
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_window");
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkType
+    public TerraformProperty<string> NetworkType
     {
-        get => GetProperty<TerraformProperty<string>>("network_type");
-        set => this.WithProperty("network_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_type");
+        set => SetProperty("network_type", value);
     }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeType
+    public TerraformProperty<string> NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
-        set => this.WithProperty("node_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
+        set => SetProperty("node_type", value);
     }
 
     /// <summary>
     /// The notification_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationTopicArn
+    public TerraformProperty<string> NotificationTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("notification_topic_arn");
-        set => this.WithProperty("notification_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_topic_arn");
+        set => SetProperty("notification_topic_arn", value);
     }
 
     /// <summary>
     /// The num_cache_nodes attribute.
     /// </summary>
-    public TerraformProperty<double>? NumCacheNodes
+    public TerraformProperty<double> NumCacheNodes
     {
-        get => GetProperty<TerraformProperty<double>>("num_cache_nodes");
-        set => this.WithProperty("num_cache_nodes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("num_cache_nodes");
+        set => SetProperty("num_cache_nodes", value);
     }
 
     /// <summary>
     /// The outpost_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? OutpostMode
+    public TerraformProperty<string> OutpostMode
     {
-        get => GetProperty<TerraformProperty<string>>("outpost_mode");
-        set => this.WithProperty("outpost_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("outpost_mode");
+        set => SetProperty("outpost_mode", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ParameterGroupName
+    public TerraformProperty<string> ParameterGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_group_name");
-        set => this.WithProperty("parameter_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_group_name");
+        set => SetProperty("parameter_group_name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// The preferred_availability_zones attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PreferredAvailabilityZones
+    public List<TerraformProperty<string>> PreferredAvailabilityZones
     {
-        get => GetProperty<List<TerraformProperty<string>>>("preferred_availability_zones");
-        set => this.WithProperty("preferred_availability_zones", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("preferred_availability_zones");
+        set => SetProperty("preferred_availability_zones", value);
     }
 
     /// <summary>
     /// The preferred_outpost_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredOutpostArn
+    public TerraformProperty<string> PreferredOutpostArn
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_outpost_arn");
-        set => this.WithProperty("preferred_outpost_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_outpost_arn");
+        set => SetProperty("preferred_outpost_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The replication_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationGroupId
+    public TerraformProperty<string> ReplicationGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("replication_group_id");
-        set => this.WithProperty("replication_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_group_id");
+        set => SetProperty("replication_group_id", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The snapshot_arns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SnapshotArns
+    public List<TerraformProperty<string>> SnapshotArns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("snapshot_arns");
-        set => this.WithProperty("snapshot_arns", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("snapshot_arns");
+        set => SetProperty("snapshot_arns", value);
     }
 
     /// <summary>
     /// The snapshot_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotName
+    public TerraformProperty<string> SnapshotName
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_name");
-        set => this.WithProperty("snapshot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_name");
+        set => SetProperty("snapshot_name", value);
     }
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? SnapshotRetentionLimit
+    public TerraformProperty<double> SnapshotRetentionLimit
     {
-        get => GetProperty<TerraformProperty<double>>("snapshot_retention_limit");
-        set => this.WithProperty("snapshot_retention_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("snapshot_retention_limit");
+        set => SetProperty("snapshot_retention_limit", value);
     }
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotWindow
+    public TerraformProperty<string> SnapshotWindow
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_window");
-        set => this.WithProperty("snapshot_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_window");
+        set => SetProperty("snapshot_window", value);
     }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetGroupName
+    public TerraformProperty<string> SubnetGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_group_name");
-        set => this.WithProperty("subnet_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_group_name");
+        set => SetProperty("subnet_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TransitEncryptionEnabled
+    public TerraformProperty<bool> TransitEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("transit_encryption_enabled");
-        set => this.WithProperty("transit_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("transit_encryption_enabled");
+        set => SetProperty("transit_encryption_enabled", value);
     }
 
     /// <summary>
@@ -392,8 +416,7 @@ public class AwsElasticacheCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 LogDeliveryConfiguration block(s) allowed")]
     public HashSet<AwsElasticacheClusterLogDeliveryConfigurationBlock>? LogDeliveryConfiguration
     {
-        get => GetProperty<HashSet<AwsElasticacheClusterLogDeliveryConfigurationBlock>>("log_delivery_configuration");
-        set => this.WithProperty("log_delivery_configuration", value);
+        set => SetProperty("log_delivery_configuration", value);
     }
 
     /// <summary>
@@ -402,8 +425,7 @@ public class AwsElasticacheCluster : TerraformResource
     /// </summary>
     public AwsElasticacheClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsElasticacheClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumWindowInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_window_in_minutes");
-        set => WithProperty("maximum_window_in_minutes", value);
+        set => SetProperty("maximum_window_in_minutes", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsSchedulerScheduleTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => WithProperty("arn", value);
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsSchedulerScheduleTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Input
     {
-        get => GetProperty<TerraformProperty<string>>("input");
-        set => WithProperty("input", value);
+        set => SetProperty("input", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsSchedulerScheduleTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -79,88 +74,101 @@ public class AwsSchedulerSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("action_after_completion");
+        SetOutput("description");
+        SetOutput("end_date");
+        SetOutput("group_name");
+        SetOutput("id");
+        SetOutput("kms_key_arn");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("region");
+        SetOutput("schedule_expression");
+        SetOutput("schedule_expression_timezone");
+        SetOutput("start_date");
+        SetOutput("state");
     }
 
     /// <summary>
     /// The action_after_completion attribute.
     /// </summary>
-    public TerraformProperty<string>? ActionAfterCompletion
+    public TerraformProperty<string> ActionAfterCompletion
     {
-        get => GetProperty<TerraformProperty<string>>("action_after_completion");
-        set => this.WithProperty("action_after_completion", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action_after_completion");
+        set => SetProperty("action_after_completion", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public TerraformProperty<string>? EndDate
+    public TerraformProperty<string> EndDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_date");
-        set => this.WithProperty("end_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date");
+        set => SetProperty("end_date", value);
     }
 
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupName
+    public TerraformProperty<string> GroupName
     {
-        get => GetProperty<TerraformProperty<string>>("group_name");
-        set => this.WithProperty("group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_name");
+        set => SetProperty("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -169,59 +177,59 @@ public class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformProperty<string> ScheduleExpression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule_expression");
-        set => this.WithProperty("schedule_expression", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule_expression");
+        set => SetProperty("schedule_expression", value);
     }
 
     /// <summary>
     /// The schedule_expression_timezone attribute.
     /// </summary>
-    public TerraformProperty<string>? ScheduleExpressionTimezone
+    public TerraformProperty<string> ScheduleExpressionTimezone
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression_timezone");
-        set => this.WithProperty("schedule_expression_timezone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule_expression_timezone");
+        set => SetProperty("schedule_expression_timezone", value);
     }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    public TerraformProperty<string>? StartDate
+    public TerraformProperty<string> StartDate
     {
-        get => GetProperty<TerraformProperty<string>>("start_date");
-        set => this.WithProperty("start_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_date");
+        set => SetProperty("start_date", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// Block for flexible_time_window.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlexibleTimeWindow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FlexibleTimeWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexibleTimeWindow block(s) allowed")]
     public List<AwsSchedulerScheduleFlexibleTimeWindowBlock>? FlexibleTimeWindow
     {
-        get => GetProperty<List<AwsSchedulerScheduleFlexibleTimeWindowBlock>>("flexible_time_window");
-        set => this.WithProperty("flexible_time_window", value);
+        set => SetProperty("flexible_time_window", value);
     }
 
     /// <summary>
     /// Block for target.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     public List<AwsSchedulerScheduleTargetBlock>? Target
     {
-        get => GetProperty<List<AwsSchedulerScheduleTargetBlock>>("target");
-        set => this.WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
     /// <summary>

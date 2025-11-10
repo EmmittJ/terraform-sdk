@@ -13,8 +13,7 @@ public class AwsDbSnapshotCopyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,91 +30,104 @@ public class AwsDbSnapshotCopy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allocated_storage");
-        this.WithOutput("availability_zone");
-        this.WithOutput("db_snapshot_arn");
-        this.WithOutput("encrypted");
-        this.WithOutput("engine");
-        this.WithOutput("engine_version");
-        this.WithOutput("iops");
-        this.WithOutput("license_model");
-        this.WithOutput("port");
-        this.WithOutput("snapshot_type");
-        this.WithOutput("source_region");
-        this.WithOutput("storage_type");
-        this.WithOutput("vpc_id");
+        SetOutput("allocated_storage");
+        SetOutput("availability_zone");
+        SetOutput("db_snapshot_arn");
+        SetOutput("encrypted");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("iops");
+        SetOutput("license_model");
+        SetOutput("port");
+        SetOutput("snapshot_type");
+        SetOutput("source_region");
+        SetOutput("storage_type");
+        SetOutput("vpc_id");
+        SetOutput("copy_tags");
+        SetOutput("destination_region");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("option_group_name");
+        SetOutput("presigned_url");
+        SetOutput("region");
+        SetOutput("shared_accounts");
+        SetOutput("source_db_snapshot_identifier");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("target_custom_availability_zone");
+        SetOutput("target_db_snapshot_identifier");
     }
 
     /// <summary>
     /// The copy_tags attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyTags
+    public TerraformProperty<bool> CopyTags
     {
-        get => GetProperty<TerraformProperty<bool>>("copy_tags");
-        set => this.WithProperty("copy_tags", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags");
+        set => SetProperty("copy_tags", value);
     }
 
     /// <summary>
     /// The destination_region attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationRegion
+    public TerraformProperty<string> DestinationRegion
     {
-        get => GetProperty<TerraformProperty<string>>("destination_region");
-        set => this.WithProperty("destination_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_region");
+        set => SetProperty("destination_region", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The option_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? OptionGroupName
+    public TerraformProperty<string> OptionGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("option_group_name");
-        set => this.WithProperty("option_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("option_group_name");
+        set => SetProperty("option_group_name", value);
     }
 
     /// <summary>
     /// The presigned_url attribute.
     /// </summary>
-    public TerraformProperty<string>? PresignedUrl
+    public TerraformProperty<string> PresignedUrl
     {
-        get => GetProperty<TerraformProperty<string>>("presigned_url");
-        set => this.WithProperty("presigned_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("presigned_url");
+        set => SetProperty("presigned_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The shared_accounts attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SharedAccounts
+    public HashSet<TerraformProperty<string>> SharedAccounts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("shared_accounts");
-        set => this.WithProperty("shared_accounts", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("shared_accounts");
+        set => SetProperty("shared_accounts", value);
     }
 
     /// <summary>
@@ -124,35 +136,35 @@ public class AwsDbSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbSnapshotIdentifier is required")]
     public required TerraformProperty<string> SourceDbSnapshotIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_db_snapshot_identifier");
-        set => this.WithProperty("source_db_snapshot_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_db_snapshot_identifier");
+        set => SetProperty("source_db_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_custom_availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetCustomAvailabilityZone
+    public TerraformProperty<string> TargetCustomAvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("target_custom_availability_zone");
-        set => this.WithProperty("target_custom_availability_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_custom_availability_zone");
+        set => SetProperty("target_custom_availability_zone", value);
     }
 
     /// <summary>
@@ -161,8 +173,8 @@ public class AwsDbSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDbSnapshotIdentifier is required")]
     public required TerraformProperty<string> TargetDbSnapshotIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_db_snapshot_identifier");
-        set => this.WithProperty("target_db_snapshot_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_db_snapshot_identifier");
+        set => SetProperty("target_db_snapshot_identifier", value);
     }
 
     /// <summary>
@@ -171,8 +183,7 @@ public class AwsDbSnapshotCopy : TerraformResource
     /// </summary>
     public AwsDbSnapshotCopyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDbSnapshotCopyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

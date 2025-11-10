@@ -13,8 +13,7 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocalIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("local_ip_address");
-        set => WithProperty("local_ip_address", value);
+        set => SetProperty("local_ip_address", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocalPort
     {
-        get => GetProperty<TerraformProperty<string>>("local_port");
-        set => WithProperty("local_port", value);
+        set => SetProperty("local_port", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RemoteIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("remote_ip_address");
-        set => WithProperty("remote_ip_address", value);
+        set => SetProperty("remote_ip_address", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RemotePort
     {
-        get => GetProperty<TerraformProperty<string>>("remote_port");
-        set => WithProperty("remote_port", value);
+        set => SetProperty("remote_port", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilePath
     {
-        get => GetProperty<TerraformProperty<string>>("file_path");
-        set => WithProperty("file_path", value);
+        set => SetProperty("file_path", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => WithProperty("storage_account_id", value);
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StoragePath
     {
-        get => GetProperty<TerraformProperty<string>>("storage_path");
-        set => WithProperty("storage_path", value);
+        set => SetProperty("storage_path", value);
     }
 
 }
@@ -102,8 +94,7 @@ public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -140,42 +129,50 @@ public class AzurermNetworkPacketCapture : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("maximum_bytes_per_packet");
+        SetOutput("maximum_bytes_per_session");
+        SetOutput("maximum_capture_duration");
+        SetOutput("name");
+        SetOutput("network_watcher_name");
+        SetOutput("resource_group_name");
+        SetOutput("target_resource_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The maximum_bytes_per_packet attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumBytesPerPacket
+    public TerraformProperty<double> MaximumBytesPerPacket
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_bytes_per_packet");
-        set => this.WithProperty("maximum_bytes_per_packet", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_bytes_per_packet");
+        set => SetProperty("maximum_bytes_per_packet", value);
     }
 
     /// <summary>
     /// The maximum_bytes_per_session attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumBytesPerSession
+    public TerraformProperty<double> MaximumBytesPerSession
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_bytes_per_session");
-        set => this.WithProperty("maximum_bytes_per_session", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_bytes_per_session");
+        set => SetProperty("maximum_bytes_per_session", value);
     }
 
     /// <summary>
     /// The maximum_capture_duration attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumCaptureDuration
+    public TerraformProperty<double> MaximumCaptureDuration
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_capture_duration");
-        set => this.WithProperty("maximum_capture_duration", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_capture_duration");
+        set => SetProperty("maximum_capture_duration", value);
     }
 
     /// <summary>
@@ -184,8 +181,8 @@ public class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -194,8 +191,8 @@ public class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherName is required")]
     public required TerraformProperty<string> NetworkWatcherName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_watcher_name");
-        set => this.WithProperty("network_watcher_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_watcher_name");
+        set => SetProperty("network_watcher_name", value);
     }
 
     /// <summary>
@@ -204,8 +201,8 @@ public class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -214,8 +211,8 @@ public class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
@@ -224,20 +221,19 @@ public class AzurermNetworkPacketCapture : TerraformResource
     /// </summary>
     public List<AzurermNetworkPacketCaptureFilterBlock>? Filter
     {
-        get => GetProperty<List<AzurermNetworkPacketCaptureFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// Block for storage_location.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
     public List<AzurermNetworkPacketCaptureStorageLocationBlock>? StorageLocation
     {
-        get => GetProperty<List<AzurermNetworkPacketCaptureStorageLocationBlock>>("storage_location");
-        set => this.WithProperty("storage_location", value);
+        set => SetProperty("storage_location", value);
     }
 
     /// <summary>
@@ -246,8 +242,7 @@ public class AzurermNetworkPacketCapture : TerraformResource
     /// </summary>
     public AzurermNetworkPacketCaptureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkPacketCaptureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

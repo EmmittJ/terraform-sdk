@@ -13,8 +13,7 @@ public class GoogleEventarcTriggerDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CloudFunction
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_function");
-        set => WithProperty("cloud_function", value);
+        set => SetProperty("cloud_function", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleEventarcTriggerDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Workflow
     {
-        get => GetProperty<TerraformProperty<string>>("workflow");
-        set => WithProperty("workflow", value);
+        set => SetProperty("workflow", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attribute is required")]
     public required TerraformProperty<string> Attribute
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("attribute");
-        set => WithProperty("attribute", value);
+        set => SetProperty("attribute", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Operator
     {
-        get => GetProperty<TerraformProperty<string>>("operator");
-        set => WithProperty("operator", value);
+        set => SetProperty("operator", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class GoogleEventarcTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleEventarcTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class GoogleEventarcTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,40 +113,48 @@ public class GoogleEventarcTrigger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("conditions");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("conditions");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("channel");
+        SetOutput("event_data_content_type");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("service_account");
     }
 
     /// <summary>
     /// Optional. The name of the channel associated with the trigger in &#39;projects/{project}/locations/{location}/channels/{channel}&#39; format. You must provide a channel to receive events from Eventarc SaaS partners.
     /// </summary>
-    public TerraformProperty<string>? Channel
+    public TerraformProperty<string> Channel
     {
-        get => GetProperty<TerraformProperty<string>>("channel");
-        set => this.WithProperty("channel", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("channel");
+        set => SetProperty("channel", value);
     }
 
     /// <summary>
     /// Optional. EventDataContentType specifies the type of payload in MIME format that is expected from the CloudEvent data field. This is set to &#39;application/json&#39; if the value is not defined.
     /// </summary>
-    public TerraformProperty<string>? EventDataContentType
+    public TerraformProperty<string> EventDataContentType
     {
-        get => GetProperty<TerraformProperty<string>>("event_data_content_type");
-        set => this.WithProperty("event_data_content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_data_content_type");
+        set => SetProperty("event_data_content_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -163,10 +163,10 @@ public class GoogleEventarcTrigger : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -175,8 +175,8 @@ public class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -185,49 +185,49 @@ public class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Optional. The IAM service account email associated with the trigger. The service account represents the identity of the trigger. The principal who calls this API must have &#39;iam.serviceAccounts.actAs&#39; permission in the service account. See https://cloud.google.com/iam/docs/understanding-service-accounts#sa_common for more information. For Cloud Run destinations, this service account is used to generate identity tokens when invoking the service. See https://cloud.google.com/run/docs/triggering/pubsub-push#create-service-account for information on how to invoke authenticated Cloud Run services. In order to create Audit Log triggers, the service account should also have &#39;roles/eventarc.eventReceiver&#39; IAM role.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
+    public TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => this.WithProperty("service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
     /// Block for destination.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     public List<GoogleEventarcTriggerDestinationBlock>? Destination
     {
-        get => GetProperty<List<GoogleEventarcTriggerDestinationBlock>>("destination");
-        set => this.WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// Block for matching_criteria.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingCriteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MatchingCriteria block(s) required")]
     public HashSet<GoogleEventarcTriggerMatchingCriteriaBlock>? MatchingCriteria
     {
-        get => GetProperty<HashSet<GoogleEventarcTriggerMatchingCriteriaBlock>>("matching_criteria");
-        set => this.WithProperty("matching_criteria", value);
+        set => SetProperty("matching_criteria", value);
     }
 
     /// <summary>
@@ -236,8 +236,7 @@ public class GoogleEventarcTrigger : TerraformResource
     /// </summary>
     public GoogleEventarcTriggerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleEventarcTriggerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -247,8 +246,7 @@ public class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Transport block(s) allowed")]
     public List<GoogleEventarcTriggerTransportBlock>? Transport
     {
-        get => GetProperty<List<GoogleEventarcTriggerTransportBlock>>("transport");
-        set => this.WithProperty("transport", value);
+        set => SetProperty("transport", value);
     }
 
     /// <summary>

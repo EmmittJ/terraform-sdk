@@ -19,8 +19,7 @@ public class GoogleLoggingFolderBucketConfigCmekSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -33,8 +32,7 @@ public class GoogleLoggingFolderBucketConfigCmekSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyVersionName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_version_name");
-        set => WithProperty("kms_key_version_name", value);
+        set => SetProperty("kms_key_version_name", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleLoggingFolderBucketConfigCmekSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -53,8 +50,7 @@ public class GoogleLoggingFolderBucketConfigCmekSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_id");
-        set => WithProperty("service_account_id", value);
+        set => SetProperty("service_account_id", value);
     }
 
 }
@@ -71,8 +67,7 @@ public class GoogleLoggingFolderBucketConfigIndexConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldPath is required")]
     public required TerraformProperty<string> FieldPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("field_path");
-        set => WithProperty("field_path", value);
+        set => SetProperty("field_path", value);
     }
 
     /// <summary>
@@ -83,8 +78,7 @@ public class GoogleLoggingFolderBucketConfigIndexConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -102,8 +96,14 @@ public class GoogleLoggingFolderBucketConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("lifecycle_state");
-        this.WithOutput("name");
+        SetOutput("lifecycle_state");
+        SetOutput("name");
+        SetOutput("bucket_id");
+        SetOutput("description");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("retention_days");
     }
 
     /// <summary>
@@ -112,17 +112,17 @@ public class GoogleLoggingFolderBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketId is required")]
     public required TerraformProperty<string> BucketId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_id");
-        set => this.WithProperty("bucket_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket_id");
+        set => SetProperty("bucket_id", value);
     }
 
     /// <summary>
     /// An optional description for this bucket.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -131,17 +131,17 @@ public class GoogleLoggingFolderBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -150,17 +150,17 @@ public class GoogleLoggingFolderBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at bucket creation time, the default time of 30 days will be used.
     /// </summary>
-    public TerraformProperty<double>? RetentionDays
+    public TerraformProperty<double> RetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_days");
-        set => this.WithProperty("retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_days");
+        set => SetProperty("retention_days", value);
     }
 
     /// <summary>
@@ -170,8 +170,7 @@ public class GoogleLoggingFolderBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CmekSettings block(s) allowed")]
     public List<GoogleLoggingFolderBucketConfigCmekSettingsBlock>? CmekSettings
     {
-        get => GetProperty<List<GoogleLoggingFolderBucketConfigCmekSettingsBlock>>("cmek_settings");
-        set => this.WithProperty("cmek_settings", value);
+        set => SetProperty("cmek_settings", value);
     }
 
     /// <summary>
@@ -181,8 +180,7 @@ public class GoogleLoggingFolderBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 IndexConfigs block(s) allowed")]
     public HashSet<GoogleLoggingFolderBucketConfigIndexConfigsBlock>? IndexConfigs
     {
-        get => GetProperty<HashSet<GoogleLoggingFolderBucketConfigIndexConfigsBlock>>("index_configs");
-        set => this.WithProperty("index_configs", value);
+        set => SetProperty("index_configs", value);
     }
 
     /// <summary>

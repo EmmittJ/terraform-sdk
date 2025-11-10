@@ -14,8 +14,7 @@ public class AwsBedrockCustomModelOutputDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformProperty<string> S3Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_uri");
-        set => WithProperty("s3_uri", value);
+        set => SetProperty("s3_uri", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsBedrockCustomModelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsBedrockCustomModelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AwsBedrockCustomModelTrainingDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformProperty<string> S3Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_uri");
-        set => WithProperty("s3_uri", value);
+        set => SetProperty("s3_uri", value);
     }
 
 }
@@ -84,8 +80,7 @@ public class AwsBedrockCustomModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -94,8 +89,7 @@ public class AwsBedrockCustomModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -112,13 +106,22 @@ public class AwsBedrockCustomModel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("custom_model_arn");
-        this.WithOutput("id");
-        this.WithOutput("job_arn");
-        this.WithOutput("job_status");
-        this.WithOutput("tags_all");
-        this.WithOutput("training_metrics");
-        this.WithOutput("validation_metrics");
+        SetOutput("custom_model_arn");
+        SetOutput("id");
+        SetOutput("job_arn");
+        SetOutput("job_status");
+        SetOutput("tags_all");
+        SetOutput("training_metrics");
+        SetOutput("validation_metrics");
+        SetOutput("base_model_identifier");
+        SetOutput("custom_model_kms_key_id");
+        SetOutput("custom_model_name");
+        SetOutput("customization_type");
+        SetOutput("hyperparameters");
+        SetOutput("job_name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -127,17 +130,17 @@ public class AwsBedrockCustomModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseModelIdentifier is required")]
     public required TerraformProperty<string> BaseModelIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("base_model_identifier");
-        set => this.WithProperty("base_model_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("base_model_identifier");
+        set => SetProperty("base_model_identifier", value);
     }
 
     /// <summary>
     /// The custom_model_kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomModelKmsKeyId
+    public TerraformProperty<string> CustomModelKmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_model_kms_key_id");
-        set => this.WithProperty("custom_model_kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_model_kms_key_id");
+        set => SetProperty("custom_model_kms_key_id", value);
     }
 
     /// <summary>
@@ -146,27 +149,27 @@ public class AwsBedrockCustomModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomModelName is required")]
     public required TerraformProperty<string> CustomModelName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_model_name");
-        set => this.WithProperty("custom_model_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_model_name");
+        set => SetProperty("custom_model_name", value);
     }
 
     /// <summary>
     /// The customization_type attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomizationType
+    public TerraformProperty<string> CustomizationType
     {
-        get => GetProperty<TerraformProperty<string>>("customization_type");
-        set => this.WithProperty("customization_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customization_type");
+        set => SetProperty("customization_type", value);
     }
 
     /// <summary>
     /// The hyperparameters attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hyperparameters is required")]
-    public Dictionary<string, TerraformProperty<string>>? Hyperparameters
+    public Dictionary<string, TerraformProperty<string>> Hyperparameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("hyperparameters");
-        set => this.WithProperty("hyperparameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("hyperparameters");
+        set => SetProperty("hyperparameters", value);
     }
 
     /// <summary>
@@ -175,17 +178,17 @@ public class AwsBedrockCustomModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformProperty<string> JobName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("job_name");
-        set => this.WithProperty("job_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_name");
+        set => SetProperty("job_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -194,17 +197,17 @@ public class AwsBedrockCustomModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -213,8 +216,7 @@ public class AwsBedrockCustomModel : TerraformResource
     /// </summary>
     public List<AwsBedrockCustomModelOutputDataConfigBlock>? OutputDataConfig
     {
-        get => GetProperty<List<AwsBedrockCustomModelOutputDataConfigBlock>>("output_data_config");
-        set => this.WithProperty("output_data_config", value);
+        set => SetProperty("output_data_config", value);
     }
 
     /// <summary>
@@ -223,8 +225,7 @@ public class AwsBedrockCustomModel : TerraformResource
     /// </summary>
     public AwsBedrockCustomModelTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockCustomModelTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -233,8 +234,7 @@ public class AwsBedrockCustomModel : TerraformResource
     /// </summary>
     public List<AwsBedrockCustomModelTrainingDataConfigBlock>? TrainingDataConfig
     {
-        get => GetProperty<List<AwsBedrockCustomModelTrainingDataConfigBlock>>("training_data_config");
-        set => this.WithProperty("training_data_config", value);
+        set => SetProperty("training_data_config", value);
     }
 
     /// <summary>
@@ -243,8 +243,7 @@ public class AwsBedrockCustomModel : TerraformResource
     /// </summary>
     public List<AwsBedrockCustomModelValidationDataConfigBlock>? ValidationDataConfig
     {
-        get => GetProperty<List<AwsBedrockCustomModelValidationDataConfigBlock>>("validation_data_config");
-        set => this.WithProperty("validation_data_config", value);
+        set => SetProperty("validation_data_config", value);
     }
 
     /// <summary>
@@ -253,8 +252,7 @@ public class AwsBedrockCustomModel : TerraformResource
     /// </summary>
     public List<AwsBedrockCustomModelVpcConfigBlock>? VpcConfig
     {
-        get => GetProperty<List<AwsBedrockCustomModelVpcConfigBlock>>("vpc_config");
-        set => this.WithProperty("vpc_config", value);
+        set => SetProperty("vpc_config", value);
     }
 
     /// <summary>

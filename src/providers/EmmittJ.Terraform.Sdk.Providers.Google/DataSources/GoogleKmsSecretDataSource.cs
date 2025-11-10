@@ -14,16 +14,20 @@ public class GoogleKmsSecretDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("plaintext");
+        SetOutput("plaintext");
+        SetOutput("additional_authenticated_data");
+        SetOutput("ciphertext");
+        SetOutput("crypto_key");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The additional_authenticated_data attribute.
     /// </summary>
-    public TerraformProperty<string>? AdditionalAuthenticatedData
+    public TerraformProperty<string> AdditionalAuthenticatedData
     {
-        get => GetProperty<TerraformProperty<string>>("additional_authenticated_data");
-        set => this.WithProperty("additional_authenticated_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("additional_authenticated_data");
+        set => SetProperty("additional_authenticated_data", value);
     }
 
     /// <summary>
@@ -32,8 +36,8 @@ public class GoogleKmsSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ciphertext is required")]
     public required TerraformProperty<string> Ciphertext
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ciphertext");
-        set => this.WithProperty("ciphertext", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ciphertext");
+        set => SetProperty("ciphertext", value);
     }
 
     /// <summary>
@@ -42,17 +46,17 @@ public class GoogleKmsSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformProperty<string> CryptoKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("crypto_key");
-        set => this.WithProperty("crypto_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key");
+        set => SetProperty("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

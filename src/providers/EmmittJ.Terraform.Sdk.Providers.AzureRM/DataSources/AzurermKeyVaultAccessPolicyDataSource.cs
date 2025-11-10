@@ -13,8 +13,7 @@ public class AzurermKeyVaultAccessPolicyDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,18 +30,20 @@ public class AzurermKeyVaultAccessPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate_permissions");
-        this.WithOutput("key_permissions");
-        this.WithOutput("secret_permissions");
+        SetOutput("certificate_permissions");
+        SetOutput("key_permissions");
+        SetOutput("secret_permissions");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +52,8 @@ public class AzurermKeyVaultAccessPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -61,8 +62,7 @@ public class AzurermKeyVaultAccessPolicyDataSource : TerraformDataSource
     /// </summary>
     public AzurermKeyVaultAccessPolicyDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultAccessPolicyDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

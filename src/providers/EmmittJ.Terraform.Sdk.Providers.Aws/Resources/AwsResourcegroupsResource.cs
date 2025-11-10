@@ -13,8 +13,7 @@ public class AwsResourcegroupsResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsResourcegroupsResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,7 +38,11 @@ public class AwsResourcegroupsResource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("resource_type");
+        SetOutput("resource_type");
+        SetOutput("group_arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("resource_arn");
     }
 
     /// <summary>
@@ -49,26 +51,26 @@ public class AwsResourcegroupsResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupArn is required")]
     public required TerraformProperty<string> GroupArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_arn");
-        set => this.WithProperty("group_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_arn");
+        set => SetProperty("group_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -77,8 +79,8 @@ public class AwsResourcegroupsResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
-        set => this.WithProperty("resource_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
+        set => SetProperty("resource_arn", value);
     }
 
     /// <summary>
@@ -87,8 +89,7 @@ public class AwsResourcegroupsResource : TerraformResource
     /// </summary>
     public AwsResourcegroupsResourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsResourcegroupsResourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

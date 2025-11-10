@@ -14,7 +14,11 @@ public class GoogleStorageBucketObjectsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("bucket_objects");
+        SetOutput("bucket_objects");
+        SetOutput("bucket");
+        SetOutput("id");
+        SetOutput("match_glob");
+        SetOutput("prefix");
     }
 
     /// <summary>
@@ -23,35 +27,35 @@ public class GoogleStorageBucketObjectsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The match_glob attribute.
     /// </summary>
-    public TerraformProperty<string>? MatchGlob
+    public TerraformProperty<string> MatchGlob
     {
-        get => GetProperty<TerraformProperty<string>>("match_glob");
-        set => this.WithProperty("match_glob", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("match_glob");
+        set => SetProperty("match_glob", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
+    public TerraformProperty<string> Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
-        set => this.WithProperty("prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
+        set => SetProperty("prefix", value);
     }
 
     /// <summary>

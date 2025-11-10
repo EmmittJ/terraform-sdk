@@ -13,8 +13,7 @@ public class AzurermAutomationRunbookDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,14 +30,18 @@ public class AzurermAutomationRunbookDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("content");
-        this.WithOutput("description");
-        this.WithOutput("location");
-        this.WithOutput("log_activity_trace_level");
-        this.WithOutput("log_progress");
-        this.WithOutput("log_verbose");
-        this.WithOutput("runbook_type");
-        this.WithOutput("tags");
+        SetOutput("content");
+        SetOutput("description");
+        SetOutput("location");
+        SetOutput("log_activity_trace_level");
+        SetOutput("log_progress");
+        SetOutput("log_verbose");
+        SetOutput("runbook_type");
+        SetOutput("tags");
+        SetOutput("automation_account_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -47,17 +50,17 @@ public class AzurermAutomationRunbookDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
-        set => this.WithProperty("automation_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_name");
+        set => SetProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +69,8 @@ public class AzurermAutomationRunbookDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +79,8 @@ public class AzurermAutomationRunbookDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -86,8 +89,7 @@ public class AzurermAutomationRunbookDataSource : TerraformDataSource
     /// </summary>
     public AzurermAutomationRunbookDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAutomationRunbookDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionSetId
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_set_id");
-        set => WithProperty("disk_encryption_set_id", value);
+        set => SetProperty("disk_encryption_set_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ExcludeFromLatestEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("exclude_from_latest_enabled");
-        set => WithProperty("exclude_from_latest_enabled", value);
+        set => SetProperty("exclude_from_latest_enabled", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionalReplicaCount is required")]
     public required TerraformProperty<double> RegionalReplicaCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("regional_replica_count");
-        set => WithProperty("regional_replica_count", value);
+        set => SetProperty("regional_replica_count", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageAccountType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_type");
-        set => WithProperty("storage_account_type", value);
+        set => SetProperty("storage_account_type", value);
     }
 
 }
@@ -68,8 +63,7 @@ public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,42 +105,57 @@ public class AzurermSharedImageVersion : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("blob_uri");
+        SetOutput("deletion_of_replicated_locations_enabled");
+        SetOutput("end_of_life_date");
+        SetOutput("exclude_from_latest");
+        SetOutput("gallery_name");
+        SetOutput("id");
+        SetOutput("image_name");
+        SetOutput("location");
+        SetOutput("managed_image_id");
+        SetOutput("name");
+        SetOutput("os_disk_snapshot_id");
+        SetOutput("replication_mode");
+        SetOutput("resource_group_name");
+        SetOutput("storage_account_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The blob_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? BlobUri
+    public TerraformProperty<string> BlobUri
     {
-        get => GetProperty<TerraformProperty<string>>("blob_uri");
-        set => this.WithProperty("blob_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blob_uri");
+        set => SetProperty("blob_uri", value);
     }
 
     /// <summary>
     /// The deletion_of_replicated_locations_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeletionOfReplicatedLocationsEnabled
+    public TerraformProperty<bool> DeletionOfReplicatedLocationsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_of_replicated_locations_enabled");
-        set => this.WithProperty("deletion_of_replicated_locations_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_of_replicated_locations_enabled");
+        set => SetProperty("deletion_of_replicated_locations_enabled", value);
     }
 
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
-    public TerraformProperty<string>? EndOfLifeDate
+    public TerraformProperty<string> EndOfLifeDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_of_life_date");
-        set => this.WithProperty("end_of_life_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_of_life_date");
+        set => SetProperty("end_of_life_date", value);
     }
 
     /// <summary>
     /// The exclude_from_latest attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExcludeFromLatest
+    public TerraformProperty<bool> ExcludeFromLatest
     {
-        get => GetProperty<TerraformProperty<bool>>("exclude_from_latest");
-        set => this.WithProperty("exclude_from_latest", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_from_latest");
+        set => SetProperty("exclude_from_latest", value);
     }
 
     /// <summary>
@@ -158,17 +164,17 @@ public class AzurermSharedImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     public required TerraformProperty<string> GalleryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gallery_name");
-        set => this.WithProperty("gallery_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gallery_name");
+        set => SetProperty("gallery_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -177,8 +183,8 @@ public class AzurermSharedImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformProperty<string> ImageName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image_name");
-        set => this.WithProperty("image_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
+        set => SetProperty("image_name", value);
     }
 
     /// <summary>
@@ -187,17 +193,17 @@ public class AzurermSharedImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The managed_image_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedImageId
+    public TerraformProperty<string> ManagedImageId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_image_id");
-        set => this.WithProperty("managed_image_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_image_id");
+        set => SetProperty("managed_image_id", value);
     }
 
     /// <summary>
@@ -206,26 +212,26 @@ public class AzurermSharedImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The os_disk_snapshot_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OsDiskSnapshotId
+    public TerraformProperty<string> OsDiskSnapshotId
     {
-        get => GetProperty<TerraformProperty<string>>("os_disk_snapshot_id");
-        set => this.WithProperty("os_disk_snapshot_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("os_disk_snapshot_id");
+        set => SetProperty("os_disk_snapshot_id", value);
     }
 
     /// <summary>
     /// The replication_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationMode
+    public TerraformProperty<string> ReplicationMode
     {
-        get => GetProperty<TerraformProperty<string>>("replication_mode");
-        set => this.WithProperty("replication_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_mode");
+        set => SetProperty("replication_mode", value);
     }
 
     /// <summary>
@@ -234,37 +240,37 @@ public class AzurermSharedImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    public TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for target_region.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRegion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRegion block(s) required")]
     public List<AzurermSharedImageVersionTargetRegionBlock>? TargetRegion
     {
-        get => GetProperty<List<AzurermSharedImageVersionTargetRegionBlock>>("target_region");
-        set => this.WithProperty("target_region", value);
+        set => SetProperty("target_region", value);
     }
 
     /// <summary>
@@ -273,8 +279,7 @@ public class AzurermSharedImageVersion : TerraformResource
     /// </summary>
     public AzurermSharedImageVersionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSharedImageVersionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,8 +14,7 @@ public class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupOptions is required")]
     public Dictionary<string, TerraformProperty<string>>? BackupOptions
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("backup_options");
-        set => WithProperty("backup_options", value);
+        set => SetProperty("backup_options", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CompletionWindow
     {
-        get => GetProperty<TerraformProperty<double>>("completion_window");
-        set => WithProperty("completion_window", value);
+        set => SetProperty("completion_window", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableContinuousBackup
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_continuous_backup");
-        set => WithProperty("enable_continuous_backup", value);
+        set => SetProperty("enable_continuous_backup", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? RecoveryPointTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("recovery_point_tags");
-        set => WithProperty("recovery_point_tags", value);
+        set => SetProperty("recovery_point_tags", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
-        set => WithProperty("rule_name", value);
+        set => SetProperty("rule_name", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
-        set => WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScheduleExpressionTimezone
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression_timezone");
-        set => WithProperty("schedule_expression_timezone", value);
+        set => SetProperty("schedule_expression_timezone", value);
     }
 
     /// <summary>
@@ -96,8 +88,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? StartWindow
     {
-        get => GetProperty<TerraformProperty<double>>("start_window");
-        set => WithProperty("start_window", value);
+        set => SetProperty("start_window", value);
     }
 
     /// <summary>
@@ -106,8 +97,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVaultName is required")]
     public required TerraformProperty<string> TargetVaultName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_vault_name");
-        set => WithProperty("target_vault_name", value);
+        set => SetProperty("target_vault_name", value);
     }
 
 }
@@ -125,17 +115,22 @@ public class AwsBackupPlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -144,35 +139,35 @@ public class AwsBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -181,19 +176,18 @@ public class AwsBackupPlan : TerraformResource
     /// </summary>
     public HashSet<AwsBackupPlanAdvancedBackupSettingBlock>? AdvancedBackupSetting
     {
-        get => GetProperty<HashSet<AwsBackupPlanAdvancedBackupSettingBlock>>("advanced_backup_setting");
-        set => this.WithProperty("advanced_backup_setting", value);
+        set => SetProperty("advanced_backup_setting", value);
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     public HashSet<AwsBackupPlanRuleBlock>? Rule
     {
-        get => GetProperty<HashSet<AwsBackupPlanRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>

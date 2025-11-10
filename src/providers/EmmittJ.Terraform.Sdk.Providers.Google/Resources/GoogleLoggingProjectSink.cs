@@ -14,8 +14,7 @@ public class GoogleLoggingProjectSinkBigqueryOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsePartitionedTables is required")]
     public required TerraformProperty<bool> UsePartitionedTables
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("use_partitioned_tables");
-        set => WithProperty("use_partitioned_tables", value);
+        set => SetProperty("use_partitioned_tables", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleLoggingProjectSinkExclusionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleLoggingProjectSinkExclusionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => WithProperty("disabled", value);
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleLoggingProjectSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class GoogleLoggingProjectSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -79,25 +74,34 @@ public class GoogleLoggingProjectSink : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("writer_identity");
+        SetOutput("writer_identity");
+        SetOutput("custom_writer_identity");
+        SetOutput("description");
+        SetOutput("destination");
+        SetOutput("disabled");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("unique_writer_identity");
     }
 
     /// <summary>
     /// A service account provided by the caller that will be used to write the log entries. The format must be serviceAccount:some@email. This field can only be specified if you are routing logs to a destination outside this sink&#39;s project. If not specified, a Logging service account will automatically be generated.
     /// </summary>
-    public TerraformProperty<string>? CustomWriterIdentity
+    public TerraformProperty<string> CustomWriterIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("custom_writer_identity");
-        set => this.WithProperty("custom_writer_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_writer_identity");
+        set => SetProperty("custom_writer_identity", value);
     }
 
     /// <summary>
     /// A description of this sink. The maximum length of the description is 8000 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -106,35 +110,35 @@ public class GoogleLoggingProjectSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination");
-        set => this.WithProperty("destination", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination");
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// If set to True, then this sink is disabled and it does not export any log entries.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// The filter to apply when exporting logs. Only log entries that match the filter are exported.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -143,26 +147,26 @@ public class GoogleLoggingProjectSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project to create the sink in. If omitted, the project associated with the provider is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Whether or not to create a unique identity associated with this sink. If false (the legacy behavior), then the writer_identity used is serviceAccount:cloud-logs@system.gserviceaccount.com. If true (default), then a unique service account is created and used for this sink. If you wish to publish logs across projects, you must set unique_writer_identity to true.
     /// </summary>
-    public TerraformProperty<bool>? UniqueWriterIdentity
+    public TerraformProperty<bool> UniqueWriterIdentity
     {
-        get => GetProperty<TerraformProperty<bool>>("unique_writer_identity");
-        set => this.WithProperty("unique_writer_identity", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("unique_writer_identity");
+        set => SetProperty("unique_writer_identity", value);
     }
 
     /// <summary>
@@ -172,8 +176,7 @@ public class GoogleLoggingProjectSink : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryOptions block(s) allowed")]
     public List<GoogleLoggingProjectSinkBigqueryOptionsBlock>? BigqueryOptions
     {
-        get => GetProperty<List<GoogleLoggingProjectSinkBigqueryOptionsBlock>>("bigquery_options");
-        set => this.WithProperty("bigquery_options", value);
+        set => SetProperty("bigquery_options", value);
     }
 
     /// <summary>
@@ -182,8 +185,7 @@ public class GoogleLoggingProjectSink : TerraformResource
     /// </summary>
     public List<GoogleLoggingProjectSinkExclusionsBlock>? Exclusions
     {
-        get => GetProperty<List<GoogleLoggingProjectSinkExclusionsBlock>>("exclusions");
-        set => this.WithProperty("exclusions", value);
+        set => SetProperty("exclusions", value);
     }
 
     /// <summary>

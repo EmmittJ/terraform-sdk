@@ -13,8 +13,7 @@ public class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AadLogEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("aad_log_enabled");
-        set => WithProperty("aad_log_enabled", value);
+        set => SetProperty("aad_log_enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ResourceLogEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("resource_log_enabled");
-        set => WithProperty("resource_log_enabled", value);
+        set => SetProperty("resource_log_enabled", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SubscriptionLogEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("subscription_log_enabled");
-        set => WithProperty("subscription_log_enabled", value);
+        set => SetProperty("subscription_log_enabled", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class AzurermDatadogMonitorTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AzurermDatadogMonitorTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AzurermDatadogMonitorTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AzurermDatadogMonitorTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -101,6 +94,9 @@ public class AzurermDatadogMonitorTagRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("datadog_monitor_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -109,26 +105,26 @@ public class AzurermDatadogMonitorTagRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
     public required TerraformProperty<string> DatadogMonitorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("datadog_monitor_id");
-        set => this.WithProperty("datadog_monitor_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("datadog_monitor_id");
+        set => SetProperty("datadog_monitor_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -137,8 +133,7 @@ public class AzurermDatadogMonitorTagRule : TerraformResource
     /// </summary>
     public List<AzurermDatadogMonitorTagRuleLogBlock>? Log
     {
-        get => GetProperty<List<AzurermDatadogMonitorTagRuleLogBlock>>("log");
-        set => this.WithProperty("log", value);
+        set => SetProperty("log", value);
     }
 
     /// <summary>
@@ -147,8 +142,7 @@ public class AzurermDatadogMonitorTagRule : TerraformResource
     /// </summary>
     public List<AzurermDatadogMonitorTagRuleMetricBlock>? Metric
     {
-        get => GetProperty<List<AzurermDatadogMonitorTagRuleMetricBlock>>("metric");
-        set => this.WithProperty("metric", value);
+        set => SetProperty("metric", value);
     }
 
     /// <summary>
@@ -157,8 +151,7 @@ public class AzurermDatadogMonitorTagRule : TerraformResource
     /// </summary>
     public AzurermDatadogMonitorTagRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDatadogMonitorTagRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

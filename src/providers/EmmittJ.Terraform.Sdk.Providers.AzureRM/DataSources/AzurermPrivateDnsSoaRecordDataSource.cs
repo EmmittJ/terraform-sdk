@@ -13,8 +13,7 @@ public class AzurermPrivateDnsSoaRecordDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,34 +30,38 @@ public class AzurermPrivateDnsSoaRecordDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("email");
-        this.WithOutput("expire_time");
-        this.WithOutput("fqdn");
-        this.WithOutput("host_name");
-        this.WithOutput("minimum_ttl");
-        this.WithOutput("refresh_time");
-        this.WithOutput("retry_time");
-        this.WithOutput("serial_number");
-        this.WithOutput("tags");
-        this.WithOutput("ttl");
+        SetOutput("email");
+        SetOutput("expire_time");
+        SetOutput("fqdn");
+        SetOutput("host_name");
+        SetOutput("minimum_ttl");
+        SetOutput("refresh_time");
+        SetOutput("retry_time");
+        SetOutput("serial_number");
+        SetOutput("tags");
+        SetOutput("ttl");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("zone_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -67,8 +70,8 @@ public class AzurermPrivateDnsSoaRecordDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -77,8 +80,8 @@ public class AzurermPrivateDnsSoaRecordDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
     public required TerraformProperty<string> ZoneName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone_name");
-        set => this.WithProperty("zone_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_name");
+        set => SetProperty("zone_name", value);
     }
 
     /// <summary>
@@ -87,8 +90,7 @@ public class AzurermPrivateDnsSoaRecordDataSource : TerraformDataSource
     /// </summary>
     public AzurermPrivateDnsSoaRecordDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateDnsSoaRecordDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

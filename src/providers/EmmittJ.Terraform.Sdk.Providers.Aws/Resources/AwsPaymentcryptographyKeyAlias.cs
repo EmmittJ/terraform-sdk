@@ -14,7 +14,10 @@ public class AwsPaymentcryptographyKeyAlias : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("alias_name");
+        SetOutput("key_arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -23,26 +26,26 @@ public class AwsPaymentcryptographyKeyAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasName is required")]
     public required TerraformProperty<string> AliasName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alias_name");
-        set => this.WithProperty("alias_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias_name");
+        set => SetProperty("alias_name", value);
     }
 
     /// <summary>
     /// The key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyArn
+    public TerraformProperty<string> KeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("key_arn");
-        set => this.WithProperty("key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_arn");
+        set => SetProperty("key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,42 +54,49 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("audit_comment");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("key_vault_certificate_id");
+        SetOutput("name");
+        SetOutput("rulestack_id");
+        SetOutput("self_signed");
     }
 
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    public TerraformProperty<string>? AuditComment
+    public TerraformProperty<string> AuditComment
     {
-        get => GetProperty<TerraformProperty<string>>("audit_comment");
-        set => this.WithProperty("audit_comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("audit_comment");
+        set => SetProperty("audit_comment", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultCertificateId
+    public TerraformProperty<string> KeyVaultCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_certificate_id");
-        set => this.WithProperty("key_vault_certificate_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_certificate_id");
+        set => SetProperty("key_vault_certificate_id", value);
     }
 
     /// <summary>
@@ -102,8 +105,8 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -112,17 +115,17 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     public required TerraformProperty<string> RulestackId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rulestack_id");
-        set => this.WithProperty("rulestack_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rulestack_id");
+        set => SetProperty("rulestack_id", value);
     }
 
     /// <summary>
     /// The self_signed attribute.
     /// </summary>
-    public TerraformProperty<bool>? SelfSigned
+    public TerraformProperty<bool> SelfSigned
     {
-        get => GetProperty<TerraformProperty<bool>>("self_signed");
-        set => this.WithProperty("self_signed", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("self_signed");
+        set => SetProperty("self_signed", value);
     }
 
     /// <summary>
@@ -131,8 +134,7 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     /// </summary>
     public AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

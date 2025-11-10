@@ -13,8 +13,7 @@ public class AzurermMysqlFlexibleServerDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,33 +30,36 @@ public class AzurermMysqlFlexibleServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("administrator_login");
-        this.WithOutput("backup_retention_days");
-        this.WithOutput("delegated_subnet_id");
-        this.WithOutput("fqdn");
-        this.WithOutput("geo_redundant_backup_enabled");
-        this.WithOutput("high_availability");
-        this.WithOutput("location");
-        this.WithOutput("maintenance_window");
-        this.WithOutput("private_dns_zone_id");
-        this.WithOutput("public_network_access_enabled");
-        this.WithOutput("replica_capacity");
-        this.WithOutput("replication_role");
-        this.WithOutput("restore_point_in_time");
-        this.WithOutput("sku_name");
-        this.WithOutput("storage");
-        this.WithOutput("tags");
-        this.WithOutput("version");
-        this.WithOutput("zone");
+        SetOutput("administrator_login");
+        SetOutput("backup_retention_days");
+        SetOutput("delegated_subnet_id");
+        SetOutput("fqdn");
+        SetOutput("geo_redundant_backup_enabled");
+        SetOutput("high_availability");
+        SetOutput("location");
+        SetOutput("maintenance_window");
+        SetOutput("private_dns_zone_id");
+        SetOutput("public_network_access_enabled");
+        SetOutput("replica_capacity");
+        SetOutput("replication_role");
+        SetOutput("restore_point_in_time");
+        SetOutput("sku_name");
+        SetOutput("storage");
+        SetOutput("tags");
+        SetOutput("version");
+        SetOutput("zone");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermMysqlFlexibleServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AzurermMysqlFlexibleServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -86,8 +88,7 @@ public class AzurermMysqlFlexibleServerDataSource : TerraformDataSource
     /// </summary>
     public AzurermMysqlFlexibleServerDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMysqlFlexibleServerDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

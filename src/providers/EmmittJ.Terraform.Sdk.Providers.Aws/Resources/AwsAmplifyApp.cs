@@ -13,8 +13,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BasicAuthCredentials
     {
-        get => GetProperty<TerraformProperty<string>>("basic_auth_credentials");
-        set => WithProperty("basic_auth_credentials", value);
+        set => SetProperty("basic_auth_credentials", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BuildSpec
     {
-        get => GetProperty<TerraformProperty<string>>("build_spec");
-        set => WithProperty("build_spec", value);
+        set => SetProperty("build_spec", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableAutoBuild
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_auto_build");
-        set => WithProperty("enable_auto_build", value);
+        set => SetProperty("enable_auto_build", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableBasicAuth
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_basic_auth");
-        set => WithProperty("enable_basic_auth", value);
+        set => SetProperty("enable_basic_auth", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnablePerformanceMode
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_performance_mode");
-        set => WithProperty("enable_performance_mode", value);
+        set => SetProperty("enable_performance_mode", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnablePullRequestPreview
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_pull_request_preview");
-        set => WithProperty("enable_pull_request_preview", value);
+        set => SetProperty("enable_pull_request_preview", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => WithProperty("environment_variables", value);
+        set => SetProperty("environment_variables", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Framework
     {
-        get => GetProperty<TerraformProperty<string>>("framework");
-        set => WithProperty("framework", value);
+        set => SetProperty("framework", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PullRequestEnvironmentName
     {
-        get => GetProperty<TerraformProperty<string>>("pull_request_environment_name");
-        set => WithProperty("pull_request_environment_name", value);
+        set => SetProperty("pull_request_environment_name", value);
     }
 
     /// <summary>
@@ -94,8 +85,7 @@ public class AwsAmplifyAppAutoBranchCreationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Stage
     {
-        get => GetProperty<TerraformProperty<string>>("stage");
-        set => WithProperty("stage", value);
+        set => SetProperty("stage", value);
     }
 
 }
@@ -112,8 +102,7 @@ public class AwsAmplifyAppCacheConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -129,8 +118,7 @@ public class AwsAmplifyAppCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Condition
     {
-        get => GetProperty<TerraformProperty<string>>("condition");
-        set => WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AwsAmplifyAppCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class AwsAmplifyAppCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -158,8 +144,7 @@ public class AwsAmplifyAppCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target");
-        set => WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
 }
@@ -175,8 +160,7 @@ public class AwsAmplifyAppJobConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BuildComputeType
     {
-        get => GetProperty<TerraformProperty<string>>("build_compute_type");
-        set => WithProperty("build_compute_type", value);
+        set => SetProperty("build_compute_type", value);
     }
 
 }
@@ -194,135 +178,156 @@ public class AwsAmplifyApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("default_domain");
-        this.WithOutput("production_branch");
+        SetOutput("arn");
+        SetOutput("default_domain");
+        SetOutput("production_branch");
+        SetOutput("access_token");
+        SetOutput("auto_branch_creation_patterns");
+        SetOutput("basic_auth_credentials");
+        SetOutput("build_spec");
+        SetOutput("compute_role_arn");
+        SetOutput("custom_headers");
+        SetOutput("description");
+        SetOutput("enable_auto_branch_creation");
+        SetOutput("enable_basic_auth");
+        SetOutput("enable_branch_auto_build");
+        SetOutput("enable_branch_auto_deletion");
+        SetOutput("environment_variables");
+        SetOutput("iam_service_role_arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("oauth_token");
+        SetOutput("platform");
+        SetOutput("region");
+        SetOutput("repository");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The access_token attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessToken
+    public TerraformProperty<string> AccessToken
     {
-        get => GetProperty<TerraformProperty<string>>("access_token");
-        set => this.WithProperty("access_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_token");
+        set => SetProperty("access_token", value);
     }
 
     /// <summary>
     /// The auto_branch_creation_patterns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AutoBranchCreationPatterns
+    public HashSet<TerraformProperty<string>> AutoBranchCreationPatterns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("auto_branch_creation_patterns");
-        set => this.WithProperty("auto_branch_creation_patterns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("auto_branch_creation_patterns");
+        set => SetProperty("auto_branch_creation_patterns", value);
     }
 
     /// <summary>
     /// The basic_auth_credentials attribute.
     /// </summary>
-    public TerraformProperty<string>? BasicAuthCredentials
+    public TerraformProperty<string> BasicAuthCredentials
     {
-        get => GetProperty<TerraformProperty<string>>("basic_auth_credentials");
-        set => this.WithProperty("basic_auth_credentials", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("basic_auth_credentials");
+        set => SetProperty("basic_auth_credentials", value);
     }
 
     /// <summary>
     /// The build_spec attribute.
     /// </summary>
-    public TerraformProperty<string>? BuildSpec
+    public TerraformProperty<string> BuildSpec
     {
-        get => GetProperty<TerraformProperty<string>>("build_spec");
-        set => this.WithProperty("build_spec", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("build_spec");
+        set => SetProperty("build_spec", value);
     }
 
     /// <summary>
     /// The compute_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputeRoleArn
+    public TerraformProperty<string> ComputeRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("compute_role_arn");
-        set => this.WithProperty("compute_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compute_role_arn");
+        set => SetProperty("compute_role_arn", value);
     }
 
     /// <summary>
     /// The custom_headers attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomHeaders
+    public TerraformProperty<string> CustomHeaders
     {
-        get => GetProperty<TerraformProperty<string>>("custom_headers");
-        set => this.WithProperty("custom_headers", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_headers");
+        set => SetProperty("custom_headers", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enable_auto_branch_creation attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableAutoBranchCreation
+    public TerraformProperty<bool> EnableAutoBranchCreation
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_auto_branch_creation");
-        set => this.WithProperty("enable_auto_branch_creation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_auto_branch_creation");
+        set => SetProperty("enable_auto_branch_creation", value);
     }
 
     /// <summary>
     /// The enable_basic_auth attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableBasicAuth
+    public TerraformProperty<bool> EnableBasicAuth
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_basic_auth");
-        set => this.WithProperty("enable_basic_auth", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_basic_auth");
+        set => SetProperty("enable_basic_auth", value);
     }
 
     /// <summary>
     /// The enable_branch_auto_build attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableBranchAutoBuild
+    public TerraformProperty<bool> EnableBranchAutoBuild
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_branch_auto_build");
-        set => this.WithProperty("enable_branch_auto_build", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_branch_auto_build");
+        set => SetProperty("enable_branch_auto_build", value);
     }
 
     /// <summary>
     /// The enable_branch_auto_deletion attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableBranchAutoDeletion
+    public TerraformProperty<bool> EnableBranchAutoDeletion
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_branch_auto_deletion");
-        set => this.WithProperty("enable_branch_auto_deletion", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_branch_auto_deletion");
+        set => SetProperty("enable_branch_auto_deletion", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>> EnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => this.WithProperty("environment_variables", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("environment_variables");
+        set => SetProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The iam_service_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamServiceRoleArn
+    public TerraformProperty<string> IamServiceRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_service_role_arn");
-        set => this.WithProperty("iam_service_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_service_role_arn");
+        set => SetProperty("iam_service_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -331,62 +336,62 @@ public class AwsAmplifyApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The oauth_token attribute.
     /// </summary>
-    public TerraformProperty<string>? OauthToken
+    public TerraformProperty<string> OauthToken
     {
-        get => GetProperty<TerraformProperty<string>>("oauth_token");
-        set => this.WithProperty("oauth_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("oauth_token");
+        set => SetProperty("oauth_token", value);
     }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    public TerraformProperty<string>? Platform
+    public TerraformProperty<string> Platform
     {
-        get => GetProperty<TerraformProperty<string>>("platform");
-        set => this.WithProperty("platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform");
+        set => SetProperty("platform", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The repository attribute.
     /// </summary>
-    public TerraformProperty<string>? Repository
+    public TerraformProperty<string> Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
-        set => this.WithProperty("repository", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository");
+        set => SetProperty("repository", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -396,8 +401,7 @@ public class AwsAmplifyApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoBranchCreationConfig block(s) allowed")]
     public List<AwsAmplifyAppAutoBranchCreationConfigBlock>? AutoBranchCreationConfig
     {
-        get => GetProperty<List<AwsAmplifyAppAutoBranchCreationConfigBlock>>("auto_branch_creation_config");
-        set => this.WithProperty("auto_branch_creation_config", value);
+        set => SetProperty("auto_branch_creation_config", value);
     }
 
     /// <summary>
@@ -407,8 +411,7 @@ public class AwsAmplifyApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheConfig block(s) allowed")]
     public List<AwsAmplifyAppCacheConfigBlock>? CacheConfig
     {
-        get => GetProperty<List<AwsAmplifyAppCacheConfigBlock>>("cache_config");
-        set => this.WithProperty("cache_config", value);
+        set => SetProperty("cache_config", value);
     }
 
     /// <summary>
@@ -417,8 +420,7 @@ public class AwsAmplifyApp : TerraformResource
     /// </summary>
     public List<AwsAmplifyAppCustomRuleBlock>? CustomRule
     {
-        get => GetProperty<List<AwsAmplifyAppCustomRuleBlock>>("custom_rule");
-        set => this.WithProperty("custom_rule", value);
+        set => SetProperty("custom_rule", value);
     }
 
     /// <summary>
@@ -428,8 +430,7 @@ public class AwsAmplifyApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobConfig block(s) allowed")]
     public List<AwsAmplifyAppJobConfigBlock>? JobConfig
     {
-        get => GetProperty<List<AwsAmplifyAppJobConfigBlock>>("job_config");
-        set => this.WithProperty("job_config", value);
+        set => SetProperty("job_config", value);
     }
 
     /// <summary>

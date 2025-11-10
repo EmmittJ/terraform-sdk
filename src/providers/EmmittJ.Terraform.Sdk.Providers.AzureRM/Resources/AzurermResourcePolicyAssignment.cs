@@ -13,8 +13,7 @@ public class AzurermResourcePolicyAssignmentIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermResourcePolicyAssignmentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermResourcePolicyAssignmentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermResourcePolicyAssignmentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermResourcePolicyAssignmentNonComplianceMessageBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermResourcePolicyAssignmentNonComplianceMessageBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? PolicyDefinitionReferenceId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_definition_reference_id");
-        set => WithProperty("policy_definition_reference_id", value);
+        set => SetProperty("policy_definition_reference_id", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class AzurermResourcePolicyAssignmentOverridesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -103,8 +96,7 @@ public class AzurermResourcePolicyAssignmentResourceSelectorsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -120,8 +112,7 @@ public class AzurermResourcePolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -129,8 +120,7 @@ public class AzurermResourcePolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -138,8 +128,7 @@ public class AzurermResourcePolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -147,8 +136,7 @@ public class AzurermResourcePolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -166,60 +154,71 @@ public class AzurermResourcePolicyAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("enforce");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("not_scopes");
+        SetOutput("parameters");
+        SetOutput("policy_definition_id");
+        SetOutput("resource_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The enforce attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enforce
+    public TerraformProperty<bool> Enforce
     {
-        get => GetProperty<TerraformProperty<bool>>("enforce");
-        set => this.WithProperty("enforce", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enforce");
+        set => SetProperty("enforce", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformProperty<string>? Metadata
+    public TerraformProperty<string> Metadata
     {
-        get => GetProperty<TerraformProperty<string>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -228,26 +227,26 @@ public class AzurermResourcePolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The not_scopes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? NotScopes
+    public List<TerraformProperty<string>> NotScopes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("not_scopes");
-        set => this.WithProperty("not_scopes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("not_scopes");
+        set => SetProperty("not_scopes", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformProperty<string>? Parameters
+    public TerraformProperty<string> Parameters
     {
-        get => GetProperty<TerraformProperty<string>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -256,8 +255,8 @@ public class AzurermResourcePolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionId is required")]
     public required TerraformProperty<string> PolicyDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_definition_id");
-        set => this.WithProperty("policy_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_definition_id");
+        set => SetProperty("policy_definition_id", value);
     }
 
     /// <summary>
@@ -266,8 +265,8 @@ public class AzurermResourcePolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -277,8 +276,7 @@ public class AzurermResourcePolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermResourcePolicyAssignmentIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermResourcePolicyAssignmentIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -287,8 +285,7 @@ public class AzurermResourcePolicyAssignment : TerraformResource
     /// </summary>
     public List<AzurermResourcePolicyAssignmentNonComplianceMessageBlock>? NonComplianceMessage
     {
-        get => GetProperty<List<AzurermResourcePolicyAssignmentNonComplianceMessageBlock>>("non_compliance_message");
-        set => this.WithProperty("non_compliance_message", value);
+        set => SetProperty("non_compliance_message", value);
     }
 
     /// <summary>
@@ -297,8 +294,7 @@ public class AzurermResourcePolicyAssignment : TerraformResource
     /// </summary>
     public List<AzurermResourcePolicyAssignmentOverridesBlock>? Overrides
     {
-        get => GetProperty<List<AzurermResourcePolicyAssignmentOverridesBlock>>("overrides");
-        set => this.WithProperty("overrides", value);
+        set => SetProperty("overrides", value);
     }
 
     /// <summary>
@@ -307,8 +303,7 @@ public class AzurermResourcePolicyAssignment : TerraformResource
     /// </summary>
     public List<AzurermResourcePolicyAssignmentResourceSelectorsBlock>? ResourceSelectors
     {
-        get => GetProperty<List<AzurermResourcePolicyAssignmentResourceSelectorsBlock>>("resource_selectors");
-        set => this.WithProperty("resource_selectors", value);
+        set => SetProperty("resource_selectors", value);
     }
 
     /// <summary>
@@ -317,8 +312,7 @@ public class AzurermResourcePolicyAssignment : TerraformResource
     /// </summary>
     public AzurermResourcePolicyAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermResourcePolicyAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

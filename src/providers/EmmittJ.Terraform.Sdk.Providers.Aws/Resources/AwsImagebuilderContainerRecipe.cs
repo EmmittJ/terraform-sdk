@@ -14,8 +14,7 @@ public class AwsImagebuilderContainerRecipeComponentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
     public required TerraformProperty<string> ComponentArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("component_arn");
-        set => WithProperty("component_arn", value);
+        set => SetProperty("component_arn", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
-        set => WithProperty("repository_name", value);
+        set => SetProperty("repository_name", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => WithProperty("service", value);
+        set => SetProperty("service", value);
     }
 
 }
@@ -78,11 +74,25 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("date_created");
-        this.WithOutput("encrypted");
-        this.WithOutput("owner");
-        this.WithOutput("platform");
+        SetOutput("arn");
+        SetOutput("date_created");
+        SetOutput("encrypted");
+        SetOutput("owner");
+        SetOutput("platform");
+        SetOutput("container_type");
+        SetOutput("description");
+        SetOutput("dockerfile_template_data");
+        SetOutput("dockerfile_template_uri");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("parent_image");
+        SetOutput("platform_override");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("version");
+        SetOutput("working_directory");
     }
 
     /// <summary>
@@ -91,53 +101,53 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerType is required")]
     public required TerraformProperty<string> ContainerType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_type");
-        set => this.WithProperty("container_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_type");
+        set => SetProperty("container_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The dockerfile_template_data attribute.
     /// </summary>
-    public TerraformProperty<string>? DockerfileTemplateData
+    public TerraformProperty<string> DockerfileTemplateData
     {
-        get => GetProperty<TerraformProperty<string>>("dockerfile_template_data");
-        set => this.WithProperty("dockerfile_template_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dockerfile_template_data");
+        set => SetProperty("dockerfile_template_data", value);
     }
 
     /// <summary>
     /// The dockerfile_template_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? DockerfileTemplateUri
+    public TerraformProperty<string> DockerfileTemplateUri
     {
-        get => GetProperty<TerraformProperty<string>>("dockerfile_template_uri");
-        set => this.WithProperty("dockerfile_template_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dockerfile_template_uri");
+        set => SetProperty("dockerfile_template_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -146,8 +156,8 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -156,44 +166,44 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
     public required TerraformProperty<string> ParentImage
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent_image");
-        set => this.WithProperty("parent_image", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_image");
+        set => SetProperty("parent_image", value);
     }
 
     /// <summary>
     /// The platform_override attribute.
     /// </summary>
-    public TerraformProperty<string>? PlatformOverride
+    public TerraformProperty<string> PlatformOverride
     {
-        get => GetProperty<TerraformProperty<string>>("platform_override");
-        set => this.WithProperty("platform_override", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform_override");
+        set => SetProperty("platform_override", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -202,28 +212,28 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkingDirectory
+    public TerraformProperty<string> WorkingDirectory
     {
-        get => GetProperty<TerraformProperty<string>>("working_directory");
-        set => this.WithProperty("working_directory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("working_directory");
+        set => SetProperty("working_directory", value);
     }
 
     /// <summary>
     /// Block for component.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Component is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Component block(s) required")]
     public List<AwsImagebuilderContainerRecipeComponentBlock>? Component
     {
-        get => GetProperty<List<AwsImagebuilderContainerRecipeComponentBlock>>("component");
-        set => this.WithProperty("component", value);
+        set => SetProperty("component", value);
     }
 
     /// <summary>
@@ -233,20 +243,19 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceConfiguration block(s) allowed")]
     public List<AwsImagebuilderContainerRecipeInstanceConfigurationBlock>? InstanceConfiguration
     {
-        get => GetProperty<List<AwsImagebuilderContainerRecipeInstanceConfigurationBlock>>("instance_configuration");
-        set => this.WithProperty("instance_configuration", value);
+        set => SetProperty("instance_configuration", value);
     }
 
     /// <summary>
     /// Block for target_repository.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRepository is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetRepository block(s) allowed")]
     public List<AwsImagebuilderContainerRecipeTargetRepositoryBlock>? TargetRepository
     {
-        get => GetProperty<List<AwsImagebuilderContainerRecipeTargetRepositoryBlock>>("target_repository");
-        set => this.WithProperty("target_repository", value);
+        set => SetProperty("target_repository", value);
     }
 
     /// <summary>

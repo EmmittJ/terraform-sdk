@@ -13,8 +13,7 @@ public class AzureadGroupsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,78 +30,86 @@ public class AzureadGroupsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
+        SetOutput("display_name_prefix");
+        SetOutput("display_names");
+        SetOutput("id");
+        SetOutput("ignore_missing");
+        SetOutput("mail_enabled");
+        SetOutput("object_ids");
+        SetOutput("return_all");
+        SetOutput("security_enabled");
     }
 
     /// <summary>
     /// Common display name prefix of the groups
     /// </summary>
-    public TerraformProperty<string>? DisplayNamePrefix
+    public TerraformProperty<string> DisplayNamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("display_name_prefix");
-        set => this.WithProperty("display_name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name_prefix");
+        set => SetProperty("display_name_prefix", value);
     }
 
     /// <summary>
     /// The display names of the groups
     /// </summary>
-    public List<TerraformProperty<string>>? DisplayNames
+    public List<TerraformProperty<string>> DisplayNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("display_names");
-        set => this.WithProperty("display_names", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("display_names");
+        set => SetProperty("display_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Ignore missing groups and return groups that were found. The data source will still fail if no groups are found
     /// </summary>
-    public TerraformProperty<bool>? IgnoreMissing
+    public TerraformProperty<bool> IgnoreMissing
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_missing");
-        set => this.WithProperty("ignore_missing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_missing");
+        set => SetProperty("ignore_missing", value);
     }
 
     /// <summary>
     /// Whether the groups are mail-enabled
     /// </summary>
-    public TerraformProperty<bool>? MailEnabled
+    public TerraformProperty<bool> MailEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("mail_enabled");
-        set => this.WithProperty("mail_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("mail_enabled");
+        set => SetProperty("mail_enabled", value);
     }
 
     /// <summary>
     /// The object IDs of the groups
     /// </summary>
-    public List<TerraformProperty<string>>? ObjectIds
+    public List<TerraformProperty<string>> ObjectIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("object_ids");
-        set => this.WithProperty("object_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("object_ids");
+        set => SetProperty("object_ids", value);
     }
 
     /// <summary>
     /// Retrieve all groups with no filter
     /// </summary>
-    public TerraformProperty<bool>? ReturnAll
+    public TerraformProperty<bool> ReturnAll
     {
-        get => GetProperty<TerraformProperty<bool>>("return_all");
-        set => this.WithProperty("return_all", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("return_all");
+        set => SetProperty("return_all", value);
     }
 
     /// <summary>
     /// Whether the groups are security-enabled
     /// </summary>
-    public TerraformProperty<bool>? SecurityEnabled
+    public TerraformProperty<bool> SecurityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("security_enabled");
-        set => this.WithProperty("security_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("security_enabled");
+        set => SetProperty("security_enabled", value);
     }
 
     /// <summary>
@@ -111,8 +118,7 @@ public class AzureadGroupsDataSource : TerraformDataSource
     /// </summary>
     public AzureadGroupsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadGroupsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsVpclatticeServiceNetworkVpcAssociationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpclatticeServiceNetworkVpcAssociationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsVpclatticeServiceNetworkVpcAssociationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,36 +46,43 @@ public class AwsVpclatticeServiceNetworkVpcAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_by");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("created_by");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("service_network_identifier");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_identifier");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SecurityGroupIds
+    public List<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -87,26 +91,26 @@ public class AwsVpclatticeServiceNetworkVpcAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNetworkIdentifier is required")]
     public required TerraformProperty<string> ServiceNetworkIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_network_identifier");
-        set => this.WithProperty("service_network_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_network_identifier");
+        set => SetProperty("service_network_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -115,8 +119,8 @@ public class AwsVpclatticeServiceNetworkVpcAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcIdentifier is required")]
     public required TerraformProperty<string> VpcIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_identifier");
-        set => this.WithProperty("vpc_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_identifier");
+        set => SetProperty("vpc_identifier", value);
     }
 
     /// <summary>
@@ -125,8 +129,7 @@ public class AwsVpclatticeServiceNetworkVpcAssociation : TerraformResource
     /// </summary>
     public AwsVpclatticeServiceNetworkVpcAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpclatticeServiceNetworkVpcAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

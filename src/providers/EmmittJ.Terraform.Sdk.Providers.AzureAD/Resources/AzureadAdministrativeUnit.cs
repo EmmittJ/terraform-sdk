@@ -13,8 +13,7 @@ public class AzureadAdministrativeUnitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadAdministrativeUnitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadAdministrativeUnitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadAdministrativeUnitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +54,22 @@ public class AzureadAdministrativeUnit : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("object_id");
+        SetOutput("object_id");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("hidden_membership_enabled");
+        SetOutput("id");
+        SetOutput("members");
+        SetOutput("prevent_duplicate_names");
     }
 
     /// <summary>
     /// The description for the administrative unit
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -76,44 +78,44 @@ public class AzureadAdministrativeUnit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether the administrative unit and its members are hidden or publicly viewable in the directory
     /// </summary>
-    public TerraformProperty<bool>? HiddenMembershipEnabled
+    public TerraformProperty<bool> HiddenMembershipEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("hidden_membership_enabled");
-        set => this.WithProperty("hidden_membership_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("hidden_membership_enabled");
+        set => SetProperty("hidden_membership_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// A set of object IDs of members who should be present in this administrative unit. Supported object types are Users or Groups
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Members
+    public HashSet<TerraformProperty<string>> Members
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
-        set => this.WithProperty("members", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("members");
+        set => SetProperty("members", value);
     }
 
     /// <summary>
     /// If `true`, will return an error if an existing administrative unit is found with the same name
     /// </summary>
-    public TerraformProperty<bool>? PreventDuplicateNames
+    public TerraformProperty<bool> PreventDuplicateNames
     {
-        get => GetProperty<TerraformProperty<bool>>("prevent_duplicate_names");
-        set => this.WithProperty("prevent_duplicate_names", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("prevent_duplicate_names");
+        set => SetProperty("prevent_duplicate_names", value);
     }
 
     /// <summary>
@@ -122,8 +124,7 @@ public class AzureadAdministrativeUnit : TerraformResource
     /// </summary>
     public AzureadAdministrativeUnitTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAdministrativeUnitTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

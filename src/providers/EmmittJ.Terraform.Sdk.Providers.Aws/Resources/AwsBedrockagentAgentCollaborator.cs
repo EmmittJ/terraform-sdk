@@ -14,8 +14,7 @@ public class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasArn is required")]
     public required TerraformProperty<string> AliasArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alias_arn");
-        set => WithProperty("alias_arn", value);
+        set => SetProperty("alias_arn", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsBedrockagentAgentCollaboratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsBedrockagentAgentCollaboratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsBedrockagentAgentCollaboratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,8 +63,15 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("collaborator_id");
-        this.WithOutput("id");
+        SetOutput("collaborator_id");
+        SetOutput("id");
+        SetOutput("agent_id");
+        SetOutput("agent_version");
+        SetOutput("collaboration_instruction");
+        SetOutput("collaborator_name");
+        SetOutput("prepare_agent");
+        SetOutput("region");
+        SetOutput("relay_conversation_history");
     }
 
     /// <summary>
@@ -77,17 +80,17 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
-        set => this.WithProperty("agent_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_id");
+        set => SetProperty("agent_id", value);
     }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentVersion
+    public TerraformProperty<string> AgentVersion
     {
-        get => GetProperty<TerraformProperty<string>>("agent_version");
-        set => this.WithProperty("agent_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_version");
+        set => SetProperty("agent_version", value);
     }
 
     /// <summary>
@@ -96,8 +99,8 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationInstruction is required")]
     public required TerraformProperty<string> CollaborationInstruction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collaboration_instruction");
-        set => this.WithProperty("collaboration_instruction", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collaboration_instruction");
+        set => SetProperty("collaboration_instruction", value);
     }
 
     /// <summary>
@@ -106,35 +109,35 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaboratorName is required")]
     public required TerraformProperty<string> CollaboratorName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collaborator_name");
-        set => this.WithProperty("collaborator_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collaborator_name");
+        set => SetProperty("collaborator_name", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrepareAgent
+    public TerraformProperty<bool> PrepareAgent
     {
-        get => GetProperty<TerraformProperty<bool>>("prepare_agent");
-        set => this.WithProperty("prepare_agent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("prepare_agent");
+        set => SetProperty("prepare_agent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The relay_conversation_history attribute.
     /// </summary>
-    public TerraformProperty<string>? RelayConversationHistory
+    public TerraformProperty<string> RelayConversationHistory
     {
-        get => GetProperty<TerraformProperty<string>>("relay_conversation_history");
-        set => this.WithProperty("relay_conversation_history", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("relay_conversation_history");
+        set => SetProperty("relay_conversation_history", value);
     }
 
     /// <summary>
@@ -143,8 +146,7 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     /// </summary>
     public List<AwsBedrockagentAgentCollaboratorAgentDescriptorBlock>? AgentDescriptor
     {
-        get => GetProperty<List<AwsBedrockagentAgentCollaboratorAgentDescriptorBlock>>("agent_descriptor");
-        set => this.WithProperty("agent_descriptor", value);
+        set => SetProperty("agent_descriptor", value);
     }
 
     /// <summary>
@@ -153,8 +155,7 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     /// </summary>
     public AwsBedrockagentAgentCollaboratorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentAgentCollaboratorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

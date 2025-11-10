@@ -13,8 +13,7 @@ public class AzurermManagedDiskDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,32 +30,35 @@ public class AzurermManagedDiskDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_option");
-        this.WithOutput("disk_access_id");
-        this.WithOutput("disk_encryption_set_id");
-        this.WithOutput("disk_iops_read_write");
-        this.WithOutput("disk_mbps_read_write");
-        this.WithOutput("disk_size_gb");
-        this.WithOutput("encryption_settings");
-        this.WithOutput("image_reference_id");
-        this.WithOutput("location");
-        this.WithOutput("network_access_policy");
-        this.WithOutput("os_type");
-        this.WithOutput("source_resource_id");
-        this.WithOutput("source_uri");
-        this.WithOutput("storage_account_id");
-        this.WithOutput("storage_account_type");
-        this.WithOutput("tags");
-        this.WithOutput("zones");
+        SetOutput("create_option");
+        SetOutput("disk_access_id");
+        SetOutput("disk_encryption_set_id");
+        SetOutput("disk_iops_read_write");
+        SetOutput("disk_mbps_read_write");
+        SetOutput("disk_size_gb");
+        SetOutput("encryption_settings");
+        SetOutput("image_reference_id");
+        SetOutput("location");
+        SetOutput("network_access_policy");
+        SetOutput("os_type");
+        SetOutput("source_resource_id");
+        SetOutput("source_uri");
+        SetOutput("storage_account_id");
+        SetOutput("storage_account_type");
+        SetOutput("tags");
+        SetOutput("zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermManagedDiskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -75,8 +77,8 @@ public class AzurermManagedDiskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -85,8 +87,7 @@ public class AzurermManagedDiskDataSource : TerraformDataSource
     /// </summary>
     public AzurermManagedDiskDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagedDiskDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

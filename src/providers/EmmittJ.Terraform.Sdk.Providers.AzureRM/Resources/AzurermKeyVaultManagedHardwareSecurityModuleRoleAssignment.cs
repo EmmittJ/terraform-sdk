@@ -13,8 +13,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,16 +46,22 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
 
     private void InitializeOutputs()
     {
-        this.WithOutput("resource_id");
+        SetOutput("resource_id");
+        SetOutput("id");
+        SetOutput("managed_hsm_id");
+        SetOutput("name");
+        SetOutput("principal_id");
+        SetOutput("role_definition_id");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,8 +70,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformProperty<string> ManagedHsmId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_hsm_id");
-        set => this.WithProperty("managed_hsm_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_id");
+        set => SetProperty("managed_hsm_id", value);
     }
 
     /// <summary>
@@ -77,8 +80,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -87,8 +90,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -97,8 +100,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
-        set => this.WithProperty("role_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
+        set => SetProperty("role_definition_id", value);
     }
 
     /// <summary>
@@ -107,8 +110,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -117,8 +120,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

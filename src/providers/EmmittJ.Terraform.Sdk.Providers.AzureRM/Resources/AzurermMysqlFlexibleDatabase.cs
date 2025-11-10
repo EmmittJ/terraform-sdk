@@ -13,8 +13,7 @@ public class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,12 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("charset");
+        SetOutput("collation");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("server_name");
     }
 
     /// <summary>
@@ -57,8 +60,8 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Charset is required")]
     public required TerraformProperty<string> Charset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("charset");
-        set => this.WithProperty("charset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("charset");
+        set => SetProperty("charset", value);
     }
 
     /// <summary>
@@ -67,17 +70,17 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collation is required")]
     public required TerraformProperty<string> Collation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collation");
-        set => this.WithProperty("collation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collation");
+        set => SetProperty("collation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,8 +89,8 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -96,8 +99,8 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -106,8 +109,8 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
-        set => this.WithProperty("server_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_name");
+        set => SetProperty("server_name", value);
     }
 
     /// <summary>
@@ -116,8 +119,7 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     /// </summary>
     public AzurermMysqlFlexibleDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMysqlFlexibleDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

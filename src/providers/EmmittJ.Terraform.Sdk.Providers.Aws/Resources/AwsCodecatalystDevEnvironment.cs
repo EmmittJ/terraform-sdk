@@ -13,8 +13,7 @@ public class AwsCodecatalystDevEnvironmentIdesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCodecatalystDevEnvironmentIdesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Runtime
     {
-        get => GetProperty<TerraformProperty<string>>("runtime");
-        set => WithProperty("runtime", value);
+        set => SetProperty("runtime", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsCodecatalystDevEnvironmentPersistentStorageBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformProperty<double> Size
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class AwsCodecatalystDevEnvironmentRepositoriesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BranchName
     {
-        get => GetProperty<TerraformProperty<string>>("branch_name");
-        set => WithProperty("branch_name", value);
+        set => SetProperty("branch_name", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AwsCodecatalystDevEnvironmentRepositoriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
-        set => WithProperty("repository_name", value);
+        set => SetProperty("repository_name", value);
     }
 
 }
@@ -84,8 +79,7 @@ public class AwsCodecatalystDevEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class AwsCodecatalystDevEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +95,7 @@ public class AwsCodecatalystDevEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,33 +113,40 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("alias");
+        SetOutput("id");
+        SetOutput("inactivity_timeout_minutes");
+        SetOutput("instance_type");
+        SetOutput("project_name");
+        SetOutput("region");
+        SetOutput("space_name");
     }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformProperty<string>? Alias
+    public TerraformProperty<string> Alias
     {
-        get => GetProperty<TerraformProperty<string>>("alias");
-        set => this.WithProperty("alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias");
+        set => SetProperty("alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The inactivity_timeout_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? InactivityTimeoutMinutes
+    public TerraformProperty<double> InactivityTimeoutMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("inactivity_timeout_minutes");
-        set => this.WithProperty("inactivity_timeout_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("inactivity_timeout_minutes");
+        set => SetProperty("inactivity_timeout_minutes", value);
     }
 
     /// <summary>
@@ -156,8 +155,8 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -166,17 +165,17 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
-        set => this.WithProperty("project_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_name");
+        set => SetProperty("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -185,32 +184,32 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     public required TerraformProperty<string> SpaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("space_name");
-        set => this.WithProperty("space_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("space_name");
+        set => SetProperty("space_name", value);
     }
 
     /// <summary>
     /// Block for ides.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ides is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Ides block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ides block(s) allowed")]
     public List<AwsCodecatalystDevEnvironmentIdesBlock>? Ides
     {
-        get => GetProperty<List<AwsCodecatalystDevEnvironmentIdesBlock>>("ides");
-        set => this.WithProperty("ides", value);
+        set => SetProperty("ides", value);
     }
 
     /// <summary>
     /// Block for persistent_storage.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PersistentStorage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PersistentStorage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistentStorage block(s) allowed")]
     public List<AwsCodecatalystDevEnvironmentPersistentStorageBlock>? PersistentStorage
     {
-        get => GetProperty<List<AwsCodecatalystDevEnvironmentPersistentStorageBlock>>("persistent_storage");
-        set => this.WithProperty("persistent_storage", value);
+        set => SetProperty("persistent_storage", value);
     }
 
     /// <summary>
@@ -220,8 +219,7 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Repositories block(s) allowed")]
     public List<AwsCodecatalystDevEnvironmentRepositoriesBlock>? Repositories
     {
-        get => GetProperty<List<AwsCodecatalystDevEnvironmentRepositoriesBlock>>("repositories");
-        set => this.WithProperty("repositories", value);
+        set => SetProperty("repositories", value);
     }
 
     /// <summary>
@@ -230,8 +228,7 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     /// </summary>
     public AwsCodecatalystDevEnvironmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCodecatalystDevEnvironmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

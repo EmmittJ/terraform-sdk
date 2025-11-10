@@ -13,8 +13,7 @@ public class AwsRdsClusterRoleAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRdsClusterRoleAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,11 @@ public class AwsRdsClusterRoleAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("db_cluster_identifier");
+        SetOutput("feature_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("role_arn");
     }
 
     /// <summary>
@@ -48,35 +51,35 @@ public class AwsRdsClusterRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
     public required TerraformProperty<string> DbClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_cluster_identifier");
-        set => this.WithProperty("db_cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_cluster_identifier");
+        set => SetProperty("db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The feature_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FeatureName
+    public TerraformProperty<string> FeatureName
     {
-        get => GetProperty<TerraformProperty<string>>("feature_name");
-        set => this.WithProperty("feature_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("feature_name");
+        set => SetProperty("feature_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -85,8 +88,8 @@ public class AwsRdsClusterRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -95,8 +98,7 @@ public class AwsRdsClusterRoleAssociation : TerraformResource
     /// </summary>
     public AwsRdsClusterRoleAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRdsClusterRoleAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,16 +14,22 @@ public class AwsCloudcontrolapiResourceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("properties");
+        SetOutput("properties");
+        SetOutput("id");
+        SetOutput("identifier");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("type_name");
+        SetOutput("type_version_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,26 +38,26 @@ public class AwsCloudcontrolapiResourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
-        set => this.WithProperty("identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identifier");
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -60,17 +66,17 @@ public class AwsCloudcontrolapiResourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformProperty<string> TypeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type_name");
-        set => this.WithProperty("type_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type_name");
+        set => SetProperty("type_name", value);
     }
 
     /// <summary>
     /// The type_version_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TypeVersionId
+    public TerraformProperty<string> TypeVersionId
     {
-        get => GetProperty<TerraformProperty<string>>("type_version_id");
-        set => this.WithProperty("type_version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type_version_id");
+        set => SetProperty("type_version_id", value);
     }
 
     /// <summary>

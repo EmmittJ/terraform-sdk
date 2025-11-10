@@ -14,8 +14,7 @@ public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupIndexingMode is required")]
     public required TerraformProperty<string> ThingGroupIndexingMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("thing_group_indexing_mode");
-        set => WithProperty("thing_group_indexing_mode", value);
+        set => SetProperty("thing_group_indexing_mode", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? DeviceDefenderIndexingMode
     {
-        get => GetProperty<TerraformProperty<string>>("device_defender_indexing_mode");
-        set => WithProperty("device_defender_indexing_mode", value);
+        set => SetProperty("device_defender_indexing_mode", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? NamedShadowIndexingMode
     {
-        get => GetProperty<TerraformProperty<string>>("named_shadow_indexing_mode");
-        set => WithProperty("named_shadow_indexing_mode", value);
+        set => SetProperty("named_shadow_indexing_mode", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? ThingConnectivityIndexingMode
     {
-        get => GetProperty<TerraformProperty<string>>("thing_connectivity_indexing_mode");
-        set => WithProperty("thing_connectivity_indexing_mode", value);
+        set => SetProperty("thing_connectivity_indexing_mode", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingIndexingMode is required")]
     public required TerraformProperty<string> ThingIndexingMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("thing_indexing_mode");
-        set => WithProperty("thing_indexing_mode", value);
+        set => SetProperty("thing_indexing_mode", value);
     }
 
 }
@@ -78,24 +73,26 @@ public class AwsIotIndexingConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -105,8 +102,7 @@ public class AwsIotIndexingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThingGroupIndexingConfiguration block(s) allowed")]
     public List<AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock>? ThingGroupIndexingConfiguration
     {
-        get => GetProperty<List<AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock>>("thing_group_indexing_configuration");
-        set => this.WithProperty("thing_group_indexing_configuration", value);
+        set => SetProperty("thing_group_indexing_configuration", value);
     }
 
     /// <summary>
@@ -116,8 +112,7 @@ public class AwsIotIndexingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThingIndexingConfiguration block(s) allowed")]
     public List<AwsIotIndexingConfigurationThingIndexingConfigurationBlock>? ThingIndexingConfiguration
     {
-        get => GetProperty<List<AwsIotIndexingConfigurationThingIndexingConfigurationBlock>>("thing_indexing_configuration");
-        set => this.WithProperty("thing_indexing_configuration", value);
+        set => SetProperty("thing_indexing_configuration", value);
     }
 
 }

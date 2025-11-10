@@ -13,8 +13,7 @@ public class GoogleStorageManagedFolderIamBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleStorageManagedFolderIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleStorageManagedFolderIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -52,7 +49,12 @@ public class GoogleStorageManagedFolderIamBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("bucket");
+        SetOutput("id");
+        SetOutput("managed_folder");
+        SetOutput("members");
+        SetOutput("role");
     }
 
     /// <summary>
@@ -61,17 +63,17 @@ public class GoogleStorageManagedFolderIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -80,18 +82,18 @@ public class GoogleStorageManagedFolderIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedFolder is required")]
     public required TerraformProperty<string> ManagedFolder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_folder");
-        set => this.WithProperty("managed_folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_folder");
+        set => SetProperty("managed_folder", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
-    public HashSet<TerraformProperty<string>>? Members
+    public HashSet<TerraformProperty<string>> Members
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
-        set => this.WithProperty("members", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("members");
+        set => SetProperty("members", value);
     }
 
     /// <summary>
@@ -100,8 +102,8 @@ public class GoogleStorageManagedFolderIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -111,8 +113,7 @@ public class GoogleStorageManagedFolderIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     public List<GoogleStorageManagedFolderIamBindingConditionBlock>? Condition
     {
-        get => GetProperty<List<GoogleStorageManagedFolderIamBindingConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>

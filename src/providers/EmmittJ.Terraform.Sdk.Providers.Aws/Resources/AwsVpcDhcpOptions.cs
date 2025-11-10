@@ -14,98 +14,108 @@ public class AwsVpcDhcpOptions : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("owner_id");
+        SetOutput("arn");
+        SetOutput("owner_id");
+        SetOutput("domain_name");
+        SetOutput("domain_name_servers");
+        SetOutput("id");
+        SetOutput("ipv6_address_preferred_lease_time");
+        SetOutput("netbios_name_servers");
+        SetOutput("netbios_node_type");
+        SetOutput("ntp_servers");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    public TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The domain_name_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DomainNameServers
+    public List<TerraformProperty<string>> DomainNameServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("domain_name_servers");
-        set => this.WithProperty("domain_name_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("domain_name_servers");
+        set => SetProperty("domain_name_servers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ipv6_address_preferred_lease_time attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6AddressPreferredLeaseTime
+    public TerraformProperty<string> Ipv6AddressPreferredLeaseTime
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_address_preferred_lease_time");
-        set => this.WithProperty("ipv6_address_preferred_lease_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_address_preferred_lease_time");
+        set => SetProperty("ipv6_address_preferred_lease_time", value);
     }
 
     /// <summary>
     /// The netbios_name_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? NetbiosNameServers
+    public List<TerraformProperty<string>> NetbiosNameServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("netbios_name_servers");
-        set => this.WithProperty("netbios_name_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("netbios_name_servers");
+        set => SetProperty("netbios_name_servers", value);
     }
 
     /// <summary>
     /// The netbios_node_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NetbiosNodeType
+    public TerraformProperty<string> NetbiosNodeType
     {
-        get => GetProperty<TerraformProperty<string>>("netbios_node_type");
-        set => this.WithProperty("netbios_node_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("netbios_node_type");
+        set => SetProperty("netbios_node_type", value);
     }
 
     /// <summary>
     /// The ntp_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? NtpServers
+    public List<TerraformProperty<string>> NtpServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ntp_servers");
-        set => this.WithProperty("ntp_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ntp_servers");
+        set => SetProperty("ntp_servers", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

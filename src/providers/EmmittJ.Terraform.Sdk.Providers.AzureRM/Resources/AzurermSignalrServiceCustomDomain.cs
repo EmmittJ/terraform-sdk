@@ -13,8 +13,7 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,11 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("signalr_custom_certificate_id");
+        SetOutput("signalr_service_id");
     }
 
     /// <summary>
@@ -57,17 +59,17 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -86,8 +88,8 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrCustomCertificateId is required")]
     public required TerraformProperty<string> SignalrCustomCertificateId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signalr_custom_certificate_id");
-        set => this.WithProperty("signalr_custom_certificate_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("signalr_custom_certificate_id");
+        set => SetProperty("signalr_custom_certificate_id", value);
     }
 
     /// <summary>
@@ -96,8 +98,8 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     public required TerraformProperty<string> SignalrServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signalr_service_id");
-        set => this.WithProperty("signalr_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("signalr_service_id");
+        set => SetProperty("signalr_service_id", value);
     }
 
     /// <summary>
@@ -106,8 +108,7 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     /// </summary>
     public AzurermSignalrServiceCustomDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSignalrServiceCustomDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

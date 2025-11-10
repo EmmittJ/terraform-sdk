@@ -13,8 +13,7 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : 
     /// </summary>
     public TerraformProperty<string>? AgentName
     {
-        get => GetProperty<TerraformProperty<string>>("agent_name");
-        set => WithProperty("agent_name", value);
+        set => SetProperty("agent_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : 
     /// </summary>
     public TerraformProperty<string>? AgentStatus
     {
-        get => GetProperty<TerraformProperty<string>>("agent_status");
-        set => WithProperty("agent_status", value);
+        set => SetProperty("agent_status", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : 
     /// </summary>
     public TerraformProperty<string>? AgentVersion
     {
-        get => GetProperty<TerraformProperty<string>>("agent_version");
-        set => WithProperty("agent_version", value);
+        set => SetProperty("agent_version", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : 
     /// </summary>
     public TerraformProperty<string>? CreatedAt
     {
-        get => GetProperty<TerraformProperty<string>>("created_at");
-        set => WithProperty("created_at", value);
+        set => SetProperty("created_at", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : 
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : 
     /// </summary>
     public TerraformProperty<string>? UpdatedAt
     {
-        get => GetProperty<TerraformProperty<string>>("updated_at");
-        set => WithProperty("updated_at", value);
+        set => SetProperty("updated_at", value);
     }
 
 }
@@ -76,6 +70,8 @@ public class AwsBedrockagentAgentVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
+        SetOutput("agent_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -84,17 +80,17 @@ public class AwsBedrockagentAgentVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
-        set => this.WithProperty("agent_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_id");
+        set => SetProperty("agent_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -103,8 +99,7 @@ public class AwsBedrockagentAgentVersionsDataSource : TerraformDataSource
     /// </summary>
     public List<AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock>? AgentVersionSummaries
     {
-        get => GetProperty<List<AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock>>("agent_version_summaries");
-        set => this.WithProperty("agent_version_summaries", value);
+        set => SetProperty("agent_version_summaries", value);
     }
 
 }

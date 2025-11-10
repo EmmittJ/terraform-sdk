@@ -13,8 +13,7 @@ public class GoogleOracleDatabaseOdbSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleOracleDatabaseOdbSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleOracleDatabaseOdbSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,11 +46,20 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("cidr_range");
+        SetOutput("deletion_protection");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("odb_subnet_id");
+        SetOutput("odbnetwork");
+        SetOutput("project");
+        SetOutput("purpose");
     }
 
     /// <summary>
@@ -62,26 +68,26 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrRange is required")]
     public required TerraformProperty<string> CidrRange
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cidr_range");
-        set => this.WithProperty("cidr_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr_range");
+        set => SetProperty("cidr_range", value);
     }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -90,10 +96,10 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -102,8 +108,8 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -115,8 +121,8 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbSubnetId is required")]
     public required TerraformProperty<string> OdbSubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("odb_subnet_id");
-        set => this.WithProperty("odb_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("odb_subnet_id");
+        set => SetProperty("odb_subnet_id", value);
     }
 
     /// <summary>
@@ -125,17 +131,17 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Odbnetwork is required")]
     public required TerraformProperty<string> Odbnetwork
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("odbnetwork");
-        set => this.WithProperty("odbnetwork", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("odbnetwork");
+        set => SetProperty("odbnetwork", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -147,8 +153,8 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Purpose is required")]
     public required TerraformProperty<string> Purpose
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("purpose");
-        set => this.WithProperty("purpose", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("purpose");
+        set => SetProperty("purpose", value);
     }
 
     /// <summary>
@@ -157,8 +163,7 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// </summary>
     public GoogleOracleDatabaseOdbSubnetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOracleDatabaseOdbSubnetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

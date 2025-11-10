@@ -13,8 +13,7 @@ public class AzurermNginxCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNginxCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNginxCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNginxCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermNginxCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("certificate_virtual_path");
+        SetOutput("id");
+        SetOutput("key_vault_secret_id");
+        SetOutput("key_virtual_path");
+        SetOutput("name");
+        SetOutput("nginx_deployment_id");
     }
 
     /// <summary>
@@ -66,17 +68,17 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateVirtualPath is required")]
     public required TerraformProperty<string> CertificateVirtualPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_virtual_path");
-        set => this.WithProperty("certificate_virtual_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_virtual_path");
+        set => SetProperty("certificate_virtual_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     public required TerraformProperty<string> KeyVaultSecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_secret_id");
-        set => this.WithProperty("key_vault_secret_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_secret_id");
+        set => SetProperty("key_vault_secret_id", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVirtualPath is required")]
     public required TerraformProperty<string> KeyVirtualPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_virtual_path");
-        set => this.WithProperty("key_virtual_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_virtual_path");
+        set => SetProperty("key_virtual_path", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
-        set => this.WithProperty("nginx_deployment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nginx_deployment_id");
+        set => SetProperty("nginx_deployment_id", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermNginxCertificate : TerraformResource
     /// </summary>
     public AzurermNginxCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNginxCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

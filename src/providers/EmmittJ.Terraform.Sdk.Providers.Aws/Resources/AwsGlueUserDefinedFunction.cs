@@ -14,8 +14,7 @@ public class AwsGlueUserDefinedFunctionResourceUrisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsGlueUserDefinedFunctionResourceUrisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -43,17 +41,25 @@ public class AwsGlueUserDefinedFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("create_time");
+        SetOutput("arn");
+        SetOutput("create_time");
+        SetOutput("catalog_id");
+        SetOutput("class_name");
+        SetOutput("database_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("owner_name");
+        SetOutput("owner_type");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -62,8 +68,8 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassName is required")]
     public required TerraformProperty<string> ClassName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("class_name");
-        set => this.WithProperty("class_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("class_name");
+        set => SetProperty("class_name", value);
     }
 
     /// <summary>
@@ -72,17 +78,17 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -91,8 +97,8 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -101,8 +107,8 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerName is required")]
     public required TerraformProperty<string> OwnerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("owner_name");
-        set => this.WithProperty("owner_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner_name");
+        set => SetProperty("owner_name", value);
     }
 
     /// <summary>
@@ -111,17 +117,17 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerType is required")]
     public required TerraformProperty<string> OwnerType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("owner_type");
-        set => this.WithProperty("owner_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner_type");
+        set => SetProperty("owner_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -131,8 +137,7 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1000, ErrorMessage = "Maximum 1000 ResourceUris block(s) allowed")]
     public HashSet<AwsGlueUserDefinedFunctionResourceUrisBlock>? ResourceUris
     {
-        get => GetProperty<HashSet<AwsGlueUserDefinedFunctionResourceUrisBlock>>("resource_uris");
-        set => this.WithProperty("resource_uris", value);
+        set => SetProperty("resource_uris", value);
     }
 
     /// <summary>

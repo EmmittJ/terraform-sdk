@@ -13,8 +13,7 @@ public class GoogleGkeBackupRestoreChannelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleGkeBackupRestoreChannelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleGkeBackupRestoreChannelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,20 +46,27 @@ public class GoogleGkeBackupRestoreChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("destination_project_id");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
+        SetOutput("destination_project_id");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("description");
+        SetOutput("destination_project");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// User specified descriptive string for this RestoreChannel.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -73,17 +77,17 @@ public class GoogleGkeBackupRestoreChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationProject is required")]
     public required TerraformProperty<string> DestinationProject
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_project");
-        set => this.WithProperty("destination_project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_project");
+        set => SetProperty("destination_project", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,10 +99,10 @@ public class GoogleGkeBackupRestoreChannel : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -107,8 +111,8 @@ public class GoogleGkeBackupRestoreChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -117,17 +121,17 @@ public class GoogleGkeBackupRestoreChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -136,8 +140,7 @@ public class GoogleGkeBackupRestoreChannel : TerraformResource
     /// </summary>
     public GoogleGkeBackupRestoreChannelTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGkeBackupRestoreChannelTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

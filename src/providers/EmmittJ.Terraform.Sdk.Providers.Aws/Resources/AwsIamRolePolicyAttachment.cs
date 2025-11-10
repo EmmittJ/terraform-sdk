@@ -14,15 +14,18 @@ public class AwsIamRolePolicyAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("policy_arn");
+        SetOutput("role");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,8 +34,8 @@ public class AwsIamRolePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformProperty<string> PolicyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_arn");
-        set => this.WithProperty("policy_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_arn");
+        set => SetProperty("policy_arn", value);
     }
 
     /// <summary>
@@ -41,8 +44,8 @@ public class AwsIamRolePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
 }

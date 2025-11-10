@@ -13,8 +13,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : Te
     /// </summary>
     public TerraformProperty<bool>? DynamicFileSystemEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_file_system_enabled");
-        set => WithProperty("dynamic_file_system_enabled", value);
+        set => SetProperty("dynamic_file_system_enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : Te
     /// </summary>
     public TerraformProperty<bool>? DynamicFilenameEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_filename_enabled");
-        set => WithProperty("dynamic_filename_enabled", value);
+        set => SetProperty("dynamic_filename_enabled", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : Te
     /// </summary>
     public TerraformProperty<bool>? DynamicPathEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_path_enabled");
-        set => WithProperty("dynamic_path_enabled", value);
+        set => SetProperty("dynamic_path_enabled", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : Te
     /// </summary>
     public TerraformProperty<string>? FileSystem
     {
-        get => GetProperty<TerraformProperty<string>>("file_system");
-        set => WithProperty("file_system", value);
+        set => SetProperty("file_system", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : Te
     /// </summary>
     public TerraformProperty<string>? Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
-        set => WithProperty("filename", value);
+        set => SetProperty("filename", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : Te
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
 }
@@ -76,8 +70,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformProperty<string> Container
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container");
-        set => WithProperty("container", value);
+        set => SetProperty("container", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock
     /// </summary>
     public TerraformProperty<bool>? DynamicContainerEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_container_enabled");
-        set => WithProperty("dynamic_container_enabled", value);
+        set => SetProperty("dynamic_container_enabled", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock
     /// </summary>
     public TerraformProperty<bool>? DynamicFilenameEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_filename_enabled");
-        set => WithProperty("dynamic_filename_enabled", value);
+        set => SetProperty("dynamic_filename_enabled", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock
     /// </summary>
     public TerraformProperty<bool>? DynamicPathEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_path_enabled");
-        set => WithProperty("dynamic_path_enabled", value);
+        set => SetProperty("dynamic_path_enabled", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock
     /// </summary>
     public TerraformProperty<string>? Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
-        set => WithProperty("filename", value);
+        set => SetProperty("filename", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
 }
@@ -138,8 +126,7 @@ public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? DynamicFilenameEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_filename_enabled");
-        set => WithProperty("dynamic_filename_enabled", value);
+        set => SetProperty("dynamic_filename_enabled", value);
     }
 
     /// <summary>
@@ -147,8 +134,7 @@ public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? DynamicPathEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_path_enabled");
-        set => WithProperty("dynamic_path_enabled", value);
+        set => SetProperty("dynamic_path_enabled", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformProperty<string> Filename
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filename");
-        set => WithProperty("filename", value);
+        set => SetProperty("filename", value);
     }
 
     /// <summary>
@@ -167,8 +152,7 @@ public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -177,8 +161,7 @@ public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUrl is required")]
     public required TerraformProperty<string> RelativeUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("relative_url");
-        set => WithProperty("relative_url", value);
+        set => SetProperty("relative_url", value);
     }
 
 }
@@ -194,8 +177,7 @@ public class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -204,8 +186,7 @@ public class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -213,8 +194,7 @@ public class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -230,8 +210,7 @@ public class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -239,8 +218,7 @@ public class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -248,8 +226,7 @@ public class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -257,8 +234,7 @@ public class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -276,51 +252,69 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("additional_properties");
+        SetOutput("annotations");
+        SetOutput("column_delimiter");
+        SetOutput("compression_codec");
+        SetOutput("compression_level");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("encoding");
+        SetOutput("escape_character");
+        SetOutput("first_row_as_header");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("linked_service_name");
+        SetOutput("name");
+        SetOutput("null_value");
+        SetOutput("parameters");
+        SetOutput("quote_character");
+        SetOutput("row_delimiter");
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => this.WithProperty("additional_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Annotations
+    public List<TerraformProperty<string>> Annotations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// The column_delimiter attribute.
     /// </summary>
-    public TerraformProperty<string>? ColumnDelimiter
+    public TerraformProperty<string> ColumnDelimiter
     {
-        get => GetProperty<TerraformProperty<string>>("column_delimiter");
-        set => this.WithProperty("column_delimiter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("column_delimiter");
+        set => SetProperty("column_delimiter", value);
     }
 
     /// <summary>
     /// The compression_codec attribute.
     /// </summary>
-    public TerraformProperty<string>? CompressionCodec
+    public TerraformProperty<string> CompressionCodec
     {
-        get => GetProperty<TerraformProperty<string>>("compression_codec");
-        set => this.WithProperty("compression_codec", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compression_codec");
+        set => SetProperty("compression_codec", value);
     }
 
     /// <summary>
     /// The compression_level attribute.
     /// </summary>
-    public TerraformProperty<string>? CompressionLevel
+    public TerraformProperty<string> CompressionLevel
     {
-        get => GetProperty<TerraformProperty<string>>("compression_level");
-        set => this.WithProperty("compression_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compression_level");
+        set => SetProperty("compression_level", value);
     }
 
     /// <summary>
@@ -329,62 +323,62 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public TerraformProperty<string>? Encoding
+    public TerraformProperty<string> Encoding
     {
-        get => GetProperty<TerraformProperty<string>>("encoding");
-        set => this.WithProperty("encoding", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encoding");
+        set => SetProperty("encoding", value);
     }
 
     /// <summary>
     /// The escape_character attribute.
     /// </summary>
-    public TerraformProperty<string>? EscapeCharacter
+    public TerraformProperty<string> EscapeCharacter
     {
-        get => GetProperty<TerraformProperty<string>>("escape_character");
-        set => this.WithProperty("escape_character", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("escape_character");
+        set => SetProperty("escape_character", value);
     }
 
     /// <summary>
     /// The first_row_as_header attribute.
     /// </summary>
-    public TerraformProperty<bool>? FirstRowAsHeader
+    public TerraformProperty<bool> FirstRowAsHeader
     {
-        get => GetProperty<TerraformProperty<bool>>("first_row_as_header");
-        set => this.WithProperty("first_row_as_header", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("first_row_as_header");
+        set => SetProperty("first_row_as_header", value);
     }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    public TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -393,8 +387,8 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
-        set => this.WithProperty("linked_service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("linked_service_name");
+        set => SetProperty("linked_service_name", value);
     }
 
     /// <summary>
@@ -403,44 +397,44 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The null_value attribute.
     /// </summary>
-    public TerraformProperty<string>? NullValue
+    public TerraformProperty<string> NullValue
     {
-        get => GetProperty<TerraformProperty<string>>("null_value");
-        set => this.WithProperty("null_value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("null_value");
+        set => SetProperty("null_value", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// The quote_character attribute.
     /// </summary>
-    public TerraformProperty<string>? QuoteCharacter
+    public TerraformProperty<string> QuoteCharacter
     {
-        get => GetProperty<TerraformProperty<string>>("quote_character");
-        set => this.WithProperty("quote_character", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("quote_character");
+        set => SetProperty("quote_character", value);
     }
 
     /// <summary>
     /// The row_delimiter attribute.
     /// </summary>
-    public TerraformProperty<string>? RowDelimiter
+    public TerraformProperty<string> RowDelimiter
     {
-        get => GetProperty<TerraformProperty<string>>("row_delimiter");
-        set => this.WithProperty("row_delimiter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("row_delimiter");
+        set => SetProperty("row_delimiter", value);
     }
 
     /// <summary>
@@ -450,8 +444,7 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobFsLocation block(s) allowed")]
     public List<AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock>? AzureBlobFsLocation
     {
-        get => GetProperty<List<AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock>>("azure_blob_fs_location");
-        set => this.WithProperty("azure_blob_fs_location", value);
+        set => SetProperty("azure_blob_fs_location", value);
     }
 
     /// <summary>
@@ -461,8 +454,7 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorageLocation block(s) allowed")]
     public List<AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock>? AzureBlobStorageLocation
     {
-        get => GetProperty<List<AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock>>("azure_blob_storage_location");
-        set => this.WithProperty("azure_blob_storage_location", value);
+        set => SetProperty("azure_blob_storage_location", value);
     }
 
     /// <summary>
@@ -472,8 +464,7 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpServerLocation block(s) allowed")]
     public List<AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock>? HttpServerLocation
     {
-        get => GetProperty<List<AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock>>("http_server_location");
-        set => this.WithProperty("http_server_location", value);
+        set => SetProperty("http_server_location", value);
     }
 
     /// <summary>
@@ -482,8 +473,7 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     /// </summary>
     public List<AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock>? SchemaColumn
     {
-        get => GetProperty<List<AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock>>("schema_column");
-        set => this.WithProperty("schema_column", value);
+        set => SetProperty("schema_column", value);
     }
 
     /// <summary>
@@ -492,8 +482,7 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     /// </summary>
     public AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

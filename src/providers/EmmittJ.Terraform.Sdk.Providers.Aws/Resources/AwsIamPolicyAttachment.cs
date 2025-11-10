@@ -14,24 +14,30 @@ public class AwsIamPolicyAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("groups");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("policy_arn");
+        SetOutput("roles");
+        SetOutput("users");
     }
 
     /// <summary>
     /// The groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Groups
+    public HashSet<TerraformProperty<string>> Groups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("groups");
-        set => this.WithProperty("groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("groups");
+        set => SetProperty("groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -40,8 +46,8 @@ public class AwsIamPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -50,26 +56,26 @@ public class AwsIamPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformProperty<string> PolicyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_arn");
-        set => this.WithProperty("policy_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_arn");
+        set => SetProperty("policy_arn", value);
     }
 
     /// <summary>
     /// The roles attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Roles
+    public HashSet<TerraformProperty<string>> Roles
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("roles");
-        set => this.WithProperty("roles", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("roles");
+        set => SetProperty("roles", value);
     }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Users
+    public HashSet<TerraformProperty<string>> Users
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("users");
-        set => this.WithProperty("users", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("users");
+        set => SetProperty("users", value);
     }
 
 }

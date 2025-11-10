@@ -14,62 +14,68 @@ public class AwsServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("partition");
-        this.WithOutput("supported");
+        SetOutput("partition");
+        SetOutput("supported");
+        SetOutput("dns_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("reverse_dns_name");
+        SetOutput("reverse_dns_prefix");
+        SetOutput("service_id");
     }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsName
+    public TerraformProperty<string> DnsName
     {
-        get => GetProperty<TerraformProperty<string>>("dns_name");
-        set => this.WithProperty("dns_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_name");
+        set => SetProperty("dns_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The reverse_dns_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ReverseDnsName
+    public TerraformProperty<string> ReverseDnsName
     {
-        get => GetProperty<TerraformProperty<string>>("reverse_dns_name");
-        set => this.WithProperty("reverse_dns_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reverse_dns_name");
+        set => SetProperty("reverse_dns_name", value);
     }
 
     /// <summary>
     /// The reverse_dns_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? ReverseDnsPrefix
+    public TerraformProperty<string> ReverseDnsPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("reverse_dns_prefix");
-        set => this.WithProperty("reverse_dns_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reverse_dns_prefix");
+        set => SetProperty("reverse_dns_prefix", value);
     }
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceId
+    public TerraformProperty<string> ServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("service_id");
-        set => this.WithProperty("service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
+        set => SetProperty("service_id", value);
     }
 
     /// <summary>

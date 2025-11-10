@@ -14,26 +14,30 @@ public class GoogleComputeReservationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("commitment");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("delete_after_duration");
-        this.WithOutput("delete_at_time");
-        this.WithOutput("description");
-        this.WithOutput("reservation_sharing_policy");
-        this.WithOutput("self_link");
-        this.WithOutput("share_settings");
-        this.WithOutput("specific_reservation");
-        this.WithOutput("specific_reservation_required");
-        this.WithOutput("status");
+        SetOutput("commitment");
+        SetOutput("creation_timestamp");
+        SetOutput("delete_after_duration");
+        SetOutput("delete_at_time");
+        SetOutput("description");
+        SetOutput("reservation_sharing_policy");
+        SetOutput("self_link");
+        SetOutput("share_settings");
+        SetOutput("specific_reservation");
+        SetOutput("specific_reservation_required");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -48,17 +52,17 @@ public class GoogleComputeReservationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -67,8 +71,8 @@ public class GoogleComputeReservationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>

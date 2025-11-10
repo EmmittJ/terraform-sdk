@@ -13,8 +13,7 @@ public class AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,19 @@ public class AzurermNetworkInterfaceNatRuleAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("ip_configuration_name");
+        SetOutput("nat_rule_id");
+        SetOutput("network_interface_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AzurermNetworkInterfaceNatRuleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationName is required")]
     public required TerraformProperty<string> IpConfigurationName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_configuration_name");
-        set => this.WithProperty("ip_configuration_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_configuration_name");
+        set => SetProperty("ip_configuration_name", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AzurermNetworkInterfaceNatRuleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatRuleId is required")]
     public required TerraformProperty<string> NatRuleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("nat_rule_id");
-        set => this.WithProperty("nat_rule_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nat_rule_id");
+        set => SetProperty("nat_rule_id", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class AzurermNetworkInterfaceNatRuleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
-        set => this.WithProperty("network_interface_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
+        set => SetProperty("network_interface_id", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class AzurermNetworkInterfaceNatRuleAssociation : TerraformResource
     /// </summary>
     public AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

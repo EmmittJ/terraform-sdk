@@ -14,8 +14,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -53,8 +49,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformProperty<double> Weight
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("weight");
-        set => WithProperty("weight", value);
+        set => SetProperty("weight", value);
     }
 
 }
@@ -72,33 +67,37 @@ public class AwsChimeVoiceConnectorOrigination : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("disabled");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("voice_connector_id");
     }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -107,20 +106,20 @@ public class AwsChimeVoiceConnectorOrigination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformProperty<string> VoiceConnectorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("voice_connector_id");
-        set => this.WithProperty("voice_connector_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("voice_connector_id");
+        set => SetProperty("voice_connector_id", value);
     }
 
     /// <summary>
     /// Block for route.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Route is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Route block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Route block(s) allowed")]
     public HashSet<AwsChimeVoiceConnectorOriginationRouteBlock>? Route
     {
-        get => GetProperty<HashSet<AwsChimeVoiceConnectorOriginationRouteBlock>>("route");
-        set => this.WithProperty("route", value);
+        set => SetProperty("route", value);
     }
 
 }

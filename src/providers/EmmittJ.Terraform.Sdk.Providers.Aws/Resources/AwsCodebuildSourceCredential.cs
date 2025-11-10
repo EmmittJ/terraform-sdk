@@ -14,7 +14,13 @@ public class AwsCodebuildSourceCredential : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("auth_type");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("server_type");
+        SetOutput("token");
+        SetOutput("user_name");
     }
 
     /// <summary>
@@ -23,26 +29,26 @@ public class AwsCodebuildSourceCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
-        set => this.WithProperty("auth_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auth_type");
+        set => SetProperty("auth_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -51,8 +57,8 @@ public class AwsCodebuildSourceCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerType is required")]
     public required TerraformProperty<string> ServerType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_type");
-        set => this.WithProperty("server_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_type");
+        set => SetProperty("server_type", value);
     }
 
     /// <summary>
@@ -61,17 +67,17 @@ public class AwsCodebuildSourceCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformProperty<string> Token
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("token");
-        set => this.WithProperty("token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("token");
+        set => SetProperty("token", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    public TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>

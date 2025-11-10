@@ -21,8 +21,7 @@ public class GoogleDataprocSessionTemplateJupyterSessionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleDataprocSessionTemplateJupyterSessionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Kernel
     {
-        get => GetProperty<TerraformProperty<string>>("kernel");
-        set => WithProperty("kernel", value);
+        set => SetProperty("kernel", value);
     }
 
 }
@@ -47,8 +45,7 @@ public class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerImage
     {
-        get => GetProperty<TerraformProperty<string>>("container_image");
-        set => WithProperty("container_image", value);
+        set => SetProperty("container_image", value);
     }
 
     /// <summary>
@@ -56,8 +53,7 @@ public class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EffectiveProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("effective_properties");
-        set => WithProperty("effective_properties", value);
+        set => SetProperty("effective_properties", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -99,8 +93,7 @@ public class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -108,8 +101,7 @@ public class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -117,8 +109,7 @@ public class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -136,21 +127,26 @@ public class GoogleDataprocSessionTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("creator");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
-        this.WithOutput("uuid");
+        SetOutput("create_time");
+        SetOutput("creator");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("uuid");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -160,19 +156,19 @@ public class GoogleDataprocSessionTemplate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location in which the session template will be created in.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -182,17 +178,17 @@ public class GoogleDataprocSessionTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -202,8 +198,7 @@ public class GoogleDataprocSessionTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnvironmentConfig block(s) allowed")]
     public List<GoogleDataprocSessionTemplateEnvironmentConfigBlock>? EnvironmentConfig
     {
-        get => GetProperty<List<GoogleDataprocSessionTemplateEnvironmentConfigBlock>>("environment_config");
-        set => this.WithProperty("environment_config", value);
+        set => SetProperty("environment_config", value);
     }
 
     /// <summary>
@@ -213,8 +208,7 @@ public class GoogleDataprocSessionTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JupyterSession block(s) allowed")]
     public List<GoogleDataprocSessionTemplateJupyterSessionBlock>? JupyterSession
     {
-        get => GetProperty<List<GoogleDataprocSessionTemplateJupyterSessionBlock>>("jupyter_session");
-        set => this.WithProperty("jupyter_session", value);
+        set => SetProperty("jupyter_session", value);
     }
 
     /// <summary>
@@ -224,8 +218,7 @@ public class GoogleDataprocSessionTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimeConfig block(s) allowed")]
     public List<GoogleDataprocSessionTemplateRuntimeConfigBlock>? RuntimeConfig
     {
-        get => GetProperty<List<GoogleDataprocSessionTemplateRuntimeConfigBlock>>("runtime_config");
-        set => this.WithProperty("runtime_config", value);
+        set => SetProperty("runtime_config", value);
     }
 
     /// <summary>
@@ -235,8 +228,7 @@ public class GoogleDataprocSessionTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkConnectSession block(s) allowed")]
     public List<GoogleDataprocSessionTemplateSparkConnectSessionBlock>? SparkConnectSession
     {
-        get => GetProperty<List<GoogleDataprocSessionTemplateSparkConnectSessionBlock>>("spark_connect_session");
-        set => this.WithProperty("spark_connect_session", value);
+        set => SetProperty("spark_connect_session", value);
     }
 
     /// <summary>
@@ -245,8 +237,7 @@ public class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     public GoogleDataprocSessionTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataprocSessionTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -15,8 +15,7 @@ public class GoogleAppEngineStandardAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? MaxConcurrentRequests
     {
-        get => GetProperty<TerraformProperty<double>>("max_concurrent_requests");
-        set => WithProperty("max_concurrent_requests", value);
+        set => SetProperty("max_concurrent_requests", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleAppEngineStandardAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? MaxIdleInstances
     {
-        get => GetProperty<TerraformProperty<double>>("max_idle_instances");
-        set => WithProperty("max_idle_instances", value);
+        set => SetProperty("max_idle_instances", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleAppEngineStandardAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? MaxPendingLatency
     {
-        get => GetProperty<TerraformProperty<string>>("max_pending_latency");
-        set => WithProperty("max_pending_latency", value);
+        set => SetProperty("max_pending_latency", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleAppEngineStandardAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? MinIdleInstances
     {
-        get => GetProperty<TerraformProperty<double>>("min_idle_instances");
-        set => WithProperty("min_idle_instances", value);
+        set => SetProperty("min_idle_instances", value);
     }
 
     /// <summary>
@@ -53,8 +49,7 @@ public class GoogleAppEngineStandardAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? MinPendingLatency
     {
-        get => GetProperty<TerraformProperty<string>>("min_pending_latency");
-        set => WithProperty("min_pending_latency", value);
+        set => SetProperty("min_pending_latency", value);
     }
 
 }
@@ -71,8 +66,7 @@ public class GoogleAppEngineStandardAppVersionBasicScalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdleTimeout
     {
-        get => GetProperty<TerraformProperty<string>>("idle_timeout");
-        set => WithProperty("idle_timeout", value);
+        set => SetProperty("idle_timeout", value);
     }
 
     /// <summary>
@@ -81,8 +75,7 @@ public class GoogleAppEngineStandardAppVersionBasicScalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
     public required TerraformProperty<double> MaxInstances
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_instances");
-        set => WithProperty("max_instances", value);
+        set => SetProperty("max_instances", value);
     }
 
 }
@@ -107,8 +100,7 @@ public class GoogleAppEngineStandardAppVersionEntrypointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
     public required TerraformProperty<string> Shell
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("shell");
-        set => WithProperty("shell", value);
+        set => SetProperty("shell", value);
     }
 
 }
@@ -124,8 +116,7 @@ public class GoogleAppEngineStandardAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthFailAction
     {
-        get => GetProperty<TerraformProperty<string>>("auth_fail_action");
-        set => WithProperty("auth_fail_action", value);
+        set => SetProperty("auth_fail_action", value);
     }
 
     /// <summary>
@@ -133,8 +124,7 @@ public class GoogleAppEngineStandardAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Login
     {
-        get => GetProperty<TerraformProperty<string>>("login");
-        set => WithProperty("login", value);
+        set => SetProperty("login", value);
     }
 
     /// <summary>
@@ -142,8 +132,7 @@ public class GoogleAppEngineStandardAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RedirectHttpResponseCode
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_http_response_code");
-        set => WithProperty("redirect_http_response_code", value);
+        set => SetProperty("redirect_http_response_code", value);
     }
 
     /// <summary>
@@ -151,8 +140,7 @@ public class GoogleAppEngineStandardAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SecurityLevel
     {
-        get => GetProperty<TerraformProperty<string>>("security_level");
-        set => WithProperty("security_level", value);
+        set => SetProperty("security_level", value);
     }
 
     /// <summary>
@@ -161,8 +149,7 @@ public class GoogleAppEngineStandardAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UrlRegex
     {
-        get => GetProperty<TerraformProperty<string>>("url_regex");
-        set => WithProperty("url_regex", value);
+        set => SetProperty("url_regex", value);
     }
 
 }
@@ -178,8 +165,7 @@ public class GoogleAppEngineStandardAppVersionLibrariesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -187,8 +173,7 @@ public class GoogleAppEngineStandardAppVersionLibrariesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -208,8 +193,7 @@ public class GoogleAppEngineStandardAppVersionManualScalingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
     public required TerraformProperty<double> Instances
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("instances");
-        set => WithProperty("instances", value);
+        set => SetProperty("instances", value);
     }
 
 }
@@ -225,8 +209,7 @@ public class GoogleAppEngineStandardAppVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -234,8 +217,7 @@ public class GoogleAppEngineStandardAppVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -243,8 +225,7 @@ public class GoogleAppEngineStandardAppVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -260,8 +241,7 @@ public class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? EgressSetting
     {
-        get => GetProperty<TerraformProperty<string>>("egress_setting");
-        set => WithProperty("egress_setting", value);
+        set => SetProperty("egress_setting", value);
     }
 
     /// <summary>
@@ -270,8 +250,7 @@ public class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -289,52 +268,66 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("app_engine_apis");
+        SetOutput("delete_service_on_destroy");
+        SetOutput("env_variables");
+        SetOutput("id");
+        SetOutput("inbound_services");
+        SetOutput("instance_class");
+        SetOutput("noop_on_destroy");
+        SetOutput("project");
+        SetOutput("runtime");
+        SetOutput("runtime_api_version");
+        SetOutput("service");
+        SetOutput("service_account");
+        SetOutput("threadsafe");
+        SetOutput("version_id");
     }
 
     /// <summary>
     /// Allows App Engine second generation runtimes to access the legacy bundled services.
     /// </summary>
-    public TerraformProperty<bool>? AppEngineApis
+    public TerraformProperty<bool> AppEngineApis
     {
-        get => GetProperty<TerraformProperty<bool>>("app_engine_apis");
-        set => this.WithProperty("app_engine_apis", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("app_engine_apis");
+        set => SetProperty("app_engine_apis", value);
     }
 
     /// <summary>
     /// If set to &#39;true&#39;, the service will be deleted if it is the last version.
     /// </summary>
-    public TerraformProperty<bool>? DeleteServiceOnDestroy
+    public TerraformProperty<bool> DeleteServiceOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_service_on_destroy");
-        set => this.WithProperty("delete_service_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_service_on_destroy");
+        set => SetProperty("delete_service_on_destroy", value);
     }
 
     /// <summary>
     /// Environment variables available to the application.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EnvVariables
+    public Dictionary<string, TerraformProperty<string>> EnvVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("env_variables");
-        set => this.WithProperty("env_variables", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("env_variables");
+        set => SetProperty("env_variables", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// A list of the types of messages that this application is able to receive. Possible values: [&amp;quot;INBOUND_SERVICE_MAIL&amp;quot;, &amp;quot;INBOUND_SERVICE_MAIL_BOUNCE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_ERROR&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_MESSAGE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_SUBSCRIBE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_CHANNEL_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_WARMUP&amp;quot;]
     /// </summary>
-    public HashSet<TerraformProperty<string>>? InboundServices
+    public HashSet<TerraformProperty<string>> InboundServices
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("inbound_services");
-        set => this.WithProperty("inbound_services", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("inbound_services");
+        set => SetProperty("inbound_services", value);
     }
 
     /// <summary>
@@ -343,28 +336,28 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// BasicScaling or ManualScaling: B1, B2, B4, B4_1G, B8
     /// Defaults to F1 for AutomaticScaling and B2 for ManualScaling and BasicScaling. If no scaling is specified, AutomaticScaling is chosen.
     /// </summary>
-    public TerraformProperty<string>? InstanceClass
+    public TerraformProperty<string> InstanceClass
     {
-        get => GetProperty<TerraformProperty<string>>("instance_class");
-        set => this.WithProperty("instance_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_class");
+        set => SetProperty("instance_class", value);
     }
 
     /// <summary>
     /// If set to &#39;true&#39;, the application version will not be deleted.
     /// </summary>
-    public TerraformProperty<bool>? NoopOnDestroy
+    public TerraformProperty<bool> NoopOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("noop_on_destroy");
-        set => this.WithProperty("noop_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("noop_on_destroy");
+        set => SetProperty("noop_on_destroy", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -373,8 +366,8 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformProperty<string> Runtime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runtime");
-        set => this.WithProperty("runtime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime");
+        set => SetProperty("runtime", value);
     }
 
     /// <summary>
@@ -382,10 +375,10 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// Please see the app.yaml reference for valid values at &#39;https://cloud.google.com/appengine/docs/standard/&amp;lt;language&amp;gt;/config/appref&#39;\
     /// Substitute &#39;&amp;lt;language&amp;gt;&#39; with &#39;python&#39;, &#39;java&#39;, &#39;php&#39;, &#39;ruby&#39;, &#39;go&#39; or &#39;nodejs&#39;.
     /// </summary>
-    public TerraformProperty<string>? RuntimeApiVersion
+    public TerraformProperty<string> RuntimeApiVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_api_version");
-        set => this.WithProperty("runtime_api_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime_api_version");
+        set => SetProperty("runtime_api_version", value);
     }
 
     /// <summary>
@@ -394,35 +387,35 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
     /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default if this field is neither provided in app.yaml file nor through CLI flag.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
+    public TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => this.WithProperty("service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
     /// Whether multiple requests can be dispatched to this version at once.
     /// </summary>
-    public TerraformProperty<bool>? Threadsafe
+    public TerraformProperty<bool> Threadsafe
     {
-        get => GetProperty<TerraformProperty<bool>>("threadsafe");
-        set => this.WithProperty("threadsafe", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("threadsafe");
+        set => SetProperty("threadsafe", value);
     }
 
     /// <summary>
     /// Relative name of the version within the service. For example, &#39;v1&#39;. Version names can contain only lowercase letters, numbers, or hyphens. Reserved names,&amp;quot;default&amp;quot;, &amp;quot;latest&amp;quot;, and any name with the prefix &amp;quot;ah-&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? VersionId
+    public TerraformProperty<string> VersionId
     {
-        get => GetProperty<TerraformProperty<string>>("version_id");
-        set => this.WithProperty("version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
+        set => SetProperty("version_id", value);
     }
 
     /// <summary>
@@ -432,8 +425,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticScaling block(s) allowed")]
     public List<GoogleAppEngineStandardAppVersionAutomaticScalingBlock>? AutomaticScaling
     {
-        get => GetProperty<List<GoogleAppEngineStandardAppVersionAutomaticScalingBlock>>("automatic_scaling");
-        set => this.WithProperty("automatic_scaling", value);
+        set => SetProperty("automatic_scaling", value);
     }
 
     /// <summary>
@@ -443,32 +435,31 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicScaling block(s) allowed")]
     public List<GoogleAppEngineStandardAppVersionBasicScalingBlock>? BasicScaling
     {
-        get => GetProperty<List<GoogleAppEngineStandardAppVersionBasicScalingBlock>>("basic_scaling");
-        set => this.WithProperty("basic_scaling", value);
+        set => SetProperty("basic_scaling", value);
     }
 
     /// <summary>
     /// Block for deployment.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Deployment is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Deployment block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deployment block(s) allowed")]
     public List<GoogleAppEngineStandardAppVersionDeploymentBlock>? Deployment
     {
-        get => GetProperty<List<GoogleAppEngineStandardAppVersionDeploymentBlock>>("deployment");
-        set => this.WithProperty("deployment", value);
+        set => SetProperty("deployment", value);
     }
 
     /// <summary>
     /// Block for entrypoint.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entrypoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entrypoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Entrypoint block(s) allowed")]
     public List<GoogleAppEngineStandardAppVersionEntrypointBlock>? Entrypoint
     {
-        get => GetProperty<List<GoogleAppEngineStandardAppVersionEntrypointBlock>>("entrypoint");
-        set => this.WithProperty("entrypoint", value);
+        set => SetProperty("entrypoint", value);
     }
 
     /// <summary>
@@ -477,8 +468,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// </summary>
     public List<GoogleAppEngineStandardAppVersionHandlersBlock>? Handlers
     {
-        get => GetProperty<List<GoogleAppEngineStandardAppVersionHandlersBlock>>("handlers");
-        set => this.WithProperty("handlers", value);
+        set => SetProperty("handlers", value);
     }
 
     /// <summary>
@@ -487,8 +477,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// </summary>
     public List<GoogleAppEngineStandardAppVersionLibrariesBlock>? Libraries
     {
-        get => GetProperty<List<GoogleAppEngineStandardAppVersionLibrariesBlock>>("libraries");
-        set => this.WithProperty("libraries", value);
+        set => SetProperty("libraries", value);
     }
 
     /// <summary>
@@ -498,8 +487,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualScaling block(s) allowed")]
     public List<GoogleAppEngineStandardAppVersionManualScalingBlock>? ManualScaling
     {
-        get => GetProperty<List<GoogleAppEngineStandardAppVersionManualScalingBlock>>("manual_scaling");
-        set => this.WithProperty("manual_scaling", value);
+        set => SetProperty("manual_scaling", value);
     }
 
     /// <summary>
@@ -508,8 +496,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// </summary>
     public GoogleAppEngineStandardAppVersionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAppEngineStandardAppVersionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -519,8 +506,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcAccessConnector block(s) allowed")]
     public List<GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock>? VpcAccessConnector
     {
-        get => GetProperty<List<GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock>>("vpc_access_connector");
-        set => this.WithProperty("vpc_access_connector", value);
+        set => SetProperty("vpc_access_connector", value);
     }
 
     /// <summary>

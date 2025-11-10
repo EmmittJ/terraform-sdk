@@ -13,8 +13,7 @@ public class AwsLambdaAliasRoutingConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<double>>? AdditionalVersionWeights
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<double>>>("additional_version_weights");
-        set => WithProperty("additional_version_weights", value);
+        set => SetProperty("additional_version_weights", value);
     }
 
 }
@@ -32,17 +31,23 @@ public class AwsLambdaAlias : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("invoke_arn");
+        SetOutput("arn");
+        SetOutput("invoke_arn");
+        SetOutput("description");
+        SetOutput("function_name");
+        SetOutput("function_version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -51,8 +56,8 @@ public class AwsLambdaAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
@@ -61,17 +66,17 @@ public class AwsLambdaAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionVersion is required")]
     public required TerraformProperty<string> FunctionVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_version");
-        set => this.WithProperty("function_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_version");
+        set => SetProperty("function_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -80,17 +85,17 @@ public class AwsLambdaAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -100,8 +105,7 @@ public class AwsLambdaAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingConfig block(s) allowed")]
     public List<AwsLambdaAliasRoutingConfigBlock>? RoutingConfig
     {
-        get => GetProperty<List<AwsLambdaAliasRoutingConfigBlock>>("routing_config");
-        set => this.WithProperty("routing_config", value);
+        set => SetProperty("routing_config", value);
     }
 
     /// <summary>

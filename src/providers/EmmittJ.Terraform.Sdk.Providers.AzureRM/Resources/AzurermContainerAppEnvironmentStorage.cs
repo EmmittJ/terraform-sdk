@@ -13,8 +13,7 @@ public class AzurermContainerAppEnvironmentStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerAppEnvironmentStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermContainerAppEnvironmentStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermContainerAppEnvironmentStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,23 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("access_key");
+        SetOutput("access_mode");
+        SetOutput("account_name");
+        SetOutput("container_app_environment_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("nfs_server_url");
+        SetOutput("share_name");
     }
 
     /// <summary>
     /// The Storage Account Access Key.
     /// </summary>
-    public TerraformProperty<string>? AccessKey
+    public TerraformProperty<string> AccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("access_key");
-        set => this.WithProperty("access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_key");
+        set => SetProperty("access_key", value);
     }
 
     /// <summary>
@@ -75,17 +79,17 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessMode is required")]
     public required TerraformProperty<string> AccessMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_mode");
-        set => this.WithProperty("access_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_mode");
+        set => SetProperty("access_mode", value);
     }
 
     /// <summary>
     /// The Azure Storage Account in which the Share to be used is located.
     /// </summary>
-    public TerraformProperty<string>? AccountName
+    public TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
@@ -94,17 +98,17 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
-        set => this.WithProperty("container_app_environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_app_environment_id");
+        set => SetProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,17 +117,17 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The nfs_server_url attribute.
     /// </summary>
-    public TerraformProperty<string>? NfsServerUrl
+    public TerraformProperty<string> NfsServerUrl
     {
-        get => GetProperty<TerraformProperty<string>>("nfs_server_url");
-        set => this.WithProperty("nfs_server_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nfs_server_url");
+        set => SetProperty("nfs_server_url", value);
     }
 
     /// <summary>
@@ -132,8 +136,8 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformProperty<string> ShareName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("share_name");
-        set => this.WithProperty("share_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("share_name");
+        set => SetProperty("share_name", value);
     }
 
     /// <summary>
@@ -142,8 +146,7 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     /// </summary>
     public AzurermContainerAppEnvironmentStorageTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerAppEnvironmentStorageTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

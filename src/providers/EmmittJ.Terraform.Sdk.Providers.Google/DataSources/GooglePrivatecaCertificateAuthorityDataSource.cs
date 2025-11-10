@@ -14,74 +14,79 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_urls");
-        this.WithOutput("config");
-        this.WithOutput("create_time");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("desired_state");
-        this.WithOutput("effective_labels");
-        this.WithOutput("gcs_bucket");
-        this.WithOutput("ignore_active_certificates_on_deletion");
-        this.WithOutput("key_spec");
-        this.WithOutput("labels");
-        this.WithOutput("lifetime");
-        this.WithOutput("name");
-        this.WithOutput("pem_ca_certificate");
-        this.WithOutput("pem_ca_certificates");
-        this.WithOutput("pem_csr");
-        this.WithOutput("skip_grace_period");
-        this.WithOutput("state");
-        this.WithOutput("subordinate_config");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("type");
-        this.WithOutput("update_time");
-        this.WithOutput("user_defined_access_urls");
+        SetOutput("access_urls");
+        SetOutput("config");
+        SetOutput("create_time");
+        SetOutput("deletion_protection");
+        SetOutput("desired_state");
+        SetOutput("effective_labels");
+        SetOutput("gcs_bucket");
+        SetOutput("ignore_active_certificates_on_deletion");
+        SetOutput("key_spec");
+        SetOutput("labels");
+        SetOutput("lifetime");
+        SetOutput("name");
+        SetOutput("pem_ca_certificate");
+        SetOutput("pem_ca_certificates");
+        SetOutput("pem_csr");
+        SetOutput("skip_grace_period");
+        SetOutput("state");
+        SetOutput("subordinate_config");
+        SetOutput("terraform_labels");
+        SetOutput("type");
+        SetOutput("update_time");
+        SetOutput("user_defined_access_urls");
+        SetOutput("certificate_authority_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("pool");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The user provided Resource ID for this Certificate Authority.
     /// </summary>
-    public TerraformProperty<string>? CertificateAuthorityId
+    public TerraformProperty<string> CertificateAuthorityId
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_authority_id");
-        set => this.WithProperty("certificate_authority_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_authority_id");
+        set => SetProperty("certificate_authority_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Location of the CertificateAuthority. A full list of valid locations can be found by
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The name of the CaPool this Certificate Authority belongs to.
     /// </summary>
-    public TerraformProperty<string>? Pool
+    public TerraformProperty<string> Pool
     {
-        get => GetProperty<TerraformProperty<string>>("pool");
-        set => this.WithProperty("pool", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool");
+        set => SetProperty("pool", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

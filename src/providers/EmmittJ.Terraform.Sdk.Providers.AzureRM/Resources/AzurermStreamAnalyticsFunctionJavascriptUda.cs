@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? ConfigurationParameter
     {
-        get => GetProperty<TerraformProperty<bool>>("configuration_parameter");
-        set => WithProperty("configuration_parameter", value);
+        set => SetProperty("configuration_parameter", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,15 +97,19 @@ public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("script");
+        SetOutput("stream_analytics_job_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,8 +118,8 @@ public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -131,8 +128,8 @@ public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     public required TerraformProperty<string> Script
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("script");
-        set => this.WithProperty("script", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("script");
+        set => SetProperty("script", value);
     }
 
     /// <summary>
@@ -141,31 +138,31 @@ public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformProperty<string> StreamAnalyticsJobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_id");
-        set => this.WithProperty("stream_analytics_job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_id");
+        set => SetProperty("stream_analytics_job_id", value);
     }
 
     /// <summary>
     /// Block for input.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Input is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Input block(s) required")]
     public List<AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock>? Input
     {
-        get => GetProperty<List<AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock>>("input");
-        set => this.WithProperty("input", value);
+        set => SetProperty("input", value);
     }
 
     /// <summary>
     /// Block for output.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Output is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Output block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Output block(s) allowed")]
     public List<AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock>? Output
     {
-        get => GetProperty<List<AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock>>("output");
-        set => this.WithProperty("output", value);
+        set => SetProperty("output", value);
     }
 
     /// <summary>
@@ -174,8 +171,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

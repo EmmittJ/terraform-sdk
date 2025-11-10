@@ -14,16 +14,20 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("permissions");
+        SetOutput("permissions");
+        SetOutput("custom_support_level");
+        SetOutput("full_resource_name");
+        SetOutput("id");
+        SetOutput("stages");
     }
 
     /// <summary>
     /// The custom_support_level attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomSupportLevel
+    public TerraformProperty<string> CustomSupportLevel
     {
-        get => GetProperty<TerraformProperty<string>>("custom_support_level");
-        set => this.WithProperty("custom_support_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_support_level");
+        set => SetProperty("custom_support_level", value);
     }
 
     /// <summary>
@@ -32,26 +36,26 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullResourceName is required")]
     public required TerraformProperty<string> FullResourceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("full_resource_name");
-        set => this.WithProperty("full_resource_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("full_resource_name");
+        set => SetProperty("full_resource_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The stages attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Stages
+    public List<TerraformProperty<string>> Stages
     {
-        get => GetProperty<List<TerraformProperty<string>>>("stages");
-        set => this.WithProperty("stages", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("stages");
+        set => SetProperty("stages", value);
     }
 
     /// <summary>

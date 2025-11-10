@@ -14,27 +14,32 @@ public class AwsIotThing : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("default_client_id");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("default_client_id");
+        SetOutput("version");
+        SetOutput("attributes");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("thing_type_name");
     }
 
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Attributes
+    public Dictionary<string, TerraformProperty<string>> Attributes
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attributes");
-        set => this.WithProperty("attributes", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attributes");
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,26 +48,26 @@ public class AwsIotThing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The thing_type_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ThingTypeName
+    public TerraformProperty<string> ThingTypeName
     {
-        get => GetProperty<TerraformProperty<string>>("thing_type_name");
-        set => this.WithProperty("thing_type_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("thing_type_name");
+        set => SetProperty("thing_type_name", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleDialogflowCxGeneratorLlmModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Model
     {
-        get => GetProperty<TerraformProperty<string>>("model");
-        set => WithProperty("model", value);
+        set => SetProperty("model", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDialogflowCxGeneratorLlmModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PromptText
     {
-        get => GetProperty<TerraformProperty<string>>("prompt_text");
-        set => WithProperty("prompt_text", value);
+        set => SetProperty("prompt_text", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxDecodeSteps
     {
-        get => GetProperty<TerraformProperty<double>>("max_decode_steps");
-        set => WithProperty("max_decode_steps", value);
+        set => SetProperty("max_decode_steps", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Temperature
     {
-        get => GetProperty<TerraformProperty<double>>("temperature");
-        set => WithProperty("temperature", value);
+        set => SetProperty("temperature", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TopK
     {
-        get => GetProperty<TerraformProperty<double>>("top_k");
-        set => WithProperty("top_k", value);
+        set => SetProperty("top_k", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TopP
     {
-        get => GetProperty<TerraformProperty<double>>("top_p");
-        set => WithProperty("top_p", value);
+        set => SetProperty("top_p", value);
     }
 
 }
@@ -87,8 +81,7 @@ public class GoogleDialogflowCxGeneratorPlaceholdersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class GoogleDialogflowCxGeneratorPlaceholdersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -113,8 +105,7 @@ public class GoogleDialogflowCxGeneratorPromptTextBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Text
     {
-        get => GetProperty<TerraformProperty<string>>("text");
-        set => WithProperty("text", value);
+        set => SetProperty("text", value);
     }
 
 }
@@ -130,8 +121,7 @@ public class GoogleDialogflowCxGeneratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -139,8 +129,7 @@ public class GoogleDialogflowCxGeneratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -148,8 +137,7 @@ public class GoogleDialogflowCxGeneratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -167,7 +155,11 @@ public class GoogleDialogflowCxGenerator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("language_code");
+        SetOutput("parent");
     }
 
     /// <summary>
@@ -176,17 +168,17 @@ public class GoogleDialogflowCxGenerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -194,20 +186,20 @@ public class GoogleDialogflowCxGenerator : TerraformResource
     /// * Generator.prompt_text.text
     /// If not specified, the agent&#39;s default language is used.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
+    public TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
-        set => this.WithProperty("language_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
     /// The agent to create a Generator for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -217,8 +209,7 @@ public class GoogleDialogflowCxGenerator : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
     public List<GoogleDialogflowCxGeneratorLlmModelSettingsBlock>? LlmModelSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxGeneratorLlmModelSettingsBlock>>("llm_model_settings");
-        set => this.WithProperty("llm_model_settings", value);
+        set => SetProperty("llm_model_settings", value);
     }
 
     /// <summary>
@@ -228,8 +219,7 @@ public class GoogleDialogflowCxGenerator : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelParameter block(s) allowed")]
     public List<GoogleDialogflowCxGeneratorModelParameterBlock>? ModelParameter
     {
-        get => GetProperty<List<GoogleDialogflowCxGeneratorModelParameterBlock>>("model_parameter");
-        set => this.WithProperty("model_parameter", value);
+        set => SetProperty("model_parameter", value);
     }
 
     /// <summary>
@@ -238,20 +228,19 @@ public class GoogleDialogflowCxGenerator : TerraformResource
     /// </summary>
     public List<GoogleDialogflowCxGeneratorPlaceholdersBlock>? Placeholders
     {
-        get => GetProperty<List<GoogleDialogflowCxGeneratorPlaceholdersBlock>>("placeholders");
-        set => this.WithProperty("placeholders", value);
+        set => SetProperty("placeholders", value);
     }
 
     /// <summary>
     /// Block for prompt_text.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PromptText is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PromptText block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PromptText block(s) allowed")]
     public List<GoogleDialogflowCxGeneratorPromptTextBlock>? PromptText
     {
-        get => GetProperty<List<GoogleDialogflowCxGeneratorPromptTextBlock>>("prompt_text");
-        set => this.WithProperty("prompt_text", value);
+        set => SetProperty("prompt_text", value);
     }
 
     /// <summary>
@@ -260,8 +249,7 @@ public class GoogleDialogflowCxGenerator : TerraformResource
     /// </summary>
     public GoogleDialogflowCxGeneratorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowCxGeneratorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

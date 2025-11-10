@@ -14,12 +14,15 @@ public class AwsAuditmanagerFrameworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("compliance_type");
-        this.WithOutput("control_sets");
-        this.WithOutput("description");
-        this.WithOutput("id");
-        this.WithOutput("tags");
+        SetOutput("arn");
+        SetOutput("compliance_type");
+        SetOutput("control_sets");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("framework_type");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -28,8 +31,8 @@ public class AwsAuditmanagerFrameworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkType is required")]
     public required TerraformProperty<string> FrameworkType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("framework_type");
-        set => this.WithProperty("framework_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("framework_type");
+        set => SetProperty("framework_type", value);
     }
 
     /// <summary>
@@ -38,17 +41,17 @@ public class AwsAuditmanagerFrameworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

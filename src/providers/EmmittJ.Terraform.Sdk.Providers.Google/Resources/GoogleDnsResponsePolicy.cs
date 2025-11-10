@@ -16,8 +16,7 @@ public class GoogleDnsResponsePolicyGkeClustersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GkeClusterName is required")]
     public required TerraformProperty<string> GkeClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gke_cluster_name");
-        set => WithProperty("gke_cluster_name", value);
+        set => SetProperty("gke_cluster_name", value);
     }
 
 }
@@ -36,8 +35,7 @@ public class GoogleDnsResponsePolicyNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformProperty<string> NetworkUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_url");
-        set => WithProperty("network_url", value);
+        set => SetProperty("network_url", value);
     }
 
 }
@@ -53,8 +51,7 @@ public class GoogleDnsResponsePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -62,8 +59,7 @@ public class GoogleDnsResponsePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -71,8 +67,7 @@ public class GoogleDnsResponsePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -89,33 +84,37 @@ public class GoogleDnsResponsePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("response_policy_name");
     }
 
     /// <summary>
     /// The description of the response policy, such as &#39;My new response policy&#39;.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -124,8 +123,8 @@ public class GoogleDnsResponsePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicyName is required")]
     public required TerraformProperty<string> ResponsePolicyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("response_policy_name");
-        set => this.WithProperty("response_policy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("response_policy_name");
+        set => SetProperty("response_policy_name", value);
     }
 
     /// <summary>
@@ -134,8 +133,7 @@ public class GoogleDnsResponsePolicy : TerraformResource
     /// </summary>
     public List<GoogleDnsResponsePolicyGkeClustersBlock>? GkeClusters
     {
-        get => GetProperty<List<GoogleDnsResponsePolicyGkeClustersBlock>>("gke_clusters");
-        set => this.WithProperty("gke_clusters", value);
+        set => SetProperty("gke_clusters", value);
     }
 
     /// <summary>
@@ -144,8 +142,7 @@ public class GoogleDnsResponsePolicy : TerraformResource
     /// </summary>
     public List<GoogleDnsResponsePolicyNetworksBlock>? Networks
     {
-        get => GetProperty<List<GoogleDnsResponsePolicyNetworksBlock>>("networks");
-        set => this.WithProperty("networks", value);
+        set => SetProperty("networks", value);
     }
 
     /// <summary>
@@ -154,8 +151,7 @@ public class GoogleDnsResponsePolicy : TerraformResource
     /// </summary>
     public GoogleDnsResponsePolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDnsResponsePolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

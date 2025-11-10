@@ -14,8 +14,7 @@ public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination");
-        set => WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     public required TerraformProperty<string> DestinationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_type");
-        set => WithProperty("destination_type", value);
+        set => SetProperty("destination_type", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AwsAuditmanagerAssessmentRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class AwsAuditmanagerAssessmentRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
     public required TerraformProperty<string> RoleType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_type");
-        set => WithProperty("role_type", value);
+        set => SetProperty("role_type", value);
     }
 
 }
@@ -78,20 +74,25 @@ public class AwsAuditmanagerAssessment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("roles_all");
-        this.WithOutput("status");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("roles_all");
+        SetOutput("status");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("framework_id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -100,8 +101,8 @@ public class AwsAuditmanagerAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     public required TerraformProperty<string> FrameworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("framework_id");
-        set => this.WithProperty("framework_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("framework_id");
+        set => SetProperty("framework_id", value);
     }
 
     /// <summary>
@@ -110,26 +111,26 @@ public class AwsAuditmanagerAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -138,8 +139,7 @@ public class AwsAuditmanagerAssessment : TerraformResource
     /// </summary>
     public List<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock>? AssessmentReportsDestination
     {
-        get => GetProperty<List<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock>>("assessment_reports_destination");
-        set => this.WithProperty("assessment_reports_destination", value);
+        set => SetProperty("assessment_reports_destination", value);
     }
 
     /// <summary>
@@ -148,8 +148,7 @@ public class AwsAuditmanagerAssessment : TerraformResource
     /// </summary>
     public HashSet<AwsAuditmanagerAssessmentRolesBlock>? Roles
     {
-        get => GetProperty<HashSet<AwsAuditmanagerAssessmentRolesBlock>>("roles");
-        set => this.WithProperty("roles", value);
+        set => SetProperty("roles", value);
     }
 
     /// <summary>
@@ -158,8 +157,7 @@ public class AwsAuditmanagerAssessment : TerraformResource
     /// </summary>
     public List<AwsAuditmanagerAssessmentScopeBlock>? Scope
     {
-        get => GetProperty<List<AwsAuditmanagerAssessmentScopeBlock>>("scope");
-        set => this.WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
     /// <summary>

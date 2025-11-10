@@ -13,8 +13,7 @@ public class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? Size
     {
-        get => GetProperty<TerraformProperty<double>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizingMode is required")]
     public required TerraformProperty<string> SizingMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sizing_mode");
-        set => WithProperty("sizing_mode", value);
+        set => SetProperty("sizing_mode", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsFsxLustreFileSystemLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
-        set => WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsFsxLustreFileSystemLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Level
     {
-        get => GetProperty<TerraformProperty<string>>("level");
-        set => WithProperty("level", value);
+        set => SetProperty("level", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class AwsFsxLustreFileSystemMetadataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Iops
     {
-        get => GetProperty<TerraformProperty<double>>("iops");
-        set => WithProperty("iops", value);
+        set => SetProperty("iops", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AwsFsxLustreFileSystemMetadataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -92,8 +86,7 @@ public class AwsFsxLustreFileSystemRootSquashConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? NoSquashNids
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("no_squash_nids");
-        set => WithProperty("no_squash_nids", value);
+        set => SetProperty("no_squash_nids", value);
     }
 
     /// <summary>
@@ -101,8 +94,7 @@ public class AwsFsxLustreFileSystemRootSquashConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RootSquash
     {
-        get => GetProperty<TerraformProperty<string>>("root_squash");
-        set => WithProperty("root_squash", value);
+        set => SetProperty("root_squash", value);
     }
 
 }
@@ -118,8 +110,7 @@ public class AwsFsxLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -127,8 +118,7 @@ public class AwsFsxLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -136,8 +126,7 @@ public class AwsFsxLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -155,256 +144,283 @@ public class AwsFsxLustreFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("dns_name");
-        this.WithOutput("mount_name");
-        this.WithOutput("network_interface_ids");
-        this.WithOutput("owner_id");
-        this.WithOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("dns_name");
+        SetOutput("mount_name");
+        SetOutput("network_interface_ids");
+        SetOutput("owner_id");
+        SetOutput("vpc_id");
+        SetOutput("auto_import_policy");
+        SetOutput("automatic_backup_retention_days");
+        SetOutput("backup_id");
+        SetOutput("copy_tags_to_backups");
+        SetOutput("daily_automatic_backup_start_time");
+        SetOutput("data_compression_type");
+        SetOutput("deployment_type");
+        SetOutput("drive_cache_type");
+        SetOutput("efa_enabled");
+        SetOutput("export_path");
+        SetOutput("file_system_type_version");
+        SetOutput("final_backup_tags");
+        SetOutput("id");
+        SetOutput("import_path");
+        SetOutput("imported_file_chunk_size");
+        SetOutput("kms_key_id");
+        SetOutput("per_unit_storage_throughput");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("skip_final_backup");
+        SetOutput("storage_capacity");
+        SetOutput("storage_type");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("throughput_capacity");
+        SetOutput("weekly_maintenance_start_time");
     }
 
     /// <summary>
     /// The auto_import_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoImportPolicy
+    public TerraformProperty<string> AutoImportPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("auto_import_policy");
-        set => this.WithProperty("auto_import_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_import_policy");
+        set => SetProperty("auto_import_policy", value);
     }
 
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    public TerraformProperty<double>? AutomaticBackupRetentionDays
+    public TerraformProperty<double> AutomaticBackupRetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("automatic_backup_retention_days");
-        set => this.WithProperty("automatic_backup_retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("automatic_backup_retention_days");
+        set => SetProperty("automatic_backup_retention_days", value);
     }
 
     /// <summary>
     /// The backup_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupId
+    public TerraformProperty<string> BackupId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_id");
-        set => this.WithProperty("backup_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_id");
+        set => SetProperty("backup_id", value);
     }
 
     /// <summary>
     /// The copy_tags_to_backups attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyTagsToBackups
+    public TerraformProperty<bool> CopyTagsToBackups
     {
-        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_backups");
-        set => this.WithProperty("copy_tags_to_backups", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags_to_backups");
+        set => SetProperty("copy_tags_to_backups", value);
     }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? DailyAutomaticBackupStartTime
+    public TerraformProperty<string> DailyAutomaticBackupStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("daily_automatic_backup_start_time");
-        set => this.WithProperty("daily_automatic_backup_start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("daily_automatic_backup_start_time");
+        set => SetProperty("daily_automatic_backup_start_time", value);
     }
 
     /// <summary>
     /// The data_compression_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DataCompressionType
+    public TerraformProperty<string> DataCompressionType
     {
-        get => GetProperty<TerraformProperty<string>>("data_compression_type");
-        set => this.WithProperty("data_compression_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_compression_type");
+        set => SetProperty("data_compression_type", value);
     }
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentType
+    public TerraformProperty<string> DeploymentType
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_type");
-        set => this.WithProperty("deployment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_type");
+        set => SetProperty("deployment_type", value);
     }
 
     /// <summary>
     /// The drive_cache_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DriveCacheType
+    public TerraformProperty<string> DriveCacheType
     {
-        get => GetProperty<TerraformProperty<string>>("drive_cache_type");
-        set => this.WithProperty("drive_cache_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("drive_cache_type");
+        set => SetProperty("drive_cache_type", value);
     }
 
     /// <summary>
     /// The efa_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EfaEnabled
+    public TerraformProperty<bool> EfaEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("efa_enabled");
-        set => this.WithProperty("efa_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("efa_enabled");
+        set => SetProperty("efa_enabled", value);
     }
 
     /// <summary>
     /// The export_path attribute.
     /// </summary>
-    public TerraformProperty<string>? ExportPath
+    public TerraformProperty<string> ExportPath
     {
-        get => GetProperty<TerraformProperty<string>>("export_path");
-        set => this.WithProperty("export_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("export_path");
+        set => SetProperty("export_path", value);
     }
 
     /// <summary>
     /// The file_system_type_version attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystemTypeVersion
+    public TerraformProperty<string> FileSystemTypeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_type_version");
-        set => this.WithProperty("file_system_type_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_system_type_version");
+        set => SetProperty("file_system_type_version", value);
     }
 
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? FinalBackupTags
+    public Dictionary<string, TerraformProperty<string>> FinalBackupTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
-        set => this.WithProperty("final_backup_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
+        set => SetProperty("final_backup_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The import_path attribute.
     /// </summary>
-    public TerraformProperty<string>? ImportPath
+    public TerraformProperty<string> ImportPath
     {
-        get => GetProperty<TerraformProperty<string>>("import_path");
-        set => this.WithProperty("import_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("import_path");
+        set => SetProperty("import_path", value);
     }
 
     /// <summary>
     /// The imported_file_chunk_size attribute.
     /// </summary>
-    public TerraformProperty<double>? ImportedFileChunkSize
+    public TerraformProperty<double> ImportedFileChunkSize
     {
-        get => GetProperty<TerraformProperty<double>>("imported_file_chunk_size");
-        set => this.WithProperty("imported_file_chunk_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("imported_file_chunk_size");
+        set => SetProperty("imported_file_chunk_size", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The per_unit_storage_throughput attribute.
     /// </summary>
-    public TerraformProperty<double>? PerUnitStorageThroughput
+    public TerraformProperty<double> PerUnitStorageThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("per_unit_storage_throughput");
-        set => this.WithProperty("per_unit_storage_throughput", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("per_unit_storage_throughput");
+        set => SetProperty("per_unit_storage_throughput", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The skip_final_backup attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipFinalBackup
+    public TerraformProperty<bool> SkipFinalBackup
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_final_backup");
-        set => this.WithProperty("skip_final_backup", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_final_backup");
+        set => SetProperty("skip_final_backup", value);
     }
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? StorageCapacity
+    public TerraformProperty<double> StorageCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("storage_capacity");
-        set => this.WithProperty("storage_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity");
+        set => SetProperty("storage_capacity", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageType
+    public TerraformProperty<string> StorageType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_type");
-        set => this.WithProperty("storage_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
+        set => SetProperty("storage_type", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public List<TerraformProperty<string>>? SubnetIds
+    public List<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? ThroughputCapacity
+    public TerraformProperty<double> ThroughputCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("throughput_capacity");
-        set => this.WithProperty("throughput_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput_capacity");
+        set => SetProperty("throughput_capacity", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? WeeklyMaintenanceStartTime
+    public TerraformProperty<string> WeeklyMaintenanceStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("weekly_maintenance_start_time");
-        set => this.WithProperty("weekly_maintenance_start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("weekly_maintenance_start_time");
+        set => SetProperty("weekly_maintenance_start_time", value);
     }
 
     /// <summary>
@@ -414,8 +430,7 @@ public class AwsFsxLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataReadCacheConfiguration block(s) allowed")]
     public List<AwsFsxLustreFileSystemDataReadCacheConfigurationBlock>? DataReadCacheConfiguration
     {
-        get => GetProperty<List<AwsFsxLustreFileSystemDataReadCacheConfigurationBlock>>("data_read_cache_configuration");
-        set => this.WithProperty("data_read_cache_configuration", value);
+        set => SetProperty("data_read_cache_configuration", value);
     }
 
     /// <summary>
@@ -425,8 +440,7 @@ public class AwsFsxLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfiguration block(s) allowed")]
     public List<AwsFsxLustreFileSystemLogConfigurationBlock>? LogConfiguration
     {
-        get => GetProperty<List<AwsFsxLustreFileSystemLogConfigurationBlock>>("log_configuration");
-        set => this.WithProperty("log_configuration", value);
+        set => SetProperty("log_configuration", value);
     }
 
     /// <summary>
@@ -436,8 +450,7 @@ public class AwsFsxLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataConfiguration block(s) allowed")]
     public List<AwsFsxLustreFileSystemMetadataConfigurationBlock>? MetadataConfiguration
     {
-        get => GetProperty<List<AwsFsxLustreFileSystemMetadataConfigurationBlock>>("metadata_configuration");
-        set => this.WithProperty("metadata_configuration", value);
+        set => SetProperty("metadata_configuration", value);
     }
 
     /// <summary>
@@ -447,8 +460,7 @@ public class AwsFsxLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootSquashConfiguration block(s) allowed")]
     public List<AwsFsxLustreFileSystemRootSquashConfigurationBlock>? RootSquashConfiguration
     {
-        get => GetProperty<List<AwsFsxLustreFileSystemRootSquashConfigurationBlock>>("root_squash_configuration");
-        set => this.WithProperty("root_squash_configuration", value);
+        set => SetProperty("root_squash_configuration", value);
     }
 
     /// <summary>
@@ -457,8 +469,7 @@ public class AwsFsxLustreFileSystem : TerraformResource
     /// </summary>
     public AwsFsxLustreFileSystemTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFsxLustreFileSystemTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

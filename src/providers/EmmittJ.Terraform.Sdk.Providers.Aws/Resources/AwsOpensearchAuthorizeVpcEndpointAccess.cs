@@ -14,7 +14,10 @@ public class AwsOpensearchAuthorizeVpcEndpointAccess : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authorized_principal");
+        SetOutput("authorized_principal");
+        SetOutput("account");
+        SetOutput("domain_name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -23,8 +26,8 @@ public class AwsOpensearchAuthorizeVpcEndpointAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Account is required")]
     public required TerraformProperty<string> Account
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account");
-        set => this.WithProperty("account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account");
+        set => SetProperty("account", value);
     }
 
     /// <summary>
@@ -33,17 +36,17 @@ public class AwsOpensearchAuthorizeVpcEndpointAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsVpnGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsVpnGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsVpnGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,70 +56,77 @@ public class AwsVpnGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("amazon_side_asn");
+        SetOutput("attached_vpc_id");
+        SetOutput("availability_zone");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("state");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The amazon_side_asn attribute.
     /// </summary>
-    public TerraformProperty<string>? AmazonSideAsn
+    public TerraformProperty<string> AmazonSideAsn
     {
-        get => GetProperty<TerraformProperty<string>>("amazon_side_asn");
-        set => this.WithProperty("amazon_side_asn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("amazon_side_asn");
+        set => SetProperty("amazon_side_asn", value);
     }
 
     /// <summary>
     /// The attached_vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AttachedVpcId
+    public TerraformProperty<string> AttachedVpcId
     {
-        get => GetProperty<TerraformProperty<string>>("attached_vpc_id");
-        set => this.WithProperty("attached_vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("attached_vpc_id");
+        set => SetProperty("attached_vpc_id", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZone
+    public TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
-        set => this.WithProperty("availability_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -131,8 +135,7 @@ public class AwsVpnGatewayDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsVpnGatewayDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsVpnGatewayDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -141,8 +144,7 @@ public class AwsVpnGatewayDataSource : TerraformDataSource
     /// </summary>
     public AwsVpnGatewayDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpnGatewayDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleComputeRegionNetworkEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeRegionNetworkEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,7 +38,14 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("network_endpoint_id");
+        SetOutput("network_endpoint_id");
+        SetOutput("fqdn");
+        SetOutput("id");
+        SetOutput("ip_address");
+        SetOutput("port");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("region_network_endpoint_group");
     }
 
     /// <summary>
@@ -48,19 +53,19 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     /// 
     /// This can only be specified when network_endpoint_type of the NEG is INTERNET_FQDN_PORT.
     /// </summary>
-    public TerraformProperty<string>? Fqdn
+    public TerraformProperty<string> Fqdn
     {
-        get => GetProperty<TerraformProperty<string>>("fqdn");
-        set => this.WithProperty("fqdn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fqdn");
+        set => SetProperty("fqdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,10 +73,10 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     /// 
     /// This can only be specified when network_endpoint_type of the NEG is INTERNET_IP_PORT.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
+    public TerraformProperty<string> IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => this.WithProperty("ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_address");
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
@@ -80,26 +85,26 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where the containing network endpoint group is located.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -108,8 +113,8 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionNetworkEndpointGroup is required")]
     public required TerraformProperty<string> RegionNetworkEndpointGroup
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region_network_endpoint_group");
-        set => this.WithProperty("region_network_endpoint_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region_network_endpoint_group");
+        set => SetProperty("region_network_endpoint_group", value);
     }
 
     /// <summary>
@@ -118,8 +123,7 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     /// </summary>
     public GoogleComputeRegionNetworkEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRegionNetworkEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,18 +14,19 @@ public class AwsCallerIdentityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_id");
-        this.WithOutput("arn");
-        this.WithOutput("user_id");
+        SetOutput("account_id");
+        SetOutput("arn");
+        SetOutput("user_id");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

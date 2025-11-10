@@ -13,8 +13,7 @@ public class AwsRamResourceShareAccepterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRamResourceShareAccepterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,31 +38,34 @@ public class AwsRamResourceShareAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputnvitation_arn");
-        this.WithOutputeceiver_account_id");
-        this.WithOutputesources");
-        this.WithOutputender_account_id");
-        this.WithOutputhare_id");
-        this.WithOutputhare_name");
-        this.WithOutputtatus");
+        SetOutput("invitation_arn");
+        SetOutput("receiver_account_id");
+        SetOutput("resources");
+        SetOutput("sender_account_id");
+        SetOutput("share_id");
+        SetOutput("share_name");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("share_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -73,8 +74,8 @@ public class AwsRamResourceShareAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareArn is required")]
     public required TerraformProperty<string> ShareArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("share_arn");
-        set => this.WithProperty("share_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("share_arn");
+        set => SetProperty("share_arn", value);
     }
 
     /// <summary>
@@ -83,8 +84,7 @@ public class AwsRamResourceShareAccepter : TerraformResource
     /// </summary>
     public AwsRamResourceShareAccepterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRamResourceShareAccepterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

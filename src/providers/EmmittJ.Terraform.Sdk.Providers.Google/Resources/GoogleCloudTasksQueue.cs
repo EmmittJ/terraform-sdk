@@ -13,8 +13,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
-        set => WithProperty("instance", value);
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -35,8 +33,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
-        set => WithProperty("service", value);
+        set => SetProperty("service", value);
     }
 
     /// <summary>
@@ -46,8 +43,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class GoogleCloudTasksQueueHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpMethod
     {
-        get => GetProperty<TerraformProperty<string>>("http_method");
-        set => WithProperty("http_method", value);
+        set => SetProperty("http_method", value);
     }
 
 }
@@ -88,8 +83,7 @@ public class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxBurstSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_burst_size");
-        set => WithProperty("max_burst_size", value);
+        set => SetProperty("max_burst_size", value);
     }
 
     /// <summary>
@@ -100,8 +94,7 @@ public class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxConcurrentDispatches
     {
-        get => GetProperty<TerraformProperty<double>>("max_concurrent_dispatches");
-        set => WithProperty("max_concurrent_dispatches", value);
+        set => SetProperty("max_concurrent_dispatches", value);
     }
 
     /// <summary>
@@ -111,8 +104,7 @@ public class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxDispatchesPerSecond
     {
-        get => GetProperty<TerraformProperty<double>>("max_dispatches_per_second");
-        set => WithProperty("max_dispatches_per_second", value);
+        set => SetProperty("max_dispatches_per_second", value);
     }
 
 }
@@ -137,8 +129,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAttempts
     {
-        get => GetProperty<TerraformProperty<double>>("max_attempts");
-        set => WithProperty("max_attempts", value);
+        set => SetProperty("max_attempts", value);
     }
 
     /// <summary>
@@ -148,8 +139,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxBackoff
     {
-        get => GetProperty<TerraformProperty<string>>("max_backoff");
-        set => WithProperty("max_backoff", value);
+        set => SetProperty("max_backoff", value);
     }
 
     /// <summary>
@@ -161,8 +151,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxDoublings
     {
-        get => GetProperty<TerraformProperty<double>>("max_doublings");
-        set => WithProperty("max_doublings", value);
+        set => SetProperty("max_doublings", value);
     }
 
     /// <summary>
@@ -176,8 +165,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxRetryDuration
     {
-        get => GetProperty<TerraformProperty<string>>("max_retry_duration");
-        set => WithProperty("max_retry_duration", value);
+        set => SetProperty("max_retry_duration", value);
     }
 
     /// <summary>
@@ -187,8 +175,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinBackoff
     {
-        get => GetProperty<TerraformProperty<string>>("min_backoff");
-        set => WithProperty("min_backoff", value);
+        set => SetProperty("min_backoff", value);
     }
 
 }
@@ -207,8 +194,7 @@ public class GoogleCloudTasksQueueStackdriverLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRatio is required")]
     public required TerraformProperty<double> SamplingRatio
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("sampling_ratio");
-        set => WithProperty("sampling_ratio", value);
+        set => SetProperty("sampling_ratio", value);
     }
 
 }
@@ -224,8 +210,7 @@ public class GoogleCloudTasksQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -233,8 +218,7 @@ public class GoogleCloudTasksQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -242,8 +226,7 @@ public class GoogleCloudTasksQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -261,7 +244,12 @@ public class GoogleCloudTasksQueue : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("state");
+        SetOutput("state");
+        SetOutput("desired_state");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -270,19 +258,19 @@ public class GoogleCloudTasksQueue : TerraformResource
     /// * RUNNING: The queue is running. Tasks can be dispatched.
     /// * PAUSED: The queue is paused. Tasks are not dispatched but can be added to the queue. Default value: &amp;quot;RUNNING&amp;quot; Possible values: [&amp;quot;RUNNING&amp;quot;, &amp;quot;PAUSED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DesiredState
+    public TerraformProperty<string> DesiredState
     {
-        get => GetProperty<TerraformProperty<string>>("desired_state");
-        set => this.WithProperty("desired_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("desired_state");
+        set => SetProperty("desired_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -291,8 +279,8 @@ public class GoogleCloudTasksQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -301,17 +289,17 @@ public class GoogleCloudTasksQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -321,8 +309,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppEngineRoutingOverride block(s) allowed")]
     public List<GoogleCloudTasksQueueAppEngineRoutingOverrideBlock>? AppEngineRoutingOverride
     {
-        get => GetProperty<List<GoogleCloudTasksQueueAppEngineRoutingOverrideBlock>>("app_engine_routing_override");
-        set => this.WithProperty("app_engine_routing_override", value);
+        set => SetProperty("app_engine_routing_override", value);
     }
 
     /// <summary>
@@ -332,8 +319,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpTarget block(s) allowed")]
     public List<GoogleCloudTasksQueueHttpTargetBlock>? HttpTarget
     {
-        get => GetProperty<List<GoogleCloudTasksQueueHttpTargetBlock>>("http_target");
-        set => this.WithProperty("http_target", value);
+        set => SetProperty("http_target", value);
     }
 
     /// <summary>
@@ -343,8 +329,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimits block(s) allowed")]
     public List<GoogleCloudTasksQueueRateLimitsBlock>? RateLimits
     {
-        get => GetProperty<List<GoogleCloudTasksQueueRateLimitsBlock>>("rate_limits");
-        set => this.WithProperty("rate_limits", value);
+        set => SetProperty("rate_limits", value);
     }
 
     /// <summary>
@@ -354,8 +339,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryConfig block(s) allowed")]
     public List<GoogleCloudTasksQueueRetryConfigBlock>? RetryConfig
     {
-        get => GetProperty<List<GoogleCloudTasksQueueRetryConfigBlock>>("retry_config");
-        set => this.WithProperty("retry_config", value);
+        set => SetProperty("retry_config", value);
     }
 
     /// <summary>
@@ -365,8 +349,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StackdriverLoggingConfig block(s) allowed")]
     public List<GoogleCloudTasksQueueStackdriverLoggingConfigBlock>? StackdriverLoggingConfig
     {
-        get => GetProperty<List<GoogleCloudTasksQueueStackdriverLoggingConfigBlock>>("stackdriver_logging_config");
-        set => this.WithProperty("stackdriver_logging_config", value);
+        set => SetProperty("stackdriver_logging_config", value);
     }
 
     /// <summary>
@@ -375,8 +358,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     /// </summary>
     public GoogleCloudTasksQueueTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudTasksQueueTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,16 +14,19 @@ public class AwsBedrockagentcoreWorkloadIdentity : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("workload_identity_arn");
+        SetOutput("workload_identity_arn");
+        SetOutput("allowed_resource_oauth2_return_urls");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The allowed_resource_oauth2_return_urls attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedResourceOauth2ReturnUrls
+    public HashSet<TerraformProperty<string>> AllowedResourceOauth2ReturnUrls
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_resource_oauth2_return_urls");
-        set => this.WithProperty("allowed_resource_oauth2_return_urls", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_resource_oauth2_return_urls");
+        set => SetProperty("allowed_resource_oauth2_return_urls", value);
     }
 
     /// <summary>
@@ -32,17 +35,17 @@ public class AwsBedrockagentcoreWorkloadIdentity : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

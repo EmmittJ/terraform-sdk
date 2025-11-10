@@ -14,16 +14,20 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("display_name");
-        this.WithOutput("effective_labels");
-        this.WithOutput("entitlement_id");
-        this.WithOutput("gcp_oracle_zone");
-        this.WithOutput("labels");
-        this.WithOutput("name");
-        this.WithOutput("properties");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("effective_labels");
+        SetOutput("entitlement_id");
+        SetOutput("gcp_oracle_zone");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("properties");
+        SetOutput("terraform_labels");
+        SetOutput("cloud_exadata_infrastructure_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -35,17 +39,17 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
-        set => this.WithProperty("cloud_exadata_infrastructure_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        set => SetProperty("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,17 +58,17 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

@@ -21,8 +21,7 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? FailureReason
     {
-        get => GetProperty<TerraformProperty<string>>("failure_reason");
-        set => WithProperty("failure_reason", value);
+        set => SetProperty("failure_reason", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? InvocationTime
     {
-        get => GetProperty<TerraformProperty<string>>("invocation_time");
-        set => WithProperty("invocation_time", value);
+        set => SetProperty("invocation_time", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? RunStatus
     {
-        get => GetProperty<TerraformProperty<string>>("run_status");
-        set => WithProperty("run_status", value);
+        set => SetProperty("run_status", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? TriggerTime
     {
-        get => GetProperty<TerraformProperty<string>>("trigger_time");
-        set => WithProperty("trigger_time", value);
+        set => SetProperty("trigger_time", value);
     }
 
 }
@@ -73,8 +69,7 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? FailureReason
     {
-        get => GetProperty<TerraformProperty<string>>("failure_reason");
-        set => WithProperty("failure_reason", value);
+        set => SetProperty("failure_reason", value);
     }
 
     /// <summary>
@@ -82,8 +77,7 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? InvocationTime
     {
-        get => GetProperty<TerraformProperty<string>>("invocation_time");
-        set => WithProperty("invocation_time", value);
+        set => SetProperty("invocation_time", value);
     }
 
     /// <summary>
@@ -91,8 +85,7 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? RunStatus
     {
-        get => GetProperty<TerraformProperty<string>>("run_status");
-        set => WithProperty("run_status", value);
+        set => SetProperty("run_status", value);
     }
 
     /// <summary>
@@ -100,8 +93,7 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? TriggerTime
     {
-        get => GetProperty<TerraformProperty<string>>("trigger_time");
-        set => WithProperty("trigger_time", value);
+        set => SetProperty("trigger_time", value);
     }
 
 }
@@ -118,8 +110,7 @@ public class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformProperty<string> ScheduleExpression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule_expression");
-        set => WithProperty("schedule_expression", value);
+        set => SetProperty("schedule_expression", value);
     }
 
 }
@@ -143,8 +134,7 @@ public class AwsTimestreamqueryScheduledQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -152,8 +142,7 @@ public class AwsTimestreamqueryScheduledQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -161,8 +150,7 @@ public class AwsTimestreamqueryScheduledQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -179,12 +167,18 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("creation_time");
-        this.WithOutput("next_invocation_time");
-        this.WithOutput("previous_invocation_time");
-        this.WithOutput("state");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("creation_time");
+        SetOutput("next_invocation_time");
+        SetOutput("previous_invocation_time");
+        SetOutput("state");
+        SetOutput("tags_all");
+        SetOutput("execution_role_arn");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("query_string");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -193,17 +187,17 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -212,8 +206,8 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -222,26 +216,26 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
     public required TerraformProperty<string> QueryString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query_string");
-        set => this.WithProperty("query_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_string");
+        set => SetProperty("query_string", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -250,8 +244,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     /// </summary>
     public List<AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock>? ErrorReportConfiguration
     {
-        get => GetProperty<List<AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock>>("error_report_configuration");
-        set => this.WithProperty("error_report_configuration", value);
+        set => SetProperty("error_report_configuration", value);
     }
 
     /// <summary>
@@ -260,8 +253,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     /// </summary>
     public List<AwsTimestreamqueryScheduledQueryLastRunSummaryBlock>? LastRunSummary
     {
-        get => GetProperty<List<AwsTimestreamqueryScheduledQueryLastRunSummaryBlock>>("last_run_summary");
-        set => this.WithProperty("last_run_summary", value);
+        set => SetProperty("last_run_summary", value);
     }
 
     /// <summary>
@@ -270,8 +262,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     /// </summary>
     public List<AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock>? NotificationConfiguration
     {
-        get => GetProperty<List<AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock>>("notification_configuration");
-        set => this.WithProperty("notification_configuration", value);
+        set => SetProperty("notification_configuration", value);
     }
 
     /// <summary>
@@ -280,8 +271,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     /// </summary>
     public List<AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock>? RecentlyFailedRuns
     {
-        get => GetProperty<List<AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock>>("recently_failed_runs");
-        set => this.WithProperty("recently_failed_runs", value);
+        set => SetProperty("recently_failed_runs", value);
     }
 
     /// <summary>
@@ -290,8 +280,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     /// </summary>
     public List<AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock>? ScheduleConfiguration
     {
-        get => GetProperty<List<AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock>>("schedule_configuration");
-        set => this.WithProperty("schedule_configuration", value);
+        set => SetProperty("schedule_configuration", value);
     }
 
     /// <summary>
@@ -300,8 +289,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     /// </summary>
     public List<AwsTimestreamqueryScheduledQueryTargetConfigurationBlock>? TargetConfiguration
     {
-        get => GetProperty<List<AwsTimestreamqueryScheduledQueryTargetConfigurationBlock>>("target_configuration");
-        set => this.WithProperty("target_configuration", value);
+        set => SetProperty("target_configuration", value);
     }
 
     /// <summary>
@@ -310,8 +298,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     /// </summary>
     public AwsTimestreamqueryScheduledQueryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsTimestreamqueryScheduledQueryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

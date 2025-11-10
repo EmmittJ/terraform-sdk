@@ -13,8 +13,7 @@ public class AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,7 +54,18 @@ public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("status");
+        SetOutput("status");
+        SetOutput("assignment_type");
+        SetOutput("duration");
+        SetOutput("expiration_date");
+        SetOutput("group_id");
+        SetOutput("id");
+        SetOutput("justification");
+        SetOutput("permanent_assignment");
+        SetOutput("principal_id");
+        SetOutput("start_date");
+        SetOutput("ticket_number");
+        SetOutput("ticket_system");
     }
 
     /// <summary>
@@ -67,26 +74,26 @@ public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentType is required")]
     public required TerraformProperty<string> AssignmentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("assignment_type");
-        set => this.WithProperty("assignment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("assignment_type");
+        set => SetProperty("assignment_type", value);
     }
 
     /// <summary>
     /// The duration of the assignment, formatted as an ISO8601 duration string (e.g. P3D for 3 days)
     /// </summary>
-    public TerraformProperty<string>? Duration
+    public TerraformProperty<string> Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
-        set => this.WithProperty("duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("duration");
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
     /// The date that this assignment expires, formatted as an RFC3339 date string in UTC (e.g. 2018-01-01T01:02:03Z)
     /// </summary>
-    public TerraformProperty<string>? ExpirationDate
+    public TerraformProperty<string> ExpirationDate
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_date");
-        set => this.WithProperty("expiration_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration_date");
+        set => SetProperty("expiration_date", value);
     }
 
     /// <summary>
@@ -95,35 +102,35 @@ public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformProperty<string> GroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_id");
-        set => this.WithProperty("group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_id");
+        set => SetProperty("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The justification for the assignment
     /// </summary>
-    public TerraformProperty<string>? Justification
+    public TerraformProperty<string> Justification
     {
-        get => GetProperty<TerraformProperty<string>>("justification");
-        set => this.WithProperty("justification", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("justification");
+        set => SetProperty("justification", value);
     }
 
     /// <summary>
     /// Is the assignment permanent
     /// </summary>
-    public TerraformProperty<bool>? PermanentAssignment
+    public TerraformProperty<bool> PermanentAssignment
     {
-        get => GetProperty<TerraformProperty<bool>>("permanent_assignment");
-        set => this.WithProperty("permanent_assignment", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("permanent_assignment");
+        set => SetProperty("permanent_assignment", value);
     }
 
     /// <summary>
@@ -132,35 +139,35 @@ public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
     /// The date that this assignment starts, formatted as an RFC3339 date string in UTC (e.g. 2018-01-01T01:02:03Z)
     /// </summary>
-    public TerraformProperty<string>? StartDate
+    public TerraformProperty<string> StartDate
     {
-        get => GetProperty<TerraformProperty<string>>("start_date");
-        set => this.WithProperty("start_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_date");
+        set => SetProperty("start_date", value);
     }
 
     /// <summary>
     /// The ticket number authorising the assignment
     /// </summary>
-    public TerraformProperty<string>? TicketNumber
+    public TerraformProperty<string> TicketNumber
     {
-        get => GetProperty<TerraformProperty<string>>("ticket_number");
-        set => this.WithProperty("ticket_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ticket_number");
+        set => SetProperty("ticket_number", value);
     }
 
     /// <summary>
     /// The ticket system authorising the assignment
     /// </summary>
-    public TerraformProperty<string>? TicketSystem
+    public TerraformProperty<string> TicketSystem
     {
-        get => GetProperty<TerraformProperty<string>>("ticket_system");
-        set => this.WithProperty("ticket_system", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ticket_system");
+        set => SetProperty("ticket_system", value);
     }
 
     /// <summary>
@@ -169,8 +176,7 @@ public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
     /// </summary>
     public AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

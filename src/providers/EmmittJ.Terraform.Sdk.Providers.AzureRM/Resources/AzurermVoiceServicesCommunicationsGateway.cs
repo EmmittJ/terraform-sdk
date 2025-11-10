@@ -13,8 +13,7 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : Ter
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedMediaSourceAddressPrefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_media_source_address_prefixes");
-        set => WithProperty("allowed_media_source_address_prefixes", value);
+        set => SetProperty("allowed_media_source_address_prefixes", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : Ter
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedSignalingSourceAddressPrefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_signaling_source_address_prefixes");
-        set => WithProperty("allowed_signaling_source_address_prefixes", value);
+        set => SetProperty("allowed_signaling_source_address_prefixes", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : Ter
     /// </summary>
     public HashSet<TerraformProperty<string>>? EsrpAddresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("esrp_addresses");
-        set => WithProperty("esrp_addresses", value);
+        set => SetProperty("esrp_addresses", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAddresses is required")]
     public HashSet<TerraformProperty<string>>? OperatorAddresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("operator_addresses");
-        set => WithProperty("operator_addresses", value);
+        set => SetProperty("operator_addresses", value);
     }
 
 }
@@ -68,8 +63,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,24 +105,38 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_bridge");
+        SetOutput("auto_generated_domain_name_label_scope");
+        SetOutput("codecs");
+        SetOutput("connectivity");
+        SetOutput("e911_type");
+        SetOutput("emergency_dial_strings");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("microsoft_teams_voicemail_pilot_number");
+        SetOutput("name");
+        SetOutput("on_prem_mcp_enabled");
+        SetOutput("platforms");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The api_bridge attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiBridge
+    public TerraformProperty<string> ApiBridge
     {
-        get => GetProperty<TerraformProperty<string>>("api_bridge");
-        set => this.WithProperty("api_bridge", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_bridge");
+        set => SetProperty("api_bridge", value);
     }
 
     /// <summary>
     /// The auto_generated_domain_name_label_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoGeneratedDomainNameLabelScope
+    public TerraformProperty<string> AutoGeneratedDomainNameLabelScope
     {
-        get => GetProperty<TerraformProperty<string>>("auto_generated_domain_name_label_scope");
-        set => this.WithProperty("auto_generated_domain_name_label_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_generated_domain_name_label_scope");
+        set => SetProperty("auto_generated_domain_name_label_scope", value);
     }
 
     /// <summary>
@@ -140,8 +145,8 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Codecs is required")]
     public required TerraformProperty<string> Codecs
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("codecs");
-        set => this.WithProperty("codecs", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("codecs");
+        set => SetProperty("codecs", value);
     }
 
     /// <summary>
@@ -150,8 +155,8 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connectivity is required")]
     public required TerraformProperty<string> Connectivity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connectivity");
-        set => this.WithProperty("connectivity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connectivity");
+        set => SetProperty("connectivity", value);
     }
 
     /// <summary>
@@ -160,26 +165,26 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "E911Type is required")]
     public required TerraformProperty<string> E911Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("e911_type");
-        set => this.WithProperty("e911_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("e911_type");
+        set => SetProperty("e911_type", value);
     }
 
     /// <summary>
     /// The emergency_dial_strings attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? EmergencyDialStrings
+    public List<TerraformProperty<string>> EmergencyDialStrings
     {
-        get => GetProperty<List<TerraformProperty<string>>>("emergency_dial_strings");
-        set => this.WithProperty("emergency_dial_strings", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("emergency_dial_strings");
+        set => SetProperty("emergency_dial_strings", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -188,17 +193,17 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The microsoft_teams_voicemail_pilot_number attribute.
     /// </summary>
-    public TerraformProperty<string>? MicrosoftTeamsVoicemailPilotNumber
+    public TerraformProperty<string> MicrosoftTeamsVoicemailPilotNumber
     {
-        get => GetProperty<TerraformProperty<string>>("microsoft_teams_voicemail_pilot_number");
-        set => this.WithProperty("microsoft_teams_voicemail_pilot_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("microsoft_teams_voicemail_pilot_number");
+        set => SetProperty("microsoft_teams_voicemail_pilot_number", value);
     }
 
     /// <summary>
@@ -207,27 +212,27 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The on_prem_mcp_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? OnPremMcpEnabled
+    public TerraformProperty<bool> OnPremMcpEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("on_prem_mcp_enabled");
-        set => this.WithProperty("on_prem_mcp_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("on_prem_mcp_enabled");
+        set => SetProperty("on_prem_mcp_enabled", value);
     }
 
     /// <summary>
     /// The platforms attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platforms is required")]
-    public List<TerraformProperty<string>>? Platforms
+    public List<TerraformProperty<string>> Platforms
     {
-        get => GetProperty<List<TerraformProperty<string>>>("platforms");
-        set => this.WithProperty("platforms", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("platforms");
+        set => SetProperty("platforms", value);
     }
 
     /// <summary>
@@ -236,28 +241,28 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for service_location.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceLocation block(s) required")]
     public HashSet<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock>? ServiceLocation
     {
-        get => GetProperty<HashSet<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock>>("service_location");
-        set => this.WithProperty("service_location", value);
+        set => SetProperty("service_location", value);
     }
 
     /// <summary>
@@ -266,8 +271,7 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// </summary>
     public AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

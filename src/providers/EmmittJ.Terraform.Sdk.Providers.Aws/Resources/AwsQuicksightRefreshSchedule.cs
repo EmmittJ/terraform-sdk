@@ -14,8 +14,7 @@ public class AwsQuicksightRefreshScheduleScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshType is required")]
     public required TerraformProperty<string> RefreshType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("refresh_type");
-        set => WithProperty("refresh_type", value);
+        set => SetProperty("refresh_type", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsQuicksightRefreshScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StartAfterDateTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_after_date_time");
-        set => WithProperty("start_after_date_time", value);
+        set => SetProperty("start_after_date_time", value);
     }
 
 }
@@ -41,17 +39,21 @@ public class AwsQuicksightRefreshSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("aws_account_id");
+        SetOutput("data_set_id");
+        SetOutput("region");
+        SetOutput("schedule_id");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -60,17 +62,17 @@ public class AwsQuicksightRefreshSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformProperty<string> DataSetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_set_id");
-        set => this.WithProperty("data_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_set_id");
+        set => SetProperty("data_set_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -79,8 +81,8 @@ public class AwsQuicksightRefreshSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleId is required")]
     public required TerraformProperty<string> ScheduleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule_id");
-        set => this.WithProperty("schedule_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule_id");
+        set => SetProperty("schedule_id", value);
     }
 
     /// <summary>
@@ -89,8 +91,7 @@ public class AwsQuicksightRefreshSchedule : TerraformResource
     /// </summary>
     public List<AwsQuicksightRefreshScheduleScheduleBlock>? Schedule
     {
-        get => GetProperty<List<AwsQuicksightRefreshScheduleScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>

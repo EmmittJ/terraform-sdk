@@ -13,8 +13,7 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ValueType
     {
-        get => GetProperty<TerraformProperty<string>>("value_type");
-        set => WithProperty("value_type", value);
+        set => SetProperty("value_type", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class GoogleMonitoringMetricDescriptorMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IngestDelay
     {
-        get => GetProperty<TerraformProperty<string>>("ingest_delay");
-        set => WithProperty("ingest_delay", value);
+        set => SetProperty("ingest_delay", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleMonitoringMetricDescriptorMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SamplePeriod
     {
-        get => GetProperty<TerraformProperty<string>>("sample_period");
-        set => WithProperty("sample_period", value);
+        set => SetProperty("sample_period", value);
     }
 
 }
@@ -75,8 +70,7 @@ public class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -112,44 +104,53 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("monitored_resource_types");
-        this.WithOutput("name");
+        SetOutput("monitored_resource_types");
+        SetOutput("name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("launch_stage");
+        SetOutput("metric_kind");
+        SetOutput("project");
+        SetOutput("type");
+        SetOutput("unit");
+        SetOutput("value_type");
     }
 
     /// <summary>
     /// A detailed description of the metric, which can be used in documentation.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example &amp;quot;Request count&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The launch stage of the metric definition. Possible values: [&amp;quot;LAUNCH_STAGE_UNSPECIFIED&amp;quot;, &amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? LaunchStage
+    public TerraformProperty<string> LaunchStage
     {
-        get => GetProperty<TerraformProperty<string>>("launch_stage");
-        set => this.WithProperty("launch_stage", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("launch_stage");
+        set => SetProperty("launch_stage", value);
     }
 
     /// <summary>
@@ -158,17 +159,17 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
     public required TerraformProperty<string> MetricKind
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_kind");
-        set => this.WithProperty("metric_kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metric_kind");
+        set => SetProperty("metric_kind", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -177,8 +178,8 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -203,10 +204,10 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// More info can be found in the API documentation
     /// (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors).
     /// </summary>
-    public TerraformProperty<string>? Unit
+    public TerraformProperty<string> Unit
     {
-        get => GetProperty<TerraformProperty<string>>("unit");
-        set => this.WithProperty("unit", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("unit");
+        set => SetProperty("unit", value);
     }
 
     /// <summary>
@@ -215,8 +216,8 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformProperty<string> ValueType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value_type");
-        set => this.WithProperty("value_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value_type");
+        set => SetProperty("value_type", value);
     }
 
     /// <summary>
@@ -225,8 +226,7 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// </summary>
     public HashSet<GoogleMonitoringMetricDescriptorLabelsBlock>? Labels
     {
-        get => GetProperty<HashSet<GoogleMonitoringMetricDescriptorLabelsBlock>>("labels");
-        set => this.WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -236,8 +236,7 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     public List<GoogleMonitoringMetricDescriptorMetadataBlock>? Metadata
     {
-        get => GetProperty<List<GoogleMonitoringMetricDescriptorMetadataBlock>>("metadata");
-        set => this.WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -246,8 +245,7 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// </summary>
     public GoogleMonitoringMetricDescriptorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMonitoringMetricDescriptorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

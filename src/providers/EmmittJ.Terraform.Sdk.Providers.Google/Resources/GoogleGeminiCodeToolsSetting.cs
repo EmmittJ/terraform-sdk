@@ -14,8 +14,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AccountConnector
     {
-        get => GetProperty<TerraformProperty<string>>("account_connector");
-        set => WithProperty("account_connector", value);
+        set => SetProperty("account_connector", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handle is required")]
     public required TerraformProperty<string> Handle
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("handle");
-        set => WithProperty("handle", value);
+        set => SetProperty("handle", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tool is required")]
     public required TerraformProperty<string> Tool
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tool");
-        set => WithProperty("tool", value);
+        set => SetProperty("tool", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UriOverride
     {
-        get => GetProperty<TerraformProperty<string>>("uri_override");
-        set => WithProperty("uri_override", value);
+        set => SetProperty("uri_override", value);
     }
 
 }
@@ -60,8 +56,7 @@ public class GoogleGeminiCodeToolsSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class GoogleGeminiCodeToolsSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class GoogleGeminiCodeToolsSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -97,11 +90,16 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("code_tools_setting_id");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -110,17 +108,17 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeToolsSettingId is required")]
     public required TerraformProperty<string> CodeToolsSettingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("code_tools_setting_id");
-        set => this.WithProperty("code_tools_setting_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("code_tools_setting_id");
+        set => SetProperty("code_tools_setting_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -129,39 +127,39 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for enabled_tool.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledTool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnabledTool block(s) required")]
     public List<GoogleGeminiCodeToolsSettingEnabledToolBlock>? EnabledTool
     {
-        get => GetProperty<List<GoogleGeminiCodeToolsSettingEnabledToolBlock>>("enabled_tool");
-        set => this.WithProperty("enabled_tool", value);
+        set => SetProperty("enabled_tool", value);
     }
 
     /// <summary>
@@ -170,8 +168,7 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
     /// </summary>
     public GoogleGeminiCodeToolsSettingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGeminiCodeToolsSettingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

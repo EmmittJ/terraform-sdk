@@ -22,8 +22,7 @@ public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyStrategy is required")]
     public required TerraformProperty<string> CopyStrategy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("copy_strategy");
-        set => WithProperty("copy_strategy", value);
+        set => SetProperty("copy_strategy", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotArn is required")]
     public required TerraformProperty<string> SnapshotArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_arn");
-        set => WithProperty("snapshot_arn", value);
+        set => SetProperty("snapshot_arn", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,8 +80,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<double> Id
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +89,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityQuotaGib is required")]
     public required TerraformProperty<double> StorageCapacityQuotaGib
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("storage_capacity_quota_gib");
-        set => WithProperty("storage_capacity_quota_gib", value);
+        set => SetProperty("storage_capacity_quota_gib", value);
     }
 
     /// <summary>
@@ -105,8 +98,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -124,43 +116,57 @@ public class AwsFsxOpenzfsVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("copy_tags_to_snapshots");
+        SetOutput("data_compression_type");
+        SetOutput("delete_volume_options");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent_volume_id");
+        SetOutput("read_only");
+        SetOutput("record_size_kib");
+        SetOutput("region");
+        SetOutput("storage_capacity_quota_gib");
+        SetOutput("storage_capacity_reservation_gib");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("volume_type");
     }
 
     /// <summary>
     /// The copy_tags_to_snapshots attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyTagsToSnapshots
+    public TerraformProperty<bool> CopyTagsToSnapshots
     {
-        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_snapshots");
-        set => this.WithProperty("copy_tags_to_snapshots", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags_to_snapshots");
+        set => SetProperty("copy_tags_to_snapshots", value);
     }
 
     /// <summary>
     /// The data_compression_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DataCompressionType
+    public TerraformProperty<string> DataCompressionType
     {
-        get => GetProperty<TerraformProperty<string>>("data_compression_type");
-        set => this.WithProperty("data_compression_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_compression_type");
+        set => SetProperty("data_compression_type", value);
     }
 
     /// <summary>
     /// The delete_volume_options attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DeleteVolumeOptions
+    public List<TerraformProperty<string>> DeleteVolumeOptions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("delete_volume_options");
-        set => this.WithProperty("delete_volume_options", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("delete_volume_options");
+        set => SetProperty("delete_volume_options", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -169,8 +175,8 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -179,80 +185,80 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentVolumeId is required")]
     public required TerraformProperty<string> ParentVolumeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent_volume_id");
-        set => this.WithProperty("parent_volume_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_volume_id");
+        set => SetProperty("parent_volume_id", value);
     }
 
     /// <summary>
     /// The read_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReadOnly
+    public TerraformProperty<bool> ReadOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("read_only");
-        set => this.WithProperty("read_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("read_only");
+        set => SetProperty("read_only", value);
     }
 
     /// <summary>
     /// The record_size_kib attribute.
     /// </summary>
-    public TerraformProperty<double>? RecordSizeKib
+    public TerraformProperty<double> RecordSizeKib
     {
-        get => GetProperty<TerraformProperty<double>>("record_size_kib");
-        set => this.WithProperty("record_size_kib", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("record_size_kib");
+        set => SetProperty("record_size_kib", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The storage_capacity_quota_gib attribute.
     /// </summary>
-    public TerraformProperty<double>? StorageCapacityQuotaGib
+    public TerraformProperty<double> StorageCapacityQuotaGib
     {
-        get => GetProperty<TerraformProperty<double>>("storage_capacity_quota_gib");
-        set => this.WithProperty("storage_capacity_quota_gib", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity_quota_gib");
+        set => SetProperty("storage_capacity_quota_gib", value);
     }
 
     /// <summary>
     /// The storage_capacity_reservation_gib attribute.
     /// </summary>
-    public TerraformProperty<double>? StorageCapacityReservationGib
+    public TerraformProperty<double> StorageCapacityReservationGib
     {
-        get => GetProperty<TerraformProperty<double>>("storage_capacity_reservation_gib");
-        set => this.WithProperty("storage_capacity_reservation_gib", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity_reservation_gib");
+        set => SetProperty("storage_capacity_reservation_gib", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeType
+    public TerraformProperty<string> VolumeType
     {
-        get => GetProperty<TerraformProperty<string>>("volume_type");
-        set => this.WithProperty("volume_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_type");
+        set => SetProperty("volume_type", value);
     }
 
     /// <summary>
@@ -262,8 +268,7 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NfsExports block(s) allowed")]
     public List<AwsFsxOpenzfsVolumeNfsExportsBlock>? NfsExports
     {
-        get => GetProperty<List<AwsFsxOpenzfsVolumeNfsExportsBlock>>("nfs_exports");
-        set => this.WithProperty("nfs_exports", value);
+        set => SetProperty("nfs_exports", value);
     }
 
     /// <summary>
@@ -273,8 +278,7 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginSnapshot block(s) allowed")]
     public List<AwsFsxOpenzfsVolumeOriginSnapshotBlock>? OriginSnapshot
     {
-        get => GetProperty<List<AwsFsxOpenzfsVolumeOriginSnapshotBlock>>("origin_snapshot");
-        set => this.WithProperty("origin_snapshot", value);
+        set => SetProperty("origin_snapshot", value);
     }
 
     /// <summary>
@@ -283,8 +287,7 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     /// </summary>
     public AwsFsxOpenzfsVolumeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFsxOpenzfsVolumeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -293,8 +296,7 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     /// </summary>
     public HashSet<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock>? UserAndGroupQuotas
     {
-        get => GetProperty<HashSet<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock>>("user_and_group_quotas");
-        set => this.WithProperty("user_and_group_quotas", value);
+        set => SetProperty("user_and_group_quotas", value);
     }
 
     /// <summary>

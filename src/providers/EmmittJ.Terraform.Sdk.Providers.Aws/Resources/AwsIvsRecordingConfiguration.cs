@@ -21,8 +21,7 @@ public class AwsIvsRecordingConfigurationThumbnailConfigurationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? RecordingMode
     {
-        get => GetProperty<TerraformProperty<string>>("recording_mode");
-        set => WithProperty("recording_mode", value);
+        set => SetProperty("recording_mode", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsIvsRecordingConfigurationThumbnailConfigurationBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? TargetIntervalSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("target_interval_seconds");
-        set => WithProperty("target_interval_seconds", value);
+        set => SetProperty("target_interval_seconds", value);
     }
 
 }
@@ -47,8 +45,7 @@ public class AwsIvsRecordingConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -56,8 +53,7 @@ public class AwsIvsRecordingConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -75,74 +71,80 @@ public class AwsIvsRecordingConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("state");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recording_reconnect_window_seconds");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The recording_reconnect_window_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? RecordingReconnectWindowSeconds
+    public TerraformProperty<double> RecordingReconnectWindowSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("recording_reconnect_window_seconds");
-        set => this.WithProperty("recording_reconnect_window_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("recording_reconnect_window_seconds");
+        set => SetProperty("recording_reconnect_window_seconds", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for destination_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfiguration block(s) allowed")]
     public List<AwsIvsRecordingConfigurationDestinationConfigurationBlock>? DestinationConfiguration
     {
-        get => GetProperty<List<AwsIvsRecordingConfigurationDestinationConfigurationBlock>>("destination_configuration");
-        set => this.WithProperty("destination_configuration", value);
+        set => SetProperty("destination_configuration", value);
     }
 
     /// <summary>
@@ -152,8 +154,7 @@ public class AwsIvsRecordingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThumbnailConfiguration block(s) allowed")]
     public List<AwsIvsRecordingConfigurationThumbnailConfigurationBlock>? ThumbnailConfiguration
     {
-        get => GetProperty<List<AwsIvsRecordingConfigurationThumbnailConfigurationBlock>>("thumbnail_configuration");
-        set => this.WithProperty("thumbnail_configuration", value);
+        set => SetProperty("thumbnail_configuration", value);
     }
 
     /// <summary>
@@ -162,8 +163,7 @@ public class AwsIvsRecordingConfiguration : TerraformResource
     /// </summary>
     public AwsIvsRecordingConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsIvsRecordingConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

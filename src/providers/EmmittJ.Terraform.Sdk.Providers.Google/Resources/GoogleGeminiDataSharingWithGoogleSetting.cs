@@ -13,8 +13,7 @@ public class GoogleGeminiDataSharingWithGoogleSettingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleGeminiDataSharingWithGoogleSettingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleGeminiDataSharingWithGoogleSettingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,11 +46,18 @@ public class GoogleGeminiDataSharingWithGoogleSetting : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("data_sharing_with_google_setting_id");
+        SetOutput("enable_data_sharing");
+        SetOutput("enable_preview_data_sharing");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -62,35 +66,35 @@ public class GoogleGeminiDataSharingWithGoogleSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSharingWithGoogleSettingId is required")]
     public required TerraformProperty<string> DataSharingWithGoogleSettingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_sharing_with_google_setting_id");
-        set => this.WithProperty("data_sharing_with_google_setting_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_sharing_with_google_setting_id");
+        set => SetProperty("data_sharing_with_google_setting_id", value);
     }
 
     /// <summary>
     /// Whether data sharing should be enabled in GA products.
     /// </summary>
-    public TerraformProperty<bool>? EnableDataSharing
+    public TerraformProperty<bool> EnableDataSharing
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_data_sharing");
-        set => this.WithProperty("enable_data_sharing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_data_sharing");
+        set => SetProperty("enable_data_sharing", value);
     }
 
     /// <summary>
     /// Whether data sharing should be enabled in Preview products.
     /// </summary>
-    public TerraformProperty<bool>? EnablePreviewDataSharing
+    public TerraformProperty<bool> EnablePreviewDataSharing
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_preview_data_sharing");
-        set => this.WithProperty("enable_preview_data_sharing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_preview_data_sharing");
+        set => SetProperty("enable_preview_data_sharing", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -99,28 +103,28 @@ public class GoogleGeminiDataSharingWithGoogleSetting : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -129,8 +133,7 @@ public class GoogleGeminiDataSharingWithGoogleSetting : TerraformResource
     /// </summary>
     public GoogleGeminiDataSharingWithGoogleSettingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGeminiDataSharingWithGoogleSettingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

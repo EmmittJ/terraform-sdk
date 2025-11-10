@@ -14,27 +14,29 @@ public class AwsShieldProtectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("name");
-        this.WithOutput("protection_arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("protection_arn");
+        SetOutput("protection_id");
+        SetOutput("resource_arn");
     }
 
     /// <summary>
     /// The protection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtectionId
+    public TerraformProperty<string> ProtectionId
     {
-        get => GetProperty<TerraformProperty<string>>("protection_id");
-        set => this.WithProperty("protection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protection_id");
+        set => SetProperty("protection_id", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceArn
+    public TerraformProperty<string> ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
-        set => this.WithProperty("resource_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
+        set => SetProperty("resource_arn", value);
     }
 
     /// <summary>

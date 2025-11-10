@@ -13,8 +13,7 @@ public class GoogleSqlSslCertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSqlSslCertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,13 +38,17 @@ public class GoogleSqlSslCert : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cert");
-        this.WithOutput("cert_serial_number");
-        this.WithOutput("create_time");
-        this.WithOutput("expiration_time");
-        this.WithOutput("private_key");
-        this.WithOutput("server_ca_cert");
-        this.WithOutput("sha1_fingerprint");
+        SetOutput("cert");
+        SetOutput("cert_serial_number");
+        SetOutput("create_time");
+        SetOutput("expiration_time");
+        SetOutput("private_key");
+        SetOutput("server_ca_cert");
+        SetOutput("sha1_fingerprint");
+        SetOutput("common_name");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -55,17 +57,17 @@ public class GoogleSqlSslCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
     public required TerraformProperty<string> CommonName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("common_name");
-        set => this.WithProperty("common_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("common_name");
+        set => SetProperty("common_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -74,17 +76,17 @@ public class GoogleSqlSslCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -93,8 +95,7 @@ public class GoogleSqlSslCert : TerraformResource
     /// </summary>
     public GoogleSqlSslCertTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSqlSslCertTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

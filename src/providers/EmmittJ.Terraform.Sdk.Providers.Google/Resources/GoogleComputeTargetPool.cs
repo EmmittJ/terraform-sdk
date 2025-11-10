@@ -13,8 +13,7 @@ public class GoogleComputeTargetPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeTargetPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeTargetPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,61 +46,71 @@ public class GoogleComputeTargetPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("self_link");
+        SetOutput("self_link");
+        SetOutput("backup_pool");
+        SetOutput("description");
+        SetOutput("failover_ratio");
+        SetOutput("health_checks");
+        SetOutput("id");
+        SetOutput("instances");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("session_affinity");
     }
 
     /// <summary>
     /// URL to the backup target pool. Must also set failover_ratio.
     /// </summary>
-    public TerraformProperty<string>? BackupPool
+    public TerraformProperty<string> BackupPool
     {
-        get => GetProperty<TerraformProperty<string>>("backup_pool");
-        set => this.WithProperty("backup_pool", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_pool");
+        set => SetProperty("backup_pool", value);
     }
 
     /// <summary>
     /// Textual description field.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Ratio (0 to 1) of failed nodes before using the backup pool (which must also be set).
     /// </summary>
-    public TerraformProperty<double>? FailoverRatio
+    public TerraformProperty<double> FailoverRatio
     {
-        get => GetProperty<TerraformProperty<double>>("failover_ratio");
-        set => this.WithProperty("failover_ratio", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("failover_ratio");
+        set => SetProperty("failover_ratio", value);
     }
 
     /// <summary>
     /// List of zero or one health check name or self_link. Only legacy google_compute_http_health_check is supported.
     /// </summary>
-    public List<TerraformProperty<string>>? HealthChecks
+    public List<TerraformProperty<string>> HealthChecks
     {
-        get => GetProperty<List<TerraformProperty<string>>>("health_checks");
-        set => this.WithProperty("health_checks", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("health_checks");
+        set => SetProperty("health_checks", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// List of instances in the pool. They can be given as URLs, or in the form of &amp;quot;zone/name&amp;quot;. Note that the instances need not exist at the time of target pool creation, so there is no need to use the Terraform interpolators to create a dependency on the instances from the target pool.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Instances
+    public HashSet<TerraformProperty<string>> Instances
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("instances");
-        set => this.WithProperty("instances", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("instances");
+        set => SetProperty("instances", value);
     }
 
     /// <summary>
@@ -112,35 +119,35 @@ public class GoogleComputeTargetPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Where the target pool resides. Defaults to project region.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// How to distribute load. Options are &amp;quot;NONE&amp;quot; (no affinity). &amp;quot;CLIENT_IP&amp;quot; (hash of the source/dest addresses / ports), and &amp;quot;CLIENT_IP_PROTO&amp;quot; also includes the protocol (default &amp;quot;NONE&amp;quot;).
     /// </summary>
-    public TerraformProperty<string>? SessionAffinity
+    public TerraformProperty<string> SessionAffinity
     {
-        get => GetProperty<TerraformProperty<string>>("session_affinity");
-        set => this.WithProperty("session_affinity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("session_affinity");
+        set => SetProperty("session_affinity", value);
     }
 
     /// <summary>
@@ -149,8 +156,7 @@ public class GoogleComputeTargetPool : TerraformResource
     /// </summary>
     public GoogleComputeTargetPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeTargetPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

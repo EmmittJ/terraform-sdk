@@ -13,8 +13,7 @@ public class GoogleComputeSharedVpcServiceProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeSharedVpcServiceProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,16 +38,20 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("deletion_policy");
+        SetOutput("host_project");
+        SetOutput("id");
+        SetOutput("service_project");
     }
 
     /// <summary>
     /// The deletion policy for the shared VPC service. Setting ABANDON allows the resource
     /// 				to be abandoned rather than deleted. Possible values are: &amp;quot;ABANDON&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
@@ -58,17 +60,17 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProject is required")]
     public required TerraformProperty<string> HostProject
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_project");
-        set => this.WithProperty("host_project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_project");
+        set => SetProperty("host_project", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,8 +79,8 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProject is required")]
     public required TerraformProperty<string> ServiceProject
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_project");
-        set => this.WithProperty("service_project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_project");
+        set => SetProperty("service_project", value);
     }
 
     /// <summary>
@@ -87,8 +89,7 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
     /// </summary>
     public GoogleComputeSharedVpcServiceProjectTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeSharedVpcServiceProjectTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

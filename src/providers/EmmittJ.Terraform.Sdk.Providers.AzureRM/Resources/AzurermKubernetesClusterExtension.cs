@@ -14,8 +14,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product");
-        set => WithProperty("product", value);
+        set => SetProperty("product", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PromotionCode
     {
-        get => GetProperty<TerraformProperty<string>>("promotion_code");
-        set => WithProperty("promotion_code", value);
+        set => SetProperty("promotion_code", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
-        set => WithProperty("publisher", value);
+        set => SetProperty("publisher", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -69,8 +64,7 @@ public class AzurermKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AzurermKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -96,8 +88,7 @@ public class AzurermKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,8 +106,18 @@ public class AzurermKubernetesClusterExtension : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("aks_assigned_identity");
-        this.WithOutput("current_version");
+        SetOutput("aks_assigned_identity");
+        SetOutput("current_version");
+        SetOutput("cluster_id");
+        SetOutput("configuration_protected_settings");
+        SetOutput("configuration_settings");
+        SetOutput("extension_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("release_namespace");
+        SetOutput("release_train");
+        SetOutput("target_namespace");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -125,26 +126,26 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The configuration_protected_settings attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ConfigurationProtectedSettings
+    public Dictionary<string, TerraformProperty<string>> ConfigurationProtectedSettings
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("configuration_protected_settings");
-        set => this.WithProperty("configuration_protected_settings", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("configuration_protected_settings");
+        set => SetProperty("configuration_protected_settings", value);
     }
 
     /// <summary>
     /// The configuration_settings attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ConfigurationSettings
+    public Dictionary<string, TerraformProperty<string>> ConfigurationSettings
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("configuration_settings");
-        set => this.WithProperty("configuration_settings", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("configuration_settings");
+        set => SetProperty("configuration_settings", value);
     }
 
     /// <summary>
@@ -153,17 +154,17 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionType is required")]
     public required TerraformProperty<string> ExtensionType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("extension_type");
-        set => this.WithProperty("extension_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("extension_type");
+        set => SetProperty("extension_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -172,44 +173,44 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The release_namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? ReleaseNamespace
+    public TerraformProperty<string> ReleaseNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("release_namespace");
-        set => this.WithProperty("release_namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_namespace");
+        set => SetProperty("release_namespace", value);
     }
 
     /// <summary>
     /// The release_train attribute.
     /// </summary>
-    public TerraformProperty<string>? ReleaseTrain
+    public TerraformProperty<string> ReleaseTrain
     {
-        get => GetProperty<TerraformProperty<string>>("release_train");
-        set => this.WithProperty("release_train", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_train");
+        set => SetProperty("release_train", value);
     }
 
     /// <summary>
     /// The target_namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetNamespace
+    public TerraformProperty<string> TargetNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("target_namespace");
-        set => this.WithProperty("target_namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_namespace");
+        set => SetProperty("target_namespace", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -219,8 +220,7 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     public List<AzurermKubernetesClusterExtensionPlanBlock>? Plan
     {
-        get => GetProperty<List<AzurermKubernetesClusterExtensionPlanBlock>>("plan");
-        set => this.WithProperty("plan", value);
+        set => SetProperty("plan", value);
     }
 
     /// <summary>
@@ -229,8 +229,7 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     /// </summary>
     public AzurermKubernetesClusterExtensionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKubernetesClusterExtensionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

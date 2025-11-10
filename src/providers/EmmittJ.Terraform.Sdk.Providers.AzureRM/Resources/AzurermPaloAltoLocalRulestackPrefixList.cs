@@ -13,8 +13,7 @@ public class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,33 +54,39 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("audit_comment");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("prefix_list");
+        SetOutput("rulestack_id");
     }
 
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    public TerraformProperty<string>? AuditComment
+    public TerraformProperty<string> AuditComment
     {
-        get => GetProperty<TerraformProperty<string>>("audit_comment");
-        set => this.WithProperty("audit_comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("audit_comment");
+        set => SetProperty("audit_comment", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -93,18 +95,18 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The prefix_list attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixList is required")]
-    public List<TerraformProperty<string>>? PrefixList
+    public List<TerraformProperty<string>> PrefixList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("prefix_list");
-        set => this.WithProperty("prefix_list", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("prefix_list");
+        set => SetProperty("prefix_list", value);
     }
 
     /// <summary>
@@ -113,8 +115,8 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     public required TerraformProperty<string> RulestackId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rulestack_id");
-        set => this.WithProperty("rulestack_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rulestack_id");
+        set => SetProperty("rulestack_id", value);
     }
 
     /// <summary>
@@ -123,8 +125,7 @@ public class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     /// </summary>
     public AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

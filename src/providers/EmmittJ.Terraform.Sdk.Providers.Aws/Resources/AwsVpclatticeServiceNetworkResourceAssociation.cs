@@ -13,8 +13,7 @@ public class AwsVpclatticeServiceNetworkResourceAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpclatticeServiceNetworkResourceAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,19 +38,23 @@ public class AwsVpclatticeServiceNetworkResourceAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("dns_entry");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("dns_entry");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("region");
+        SetOutput("resource_configuration_identifier");
+        SetOutput("service_network_identifier");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AwsVpclatticeServiceNetworkResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceConfigurationIdentifier is required")]
     public required TerraformProperty<string> ResourceConfigurationIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_configuration_identifier");
-        set => this.WithProperty("resource_configuration_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_configuration_identifier");
+        set => SetProperty("resource_configuration_identifier", value);
     }
 
     /// <summary>
@@ -71,17 +73,17 @@ public class AwsVpclatticeServiceNetworkResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNetworkIdentifier is required")]
     public required TerraformProperty<string> ServiceNetworkIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_network_identifier");
-        set => this.WithProperty("service_network_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_network_identifier");
+        set => SetProperty("service_network_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -90,8 +92,7 @@ public class AwsVpclatticeServiceNetworkResourceAssociation : TerraformResource
     /// </summary>
     public AwsVpclatticeServiceNetworkResourceAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpclatticeServiceNetworkResourceAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

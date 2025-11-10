@@ -14,26 +14,29 @@ public class GoogleVmwareengineSubnetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("dhcp_address_ranges");
-        this.WithOutput("gateway_id");
-        this.WithOutput("gateway_ip");
-        this.WithOutput("ip_cidr_range");
-        this.WithOutput("standard_config");
-        this.WithOutput("state");
-        this.WithOutput("type");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("vlan_id");
+        SetOutput("create_time");
+        SetOutput("dhcp_address_ranges");
+        SetOutput("gateway_id");
+        SetOutput("gateway_ip");
+        SetOutput("ip_cidr_range");
+        SetOutput("standard_config");
+        SetOutput("state");
+        SetOutput("type");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("vlan_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,8 +46,8 @@ public class GoogleVmwareengineSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -55,8 +58,8 @@ public class GoogleVmwareengineSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
     public required TerraformProperty<string> MainPythonFileUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("main_python_file_uri");
-        set => WithProperty("main_python_file_uri", value);
+        set => SetProperty("main_python_file_uri", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public List<TerraformProperty<string>>? PythonFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("python_file_uris");
-        set => WithProperty("python_file_uris", value);
+        set => SetProperty("python_file_uris", value);
     }
 
 }
@@ -76,8 +70,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public TerraformProperty<string>? MainClass
     {
-        get => GetProperty<TerraformProperty<string>>("main_class");
-        set => WithProperty("main_class", value);
+        set => SetProperty("main_class", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public TerraformProperty<string>? MainJarFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_jar_file_uri");
-        set => WithProperty("main_jar_file_uri", value);
+        set => SetProperty("main_jar_file_uri", value);
     }
 
 }
@@ -138,8 +126,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -147,8 +134,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -156,8 +142,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -166,8 +151,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainRFileUri is required")]
     public required TerraformProperty<string> MainRFileUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("main_r_file_uri");
-        set => WithProperty("main_r_file_uri", value);
+        set => SetProperty("main_r_file_uri", value);
     }
 
 }
@@ -183,8 +167,7 @@ public class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock : T
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -192,8 +175,7 @@ public class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock : T
     /// </summary>
     public TerraformProperty<string>? QueryFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("query_file_uri");
-        set => WithProperty("query_file_uri", value);
+        set => SetProperty("query_file_uri", value);
     }
 
     /// <summary>
@@ -201,8 +183,7 @@ public class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock : T
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ScriptVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("script_variables");
-        set => WithProperty("script_variables", value);
+        set => SetProperty("script_variables", value);
     }
 
 }
@@ -218,8 +199,7 @@ public class GoogleDataprocGdcSparkApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -227,8 +207,7 @@ public class GoogleDataprocGdcSparkApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -236,8 +215,7 @@ public class GoogleDataprocGdcSparkApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -255,18 +233,31 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("monitoring_endpoint");
-        this.WithOutput("name");
-        this.WithOutput("output_uri");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("state_message");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("monitoring_endpoint");
+        SetOutput("name");
+        SetOutput("output_uri");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("state_message");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("application_environment");
+        SetOutput("dependency_images");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("namespace");
+        SetOutput("project");
+        SetOutput("properties");
+        SetOutput("serviceinstance");
+        SetOutput("spark_application_id");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -275,46 +266,46 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// An ApplicationEnvironment from which to inherit configuration properties.
     /// </summary>
-    public TerraformProperty<string>? ApplicationEnvironment
+    public TerraformProperty<string> ApplicationEnvironment
     {
-        get => GetProperty<TerraformProperty<string>>("application_environment");
-        set => this.WithProperty("application_environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_environment");
+        set => SetProperty("application_environment", value);
     }
 
     /// <summary>
     /// List of container image uris for additional file dependencies. Dependent files are sequentially copied from each image. If a file with the same name exists in 2 images then the file from later image is used.
     /// </summary>
-    public List<TerraformProperty<string>>? DependencyImages
+    public List<TerraformProperty<string>> DependencyImages
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dependency_images");
-        set => this.WithProperty("dependency_images", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("dependency_images");
+        set => SetProperty("dependency_images", value);
     }
 
     /// <summary>
     /// User-provided human-readable name to be used in user interfaces.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -323,10 +314,10 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -335,35 +326,35 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The Kubernetes namespace in which to create the application. This namespace must already exist on the cluster.
     /// </summary>
-    public TerraformProperty<string>? Namespace
+    public TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
-        set => this.WithProperty("namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// application-specific properties.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Properties
+    public Dictionary<string, TerraformProperty<string>> Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => this.WithProperty("properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("properties");
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -372,8 +363,8 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
     public required TerraformProperty<string> Serviceinstance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("serviceinstance");
-        set => this.WithProperty("serviceinstance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("serviceinstance");
+        set => SetProperty("serviceinstance", value);
     }
 
     /// <summary>
@@ -382,17 +373,17 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SparkApplicationId is required")]
     public required TerraformProperty<string> SparkApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spark_application_id");
-        set => this.WithProperty("spark_application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spark_application_id");
+        set => SetProperty("spark_application_id", value);
     }
 
     /// <summary>
     /// The Dataproc version of this application.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -402,8 +393,7 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PysparkApplicationConfig block(s) allowed")]
     public List<GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock>? PysparkApplicationConfig
     {
-        get => GetProperty<List<GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock>>("pyspark_application_config");
-        set => this.WithProperty("pyspark_application_config", value);
+        set => SetProperty("pyspark_application_config", value);
     }
 
     /// <summary>
@@ -413,8 +403,7 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkApplicationConfig block(s) allowed")]
     public List<GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock>? SparkApplicationConfig
     {
-        get => GetProperty<List<GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock>>("spark_application_config");
-        set => this.WithProperty("spark_application_config", value);
+        set => SetProperty("spark_application_config", value);
     }
 
     /// <summary>
@@ -424,8 +413,7 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkRApplicationConfig block(s) allowed")]
     public List<GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock>? SparkRApplicationConfig
     {
-        get => GetProperty<List<GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock>>("spark_r_application_config");
-        set => this.WithProperty("spark_r_application_config", value);
+        set => SetProperty("spark_r_application_config", value);
     }
 
     /// <summary>
@@ -435,8 +423,7 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkSqlApplicationConfig block(s) allowed")]
     public List<GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock>? SparkSqlApplicationConfig
     {
-        get => GetProperty<List<GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock>>("spark_sql_application_config");
-        set => this.WithProperty("spark_sql_application_config", value);
+        set => SetProperty("spark_sql_application_config", value);
     }
 
     /// <summary>
@@ -445,8 +432,7 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// </summary>
     public GoogleDataprocGdcSparkApplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataprocGdcSparkApplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

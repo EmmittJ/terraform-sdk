@@ -14,18 +14,21 @@ public class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("kms_key_version_name");
-        this.WithOutput("name");
-        this.WithOutput("service_account_id");
+        SetOutput("kms_key_version_name");
+        SetOutput("name");
+        SetOutput("service_account_id");
+        SetOutput("id");
+        SetOutput("kms_key_name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -36,10 +39,10 @@ public class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataSource
     /// 				The Cloud KMS key used by the bucket can be updated by changing the kmsKeyName to a new valid key name. Encryption operations that are in progress will be completed with the key that was in use when they started. Decryption operations will be completed using the key that was used at the time of encryption unless access to that key has been revoked.
     /// 				See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -48,8 +51,8 @@ public class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

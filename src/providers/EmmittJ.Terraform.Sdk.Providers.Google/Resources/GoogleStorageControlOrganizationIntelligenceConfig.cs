@@ -21,8 +21,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,27 +55,30 @@ public class GoogleStorageControlOrganizationIntelligenceConfig : TerraformResou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_intelligence_config");
-        this.WithOutput("trial_config");
-        this.WithOutput("update_time");
+        SetOutput("effective_intelligence_config");
+        SetOutput("trial_config");
+        SetOutput("update_time");
+        SetOutput("edition_config");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, DISABLED, TRIAL and STANDARD.
     /// </summary>
-    public TerraformProperty<string>? EditionConfig
+    public TerraformProperty<string> EditionConfig
     {
-        get => GetProperty<TerraformProperty<string>>("edition_config");
-        set => this.WithProperty("edition_config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edition_config");
+        set => SetProperty("edition_config", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,8 +87,8 @@ public class GoogleStorageControlOrganizationIntelligenceConfig : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -98,8 +98,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfig : TerraformResou
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     public List<GoogleStorageControlOrganizationIntelligenceConfigFilterBlock>? Filter
     {
-        get => GetProperty<List<GoogleStorageControlOrganizationIntelligenceConfigFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -108,8 +107,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfig : TerraformResou
     /// </summary>
     public GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

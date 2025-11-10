@@ -17,8 +17,7 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Id
     {
-        get => GetProperty<TerraformProperty<double>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -29,8 +28,7 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => WithProperty("ip_address", value);
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
@@ -43,8 +41,7 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ipv6Address
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_address");
-        set => WithProperty("ipv6_address", value);
+        set => SetProperty("ipv6_address", value);
     }
 
 }
@@ -60,8 +57,7 @@ public class GoogleComputeExternalVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class GoogleComputeExternalVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -78,8 +73,7 @@ public class GoogleComputeExternalVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -96,28 +90,34 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("label_fingerprint");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("redundancy_type");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -126,10 +126,10 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -144,26 +144,26 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Indicates the redundancy type of this external VPN gateway Possible values: [&amp;quot;FOUR_IPS_REDUNDANCY&amp;quot;, &amp;quot;SINGLE_IP_INTERNALLY_REDUNDANT&amp;quot;, &amp;quot;TWO_IPS_REDUNDANCY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? RedundancyType
+    public TerraformProperty<string> RedundancyType
     {
-        get => GetProperty<TerraformProperty<string>>("redundancy_type");
-        set => this.WithProperty("redundancy_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redundancy_type");
+        set => SetProperty("redundancy_type", value);
     }
 
     /// <summary>
@@ -172,8 +172,7 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// </summary>
     public List<GoogleComputeExternalVpnGatewayInterfaceBlock>? Interface
     {
-        get => GetProperty<List<GoogleComputeExternalVpnGatewayInterfaceBlock>>("interface");
-        set => this.WithProperty("interface", value);
+        set => SetProperty("interface", value);
     }
 
     /// <summary>
@@ -182,8 +181,7 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// </summary>
     public GoogleComputeExternalVpnGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeExternalVpnGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

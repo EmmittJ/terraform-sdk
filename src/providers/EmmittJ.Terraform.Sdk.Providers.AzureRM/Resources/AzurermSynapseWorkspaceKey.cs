@@ -13,8 +13,7 @@ public class AzurermSynapseWorkspaceKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSynapseWorkspaceKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSynapseWorkspaceKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSynapseWorkspaceKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,11 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("active");
+        SetOutput("customer_managed_key_name");
+        SetOutput("customer_managed_key_versionless_id");
+        SetOutput("id");
+        SetOutput("synapse_workspace_id");
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformProperty<bool> Active
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("active");
-        set => this.WithProperty("active", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("active");
+        set => SetProperty("active", value);
     }
 
     /// <summary>
@@ -76,26 +77,26 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedKeyName is required")]
     public required TerraformProperty<string> CustomerManagedKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("customer_managed_key_name");
-        set => this.WithProperty("customer_managed_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_managed_key_name");
+        set => SetProperty("customer_managed_key_name", value);
     }
 
     /// <summary>
     /// The customer_managed_key_versionless_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerManagedKeyVersionlessId
+    public TerraformProperty<string> CustomerManagedKeyVersionlessId
     {
-        get => GetProperty<TerraformProperty<string>>("customer_managed_key_versionless_id");
-        set => this.WithProperty("customer_managed_key_versionless_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_managed_key_versionless_id");
+        set => SetProperty("customer_managed_key_versionless_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,8 +105,8 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
-        set => this.WithProperty("synapse_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("synapse_workspace_id");
+        set => SetProperty("synapse_workspace_id", value);
     }
 
     /// <summary>
@@ -114,8 +115,7 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     /// </summary>
     public AzurermSynapseWorkspaceKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSynapseWorkspaceKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

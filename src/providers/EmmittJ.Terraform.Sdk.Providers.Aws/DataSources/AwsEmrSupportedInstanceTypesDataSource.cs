@@ -14,17 +14,19 @@ public class AwsEmrSupportedInstanceTypesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("supported_instance_types");
+        SetOutput("id");
+        SetOutput("supported_instance_types");
+        SetOutput("region");
+        SetOutput("release_label");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -33,8 +35,8 @@ public class AwsEmrSupportedInstanceTypesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformProperty<string> ReleaseLabel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("release_label");
-        set => this.WithProperty("release_label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_label");
+        set => SetProperty("release_label", value);
     }
 
     /// <summary>

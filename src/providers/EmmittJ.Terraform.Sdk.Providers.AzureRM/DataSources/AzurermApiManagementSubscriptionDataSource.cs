@@ -13,8 +13,7 @@ public class AzurermApiManagementSubscriptionDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,14 +30,17 @@ public class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allow_tracing");
-        this.WithOutput("api_id");
-        this.WithOutput("display_name");
-        this.WithOutput("primary_key");
-        this.WithOutput("product_id");
-        this.WithOutput("secondary_key");
-        this.WithOutput("state");
-        this.WithOutput("user_id");
+        SetOutput("allow_tracing");
+        SetOutput("api_id");
+        SetOutput("display_name");
+        SetOutput("primary_key");
+        SetOutput("product_id");
+        SetOutput("secondary_key");
+        SetOutput("state");
+        SetOutput("user_id");
+        SetOutput("api_management_id");
+        SetOutput("id");
+        SetOutput("subscription_id");
     }
 
     /// <summary>
@@ -47,17 +49,17 @@ public class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
-        set => this.WithProperty("api_management_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_id");
+        set => SetProperty("api_management_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -76,8 +78,7 @@ public class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
     /// </summary>
     public AzurermApiManagementSubscriptionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementSubscriptionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

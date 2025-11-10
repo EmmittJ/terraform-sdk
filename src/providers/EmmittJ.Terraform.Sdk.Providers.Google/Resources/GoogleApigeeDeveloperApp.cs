@@ -13,8 +13,7 @@ public class GoogleApigeeDeveloperAppAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeDeveloperAppAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleApigeeDeveloperAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleApigeeDeveloperAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleApigeeDeveloperAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -75,29 +70,39 @@ public class GoogleApigeeDeveloperApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_id");
-        this.WithOutput("created_at");
-        this.WithOutput("credentials");
-        this.WithOutput("developer_id");
-        this.WithOutput("last_modified_at");
+        SetOutput("app_id");
+        SetOutput("created_at");
+        SetOutput("credentials");
+        SetOutput("developer_id");
+        SetOutput("last_modified_at");
+        SetOutput("api_products");
+        SetOutput("app_family");
+        SetOutput("callback_url");
+        SetOutput("developer_email");
+        SetOutput("id");
+        SetOutput("key_expires_in");
+        SetOutput("name");
+        SetOutput("org_id");
+        SetOutput("scopes");
+        SetOutput("status");
     }
 
     /// <summary>
     /// List of API products associated with the developer app.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ApiProducts
+    public HashSet<TerraformProperty<string>> ApiProducts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("api_products");
-        set => this.WithProperty("api_products", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("api_products");
+        set => SetProperty("api_products", value);
     }
 
     /// <summary>
     /// Developer app family.
     /// </summary>
-    public TerraformProperty<string>? AppFamily
+    public TerraformProperty<string> AppFamily
     {
-        get => GetProperty<TerraformProperty<string>>("app_family");
-        set => this.WithProperty("app_family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_family");
+        set => SetProperty("app_family", value);
     }
 
     /// <summary>
@@ -107,8 +112,8 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
     public required TerraformProperty<string> CallbackUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("callback_url");
-        set => this.WithProperty("callback_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("callback_url");
+        set => SetProperty("callback_url", value);
     }
 
     /// <summary>
@@ -119,17 +124,17 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeveloperEmail is required")]
     public required TerraformProperty<string> DeveloperEmail
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("developer_email");
-        set => this.WithProperty("developer_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("developer_email");
+        set => SetProperty("developer_email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -137,10 +142,10 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// for the developer app. If not set or left to the default value of -1,
     /// the API key never expires. The expiration time can&#39;t be updated after it is set.
     /// </summary>
-    public TerraformProperty<string>? KeyExpiresIn
+    public TerraformProperty<string> KeyExpiresIn
     {
-        get => GetProperty<TerraformProperty<string>>("key_expires_in");
-        set => this.WithProperty("key_expires_in", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_expires_in");
+        set => SetProperty("key_expires_in", value);
     }
 
     /// <summary>
@@ -149,8 +154,8 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -160,8 +165,8 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -169,19 +174,19 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// The specified scopes must already exist for the API product that
     /// you associate with the developer app.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Scopes
+    public HashSet<TerraformProperty<string>> Scopes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scopes");
-        set => this.WithProperty("scopes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scopes");
+        set => SetProperty("scopes", value);
     }
 
     /// <summary>
     /// Status of the credential. Valid values include approved or revoked.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -190,8 +195,7 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// </summary>
     public List<GoogleApigeeDeveloperAppAttributesBlock>? Attributes
     {
-        get => GetProperty<List<GoogleApigeeDeveloperAppAttributesBlock>>("attributes");
-        set => this.WithProperty("attributes", value);
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
@@ -200,8 +204,7 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// </summary>
     public GoogleApigeeDeveloperAppTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeDeveloperAppTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

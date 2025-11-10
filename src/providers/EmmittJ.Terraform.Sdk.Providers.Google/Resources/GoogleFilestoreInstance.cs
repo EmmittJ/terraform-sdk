@@ -15,8 +15,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGb is required")]
     public required TerraformProperty<double> CapacityGb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("capacity_gb");
-        set => WithProperty("capacity_gb", value);
+        set => SetProperty("capacity_gb", value);
     }
 
     /// <summary>
@@ -25,8 +24,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -36,8 +34,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceBackup
     {
-        get => GetProperty<TerraformProperty<string>>("source_backup");
-        set => WithProperty("source_backup", value);
+        set => SetProperty("source_backup", value);
     }
 
 }
@@ -53,8 +50,7 @@ public class GoogleFilestoreInstanceInitialReplicationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
-        set => WithProperty("role", value);
+        set => SetProperty("role", value);
     }
 
 }
@@ -72,8 +68,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectMode
     {
-        get => GetProperty<TerraformProperty<string>>("connect_mode");
-        set => WithProperty("connect_mode", value);
+        set => SetProperty("connect_mode", value);
     }
 
     /// <summary>
@@ -81,8 +76,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? IpAddresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ip_addresses");
-        set => WithProperty("ip_addresses", value);
+        set => SetProperty("ip_addresses", value);
     }
 
     /// <summary>
@@ -92,8 +86,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Modes is required")]
     public List<TerraformProperty<string>>? Modes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("modes");
-        set => WithProperty("modes", value);
+        set => SetProperty("modes", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -113,8 +105,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ReservedIpRange
     {
-        get => GetProperty<TerraformProperty<string>>("reserved_ip_range");
-        set => WithProperty("reserved_ip_range", value);
+        set => SetProperty("reserved_ip_range", value);
     }
 
 }
@@ -138,8 +129,7 @@ public class GoogleFilestoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -147,8 +137,7 @@ public class GoogleFilestoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -156,8 +145,7 @@ public class GoogleFilestoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -175,56 +163,69 @@ public class GoogleFilestoreInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("effective_replication");
-        this.WithOutput("etag");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("effective_replication");
+        SetOutput("etag");
+        SetOutput("terraform_labels");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("deletion_protection_reason");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("kms_key_name");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("protocol");
+        SetOutput("tags");
+        SetOutput("tier");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// Indicates whether the instance is protected against deletion.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool> DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => this.WithProperty("deletion_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
+        set => SetProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The reason for enabling deletion protection.
     /// </summary>
-    public TerraformProperty<string>? DeletionProtectionReason
+    public TerraformProperty<string> DeletionProtectionReason
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_protection_reason");
-        set => this.WithProperty("deletion_protection_reason", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_protection_reason");
+        set => SetProperty("deletion_protection_reason", value);
     }
 
     /// <summary>
     /// A description of the instance.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -234,19 +235,19 @@ public class GoogleFilestoreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -255,17 +256,17 @@ public class GoogleFilestoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -274,10 +275,10 @@ public class GoogleFilestoreInstance : TerraformResource
     /// NFSv4.1 can be used with HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE.
     /// The default is NFSv3. Default value: &amp;quot;NFS_V3&amp;quot; Possible values: [&amp;quot;NFS_V3&amp;quot;, &amp;quot;NFS_V4_1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Protocol
+    public TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -291,10 +292,10 @@ public class GoogleFilestoreInstance : TerraformResource
     /// will trigger recreation. To apply tags to an existing
     /// resource, see the &#39;google_tags_tag_value&#39; resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -304,30 +305,30 @@ public class GoogleFilestoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
     /// The name of the Filestore zone of the instance.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
     /// Block for file_shares.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileShares is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FileShares block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileShares block(s) allowed")]
     public List<GoogleFilestoreInstanceFileSharesBlock>? FileShares
     {
-        get => GetProperty<List<GoogleFilestoreInstanceFileSharesBlock>>("file_shares");
-        set => this.WithProperty("file_shares", value);
+        set => SetProperty("file_shares", value);
     }
 
     /// <summary>
@@ -337,19 +338,18 @@ public class GoogleFilestoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialReplication block(s) allowed")]
     public List<GoogleFilestoreInstanceInitialReplicationBlock>? InitialReplication
     {
-        get => GetProperty<List<GoogleFilestoreInstanceInitialReplicationBlock>>("initial_replication");
-        set => this.WithProperty("initial_replication", value);
+        set => SetProperty("initial_replication", value);
     }
 
     /// <summary>
     /// Block for networks.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Networks is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networks block(s) required")]
     public List<GoogleFilestoreInstanceNetworksBlock>? Networks
     {
-        get => GetProperty<List<GoogleFilestoreInstanceNetworksBlock>>("networks");
-        set => this.WithProperty("networks", value);
+        set => SetProperty("networks", value);
     }
 
     /// <summary>
@@ -359,8 +359,7 @@ public class GoogleFilestoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerformanceConfig block(s) allowed")]
     public List<GoogleFilestoreInstancePerformanceConfigBlock>? PerformanceConfig
     {
-        get => GetProperty<List<GoogleFilestoreInstancePerformanceConfigBlock>>("performance_config");
-        set => this.WithProperty("performance_config", value);
+        set => SetProperty("performance_config", value);
     }
 
     /// <summary>
@@ -369,8 +368,7 @@ public class GoogleFilestoreInstance : TerraformResource
     /// </summary>
     public GoogleFilestoreInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFilestoreInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

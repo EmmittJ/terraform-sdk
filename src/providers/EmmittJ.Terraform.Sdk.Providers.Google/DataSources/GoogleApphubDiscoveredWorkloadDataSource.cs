@@ -14,18 +14,22 @@ public class GoogleApphubDiscoveredWorkloadDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("workload_properties");
-        this.WithOutput("workload_reference");
+        SetOutput("name");
+        SetOutput("workload_properties");
+        SetOutput("workload_reference");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("workload_uri");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -34,17 +38,17 @@ public class GoogleApphubDiscoveredWorkloadDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -53,8 +57,8 @@ public class GoogleApphubDiscoveredWorkloadDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadUri is required")]
     public required TerraformProperty<string> WorkloadUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workload_uri");
-        set => this.WithProperty("workload_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_uri");
+        set => SetProperty("workload_uri", value);
     }
 
     /// <summary>

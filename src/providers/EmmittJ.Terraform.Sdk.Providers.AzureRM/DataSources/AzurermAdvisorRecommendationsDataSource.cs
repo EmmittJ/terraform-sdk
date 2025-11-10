@@ -13,8 +13,7 @@ public class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,34 +30,37 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("recommendations");
+        SetOutput("recommendations");
+        SetOutput("filter_by_category");
+        SetOutput("filter_by_resource_groups");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The filter_by_category attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? FilterByCategory
+    public HashSet<TerraformProperty<string>> FilterByCategory
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("filter_by_category");
-        set => this.WithProperty("filter_by_category", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("filter_by_category");
+        set => SetProperty("filter_by_category", value);
     }
 
     /// <summary>
     /// The filter_by_resource_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? FilterByResourceGroups
+    public HashSet<TerraformProperty<string>> FilterByResourceGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("filter_by_resource_groups");
-        set => this.WithProperty("filter_by_resource_groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("filter_by_resource_groups");
+        set => SetProperty("filter_by_resource_groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,8 +69,7 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
     /// </summary>
     public AzurermAdvisorRecommendationsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAdvisorRecommendationsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

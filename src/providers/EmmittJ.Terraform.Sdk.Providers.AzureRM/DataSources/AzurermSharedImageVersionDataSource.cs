@@ -13,8 +13,7 @@ public class AzurermSharedImageVersionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,12 +30,19 @@ public class AzurermSharedImageVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("exclude_from_latest");
-        this.WithOutput("location");
-        this.WithOutput("managed_image_id");
-        this.WithOutput("os_disk_image_size_gb");
-        this.WithOutput("os_disk_snapshot_id");
-        this.WithOutput("target_region");
+        SetOutput("exclude_from_latest");
+        SetOutput("location");
+        SetOutput("managed_image_id");
+        SetOutput("os_disk_image_size_gb");
+        SetOutput("os_disk_snapshot_id");
+        SetOutput("target_region");
+        SetOutput("gallery_name");
+        SetOutput("id");
+        SetOutput("image_name");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sort_versions_by_semver");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -45,17 +51,17 @@ public class AzurermSharedImageVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     public required TerraformProperty<string> GalleryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gallery_name");
-        set => this.WithProperty("gallery_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gallery_name");
+        set => SetProperty("gallery_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -64,8 +70,8 @@ public class AzurermSharedImageVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformProperty<string> ImageName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image_name");
-        set => this.WithProperty("image_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
+        set => SetProperty("image_name", value);
     }
 
     /// <summary>
@@ -74,8 +80,8 @@ public class AzurermSharedImageVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -84,26 +90,26 @@ public class AzurermSharedImageVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sort_versions_by_semver attribute.
     /// </summary>
-    public TerraformProperty<bool>? SortVersionsBySemver
+    public TerraformProperty<bool> SortVersionsBySemver
     {
-        get => GetProperty<TerraformProperty<bool>>("sort_versions_by_semver");
-        set => this.WithProperty("sort_versions_by_semver", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("sort_versions_by_semver");
+        set => SetProperty("sort_versions_by_semver", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -112,8 +118,7 @@ public class AzurermSharedImageVersionDataSource : TerraformDataSource
     /// </summary>
     public AzurermSharedImageVersionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSharedImageVersionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

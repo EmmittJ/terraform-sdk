@@ -13,8 +13,7 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,34 @@ public class AzurermLbProbe : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("load_balancer_rules");
+        SetOutput("load_balancer_rules");
+        SetOutput("id");
+        SetOutput("interval_in_seconds");
+        SetOutput("loadbalancer_id");
+        SetOutput("name");
+        SetOutput("number_of_probes");
+        SetOutput("port");
+        SetOutput("probe_threshold");
+        SetOutput("protocol");
+        SetOutput("request_path");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? IntervalInSeconds
+    public TerraformProperty<double> IntervalInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("interval_in_seconds");
-        set => this.WithProperty("interval_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("interval_in_seconds");
+        set => SetProperty("interval_in_seconds", value);
     }
 
     /// <summary>
@@ -85,8 +90,8 @@ public class AzurermLbProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
-        set => this.WithProperty("loadbalancer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("loadbalancer_id");
+        set => SetProperty("loadbalancer_id", value);
     }
 
     /// <summary>
@@ -95,17 +100,17 @@ public class AzurermLbProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The number_of_probes attribute.
     /// </summary>
-    public TerraformProperty<double>? NumberOfProbes
+    public TerraformProperty<double> NumberOfProbes
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_probes");
-        set => this.WithProperty("number_of_probes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("number_of_probes");
+        set => SetProperty("number_of_probes", value);
     }
 
     /// <summary>
@@ -114,35 +119,35 @@ public class AzurermLbProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// The probe_threshold attribute.
     /// </summary>
-    public TerraformProperty<double>? ProbeThreshold
+    public TerraformProperty<double> ProbeThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("probe_threshold");
-        set => this.WithProperty("probe_threshold", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("probe_threshold");
+        set => SetProperty("probe_threshold", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
+    public TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
     /// The request_path attribute.
     /// </summary>
-    public TerraformProperty<string>? RequestPath
+    public TerraformProperty<string> RequestPath
     {
-        get => GetProperty<TerraformProperty<string>>("request_path");
-        set => this.WithProperty("request_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("request_path");
+        set => SetProperty("request_path", value);
     }
 
     /// <summary>
@@ -151,8 +156,7 @@ public class AzurermLbProbe : TerraformResource
     /// </summary>
     public AzurermLbProbeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLbProbeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

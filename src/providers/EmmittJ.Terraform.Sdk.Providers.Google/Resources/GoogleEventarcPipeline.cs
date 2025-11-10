@@ -16,8 +16,7 @@ public class GoogleEventarcPipelineDestinationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MessageBus
     {
-        get => GetProperty<TerraformProperty<string>>("message_bus");
-        set => WithProperty("message_bus", value);
+        set => SetProperty("message_bus", value);
     }
 
     /// <summary>
@@ -27,8 +26,7 @@ public class GoogleEventarcPipelineDestinationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleEventarcPipelineDestinationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Workflow
     {
-        get => GetProperty<TerraformProperty<string>>("workflow");
-        set => WithProperty("workflow", value);
+        set => SetProperty("workflow", value);
     }
 
 }
@@ -65,8 +62,7 @@ public class GoogleEventarcPipelineLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LogSeverity
     {
-        get => GetProperty<TerraformProperty<string>>("log_severity");
-        set => WithProperty("log_severity", value);
+        set => SetProperty("log_severity", value);
     }
 
 }
@@ -92,8 +88,7 @@ public class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAttempts
     {
-        get => GetProperty<TerraformProperty<double>>("max_attempts");
-        set => WithProperty("max_attempts", value);
+        set => SetProperty("max_attempts", value);
     }
 
     /// <summary>
@@ -103,8 +98,7 @@ public class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxRetryDelay
     {
-        get => GetProperty<TerraformProperty<string>>("max_retry_delay");
-        set => WithProperty("max_retry_delay", value);
+        set => SetProperty("max_retry_delay", value);
     }
 
     /// <summary>
@@ -114,8 +108,7 @@ public class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinRetryDelay
     {
-        get => GetProperty<TerraformProperty<string>>("min_retry_delay");
-        set => WithProperty("min_retry_delay", value);
+        set => SetProperty("min_retry_delay", value);
     }
 
 }
@@ -131,8 +124,7 @@ public class GoogleEventarcPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -140,8 +132,7 @@ public class GoogleEventarcPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -149,8 +140,7 @@ public class GoogleEventarcPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -168,14 +158,22 @@ public class GoogleEventarcPipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("crypto_key_name");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("pipeline_id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -184,10 +182,10 @@ public class GoogleEventarcPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -196,28 +194,28 @@ public class GoogleEventarcPipeline : TerraformResource
     /// will be used to encrypt messages. It must match the pattern
     /// &amp;quot;projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? CryptoKeyName
+    public TerraformProperty<string> CryptoKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("crypto_key_name");
-        set => this.WithProperty("crypto_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key_name");
+        set => SetProperty("crypto_key_name", value);
     }
 
     /// <summary>
     /// Display name of resource.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -228,10 +226,10 @@ public class GoogleEventarcPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -240,8 +238,8 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -251,28 +249,28 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     public required TerraformProperty<string> PipelineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_id");
-        set => this.WithProperty("pipeline_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_id");
+        set => SetProperty("pipeline_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for destinations.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     public List<GoogleEventarcPipelineDestinationsBlock>? Destinations
     {
-        get => GetProperty<List<GoogleEventarcPipelineDestinationsBlock>>("destinations");
-        set => this.WithProperty("destinations", value);
+        set => SetProperty("destinations", value);
     }
 
     /// <summary>
@@ -282,8 +280,7 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputPayloadFormat block(s) allowed")]
     public List<GoogleEventarcPipelineInputPayloadFormatBlock>? InputPayloadFormat
     {
-        get => GetProperty<List<GoogleEventarcPipelineInputPayloadFormatBlock>>("input_payload_format");
-        set => this.WithProperty("input_payload_format", value);
+        set => SetProperty("input_payload_format", value);
     }
 
     /// <summary>
@@ -293,8 +290,7 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     public List<GoogleEventarcPipelineLoggingConfigBlock>? LoggingConfig
     {
-        get => GetProperty<List<GoogleEventarcPipelineLoggingConfigBlock>>("logging_config");
-        set => this.WithProperty("logging_config", value);
+        set => SetProperty("logging_config", value);
     }
 
     /// <summary>
@@ -303,8 +299,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     public List<GoogleEventarcPipelineMediationsBlock>? Mediations
     {
-        get => GetProperty<List<GoogleEventarcPipelineMediationsBlock>>("mediations");
-        set => this.WithProperty("mediations", value);
+        set => SetProperty("mediations", value);
     }
 
     /// <summary>
@@ -314,8 +309,7 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     public List<GoogleEventarcPipelineRetryPolicyBlock>? RetryPolicy
     {
-        get => GetProperty<List<GoogleEventarcPipelineRetryPolicyBlock>>("retry_policy");
-        set => this.WithProperty("retry_policy", value);
+        set => SetProperty("retry_policy", value);
     }
 
     /// <summary>
@@ -324,8 +318,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     public GoogleEventarcPipelineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleEventarcPipelineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

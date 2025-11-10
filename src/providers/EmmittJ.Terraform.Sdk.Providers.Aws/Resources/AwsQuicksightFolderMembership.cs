@@ -14,16 +14,21 @@ public class AwsQuicksightFolderMembership : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("aws_account_id");
+        SetOutput("folder_id");
+        SetOutput("member_id");
+        SetOutput("member_type");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -32,8 +37,8 @@ public class AwsQuicksightFolderMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformProperty<string> FolderId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder_id");
-        set => this.WithProperty("folder_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder_id");
+        set => SetProperty("folder_id", value);
     }
 
     /// <summary>
@@ -42,8 +47,8 @@ public class AwsQuicksightFolderMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberId is required")]
     public required TerraformProperty<string> MemberId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("member_id");
-        set => this.WithProperty("member_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member_id");
+        set => SetProperty("member_id", value);
     }
 
     /// <summary>
@@ -52,17 +57,17 @@ public class AwsQuicksightFolderMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberType is required")]
     public required TerraformProperty<string> MemberType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("member_type");
-        set => this.WithProperty("member_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member_type");
+        set => SetProperty("member_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

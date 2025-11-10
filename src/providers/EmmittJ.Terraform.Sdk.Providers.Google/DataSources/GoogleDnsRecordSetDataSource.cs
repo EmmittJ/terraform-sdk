@@ -14,17 +14,22 @@ public class GoogleDnsRecordSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("rrdatas");
-        this.WithOutput("ttl");
+        SetOutput("rrdatas");
+        SetOutput("ttl");
+        SetOutput("id");
+        SetOutput("managed_zone");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,8 +38,8 @@ public class GoogleDnsRecordSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
     public required TerraformProperty<string> ManagedZone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_zone");
-        set => this.WithProperty("managed_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_zone");
+        set => SetProperty("managed_zone", value);
     }
 
     /// <summary>
@@ -43,17 +48,17 @@ public class GoogleDnsRecordSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -62,8 +67,8 @@ public class GoogleDnsRecordSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>

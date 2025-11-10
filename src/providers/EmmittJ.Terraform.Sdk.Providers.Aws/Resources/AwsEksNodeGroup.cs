@@ -13,8 +13,7 @@ public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsEksNodeGroupNodeRepairConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class AwsEksNodeGroupRemoteAccessBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ec2SshKey
     {
-        get => GetProperty<TerraformProperty<string>>("ec2_ssh_key");
-        set => WithProperty("ec2_ssh_key", value);
+        set => SetProperty("ec2_ssh_key", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AwsEksNodeGroupRemoteAccessBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SourceSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("source_security_group_ids");
-        set => WithProperty("source_security_group_ids", value);
+        set => SetProperty("source_security_group_ids", value);
     }
 
 }
@@ -93,8 +87,7 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredSize is required")]
     public required TerraformProperty<double> DesiredSize
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("desired_size");
-        set => WithProperty("desired_size", value);
+        set => SetProperty("desired_size", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
     public required TerraformProperty<double> MaxSize
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_size");
-        set => WithProperty("max_size", value);
+        set => SetProperty("max_size", value);
     }
 
     /// <summary>
@@ -113,8 +105,7 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
     public required TerraformProperty<double> MinSize
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_size");
-        set => WithProperty("min_size", value);
+        set => SetProperty("min_size", value);
     }
 
 }
@@ -131,8 +122,7 @@ public class AwsEksNodeGroupTaintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
     public required TerraformProperty<string> Effect
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("effect");
-        set => WithProperty("effect", value);
+        set => SetProperty("effect", value);
     }
 
     /// <summary>
@@ -141,8 +131,7 @@ public class AwsEksNodeGroupTaintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -150,8 +139,7 @@ public class AwsEksNodeGroupTaintBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -167,8 +155,7 @@ public class AwsEksNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -176,8 +163,7 @@ public class AwsEksNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -185,8 +171,7 @@ public class AwsEksNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -202,8 +187,7 @@ public class AwsEksNodeGroupUpdateConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxUnavailable
     {
-        get => GetProperty<TerraformProperty<double>>("max_unavailable");
-        set => WithProperty("max_unavailable", value);
+        set => SetProperty("max_unavailable", value);
     }
 
     /// <summary>
@@ -211,8 +195,7 @@ public class AwsEksNodeGroupUpdateConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxUnavailablePercentage
     {
-        get => GetProperty<TerraformProperty<double>>("max_unavailable_percentage");
-        set => WithProperty("max_unavailable_percentage", value);
+        set => SetProperty("max_unavailable_percentage", value);
     }
 
 }
@@ -230,27 +213,44 @@ public class AwsEksNodeGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("resources");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("resources");
+        SetOutput("status");
+        SetOutput("ami_type");
+        SetOutput("capacity_type");
+        SetOutput("cluster_name");
+        SetOutput("disk_size");
+        SetOutput("force_update_version");
+        SetOutput("id");
+        SetOutput("instance_types");
+        SetOutput("labels");
+        SetOutput("node_group_name");
+        SetOutput("node_group_name_prefix");
+        SetOutput("node_role_arn");
+        SetOutput("region");
+        SetOutput("release_version");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The ami_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AmiType
+    public TerraformProperty<string> AmiType
     {
-        get => GetProperty<TerraformProperty<string>>("ami_type");
-        set => this.WithProperty("ami_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ami_type");
+        set => SetProperty("ami_type", value);
     }
 
     /// <summary>
     /// The capacity_type attribute.
     /// </summary>
-    public TerraformProperty<string>? CapacityType
+    public TerraformProperty<string> CapacityType
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_type");
-        set => this.WithProperty("capacity_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capacity_type");
+        set => SetProperty("capacity_type", value);
     }
 
     /// <summary>
@@ -259,71 +259,71 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The disk_size attribute.
     /// </summary>
-    public TerraformProperty<double>? DiskSize
+    public TerraformProperty<double> DiskSize
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size");
-        set => this.WithProperty("disk_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("disk_size");
+        set => SetProperty("disk_size", value);
     }
 
     /// <summary>
     /// The force_update_version attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceUpdateVersion
+    public TerraformProperty<bool> ForceUpdateVersion
     {
-        get => GetProperty<TerraformProperty<bool>>("force_update_version");
-        set => this.WithProperty("force_update_version", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_update_version");
+        set => SetProperty("force_update_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? InstanceTypes
+    public List<TerraformProperty<string>> InstanceTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("instance_types");
-        set => this.WithProperty("instance_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("instance_types");
+        set => SetProperty("instance_types", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The node_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeGroupName
+    public TerraformProperty<string> NodeGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("node_group_name");
-        set => this.WithProperty("node_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_group_name");
+        set => SetProperty("node_group_name", value);
     }
 
     /// <summary>
     /// The node_group_name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeGroupNamePrefix
+    public TerraformProperty<string> NodeGroupNamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("node_group_name_prefix");
-        set => this.WithProperty("node_group_name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_group_name_prefix");
+        set => SetProperty("node_group_name_prefix", value);
     }
 
     /// <summary>
@@ -332,63 +332,63 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeRoleArn is required")]
     public required TerraformProperty<string> NodeRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_role_arn");
-        set => this.WithProperty("node_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_role_arn");
+        set => SetProperty("node_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The release_version attribute.
     /// </summary>
-    public TerraformProperty<string>? ReleaseVersion
+    public TerraformProperty<string> ReleaseVersion
     {
-        get => GetProperty<TerraformProperty<string>>("release_version");
-        set => this.WithProperty("release_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_version");
+        set => SetProperty("release_version", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -398,8 +398,7 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
     public List<AwsEksNodeGroupLaunchTemplateBlock>? LaunchTemplate
     {
-        get => GetProperty<List<AwsEksNodeGroupLaunchTemplateBlock>>("launch_template");
-        set => this.WithProperty("launch_template", value);
+        set => SetProperty("launch_template", value);
     }
 
     /// <summary>
@@ -409,8 +408,7 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeRepairConfig block(s) allowed")]
     public List<AwsEksNodeGroupNodeRepairConfigBlock>? NodeRepairConfig
     {
-        get => GetProperty<List<AwsEksNodeGroupNodeRepairConfigBlock>>("node_repair_config");
-        set => this.WithProperty("node_repair_config", value);
+        set => SetProperty("node_repair_config", value);
     }
 
     /// <summary>
@@ -420,20 +418,19 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteAccess block(s) allowed")]
     public List<AwsEksNodeGroupRemoteAccessBlock>? RemoteAccess
     {
-        get => GetProperty<List<AwsEksNodeGroupRemoteAccessBlock>>("remote_access");
-        set => this.WithProperty("remote_access", value);
+        set => SetProperty("remote_access", value);
     }
 
     /// <summary>
     /// Block for scaling_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
     public List<AwsEksNodeGroupScalingConfigBlock>? ScalingConfig
     {
-        get => GetProperty<List<AwsEksNodeGroupScalingConfigBlock>>("scaling_config");
-        set => this.WithProperty("scaling_config", value);
+        set => SetProperty("scaling_config", value);
     }
 
     /// <summary>
@@ -443,8 +440,7 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Taint block(s) allowed")]
     public HashSet<AwsEksNodeGroupTaintBlock>? Taint
     {
-        get => GetProperty<HashSet<AwsEksNodeGroupTaintBlock>>("taint");
-        set => this.WithProperty("taint", value);
+        set => SetProperty("taint", value);
     }
 
     /// <summary>
@@ -453,8 +449,7 @@ public class AwsEksNodeGroup : TerraformResource
     /// </summary>
     public AwsEksNodeGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEksNodeGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -464,8 +459,7 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdateConfig block(s) allowed")]
     public List<AwsEksNodeGroupUpdateConfigBlock>? UpdateConfig
     {
-        get => GetProperty<List<AwsEksNodeGroupUpdateConfigBlock>>("update_config");
-        set => this.WithProperty("update_config", value);
+        set => SetProperty("update_config", value);
     }
 
     /// <summary>

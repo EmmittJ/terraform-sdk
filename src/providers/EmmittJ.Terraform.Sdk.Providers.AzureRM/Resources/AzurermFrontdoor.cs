@@ -14,8 +14,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthProbeName is required")]
     public required TerraformProperty<string> HealthProbeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("health_probe_name");
-        set => WithProperty("health_probe_name", value);
+        set => SetProperty("health_probe_name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingName is required")]
     public required TerraformProperty<string> LoadBalancingName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("load_balancing_name");
-        set => WithProperty("load_balancing_name", value);
+        set => SetProperty("load_balancing_name", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -60,8 +56,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IntervalInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("interval_in_seconds");
-        set => WithProperty("interval_in_seconds", value);
+        set => SetProperty("interval_in_seconds", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -106,8 +97,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProbeMethod
     {
-        get => GetProperty<TerraformProperty<string>>("probe_method");
-        set => WithProperty("probe_method", value);
+        set => SetProperty("probe_method", value);
     }
 
     /// <summary>
@@ -115,8 +105,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
 }
@@ -132,8 +121,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AdditionalLatencyMilliseconds
     {
-        get => GetProperty<TerraformProperty<double>>("additional_latency_milliseconds");
-        set => WithProperty("additional_latency_milliseconds", value);
+        set => SetProperty("additional_latency_milliseconds", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -151,8 +138,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -160,8 +146,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SampleSize
     {
-        get => GetProperty<TerraformProperty<double>>("sample_size");
-        set => WithProperty("sample_size", value);
+        set => SetProperty("sample_size", value);
     }
 
     /// <summary>
@@ -169,8 +154,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SuccessfulSamplesRequired
     {
-        get => GetProperty<TerraformProperty<double>>("successful_samples_required");
-        set => WithProperty("successful_samples_required", value);
+        set => SetProperty("successful_samples_required", value);
     }
 
 }
@@ -186,8 +170,7 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? BackendPoolsSendReceiveTimeoutSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("backend_pools_send_receive_timeout_seconds");
-        set => WithProperty("backend_pools_send_receive_timeout_seconds", value);
+        set => SetProperty("backend_pools_send_receive_timeout_seconds", value);
     }
 
     /// <summary>
@@ -196,8 +179,7 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforceBackendPoolsCertificateNameCheck is required")]
     public required TerraformProperty<bool> EnforceBackendPoolsCertificateNameCheck
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enforce_backend_pools_certificate_name_check");
-        set => WithProperty("enforce_backend_pools_certificate_name_check", value);
+        set => SetProperty("enforce_backend_pools_certificate_name_check", value);
     }
 
 }
@@ -214,8 +196,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => WithProperty("host_name", value);
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
@@ -223,8 +204,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -233,8 +213,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -242,8 +221,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SessionAffinityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("session_affinity_enabled");
-        set => WithProperty("session_affinity_enabled", value);
+        set => SetProperty("session_affinity_enabled", value);
     }
 
     /// <summary>
@@ -251,8 +229,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SessionAffinityTtlSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("session_affinity_ttl_seconds");
-        set => WithProperty("session_affinity_ttl_seconds", value);
+        set => SetProperty("session_affinity_ttl_seconds", value);
     }
 
     /// <summary>
@@ -260,8 +237,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WebApplicationFirewallPolicyLinkId
     {
-        get => GetProperty<TerraformProperty<string>>("web_application_firewall_policy_link_id");
-        set => WithProperty("web_application_firewall_policy_link_id", value);
+        set => SetProperty("web_application_firewall_policy_link_id", value);
     }
 
 }
@@ -278,8 +254,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptedProtocols is required")]
     public List<TerraformProperty<string>>? AcceptedProtocols
     {
-        get => GetProperty<List<TerraformProperty<string>>>("accepted_protocols");
-        set => WithProperty("accepted_protocols", value);
+        set => SetProperty("accepted_protocols", value);
     }
 
     /// <summary>
@@ -287,8 +262,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -297,8 +271,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpoints is required")]
     public List<TerraformProperty<string>>? FrontendEndpoints
     {
-        get => GetProperty<List<TerraformProperty<string>>>("frontend_endpoints");
-        set => WithProperty("frontend_endpoints", value);
+        set => SetProperty("frontend_endpoints", value);
     }
 
     /// <summary>
@@ -306,8 +279,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -316,8 +288,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -326,8 +297,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternsToMatch is required")]
     public List<TerraformProperty<string>>? PatternsToMatch
     {
-        get => GetProperty<List<TerraformProperty<string>>>("patterns_to_match");
-        set => WithProperty("patterns_to_match", value);
+        set => SetProperty("patterns_to_match", value);
     }
 
 }
@@ -343,8 +313,7 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -352,8 +321,7 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -361,8 +329,7 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -370,8 +337,7 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -389,41 +355,47 @@ public class AzurermFrontdoor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backend_pool_health_probes");
-        this.WithOutput("backend_pool_load_balancing_settings");
-        this.WithOutput("backend_pools");
-        this.WithOutput("cname");
-        this.WithOutput("explicit_resource_order");
-        this.WithOutput("frontend_endpoints");
-        this.WithOutput("header_frontdoor_id");
-        this.WithOutput("routing_rules");
+        SetOutput("backend_pool_health_probes");
+        SetOutput("backend_pool_load_balancing_settings");
+        SetOutput("backend_pools");
+        SetOutput("cname");
+        SetOutput("explicit_resource_order");
+        SetOutput("frontend_endpoints");
+        SetOutput("header_frontdoor_id");
+        SetOutput("routing_rules");
+        SetOutput("friendly_name");
+        SetOutput("id");
+        SetOutput("load_balancer_enabled");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FriendlyName
+    public TerraformProperty<string> FriendlyName
     {
-        get => GetProperty<TerraformProperty<string>>("friendly_name");
-        set => this.WithProperty("friendly_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
+        set => SetProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The load_balancer_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LoadBalancerEnabled
+    public TerraformProperty<bool> LoadBalancerEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("load_balancer_enabled");
-        set => this.WithProperty("load_balancer_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("load_balancer_enabled");
+        set => SetProperty("load_balancer_enabled", value);
     }
 
     /// <summary>
@@ -432,8 +404,8 @@ public class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -442,52 +414,52 @@ public class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for backend_pool.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPool block(s) required")]
     public List<AzurermFrontdoorBackendPoolBlock>? BackendPool
     {
-        get => GetProperty<List<AzurermFrontdoorBackendPoolBlock>>("backend_pool");
-        set => this.WithProperty("backend_pool", value);
+        set => SetProperty("backend_pool", value);
     }
 
     /// <summary>
     /// Block for backend_pool_health_probe.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolHealthProbe is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolHealthProbe block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolHealthProbe block(s) allowed")]
     public List<AzurermFrontdoorBackendPoolHealthProbeBlock>? BackendPoolHealthProbe
     {
-        get => GetProperty<List<AzurermFrontdoorBackendPoolHealthProbeBlock>>("backend_pool_health_probe");
-        set => this.WithProperty("backend_pool_health_probe", value);
+        set => SetProperty("backend_pool_health_probe", value);
     }
 
     /// <summary>
     /// Block for backend_pool_load_balancing.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolLoadBalancing is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolLoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolLoadBalancing block(s) allowed")]
     public List<AzurermFrontdoorBackendPoolLoadBalancingBlock>? BackendPoolLoadBalancing
     {
-        get => GetProperty<List<AzurermFrontdoorBackendPoolLoadBalancingBlock>>("backend_pool_load_balancing");
-        set => this.WithProperty("backend_pool_load_balancing", value);
+        set => SetProperty("backend_pool_load_balancing", value);
     }
 
     /// <summary>
@@ -496,32 +468,31 @@ public class AzurermFrontdoor : TerraformResource
     /// </summary>
     public List<AzurermFrontdoorBackendPoolSettingsBlock>? BackendPoolSettings
     {
-        get => GetProperty<List<AzurermFrontdoorBackendPoolSettingsBlock>>("backend_pool_settings");
-        set => this.WithProperty("backend_pool_settings", value);
+        set => SetProperty("backend_pool_settings", value);
     }
 
     /// <summary>
     /// Block for frontend_endpoint.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendEndpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 FrontendEndpoint block(s) allowed")]
     public List<AzurermFrontdoorFrontendEndpointBlock>? FrontendEndpoint
     {
-        get => GetProperty<List<AzurermFrontdoorFrontendEndpointBlock>>("frontend_endpoint");
-        set => this.WithProperty("frontend_endpoint", value);
+        set => SetProperty("frontend_endpoint", value);
     }
 
     /// <summary>
     /// Block for routing_rule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 RoutingRule block(s) allowed")]
     public List<AzurermFrontdoorRoutingRuleBlock>? RoutingRule
     {
-        get => GetProperty<List<AzurermFrontdoorRoutingRuleBlock>>("routing_rule");
-        set => this.WithProperty("routing_rule", value);
+        set => SetProperty("routing_rule", value);
     }
 
     /// <summary>
@@ -530,8 +501,7 @@ public class AzurermFrontdoor : TerraformResource
     /// </summary>
     public AzurermFrontdoorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFrontdoorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

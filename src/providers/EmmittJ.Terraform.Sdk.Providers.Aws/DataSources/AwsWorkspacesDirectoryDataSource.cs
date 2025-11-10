@@ -14,26 +14,30 @@ public class AwsWorkspacesDirectoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("active_directory_config");
-        this.WithOutput("alias");
-        this.WithOutput("certificate_based_auth_properties");
-        this.WithOutput("customer_user_name");
-        this.WithOutput("directory_name");
-        this.WithOutput("directory_type");
-        this.WithOutput("dns_ip_addresses");
-        this.WithOutput("iam_role_id");
-        this.WithOutput("ip_group_ids");
-        this.WithOutput("registration_code");
-        this.WithOutput("saml_properties");
-        this.WithOutput("self_service_permissions");
-        this.WithOutput("subnet_ids");
-        this.WithOutput("user_identity_type");
-        this.WithOutput("workspace_access_properties");
-        this.WithOutput("workspace_creation_properties");
-        this.WithOutput("workspace_directory_description");
-        this.WithOutput("workspace_directory_name");
-        this.WithOutput("workspace_security_group_id");
-        this.WithOutput("workspace_type");
+        SetOutput("active_directory_config");
+        SetOutput("alias");
+        SetOutput("certificate_based_auth_properties");
+        SetOutput("customer_user_name");
+        SetOutput("directory_name");
+        SetOutput("directory_type");
+        SetOutput("dns_ip_addresses");
+        SetOutput("iam_role_id");
+        SetOutput("ip_group_ids");
+        SetOutput("registration_code");
+        SetOutput("saml_properties");
+        SetOutput("self_service_permissions");
+        SetOutput("subnet_ids");
+        SetOutput("user_identity_type");
+        SetOutput("workspace_access_properties");
+        SetOutput("workspace_creation_properties");
+        SetOutput("workspace_directory_description");
+        SetOutput("workspace_directory_name");
+        SetOutput("workspace_security_group_id");
+        SetOutput("workspace_type");
+        SetOutput("directory_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -42,35 +46,35 @@ public class AwsWorkspacesDirectoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
-        set => this.WithProperty("directory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
+        set => SetProperty("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

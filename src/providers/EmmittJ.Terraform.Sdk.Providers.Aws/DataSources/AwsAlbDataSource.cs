@@ -13,8 +13,7 @@ public class AwsAlbDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,81 +30,86 @@ public class AwsAlbDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_logs");
-        this.WithOutput("arn_suffix");
-        this.WithOutput("client_keep_alive");
-        this.WithOutput("connection_logs");
-        this.WithOutput("customer_owned_ipv4_pool");
-        this.WithOutput("desync_mitigation_mode");
-        this.WithOutput("dns_name");
-        this.WithOutput("dns_record_client_routing_policy");
-        this.WithOutput("drop_invalid_header_fields");
-        this.WithOutput("enable_cross_zone_load_balancing");
-        this.WithOutput("enable_deletion_protection");
-        this.WithOutput("enable_http2");
-        this.WithOutput("enable_tls_version_and_cipher_suite_headers");
-        this.WithOutput("enable_waf_fail_open");
-        this.WithOutput("enable_xff_client_port");
-        this.WithOutput("enable_zonal_shift");
-        this.WithOutput("enforce_security_group_inbound_rules_on_private_link_traffic");
-        this.WithOutput("idle_timeout");
-        this.WithOutput("internal");
-        this.WithOutput("ip_address_type");
-        this.WithOutput("ipam_pools");
-        this.WithOutput("load_balancer_type");
-        this.WithOutput("preserve_host_header");
-        this.WithOutput("secondary_ips_auto_assigned_per_subnet");
-        this.WithOutput("security_groups");
-        this.WithOutput("subnet_mapping");
-        this.WithOutput("subnets");
-        this.WithOutput("vpc_id");
-        this.WithOutput("xff_header_processing_mode");
-        this.WithOutput("zone_id");
+        SetOutput("access_logs");
+        SetOutput("arn_suffix");
+        SetOutput("client_keep_alive");
+        SetOutput("connection_logs");
+        SetOutput("customer_owned_ipv4_pool");
+        SetOutput("desync_mitigation_mode");
+        SetOutput("dns_name");
+        SetOutput("dns_record_client_routing_policy");
+        SetOutput("drop_invalid_header_fields");
+        SetOutput("enable_cross_zone_load_balancing");
+        SetOutput("enable_deletion_protection");
+        SetOutput("enable_http2");
+        SetOutput("enable_tls_version_and_cipher_suite_headers");
+        SetOutput("enable_waf_fail_open");
+        SetOutput("enable_xff_client_port");
+        SetOutput("enable_zonal_shift");
+        SetOutput("enforce_security_group_inbound_rules_on_private_link_traffic");
+        SetOutput("idle_timeout");
+        SetOutput("internal");
+        SetOutput("ip_address_type");
+        SetOutput("ipam_pools");
+        SetOutput("load_balancer_type");
+        SetOutput("preserve_host_header");
+        SetOutput("secondary_ips_auto_assigned_per_subnet");
+        SetOutput("security_groups");
+        SetOutput("subnet_mapping");
+        SetOutput("subnets");
+        SetOutput("vpc_id");
+        SetOutput("xff_header_processing_mode");
+        SetOutput("zone_id");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -114,8 +118,7 @@ public class AwsAlbDataSource : TerraformDataSource
     /// </summary>
     public AwsAlbDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAlbDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

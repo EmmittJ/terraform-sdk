@@ -16,8 +16,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformProperty<string> WebhookSecretSecretVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("webhook_secret_secret_version");
-        set => WithProperty("webhook_secret_secret_version", value);
+        set => SetProperty("webhook_secret_secret_version", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workspace is required")]
     public required TerraformProperty<string> Workspace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace");
-        set => WithProperty("workspace", value);
+        set => SetProperty("workspace", value);
     }
 
 }
@@ -44,8 +42,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformProperty<string> HostUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_uri");
-        set => WithProperty("host_uri", value);
+        set => SetProperty("host_uri", value);
     }
 
     /// <summary>
@@ -53,8 +50,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : Te
     /// </summary>
     public TerraformProperty<string>? ServerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("server_version");
-        set => WithProperty("server_version", value);
+        set => SetProperty("server_version", value);
     }
 
     /// <summary>
@@ -63,8 +59,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : Te
     /// </summary>
     public TerraformProperty<string>? SslCaCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_ca_certificate");
-        set => WithProperty("ssl_ca_certificate", value);
+        set => SetProperty("ssl_ca_certificate", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformProperty<string> WebhookSecretSecretVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("webhook_secret_secret_version");
-        set => WithProperty("webhook_secret_secret_version", value);
+        set => SetProperty("webhook_secret_secret_version", value);
     }
 
 }
@@ -95,8 +89,7 @@ public class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyReference is required")]
     public required TerraformProperty<string> KeyReference
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_reference");
-        set => WithProperty("key_reference", value);
+        set => SetProperty("key_reference", value);
     }
 
 }
@@ -112,8 +105,7 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AppInstallationId
     {
-        get => GetProperty<TerraformProperty<string>>("app_installation_id");
-        set => WithProperty("app_installation_id", value);
+        set => SetProperty("app_installation_id", value);
     }
 
     /// <summary>
@@ -127,8 +119,7 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GithubApp is required")]
     public required TerraformProperty<string> GithubApp
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("github_app");
-        set => WithProperty("github_app", value);
+        set => SetProperty("github_app", value);
     }
 
     /// <summary>
@@ -137,8 +128,7 @@ public class GoogleDeveloperConnectConnectionGithubConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstallationUri
     {
-        get => GetProperty<TerraformProperty<string>>("installation_uri");
-        set => WithProperty("installation_uri", value);
+        set => SetProperty("installation_uri", value);
     }
 
 }
@@ -154,8 +144,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
-        set => WithProperty("app_id", value);
+        set => SetProperty("app_id", value);
     }
 
     /// <summary>
@@ -163,8 +152,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? AppInstallationId
     {
-        get => GetProperty<TerraformProperty<string>>("app_installation_id");
-        set => WithProperty("app_installation_id", value);
+        set => SetProperty("app_installation_id", value);
     }
 
     /// <summary>
@@ -172,8 +160,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? AppSlug
     {
-        get => GetProperty<TerraformProperty<string>>("app_slug");
-        set => WithProperty("app_slug", value);
+        set => SetProperty("app_slug", value);
     }
 
     /// <summary>
@@ -182,8 +169,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformProperty<string> HostUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_uri");
-        set => WithProperty("host_uri", value);
+        set => SetProperty("host_uri", value);
     }
 
     /// <summary>
@@ -192,8 +178,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? InstallationUri
     {
-        get => GetProperty<TerraformProperty<string>>("installation_uri");
-        set => WithProperty("installation_uri", value);
+        set => SetProperty("installation_uri", value);
     }
 
     /// <summary>
@@ -202,8 +187,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? PrivateKeySecretVersion
     {
-        get => GetProperty<TerraformProperty<string>>("private_key_secret_version");
-        set => WithProperty("private_key_secret_version", value);
+        set => SetProperty("private_key_secret_version", value);
     }
 
     /// <summary>
@@ -211,8 +195,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? ServerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("server_version");
-        set => WithProperty("server_version", value);
+        set => SetProperty("server_version", value);
     }
 
     /// <summary>
@@ -220,8 +203,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? SslCaCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_ca_certificate");
-        set => WithProperty("ssl_ca_certificate", value);
+        set => SetProperty("ssl_ca_certificate", value);
     }
 
     /// <summary>
@@ -230,8 +212,7 @@ public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? WebhookSecretSecretVersion
     {
-        get => GetProperty<TerraformProperty<string>>("webhook_secret_secret_version");
-        set => WithProperty("webhook_secret_secret_version", value);
+        set => SetProperty("webhook_secret_secret_version", value);
     }
 
 }
@@ -250,8 +231,7 @@ public class GoogleDeveloperConnectConnectionGitlabConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformProperty<string> WebhookSecretSecretVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("webhook_secret_secret_version");
-        set => WithProperty("webhook_secret_secret_version", value);
+        set => SetProperty("webhook_secret_secret_version", value);
     }
 
 }
@@ -268,8 +248,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformProperty<string> HostUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_uri");
-        set => WithProperty("host_uri", value);
+        set => SetProperty("host_uri", value);
     }
 
     /// <summary>
@@ -277,8 +256,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? ServerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("server_version");
-        set => WithProperty("server_version", value);
+        set => SetProperty("server_version", value);
     }
 
     /// <summary>
@@ -287,8 +265,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? SslCaCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_ca_certificate");
-        set => WithProperty("ssl_ca_certificate", value);
+        set => SetProperty("ssl_ca_certificate", value);
     }
 
     /// <summary>
@@ -299,8 +276,7 @@ public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformProperty<string> WebhookSecretSecretVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("webhook_secret_secret_version");
-        set => WithProperty("webhook_secret_secret_version", value);
+        set => SetProperty("webhook_secret_secret_version", value);
     }
 
 }
@@ -316,8 +292,7 @@ public class GoogleDeveloperConnectConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -325,8 +300,7 @@ public class GoogleDeveloperConnectConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -334,8 +308,7 @@ public class GoogleDeveloperConnectConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -353,16 +326,24 @@ public class GoogleDeveloperConnectConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("installation_state");
-        this.WithOutput("name");
-        this.WithOutput("reconciling");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("installation_state");
+        SetOutput("name");
+        SetOutput("reconciling");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("connection_id");
+        SetOutput("disabled");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -371,10 +352,10 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -385,8 +366,8 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
-        set => this.WithProperty("connection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_id");
+        set => SetProperty("connection_id", value);
     }
 
     /// <summary>
@@ -394,10 +375,10 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// Repository based API methods and webhooks processing for repositories in
     /// this connection will be disabled.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -405,19 +386,19 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// fields, and may be sent on update and delete requests to ensure the
     /// client has an up-to-date value before proceeding.
     /// </summary>
-    public TerraformProperty<string>? Etag
+    public TerraformProperty<string> Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => this.WithProperty("etag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("etag");
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -426,10 +407,10 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -438,17 +419,17 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -458,8 +439,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketCloudConfig block(s) allowed")]
     public List<GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock>? BitbucketCloudConfig
     {
-        get => GetProperty<List<GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock>>("bitbucket_cloud_config");
-        set => this.WithProperty("bitbucket_cloud_config", value);
+        set => SetProperty("bitbucket_cloud_config", value);
     }
 
     /// <summary>
@@ -469,8 +449,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketDataCenterConfig block(s) allowed")]
     public List<GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock>? BitbucketDataCenterConfig
     {
-        get => GetProperty<List<GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock>>("bitbucket_data_center_config");
-        set => this.WithProperty("bitbucket_data_center_config", value);
+        set => SetProperty("bitbucket_data_center_config", value);
     }
 
     /// <summary>
@@ -480,8 +459,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CryptoKeyConfig block(s) allowed")]
     public List<GoogleDeveloperConnectConnectionCryptoKeyConfigBlock>? CryptoKeyConfig
     {
-        get => GetProperty<List<GoogleDeveloperConnectConnectionCryptoKeyConfigBlock>>("crypto_key_config");
-        set => this.WithProperty("crypto_key_config", value);
+        set => SetProperty("crypto_key_config", value);
     }
 
     /// <summary>
@@ -491,8 +469,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubConfig block(s) allowed")]
     public List<GoogleDeveloperConnectConnectionGithubConfigBlock>? GithubConfig
     {
-        get => GetProperty<List<GoogleDeveloperConnectConnectionGithubConfigBlock>>("github_config");
-        set => this.WithProperty("github_config", value);
+        set => SetProperty("github_config", value);
     }
 
     /// <summary>
@@ -502,8 +479,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubEnterpriseConfig block(s) allowed")]
     public List<GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock>? GithubEnterpriseConfig
     {
-        get => GetProperty<List<GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock>>("github_enterprise_config");
-        set => this.WithProperty("github_enterprise_config", value);
+        set => SetProperty("github_enterprise_config", value);
     }
 
     /// <summary>
@@ -513,8 +489,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabConfig block(s) allowed")]
     public List<GoogleDeveloperConnectConnectionGitlabConfigBlock>? GitlabConfig
     {
-        get => GetProperty<List<GoogleDeveloperConnectConnectionGitlabConfigBlock>>("gitlab_config");
-        set => this.WithProperty("gitlab_config", value);
+        set => SetProperty("gitlab_config", value);
     }
 
     /// <summary>
@@ -524,8 +499,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabEnterpriseConfig block(s) allowed")]
     public List<GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock>? GitlabEnterpriseConfig
     {
-        get => GetProperty<List<GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock>>("gitlab_enterprise_config");
-        set => this.WithProperty("gitlab_enterprise_config", value);
+        set => SetProperty("gitlab_enterprise_config", value);
     }
 
     /// <summary>
@@ -534,8 +508,7 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// </summary>
     public GoogleDeveloperConnectConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDeveloperConnectConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

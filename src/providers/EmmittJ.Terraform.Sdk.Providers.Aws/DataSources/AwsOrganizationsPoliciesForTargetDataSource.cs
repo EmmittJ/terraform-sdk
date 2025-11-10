@@ -14,7 +14,10 @@ public class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ids");
+        SetOutput("ids");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("target_id");
     }
 
     /// <summary>
@@ -23,17 +26,17 @@ public class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,8 +45,8 @@ public class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformProperty<string> TargetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_id");
-        set => this.WithProperty("target_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_id");
+        set => SetProperty("target_id", value);
     }
 
     /// <summary>

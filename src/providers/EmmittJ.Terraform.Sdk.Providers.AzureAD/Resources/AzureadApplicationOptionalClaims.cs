@@ -13,8 +13,7 @@ public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AdditionalProperties
     {
-        get => GetProperty<List<TerraformProperty<string>>>("additional_properties");
-        set => WithProperty("additional_properties", value);
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Essential
     {
-        get => GetProperty<TerraformProperty<bool>>("essential");
-        set => WithProperty("essential", value);
+        set => SetProperty("essential", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AdditionalProperties
     {
-        get => GetProperty<List<TerraformProperty<string>>>("additional_properties");
-        set => WithProperty("additional_properties", value);
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Essential
     {
-        get => GetProperty<TerraformProperty<bool>>("essential");
-        set => WithProperty("essential", value);
+        set => SetProperty("essential", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -103,8 +95,7 @@ public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AdditionalProperties
     {
-        get => GetProperty<List<TerraformProperty<string>>>("additional_properties");
-        set => WithProperty("additional_properties", value);
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Essential
     {
-        get => GetProperty<TerraformProperty<bool>>("essential");
-        set => WithProperty("essential", value);
+        set => SetProperty("essential", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -131,8 +120,7 @@ public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -148,8 +136,7 @@ public class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -157,8 +144,7 @@ public class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -166,8 +152,7 @@ public class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -175,8 +160,7 @@ public class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -193,6 +177,8 @@ public class AzureadApplicationOptionalClaims : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("application_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -201,17 +187,17 @@ public class AzureadApplicationOptionalClaims : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -220,8 +206,7 @@ public class AzureadApplicationOptionalClaims : TerraformResource
     /// </summary>
     public List<AzureadApplicationOptionalClaimsAccessTokenBlock>? AccessToken
     {
-        get => GetProperty<List<AzureadApplicationOptionalClaimsAccessTokenBlock>>("access_token");
-        set => this.WithProperty("access_token", value);
+        set => SetProperty("access_token", value);
     }
 
     /// <summary>
@@ -230,8 +215,7 @@ public class AzureadApplicationOptionalClaims : TerraformResource
     /// </summary>
     public List<AzureadApplicationOptionalClaimsIdTokenBlock>? IdToken
     {
-        get => GetProperty<List<AzureadApplicationOptionalClaimsIdTokenBlock>>("id_token");
-        set => this.WithProperty("id_token", value);
+        set => SetProperty("id_token", value);
     }
 
     /// <summary>
@@ -240,8 +224,7 @@ public class AzureadApplicationOptionalClaims : TerraformResource
     /// </summary>
     public List<AzureadApplicationOptionalClaimsSaml2TokenBlock>? Saml2Token
     {
-        get => GetProperty<List<AzureadApplicationOptionalClaimsSaml2TokenBlock>>("saml2_token");
-        set => this.WithProperty("saml2_token", value);
+        set => SetProperty("saml2_token", value);
     }
 
     /// <summary>
@@ -250,8 +233,7 @@ public class AzureadApplicationOptionalClaims : TerraformResource
     /// </summary>
     public AzureadApplicationOptionalClaimsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationOptionalClaimsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

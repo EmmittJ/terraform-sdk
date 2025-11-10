@@ -13,8 +13,7 @@ public class AwsElastictranscoderPipelineContentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
-        set => WithProperty("bucket", value);
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsElastictranscoderPipelineContentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageClass
     {
-        get => GetProperty<TerraformProperty<string>>("storage_class");
-        set => WithProperty("storage_class", value);
+        set => SetProperty("storage_class", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsElastictranscoderPipelineContentConfigPermissionsBlock : Terrafo
     /// </summary>
     public List<TerraformProperty<string>>? Access
     {
-        get => GetProperty<List<TerraformProperty<string>>>("access");
-        set => WithProperty("access", value);
+        set => SetProperty("access", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsElastictranscoderPipelineContentConfigPermissionsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Grantee
     {
-        get => GetProperty<TerraformProperty<string>>("grantee");
-        set => WithProperty("grantee", value);
+        set => SetProperty("grantee", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsElastictranscoderPipelineContentConfigPermissionsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? GranteeType
     {
-        get => GetProperty<TerraformProperty<string>>("grantee_type");
-        set => WithProperty("grantee_type", value);
+        set => SetProperty("grantee_type", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Completed
     {
-        get => GetProperty<TerraformProperty<string>>("completed");
-        set => WithProperty("completed", value);
+        set => SetProperty("completed", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Error
     {
-        get => GetProperty<TerraformProperty<string>>("error");
-        set => WithProperty("error", value);
+        set => SetProperty("error", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Progressing
     {
-        get => GetProperty<TerraformProperty<string>>("progressing");
-        set => WithProperty("progressing", value);
+        set => SetProperty("progressing", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Warning
     {
-        get => GetProperty<TerraformProperty<string>>("warning");
-        set => WithProperty("warning", value);
+        set => SetProperty("warning", value);
     }
 
 }
@@ -118,8 +109,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
-        set => WithProperty("bucket", value);
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
@@ -127,8 +117,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageClass
     {
-        get => GetProperty<TerraformProperty<string>>("storage_class");
-        set => WithProperty("storage_class", value);
+        set => SetProperty("storage_class", value);
     }
 
 }
@@ -144,8 +133,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock : Terra
     /// </summary>
     public List<TerraformProperty<string>>? Access
     {
-        get => GetProperty<List<TerraformProperty<string>>>("access");
-        set => WithProperty("access", value);
+        set => SetProperty("access", value);
     }
 
     /// <summary>
@@ -153,8 +141,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Grantee
     {
-        get => GetProperty<TerraformProperty<string>>("grantee");
-        set => WithProperty("grantee", value);
+        set => SetProperty("grantee", value);
     }
 
     /// <summary>
@@ -162,8 +149,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? GranteeType
     {
-        get => GetProperty<TerraformProperty<string>>("grantee_type");
-        set => WithProperty("grantee_type", value);
+        set => SetProperty("grantee_type", value);
     }
 
 }
@@ -182,25 +168,32 @@ public class AwsElastictranscoderPipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("aws_kms_key_arn");
+        SetOutput("id");
+        SetOutput("input_bucket");
+        SetOutput("name");
+        SetOutput("output_bucket");
+        SetOutput("region");
+        SetOutput("role");
     }
 
     /// <summary>
     /// The aws_kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsKmsKeyArn
+    public TerraformProperty<string> AwsKmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("aws_kms_key_arn");
-        set => this.WithProperty("aws_kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_kms_key_arn");
+        set => SetProperty("aws_kms_key_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -209,35 +202,35 @@ public class AwsElastictranscoderPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputBucket is required")]
     public required TerraformProperty<string> InputBucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("input_bucket");
-        set => this.WithProperty("input_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("input_bucket");
+        set => SetProperty("input_bucket", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The output_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? OutputBucket
+    public TerraformProperty<string> OutputBucket
     {
-        get => GetProperty<TerraformProperty<string>>("output_bucket");
-        set => this.WithProperty("output_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("output_bucket");
+        set => SetProperty("output_bucket", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -246,8 +239,8 @@ public class AwsElastictranscoderPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -257,8 +250,7 @@ public class AwsElastictranscoderPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContentConfig block(s) allowed")]
     public List<AwsElastictranscoderPipelineContentConfigBlock>? ContentConfig
     {
-        get => GetProperty<List<AwsElastictranscoderPipelineContentConfigBlock>>("content_config");
-        set => this.WithProperty("content_config", value);
+        set => SetProperty("content_config", value);
     }
 
     /// <summary>
@@ -267,8 +259,7 @@ public class AwsElastictranscoderPipeline : TerraformResource
     /// </summary>
     public HashSet<AwsElastictranscoderPipelineContentConfigPermissionsBlock>? ContentConfigPermissions
     {
-        get => GetProperty<HashSet<AwsElastictranscoderPipelineContentConfigPermissionsBlock>>("content_config_permissions");
-        set => this.WithProperty("content_config_permissions", value);
+        set => SetProperty("content_config_permissions", value);
     }
 
     /// <summary>
@@ -278,8 +269,7 @@ public class AwsElastictranscoderPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notifications block(s) allowed")]
     public List<AwsElastictranscoderPipelineNotificationsBlock>? Notifications
     {
-        get => GetProperty<List<AwsElastictranscoderPipelineNotificationsBlock>>("notifications");
-        set => this.WithProperty("notifications", value);
+        set => SetProperty("notifications", value);
     }
 
     /// <summary>
@@ -289,8 +279,7 @@ public class AwsElastictranscoderPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThumbnailConfig block(s) allowed")]
     public List<AwsElastictranscoderPipelineThumbnailConfigBlock>? ThumbnailConfig
     {
-        get => GetProperty<List<AwsElastictranscoderPipelineThumbnailConfigBlock>>("thumbnail_config");
-        set => this.WithProperty("thumbnail_config", value);
+        set => SetProperty("thumbnail_config", value);
     }
 
     /// <summary>
@@ -299,8 +288,7 @@ public class AwsElastictranscoderPipeline : TerraformResource
     /// </summary>
     public HashSet<AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock>? ThumbnailConfigPermissions
     {
-        get => GetProperty<HashSet<AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock>>("thumbnail_config_permissions");
-        set => this.WithProperty("thumbnail_config_permissions", value);
+        set => SetProperty("thumbnail_config_permissions", value);
     }
 
     /// <summary>

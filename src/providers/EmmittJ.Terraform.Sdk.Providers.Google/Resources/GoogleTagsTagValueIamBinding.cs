@@ -13,8 +13,7 @@ public class GoogleTagsTagValueIamBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleTagsTagValueIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleTagsTagValueIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -52,26 +49,30 @@ public class GoogleTagsTagValueIamBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("members");
+        SetOutput("role");
+        SetOutput("tag_value");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
-    public HashSet<TerraformProperty<string>>? Members
+    public HashSet<TerraformProperty<string>> Members
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
-        set => this.WithProperty("members", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("members");
+        set => SetProperty("members", value);
     }
 
     /// <summary>
@@ -80,8 +81,8 @@ public class GoogleTagsTagValueIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -90,8 +91,8 @@ public class GoogleTagsTagValueIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValue is required")]
     public required TerraformProperty<string> TagValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tag_value");
-        set => this.WithProperty("tag_value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag_value");
+        set => SetProperty("tag_value", value);
     }
 
     /// <summary>
@@ -101,8 +102,7 @@ public class GoogleTagsTagValueIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     public List<GoogleTagsTagValueIamBindingConditionBlock>? Condition
     {
-        get => GetProperty<List<GoogleTagsTagValueIamBindingConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>

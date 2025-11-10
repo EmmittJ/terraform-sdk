@@ -14,12 +14,15 @@ public class GoogleServiceAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("disabled");
-        this.WithOutput("display_name");
-        this.WithOutput("email");
-        this.WithOutput("member");
-        this.WithOutput("name");
-        this.WithOutput("unique_id");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("email");
+        SetOutput("member");
+        SetOutput("name");
+        SetOutput("unique_id");
+        SetOutput("account_id");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -28,26 +31,26 @@ public class GoogleServiceAccountDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

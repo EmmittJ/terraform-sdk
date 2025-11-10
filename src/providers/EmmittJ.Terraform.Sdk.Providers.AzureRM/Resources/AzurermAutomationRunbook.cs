@@ -13,8 +13,7 @@ public class AzurermAutomationRunbookDraftBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreationTime
     {
-        get => GetProperty<TerraformProperty<string>>("creation_time");
-        set => WithProperty("creation_time", value);
+        set => SetProperty("creation_time", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAutomationRunbookDraftBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EditModeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("edit_mode_enabled");
-        set => WithProperty("edit_mode_enabled", value);
+        set => SetProperty("edit_mode_enabled", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAutomationRunbookDraftBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastModifiedTime
     {
-        get => GetProperty<TerraformProperty<string>>("last_modified_time");
-        set => WithProperty("last_modified_time", value);
+        set => SetProperty("last_modified_time", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAutomationRunbookDraftBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? OutputTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("output_types");
-        set => WithProperty("output_types", value);
+        set => SetProperty("output_types", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermAutomationRunbookPublishContentLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermAutomationRunbookPublishContentLinkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -130,6 +120,19 @@ public class AzurermAutomationRunbook : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("automation_account_name");
+        SetOutput("content");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("job_schedule");
+        SetOutput("location");
+        SetOutput("log_activity_trace_level");
+        SetOutput("log_progress");
+        SetOutput("log_verbose");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("runbook_type");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -138,44 +141,44 @@ public class AzurermAutomationRunbook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
-        set => this.WithProperty("automation_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_name");
+        set => SetProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformProperty<string>? Content
+    public TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
-        set => this.WithProperty("content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content");
+        set => SetProperty("content", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The job_schedule attribute.
     /// </summary>
-    public HashSet<TerraformProperty<object>>? JobSchedule
+    public HashSet<TerraformProperty<object>> JobSchedule
     {
-        get => GetProperty<HashSet<TerraformProperty<object>>>("job_schedule");
-        set => this.WithProperty("job_schedule", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<object>>>("job_schedule");
+        set => SetProperty("job_schedule", value);
     }
 
     /// <summary>
@@ -184,17 +187,17 @@ public class AzurermAutomationRunbook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The log_activity_trace_level attribute.
     /// </summary>
-    public TerraformProperty<double>? LogActivityTraceLevel
+    public TerraformProperty<double> LogActivityTraceLevel
     {
-        get => GetProperty<TerraformProperty<double>>("log_activity_trace_level");
-        set => this.WithProperty("log_activity_trace_level", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("log_activity_trace_level");
+        set => SetProperty("log_activity_trace_level", value);
     }
 
     /// <summary>
@@ -203,8 +206,8 @@ public class AzurermAutomationRunbook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogProgress is required")]
     public required TerraformProperty<bool> LogProgress
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("log_progress");
-        set => this.WithProperty("log_progress", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("log_progress");
+        set => SetProperty("log_progress", value);
     }
 
     /// <summary>
@@ -213,8 +216,8 @@ public class AzurermAutomationRunbook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogVerbose is required")]
     public required TerraformProperty<bool> LogVerbose
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("log_verbose");
-        set => this.WithProperty("log_verbose", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("log_verbose");
+        set => SetProperty("log_verbose", value);
     }
 
     /// <summary>
@@ -223,8 +226,8 @@ public class AzurermAutomationRunbook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -233,8 +236,8 @@ public class AzurermAutomationRunbook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -243,17 +246,17 @@ public class AzurermAutomationRunbook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookType is required")]
     public required TerraformProperty<string> RunbookType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runbook_type");
-        set => this.WithProperty("runbook_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runbook_type");
+        set => SetProperty("runbook_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -263,8 +266,7 @@ public class AzurermAutomationRunbook : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Draft block(s) allowed")]
     public List<AzurermAutomationRunbookDraftBlock>? Draft
     {
-        get => GetProperty<List<AzurermAutomationRunbookDraftBlock>>("draft");
-        set => this.WithProperty("draft", value);
+        set => SetProperty("draft", value);
     }
 
     /// <summary>
@@ -274,8 +276,7 @@ public class AzurermAutomationRunbook : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublishContentLink block(s) allowed")]
     public List<AzurermAutomationRunbookPublishContentLinkBlock>? PublishContentLink
     {
-        get => GetProperty<List<AzurermAutomationRunbookPublishContentLinkBlock>>("publish_content_link");
-        set => this.WithProperty("publish_content_link", value);
+        set => SetProperty("publish_content_link", value);
     }
 
     /// <summary>
@@ -284,8 +285,7 @@ public class AzurermAutomationRunbook : TerraformResource
     /// </summary>
     public AzurermAutomationRunbookTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAutomationRunbookTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

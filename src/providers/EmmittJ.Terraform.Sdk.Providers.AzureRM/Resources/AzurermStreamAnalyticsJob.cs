@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AccountKey
     {
-        get => GetProperty<TerraformProperty<string>>("account_key");
-        set => WithProperty("account_key", value);
+        set => SetProperty("account_key", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => WithProperty("account_name", value);
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthenticationMode
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_mode");
-        set => WithProperty("authentication_mode", value);
+        set => SetProperty("authentication_mode", value);
     }
 
 }
@@ -94,8 +87,7 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -140,70 +129,87 @@ public class AzurermStreamAnalyticsJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputob_id");
+        SetOutput("job_id");
+        SetOutput("compatibility_level");
+        SetOutput("content_storage_policy");
+        SetOutput("data_locale");
+        SetOutput("events_late_arrival_max_delay_in_seconds");
+        SetOutput("events_out_of_order_max_delay_in_seconds");
+        SetOutput("events_out_of_order_policy");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("output_error_policy");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("stream_analytics_cluster_id");
+        SetOutput("streaming_units");
+        SetOutput("tags");
+        SetOutput("transformation_query");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The compatibility_level attribute.
     /// </summary>
-    public TerraformProperty<string>? CompatibilityLevel
+    public TerraformProperty<string> CompatibilityLevel
     {
-        get => GetProperty<TerraformProperty<string>>("compatibility_level");
-        set => this.WithProperty("compatibility_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compatibility_level");
+        set => SetProperty("compatibility_level", value);
     }
 
     /// <summary>
     /// The content_storage_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentStoragePolicy
+    public TerraformProperty<string> ContentStoragePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("content_storage_policy");
-        set => this.WithProperty("content_storage_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_storage_policy");
+        set => SetProperty("content_storage_policy", value);
     }
 
     /// <summary>
     /// The data_locale attribute.
     /// </summary>
-    public TerraformProperty<string>? DataLocale
+    public TerraformProperty<string> DataLocale
     {
-        get => GetProperty<TerraformProperty<string>>("data_locale");
-        set => this.WithProperty("data_locale", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_locale");
+        set => SetProperty("data_locale", value);
     }
 
     /// <summary>
     /// The events_late_arrival_max_delay_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? EventsLateArrivalMaxDelayInSeconds
+    public TerraformProperty<double> EventsLateArrivalMaxDelayInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("events_late_arrival_max_delay_in_seconds");
-        set => this.WithProperty("events_late_arrival_max_delay_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("events_late_arrival_max_delay_in_seconds");
+        set => SetProperty("events_late_arrival_max_delay_in_seconds", value);
     }
 
     /// <summary>
     /// The events_out_of_order_max_delay_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? EventsOutOfOrderMaxDelayInSeconds
+    public TerraformProperty<double> EventsOutOfOrderMaxDelayInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("events_out_of_order_max_delay_in_seconds");
-        set => this.WithProperty("events_out_of_order_max_delay_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("events_out_of_order_max_delay_in_seconds");
+        set => SetProperty("events_out_of_order_max_delay_in_seconds", value);
     }
 
     /// <summary>
     /// The events_out_of_order_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? EventsOutOfOrderPolicy
+    public TerraformProperty<string> EventsOutOfOrderPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("events_out_of_order_policy");
-        set => this.WithProperty("events_out_of_order_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("events_out_of_order_policy");
+        set => SetProperty("events_out_of_order_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -212,8 +218,8 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -222,17 +228,17 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The output_error_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? OutputErrorPolicy
+    public TerraformProperty<string> OutputErrorPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("output_error_policy");
-        set => this.WithProperty("output_error_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("output_error_policy");
+        set => SetProperty("output_error_policy", value);
     }
 
     /// <summary>
@@ -241,44 +247,44 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuName
+    public TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StreamAnalyticsClusterId
+    public TerraformProperty<string> StreamAnalyticsClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_cluster_id");
-        set => this.WithProperty("stream_analytics_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_cluster_id");
+        set => SetProperty("stream_analytics_cluster_id", value);
     }
 
     /// <summary>
     /// The streaming_units attribute.
     /// </summary>
-    public TerraformProperty<double>? StreamingUnits
+    public TerraformProperty<double> StreamingUnits
     {
-        get => GetProperty<TerraformProperty<double>>("streaming_units");
-        set => this.WithProperty("streaming_units", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("streaming_units");
+        set => SetProperty("streaming_units", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -287,17 +293,17 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransformationQuery is required")]
     public required TerraformProperty<string> TransformationQuery
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transformation_query");
-        set => this.WithProperty("transformation_query", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transformation_query");
+        set => SetProperty("transformation_query", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -307,8 +313,7 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermStreamAnalyticsJobIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermStreamAnalyticsJobIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -318,8 +323,7 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobStorageAccount block(s) allowed")]
     public List<AzurermStreamAnalyticsJobJobStorageAccountBlock>? JobStorageAccount
     {
-        get => GetProperty<List<AzurermStreamAnalyticsJobJobStorageAccountBlock>>("job_storage_account");
-        set => this.WithProperty("job_storage_account", value);
+        set => SetProperty("job_storage_account", value);
     }
 
     /// <summary>
@@ -328,8 +332,7 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

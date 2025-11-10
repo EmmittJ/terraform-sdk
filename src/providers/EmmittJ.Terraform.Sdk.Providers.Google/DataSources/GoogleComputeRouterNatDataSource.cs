@@ -14,37 +14,42 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("auto_network_tier");
-        this.WithOutput("drain_nat_ips");
-        this.WithOutput("enable_dynamic_port_allocation");
-        this.WithOutput("enable_endpoint_independent_mapping");
-        this.WithOutput("endpoint_types");
-        this.WithOutput("icmp_idle_timeout_sec");
-        this.WithOutput("initial_nat_ips");
-        this.WithOutput("log_config");
-        this.WithOutput("max_ports_per_vm");
-        this.WithOutput("min_ports_per_vm");
-        this.WithOutput("nat64_subnetwork");
-        this.WithOutput("nat_ip_allocate_option");
-        this.WithOutput("nat_ips");
-        this.WithOutput("rules");
-        this.WithOutput("source_subnetwork_ip_ranges_to_nat");
-        this.WithOutput("source_subnetwork_ip_ranges_to_nat64");
-        this.WithOutput("subnetwork");
-        this.WithOutput("tcp_established_idle_timeout_sec");
-        this.WithOutput("tcp_time_wait_timeout_sec");
-        this.WithOutput("tcp_transitory_idle_timeout_sec");
-        this.WithOutput("type");
-        this.WithOutput("udp_idle_timeout_sec");
+        SetOutput("auto_network_tier");
+        SetOutput("drain_nat_ips");
+        SetOutput("enable_dynamic_port_allocation");
+        SetOutput("enable_endpoint_independent_mapping");
+        SetOutput("endpoint_types");
+        SetOutput("icmp_idle_timeout_sec");
+        SetOutput("initial_nat_ips");
+        SetOutput("log_config");
+        SetOutput("max_ports_per_vm");
+        SetOutput("min_ports_per_vm");
+        SetOutput("nat64_subnetwork");
+        SetOutput("nat_ip_allocate_option");
+        SetOutput("nat_ips");
+        SetOutput("rules");
+        SetOutput("source_subnetwork_ip_ranges_to_nat");
+        SetOutput("source_subnetwork_ip_ranges_to_nat64");
+        SetOutput("subnetwork");
+        SetOutput("tcp_established_idle_timeout_sec");
+        SetOutput("tcp_time_wait_timeout_sec");
+        SetOutput("tcp_transitory_idle_timeout_sec");
+        SetOutput("type");
+        SetOutput("udp_idle_timeout_sec");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("router");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,26 +59,26 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where the router and NAT reside.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -82,8 +87,8 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformProperty<string> Router
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("router");
-        set => this.WithProperty("router", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("router");
+        set => SetProperty("router", value);
     }
 
     /// <summary>

@@ -14,9 +14,14 @@ public class AwsCloudwatchLogDeliverySource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("service");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("service");
+        SetOutput("tags_all");
+        SetOutput("log_type");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("resource_arn");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -25,8 +30,8 @@ public class AwsCloudwatchLogDeliverySource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformProperty<string> LogType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_type");
-        set => this.WithProperty("log_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_type");
+        set => SetProperty("log_type", value);
     }
 
     /// <summary>
@@ -35,17 +40,17 @@ public class AwsCloudwatchLogDeliverySource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -54,17 +59,17 @@ public class AwsCloudwatchLogDeliverySource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
-        set => this.WithProperty("resource_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
+        set => SetProperty("resource_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

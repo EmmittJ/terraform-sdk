@@ -13,8 +13,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CopyTags
     {
-        get => GetProperty<TerraformProperty<bool>>("copy_tags");
-        set => WithProperty("copy_tags", value);
+        set => SetProperty("copy_tags", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CreateInterval
     {
-        get => GetProperty<TerraformProperty<double>>("create_interval");
-        set => WithProperty("create_interval", value);
+        set => SetProperty("create_interval", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ExtendDeletion
     {
-        get => GetProperty<TerraformProperty<bool>>("extend_deletion");
-        set => WithProperty("extend_deletion", value);
+        set => SetProperty("extend_deletion", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PolicyLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("policy_language");
-        set => WithProperty("policy_language", value);
+        set => SetProperty("policy_language", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PolicyType
     {
-        get => GetProperty<TerraformProperty<string>>("policy_type");
-        set => WithProperty("policy_type", value);
+        set => SetProperty("policy_type", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ResourceLocations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_locations");
-        set => WithProperty("resource_locations", value);
+        set => SetProperty("resource_locations", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ResourceTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_types");
-        set => WithProperty("resource_types", value);
+        set => SetProperty("resource_types", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RetainInterval
     {
-        get => GetProperty<TerraformProperty<double>>("retain_interval");
-        set => WithProperty("retain_interval", value);
+        set => SetProperty("retain_interval", value);
     }
 
     /// <summary>
@@ -94,8 +85,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? TargetTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("target_tags");
-        set => WithProperty("target_tags", value);
+        set => SetProperty("target_tags", value);
     }
 
 }
@@ -113,16 +103,24 @@ public class AwsDlmLifecyclePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("default_policy");
+        SetOutput("description");
+        SetOutput("execution_role_arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("state");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The default_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultPolicy
+    public TerraformProperty<string> DefaultPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("default_policy");
-        set => this.WithProperty("default_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_policy");
+        set => SetProperty("default_policy", value);
     }
 
     /// <summary>
@@ -131,8 +129,8 @@ public class AwsDlmLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -141,65 +139,65 @@ public class AwsDlmLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for policy_details.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDetails is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicyDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PolicyDetails block(s) allowed")]
     public List<AwsDlmLifecyclePolicyPolicyDetailsBlock>? PolicyDetails
     {
-        get => GetProperty<List<AwsDlmLifecyclePolicyPolicyDetailsBlock>>("policy_details");
-        set => this.WithProperty("policy_details", value);
+        set => SetProperty("policy_details", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? AvailabilityDomainCount
     {
-        get => GetProperty<TerraformProperty<double>>("availability_domain_count");
-        set => WithProperty("availability_domain_count", value);
+        set => SetProperty("availability_domain_count", value);
     }
 
     /// <summary>
@@ -44,8 +42,7 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Collocation
     {
-        get => GetProperty<TerraformProperty<string>>("collocation");
-        set => WithProperty("collocation", value);
+        set => SetProperty("collocation", value);
     }
 
     /// <summary>
@@ -53,8 +50,7 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? GpuTopology
     {
-        get => GetProperty<TerraformProperty<string>>("gpu_topology");
-        set => WithProperty("gpu_topology", value);
+        set => SetProperty("gpu_topology", value);
     }
 
     /// <summary>
@@ -64,8 +60,7 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? VmCount
     {
-        get => GetProperty<TerraformProperty<double>>("vm_count");
-        set => WithProperty("vm_count", value);
+        set => SetProperty("vm_count", value);
     }
 
 }
@@ -81,8 +76,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? ExpirationTime
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_time");
-        set => WithProperty("expiration_time", value);
+        set => SetProperty("expiration_time", value);
     }
 
     /// <summary>
@@ -90,8 +84,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
@@ -101,8 +94,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
 }
@@ -126,8 +118,7 @@ public class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -135,8 +126,7 @@ public class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -144,8 +134,7 @@ public class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -162,8 +151,7 @@ public class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AcceleratorTopology
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_topology");
-        set => WithProperty("accelerator_topology", value);
+        set => SetProperty("accelerator_topology", value);
     }
 
     /// <summary>
@@ -172,8 +160,7 @@ public class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxTopologyDistance
     {
-        get => GetProperty<TerraformProperty<string>>("max_topology_distance");
-        set => WithProperty("max_topology_distance", value);
+        set => SetProperty("max_topology_distance", value);
     }
 
     /// <summary>
@@ -182,8 +169,7 @@ public class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -201,25 +187,30 @@ public class GoogleComputeResourcePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("self_link");
+        SetOutput("self_link");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -234,26 +225,26 @@ public class GoogleComputeResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where resource policy resides.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -263,8 +254,7 @@ public class GoogleComputeResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskConsistencyGroupPolicy block(s) allowed")]
     public List<GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock>? DiskConsistencyGroupPolicy
     {
-        get => GetProperty<List<GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock>>("disk_consistency_group_policy");
-        set => this.WithProperty("disk_consistency_group_policy", value);
+        set => SetProperty("disk_consistency_group_policy", value);
     }
 
     /// <summary>
@@ -274,8 +264,7 @@ public class GoogleComputeResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupPlacementPolicy block(s) allowed")]
     public List<GoogleComputeResourcePolicyGroupPlacementPolicyBlock>? GroupPlacementPolicy
     {
-        get => GetProperty<List<GoogleComputeResourcePolicyGroupPlacementPolicyBlock>>("group_placement_policy");
-        set => this.WithProperty("group_placement_policy", value);
+        set => SetProperty("group_placement_policy", value);
     }
 
     /// <summary>
@@ -285,8 +274,7 @@ public class GoogleComputeResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceSchedulePolicy block(s) allowed")]
     public List<GoogleComputeResourcePolicyInstanceSchedulePolicyBlock>? InstanceSchedulePolicy
     {
-        get => GetProperty<List<GoogleComputeResourcePolicyInstanceSchedulePolicyBlock>>("instance_schedule_policy");
-        set => this.WithProperty("instance_schedule_policy", value);
+        set => SetProperty("instance_schedule_policy", value);
     }
 
     /// <summary>
@@ -296,8 +284,7 @@ public class GoogleComputeResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotSchedulePolicy block(s) allowed")]
     public List<GoogleComputeResourcePolicySnapshotSchedulePolicyBlock>? SnapshotSchedulePolicy
     {
-        get => GetProperty<List<GoogleComputeResourcePolicySnapshotSchedulePolicyBlock>>("snapshot_schedule_policy");
-        set => this.WithProperty("snapshot_schedule_policy", value);
+        set => SetProperty("snapshot_schedule_policy", value);
     }
 
     /// <summary>
@@ -306,8 +293,7 @@ public class GoogleComputeResourcePolicy : TerraformResource
     /// </summary>
     public GoogleComputeResourcePolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeResourcePolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -317,8 +303,7 @@ public class GoogleComputeResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadPolicy block(s) allowed")]
     public List<GoogleComputeResourcePolicyWorkloadPolicyBlock>? WorkloadPolicy
     {
-        get => GetProperty<List<GoogleComputeResourcePolicyWorkloadPolicyBlock>>("workload_policy");
-        set => this.WithProperty("workload_policy", value);
+        set => SetProperty("workload_policy", value);
     }
 
     /// <summary>

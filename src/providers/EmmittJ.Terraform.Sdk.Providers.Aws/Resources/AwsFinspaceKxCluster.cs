@@ -14,8 +14,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingMetric is required")]
     public required TerraformProperty<string> AutoScalingMetric
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auto_scaling_metric");
-        set => WithProperty("auto_scaling_metric", value);
+        set => SetProperty("auto_scaling_metric", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformProperty<double> MaxNodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_node_count");
-        set => WithProperty("max_node_count", value);
+        set => SetProperty("max_node_count", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricTarget is required")]
     public required TerraformProperty<double> MetricTarget
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("metric_target");
-        set => WithProperty("metric_target", value);
+        set => SetProperty("metric_target", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformProperty<double> MinNodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_node_count");
-        set => WithProperty("min_node_count", value);
+        set => SetProperty("min_node_count", value);
     }
 
     /// <summary>
@@ -54,8 +50,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleInCooldownSeconds is required")]
     public required TerraformProperty<double> ScaleInCooldownSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("scale_in_cooldown_seconds");
-        set => WithProperty("scale_in_cooldown_seconds", value);
+        set => SetProperty("scale_in_cooldown_seconds", value);
     }
 
     /// <summary>
@@ -64,8 +59,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOutCooldownSeconds is required")]
     public required TerraformProperty<double> ScaleOutCooldownSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("scale_out_cooldown_seconds");
-        set => WithProperty("scale_out_cooldown_seconds", value);
+        set => SetProperty("scale_out_cooldown_seconds", value);
     }
 
 }
@@ -82,8 +76,7 @@ public class AwsFinspaceKxClusterCacheStorageConfigurationsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformProperty<double> Size
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AwsFinspaceKxClusterCacheStorageConfigurationsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -110,8 +102,7 @@ public class AwsFinspaceKxClusterCapacityConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
-        set => WithProperty("node_count", value);
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class AwsFinspaceKxClusterCapacityConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
-        set => WithProperty("node_type", value);
+        set => SetProperty("node_type", value);
     }
 
 }
@@ -138,8 +128,7 @@ public class AwsFinspaceKxClusterCodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformProperty<string> S3Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket");
-        set => WithProperty("s3_bucket", value);
+        set => SetProperty("s3_bucket", value);
     }
 
     /// <summary>
@@ -148,8 +137,7 @@ public class AwsFinspaceKxClusterCodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
     public required TerraformProperty<string> S3Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_key");
-        set => WithProperty("s3_key", value);
+        set => SetProperty("s3_key", value);
     }
 
     /// <summary>
@@ -157,8 +145,7 @@ public class AwsFinspaceKxClusterCodeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? S3ObjectVersion
     {
-        get => GetProperty<TerraformProperty<string>>("s3_object_version");
-        set => WithProperty("s3_object_version", value);
+        set => SetProperty("s3_object_version", value);
     }
 
 }
@@ -174,8 +161,7 @@ public class AwsFinspaceKxClusterDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ChangesetId
     {
-        get => GetProperty<TerraformProperty<string>>("changeset_id");
-        set => WithProperty("changeset_id", value);
+        set => SetProperty("changeset_id", value);
     }
 
     /// <summary>
@@ -184,8 +170,7 @@ public class AwsFinspaceKxClusterDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -193,8 +178,7 @@ public class AwsFinspaceKxClusterDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DataviewName
     {
-        get => GetProperty<TerraformProperty<string>>("dataview_name");
-        set => WithProperty("dataview_name", value);
+        set => SetProperty("dataview_name", value);
     }
 
 }
@@ -210,8 +194,7 @@ public class AwsFinspaceKxClusterSavedownStorageConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? Size
     {
-        get => GetProperty<TerraformProperty<double>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
     /// <summary>
@@ -219,8 +202,7 @@ public class AwsFinspaceKxClusterSavedownStorageConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -228,8 +210,7 @@ public class AwsFinspaceKxClusterSavedownStorageConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? VolumeName
     {
-        get => GetProperty<TerraformProperty<string>>("volume_name");
-        set => WithProperty("volume_name", value);
+        set => SetProperty("volume_name", value);
     }
 
 }
@@ -245,8 +226,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Cpu
     {
-        get => GetProperty<TerraformProperty<double>>("cpu");
-        set => WithProperty("cpu", value);
+        set => SetProperty("cpu", value);
     }
 
     /// <summary>
@@ -254,8 +234,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MemoryLimit
     {
-        get => GetProperty<TerraformProperty<double>>("memory_limit");
-        set => WithProperty("memory_limit", value);
+        set => SetProperty("memory_limit", value);
     }
 
     /// <summary>
@@ -264,8 +243,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryReservation is required")]
     public required TerraformProperty<double> MemoryReservation
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("memory_reservation");
-        set => WithProperty("memory_reservation", value);
+        set => SetProperty("memory_reservation", value);
     }
 
     /// <summary>
@@ -274,8 +252,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
-        set => WithProperty("node_count", value);
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
@@ -284,8 +261,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingGroupName is required")]
     public required TerraformProperty<string> ScalingGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scaling_group_name");
-        set => WithProperty("scaling_group_name", value);
+        set => SetProperty("scaling_group_name", value);
     }
 
 }
@@ -302,8 +278,7 @@ public class AwsFinspaceKxClusterTickerplantLogConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TickerplantLogVolumes is required")]
     public HashSet<TerraformProperty<string>>? TickerplantLogVolumes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("tickerplant_log_volumes");
-        set => WithProperty("tickerplant_log_volumes", value);
+        set => SetProperty("tickerplant_log_volumes", value);
     }
 
 }
@@ -319,8 +294,7 @@ public class AwsFinspaceKxClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -328,8 +302,7 @@ public class AwsFinspaceKxClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -337,8 +310,7 @@ public class AwsFinspaceKxClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -355,8 +327,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddressType is required")]
     public required TerraformProperty<string> IpAddressType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_address_type");
-        set => WithProperty("ip_address_type", value);
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
@@ -365,8 +336,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -375,8 +345,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
@@ -385,8 +354,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -404,20 +372,34 @@ public class AwsFinspaceKxCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_timestamp");
-        this.WithOutput("last_modified_timestamp");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
+        SetOutput("arn");
+        SetOutput("created_timestamp");
+        SetOutput("last_modified_timestamp");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("availability_zone_id");
+        SetOutput("az_mode");
+        SetOutput("command_line_arguments");
+        SetOutput("description");
+        SetOutput("environment_id");
+        SetOutput("execution_role");
+        SetOutput("id");
+        SetOutput("initialization_script");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("release_label");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZoneId
+    public TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone_id");
-        set => this.WithProperty("availability_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone_id");
+        set => SetProperty("availability_zone_id", value);
     }
 
     /// <summary>
@@ -426,26 +408,26 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
     public required TerraformProperty<string> AzMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("az_mode");
-        set => this.WithProperty("az_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("az_mode");
+        set => SetProperty("az_mode", value);
     }
 
     /// <summary>
     /// The command_line_arguments attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? CommandLineArguments
+    public Dictionary<string, TerraformProperty<string>> CommandLineArguments
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("command_line_arguments");
-        set => this.WithProperty("command_line_arguments", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("command_line_arguments");
+        set => SetProperty("command_line_arguments", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -454,35 +436,35 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
-        set => this.WithProperty("environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_id");
+        set => SetProperty("environment_id", value);
     }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionRole
+    public TerraformProperty<string> ExecutionRole
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role");
-        set => this.WithProperty("execution_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role");
+        set => SetProperty("execution_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The initialization_script attribute.
     /// </summary>
-    public TerraformProperty<string>? InitializationScript
+    public TerraformProperty<string> InitializationScript
     {
-        get => GetProperty<TerraformProperty<string>>("initialization_script");
-        set => this.WithProperty("initialization_script", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("initialization_script");
+        set => SetProperty("initialization_script", value);
     }
 
     /// <summary>
@@ -491,17 +473,17 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -510,26 +492,26 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformProperty<string> ReleaseLabel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("release_label");
-        set => this.WithProperty("release_label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_label");
+        set => SetProperty("release_label", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -538,8 +520,8 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -549,8 +531,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingConfiguration block(s) allowed")]
     public List<AwsFinspaceKxClusterAutoScalingConfigurationBlock>? AutoScalingConfiguration
     {
-        get => GetProperty<List<AwsFinspaceKxClusterAutoScalingConfigurationBlock>>("auto_scaling_configuration");
-        set => this.WithProperty("auto_scaling_configuration", value);
+        set => SetProperty("auto_scaling_configuration", value);
     }
 
     /// <summary>
@@ -559,8 +540,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// </summary>
     public List<AwsFinspaceKxClusterCacheStorageConfigurationsBlock>? CacheStorageConfigurations
     {
-        get => GetProperty<List<AwsFinspaceKxClusterCacheStorageConfigurationsBlock>>("cache_storage_configurations");
-        set => this.WithProperty("cache_storage_configurations", value);
+        set => SetProperty("cache_storage_configurations", value);
     }
 
     /// <summary>
@@ -570,8 +550,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityConfiguration block(s) allowed")]
     public List<AwsFinspaceKxClusterCapacityConfigurationBlock>? CapacityConfiguration
     {
-        get => GetProperty<List<AwsFinspaceKxClusterCapacityConfigurationBlock>>("capacity_configuration");
-        set => this.WithProperty("capacity_configuration", value);
+        set => SetProperty("capacity_configuration", value);
     }
 
     /// <summary>
@@ -581,8 +560,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Code block(s) allowed")]
     public List<AwsFinspaceKxClusterCodeBlock>? Code
     {
-        get => GetProperty<List<AwsFinspaceKxClusterCodeBlock>>("code");
-        set => this.WithProperty("code", value);
+        set => SetProperty("code", value);
     }
 
     /// <summary>
@@ -591,8 +569,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// </summary>
     public List<AwsFinspaceKxClusterDatabaseBlock>? Database
     {
-        get => GetProperty<List<AwsFinspaceKxClusterDatabaseBlock>>("database");
-        set => this.WithProperty("database", value);
+        set => SetProperty("database", value);
     }
 
     /// <summary>
@@ -602,8 +579,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SavedownStorageConfiguration block(s) allowed")]
     public List<AwsFinspaceKxClusterSavedownStorageConfigurationBlock>? SavedownStorageConfiguration
     {
-        get => GetProperty<List<AwsFinspaceKxClusterSavedownStorageConfigurationBlock>>("savedown_storage_configuration");
-        set => this.WithProperty("savedown_storage_configuration", value);
+        set => SetProperty("savedown_storage_configuration", value);
     }
 
     /// <summary>
@@ -613,8 +589,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingGroupConfiguration block(s) allowed")]
     public List<AwsFinspaceKxClusterScalingGroupConfigurationBlock>? ScalingGroupConfiguration
     {
-        get => GetProperty<List<AwsFinspaceKxClusterScalingGroupConfigurationBlock>>("scaling_group_configuration");
-        set => this.WithProperty("scaling_group_configuration", value);
+        set => SetProperty("scaling_group_configuration", value);
     }
 
     /// <summary>
@@ -623,8 +598,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// </summary>
     public List<AwsFinspaceKxClusterTickerplantLogConfigurationBlock>? TickerplantLogConfiguration
     {
-        get => GetProperty<List<AwsFinspaceKxClusterTickerplantLogConfigurationBlock>>("tickerplant_log_configuration");
-        set => this.WithProperty("tickerplant_log_configuration", value);
+        set => SetProperty("tickerplant_log_configuration", value);
     }
 
     /// <summary>
@@ -633,20 +607,19 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// </summary>
     public AwsFinspaceKxClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFinspaceKxClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for vpc_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     public List<AwsFinspaceKxClusterVpcConfigurationBlock>? VpcConfiguration
     {
-        get => GetProperty<List<AwsFinspaceKxClusterVpcConfigurationBlock>>("vpc_configuration");
-        set => this.WithProperty("vpc_configuration", value);
+        set => SetProperty("vpc_configuration", value);
     }
 
     /// <summary>

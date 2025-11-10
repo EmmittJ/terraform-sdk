@@ -14,17 +14,23 @@ public class AwsDxHostedConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("aws_device");
-        this.WithOutput("connection_region");
-        this.WithOutput("has_logical_redundancy");
-        this.WithOutput("jumbo_frame_capable");
-        this.WithOutput("lag_id");
-        this.WithOutput("loa_issue_time");
-        this.WithOutput("location");
-        this.WithOutput("partner_name");
-        this.WithOutput("provider_name");
-        this.WithOutput("region");
-        this.WithOutput("state");
+        SetOutput("aws_device");
+        SetOutput("connection_region");
+        SetOutput("has_logical_redundancy");
+        SetOutput("jumbo_frame_capable");
+        SetOutput("lag_id");
+        SetOutput("loa_issue_time");
+        SetOutput("location");
+        SetOutput("partner_name");
+        SetOutput("provider_name");
+        SetOutput("region");
+        SetOutput("state");
+        SetOutput("bandwidth");
+        SetOutput("connection_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("owner_account_id");
+        SetOutput("vlan");
     }
 
     /// <summary>
@@ -33,8 +39,8 @@ public class AwsDxHostedConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bandwidth is required")]
     public required TerraformProperty<string> Bandwidth
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bandwidth");
-        set => this.WithProperty("bandwidth", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bandwidth");
+        set => SetProperty("bandwidth", value);
     }
 
     /// <summary>
@@ -43,17 +49,17 @@ public class AwsDxHostedConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
-        set => this.WithProperty("connection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_id");
+        set => SetProperty("connection_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +68,8 @@ public class AwsDxHostedConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +78,8 @@ public class AwsDxHostedConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerAccountId is required")]
     public required TerraformProperty<string> OwnerAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("owner_account_id");
-        set => this.WithProperty("owner_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner_account_id");
+        set => SetProperty("owner_account_id", value);
     }
 
     /// <summary>
@@ -82,8 +88,8 @@ public class AwsDxHostedConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
     public required TerraformProperty<double> Vlan
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("vlan");
-        set => this.WithProperty("vlan", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("vlan");
+        set => SetProperty("vlan", value);
     }
 
     /// <summary>

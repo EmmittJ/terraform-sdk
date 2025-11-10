@@ -13,8 +13,7 @@ public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? BlockPublicAcls
     {
-        get => GetProperty<TerraformProperty<bool>>("block_public_acls");
-        set => WithProperty("block_public_acls", value);
+        set => SetProperty("block_public_acls", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? BlockPublicPolicy
     {
-        get => GetProperty<TerraformProperty<bool>>("block_public_policy");
-        set => WithProperty("block_public_policy", value);
+        set => SetProperty("block_public_policy", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? IgnorePublicAcls
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_public_acls");
-        set => WithProperty("ignore_public_acls", value);
+        set => SetProperty("ignore_public_acls", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? RestrictPublicBuckets
     {
-        get => GetProperty<TerraformProperty<bool>>("restrict_public_buckets");
-        set => WithProperty("restrict_public_buckets", value);
+        set => SetProperty("restrict_public_buckets", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AwsS3AccessPointVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -77,21 +72,30 @@ public class AwsS3AccessPoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("alias");
-        this.WithOutput("arn");
-        this.WithOutput("domain_name");
-        this.WithOutput("endpoints");
-        this.WithOutput("has_public_access_policy");
-        this.WithOutput("network_origin");
+        SetOutput("alias");
+        SetOutput("arn");
+        SetOutput("domain_name");
+        SetOutput("endpoints");
+        SetOutput("has_public_access_policy");
+        SetOutput("network_origin");
+        SetOutput("account_id");
+        SetOutput("bucket");
+        SetOutput("bucket_account_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("policy");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -100,26 +104,26 @@ public class AwsS3AccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The bucket_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BucketAccountId
+    public TerraformProperty<string> BucketAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_account_id");
-        set => this.WithProperty("bucket_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket_account_id");
+        set => SetProperty("bucket_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -128,44 +132,44 @@ public class AwsS3AccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    public TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -175,8 +179,7 @@ public class AwsS3AccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicAccessBlockConfiguration block(s) allowed")]
     public List<AwsS3AccessPointPublicAccessBlockConfigurationBlock>? PublicAccessBlockConfiguration
     {
-        get => GetProperty<List<AwsS3AccessPointPublicAccessBlockConfigurationBlock>>("public_access_block_configuration");
-        set => this.WithProperty("public_access_block_configuration", value);
+        set => SetProperty("public_access_block_configuration", value);
     }
 
     /// <summary>
@@ -186,8 +189,7 @@ public class AwsS3AccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
     public List<AwsS3AccessPointVpcConfigurationBlock>? VpcConfiguration
     {
-        get => GetProperty<List<AwsS3AccessPointVpcConfigurationBlock>>("vpc_configuration");
-        set => this.WithProperty("vpc_configuration", value);
+        set => SetProperty("vpc_configuration", value);
     }
 
     /// <summary>

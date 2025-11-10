@@ -14,6 +14,11 @@ public class AwsPinpointEventStream : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("application_id");
+        SetOutput("destination_stream_arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("role_arn");
     }
 
     /// <summary>
@@ -22,8 +27,8 @@ public class AwsPinpointEventStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -32,26 +37,26 @@ public class AwsPinpointEventStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationStreamArn is required")]
     public required TerraformProperty<string> DestinationStreamArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_stream_arn");
-        set => this.WithProperty("destination_stream_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_stream_arn");
+        set => SetProperty("destination_stream_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -60,8 +65,8 @@ public class AwsPinpointEventStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
 }

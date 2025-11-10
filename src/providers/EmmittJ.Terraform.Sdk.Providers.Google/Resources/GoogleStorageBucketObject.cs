@@ -13,8 +13,7 @@ public class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncryptionAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_algorithm");
-        set => WithProperty("encryption_algorithm", value);
+        set => SetProperty("encryption_algorithm", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
     public required TerraformProperty<string> EncryptionKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("encryption_key");
-        set => WithProperty("encryption_key", value);
+        set => SetProperty("encryption_key", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetainUntilTime is required")]
     public required TerraformProperty<string> RetainUntilTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("retain_until_time");
-        set => WithProperty("retain_until_time", value);
+        set => SetProperty("retain_until_time", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -105,13 +98,32 @@ public class GoogleStorageBucketObject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("crc32c");
-        this.WithOutput("generation");
-        this.WithOutput("md5hash");
-        this.WithOutput("md5hexhash");
-        this.WithOutput("media_link");
-        this.WithOutput("output_name");
-        this.WithOutput("self_link");
+        SetOutput("crc32c");
+        SetOutput("generation");
+        SetOutput("md5hash");
+        SetOutput("md5hexhash");
+        SetOutput("media_link");
+        SetOutput("output_name");
+        SetOutput("self_link");
+        SetOutput("bucket");
+        SetOutput("cache_control");
+        SetOutput("content");
+        SetOutput("content_disposition");
+        SetOutput("content_encoding");
+        SetOutput("content_language");
+        SetOutput("content_type");
+        SetOutput("deletion_policy");
+        SetOutput("detect_md5hash");
+        SetOutput("event_based_hold");
+        SetOutput("force_empty_content_type");
+        SetOutput("id");
+        SetOutput("kms_key_name");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("source");
+        SetOutput("source_md5hash");
+        SetOutput("storage_class");
+        SetOutput("temporary_hold");
     }
 
     /// <summary>
@@ -120,125 +132,125 @@ public class GoogleStorageBucketObject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// Cache-Control directive to specify caching behavior of object data. If omitted and object is accessible to all anonymous users, the default will be public, max-age=3600
     /// </summary>
-    public TerraformProperty<string>? CacheControl
+    public TerraformProperty<string> CacheControl
     {
-        get => GetProperty<TerraformProperty<string>>("cache_control");
-        set => this.WithProperty("cache_control", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cache_control");
+        set => SetProperty("cache_control", value);
     }
 
     /// <summary>
     /// Data as string to be uploaded. Must be defined if source is not. Note: The content field is marked as sensitive. To view the raw contents of the object, please define an output.
     /// </summary>
-    public TerraformProperty<string>? Content
+    public TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
-        set => this.WithProperty("content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content");
+        set => SetProperty("content", value);
     }
 
     /// <summary>
     /// Content-Disposition of the object data.
     /// </summary>
-    public TerraformProperty<string>? ContentDisposition
+    public TerraformProperty<string> ContentDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("content_disposition");
-        set => this.WithProperty("content_disposition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_disposition");
+        set => SetProperty("content_disposition", value);
     }
 
     /// <summary>
     /// Content-Encoding of the object data.
     /// </summary>
-    public TerraformProperty<string>? ContentEncoding
+    public TerraformProperty<string> ContentEncoding
     {
-        get => GetProperty<TerraformProperty<string>>("content_encoding");
-        set => this.WithProperty("content_encoding", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_encoding");
+        set => SetProperty("content_encoding", value);
     }
 
     /// <summary>
     /// Content-Language of the object data.
     /// </summary>
-    public TerraformProperty<string>? ContentLanguage
+    public TerraformProperty<string> ContentLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("content_language");
-        set => this.WithProperty("content_language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_language");
+        set => SetProperty("content_language", value);
     }
 
     /// <summary>
     /// Content-Type of the object data. Defaults to &amp;quot;application/octet-stream&amp;quot; or &amp;quot;text/plain; charset=utf-8&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    public TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => this.WithProperty("content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
     /// The deletion policy for the object. Setting ABANDON allows the resource to be abandoned rather than deleted when removed from your Terraform configuration.
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The detect_md5hash attribute.
     /// </summary>
-    public TerraformProperty<string>? DetectMd5hash
+    public TerraformProperty<string> DetectMd5hash
     {
-        get => GetProperty<TerraformProperty<string>>("detect_md5hash");
-        set => this.WithProperty("detect_md5hash", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("detect_md5hash");
+        set => SetProperty("detect_md5hash", value);
     }
 
     /// <summary>
     /// Whether an object is under event-based hold. Event-based hold is a way to retain objects until an event occurs, which is signified by the hold&#39;s release (i.e. this value is set to false). After being released (set to false), such objects will be subject to bucket-level retention (if any).
     /// </summary>
-    public TerraformProperty<bool>? EventBasedHold
+    public TerraformProperty<bool> EventBasedHold
     {
-        get => GetProperty<TerraformProperty<bool>>("event_based_hold");
-        set => this.WithProperty("event_based_hold", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("event_based_hold");
+        set => SetProperty("event_based_hold", value);
     }
 
     /// <summary>
     /// Flag to set empty Content-Type.
     /// </summary>
-    public TerraformProperty<bool>? ForceEmptyContentType
+    public TerraformProperty<bool> ForceEmptyContentType
     {
-        get => GetProperty<TerraformProperty<bool>>("force_empty_content_type");
-        set => this.WithProperty("force_empty_content_type", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_empty_content_type");
+        set => SetProperty("force_empty_content_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Resource name of the Cloud KMS key that will be used to encrypt the object. Overrides the object metadata&#39;s kmsKeyName value, if any.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
     /// User-provided metadata, in key/value pairs.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -247,44 +259,44 @@ public class GoogleStorageBucketObject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// A path to the data you want to upload. Must be defined if content is not.
     /// </summary>
-    public TerraformProperty<string>? Source
+    public TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>
     /// User-provided md5hash, Base 64 MD5 hash of the object data.
     /// </summary>
-    public TerraformProperty<string>? SourceMd5hash
+    public TerraformProperty<string> SourceMd5hash
     {
-        get => GetProperty<TerraformProperty<string>>("source_md5hash");
-        set => this.WithProperty("source_md5hash", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_md5hash");
+        set => SetProperty("source_md5hash", value);
     }
 
     /// <summary>
     /// The StorageClass of the new bucket object. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE. If not provided, this defaults to the bucket&#39;s default storage class or to a standard class.
     /// </summary>
-    public TerraformProperty<string>? StorageClass
+    public TerraformProperty<string> StorageClass
     {
-        get => GetProperty<TerraformProperty<string>>("storage_class");
-        set => this.WithProperty("storage_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_class");
+        set => SetProperty("storage_class", value);
     }
 
     /// <summary>
     /// Whether an object is under temporary hold. While this flag is set to true, the object is protected against deletion and overwrites.
     /// </summary>
-    public TerraformProperty<bool>? TemporaryHold
+    public TerraformProperty<bool> TemporaryHold
     {
-        get => GetProperty<TerraformProperty<bool>>("temporary_hold");
-        set => this.WithProperty("temporary_hold", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("temporary_hold");
+        set => SetProperty("temporary_hold", value);
     }
 
     /// <summary>
@@ -294,8 +306,7 @@ public class GoogleStorageBucketObject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerEncryption block(s) allowed")]
     public List<GoogleStorageBucketObjectCustomerEncryptionBlock>? CustomerEncryption
     {
-        get => GetProperty<List<GoogleStorageBucketObjectCustomerEncryptionBlock>>("customer_encryption");
-        set => this.WithProperty("customer_encryption", value);
+        set => SetProperty("customer_encryption", value);
     }
 
     /// <summary>
@@ -305,8 +316,7 @@ public class GoogleStorageBucketObject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Retention block(s) allowed")]
     public List<GoogleStorageBucketObjectRetentionBlock>? Retention
     {
-        get => GetProperty<List<GoogleStorageBucketObjectRetentionBlock>>("retention");
-        set => this.WithProperty("retention", value);
+        set => SetProperty("retention", value);
     }
 
     /// <summary>
@@ -315,8 +325,7 @@ public class GoogleStorageBucketObject : TerraformResource
     /// </summary>
     public GoogleStorageBucketObjectTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageBucketObjectTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

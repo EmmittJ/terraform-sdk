@@ -14,17 +14,19 @@ public class GoogleKmsKeyRingIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("id");
+        SetOutput("key_ring_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,8 +35,8 @@ public class GoogleKmsKeyRingIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRingId is required")]
     public required TerraformProperty<string> KeyRingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_ring_id");
-        set => this.WithProperty("key_ring_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_ring_id");
+        set => SetProperty("key_ring_id", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleComputeAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,12 +46,27 @@ public class GoogleComputeAddress : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("effective_labels");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("users");
+        SetOutput("creation_timestamp");
+        SetOutput("effective_labels");
+        SetOutput("label_fingerprint");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("users");
+        SetOutput("address");
+        SetOutput("address_type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("ip_version");
+        SetOutput("ipv6_endpoint_type");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("network_tier");
+        SetOutput("prefix_length");
+        SetOutput("project");
+        SetOutput("purpose");
+        SetOutput("region");
+        SetOutput("subnetwork");
     }
 
     /// <summary>
@@ -62,47 +74,47 @@ public class GoogleComputeAddress : TerraformResource
     /// The IP address must be inside the specified subnetwork,
     /// if any. Set by the API if undefined.
     /// </summary>
-    public TerraformProperty<string>? Address
+    public TerraformProperty<string> Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
-        set => this.WithProperty("address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address");
+        set => SetProperty("address", value);
     }
 
     /// <summary>
     /// The type of address to reserve.
     /// Note: if you set this argument&#39;s value as &#39;INTERNAL&#39; you need to leave the &#39;network_tier&#39; argument unset in that resource block. Default value: &amp;quot;EXTERNAL&amp;quot; Possible values: [&amp;quot;INTERNAL&amp;quot;, &amp;quot;EXTERNAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AddressType
+    public TerraformProperty<string> AddressType
     {
-        get => GetProperty<TerraformProperty<string>>("address_type");
-        set => this.WithProperty("address_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address_type");
+        set => SetProperty("address_type", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The IP Version that will be used by this address. The default value is &#39;IPV4&#39;. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? IpVersion
+    public TerraformProperty<string> IpVersion
     {
-        get => GetProperty<TerraformProperty<string>>("ip_version");
-        set => this.WithProperty("ip_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_version");
+        set => SetProperty("ip_version", value);
     }
 
     /// <summary>
@@ -110,10 +122,10 @@ public class GoogleComputeAddress : TerraformResource
     /// used for deciding which type of endpoint this address can be used after
     /// the external IPv6 address reservation. Possible values: [&amp;quot;VM&amp;quot;, &amp;quot;NETLB&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Ipv6EndpointType
+    public TerraformProperty<string> Ipv6EndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6_endpoint_type");
-        set => this.WithProperty("ipv6_endpoint_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_endpoint_type");
+        set => SetProperty("ipv6_endpoint_type", value);
     }
 
     /// <summary>
@@ -123,10 +135,10 @@ public class GoogleComputeAddress : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -140,8 +152,8 @@ public class GoogleComputeAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -149,10 +161,10 @@ public class GoogleComputeAddress : TerraformResource
     /// can only be used with INTERNAL type with the VPC_PEERING and
     /// IPSEC_INTERCONNECT purposes.
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -160,28 +172,28 @@ public class GoogleComputeAddress : TerraformResource
     /// specified, it is assumed to be PREMIUM.
     /// This argument should not be used when configuring Internal addresses, because [network tier cannot be set for internal traffic; it&#39;s always Premium](https://cloud.google.com/network-tiers/docs/overview). Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NetworkTier
+    public TerraformProperty<string> NetworkTier
     {
-        get => GetProperty<TerraformProperty<string>>("network_tier");
-        set => this.WithProperty("network_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_tier");
+        set => SetProperty("network_tier", value);
     }
 
     /// <summary>
     /// The prefix length if the resource represents an IP range.
     /// </summary>
-    public TerraformProperty<double>? PrefixLength
+    public TerraformProperty<double> PrefixLength
     {
-        get => GetProperty<TerraformProperty<double>>("prefix_length");
-        set => this.WithProperty("prefix_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("prefix_length");
+        set => SetProperty("prefix_length", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -205,20 +217,20 @@ public class GoogleComputeAddress : TerraformResource
     /// 
     /// This should only be set when using an Internal address.
     /// </summary>
-    public TerraformProperty<string>? Purpose
+    public TerraformProperty<string> Purpose
     {
-        get => GetProperty<TerraformProperty<string>>("purpose");
-        set => this.WithProperty("purpose", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("purpose");
+        set => SetProperty("purpose", value);
     }
 
     /// <summary>
     /// The Region in which the created address should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -227,10 +239,10 @@ public class GoogleComputeAddress : TerraformResource
     /// This field can only be used with INTERNAL type with
     /// GCE_ENDPOINT/DNS_RESOLVER purposes.
     /// </summary>
-    public TerraformProperty<string>? Subnetwork
+    public TerraformProperty<string> Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => this.WithProperty("subnetwork", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnetwork");
+        set => SetProperty("subnetwork", value);
     }
 
     /// <summary>
@@ -239,8 +251,7 @@ public class GoogleComputeAddress : TerraformResource
     /// </summary>
     public GoogleComputeAddressTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeAddressTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

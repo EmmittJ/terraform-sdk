@@ -14,35 +14,38 @@ public class AwsApiGatewayApiKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("items");
+        SetOutput("id");
+        SetOutput("items");
+        SetOutput("customer_id");
+        SetOutput("include_values");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The customer_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerId
+    public TerraformProperty<string> CustomerId
     {
-        get => GetProperty<TerraformProperty<string>>("customer_id");
-        set => this.WithProperty("customer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_id");
+        set => SetProperty("customer_id", value);
     }
 
     /// <summary>
     /// The include_values attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeValues
+    public TerraformProperty<bool> IncludeValues
     {
-        get => GetProperty<TerraformProperty<bool>>("include_values");
-        set => this.WithProperty("include_values", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_values");
+        set => SetProperty("include_values", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

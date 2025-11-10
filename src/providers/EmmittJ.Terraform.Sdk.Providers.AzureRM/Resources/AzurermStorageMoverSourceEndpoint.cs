@@ -13,8 +13,7 @@ public class AzurermStorageMoverSourceEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageMoverSourceEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageMoverSourceEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStorageMoverSourceEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,31 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("export");
+        SetOutput("host");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("nfs_version");
+        SetOutput("storage_mover_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The export attribute.
     /// </summary>
-    public TerraformProperty<string>? Export
+    public TerraformProperty<string> Export
     {
-        get => GetProperty<TerraformProperty<string>>("export");
-        set => this.WithProperty("export", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("export");
+        set => SetProperty("export", value);
     }
 
     /// <summary>
@@ -84,17 +87,17 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host");
-        set => this.WithProperty("host", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host");
+        set => SetProperty("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,17 +106,17 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The nfs_version attribute.
     /// </summary>
-    public TerraformProperty<string>? NfsVersion
+    public TerraformProperty<string> NfsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("nfs_version");
-        set => this.WithProperty("nfs_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nfs_version");
+        set => SetProperty("nfs_version", value);
     }
 
     /// <summary>
@@ -122,8 +125,8 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverId is required")]
     public required TerraformProperty<string> StorageMoverId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_mover_id");
-        set => this.WithProperty("storage_mover_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_mover_id");
+        set => SetProperty("storage_mover_id", value);
     }
 
     /// <summary>
@@ -132,8 +135,7 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     /// </summary>
     public AzurermStorageMoverSourceEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageMoverSourceEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

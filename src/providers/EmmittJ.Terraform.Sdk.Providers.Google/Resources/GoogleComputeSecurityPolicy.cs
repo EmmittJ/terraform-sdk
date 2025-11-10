@@ -21,8 +21,7 @@ public class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? JsonParsing
     {
-        get => GetProperty<TerraformProperty<string>>("json_parsing");
-        set => WithProperty("json_parsing", value);
+        set => SetProperty("json_parsing", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? LogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("log_level");
-        set => WithProperty("log_level", value);
+        set => SetProperty("log_level", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? UserIpRequestHeaders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("user_ip_request_headers");
-        set => WithProperty("user_ip_request_headers", value);
+        set => SetProperty("user_ip_request_headers", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectSiteKey is required")]
     public required TerraformProperty<string> RedirectSiteKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("redirect_site_key");
-        set => WithProperty("redirect_site_key", value);
+        set => SetProperty("redirect_site_key", value);
     }
 
 }
@@ -75,8 +71,7 @@ public class GoogleComputeSecurityPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -84,8 +79,7 @@ public class GoogleComputeSecurityPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class GoogleComputeSecurityPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Preview
     {
-        get => GetProperty<TerraformProperty<bool>>("preview");
-        set => WithProperty("preview", value);
+        set => SetProperty("preview", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class GoogleComputeSecurityPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
 }
@@ -120,8 +112,7 @@ public class GoogleComputeSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -129,8 +120,7 @@ public class GoogleComputeSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -138,8 +128,7 @@ public class GoogleComputeSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -157,29 +146,35 @@ public class GoogleComputeSecurityPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("fingerprint");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("fingerprint");
+        SetOutput("label_fingerprint");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("type");
     }
 
     /// <summary>
     /// An optional description of this security policy. Max size is 2048.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -189,10 +184,10 @@ public class GoogleComputeSecurityPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -201,26 +196,26 @@ public class GoogleComputeSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The type indicates the intended use of the security policy. CLOUD_ARMOR - Cloud Armor backend security policies can be configured to filter incoming HTTP requests targeting backend services. They filter requests before they hit the origin servers. CLOUD_ARMOR_EDGE - Cloud Armor edge security policies can be configured to filter incoming HTTP requests targeting backend services (including Cloud CDN-enabled) as well as backend buckets (Cloud Storage). They filter requests before the request is served from Google&#39;s cache.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -230,8 +225,7 @@ public class GoogleComputeSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdaptiveProtectionConfig block(s) allowed")]
     public List<GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock>? AdaptiveProtectionConfig
     {
-        get => GetProperty<List<GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock>>("adaptive_protection_config");
-        set => this.WithProperty("adaptive_protection_config", value);
+        set => SetProperty("adaptive_protection_config", value);
     }
 
     /// <summary>
@@ -241,8 +235,7 @@ public class GoogleComputeSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedOptionsConfig block(s) allowed")]
     public List<GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock>? AdvancedOptionsConfig
     {
-        get => GetProperty<List<GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock>>("advanced_options_config");
-        set => this.WithProperty("advanced_options_config", value);
+        set => SetProperty("advanced_options_config", value);
     }
 
     /// <summary>
@@ -252,8 +245,7 @@ public class GoogleComputeSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecaptchaOptionsConfig block(s) allowed")]
     public List<GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock>? RecaptchaOptionsConfig
     {
-        get => GetProperty<List<GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock>>("recaptcha_options_config");
-        set => this.WithProperty("recaptcha_options_config", value);
+        set => SetProperty("recaptcha_options_config", value);
     }
 
     /// <summary>
@@ -262,8 +254,7 @@ public class GoogleComputeSecurityPolicy : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeSecurityPolicyRuleBlock>? Rule
     {
-        get => GetProperty<HashSet<GoogleComputeSecurityPolicyRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
@@ -272,8 +263,7 @@ public class GoogleComputeSecurityPolicy : TerraformResource
     /// </summary>
     public GoogleComputeSecurityPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeSecurityPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

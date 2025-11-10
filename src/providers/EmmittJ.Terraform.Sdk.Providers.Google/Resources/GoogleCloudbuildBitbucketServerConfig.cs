@@ -14,8 +14,7 @@ public class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
     public required TerraformProperty<string> ProjectKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_key");
-        set => WithProperty("project_key", value);
+        set => SetProperty("project_key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
     public required TerraformProperty<string> RepoSlug
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repo_slug");
-        set => WithProperty("repo_slug", value);
+        set => SetProperty("repo_slug", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminAccessTokenVersionName is required")]
     public required TerraformProperty<string> AdminAccessTokenVersionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_access_token_version_name");
-        set => WithProperty("admin_access_token_version_name", value);
+        set => SetProperty("admin_access_token_version_name", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadAccessTokenVersionName is required")]
     public required TerraformProperty<string> ReadAccessTokenVersionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("read_access_token_version_name");
-        set => WithProperty("read_access_token_version_name", value);
+        set => SetProperty("read_access_token_version_name", value);
     }
 
     /// <summary>
@@ -63,8 +59,7 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretVersionName is required")]
     public required TerraformProperty<string> WebhookSecretVersionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("webhook_secret_version_name");
-        set => WithProperty("webhook_secret_version_name", value);
+        set => SetProperty("webhook_secret_version_name", value);
     }
 
 }
@@ -80,8 +75,7 @@ public class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -89,8 +83,7 @@ public class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -98,8 +91,7 @@ public class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -117,8 +109,17 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("webhook_key");
+        SetOutput("name");
+        SetOutput("webhook_key");
+        SetOutput("api_key");
+        SetOutput("config_id");
+        SetOutput("host_uri");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("peered_network");
+        SetOutput("project");
+        SetOutput("ssl_ca");
+        SetOutput("username");
     }
 
     /// <summary>
@@ -128,8 +129,8 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformProperty<string> ApiKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_key");
-        set => this.WithProperty("api_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_key");
+        set => SetProperty("api_key", value);
     }
 
     /// <summary>
@@ -138,8 +139,8 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformProperty<string> ConfigId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("config_id");
-        set => this.WithProperty("config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("config_id");
+        set => SetProperty("config_id", value);
     }
 
     /// <summary>
@@ -149,17 +150,17 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformProperty<string> HostUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_uri");
-        set => this.WithProperty("host_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_uri");
+        set => SetProperty("host_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -168,8 +169,8 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -178,28 +179,28 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     /// no network peering will occur and calls to the Bitbucket Server instance will be made over the public internet. Must be in the format
     /// projects/{project}/global/networks/{network}, where {project} is a project number or id and {network} is the name of a VPC network in the project.
     /// </summary>
-    public TerraformProperty<string>? PeeredNetwork
+    public TerraformProperty<string> PeeredNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("peered_network");
-        set => this.WithProperty("peered_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peered_network");
+        set => SetProperty("peered_network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// SSL certificate to use for requests to Bitbucket Server. The format should be PEM format but the extension can be one of .pem, .cer, or .crt.
     /// </summary>
-    public TerraformProperty<string>? SslCa
+    public TerraformProperty<string> SslCa
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_ca");
-        set => this.WithProperty("ssl_ca", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ssl_ca");
+        set => SetProperty("ssl_ca", value);
     }
 
     /// <summary>
@@ -208,8 +209,8 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -218,20 +219,19 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     /// </summary>
     public HashSet<GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock>? ConnectedRepositories
     {
-        get => GetProperty<HashSet<GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock>>("connected_repositories");
-        set => this.WithProperty("connected_repositories", value);
+        set => SetProperty("connected_repositories", value);
     }
 
     /// <summary>
     /// Block for secrets.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secrets is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Secrets block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Secrets block(s) allowed")]
     public List<GoogleCloudbuildBitbucketServerConfigSecretsBlock>? Secrets
     {
-        get => GetProperty<List<GoogleCloudbuildBitbucketServerConfigSecretsBlock>>("secrets");
-        set => this.WithProperty("secrets", value);
+        set => SetProperty("secrets", value);
     }
 
     /// <summary>
@@ -240,8 +240,7 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     /// </summary>
     public GoogleCloudbuildBitbucketServerConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudbuildBitbucketServerConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,26 +14,29 @@ public class GoogleComputeBackendBucketDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("bucket_name");
-        this.WithOutput("cdn_policy");
-        this.WithOutput("compression_mode");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("custom_response_headers");
-        this.WithOutput("description");
-        this.WithOutput("edge_security_policy");
-        this.WithOutput("enable_cdn");
-        this.WithOutput("load_balancing_scheme");
-        this.WithOutput("params");
-        this.WithOutput("self_link");
+        SetOutput("bucket_name");
+        SetOutput("cdn_policy");
+        SetOutput("compression_mode");
+        SetOutput("creation_timestamp");
+        SetOutput("custom_response_headers");
+        SetOutput("description");
+        SetOutput("edge_security_policy");
+        SetOutput("enable_cdn");
+        SetOutput("load_balancing_scheme");
+        SetOutput("params");
+        SetOutput("self_link");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -48,17 +51,17 @@ public class GoogleComputeBackendBucketDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

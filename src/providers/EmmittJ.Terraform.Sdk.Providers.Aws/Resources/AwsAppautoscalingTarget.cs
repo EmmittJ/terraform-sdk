@@ -13,8 +13,7 @@ public class AwsAppautoscalingTargetSuspendedStateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DynamicScalingInSuspended
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_scaling_in_suspended");
-        set => WithProperty("dynamic_scaling_in_suspended", value);
+        set => SetProperty("dynamic_scaling_in_suspended", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAppautoscalingTargetSuspendedStateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DynamicScalingOutSuspended
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_scaling_out_suspended");
-        set => WithProperty("dynamic_scaling_out_suspended", value);
+        set => SetProperty("dynamic_scaling_out_suspended", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsAppautoscalingTargetSuspendedStateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ScheduledScalingSuspended
     {
-        get => GetProperty<TerraformProperty<bool>>("scheduled_scaling_suspended");
-        set => WithProperty("scheduled_scaling_suspended", value);
+        set => SetProperty("scheduled_scaling_suspended", value);
     }
 
 }
@@ -50,16 +47,26 @@ public class AwsAppautoscalingTarget : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("max_capacity");
+        SetOutput("min_capacity");
+        SetOutput("region");
+        SetOutput("resource_id");
+        SetOutput("role_arn");
+        SetOutput("scalable_dimension");
+        SetOutput("service_namespace");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +75,8 @@ public class AwsAppautoscalingTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformProperty<double> MaxCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_capacity");
-        set => this.WithProperty("max_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_capacity");
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
@@ -78,17 +85,17 @@ public class AwsAppautoscalingTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformProperty<double> MinCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_capacity");
-        set => this.WithProperty("min_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_capacity");
+        set => SetProperty("min_capacity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -97,17 +104,17 @@ public class AwsAppautoscalingTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -116,8 +123,8 @@ public class AwsAppautoscalingTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     public required TerraformProperty<string> ScalableDimension
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scalable_dimension");
-        set => this.WithProperty("scalable_dimension", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scalable_dimension");
+        set => SetProperty("scalable_dimension", value);
     }
 
     /// <summary>
@@ -126,26 +133,26 @@ public class AwsAppautoscalingTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformProperty<string> ServiceNamespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_namespace");
-        set => this.WithProperty("service_namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_namespace");
+        set => SetProperty("service_namespace", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -155,8 +162,7 @@ public class AwsAppautoscalingTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SuspendedState block(s) allowed")]
     public List<AwsAppautoscalingTargetSuspendedStateBlock>? SuspendedState
     {
-        get => GetProperty<List<AwsAppautoscalingTargetSuspendedStateBlock>>("suspended_state");
-        set => this.WithProperty("suspended_state", value);
+        set => SetProperty("suspended_state", value);
     }
 
     /// <summary>

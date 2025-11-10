@@ -14,16 +14,22 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("key");
+        SetOutput("key");
+        SetOutput("id");
+        SetOutput("key_name");
+        SetOutput("key_role");
+        SetOutput("region");
+        SetOutput("seconds_to_live");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,8 +38,8 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     public required TerraformProperty<string> KeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_name");
-        set => this.WithProperty("key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_name");
+        set => SetProperty("key_name", value);
     }
 
     /// <summary>
@@ -42,17 +48,17 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRole is required")]
     public required TerraformProperty<string> KeyRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_role");
-        set => this.WithProperty("key_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_role");
+        set => SetProperty("key_role", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -61,8 +67,8 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondsToLive is required")]
     public required TerraformProperty<double> SecondsToLive
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("seconds_to_live");
-        set => this.WithProperty("seconds_to_live", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("seconds_to_live");
+        set => SetProperty("seconds_to_live", value);
     }
 
     /// <summary>
@@ -71,8 +77,8 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>

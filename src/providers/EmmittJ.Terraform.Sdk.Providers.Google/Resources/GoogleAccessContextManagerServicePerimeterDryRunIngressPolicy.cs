@@ -17,8 +17,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngres
     /// </summary>
     public List<TerraformProperty<string>>? Identities
     {
-        get => GetProperty<List<TerraformProperty<string>>>("identities");
-        set => WithProperty("identities", value);
+        set => SetProperty("identities", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngres
     /// </summary>
     public TerraformProperty<string>? IdentityType
     {
-        get => GetProperty<TerraformProperty<string>>("identity_type");
-        set => WithProperty("identity_type", value);
+        set => SetProperty("identity_type", value);
     }
 
 }
@@ -52,8 +50,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngres
     /// </summary>
     public List<TerraformProperty<string>>? Resources
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resources");
-        set => WithProperty("resources", value);
+        set => SetProperty("resources", value);
     }
 
     /// <summary>
@@ -63,8 +60,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngres
     /// </summary>
     public List<TerraformProperty<string>>? Roles
     {
-        get => GetProperty<List<TerraformProperty<string>>>("roles");
-        set => WithProperty("roles", value);
+        set => SetProperty("roles", value);
     }
 
 }
@@ -80,8 +76,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeou
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -89,8 +84,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeou
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -108,17 +102,20 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicy : Ter
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_policy_id");
-        this.WithOutput("etag");
+        SetOutput("access_policy_id");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("perimeter");
+        SetOutput("title");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -127,17 +124,17 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicy : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Perimeter is required")]
     public required TerraformProperty<string> Perimeter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("perimeter");
-        set => this.WithProperty("perimeter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("perimeter");
+        set => SetProperty("perimeter", value);
     }
 
     /// <summary>
     /// Human readable title. Must be unique within the perimeter. Does not affect behavior.
     /// </summary>
-    public TerraformProperty<string>? Title
+    public TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
-        set => this.WithProperty("title", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("title");
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -147,8 +144,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicy : Ter
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressFrom block(s) allowed")]
     public List<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressFromBlock>? IngressFrom
     {
-        get => GetProperty<List<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressFromBlock>>("ingress_from");
-        set => this.WithProperty("ingress_from", value);
+        set => SetProperty("ingress_from", value);
     }
 
     /// <summary>
@@ -158,8 +154,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicy : Ter
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressTo block(s) allowed")]
     public List<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressToBlock>? IngressTo
     {
-        get => GetProperty<List<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressToBlock>>("ingress_to");
-        set => this.WithProperty("ingress_to", value);
+        set => SetProperty("ingress_to", value);
     }
 
     /// <summary>
@@ -168,8 +163,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicy : Ter
     /// </summary>
     public GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,11 @@ public class GoogleIapClientDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("display_name");
-        this.WithOutput("secret");
+        SetOutput("display_name");
+        SetOutput("secret");
+        SetOutput("brand");
+        SetOutput("client_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -26,8 +29,8 @@ public class GoogleIapClientDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
     public required TerraformProperty<string> Brand
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("brand");
-        set => this.WithProperty("brand", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("brand");
+        set => SetProperty("brand", value);
     }
 
     /// <summary>
@@ -36,17 +39,17 @@ public class GoogleIapClientDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsEc2NetworkInsightsPathDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsEc2NetworkInsightsPathDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -42,53 +40,57 @@ public class AwsEc2NetworkInsightsPathDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("destination");
-        this.WithOutput("destination_arn");
-        this.WithOutput("destination_ip");
-        this.WithOutput("destination_port");
-        this.WithOutput("filter_at_destination");
-        this.WithOutput("filter_at_source");
-        this.WithOutput("protocol");
-        this.WithOutput("source");
-        this.WithOutput("source_arn");
-        this.WithOutput("source_ip");
+        SetOutput("arn");
+        SetOutput("destination");
+        SetOutput("destination_arn");
+        SetOutput("destination_ip");
+        SetOutput("destination_port");
+        SetOutput("filter_at_destination");
+        SetOutput("filter_at_source");
+        SetOutput("protocol");
+        SetOutput("source");
+        SetOutput("source_arn");
+        SetOutput("source_ip");
+        SetOutput("id");
+        SetOutput("network_insights_path_id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The network_insights_path_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInsightsPathId
+    public TerraformProperty<string> NetworkInsightsPathId
     {
-        get => GetProperty<TerraformProperty<string>>("network_insights_path_id");
-        set => this.WithProperty("network_insights_path_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_insights_path_id");
+        set => SetProperty("network_insights_path_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -97,8 +99,7 @@ public class AwsEc2NetworkInsightsPathDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsEc2NetworkInsightsPathDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsEc2NetworkInsightsPathDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>

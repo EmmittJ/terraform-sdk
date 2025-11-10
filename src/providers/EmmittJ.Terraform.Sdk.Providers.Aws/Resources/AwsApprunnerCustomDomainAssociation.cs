@@ -14,9 +14,14 @@ public class AwsApprunnerCustomDomainAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate_validation_records");
-        this.WithOutput("dns_target");
-        this.WithOutput("status");
+        SetOutput("certificate_validation_records");
+        SetOutput("dns_target");
+        SetOutput("status");
+        SetOutput("domain_name");
+        SetOutput("enable_www_subdomain");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("service_arn");
     }
 
     /// <summary>
@@ -25,35 +30,35 @@ public class AwsApprunnerCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The enable_www_subdomain attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableWwwSubdomain
+    public TerraformProperty<bool> EnableWwwSubdomain
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_www_subdomain");
-        set => this.WithProperty("enable_www_subdomain", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_www_subdomain");
+        set => SetProperty("enable_www_subdomain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -62,8 +67,8 @@ public class AwsApprunnerCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
     public required TerraformProperty<string> ServiceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_arn");
-        set => this.WithProperty("service_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_arn");
+        set => SetProperty("service_arn", value);
     }
 
     /// <summary>

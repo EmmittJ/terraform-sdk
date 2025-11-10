@@ -13,8 +13,7 @@ public class AwsRoute53VpcAssociationAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRoute53VpcAssociationAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRoute53VpcAssociationAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,19 @@ public class AwsRoute53VpcAssociationAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("vpc_id");
+        SetOutput("vpc_region");
+        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,17 +67,17 @@ public class AwsRoute53VpcAssociationAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
     /// The vpc_region attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcRegion
+    public TerraformProperty<string> VpcRegion
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_region");
-        set => this.WithProperty("vpc_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_region");
+        set => SetProperty("vpc_region", value);
     }
 
     /// <summary>
@@ -85,8 +86,8 @@ public class AwsRoute53VpcAssociationAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
-        set => this.WithProperty("zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
+        set => SetProperty("zone_id", value);
     }
 
     /// <summary>
@@ -95,8 +96,7 @@ public class AwsRoute53VpcAssociationAuthorization : TerraformResource
     /// </summary>
     public AwsRoute53VpcAssociationAuthorizationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53VpcAssociationAuthorizationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

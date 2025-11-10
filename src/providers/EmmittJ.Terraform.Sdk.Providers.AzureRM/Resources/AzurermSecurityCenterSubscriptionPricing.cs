@@ -13,8 +13,7 @@ public class AzurermSecurityCenterSubscriptionPricingExtensionBlock : TerraformB
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? AdditionalExtensionProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_extension_properties");
-        set => WithProperty("additional_extension_properties", value);
+        set => SetProperty("additional_extension_properties", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermSecurityCenterSubscriptionPricingExtensionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,33 +79,37 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("resource_type");
+        SetOutput("subplan");
+        SetOutput("tier");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
+    public TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
-        set => this.WithProperty("resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
     /// The subplan attribute.
     /// </summary>
-    public TerraformProperty<string>? Subplan
+    public TerraformProperty<string> Subplan
     {
-        get => GetProperty<TerraformProperty<string>>("subplan");
-        set => this.WithProperty("subplan", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subplan");
+        set => SetProperty("subplan", value);
     }
 
     /// <summary>
@@ -120,8 +118,8 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
@@ -130,8 +128,7 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     /// </summary>
     public HashSet<AzurermSecurityCenterSubscriptionPricingExtensionBlock>? Extension
     {
-        get => GetProperty<HashSet<AzurermSecurityCenterSubscriptionPricingExtensionBlock>>("extension");
-        set => this.WithProperty("extension", value);
+        set => SetProperty("extension", value);
     }
 
     /// <summary>
@@ -140,8 +137,7 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     /// </summary>
     public AzurermSecurityCenterSubscriptionPricingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSecurityCenterSubscriptionPricingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

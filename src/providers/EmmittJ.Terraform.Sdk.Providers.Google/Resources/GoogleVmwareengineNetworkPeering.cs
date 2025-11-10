@@ -13,8 +13,7 @@ public class GoogleVmwareengineNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleVmwareengineNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleVmwareengineNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,66 +46,77 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("state");
-        this.WithOutput("state_details");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("vmware_engine_network_canonical");
+        SetOutput("create_time");
+        SetOutput("state");
+        SetOutput("state_details");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("vmware_engine_network_canonical");
+        SetOutput("description");
+        SetOutput("export_custom_routes");
+        SetOutput("export_custom_routes_with_public_ip");
+        SetOutput("id");
+        SetOutput("import_custom_routes");
+        SetOutput("import_custom_routes_with_public_ip");
+        SetOutput("name");
+        SetOutput("peer_network");
+        SetOutput("peer_network_type");
+        SetOutput("project");
+        SetOutput("vmware_engine_network");
     }
 
     /// <summary>
     /// User-provided description for this network peering.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// True if custom routes are exported to the peered network; false otherwise.
     /// </summary>
-    public TerraformProperty<bool>? ExportCustomRoutes
+    public TerraformProperty<bool> ExportCustomRoutes
     {
-        get => GetProperty<TerraformProperty<bool>>("export_custom_routes");
-        set => this.WithProperty("export_custom_routes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("export_custom_routes");
+        set => SetProperty("export_custom_routes", value);
     }
 
     /// <summary>
     /// True if all subnet routes with a public IP address range are exported; false otherwise.
     /// </summary>
-    public TerraformProperty<bool>? ExportCustomRoutesWithPublicIp
+    public TerraformProperty<bool> ExportCustomRoutesWithPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("export_custom_routes_with_public_ip");
-        set => this.WithProperty("export_custom_routes_with_public_ip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("export_custom_routes_with_public_ip");
+        set => SetProperty("export_custom_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// True if custom routes are imported from the peered network; false otherwise.
     /// </summary>
-    public TerraformProperty<bool>? ImportCustomRoutes
+    public TerraformProperty<bool> ImportCustomRoutes
     {
-        get => GetProperty<TerraformProperty<bool>>("import_custom_routes");
-        set => this.WithProperty("import_custom_routes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("import_custom_routes");
+        set => SetProperty("import_custom_routes", value);
     }
 
     /// <summary>
     /// True if custom routes are imported from the peered network; false otherwise.
     /// </summary>
-    public TerraformProperty<bool>? ImportCustomRoutesWithPublicIp
+    public TerraformProperty<bool> ImportCustomRoutesWithPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("import_custom_routes_with_public_ip");
-        set => this.WithProperty("import_custom_routes_with_public_ip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("import_custom_routes_with_public_ip");
+        set => SetProperty("import_custom_routes_with_public_ip", value);
     }
 
     /// <summary>
@@ -117,8 +125,8 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -128,8 +136,8 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetwork is required")]
     public required TerraformProperty<string> PeerNetwork
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_network");
-        set => this.WithProperty("peer_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_network");
+        set => SetProperty("peer_network", value);
     }
 
     /// <summary>
@@ -138,17 +146,17 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetworkType is required")]
     public required TerraformProperty<string> PeerNetworkType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_network_type");
-        set => this.WithProperty("peer_network_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_network_type");
+        set => SetProperty("peer_network_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -159,8 +167,8 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareEngineNetwork is required")]
     public required TerraformProperty<string> VmwareEngineNetwork
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vmware_engine_network");
-        set => this.WithProperty("vmware_engine_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vmware_engine_network");
+        set => SetProperty("vmware_engine_network", value);
     }
 
     /// <summary>
@@ -169,8 +177,7 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     /// </summary>
     public GoogleVmwareengineNetworkPeeringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVmwareengineNetworkPeeringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

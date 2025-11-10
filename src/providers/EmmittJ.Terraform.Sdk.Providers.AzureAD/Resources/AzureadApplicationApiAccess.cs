@@ -13,8 +13,7 @@ public class AzureadApplicationApiAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadApplicationApiAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadApplicationApiAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadApplicationApiAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,11 @@ public class AzureadApplicationApiAccess : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_client_id");
+        SetOutput("application_id");
+        SetOutput("id");
+        SetOutput("role_ids");
+        SetOutput("scope_ids");
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AzureadApplicationApiAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiClientId is required")]
     public required TerraformProperty<string> ApiClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_client_id");
-        set => this.WithProperty("api_client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_client_id");
+        set => SetProperty("api_client_id", value);
     }
 
     /// <summary>
@@ -76,35 +77,35 @@ public class AzureadApplicationApiAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// A set of role IDs to be granted to the application, as published by the API
     /// </summary>
-    public HashSet<TerraformProperty<string>>? RoleIds
+    public HashSet<TerraformProperty<string>> RoleIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("role_ids");
-        set => this.WithProperty("role_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("role_ids");
+        set => SetProperty("role_ids", value);
     }
 
     /// <summary>
     /// A set of scope IDs to be granted to the application, as published by the API
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ScopeIds
+    public HashSet<TerraformProperty<string>> ScopeIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scope_ids");
-        set => this.WithProperty("scope_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scope_ids");
+        set => SetProperty("scope_ids", value);
     }
 
     /// <summary>
@@ -113,8 +114,7 @@ public class AzureadApplicationApiAccess : TerraformResource
     /// </summary>
     public AzureadApplicationApiAccessTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationApiAccessTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,8 +14,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformProperty<string> KeyAlgorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_algorithm");
-        set => WithProperty("key_algorithm", value);
+        set => SetProperty("key_algorithm", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyClass is required")]
     public required TerraformProperty<string> KeyClass
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_class");
-        set => WithProperty("key_class", value);
+        set => SetProperty("key_class", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUsage is required")]
     public required TerraformProperty<string> KeyUsage
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_usage");
-        set => WithProperty("key_usage", value);
+        set => SetProperty("key_usage", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AwsPaymentcryptographyKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsPaymentcryptographyKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsPaymentcryptographyKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,30 +81,36 @@ public class AwsPaymentcryptographyKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("key_check_value");
-        this.WithOutput("key_origin");
-        this.WithOutput("key_state");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("key_check_value");
+        SetOutput("key_origin");
+        SetOutput("key_state");
+        SetOutput("tags_all");
+        SetOutput("deletion_window_in_days");
+        SetOutput("enabled");
+        SetOutput("exportable");
+        SetOutput("key_check_value_algorithm");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The deletion_window_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? DeletionWindowInDays
+    public TerraformProperty<double> DeletionWindowInDays
     {
-        get => GetProperty<TerraformProperty<double>>("deletion_window_in_days");
-        set => this.WithProperty("deletion_window_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("deletion_window_in_days");
+        set => SetProperty("deletion_window_in_days", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -119,35 +119,35 @@ public class AwsPaymentcryptographyKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exportable is required")]
     public required TerraformProperty<bool> Exportable
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("exportable");
-        set => this.WithProperty("exportable", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("exportable");
+        set => SetProperty("exportable", value);
     }
 
     /// <summary>
     /// The key_check_value_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyCheckValueAlgorithm
+    public TerraformProperty<string> KeyCheckValueAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("key_check_value_algorithm");
-        set => this.WithProperty("key_check_value_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_check_value_algorithm");
+        set => SetProperty("key_check_value_algorithm", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -156,8 +156,7 @@ public class AwsPaymentcryptographyKey : TerraformResource
     /// </summary>
     public List<AwsPaymentcryptographyKeyKeyAttributesBlock>? KeyAttributes
     {
-        get => GetProperty<List<AwsPaymentcryptographyKeyKeyAttributesBlock>>("key_attributes");
-        set => this.WithProperty("key_attributes", value);
+        set => SetProperty("key_attributes", value);
     }
 
     /// <summary>
@@ -166,8 +165,7 @@ public class AwsPaymentcryptographyKey : TerraformResource
     /// </summary>
     public AwsPaymentcryptographyKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsPaymentcryptographyKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

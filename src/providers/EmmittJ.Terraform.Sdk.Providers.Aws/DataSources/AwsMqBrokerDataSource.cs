@@ -14,69 +14,74 @@ public class AwsMqBrokerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("authentication_strategy");
-        this.WithOutput("auto_minor_version_upgrade");
-        this.WithOutput("configuration");
-        this.WithOutput("deployment_mode");
-        this.WithOutput("encryption_options");
-        this.WithOutput("engine_type");
-        this.WithOutput("engine_version");
-        this.WithOutput("host_instance_type");
-        this.WithOutput("instances");
-        this.WithOutput("ldap_server_metadata");
-        this.WithOutput("logs");
-        this.WithOutput("maintenance_window_start_time");
-        this.WithOutput("publicly_accessible");
-        this.WithOutput("security_groups");
-        this.WithOutput("storage_type");
-        this.WithOutput("subnet_ids");
-        this.WithOutput("user");
+        SetOutput("arn");
+        SetOutput("authentication_strategy");
+        SetOutput("auto_minor_version_upgrade");
+        SetOutput("configuration");
+        SetOutput("deployment_mode");
+        SetOutput("encryption_options");
+        SetOutput("engine_type");
+        SetOutput("engine_version");
+        SetOutput("host_instance_type");
+        SetOutput("instances");
+        SetOutput("ldap_server_metadata");
+        SetOutput("logs");
+        SetOutput("maintenance_window_start_time");
+        SetOutput("publicly_accessible");
+        SetOutput("security_groups");
+        SetOutput("storage_type");
+        SetOutput("subnet_ids");
+        SetOutput("user");
+        SetOutput("broker_id");
+        SetOutput("broker_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The broker_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BrokerId
+    public TerraformProperty<string> BrokerId
     {
-        get => GetProperty<TerraformProperty<string>>("broker_id");
-        set => this.WithProperty("broker_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("broker_id");
+        set => SetProperty("broker_id", value);
     }
 
     /// <summary>
     /// The broker_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BrokerName
+    public TerraformProperty<string> BrokerName
     {
-        get => GetProperty<TerraformProperty<string>>("broker_name");
-        set => this.WithProperty("broker_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("broker_name");
+        set => SetProperty("broker_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

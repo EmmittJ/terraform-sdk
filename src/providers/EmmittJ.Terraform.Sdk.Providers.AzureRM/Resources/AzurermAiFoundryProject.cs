@@ -13,8 +13,7 @@ public class AzurermAiFoundryProjectIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAiFoundryProjectIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAiFoundryProjectIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermAiFoundryProjectIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermAiFoundryProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermAiFoundryProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermAiFoundryProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermAiFoundryProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,7 +96,16 @@ public class AzurermAiFoundryProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("project_id");
+        SetOutput("project_id");
+        SetOutput("ai_services_hub_id");
+        SetOutput("description");
+        SetOutput("friendly_name");
+        SetOutput("high_business_impact_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("primary_user_assigned_identity");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -113,44 +114,44 @@ public class AzurermAiFoundryProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AiServicesHubId is required")]
     public required TerraformProperty<string> AiServicesHubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ai_services_hub_id");
-        set => this.WithProperty("ai_services_hub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ai_services_hub_id");
+        set => SetProperty("ai_services_hub_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FriendlyName
+    public TerraformProperty<string> FriendlyName
     {
-        get => GetProperty<TerraformProperty<string>>("friendly_name");
-        set => this.WithProperty("friendly_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
+        set => SetProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The high_business_impact_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HighBusinessImpactEnabled
+    public TerraformProperty<bool> HighBusinessImpactEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("high_business_impact_enabled");
-        set => this.WithProperty("high_business_impact_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("high_business_impact_enabled");
+        set => SetProperty("high_business_impact_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -159,8 +160,8 @@ public class AzurermAiFoundryProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -169,26 +170,26 @@ public class AzurermAiFoundryProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The primary_user_assigned_identity attribute.
     /// </summary>
-    public TerraformProperty<string>? PrimaryUserAssignedIdentity
+    public TerraformProperty<string> PrimaryUserAssignedIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("primary_user_assigned_identity");
-        set => this.WithProperty("primary_user_assigned_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_user_assigned_identity");
+        set => SetProperty("primary_user_assigned_identity", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -198,8 +199,7 @@ public class AzurermAiFoundryProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermAiFoundryProjectIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermAiFoundryProjectIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -208,8 +208,7 @@ public class AzurermAiFoundryProject : TerraformResource
     /// </summary>
     public AzurermAiFoundryProjectTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAiFoundryProjectTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

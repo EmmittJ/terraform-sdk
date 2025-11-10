@@ -14,8 +14,7 @@ public class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformProperty<string> IpAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_address");
-        set => WithProperty("ip_address", value);
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock : Terr
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,6 +80,12 @@ public class AzurermPrivateDnsResolverForwardingRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dns_forwarding_ruleset_id");
+        SetOutput("domain_name");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("metadata");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     public required TerraformProperty<string> DnsForwardingRulesetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns_forwarding_ruleset_id");
-        set => this.WithProperty("dns_forwarding_ruleset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_forwarding_ruleset_id");
+        set => SetProperty("dns_forwarding_ruleset_id", value);
     }
 
     /// <summary>
@@ -104,35 +104,35 @@ public class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -141,19 +141,19 @@ public class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Block for target_dns_servers.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDnsServers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetDnsServers block(s) required")]
     public List<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock>? TargetDnsServers
     {
-        get => GetProperty<List<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock>>("target_dns_servers");
-        set => this.WithProperty("target_dns_servers", value);
+        set => SetProperty("target_dns_servers", value);
     }
 
     /// <summary>
@@ -162,8 +162,7 @@ public class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     /// </summary>
     public AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

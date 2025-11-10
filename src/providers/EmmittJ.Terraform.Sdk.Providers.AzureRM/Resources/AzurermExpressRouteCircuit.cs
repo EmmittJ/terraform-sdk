@@ -14,8 +14,7 @@ public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformProperty<string> Family
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("family");
-        set => WithProperty("family", value);
+        set => SetProperty("family", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tier");
-        set => WithProperty("tier", value);
+        set => SetProperty("tier", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,62 +81,75 @@ public class AzurermExpressRouteCircuit : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("service_key");
-        this.WithOutput("service_provider_provisioning_state");
+        SetOutput("service_key");
+        SetOutput("service_provider_provisioning_state");
+        SetOutput("allow_classic_operations");
+        SetOutput("authorization_key");
+        SetOutput("bandwidth_in_gbps");
+        SetOutput("bandwidth_in_mbps");
+        SetOutput("express_route_port_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("peering_location");
+        SetOutput("rate_limiting_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("service_provider_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The allow_classic_operations attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowClassicOperations
+    public TerraformProperty<bool> AllowClassicOperations
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_classic_operations");
-        set => this.WithProperty("allow_classic_operations", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_classic_operations");
+        set => SetProperty("allow_classic_operations", value);
     }
 
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizationKey
+    public TerraformProperty<string> AuthorizationKey
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_key");
-        set => this.WithProperty("authorization_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_key");
+        set => SetProperty("authorization_key", value);
     }
 
     /// <summary>
     /// The bandwidth_in_gbps attribute.
     /// </summary>
-    public TerraformProperty<double>? BandwidthInGbps
+    public TerraformProperty<double> BandwidthInGbps
     {
-        get => GetProperty<TerraformProperty<double>>("bandwidth_in_gbps");
-        set => this.WithProperty("bandwidth_in_gbps", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("bandwidth_in_gbps");
+        set => SetProperty("bandwidth_in_gbps", value);
     }
 
     /// <summary>
     /// The bandwidth_in_mbps attribute.
     /// </summary>
-    public TerraformProperty<double>? BandwidthInMbps
+    public TerraformProperty<double> BandwidthInMbps
     {
-        get => GetProperty<TerraformProperty<double>>("bandwidth_in_mbps");
-        set => this.WithProperty("bandwidth_in_mbps", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("bandwidth_in_mbps");
+        set => SetProperty("bandwidth_in_mbps", value);
     }
 
     /// <summary>
     /// The express_route_port_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpressRoutePortId
+    public TerraformProperty<string> ExpressRoutePortId
     {
-        get => GetProperty<TerraformProperty<string>>("express_route_port_id");
-        set => this.WithProperty("express_route_port_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("express_route_port_id");
+        set => SetProperty("express_route_port_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -151,8 +158,8 @@ public class AzurermExpressRouteCircuit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -161,26 +168,26 @@ public class AzurermExpressRouteCircuit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The peering_location attribute.
     /// </summary>
-    public TerraformProperty<string>? PeeringLocation
+    public TerraformProperty<string> PeeringLocation
     {
-        get => GetProperty<TerraformProperty<string>>("peering_location");
-        set => this.WithProperty("peering_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peering_location");
+        set => SetProperty("peering_location", value);
     }
 
     /// <summary>
     /// The rate_limiting_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RateLimitingEnabled
+    public TerraformProperty<bool> RateLimitingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("rate_limiting_enabled");
-        set => this.WithProperty("rate_limiting_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("rate_limiting_enabled");
+        set => SetProperty("rate_limiting_enabled", value);
     }
 
     /// <summary>
@@ -189,38 +196,38 @@ public class AzurermExpressRouteCircuit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_provider_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceProviderName
+    public TerraformProperty<string> ServiceProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("service_provider_name");
-        set => this.WithProperty("service_provider_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_provider_name");
+        set => SetProperty("service_provider_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for sku.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     public List<AzurermExpressRouteCircuitSkuBlock>? Sku
     {
-        get => GetProperty<List<AzurermExpressRouteCircuitSkuBlock>>("sku");
-        set => this.WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -229,8 +236,7 @@ public class AzurermExpressRouteCircuit : TerraformResource
     /// </summary>
     public AzurermExpressRouteCircuitTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermExpressRouteCircuitTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

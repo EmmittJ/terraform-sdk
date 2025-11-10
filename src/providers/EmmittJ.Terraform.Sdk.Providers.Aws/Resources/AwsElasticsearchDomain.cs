@@ -14,8 +14,7 @@ public class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InternalUserDatabaseEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("internal_user_database_enabled");
-        set => WithProperty("internal_user_database_enabled", value);
+        set => SetProperty("internal_user_database_enabled", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     public required TerraformProperty<string> DesiredState
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("desired_state");
-        set => WithProperty("desired_state", value);
+        set => SetProperty("desired_state", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RollbackOnDisable
     {
-        get => GetProperty<TerraformProperty<string>>("rollback_on_disable");
-        set => WithProperty("rollback_on_disable", value);
+        set => SetProperty("rollback_on_disable", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DedicatedMasterCount
     {
-        get => GetProperty<TerraformProperty<double>>("dedicated_master_count");
-        set => WithProperty("dedicated_master_count", value);
+        set => SetProperty("dedicated_master_count", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DedicatedMasterEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dedicated_master_enabled");
-        set => WithProperty("dedicated_master_enabled", value);
+        set => SetProperty("dedicated_master_enabled", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DedicatedMasterType
     {
-        get => GetProperty<TerraformProperty<string>>("dedicated_master_type");
-        set => WithProperty("dedicated_master_type", value);
+        set => SetProperty("dedicated_master_type", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
-        set => WithProperty("instance_count", value);
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? WarmCount
     {
-        get => GetProperty<TerraformProperty<double>>("warm_count");
-        set => WithProperty("warm_count", value);
+        set => SetProperty("warm_count", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WarmEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("warm_enabled");
-        set => WithProperty("warm_enabled", value);
+        set => SetProperty("warm_enabled", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WarmType
     {
-        get => GetProperty<TerraformProperty<string>>("warm_type");
-        set => WithProperty("warm_type", value);
+        set => SetProperty("warm_type", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ZoneAwarenessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_awareness_enabled");
-        set => WithProperty("zone_awareness_enabled", value);
+        set => SetProperty("zone_awareness_enabled", value);
     }
 
 }
@@ -156,8 +143,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -166,8 +152,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformProperty<string> IdentityPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_id");
-        set => WithProperty("identity_pool_id", value);
+        set => SetProperty("identity_pool_id", value);
     }
 
     /// <summary>
@@ -176,8 +161,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -186,8 +170,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => WithProperty("user_pool_id", value);
+        set => SetProperty("user_pool_id", value);
     }
 
 }
@@ -203,8 +186,7 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("custom_endpoint");
-        set => WithProperty("custom_endpoint", value);
+        set => SetProperty("custom_endpoint", value);
     }
 
     /// <summary>
@@ -212,8 +194,7 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomEndpointCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("custom_endpoint_certificate_arn");
-        set => WithProperty("custom_endpoint_certificate_arn", value);
+        set => SetProperty("custom_endpoint_certificate_arn", value);
     }
 
     /// <summary>
@@ -221,8 +202,7 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CustomEndpointEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("custom_endpoint_enabled");
-        set => WithProperty("custom_endpoint_enabled", value);
+        set => SetProperty("custom_endpoint_enabled", value);
     }
 
     /// <summary>
@@ -230,8 +210,7 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnforceHttps
     {
-        get => GetProperty<TerraformProperty<bool>>("enforce_https");
-        set => WithProperty("enforce_https", value);
+        set => SetProperty("enforce_https", value);
     }
 
     /// <summary>
@@ -239,8 +218,7 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TlsSecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("tls_security_policy");
-        set => WithProperty("tls_security_policy", value);
+        set => SetProperty("tls_security_policy", value);
     }
 
 }
@@ -257,8 +235,7 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEnabled is required")]
     public required TerraformProperty<bool> EbsEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("ebs_enabled");
-        set => WithProperty("ebs_enabled", value);
+        set => SetProperty("ebs_enabled", value);
     }
 
     /// <summary>
@@ -266,8 +243,7 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Iops
     {
-        get => GetProperty<TerraformProperty<double>>("iops");
-        set => WithProperty("iops", value);
+        set => SetProperty("iops", value);
     }
 
     /// <summary>
@@ -275,8 +251,7 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Throughput
     {
-        get => GetProperty<TerraformProperty<double>>("throughput");
-        set => WithProperty("throughput", value);
+        set => SetProperty("throughput", value);
     }
 
     /// <summary>
@@ -284,8 +259,7 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? VolumeSize
     {
-        get => GetProperty<TerraformProperty<double>>("volume_size");
-        set => WithProperty("volume_size", value);
+        set => SetProperty("volume_size", value);
     }
 
     /// <summary>
@@ -293,8 +267,7 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VolumeType
     {
-        get => GetProperty<TerraformProperty<string>>("volume_type");
-        set => WithProperty("volume_type", value);
+        set => SetProperty("volume_type", value);
     }
 
 }
@@ -311,8 +284,7 @@ public class AwsElasticsearchDomainEncryptAtRestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -320,8 +292,7 @@ public class AwsElasticsearchDomainEncryptAtRestBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
 }
@@ -338,8 +309,7 @@ public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
     public required TerraformProperty<string> CloudwatchLogGroupArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloudwatch_log_group_arn");
-        set => WithProperty("cloudwatch_log_group_arn", value);
+        set => SetProperty("cloudwatch_log_group_arn", value);
     }
 
     /// <summary>
@@ -347,8 +317,7 @@ public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -357,8 +326,7 @@ public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformProperty<string> LogType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_type");
-        set => WithProperty("log_type", value);
+        set => SetProperty("log_type", value);
     }
 
 }
@@ -375,8 +343,7 @@ public class AwsElasticsearchDomainNodeToNodeEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -393,8 +360,7 @@ public class AwsElasticsearchDomainSnapshotOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomatedSnapshotStartHour is required")]
     public required TerraformProperty<double> AutomatedSnapshotStartHour
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("automated_snapshot_start_hour");
-        set => WithProperty("automated_snapshot_start_hour", value);
+        set => SetProperty("automated_snapshot_start_hour", value);
     }
 
 }
@@ -410,8 +376,7 @@ public class AwsElasticsearchDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -419,8 +384,7 @@ public class AwsElasticsearchDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -428,8 +392,7 @@ public class AwsElasticsearchDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -445,8 +408,7 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AvailabilityZones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
-        set => WithProperty("availability_zones", value);
+        set => SetProperty("availability_zones", value);
     }
 
     /// <summary>
@@ -454,8 +416,7 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -463,8 +424,7 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
@@ -472,8 +432,7 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -491,28 +450,36 @@ public class AwsElasticsearchDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("domain_id");
-        this.WithOutput("endpoint");
-        this.WithOutput("kibana_endpoint");
+        SetOutput("arn");
+        SetOutput("domain_id");
+        SetOutput("endpoint");
+        SetOutput("kibana_endpoint");
+        SetOutput("access_policies");
+        SetOutput("advanced_options");
+        SetOutput("domain_name");
+        SetOutput("elasticsearch_version");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The access_policies attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessPolicies
+    public TerraformProperty<string> AccessPolicies
     {
-        get => GetProperty<TerraformProperty<string>>("access_policies");
-        set => this.WithProperty("access_policies", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_policies");
+        set => SetProperty("access_policies", value);
     }
 
     /// <summary>
     /// The advanced_options attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdvancedOptions
+    public Dictionary<string, TerraformProperty<string>> AdvancedOptions
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("advanced_options");
-        set => this.WithProperty("advanced_options", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("advanced_options");
+        set => SetProperty("advanced_options", value);
     }
 
     /// <summary>
@@ -521,53 +488,53 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The elasticsearch_version attribute.
     /// </summary>
-    public TerraformProperty<string>? ElasticsearchVersion
+    public TerraformProperty<string> ElasticsearchVersion
     {
-        get => GetProperty<TerraformProperty<string>>("elasticsearch_version");
-        set => this.WithProperty("elasticsearch_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("elasticsearch_version");
+        set => SetProperty("elasticsearch_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -577,8 +544,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSecurityOptions block(s) allowed")]
     public List<AwsElasticsearchDomainAdvancedSecurityOptionsBlock>? AdvancedSecurityOptions
     {
-        get => GetProperty<List<AwsElasticsearchDomainAdvancedSecurityOptionsBlock>>("advanced_security_options");
-        set => this.WithProperty("advanced_security_options", value);
+        set => SetProperty("advanced_security_options", value);
     }
 
     /// <summary>
@@ -588,8 +554,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoTuneOptions block(s) allowed")]
     public List<AwsElasticsearchDomainAutoTuneOptionsBlock>? AutoTuneOptions
     {
-        get => GetProperty<List<AwsElasticsearchDomainAutoTuneOptionsBlock>>("auto_tune_options");
-        set => this.WithProperty("auto_tune_options", value);
+        set => SetProperty("auto_tune_options", value);
     }
 
     /// <summary>
@@ -599,8 +564,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterConfig block(s) allowed")]
     public List<AwsElasticsearchDomainClusterConfigBlock>? ClusterConfig
     {
-        get => GetProperty<List<AwsElasticsearchDomainClusterConfigBlock>>("cluster_config");
-        set => this.WithProperty("cluster_config", value);
+        set => SetProperty("cluster_config", value);
     }
 
     /// <summary>
@@ -610,8 +574,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CognitoOptions block(s) allowed")]
     public List<AwsElasticsearchDomainCognitoOptionsBlock>? CognitoOptions
     {
-        get => GetProperty<List<AwsElasticsearchDomainCognitoOptionsBlock>>("cognito_options");
-        set => this.WithProperty("cognito_options", value);
+        set => SetProperty("cognito_options", value);
     }
 
     /// <summary>
@@ -621,8 +584,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainEndpointOptions block(s) allowed")]
     public List<AwsElasticsearchDomainDomainEndpointOptionsBlock>? DomainEndpointOptions
     {
-        get => GetProperty<List<AwsElasticsearchDomainDomainEndpointOptionsBlock>>("domain_endpoint_options");
-        set => this.WithProperty("domain_endpoint_options", value);
+        set => SetProperty("domain_endpoint_options", value);
     }
 
     /// <summary>
@@ -632,8 +594,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EbsOptions block(s) allowed")]
     public List<AwsElasticsearchDomainEbsOptionsBlock>? EbsOptions
     {
-        get => GetProperty<List<AwsElasticsearchDomainEbsOptionsBlock>>("ebs_options");
-        set => this.WithProperty("ebs_options", value);
+        set => SetProperty("ebs_options", value);
     }
 
     /// <summary>
@@ -643,8 +604,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptAtRest block(s) allowed")]
     public List<AwsElasticsearchDomainEncryptAtRestBlock>? EncryptAtRest
     {
-        get => GetProperty<List<AwsElasticsearchDomainEncryptAtRestBlock>>("encrypt_at_rest");
-        set => this.WithProperty("encrypt_at_rest", value);
+        set => SetProperty("encrypt_at_rest", value);
     }
 
     /// <summary>
@@ -653,8 +613,7 @@ public class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     public HashSet<AwsElasticsearchDomainLogPublishingOptionsBlock>? LogPublishingOptions
     {
-        get => GetProperty<HashSet<AwsElasticsearchDomainLogPublishingOptionsBlock>>("log_publishing_options");
-        set => this.WithProperty("log_publishing_options", value);
+        set => SetProperty("log_publishing_options", value);
     }
 
     /// <summary>
@@ -664,8 +623,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeToNodeEncryption block(s) allowed")]
     public List<AwsElasticsearchDomainNodeToNodeEncryptionBlock>? NodeToNodeEncryption
     {
-        get => GetProperty<List<AwsElasticsearchDomainNodeToNodeEncryptionBlock>>("node_to_node_encryption");
-        set => this.WithProperty("node_to_node_encryption", value);
+        set => SetProperty("node_to_node_encryption", value);
     }
 
     /// <summary>
@@ -675,8 +633,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotOptions block(s) allowed")]
     public List<AwsElasticsearchDomainSnapshotOptionsBlock>? SnapshotOptions
     {
-        get => GetProperty<List<AwsElasticsearchDomainSnapshotOptionsBlock>>("snapshot_options");
-        set => this.WithProperty("snapshot_options", value);
+        set => SetProperty("snapshot_options", value);
     }
 
     /// <summary>
@@ -685,8 +642,7 @@ public class AwsElasticsearchDomain : TerraformResource
     /// </summary>
     public AwsElasticsearchDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsElasticsearchDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -696,8 +652,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcOptions block(s) allowed")]
     public List<AwsElasticsearchDomainVpcOptionsBlock>? VpcOptions
     {
-        get => GetProperty<List<AwsElasticsearchDomainVpcOptionsBlock>>("vpc_options");
-        set => this.WithProperty("vpc_options", value);
+        set => SetProperty("vpc_options", value);
     }
 
     /// <summary>

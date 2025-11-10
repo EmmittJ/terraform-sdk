@@ -13,8 +13,7 @@ public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? ExportFromTime
     {
-        get => GetProperty<TerraformProperty<string>>("export_from_time");
-        set => WithProperty("export_from_time", value);
+        set => SetProperty("export_from_time", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? ExportToTime
     {
-        get => GetProperty<TerraformProperty<string>>("export_to_time");
-        set => WithProperty("export_to_time", value);
+        set => SetProperty("export_to_time", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? ExportViewType
     {
-        get => GetProperty<TerraformProperty<string>>("export_view_type");
-        set => WithProperty("export_view_type", value);
+        set => SetProperty("export_view_type", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsDynamodbTableExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsDynamodbTableExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -76,58 +71,69 @@ public class AwsDynamodbTableExport : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("billed_size_in_bytes");
-        this.WithOutput("end_time");
-        this.WithOutput("export_status");
-        this.WithOutput("item_count");
-        this.WithOutput("manifest_files_s3_key");
-        this.WithOutput("start_time");
+        SetOutput("arn");
+        SetOutput("billed_size_in_bytes");
+        SetOutput("end_time");
+        SetOutput("export_status");
+        SetOutput("item_count");
+        SetOutput("manifest_files_s3_key");
+        SetOutput("start_time");
+        SetOutput("export_format");
+        SetOutput("export_time");
+        SetOutput("export_type");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("s3_bucket");
+        SetOutput("s3_bucket_owner");
+        SetOutput("s3_prefix");
+        SetOutput("s3_sse_algorithm");
+        SetOutput("s3_sse_kms_key_id");
+        SetOutput("table_arn");
     }
 
     /// <summary>
     /// The export_format attribute.
     /// </summary>
-    public TerraformProperty<string>? ExportFormat
+    public TerraformProperty<string> ExportFormat
     {
-        get => GetProperty<TerraformProperty<string>>("export_format");
-        set => this.WithProperty("export_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("export_format");
+        set => SetProperty("export_format", value);
     }
 
     /// <summary>
     /// The export_time attribute.
     /// </summary>
-    public TerraformProperty<string>? ExportTime
+    public TerraformProperty<string> ExportTime
     {
-        get => GetProperty<TerraformProperty<string>>("export_time");
-        set => this.WithProperty("export_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("export_time");
+        set => SetProperty("export_time", value);
     }
 
     /// <summary>
     /// The export_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ExportType
+    public TerraformProperty<string> ExportType
     {
-        get => GetProperty<TerraformProperty<string>>("export_type");
-        set => this.WithProperty("export_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("export_type");
+        set => SetProperty("export_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -136,44 +142,44 @@ public class AwsDynamodbTableExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformProperty<string> S3Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket");
-        set => this.WithProperty("s3_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket");
+        set => SetProperty("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? S3BucketOwner
+    public TerraformProperty<string> S3BucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket_owner");
-        set => this.WithProperty("s3_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket_owner");
+        set => SetProperty("s3_bucket_owner", value);
     }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Prefix
+    public TerraformProperty<string> S3Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("s3_prefix");
-        set => this.WithProperty("s3_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_prefix");
+        set => SetProperty("s3_prefix", value);
     }
 
     /// <summary>
     /// The s3_sse_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? S3SseAlgorithm
+    public TerraformProperty<string> S3SseAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("s3_sse_algorithm");
-        set => this.WithProperty("s3_sse_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_sse_algorithm");
+        set => SetProperty("s3_sse_algorithm", value);
     }
 
     /// <summary>
     /// The s3_sse_kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? S3SseKmsKeyId
+    public TerraformProperty<string> S3SseKmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("s3_sse_kms_key_id");
-        set => this.WithProperty("s3_sse_kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_sse_kms_key_id");
+        set => SetProperty("s3_sse_kms_key_id", value);
     }
 
     /// <summary>
@@ -182,8 +188,8 @@ public class AwsDynamodbTableExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableArn is required")]
     public required TerraformProperty<string> TableArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_arn");
-        set => this.WithProperty("table_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_arn");
+        set => SetProperty("table_arn", value);
     }
 
     /// <summary>
@@ -193,8 +199,7 @@ public class AwsDynamodbTableExport : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncrementalExportSpecification block(s) allowed")]
     public List<AwsDynamodbTableExportIncrementalExportSpecificationBlock>? IncrementalExportSpecification
     {
-        get => GetProperty<List<AwsDynamodbTableExportIncrementalExportSpecificationBlock>>("incremental_export_specification");
-        set => this.WithProperty("incremental_export_specification", value);
+        set => SetProperty("incremental_export_specification", value);
     }
 
     /// <summary>
@@ -203,8 +208,7 @@ public class AwsDynamodbTableExport : TerraformResource
     /// </summary>
     public AwsDynamodbTableExportTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDynamodbTableExportTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

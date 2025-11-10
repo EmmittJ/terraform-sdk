@@ -13,8 +13,7 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,7 +54,13 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("login_url");
+        SetOutput("login_url");
+        SetOutput("datadog_monitor_id");
+        SetOutput("enterprise_application_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("single_sign_on");
+        SetOutput("single_sign_on_enabled");
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
     public required TerraformProperty<string> DatadogMonitorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("datadog_monitor_id");
-        set => this.WithProperty("datadog_monitor_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("datadog_monitor_id");
+        set => SetProperty("datadog_monitor_id", value);
     }
 
     /// <summary>
@@ -77,45 +79,45 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnterpriseApplicationId is required")]
     public required TerraformProperty<string> EnterpriseApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("enterprise_application_id");
-        set => this.WithProperty("enterprise_application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enterprise_application_id");
+        set => SetProperty("enterprise_application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The single_sign_on attribute.
     /// </summary>
-    public TerraformProperty<string>? SingleSignOn
+    public TerraformProperty<string> SingleSignOn
     {
-        get => GetProperty<TerraformProperty<string>>("single_sign_on");
-        set => this.WithProperty("single_sign_on", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("single_sign_on");
+        set => SetProperty("single_sign_on", value);
     }
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? SingleSignOnEnabled
+    public TerraformProperty<string> SingleSignOnEnabled
     {
-        get => GetProperty<TerraformProperty<string>>("single_sign_on_enabled");
-        set => this.WithProperty("single_sign_on_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("single_sign_on_enabled");
+        set => SetProperty("single_sign_on_enabled", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// </summary>
     public AzurermDatadogMonitorSsoConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDatadogMonitorSsoConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

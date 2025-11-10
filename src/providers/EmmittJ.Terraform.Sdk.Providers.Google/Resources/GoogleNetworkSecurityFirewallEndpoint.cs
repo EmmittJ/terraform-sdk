@@ -13,8 +13,7 @@ public class GoogleNetworkSecurityFirewallEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetworkSecurityFirewallEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetworkSecurityFirewallEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,14 +46,20 @@ public class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("associated_networks");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("reconciling");
-        this.WithOutput("self_link");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("associated_networks");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("reconciling");
+        SetOutput("self_link");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("billing_project_id");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("parent");
     }
 
     /// <summary>
@@ -65,17 +68,17 @@ public class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProjectId is required")]
     public required TerraformProperty<string> BillingProjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("billing_project_id");
-        set => this.WithProperty("billing_project_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_project_id");
+        set => SetProperty("billing_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,10 +88,10 @@ public class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -97,8 +100,8 @@ public class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -107,8 +110,8 @@ public class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -118,8 +121,8 @@ public class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -128,8 +131,7 @@ public class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     /// </summary>
     public GoogleNetworkSecurityFirewallEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkSecurityFirewallEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

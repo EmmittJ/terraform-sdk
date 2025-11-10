@@ -13,8 +13,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,21 +46,27 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("region");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("region");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("entitytype");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("value_type");
     }
 
     /// <summary>
     /// Description of the feature.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -72,17 +75,17 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entitytype is required")]
     public required TerraformProperty<string> Entitytype
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entitytype");
-        set => this.WithProperty("entitytype", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entitytype");
+        set => SetProperty("entitytype", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -92,19 +95,19 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The name of the feature. The feature can be up to 64 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with a letter. The value will be unique given an entity type.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -113,8 +116,8 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformProperty<string> ValueType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value_type");
-        set => this.WithProperty("value_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value_type");
+        set => SetProperty("value_type", value);
     }
 
     /// <summary>
@@ -123,8 +126,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
     /// </summary>
     public GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

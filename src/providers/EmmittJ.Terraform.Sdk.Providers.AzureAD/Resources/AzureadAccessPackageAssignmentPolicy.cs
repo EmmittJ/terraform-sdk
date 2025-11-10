@@ -13,8 +13,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? ApprovalRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("approval_required");
-        set => WithProperty("approval_required", value);
+        set => SetProperty("approval_required", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? ApprovalRequiredForExtension
     {
-        get => GetProperty<TerraformProperty<bool>>("approval_required_for_extension");
-        set => WithProperty("approval_required_for_extension", value);
+        set => SetProperty("approval_required_for_extension", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? RequestorJustificationRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("requestor_justification_required");
-        set => WithProperty("requestor_justification_required", value);
+        set => SetProperty("requestor_justification_required", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformProperty<bool>? AccessRecommendationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("access_recommendation_enabled");
-        set => WithProperty("access_recommendation_enabled", value);
+        set => SetProperty("access_recommendation_enabled", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformProperty<string>? AccessReviewTimeoutBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("access_review_timeout_behavior");
-        set => WithProperty("access_review_timeout_behavior", value);
+        set => SetProperty("access_review_timeout_behavior", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformProperty<bool>? ApproverJustificationRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("approver_justification_required");
-        set => WithProperty("approver_justification_required", value);
+        set => SetProperty("approver_justification_required", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformProperty<double>? DurationInDays
     {
-        get => GetProperty<TerraformProperty<double>>("duration_in_days");
-        set => WithProperty("duration_in_days", value);
+        set => SetProperty("duration_in_days", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformProperty<string>? ReviewFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("review_frequency");
-        set => WithProperty("review_frequency", value);
+        set => SetProperty("review_frequency", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformProperty<string>? ReviewType
     {
-        get => GetProperty<TerraformProperty<string>>("review_type");
-        set => WithProperty("review_type", value);
+        set => SetProperty("review_type", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformProperty<string>? StartingOn
     {
-        get => GetProperty<TerraformProperty<string>>("starting_on");
-        set => WithProperty("starting_on", value);
+        set => SetProperty("starting_on", value);
     }
 
 }
@@ -128,8 +117,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Required
     {
-        get => GetProperty<TerraformProperty<bool>>("required");
-        set => WithProperty("required", value);
+        set => SetProperty("required", value);
     }
 
     /// <summary>
@@ -137,8 +125,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Sequence
     {
-        get => GetProperty<TerraformProperty<double>>("sequence");
-        set => WithProperty("sequence", value);
+        set => SetProperty("sequence", value);
     }
 
 }
@@ -154,8 +141,7 @@ public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? RequestsAccepted
     {
-        get => GetProperty<TerraformProperty<bool>>("requests_accepted");
-        set => WithProperty("requests_accepted", value);
+        set => SetProperty("requests_accepted", value);
     }
 
     /// <summary>
@@ -163,8 +149,7 @@ public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? ScopeType
     {
-        get => GetProperty<TerraformProperty<string>>("scope_type");
-        set => WithProperty("scope_type", value);
+        set => SetProperty("scope_type", value);
     }
 
 }
@@ -180,8 +165,7 @@ public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -189,8 +173,7 @@ public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -198,8 +181,7 @@ public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -207,8 +189,7 @@ public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -226,6 +207,13 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("access_package_id");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("duration_in_days");
+        SetOutput("expiration_date");
+        SetOutput("extension_enabled");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -234,8 +222,8 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
     public required TerraformProperty<string> AccessPackageId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_package_id");
-        set => this.WithProperty("access_package_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_package_id");
+        set => SetProperty("access_package_id", value);
     }
 
     /// <summary>
@@ -244,8 +232,8 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -254,44 +242,44 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// How many days this assignment is valid for
     /// </summary>
-    public TerraformProperty<double>? DurationInDays
+    public TerraformProperty<double> DurationInDays
     {
-        get => GetProperty<TerraformProperty<double>>("duration_in_days");
-        set => this.WithProperty("duration_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("duration_in_days");
+        set => SetProperty("duration_in_days", value);
     }
 
     /// <summary>
     /// The date that this assignment expires, formatted as an RFC3339 date string in UTC (e.g. 2018-01-01T01:02:03Z)
     /// </summary>
-    public TerraformProperty<string>? ExpirationDate
+    public TerraformProperty<string> ExpirationDate
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_date");
-        set => this.WithProperty("expiration_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration_date");
+        set => SetProperty("expiration_date", value);
     }
 
     /// <summary>
     /// When enabled, users will be able to request extension of their access to this package before their access expires
     /// </summary>
-    public TerraformProperty<bool>? ExtensionEnabled
+    public TerraformProperty<bool> ExtensionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("extension_enabled");
-        set => this.WithProperty("extension_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("extension_enabled");
+        set => SetProperty("extension_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -301,8 +289,7 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalSettings block(s) allowed")]
     public List<AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock>? ApprovalSettings
     {
-        get => GetProperty<List<AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock>>("approval_settings");
-        set => this.WithProperty("approval_settings", value);
+        set => SetProperty("approval_settings", value);
     }
 
     /// <summary>
@@ -312,8 +299,7 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssignmentReviewSettings block(s) allowed")]
     public List<AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock>? AssignmentReviewSettings
     {
-        get => GetProperty<List<AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock>>("assignment_review_settings");
-        set => this.WithProperty("assignment_review_settings", value);
+        set => SetProperty("assignment_review_settings", value);
     }
 
     /// <summary>
@@ -322,8 +308,7 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     /// </summary>
     public List<AzureadAccessPackageAssignmentPolicyQuestionBlock>? Question
     {
-        get => GetProperty<List<AzureadAccessPackageAssignmentPolicyQuestionBlock>>("question");
-        set => this.WithProperty("question", value);
+        set => SetProperty("question", value);
     }
 
     /// <summary>
@@ -333,8 +318,7 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestorSettings block(s) allowed")]
     public List<AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock>? RequestorSettings
     {
-        get => GetProperty<List<AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock>>("requestor_settings");
-        set => this.WithProperty("requestor_settings", value);
+        set => SetProperty("requestor_settings", value);
     }
 
     /// <summary>
@@ -343,8 +327,7 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     /// </summary>
     public AzureadAccessPackageAssignmentPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAccessPackageAssignmentPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

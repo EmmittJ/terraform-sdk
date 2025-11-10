@@ -13,8 +13,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_client_id");
-        set => WithProperty("identity_client_id", value);
+        set => SetProperty("identity_client_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => WithProperty("key_vault_key_id", value);
+        set => SetProperty("key_vault_key_id", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermCognitiveAccountIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermCognitiveAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermCognitiveAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermCognitiveAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -85,8 +79,7 @@ public class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Bypass
     {
-        get => GetProperty<TerraformProperty<string>>("bypass");
-        set => WithProperty("bypass", value);
+        set => SetProperty("bypass", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformProperty<string> DefaultAction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_action");
-        set => WithProperty("default_action", value);
+        set => SetProperty("default_action", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IpRules
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ip_rules");
-        set => WithProperty("ip_rules", value);
+        set => SetProperty("ip_rules", value);
     }
 
 }
@@ -122,8 +113,7 @@ public class AzurermCognitiveAccountNetworkInjectionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scenario is required")]
     public required TerraformProperty<string> Scenario
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scenario");
-        set => WithProperty("scenario", value);
+        set => SetProperty("scenario", value);
     }
 
     /// <summary>
@@ -132,8 +122,7 @@ public class AzurermCognitiveAccountNetworkInjectionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -149,8 +138,7 @@ public class AzurermCognitiveAccountStorageBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_client_id");
-        set => WithProperty("identity_client_id", value);
+        set => SetProperty("identity_client_id", value);
     }
 
     /// <summary>
@@ -159,8 +147,7 @@ public class AzurermCognitiveAccountStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => WithProperty("storage_account_id", value);
+        set => SetProperty("storage_account_id", value);
     }
 
 }
@@ -176,8 +163,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -185,8 +171,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -194,8 +179,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -203,8 +187,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -222,63 +205,84 @@ public class AzurermCognitiveAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("endpoint");
-        this.WithOutput("primary_access_key");
-        this.WithOutput("secondary_access_key");
+        SetOutput("endpoint");
+        SetOutput("primary_access_key");
+        SetOutput("secondary_access_key");
+        SetOutput("custom_question_answering_search_service_id");
+        SetOutput("custom_question_answering_search_service_key");
+        SetOutput("custom_subdomain_name");
+        SetOutput("dynamic_throttling_enabled");
+        SetOutput("fqdns");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("local_auth_enabled");
+        SetOutput("location");
+        SetOutput("metrics_advisor_aad_client_id");
+        SetOutput("metrics_advisor_aad_tenant_id");
+        SetOutput("metrics_advisor_super_user_name");
+        SetOutput("metrics_advisor_website_name");
+        SetOutput("name");
+        SetOutput("outbound_network_access_restricted");
+        SetOutput("project_management_enabled");
+        SetOutput("public_network_access_enabled");
+        SetOutput("qna_runtime_endpoint");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The custom_question_answering_search_service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomQuestionAnsweringSearchServiceId
+    public TerraformProperty<string> CustomQuestionAnsweringSearchServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_question_answering_search_service_id");
-        set => this.WithProperty("custom_question_answering_search_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_question_answering_search_service_id");
+        set => SetProperty("custom_question_answering_search_service_id", value);
     }
 
     /// <summary>
     /// The custom_question_answering_search_service_key attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomQuestionAnsweringSearchServiceKey
+    public TerraformProperty<string> CustomQuestionAnsweringSearchServiceKey
     {
-        get => GetProperty<TerraformProperty<string>>("custom_question_answering_search_service_key");
-        set => this.WithProperty("custom_question_answering_search_service_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_question_answering_search_service_key");
+        set => SetProperty("custom_question_answering_search_service_key", value);
     }
 
     /// <summary>
     /// The custom_subdomain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomSubdomainName
+    public TerraformProperty<string> CustomSubdomainName
     {
-        get => GetProperty<TerraformProperty<string>>("custom_subdomain_name");
-        set => this.WithProperty("custom_subdomain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_subdomain_name");
+        set => SetProperty("custom_subdomain_name", value);
     }
 
     /// <summary>
     /// The dynamic_throttling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicThrottlingEnabled
+    public TerraformProperty<bool> DynamicThrottlingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_throttling_enabled");
-        set => this.WithProperty("dynamic_throttling_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("dynamic_throttling_enabled");
+        set => SetProperty("dynamic_throttling_enabled", value);
     }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Fqdns
+    public List<TerraformProperty<string>> Fqdns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("fqdns");
-        set => this.WithProperty("fqdns", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("fqdns");
+        set => SetProperty("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -287,17 +291,17 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kind");
-        set => this.WithProperty("kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kind");
+        set => SetProperty("kind", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthEnabled
+    public TerraformProperty<bool> LocalAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_auth_enabled");
-        set => this.WithProperty("local_auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_auth_enabled");
+        set => SetProperty("local_auth_enabled", value);
     }
 
     /// <summary>
@@ -306,44 +310,44 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The metrics_advisor_aad_client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MetricsAdvisorAadClientId
+    public TerraformProperty<string> MetricsAdvisorAadClientId
     {
-        get => GetProperty<TerraformProperty<string>>("metrics_advisor_aad_client_id");
-        set => this.WithProperty("metrics_advisor_aad_client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metrics_advisor_aad_client_id");
+        set => SetProperty("metrics_advisor_aad_client_id", value);
     }
 
     /// <summary>
     /// The metrics_advisor_aad_tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MetricsAdvisorAadTenantId
+    public TerraformProperty<string> MetricsAdvisorAadTenantId
     {
-        get => GetProperty<TerraformProperty<string>>("metrics_advisor_aad_tenant_id");
-        set => this.WithProperty("metrics_advisor_aad_tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metrics_advisor_aad_tenant_id");
+        set => SetProperty("metrics_advisor_aad_tenant_id", value);
     }
 
     /// <summary>
     /// The metrics_advisor_super_user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MetricsAdvisorSuperUserName
+    public TerraformProperty<string> MetricsAdvisorSuperUserName
     {
-        get => GetProperty<TerraformProperty<string>>("metrics_advisor_super_user_name");
-        set => this.WithProperty("metrics_advisor_super_user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metrics_advisor_super_user_name");
+        set => SetProperty("metrics_advisor_super_user_name", value);
     }
 
     /// <summary>
     /// The metrics_advisor_website_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MetricsAdvisorWebsiteName
+    public TerraformProperty<string> MetricsAdvisorWebsiteName
     {
-        get => GetProperty<TerraformProperty<string>>("metrics_advisor_website_name");
-        set => this.WithProperty("metrics_advisor_website_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metrics_advisor_website_name");
+        set => SetProperty("metrics_advisor_website_name", value);
     }
 
     /// <summary>
@@ -352,44 +356,44 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
-    public TerraformProperty<bool>? OutboundNetworkAccessRestricted
+    public TerraformProperty<bool> OutboundNetworkAccessRestricted
     {
-        get => GetProperty<TerraformProperty<bool>>("outbound_network_access_restricted");
-        set => this.WithProperty("outbound_network_access_restricted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("outbound_network_access_restricted");
+        set => SetProperty("outbound_network_access_restricted", value);
     }
 
     /// <summary>
     /// The project_management_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ProjectManagementEnabled
+    public TerraformProperty<bool> ProjectManagementEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("project_management_enabled");
-        set => this.WithProperty("project_management_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("project_management_enabled");
+        set => SetProperty("project_management_enabled", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The qna_runtime_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? QnaRuntimeEndpoint
+    public TerraformProperty<string> QnaRuntimeEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("qna_runtime_endpoint");
-        set => this.WithProperty("qna_runtime_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("qna_runtime_endpoint");
+        set => SetProperty("qna_runtime_endpoint", value);
     }
 
     /// <summary>
@@ -398,8 +402,8 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -408,17 +412,17 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -428,8 +432,7 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     public List<AzurermCognitiveAccountCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetProperty<List<AzurermCognitiveAccountCustomerManagedKeyBlock>>("customer_managed_key");
-        set => this.WithProperty("customer_managed_key", value);
+        set => SetProperty("customer_managed_key", value);
     }
 
     /// <summary>
@@ -439,8 +442,7 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermCognitiveAccountIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermCognitiveAccountIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -450,8 +452,7 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
     public List<AzurermCognitiveAccountNetworkAclsBlock>? NetworkAcls
     {
-        get => GetProperty<List<AzurermCognitiveAccountNetworkAclsBlock>>("network_acls");
-        set => this.WithProperty("network_acls", value);
+        set => SetProperty("network_acls", value);
     }
 
     /// <summary>
@@ -461,8 +462,7 @@ public class AzurermCognitiveAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkInjection block(s) allowed")]
     public List<AzurermCognitiveAccountNetworkInjectionBlock>? NetworkInjection
     {
-        get => GetProperty<List<AzurermCognitiveAccountNetworkInjectionBlock>>("network_injection");
-        set => this.WithProperty("network_injection", value);
+        set => SetProperty("network_injection", value);
     }
 
     /// <summary>
@@ -471,8 +471,7 @@ public class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     public List<AzurermCognitiveAccountStorageBlock>? Storage
     {
-        get => GetProperty<List<AzurermCognitiveAccountStorageBlock>>("storage");
-        set => this.WithProperty("storage", value);
+        set => SetProperty("storage", value);
     }
 
     /// <summary>
@@ -481,8 +480,7 @@ public class AzurermCognitiveAccount : TerraformResource
     /// </summary>
     public AzurermCognitiveAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCognitiveAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

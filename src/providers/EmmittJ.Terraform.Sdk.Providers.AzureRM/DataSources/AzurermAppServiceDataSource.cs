@@ -13,8 +13,7 @@ public class AzurermAppServiceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -32,33 +31,36 @@ public class AzurermAppServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_service_plan_id");
-        this.WithOutput("app_settings");
-        this.WithOutput("client_affinity_enabled");
-        this.WithOutput("client_cert_enabled");
-        this.WithOutput("connection_string");
-        this.WithOutput("custom_domain_verification_id");
-        this.WithOutput("default_site_hostname");
-        this.WithOutput("enabled");
-        this.WithOutput("https_only");
-        this.WithOutput("location");
-        this.WithOutput("outbound_ip_address_list");
-        this.WithOutput("outbound_ip_addresses");
-        this.WithOutput("possible_outbound_ip_address_list");
-        this.WithOutput("possible_outbound_ip_addresses");
-        this.WithOutput("site_config");
-        this.WithOutput("site_credential");
-        this.WithOutput("source_control");
-        this.WithOutput("tags");
+        SetOutput("app_service_plan_id");
+        SetOutput("app_settings");
+        SetOutput("client_affinity_enabled");
+        SetOutput("client_cert_enabled");
+        SetOutput("connection_string");
+        SetOutput("custom_domain_verification_id");
+        SetOutput("default_site_hostname");
+        SetOutput("enabled");
+        SetOutput("https_only");
+        SetOutput("location");
+        SetOutput("outbound_ip_address_list");
+        SetOutput("outbound_ip_addresses");
+        SetOutput("possible_outbound_ip_address_list");
+        SetOutput("possible_outbound_ip_addresses");
+        SetOutput("site_config");
+        SetOutput("site_credential");
+        SetOutput("source_control");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class AzurermAppServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -77,8 +79,8 @@ public class AzurermAppServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -87,8 +89,7 @@ public class AzurermAppServiceDataSource : TerraformDataSource
     /// </summary>
     public AzurermAppServiceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsLakeformationResourceLfTagDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => WithProperty("catalog_id", value);
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsLakeformationResourceLfTagDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsLakeformationResourceLfTagLfTagBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => WithProperty("catalog_id", value);
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsLakeformationResourceLfTagLfTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsLakeformationResourceLfTagLfTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -77,8 +72,7 @@ public class AwsLakeformationResourceLfTagTableBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => WithProperty("catalog_id", value);
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class AwsLakeformationResourceLfTagTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class AwsLakeformationResourceLfTagTableBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class AwsLakeformationResourceLfTagTableBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Wildcard
     {
-        get => GetProperty<TerraformProperty<bool>>("wildcard");
-        set => WithProperty("wildcard", value);
+        set => SetProperty("wildcard", value);
     }
 
 }
@@ -122,8 +113,7 @@ public class AwsLakeformationResourceLfTagTableWithColumnsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => WithProperty("catalog_id", value);
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -131,8 +121,7 @@ public class AwsLakeformationResourceLfTagTableWithColumnsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ColumnNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("column_names");
-        set => WithProperty("column_names", value);
+        set => SetProperty("column_names", value);
     }
 
     /// <summary>
@@ -141,8 +130,7 @@ public class AwsLakeformationResourceLfTagTableWithColumnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -151,8 +139,7 @@ public class AwsLakeformationResourceLfTagTableWithColumnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -168,8 +155,7 @@ public class AwsLakeformationResourceLfTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -177,8 +163,7 @@ public class AwsLakeformationResourceLfTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -195,25 +180,27 @@ public class AwsLakeformationResourceLfTag : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("catalog_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -222,8 +209,7 @@ public class AwsLakeformationResourceLfTag : TerraformResource
     /// </summary>
     public List<AwsLakeformationResourceLfTagDatabaseBlock>? Database
     {
-        get => GetProperty<List<AwsLakeformationResourceLfTagDatabaseBlock>>("database");
-        set => this.WithProperty("database", value);
+        set => SetProperty("database", value);
     }
 
     /// <summary>
@@ -232,8 +218,7 @@ public class AwsLakeformationResourceLfTag : TerraformResource
     /// </summary>
     public List<AwsLakeformationResourceLfTagLfTagBlock>? LfTag
     {
-        get => GetProperty<List<AwsLakeformationResourceLfTagLfTagBlock>>("lf_tag");
-        set => this.WithProperty("lf_tag", value);
+        set => SetProperty("lf_tag", value);
     }
 
     /// <summary>
@@ -242,8 +227,7 @@ public class AwsLakeformationResourceLfTag : TerraformResource
     /// </summary>
     public List<AwsLakeformationResourceLfTagTableBlock>? Table
     {
-        get => GetProperty<List<AwsLakeformationResourceLfTagTableBlock>>("table");
-        set => this.WithProperty("table", value);
+        set => SetProperty("table", value);
     }
 
     /// <summary>
@@ -252,8 +236,7 @@ public class AwsLakeformationResourceLfTag : TerraformResource
     /// </summary>
     public List<AwsLakeformationResourceLfTagTableWithColumnsBlock>? TableWithColumns
     {
-        get => GetProperty<List<AwsLakeformationResourceLfTagTableWithColumnsBlock>>("table_with_columns");
-        set => this.WithProperty("table_with_columns", value);
+        set => SetProperty("table_with_columns", value);
     }
 
     /// <summary>
@@ -262,8 +245,7 @@ public class AwsLakeformationResourceLfTag : TerraformResource
     /// </summary>
     public AwsLakeformationResourceLfTagTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLakeformationResourceLfTagTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

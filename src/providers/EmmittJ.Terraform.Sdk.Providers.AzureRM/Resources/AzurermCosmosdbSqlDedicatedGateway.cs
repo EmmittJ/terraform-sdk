@@ -13,8 +13,7 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cosmosdb_account_id");
+        SetOutput("id");
+        SetOutput("instance_count");
+        SetOutput("instance_size");
     }
 
     /// <summary>
@@ -66,17 +66,17 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountId is required")]
     public required TerraformProperty<string> CosmosdbAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_account_id");
-        set => this.WithProperty("cosmosdb_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_account_id");
+        set => SetProperty("cosmosdb_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +85,8 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformProperty<double> InstanceCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("instance_count");
-        set => this.WithProperty("instance_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceSize is required")]
     public required TerraformProperty<string> InstanceSize
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_size");
-        set => this.WithProperty("instance_size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_size");
+        set => SetProperty("instance_size", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     /// </summary>
     public AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

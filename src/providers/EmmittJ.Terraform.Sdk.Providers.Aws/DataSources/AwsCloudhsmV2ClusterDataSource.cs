@@ -14,10 +14,14 @@ public class AwsCloudhsmV2ClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cluster_certificates");
-        this.WithOutput("security_group_id");
-        this.WithOutput("subnet_ids");
-        this.WithOutput("vpc_id");
+        SetOutput("cluster_certificates");
+        SetOutput("security_group_id");
+        SetOutput("subnet_ids");
+        SetOutput("vpc_id");
+        SetOutput("cluster_id");
+        SetOutput("cluster_state");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -26,35 +30,35 @@ public class AwsCloudhsmV2ClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The cluster_state attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterState
+    public TerraformProperty<string> ClusterState
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_state");
-        set => this.WithProperty("cluster_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_state");
+        set => SetProperty("cluster_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

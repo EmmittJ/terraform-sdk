@@ -13,8 +13,7 @@ public class AzurermNginxApiKeyDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,17 +30,20 @@ public class AzurermNginxApiKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("end_date_time");
-        this.WithOutput("hint");
+        SetOutput("end_date_time");
+        SetOutput("hint");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("nginx_deployment_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +52,8 @@ public class AzurermNginxApiKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -60,8 +62,8 @@ public class AzurermNginxApiKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
-        set => this.WithProperty("nginx_deployment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nginx_deployment_id");
+        set => SetProperty("nginx_deployment_id", value);
     }
 
     /// <summary>
@@ -70,8 +72,7 @@ public class AzurermNginxApiKeyDataSource : TerraformDataSource
     /// </summary>
     public AzurermNginxApiKeyDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNginxApiKeyDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

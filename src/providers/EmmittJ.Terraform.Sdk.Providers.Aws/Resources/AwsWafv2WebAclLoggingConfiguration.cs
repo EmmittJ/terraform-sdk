@@ -14,8 +14,7 @@ public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultBehavior is required")]
     public required TerraformProperty<string> DefaultBehavior
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_behavior");
-        set => WithProperty("default_behavior", value);
+        set => SetProperty("default_behavior", value);
     }
 
 }
@@ -41,34 +40,38 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("log_destination_configs");
+        SetOutput("region");
+        SetOutput("resource_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// AWS Kinesis Firehose Delivery Stream ARNs
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestinationConfigs is required")]
-    public HashSet<TerraformProperty<string>>? LogDestinationConfigs
+    public HashSet<TerraformProperty<string>> LogDestinationConfigs
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("log_destination_configs");
-        set => this.WithProperty("log_destination_configs", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("log_destination_configs");
+        set => SetProperty("log_destination_configs", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -77,8 +80,8 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
-        set => this.WithProperty("resource_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
+        set => SetProperty("resource_arn", value);
     }
 
     /// <summary>
@@ -88,8 +91,7 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingFilter block(s) allowed")]
     public List<AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock>? LoggingFilter
     {
-        get => GetProperty<List<AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock>>("logging_filter");
-        set => this.WithProperty("logging_filter", value);
+        set => SetProperty("logging_filter", value);
     }
 
     /// <summary>
@@ -99,8 +101,7 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 RedactedFields block(s) allowed")]
     public List<AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock>? RedactedFields
     {
-        get => GetProperty<List<AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock>>("redacted_fields");
-        set => this.WithProperty("redacted_fields", value);
+        set => SetProperty("redacted_fields", value);
     }
 
 }

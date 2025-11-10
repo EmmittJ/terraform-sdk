@@ -13,8 +13,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingEventTypes is required")]
     public HashSet<TerraformProperty<string>>? MatchingEventTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("matching_event_types");
-        set => WithProperty("matching_event_types", value);
+        set => SetProperty("matching_event_types", value);
     }
 
 }
@@ -42,6 +40,10 @@ public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("configuration_set_name");
+        SetOutput("event_destination_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -50,8 +52,8 @@ public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformProperty<string> ConfigurationSetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_set_name");
-        set => this.WithProperty("configuration_set_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_set_name");
+        set => SetProperty("configuration_set_name", value);
     }
 
     /// <summary>
@@ -60,38 +62,38 @@ public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventDestinationName is required")]
     public required TerraformProperty<string> EventDestinationName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("event_destination_name");
-        set => this.WithProperty("event_destination_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_destination_name");
+        set => SetProperty("event_destination_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for event_destination.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventDestination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EventDestination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventDestination block(s) allowed")]
     public List<AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock>? EventDestination
     {
-        get => GetProperty<List<AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock>>("event_destination");
-        set => this.WithProperty("event_destination", value);
+        set => SetProperty("event_destination", value);
     }
 
 }

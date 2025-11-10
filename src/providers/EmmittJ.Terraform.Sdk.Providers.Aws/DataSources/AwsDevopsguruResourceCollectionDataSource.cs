@@ -14,18 +14,20 @@ public class AwsDevopsguruResourceCollectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cloudformation");
-        this.WithOutput("id");
-        this.WithOutput("tags");
+        SetOutput("cloudformation");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -34,8 +36,8 @@ public class AwsDevopsguruResourceCollectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>

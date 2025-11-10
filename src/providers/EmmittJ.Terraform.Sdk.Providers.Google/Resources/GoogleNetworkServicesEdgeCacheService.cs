@@ -13,8 +13,7 @@ public class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? Enable
     {
-        get => GetProperty<TerraformProperty<bool>>("enable");
-        set => WithProperty("enable", value);
+        set => SetProperty("enable", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? SampleRate
     {
-        get => GetProperty<TerraformProperty<double>>("sample_rate");
-        set => WithProperty("sample_rate", value);
+        set => SetProperty("sample_rate", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,19 +81,30 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("ipv4_addresses");
-        this.WithOutput("ipv6_addresses");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("ipv4_addresses");
+        SetOutput("ipv6_addresses");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("disable_http2");
+        SetOutput("disable_quic");
+        SetOutput("edge_security_policy");
+        SetOutput("edge_ssl_certificates");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("require_tls");
+        SetOutput("ssl_policy");
     }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -108,28 +114,28 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// 
     /// Some legacy HTTP clients may have issues with HTTP/2 connections due to broken HTTP/2 implementations. Setting this to true will prevent HTTP/2 from being advertised and negotiated.
     /// </summary>
-    public TerraformProperty<bool>? DisableHttp2
+    public TerraformProperty<bool> DisableHttp2
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_http2");
-        set => this.WithProperty("disable_http2", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_http2");
+        set => SetProperty("disable_http2", value);
     }
 
     /// <summary>
     /// HTTP/3 (IETF QUIC) and Google QUIC are enabled by default.
     /// </summary>
-    public TerraformProperty<bool>? DisableQuic
+    public TerraformProperty<bool> DisableQuic
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_quic");
-        set => this.WithProperty("disable_quic", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_quic");
+        set => SetProperty("disable_quic", value);
     }
 
     /// <summary>
     /// Resource URL that points at the Cloud Armor edge security policy that is applied on each request against the EdgeCacheService.
     /// </summary>
-    public TerraformProperty<string>? EdgeSecurityPolicy
+    public TerraformProperty<string> EdgeSecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("edge_security_policy");
-        set => this.WithProperty("edge_security_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_security_policy");
+        set => SetProperty("edge_security_policy", value);
     }
 
     /// <summary>
@@ -137,19 +143,19 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// 
     /// Note that only &amp;quot;global&amp;quot; certificates with a &amp;quot;scope&amp;quot; of &amp;quot;EDGE_CACHE&amp;quot; can be attached to an EdgeCacheService.
     /// </summary>
-    public List<TerraformProperty<string>>? EdgeSslCertificates
+    public List<TerraformProperty<string>> EdgeSslCertificates
     {
-        get => GetProperty<List<TerraformProperty<string>>>("edge_ssl_certificates");
-        set => this.WithProperty("edge_ssl_certificates", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("edge_ssl_certificates");
+        set => SetProperty("edge_ssl_certificates", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -158,10 +164,10 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -172,17 +178,17 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -191,10 +197,10 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// Clients who connect over HTTP (port 80) will receive a HTTP 301 to the same URL over HTTPS (port 443).
     /// You must have at least one (1) edgeSslCertificate specified to enable this.
     /// </summary>
-    public TerraformProperty<bool>? RequireTls
+    public TerraformProperty<bool> RequireTls
     {
-        get => GetProperty<TerraformProperty<bool>>("require_tls");
-        set => this.WithProperty("require_tls", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_tls");
+        set => SetProperty("require_tls", value);
     }
 
     /// <summary>
@@ -202,10 +208,10 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// 
     /// If not set, the EdgeCacheService has no SSL policy configured, and will default to the &amp;quot;COMPATIBLE&amp;quot; policy.
     /// </summary>
-    public TerraformProperty<string>? SslPolicy
+    public TerraformProperty<string> SslPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_policy");
-        set => this.WithProperty("ssl_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ssl_policy");
+        set => SetProperty("ssl_policy", value);
     }
 
     /// <summary>
@@ -215,20 +221,19 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     public List<GoogleNetworkServicesEdgeCacheServiceLogConfigBlock>? LogConfig
     {
-        get => GetProperty<List<GoogleNetworkServicesEdgeCacheServiceLogConfigBlock>>("log_config");
-        set => this.WithProperty("log_config", value);
+        set => SetProperty("log_config", value);
     }
 
     /// <summary>
     /// Block for routing.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Routing is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Routing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     public List<GoogleNetworkServicesEdgeCacheServiceRoutingBlock>? Routing
     {
-        get => GetProperty<List<GoogleNetworkServicesEdgeCacheServiceRoutingBlock>>("routing");
-        set => this.WithProperty("routing", value);
+        set => SetProperty("routing", value);
     }
 
     /// <summary>
@@ -237,8 +242,7 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     public GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

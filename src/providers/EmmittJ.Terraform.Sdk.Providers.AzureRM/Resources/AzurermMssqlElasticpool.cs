@@ -14,8 +14,7 @@ public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformProperty<double> MaxCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_capacity");
-        set => WithProperty("max_capacity", value);
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformProperty<double> MinCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_capacity");
-        set => WithProperty("min_capacity", value);
+        set => SetProperty("min_capacity", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformProperty<double> Capacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("capacity");
-        set => WithProperty("capacity", value);
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Family
     {
-        get => GetProperty<TerraformProperty<string>>("family");
-        set => WithProperty("family", value);
+        set => SetProperty("family", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tier");
-        set => WithProperty("tier", value);
+        set => SetProperty("tier", value);
     }
 
 }
@@ -88,8 +82,7 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -97,8 +90,7 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -106,8 +98,7 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -115,8 +106,7 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -134,33 +124,45 @@ public class AzurermMssqlElasticpool : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("enclave_type");
+        SetOutput("id");
+        SetOutput("license_type");
+        SetOutput("location");
+        SetOutput("maintenance_configuration_name");
+        SetOutput("max_size_bytes");
+        SetOutput("max_size_gb");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("server_name");
+        SetOutput("tags");
+        SetOutput("zone_redundant");
     }
 
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EnclaveType
+    public TerraformProperty<string> EnclaveType
     {
-        get => GetProperty<TerraformProperty<string>>("enclave_type");
-        set => this.WithProperty("enclave_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enclave_type");
+        set => SetProperty("enclave_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseType
+    public TerraformProperty<string> LicenseType
     {
-        get => GetProperty<TerraformProperty<string>>("license_type");
-        set => this.WithProperty("license_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
+        set => SetProperty("license_type", value);
     }
 
     /// <summary>
@@ -169,35 +171,35 @@ public class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MaintenanceConfigurationName
+    public TerraformProperty<string> MaintenanceConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_configuration_name");
-        set => this.WithProperty("maintenance_configuration_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_configuration_name");
+        set => SetProperty("maintenance_configuration_name", value);
     }
 
     /// <summary>
     /// The max_size_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxSizeBytes
+    public TerraformProperty<double> MaxSizeBytes
     {
-        get => GetProperty<TerraformProperty<double>>("max_size_bytes");
-        set => this.WithProperty("max_size_bytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_size_bytes");
+        set => SetProperty("max_size_bytes", value);
     }
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxSizeGb
+    public TerraformProperty<double> MaxSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("max_size_gb");
-        set => this.WithProperty("max_size_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_size_gb");
+        set => SetProperty("max_size_gb", value);
     }
 
     /// <summary>
@@ -206,8 +208,8 @@ public class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -216,8 +218,8 @@ public class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -226,50 +228,50 @@ public class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
-        set => this.WithProperty("server_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_name");
+        set => SetProperty("server_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public TerraformProperty<bool>? ZoneRedundant
+    public TerraformProperty<bool> ZoneRedundant
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_redundant");
-        set => this.WithProperty("zone_redundant", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("zone_redundant");
+        set => SetProperty("zone_redundant", value);
     }
 
     /// <summary>
     /// Block for per_database_settings.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerDatabaseSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PerDatabaseSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerDatabaseSettings block(s) allowed")]
     public List<AzurermMssqlElasticpoolPerDatabaseSettingsBlock>? PerDatabaseSettings
     {
-        get => GetProperty<List<AzurermMssqlElasticpoolPerDatabaseSettingsBlock>>("per_database_settings");
-        set => this.WithProperty("per_database_settings", value);
+        set => SetProperty("per_database_settings", value);
     }
 
     /// <summary>
     /// Block for sku.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     public List<AzurermMssqlElasticpoolSkuBlock>? Sku
     {
-        get => GetProperty<List<AzurermMssqlElasticpoolSkuBlock>>("sku");
-        set => this.WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -278,8 +280,7 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// </summary>
     public AzurermMssqlElasticpoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlElasticpoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

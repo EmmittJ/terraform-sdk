@@ -14,8 +14,7 @@ public class GoogleMonitoringServiceBasicServiceBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ServiceLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("service_labels");
-        set => WithProperty("service_labels", value);
+        set => SetProperty("service_labels", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleMonitoringServiceBasicServiceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceType
     {
-        get => GetProperty<TerraformProperty<string>>("service_type");
-        set => WithProperty("service_type", value);
+        set => SetProperty("service_type", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleMonitoringServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleMonitoringServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleMonitoringServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -78,35 +73,40 @@ public class GoogleMonitoringService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("telemetry");
+        SetOutput("name");
+        SetOutput("telemetry");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("service_id");
+        SetOutput("user_labels");
     }
 
     /// <summary>
     /// Name used for UI elements listing this Service.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -116,8 +116,8 @@ public class GoogleMonitoringService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
-        set => this.WithProperty("service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
+        set => SetProperty("service_id", value);
     }
 
     /// <summary>
@@ -128,10 +128,10 @@ public class GoogleMonitoringService : TerraformResource
     /// label entries may be stored. For labels which do not have a semantic value,
     /// the empty string may be supplied for the label value.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? UserLabels
+    public Dictionary<string, TerraformProperty<string>> UserLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_labels");
-        set => this.WithProperty("user_labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("user_labels");
+        set => SetProperty("user_labels", value);
     }
 
     /// <summary>
@@ -141,8 +141,7 @@ public class GoogleMonitoringService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicService block(s) allowed")]
     public List<GoogleMonitoringServiceBasicServiceBlock>? BasicService
     {
-        get => GetProperty<List<GoogleMonitoringServiceBasicServiceBlock>>("basic_service");
-        set => this.WithProperty("basic_service", value);
+        set => SetProperty("basic_service", value);
     }
 
     /// <summary>
@@ -151,8 +150,7 @@ public class GoogleMonitoringService : TerraformResource
     /// </summary>
     public GoogleMonitoringServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMonitoringServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

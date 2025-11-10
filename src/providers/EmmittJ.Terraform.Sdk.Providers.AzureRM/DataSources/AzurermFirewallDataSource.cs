@@ -13,8 +13,7 @@ public class AzurermFirewallDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,35 +30,39 @@ public class AzurermFirewallDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("dns_servers");
-        this.WithOutput("firewall_policy_id");
-        this.WithOutput("ip_configuration");
-        this.WithOutput("location");
-        this.WithOutput("management_ip_configuration");
-        this.WithOutput("sku_name");
-        this.WithOutput("sku_tier");
-        this.WithOutput("tags");
-        this.WithOutput("threat_intel_mode");
-        this.WithOutput("virtual_hub");
-        this.WithOutput("zones");
+        SetOutput("dns_servers");
+        SetOutput("firewall_policy_id");
+        SetOutput("ip_configuration");
+        SetOutput("location");
+        SetOutput("management_ip_configuration");
+        SetOutput("sku_name");
+        SetOutput("sku_tier");
+        SetOutput("tags");
+        SetOutput("threat_intel_mode");
+        SetOutput("virtual_hub");
+        SetOutput("zones");
+        SetOutput("dns_proxy_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The dns_proxy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DnsProxyEnabled
+    public TerraformProperty<bool> DnsProxyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dns_proxy_enabled");
-        set => this.WithProperty("dns_proxy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("dns_proxy_enabled");
+        set => SetProperty("dns_proxy_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +71,8 @@ public class AzurermFirewallDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -78,8 +81,8 @@ public class AzurermFirewallDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -88,8 +91,7 @@ public class AzurermFirewallDataSource : TerraformDataSource
     /// </summary>
     public AzurermFirewallDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFirewallDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

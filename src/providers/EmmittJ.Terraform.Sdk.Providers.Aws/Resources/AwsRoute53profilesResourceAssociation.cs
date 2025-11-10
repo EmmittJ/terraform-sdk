@@ -13,8 +13,7 @@ public class AwsRoute53profilesResourceAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRoute53profilesResourceAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRoute53profilesResourceAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,11 +46,16 @@ public class AwsRoute53profilesResourceAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("owner_id");
-        this.WithOutput("resource_type");
-        this.WithOutput("status");
-        this.WithOutput("status_message");
+        SetOutput("id");
+        SetOutput("owner_id");
+        SetOutput("resource_type");
+        SetOutput("status");
+        SetOutput("status_message");
+        SetOutput("name");
+        SetOutput("profile_id");
+        SetOutput("region");
+        SetOutput("resource_arn");
+        SetOutput("resource_properties");
     }
 
     /// <summary>
@@ -62,8 +64,8 @@ public class AwsRoute53profilesResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,17 +74,17 @@ public class AwsRoute53profilesResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformProperty<string> ProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("profile_id");
-        set => this.WithProperty("profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_id");
+        set => SetProperty("profile_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -91,17 +93,17 @@ public class AwsRoute53profilesResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
-        set => this.WithProperty("resource_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
+        set => SetProperty("resource_arn", value);
     }
 
     /// <summary>
     /// The resource_properties attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceProperties
+    public TerraformProperty<string> ResourceProperties
     {
-        get => GetProperty<TerraformProperty<string>>("resource_properties");
-        set => this.WithProperty("resource_properties", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_properties");
+        set => SetProperty("resource_properties", value);
     }
 
     /// <summary>
@@ -110,8 +112,7 @@ public class AwsRoute53profilesResourceAssociation : TerraformResource
     /// </summary>
     public AwsRoute53profilesResourceAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53profilesResourceAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,36 +38,42 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("self_link");
+        SetOutput("self_link");
+        SetOutput("default_port");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_endpoint_type");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The default port used if the port number is not specified in the
     /// network endpoint.
     /// </summary>
-    public TerraformProperty<double>? DefaultPort
+    public TerraformProperty<double> DefaultPort
     {
-        get => GetProperty<TerraformProperty<double>>("default_port");
-        set => this.WithProperty("default_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_port");
+        set => SetProperty("default_port", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +88,8 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -94,17 +98,17 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointType is required")]
     public required TerraformProperty<string> NetworkEndpointType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_endpoint_type");
-        set => this.WithProperty("network_endpoint_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_endpoint_type");
+        set => SetProperty("network_endpoint_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -113,8 +117,7 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
     /// </summary>
     public GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

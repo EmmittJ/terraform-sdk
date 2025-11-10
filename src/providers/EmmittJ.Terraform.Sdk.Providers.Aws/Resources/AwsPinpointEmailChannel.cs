@@ -14,7 +14,16 @@ public class AwsPinpointEmailChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("messages_per_second");
+        SetOutput("messages_per_second");
+        SetOutput("application_id");
+        SetOutput("configuration_set");
+        SetOutput("enabled");
+        SetOutput("from_address");
+        SetOutput("id");
+        SetOutput("identity");
+        SetOutput("orchestration_sending_role_arn");
+        SetOutput("region");
+        SetOutput("role_arn");
     }
 
     /// <summary>
@@ -23,26 +32,26 @@ public class AwsPinpointEmailChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The configuration_set attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationSet
+    public TerraformProperty<string> ConfigurationSet
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_set");
-        set => this.WithProperty("configuration_set", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_set");
+        set => SetProperty("configuration_set", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -51,17 +60,17 @@ public class AwsPinpointEmailChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromAddress is required")]
     public required TerraformProperty<string> FromAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("from_address");
-        set => this.WithProperty("from_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("from_address");
+        set => SetProperty("from_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -70,35 +79,35 @@ public class AwsPinpointEmailChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     public required TerraformProperty<string> Identity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity");
-        set => this.WithProperty("identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity");
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
     /// The orchestration_sending_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? OrchestrationSendingRoleArn
+    public TerraformProperty<string> OrchestrationSendingRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("orchestration_sending_role_arn");
-        set => this.WithProperty("orchestration_sending_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("orchestration_sending_role_arn");
+        set => SetProperty("orchestration_sending_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>

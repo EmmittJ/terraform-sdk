@@ -13,8 +13,7 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,10 +30,13 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.WithOutput("domain_name");
-        this.WithOutput("enabled");
-        this.WithOutput("metadata");
-        this.WithOutput("target_dns_servers");
+        SetOutput("domain_name");
+        SetOutput("enabled");
+        SetOutput("metadata");
+        SetOutput("target_dns_servers");
+        SetOutput("dns_forwarding_ruleset_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -43,17 +45,17 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     public required TerraformProperty<string> DnsForwardingRulesetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns_forwarding_ruleset_id");
-        set => this.WithProperty("dns_forwarding_ruleset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_forwarding_ruleset_id");
+        set => SetProperty("dns_forwarding_ruleset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +64,8 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +74,7 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
     /// </summary>
     public AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

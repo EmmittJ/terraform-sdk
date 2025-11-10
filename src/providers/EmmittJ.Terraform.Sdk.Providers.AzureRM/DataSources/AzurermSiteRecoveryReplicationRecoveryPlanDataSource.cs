@@ -13,8 +13,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.WithOutput("azure_to_azure_settings");
-        this.WithOutput("failover_deployment_model");
-        this.WithOutput("recovery_group");
-        this.WithOutput("source_recovery_fabric_id");
-        this.WithOutput("target_recovery_fabric_id");
+        SetOutput("azure_to_azure_settings");
+        SetOutput("failover_deployment_model");
+        SetOutput("recovery_group");
+        SetOutput("source_recovery_fabric_id");
+        SetOutput("target_recovery_fabric_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recovery_vault_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
-        set => this.WithProperty("recovery_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_id");
+        set => SetProperty("recovery_vault_id", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : TerraformDat
     /// </summary>
     public AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

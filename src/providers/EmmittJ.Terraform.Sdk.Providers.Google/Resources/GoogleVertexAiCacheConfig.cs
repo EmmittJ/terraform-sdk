@@ -13,8 +13,7 @@ public class GoogleVertexAiCacheConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleVertexAiCacheConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleVertexAiCacheConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,10 @@ public class GoogleVertexAiCacheConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("disable_cache");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -58,26 +58,26 @@ public class GoogleVertexAiCacheConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableCache is required")]
     public required TerraformProperty<bool> DisableCache
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("disable_cache");
-        set => this.WithProperty("disable_cache", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_cache");
+        set => SetProperty("disable_cache", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -86,8 +86,7 @@ public class GoogleVertexAiCacheConfig : TerraformResource
     /// </summary>
     public GoogleVertexAiCacheConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVertexAiCacheConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

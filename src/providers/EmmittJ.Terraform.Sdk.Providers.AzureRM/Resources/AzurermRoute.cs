@@ -13,8 +13,7 @@ public class AzurermRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermRoute : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("address_prefix");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("next_hop_in_ip_address");
+        SetOutput("next_hop_type");
+        SetOutput("resource_group_name");
+        SetOutput("route_table_name");
     }
 
     /// <summary>
@@ -66,17 +69,17 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
     public required TerraformProperty<string> AddressPrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("address_prefix");
-        set => this.WithProperty("address_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address_prefix");
+        set => SetProperty("address_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,17 +88,17 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The next_hop_in_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? NextHopInIpAddress
+    public TerraformProperty<string> NextHopInIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_in_ip_address");
-        set => this.WithProperty("next_hop_in_ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_in_ip_address");
+        set => SetProperty("next_hop_in_ip_address", value);
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopType is required")]
     public required TerraformProperty<string> NextHopType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("next_hop_type");
-        set => this.WithProperty("next_hop_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_type");
+        set => SetProperty("next_hop_type", value);
     }
 
     /// <summary>
@@ -114,8 +117,8 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -124,8 +127,8 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableName is required")]
     public required TerraformProperty<string> RouteTableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("route_table_name");
-        set => this.WithProperty("route_table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("route_table_name");
+        set => SetProperty("route_table_name", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class AzurermRoute : TerraformResource
     /// </summary>
     public AzurermRouteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRouteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

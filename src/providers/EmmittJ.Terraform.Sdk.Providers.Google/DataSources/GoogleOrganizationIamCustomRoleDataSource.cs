@@ -14,21 +14,24 @@ public class GoogleOrganizationIamCustomRoleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("deleted");
-        this.WithOutput("description");
-        this.WithOutput("name");
-        this.WithOutput("permissions");
-        this.WithOutput("stage");
-        this.WithOutput("title");
+        SetOutput("deleted");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("permissions");
+        SetOutput("stage");
+        SetOutput("title");
+        SetOutput("id");
+        SetOutput("org_id");
+        SetOutput("role_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -37,8 +40,8 @@ public class GoogleOrganizationIamCustomRoleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -47,8 +50,8 @@ public class GoogleOrganizationIamCustomRoleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
-        set => this.WithProperty("role_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_id");
+        set => SetProperty("role_id", value);
     }
 
     /// <summary>

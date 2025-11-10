@@ -14,16 +14,20 @@ public class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource : TerraformDa
 
     private void InitializeOutputs()
     {
-        this.WithOutput("latest_recovery_time");
+        SetOutput("latest_recovery_time");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("project");
+        SetOutput("source_instance_deletion_time");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,26 +36,26 @@ public class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Timestamp, identifies when the source instance was deleted. If this instance is deleted, then you must set the timestamp.
     /// </summary>
-    public TerraformProperty<string>? SourceInstanceDeletionTime
+    public TerraformProperty<string> SourceInstanceDeletionTime
     {
-        get => GetProperty<TerraformProperty<string>>("source_instance_deletion_time");
-        set => this.WithProperty("source_instance_deletion_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_instance_deletion_time");
+        set => SetProperty("source_instance_deletion_time", value);
     }
 
     /// <summary>

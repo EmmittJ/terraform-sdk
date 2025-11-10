@@ -14,8 +14,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformProperty<string> AlarmName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alarm_name");
-        set => WithProperty("alarm_name", value);
+        set => SetProperty("alarm_name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateReason is required")]
     public required TerraformProperty<string> StateReason
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state_reason");
-        set => WithProperty("state_reason", value);
+        set => SetProperty("state_reason", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateValue is required")]
     public required TerraformProperty<string> StateValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state_value");
-        set => WithProperty("state_value", value);
+        set => SetProperty("state_value", value);
     }
 
 }
@@ -61,8 +57,7 @@ public class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? BatchMode
     {
-        get => GetProperty<TerraformProperty<bool>>("batch_mode");
-        set => WithProperty("batch_mode", value);
+        set => SetProperty("batch_mode", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
-        set => WithProperty("log_group_name", value);
+        set => SetProperty("log_group_name", value);
     }
 
     /// <summary>
@@ -81,8 +75,7 @@ public class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -99,8 +92,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
-        set => WithProperty("metric_name", value);
+        set => SetProperty("metric_name", value);
     }
 
     /// <summary>
@@ -109,8 +101,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformProperty<string> MetricNamespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_namespace");
-        set => WithProperty("metric_namespace", value);
+        set => SetProperty("metric_namespace", value);
     }
 
     /// <summary>
@@ -118,8 +109,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MetricTimestamp
     {
-        get => GetProperty<TerraformProperty<string>>("metric_timestamp");
-        set => WithProperty("metric_timestamp", value);
+        set => SetProperty("metric_timestamp", value);
     }
 
     /// <summary>
@@ -128,8 +118,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricUnit is required")]
     public required TerraformProperty<string> MetricUnit
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_unit");
-        set => WithProperty("metric_unit", value);
+        set => SetProperty("metric_unit", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricValue is required")]
     public required TerraformProperty<string> MetricValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_value");
-        set => WithProperty("metric_value", value);
+        set => SetProperty("metric_value", value);
     }
 
     /// <summary>
@@ -148,8 +136,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -166,8 +153,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyField is required")]
     public required TerraformProperty<string> HashKeyField
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hash_key_field");
-        set => WithProperty("hash_key_field", value);
+        set => SetProperty("hash_key_field", value);
     }
 
     /// <summary>
@@ -175,8 +161,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HashKeyType
     {
-        get => GetProperty<TerraformProperty<string>>("hash_key_type");
-        set => WithProperty("hash_key_type", value);
+        set => SetProperty("hash_key_type", value);
     }
 
     /// <summary>
@@ -185,8 +170,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyValue is required")]
     public required TerraformProperty<string> HashKeyValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hash_key_value");
-        set => WithProperty("hash_key_value", value);
+        set => SetProperty("hash_key_value", value);
     }
 
     /// <summary>
@@ -194,8 +178,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Operation
     {
-        get => GetProperty<TerraformProperty<string>>("operation");
-        set => WithProperty("operation", value);
+        set => SetProperty("operation", value);
     }
 
     /// <summary>
@@ -203,8 +186,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PayloadField
     {
-        get => GetProperty<TerraformProperty<string>>("payload_field");
-        set => WithProperty("payload_field", value);
+        set => SetProperty("payload_field", value);
     }
 
     /// <summary>
@@ -212,8 +194,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RangeKeyField
     {
-        get => GetProperty<TerraformProperty<string>>("range_key_field");
-        set => WithProperty("range_key_field", value);
+        set => SetProperty("range_key_field", value);
     }
 
     /// <summary>
@@ -221,8 +202,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RangeKeyType
     {
-        get => GetProperty<TerraformProperty<string>>("range_key_type");
-        set => WithProperty("range_key_type", value);
+        set => SetProperty("range_key_type", value);
     }
 
     /// <summary>
@@ -230,8 +210,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RangeKeyValue
     {
-        get => GetProperty<TerraformProperty<string>>("range_key_value");
-        set => WithProperty("range_key_value", value);
+        set => SetProperty("range_key_value", value);
     }
 
     /// <summary>
@@ -240,8 +219,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -250,8 +228,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => WithProperty("table_name", value);
+        set => SetProperty("table_name", value);
     }
 
 }
@@ -268,8 +245,7 @@ public class AwsIotTopicRuleDynamodbv2Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -286,8 +262,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
-        set => WithProperty("endpoint", value);
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
@@ -296,8 +271,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -306,8 +280,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
     public required TerraformProperty<string> Index
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("index");
-        set => WithProperty("index", value);
+        set => SetProperty("index", value);
     }
 
     /// <summary>
@@ -316,8 +289,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -326,8 +298,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -351,8 +322,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? BatchMode
     {
-        get => GetProperty<TerraformProperty<bool>>("batch_mode");
-        set => WithProperty("batch_mode", value);
+        set => SetProperty("batch_mode", value);
     }
 
     /// <summary>
@@ -361,8 +331,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryStreamName is required")]
     public required TerraformProperty<string> DeliveryStreamName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("delivery_stream_name");
-        set => WithProperty("delivery_stream_name", value);
+        set => SetProperty("delivery_stream_name", value);
     }
 
     /// <summary>
@@ -371,8 +340,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -380,8 +348,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Separator
     {
-        get => GetProperty<TerraformProperty<string>>("separator");
-        set => WithProperty("separator", value);
+        set => SetProperty("separator", value);
     }
 
 }
@@ -397,8 +364,7 @@ public class AwsIotTopicRuleHttpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConfirmationUrl
     {
-        get => GetProperty<TerraformProperty<string>>("confirmation_url");
-        set => WithProperty("confirmation_url", value);
+        set => SetProperty("confirmation_url", value);
     }
 
     /// <summary>
@@ -407,8 +373,7 @@ public class AwsIotTopicRuleHttpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -424,8 +389,7 @@ public class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? BatchMode
     {
-        get => GetProperty<TerraformProperty<bool>>("batch_mode");
-        set => WithProperty("batch_mode", value);
+        set => SetProperty("batch_mode", value);
     }
 
     /// <summary>
@@ -434,8 +398,7 @@ public class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelName is required")]
     public required TerraformProperty<string> ChannelName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("channel_name");
-        set => WithProperty("channel_name", value);
+        set => SetProperty("channel_name", value);
     }
 
     /// <summary>
@@ -444,8 +407,7 @@ public class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -461,8 +423,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? BatchMode
     {
-        get => GetProperty<TerraformProperty<bool>>("batch_mode");
-        set => WithProperty("batch_mode", value);
+        set => SetProperty("batch_mode", value);
     }
 
     /// <summary>
@@ -471,8 +432,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputName is required")]
     public required TerraformProperty<string> InputName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("input_name");
-        set => WithProperty("input_name", value);
+        set => SetProperty("input_name", value);
     }
 
     /// <summary>
@@ -480,8 +440,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MessageId
     {
-        get => GetProperty<TerraformProperty<string>>("message_id");
-        set => WithProperty("message_id", value);
+        set => SetProperty("message_id", value);
     }
 
     /// <summary>
@@ -490,8 +449,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -508,8 +466,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientProperties is required")]
     public Dictionary<string, TerraformProperty<string>>? ClientProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("client_properties");
-        set => WithProperty("client_properties", value);
+        set => SetProperty("client_properties", value);
     }
 
     /// <summary>
@@ -518,8 +475,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
-        set => WithProperty("destination_arn", value);
+        set => SetProperty("destination_arn", value);
     }
 
     /// <summary>
@@ -527,8 +483,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -536,8 +491,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Partition
     {
-        get => GetProperty<TerraformProperty<string>>("partition");
-        set => WithProperty("partition", value);
+        set => SetProperty("partition", value);
     }
 
     /// <summary>
@@ -546,8 +500,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -563,8 +516,7 @@ public class AwsIotTopicRuleKinesisBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PartitionKey
     {
-        get => GetProperty<TerraformProperty<string>>("partition_key");
-        set => WithProperty("partition_key", value);
+        set => SetProperty("partition_key", value);
     }
 
     /// <summary>
@@ -573,8 +525,7 @@ public class AwsIotTopicRuleKinesisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -583,8 +534,7 @@ public class AwsIotTopicRuleKinesisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformProperty<string> StreamName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_name");
-        set => WithProperty("stream_name", value);
+        set => SetProperty("stream_name", value);
     }
 
 }
@@ -601,8 +551,7 @@ public class AwsIotTopicRuleLambdaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformProperty<string> FunctionArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_arn");
-        set => WithProperty("function_arn", value);
+        set => SetProperty("function_arn", value);
     }
 
 }
@@ -618,8 +567,7 @@ public class AwsIotTopicRuleRepublishBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Qos
     {
-        get => GetProperty<TerraformProperty<double>>("qos");
-        set => WithProperty("qos", value);
+        set => SetProperty("qos", value);
     }
 
     /// <summary>
@@ -628,8 +576,7 @@ public class AwsIotTopicRuleRepublishBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -638,8 +585,7 @@ public class AwsIotTopicRuleRepublishBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -656,8 +602,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
-        set => WithProperty("bucket_name", value);
+        set => SetProperty("bucket_name", value);
     }
 
     /// <summary>
@@ -665,8 +610,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CannedAcl
     {
-        get => GetProperty<TerraformProperty<string>>("canned_acl");
-        set => WithProperty("canned_acl", value);
+        set => SetProperty("canned_acl", value);
     }
 
     /// <summary>
@@ -675,8 +619,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -685,8 +628,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -702,8 +644,7 @@ public class AwsIotTopicRuleSnsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MessageFormat
     {
-        get => GetProperty<TerraformProperty<string>>("message_format");
-        set => WithProperty("message_format", value);
+        set => SetProperty("message_format", value);
     }
 
     /// <summary>
@@ -712,8 +653,7 @@ public class AwsIotTopicRuleSnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -722,8 +662,7 @@ public class AwsIotTopicRuleSnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
-        set => WithProperty("target_arn", value);
+        set => SetProperty("target_arn", value);
     }
 
 }
@@ -740,8 +679,7 @@ public class AwsIotTopicRuleSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueUrl is required")]
     public required TerraformProperty<string> QueueUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("queue_url");
-        set => WithProperty("queue_url", value);
+        set => SetProperty("queue_url", value);
     }
 
     /// <summary>
@@ -750,8 +688,7 @@ public class AwsIotTopicRuleSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -760,8 +697,7 @@ public class AwsIotTopicRuleSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseBase64 is required")]
     public required TerraformProperty<bool> UseBase64
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("use_base64");
-        set => WithProperty("use_base64", value);
+        set => SetProperty("use_base64", value);
     }
 
 }
@@ -777,8 +713,7 @@ public class AwsIotTopicRuleStepFunctionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExecutionNamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("execution_name_prefix");
-        set => WithProperty("execution_name_prefix", value);
+        set => SetProperty("execution_name_prefix", value);
     }
 
     /// <summary>
@@ -787,8 +722,7 @@ public class AwsIotTopicRuleStepFunctionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -797,8 +731,7 @@ public class AwsIotTopicRuleStepFunctionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateMachineName is required")]
     public required TerraformProperty<string> StateMachineName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state_machine_name");
-        set => WithProperty("state_machine_name", value);
+        set => SetProperty("state_machine_name", value);
     }
 
 }
@@ -815,8 +748,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -825,8 +757,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -835,8 +766,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => WithProperty("table_name", value);
+        set => SetProperty("table_name", value);
     }
 
 }
@@ -854,16 +784,25 @@ public class AwsIotTopicRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("sql");
+        SetOutput("sql_version");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -872,17 +811,17 @@ public class AwsIotTopicRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -891,17 +830,17 @@ public class AwsIotTopicRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -910,8 +849,8 @@ public class AwsIotTopicRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sql is required")]
     public required TerraformProperty<string> Sql
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sql");
-        set => this.WithProperty("sql", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sql");
+        set => SetProperty("sql", value);
     }
 
     /// <summary>
@@ -920,26 +859,26 @@ public class AwsIotTopicRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVersion is required")]
     public required TerraformProperty<string> SqlVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sql_version");
-        set => this.WithProperty("sql_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sql_version");
+        set => SetProperty("sql_version", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -948,8 +887,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleCloudwatchAlarmBlock>? CloudwatchAlarm
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleCloudwatchAlarmBlock>>("cloudwatch_alarm");
-        set => this.WithProperty("cloudwatch_alarm", value);
+        set => SetProperty("cloudwatch_alarm", value);
     }
 
     /// <summary>
@@ -958,8 +896,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleCloudwatchLogsBlock>? CloudwatchLogs
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleCloudwatchLogsBlock>>("cloudwatch_logs");
-        set => this.WithProperty("cloudwatch_logs", value);
+        set => SetProperty("cloudwatch_logs", value);
     }
 
     /// <summary>
@@ -968,8 +905,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleCloudwatchMetricBlock>? CloudwatchMetric
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleCloudwatchMetricBlock>>("cloudwatch_metric");
-        set => this.WithProperty("cloudwatch_metric", value);
+        set => SetProperty("cloudwatch_metric", value);
     }
 
     /// <summary>
@@ -978,8 +914,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleDynamodbBlock>? Dynamodb
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleDynamodbBlock>>("dynamodb");
-        set => this.WithProperty("dynamodb", value);
+        set => SetProperty("dynamodb", value);
     }
 
     /// <summary>
@@ -988,8 +923,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleDynamodbv2Block>? Dynamodbv2
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleDynamodbv2Block>>("dynamodbv2");
-        set => this.WithProperty("dynamodbv2", value);
+        set => SetProperty("dynamodbv2", value);
     }
 
     /// <summary>
@@ -998,8 +932,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleElasticsearchBlock>? Elasticsearch
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleElasticsearchBlock>>("elasticsearch");
-        set => this.WithProperty("elasticsearch", value);
+        set => SetProperty("elasticsearch", value);
     }
 
     /// <summary>
@@ -1009,8 +942,7 @@ public class AwsIotTopicRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorAction block(s) allowed")]
     public List<AwsIotTopicRuleErrorActionBlock>? ErrorAction
     {
-        get => GetProperty<List<AwsIotTopicRuleErrorActionBlock>>("error_action");
-        set => this.WithProperty("error_action", value);
+        set => SetProperty("error_action", value);
     }
 
     /// <summary>
@@ -1019,8 +951,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleFirehoseBlock>? Firehose
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleFirehoseBlock>>("firehose");
-        set => this.WithProperty("firehose", value);
+        set => SetProperty("firehose", value);
     }
 
     /// <summary>
@@ -1029,8 +960,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleHttpBlock>? Http
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleHttpBlock>>("http");
-        set => this.WithProperty("http", value);
+        set => SetProperty("http", value);
     }
 
     /// <summary>
@@ -1039,8 +969,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleIotAnalyticsBlock>? IotAnalytics
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleIotAnalyticsBlock>>("iot_analytics");
-        set => this.WithProperty("iot_analytics", value);
+        set => SetProperty("iot_analytics", value);
     }
 
     /// <summary>
@@ -1049,8 +978,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleIotEventsBlock>? IotEvents
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleIotEventsBlock>>("iot_events");
-        set => this.WithProperty("iot_events", value);
+        set => SetProperty("iot_events", value);
     }
 
     /// <summary>
@@ -1059,8 +987,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleKafkaBlock>? Kafka
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleKafkaBlock>>("kafka");
-        set => this.WithProperty("kafka", value);
+        set => SetProperty("kafka", value);
     }
 
     /// <summary>
@@ -1069,8 +996,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleKinesisBlock>? Kinesis
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleKinesisBlock>>("kinesis");
-        set => this.WithProperty("kinesis", value);
+        set => SetProperty("kinesis", value);
     }
 
     /// <summary>
@@ -1079,8 +1005,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleLambdaBlock>? Lambda
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleLambdaBlock>>("lambda");
-        set => this.WithProperty("lambda", value);
+        set => SetProperty("lambda", value);
     }
 
     /// <summary>
@@ -1089,8 +1014,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleRepublishBlock>? Republish
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleRepublishBlock>>("republish");
-        set => this.WithProperty("republish", value);
+        set => SetProperty("republish", value);
     }
 
     /// <summary>
@@ -1099,8 +1023,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleS3Block>? S3
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleS3Block>>("s3");
-        set => this.WithProperty("s3", value);
+        set => SetProperty("s3", value);
     }
 
     /// <summary>
@@ -1109,8 +1032,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleSnsBlock>? Sns
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleSnsBlock>>("sns");
-        set => this.WithProperty("sns", value);
+        set => SetProperty("sns", value);
     }
 
     /// <summary>
@@ -1119,8 +1041,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleSqsBlock>? Sqs
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleSqsBlock>>("sqs");
-        set => this.WithProperty("sqs", value);
+        set => SetProperty("sqs", value);
     }
 
     /// <summary>
@@ -1129,8 +1050,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleStepFunctionsBlock>? StepFunctions
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleStepFunctionsBlock>>("step_functions");
-        set => this.WithProperty("step_functions", value);
+        set => SetProperty("step_functions", value);
     }
 
     /// <summary>
@@ -1139,8 +1059,7 @@ public class AwsIotTopicRule : TerraformResource
     /// </summary>
     public HashSet<AwsIotTopicRuleTimestreamBlock>? Timestream
     {
-        get => GetProperty<HashSet<AwsIotTopicRuleTimestreamBlock>>("timestream");
-        set => this.WithProperty("timestream", value);
+        set => SetProperty("timestream", value);
     }
 
     /// <summary>

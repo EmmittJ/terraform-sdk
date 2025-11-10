@@ -14,28 +14,32 @@ public class AwsElasticacheClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputvailability_zone");
-        this.WithOutputache_nodes");
-        this.WithOutputluster_address");
-        this.WithOutputonfiguration_endpoint");
-        this.WithOutputngine");
-        this.WithOutputngine_version");
-        this.WithOutputp_discovery");
-        this.WithOutputog_delivery_configuration");
-        this.WithOutputaintenance_window");
-        this.WithOutputetwork_type");
-        this.WithOutputode_type");
-        this.WithOutputotification_topic_arn");
-        this.WithOutputum_cache_nodes");
-        this.WithOutputarameter_group_name");
-        this.WithOutputort");
-        this.WithOutputreferred_outpost_arn");
-        this.WithOutputeplication_group_id");
-        this.WithOutputecurity_group_ids");
-        this.WithOutputnapshot_retention_limit");
-        this.WithOutputnapshot_window");
-        this.WithOutputubnet_group_name");
+        SetOutput("arn");
+        SetOutput("availability_zone");
+        SetOutput("cache_nodes");
+        SetOutput("cluster_address");
+        SetOutput("configuration_endpoint");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("ip_discovery");
+        SetOutput("log_delivery_configuration");
+        SetOutput("maintenance_window");
+        SetOutput("network_type");
+        SetOutput("node_type");
+        SetOutput("notification_topic_arn");
+        SetOutput("num_cache_nodes");
+        SetOutput("parameter_group_name");
+        SetOutput("port");
+        SetOutput("preferred_outpost_arn");
+        SetOutput("replication_group_id");
+        SetOutput("security_group_ids");
+        SetOutput("snapshot_retention_limit");
+        SetOutput("snapshot_window");
+        SetOutput("subnet_group_name");
+        SetOutput("cluster_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -44,35 +48,35 @@ public class AwsElasticacheClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

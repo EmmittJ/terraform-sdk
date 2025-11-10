@@ -14,42 +14,46 @@ public class GoogleBigqueryTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("biglake_configuration");
-        this.WithOutput("clustering");
-        this.WithOutput("creation_time");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("description");
-        this.WithOutput("effective_labels");
-        this.WithOutput("encryption_configuration");
-        this.WithOutput("etag");
-        this.WithOutput("expiration_time");
-        this.WithOutput("external_catalog_table_options");
-        this.WithOutput("external_data_configuration");
-        this.WithOutput("friendly_name");
-        this.WithOutput("generated_schema_columns");
-        this.WithOutput("ignore_auto_generated_schema");
-        this.WithOutput("ignore_schema_changes");
-        this.WithOutput("labels");
-        this.WithOutput("last_modified_time");
-        this.WithOutput("location");
-        this.WithOutput("materialized_view");
-        this.WithOutput("max_staleness");
-        this.WithOutput("num_bytes");
-        this.WithOutput("num_long_term_bytes");
-        this.WithOutput("num_rows");
-        this.WithOutput("range_partitioning");
-        this.WithOutput("require_partition_filter");
-        this.WithOutput("resource_tags");
-        this.WithOutput("schema");
-        this.WithOutput("schema_foreign_type_info");
-        this.WithOutput("self_link");
-        this.WithOutput("table_constraints");
-        this.WithOutput("table_metadata_view");
-        this.WithOutput("table_replication_info");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("time_partitioning");
-        this.WithOutput("type");
-        this.WithOutput("view");
+        SetOutput("biglake_configuration");
+        SetOutput("clustering");
+        SetOutput("creation_time");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("effective_labels");
+        SetOutput("encryption_configuration");
+        SetOutput("etag");
+        SetOutput("expiration_time");
+        SetOutput("external_catalog_table_options");
+        SetOutput("external_data_configuration");
+        SetOutput("friendly_name");
+        SetOutput("generated_schema_columns");
+        SetOutput("ignore_auto_generated_schema");
+        SetOutput("ignore_schema_changes");
+        SetOutput("labels");
+        SetOutput("last_modified_time");
+        SetOutput("location");
+        SetOutput("materialized_view");
+        SetOutput("max_staleness");
+        SetOutput("num_bytes");
+        SetOutput("num_long_term_bytes");
+        SetOutput("num_rows");
+        SetOutput("range_partitioning");
+        SetOutput("require_partition_filter");
+        SetOutput("resource_tags");
+        SetOutput("schema");
+        SetOutput("schema_foreign_type_info");
+        SetOutput("self_link");
+        SetOutput("table_constraints");
+        SetOutput("table_metadata_view");
+        SetOutput("table_replication_info");
+        SetOutput("terraform_labels");
+        SetOutput("time_partitioning");
+        SetOutput("type");
+        SetOutput("view");
+        SetOutput("dataset_id");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("table_id");
     }
 
     /// <summary>
@@ -58,26 +62,26 @@ public class GoogleBigqueryTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
-        set => this.WithProperty("dataset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
+        set => SetProperty("dataset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -86,8 +90,8 @@ public class GoogleBigqueryTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformProperty<string> TableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_id");
-        set => this.WithProperty("table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_id");
+        set => SetProperty("table_id", value);
     }
 
     /// <summary>

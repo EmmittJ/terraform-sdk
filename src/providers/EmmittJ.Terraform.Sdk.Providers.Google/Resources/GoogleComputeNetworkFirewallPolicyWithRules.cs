@@ -15,8 +15,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Direction
     {
-        get => GetProperty<TerraformProperty<string>>("direction");
-        set => WithProperty("direction", value);
+        set => SetProperty("direction", value);
     }
 
     /// <summary>
@@ -45,8 +42,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => WithProperty("disabled", value);
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -56,8 +52,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? EnableLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_logging");
-        set => WithProperty("enable_logging", value);
+        set => SetProperty("enable_logging", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? RuleName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_name");
-        set => WithProperty("rule_name", value);
+        set => SetProperty("rule_name", value);
     }
 
     /// <summary>
@@ -90,8 +83,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? SecurityProfileGroup
     {
-        get => GetProperty<TerraformProperty<string>>("security_profile_group");
-        set => WithProperty("security_profile_group", value);
+        set => SetProperty("security_profile_group", value);
     }
 
     /// <summary>
@@ -100,8 +92,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     /// </summary>
     public List<TerraformProperty<string>>? TargetServiceAccounts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("target_service_accounts");
-        set => WithProperty("target_service_accounts", value);
+        set => SetProperty("target_service_accounts", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? TlsInspect
     {
-        get => GetProperty<TerraformProperty<bool>>("tls_inspect");
-        set => WithProperty("tls_inspect", value);
+        set => SetProperty("tls_inspect", value);
     }
 
 }
@@ -127,8 +117,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -136,8 +125,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -145,8 +133,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRulesTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -164,31 +151,36 @@ public class GoogleComputeNetworkFirewallPolicyWithRules : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("fingerprint");
-        this.WithOutput("network_firewall_policy_id");
-        this.WithOutput("predefined_rules");
-        this.WithOutput("rule_tuple_count");
-        this.WithOutput("self_link");
-        this.WithOutput("self_link_with_id");
+        SetOutput("creation_timestamp");
+        SetOutput("fingerprint");
+        SetOutput("network_firewall_policy_id");
+        SetOutput("predefined_rules");
+        SetOutput("rule_tuple_count");
+        SetOutput("self_link");
+        SetOutput("self_link_with_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("policy_type");
+        SetOutput("project");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -202,8 +194,8 @@ public class GoogleComputeNetworkFirewallPolicyWithRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -211,30 +203,30 @@ public class GoogleComputeNetworkFirewallPolicyWithRules : TerraformResource
     /// A policy can be associated with a network only if the network has the matching policyType in its network profile.
     /// Different policy types may support some of the Firewall Rules features. Possible values: [&amp;quot;VPC_POLICY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PolicyType
+    public TerraformProperty<string> PolicyType
     {
-        get => GetProperty<TerraformProperty<string>>("policy_type");
-        set => this.WithProperty("policy_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_type");
+        set => SetProperty("policy_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
     public List<GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock>? Rule
     {
-        get => GetProperty<List<GoogleComputeNetworkFirewallPolicyWithRulesRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
@@ -243,8 +235,7 @@ public class GoogleComputeNetworkFirewallPolicyWithRules : TerraformResource
     /// </summary>
     public GoogleComputeNetworkFirewallPolicyWithRulesTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNetworkFirewallPolicyWithRulesTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

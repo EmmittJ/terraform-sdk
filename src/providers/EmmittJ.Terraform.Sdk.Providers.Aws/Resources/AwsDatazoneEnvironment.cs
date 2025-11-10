@@ -13,8 +13,7 @@ public class AwsDatazoneEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDatazoneEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDatazoneEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsDatazoneEnvironmentUserParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsDatazoneEnvironmentUserParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -75,48 +70,58 @@ public class AwsDatazoneEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("created_by");
-        this.WithOutput("id");
-        this.WithOutput("last_deployment");
-        this.WithOutput("provider_environment");
-        this.WithOutput("provisioned_resources");
+        SetOutput("created_at");
+        SetOutput("created_by");
+        SetOutput("id");
+        SetOutput("last_deployment");
+        SetOutput("provider_environment");
+        SetOutput("provisioned_resources");
+        SetOutput("account_identifier");
+        SetOutput("account_region");
+        SetOutput("blueprint_identifier");
+        SetOutput("description");
+        SetOutput("domain_identifier");
+        SetOutput("glossary_terms");
+        SetOutput("name");
+        SetOutput("profile_identifier");
+        SetOutput("project_identifier");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The account_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountIdentifier
+    public TerraformProperty<string> AccountIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("account_identifier");
-        set => this.WithProperty("account_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_identifier");
+        set => SetProperty("account_identifier", value);
     }
 
     /// <summary>
     /// The account_region attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountRegion
+    public TerraformProperty<string> AccountRegion
     {
-        get => GetProperty<TerraformProperty<string>>("account_region");
-        set => this.WithProperty("account_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_region");
+        set => SetProperty("account_region", value);
     }
 
     /// <summary>
     /// The blueprint_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? BlueprintIdentifier
+    public TerraformProperty<string> BlueprintIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("blueprint_identifier");
-        set => this.WithProperty("blueprint_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blueprint_identifier");
+        set => SetProperty("blueprint_identifier", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -125,17 +130,17 @@ public class AwsDatazoneEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
-        set => this.WithProperty("domain_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_identifier");
+        set => SetProperty("domain_identifier", value);
     }
 
     /// <summary>
     /// The glossary_terms attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? GlossaryTerms
+    public List<TerraformProperty<string>> GlossaryTerms
     {
-        get => GetProperty<List<TerraformProperty<string>>>("glossary_terms");
-        set => this.WithProperty("glossary_terms", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("glossary_terms");
+        set => SetProperty("glossary_terms", value);
     }
 
     /// <summary>
@@ -144,8 +149,8 @@ public class AwsDatazoneEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -154,8 +159,8 @@ public class AwsDatazoneEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileIdentifier is required")]
     public required TerraformProperty<string> ProfileIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("profile_identifier");
-        set => this.WithProperty("profile_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_identifier");
+        set => SetProperty("profile_identifier", value);
     }
 
     /// <summary>
@@ -164,17 +169,17 @@ public class AwsDatazoneEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
     public required TerraformProperty<string> ProjectIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_identifier");
-        set => this.WithProperty("project_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_identifier");
+        set => SetProperty("project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -183,8 +188,7 @@ public class AwsDatazoneEnvironment : TerraformResource
     /// </summary>
     public AwsDatazoneEnvironmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDatazoneEnvironmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -193,8 +197,7 @@ public class AwsDatazoneEnvironment : TerraformResource
     /// </summary>
     public List<AwsDatazoneEnvironmentUserParametersBlock>? UserParameters
     {
-        get => GetProperty<List<AwsDatazoneEnvironmentUserParametersBlock>>("user_parameters");
-        set => this.WithProperty("user_parameters", value);
+        set => SetProperty("user_parameters", value);
     }
 
     /// <summary>

@@ -21,8 +21,7 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ActiveTracing
     {
-        get => GetProperty<TerraformProperty<bool>>("active_tracing");
-        set => WithProperty("active_tracing", value);
+        set => SetProperty("active_tracing", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => WithProperty("environment_variables", value);
+        set => SetProperty("environment_variables", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? EphemeralStorage
     {
-        get => GetProperty<TerraformProperty<double>>("ephemeral_storage");
-        set => WithProperty("ephemeral_storage", value);
+        set => SetProperty("ephemeral_storage", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MemoryInMb
     {
-        get => GetProperty<TerraformProperty<double>>("memory_in_mb");
-        set => WithProperty("memory_in_mb", value);
+        set => SetProperty("memory_in_mb", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_in_seconds");
-        set => WithProperty("timeout_in_seconds", value);
+        set => SetProperty("timeout_in_seconds", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class AwsSyntheticsCanaryScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DurationInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("duration_in_seconds");
-        set => WithProperty("duration_in_seconds", value);
+        set => SetProperty("duration_in_seconds", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AwsSyntheticsCanaryScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
 }
@@ -101,8 +94,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Ipv6AllowedForDualStack
     {
-        get => GetProperty<TerraformProperty<bool>>("ipv6_allowed_for_dual_stack");
-        set => WithProperty("ipv6_allowed_for_dual_stack", value);
+        set => SetProperty("ipv6_allowed_for_dual_stack", value);
     }
 
     /// <summary>
@@ -110,8 +102,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -119,8 +110,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
@@ -128,8 +118,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -147,11 +136,28 @@ public class AwsSyntheticsCanary : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("engine_arn");
-        this.WithOutput("source_location_arn");
-        this.WithOutput("status");
-        this.WithOutput("timeline");
+        SetOutput("arn");
+        SetOutput("engine_arn");
+        SetOutput("source_location_arn");
+        SetOutput("status");
+        SetOutput("timeline");
+        SetOutput("artifact_s3_location");
+        SetOutput("delete_lambda");
+        SetOutput("execution_role_arn");
+        SetOutput("failure_retention_period");
+        SetOutput("handler");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("runtime_version");
+        SetOutput("s3_bucket");
+        SetOutput("s3_key");
+        SetOutput("s3_version");
+        SetOutput("start_canary");
+        SetOutput("success_retention_period");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("zip_file");
     }
 
     /// <summary>
@@ -160,17 +166,17 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactS3Location is required")]
     public required TerraformProperty<string> ArtifactS3Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("artifact_s3_location");
-        set => this.WithProperty("artifact_s3_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("artifact_s3_location");
+        set => SetProperty("artifact_s3_location", value);
     }
 
     /// <summary>
     /// The delete_lambda attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeleteLambda
+    public TerraformProperty<bool> DeleteLambda
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_lambda");
-        set => this.WithProperty("delete_lambda", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_lambda");
+        set => SetProperty("delete_lambda", value);
     }
 
     /// <summary>
@@ -179,17 +185,17 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The failure_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? FailureRetentionPeriod
+    public TerraformProperty<double> FailureRetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("failure_retention_period");
-        set => this.WithProperty("failure_retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("failure_retention_period");
+        set => SetProperty("failure_retention_period", value);
     }
 
     /// <summary>
@@ -198,17 +204,17 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handler is required")]
     public required TerraformProperty<string> Handler
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("handler");
-        set => this.WithProperty("handler", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("handler");
+        set => SetProperty("handler", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -217,17 +223,17 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -236,80 +242,80 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformProperty<string> RuntimeVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runtime_version");
-        set => this.WithProperty("runtime_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime_version");
+        set => SetProperty("runtime_version", value);
     }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Bucket
+    public TerraformProperty<string> S3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket");
-        set => this.WithProperty("s3_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket");
+        set => SetProperty("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Key
+    public TerraformProperty<string> S3Key
     {
-        get => GetProperty<TerraformProperty<string>>("s3_key");
-        set => this.WithProperty("s3_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_key");
+        set => SetProperty("s3_key", value);
     }
 
     /// <summary>
     /// The s3_version attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Version
+    public TerraformProperty<string> S3Version
     {
-        get => GetProperty<TerraformProperty<string>>("s3_version");
-        set => this.WithProperty("s3_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_version");
+        set => SetProperty("s3_version", value);
     }
 
     /// <summary>
     /// The start_canary attribute.
     /// </summary>
-    public TerraformProperty<bool>? StartCanary
+    public TerraformProperty<bool> StartCanary
     {
-        get => GetProperty<TerraformProperty<bool>>("start_canary");
-        set => this.WithProperty("start_canary", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("start_canary");
+        set => SetProperty("start_canary", value);
     }
 
     /// <summary>
     /// The success_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? SuccessRetentionPeriod
+    public TerraformProperty<double> SuccessRetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("success_retention_period");
-        set => this.WithProperty("success_retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("success_retention_period");
+        set => SetProperty("success_retention_period", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The zip_file attribute.
     /// </summary>
-    public TerraformProperty<string>? ZipFile
+    public TerraformProperty<string> ZipFile
     {
-        get => GetProperty<TerraformProperty<string>>("zip_file");
-        set => this.WithProperty("zip_file", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zip_file");
+        set => SetProperty("zip_file", value);
     }
 
     /// <summary>
@@ -319,8 +325,7 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ArtifactConfig block(s) allowed")]
     public List<AwsSyntheticsCanaryArtifactConfigBlock>? ArtifactConfig
     {
-        get => GetProperty<List<AwsSyntheticsCanaryArtifactConfigBlock>>("artifact_config");
-        set => this.WithProperty("artifact_config", value);
+        set => SetProperty("artifact_config", value);
     }
 
     /// <summary>
@@ -330,20 +335,19 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RunConfig block(s) allowed")]
     public List<AwsSyntheticsCanaryRunConfigBlock>? RunConfig
     {
-        get => GetProperty<List<AwsSyntheticsCanaryRunConfigBlock>>("run_config");
-        set => this.WithProperty("run_config", value);
+        set => SetProperty("run_config", value);
     }
 
     /// <summary>
     /// Block for schedule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     public List<AwsSyntheticsCanaryScheduleBlock>? Schedule
     {
-        get => GetProperty<List<AwsSyntheticsCanaryScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -353,8 +357,7 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     public List<AwsSyntheticsCanaryVpcConfigBlock>? VpcConfig
     {
-        get => GetProperty<List<AwsSyntheticsCanaryVpcConfigBlock>>("vpc_config");
-        set => this.WithProperty("vpc_config", value);
+        set => SetProperty("vpc_config", value);
     }
 
     /// <summary>

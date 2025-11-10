@@ -13,8 +13,7 @@ public class GoogleComputeSslCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeSslCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,10 +38,17 @@ public class GoogleComputeSslCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate_id");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("expire_time");
-        this.WithOutput("self_link");
+        SetOutput("certificate_id");
+        SetOutput("creation_timestamp");
+        SetOutput("expire_time");
+        SetOutput("self_link");
+        SetOutput("certificate");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("private_key");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -54,26 +59,26 @@ public class GoogleComputeSslCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
     public required TerraformProperty<string> Certificate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate");
-        set => this.WithProperty("certificate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate");
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,19 +92,19 @@ public class GoogleComputeSslCertificate : TerraformResource
     /// 
     /// These are in the same namespace as the managed SSL certificates.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Creates a unique name beginning with the specified prefix. Conflicts with name.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
@@ -108,17 +113,17 @@ public class GoogleComputeSslCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformProperty<string> PrivateKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_key");
-        set => this.WithProperty("private_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_key");
+        set => SetProperty("private_key", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -127,8 +132,7 @@ public class GoogleComputeSslCertificate : TerraformResource
     /// </summary>
     public GoogleComputeSslCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeSslCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

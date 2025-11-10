@@ -13,8 +13,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? CidrListAliases
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("cidr_list_aliases");
-        set => WithProperty("cidr_list_aliases", value);
+        set => SetProperty("cidr_list_aliases", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Cidrs
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("cidrs");
-        set => WithProperty("cidrs", value);
+        set => SetProperty("cidrs", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformProperty<double> FromPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("from_port");
-        set => WithProperty("from_port", value);
+        set => SetProperty("from_port", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Ipv6Cidrs
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv6_cidrs");
-        set => WithProperty("ipv6_cidrs", value);
+        set => SetProperty("ipv6_cidrs", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -61,8 +56,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformProperty<double> ToPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("to_port");
-        set => WithProperty("to_port", value);
+        set => SetProperty("to_port", value);
     }
 
 }
@@ -80,15 +74,18 @@ public class AwsLightsailInstancePublicPorts : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("instance_name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -97,28 +94,28 @@ public class AwsLightsailInstancePublicPorts : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
-        set => this.WithProperty("instance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_name");
+        set => SetProperty("instance_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for port_info.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortInfo is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PortInfo block(s) required")]
     public HashSet<AwsLightsailInstancePublicPortsPortInfoBlock>? PortInfo
     {
-        get => GetProperty<HashSet<AwsLightsailInstancePublicPortsPortInfoBlock>>("port_info");
-        set => this.WithProperty("port_info", value);
+        set => SetProperty("port_info", value);
     }
 
 }

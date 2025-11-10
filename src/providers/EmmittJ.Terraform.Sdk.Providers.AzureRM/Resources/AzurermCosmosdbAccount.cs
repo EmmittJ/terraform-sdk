@@ -14,8 +14,7 @@ public class AzurermCosmosdbAccountAnalyticalStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaType is required")]
     public required TerraformProperty<string> SchemaType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schema_type");
-        set => WithProperty("schema_type", value);
+        set => SetProperty("schema_type", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IntervalInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("interval_in_minutes");
-        set => WithProperty("interval_in_minutes", value);
+        set => SetProperty("interval_in_minutes", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RetentionInHours
     {
-        get => GetProperty<TerraformProperty<double>>("retention_in_hours");
-        set => WithProperty("retention_in_hours", value);
+        set => SetProperty("retention_in_hours", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageRedundancy
     {
-        get => GetProperty<TerraformProperty<string>>("storage_redundancy");
-        set => WithProperty("storage_redundancy", value);
+        set => SetProperty("storage_redundancy", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
-        set => WithProperty("tier", value);
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class AzurermCosmosdbAccountCapabilitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -104,8 +97,7 @@ public class AzurermCosmosdbAccountCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalThroughputLimit is required")]
     public required TerraformProperty<double> TotalThroughputLimit
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("total_throughput_limit");
-        set => WithProperty("total_throughput_limit", value);
+        set => SetProperty("total_throughput_limit", value);
     }
 
 }
@@ -122,8 +114,7 @@ public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsistencyLevel is required")]
     public required TerraformProperty<string> ConsistencyLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("consistency_level");
-        set => WithProperty("consistency_level", value);
+        set => SetProperty("consistency_level", value);
     }
 
     /// <summary>
@@ -131,8 +122,7 @@ public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxIntervalInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_interval_in_seconds");
-        set => WithProperty("max_interval_in_seconds", value);
+        set => SetProperty("max_interval_in_seconds", value);
     }
 
     /// <summary>
@@ -140,8 +130,7 @@ public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxStalenessPrefix
     {
-        get => GetProperty<TerraformProperty<double>>("max_staleness_prefix");
-        set => WithProperty("max_staleness_prefix", value);
+        set => SetProperty("max_staleness_prefix", value);
     }
 
 }
@@ -158,8 +147,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
     public List<TerraformProperty<string>>? AllowedHeaders
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_headers");
-        set => WithProperty("allowed_headers", value);
+        set => SetProperty("allowed_headers", value);
     }
 
     /// <summary>
@@ -168,8 +156,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public List<TerraformProperty<string>>? AllowedMethods
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_methods");
-        set => WithProperty("allowed_methods", value);
+        set => SetProperty("allowed_methods", value);
     }
 
     /// <summary>
@@ -178,8 +165,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public List<TerraformProperty<string>>? AllowedOrigins
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_origins");
-        set => WithProperty("allowed_origins", value);
+        set => SetProperty("allowed_origins", value);
     }
 
     /// <summary>
@@ -188,8 +174,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
     public List<TerraformProperty<string>>? ExposedHeaders
     {
-        get => GetProperty<List<TerraformProperty<string>>>("exposed_headers");
-        set => WithProperty("exposed_headers", value);
+        set => SetProperty("exposed_headers", value);
     }
 
     /// <summary>
@@ -197,8 +182,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAgeInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_age_in_seconds");
-        set => WithProperty("max_age_in_seconds", value);
+        set => SetProperty("max_age_in_seconds", value);
     }
 
 }
@@ -215,8 +199,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailoverPriority is required")]
     public required TerraformProperty<double> FailoverPriority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("failover_priority");
-        set => WithProperty("failover_priority", value);
+        set => SetProperty("failover_priority", value);
     }
 
     /// <summary>
@@ -224,8 +207,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -234,8 +216,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -243,8 +224,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ZoneRedundant
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_redundant");
-        set => WithProperty("zone_redundant", value);
+        set => SetProperty("zone_redundant", value);
     }
 
 }
@@ -260,8 +240,7 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -269,8 +248,7 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -278,8 +256,7 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -288,8 +265,7 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -306,8 +282,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreTimestampInUtc is required")]
     public required TerraformProperty<string> RestoreTimestampInUtc
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("restore_timestamp_in_utc");
-        set => WithProperty("restore_timestamp_in_utc", value);
+        set => SetProperty("restore_timestamp_in_utc", value);
     }
 
     /// <summary>
@@ -316,8 +291,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceCosmosdbAccountId is required")]
     public required TerraformProperty<string> SourceCosmosdbAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_cosmosdb_account_id");
-        set => WithProperty("source_cosmosdb_account_id", value);
+        set => SetProperty("source_cosmosdb_account_id", value);
     }
 
     /// <summary>
@@ -325,8 +299,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? TablesToRestore
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tables_to_restore");
-        set => WithProperty("tables_to_restore", value);
+        set => SetProperty("tables_to_restore", value);
     }
 
 }
@@ -342,8 +315,7 @@ public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -351,8 +323,7 @@ public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -360,8 +331,7 @@ public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -369,8 +339,7 @@ public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -387,8 +356,7 @@ public class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -396,8 +364,7 @@ public class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IgnoreMissingVnetServiceEndpoint
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_missing_vnet_service_endpoint");
-        set => WithProperty("ignore_missing_vnet_service_endpoint", value);
+        set => SetProperty("ignore_missing_vnet_service_endpoint", value);
     }
 
 }
@@ -415,138 +382,164 @@ public class AzurermCosmosdbAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("endpoint");
-        this.WithOutput("primary_key");
-        this.WithOutput("primary_mongodb_connection_string");
-        this.WithOutput("primary_readonly_key");
-        this.WithOutput("primary_readonly_mongodb_connection_string");
-        this.WithOutput("primary_readonly_sql_connection_string");
-        this.WithOutput("primary_sql_connection_string");
-        this.WithOutput("read_endpoints");
-        this.WithOutput("secondary_key");
-        this.WithOutput("secondary_mongodb_connection_string");
-        this.WithOutput("secondary_readonly_key");
-        this.WithOutput("secondary_readonly_mongodb_connection_string");
-        this.WithOutput("secondary_readonly_sql_connection_string");
-        this.WithOutput("secondary_sql_connection_string");
-        this.WithOutput("write_endpoints");
+        SetOutput("endpoint");
+        SetOutput("primary_key");
+        SetOutput("primary_mongodb_connection_string");
+        SetOutput("primary_readonly_key");
+        SetOutput("primary_readonly_mongodb_connection_string");
+        SetOutput("primary_readonly_sql_connection_string");
+        SetOutput("primary_sql_connection_string");
+        SetOutput("read_endpoints");
+        SetOutput("secondary_key");
+        SetOutput("secondary_mongodb_connection_string");
+        SetOutput("secondary_readonly_key");
+        SetOutput("secondary_readonly_mongodb_connection_string");
+        SetOutput("secondary_readonly_sql_connection_string");
+        SetOutput("secondary_sql_connection_string");
+        SetOutput("write_endpoints");
+        SetOutput("access_key_metadata_writes_enabled");
+        SetOutput("analytical_storage_enabled");
+        SetOutput("automatic_failover_enabled");
+        SetOutput("burst_capacity_enabled");
+        SetOutput("create_mode");
+        SetOutput("default_identity_type");
+        SetOutput("free_tier_enabled");
+        SetOutput("id");
+        SetOutput("ip_range_filter");
+        SetOutput("is_virtual_network_filter_enabled");
+        SetOutput("key_vault_key_id");
+        SetOutput("kind");
+        SetOutput("local_authentication_disabled");
+        SetOutput("location");
+        SetOutput("managed_hsm_key_id");
+        SetOutput("minimal_tls_version");
+        SetOutput("mongo_server_version");
+        SetOutput("multiple_write_locations_enabled");
+        SetOutput("name");
+        SetOutput("network_acl_bypass_for_azure_services");
+        SetOutput("network_acl_bypass_ids");
+        SetOutput("offer_type");
+        SetOutput("partition_merge_enabled");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The access_key_metadata_writes_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AccessKeyMetadataWritesEnabled
+    public TerraformProperty<bool> AccessKeyMetadataWritesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("access_key_metadata_writes_enabled");
-        set => this.WithProperty("access_key_metadata_writes_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("access_key_metadata_writes_enabled");
+        set => SetProperty("access_key_metadata_writes_enabled", value);
     }
 
     /// <summary>
     /// The analytical_storage_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AnalyticalStorageEnabled
+    public TerraformProperty<bool> AnalyticalStorageEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("analytical_storage_enabled");
-        set => this.WithProperty("analytical_storage_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("analytical_storage_enabled");
+        set => SetProperty("analytical_storage_enabled", value);
     }
 
     /// <summary>
     /// The automatic_failover_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutomaticFailoverEnabled
+    public TerraformProperty<bool> AutomaticFailoverEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("automatic_failover_enabled");
-        set => this.WithProperty("automatic_failover_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("automatic_failover_enabled");
+        set => SetProperty("automatic_failover_enabled", value);
     }
 
     /// <summary>
     /// The burst_capacity_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BurstCapacityEnabled
+    public TerraformProperty<bool> BurstCapacityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("burst_capacity_enabled");
-        set => this.WithProperty("burst_capacity_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("burst_capacity_enabled");
+        set => SetProperty("burst_capacity_enabled", value);
     }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? CreateMode
+    public TerraformProperty<string> CreateMode
     {
-        get => GetProperty<TerraformProperty<string>>("create_mode");
-        set => this.WithProperty("create_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_mode");
+        set => SetProperty("create_mode", value);
     }
 
     /// <summary>
     /// The default_identity_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultIdentityType
+    public TerraformProperty<string> DefaultIdentityType
     {
-        get => GetProperty<TerraformProperty<string>>("default_identity_type");
-        set => this.WithProperty("default_identity_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_identity_type");
+        set => SetProperty("default_identity_type", value);
     }
 
     /// <summary>
     /// The free_tier_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FreeTierEnabled
+    public TerraformProperty<bool> FreeTierEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("free_tier_enabled");
-        set => this.WithProperty("free_tier_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("free_tier_enabled");
+        set => SetProperty("free_tier_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_range_filter attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IpRangeFilter
+    public HashSet<TerraformProperty<string>> IpRangeFilter
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ip_range_filter");
-        set => this.WithProperty("ip_range_filter", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ip_range_filter");
+        set => SetProperty("ip_range_filter", value);
     }
 
     /// <summary>
     /// The is_virtual_network_filter_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsVirtualNetworkFilterEnabled
+    public TerraformProperty<bool> IsVirtualNetworkFilterEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_virtual_network_filter_enabled");
-        set => this.WithProperty("is_virtual_network_filter_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_virtual_network_filter_enabled");
+        set => SetProperty("is_virtual_network_filter_enabled", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
+    public TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => this.WithProperty("key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformProperty<string>? Kind
+    public TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
-        set => this.WithProperty("kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kind");
+        set => SetProperty("kind", value);
     }
 
     /// <summary>
     /// The local_authentication_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthenticationDisabled
+    public TerraformProperty<bool> LocalAuthenticationDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_authentication_disabled");
-        set => this.WithProperty("local_authentication_disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_disabled");
+        set => SetProperty("local_authentication_disabled", value);
     }
 
     /// <summary>
@@ -555,44 +548,44 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedHsmKeyId
+    public TerraformProperty<string> ManagedHsmKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_hsm_key_id");
-        set => this.WithProperty("managed_hsm_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_key_id");
+        set => SetProperty("managed_hsm_key_id", value);
     }
 
     /// <summary>
     /// The minimal_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MinimalTlsVersion
+    public TerraformProperty<string> MinimalTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("minimal_tls_version");
-        set => this.WithProperty("minimal_tls_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("minimal_tls_version");
+        set => SetProperty("minimal_tls_version", value);
     }
 
     /// <summary>
     /// The mongo_server_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MongoServerVersion
+    public TerraformProperty<string> MongoServerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("mongo_server_version");
-        set => this.WithProperty("mongo_server_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mongo_server_version");
+        set => SetProperty("mongo_server_version", value);
     }
 
     /// <summary>
     /// The multiple_write_locations_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MultipleWriteLocationsEnabled
+    public TerraformProperty<bool> MultipleWriteLocationsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("multiple_write_locations_enabled");
-        set => this.WithProperty("multiple_write_locations_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multiple_write_locations_enabled");
+        set => SetProperty("multiple_write_locations_enabled", value);
     }
 
     /// <summary>
@@ -601,26 +594,26 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_acl_bypass_for_azure_services attribute.
     /// </summary>
-    public TerraformProperty<bool>? NetworkAclBypassForAzureServices
+    public TerraformProperty<bool> NetworkAclBypassForAzureServices
     {
-        get => GetProperty<TerraformProperty<bool>>("network_acl_bypass_for_azure_services");
-        set => this.WithProperty("network_acl_bypass_for_azure_services", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("network_acl_bypass_for_azure_services");
+        set => SetProperty("network_acl_bypass_for_azure_services", value);
     }
 
     /// <summary>
     /// The network_acl_bypass_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? NetworkAclBypassIds
+    public List<TerraformProperty<string>> NetworkAclBypassIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("network_acl_bypass_ids");
-        set => this.WithProperty("network_acl_bypass_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("network_acl_bypass_ids");
+        set => SetProperty("network_acl_bypass_ids", value);
     }
 
     /// <summary>
@@ -629,26 +622,26 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferType is required")]
     public required TerraformProperty<string> OfferType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("offer_type");
-        set => this.WithProperty("offer_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("offer_type");
+        set => SetProperty("offer_type", value);
     }
 
     /// <summary>
     /// The partition_merge_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PartitionMergeEnabled
+    public TerraformProperty<bool> PartitionMergeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("partition_merge_enabled");
-        set => this.WithProperty("partition_merge_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("partition_merge_enabled");
+        set => SetProperty("partition_merge_enabled", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -657,17 +650,17 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -677,8 +670,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnalyticalStorage block(s) allowed")]
     public List<AzurermCosmosdbAccountAnalyticalStorageBlock>? AnalyticalStorage
     {
-        get => GetProperty<List<AzurermCosmosdbAccountAnalyticalStorageBlock>>("analytical_storage");
-        set => this.WithProperty("analytical_storage", value);
+        set => SetProperty("analytical_storage", value);
     }
 
     /// <summary>
@@ -688,8 +680,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     public List<AzurermCosmosdbAccountBackupBlock>? Backup
     {
-        get => GetProperty<List<AzurermCosmosdbAccountBackupBlock>>("backup");
-        set => this.WithProperty("backup", value);
+        set => SetProperty("backup", value);
     }
 
     /// <summary>
@@ -698,8 +689,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     /// </summary>
     public HashSet<AzurermCosmosdbAccountCapabilitiesBlock>? Capabilities
     {
-        get => GetProperty<HashSet<AzurermCosmosdbAccountCapabilitiesBlock>>("capabilities");
-        set => this.WithProperty("capabilities", value);
+        set => SetProperty("capabilities", value);
     }
 
     /// <summary>
@@ -709,20 +699,19 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Capacity block(s) allowed")]
     public List<AzurermCosmosdbAccountCapacityBlock>? Capacity
     {
-        get => GetProperty<List<AzurermCosmosdbAccountCapacityBlock>>("capacity");
-        set => this.WithProperty("capacity", value);
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
     /// Block for consistency_policy.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsistencyPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConsistencyPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConsistencyPolicy block(s) allowed")]
     public List<AzurermCosmosdbAccountConsistencyPolicyBlock>? ConsistencyPolicy
     {
-        get => GetProperty<List<AzurermCosmosdbAccountConsistencyPolicyBlock>>("consistency_policy");
-        set => this.WithProperty("consistency_policy", value);
+        set => SetProperty("consistency_policy", value);
     }
 
     /// <summary>
@@ -732,19 +721,18 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsRule block(s) allowed")]
     public List<AzurermCosmosdbAccountCorsRuleBlock>? CorsRule
     {
-        get => GetProperty<List<AzurermCosmosdbAccountCorsRuleBlock>>("cors_rule");
-        set => this.WithProperty("cors_rule", value);
+        set => SetProperty("cors_rule", value);
     }
 
     /// <summary>
     /// Block for geo_location.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeoLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GeoLocation block(s) required")]
     public HashSet<AzurermCosmosdbAccountGeoLocationBlock>? GeoLocation
     {
-        get => GetProperty<HashSet<AzurermCosmosdbAccountGeoLocationBlock>>("geo_location");
-        set => this.WithProperty("geo_location", value);
+        set => SetProperty("geo_location", value);
     }
 
     /// <summary>
@@ -754,8 +742,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermCosmosdbAccountIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermCosmosdbAccountIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -765,8 +752,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restore block(s) allowed")]
     public List<AzurermCosmosdbAccountRestoreBlock>? Restore
     {
-        get => GetProperty<List<AzurermCosmosdbAccountRestoreBlock>>("restore");
-        set => this.WithProperty("restore", value);
+        set => SetProperty("restore", value);
     }
 
     /// <summary>
@@ -775,8 +761,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     /// </summary>
     public AzurermCosmosdbAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -785,8 +770,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     /// </summary>
     public HashSet<AzurermCosmosdbAccountVirtualNetworkRuleBlock>? VirtualNetworkRule
     {
-        get => GetProperty<HashSet<AzurermCosmosdbAccountVirtualNetworkRuleBlock>>("virtual_network_rule");
-        set => this.WithProperty("virtual_network_rule", value);
+        set => SetProperty("virtual_network_rule", value);
     }
 
     /// <summary>

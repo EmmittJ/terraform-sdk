@@ -13,8 +13,7 @@ public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,11 +46,17 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ip");
-        this.WithOutput("last_seen_date_time");
-        this.WithOutput("registration_date_time");
-        this.WithOutput("worker_name");
-        this.WithOutput("worker_type");
+        SetOutput("ip");
+        SetOutput("last_seen_date_time");
+        SetOutput("registration_date_time");
+        SetOutput("worker_name");
+        SetOutput("worker_type");
+        SetOutput("automation_account_name");
+        SetOutput("id");
+        SetOutput("resource_group_name");
+        SetOutput("vm_resource_id");
+        SetOutput("worker_group_name");
+        SetOutput("worker_id");
     }
 
     /// <summary>
@@ -62,17 +65,17 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
-        set => this.WithProperty("automation_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_name");
+        set => SetProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -81,8 +84,8 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -91,8 +94,8 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmResourceId is required")]
     public required TerraformProperty<string> VmResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vm_resource_id");
-        set => this.WithProperty("vm_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vm_resource_id");
+        set => SetProperty("vm_resource_id", value);
     }
 
     /// <summary>
@@ -101,8 +104,8 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerGroupName is required")]
     public required TerraformProperty<string> WorkerGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("worker_group_name");
-        set => this.WithProperty("worker_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("worker_group_name");
+        set => SetProperty("worker_group_name", value);
     }
 
     /// <summary>
@@ -111,8 +114,8 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerId is required")]
     public required TerraformProperty<string> WorkerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("worker_id");
-        set => this.WithProperty("worker_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("worker_id");
+        set => SetProperty("worker_id", value);
     }
 
     /// <summary>
@@ -121,8 +124,7 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     /// </summary>
     public AzurermAutomationHybridRunbookWorkerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAutomationHybridRunbookWorkerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

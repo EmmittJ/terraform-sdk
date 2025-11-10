@@ -23,27 +23,30 @@ public class AwsCloudfrontFieldLevelEncryptionProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("caller_reference");
-        this.WithOutput("etag");
+        SetOutput("arn");
+        SetOutput("caller_reference");
+        SetOutput("etag");
+        SetOutput("comment");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,20 +55,20 @@ public class AwsCloudfrontFieldLevelEncryptionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Block for encryption_entities.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionEntities is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EncryptionEntities block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionEntities block(s) allowed")]
     public List<AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlock>? EncryptionEntities
     {
-        get => GetProperty<List<AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlock>>("encryption_entities");
-        set => this.WithProperty("encryption_entities", value);
+        set => SetProperty("encryption_entities", value);
     }
 
     /// <summary>

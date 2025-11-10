@@ -14,75 +14,81 @@ public class GoogleComputeImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("archive_size_bytes");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("description");
-        this.WithOutput("disk_size_gb");
-        this.WithOutput("image_encryption_key_sha256");
-        this.WithOutput("image_id");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("labels");
-        this.WithOutput("licenses");
-        this.WithOutput("self_link");
-        this.WithOutput("source_disk");
-        this.WithOutput("source_disk_encryption_key_sha256");
-        this.WithOutput("source_disk_id");
-        this.WithOutput("source_image_id");
-        this.WithOutput("status");
+        SetOutput("archive_size_bytes");
+        SetOutput("creation_timestamp");
+        SetOutput("description");
+        SetOutput("disk_size_gb");
+        SetOutput("image_encryption_key_sha256");
+        SetOutput("image_id");
+        SetOutput("label_fingerprint");
+        SetOutput("labels");
+        SetOutput("licenses");
+        SetOutput("self_link");
+        SetOutput("source_disk");
+        SetOutput("source_disk_encryption_key_sha256");
+        SetOutput("source_disk_id");
+        SetOutput("source_image_id");
+        SetOutput("status");
+        SetOutput("family");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("most_recent");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The family attribute.
     /// </summary>
-    public TerraformProperty<string>? Family
+    public TerraformProperty<string> Family
     {
-        get => GetProperty<TerraformProperty<string>>("family");
-        set => this.WithProperty("family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("family");
+        set => SetProperty("family", value);
     }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

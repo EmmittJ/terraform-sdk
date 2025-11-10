@@ -13,8 +13,7 @@ public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,19 +46,32 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("allow_stale_reviews");
+        SetOutput("branch_rule_id");
+        SetOutput("disabled");
+        SetOutput("id");
+        SetOutput("include_pattern");
+        SetOutput("location");
+        SetOutput("minimum_approvals_count");
+        SetOutput("minimum_reviews_count");
+        SetOutput("project");
+        SetOutput("repository_id");
+        SetOutput("require_comments_resolved");
+        SetOutput("require_linear_history");
+        SetOutput("require_pull_request");
     }
 
     /// <summary>
     /// Determines if allow stale reviews or approvals before merging to the branch.
     /// </summary>
-    public TerraformProperty<bool>? AllowStaleReviews
+    public TerraformProperty<bool> AllowStaleReviews
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_stale_reviews");
-        set => this.WithProperty("allow_stale_reviews", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_stale_reviews");
+        set => SetProperty("allow_stale_reviews", value);
     }
 
     /// <summary>
@@ -70,26 +80,26 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchRuleId is required")]
     public required TerraformProperty<string> BranchRuleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("branch_rule_id");
-        set => this.WithProperty("branch_rule_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("branch_rule_id");
+        set => SetProperty("branch_rule_id", value);
     }
 
     /// <summary>
     /// Determines if the branch rule is disabled or not.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -98,8 +108,8 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludePattern is required")]
     public required TerraformProperty<string> IncludePattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("include_pattern");
-        set => this.WithProperty("include_pattern", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("include_pattern");
+        set => SetProperty("include_pattern", value);
     }
 
     /// <summary>
@@ -108,35 +118,35 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The minimum number of approvals required for the branch rule to be matched.
     /// </summary>
-    public TerraformProperty<double>? MinimumApprovalsCount
+    public TerraformProperty<double> MinimumApprovalsCount
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_approvals_count");
-        set => this.WithProperty("minimum_approvals_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("minimum_approvals_count");
+        set => SetProperty("minimum_approvals_count", value);
     }
 
     /// <summary>
     /// The minimum number of reviews required for the branch rule to be matched.
     /// </summary>
-    public TerraformProperty<double>? MinimumReviewsCount
+    public TerraformProperty<double> MinimumReviewsCount
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_reviews_count");
-        set => this.WithProperty("minimum_reviews_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("minimum_reviews_count");
+        set => SetProperty("minimum_reviews_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -145,35 +155,35 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
-        set => this.WithProperty("repository_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_id");
+        set => SetProperty("repository_id", value);
     }
 
     /// <summary>
     /// Determines if require comments resolved before merging to the branch.
     /// </summary>
-    public TerraformProperty<bool>? RequireCommentsResolved
+    public TerraformProperty<bool> RequireCommentsResolved
     {
-        get => GetProperty<TerraformProperty<bool>>("require_comments_resolved");
-        set => this.WithProperty("require_comments_resolved", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_comments_resolved");
+        set => SetProperty("require_comments_resolved", value);
     }
 
     /// <summary>
     /// Determines if require linear history before merging to the branch.
     /// </summary>
-    public TerraformProperty<bool>? RequireLinearHistory
+    public TerraformProperty<bool> RequireLinearHistory
     {
-        get => GetProperty<TerraformProperty<bool>>("require_linear_history");
-        set => this.WithProperty("require_linear_history", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_linear_history");
+        set => SetProperty("require_linear_history", value);
     }
 
     /// <summary>
     /// Determines if the branch rule requires a pull request or not.
     /// </summary>
-    public TerraformProperty<bool>? RequirePullRequest
+    public TerraformProperty<bool> RequirePullRequest
     {
-        get => GetProperty<TerraformProperty<bool>>("require_pull_request");
-        set => this.WithProperty("require_pull_request", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_pull_request");
+        set => SetProperty("require_pull_request", value);
     }
 
     /// <summary>
@@ -182,8 +192,7 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     /// </summary>
     public GoogleSecureSourceManagerBranchRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSecureSourceManagerBranchRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

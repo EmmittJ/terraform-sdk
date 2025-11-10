@@ -13,8 +13,7 @@ public class AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock : Ter
     /// </summary>
     public TerraformProperty<string>? S3SubPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("s3_sub_prefix");
-        set => WithProperty("s3_sub_prefix", value);
+        set => SetProperty("s3_sub_prefix", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsS3controlAccessGrantGranteeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeIdentifier is required")]
     public required TerraformProperty<string> GranteeIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("grantee_identifier");
-        set => WithProperty("grantee_identifier", value);
+        set => SetProperty("grantee_identifier", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AwsS3controlAccessGrantGranteeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeType is required")]
     public required TerraformProperty<string> GranteeType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("grantee_type");
-        set => WithProperty("grantee_type", value);
+        set => SetProperty("grantee_type", value);
     }
 
 }
@@ -59,11 +56,17 @@ public class AwsS3controlAccessGrant : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_grant_arn");
-        this.WithOutput("access_grant_id");
-        this.WithOutput("grant_scope");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("access_grant_arn");
+        SetOutput("access_grant_id");
+        SetOutput("grant_scope");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("access_grants_location_id");
+        SetOutput("account_id");
+        SetOutput("permission");
+        SetOutput("region");
+        SetOutput("s3_prefix_type");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -72,17 +75,17 @@ public class AwsS3controlAccessGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessGrantsLocationId is required")]
     public required TerraformProperty<string> AccessGrantsLocationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_grants_location_id");
-        set => this.WithProperty("access_grants_location_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_grants_location_id");
+        set => SetProperty("access_grants_location_id", value);
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -91,35 +94,35 @@ public class AwsS3controlAccessGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformProperty<string> Permission
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("permission");
-        set => this.WithProperty("permission", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("permission");
+        set => SetProperty("permission", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The s3_prefix_type attribute.
     /// </summary>
-    public TerraformProperty<string>? S3PrefixType
+    public TerraformProperty<string> S3PrefixType
     {
-        get => GetProperty<TerraformProperty<string>>("s3_prefix_type");
-        set => this.WithProperty("s3_prefix_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_prefix_type");
+        set => SetProperty("s3_prefix_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -128,8 +131,7 @@ public class AwsS3controlAccessGrant : TerraformResource
     /// </summary>
     public List<AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock>? AccessGrantsLocationConfiguration
     {
-        get => GetProperty<List<AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock>>("access_grants_location_configuration");
-        set => this.WithProperty("access_grants_location_configuration", value);
+        set => SetProperty("access_grants_location_configuration", value);
     }
 
     /// <summary>
@@ -138,8 +140,7 @@ public class AwsS3controlAccessGrant : TerraformResource
     /// </summary>
     public List<AwsS3controlAccessGrantGranteeBlock>? Grantee
     {
-        get => GetProperty<List<AwsS3controlAccessGrantGranteeBlock>>("grantee");
-        set => this.WithProperty("grantee", value);
+        set => SetProperty("grantee", value);
     }
 
     /// <summary>

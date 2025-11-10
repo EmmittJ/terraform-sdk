@@ -14,8 +14,7 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformProperty<string> EmailAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_address");
-        set => WithProperty("email_address", value);
+        set => SetProperty("email_address", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FirstName
     {
-        get => GetProperty<TerraformProperty<string>>("first_name");
-        set => WithProperty("first_name", value);
+        set => SetProperty("first_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastName
     {
-        get => GetProperty<TerraformProperty<string>>("last_name");
-        set => WithProperty("last_name", value);
+        set => SetProperty("last_name", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Phone
     {
-        get => GetProperty<TerraformProperty<string>>("phone");
-        set => WithProperty("phone", value);
+        set => SetProperty("phone", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -103,24 +95,31 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_id");
+        SetOutput("id");
+        SetOutput("key_vault_id");
+        SetOutput("name");
+        SetOutput("org_id");
+        SetOutput("password");
+        SetOutput("provider_name");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -129,8 +128,8 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -139,26 +138,26 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    public TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -167,8 +166,8 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
     public required TerraformProperty<string> ProviderName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provider_name");
-        set => this.WithProperty("provider_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_name");
+        set => SetProperty("provider_name", value);
     }
 
     /// <summary>
@@ -177,8 +176,7 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     /// </summary>
     public List<AzurermKeyVaultCertificateIssuerAdminBlock>? Admin
     {
-        get => GetProperty<List<AzurermKeyVaultCertificateIssuerAdminBlock>>("admin");
-        set => this.WithProperty("admin", value);
+        set => SetProperty("admin", value);
     }
 
     /// <summary>
@@ -187,8 +185,7 @@ public class AzurermKeyVaultCertificateIssuer : TerraformResource
     /// </summary>
     public AzurermKeyVaultCertificateIssuerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultCertificateIssuerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -15,35 +15,39 @@ public class GoogleServiceAccountAccessTokenEphemeralResource : TerraformEphemer
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_token");
+        SetOutput("access_token");
+        SetOutput("delegates");
+        SetOutput("lifetime");
+        SetOutput("scopes");
+        SetOutput("target_service_account");
     }
 
     /// <summary>
     /// Delegate chain of approvals needed to perform full impersonation. Specify the fully qualified service account name.  (e.g. `[&#39;projects/-/serviceAccounts/delegate-svc-account@project-id.iam.gserviceaccount.com&#39;]`)
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Delegates
+    public HashSet<TerraformProperty<string>> Delegates
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("delegates");
-        set => this.WithProperty("delegates", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("delegates");
+        set => SetProperty("delegates", value);
     }
 
     /// <summary>
     /// Lifetime of the impersonated token (defaults to its max: `3600s`)
     /// </summary>
-    public TerraformProperty<string>? Lifetime
+    public TerraformProperty<string> Lifetime
     {
-        get => GetProperty<TerraformProperty<string>>("lifetime");
-        set => this.WithProperty("lifetime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lifetime");
+        set => SetProperty("lifetime", value);
     }
 
     /// <summary>
     /// The scopes the new credential should have (e.g. `[&#39;cloud-platform&#39;]`)
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public HashSet<TerraformProperty<string>>? Scopes
+    public HashSet<TerraformProperty<string>> Scopes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scopes");
-        set => this.WithProperty("scopes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scopes");
+        set => SetProperty("scopes", value);
     }
 
     /// <summary>
@@ -52,8 +56,8 @@ public class GoogleServiceAccountAccessTokenEphemeralResource : TerraformEphemer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     public required TerraformProperty<string> TargetServiceAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_service_account");
-        set => this.WithProperty("target_service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_service_account");
+        set => SetProperty("target_service_account", value);
     }
 
     /// <summary>

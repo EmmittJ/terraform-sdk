@@ -14,8 +14,7 @@ public class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AcceleratorCount
     {
-        get => GetProperty<TerraformProperty<double>>("accelerator_count");
-        set => WithProperty("accelerator_count", value);
+        set => SetProperty("accelerator_count", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AcceleratorType
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_type");
-        set => WithProperty("accelerator_type", value);
+        set => SetProperty("accelerator_type", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleComputeNodeTemplateDisksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DiskCount
     {
-        get => GetProperty<TerraformProperty<double>>("disk_count");
-        set => WithProperty("disk_count", value);
+        set => SetProperty("disk_count", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleComputeNodeTemplateDisksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
-        set => WithProperty("disk_size_gb", value);
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleComputeNodeTemplateDisksBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskType
     {
-        get => GetProperty<TerraformProperty<string>>("disk_type");
-        set => WithProperty("disk_type", value);
+        set => SetProperty("disk_type", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cpus
     {
-        get => GetProperty<TerraformProperty<string>>("cpus");
-        set => WithProperty("cpus", value);
+        set => SetProperty("cpus", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocalSsd
     {
-        get => GetProperty<TerraformProperty<string>>("local_ssd");
-        set => WithProperty("local_ssd", value);
+        set => SetProperty("local_ssd", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Memory
     {
-        get => GetProperty<TerraformProperty<string>>("memory");
-        set => WithProperty("memory", value);
+        set => SetProperty("memory", value);
     }
 
 }
@@ -123,8 +115,7 @@ public class GoogleComputeNodeTemplateServerBindingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -140,8 +131,7 @@ public class GoogleComputeNodeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -149,8 +139,7 @@ public class GoogleComputeNodeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -168,35 +157,43 @@ public class GoogleComputeNodeTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("self_link");
+        SetOutput("cpu_overcommit_type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("node_affinity_labels");
+        SetOutput("node_type");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// CPU overcommit. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;NONE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? CpuOvercommitType
+    public TerraformProperty<string> CpuOvercommitType
     {
-        get => GetProperty<TerraformProperty<string>>("cpu_overcommit_type");
-        set => this.WithProperty("cpu_overcommit_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cpu_overcommit_type");
+        set => SetProperty("cpu_overcommit_type", value);
     }
 
     /// <summary>
     /// An optional textual description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -205,47 +202,47 @@ public class GoogleComputeNodeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Labels to use for node affinity, which will be used in
     /// instance scheduling.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? NodeAffinityLabels
+    public Dictionary<string, TerraformProperty<string>> NodeAffinityLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("node_affinity_labels");
-        set => this.WithProperty("node_affinity_labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("node_affinity_labels");
+        set => SetProperty("node_affinity_labels", value);
     }
 
     /// <summary>
     /// Node type to use for nodes group that are created from this template.
     /// Only one of nodeTypeFlexibility and nodeType can be specified.
     /// </summary>
-    public TerraformProperty<string>? NodeType
+    public TerraformProperty<string> NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
-        set => this.WithProperty("node_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
+        set => SetProperty("node_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where nodes using the node template will be created.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -254,8 +251,7 @@ public class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     public List<GoogleComputeNodeTemplateAcceleratorsBlock>? Accelerators
     {
-        get => GetProperty<List<GoogleComputeNodeTemplateAcceleratorsBlock>>("accelerators");
-        set => this.WithProperty("accelerators", value);
+        set => SetProperty("accelerators", value);
     }
 
     /// <summary>
@@ -264,8 +260,7 @@ public class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     public List<GoogleComputeNodeTemplateDisksBlock>? Disks
     {
-        get => GetProperty<List<GoogleComputeNodeTemplateDisksBlock>>("disks");
-        set => this.WithProperty("disks", value);
+        set => SetProperty("disks", value);
     }
 
     /// <summary>
@@ -275,8 +270,7 @@ public class GoogleComputeNodeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeTypeFlexibility block(s) allowed")]
     public List<GoogleComputeNodeTemplateNodeTypeFlexibilityBlock>? NodeTypeFlexibility
     {
-        get => GetProperty<List<GoogleComputeNodeTemplateNodeTypeFlexibilityBlock>>("node_type_flexibility");
-        set => this.WithProperty("node_type_flexibility", value);
+        set => SetProperty("node_type_flexibility", value);
     }
 
     /// <summary>
@@ -286,8 +280,7 @@ public class GoogleComputeNodeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerBinding block(s) allowed")]
     public List<GoogleComputeNodeTemplateServerBindingBlock>? ServerBinding
     {
-        get => GetProperty<List<GoogleComputeNodeTemplateServerBindingBlock>>("server_binding");
-        set => this.WithProperty("server_binding", value);
+        set => SetProperty("server_binding", value);
     }
 
     /// <summary>
@@ -296,8 +289,7 @@ public class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     public GoogleComputeNodeTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNodeTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

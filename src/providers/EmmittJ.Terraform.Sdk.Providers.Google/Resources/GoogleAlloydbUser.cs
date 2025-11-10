@@ -13,8 +13,7 @@ public class GoogleAlloydbUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleAlloydbUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleAlloydbUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,7 +46,13 @@ public class GoogleAlloydbUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("cluster");
+        SetOutput("database_roles");
+        SetOutput("id");
+        SetOutput("password");
+        SetOutput("user_id");
+        SetOutput("user_type");
     }
 
     /// <summary>
@@ -59,35 +62,35 @@ public class GoogleAlloydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// List of database roles this database user has.
     /// </summary>
-    public List<TerraformProperty<string>>? DatabaseRoles
+    public List<TerraformProperty<string>> DatabaseRoles
     {
-        get => GetProperty<List<TerraformProperty<string>>>("database_roles");
-        set => this.WithProperty("database_roles", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("database_roles");
+        set => SetProperty("database_roles", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Password for this database user.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -96,8 +99,8 @@ public class GoogleAlloydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformProperty<string> UserId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_id");
-        set => this.WithProperty("user_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_id");
+        set => SetProperty("user_id", value);
     }
 
     /// <summary>
@@ -106,8 +109,8 @@ public class GoogleAlloydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserType is required")]
     public required TerraformProperty<string> UserType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_type");
-        set => this.WithProperty("user_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_type");
+        set => SetProperty("user_type", value);
     }
 
     /// <summary>
@@ -116,8 +119,7 @@ public class GoogleAlloydbUser : TerraformResource
     /// </summary>
     public GoogleAlloydbUserTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAlloydbUserTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,34 +14,38 @@ public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("results");
+        SetOutput("results");
+        SetOutput("asset_types");
+        SetOutput("id");
+        SetOutput("query");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// The asset_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AssetTypes
+    public List<TerraformProperty<string>> AssetTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("asset_types");
-        set => this.WithProperty("asset_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("asset_types");
+        set => SetProperty("asset_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
-    public TerraformProperty<string>? Query
+    public TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
-        set => this.WithProperty("query", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query");
+        set => SetProperty("query", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>

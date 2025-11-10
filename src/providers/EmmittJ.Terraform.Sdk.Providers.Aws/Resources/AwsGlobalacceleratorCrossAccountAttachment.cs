@@ -13,8 +13,7 @@ public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("cidr_block");
-        set => WithProperty("cidr_block", value);
+        set => SetProperty("cidr_block", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? EndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_id");
-        set => WithProperty("endpoint_id", value);
+        set => SetProperty("endpoint_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
 }
@@ -49,11 +46,14 @@ public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_time");
-        this.WithOutput("id");
-        this.WithOutput("last_modified_time");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("created_time");
+        SetOutput("id");
+        SetOutput("last_modified_time");
+        SetOutput("tags_all");
+        SetOutput("name");
+        SetOutput("principals");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -62,26 +62,26 @@ public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The principals attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Principals
+    public HashSet<TerraformProperty<string>> Principals
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("principals");
-        set => this.WithProperty("principals", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("principals");
+        set => SetProperty("principals", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -90,8 +90,7 @@ public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
     /// </summary>
     public HashSet<AwsGlobalacceleratorCrossAccountAttachmentResourceBlock>? Resource
     {
-        get => GetProperty<HashSet<AwsGlobalacceleratorCrossAccountAttachmentResourceBlock>>("resource");
-        set => this.WithProperty("resource", value);
+        set => SetProperty("resource", value);
     }
 
     /// <summary>

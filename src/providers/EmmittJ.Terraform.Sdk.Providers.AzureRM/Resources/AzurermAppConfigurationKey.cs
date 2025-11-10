@@ -13,8 +13,7 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,17 @@ public class AzurermAppConfigurationKey : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("configuration_store_id");
+        SetOutput("content_type");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("key");
+        SetOutput("label");
+        SetOutput("locked");
+        SetOutput("tags");
+        SetOutput("type");
+        SetOutput("value");
+        SetOutput("vault_key_reference");
     }
 
     /// <summary>
@@ -66,35 +73,35 @@ public class AzurermAppConfigurationKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformProperty<string> ConfigurationStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_store_id");
-        set => this.WithProperty("configuration_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_store_id");
+        set => SetProperty("configuration_store_id", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    public TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => this.WithProperty("content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformProperty<string>? Etag
+    public TerraformProperty<string> Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => this.WithProperty("etag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("etag");
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,62 +110,62 @@ public class AzurermAppConfigurationKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => this.WithProperty("key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key");
+        set => SetProperty("key", value);
     }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string>? Label
+    public TerraformProperty<string> Label
     {
-        get => GetProperty<TerraformProperty<string>>("label");
-        set => this.WithProperty("label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("label");
+        set => SetProperty("label", value);
     }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    public TerraformProperty<bool>? Locked
+    public TerraformProperty<bool> Locked
     {
-        get => GetProperty<TerraformProperty<bool>>("locked");
-        set => this.WithProperty("locked", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("locked");
+        set => SetProperty("locked", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
+    public TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>
     /// The vault_key_reference attribute.
     /// </summary>
-    public TerraformProperty<string>? VaultKeyReference
+    public TerraformProperty<string> VaultKeyReference
     {
-        get => GetProperty<TerraformProperty<string>>("vault_key_reference");
-        set => this.WithProperty("vault_key_reference", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vault_key_reference");
+        set => SetProperty("vault_key_reference", value);
     }
 
     /// <summary>
@@ -167,8 +174,7 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// </summary>
     public AzurermAppConfigurationKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppConfigurationKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

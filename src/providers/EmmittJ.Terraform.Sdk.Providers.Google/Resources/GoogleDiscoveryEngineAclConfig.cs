@@ -13,8 +13,7 @@ public class GoogleDiscoveryEngineAclConfigIdpConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdpType
     {
-        get => GetProperty<TerraformProperty<string>>("idp_type");
-        set => WithProperty("idp_type", value);
+        set => SetProperty("idp_type", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleDiscoveryEngineAclConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleDiscoveryEngineAclConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleDiscoveryEngineAclConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,16 +63,19 @@ public class GoogleDiscoveryEngineAclConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,17 +85,17 @@ public class GoogleDiscoveryEngineAclConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -106,8 +105,7 @@ public class GoogleDiscoveryEngineAclConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdpConfig block(s) allowed")]
     public List<GoogleDiscoveryEngineAclConfigIdpConfigBlock>? IdpConfig
     {
-        get => GetProperty<List<GoogleDiscoveryEngineAclConfigIdpConfigBlock>>("idp_config");
-        set => this.WithProperty("idp_config", value);
+        set => SetProperty("idp_config", value);
     }
 
     /// <summary>
@@ -116,8 +114,7 @@ public class GoogleDiscoveryEngineAclConfig : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineAclConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineAclConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

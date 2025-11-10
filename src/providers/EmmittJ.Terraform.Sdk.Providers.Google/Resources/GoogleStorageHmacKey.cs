@@ -13,8 +13,7 @@ public class GoogleStorageHmacKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleStorageHmacKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleStorageHmacKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,28 +46,32 @@ public class GoogleStorageHmacKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_id");
-        this.WithOutput("secret");
-        this.WithOutput("time_created");
-        this.WithOutput("updated");
+        SetOutput("access_id");
+        SetOutput("secret");
+        SetOutput("time_created");
+        SetOutput("updated");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("service_account_email");
+        SetOutput("state");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -79,17 +80,17 @@ public class GoogleStorageHmacKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformProperty<string> ServiceAccountEmail
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_account_email");
-        set => this.WithProperty("service_account_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account_email");
+        set => SetProperty("service_account_email", value);
     }
 
     /// <summary>
     /// The state of the key. Can be set to one of ACTIVE, INACTIVE. Default value: &amp;quot;ACTIVE&amp;quot; Possible values: [&amp;quot;ACTIVE&amp;quot;, &amp;quot;INACTIVE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -98,8 +99,7 @@ public class GoogleStorageHmacKey : TerraformResource
     /// </summary>
     public GoogleStorageHmacKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageHmacKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleApigeeEnvReferencesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeEnvReferencesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeEnvReferencesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,15 +46,21 @@ public class GoogleApigeeEnvReferences : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("env_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("refers");
+        SetOutput("resource_type");
     }
 
     /// <summary>
     /// Optional. A human-readable description of this reference.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -67,17 +70,17 @@ public class GoogleApigeeEnvReferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
-        set => this.WithProperty("env_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
+        set => SetProperty("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,8 +89,8 @@ public class GoogleApigeeEnvReferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -96,8 +99,8 @@ public class GoogleApigeeEnvReferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Refers is required")]
     public required TerraformProperty<string> Refers
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("refers");
-        set => this.WithProperty("refers", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("refers");
+        set => SetProperty("refers", value);
     }
 
     /// <summary>
@@ -106,8 +109,8 @@ public class GoogleApigeeEnvReferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => this.WithProperty("resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
@@ -116,8 +119,7 @@ public class GoogleApigeeEnvReferences : TerraformResource
     /// </summary>
     public GoogleApigeeEnvReferencesTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeEnvReferencesTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

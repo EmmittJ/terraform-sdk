@@ -13,8 +13,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
-        set => WithProperty("certificate", value);
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? CertificatePassword
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_password");
-        set => WithProperty("certificate_password", value);
+        set => SetProperty("certificate_password", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? CertificateSource
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_source");
-        set => WithProperty("certificate_source", value);
+        set => SetProperty("certificate_source", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? CertificateStatus
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_status");
-        set => WithProperty("certificate_status", value);
+        set => SetProperty("certificate_status", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformProperty<string>>("expiry");
-        set => WithProperty("expiry", value);
+        set => SetProperty("expiry", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => WithProperty("host_name", value);
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? KeyVaultCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_certificate_id");
-        set => WithProperty("key_vault_certificate_id", value);
+        set => SetProperty("key_vault_certificate_id", value);
     }
 
     /// <summary>
@@ -78,8 +71,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
-        set => WithProperty("key_vault_id", value);
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -87,8 +79,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? NegotiateClientCertificate
     {
-        get => GetProperty<TerraformProperty<bool>>("negotiate_client_certificate");
-        set => WithProperty("negotiate_client_certificate", value);
+        set => SetProperty("negotiate_client_certificate", value);
     }
 
     /// <summary>
@@ -96,8 +87,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? SslKeyvaultIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_keyvault_identity_client_id");
-        set => WithProperty("ssl_keyvault_identity_client_id", value);
+        set => SetProperty("ssl_keyvault_identity_client_id", value);
     }
 
     /// <summary>
@@ -105,8 +95,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -114,8 +103,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
-        set => WithProperty("thumbprint", value);
+        set => SetProperty("thumbprint", value);
     }
 
 }
@@ -131,8 +119,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
-        set => WithProperty("certificate", value);
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
@@ -140,8 +127,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificatePassword
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_password");
-        set => WithProperty("certificate_password", value);
+        set => SetProperty("certificate_password", value);
     }
 
     /// <summary>
@@ -149,8 +135,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateSource
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_source");
-        set => WithProperty("certificate_source", value);
+        set => SetProperty("certificate_source", value);
     }
 
     /// <summary>
@@ -158,8 +143,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateStatus
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_status");
-        set => WithProperty("certificate_status", value);
+        set => SetProperty("certificate_status", value);
     }
 
     /// <summary>
@@ -167,8 +151,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DefaultSslBinding
     {
-        get => GetProperty<TerraformProperty<bool>>("default_ssl_binding");
-        set => WithProperty("default_ssl_binding", value);
+        set => SetProperty("default_ssl_binding", value);
     }
 
     /// <summary>
@@ -176,8 +159,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformProperty<string>>("expiry");
-        set => WithProperty("expiry", value);
+        set => SetProperty("expiry", value);
     }
 
     /// <summary>
@@ -186,8 +168,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => WithProperty("host_name", value);
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
@@ -195,8 +176,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_certificate_id");
-        set => WithProperty("key_vault_certificate_id", value);
+        set => SetProperty("key_vault_certificate_id", value);
     }
 
     /// <summary>
@@ -205,8 +185,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
-        set => WithProperty("key_vault_id", value);
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -214,8 +193,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NegotiateClientCertificate
     {
-        get => GetProperty<TerraformProperty<bool>>("negotiate_client_certificate");
-        set => WithProperty("negotiate_client_certificate", value);
+        set => SetProperty("negotiate_client_certificate", value);
     }
 
     /// <summary>
@@ -223,8 +201,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslKeyvaultIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_keyvault_identity_client_id");
-        set => WithProperty("ssl_keyvault_identity_client_id", value);
+        set => SetProperty("ssl_keyvault_identity_client_id", value);
     }
 
     /// <summary>
@@ -232,8 +209,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -241,8 +217,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
-        set => WithProperty("thumbprint", value);
+        set => SetProperty("thumbprint", value);
     }
 
 }
@@ -258,8 +233,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
-        set => WithProperty("certificate", value);
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
@@ -267,8 +241,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificatePassword
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_password");
-        set => WithProperty("certificate_password", value);
+        set => SetProperty("certificate_password", value);
     }
 
     /// <summary>
@@ -276,8 +249,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateSource
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_source");
-        set => WithProperty("certificate_source", value);
+        set => SetProperty("certificate_source", value);
     }
 
     /// <summary>
@@ -285,8 +257,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateStatus
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_status");
-        set => WithProperty("certificate_status", value);
+        set => SetProperty("certificate_status", value);
     }
 
     /// <summary>
@@ -294,8 +265,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformProperty<string>>("expiry");
-        set => WithProperty("expiry", value);
+        set => SetProperty("expiry", value);
     }
 
     /// <summary>
@@ -304,8 +274,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => WithProperty("host_name", value);
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
@@ -313,8 +282,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_certificate_id");
-        set => WithProperty("key_vault_certificate_id", value);
+        set => SetProperty("key_vault_certificate_id", value);
     }
 
     /// <summary>
@@ -323,8 +291,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
-        set => WithProperty("key_vault_id", value);
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -332,8 +299,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NegotiateClientCertificate
     {
-        get => GetProperty<TerraformProperty<bool>>("negotiate_client_certificate");
-        set => WithProperty("negotiate_client_certificate", value);
+        set => SetProperty("negotiate_client_certificate", value);
     }
 
     /// <summary>
@@ -341,8 +307,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslKeyvaultIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_keyvault_identity_client_id");
-        set => WithProperty("ssl_keyvault_identity_client_id", value);
+        set => SetProperty("ssl_keyvault_identity_client_id", value);
     }
 
     /// <summary>
@@ -350,8 +315,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -359,8 +323,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
-        set => WithProperty("thumbprint", value);
+        set => SetProperty("thumbprint", value);
     }
 
 }
@@ -376,8 +339,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
-        set => WithProperty("certificate", value);
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
@@ -385,8 +347,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificatePassword
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_password");
-        set => WithProperty("certificate_password", value);
+        set => SetProperty("certificate_password", value);
     }
 
     /// <summary>
@@ -394,8 +355,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateSource
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_source");
-        set => WithProperty("certificate_source", value);
+        set => SetProperty("certificate_source", value);
     }
 
     /// <summary>
@@ -403,8 +363,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateStatus
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_status");
-        set => WithProperty("certificate_status", value);
+        set => SetProperty("certificate_status", value);
     }
 
     /// <summary>
@@ -412,8 +371,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformProperty<string>>("expiry");
-        set => WithProperty("expiry", value);
+        set => SetProperty("expiry", value);
     }
 
     /// <summary>
@@ -422,8 +380,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => WithProperty("host_name", value);
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
@@ -431,8 +388,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_certificate_id");
-        set => WithProperty("key_vault_certificate_id", value);
+        set => SetProperty("key_vault_certificate_id", value);
     }
 
     /// <summary>
@@ -441,8 +397,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
-        set => WithProperty("key_vault_id", value);
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -450,8 +405,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NegotiateClientCertificate
     {
-        get => GetProperty<TerraformProperty<bool>>("negotiate_client_certificate");
-        set => WithProperty("negotiate_client_certificate", value);
+        set => SetProperty("negotiate_client_certificate", value);
     }
 
     /// <summary>
@@ -459,8 +413,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslKeyvaultIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_keyvault_identity_client_id");
-        set => WithProperty("ssl_keyvault_identity_client_id", value);
+        set => SetProperty("ssl_keyvault_identity_client_id", value);
     }
 
     /// <summary>
@@ -468,8 +421,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -477,8 +429,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
-        set => WithProperty("thumbprint", value);
+        set => SetProperty("thumbprint", value);
     }
 
 }
@@ -494,8 +445,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
-        set => WithProperty("certificate", value);
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
@@ -503,8 +453,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificatePassword
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_password");
-        set => WithProperty("certificate_password", value);
+        set => SetProperty("certificate_password", value);
     }
 
     /// <summary>
@@ -512,8 +461,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateSource
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_source");
-        set => WithProperty("certificate_source", value);
+        set => SetProperty("certificate_source", value);
     }
 
     /// <summary>
@@ -521,8 +469,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateStatus
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_status");
-        set => WithProperty("certificate_status", value);
+        set => SetProperty("certificate_status", value);
     }
 
     /// <summary>
@@ -530,8 +477,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformProperty<string>>("expiry");
-        set => WithProperty("expiry", value);
+        set => SetProperty("expiry", value);
     }
 
     /// <summary>
@@ -540,8 +486,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => WithProperty("host_name", value);
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
@@ -549,8 +494,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_certificate_id");
-        set => WithProperty("key_vault_certificate_id", value);
+        set => SetProperty("key_vault_certificate_id", value);
     }
 
     /// <summary>
@@ -559,8 +503,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
-        set => WithProperty("key_vault_id", value);
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -568,8 +511,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NegotiateClientCertificate
     {
-        get => GetProperty<TerraformProperty<bool>>("negotiate_client_certificate");
-        set => WithProperty("negotiate_client_certificate", value);
+        set => SetProperty("negotiate_client_certificate", value);
     }
 
     /// <summary>
@@ -577,8 +519,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslKeyvaultIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_keyvault_identity_client_id");
-        set => WithProperty("ssl_keyvault_identity_client_id", value);
+        set => SetProperty("ssl_keyvault_identity_client_id", value);
     }
 
     /// <summary>
@@ -586,8 +527,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -595,8 +535,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
-        set => WithProperty("thumbprint", value);
+        set => SetProperty("thumbprint", value);
     }
 
 }
@@ -612,8 +551,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -621,8 +559,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -630,8 +567,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -639,8 +575,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -657,6 +592,8 @@ public class AzurermApiManagementCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -665,17 +602,17 @@ public class AzurermApiManagementCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
-        set => this.WithProperty("api_management_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_id");
+        set => SetProperty("api_management_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -684,8 +621,7 @@ public class AzurermApiManagementCustomDomain : TerraformResource
     /// </summary>
     public List<AzurermApiManagementCustomDomainDeveloperPortalBlock>? DeveloperPortal
     {
-        get => GetProperty<List<AzurermApiManagementCustomDomainDeveloperPortalBlock>>("developer_portal");
-        set => this.WithProperty("developer_portal", value);
+        set => SetProperty("developer_portal", value);
     }
 
     /// <summary>
@@ -694,8 +630,7 @@ public class AzurermApiManagementCustomDomain : TerraformResource
     /// </summary>
     public List<AzurermApiManagementCustomDomainGatewayBlock>? Gateway
     {
-        get => GetProperty<List<AzurermApiManagementCustomDomainGatewayBlock>>("gateway");
-        set => this.WithProperty("gateway", value);
+        set => SetProperty("gateway", value);
     }
 
     /// <summary>
@@ -704,8 +639,7 @@ public class AzurermApiManagementCustomDomain : TerraformResource
     /// </summary>
     public List<AzurermApiManagementCustomDomainManagementBlock>? Management
     {
-        get => GetProperty<List<AzurermApiManagementCustomDomainManagementBlock>>("management");
-        set => this.WithProperty("management", value);
+        set => SetProperty("management", value);
     }
 
     /// <summary>
@@ -714,8 +648,7 @@ public class AzurermApiManagementCustomDomain : TerraformResource
     /// </summary>
     public List<AzurermApiManagementCustomDomainPortalBlock>? Portal
     {
-        get => GetProperty<List<AzurermApiManagementCustomDomainPortalBlock>>("portal");
-        set => this.WithProperty("portal", value);
+        set => SetProperty("portal", value);
     }
 
     /// <summary>
@@ -724,8 +657,7 @@ public class AzurermApiManagementCustomDomain : TerraformResource
     /// </summary>
     public List<AzurermApiManagementCustomDomainScmBlock>? Scm
     {
-        get => GetProperty<List<AzurermApiManagementCustomDomainScmBlock>>("scm");
-        set => this.WithProperty("scm", value);
+        set => SetProperty("scm", value);
     }
 
     /// <summary>
@@ -734,8 +666,7 @@ public class AzurermApiManagementCustomDomain : TerraformResource
     /// </summary>
     public AzurermApiManagementCustomDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementCustomDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

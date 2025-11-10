@@ -14,8 +14,7 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateType is required")]
     public required TerraformProperty<string> CertificateType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_type");
-        set => WithProperty("certificate_type", value);
+        set => SetProperty("certificate_type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     public required TerraformProperty<string> ProtocolType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol_type");
-        set => WithProperty("protocol_type", value);
+        set => SetProperty("protocol_type", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("tls_version");
-        set => WithProperty("tls_version", value);
+        set => SetProperty("tls_version", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,8 +88,7 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     public required TerraformProperty<string> KeyVaultSecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_secret_id");
-        set => WithProperty("key_vault_secret_id", value);
+        set => SetProperty("key_vault_secret_id", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? TlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("tls_version");
-        set => WithProperty("tls_version", value);
+        set => SetProperty("tls_version", value);
     }
 
 }
@@ -123,6 +114,10 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cdn_endpoint_id");
+        SetOutput("host_name");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -131,8 +126,8 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnEndpointId is required")]
     public required TerraformProperty<string> CdnEndpointId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cdn_endpoint_id");
-        set => this.WithProperty("cdn_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cdn_endpoint_id");
+        set => SetProperty("cdn_endpoint_id", value);
     }
 
     /// <summary>
@@ -141,17 +136,17 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => this.WithProperty("host_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_name");
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -160,8 +155,8 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -171,8 +166,7 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnManagedHttps block(s) allowed")]
     public List<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock>? CdnManagedHttps
     {
-        get => GetProperty<List<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock>>("cdn_managed_https");
-        set => this.WithProperty("cdn_managed_https", value);
+        set => SetProperty("cdn_managed_https", value);
     }
 
     /// <summary>
@@ -181,8 +175,7 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     /// </summary>
     public AzurermCdnEndpointCustomDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCdnEndpointCustomDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -192,8 +185,7 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserManagedHttps block(s) allowed")]
     public List<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock>? UserManagedHttps
     {
-        get => GetProperty<List<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock>>("user_managed_https");
-        set => this.WithProperty("user_managed_https", value);
+        set => SetProperty("user_managed_https", value);
     }
 
 }

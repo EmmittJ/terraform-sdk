@@ -14,54 +14,60 @@ public class AwsSsmPatchBaselineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("approval_rule");
-        this.WithOutput("approved_patches");
-        this.WithOutput("approved_patches_compliance_level");
-        this.WithOutput("approved_patches_enable_non_security");
-        this.WithOutput("available_security_updates_compliance_status");
-        this.WithOutput("description");
-        this.WithOutput("global_filter");
-        this.WithOutput("json");
-        this.WithOutput("name");
-        this.WithOutput("rejected_patches");
-        this.WithOutput("rejected_patches_action");
-        this.WithOutput("source");
+        SetOutput("approval_rule");
+        SetOutput("approved_patches");
+        SetOutput("approved_patches_compliance_level");
+        SetOutput("approved_patches_enable_non_security");
+        SetOutput("available_security_updates_compliance_status");
+        SetOutput("description");
+        SetOutput("global_filter");
+        SetOutput("json");
+        SetOutput("name");
+        SetOutput("rejected_patches");
+        SetOutput("rejected_patches_action");
+        SetOutput("source");
+        SetOutput("default_baseline");
+        SetOutput("id");
+        SetOutput("name_prefix");
+        SetOutput("operating_system");
+        SetOutput("owner");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The default_baseline attribute.
     /// </summary>
-    public TerraformProperty<bool>? DefaultBaseline
+    public TerraformProperty<bool> DefaultBaseline
     {
-        get => GetProperty<TerraformProperty<bool>>("default_baseline");
-        set => this.WithProperty("default_baseline", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default_baseline");
+        set => SetProperty("default_baseline", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
-    public TerraformProperty<string>? OperatingSystem
+    public TerraformProperty<string> OperatingSystem
     {
-        get => GetProperty<TerraformProperty<string>>("operating_system");
-        set => this.WithProperty("operating_system", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("operating_system");
+        set => SetProperty("operating_system", value);
     }
 
     /// <summary>
@@ -70,17 +76,17 @@ public class AwsSsmPatchBaselineDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformProperty<string> Owner
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("owner");
-        set => this.WithProperty("owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner");
+        set => SetProperty("owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

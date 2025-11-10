@@ -13,8 +13,7 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DocumentationUrl
     {
-        get => GetProperty<TerraformProperty<string>>("documentation_url");
-        set => WithProperty("documentation_url", value);
+        set => SetProperty("documentation_url", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServerUrl
     {
-        get => GetProperty<TerraformProperty<string>>("server_url");
-        set => WithProperty("server_url", value);
+        set => SetProperty("server_url", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AzurermSpringCloudGatewayClientAuthorizationBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? CertificateIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("certificate_ids");
-        set => WithProperty("certificate_ids", value);
+        set => SetProperty("certificate_ids", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermSpringCloudGatewayClientAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? VerificationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("verification_enabled");
-        set => WithProperty("verification_enabled", value);
+        set => SetProperty("verification_enabled", value);
     }
 
 }
@@ -92,8 +85,7 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedHeaders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_headers");
-        set => WithProperty("allowed_headers", value);
+        set => SetProperty("allowed_headers", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedMethods
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_methods");
-        set => WithProperty("allowed_methods", value);
+        set => SetProperty("allowed_methods", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedOriginPatterns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_origin_patterns");
-        set => WithProperty("allowed_origin_patterns", value);
+        set => SetProperty("allowed_origin_patterns", value);
     }
 
     /// <summary>
@@ -119,8 +109,7 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedOrigins
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_origins");
-        set => WithProperty("allowed_origins", value);
+        set => SetProperty("allowed_origins", value);
     }
 
     /// <summary>
@@ -128,8 +117,7 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CredentialsAllowed
     {
-        get => GetProperty<TerraformProperty<bool>>("credentials_allowed");
-        set => WithProperty("credentials_allowed", value);
+        set => SetProperty("credentials_allowed", value);
     }
 
     /// <summary>
@@ -137,8 +125,7 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExposedHeaders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("exposed_headers");
-        set => WithProperty("exposed_headers", value);
+        set => SetProperty("exposed_headers", value);
     }
 
     /// <summary>
@@ -146,8 +133,7 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAgeSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_age_seconds");
-        set => WithProperty("max_age_seconds", value);
+        set => SetProperty("max_age_seconds", value);
     }
 
 }
@@ -163,8 +149,7 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Size
     {
-        get => GetProperty<TerraformProperty<string>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
     /// <summary>
@@ -172,8 +157,7 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock : Terra
     /// </summary>
     public TerraformProperty<string>? TimeToLive
     {
-        get => GetProperty<TerraformProperty<string>>("time_to_live");
-        set => WithProperty("time_to_live", value);
+        set => SetProperty("time_to_live", value);
     }
 
 }
@@ -189,8 +173,7 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Size
     {
-        get => GetProperty<TerraformProperty<string>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
     /// <summary>
@@ -198,8 +181,7 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? TimeToLive
     {
-        get => GetProperty<TerraformProperty<string>>("time_to_live");
-        set => WithProperty("time_to_live", value);
+        set => SetProperty("time_to_live", value);
     }
 
 }
@@ -215,8 +197,7 @@ public class AzurermSpringCloudGatewayQuotaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cpu
     {
-        get => GetProperty<TerraformProperty<string>>("cpu");
-        set => WithProperty("cpu", value);
+        set => SetProperty("cpu", value);
     }
 
     /// <summary>
@@ -224,8 +205,7 @@ public class AzurermSpringCloudGatewayQuotaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Memory
     {
-        get => GetProperty<TerraformProperty<string>>("memory");
-        set => WithProperty("memory", value);
+        set => SetProperty("memory", value);
     }
 
 }
@@ -241,8 +221,7 @@ public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -250,8 +229,7 @@ public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
-        set => WithProperty("client_secret", value);
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
@@ -259,8 +237,7 @@ public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IssuerUri
     {
-        get => GetProperty<TerraformProperty<string>>("issuer_uri");
-        set => WithProperty("issuer_uri", value);
+        set => SetProperty("issuer_uri", value);
     }
 
     /// <summary>
@@ -268,8 +245,7 @@ public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Scope
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
 }
@@ -285,8 +261,7 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -294,8 +269,7 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -303,8 +277,7 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -312,8 +285,7 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -331,61 +303,71 @@ public class AzurermSpringCloudGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrl");
+        SetOutput("url");
+        SetOutput("application_performance_monitoring_ids");
+        SetOutput("application_performance_monitoring_types");
+        SetOutput("environment_variables");
+        SetOutput("https_only");
+        SetOutput("id");
+        SetOutput("instance_count");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("sensitive_environment_variables");
+        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The application_performance_monitoring_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ApplicationPerformanceMonitoringIds
+    public List<TerraformProperty<string>> ApplicationPerformanceMonitoringIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("application_performance_monitoring_ids");
-        set => this.WithProperty("application_performance_monitoring_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("application_performance_monitoring_ids");
+        set => SetProperty("application_performance_monitoring_ids", value);
     }
 
     /// <summary>
     /// The application_performance_monitoring_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ApplicationPerformanceMonitoringTypes
+    public List<TerraformProperty<string>> ApplicationPerformanceMonitoringTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("application_performance_monitoring_types");
-        set => this.WithProperty("application_performance_monitoring_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("application_performance_monitoring_types");
+        set => SetProperty("application_performance_monitoring_types", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>> EnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => this.WithProperty("environment_variables", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("environment_variables");
+        set => SetProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? HttpsOnly
+    public TerraformProperty<bool> HttpsOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("https_only");
-        set => this.WithProperty("https_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("https_only");
+        set => SetProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InstanceCount
+    public TerraformProperty<double> InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
-        set => this.WithProperty("instance_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -394,26 +376,26 @@ public class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The sensitive_environment_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? SensitiveEnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>> SensitiveEnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("sensitive_environment_variables");
-        set => this.WithProperty("sensitive_environment_variables", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("sensitive_environment_variables");
+        set => SetProperty("sensitive_environment_variables", value);
     }
 
     /// <summary>
@@ -422,8 +404,8 @@ public class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
-        set => this.WithProperty("spring_cloud_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
+        set => SetProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
@@ -433,8 +415,7 @@ public class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiMetadata block(s) allowed")]
     public List<AzurermSpringCloudGatewayApiMetadataBlock>? ApiMetadata
     {
-        get => GetProperty<List<AzurermSpringCloudGatewayApiMetadataBlock>>("api_metadata");
-        set => this.WithProperty("api_metadata", value);
+        set => SetProperty("api_metadata", value);
     }
 
     /// <summary>
@@ -444,8 +425,7 @@ public class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthorization block(s) allowed")]
     public List<AzurermSpringCloudGatewayClientAuthorizationBlock>? ClientAuthorization
     {
-        get => GetProperty<List<AzurermSpringCloudGatewayClientAuthorizationBlock>>("client_authorization");
-        set => this.WithProperty("client_authorization", value);
+        set => SetProperty("client_authorization", value);
     }
 
     /// <summary>
@@ -455,8 +435,7 @@ public class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     public List<AzurermSpringCloudGatewayCorsBlock>? Cors
     {
-        get => GetProperty<List<AzurermSpringCloudGatewayCorsBlock>>("cors");
-        set => this.WithProperty("cors", value);
+        set => SetProperty("cors", value);
     }
 
     /// <summary>
@@ -466,8 +445,7 @@ public class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerInstance block(s) allowed")]
     public List<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock>? LocalResponseCachePerInstance
     {
-        get => GetProperty<List<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock>>("local_response_cache_per_instance");
-        set => this.WithProperty("local_response_cache_per_instance", value);
+        set => SetProperty("local_response_cache_per_instance", value);
     }
 
     /// <summary>
@@ -477,8 +455,7 @@ public class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerRoute block(s) allowed")]
     public List<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock>? LocalResponseCachePerRoute
     {
-        get => GetProperty<List<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock>>("local_response_cache_per_route");
-        set => this.WithProperty("local_response_cache_per_route", value);
+        set => SetProperty("local_response_cache_per_route", value);
     }
 
     /// <summary>
@@ -488,8 +465,7 @@ public class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
     public List<AzurermSpringCloudGatewayQuotaBlock>? Quota
     {
-        get => GetProperty<List<AzurermSpringCloudGatewayQuotaBlock>>("quota");
-        set => this.WithProperty("quota", value);
+        set => SetProperty("quota", value);
     }
 
     /// <summary>
@@ -499,8 +475,7 @@ public class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
     public List<AzurermSpringCloudGatewaySsoBlock>? Sso
     {
-        get => GetProperty<List<AzurermSpringCloudGatewaySsoBlock>>("sso");
-        set => this.WithProperty("sso", value);
+        set => SetProperty("sso", value);
     }
 
     /// <summary>
@@ -509,8 +484,7 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     public AzurermSpringCloudGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,22 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dead_letter_storage_secret");
+        SetOutput("digital_twins_id");
+        SetOutput("eventgrid_topic_endpoint");
+        SetOutput("eventgrid_topic_primary_access_key");
+        SetOutput("eventgrid_topic_secondary_access_key");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The dead_letter_storage_secret attribute.
     /// </summary>
-    public TerraformProperty<string>? DeadLetterStorageSecret
+    public TerraformProperty<string> DeadLetterStorageSecret
     {
-        get => GetProperty<TerraformProperty<string>>("dead_letter_storage_secret");
-        set => this.WithProperty("dead_letter_storage_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dead_letter_storage_secret");
+        set => SetProperty("dead_letter_storage_secret", value);
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformProperty<string> DigitalTwinsId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("digital_twins_id");
-        set => this.WithProperty("digital_twins_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("digital_twins_id");
+        set => SetProperty("digital_twins_id", value);
     }
 
     /// <summary>
@@ -85,8 +88,8 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicEndpoint is required")]
     public required TerraformProperty<string> EventgridTopicEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventgrid_topic_endpoint");
-        set => this.WithProperty("eventgrid_topic_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventgrid_topic_endpoint");
+        set => SetProperty("eventgrid_topic_endpoint", value);
     }
 
     /// <summary>
@@ -95,8 +98,8 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicPrimaryAccessKey is required")]
     public required TerraformProperty<string> EventgridTopicPrimaryAccessKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventgrid_topic_primary_access_key");
-        set => this.WithProperty("eventgrid_topic_primary_access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventgrid_topic_primary_access_key");
+        set => SetProperty("eventgrid_topic_primary_access_key", value);
     }
 
     /// <summary>
@@ -105,17 +108,17 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicSecondaryAccessKey is required")]
     public required TerraformProperty<string> EventgridTopicSecondaryAccessKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventgrid_topic_secondary_access_key");
-        set => this.WithProperty("eventgrid_topic_secondary_access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventgrid_topic_secondary_access_key");
+        set => SetProperty("eventgrid_topic_secondary_access_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -124,8 +127,8 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     /// </summary>
     public AzurermDigitalTwinsEndpointEventgridTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDigitalTwinsEndpointEventgridTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

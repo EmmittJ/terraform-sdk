@@ -29,8 +29,7 @@ public class AwsBedrockagentcoreGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -38,8 +37,7 @@ public class AwsBedrockagentcoreGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -47,8 +45,7 @@ public class AwsBedrockagentcoreGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -65,11 +62,20 @@ public class AwsBedrockagentcoreGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("gateway_arn");
-        this.WithOutput("gateway_id");
-        this.WithOutput("gateway_url");
-        this.WithOutput("tags_all");
-        this.WithOutput("workload_identity_details");
+        SetOutput("gateway_arn");
+        SetOutput("gateway_id");
+        SetOutput("gateway_url");
+        SetOutput("tags_all");
+        SetOutput("workload_identity_details");
+        SetOutput("authorizer_type");
+        SetOutput("description");
+        SetOutput("exception_level");
+        SetOutput("kms_key_arn");
+        SetOutput("name");
+        SetOutput("protocol_type");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -78,35 +84,35 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerType is required")]
     public required TerraformProperty<string> AuthorizerType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorizer_type");
-        set => this.WithProperty("authorizer_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_type");
+        set => SetProperty("authorizer_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The exception_level attribute.
     /// </summary>
-    public TerraformProperty<string>? ExceptionLevel
+    public TerraformProperty<string> ExceptionLevel
     {
-        get => GetProperty<TerraformProperty<string>>("exception_level");
-        set => this.WithProperty("exception_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("exception_level");
+        set => SetProperty("exception_level", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
@@ -115,8 +121,8 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -125,17 +131,17 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     public required TerraformProperty<string> ProtocolType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol_type");
-        set => this.WithProperty("protocol_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol_type");
+        set => SetProperty("protocol_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -144,17 +150,17 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -163,8 +169,7 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     /// </summary>
     public List<AwsBedrockagentcoreGatewayAuthorizerConfigurationBlock>? AuthorizerConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentcoreGatewayAuthorizerConfigurationBlock>>("authorizer_configuration");
-        set => this.WithProperty("authorizer_configuration", value);
+        set => SetProperty("authorizer_configuration", value);
     }
 
     /// <summary>
@@ -173,8 +178,7 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     /// </summary>
     public List<AwsBedrockagentcoreGatewayProtocolConfigurationBlock>? ProtocolConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentcoreGatewayProtocolConfigurationBlock>>("protocol_configuration");
-        set => this.WithProperty("protocol_configuration", value);
+        set => SetProperty("protocol_configuration", value);
     }
 
     /// <summary>
@@ -183,8 +187,7 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     /// </summary>
     public AwsBedrockagentcoreGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentcoreGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

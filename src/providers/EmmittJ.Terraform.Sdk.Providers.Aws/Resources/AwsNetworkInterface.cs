@@ -13,8 +13,7 @@ public class AwsNetworkInterfaceAttachmentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("attachment_id");
-        set => WithProperty("attachment_id", value);
+        set => SetProperty("attachment_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsNetworkInterfaceAttachmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
     public required TerraformProperty<double> DeviceIndex
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("device_index");
-        set => WithProperty("device_index", value);
+        set => SetProperty("device_index", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsNetworkInterfaceAttachmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => WithProperty("instance", value);
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsNetworkInterfaceAttachmentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NetworkCardIndex
     {
-        get => GetProperty<TerraformProperty<double>>("network_card_index");
-        set => WithProperty("network_card_index", value);
+        set => SetProperty("network_card_index", value);
     }
 
 }
@@ -60,191 +56,214 @@ public class AwsNetworkInterface : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("mac_address");
-        this.WithOutput("outpost_arn");
-        this.WithOutput("owner_id");
-        this.WithOutput("private_dns_name");
+        SetOutput("arn");
+        SetOutput("mac_address");
+        SetOutput("outpost_arn");
+        SetOutput("owner_id");
+        SetOutput("private_dns_name");
+        SetOutput("description");
+        SetOutput("enable_primary_ipv6");
+        SetOutput("id");
+        SetOutput("interface_type");
+        SetOutput("ipv4_prefix_count");
+        SetOutput("ipv4_prefixes");
+        SetOutput("ipv6_address_count");
+        SetOutput("ipv6_address_list");
+        SetOutput("ipv6_address_list_enabled");
+        SetOutput("ipv6_addresses");
+        SetOutput("ipv6_prefix_count");
+        SetOutput("ipv6_prefixes");
+        SetOutput("private_ip");
+        SetOutput("private_ip_list");
+        SetOutput("private_ip_list_enabled");
+        SetOutput("private_ips");
+        SetOutput("private_ips_count");
+        SetOutput("region");
+        SetOutput("security_groups");
+        SetOutput("source_dest_check");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enable_primary_ipv6 attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnablePrimaryIpv6
+    public TerraformProperty<bool> EnablePrimaryIpv6
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_primary_ipv6");
-        set => this.WithProperty("enable_primary_ipv6", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_primary_ipv6");
+        set => SetProperty("enable_primary_ipv6", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The interface_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InterfaceType
+    public TerraformProperty<string> InterfaceType
     {
-        get => GetProperty<TerraformProperty<string>>("interface_type");
-        set => this.WithProperty("interface_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("interface_type");
+        set => SetProperty("interface_type", value);
     }
 
     /// <summary>
     /// The ipv4_prefix_count attribute.
     /// </summary>
-    public TerraformProperty<double>? Ipv4PrefixCount
+    public TerraformProperty<double> Ipv4PrefixCount
     {
-        get => GetProperty<TerraformProperty<double>>("ipv4_prefix_count");
-        set => this.WithProperty("ipv4_prefix_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ipv4_prefix_count");
+        set => SetProperty("ipv4_prefix_count", value);
     }
 
     /// <summary>
     /// The ipv4_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Ipv4Prefixes
+    public HashSet<TerraformProperty<string>> Ipv4Prefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv4_prefixes");
-        set => this.WithProperty("ipv4_prefixes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ipv4_prefixes");
+        set => SetProperty("ipv4_prefixes", value);
     }
 
     /// <summary>
     /// The ipv6_address_count attribute.
     /// </summary>
-    public TerraformProperty<double>? Ipv6AddressCount
+    public TerraformProperty<double> Ipv6AddressCount
     {
-        get => GetProperty<TerraformProperty<double>>("ipv6_address_count");
-        set => this.WithProperty("ipv6_address_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ipv6_address_count");
+        set => SetProperty("ipv6_address_count", value);
     }
 
     /// <summary>
     /// The ipv6_address_list attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Ipv6AddressList
+    public List<TerraformProperty<string>> Ipv6AddressList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ipv6_address_list");
-        set => this.WithProperty("ipv6_address_list", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ipv6_address_list");
+        set => SetProperty("ipv6_address_list", value);
     }
 
     /// <summary>
     /// The ipv6_address_list_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Ipv6AddressListEnabled
+    public TerraformProperty<bool> Ipv6AddressListEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ipv6_address_list_enabled");
-        set => this.WithProperty("ipv6_address_list_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ipv6_address_list_enabled");
+        set => SetProperty("ipv6_address_list_enabled", value);
     }
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Ipv6Addresses
+    public HashSet<TerraformProperty<string>> Ipv6Addresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv6_addresses");
-        set => this.WithProperty("ipv6_addresses", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ipv6_addresses");
+        set => SetProperty("ipv6_addresses", value);
     }
 
     /// <summary>
     /// The ipv6_prefix_count attribute.
     /// </summary>
-    public TerraformProperty<double>? Ipv6PrefixCount
+    public TerraformProperty<double> Ipv6PrefixCount
     {
-        get => GetProperty<TerraformProperty<double>>("ipv6_prefix_count");
-        set => this.WithProperty("ipv6_prefix_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ipv6_prefix_count");
+        set => SetProperty("ipv6_prefix_count", value);
     }
 
     /// <summary>
     /// The ipv6_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Ipv6Prefixes
+    public HashSet<TerraformProperty<string>> Ipv6Prefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv6_prefixes");
-        set => this.WithProperty("ipv6_prefixes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ipv6_prefixes");
+        set => SetProperty("ipv6_prefixes", value);
     }
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateIp
+    public TerraformProperty<string> PrivateIp
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip");
-        set => this.WithProperty("private_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_ip");
+        set => SetProperty("private_ip", value);
     }
 
     /// <summary>
     /// The private_ip_list attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PrivateIpList
+    public List<TerraformProperty<string>> PrivateIpList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("private_ip_list");
-        set => this.WithProperty("private_ip_list", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("private_ip_list");
+        set => SetProperty("private_ip_list", value);
     }
 
     /// <summary>
     /// The private_ip_list_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivateIpListEnabled
+    public TerraformProperty<bool> PrivateIpListEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_ip_list_enabled");
-        set => this.WithProperty("private_ip_list_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_ip_list_enabled");
+        set => SetProperty("private_ip_list_enabled", value);
     }
 
     /// <summary>
     /// The private_ips attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? PrivateIps
+    public HashSet<TerraformProperty<string>> PrivateIps
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("private_ips");
-        set => this.WithProperty("private_ips", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("private_ips");
+        set => SetProperty("private_ips", value);
     }
 
     /// <summary>
     /// The private_ips_count attribute.
     /// </summary>
-    public TerraformProperty<double>? PrivateIpsCount
+    public TerraformProperty<double> PrivateIpsCount
     {
-        get => GetProperty<TerraformProperty<double>>("private_ips_count");
-        set => this.WithProperty("private_ips_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("private_ips_count");
+        set => SetProperty("private_ips_count", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>> SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => this.WithProperty("security_groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_groups");
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
     /// The source_dest_check attribute.
     /// </summary>
-    public TerraformProperty<bool>? SourceDestCheck
+    public TerraformProperty<bool> SourceDestCheck
     {
-        get => GetProperty<TerraformProperty<bool>>("source_dest_check");
-        set => this.WithProperty("source_dest_check", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("source_dest_check");
+        set => SetProperty("source_dest_check", value);
     }
 
     /// <summary>
@@ -253,26 +272,26 @@ public class AwsNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -281,8 +300,7 @@ public class AwsNetworkInterface : TerraformResource
     /// </summary>
     public HashSet<AwsNetworkInterfaceAttachmentBlock>? Attachment
     {
-        get => GetProperty<HashSet<AwsNetworkInterfaceAttachmentBlock>>("attachment");
-        set => this.WithProperty("attachment", value);
+        set => SetProperty("attachment", value);
     }
 
     /// <summary>

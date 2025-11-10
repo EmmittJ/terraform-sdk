@@ -13,8 +13,7 @@ public class AzurermArcMachineDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,42 +30,45 @@ public class AzurermArcMachineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("active_directory_fqdn");
-        this.WithOutput("agent");
-        this.WithOutput("agent_version");
-        this.WithOutput("client_public_key");
-        this.WithOutput("cloud_metadata");
-        this.WithOutput("detected_properties");
-        this.WithOutput("display_name");
-        this.WithOutput("dns_fqdn");
-        this.WithOutput("domain_name");
-        this.WithOutput("identity");
-        this.WithOutput("last_status_change_time");
-        this.WithOutput("location");
-        this.WithOutput("location_data");
-        this.WithOutput("machine_fqdn");
-        this.WithOutput("mssql_discovered");
-        this.WithOutput("os_name");
-        this.WithOutput("os_profile");
-        this.WithOutput("os_sku");
-        this.WithOutput("os_type");
-        this.WithOutput("os_version");
-        this.WithOutput("parent_cluster_resource_id");
-        this.WithOutput("private_link_scope_resource_id");
-        this.WithOutput("service_status");
-        this.WithOutput("status");
-        this.WithOutput("tags");
-        this.WithOutput("vm_id");
-        this.WithOutput("vm_uuid");
+        SetOutput("active_directory_fqdn");
+        SetOutput("agent");
+        SetOutput("agent_version");
+        SetOutput("client_public_key");
+        SetOutput("cloud_metadata");
+        SetOutput("detected_properties");
+        SetOutput("display_name");
+        SetOutput("dns_fqdn");
+        SetOutput("domain_name");
+        SetOutput("identity");
+        SetOutput("last_status_change_time");
+        SetOutput("location");
+        SetOutput("location_data");
+        SetOutput("machine_fqdn");
+        SetOutput("mssql_discovered");
+        SetOutput("os_name");
+        SetOutput("os_profile");
+        SetOutput("os_sku");
+        SetOutput("os_type");
+        SetOutput("os_version");
+        SetOutput("parent_cluster_resource_id");
+        SetOutput("private_link_scope_resource_id");
+        SetOutput("service_status");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("vm_id");
+        SetOutput("vm_uuid");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +77,8 @@ public class AzurermArcMachineDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermArcMachineDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -95,8 +97,7 @@ public class AzurermArcMachineDataSource : TerraformDataSource
     /// </summary>
     public AzurermArcMachineDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermArcMachineDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

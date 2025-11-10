@@ -13,8 +13,7 @@ public class GoogleAppEngineFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleAppEngineFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleAppEngineFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,6 +46,12 @@ public class GoogleAppEngineFirewallRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("action");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("priority");
+        SetOutput("project");
+        SetOutput("source_range");
     }
 
     /// <summary>
@@ -57,26 +60,26 @@ public class GoogleAppEngineFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// An optional string description of this rule.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,19 +90,19 @@ public class GoogleAppEngineFirewallRule : TerraformResource
     /// IPv6 traffic when no previous rule matches. Only the action of
     /// this rule can be modified by the user.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -108,8 +111,8 @@ public class GoogleAppEngineFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRange is required")]
     public required TerraformProperty<string> SourceRange
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_range");
-        set => this.WithProperty("source_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_range");
+        set => SetProperty("source_range", value);
     }
 
     /// <summary>
@@ -118,8 +121,7 @@ public class GoogleAppEngineFirewallRule : TerraformResource
     /// </summary>
     public GoogleAppEngineFirewallRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAppEngineFirewallRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

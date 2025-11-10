@@ -13,8 +13,7 @@ public class AwsFmsResourceSetResourceSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsFmsResourceSetResourceSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsFmsResourceSetResourceSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastUpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("last_update_time");
-        set => WithProperty("last_update_time", value);
+        set => SetProperty("last_update_time", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsFmsResourceSetResourceSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsFmsResourceSetResourceSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceSetStatus
     {
-        get => GetProperty<TerraformProperty<string>>("resource_set_status");
-        set => WithProperty("resource_set_status", value);
+        set => SetProperty("resource_set_status", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AwsFmsResourceSetResourceSetBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ResourceTypeList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_type_list");
-        set => WithProperty("resource_type_list", value);
+        set => SetProperty("resource_type_list", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AwsFmsResourceSetResourceSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateToken
     {
-        get => GetProperty<TerraformProperty<string>>("update_token");
-        set => WithProperty("update_token", value);
+        set => SetProperty("update_token", value);
     }
 
 }
@@ -85,8 +78,7 @@ public class AwsFmsResourceSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AwsFmsResourceSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class AwsFmsResourceSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,27 +111,29 @@ public class AwsFmsResourceSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -150,8 +142,7 @@ public class AwsFmsResourceSet : TerraformResource
     /// </summary>
     public List<AwsFmsResourceSetResourceSetBlock>? ResourceSet
     {
-        get => GetProperty<List<AwsFmsResourceSetResourceSetBlock>>("resource_set");
-        set => this.WithProperty("resource_set", value);
+        set => SetProperty("resource_set", value);
     }
 
     /// <summary>
@@ -160,8 +151,7 @@ public class AwsFmsResourceSet : TerraformResource
     /// </summary>
     public AwsFmsResourceSetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFmsResourceSetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,14 +14,16 @@ public class AwsBedrockInferenceProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("description");
-        this.WithOutput("inference_profile_arn");
-        this.WithOutput("inference_profile_name");
-        this.WithOutput("models");
-        this.WithOutput("status");
-        this.WithOutput("type");
-        this.WithOutput("updated_at");
+        SetOutput("created_at");
+        SetOutput("description");
+        SetOutput("inference_profile_arn");
+        SetOutput("inference_profile_name");
+        SetOutput("models");
+        SetOutput("status");
+        SetOutput("type");
+        SetOutput("updated_at");
+        SetOutput("inference_profile_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -30,17 +32,17 @@ public class AwsBedrockInferenceProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InferenceProfileId is required")]
     public required TerraformProperty<string> InferenceProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("inference_profile_id");
-        set => this.WithProperty("inference_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("inference_profile_id");
+        set => SetProperty("inference_profile_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

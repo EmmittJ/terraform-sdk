@@ -13,8 +13,7 @@ public class AwsS3BucketVersioningVersioningConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MfaDelete
     {
-        get => GetProperty<TerraformProperty<string>>("mfa_delete");
-        set => WithProperty("mfa_delete", value);
+        set => SetProperty("mfa_delete", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsS3BucketVersioningVersioningConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -42,6 +40,11 @@ public class AwsS3BucketVersioning : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket");
+        SetOutput("expected_bucket_owner");
+        SetOutput("id");
+        SetOutput("mfa");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -50,56 +53,56 @@ public class AwsS3BucketVersioning : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpectedBucketOwner
+    public TerraformProperty<string> ExpectedBucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("expected_bucket_owner");
-        set => this.WithProperty("expected_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
+        set => SetProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The mfa attribute.
     /// </summary>
-    public TerraformProperty<string>? Mfa
+    public TerraformProperty<string> Mfa
     {
-        get => GetProperty<TerraformProperty<string>>("mfa");
-        set => this.WithProperty("mfa", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mfa");
+        set => SetProperty("mfa", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for versioning_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersioningConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VersioningConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VersioningConfiguration block(s) allowed")]
     public List<AwsS3BucketVersioningVersioningConfigurationBlock>? VersioningConfiguration
     {
-        get => GetProperty<List<AwsS3BucketVersioningVersioningConfigurationBlock>>("versioning_configuration");
-        set => this.WithProperty("versioning_configuration", value);
+        set => SetProperty("versioning_configuration", value);
     }
 
 }

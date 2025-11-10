@@ -14,8 +14,7 @@ public class AzurermAppServiceEnvironmentV3ClusterSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermAppServiceEnvironmentV3ClusterSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,51 +80,61 @@ public class AzurermAppServiceEnvironmentV3 : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("dns_suffix");
-        this.WithOutput("external_inbound_ip_addresses");
-        this.WithOutput("inbound_network_dependencies");
-        this.WithOutput("internal_inbound_ip_addresses");
-        this.WithOutput("ip_ssl_address_count");
-        this.WithOutput("linux_outbound_ip_addresses");
-        this.WithOutput("location");
-        this.WithOutput("pricing_tier");
-        this.WithOutput("windows_outbound_ip_addresses");
+        SetOutput("dns_suffix");
+        SetOutput("external_inbound_ip_addresses");
+        SetOutput("inbound_network_dependencies");
+        SetOutput("internal_inbound_ip_addresses");
+        SetOutput("ip_ssl_address_count");
+        SetOutput("linux_outbound_ip_addresses");
+        SetOutput("location");
+        SetOutput("pricing_tier");
+        SetOutput("windows_outbound_ip_addresses");
+        SetOutput("allow_new_private_endpoint_connections");
+        SetOutput("dedicated_host_count");
+        SetOutput("id");
+        SetOutput("internal_load_balancing_mode");
+        SetOutput("name");
+        SetOutput("remote_debugging_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("zone_redundant");
     }
 
     /// <summary>
     /// The allow_new_private_endpoint_connections attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowNewPrivateEndpointConnections
+    public TerraformProperty<bool> AllowNewPrivateEndpointConnections
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_new_private_endpoint_connections");
-        set => this.WithProperty("allow_new_private_endpoint_connections", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_new_private_endpoint_connections");
+        set => SetProperty("allow_new_private_endpoint_connections", value);
     }
 
     /// <summary>
     /// The dedicated_host_count attribute.
     /// </summary>
-    public TerraformProperty<double>? DedicatedHostCount
+    public TerraformProperty<double> DedicatedHostCount
     {
-        get => GetProperty<TerraformProperty<double>>("dedicated_host_count");
-        set => this.WithProperty("dedicated_host_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("dedicated_host_count");
+        set => SetProperty("dedicated_host_count", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The internal_load_balancing_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? InternalLoadBalancingMode
+    public TerraformProperty<string> InternalLoadBalancingMode
     {
-        get => GetProperty<TerraformProperty<string>>("internal_load_balancing_mode");
-        set => this.WithProperty("internal_load_balancing_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("internal_load_balancing_mode");
+        set => SetProperty("internal_load_balancing_mode", value);
     }
 
     /// <summary>
@@ -139,17 +143,17 @@ public class AzurermAppServiceEnvironmentV3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The remote_debugging_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RemoteDebuggingEnabled
+    public TerraformProperty<bool> RemoteDebuggingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("remote_debugging_enabled");
-        set => this.WithProperty("remote_debugging_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("remote_debugging_enabled");
+        set => SetProperty("remote_debugging_enabled", value);
     }
 
     /// <summary>
@@ -158,8 +162,8 @@ public class AzurermAppServiceEnvironmentV3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -168,26 +172,26 @@ public class AzurermAppServiceEnvironmentV3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public TerraformProperty<bool>? ZoneRedundant
+    public TerraformProperty<bool> ZoneRedundant
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_redundant");
-        set => this.WithProperty("zone_redundant", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("zone_redundant");
+        set => SetProperty("zone_redundant", value);
     }
 
     /// <summary>
@@ -196,8 +200,7 @@ public class AzurermAppServiceEnvironmentV3 : TerraformResource
     /// </summary>
     public List<AzurermAppServiceEnvironmentV3ClusterSettingBlock>? ClusterSetting
     {
-        get => GetProperty<List<AzurermAppServiceEnvironmentV3ClusterSettingBlock>>("cluster_setting");
-        set => this.WithProperty("cluster_setting", value);
+        set => SetProperty("cluster_setting", value);
     }
 
     /// <summary>
@@ -206,8 +209,7 @@ public class AzurermAppServiceEnvironmentV3 : TerraformResource
     /// </summary>
     public AzurermAppServiceEnvironmentV3TimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceEnvironmentV3TimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,53 +14,59 @@ public class AwsIamOpenidConnectProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("client_id_list");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("thumbprint_list");
+        SetOutput("url");
     }
 
     /// <summary>
     /// The client_id_list attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientIdList is required")]
-    public HashSet<TerraformProperty<string>>? ClientIdList
+    public HashSet<TerraformProperty<string>> ClientIdList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("client_id_list");
-        set => this.WithProperty("client_id_list", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("client_id_list");
+        set => SetProperty("client_id_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The thumbprint_list attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ThumbprintList
+    public List<TerraformProperty<string>> ThumbprintList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("thumbprint_list");
-        set => this.WithProperty("thumbprint_list", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("thumbprint_list");
+        set => SetProperty("thumbprint_list", value);
     }
 
     /// <summary>
@@ -69,8 +75,8 @@ public class AwsIamOpenidConnectProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => this.WithProperty("url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url");
+        set => SetProperty("url", value);
     }
 
     /// <summary>

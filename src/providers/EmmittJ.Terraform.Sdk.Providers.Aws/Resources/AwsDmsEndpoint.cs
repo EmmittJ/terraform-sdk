@@ -14,8 +14,7 @@ public class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointUri is required")]
     public required TerraformProperty<string> EndpointUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_uri");
-        set => WithProperty("endpoint_uri", value);
+        set => SetProperty("endpoint_uri", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ErrorRetryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("error_retry_duration");
-        set => WithProperty("error_retry_duration", value);
+        set => SetProperty("error_retry_duration", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? FullLoadErrorPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("full_load_error_percentage");
-        set => WithProperty("full_load_error_percentage", value);
+        set => SetProperty("full_load_error_percentage", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccessRoleArn is required")]
     public required TerraformProperty<string> ServiceAccessRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_access_role_arn");
-        set => WithProperty("service_access_role_arn", value);
+        set => SetProperty("service_access_role_arn", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseNewMappingType
     {
-        get => GetProperty<TerraformProperty<bool>>("use_new_mapping_type");
-        set => WithProperty("use_new_mapping_type", value);
+        set => SetProperty("use_new_mapping_type", value);
     }
 
 }
@@ -69,8 +64,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Broker is required")]
     public required TerraformProperty<string> Broker
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("broker");
-        set => WithProperty("broker", value);
+        set => SetProperty("broker", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeControlDetails
     {
-        get => GetProperty<TerraformProperty<bool>>("include_control_details");
-        set => WithProperty("include_control_details", value);
+        set => SetProperty("include_control_details", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeNullAndEmpty
     {
-        get => GetProperty<TerraformProperty<bool>>("include_null_and_empty");
-        set => WithProperty("include_null_and_empty", value);
+        set => SetProperty("include_null_and_empty", value);
     }
 
     /// <summary>
@@ -96,8 +88,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludePartitionValue
     {
-        get => GetProperty<TerraformProperty<bool>>("include_partition_value");
-        set => WithProperty("include_partition_value", value);
+        set => SetProperty("include_partition_value", value);
     }
 
     /// <summary>
@@ -105,8 +96,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeTableAlterOperations
     {
-        get => GetProperty<TerraformProperty<bool>>("include_table_alter_operations");
-        set => WithProperty("include_table_alter_operations", value);
+        set => SetProperty("include_table_alter_operations", value);
     }
 
     /// <summary>
@@ -114,8 +104,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeTransactionDetails
     {
-        get => GetProperty<TerraformProperty<bool>>("include_transaction_details");
-        set => WithProperty("include_transaction_details", value);
+        set => SetProperty("include_transaction_details", value);
     }
 
     /// <summary>
@@ -123,8 +112,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MessageFormat
     {
-        get => GetProperty<TerraformProperty<string>>("message_format");
-        set => WithProperty("message_format", value);
+        set => SetProperty("message_format", value);
     }
 
     /// <summary>
@@ -132,8 +120,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MessageMaxBytes
     {
-        get => GetProperty<TerraformProperty<double>>("message_max_bytes");
-        set => WithProperty("message_max_bytes", value);
+        set => SetProperty("message_max_bytes", value);
     }
 
     /// <summary>
@@ -141,8 +128,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NoHexPrefix
     {
-        get => GetProperty<TerraformProperty<bool>>("no_hex_prefix");
-        set => WithProperty("no_hex_prefix", value);
+        set => SetProperty("no_hex_prefix", value);
     }
 
     /// <summary>
@@ -150,8 +136,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PartitionIncludeSchemaTable
     {
-        get => GetProperty<TerraformProperty<bool>>("partition_include_schema_table");
-        set => WithProperty("partition_include_schema_table", value);
+        set => SetProperty("partition_include_schema_table", value);
     }
 
     /// <summary>
@@ -159,8 +144,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SaslMechanism
     {
-        get => GetProperty<TerraformProperty<string>>("sasl_mechanism");
-        set => WithProperty("sasl_mechanism", value);
+        set => SetProperty("sasl_mechanism", value);
     }
 
     /// <summary>
@@ -168,8 +152,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SaslPassword
     {
-        get => GetProperty<TerraformProperty<string>>("sasl_password");
-        set => WithProperty("sasl_password", value);
+        set => SetProperty("sasl_password", value);
     }
 
     /// <summary>
@@ -177,8 +160,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SaslUsername
     {
-        get => GetProperty<TerraformProperty<string>>("sasl_username");
-        set => WithProperty("sasl_username", value);
+        set => SetProperty("sasl_username", value);
     }
 
     /// <summary>
@@ -186,8 +168,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SecurityProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("security_protocol");
-        set => WithProperty("security_protocol", value);
+        set => SetProperty("security_protocol", value);
     }
 
     /// <summary>
@@ -195,8 +176,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslCaCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_ca_certificate_arn");
-        set => WithProperty("ssl_ca_certificate_arn", value);
+        set => SetProperty("ssl_ca_certificate_arn", value);
     }
 
     /// <summary>
@@ -204,8 +184,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslClientCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_client_certificate_arn");
-        set => WithProperty("ssl_client_certificate_arn", value);
+        set => SetProperty("ssl_client_certificate_arn", value);
     }
 
     /// <summary>
@@ -213,8 +192,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslClientKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_client_key_arn");
-        set => WithProperty("ssl_client_key_arn", value);
+        set => SetProperty("ssl_client_key_arn", value);
     }
 
     /// <summary>
@@ -222,8 +200,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslClientKeyPassword
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_client_key_password");
-        set => WithProperty("ssl_client_key_password", value);
+        set => SetProperty("ssl_client_key_password", value);
     }
 
     /// <summary>
@@ -231,8 +208,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -248,8 +224,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeControlDetails
     {
-        get => GetProperty<TerraformProperty<bool>>("include_control_details");
-        set => WithProperty("include_control_details", value);
+        set => SetProperty("include_control_details", value);
     }
 
     /// <summary>
@@ -257,8 +232,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeNullAndEmpty
     {
-        get => GetProperty<TerraformProperty<bool>>("include_null_and_empty");
-        set => WithProperty("include_null_and_empty", value);
+        set => SetProperty("include_null_and_empty", value);
     }
 
     /// <summary>
@@ -266,8 +240,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludePartitionValue
     {
-        get => GetProperty<TerraformProperty<bool>>("include_partition_value");
-        set => WithProperty("include_partition_value", value);
+        set => SetProperty("include_partition_value", value);
     }
 
     /// <summary>
@@ -275,8 +248,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeTableAlterOperations
     {
-        get => GetProperty<TerraformProperty<bool>>("include_table_alter_operations");
-        set => WithProperty("include_table_alter_operations", value);
+        set => SetProperty("include_table_alter_operations", value);
     }
 
     /// <summary>
@@ -284,8 +256,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeTransactionDetails
     {
-        get => GetProperty<TerraformProperty<bool>>("include_transaction_details");
-        set => WithProperty("include_transaction_details", value);
+        set => SetProperty("include_transaction_details", value);
     }
 
     /// <summary>
@@ -293,8 +264,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MessageFormat
     {
-        get => GetProperty<TerraformProperty<string>>("message_format");
-        set => WithProperty("message_format", value);
+        set => SetProperty("message_format", value);
     }
 
     /// <summary>
@@ -302,8 +272,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PartitionIncludeSchemaTable
     {
-        get => GetProperty<TerraformProperty<bool>>("partition_include_schema_table");
-        set => WithProperty("partition_include_schema_table", value);
+        set => SetProperty("partition_include_schema_table", value);
     }
 
     /// <summary>
@@ -311,8 +280,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_access_role_arn");
-        set => WithProperty("service_access_role_arn", value);
+        set => SetProperty("service_access_role_arn", value);
     }
 
     /// <summary>
@@ -320,8 +288,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("stream_arn");
-        set => WithProperty("stream_arn", value);
+        set => SetProperty("stream_arn", value);
     }
 
     /// <summary>
@@ -329,8 +296,7 @@ public class AwsDmsEndpointKinesisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseLargeIntegerValue
     {
-        get => GetProperty<TerraformProperty<bool>>("use_large_integer_value");
-        set => WithProperty("use_large_integer_value", value);
+        set => SetProperty("use_large_integer_value", value);
     }
 
 }
@@ -346,8 +312,7 @@ public class AwsDmsEndpointMongodbSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthMechanism
     {
-        get => GetProperty<TerraformProperty<string>>("auth_mechanism");
-        set => WithProperty("auth_mechanism", value);
+        set => SetProperty("auth_mechanism", value);
     }
 
     /// <summary>
@@ -355,8 +320,7 @@ public class AwsDmsEndpointMongodbSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthSource
     {
-        get => GetProperty<TerraformProperty<string>>("auth_source");
-        set => WithProperty("auth_source", value);
+        set => SetProperty("auth_source", value);
     }
 
     /// <summary>
@@ -364,8 +328,7 @@ public class AwsDmsEndpointMongodbSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthType
     {
-        get => GetProperty<TerraformProperty<string>>("auth_type");
-        set => WithProperty("auth_type", value);
+        set => SetProperty("auth_type", value);
     }
 
     /// <summary>
@@ -373,8 +336,7 @@ public class AwsDmsEndpointMongodbSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DocsToInvestigate
     {
-        get => GetProperty<TerraformProperty<string>>("docs_to_investigate");
-        set => WithProperty("docs_to_investigate", value);
+        set => SetProperty("docs_to_investigate", value);
     }
 
     /// <summary>
@@ -382,8 +344,7 @@ public class AwsDmsEndpointMongodbSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExtractDocId
     {
-        get => GetProperty<TerraformProperty<string>>("extract_doc_id");
-        set => WithProperty("extract_doc_id", value);
+        set => SetProperty("extract_doc_id", value);
     }
 
     /// <summary>
@@ -391,8 +352,7 @@ public class AwsDmsEndpointMongodbSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NestingLevel
     {
-        get => GetProperty<TerraformProperty<string>>("nesting_level");
-        set => WithProperty("nesting_level", value);
+        set => SetProperty("nesting_level", value);
     }
 
 }
@@ -408,8 +368,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AfterConnectScript
     {
-        get => GetProperty<TerraformProperty<string>>("after_connect_script");
-        set => WithProperty("after_connect_script", value);
+        set => SetProperty("after_connect_script", value);
     }
 
     /// <summary>
@@ -417,8 +376,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthenticationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_method");
-        set => WithProperty("authentication_method", value);
+        set => SetProperty("authentication_method", value);
     }
 
     /// <summary>
@@ -426,8 +384,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CleanSourceMetadataOnMismatch
     {
-        get => GetProperty<TerraformProperty<bool>>("clean_source_metadata_on_mismatch");
-        set => WithProperty("clean_source_metadata_on_mismatch", value);
+        set => SetProperty("clean_source_metadata_on_mismatch", value);
     }
 
     /// <summary>
@@ -435,8 +392,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? EventsPollInterval
     {
-        get => GetProperty<TerraformProperty<double>>("events_poll_interval");
-        set => WithProperty("events_poll_interval", value);
+        set => SetProperty("events_poll_interval", value);
     }
 
     /// <summary>
@@ -444,8 +400,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ExecuteTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("execute_timeout");
-        set => WithProperty("execute_timeout", value);
+        set => SetProperty("execute_timeout", value);
     }
 
     /// <summary>
@@ -453,8 +408,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxFileSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_file_size");
-        set => WithProperty("max_file_size", value);
+        set => SetProperty("max_file_size", value);
     }
 
     /// <summary>
@@ -462,8 +416,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ParallelLoadThreads
     {
-        get => GetProperty<TerraformProperty<double>>("parallel_load_threads");
-        set => WithProperty("parallel_load_threads", value);
+        set => SetProperty("parallel_load_threads", value);
     }
 
     /// <summary>
@@ -471,8 +424,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServerTimezone
     {
-        get => GetProperty<TerraformProperty<string>>("server_timezone");
-        set => WithProperty("server_timezone", value);
+        set => SetProperty("server_timezone", value);
     }
 
     /// <summary>
@@ -480,8 +432,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_access_role_arn");
-        set => WithProperty("service_access_role_arn", value);
+        set => SetProperty("service_access_role_arn", value);
     }
 
     /// <summary>
@@ -489,8 +440,7 @@ public class AwsDmsEndpointMysqlSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetDbType
     {
-        get => GetProperty<TerraformProperty<string>>("target_db_type");
-        set => WithProperty("target_db_type", value);
+        set => SetProperty("target_db_type", value);
     }
 
 }
@@ -506,8 +456,7 @@ public class AwsDmsEndpointOracleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthenticationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_method");
-        set => WithProperty("authentication_method", value);
+        set => SetProperty("authentication_method", value);
     }
 
 }
@@ -523,8 +472,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AfterConnectScript
     {
-        get => GetProperty<TerraformProperty<string>>("after_connect_script");
-        set => WithProperty("after_connect_script", value);
+        set => SetProperty("after_connect_script", value);
     }
 
     /// <summary>
@@ -532,8 +480,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthenticationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_method");
-        set => WithProperty("authentication_method", value);
+        set => SetProperty("authentication_method", value);
     }
 
     /// <summary>
@@ -541,8 +488,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BabelfishDatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("babelfish_database_name");
-        set => WithProperty("babelfish_database_name", value);
+        set => SetProperty("babelfish_database_name", value);
     }
 
     /// <summary>
@@ -550,8 +496,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CaptureDdls
     {
-        get => GetProperty<TerraformProperty<bool>>("capture_ddls");
-        set => WithProperty("capture_ddls", value);
+        set => SetProperty("capture_ddls", value);
     }
 
     /// <summary>
@@ -559,8 +504,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DatabaseMode
     {
-        get => GetProperty<TerraformProperty<string>>("database_mode");
-        set => WithProperty("database_mode", value);
+        set => SetProperty("database_mode", value);
     }
 
     /// <summary>
@@ -568,8 +512,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DdlArtifactsSchema
     {
-        get => GetProperty<TerraformProperty<string>>("ddl_artifacts_schema");
-        set => WithProperty("ddl_artifacts_schema", value);
+        set => SetProperty("ddl_artifacts_schema", value);
     }
 
     /// <summary>
@@ -577,8 +520,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ExecuteTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("execute_timeout");
-        set => WithProperty("execute_timeout", value);
+        set => SetProperty("execute_timeout", value);
     }
 
     /// <summary>
@@ -586,8 +528,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? FailTasksOnLobTruncation
     {
-        get => GetProperty<TerraformProperty<bool>>("fail_tasks_on_lob_truncation");
-        set => WithProperty("fail_tasks_on_lob_truncation", value);
+        set => SetProperty("fail_tasks_on_lob_truncation", value);
     }
 
     /// <summary>
@@ -595,8 +536,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? HeartbeatEnable
     {
-        get => GetProperty<TerraformProperty<bool>>("heartbeat_enable");
-        set => WithProperty("heartbeat_enable", value);
+        set => SetProperty("heartbeat_enable", value);
     }
 
     /// <summary>
@@ -604,8 +544,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? HeartbeatFrequency
     {
-        get => GetProperty<TerraformProperty<double>>("heartbeat_frequency");
-        set => WithProperty("heartbeat_frequency", value);
+        set => SetProperty("heartbeat_frequency", value);
     }
 
     /// <summary>
@@ -613,8 +552,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HeartbeatSchema
     {
-        get => GetProperty<TerraformProperty<string>>("heartbeat_schema");
-        set => WithProperty("heartbeat_schema", value);
+        set => SetProperty("heartbeat_schema", value);
     }
 
     /// <summary>
@@ -622,8 +560,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MapBooleanAsBoolean
     {
-        get => GetProperty<TerraformProperty<bool>>("map_boolean_as_boolean");
-        set => WithProperty("map_boolean_as_boolean", value);
+        set => SetProperty("map_boolean_as_boolean", value);
     }
 
     /// <summary>
@@ -631,8 +568,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MapJsonbAsClob
     {
-        get => GetProperty<TerraformProperty<bool>>("map_jsonb_as_clob");
-        set => WithProperty("map_jsonb_as_clob", value);
+        set => SetProperty("map_jsonb_as_clob", value);
     }
 
     /// <summary>
@@ -640,8 +576,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MapLongVarcharAs
     {
-        get => GetProperty<TerraformProperty<string>>("map_long_varchar_as");
-        set => WithProperty("map_long_varchar_as", value);
+        set => SetProperty("map_long_varchar_as", value);
     }
 
     /// <summary>
@@ -649,8 +584,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxFileSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_file_size");
-        set => WithProperty("max_file_size", value);
+        set => SetProperty("max_file_size", value);
     }
 
     /// <summary>
@@ -658,8 +592,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PluginName
     {
-        get => GetProperty<TerraformProperty<string>>("plugin_name");
-        set => WithProperty("plugin_name", value);
+        set => SetProperty("plugin_name", value);
     }
 
     /// <summary>
@@ -667,8 +600,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_access_role_arn");
-        set => WithProperty("service_access_role_arn", value);
+        set => SetProperty("service_access_role_arn", value);
     }
 
     /// <summary>
@@ -676,8 +608,7 @@ public class AwsDmsEndpointPostgresSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SlotName
     {
-        get => GetProperty<TerraformProperty<string>>("slot_name");
-        set => WithProperty("slot_name", value);
+        set => SetProperty("slot_name", value);
     }
 
 }
@@ -693,8 +624,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthPassword
     {
-        get => GetProperty<TerraformProperty<string>>("auth_password");
-        set => WithProperty("auth_password", value);
+        set => SetProperty("auth_password", value);
     }
 
     /// <summary>
@@ -703,8 +633,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
-        set => WithProperty("auth_type", value);
+        set => SetProperty("auth_type", value);
     }
 
     /// <summary>
@@ -712,8 +641,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthUserName
     {
-        get => GetProperty<TerraformProperty<string>>("auth_user_name");
-        set => WithProperty("auth_user_name", value);
+        set => SetProperty("auth_user_name", value);
     }
 
     /// <summary>
@@ -722,8 +650,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -732,8 +659,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
-        set => WithProperty("server_name", value);
+        set => SetProperty("server_name", value);
     }
 
     /// <summary>
@@ -741,8 +667,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslCaCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_ca_certificate_arn");
-        set => WithProperty("ssl_ca_certificate_arn", value);
+        set => SetProperty("ssl_ca_certificate_arn", value);
     }
 
     /// <summary>
@@ -750,8 +675,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslSecurityProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_security_protocol");
-        set => WithProperty("ssl_security_protocol", value);
+        set => SetProperty("ssl_security_protocol", value);
     }
 
 }
@@ -767,8 +691,7 @@ public class AwsDmsEndpointRedshiftSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BucketFolder
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_folder");
-        set => WithProperty("bucket_folder", value);
+        set => SetProperty("bucket_folder", value);
     }
 
     /// <summary>
@@ -776,8 +699,7 @@ public class AwsDmsEndpointRedshiftSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
-        set => WithProperty("bucket_name", value);
+        set => SetProperty("bucket_name", value);
     }
 
     /// <summary>
@@ -785,8 +707,7 @@ public class AwsDmsEndpointRedshiftSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncryptionMode
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_mode");
-        set => WithProperty("encryption_mode", value);
+        set => SetProperty("encryption_mode", value);
     }
 
     /// <summary>
@@ -794,8 +715,7 @@ public class AwsDmsEndpointRedshiftSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServerSideEncryptionKmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("server_side_encryption_kms_key_id");
-        set => WithProperty("server_side_encryption_kms_key_id", value);
+        set => SetProperty("server_side_encryption_kms_key_id", value);
     }
 
     /// <summary>
@@ -803,8 +723,7 @@ public class AwsDmsEndpointRedshiftSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_access_role_arn");
-        set => WithProperty("service_access_role_arn", value);
+        set => SetProperty("service_access_role_arn", value);
     }
 
 }
@@ -820,8 +739,7 @@ public class AwsDmsEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -829,8 +747,7 @@ public class AwsDmsEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -848,25 +765,45 @@ public class AwsDmsEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("endpoint_arn");
+        SetOutput("endpoint_arn");
+        SetOutput("certificate_arn");
+        SetOutput("database_name");
+        SetOutput("endpoint_id");
+        SetOutput("endpoint_type");
+        SetOutput("engine_name");
+        SetOutput("extra_connection_attributes");
+        SetOutput("id");
+        SetOutput("kms_key_arn");
+        SetOutput("password");
+        SetOutput("pause_replication_tasks");
+        SetOutput("port");
+        SetOutput("region");
+        SetOutput("secrets_manager_access_role_arn");
+        SetOutput("secrets_manager_arn");
+        SetOutput("server_name");
+        SetOutput("service_access_role");
+        SetOutput("ssl_mode");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("username");
     }
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateArn
+    public TerraformProperty<string> CertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_arn");
-        set => this.WithProperty("certificate_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_arn");
+        set => SetProperty("certificate_arn", value);
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
+    public TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -875,8 +812,8 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
     public required TerraformProperty<string> EndpointId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_id");
-        set => this.WithProperty("endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_id");
+        set => SetProperty("endpoint_id", value);
     }
 
     /// <summary>
@@ -885,8 +822,8 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
-        set => this.WithProperty("endpoint_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_type");
+        set => SetProperty("endpoint_type", value);
     }
 
     /// <summary>
@@ -895,143 +832,143 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
     public required TerraformProperty<string> EngineName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_name");
-        set => this.WithProperty("engine_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_name");
+        set => SetProperty("engine_name", value);
     }
 
     /// <summary>
     /// The extra_connection_attributes attribute.
     /// </summary>
-    public TerraformProperty<string>? ExtraConnectionAttributes
+    public TerraformProperty<string> ExtraConnectionAttributes
     {
-        get => GetProperty<TerraformProperty<string>>("extra_connection_attributes");
-        set => this.WithProperty("extra_connection_attributes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("extra_connection_attributes");
+        set => SetProperty("extra_connection_attributes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// The pause_replication_tasks attribute.
     /// </summary>
-    public TerraformProperty<bool>? PauseReplicationTasks
+    public TerraformProperty<bool> PauseReplicationTasks
     {
-        get => GetProperty<TerraformProperty<bool>>("pause_replication_tasks");
-        set => this.WithProperty("pause_replication_tasks", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("pause_replication_tasks");
+        set => SetProperty("pause_replication_tasks", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The secrets_manager_access_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretsManagerAccessRoleArn
+    public TerraformProperty<string> SecretsManagerAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("secrets_manager_access_role_arn");
-        set => this.WithProperty("secrets_manager_access_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secrets_manager_access_role_arn");
+        set => SetProperty("secrets_manager_access_role_arn", value);
     }
 
     /// <summary>
     /// The secrets_manager_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretsManagerArn
+    public TerraformProperty<string> SecretsManagerArn
     {
-        get => GetProperty<TerraformProperty<string>>("secrets_manager_arn");
-        set => this.WithProperty("secrets_manager_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secrets_manager_arn");
+        set => SetProperty("secrets_manager_arn", value);
     }
 
     /// <summary>
     /// The server_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerName
+    public TerraformProperty<string> ServerName
     {
-        get => GetProperty<TerraformProperty<string>>("server_name");
-        set => this.WithProperty("server_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_name");
+        set => SetProperty("server_name", value);
     }
 
     /// <summary>
     /// The service_access_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccessRole
+    public TerraformProperty<string> ServiceAccessRole
     {
-        get => GetProperty<TerraformProperty<string>>("service_access_role");
-        set => this.WithProperty("service_access_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_access_role");
+        set => SetProperty("service_access_role", value);
     }
 
     /// <summary>
     /// The ssl_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? SslMode
+    public TerraformProperty<string> SslMode
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_mode");
-        set => this.WithProperty("ssl_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ssl_mode");
+        set => SetProperty("ssl_mode", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformProperty<string>? Username
+    public TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -1041,8 +978,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchSettings block(s) allowed")]
     public List<AwsDmsEndpointElasticsearchSettingsBlock>? ElasticsearchSettings
     {
-        get => GetProperty<List<AwsDmsEndpointElasticsearchSettingsBlock>>("elasticsearch_settings");
-        set => this.WithProperty("elasticsearch_settings", value);
+        set => SetProperty("elasticsearch_settings", value);
     }
 
     /// <summary>
@@ -1052,8 +988,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaSettings block(s) allowed")]
     public List<AwsDmsEndpointKafkaSettingsBlock>? KafkaSettings
     {
-        get => GetProperty<List<AwsDmsEndpointKafkaSettingsBlock>>("kafka_settings");
-        set => this.WithProperty("kafka_settings", value);
+        set => SetProperty("kafka_settings", value);
     }
 
     /// <summary>
@@ -1063,8 +998,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisSettings block(s) allowed")]
     public List<AwsDmsEndpointKinesisSettingsBlock>? KinesisSettings
     {
-        get => GetProperty<List<AwsDmsEndpointKinesisSettingsBlock>>("kinesis_settings");
-        set => this.WithProperty("kinesis_settings", value);
+        set => SetProperty("kinesis_settings", value);
     }
 
     /// <summary>
@@ -1074,8 +1008,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MongodbSettings block(s) allowed")]
     public List<AwsDmsEndpointMongodbSettingsBlock>? MongodbSettings
     {
-        get => GetProperty<List<AwsDmsEndpointMongodbSettingsBlock>>("mongodb_settings");
-        set => this.WithProperty("mongodb_settings", value);
+        set => SetProperty("mongodb_settings", value);
     }
 
     /// <summary>
@@ -1085,8 +1018,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MysqlSettings block(s) allowed")]
     public List<AwsDmsEndpointMysqlSettingsBlock>? MysqlSettings
     {
-        get => GetProperty<List<AwsDmsEndpointMysqlSettingsBlock>>("mysql_settings");
-        set => this.WithProperty("mysql_settings", value);
+        set => SetProperty("mysql_settings", value);
     }
 
     /// <summary>
@@ -1096,8 +1028,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OracleSettings block(s) allowed")]
     public List<AwsDmsEndpointOracleSettingsBlock>? OracleSettings
     {
-        get => GetProperty<List<AwsDmsEndpointOracleSettingsBlock>>("oracle_settings");
-        set => this.WithProperty("oracle_settings", value);
+        set => SetProperty("oracle_settings", value);
     }
 
     /// <summary>
@@ -1107,8 +1038,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostgresSettings block(s) allowed")]
     public List<AwsDmsEndpointPostgresSettingsBlock>? PostgresSettings
     {
-        get => GetProperty<List<AwsDmsEndpointPostgresSettingsBlock>>("postgres_settings");
-        set => this.WithProperty("postgres_settings", value);
+        set => SetProperty("postgres_settings", value);
     }
 
     /// <summary>
@@ -1118,8 +1048,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedisSettings block(s) allowed")]
     public List<AwsDmsEndpointRedisSettingsBlock>? RedisSettings
     {
-        get => GetProperty<List<AwsDmsEndpointRedisSettingsBlock>>("redis_settings");
-        set => this.WithProperty("redis_settings", value);
+        set => SetProperty("redis_settings", value);
     }
 
     /// <summary>
@@ -1129,8 +1058,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftSettings block(s) allowed")]
     public List<AwsDmsEndpointRedshiftSettingsBlock>? RedshiftSettings
     {
-        get => GetProperty<List<AwsDmsEndpointRedshiftSettingsBlock>>("redshift_settings");
-        set => this.WithProperty("redshift_settings", value);
+        set => SetProperty("redshift_settings", value);
     }
 
     /// <summary>
@@ -1139,8 +1067,7 @@ public class AwsDmsEndpoint : TerraformResource
     /// </summary>
     public AwsDmsEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDmsEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformProperty<double> Algorithm
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("algorithm");
-        set => WithProperty("algorithm", value);
+        set => SetProperty("algorithm", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Flags is required")]
     public required TerraformProperty<double> Flags
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("flags");
-        set => WithProperty("flags", value);
+        set => SetProperty("flags", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformProperty<string> PublicKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("public_key");
-        set => WithProperty("public_key", value);
+        set => SetProperty("public_key", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AwsRoute53domainsDelegationSignerRecordTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsRoute53domainsDelegationSignerRecordTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -78,8 +73,9 @@ public class AwsRoute53domainsDelegationSignerRecord : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("dnssec_key_id");
-        this.WithOutput("id");
+        SetOutput("dnssec_key_id");
+        SetOutput("id");
+        SetOutput("domain_name");
     }
 
     /// <summary>
@@ -88,8 +84,8 @@ public class AwsRoute53domainsDelegationSignerRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
@@ -98,8 +94,7 @@ public class AwsRoute53domainsDelegationSignerRecord : TerraformResource
     /// </summary>
     public List<AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock>? SigningAttributes
     {
-        get => GetProperty<List<AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock>>("signing_attributes");
-        set => this.WithProperty("signing_attributes", value);
+        set => SetProperty("signing_attributes", value);
     }
 
     /// <summary>
@@ -108,8 +103,7 @@ public class AwsRoute53domainsDelegationSignerRecord : TerraformResource
     /// </summary>
     public AwsRoute53domainsDelegationSignerRecordTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53domainsDelegationSignerRecordTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

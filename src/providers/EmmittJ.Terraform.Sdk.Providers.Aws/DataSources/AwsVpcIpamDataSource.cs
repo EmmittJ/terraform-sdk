@@ -14,23 +14,25 @@ public class AwsVpcIpamDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("default_resource_discovery_association_id");
-        this.WithOutput("default_resource_discovery_id");
-        this.WithOutput("description");
-        this.WithOutput("enable_private_gua");
-        this.WithOutput("ipam_region");
-        this.WithOutput("metered_account");
-        this.WithOutput("operating_regions");
-        this.WithOutput("owner_id");
-        this.WithOutput("private_default_scope_id");
-        this.WithOutput("public_default_scope_id");
-        this.WithOutput("resource_discovery_association_count");
-        this.WithOutput("scope_count");
-        this.WithOutput("state");
-        this.WithOutput("state_message");
-        this.WithOutput("tags");
-        this.WithOutput("tier");
+        SetOutput("arn");
+        SetOutput("default_resource_discovery_association_id");
+        SetOutput("default_resource_discovery_id");
+        SetOutput("description");
+        SetOutput("enable_private_gua");
+        SetOutput("ipam_region");
+        SetOutput("metered_account");
+        SetOutput("operating_regions");
+        SetOutput("owner_id");
+        SetOutput("private_default_scope_id");
+        SetOutput("public_default_scope_id");
+        SetOutput("resource_discovery_association_count");
+        SetOutput("scope_count");
+        SetOutput("state");
+        SetOutput("state_message");
+        SetOutput("tags");
+        SetOutput("tier");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -39,17 +41,17 @@ public class AwsVpcIpamDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

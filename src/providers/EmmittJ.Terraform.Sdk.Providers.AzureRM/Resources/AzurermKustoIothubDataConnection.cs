@@ -13,8 +13,7 @@ public class AzurermKustoIothubDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKustoIothubDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKustoIothubDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,20 @@ public class AzurermKustoIothubDataConnection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cluster_name");
+        SetOutput("consumer_group");
+        SetOutput("data_format");
+        SetOutput("database_name");
+        SetOutput("database_routing_type");
+        SetOutput("event_system_properties");
+        SetOutput("id");
+        SetOutput("iothub_id");
+        SetOutput("location");
+        SetOutput("mapping_rule_name");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("shared_access_policy_name");
+        SetOutput("table_name");
     }
 
     /// <summary>
@@ -57,8 +68,8 @@ public class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
@@ -67,17 +78,17 @@ public class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroup is required")]
     public required TerraformProperty<string> ConsumerGroup
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("consumer_group");
-        set => this.WithProperty("consumer_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("consumer_group");
+        set => SetProperty("consumer_group", value);
     }
 
     /// <summary>
     /// The data_format attribute.
     /// </summary>
-    public TerraformProperty<string>? DataFormat
+    public TerraformProperty<string> DataFormat
     {
-        get => GetProperty<TerraformProperty<string>>("data_format");
-        set => this.WithProperty("data_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_format");
+        set => SetProperty("data_format", value);
     }
 
     /// <summary>
@@ -86,35 +97,35 @@ public class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The database_routing_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseRoutingType
+    public TerraformProperty<string> DatabaseRoutingType
     {
-        get => GetProperty<TerraformProperty<string>>("database_routing_type");
-        set => this.WithProperty("database_routing_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_routing_type");
+        set => SetProperty("database_routing_type", value);
     }
 
     /// <summary>
     /// The event_system_properties attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EventSystemProperties
+    public HashSet<TerraformProperty<string>> EventSystemProperties
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("event_system_properties");
-        set => this.WithProperty("event_system_properties", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("event_system_properties");
+        set => SetProperty("event_system_properties", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,8 +134,8 @@ public class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
-        set => this.WithProperty("iothub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
+        set => SetProperty("iothub_id", value);
     }
 
     /// <summary>
@@ -133,17 +144,17 @@ public class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MappingRuleName
+    public TerraformProperty<string> MappingRuleName
     {
-        get => GetProperty<TerraformProperty<string>>("mapping_rule_name");
-        set => this.WithProperty("mapping_rule_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mapping_rule_name");
+        set => SetProperty("mapping_rule_name", value);
     }
 
     /// <summary>
@@ -152,8 +163,8 @@ public class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -162,8 +173,8 @@ public class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -172,17 +183,17 @@ public class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyName is required")]
     public required TerraformProperty<string> SharedAccessPolicyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("shared_access_policy_name");
-        set => this.WithProperty("shared_access_policy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shared_access_policy_name");
+        set => SetProperty("shared_access_policy_name", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    public TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
@@ -191,8 +202,7 @@ public class AzurermKustoIothubDataConnection : TerraformResource
     /// </summary>
     public AzurermKustoIothubDataConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKustoIothubDataConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsNetworkmanagerTransitGatewayPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerTransitGatewayPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,13 +38,18 @@ public class AwsNetworkmanagerTransitGatewayPeering : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("core_network_arn");
-        this.WithOutput("edge_location");
-        this.WithOutput("owner_account_id");
-        this.WithOutput("peering_type");
-        this.WithOutput("resource_arn");
-        this.WithOutput("transit_gateway_peering_attachment_id");
+        SetOutput("arn");
+        SetOutput("core_network_arn");
+        SetOutput("edge_location");
+        SetOutput("owner_account_id");
+        SetOutput("peering_type");
+        SetOutput("resource_arn");
+        SetOutput("transit_gateway_peering_attachment_id");
+        SetOutput("core_network_id");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("transit_gateway_arn");
     }
 
     /// <summary>
@@ -55,35 +58,35 @@ public class AwsNetworkmanagerTransitGatewayPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
-        set => this.WithProperty("core_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("core_network_id");
+        set => SetProperty("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -92,8 +95,8 @@ public class AwsNetworkmanagerTransitGatewayPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayArn is required")]
     public required TerraformProperty<string> TransitGatewayArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_arn");
-        set => this.WithProperty("transit_gateway_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_arn");
+        set => SetProperty("transit_gateway_arn", value);
     }
 
     /// <summary>
@@ -102,8 +105,7 @@ public class AwsNetworkmanagerTransitGatewayPeering : TerraformResource
     /// </summary>
     public AwsNetworkmanagerTransitGatewayPeeringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerTransitGatewayPeeringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

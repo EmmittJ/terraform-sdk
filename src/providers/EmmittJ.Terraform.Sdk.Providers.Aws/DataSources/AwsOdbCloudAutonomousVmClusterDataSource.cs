@@ -14,55 +14,57 @@ public class AwsOdbCloudAutonomousVmClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("autonomous_data_storage_percentage");
-        this.WithOutput("autonomous_data_storage_size_in_tbs");
-        this.WithOutput("available_autonomous_data_storage_size_in_tbs");
-        this.WithOutput("available_container_databases");
-        this.WithOutput("available_cpus");
-        this.WithOutput("cloud_exadata_infrastructure_id");
-        this.WithOutput("compute_model");
-        this.WithOutput("cpu_core_count");
-        this.WithOutput("cpu_core_count_per_node");
-        this.WithOutput("cpu_percentage");
-        this.WithOutput("created_at");
-        this.WithOutput("data_storage_size_in_gbs");
-        this.WithOutput("data_storage_size_in_tbs");
-        this.WithOutput("db_servers");
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("domain");
-        this.WithOutput("exadata_storage_in_tbs_lowest_scaled_value");
-        this.WithOutput("hostname");
-        this.WithOutput("is_mtls_enabled_vm_cluster");
-        this.WithOutput("license_model");
-        this.WithOutput("maintenance_window");
-        this.WithOutput("max_acds_lowest_scaled_value");
-        this.WithOutput("memory_per_oracle_compute_unit_in_gbs");
-        this.WithOutput("memory_size_in_gbs");
-        this.WithOutput("node_count");
-        this.WithOutput("non_provisionable_autonomous_container_databases");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("oci_url");
-        this.WithOutput("ocid");
-        this.WithOutput("odb_network_id");
-        this.WithOutput("odb_node_storage_size_in_gbs");
-        this.WithOutput("percent_progress");
-        this.WithOutput("provisionable_autonomous_container_databases");
-        this.WithOutput("provisioned_autonomous_container_databases");
-        this.WithOutput("provisioned_cpus");
-        this.WithOutput("reclaimable_cpus");
-        this.WithOutput("reserved_cpus");
-        this.WithOutput("scan_listener_port_non_tls");
-        this.WithOutput("scan_listener_port_tls");
-        this.WithOutput("shape");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("tags");
-        this.WithOutput("time_database_ssl_certificate_expires");
-        this.WithOutput("time_ords_certificate_expires");
-        this.WithOutput("time_zone");
-        this.WithOutput("total_container_databases");
+        SetOutput("arn");
+        SetOutput("autonomous_data_storage_percentage");
+        SetOutput("autonomous_data_storage_size_in_tbs");
+        SetOutput("available_autonomous_data_storage_size_in_tbs");
+        SetOutput("available_container_databases");
+        SetOutput("available_cpus");
+        SetOutput("cloud_exadata_infrastructure_id");
+        SetOutput("compute_model");
+        SetOutput("cpu_core_count");
+        SetOutput("cpu_core_count_per_node");
+        SetOutput("cpu_percentage");
+        SetOutput("created_at");
+        SetOutput("data_storage_size_in_gbs");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("db_servers");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("domain");
+        SetOutput("exadata_storage_in_tbs_lowest_scaled_value");
+        SetOutput("hostname");
+        SetOutput("is_mtls_enabled_vm_cluster");
+        SetOutput("license_model");
+        SetOutput("maintenance_window");
+        SetOutput("max_acds_lowest_scaled_value");
+        SetOutput("memory_per_oracle_compute_unit_in_gbs");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("node_count");
+        SetOutput("non_provisionable_autonomous_container_databases");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("oci_url");
+        SetOutput("ocid");
+        SetOutput("odb_network_id");
+        SetOutput("odb_node_storage_size_in_gbs");
+        SetOutput("percent_progress");
+        SetOutput("provisionable_autonomous_container_databases");
+        SetOutput("provisioned_autonomous_container_databases");
+        SetOutput("provisioned_cpus");
+        SetOutput("reclaimable_cpus");
+        SetOutput("reserved_cpus");
+        SetOutput("scan_listener_port_non_tls");
+        SetOutput("scan_listener_port_tls");
+        SetOutput("shape");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("tags");
+        SetOutput("time_database_ssl_certificate_expires");
+        SetOutput("time_ords_certificate_expires");
+        SetOutput("time_zone");
+        SetOutput("total_container_databases");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -71,17 +73,17 @@ public class AwsOdbCloudAutonomousVmClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

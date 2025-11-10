@@ -13,8 +13,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => WithProperty("catalog_id", value);
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("connection_name");
-        set => WithProperty("connection_name", value);
+        set => SetProperty("connection_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => WithProperty("table_name", value);
+        set => SetProperty("table_name", value);
     }
 
 }
@@ -60,8 +56,7 @@ public class AwsGlueMlTransformParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransformType is required")]
     public required TerraformProperty<string> TransformType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transform_type");
-        set => WithProperty("transform_type", value);
+        set => SetProperty("transform_type", value);
     }
 
 }
@@ -79,54 +74,67 @@ public class AwsGlueMlTransform : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("label_count");
-        this.WithOutput("schema");
+        SetOutput("arn");
+        SetOutput("label_count");
+        SetOutput("schema");
+        SetOutput("description");
+        SetOutput("glue_version");
+        SetOutput("id");
+        SetOutput("max_capacity");
+        SetOutput("max_retries");
+        SetOutput("name");
+        SetOutput("number_of_workers");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("timeout");
+        SetOutput("worker_type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
-    public TerraformProperty<string>? GlueVersion
+    public TerraformProperty<string> GlueVersion
     {
-        get => GetProperty<TerraformProperty<string>>("glue_version");
-        set => this.WithProperty("glue_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("glue_version");
+        set => SetProperty("glue_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxCapacity
+    public TerraformProperty<double> MaxCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity");
-        set => this.WithProperty("max_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_capacity");
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
     /// The max_retries attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxRetries
+    public TerraformProperty<double> MaxRetries
     {
-        get => GetProperty<TerraformProperty<double>>("max_retries");
-        set => this.WithProperty("max_retries", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_retries");
+        set => SetProperty("max_retries", value);
     }
 
     /// <summary>
@@ -135,26 +143,26 @@ public class AwsGlueMlTransform : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The number_of_workers attribute.
     /// </summary>
-    public TerraformProperty<double>? NumberOfWorkers
+    public TerraformProperty<double> NumberOfWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_workers");
-        set => this.WithProperty("number_of_workers", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("number_of_workers");
+        set => SetProperty("number_of_workers", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -163,67 +171,67 @@ public class AwsGlueMlTransform : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? Timeout
+    public TerraformProperty<double> Timeout
     {
-        get => GetProperty<TerraformProperty<double>>("timeout");
-        set => this.WithProperty("timeout", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout");
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkerType
+    public TerraformProperty<string> WorkerType
     {
-        get => GetProperty<TerraformProperty<string>>("worker_type");
-        set => this.WithProperty("worker_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("worker_type");
+        set => SetProperty("worker_type", value);
     }
 
     /// <summary>
     /// Block for input_record_tables.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputRecordTables is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputRecordTables block(s) required")]
     public List<AwsGlueMlTransformInputRecordTablesBlock>? InputRecordTables
     {
-        get => GetProperty<List<AwsGlueMlTransformInputRecordTablesBlock>>("input_record_tables");
-        set => this.WithProperty("input_record_tables", value);
+        set => SetProperty("input_record_tables", value);
     }
 
     /// <summary>
     /// Block for parameters.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameters is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Parameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
     public List<AwsGlueMlTransformParametersBlock>? Parameters
     {
-        get => GetProperty<List<AwsGlueMlTransformParametersBlock>>("parameters");
-        set => this.WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>

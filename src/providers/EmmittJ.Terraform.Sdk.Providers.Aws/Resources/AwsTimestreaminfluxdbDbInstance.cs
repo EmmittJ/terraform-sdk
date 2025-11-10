@@ -21,8 +21,7 @@ public class AwsTimestreaminfluxdbDbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsTimestreaminfluxdbDbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsTimestreaminfluxdbDbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,13 +54,30 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone");
-        this.WithOutput("endpoint");
-        this.WithOutput("id");
-        this.WithOutput("influx_auth_parameters_secret_arn");
-        this.WithOutput("secondary_availability_zone");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("availability_zone");
+        SetOutput("endpoint");
+        SetOutput("id");
+        SetOutput("influx_auth_parameters_secret_arn");
+        SetOutput("secondary_availability_zone");
+        SetOutput("tags_all");
+        SetOutput("allocated_storage");
+        SetOutput("bucket");
+        SetOutput("db_instance_type");
+        SetOutput("db_parameter_group_identifier");
+        SetOutput("db_storage_type");
+        SetOutput("deployment_type");
+        SetOutput("name");
+        SetOutput("network_type");
+        SetOutput("organization");
+        SetOutput("password");
+        SetOutput("port");
+        SetOutput("publicly_accessible");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("username");
+        SetOutput("vpc_security_group_ids");
+        SetOutput("vpc_subnet_ids");
     }
 
     /// <summary>
@@ -72,8 +86,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocatedStorage is required")]
     public required TerraformProperty<double> AllocatedStorage
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("allocated_storage");
-        set => this.WithProperty("allocated_storage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("allocated_storage");
+        set => SetProperty("allocated_storage", value);
     }
 
     /// <summary>
@@ -84,8 +98,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
@@ -94,17 +108,17 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceType is required")]
     public required TerraformProperty<string> DbInstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_instance_type");
-        set => this.WithProperty("db_instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_type");
+        set => SetProperty("db_instance_type", value);
     }
 
     /// <summary>
     /// The id of the DB parameter group assigned to your DB instance.
     /// </summary>
-    public TerraformProperty<string>? DbParameterGroupIdentifier
+    public TerraformProperty<string> DbParameterGroupIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_parameter_group_identifier");
-        set => this.WithProperty("db_parameter_group_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_parameter_group_identifier");
+        set => SetProperty("db_parameter_group_identifier", value);
     }
 
     /// <summary>
@@ -113,20 +127,20 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, 
     /// 					Influx IO Included 16000 IOPS.
     /// </summary>
-    public TerraformProperty<string>? DbStorageType
+    public TerraformProperty<string> DbStorageType
     {
-        get => GetProperty<TerraformProperty<string>>("db_storage_type");
-        set => this.WithProperty("db_storage_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_storage_type");
+        set => SetProperty("db_storage_type", value);
     }
 
     /// <summary>
     /// Specifies whether the DB instance will be deployed as a standalone instance or 
     /// 					with a Multi-AZ standby for high availability.
     /// </summary>
-    public TerraformProperty<string>? DeploymentType
+    public TerraformProperty<string> DeploymentType
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_type");
-        set => this.WithProperty("deployment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_type");
+        set => SetProperty("deployment_type", value);
     }
 
     /// <summary>
@@ -138,8 +152,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -147,10 +161,10 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate 
     /// 					over both IPv4 and IPv6 protocols.
     /// </summary>
-    public TerraformProperty<string>? NetworkType
+    public TerraformProperty<string> NetworkType
     {
-        get => GetProperty<TerraformProperty<string>>("network_type");
-        set => this.WithProperty("network_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_type");
+        set => SetProperty("network_type", value);
     }
 
     /// <summary>
@@ -160,8 +174,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization");
-        set => this.WithProperty("organization", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization");
+        set => SetProperty("organization", value);
     }
 
     /// <summary>
@@ -173,44 +187,44 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// The port number on which InfluxDB accepts connections.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// Configures the DB instance with a public IP to facilitate access.
     /// </summary>
-    public TerraformProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool> PubliclyAccessible
     {
-        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
-        set => this.WithProperty("publicly_accessible", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
+        set => SetProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -225,18 +239,18 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
     /// A list of VPC security group IDs to associate with the DB instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSecurityGroupIds is required")]
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => this.WithProperty("vpc_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
+        set => SetProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
@@ -244,10 +258,10 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? VpcSubnetIds
+    public HashSet<TerraformProperty<string>> VpcSubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
-        set => this.WithProperty("vpc_subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
+        set => SetProperty("vpc_subnet_ids", value);
     }
 
     /// <summary>
@@ -256,8 +270,7 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// </summary>
     public List<AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBlock>? LogDeliveryConfiguration
     {
-        get => GetProperty<List<AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBlock>>("log_delivery_configuration");
-        set => this.WithProperty("log_delivery_configuration", value);
+        set => SetProperty("log_delivery_configuration", value);
     }
 
     /// <summary>
@@ -266,8 +279,7 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// </summary>
     public AwsTimestreaminfluxdbDbInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsTimestreaminfluxdbDbInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

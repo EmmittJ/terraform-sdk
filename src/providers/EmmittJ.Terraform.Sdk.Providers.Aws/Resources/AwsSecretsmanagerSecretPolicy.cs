@@ -14,24 +14,29 @@ public class AwsSecretsmanagerSecretPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("block_public_policy");
+        SetOutput("id");
+        SetOutput("policy");
+        SetOutput("region");
+        SetOutput("secret_arn");
     }
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
-    public TerraformProperty<bool>? BlockPublicPolicy
+    public TerraformProperty<bool> BlockPublicPolicy
     {
-        get => GetProperty<TerraformProperty<bool>>("block_public_policy");
-        set => this.WithProperty("block_public_policy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("block_public_policy");
+        set => SetProperty("block_public_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -40,17 +45,17 @@ public class AwsSecretsmanagerSecretPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -59,8 +64,8 @@ public class AwsSecretsmanagerSecretPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArn is required")]
     public required TerraformProperty<string> SecretArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_arn");
-        set => this.WithProperty("secret_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_arn");
+        set => SetProperty("secret_arn", value);
     }
 
 }

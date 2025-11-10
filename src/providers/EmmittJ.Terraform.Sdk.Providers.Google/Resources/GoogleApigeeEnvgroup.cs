@@ -13,8 +13,7 @@ public class GoogleApigeeEnvgroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeEnvgroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeEnvgroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,24 +46,28 @@ public class GoogleApigeeEnvgroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("hostnames");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("org_id");
     }
 
     /// <summary>
     /// Hostnames of the environment group.
     /// </summary>
-    public List<TerraformProperty<string>>? Hostnames
+    public List<TerraformProperty<string>> Hostnames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("hostnames");
-        set => this.WithProperty("hostnames", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("hostnames");
+        set => SetProperty("hostnames", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +76,8 @@ public class GoogleApigeeEnvgroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class GoogleApigeeEnvgroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class GoogleApigeeEnvgroup : TerraformResource
     /// </summary>
     public GoogleApigeeEnvgroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeEnvgroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

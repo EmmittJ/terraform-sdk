@@ -17,8 +17,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
-        set => WithProperty("body", value);
+        set => SetProperty("body", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Headers
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("headers");
-        set => WithProperty("headers", value);
+        set => SetProperty("headers", value);
     }
 
     /// <summary>
@@ -37,8 +35,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpMethod
     {
-        get => GetProperty<TerraformProperty<string>>("http_method");
-        set => WithProperty("http_method", value);
+        set => SetProperty("http_method", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUri is required")]
     public required TerraformProperty<string> RelativeUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("relative_uri");
-        set => WithProperty("relative_uri", value);
+        set => SetProperty("relative_uri", value);
     }
 
 }
@@ -72,8 +68,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
-        set => WithProperty("body", value);
+        set => SetProperty("body", value);
     }
 
     /// <summary>
@@ -82,8 +77,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Headers
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("headers");
-        set => WithProperty("headers", value);
+        set => SetProperty("headers", value);
     }
 
     /// <summary>
@@ -91,8 +85,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HttpMethod
     {
-        get => GetProperty<TerraformProperty<string>>("http_method");
-        set => WithProperty("http_method", value);
+        set => SetProperty("http_method", value);
     }
 
     /// <summary>
@@ -101,8 +94,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -119,8 +111,7 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Attributes
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attributes");
-        set => WithProperty("attributes", value);
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
@@ -131,8 +122,7 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Data
     {
-        get => GetProperty<TerraformProperty<string>>("data");
-        set => WithProperty("data", value);
+        set => SetProperty("data", value);
     }
 
     /// <summary>
@@ -144,8 +134,7 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformProperty<string> TopicName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic_name");
-        set => WithProperty("topic_name", value);
+        set => SetProperty("topic_name", value);
     }
 
 }
@@ -162,8 +151,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxBackoffDuration
     {
-        get => GetProperty<TerraformProperty<string>>("max_backoff_duration");
-        set => WithProperty("max_backoff_duration", value);
+        set => SetProperty("max_backoff_duration", value);
     }
 
     /// <summary>
@@ -174,8 +162,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxDoublings
     {
-        get => GetProperty<TerraformProperty<double>>("max_doublings");
-        set => WithProperty("max_doublings", value);
+        set => SetProperty("max_doublings", value);
     }
 
     /// <summary>
@@ -185,8 +172,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxRetryDuration
     {
-        get => GetProperty<TerraformProperty<string>>("max_retry_duration");
-        set => WithProperty("max_retry_duration", value);
+        set => SetProperty("max_retry_duration", value);
     }
 
     /// <summary>
@@ -195,8 +181,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinBackoffDuration
     {
-        get => GetProperty<TerraformProperty<string>>("min_backoff_duration");
-        set => WithProperty("min_backoff_duration", value);
+        set => SetProperty("min_backoff_duration", value);
     }
 
     /// <summary>
@@ -206,8 +191,7 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RetryCount
     {
-        get => GetProperty<TerraformProperty<double>>("retry_count");
-        set => WithProperty("retry_count", value);
+        set => SetProperty("retry_count", value);
     }
 
 }
@@ -223,8 +207,7 @@ public class GoogleCloudSchedulerJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -232,8 +215,7 @@ public class GoogleCloudSchedulerJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -241,8 +223,7 @@ public class GoogleCloudSchedulerJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -260,7 +241,16 @@ public class GoogleCloudSchedulerJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("state");
+        SetOutput("state");
+        SetOutput("attempt_deadline");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("paused");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("schedule");
+        SetOutput("time_zone");
     }
 
     /// <summary>
@@ -273,29 +263,29 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// * **Note**: For PubSub targets, this field is ignored - setting it will introduce an unresolvable diff.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? AttemptDeadline
+    public TerraformProperty<string> AttemptDeadline
     {
-        get => GetProperty<TerraformProperty<string>>("attempt_deadline");
-        set => this.WithProperty("attempt_deadline", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("attempt_deadline");
+        set => SetProperty("attempt_deadline", value);
     }
 
     /// <summary>
     /// A human-readable description for the job.
     /// This string must not contain more than 500 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -304,54 +294,54 @@ public class GoogleCloudSchedulerJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Sets the job to a paused state. Jobs default to being enabled when this property is not set.
     /// </summary>
-    public TerraformProperty<bool>? Paused
+    public TerraformProperty<bool> Paused
     {
-        get => GetProperty<TerraformProperty<bool>>("paused");
-        set => this.WithProperty("paused", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("paused");
+        set => SetProperty("paused", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where the scheduler job resides. If it is not provided, Terraform will use the provider default.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Describes the schedule on which the job will be executed.
     /// </summary>
-    public TerraformProperty<string>? Schedule
+    public TerraformProperty<string> Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
-        set => this.WithProperty("schedule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule");
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
     /// Specifies the time zone to be used in interpreting schedule.
     /// The value of this field must be a time zone name from the tz database.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    public TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
@@ -361,8 +351,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppEngineHttpTarget block(s) allowed")]
     public List<GoogleCloudSchedulerJobAppEngineHttpTargetBlock>? AppEngineHttpTarget
     {
-        get => GetProperty<List<GoogleCloudSchedulerJobAppEngineHttpTargetBlock>>("app_engine_http_target");
-        set => this.WithProperty("app_engine_http_target", value);
+        set => SetProperty("app_engine_http_target", value);
     }
 
     /// <summary>
@@ -372,8 +361,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpTarget block(s) allowed")]
     public List<GoogleCloudSchedulerJobHttpTargetBlock>? HttpTarget
     {
-        get => GetProperty<List<GoogleCloudSchedulerJobHttpTargetBlock>>("http_target");
-        set => this.WithProperty("http_target", value);
+        set => SetProperty("http_target", value);
     }
 
     /// <summary>
@@ -383,8 +371,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PubsubTarget block(s) allowed")]
     public List<GoogleCloudSchedulerJobPubsubTargetBlock>? PubsubTarget
     {
-        get => GetProperty<List<GoogleCloudSchedulerJobPubsubTargetBlock>>("pubsub_target");
-        set => this.WithProperty("pubsub_target", value);
+        set => SetProperty("pubsub_target", value);
     }
 
     /// <summary>
@@ -394,8 +381,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryConfig block(s) allowed")]
     public List<GoogleCloudSchedulerJobRetryConfigBlock>? RetryConfig
     {
-        get => GetProperty<List<GoogleCloudSchedulerJobRetryConfigBlock>>("retry_config");
-        set => this.WithProperty("retry_config", value);
+        set => SetProperty("retry_config", value);
     }
 
     /// <summary>
@@ -404,8 +390,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// </summary>
     public GoogleCloudSchedulerJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudSchedulerJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

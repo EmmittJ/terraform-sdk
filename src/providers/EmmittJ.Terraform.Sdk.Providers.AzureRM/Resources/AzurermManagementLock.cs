@@ -13,8 +13,7 @@ public class AzurermManagementLockTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermManagementLockTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermManagementLockTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,20 @@ public class AzurermManagementLock : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("lock_level");
+        SetOutput("name");
+        SetOutput("notes");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermManagementLock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LockLevel is required")]
     public required TerraformProperty<string> LockLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lock_level");
-        set => this.WithProperty("lock_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lock_level");
+        set => SetProperty("lock_level", value);
     }
 
     /// <summary>
@@ -76,17 +78,17 @@ public class AzurermManagementLock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    public TerraformProperty<string>? Notes
+    public TerraformProperty<string> Notes
     {
-        get => GetProperty<TerraformProperty<string>>("notes");
-        set => this.WithProperty("notes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notes");
+        set => SetProperty("notes", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermManagementLock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -105,8 +107,7 @@ public class AzurermManagementLock : TerraformResource
     /// </summary>
     public AzurermManagementLockTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagementLockTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

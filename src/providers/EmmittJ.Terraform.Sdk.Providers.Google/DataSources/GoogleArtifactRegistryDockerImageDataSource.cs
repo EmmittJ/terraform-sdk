@@ -14,23 +14,28 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("build_time");
-        this.WithOutput("image_size_bytes");
-        this.WithOutput("media_type");
-        this.WithOutput("name");
-        this.WithOutput("self_link");
-        this.WithOutput("tags");
-        this.WithOutput("update_time");
-        this.WithOutput("upload_time");
+        SetOutput("build_time");
+        SetOutput("image_size_bytes");
+        SetOutput("media_type");
+        SetOutput("name");
+        SetOutput("self_link");
+        SetOutput("tags");
+        SetOutput("update_time");
+        SetOutput("upload_time");
+        SetOutput("id");
+        SetOutput("image_name");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("repository_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -39,8 +44,8 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformProperty<string> ImageName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image_name");
-        set => this.WithProperty("image_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
+        set => SetProperty("image_name", value);
     }
 
     /// <summary>
@@ -49,17 +54,17 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -68,8 +73,8 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
-        set => this.WithProperty("repository_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_id");
+        set => SetProperty("repository_id", value);
     }
 
     /// <summary>

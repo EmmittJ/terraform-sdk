@@ -13,8 +13,7 @@ public class AzurermServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,26 +54,39 @@ public class AzurermServicePlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputind");
-        this.WithOutputeserved");
+        SetOutput("kind");
+        SetOutput("reserved");
+        SetOutput("app_service_environment_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("maximum_elastic_worker_count");
+        SetOutput("name");
+        SetOutput("os_type");
+        SetOutput("per_site_scaling_enabled");
+        SetOutput("premium_plan_auto_scale_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("tags");
+        SetOutput("worker_count");
+        SetOutput("zone_balancing_enabled");
     }
 
     /// <summary>
     /// The app_service_environment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AppServiceEnvironmentId
+    public TerraformProperty<string> AppServiceEnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("app_service_environment_id");
-        set => this.WithProperty("app_service_environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_service_environment_id");
+        set => SetProperty("app_service_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,17 +95,17 @@ public class AzurermServicePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The maximum_elastic_worker_count attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumElasticWorkerCount
+    public TerraformProperty<double> MaximumElasticWorkerCount
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_elastic_worker_count");
-        set => this.WithProperty("maximum_elastic_worker_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_elastic_worker_count");
+        set => SetProperty("maximum_elastic_worker_count", value);
     }
 
     /// <summary>
@@ -105,8 +114,8 @@ public class AzurermServicePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -115,26 +124,26 @@ public class AzurermServicePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformProperty<string> OsType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("os_type");
-        set => this.WithProperty("os_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("os_type");
+        set => SetProperty("os_type", value);
     }
 
     /// <summary>
     /// The per_site_scaling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PerSiteScalingEnabled
+    public TerraformProperty<bool> PerSiteScalingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("per_site_scaling_enabled");
-        set => this.WithProperty("per_site_scaling_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("per_site_scaling_enabled");
+        set => SetProperty("per_site_scaling_enabled", value);
     }
 
     /// <summary>
     /// The premium_plan_auto_scale_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PremiumPlanAutoScaleEnabled
+    public TerraformProperty<bool> PremiumPlanAutoScaleEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("premium_plan_auto_scale_enabled");
-        set => this.WithProperty("premium_plan_auto_scale_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("premium_plan_auto_scale_enabled");
+        set => SetProperty("premium_plan_auto_scale_enabled", value);
     }
 
     /// <summary>
@@ -143,8 +152,8 @@ public class AzurermServicePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -153,35 +162,35 @@ public class AzurermServicePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The worker_count attribute.
     /// </summary>
-    public TerraformProperty<double>? WorkerCount
+    public TerraformProperty<double> WorkerCount
     {
-        get => GetProperty<TerraformProperty<double>>("worker_count");
-        set => this.WithProperty("worker_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("worker_count");
+        set => SetProperty("worker_count", value);
     }
 
     /// <summary>
     /// The zone_balancing_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ZoneBalancingEnabled
+    public TerraformProperty<bool> ZoneBalancingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_balancing_enabled");
-        set => this.WithProperty("zone_balancing_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("zone_balancing_enabled");
+        set => SetProperty("zone_balancing_enabled", value);
     }
 
     /// <summary>
@@ -190,8 +199,7 @@ public class AzurermServicePlan : TerraformResource
     /// </summary>
     public AzurermServicePlanTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermServicePlanTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

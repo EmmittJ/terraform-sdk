@@ -14,31 +14,36 @@ public class AwsIamServiceSpecificCredential : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_date");
-        this.WithOutput("expiration_date");
-        this.WithOutput("service_credential_alias");
-        this.WithOutput("service_credential_secret");
-        this.WithOutput("service_password");
-        this.WithOutput("service_specific_credential_id");
-        this.WithOutput("service_user_name");
+        SetOutput("create_date");
+        SetOutput("expiration_date");
+        SetOutput("service_credential_alias");
+        SetOutput("service_credential_secret");
+        SetOutput("service_password");
+        SetOutput("service_specific_credential_id");
+        SetOutput("service_user_name");
+        SetOutput("credential_age_days");
+        SetOutput("id");
+        SetOutput("service_name");
+        SetOutput("status");
+        SetOutput("user_name");
     }
 
     /// <summary>
     /// The credential_age_days attribute.
     /// </summary>
-    public TerraformProperty<double>? CredentialAgeDays
+    public TerraformProperty<double> CredentialAgeDays
     {
-        get => GetProperty<TerraformProperty<double>>("credential_age_days");
-        set => this.WithProperty("credential_age_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("credential_age_days");
+        set => SetProperty("credential_age_days", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -47,17 +52,17 @@ public class AwsIamServiceSpecificCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -66,8 +71,8 @@ public class AwsIamServiceSpecificCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>

@@ -14,27 +14,29 @@ public class GoogleNetblockIpRangesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cidr_blocks");
-        this.WithOutput("cidr_blocks_ipv4");
-        this.WithOutput("cidr_blocks_ipv6");
+        SetOutput("cidr_blocks");
+        SetOutput("cidr_blocks_ipv4");
+        SetOutput("cidr_blocks_ipv6");
+        SetOutput("id");
+        SetOutput("range_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The range_type attribute.
     /// </summary>
-    public TerraformProperty<string>? RangeType
+    public TerraformProperty<string> RangeType
     {
-        get => GetProperty<TerraformProperty<string>>("range_type");
-        set => this.WithProperty("range_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("range_type");
+        set => SetProperty("range_type", value);
     }
 
     /// <summary>

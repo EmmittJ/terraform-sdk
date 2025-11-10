@@ -14,19 +14,24 @@ public class AwsApiGatewayDomainNameDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("certificate_arn");
-        this.WithOutput("certificate_name");
-        this.WithOutput("certificate_upload_date");
-        this.WithOutput("cloudfront_domain_name");
-        this.WithOutput("cloudfront_zone_id");
-        this.WithOutput("endpoint_configuration");
-        this.WithOutput("policy");
-        this.WithOutput("regional_certificate_arn");
-        this.WithOutput("regional_certificate_name");
-        this.WithOutput("regional_domain_name");
-        this.WithOutput("regional_zone_id");
-        this.WithOutput("security_policy");
+        SetOutput("arn");
+        SetOutput("certificate_arn");
+        SetOutput("certificate_name");
+        SetOutput("certificate_upload_date");
+        SetOutput("cloudfront_domain_name");
+        SetOutput("cloudfront_zone_id");
+        SetOutput("endpoint_configuration");
+        SetOutput("policy");
+        SetOutput("regional_certificate_arn");
+        SetOutput("regional_certificate_name");
+        SetOutput("regional_domain_name");
+        SetOutput("regional_zone_id");
+        SetOutput("security_policy");
+        SetOutput("domain_name");
+        SetOutput("domain_name_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -35,44 +40,44 @@ public class AwsApiGatewayDomainNameDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The domain_name_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainNameId
+    public TerraformProperty<string> DomainNameId
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name_id");
-        set => this.WithProperty("domain_name_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name_id");
+        set => SetProperty("domain_name_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

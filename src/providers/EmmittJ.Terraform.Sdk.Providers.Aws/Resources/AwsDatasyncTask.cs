@@ -13,8 +13,7 @@ public class AwsDatasyncTaskExcludesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilterType
     {
-        get => GetProperty<TerraformProperty<string>>("filter_type");
-        set => WithProperty("filter_type", value);
+        set => SetProperty("filter_type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDatasyncTaskExcludesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsDatasyncTaskIncludesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilterType
     {
-        get => GetProperty<TerraformProperty<string>>("filter_type");
-        set => WithProperty("filter_type", value);
+        set => SetProperty("filter_type", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsDatasyncTaskIncludesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Atime
     {
-        get => GetProperty<TerraformProperty<string>>("atime");
-        set => WithProperty("atime", value);
+        set => SetProperty("atime", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? BytesPerSecond
     {
-        get => GetProperty<TerraformProperty<double>>("bytes_per_second");
-        set => WithProperty("bytes_per_second", value);
+        set => SetProperty("bytes_per_second", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Gid
     {
-        get => GetProperty<TerraformProperty<string>>("gid");
-        set => WithProperty("gid", value);
+        set => SetProperty("gid", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("log_level");
-        set => WithProperty("log_level", value);
+        set => SetProperty("log_level", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mtime
     {
-        get => GetProperty<TerraformProperty<string>>("mtime");
-        set => WithProperty("mtime", value);
+        set => SetProperty("mtime", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ObjectTags
     {
-        get => GetProperty<TerraformProperty<string>>("object_tags");
-        set => WithProperty("object_tags", value);
+        set => SetProperty("object_tags", value);
     }
 
     /// <summary>
@@ -119,8 +109,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OverwriteMode
     {
-        get => GetProperty<TerraformProperty<string>>("overwrite_mode");
-        set => WithProperty("overwrite_mode", value);
+        set => SetProperty("overwrite_mode", value);
     }
 
     /// <summary>
@@ -128,8 +117,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PosixPermissions
     {
-        get => GetProperty<TerraformProperty<string>>("posix_permissions");
-        set => WithProperty("posix_permissions", value);
+        set => SetProperty("posix_permissions", value);
     }
 
     /// <summary>
@@ -137,8 +125,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PreserveDeletedFiles
     {
-        get => GetProperty<TerraformProperty<string>>("preserve_deleted_files");
-        set => WithProperty("preserve_deleted_files", value);
+        set => SetProperty("preserve_deleted_files", value);
     }
 
     /// <summary>
@@ -146,8 +133,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PreserveDevices
     {
-        get => GetProperty<TerraformProperty<string>>("preserve_devices");
-        set => WithProperty("preserve_devices", value);
+        set => SetProperty("preserve_devices", value);
     }
 
     /// <summary>
@@ -155,8 +141,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SecurityDescriptorCopyFlags
     {
-        get => GetProperty<TerraformProperty<string>>("security_descriptor_copy_flags");
-        set => WithProperty("security_descriptor_copy_flags", value);
+        set => SetProperty("security_descriptor_copy_flags", value);
     }
 
     /// <summary>
@@ -164,8 +149,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TaskQueueing
     {
-        get => GetProperty<TerraformProperty<string>>("task_queueing");
-        set => WithProperty("task_queueing", value);
+        set => SetProperty("task_queueing", value);
     }
 
     /// <summary>
@@ -173,8 +157,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TransferMode
     {
-        get => GetProperty<TerraformProperty<string>>("transfer_mode");
-        set => WithProperty("transfer_mode", value);
+        set => SetProperty("transfer_mode", value);
     }
 
     /// <summary>
@@ -182,8 +165,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Uid
     {
-        get => GetProperty<TerraformProperty<string>>("uid");
-        set => WithProperty("uid", value);
+        set => SetProperty("uid", value);
     }
 
     /// <summary>
@@ -191,8 +173,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VerifyMode
     {
-        get => GetProperty<TerraformProperty<string>>("verify_mode");
-        set => WithProperty("verify_mode", value);
+        set => SetProperty("verify_mode", value);
     }
 
 }
@@ -209,8 +190,7 @@ public class AwsDatasyncTaskScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformProperty<string> ScheduleExpression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule_expression");
-        set => WithProperty("schedule_expression", value);
+        set => SetProperty("schedule_expression", value);
     }
 
 }
@@ -226,8 +206,7 @@ public class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OutputType
     {
-        get => GetProperty<TerraformProperty<string>>("output_type");
-        set => WithProperty("output_type", value);
+        set => SetProperty("output_type", value);
     }
 
     /// <summary>
@@ -235,8 +214,7 @@ public class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ReportLevel
     {
-        get => GetProperty<TerraformProperty<string>>("report_level");
-        set => WithProperty("report_level", value);
+        set => SetProperty("report_level", value);
     }
 
     /// <summary>
@@ -244,8 +222,7 @@ public class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? S3ObjectVersioning
     {
-        get => GetProperty<TerraformProperty<string>>("s3_object_versioning");
-        set => WithProperty("s3_object_versioning", value);
+        set => SetProperty("s3_object_versioning", value);
     }
 
 }
@@ -261,8 +238,7 @@ public class AwsDatasyncTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -280,16 +256,25 @@ public class AwsDatasyncTask : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("cloudwatch_log_group_arn");
+        SetOutput("destination_location_arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("source_location_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("task_mode");
     }
 
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudwatchLogGroupArn
+    public TerraformProperty<string> CloudwatchLogGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("cloudwatch_log_group_arn");
-        set => this.WithProperty("cloudwatch_log_group_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloudwatch_log_group_arn");
+        set => SetProperty("cloudwatch_log_group_arn", value);
     }
 
     /// <summary>
@@ -298,35 +283,35 @@ public class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationLocationArn is required")]
     public required TerraformProperty<string> DestinationLocationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_location_arn");
-        set => this.WithProperty("destination_location_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_location_arn");
+        set => SetProperty("destination_location_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -335,35 +320,35 @@ public class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceLocationArn is required")]
     public required TerraformProperty<string> SourceLocationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_location_arn");
-        set => this.WithProperty("source_location_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_location_arn");
+        set => SetProperty("source_location_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The task_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? TaskMode
+    public TerraformProperty<string> TaskMode
     {
-        get => GetProperty<TerraformProperty<string>>("task_mode");
-        set => this.WithProperty("task_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_mode");
+        set => SetProperty("task_mode", value);
     }
 
     /// <summary>
@@ -373,8 +358,7 @@ public class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Excludes block(s) allowed")]
     public List<AwsDatasyncTaskExcludesBlock>? Excludes
     {
-        get => GetProperty<List<AwsDatasyncTaskExcludesBlock>>("excludes");
-        set => this.WithProperty("excludes", value);
+        set => SetProperty("excludes", value);
     }
 
     /// <summary>
@@ -384,8 +368,7 @@ public class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Includes block(s) allowed")]
     public List<AwsDatasyncTaskIncludesBlock>? Includes
     {
-        get => GetProperty<List<AwsDatasyncTaskIncludesBlock>>("includes");
-        set => this.WithProperty("includes", value);
+        set => SetProperty("includes", value);
     }
 
     /// <summary>
@@ -395,8 +378,7 @@ public class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     public List<AwsDatasyncTaskOptionsBlock>? Options
     {
-        get => GetProperty<List<AwsDatasyncTaskOptionsBlock>>("options");
-        set => this.WithProperty("options", value);
+        set => SetProperty("options", value);
     }
 
     /// <summary>
@@ -406,8 +388,7 @@ public class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     public List<AwsDatasyncTaskScheduleBlock>? Schedule
     {
-        get => GetProperty<List<AwsDatasyncTaskScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -417,8 +398,7 @@ public class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskReportConfig block(s) allowed")]
     public List<AwsDatasyncTaskTaskReportConfigBlock>? TaskReportConfig
     {
-        get => GetProperty<List<AwsDatasyncTaskTaskReportConfigBlock>>("task_report_config");
-        set => this.WithProperty("task_report_config", value);
+        set => SetProperty("task_report_config", value);
     }
 
     /// <summary>
@@ -427,8 +407,7 @@ public class AwsDatasyncTask : TerraformResource
     /// </summary>
     public AwsDatasyncTaskTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDatasyncTaskTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

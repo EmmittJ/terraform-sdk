@@ -14,7 +14,10 @@ public class GoogleHealthcareFhirStoreIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("fhir_store_id");
+        SetOutput("id");
+        SetOutput("policy_data");
     }
 
     /// <summary>
@@ -23,17 +26,17 @@ public class GoogleHealthcareFhirStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FhirStoreId is required")]
     public required TerraformProperty<string> FhirStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("fhir_store_id");
-        set => this.WithProperty("fhir_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fhir_store_id");
+        set => SetProperty("fhir_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,8 +45,8 @@ public class GoogleHealthcareFhirStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
-        set => this.WithProperty("policy_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
+        set => SetProperty("policy_data", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ArtifactIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("artifact_identifier");
-        set => WithProperty("artifact_identifier", value);
+        set => SetProperty("artifact_identifier", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BucketOwnerAccess
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_owner_access");
-        set => WithProperty("bucket_owner_access", value);
+        set => SetProperty("bucket_owner_access", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EncryptionDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("encryption_disabled");
-        set => WithProperty("encryption_disabled", value);
+        set => SetProperty("encryption_disabled", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NamespaceType
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_type");
-        set => WithProperty("namespace_type", value);
+        set => SetProperty("namespace_type", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? OverrideArtifactName
     {
-        get => GetProperty<TerraformProperty<bool>>("override_artifact_name");
-        set => WithProperty("override_artifact_name", value);
+        set => SetProperty("override_artifact_name", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Packaging
     {
-        get => GetProperty<TerraformProperty<string>>("packaging");
-        set => WithProperty("packaging", value);
+        set => SetProperty("packaging", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -95,8 +86,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -112,8 +102,7 @@ public class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CombineArtifacts
     {
-        get => GetProperty<TerraformProperty<bool>>("combine_artifacts");
-        set => WithProperty("combine_artifacts", value);
+        set => SetProperty("combine_artifacts", value);
     }
 
     /// <summary>
@@ -122,8 +111,7 @@ public class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformProperty<string> ServiceRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_role");
-        set => WithProperty("service_role", value);
+        set => SetProperty("service_role", value);
     }
 
     /// <summary>
@@ -131,8 +119,7 @@ public class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TimeoutInMins
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_in_mins");
-        set => WithProperty("timeout_in_mins", value);
+        set => SetProperty("timeout_in_mins", value);
     }
 
 }
@@ -148,8 +135,7 @@ public class AwsCodebuildProjectCacheBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class AwsCodebuildProjectCacheBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Modes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("modes");
-        set => WithProperty("modes", value);
+        set => SetProperty("modes", value);
     }
 
     /// <summary>
@@ -166,8 +151,7 @@ public class AwsCodebuildProjectCacheBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -183,8 +167,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
-        set => WithProperty("certificate", value);
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
@@ -193,8 +176,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
     public required TerraformProperty<string> ComputeType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("compute_type");
-        set => WithProperty("compute_type", value);
+        set => SetProperty("compute_type", value);
     }
 
     /// <summary>
@@ -203,8 +185,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
     /// <summary>
@@ -212,8 +193,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImagePullCredentialsType
     {
-        get => GetProperty<TerraformProperty<string>>("image_pull_credentials_type");
-        set => WithProperty("image_pull_credentials_type", value);
+        set => SetProperty("image_pull_credentials_type", value);
     }
 
     /// <summary>
@@ -221,8 +201,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PrivilegedMode
     {
-        get => GetProperty<TerraformProperty<bool>>("privileged_mode");
-        set => WithProperty("privileged_mode", value);
+        set => SetProperty("privileged_mode", value);
     }
 
     /// <summary>
@@ -231,8 +210,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -248,8 +226,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
-        set => WithProperty("identifier", value);
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
@@ -257,8 +234,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -266,8 +242,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MountOptions
     {
-        get => GetProperty<TerraformProperty<string>>("mount_options");
-        set => WithProperty("mount_options", value);
+        set => SetProperty("mount_options", value);
     }
 
     /// <summary>
@@ -275,8 +250,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MountPoint
     {
-        get => GetProperty<TerraformProperty<string>>("mount_point");
-        set => WithProperty("mount_point", value);
+        set => SetProperty("mount_point", value);
     }
 
     /// <summary>
@@ -284,8 +258,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -310,8 +283,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactIdentifier is required")]
     public required TerraformProperty<string> ArtifactIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("artifact_identifier");
-        set => WithProperty("artifact_identifier", value);
+        set => SetProperty("artifact_identifier", value);
     }
 
     /// <summary>
@@ -319,8 +291,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BucketOwnerAccess
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_owner_access");
-        set => WithProperty("bucket_owner_access", value);
+        set => SetProperty("bucket_owner_access", value);
     }
 
     /// <summary>
@@ -328,8 +299,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EncryptionDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("encryption_disabled");
-        set => WithProperty("encryption_disabled", value);
+        set => SetProperty("encryption_disabled", value);
     }
 
     /// <summary>
@@ -337,8 +307,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -346,8 +315,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -355,8 +323,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NamespaceType
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_type");
-        set => WithProperty("namespace_type", value);
+        set => SetProperty("namespace_type", value);
     }
 
     /// <summary>
@@ -364,8 +331,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? OverrideArtifactName
     {
-        get => GetProperty<TerraformProperty<bool>>("override_artifact_name");
-        set => WithProperty("override_artifact_name", value);
+        set => SetProperty("override_artifact_name", value);
     }
 
     /// <summary>
@@ -373,8 +339,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Packaging
     {
-        get => GetProperty<TerraformProperty<string>>("packaging");
-        set => WithProperty("packaging", value);
+        set => SetProperty("packaging", value);
     }
 
     /// <summary>
@@ -382,8 +347,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -392,8 +356,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -410,8 +373,7 @@ public class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
     public required TerraformProperty<string> SourceIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_identifier");
-        set => WithProperty("source_identifier", value);
+        set => SetProperty("source_identifier", value);
     }
 
     /// <summary>
@@ -420,8 +382,7 @@ public class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVersion is required")]
     public required TerraformProperty<string> SourceVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_version");
-        set => WithProperty("source_version", value);
+        set => SetProperty("source_version", value);
     }
 
 }
@@ -437,8 +398,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Buildspec
     {
-        get => GetProperty<TerraformProperty<string>>("buildspec");
-        set => WithProperty("buildspec", value);
+        set => SetProperty("buildspec", value);
     }
 
     /// <summary>
@@ -446,8 +406,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? GitCloneDepth
     {
-        get => GetProperty<TerraformProperty<double>>("git_clone_depth");
-        set => WithProperty("git_clone_depth", value);
+        set => SetProperty("git_clone_depth", value);
     }
 
     /// <summary>
@@ -455,8 +414,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InsecureSsl
     {
-        get => GetProperty<TerraformProperty<bool>>("insecure_ssl");
-        set => WithProperty("insecure_ssl", value);
+        set => SetProperty("insecure_ssl", value);
     }
 
     /// <summary>
@@ -464,8 +422,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -473,8 +430,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ReportBuildStatus
     {
-        get => GetProperty<TerraformProperty<bool>>("report_build_status");
-        set => WithProperty("report_build_status", value);
+        set => SetProperty("report_build_status", value);
     }
 
     /// <summary>
@@ -483,8 +439,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
     public required TerraformProperty<string> SourceIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_identifier");
-        set => WithProperty("source_identifier", value);
+        set => SetProperty("source_identifier", value);
     }
 
     /// <summary>
@@ -493,8 +448,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -510,8 +464,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Buildspec
     {
-        get => GetProperty<TerraformProperty<string>>("buildspec");
-        set => WithProperty("buildspec", value);
+        set => SetProperty("buildspec", value);
     }
 
     /// <summary>
@@ -519,8 +472,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? GitCloneDepth
     {
-        get => GetProperty<TerraformProperty<double>>("git_clone_depth");
-        set => WithProperty("git_clone_depth", value);
+        set => SetProperty("git_clone_depth", value);
     }
 
     /// <summary>
@@ -528,8 +480,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InsecureSsl
     {
-        get => GetProperty<TerraformProperty<bool>>("insecure_ssl");
-        set => WithProperty("insecure_ssl", value);
+        set => SetProperty("insecure_ssl", value);
     }
 
     /// <summary>
@@ -537,8 +488,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -546,8 +496,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ReportBuildStatus
     {
-        get => GetProperty<TerraformProperty<bool>>("report_build_status");
-        set => WithProperty("report_build_status", value);
+        set => SetProperty("report_build_status", value);
     }
 
     /// <summary>
@@ -556,8 +505,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -574,8 +522,7 @@ public class AwsCodebuildProjectVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -584,8 +531,7 @@ public class AwsCodebuildProjectVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
-        set => WithProperty("subnets", value);
+        set => SetProperty("subnets", value);
     }
 
     /// <summary>
@@ -594,8 +540,7 @@ public class AwsCodebuildProjectVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -613,72 +558,88 @@ public class AwsCodebuildProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("badge_url");
-        this.WithOutput("public_project_alias");
+        SetOutput("arn");
+        SetOutput("badge_url");
+        SetOutput("public_project_alias");
+        SetOutput("auto_retry_limit");
+        SetOutput("badge_enabled");
+        SetOutput("build_timeout");
+        SetOutput("concurrent_build_limit");
+        SetOutput("description");
+        SetOutput("encryption_key");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project_visibility");
+        SetOutput("queued_timeout");
+        SetOutput("region");
+        SetOutput("resource_access_role");
+        SetOutput("service_role");
+        SetOutput("source_version");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// Maximum number of additional automatic retries after a failed build. The default value is 0.
     /// </summary>
-    public TerraformProperty<double>? AutoRetryLimit
+    public TerraformProperty<double> AutoRetryLimit
     {
-        get => GetProperty<TerraformProperty<double>>("auto_retry_limit");
-        set => this.WithProperty("auto_retry_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("auto_retry_limit");
+        set => SetProperty("auto_retry_limit", value);
     }
 
     /// <summary>
     /// The badge_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BadgeEnabled
+    public TerraformProperty<bool> BadgeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("badge_enabled");
-        set => this.WithProperty("badge_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("badge_enabled");
+        set => SetProperty("badge_enabled", value);
     }
 
     /// <summary>
     /// The build_timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? BuildTimeout
+    public TerraformProperty<double> BuildTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("build_timeout");
-        set => this.WithProperty("build_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("build_timeout");
+        set => SetProperty("build_timeout", value);
     }
 
     /// <summary>
     /// The concurrent_build_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? ConcurrentBuildLimit
+    public TerraformProperty<double> ConcurrentBuildLimit
     {
-        get => GetProperty<TerraformProperty<double>>("concurrent_build_limit");
-        set => this.WithProperty("concurrent_build_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("concurrent_build_limit");
+        set => SetProperty("concurrent_build_limit", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The encryption_key attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionKey
+    public TerraformProperty<string> EncryptionKey
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key");
-        set => this.WithProperty("encryption_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key");
+        set => SetProperty("encryption_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -687,44 +648,44 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project_visibility attribute.
     /// </summary>
-    public TerraformProperty<string>? ProjectVisibility
+    public TerraformProperty<string> ProjectVisibility
     {
-        get => GetProperty<TerraformProperty<string>>("project_visibility");
-        set => this.WithProperty("project_visibility", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_visibility");
+        set => SetProperty("project_visibility", value);
     }
 
     /// <summary>
     /// The queued_timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? QueuedTimeout
+    public TerraformProperty<double> QueuedTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("queued_timeout");
-        set => this.WithProperty("queued_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("queued_timeout");
+        set => SetProperty("queued_timeout", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resource_access_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceAccessRole
+    public TerraformProperty<string> ResourceAccessRole
     {
-        get => GetProperty<TerraformProperty<string>>("resource_access_role");
-        set => this.WithProperty("resource_access_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_access_role");
+        set => SetProperty("resource_access_role", value);
     }
 
     /// <summary>
@@ -733,47 +694,47 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformProperty<string> ServiceRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_role");
-        set => this.WithProperty("service_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_role");
+        set => SetProperty("service_role", value);
     }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceVersion
+    public TerraformProperty<string> SourceVersion
     {
-        get => GetProperty<TerraformProperty<string>>("source_version");
-        set => this.WithProperty("source_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_version");
+        set => SetProperty("source_version", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for artifacts.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Artifacts is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Artifacts block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Artifacts block(s) allowed")]
     public List<AwsCodebuildProjectArtifactsBlock>? Artifacts
     {
-        get => GetProperty<List<AwsCodebuildProjectArtifactsBlock>>("artifacts");
-        set => this.WithProperty("artifacts", value);
+        set => SetProperty("artifacts", value);
     }
 
     /// <summary>
@@ -783,8 +744,7 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BuildBatchConfig block(s) allowed")]
     public List<AwsCodebuildProjectBuildBatchConfigBlock>? BuildBatchConfig
     {
-        get => GetProperty<List<AwsCodebuildProjectBuildBatchConfigBlock>>("build_batch_config");
-        set => this.WithProperty("build_batch_config", value);
+        set => SetProperty("build_batch_config", value);
     }
 
     /// <summary>
@@ -794,20 +754,19 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cache block(s) allowed")]
     public List<AwsCodebuildProjectCacheBlock>? Cache
     {
-        get => GetProperty<List<AwsCodebuildProjectCacheBlock>>("cache");
-        set => this.WithProperty("cache", value);
+        set => SetProperty("cache", value);
     }
 
     /// <summary>
     /// Block for environment.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Environment block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Environment block(s) allowed")]
     public List<AwsCodebuildProjectEnvironmentBlock>? Environment
     {
-        get => GetProperty<List<AwsCodebuildProjectEnvironmentBlock>>("environment");
-        set => this.WithProperty("environment", value);
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
@@ -816,8 +775,7 @@ public class AwsCodebuildProject : TerraformResource
     /// </summary>
     public HashSet<AwsCodebuildProjectFileSystemLocationsBlock>? FileSystemLocations
     {
-        get => GetProperty<HashSet<AwsCodebuildProjectFileSystemLocationsBlock>>("file_system_locations");
-        set => this.WithProperty("file_system_locations", value);
+        set => SetProperty("file_system_locations", value);
     }
 
     /// <summary>
@@ -827,8 +785,7 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogsConfig block(s) allowed")]
     public List<AwsCodebuildProjectLogsConfigBlock>? LogsConfig
     {
-        get => GetProperty<List<AwsCodebuildProjectLogsConfigBlock>>("logs_config");
-        set => this.WithProperty("logs_config", value);
+        set => SetProperty("logs_config", value);
     }
 
     /// <summary>
@@ -838,8 +795,7 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondaryArtifacts block(s) allowed")]
     public HashSet<AwsCodebuildProjectSecondaryArtifactsBlock>? SecondaryArtifacts
     {
-        get => GetProperty<HashSet<AwsCodebuildProjectSecondaryArtifactsBlock>>("secondary_artifacts");
-        set => this.WithProperty("secondary_artifacts", value);
+        set => SetProperty("secondary_artifacts", value);
     }
 
     /// <summary>
@@ -849,8 +805,7 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondarySourceVersion block(s) allowed")]
     public HashSet<AwsCodebuildProjectSecondarySourceVersionBlock>? SecondarySourceVersion
     {
-        get => GetProperty<HashSet<AwsCodebuildProjectSecondarySourceVersionBlock>>("secondary_source_version");
-        set => this.WithProperty("secondary_source_version", value);
+        set => SetProperty("secondary_source_version", value);
     }
 
     /// <summary>
@@ -860,20 +815,19 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondarySources block(s) allowed")]
     public HashSet<AwsCodebuildProjectSecondarySourcesBlock>? SecondarySources
     {
-        get => GetProperty<HashSet<AwsCodebuildProjectSecondarySourcesBlock>>("secondary_sources");
-        set => this.WithProperty("secondary_sources", value);
+        set => SetProperty("secondary_sources", value);
     }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     public List<AwsCodebuildProjectSourceBlock>? Source
     {
-        get => GetProperty<List<AwsCodebuildProjectSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -883,8 +837,7 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     public List<AwsCodebuildProjectVpcConfigBlock>? VpcConfig
     {
-        get => GetProperty<List<AwsCodebuildProjectVpcConfigBlock>>("vpc_config");
-        set => this.WithProperty("vpc_config", value);
+        set => SetProperty("vpc_config", value);
     }
 
     /// <summary>

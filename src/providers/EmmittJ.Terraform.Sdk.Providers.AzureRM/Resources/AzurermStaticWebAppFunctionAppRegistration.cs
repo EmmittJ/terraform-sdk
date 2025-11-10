@@ -13,8 +13,7 @@ public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,9 @@ public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("function_app_id");
+        SetOutput("id");
+        SetOutput("static_web_app_id");
     }
 
     /// <summary>
@@ -57,17 +57,17 @@ public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformProperty<string> FunctionAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_app_id");
-        set => this.WithProperty("function_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_app_id");
+        set => SetProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +76,8 @@ public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticWebAppId is required")]
     public required TerraformProperty<string> StaticWebAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("static_web_app_id");
-        set => this.WithProperty("static_web_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("static_web_app_id");
+        set => SetProperty("static_web_app_id", value);
     }
 
     /// <summary>
@@ -86,8 +86,7 @@ public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
     /// </summary>
     public AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

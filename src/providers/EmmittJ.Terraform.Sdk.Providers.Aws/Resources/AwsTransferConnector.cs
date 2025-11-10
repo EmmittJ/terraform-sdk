@@ -14,8 +14,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
     public required TerraformProperty<string> Compression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("compression");
-        set => WithProperty("compression", value);
+        set => SetProperty("compression", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionAlgorithm is required")]
     public required TerraformProperty<string> EncryptionAlgorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("encryption_algorithm");
-        set => WithProperty("encryption_algorithm", value);
+        set => SetProperty("encryption_algorithm", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalProfileId is required")]
     public required TerraformProperty<string> LocalProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("local_profile_id");
-        set => WithProperty("local_profile_id", value);
+        set => SetProperty("local_profile_id", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MdnResponse is required")]
     public required TerraformProperty<string> MdnResponse
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mdn_response");
-        set => WithProperty("mdn_response", value);
+        set => SetProperty("mdn_response", value);
     }
 
     /// <summary>
@@ -53,8 +49,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MdnSigningAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("mdn_signing_algorithm");
-        set => WithProperty("mdn_signing_algorithm", value);
+        set => SetProperty("mdn_signing_algorithm", value);
     }
 
     /// <summary>
@@ -62,8 +57,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MessageSubject
     {
-        get => GetProperty<TerraformProperty<string>>("message_subject");
-        set => WithProperty("message_subject", value);
+        set => SetProperty("message_subject", value);
     }
 
     /// <summary>
@@ -72,8 +66,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerProfileId is required")]
     public required TerraformProperty<string> PartnerProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partner_profile_id");
-        set => WithProperty("partner_profile_id", value);
+        set => SetProperty("partner_profile_id", value);
     }
 
     /// <summary>
@@ -82,8 +75,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformProperty<string> SigningAlgorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signing_algorithm");
-        set => WithProperty("signing_algorithm", value);
+        set => SetProperty("signing_algorithm", value);
     }
 
 }
@@ -99,8 +91,7 @@ public class AwsTransferConnectorSftpConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? TrustedHostKeys
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("trusted_host_keys");
-        set => WithProperty("trusted_host_keys", value);
+        set => SetProperty("trusted_host_keys", value);
     }
 
     /// <summary>
@@ -108,8 +99,7 @@ public class AwsTransferConnectorSftpConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("user_secret_id");
-        set => WithProperty("user_secret_id", value);
+        set => SetProperty("user_secret_id", value);
     }
 
 }
@@ -127,8 +117,16 @@ public class AwsTransferConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("connector_id");
+        SetOutput("arn");
+        SetOutput("connector_id");
+        SetOutput("access_role");
+        SetOutput("id");
+        SetOutput("logging_role");
+        SetOutput("region");
+        SetOutput("security_policy_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("url");
     }
 
     /// <summary>
@@ -137,62 +135,62 @@ public class AwsTransferConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRole is required")]
     public required TerraformProperty<string> AccessRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_role");
-        set => this.WithProperty("access_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_role");
+        set => SetProperty("access_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The logging_role attribute.
     /// </summary>
-    public TerraformProperty<string>? LoggingRole
+    public TerraformProperty<string> LoggingRole
     {
-        get => GetProperty<TerraformProperty<string>>("logging_role");
-        set => this.WithProperty("logging_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logging_role");
+        set => SetProperty("logging_role", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityPolicyName
+    public TerraformProperty<string> SecurityPolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("security_policy_name");
-        set => this.WithProperty("security_policy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_policy_name");
+        set => SetProperty("security_policy_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -201,8 +199,8 @@ public class AwsTransferConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => this.WithProperty("url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url");
+        set => SetProperty("url", value);
     }
 
     /// <summary>
@@ -212,8 +210,7 @@ public class AwsTransferConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 As2Config block(s) allowed")]
     public List<AwsTransferConnectorAs2ConfigBlock>? As2Config
     {
-        get => GetProperty<List<AwsTransferConnectorAs2ConfigBlock>>("as2_config");
-        set => this.WithProperty("as2_config", value);
+        set => SetProperty("as2_config", value);
     }
 
     /// <summary>
@@ -223,8 +220,7 @@ public class AwsTransferConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SftpConfig block(s) allowed")]
     public List<AwsTransferConnectorSftpConfigBlock>? SftpConfig
     {
-        get => GetProperty<List<AwsTransferConnectorSftpConfigBlock>>("sftp_config");
-        set => this.WithProperty("sftp_config", value);
+        set => SetProperty("sftp_config", value);
     }
 
     /// <summary>

@@ -21,8 +21,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ReturnPartialResponses
     {
-        get => GetProperty<TerraformProperty<bool>>("return_partial_responses");
-        set => WithProperty("return_partial_responses", value);
+        set => SetProperty("return_partial_responses", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Tag
     {
-        get => GetProperty<TerraformProperty<string>>("tag");
-        set => WithProperty("tag", value);
+        set => SetProperty("tag", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Webhook
     {
-        get => GetProperty<TerraformProperty<string>>("webhook");
-        set => WithProperty("webhook", value);
+        set => SetProperty("webhook", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Event
     {
-        get => GetProperty<TerraformProperty<string>>("event");
-        set => WithProperty("event", value);
+        set => SetProperty("event", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetFlow
     {
-        get => GetProperty<TerraformProperty<string>>("target_flow");
-        set => WithProperty("target_flow", value);
+        set => SetProperty("target_flow", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetPage
     {
-        get => GetProperty<TerraformProperty<string>>("target_page");
-        set => WithProperty("target_page", value);
+        set => SetProperty("target_page", value);
     }
 
 }
@@ -110,8 +103,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -120,8 +112,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? TargetFlow
     {
-        get => GetProperty<TerraformProperty<string>>("target_flow");
-        set => WithProperty("target_flow", value);
+        set => SetProperty("target_flow", value);
     }
 
     /// <summary>
@@ -131,8 +122,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? TargetPage
     {
-        get => GetProperty<TerraformProperty<string>>("target_page");
-        set => WithProperty("target_page", value);
+        set => SetProperty("target_page", value);
     }
 
 }
@@ -148,8 +138,7 @@ public class GoogleDialogflowCxPageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -157,8 +146,7 @@ public class GoogleDialogflowCxPageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -166,8 +154,7 @@ public class GoogleDialogflowCxPageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -184,8 +171,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Condition
     {
-        get => GetProperty<TerraformProperty<string>>("condition");
-        set => WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
@@ -194,8 +180,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Intent
     {
-        get => GetProperty<TerraformProperty<string>>("intent");
-        set => WithProperty("intent", value);
+        set => SetProperty("intent", value);
     }
 
     /// <summary>
@@ -203,8 +188,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -213,8 +197,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetFlow
     {
-        get => GetProperty<TerraformProperty<string>>("target_flow");
-        set => WithProperty("target_flow", value);
+        set => SetProperty("target_flow", value);
     }
 
     /// <summary>
@@ -223,8 +206,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetPage
     {
-        get => GetProperty<TerraformProperty<string>>("target_page");
-        set => WithProperty("target_page", value);
+        set => SetProperty("target_page", value);
     }
 
 }
@@ -242,7 +224,12 @@ public class GoogleDialogflowCxPage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("language_code");
+        SetOutput("parent");
+        SetOutput("transition_route_groups");
     }
 
     /// <summary>
@@ -251,17 +238,17 @@ public class GoogleDialogflowCxPage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -279,20 +266,20 @@ public class GoogleDialogflowCxPage : TerraformResource
     /// Page.transition_routes.trigger_fulfillment.conditional_cases
     /// If not specified, the agent&#39;s default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
+    public TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
-        set => this.WithProperty("language_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
     /// The flow to create a page for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -301,10 +288,10 @@ public class GoogleDialogflowCxPage : TerraformResource
     /// If multiple transition route groups within a page contain the same intent, then the first group in the ordered list takes precedence.
     /// Format:projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;/transitionRouteGroups/&amp;lt;TransitionRouteGroup ID&amp;gt;.
     /// </summary>
-    public List<TerraformProperty<string>>? TransitionRouteGroups
+    public List<TerraformProperty<string>> TransitionRouteGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("transition_route_groups");
-        set => this.WithProperty("transition_route_groups", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("transition_route_groups");
+        set => SetProperty("transition_route_groups", value);
     }
 
     /// <summary>
@@ -314,8 +301,7 @@ public class GoogleDialogflowCxPage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSettings block(s) allowed")]
     public List<GoogleDialogflowCxPageAdvancedSettingsBlock>? AdvancedSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxPageAdvancedSettingsBlock>>("advanced_settings");
-        set => this.WithProperty("advanced_settings", value);
+        set => SetProperty("advanced_settings", value);
     }
 
     /// <summary>
@@ -325,8 +311,7 @@ public class GoogleDialogflowCxPage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntryFulfillment block(s) allowed")]
     public List<GoogleDialogflowCxPageEntryFulfillmentBlock>? EntryFulfillment
     {
-        get => GetProperty<List<GoogleDialogflowCxPageEntryFulfillmentBlock>>("entry_fulfillment");
-        set => this.WithProperty("entry_fulfillment", value);
+        set => SetProperty("entry_fulfillment", value);
     }
 
     /// <summary>
@@ -335,8 +320,7 @@ public class GoogleDialogflowCxPage : TerraformResource
     /// </summary>
     public List<GoogleDialogflowCxPageEventHandlersBlock>? EventHandlers
     {
-        get => GetProperty<List<GoogleDialogflowCxPageEventHandlersBlock>>("event_handlers");
-        set => this.WithProperty("event_handlers", value);
+        set => SetProperty("event_handlers", value);
     }
 
     /// <summary>
@@ -346,8 +330,7 @@ public class GoogleDialogflowCxPage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Form block(s) allowed")]
     public List<GoogleDialogflowCxPageFormBlock>? Form
     {
-        get => GetProperty<List<GoogleDialogflowCxPageFormBlock>>("form");
-        set => this.WithProperty("form", value);
+        set => SetProperty("form", value);
     }
 
     /// <summary>
@@ -357,8 +340,7 @@ public class GoogleDialogflowCxPage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KnowledgeConnectorSettings block(s) allowed")]
     public List<GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock>? KnowledgeConnectorSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock>>("knowledge_connector_settings");
-        set => this.WithProperty("knowledge_connector_settings", value);
+        set => SetProperty("knowledge_connector_settings", value);
     }
 
     /// <summary>
@@ -367,8 +349,7 @@ public class GoogleDialogflowCxPage : TerraformResource
     /// </summary>
     public GoogleDialogflowCxPageTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowCxPageTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -377,8 +358,7 @@ public class GoogleDialogflowCxPage : TerraformResource
     /// </summary>
     public List<GoogleDialogflowCxPageTransitionRoutesBlock>? TransitionRoutes
     {
-        get => GetProperty<List<GoogleDialogflowCxPageTransitionRoutesBlock>>("transition_routes");
-        set => this.WithProperty("transition_routes", value);
+        set => SetProperty("transition_routes", value);
     }
 
     /// <summary>

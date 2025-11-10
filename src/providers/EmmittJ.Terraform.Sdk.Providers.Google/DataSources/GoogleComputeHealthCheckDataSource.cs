@@ -14,32 +14,35 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("check_interval_sec");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("description");
-        this.WithOutput("grpc_health_check");
-        this.WithOutput("grpc_tls_health_check");
-        this.WithOutput("healthy_threshold");
-        this.WithOutput("http2_health_check");
-        this.WithOutput("http_health_check");
-        this.WithOutput("https_health_check");
-        this.WithOutput("log_config");
-        this.WithOutput("self_link");
-        this.WithOutput("source_regions");
-        this.WithOutput("ssl_health_check");
-        this.WithOutput("tcp_health_check");
-        this.WithOutput("timeout_sec");
-        this.WithOutput("type");
-        this.WithOutput("unhealthy_threshold");
+        SetOutput("check_interval_sec");
+        SetOutput("creation_timestamp");
+        SetOutput("description");
+        SetOutput("grpc_health_check");
+        SetOutput("grpc_tls_health_check");
+        SetOutput("healthy_threshold");
+        SetOutput("http2_health_check");
+        SetOutput("http_health_check");
+        SetOutput("https_health_check");
+        SetOutput("log_config");
+        SetOutput("self_link");
+        SetOutput("source_regions");
+        SetOutput("ssl_health_check");
+        SetOutput("tcp_health_check");
+        SetOutput("timeout_sec");
+        SetOutput("type");
+        SetOutput("unhealthy_threshold");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,17 +57,17 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

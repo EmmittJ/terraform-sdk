@@ -14,17 +14,19 @@ public class AwsCognitoUserGroupsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("groups");
-        this.WithOutput("id");
+        SetOutput("groups");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -33,8 +35,8 @@ public class AwsCognitoUserGroupsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsBackupLogicallyAirGappedVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,9 +30,14 @@ public class AwsBackupLogicallyAirGappedVault : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("max_retention_days");
+        SetOutput("min_retention_days");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -42,8 +46,8 @@ public class AwsBackupLogicallyAirGappedVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetentionDays is required")]
     public required TerraformProperty<double> MaxRetentionDays
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_retention_days");
-        set => this.WithProperty("max_retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_retention_days");
+        set => SetProperty("max_retention_days", value);
     }
 
     /// <summary>
@@ -52,8 +56,8 @@ public class AwsBackupLogicallyAirGappedVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinRetentionDays is required")]
     public required TerraformProperty<double> MinRetentionDays
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_retention_days");
-        set => this.WithProperty("min_retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_retention_days");
+        set => SetProperty("min_retention_days", value);
     }
 
     /// <summary>
@@ -62,26 +66,26 @@ public class AwsBackupLogicallyAirGappedVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -90,8 +94,7 @@ public class AwsBackupLogicallyAirGappedVault : TerraformResource
     /// </summary>
     public AwsBackupLogicallyAirGappedVaultTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBackupLogicallyAirGappedVaultTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

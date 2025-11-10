@@ -14,102 +14,115 @@ public class AwsCognitoUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_date");
-        this.WithOutput("last_modified_date");
-        this.WithOutput("mfa_setting_list");
-        this.WithOutput("preferred_mfa_setting");
-        this.WithOutput("status");
-        this.WithOutput("sub");
+        SetOutput("creation_date");
+        SetOutput("last_modified_date");
+        SetOutput("mfa_setting_list");
+        SetOutput("preferred_mfa_setting");
+        SetOutput("status");
+        SetOutput("sub");
+        SetOutput("attributes");
+        SetOutput("client_metadata");
+        SetOutput("desired_delivery_mediums");
+        SetOutput("enabled");
+        SetOutput("force_alias_creation");
+        SetOutput("id");
+        SetOutput("message_action");
+        SetOutput("password");
+        SetOutput("region");
+        SetOutput("temporary_password");
+        SetOutput("user_pool_id");
+        SetOutput("username");
+        SetOutput("validation_data");
     }
 
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Attributes
+    public Dictionary<string, TerraformProperty<string>> Attributes
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attributes");
-        set => this.WithProperty("attributes", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attributes");
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
     /// The client_metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ClientMetadata
+    public Dictionary<string, TerraformProperty<string>> ClientMetadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("client_metadata");
-        set => this.WithProperty("client_metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("client_metadata");
+        set => SetProperty("client_metadata", value);
     }
 
     /// <summary>
     /// The desired_delivery_mediums attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DesiredDeliveryMediums
+    public HashSet<TerraformProperty<string>> DesiredDeliveryMediums
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("desired_delivery_mediums");
-        set => this.WithProperty("desired_delivery_mediums", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("desired_delivery_mediums");
+        set => SetProperty("desired_delivery_mediums", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The force_alias_creation attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceAliasCreation
+    public TerraformProperty<bool> ForceAliasCreation
     {
-        get => GetProperty<TerraformProperty<bool>>("force_alias_creation");
-        set => this.WithProperty("force_alias_creation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_alias_creation");
+        set => SetProperty("force_alias_creation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The message_action attribute.
     /// </summary>
-    public TerraformProperty<string>? MessageAction
+    public TerraformProperty<string> MessageAction
     {
-        get => GetProperty<TerraformProperty<string>>("message_action");
-        set => this.WithProperty("message_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("message_action");
+        set => SetProperty("message_action", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The temporary_password attribute.
     /// </summary>
-    public TerraformProperty<string>? TemporaryPassword
+    public TerraformProperty<string> TemporaryPassword
     {
-        get => GetProperty<TerraformProperty<string>>("temporary_password");
-        set => this.WithProperty("temporary_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("temporary_password");
+        set => SetProperty("temporary_password", value);
     }
 
     /// <summary>
@@ -118,8 +131,8 @@ public class AwsCognitoUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>
@@ -128,17 +141,17 @@ public class AwsCognitoUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
     /// The validation_data attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ValidationData
+    public Dictionary<string, TerraformProperty<string>> ValidationData
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("validation_data");
-        set => this.WithProperty("validation_data", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("validation_data");
+        set => SetProperty("validation_data", value);
     }
 
     /// <summary>

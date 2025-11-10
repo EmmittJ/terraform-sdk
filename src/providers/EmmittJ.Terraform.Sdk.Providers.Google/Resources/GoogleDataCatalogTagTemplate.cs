@@ -13,8 +13,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldId is required")]
     public required TerraformProperty<string> FieldId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("field_id");
-        set => WithProperty("field_id", value);
+        set => SetProperty("field_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IsRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("is_required");
-        set => WithProperty("is_required", value);
+        set => SetProperty("is_required", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -61,8 +56,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
-        set => WithProperty("order", value);
+        set => SetProperty("order", value);
     }
 
 }
@@ -78,8 +72,7 @@ public class GoogleDataCatalogTagTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class GoogleDataCatalogTagTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -96,8 +88,7 @@ public class GoogleDataCatalogTagTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -116,52 +107,58 @@ public class GoogleDataCatalogTagTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("display_name");
+        SetOutput("force_delete");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("tag_template_id");
     }
 
     /// <summary>
     /// The display name for this template.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// This confirms the deletion of any possible tags using this template. Must be set to true in order to delete the tag template.
     /// </summary>
-    public TerraformProperty<bool>? ForceDelete
+    public TerraformProperty<bool> ForceDelete
     {
-        get => GetProperty<TerraformProperty<bool>>("force_delete");
-        set => this.WithProperty("force_delete", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete");
+        set => SetProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Template location region.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -170,19 +167,19 @@ public class GoogleDataCatalogTagTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagTemplateId is required")]
     public required TerraformProperty<string> TagTemplateId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tag_template_id");
-        set => this.WithProperty("tag_template_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag_template_id");
+        set => SetProperty("tag_template_id", value);
     }
 
     /// <summary>
     /// Block for fields.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fields block(s) required")]
     public HashSet<GoogleDataCatalogTagTemplateFieldsBlock>? Fields
     {
-        get => GetProperty<HashSet<GoogleDataCatalogTagTemplateFieldsBlock>>("fields");
-        set => this.WithProperty("fields", value);
+        set => SetProperty("fields", value);
     }
 
     /// <summary>
@@ -191,8 +188,7 @@ public class GoogleDataCatalogTagTemplate : TerraformResource
     /// </summary>
     public GoogleDataCatalogTagTemplateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataCatalogTagTemplateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

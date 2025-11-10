@@ -13,8 +13,7 @@ public class AzurermSpringCloudAppRedisAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudAppRedisAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudAppRedisAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudAppRedisAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,21 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("redis_access_key");
+        SetOutput("redis_cache_id");
+        SetOutput("spring_cloud_app_id");
+        SetOutput("ssl_enabled");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +77,8 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisAccessKey is required")]
     public required TerraformProperty<string> RedisAccessKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("redis_access_key");
-        set => this.WithProperty("redis_access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redis_access_key");
+        set => SetProperty("redis_access_key", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
     public required TerraformProperty<string> RedisCacheId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("redis_cache_id");
-        set => this.WithProperty("redis_cache_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redis_cache_id");
+        set => SetProperty("redis_cache_id", value);
     }
 
     /// <summary>
@@ -105,17 +107,17 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
-        set => this.WithProperty("spring_cloud_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
+        set => SetProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
     /// The ssl_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SslEnabled
+    public TerraformProperty<bool> SslEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ssl_enabled");
-        set => this.WithProperty("ssl_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ssl_enabled");
+        set => SetProperty("ssl_enabled", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     /// </summary>
     public AzurermSpringCloudAppRedisAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudAppRedisAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

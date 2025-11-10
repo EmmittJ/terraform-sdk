@@ -13,8 +13,7 @@ public class AzurermApplicationGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,47 +30,50 @@ public class AzurermApplicationGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authentication_certificate");
-        this.WithOutput("autoscale_configuration");
-        this.WithOutput("backend_address_pool");
-        this.WithOutput("backend_http_settings");
-        this.WithOutput("custom_error_configuration");
-        this.WithOutput("fips_enabled");
-        this.WithOutput("firewall_policy_id");
-        this.WithOutput("force_firewall_policy_association");
-        this.WithOutput("frontend_ip_configuration");
-        this.WithOutput("frontend_port");
-        this.WithOutput("gateway_ip_configuration");
-        this.WithOutput("global");
-        this.WithOutput("http2_enabled");
-        this.WithOutput("http_listener");
-        this.WithOutput("identity");
-        this.WithOutput("location");
-        this.WithOutput("private_endpoint_connection");
-        this.WithOutput("private_link_configuration");
-        this.WithOutput("probe");
-        this.WithOutput("redirect_configuration");
-        this.WithOutput("request_routing_rule");
-        this.WithOutput("rewrite_rule_set");
-        this.WithOutput("sku");
-        this.WithOutput("ssl_certificate");
-        this.WithOutput("ssl_policy");
-        this.WithOutput("ssl_profile");
-        this.WithOutput("tags");
-        this.WithOutput("trusted_client_certificate");
-        this.WithOutput("trusted_root_certificate");
-        this.WithOutput("url_path_map");
-        this.WithOutput("waf_configuration");
-        this.WithOutput("zones");
+        SetOutput("authentication_certificate");
+        SetOutput("autoscale_configuration");
+        SetOutput("backend_address_pool");
+        SetOutput("backend_http_settings");
+        SetOutput("custom_error_configuration");
+        SetOutput("fips_enabled");
+        SetOutput("firewall_policy_id");
+        SetOutput("force_firewall_policy_association");
+        SetOutput("frontend_ip_configuration");
+        SetOutput("frontend_port");
+        SetOutput("gateway_ip_configuration");
+        SetOutput("global");
+        SetOutput("http2_enabled");
+        SetOutput("http_listener");
+        SetOutput("identity");
+        SetOutput("location");
+        SetOutput("private_endpoint_connection");
+        SetOutput("private_link_configuration");
+        SetOutput("probe");
+        SetOutput("redirect_configuration");
+        SetOutput("request_routing_rule");
+        SetOutput("rewrite_rule_set");
+        SetOutput("sku");
+        SetOutput("ssl_certificate");
+        SetOutput("ssl_policy");
+        SetOutput("ssl_profile");
+        SetOutput("tags");
+        SetOutput("trusted_client_certificate");
+        SetOutput("trusted_root_certificate");
+        SetOutput("url_path_map");
+        SetOutput("waf_configuration");
+        SetOutput("zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -80,8 +82,8 @@ public class AzurermApplicationGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -90,8 +92,8 @@ public class AzurermApplicationGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -100,8 +102,7 @@ public class AzurermApplicationGatewayDataSource : TerraformDataSource
     /// </summary>
     public AzurermApplicationGatewayDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApplicationGatewayDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

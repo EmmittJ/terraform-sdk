@@ -15,8 +15,7 @@ public class GoogleSccProjectCustomModuleCustomConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -27,8 +26,7 @@ public class GoogleSccProjectCustomModuleCustomConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recommendation is required")]
     public required TerraformProperty<string> Recommendation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recommendation");
-        set => WithProperty("recommendation", value);
+        set => SetProperty("recommendation", value);
     }
 
     /// <summary>
@@ -37,8 +35,7 @@ public class GoogleSccProjectCustomModuleCustomConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformProperty<string> Severity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("severity");
-        set => WithProperty("severity", value);
+        set => SetProperty("severity", value);
     }
 
 }
@@ -54,8 +51,7 @@ public class GoogleSccProjectCustomModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -63,8 +59,7 @@ public class GoogleSccProjectCustomModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -72,8 +67,7 @@ public class GoogleSccProjectCustomModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -91,10 +85,14 @@ public class GoogleSccProjectCustomModule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ancestor_module");
-        this.WithOutput("last_editor");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("ancestor_module");
+        SetOutput("last_editor");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("display_name");
+        SetOutput("enablement_state");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -107,8 +105,8 @@ public class GoogleSccProjectCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -117,38 +115,38 @@ public class GoogleSccProjectCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablementState is required")]
     public required TerraformProperty<string> EnablementState
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("enablement_state");
-        set => this.WithProperty("enablement_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enablement_state");
+        set => SetProperty("enablement_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for custom_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CustomConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomConfig block(s) allowed")]
     public List<GoogleSccProjectCustomModuleCustomConfigBlock>? CustomConfig
     {
-        get => GetProperty<List<GoogleSccProjectCustomModuleCustomConfigBlock>>("custom_config");
-        set => this.WithProperty("custom_config", value);
+        set => SetProperty("custom_config", value);
     }
 
     /// <summary>
@@ -157,8 +155,7 @@ public class GoogleSccProjectCustomModule : TerraformResource
     /// </summary>
     public GoogleSccProjectCustomModuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSccProjectCustomModuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

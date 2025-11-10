@@ -13,8 +13,7 @@ public class AzurermBotChannelMsTeamsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBotChannelMsTeamsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBotChannelMsTeamsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermBotChannelMsTeamsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,14 @@ public class AzurermBotChannelMsTeams : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bot_name");
+        SetOutput("calling_enabled");
+        SetOutput("calling_web_hook");
+        SetOutput("deployment_environment");
+        SetOutput("enable_calling");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -66,54 +70,54 @@ public class AzurermBotChannelMsTeams : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
-        set => this.WithProperty("bot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_name");
+        set => SetProperty("bot_name", value);
     }
 
     /// <summary>
     /// The calling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CallingEnabled
+    public TerraformProperty<bool> CallingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("calling_enabled");
-        set => this.WithProperty("calling_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("calling_enabled");
+        set => SetProperty("calling_enabled", value);
     }
 
     /// <summary>
     /// The calling_web_hook attribute.
     /// </summary>
-    public TerraformProperty<string>? CallingWebHook
+    public TerraformProperty<string> CallingWebHook
     {
-        get => GetProperty<TerraformProperty<string>>("calling_web_hook");
-        set => this.WithProperty("calling_web_hook", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("calling_web_hook");
+        set => SetProperty("calling_web_hook", value);
     }
 
     /// <summary>
     /// The deployment_environment attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentEnvironment
+    public TerraformProperty<string> DeploymentEnvironment
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_environment");
-        set => this.WithProperty("deployment_environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_environment");
+        set => SetProperty("deployment_environment", value);
     }
 
     /// <summary>
     /// The enable_calling attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableCalling
+    public TerraformProperty<bool> EnableCalling
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_calling");
-        set => this.WithProperty("enable_calling", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_calling");
+        set => SetProperty("enable_calling", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -122,8 +126,8 @@ public class AzurermBotChannelMsTeams : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -132,8 +136,8 @@ public class AzurermBotChannelMsTeams : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -142,8 +146,7 @@ public class AzurermBotChannelMsTeams : TerraformResource
     /// </summary>
     public AzurermBotChannelMsTeamsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBotChannelMsTeamsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

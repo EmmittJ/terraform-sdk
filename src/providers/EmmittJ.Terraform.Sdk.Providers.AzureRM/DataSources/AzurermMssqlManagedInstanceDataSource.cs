@@ -13,8 +13,7 @@ public class AzurermMssqlManagedInstanceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,34 +30,37 @@ public class AzurermMssqlManagedInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("administrator_login");
-        this.WithOutput("collation");
-        this.WithOutput("customer_managed_key_id");
-        this.WithOutput("dns_zone");
-        this.WithOutput("dns_zone_partner_id");
-        this.WithOutput("fqdn");
-        this.WithOutput("identity");
-        this.WithOutput("license_type");
-        this.WithOutput("location");
-        this.WithOutput("minimum_tls_version");
-        this.WithOutput("proxy_override");
-        this.WithOutput("public_data_endpoint_enabled");
-        this.WithOutput("sku_name");
-        this.WithOutput("storage_account_type");
-        this.WithOutput("storage_size_in_gb");
-        this.WithOutput("subnet_id");
-        this.WithOutput("tags");
-        this.WithOutput("timezone_id");
-        this.WithOutput("vcores");
+        SetOutput("administrator_login");
+        SetOutput("collation");
+        SetOutput("customer_managed_key_id");
+        SetOutput("dns_zone");
+        SetOutput("dns_zone_partner_id");
+        SetOutput("fqdn");
+        SetOutput("identity");
+        SetOutput("license_type");
+        SetOutput("location");
+        SetOutput("minimum_tls_version");
+        SetOutput("proxy_override");
+        SetOutput("public_data_endpoint_enabled");
+        SetOutput("sku_name");
+        SetOutput("storage_account_type");
+        SetOutput("storage_size_in_gb");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("timezone_id");
+        SetOutput("vcores");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class AzurermMssqlManagedInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -77,8 +79,8 @@ public class AzurermMssqlManagedInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -87,8 +89,7 @@ public class AzurermMssqlManagedInstanceDataSource : TerraformDataSource
     /// </summary>
     public AzurermMssqlManagedInstanceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlManagedInstanceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,25 +14,30 @@ public class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("disk_id");
+        SetOutput("disk_id");
+        SetOutput("disk_node");
+        SetOutput("disk_path");
+        SetOutput("gateway_arn");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The disk_node attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskNode
+    public TerraformProperty<string> DiskNode
     {
-        get => GetProperty<TerraformProperty<string>>("disk_node");
-        set => this.WithProperty("disk_node", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk_node");
+        set => SetProperty("disk_node", value);
     }
 
     /// <summary>
     /// The disk_path attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskPath
+    public TerraformProperty<string> DiskPath
     {
-        get => GetProperty<TerraformProperty<string>>("disk_path");
-        set => this.WithProperty("disk_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk_path");
+        set => SetProperty("disk_path", value);
     }
 
     /// <summary>
@@ -41,26 +46,26 @@ public class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformProperty<string> GatewayArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gateway_arn");
-        set => this.WithProperty("gateway_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_arn");
+        set => SetProperty("gateway_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

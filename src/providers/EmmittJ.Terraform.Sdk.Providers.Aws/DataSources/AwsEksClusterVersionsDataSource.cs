@@ -14,61 +14,67 @@ public class AwsEksClusterVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cluster_versions");
+        SetOutput("cluster_versions");
+        SetOutput("cluster_type");
+        SetOutput("cluster_versions_only");
+        SetOutput("default_only");
+        SetOutput("include_all");
+        SetOutput("region");
+        SetOutput("version_status");
     }
 
     /// <summary>
     /// The cluster_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterType
+    public TerraformProperty<string> ClusterType
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_type");
-        set => this.WithProperty("cluster_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_type");
+        set => SetProperty("cluster_type", value);
     }
 
     /// <summary>
     /// The cluster_versions_only attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ClusterVersionsOnly
+    public List<TerraformProperty<string>> ClusterVersionsOnly
     {
-        get => GetProperty<List<TerraformProperty<string>>>("cluster_versions_only");
-        set => this.WithProperty("cluster_versions_only", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("cluster_versions_only");
+        set => SetProperty("cluster_versions_only", value);
     }
 
     /// <summary>
     /// The default_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? DefaultOnly
+    public TerraformProperty<bool> DefaultOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("default_only");
-        set => this.WithProperty("default_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default_only");
+        set => SetProperty("default_only", value);
     }
 
     /// <summary>
     /// The include_all attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeAll
+    public TerraformProperty<bool> IncludeAll
     {
-        get => GetProperty<TerraformProperty<bool>>("include_all");
-        set => this.WithProperty("include_all", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_all");
+        set => SetProperty("include_all", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The version_status attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionStatus
+    public TerraformProperty<string> VersionStatus
     {
-        get => GetProperty<TerraformProperty<string>>("version_status");
-        set => this.WithProperty("version_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_status");
+        set => SetProperty("version_status", value);
     }
 
     /// <summary>

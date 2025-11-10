@@ -14,13 +14,15 @@ public class AwsVerifiedpermissionsPolicyStoreDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_date");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("description");
-        this.WithOutput("last_updated_date");
-        this.WithOutput("tags");
-        this.WithOutput("validation_settings");
+        SetOutput("arn");
+        SetOutput("created_date");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("last_updated_date");
+        SetOutput("tags");
+        SetOutput("validation_settings");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -29,17 +31,17 @@ public class AwsVerifiedpermissionsPolicyStoreDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

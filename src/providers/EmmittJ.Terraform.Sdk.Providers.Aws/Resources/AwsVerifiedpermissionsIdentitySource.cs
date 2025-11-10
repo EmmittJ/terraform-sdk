@@ -22,7 +22,10 @@ public class AwsVerifiedpermissionsIdentitySource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("policy_store_id");
+        SetOutput("principal_entity_type");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -31,26 +34,26 @@ public class AwsVerifiedpermissionsIdentitySource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
     public required TerraformProperty<string> PolicyStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_store_id");
-        set => this.WithProperty("policy_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_store_id");
+        set => SetProperty("policy_store_id", value);
     }
 
     /// <summary>
     /// The principal_entity_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalEntityType
+    public TerraformProperty<string> PrincipalEntityType
     {
-        get => GetProperty<TerraformProperty<string>>("principal_entity_type");
-        set => this.WithProperty("principal_entity_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_entity_type");
+        set => SetProperty("principal_entity_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -59,8 +62,7 @@ public class AwsVerifiedpermissionsIdentitySource : TerraformResource
     /// </summary>
     public List<AwsVerifiedpermissionsIdentitySourceConfigurationBlock>? Configuration
     {
-        get => GetProperty<List<AwsVerifiedpermissionsIdentitySourceConfigurationBlock>>("configuration");
-        set => this.WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>

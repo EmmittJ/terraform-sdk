@@ -13,8 +13,7 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,24 @@ public class AzurermAvailabilitySet : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("managed");
+        SetOutput("name");
+        SetOutput("platform_fault_domain_count");
+        SetOutput("platform_update_domain_count");
+        SetOutput("proximity_placement_group_id");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,17 +80,17 @@ public class AzurermAvailabilitySet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The managed attribute.
     /// </summary>
-    public TerraformProperty<bool>? Managed
+    public TerraformProperty<bool> Managed
     {
-        get => GetProperty<TerraformProperty<bool>>("managed");
-        set => this.WithProperty("managed", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("managed");
+        set => SetProperty("managed", value);
     }
 
     /// <summary>
@@ -94,35 +99,35 @@ public class AzurermAvailabilitySet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The platform_fault_domain_count attribute.
     /// </summary>
-    public TerraformProperty<double>? PlatformFaultDomainCount
+    public TerraformProperty<double> PlatformFaultDomainCount
     {
-        get => GetProperty<TerraformProperty<double>>("platform_fault_domain_count");
-        set => this.WithProperty("platform_fault_domain_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("platform_fault_domain_count");
+        set => SetProperty("platform_fault_domain_count", value);
     }
 
     /// <summary>
     /// The platform_update_domain_count attribute.
     /// </summary>
-    public TerraformProperty<double>? PlatformUpdateDomainCount
+    public TerraformProperty<double> PlatformUpdateDomainCount
     {
-        get => GetProperty<TerraformProperty<double>>("platform_update_domain_count");
-        set => this.WithProperty("platform_update_domain_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("platform_update_domain_count");
+        set => SetProperty("platform_update_domain_count", value);
     }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProximityPlacementGroupId
+    public TerraformProperty<string> ProximityPlacementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("proximity_placement_group_id");
-        set => this.WithProperty("proximity_placement_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("proximity_placement_group_id");
+        set => SetProperty("proximity_placement_group_id", value);
     }
 
     /// <summary>
@@ -131,17 +136,17 @@ public class AzurermAvailabilitySet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -150,8 +155,7 @@ public class AzurermAvailabilitySet : TerraformResource
     /// </summary>
     public AzurermAvailabilitySetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAvailabilitySetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

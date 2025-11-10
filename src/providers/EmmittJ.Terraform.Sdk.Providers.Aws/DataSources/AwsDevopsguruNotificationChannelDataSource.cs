@@ -13,8 +13,7 @@ public class AwsDevopsguruNotificationChannelDataSourceFiltersBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? MessageTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("message_types");
-        set => WithProperty("message_types", value);
+        set => SetProperty("message_types", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDevopsguruNotificationChannelDataSourceFiltersBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? Severities
     {
-        get => GetProperty<List<TerraformProperty<string>>>("severities");
-        set => WithProperty("severities", value);
+        set => SetProperty("severities", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsDevopsguruNotificationChannelDataSourceSnsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("topic_arn");
-        set => WithProperty("topic_arn", value);
+        set => SetProperty("topic_arn", value);
     }
 
 }
@@ -57,6 +54,8 @@ public class AwsDevopsguruNotificationChannelDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -65,17 +64,17 @@ public class AwsDevopsguruNotificationChannelDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -84,8 +83,7 @@ public class AwsDevopsguruNotificationChannelDataSource : TerraformDataSource
     /// </summary>
     public List<AwsDevopsguruNotificationChannelDataSourceFiltersBlock>? Filters
     {
-        get => GetProperty<List<AwsDevopsguruNotificationChannelDataSourceFiltersBlock>>("filters");
-        set => this.WithProperty("filters", value);
+        set => SetProperty("filters", value);
     }
 
     /// <summary>
@@ -94,8 +92,7 @@ public class AwsDevopsguruNotificationChannelDataSource : TerraformDataSource
     /// </summary>
     public List<AwsDevopsguruNotificationChannelDataSourceSnsBlock>? Sns
     {
-        get => GetProperty<List<AwsDevopsguruNotificationChannelDataSourceSnsBlock>>("sns");
-        set => this.WithProperty("sns", value);
+        set => SetProperty("sns", value);
     }
 
 }

@@ -17,8 +17,7 @@ public class GoogleComputeInterconnectMacsecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? FailOpen
     {
-        get => GetProperty<TerraformProperty<bool>>("fail_open");
-        set => WithProperty("fail_open", value);
+        set => SetProperty("fail_open", value);
     }
 
 }
@@ -34,8 +33,7 @@ public class GoogleComputeInterconnectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -43,8 +41,7 @@ public class GoogleComputeInterconnectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class GoogleComputeInterconnectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -71,22 +67,37 @@ public class GoogleComputeInterconnect : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("available_features");
-        this.WithOutput("circuit_infos");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("effective_labels");
-        this.WithOutput("expected_outages");
-        this.WithOutput("google_ip_address");
-        this.WithOutput("google_reference_id");
-        this.WithOutput("interconnect_attachments");
-        this.WithOutput("interconnect_groups");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("operational_status");
-        this.WithOutput("peer_ip_address");
-        this.WithOutput("provisioned_link_count");
-        this.WithOutput("satisfies_pzs");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("available_features");
+        SetOutput("circuit_infos");
+        SetOutput("creation_timestamp");
+        SetOutput("effective_labels");
+        SetOutput("expected_outages");
+        SetOutput("google_ip_address");
+        SetOutput("google_reference_id");
+        SetOutput("interconnect_attachments");
+        SetOutput("interconnect_groups");
+        SetOutput("label_fingerprint");
+        SetOutput("operational_status");
+        SetOutput("peer_ip_address");
+        SetOutput("provisioned_link_count");
+        SetOutput("satisfies_pzs");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("admin_enabled");
+        SetOutput("customer_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("interconnect_type");
+        SetOutput("labels");
+        SetOutput("link_type");
+        SetOutput("location");
+        SetOutput("macsec_enabled");
+        SetOutput("name");
+        SetOutput("noc_contact_email");
+        SetOutput("project");
+        SetOutput("remote_location");
+        SetOutput("requested_features");
+        SetOutput("requested_link_count");
     }
 
     /// <summary>
@@ -94,10 +105,10 @@ public class GoogleComputeInterconnect : TerraformResource
     /// functional and can carry traffic. When set to false, no packets can be carried over the
     /// interconnect and no BGP routes are exchanged over it. By default, the status is set to true.
     /// </summary>
-    public TerraformProperty<bool>? AdminEnabled
+    public TerraformProperty<bool> AdminEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("admin_enabled");
-        set => this.WithProperty("admin_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("admin_enabled");
+        set => SetProperty("admin_enabled", value);
     }
 
     /// <summary>
@@ -105,28 +116,28 @@ public class GoogleComputeInterconnect : TerraformResource
     /// crossconnect. This field is required for Dedicated and Partner Interconnect, should not be specified
     /// for cross-cloud interconnect.
     /// </summary>
-    public TerraformProperty<string>? CustomerName
+    public TerraformProperty<string> CustomerName
     {
-        get => GetProperty<TerraformProperty<string>>("customer_name");
-        set => this.WithProperty("customer_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_name");
+        set => SetProperty("customer_name", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -138,8 +149,8 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectType is required")]
     public required TerraformProperty<string> InterconnectType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("interconnect_type");
-        set => this.WithProperty("interconnect_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("interconnect_type");
+        set => SetProperty("interconnect_type", value);
     }
 
     /// <summary>
@@ -150,10 +161,10 @@ public class GoogleComputeInterconnect : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -166,8 +177,8 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkType is required")]
     public required TerraformProperty<string> LinkType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("link_type");
-        set => this.WithProperty("link_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("link_type");
+        set => SetProperty("link_type", value);
     }
 
     /// <summary>
@@ -177,18 +188,18 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Enable or disable MACsec on this Interconnect connection.
     /// MACsec enablement fails if the MACsec object is not specified.
     /// </summary>
-    public TerraformProperty<bool>? MacsecEnabled
+    public TerraformProperty<bool> MacsecEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("macsec_enabled");
-        set => this.WithProperty("macsec_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("macsec_enabled");
+        set => SetProperty("macsec_enabled", value);
     }
 
     /// <summary>
@@ -201,8 +212,8 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -212,29 +223,29 @@ public class GoogleComputeInterconnect : TerraformResource
     /// This field is required for users who sign up for Cloud Interconnect using workforce identity
     /// federation.
     /// </summary>
-    public TerraformProperty<string>? NocContactEmail
+    public TerraformProperty<string> NocContactEmail
     {
-        get => GetProperty<TerraformProperty<string>>("noc_contact_email");
-        set => this.WithProperty("noc_contact_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("noc_contact_email");
+        set => SetProperty("noc_contact_email", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Indicates that this is a Cross-Cloud Interconnect. This field specifies the location outside
     /// of Google&#39;s network that the interconnect is connected to.
     /// </summary>
-    public TerraformProperty<string>? RemoteLocation
+    public TerraformProperty<string> RemoteLocation
     {
-        get => GetProperty<TerraformProperty<string>>("remote_location");
-        set => this.WithProperty("remote_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("remote_location");
+        set => SetProperty("remote_location", value);
     }
 
     /// <summary>
@@ -244,10 +255,10 @@ public class GoogleComputeInterconnect : TerraformResource
     /// available). Note that MACSEC is still technically allowed for compatibility reasons, but it
     /// does not work with the API, and will be removed in an upcoming major version. Possible values: [&amp;quot;MACSEC&amp;quot;, &amp;quot;CROSS_SITE_NETWORK&amp;quot;, &amp;quot;IF_MACSEC&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? RequestedFeatures
+    public List<TerraformProperty<string>> RequestedFeatures
     {
-        get => GetProperty<List<TerraformProperty<string>>>("requested_features");
-        set => this.WithProperty("requested_features", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("requested_features");
+        set => SetProperty("requested_features", value);
     }
 
     /// <summary>
@@ -256,8 +267,8 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestedLinkCount is required")]
     public required TerraformProperty<double> RequestedLinkCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("requested_link_count");
-        set => this.WithProperty("requested_link_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("requested_link_count");
+        set => SetProperty("requested_link_count", value);
     }
 
     /// <summary>
@@ -267,8 +278,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Macsec block(s) allowed")]
     public List<GoogleComputeInterconnectMacsecBlock>? Macsec
     {
-        get => GetProperty<List<GoogleComputeInterconnectMacsecBlock>>("macsec");
-        set => this.WithProperty("macsec", value);
+        set => SetProperty("macsec", value);
     }
 
     /// <summary>
@@ -277,8 +287,7 @@ public class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     public GoogleComputeInterconnectTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeInterconnectTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

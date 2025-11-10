@@ -13,8 +13,7 @@ public class AzurermEventhubConsumerGroupDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,7 +30,12 @@ public class AzurermEventhubConsumerGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("user_metadata");
+        SetOutput("user_metadata");
+        SetOutput("eventhub_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("namespace_name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -40,17 +44,17 @@ public class AzurermEventhubConsumerGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformProperty<string> EventhubName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_name");
-        set => this.WithProperty("eventhub_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_name");
+        set => SetProperty("eventhub_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +63,8 @@ public class AzurermEventhubConsumerGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -69,8 +73,8 @@ public class AzurermEventhubConsumerGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
-        set => this.WithProperty("namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
+        set => SetProperty("namespace_name", value);
     }
 
     /// <summary>
@@ -79,8 +83,8 @@ public class AzurermEventhubConsumerGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -89,8 +93,7 @@ public class AzurermEventhubConsumerGroupDataSource : TerraformDataSource
     /// </summary>
     public AzurermEventhubConsumerGroupDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventhubConsumerGroupDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

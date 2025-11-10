@@ -14,13 +14,15 @@ public class AwsSsmcontactsRotationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("contact_ids");
-        this.WithOutput("id");
-        this.WithOutput("name");
-        this.WithOutput("recurrence");
-        this.WithOutput("start_time");
-        this.WithOutput("tags");
-        this.WithOutput("time_zone_id");
+        SetOutput("contact_ids");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recurrence");
+        SetOutput("start_time");
+        SetOutput("tags");
+        SetOutput("time_zone_id");
+        SetOutput("arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -29,17 +31,17 @@ public class AwsSsmcontactsRotationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AzurermMapsAccountCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public List<TerraformProperty<string>>? AllowedOrigins
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_origins");
-        set => WithProperty("allowed_origins", value);
+        set => SetProperty("allowed_origins", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermMapsAccountDataStoreBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => WithProperty("storage_account_id", value);
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AzurermMapsAccountDataStoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UniqueName is required")]
     public required TerraformProperty<string> UniqueName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("unique_name");
-        set => WithProperty("unique_name", value);
+        set => SetProperty("unique_name", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AzurermMapsAccountIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AzurermMapsAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AzurermMapsAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AzurermMapsAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -103,8 +96,7 @@ public class AzurermMapsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -112,8 +104,7 @@ public class AzurermMapsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -121,8 +112,7 @@ public class AzurermMapsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -130,8 +120,7 @@ public class AzurermMapsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -149,27 +138,34 @@ public class AzurermMapsAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("primary_access_key");
-        this.WithOutput("secondary_access_key");
-        this.WithOutput("x_ms_client_id");
+        SetOutput("primary_access_key");
+        SetOutput("secondary_access_key");
+        SetOutput("x_ms_client_id");
+        SetOutput("id");
+        SetOutput("local_authentication_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthenticationEnabled
+    public TerraformProperty<bool> LocalAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_authentication_enabled");
-        set => this.WithProperty("local_authentication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
+        set => SetProperty("local_authentication_enabled", value);
     }
 
     /// <summary>
@@ -178,8 +174,8 @@ public class AzurermMapsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -188,8 +184,8 @@ public class AzurermMapsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -198,8 +194,8 @@ public class AzurermMapsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -208,17 +204,17 @@ public class AzurermMapsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -228,8 +224,7 @@ public class AzurermMapsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     public List<AzurermMapsAccountCorsBlock>? Cors
     {
-        get => GetProperty<List<AzurermMapsAccountCorsBlock>>("cors");
-        set => this.WithProperty("cors", value);
+        set => SetProperty("cors", value);
     }
 
     /// <summary>
@@ -238,8 +233,7 @@ public class AzurermMapsAccount : TerraformResource
     /// </summary>
     public List<AzurermMapsAccountDataStoreBlock>? DataStore
     {
-        get => GetProperty<List<AzurermMapsAccountDataStoreBlock>>("data_store");
-        set => this.WithProperty("data_store", value);
+        set => SetProperty("data_store", value);
     }
 
     /// <summary>
@@ -249,8 +243,7 @@ public class AzurermMapsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermMapsAccountIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermMapsAccountIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -259,8 +252,7 @@ public class AzurermMapsAccount : TerraformResource
     /// </summary>
     public AzurermMapsAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMapsAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

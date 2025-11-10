@@ -32,8 +32,7 @@ public class GoogleDnsPolicyNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformProperty<string> NetworkUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_url");
-        set => WithProperty("network_url", value);
+        set => SetProperty("network_url", value);
     }
 
 }
@@ -49,8 +48,7 @@ public class GoogleDnsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +56,7 @@ public class GoogleDnsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +64,7 @@ public class GoogleDnsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,15 +82,21 @@ public class GoogleDnsPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("enable_inbound_forwarding");
+        SetOutput("enable_logging");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// A textual description field. Defaults to &#39;Managed by Terraform&#39;.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -103,29 +105,29 @@ public class GoogleDnsPolicy : TerraformResource
     /// virtual IP address will be allocated from each of the sub-networks
     /// that are bound to this policy.
     /// </summary>
-    public TerraformProperty<bool>? EnableInboundForwarding
+    public TerraformProperty<bool> EnableInboundForwarding
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_inbound_forwarding");
-        set => this.WithProperty("enable_inbound_forwarding", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_inbound_forwarding");
+        set => SetProperty("enable_inbound_forwarding", value);
     }
 
     /// <summary>
     /// Controls whether logging is enabled for the networks bound to this policy.
     /// Defaults to no logging if not set.
     /// </summary>
-    public TerraformProperty<bool>? EnableLogging
+    public TerraformProperty<bool> EnableLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_logging");
-        set => this.WithProperty("enable_logging", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_logging");
+        set => SetProperty("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -134,17 +136,17 @@ public class GoogleDnsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -154,8 +156,7 @@ public class GoogleDnsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlternativeNameServerConfig block(s) allowed")]
     public List<GoogleDnsPolicyAlternativeNameServerConfigBlock>? AlternativeNameServerConfig
     {
-        get => GetProperty<List<GoogleDnsPolicyAlternativeNameServerConfigBlock>>("alternative_name_server_config");
-        set => this.WithProperty("alternative_name_server_config", value);
+        set => SetProperty("alternative_name_server_config", value);
     }
 
     /// <summary>
@@ -165,8 +166,7 @@ public class GoogleDnsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns64Config block(s) allowed")]
     public List<GoogleDnsPolicyDns64ConfigBlock>? Dns64Config
     {
-        get => GetProperty<List<GoogleDnsPolicyDns64ConfigBlock>>("dns64_config");
-        set => this.WithProperty("dns64_config", value);
+        set => SetProperty("dns64_config", value);
     }
 
     /// <summary>
@@ -175,8 +175,7 @@ public class GoogleDnsPolicy : TerraformResource
     /// </summary>
     public HashSet<GoogleDnsPolicyNetworksBlock>? Networks
     {
-        get => GetProperty<HashSet<GoogleDnsPolicyNetworksBlock>>("networks");
-        set => this.WithProperty("networks", value);
+        set => SetProperty("networks", value);
     }
 
     /// <summary>
@@ -185,8 +184,7 @@ public class GoogleDnsPolicy : TerraformResource
     /// </summary>
     public GoogleDnsPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDnsPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

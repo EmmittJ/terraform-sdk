@@ -13,8 +13,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Contains
     {
-        get => GetProperty<List<TerraformProperty<string>>>("contains");
-        set => WithProperty("contains", value);
+        set => SetProperty("contains", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     public required TerraformProperty<string> Criteria
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("criteria");
-        set => WithProperty("criteria", value);
+        set => SetProperty("criteria", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Eq
     {
-        get => GetProperty<List<TerraformProperty<string>>>("eq");
-        set => WithProperty("eq", value);
+        set => SetProperty("eq", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Exists
     {
-        get => GetProperty<TerraformProperty<string>>("exists");
-        set => WithProperty("exists", value);
+        set => SetProperty("exists", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Neq
     {
-        get => GetProperty<List<TerraformProperty<string>>>("neq");
-        set => WithProperty("neq", value);
+        set => SetProperty("neq", value);
     }
 
 }
@@ -69,6 +64,10 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("analyzer_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("rule_name");
     }
 
     /// <summary>
@@ -77,26 +76,26 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalyzerName is required")]
     public required TerraformProperty<string> AnalyzerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("analyzer_name");
-        set => this.WithProperty("analyzer_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("analyzer_name");
+        set => SetProperty("analyzer_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -105,19 +104,19 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
-        set => this.WithProperty("rule_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
+        set => SetProperty("rule_name", value);
     }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     public HashSet<AwsAccessanalyzerArchiveRuleFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsAccessanalyzerArchiveRuleFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
 }

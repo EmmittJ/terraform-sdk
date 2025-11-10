@@ -13,8 +13,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address1
     {
-        get => GetProperty<TerraformProperty<string>>("address_1");
-        set => WithProperty("address_1", value);
+        set => SetProperty("address_1", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address2
     {
-        get => GetProperty<TerraformProperty<string>>("address_2");
-        set => WithProperty("address_2", value);
+        set => SetProperty("address_2", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address3
     {
-        get => GetProperty<TerraformProperty<string>>("address_3");
-        set => WithProperty("address_3", value);
+        set => SetProperty("address_3", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address4
     {
-        get => GetProperty<TerraformProperty<string>>("address_4");
-        set => WithProperty("address_4", value);
+        set => SetProperty("address_4", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? City
     {
-        get => GetProperty<TerraformProperty<string>>("city");
-        set => WithProperty("city", value);
+        set => SetProperty("city", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Country
     {
-        get => GetProperty<TerraformProperty<string>>("country");
-        set => WithProperty("country", value);
+        set => SetProperty("country", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? County
     {
-        get => GetProperty<TerraformProperty<string>>("county");
-        set => WithProperty("county", value);
+        set => SetProperty("county", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PostalCode
     {
-        get => GetProperty<TerraformProperty<string>>("postal_code");
-        set => WithProperty("postal_code", value);
+        set => SetProperty("postal_code", value);
     }
 
     /// <summary>
@@ -85,8 +77,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Province
     {
-        get => GetProperty<TerraformProperty<string>>("province");
-        set => WithProperty("province", value);
+        set => SetProperty("province", value);
     }
 
     /// <summary>
@@ -94,8 +85,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -111,8 +101,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address1
     {
-        get => GetProperty<TerraformProperty<string>>("address_1");
-        set => WithProperty("address_1", value);
+        set => SetProperty("address_1", value);
     }
 
     /// <summary>
@@ -120,8 +109,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address2
     {
-        get => GetProperty<TerraformProperty<string>>("address_2");
-        set => WithProperty("address_2", value);
+        set => SetProperty("address_2", value);
     }
 
     /// <summary>
@@ -129,8 +117,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address3
     {
-        get => GetProperty<TerraformProperty<string>>("address_3");
-        set => WithProperty("address_3", value);
+        set => SetProperty("address_3", value);
     }
 
     /// <summary>
@@ -138,8 +125,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address4
     {
-        get => GetProperty<TerraformProperty<string>>("address_4");
-        set => WithProperty("address_4", value);
+        set => SetProperty("address_4", value);
     }
 
     /// <summary>
@@ -147,8 +133,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? City
     {
-        get => GetProperty<TerraformProperty<string>>("city");
-        set => WithProperty("city", value);
+        set => SetProperty("city", value);
     }
 
     /// <summary>
@@ -156,8 +141,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Country
     {
-        get => GetProperty<TerraformProperty<string>>("country");
-        set => WithProperty("country", value);
+        set => SetProperty("country", value);
     }
 
     /// <summary>
@@ -165,8 +149,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? County
     {
-        get => GetProperty<TerraformProperty<string>>("county");
-        set => WithProperty("county", value);
+        set => SetProperty("county", value);
     }
 
     /// <summary>
@@ -174,8 +157,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PostalCode
     {
-        get => GetProperty<TerraformProperty<string>>("postal_code");
-        set => WithProperty("postal_code", value);
+        set => SetProperty("postal_code", value);
     }
 
     /// <summary>
@@ -183,8 +165,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Province
     {
-        get => GetProperty<TerraformProperty<string>>("province");
-        set => WithProperty("province", value);
+        set => SetProperty("province", value);
     }
 
     /// <summary>
@@ -192,8 +173,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -209,8 +189,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address1
     {
-        get => GetProperty<TerraformProperty<string>>("address_1");
-        set => WithProperty("address_1", value);
+        set => SetProperty("address_1", value);
     }
 
     /// <summary>
@@ -218,8 +197,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address2
     {
-        get => GetProperty<TerraformProperty<string>>("address_2");
-        set => WithProperty("address_2", value);
+        set => SetProperty("address_2", value);
     }
 
     /// <summary>
@@ -227,8 +205,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address3
     {
-        get => GetProperty<TerraformProperty<string>>("address_3");
-        set => WithProperty("address_3", value);
+        set => SetProperty("address_3", value);
     }
 
     /// <summary>
@@ -236,8 +213,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address4
     {
-        get => GetProperty<TerraformProperty<string>>("address_4");
-        set => WithProperty("address_4", value);
+        set => SetProperty("address_4", value);
     }
 
     /// <summary>
@@ -245,8 +221,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? City
     {
-        get => GetProperty<TerraformProperty<string>>("city");
-        set => WithProperty("city", value);
+        set => SetProperty("city", value);
     }
 
     /// <summary>
@@ -254,8 +229,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Country
     {
-        get => GetProperty<TerraformProperty<string>>("country");
-        set => WithProperty("country", value);
+        set => SetProperty("country", value);
     }
 
     /// <summary>
@@ -263,8 +237,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? County
     {
-        get => GetProperty<TerraformProperty<string>>("county");
-        set => WithProperty("county", value);
+        set => SetProperty("county", value);
     }
 
     /// <summary>
@@ -272,8 +245,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PostalCode
     {
-        get => GetProperty<TerraformProperty<string>>("postal_code");
-        set => WithProperty("postal_code", value);
+        set => SetProperty("postal_code", value);
     }
 
     /// <summary>
@@ -281,8 +253,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Province
     {
-        get => GetProperty<TerraformProperty<string>>("province");
-        set => WithProperty("province", value);
+        set => SetProperty("province", value);
     }
 
     /// <summary>
@@ -290,8 +261,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -307,8 +277,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address1
     {
-        get => GetProperty<TerraformProperty<string>>("address_1");
-        set => WithProperty("address_1", value);
+        set => SetProperty("address_1", value);
     }
 
     /// <summary>
@@ -316,8 +285,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address2
     {
-        get => GetProperty<TerraformProperty<string>>("address_2");
-        set => WithProperty("address_2", value);
+        set => SetProperty("address_2", value);
     }
 
     /// <summary>
@@ -325,8 +293,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address3
     {
-        get => GetProperty<TerraformProperty<string>>("address_3");
-        set => WithProperty("address_3", value);
+        set => SetProperty("address_3", value);
     }
 
     /// <summary>
@@ -334,8 +301,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address4
     {
-        get => GetProperty<TerraformProperty<string>>("address_4");
-        set => WithProperty("address_4", value);
+        set => SetProperty("address_4", value);
     }
 
     /// <summary>
@@ -343,8 +309,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? City
     {
-        get => GetProperty<TerraformProperty<string>>("city");
-        set => WithProperty("city", value);
+        set => SetProperty("city", value);
     }
 
     /// <summary>
@@ -352,8 +317,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Country
     {
-        get => GetProperty<TerraformProperty<string>>("country");
-        set => WithProperty("country", value);
+        set => SetProperty("country", value);
     }
 
     /// <summary>
@@ -361,8 +325,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? County
     {
-        get => GetProperty<TerraformProperty<string>>("county");
-        set => WithProperty("county", value);
+        set => SetProperty("county", value);
     }
 
     /// <summary>
@@ -370,8 +333,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PostalCode
     {
-        get => GetProperty<TerraformProperty<string>>("postal_code");
-        set => WithProperty("postal_code", value);
+        set => SetProperty("postal_code", value);
     }
 
     /// <summary>
@@ -379,8 +341,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Province
     {
-        get => GetProperty<TerraformProperty<string>>("province");
-        set => WithProperty("province", value);
+        set => SetProperty("province", value);
     }
 
     /// <summary>
@@ -388,8 +349,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -407,69 +367,89 @@ public class AwsCustomerprofilesProfile : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_number");
+        SetOutput("additional_information");
+        SetOutput("attributes");
+        SetOutput("birth_date");
+        SetOutput("business_email_address");
+        SetOutput("business_name");
+        SetOutput("business_phone_number");
+        SetOutput("domain_name");
+        SetOutput("email_address");
+        SetOutput("first_name");
+        SetOutput("gender_string");
+        SetOutput("home_phone_number");
+        SetOutput("id");
+        SetOutput("last_name");
+        SetOutput("middle_name");
+        SetOutput("mobile_phone_number");
+        SetOutput("party_type_string");
+        SetOutput("personal_email_address");
+        SetOutput("phone_number");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The account_number attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountNumber
+    public TerraformProperty<string> AccountNumber
     {
-        get => GetProperty<TerraformProperty<string>>("account_number");
-        set => this.WithProperty("account_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_number");
+        set => SetProperty("account_number", value);
     }
 
     /// <summary>
     /// The additional_information attribute.
     /// </summary>
-    public TerraformProperty<string>? AdditionalInformation
+    public TerraformProperty<string> AdditionalInformation
     {
-        get => GetProperty<TerraformProperty<string>>("additional_information");
-        set => this.WithProperty("additional_information", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("additional_information");
+        set => SetProperty("additional_information", value);
     }
 
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Attributes
+    public Dictionary<string, TerraformProperty<string>> Attributes
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attributes");
-        set => this.WithProperty("attributes", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attributes");
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
     /// The birth_date attribute.
     /// </summary>
-    public TerraformProperty<string>? BirthDate
+    public TerraformProperty<string> BirthDate
     {
-        get => GetProperty<TerraformProperty<string>>("birth_date");
-        set => this.WithProperty("birth_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("birth_date");
+        set => SetProperty("birth_date", value);
     }
 
     /// <summary>
     /// The business_email_address attribute.
     /// </summary>
-    public TerraformProperty<string>? BusinessEmailAddress
+    public TerraformProperty<string> BusinessEmailAddress
     {
-        get => GetProperty<TerraformProperty<string>>("business_email_address");
-        set => this.WithProperty("business_email_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("business_email_address");
+        set => SetProperty("business_email_address", value);
     }
 
     /// <summary>
     /// The business_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BusinessName
+    public TerraformProperty<string> BusinessName
     {
-        get => GetProperty<TerraformProperty<string>>("business_name");
-        set => this.WithProperty("business_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("business_name");
+        set => SetProperty("business_name", value);
     }
 
     /// <summary>
     /// The business_phone_number attribute.
     /// </summary>
-    public TerraformProperty<string>? BusinessPhoneNumber
+    public TerraformProperty<string> BusinessPhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("business_phone_number");
-        set => this.WithProperty("business_phone_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("business_phone_number");
+        set => SetProperty("business_phone_number", value);
     }
 
     /// <summary>
@@ -478,116 +458,116 @@ public class AwsCustomerprofilesProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailAddress
+    public TerraformProperty<string> EmailAddress
     {
-        get => GetProperty<TerraformProperty<string>>("email_address");
-        set => this.WithProperty("email_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_address");
+        set => SetProperty("email_address", value);
     }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FirstName
+    public TerraformProperty<string> FirstName
     {
-        get => GetProperty<TerraformProperty<string>>("first_name");
-        set => this.WithProperty("first_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("first_name");
+        set => SetProperty("first_name", value);
     }
 
     /// <summary>
     /// The gender_string attribute.
     /// </summary>
-    public TerraformProperty<string>? GenderString
+    public TerraformProperty<string> GenderString
     {
-        get => GetProperty<TerraformProperty<string>>("gender_string");
-        set => this.WithProperty("gender_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gender_string");
+        set => SetProperty("gender_string", value);
     }
 
     /// <summary>
     /// The home_phone_number attribute.
     /// </summary>
-    public TerraformProperty<string>? HomePhoneNumber
+    public TerraformProperty<string> HomePhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("home_phone_number");
-        set => this.WithProperty("home_phone_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("home_phone_number");
+        set => SetProperty("home_phone_number", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LastName
+    public TerraformProperty<string> LastName
     {
-        get => GetProperty<TerraformProperty<string>>("last_name");
-        set => this.WithProperty("last_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("last_name");
+        set => SetProperty("last_name", value);
     }
 
     /// <summary>
     /// The middle_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MiddleName
+    public TerraformProperty<string> MiddleName
     {
-        get => GetProperty<TerraformProperty<string>>("middle_name");
-        set => this.WithProperty("middle_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("middle_name");
+        set => SetProperty("middle_name", value);
     }
 
     /// <summary>
     /// The mobile_phone_number attribute.
     /// </summary>
-    public TerraformProperty<string>? MobilePhoneNumber
+    public TerraformProperty<string> MobilePhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_phone_number");
-        set => this.WithProperty("mobile_phone_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mobile_phone_number");
+        set => SetProperty("mobile_phone_number", value);
     }
 
     /// <summary>
     /// The party_type_string attribute.
     /// </summary>
-    public TerraformProperty<string>? PartyTypeString
+    public TerraformProperty<string> PartyTypeString
     {
-        get => GetProperty<TerraformProperty<string>>("party_type_string");
-        set => this.WithProperty("party_type_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("party_type_string");
+        set => SetProperty("party_type_string", value);
     }
 
     /// <summary>
     /// The personal_email_address attribute.
     /// </summary>
-    public TerraformProperty<string>? PersonalEmailAddress
+    public TerraformProperty<string> PersonalEmailAddress
     {
-        get => GetProperty<TerraformProperty<string>>("personal_email_address");
-        set => this.WithProperty("personal_email_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("personal_email_address");
+        set => SetProperty("personal_email_address", value);
     }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformProperty<string>? PhoneNumber
+    public TerraformProperty<string> PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
-        set => this.WithProperty("phone_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("phone_number");
+        set => SetProperty("phone_number", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -597,8 +577,7 @@ public class AwsCustomerprofilesProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Address block(s) allowed")]
     public List<AwsCustomerprofilesProfileAddressBlock>? Address
     {
-        get => GetProperty<List<AwsCustomerprofilesProfileAddressBlock>>("address");
-        set => this.WithProperty("address", value);
+        set => SetProperty("address", value);
     }
 
     /// <summary>
@@ -608,8 +587,7 @@ public class AwsCustomerprofilesProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BillingAddress block(s) allowed")]
     public List<AwsCustomerprofilesProfileBillingAddressBlock>? BillingAddress
     {
-        get => GetProperty<List<AwsCustomerprofilesProfileBillingAddressBlock>>("billing_address");
-        set => this.WithProperty("billing_address", value);
+        set => SetProperty("billing_address", value);
     }
 
     /// <summary>
@@ -619,8 +597,7 @@ public class AwsCustomerprofilesProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MailingAddress block(s) allowed")]
     public List<AwsCustomerprofilesProfileMailingAddressBlock>? MailingAddress
     {
-        get => GetProperty<List<AwsCustomerprofilesProfileMailingAddressBlock>>("mailing_address");
-        set => this.WithProperty("mailing_address", value);
+        set => SetProperty("mailing_address", value);
     }
 
     /// <summary>
@@ -630,8 +607,7 @@ public class AwsCustomerprofilesProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShippingAddress block(s) allowed")]
     public List<AwsCustomerprofilesProfileShippingAddressBlock>? ShippingAddress
     {
-        get => GetProperty<List<AwsCustomerprofilesProfileShippingAddressBlock>>("shipping_address");
-        set => this.WithProperty("shipping_address", value);
+        set => SetProperty("shipping_address", value);
     }
 
 }

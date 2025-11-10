@@ -13,8 +13,7 @@ public class AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,35 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("alert_rule_template_guid");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("display_name_exclude_filter");
+        SetOutput("display_name_filter");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("name");
+        SetOutput("product_filter");
+        SetOutput("severity_filter");
     }
 
     /// <summary>
     /// The alert_rule_template_guid attribute.
     /// </summary>
-    public TerraformProperty<string>? AlertRuleTemplateGuid
+    public TerraformProperty<string> AlertRuleTemplateGuid
     {
-        get => GetProperty<TerraformProperty<string>>("alert_rule_template_guid");
-        set => this.WithProperty("alert_rule_template_guid", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alert_rule_template_guid");
+        set => SetProperty("alert_rule_template_guid", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -84,44 +91,44 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The display_name_exclude_filter attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DisplayNameExcludeFilter
+    public HashSet<TerraformProperty<string>> DisplayNameExcludeFilter
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("display_name_exclude_filter");
-        set => this.WithProperty("display_name_exclude_filter", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("display_name_exclude_filter");
+        set => SetProperty("display_name_exclude_filter", value);
     }
 
     /// <summary>
     /// The display_name_filter attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DisplayNameFilter
+    public HashSet<TerraformProperty<string>> DisplayNameFilter
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("display_name_filter");
-        set => this.WithProperty("display_name_filter", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("display_name_filter");
+        set => SetProperty("display_name_filter", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -130,8 +137,8 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -140,8 +147,8 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -150,18 +157,18 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductFilter is required")]
     public required TerraformProperty<string> ProductFilter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product_filter");
-        set => this.WithProperty("product_filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("product_filter");
+        set => SetProperty("product_filter", value);
     }
 
     /// <summary>
     /// The severity_filter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeverityFilter is required")]
-    public HashSet<TerraformProperty<string>>? SeverityFilter
+    public HashSet<TerraformProperty<string>> SeverityFilter
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("severity_filter");
-        set => this.WithProperty("severity_filter", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("severity_filter");
+        set => SetProperty("severity_filter", value);
     }
 
     /// <summary>
@@ -170,8 +177,7 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     /// </summary>
     public AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

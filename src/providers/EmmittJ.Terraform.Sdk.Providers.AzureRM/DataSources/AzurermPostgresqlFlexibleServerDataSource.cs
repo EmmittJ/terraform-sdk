@@ -13,8 +13,7 @@ public class AzurermPostgresqlFlexibleServerDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,26 +30,29 @@ public class AzurermPostgresqlFlexibleServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("administrator_login");
-        this.WithOutput("auto_grow_enabled");
-        this.WithOutput("backup_retention_days");
-        this.WithOutput("delegated_subnet_id");
-        this.WithOutput("fqdn");
-        this.WithOutput("location");
-        this.WithOutput("public_network_access_enabled");
-        this.WithOutput("sku_name");
-        this.WithOutput("storage_mb");
-        this.WithOutput("tags");
-        this.WithOutput("version");
+        SetOutput("administrator_login");
+        SetOutput("auto_grow_enabled");
+        SetOutput("backup_retention_days");
+        SetOutput("delegated_subnet_id");
+        SetOutput("fqdn");
+        SetOutput("location");
+        SetOutput("public_network_access_enabled");
+        SetOutput("sku_name");
+        SetOutput("storage_mb");
+        SetOutput("tags");
+        SetOutput("version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class AzurermPostgresqlFlexibleServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -69,8 +71,8 @@ public class AzurermPostgresqlFlexibleServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -79,8 +81,7 @@ public class AzurermPostgresqlFlexibleServerDataSource : TerraformDataSource
     /// </summary>
     public AzurermPostgresqlFlexibleServerDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPostgresqlFlexibleServerDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -15,8 +15,7 @@ public class GoogleDataprocMetastoreServiceEncryptionConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
-        set => WithProperty("kms_key", value);
+        set => SetProperty("kms_key", value);
     }
 
 }
@@ -33,8 +32,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : TerraformB
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ConfigOverrides
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("config_overrides");
-        set => WithProperty("config_overrides", value);
+        set => SetProperty("config_overrides", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? EndpointProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_protocol");
-        set => WithProperty("endpoint_protocol", value);
+        set => SetProperty("endpoint_protocol", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -70,8 +66,7 @@ public class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformProperty<string> DayOfWeek
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("day_of_week");
-        set => WithProperty("day_of_week", value);
+        set => SetProperty("day_of_week", value);
     }
 
     /// <summary>
@@ -80,8 +75,7 @@ public class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformProperty<double> HourOfDay
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("hour_of_day");
-        set => WithProperty("hour_of_day", value);
+        set => SetProperty("hour_of_day", value);
     }
 
 }
@@ -113,8 +107,7 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceSize
     {
-        get => GetProperty<TerraformProperty<string>>("instance_size");
-        set => WithProperty("instance_size", value);
+        set => SetProperty("instance_size", value);
     }
 
     /// <summary>
@@ -122,8 +115,7 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ScalingFactor
     {
-        get => GetProperty<TerraformProperty<double>>("scaling_factor");
-        set => WithProperty("scaling_factor", value);
+        set => SetProperty("scaling_factor", value);
     }
 
 }
@@ -140,8 +132,7 @@ public class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupLocation is required")]
     public required TerraformProperty<string> BackupLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_location");
-        set => WithProperty("backup_location", value);
+        set => SetProperty("backup_location", value);
     }
 
     /// <summary>
@@ -149,8 +140,7 @@ public class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CronSchedule
     {
-        get => GetProperty<TerraformProperty<string>>("cron_schedule");
-        set => WithProperty("cron_schedule", value);
+        set => SetProperty("cron_schedule", value);
     }
 
     /// <summary>
@@ -158,8 +148,7 @@ public class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -167,8 +156,7 @@ public class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
 }
@@ -184,8 +172,7 @@ public class GoogleDataprocMetastoreServiceTelemetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LogFormat
     {
-        get => GetProperty<TerraformProperty<string>>("log_format");
-        set => WithProperty("log_format", value);
+        set => SetProperty("log_format", value);
     }
 
 }
@@ -201,8 +188,7 @@ public class GoogleDataprocMetastoreServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -210,8 +196,7 @@ public class GoogleDataprocMetastoreServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -219,8 +204,7 @@ public class GoogleDataprocMetastoreServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -238,43 +222,55 @@ public class GoogleDataprocMetastoreService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("artifact_gcs_uri");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("endpoint_uri");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("state_message");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("artifact_gcs_uri");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("endpoint_uri");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("state_message");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("database_type");
+        SetOutput("deletion_protection");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("network");
+        SetOutput("port");
+        SetOutput("project");
+        SetOutput("release_channel");
+        SetOutput("service_id");
+        SetOutput("tags");
+        SetOutput("tier");
     }
 
     /// <summary>
     /// The database type that the Metastore service stores its data. Default value: &amp;quot;MYSQL&amp;quot; Possible values: [&amp;quot;MYSQL&amp;quot;, &amp;quot;SPANNER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DatabaseType
+    public TerraformProperty<string> DatabaseType
     {
-        get => GetProperty<TerraformProperty<string>>("database_type");
-        set => this.WithProperty("database_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_type");
+        set => SetProperty("database_type", value);
     }
 
     /// <summary>
     /// Indicates if the dataproc metastore should be protected against accidental deletions.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -283,20 +279,20 @@ public class GoogleDataprocMetastoreService : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location where the metastore service should reside.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -304,37 +300,37 @@ public class GoogleDataprocMetastoreService : TerraformResource
     /// 
     /// &amp;quot;projects/{projectNumber}/global/networks/{network_id}&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The TCP port at which the metastore service is reached. Default: 9083.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The release channel of the service. If unspecified, defaults to &#39;STABLE&#39;. Default value: &amp;quot;STABLE&amp;quot; Possible values: [&amp;quot;CANARY&amp;quot;, &amp;quot;STABLE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ReleaseChannel
+    public TerraformProperty<string> ReleaseChannel
     {
-        get => GetProperty<TerraformProperty<string>>("release_channel");
-        set => this.WithProperty("release_channel", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_channel");
+        set => SetProperty("release_channel", value);
     }
 
     /// <summary>
@@ -345,8 +341,8 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
-        set => this.WithProperty("service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
+        set => SetProperty("service_id", value);
     }
 
     /// <summary>
@@ -354,19 +350,19 @@ public class GoogleDataprocMetastoreService : TerraformResource
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tier of the service. Possible values: [&amp;quot;DEVELOPER&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Tier
+    public TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
@@ -376,8 +372,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     public List<GoogleDataprocMetastoreServiceEncryptionConfigBlock>? EncryptionConfig
     {
-        get => GetProperty<List<GoogleDataprocMetastoreServiceEncryptionConfigBlock>>("encryption_config");
-        set => this.WithProperty("encryption_config", value);
+        set => SetProperty("encryption_config", value);
     }
 
     /// <summary>
@@ -387,8 +382,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveMetastoreConfig block(s) allowed")]
     public List<GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock>? HiveMetastoreConfig
     {
-        get => GetProperty<List<GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock>>("hive_metastore_config");
-        set => this.WithProperty("hive_metastore_config", value);
+        set => SetProperty("hive_metastore_config", value);
     }
 
     /// <summary>
@@ -398,8 +392,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     public List<GoogleDataprocMetastoreServiceMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetProperty<List<GoogleDataprocMetastoreServiceMaintenanceWindowBlock>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
@@ -409,8 +402,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataIntegration block(s) allowed")]
     public List<GoogleDataprocMetastoreServiceMetadataIntegrationBlock>? MetadataIntegration
     {
-        get => GetProperty<List<GoogleDataprocMetastoreServiceMetadataIntegrationBlock>>("metadata_integration");
-        set => this.WithProperty("metadata_integration", value);
+        set => SetProperty("metadata_integration", value);
     }
 
     /// <summary>
@@ -420,8 +412,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<GoogleDataprocMetastoreServiceNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<GoogleDataprocMetastoreServiceNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -431,8 +422,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
     public List<GoogleDataprocMetastoreServiceScalingConfigBlock>? ScalingConfig
     {
-        get => GetProperty<List<GoogleDataprocMetastoreServiceScalingConfigBlock>>("scaling_config");
-        set => this.WithProperty("scaling_config", value);
+        set => SetProperty("scaling_config", value);
     }
 
     /// <summary>
@@ -442,8 +432,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledBackup block(s) allowed")]
     public List<GoogleDataprocMetastoreServiceScheduledBackupBlock>? ScheduledBackup
     {
-        get => GetProperty<List<GoogleDataprocMetastoreServiceScheduledBackupBlock>>("scheduled_backup");
-        set => this.WithProperty("scheduled_backup", value);
+        set => SetProperty("scheduled_backup", value);
     }
 
     /// <summary>
@@ -453,8 +442,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TelemetryConfig block(s) allowed")]
     public List<GoogleDataprocMetastoreServiceTelemetryConfigBlock>? TelemetryConfig
     {
-        get => GetProperty<List<GoogleDataprocMetastoreServiceTelemetryConfigBlock>>("telemetry_config");
-        set => this.WithProperty("telemetry_config", value);
+        set => SetProperty("telemetry_config", value);
     }
 
     /// <summary>
@@ -463,8 +451,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     public GoogleDataprocMetastoreServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataprocMetastoreServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

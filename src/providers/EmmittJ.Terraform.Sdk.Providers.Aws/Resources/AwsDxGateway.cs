@@ -13,8 +13,7 @@ public class AwsDxGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDxGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,8 +38,11 @@ public class AwsDxGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("owner_account_id");
+        SetOutput("arn");
+        SetOutput("owner_account_id");
+        SetOutput("amazon_side_asn");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -50,17 +51,17 @@ public class AwsDxGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AmazonSideAsn is required")]
     public required TerraformProperty<string> AmazonSideAsn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("amazon_side_asn");
-        set => this.WithProperty("amazon_side_asn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("amazon_side_asn");
+        set => SetProperty("amazon_side_asn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,8 +70,8 @@ public class AwsDxGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -79,8 +80,7 @@ public class AwsDxGateway : TerraformResource
     /// </summary>
     public AwsDxGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDxGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

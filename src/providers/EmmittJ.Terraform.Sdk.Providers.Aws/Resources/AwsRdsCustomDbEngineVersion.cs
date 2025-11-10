@@ -13,8 +13,7 @@ public class AwsRdsCustomDbEngineVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRdsCustomDbEngineVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRdsCustomDbEngineVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,39 +46,54 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("create_time");
-        this.WithOutput("db_parameter_group_family");
-        this.WithOutput("image_id");
-        this.WithOutput("major_engine_version");
-        this.WithOutput("manifest_computed");
+        SetOutput("arn");
+        SetOutput("create_time");
+        SetOutput("db_parameter_group_family");
+        SetOutput("image_id");
+        SetOutput("major_engine_version");
+        SetOutput("manifest_computed");
+        SetOutput("database_installation_files_s3_bucket_name");
+        SetOutput("database_installation_files_s3_prefix");
+        SetOutput("description");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("filename");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("manifest");
+        SetOutput("manifest_hash");
+        SetOutput("region");
+        SetOutput("source_image_id");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The database_installation_files_s3_bucket_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseInstallationFilesS3BucketName
+    public TerraformProperty<string> DatabaseInstallationFilesS3BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("database_installation_files_s3_bucket_name");
-        set => this.WithProperty("database_installation_files_s3_bucket_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_installation_files_s3_bucket_name");
+        set => SetProperty("database_installation_files_s3_bucket_name", value);
     }
 
     /// <summary>
     /// The database_installation_files_s3_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseInstallationFilesS3Prefix
+    public TerraformProperty<string> DatabaseInstallationFilesS3Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("database_installation_files_s3_prefix");
-        set => this.WithProperty("database_installation_files_s3_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_installation_files_s3_prefix");
+        set => SetProperty("database_installation_files_s3_prefix", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -90,8 +102,8 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
@@ -100,98 +112,98 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
     public required TerraformProperty<string> EngineVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public TerraformProperty<string>? Filename
+    public TerraformProperty<string> Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
-        set => this.WithProperty("filename", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filename");
+        set => SetProperty("filename", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The manifest attribute.
     /// </summary>
-    public TerraformProperty<string>? Manifest
+    public TerraformProperty<string> Manifest
     {
-        get => GetProperty<TerraformProperty<string>>("manifest");
-        set => this.WithProperty("manifest", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("manifest");
+        set => SetProperty("manifest", value);
     }
 
     /// <summary>
     /// The manifest_hash attribute.
     /// </summary>
-    public TerraformProperty<string>? ManifestHash
+    public TerraformProperty<string> ManifestHash
     {
-        get => GetProperty<TerraformProperty<string>>("manifest_hash");
-        set => this.WithProperty("manifest_hash", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("manifest_hash");
+        set => SetProperty("manifest_hash", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The source_image_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceImageId
+    public TerraformProperty<string> SourceImageId
     {
-        get => GetProperty<TerraformProperty<string>>("source_image_id");
-        set => this.WithProperty("source_image_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_image_id");
+        set => SetProperty("source_image_id", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -200,8 +212,7 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
     /// </summary>
     public AwsRdsCustomDbEngineVersionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRdsCustomDbEngineVersionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

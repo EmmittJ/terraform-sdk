@@ -13,8 +13,7 @@ public class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock : Terra
     /// </summary>
     public TerraformProperty<bool>? FlowLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("flow_logs_enabled");
-        set => WithProperty("flow_logs_enabled", value);
+        set => SetProperty("flow_logs_enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock : Terra
     /// </summary>
     public TerraformProperty<string>? FlowLogsS3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("flow_logs_s3_bucket");
-        set => WithProperty("flow_logs_s3_bucket", value);
+        set => SetProperty("flow_logs_s3_bucket", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock : Terra
     /// </summary>
     public TerraformProperty<string>? FlowLogsS3Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("flow_logs_s3_prefix");
-        set => WithProperty("flow_logs_s3_prefix", value);
+        set => SetProperty("flow_logs_s3_prefix", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,46 +71,53 @@ public class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputns_name");
-        this.WithOutputosted_zone_id");
-        this.WithOutputp_sets");
+        SetOutput("arn");
+        SetOutput("dns_name");
+        SetOutput("hosted_zone_id");
+        SetOutput("ip_sets");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("ip_address_type");
+        SetOutput("ip_addresses");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddressType
+    public TerraformProperty<string> IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => this.WithProperty("ip_address_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_address_type");
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? IpAddresses
+    public List<TerraformProperty<string>> IpAddresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ip_addresses");
-        set => this.WithProperty("ip_addresses", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ip_addresses");
+        set => SetProperty("ip_addresses", value);
     }
 
     /// <summary>
@@ -124,26 +126,26 @@ public class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -153,8 +155,7 @@ public class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
     public List<AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock>? Attributes
     {
-        get => GetProperty<List<AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock>>("attributes");
-        set => this.WithProperty("attributes", value);
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
@@ -163,8 +164,7 @@ public class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformResource
     /// </summary>
     public AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleComputeTargetHttpProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeTargetHttpProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeTargetHttpProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,19 +46,26 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("fingerprint");
-        this.WithOutput("proxy_id");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("fingerprint");
+        SetOutput("proxy_id");
+        SetOutput("self_link");
+        SetOutput("description");
+        SetOutput("http_keep_alive_timeout_sec");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("proxy_bind");
+        SetOutput("url_map");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -75,19 +79,19 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// maximum allowed value is 600 seconds. For Global external HTTP(S) load
     /// balancer (classic), this option is not available publicly.
     /// </summary>
-    public TerraformProperty<double>? HttpKeepAliveTimeoutSec
+    public TerraformProperty<double> HttpKeepAliveTimeoutSec
     {
-        get => GetProperty<TerraformProperty<double>>("http_keep_alive_timeout_sec");
-        set => this.WithProperty("http_keep_alive_timeout_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("http_keep_alive_timeout_sec");
+        set => SetProperty("http_keep_alive_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -102,27 +106,27 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// This field only applies when the forwarding rule that references
     /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public TerraformProperty<bool>? ProxyBind
+    public TerraformProperty<bool> ProxyBind
     {
-        get => GetProperty<TerraformProperty<bool>>("proxy_bind");
-        set => this.WithProperty("proxy_bind", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("proxy_bind");
+        set => SetProperty("proxy_bind", value);
     }
 
     /// <summary>
@@ -132,8 +136,8 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
     public required TerraformProperty<string> UrlMap
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url_map");
-        set => this.WithProperty("url_map", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url_map");
+        set => SetProperty("url_map", value);
     }
 
     /// <summary>
@@ -142,8 +146,7 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// </summary>
     public GoogleComputeTargetHttpProxyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeTargetHttpProxyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

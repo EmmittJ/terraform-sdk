@@ -13,8 +13,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     /// </summary>
     public TerraformProperty<bool>? GlobalMeshEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("global_mesh_enabled");
-        set => WithProperty("global_mesh_enabled", value);
+        set => SetProperty("global_mesh_enabled", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupConnectivity is required")]
     public required TerraformProperty<string> GroupConnectivity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_connectivity");
-        set => WithProperty("group_connectivity", value);
+        set => SetProperty("group_connectivity", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
     public required TerraformProperty<string> NetworkGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_group_id");
-        set => WithProperty("network_group_id", value);
+        set => SetProperty("network_group_id", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     /// </summary>
     public TerraformProperty<bool>? UseHubGateway
     {
-        get => GetProperty<TerraformProperty<bool>>("use_hub_gateway");
-        set => WithProperty("use_hub_gateway", value);
+        set => SetProperty("use_hub_gateway", value);
     }
 
 }
@@ -60,8 +56,7 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => WithProperty("resource_id", value);
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
 }
@@ -87,8 +81,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -114,8 +105,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -133,6 +123,13 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("connectivity_topology");
+        SetOutput("delete_existing_peering_enabled");
+        SetOutput("description");
+        SetOutput("global_mesh_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_manager_id");
     }
 
     /// <summary>
@@ -141,44 +138,44 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectivityTopology is required")]
     public required TerraformProperty<string> ConnectivityTopology
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connectivity_topology");
-        set => this.WithProperty("connectivity_topology", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connectivity_topology");
+        set => SetProperty("connectivity_topology", value);
     }
 
     /// <summary>
     /// The delete_existing_peering_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeleteExistingPeeringEnabled
+    public TerraformProperty<bool> DeleteExistingPeeringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_existing_peering_enabled");
-        set => this.WithProperty("delete_existing_peering_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_existing_peering_enabled");
+        set => SetProperty("delete_existing_peering_enabled", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? GlobalMeshEnabled
+    public TerraformProperty<bool> GlobalMeshEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("global_mesh_enabled");
-        set => this.WithProperty("global_mesh_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("global_mesh_enabled");
+        set => SetProperty("global_mesh_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -187,8 +184,8 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -197,19 +194,19 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformProperty<string> NetworkManagerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_manager_id");
-        set => this.WithProperty("network_manager_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_manager_id");
+        set => SetProperty("network_manager_id", value);
     }
 
     /// <summary>
     /// Block for applies_to_group.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppliesToGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AppliesToGroup block(s) required")]
     public List<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock>? AppliesToGroup
     {
-        get => GetProperty<List<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock>>("applies_to_group");
-        set => this.WithProperty("applies_to_group", value);
+        set => SetProperty("applies_to_group", value);
     }
 
     /// <summary>
@@ -219,8 +216,7 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hub block(s) allowed")]
     public List<AzurermNetworkManagerConnectivityConfigurationHubBlock>? Hub
     {
-        get => GetProperty<List<AzurermNetworkManagerConnectivityConfigurationHubBlock>>("hub");
-        set => this.WithProperty("hub", value);
+        set => SetProperty("hub", value);
     }
 
     /// <summary>
@@ -229,8 +225,7 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// </summary>
     public AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

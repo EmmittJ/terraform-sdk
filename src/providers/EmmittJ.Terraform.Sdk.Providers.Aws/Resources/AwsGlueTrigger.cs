@@ -13,8 +13,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Arguments
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("arguments");
-        set => WithProperty("arguments", value);
+        set => SetProperty("arguments", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CrawlerName
     {
-        get => GetProperty<TerraformProperty<string>>("crawler_name");
-        set => WithProperty("crawler_name", value);
+        set => SetProperty("crawler_name", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JobName
     {
-        get => GetProperty<TerraformProperty<string>>("job_name");
-        set => WithProperty("job_name", value);
+        set => SetProperty("job_name", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SecurityConfiguration
     {
-        get => GetProperty<TerraformProperty<string>>("security_configuration");
-        set => WithProperty("security_configuration", value);
+        set => SetProperty("security_configuration", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Timeout
     {
-        get => GetProperty<TerraformProperty<double>>("timeout");
-        set => WithProperty("timeout", value);
+        set => SetProperty("timeout", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
     public required TerraformProperty<double> BatchSize
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("batch_size");
-        set => WithProperty("batch_size", value);
+        set => SetProperty("batch_size", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? BatchWindow
     {
-        get => GetProperty<TerraformProperty<double>>("batch_window");
-        set => WithProperty("batch_window", value);
+        set => SetProperty("batch_window", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AwsGlueTriggerPredicateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Logical
     {
-        get => GetProperty<TerraformProperty<string>>("logical");
-        set => WithProperty("logical", value);
+        set => SetProperty("logical", value);
     }
 
 }
@@ -110,8 +102,7 @@ public class AwsGlueTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -119,8 +110,7 @@ public class AwsGlueTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -128,8 +118,7 @@ public class AwsGlueTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -147,35 +136,46 @@ public class AwsGlueTrigger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("state");
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("schedule");
+        SetOutput("start_on_creation");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
+        SetOutput("workflow_name");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -184,53 +184,53 @@ public class AwsGlueTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    public TerraformProperty<string>? Schedule
+    public TerraformProperty<string> Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
-        set => this.WithProperty("schedule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule");
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
     /// The start_on_creation attribute.
     /// </summary>
-    public TerraformProperty<bool>? StartOnCreation
+    public TerraformProperty<bool> StartOnCreation
     {
-        get => GetProperty<TerraformProperty<bool>>("start_on_creation");
-        set => this.WithProperty("start_on_creation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("start_on_creation");
+        set => SetProperty("start_on_creation", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -239,28 +239,28 @@ public class AwsGlueTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The workflow_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkflowName
+    public TerraformProperty<string> WorkflowName
     {
-        get => GetProperty<TerraformProperty<string>>("workflow_name");
-        set => this.WithProperty("workflow_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workflow_name");
+        set => SetProperty("workflow_name", value);
     }
 
     /// <summary>
     /// Block for actions.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
     public List<AwsGlueTriggerActionsBlock>? Actions
     {
-        get => GetProperty<List<AwsGlueTriggerActionsBlock>>("actions");
-        set => this.WithProperty("actions", value);
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -269,8 +269,7 @@ public class AwsGlueTrigger : TerraformResource
     /// </summary>
     public List<AwsGlueTriggerEventBatchingConditionBlock>? EventBatchingCondition
     {
-        get => GetProperty<List<AwsGlueTriggerEventBatchingConditionBlock>>("event_batching_condition");
-        set => this.WithProperty("event_batching_condition", value);
+        set => SetProperty("event_batching_condition", value);
     }
 
     /// <summary>
@@ -280,8 +279,7 @@ public class AwsGlueTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Predicate block(s) allowed")]
     public List<AwsGlueTriggerPredicateBlock>? Predicate
     {
-        get => GetProperty<List<AwsGlueTriggerPredicateBlock>>("predicate");
-        set => this.WithProperty("predicate", value);
+        set => SetProperty("predicate", value);
     }
 
     /// <summary>
@@ -290,8 +288,7 @@ public class AwsGlueTrigger : TerraformResource
     /// </summary>
     public AwsGlueTriggerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsGlueTriggerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

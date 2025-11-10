@@ -13,8 +13,7 @@ public class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? DeliveryFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_frequency");
-        set => WithProperty("delivery_frequency", value);
+        set => SetProperty("delivery_frequency", value);
     }
 
 }
@@ -32,33 +31,40 @@ public class AwsConfigDeliveryChannel : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("s3_bucket_name");
+        SetOutput("s3_key_prefix");
+        SetOutput("s3_kms_key_arn");
+        SetOutput("sns_topic_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -67,35 +73,35 @@ public class AwsConfigDeliveryChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
-        set => this.WithProperty("s3_bucket_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket_name");
+        set => SetProperty("s3_bucket_name", value);
     }
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? S3KeyPrefix
+    public TerraformProperty<string> S3KeyPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("s3_key_prefix");
-        set => this.WithProperty("s3_key_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_key_prefix");
+        set => SetProperty("s3_key_prefix", value);
     }
 
     /// <summary>
     /// The s3_kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? S3KmsKeyArn
+    public TerraformProperty<string> S3KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("s3_kms_key_arn");
-        set => this.WithProperty("s3_kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_kms_key_arn");
+        set => SetProperty("s3_kms_key_arn", value);
     }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SnsTopicArn
+    public TerraformProperty<string> SnsTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
-        set => this.WithProperty("sns_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sns_topic_arn");
+        set => SetProperty("sns_topic_arn", value);
     }
 
     /// <summary>
@@ -105,8 +111,7 @@ public class AwsConfigDeliveryChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotDeliveryProperties block(s) allowed")]
     public List<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>? SnapshotDeliveryProperties
     {
-        get => GetProperty<List<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>>("snapshot_delivery_properties");
-        set => this.WithProperty("snapshot_delivery_properties", value);
+        set => SetProperty("snapshot_delivery_properties", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeouts
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeouts
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeouts
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeouts
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,34 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring : Terra
 
     private void InitializeOutputs()
     {
+        SetOutput("api_token");
+        SetOutput("api_url");
+        SetOutput("connection_point");
+        SetOutput("environment_id");
+        SetOutput("globally_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("spring_cloud_service_id");
+        SetOutput("tenant");
+        SetOutput("tenant_token");
     }
 
     /// <summary>
     /// The api_token attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiToken
+    public TerraformProperty<string> ApiToken
     {
-        get => GetProperty<TerraformProperty<string>>("api_token");
-        set => this.WithProperty("api_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_token");
+        set => SetProperty("api_token", value);
     }
 
     /// <summary>
     /// The api_url attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiUrl
+    public TerraformProperty<string> ApiUrl
     {
-        get => GetProperty<TerraformProperty<string>>("api_url");
-        set => this.WithProperty("api_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_url");
+        set => SetProperty("api_url", value);
     }
 
     /// <summary>
@@ -84,35 +90,35 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPoint is required")]
     public required TerraformProperty<string> ConnectionPoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_point");
-        set => this.WithProperty("connection_point", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_point");
+        set => SetProperty("connection_point", value);
     }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvironmentId
+    public TerraformProperty<string> EnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_id");
-        set => this.WithProperty("environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_id");
+        set => SetProperty("environment_id", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? GloballyEnabled
+    public TerraformProperty<bool> GloballyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("globally_enabled");
-        set => this.WithProperty("globally_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("globally_enabled");
+        set => SetProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,8 +127,8 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -131,8 +137,8 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
-        set => this.WithProperty("spring_cloud_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
+        set => SetProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
@@ -141,8 +147,8 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     public required TerraformProperty<string> Tenant
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant");
-        set => this.WithProperty("tenant", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant");
+        set => SetProperty("tenant", value);
     }
 
     /// <summary>
@@ -151,8 +157,8 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantToken is required")]
     public required TerraformProperty<string> TenantToken
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_token");
-        set => this.WithProperty("tenant_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant_token");
+        set => SetProperty("tenant_token", value);
     }
 
     /// <summary>
@@ -161,8 +167,7 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring : Terra
     /// </summary>
     public AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

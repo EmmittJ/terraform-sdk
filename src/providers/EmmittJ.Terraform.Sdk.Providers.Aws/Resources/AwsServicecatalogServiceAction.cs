@@ -13,8 +13,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AssumeRole
     {
-        get => GetProperty<TerraformProperty<string>>("assume_role");
-        set => WithProperty("assume_role", value);
+        set => SetProperty("assume_role", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Parameters
     {
-        get => GetProperty<TerraformProperty<string>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -68,8 +63,7 @@ public class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,33 +105,38 @@ public class AwsServicecatalogServiceAction : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("accept_language");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    public TerraformProperty<string>? AcceptLanguage
+    public TerraformProperty<string> AcceptLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("accept_language");
-        set => this.WithProperty("accept_language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("accept_language");
+        set => SetProperty("accept_language", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -149,29 +145,29 @@ public class AwsServicecatalogServiceAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for definition.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Definition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     public List<AwsServicecatalogServiceActionDefinitionBlock>? Definition
     {
-        get => GetProperty<List<AwsServicecatalogServiceActionDefinitionBlock>>("definition");
-        set => this.WithProperty("definition", value);
+        set => SetProperty("definition", value);
     }
 
     /// <summary>
@@ -180,8 +176,7 @@ public class AwsServicecatalogServiceAction : TerraformResource
     /// </summary>
     public AwsServicecatalogServiceActionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsServicecatalogServiceActionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

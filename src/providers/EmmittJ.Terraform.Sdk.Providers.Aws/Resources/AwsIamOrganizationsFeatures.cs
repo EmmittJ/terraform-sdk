@@ -14,17 +14,18 @@ public class AwsIamOrganizationsFeatures : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("enabled_features");
     }
 
     /// <summary>
     /// The enabled_features attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledFeatures is required")]
-    public HashSet<TerraformProperty<string>>? EnabledFeatures
+    public HashSet<TerraformProperty<string>> EnabledFeatures
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_features");
-        set => this.WithProperty("enabled_features", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("enabled_features");
+        set => SetProperty("enabled_features", value);
     }
 
     /// <summary>

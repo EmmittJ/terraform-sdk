@@ -13,8 +13,7 @@ public class GoogleApigeeAppGroupAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeAppGroupAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -75,46 +70,53 @@ public class GoogleApigeeAppGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_group_id");
-        this.WithOutput("created_at");
-        this.WithOutput("last_modified_at");
-        this.WithOutput("organization");
+        SetOutput("app_group_id");
+        SetOutput("created_at");
+        SetOutput("last_modified_at");
+        SetOutput("organization");
+        SetOutput("channel_id");
+        SetOutput("channel_uri");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("org_id");
+        SetOutput("status");
     }
 
     /// <summary>
     /// Channel identifier identifies the owner maintaining this grouping.
     /// </summary>
-    public TerraformProperty<string>? ChannelId
+    public TerraformProperty<string> ChannelId
     {
-        get => GetProperty<TerraformProperty<string>>("channel_id");
-        set => this.WithProperty("channel_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("channel_id");
+        set => SetProperty("channel_id", value);
     }
 
     /// <summary>
     /// A reference to the associated storefront/marketplace.
     /// </summary>
-    public TerraformProperty<string>? ChannelUri
+    public TerraformProperty<string> ChannelUri
     {
-        get => GetProperty<TerraformProperty<string>>("channel_uri");
-        set => this.WithProperty("channel_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("channel_uri");
+        set => SetProperty("channel_uri", value);
     }
 
     /// <summary>
     /// App group name displayed in the UI
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,8 +125,8 @@ public class GoogleApigeeAppGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -134,17 +136,17 @@ public class GoogleApigeeAppGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
     /// Valid values are active or inactive. Note that the status of the AppGroup should be updated via UpdateAppGroupRequest by setting the action as active or inactive. Possible values: [&amp;quot;active&amp;quot;, &amp;quot;inactive&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -153,8 +155,7 @@ public class GoogleApigeeAppGroup : TerraformResource
     /// </summary>
     public List<GoogleApigeeAppGroupAttributesBlock>? Attributes
     {
-        get => GetProperty<List<GoogleApigeeAppGroupAttributesBlock>>("attributes");
-        set => this.WithProperty("attributes", value);
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
@@ -163,8 +164,7 @@ public class GoogleApigeeAppGroup : TerraformResource
     /// </summary>
     public GoogleApigeeAppGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeAppGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,17 +14,19 @@ public class GoogleTagsTagKeyIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("id");
+        SetOutput("tag_key");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,8 +35,8 @@ public class GoogleTagsTagKeyIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     public required TerraformProperty<string> TagKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tag_key");
-        set => this.WithProperty("tag_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag_key");
+        set => SetProperty("tag_key", value);
     }
 
     /// <summary>

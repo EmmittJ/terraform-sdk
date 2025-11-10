@@ -22,8 +22,7 @@ public class GooglePrivatecaCertificateAuthorityKeySpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Algorithm
     {
-        get => GetProperty<TerraformProperty<string>>("algorithm");
-        set => WithProperty("algorithm", value);
+        set => SetProperty("algorithm", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class GooglePrivatecaCertificateAuthorityKeySpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CloudKmsKeyVersion
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_kms_key_version");
-        set => WithProperty("cloud_kms_key_version", value);
+        set => SetProperty("cloud_kms_key_version", value);
     }
 
 }
@@ -52,8 +50,7 @@ public class GooglePrivatecaCertificateAuthoritySubordinateConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? CertificateAuthority
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_authority");
-        set => WithProperty("certificate_authority", value);
+        set => SetProperty("certificate_authority", value);
     }
 
 }
@@ -69,8 +66,7 @@ public class GooglePrivatecaCertificateAuthorityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -78,8 +74,7 @@ public class GooglePrivatecaCertificateAuthorityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -87,8 +82,7 @@ public class GooglePrivatecaCertificateAuthorityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,8 +98,7 @@ public class GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock : Ter
     /// </summary>
     public List<TerraformProperty<string>>? AiaIssuingCertificateUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("aia_issuing_certificate_urls");
-        set => WithProperty("aia_issuing_certificate_urls", value);
+        set => SetProperty("aia_issuing_certificate_urls", value);
     }
 
     /// <summary>
@@ -113,8 +106,7 @@ public class GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock : Ter
     /// </summary>
     public List<TerraformProperty<string>>? CrlAccessUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("crl_access_urls");
-        set => WithProperty("crl_access_urls", value);
+        set => SetProperty("crl_access_urls", value);
     }
 
 }
@@ -132,14 +124,28 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_urls");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("pem_ca_certificates");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("access_urls");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("pem_ca_certificates");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("certificate_authority_id");
+        SetOutput("deletion_protection");
+        SetOutput("desired_state");
+        SetOutput("gcs_bucket");
+        SetOutput("id");
+        SetOutput("ignore_active_certificates_on_deletion");
+        SetOutput("labels");
+        SetOutput("lifetime");
+        SetOutput("location");
+        SetOutput("pem_ca_certificate");
+        SetOutput("pool");
+        SetOutput("project");
+        SetOutput("skip_grace_period");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -148,8 +154,8 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityId is required")]
     public required TerraformProperty<string> CertificateAuthorityId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_authority_id");
-        set => this.WithProperty("certificate_authority_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_authority_id");
+        set => SetProperty("certificate_authority_id", value);
     }
 
     /// <summary>
@@ -158,20 +164,20 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the CertificateAuthority will fail.
     /// When the field is set to false, deleting the CertificateAuthority is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// Desired state of the CertificateAuthority. Set this field to &#39;STAGED&#39; to create a &#39;STAGED&#39; root CA.
     /// Possible values: ENABLED, DISABLED, STAGED.
     /// </summary>
-    public TerraformProperty<string>? DesiredState
+    public TerraformProperty<string> DesiredState
     {
-        get => GetProperty<TerraformProperty<string>>("desired_state");
-        set => this.WithProperty("desired_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("desired_state");
+        set => SetProperty("desired_state", value);
     }
 
     /// <summary>
@@ -181,29 +187,29 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// my-bucket, you would simply specify &#39;my-bucket&#39;. If not specified, a managed bucket will be
     /// created.
     /// </summary>
-    public TerraformProperty<string>? GcsBucket
+    public TerraformProperty<string> GcsBucket
     {
-        get => GetProperty<TerraformProperty<string>>("gcs_bucket");
-        set => this.WithProperty("gcs_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gcs_bucket");
+        set => SetProperty("gcs_bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// This field allows the CA to be deleted even if the CA has active certs. Active certs include both unrevoked and unexpired certs.
     /// Use with care. Defaults to &#39;false&#39;.
     /// </summary>
-    public TerraformProperty<bool>? IgnoreActiveCertificatesOnDeletion
+    public TerraformProperty<bool> IgnoreActiveCertificatesOnDeletion
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_active_certificates_on_deletion");
-        set => this.WithProperty("ignore_active_certificates_on_deletion", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_active_certificates_on_deletion");
+        set => SetProperty("ignore_active_certificates_on_deletion", value);
     }
 
     /// <summary>
@@ -216,10 +222,10 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -227,10 +233,10 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// &amp;quot;notAfterTime&amp;quot; fields inside an X.509 certificate. A duration in seconds with up to nine
     /// fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Lifetime
+    public TerraformProperty<string> Lifetime
     {
-        get => GetProperty<TerraformProperty<string>>("lifetime");
-        set => this.WithProperty("lifetime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lifetime");
+        set => SetProperty("lifetime", value);
     }
 
     /// <summary>
@@ -240,17 +246,17 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The signed CA certificate issued from the subordinated CA&#39;s CSR. This is needed when activating the subordiante CA with a third party issuer.
     /// </summary>
-    public TerraformProperty<string>? PemCaCertificate
+    public TerraformProperty<string> PemCaCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("pem_ca_certificate");
-        set => this.WithProperty("pem_ca_certificate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pem_ca_certificate");
+        set => SetProperty("pem_ca_certificate", value);
     }
 
     /// <summary>
@@ -259,17 +265,17 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
     public required TerraformProperty<string> Pool
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pool");
-        set => this.WithProperty("pool", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool");
+        set => SetProperty("pool", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -278,10 +284,10 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// allowed. If you proceed, there will be no way to recover this CA.
     /// Use with care. Defaults to &#39;false&#39;.
     /// </summary>
-    public TerraformProperty<bool>? SkipGracePeriod
+    public TerraformProperty<bool> SkipGracePeriod
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_grace_period");
-        set => this.WithProperty("skip_grace_period", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_grace_period");
+        set => SetProperty("skip_grace_period", value);
     }
 
     /// <summary>
@@ -290,34 +296,34 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// ~&amp;gt; **Note:** For &#39;SUBORDINATE&#39; Certificate Authorities, they need to
     /// be activated before they can issue certificates. Default value: &amp;quot;SELF_SIGNED&amp;quot; Possible values: [&amp;quot;SELF_SIGNED&amp;quot;, &amp;quot;SUBORDINATE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Block for config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     public List<GooglePrivatecaCertificateAuthorityConfigBlock>? Config
     {
-        get => GetProperty<List<GooglePrivatecaCertificateAuthorityConfigBlock>>("config");
-        set => this.WithProperty("config", value);
+        set => SetProperty("config", value);
     }
 
     /// <summary>
     /// Block for key_spec.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeySpec is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KeySpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeySpec block(s) allowed")]
     public List<GooglePrivatecaCertificateAuthorityKeySpecBlock>? KeySpec
     {
-        get => GetProperty<List<GooglePrivatecaCertificateAuthorityKeySpecBlock>>("key_spec");
-        set => this.WithProperty("key_spec", value);
+        set => SetProperty("key_spec", value);
     }
 
     /// <summary>
@@ -327,8 +333,7 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubordinateConfig block(s) allowed")]
     public List<GooglePrivatecaCertificateAuthoritySubordinateConfigBlock>? SubordinateConfig
     {
-        get => GetProperty<List<GooglePrivatecaCertificateAuthoritySubordinateConfigBlock>>("subordinate_config");
-        set => this.WithProperty("subordinate_config", value);
+        set => SetProperty("subordinate_config", value);
     }
 
     /// <summary>
@@ -337,8 +342,7 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// </summary>
     public GooglePrivatecaCertificateAuthorityTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GooglePrivatecaCertificateAuthorityTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -348,8 +352,7 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserDefinedAccessUrls block(s) allowed")]
     public List<GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock>? UserDefinedAccessUrls
     {
-        get => GetProperty<List<GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock>>("user_defined_access_urls");
-        set => this.WithProperty("user_defined_access_urls", value);
+        set => SetProperty("user_defined_access_urls", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? SecretName
     {
-        get => GetProperty<TerraformProperty<string>>("secret_name");
-        set => WithProperty("secret_name", value);
+        set => SetProperty("secret_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Identity
     {
-        get => GetProperty<TerraformProperty<string>>("identity");
-        set => WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? KeyVaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_secret_id");
-        set => WithProperty("key_vault_secret_id", value);
+        set => SetProperty("key_vault_secret_id", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -94,8 +87,7 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -139,6 +128,14 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("component_type");
+        SetOutput("container_app_environment_id");
+        SetOutput("id");
+        SetOutput("ignore_errors");
+        SetOutput("init_timeout");
+        SetOutput("name");
+        SetOutput("scopes");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -147,8 +144,8 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentType is required")]
     public required TerraformProperty<string> ComponentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("component_type");
-        set => this.WithProperty("component_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("component_type");
+        set => SetProperty("component_type", value);
     }
 
     /// <summary>
@@ -157,35 +154,35 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
-        set => this.WithProperty("container_app_environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_app_environment_id");
+        set => SetProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
     /// </summary>
-    public TerraformProperty<bool>? IgnoreErrors
+    public TerraformProperty<bool> IgnoreErrors
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_errors");
-        set => this.WithProperty("ignore_errors", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_errors");
+        set => SetProperty("ignore_errors", value);
     }
 
     /// <summary>
     /// The component initialisation timeout in ISO8601 format. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
     /// </summary>
-    public TerraformProperty<string>? InitTimeout
+    public TerraformProperty<string> InitTimeout
     {
-        get => GetProperty<TerraformProperty<string>>("init_timeout");
-        set => this.WithProperty("init_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("init_timeout");
+        set => SetProperty("init_timeout", value);
     }
 
     /// <summary>
@@ -194,17 +191,17 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// A list of scopes to which this component applies. e.g. a Container App&#39;s `dapr.app_id` value.
     /// </summary>
-    public List<TerraformProperty<string>>? Scopes
+    public List<TerraformProperty<string>> Scopes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("scopes");
-        set => this.WithProperty("scopes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("scopes");
+        set => SetProperty("scopes", value);
     }
 
     /// <summary>
@@ -213,8 +210,8 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -223,8 +220,7 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// </summary>
     public List<AzurermContainerAppEnvironmentDaprComponentMetadataBlock>? Metadata
     {
-        get => GetProperty<List<AzurermContainerAppEnvironmentDaprComponentMetadataBlock>>("metadata");
-        set => this.WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -233,8 +229,7 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// </summary>
     public HashSet<AzurermContainerAppEnvironmentDaprComponentSecretBlock>? Secret
     {
-        get => GetProperty<HashSet<AzurermContainerAppEnvironmentDaprComponentSecretBlock>>("secret");
-        set => this.WithProperty("secret", value);
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
@@ -243,8 +238,7 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// </summary>
     public AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

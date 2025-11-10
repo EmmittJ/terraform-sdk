@@ -13,8 +13,7 @@ public class AwsVpcEndpointDnsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DnsRecordIpType
     {
-        get => GetProperty<TerraformProperty<string>>("dns_record_ip_type");
-        set => WithProperty("dns_record_ip_type", value);
+        set => SetProperty("dns_record_ip_type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpcEndpointDnsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PrivateDnsOnlyForInboundResolverEndpoint
     {
-        get => GetProperty<TerraformProperty<bool>>("private_dns_only_for_inbound_resolver_endpoint");
-        set => WithProperty("private_dns_only_for_inbound_resolver_endpoint", value);
+        set => SetProperty("private_dns_only_for_inbound_resolver_endpoint", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsVpcEndpointSubnetConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ipv4
     {
-        get => GetProperty<TerraformProperty<string>>("ipv4");
-        set => WithProperty("ipv4", value);
+        set => SetProperty("ipv4", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsVpcEndpointSubnetConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ipv6
     {
-        get => GetProperty<TerraformProperty<string>>("ipv6");
-        set => WithProperty("ipv6", value);
+        set => SetProperty("ipv6", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsVpcEndpointSubnetConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class AwsVpcEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AwsVpcEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AwsVpcEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,158 +103,175 @@ public class AwsVpcEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cidr_blocks");
-        this.WithOutput("dns_entry");
-        this.WithOutput("network_interface_ids");
-        this.WithOutput("owner_id");
-        this.WithOutput("prefix_list_id");
-        this.WithOutput("requester_managed");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("cidr_blocks");
+        SetOutput("dns_entry");
+        SetOutput("network_interface_ids");
+        SetOutput("owner_id");
+        SetOutput("prefix_list_id");
+        SetOutput("requester_managed");
+        SetOutput("state");
+        SetOutput("auto_accept");
+        SetOutput("id");
+        SetOutput("ip_address_type");
+        SetOutput("policy");
+        SetOutput("private_dns_enabled");
+        SetOutput("region");
+        SetOutput("resource_configuration_arn");
+        SetOutput("route_table_ids");
+        SetOutput("security_group_ids");
+        SetOutput("service_name");
+        SetOutput("service_network_arn");
+        SetOutput("service_region");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_endpoint_type");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The auto_accept attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoAccept
+    public TerraformProperty<bool> AutoAccept
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_accept");
-        set => this.WithProperty("auto_accept", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_accept");
+        set => SetProperty("auto_accept", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddressType
+    public TerraformProperty<string> IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => this.WithProperty("ip_address_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_address_type");
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    public TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
     /// The private_dns_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivateDnsEnabled
+    public TerraformProperty<bool> PrivateDnsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_dns_enabled");
-        set => this.WithProperty("private_dns_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_dns_enabled");
+        set => SetProperty("private_dns_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resource_configuration_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceConfigurationArn
+    public TerraformProperty<string> ResourceConfigurationArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_configuration_arn");
-        set => this.WithProperty("resource_configuration_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_configuration_arn");
+        set => SetProperty("resource_configuration_arn", value);
     }
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? RouteTableIds
+    public HashSet<TerraformProperty<string>> RouteTableIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("route_table_ids");
-        set => this.WithProperty("route_table_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("route_table_ids");
+        set => SetProperty("route_table_ids", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceName
+    public TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
     /// The service_network_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceNetworkArn
+    public TerraformProperty<string> ServiceNetworkArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_network_arn");
-        set => this.WithProperty("service_network_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_network_arn");
+        set => SetProperty("service_network_arn", value);
     }
 
     /// <summary>
     /// The service_region attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceRegion
+    public TerraformProperty<string> ServiceRegion
     {
-        get => GetProperty<TerraformProperty<string>>("service_region");
-        set => this.WithProperty("service_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_region");
+        set => SetProperty("service_region", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_endpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointType
+    public TerraformProperty<string> VpcEndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_type");
-        set => this.WithProperty("vpc_endpoint_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_endpoint_type");
+        set => SetProperty("vpc_endpoint_type", value);
     }
 
     /// <summary>
@@ -271,8 +280,8 @@ public class AwsVpcEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -282,8 +291,7 @@ public class AwsVpcEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsOptions block(s) allowed")]
     public List<AwsVpcEndpointDnsOptionsBlock>? DnsOptions
     {
-        get => GetProperty<List<AwsVpcEndpointDnsOptionsBlock>>("dns_options");
-        set => this.WithProperty("dns_options", value);
+        set => SetProperty("dns_options", value);
     }
 
     /// <summary>
@@ -292,8 +300,7 @@ public class AwsVpcEndpoint : TerraformResource
     /// </summary>
     public HashSet<AwsVpcEndpointSubnetConfigurationBlock>? SubnetConfiguration
     {
-        get => GetProperty<HashSet<AwsVpcEndpointSubnetConfigurationBlock>>("subnet_configuration");
-        set => this.WithProperty("subnet_configuration", value);
+        set => SetProperty("subnet_configuration", value);
     }
 
     /// <summary>
@@ -302,8 +309,7 @@ public class AwsVpcEndpoint : TerraformResource
     /// </summary>
     public AwsVpcEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

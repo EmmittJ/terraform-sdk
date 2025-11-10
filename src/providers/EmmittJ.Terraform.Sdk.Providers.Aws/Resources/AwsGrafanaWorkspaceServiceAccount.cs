@@ -14,8 +14,12 @@ public class AwsGrafanaWorkspaceServiceAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("service_account_id");
+        SetOutput("id");
+        SetOutput("service_account_id");
+        SetOutput("grafana_role");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
@@ -24,8 +28,8 @@ public class AwsGrafanaWorkspaceServiceAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaRole is required")]
     public required TerraformProperty<string> GrafanaRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("grafana_role");
-        set => this.WithProperty("grafana_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("grafana_role");
+        set => SetProperty("grafana_role", value);
     }
 
     /// <summary>
@@ -34,17 +38,17 @@ public class AwsGrafanaWorkspaceServiceAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -53,8 +57,8 @@ public class AwsGrafanaWorkspaceServiceAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>

@@ -14,68 +14,74 @@ public class AwsRoute53ZoneDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputaller_reference");
-        this.WithOutputomment");
-        this.WithOutputinked_service_description");
-        this.WithOutputinked_service_principal");
-        this.WithOutputame_servers");
-        this.WithOutputrimary_name_server");
-        this.WithOutputesource_record_set_count");
+        SetOutput("arn");
+        SetOutput("caller_reference");
+        SetOutput("comment");
+        SetOutput("linked_service_description");
+        SetOutput("linked_service_principal");
+        SetOutput("name_servers");
+        SetOutput("primary_name_server");
+        SetOutput("resource_record_set_count");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("private_zone");
+        SetOutput("tags");
+        SetOutput("vpc_id");
+        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The private_zone attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivateZone
+    public TerraformProperty<bool> PrivateZone
     {
-        get => GetProperty<TerraformProperty<bool>>("private_zone");
-        set => this.WithProperty("private_zone", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_zone");
+        set => SetProperty("private_zone", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    public TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ZoneId
+    public TerraformProperty<string> ZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("zone_id");
-        set => this.WithProperty("zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
+        set => SetProperty("zone_id", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsStreamInputIothubSerializationBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Encoding
     {
-        get => GetProperty<TerraformProperty<string>>("encoding");
-        set => WithProperty("encoding", value);
+        set => SetProperty("encoding", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsStreamInputIothubSerializationBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? FieldDelimiter
     {
-        get => GetProperty<TerraformProperty<string>>("field_delimiter");
-        set => WithProperty("field_delimiter", value);
+        set => SetProperty("field_delimiter", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermStreamAnalyticsStreamInputIothubSerializationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermStreamAnalyticsStreamInputIothubTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermStreamAnalyticsStreamInputIothubTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermStreamAnalyticsStreamInputIothubTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermStreamAnalyticsStreamInputIothubTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,6 +88,15 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("endpoint");
+        SetOutput("eventhub_consumer_group_name");
+        SetOutput("id");
+        SetOutput("iothub_namespace");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("shared_access_policy_key");
+        SetOutput("shared_access_policy_name");
+        SetOutput("stream_analytics_job_name");
     }
 
     /// <summary>
@@ -103,8 +105,8 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
-        set => this.WithProperty("endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint");
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
@@ -113,17 +115,17 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformProperty<string> EventhubConsumerGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
-        set => this.WithProperty("eventhub_consumer_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_consumer_group_name");
+        set => SetProperty("eventhub_consumer_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -132,8 +134,8 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubNamespace is required")]
     public required TerraformProperty<string> IothubNamespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_namespace");
-        set => this.WithProperty("iothub_namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_namespace");
+        set => SetProperty("iothub_namespace", value);
     }
 
     /// <summary>
@@ -142,8 +144,8 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -152,8 +154,8 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -162,8 +164,8 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyKey is required")]
     public required TerraformProperty<string> SharedAccessPolicyKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("shared_access_policy_key");
-        set => this.WithProperty("shared_access_policy_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shared_access_policy_key");
+        set => SetProperty("shared_access_policy_key", value);
     }
 
     /// <summary>
@@ -172,8 +174,8 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyName is required")]
     public required TerraformProperty<string> SharedAccessPolicyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("shared_access_policy_name");
-        set => this.WithProperty("shared_access_policy_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shared_access_policy_name");
+        set => SetProperty("shared_access_policy_name", value);
     }
 
     /// <summary>
@@ -182,20 +184,20 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
-        set => this.WithProperty("stream_analytics_job_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_name");
+        set => SetProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
     /// Block for serialization.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
     public List<AzurermStreamAnalyticsStreamInputIothubSerializationBlock>? Serialization
     {
-        get => GetProperty<List<AzurermStreamAnalyticsStreamInputIothubSerializationBlock>>("serialization");
-        set => this.WithProperty("serialization", value);
+        set => SetProperty("serialization", value);
     }
 
     /// <summary>
@@ -204,8 +206,7 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsStreamInputIothubTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsStreamInputIothubTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

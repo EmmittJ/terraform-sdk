@@ -13,8 +13,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformProperty<double>? BufferingInterval
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_interval");
-        set => WithProperty("buffering_interval", value);
+        set => SetProperty("buffering_interval", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformProperty<double>? BufferingSize
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_size");
-        set => WithProperty("buffering_size", value);
+        set => SetProperty("buffering_size", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformProperty<string>? ClusterEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_endpoint");
-        set => WithProperty("cluster_endpoint", value);
+        set => SetProperty("cluster_endpoint", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformProperty<string>? DomainArn
     {
-        get => GetProperty<TerraformProperty<string>>("domain_arn");
-        set => WithProperty("domain_arn", value);
+        set => SetProperty("domain_arn", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
-        set => WithProperty("index_name", value);
+        set => SetProperty("index_name", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformProperty<string>? IndexRotationPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("index_rotation_period");
-        set => WithProperty("index_rotation_period", value);
+        set => SetProperty("index_rotation_period", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformProperty<double>? RetryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("retry_duration");
-        set => WithProperty("retry_duration", value);
+        set => SetProperty("retry_duration", value);
     }
 
     /// <summary>
@@ -78,8 +71,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -87,8 +79,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformProperty<string>? S3BackupMode
     {
-        get => GetProperty<TerraformProperty<string>>("s3_backup_mode");
-        set => WithProperty("s3_backup_mode", value);
+        set => SetProperty("s3_backup_mode", value);
     }
 
     /// <summary>
@@ -96,8 +87,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformProperty<string>? TypeName
     {
-        get => GetProperty<TerraformProperty<string>>("type_name");
-        set => WithProperty("type_name", value);
+        set => SetProperty("type_name", value);
     }
 
 }
@@ -114,8 +104,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformProperty<string> BucketArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_arn");
-        set => WithProperty("bucket_arn", value);
+        set => SetProperty("bucket_arn", value);
     }
 
     /// <summary>
@@ -123,8 +112,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<double>? BufferingInterval
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_interval");
-        set => WithProperty("buffering_interval", value);
+        set => SetProperty("buffering_interval", value);
     }
 
     /// <summary>
@@ -132,8 +120,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<double>? BufferingSize
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_size");
-        set => WithProperty("buffering_size", value);
+        set => SetProperty("buffering_size", value);
     }
 
     /// <summary>
@@ -141,8 +128,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? CompressionFormat
     {
-        get => GetProperty<TerraformProperty<string>>("compression_format");
-        set => WithProperty("compression_format", value);
+        set => SetProperty("compression_format", value);
     }
 
     /// <summary>
@@ -150,8 +136,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? CustomTimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("custom_time_zone");
-        set => WithProperty("custom_time_zone", value);
+        set => SetProperty("custom_time_zone", value);
     }
 
     /// <summary>
@@ -159,8 +144,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? ErrorOutputPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("error_output_prefix");
-        set => WithProperty("error_output_prefix", value);
+        set => SetProperty("error_output_prefix", value);
     }
 
     /// <summary>
@@ -168,8 +152,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? FileExtension
     {
-        get => GetProperty<TerraformProperty<string>>("file_extension");
-        set => WithProperty("file_extension", value);
+        set => SetProperty("file_extension", value);
     }
 
     /// <summary>
@@ -177,8 +160,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => WithProperty("kms_key_arn", value);
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
@@ -186,8 +168,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
-        set => WithProperty("prefix", value);
+        set => SetProperty("prefix", value);
     }
 
     /// <summary>
@@ -196,8 +177,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -205,8 +185,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? S3BackupMode
     {
-        get => GetProperty<TerraformProperty<string>>("s3_backup_mode");
-        set => WithProperty("s3_backup_mode", value);
+        set => SetProperty("s3_backup_mode", value);
     }
 
 }
@@ -222,8 +201,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformProperty<string>? AccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("access_key");
-        set => WithProperty("access_key", value);
+        set => SetProperty("access_key", value);
     }
 
     /// <summary>
@@ -231,8 +209,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformProperty<double>? BufferingInterval
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_interval");
-        set => WithProperty("buffering_interval", value);
+        set => SetProperty("buffering_interval", value);
     }
 
     /// <summary>
@@ -240,8 +217,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformProperty<double>? BufferingSize
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_size");
-        set => WithProperty("buffering_size", value);
+        set => SetProperty("buffering_size", value);
     }
 
     /// <summary>
@@ -249,8 +225,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -258,8 +233,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformProperty<double>? RetryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("retry_duration");
-        set => WithProperty("retry_duration", value);
+        set => SetProperty("retry_duration", value);
     }
 
     /// <summary>
@@ -267,8 +241,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -276,8 +249,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformProperty<string>? S3BackupMode
     {
-        get => GetProperty<TerraformProperty<string>>("s3_backup_mode");
-        set => WithProperty("s3_backup_mode", value);
+        set => SetProperty("s3_backup_mode", value);
     }
 
     /// <summary>
@@ -286,8 +258,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -303,8 +274,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? AppendOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("append_only");
-        set => WithProperty("append_only", value);
+        set => SetProperty("append_only", value);
     }
 
     /// <summary>
@@ -312,8 +282,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? BufferingInterval
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_interval");
-        set => WithProperty("buffering_interval", value);
+        set => SetProperty("buffering_interval", value);
     }
 
     /// <summary>
@@ -321,8 +290,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? BufferingSize
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_size");
-        set => WithProperty("buffering_size", value);
+        set => SetProperty("buffering_size", value);
     }
 
     /// <summary>
@@ -331,8 +299,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogArn is required")]
     public required TerraformProperty<string> CatalogArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("catalog_arn");
-        set => WithProperty("catalog_arn", value);
+        set => SetProperty("catalog_arn", value);
     }
 
     /// <summary>
@@ -340,8 +307,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? RetryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("retry_duration");
-        set => WithProperty("retry_duration", value);
+        set => SetProperty("retry_duration", value);
     }
 
     /// <summary>
@@ -350,8 +316,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -359,8 +324,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? S3BackupMode
     {
-        get => GetProperty<TerraformProperty<string>>("s3_backup_mode");
-        set => WithProperty("s3_backup_mode", value);
+        set => SetProperty("s3_backup_mode", value);
     }
 
 }
@@ -377,8 +341,7 @@ public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KinesisStreamArn is required")]
     public required TerraformProperty<string> KinesisStreamArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kinesis_stream_arn");
-        set => WithProperty("kinesis_stream_arn", value);
+        set => SetProperty("kinesis_stream_arn", value);
     }
 
     /// <summary>
@@ -387,8 +350,7 @@ public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
 }
@@ -405,8 +367,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MskClusterArn is required")]
     public required TerraformProperty<string> MskClusterArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("msk_cluster_arn");
-        set => WithProperty("msk_cluster_arn", value);
+        set => SetProperty("msk_cluster_arn", value);
     }
 
     /// <summary>
@@ -414,8 +375,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<string>? ReadFromTimestamp
     {
-        get => GetProperty<TerraformProperty<string>>("read_from_timestamp");
-        set => WithProperty("read_from_timestamp", value);
+        set => SetProperty("read_from_timestamp", value);
     }
 
     /// <summary>
@@ -424,8 +384,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformProperty<string> TopicName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic_name");
-        set => WithProperty("topic_name", value);
+        set => SetProperty("topic_name", value);
     }
 
 }
@@ -441,8 +400,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<double>? BufferingInterval
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_interval");
-        set => WithProperty("buffering_interval", value);
+        set => SetProperty("buffering_interval", value);
     }
 
     /// <summary>
@@ -450,8 +408,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<double>? BufferingSize
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_size");
-        set => WithProperty("buffering_size", value);
+        set => SetProperty("buffering_size", value);
     }
 
     /// <summary>
@@ -459,8 +416,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? ClusterEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_endpoint");
-        set => WithProperty("cluster_endpoint", value);
+        set => SetProperty("cluster_endpoint", value);
     }
 
     /// <summary>
@@ -468,8 +424,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? DomainArn
     {
-        get => GetProperty<TerraformProperty<string>>("domain_arn");
-        set => WithProperty("domain_arn", value);
+        set => SetProperty("domain_arn", value);
     }
 
     /// <summary>
@@ -478,8 +433,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
-        set => WithProperty("index_name", value);
+        set => SetProperty("index_name", value);
     }
 
     /// <summary>
@@ -487,8 +441,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? IndexRotationPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("index_rotation_period");
-        set => WithProperty("index_rotation_period", value);
+        set => SetProperty("index_rotation_period", value);
     }
 
     /// <summary>
@@ -496,8 +449,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<double>? RetryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("retry_duration");
-        set => WithProperty("retry_duration", value);
+        set => SetProperty("retry_duration", value);
     }
 
     /// <summary>
@@ -506,8 +458,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -515,8 +466,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? S3BackupMode
     {
-        get => GetProperty<TerraformProperty<string>>("s3_backup_mode");
-        set => WithProperty("s3_backup_mode", value);
+        set => SetProperty("s3_backup_mode", value);
     }
 
     /// <summary>
@@ -524,8 +474,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? TypeName
     {
-        get => GetProperty<TerraformProperty<string>>("type_name");
-        set => WithProperty("type_name", value);
+        set => SetProperty("type_name", value);
     }
 
 }
@@ -541,8 +490,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformProperty<double>? BufferingInterval
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_interval");
-        set => WithProperty("buffering_interval", value);
+        set => SetProperty("buffering_interval", value);
     }
 
     /// <summary>
@@ -550,8 +498,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformProperty<double>? BufferingSize
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_size");
-        set => WithProperty("buffering_size", value);
+        set => SetProperty("buffering_size", value);
     }
 
     /// <summary>
@@ -560,8 +507,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionEndpoint is required")]
     public required TerraformProperty<string> CollectionEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection_endpoint");
-        set => WithProperty("collection_endpoint", value);
+        set => SetProperty("collection_endpoint", value);
     }
 
     /// <summary>
@@ -570,8 +516,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
-        set => WithProperty("index_name", value);
+        set => SetProperty("index_name", value);
     }
 
     /// <summary>
@@ -579,8 +524,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformProperty<double>? RetryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("retry_duration");
-        set => WithProperty("retry_duration", value);
+        set => SetProperty("retry_duration", value);
     }
 
     /// <summary>
@@ -589,8 +533,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -598,8 +541,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformProperty<string>? S3BackupMode
     {
-        get => GetProperty<TerraformProperty<string>>("s3_backup_mode");
-        set => WithProperty("s3_backup_mode", value);
+        set => SetProperty("s3_backup_mode", value);
     }
 
 }
@@ -616,8 +558,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterJdbcurl is required")]
     public required TerraformProperty<string> ClusterJdbcurl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_jdbcurl");
-        set => WithProperty("cluster_jdbcurl", value);
+        set => SetProperty("cluster_jdbcurl", value);
     }
 
     /// <summary>
@@ -625,8 +566,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? CopyOptions
     {
-        get => GetProperty<TerraformProperty<string>>("copy_options");
-        set => WithProperty("copy_options", value);
+        set => SetProperty("copy_options", value);
     }
 
     /// <summary>
@@ -634,8 +574,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? DataTableColumns
     {
-        get => GetProperty<TerraformProperty<string>>("data_table_columns");
-        set => WithProperty("data_table_columns", value);
+        set => SetProperty("data_table_columns", value);
     }
 
     /// <summary>
@@ -644,8 +583,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTableName is required")]
     public required TerraformProperty<string> DataTableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_table_name");
-        set => WithProperty("data_table_name", value);
+        set => SetProperty("data_table_name", value);
     }
 
     /// <summary>
@@ -653,8 +591,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -662,8 +599,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? RetryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("retry_duration");
-        set => WithProperty("retry_duration", value);
+        set => SetProperty("retry_duration", value);
     }
 
     /// <summary>
@@ -672,8 +608,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -681,8 +616,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? S3BackupMode
     {
-        get => GetProperty<TerraformProperty<string>>("s3_backup_mode");
-        set => WithProperty("s3_backup_mode", value);
+        set => SetProperty("s3_backup_mode", value);
     }
 
     /// <summary>
@@ -690,8 +624,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -707,8 +640,7 @@ public class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -716,8 +648,7 @@ public class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? KeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("key_arn");
-        set => WithProperty("key_arn", value);
+        set => SetProperty("key_arn", value);
     }
 
     /// <summary>
@@ -725,8 +656,7 @@ public class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? KeyType
     {
-        get => GetProperty<TerraformProperty<string>>("key_type");
-        set => WithProperty("key_type", value);
+        set => SetProperty("key_type", value);
     }
 
 }
@@ -743,8 +673,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountUrl is required")]
     public required TerraformProperty<string> AccountUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_url");
-        set => WithProperty("account_url", value);
+        set => SetProperty("account_url", value);
     }
 
     /// <summary>
@@ -752,8 +681,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<double>? BufferingInterval
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_interval");
-        set => WithProperty("buffering_interval", value);
+        set => SetProperty("buffering_interval", value);
     }
 
     /// <summary>
@@ -761,8 +689,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<double>? BufferingSize
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_size");
-        set => WithProperty("buffering_size", value);
+        set => SetProperty("buffering_size", value);
     }
 
     /// <summary>
@@ -770,8 +697,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<string>? ContentColumnName
     {
-        get => GetProperty<TerraformProperty<string>>("content_column_name");
-        set => WithProperty("content_column_name", value);
+        set => SetProperty("content_column_name", value);
     }
 
     /// <summary>
@@ -779,8 +705,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<string>? DataLoadingOption
     {
-        get => GetProperty<TerraformProperty<string>>("data_loading_option");
-        set => WithProperty("data_loading_option", value);
+        set => SetProperty("data_loading_option", value);
     }
 
     /// <summary>
@@ -789,8 +714,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database");
-        set => WithProperty("database", value);
+        set => SetProperty("database", value);
     }
 
     /// <summary>
@@ -798,8 +722,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<string>? KeyPassphrase
     {
-        get => GetProperty<TerraformProperty<string>>("key_passphrase");
-        set => WithProperty("key_passphrase", value);
+        set => SetProperty("key_passphrase", value);
     }
 
     /// <summary>
@@ -807,8 +730,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<string>? MetadataColumnName
     {
-        get => GetProperty<TerraformProperty<string>>("metadata_column_name");
-        set => WithProperty("metadata_column_name", value);
+        set => SetProperty("metadata_column_name", value);
     }
 
     /// <summary>
@@ -816,8 +738,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<string>? PrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("private_key");
-        set => WithProperty("private_key", value);
+        set => SetProperty("private_key", value);
     }
 
     /// <summary>
@@ -825,8 +746,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<double>? RetryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("retry_duration");
-        set => WithProperty("retry_duration", value);
+        set => SetProperty("retry_duration", value);
     }
 
     /// <summary>
@@ -835,8 +755,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -844,8 +763,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<string>? S3BackupMode
     {
-        get => GetProperty<TerraformProperty<string>>("s3_backup_mode");
-        set => WithProperty("s3_backup_mode", value);
+        set => SetProperty("s3_backup_mode", value);
     }
 
     /// <summary>
@@ -854,8 +772,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformProperty<string> Schema
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schema");
-        set => WithProperty("schema", value);
+        set => SetProperty("schema", value);
     }
 
     /// <summary>
@@ -864,8 +781,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table");
-        set => WithProperty("table", value);
+        set => SetProperty("table", value);
     }
 
     /// <summary>
@@ -873,8 +789,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformProperty<string>? User
     {
-        get => GetProperty<TerraformProperty<string>>("user");
-        set => WithProperty("user", value);
+        set => SetProperty("user", value);
     }
 
 }
@@ -890,8 +805,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? BufferingInterval
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_interval");
-        set => WithProperty("buffering_interval", value);
+        set => SetProperty("buffering_interval", value);
     }
 
     /// <summary>
@@ -899,8 +813,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? BufferingSize
     {
-        get => GetProperty<TerraformProperty<double>>("buffering_size");
-        set => WithProperty("buffering_size", value);
+        set => SetProperty("buffering_size", value);
     }
 
     /// <summary>
@@ -908,8 +821,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? HecAcknowledgmentTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("hec_acknowledgment_timeout");
-        set => WithProperty("hec_acknowledgment_timeout", value);
+        set => SetProperty("hec_acknowledgment_timeout", value);
     }
 
     /// <summary>
@@ -918,8 +830,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HecEndpoint is required")]
     public required TerraformProperty<string> HecEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hec_endpoint");
-        set => WithProperty("hec_endpoint", value);
+        set => SetProperty("hec_endpoint", value);
     }
 
     /// <summary>
@@ -927,8 +838,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? HecEndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("hec_endpoint_type");
-        set => WithProperty("hec_endpoint_type", value);
+        set => SetProperty("hec_endpoint_type", value);
     }
 
     /// <summary>
@@ -936,8 +846,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? HecToken
     {
-        get => GetProperty<TerraformProperty<string>>("hec_token");
-        set => WithProperty("hec_token", value);
+        set => SetProperty("hec_token", value);
     }
 
     /// <summary>
@@ -945,8 +854,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? RetryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("retry_duration");
-        set => WithProperty("retry_duration", value);
+        set => SetProperty("retry_duration", value);
     }
 
     /// <summary>
@@ -954,8 +862,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? S3BackupMode
     {
-        get => GetProperty<TerraformProperty<string>>("s3_backup_mode");
-        set => WithProperty("s3_backup_mode", value);
+        set => SetProperty("s3_backup_mode", value);
     }
 
 }
@@ -971,8 +878,7 @@ public class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -980,8 +886,7 @@ public class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -989,8 +894,7 @@ public class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -1008,15 +912,24 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("arn");
+        SetOutput("destination");
+        SetOutput("destination_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("version_id");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
@@ -1025,26 +938,26 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination");
-        set => this.WithProperty("destination", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination");
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// The destination_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationId
+    public TerraformProperty<string> DestinationId
     {
-        get => GetProperty<TerraformProperty<string>>("destination_id");
-        set => this.WithProperty("destination_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_id");
+        set => SetProperty("destination_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -1053,44 +966,44 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionId
+    public TerraformProperty<string> VersionId
     {
-        get => GetProperty<TerraformProperty<string>>("version_id");
-        set => this.WithProperty("version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
+        set => SetProperty("version_id", value);
     }
 
     /// <summary>
@@ -1100,8 +1013,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock>? ElasticsearchConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock>>("elasticsearch_configuration");
-        set => this.WithProperty("elasticsearch_configuration", value);
+        set => SetProperty("elasticsearch_configuration", value);
     }
 
     /// <summary>
@@ -1111,8 +1023,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtendedS3Configuration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock>? ExtendedS3Configuration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock>>("extended_s3_configuration");
-        set => this.WithProperty("extended_s3_configuration", value);
+        set => SetProperty("extended_s3_configuration", value);
     }
 
     /// <summary>
@@ -1122,8 +1033,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpEndpointConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock>? HttpEndpointConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock>>("http_endpoint_configuration");
-        set => this.WithProperty("http_endpoint_configuration", value);
+        set => SetProperty("http_endpoint_configuration", value);
     }
 
     /// <summary>
@@ -1133,8 +1043,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IcebergConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock>? IcebergConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock>>("iceberg_configuration");
-        set => this.WithProperty("iceberg_configuration", value);
+        set => SetProperty("iceberg_configuration", value);
     }
 
     /// <summary>
@@ -1144,8 +1053,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisSourceConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock>? KinesisSourceConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock>>("kinesis_source_configuration");
-        set => this.WithProperty("kinesis_source_configuration", value);
+        set => SetProperty("kinesis_source_configuration", value);
     }
 
     /// <summary>
@@ -1155,8 +1063,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MskSourceConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock>? MskSourceConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock>>("msk_source_configuration");
-        set => this.WithProperty("msk_source_configuration", value);
+        set => SetProperty("msk_source_configuration", value);
     }
 
     /// <summary>
@@ -1166,8 +1073,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock>? OpensearchConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock>>("opensearch_configuration");
-        set => this.WithProperty("opensearch_configuration", value);
+        set => SetProperty("opensearch_configuration", value);
     }
 
     /// <summary>
@@ -1177,8 +1083,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchserverlessConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock>? OpensearchserverlessConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock>>("opensearchserverless_configuration");
-        set => this.WithProperty("opensearchserverless_configuration", value);
+        set => SetProperty("opensearchserverless_configuration", value);
     }
 
     /// <summary>
@@ -1188,8 +1093,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock>? RedshiftConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock>>("redshift_configuration");
-        set => this.WithProperty("redshift_configuration", value);
+        set => SetProperty("redshift_configuration", value);
     }
 
     /// <summary>
@@ -1199,8 +1103,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock>? ServerSideEncryption
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock>>("server_side_encryption");
-        set => this.WithProperty("server_side_encryption", value);
+        set => SetProperty("server_side_encryption", value);
     }
 
     /// <summary>
@@ -1210,8 +1113,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnowflakeConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock>? SnowflakeConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock>>("snowflake_configuration");
-        set => this.WithProperty("snowflake_configuration", value);
+        set => SetProperty("snowflake_configuration", value);
     }
 
     /// <summary>
@@ -1221,8 +1123,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SplunkConfiguration block(s) allowed")]
     public List<AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock>? SplunkConfiguration
     {
-        get => GetProperty<List<AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock>>("splunk_configuration");
-        set => this.WithProperty("splunk_configuration", value);
+        set => SetProperty("splunk_configuration", value);
     }
 
     /// <summary>
@@ -1231,8 +1132,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     public AwsKinesisFirehoseDeliveryStreamTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsKinesisFirehoseDeliveryStreamTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,7 +14,10 @@ public class AwsMskSingleScramSecretAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("cluster_arn");
+        SetOutput("region");
+        SetOutput("secret_arn");
     }
 
     /// <summary>
@@ -23,17 +26,17 @@ public class AwsMskSingleScramSecretAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     public required TerraformProperty<string> ClusterArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_arn");
-        set => this.WithProperty("cluster_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_arn");
+        set => SetProperty("cluster_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -42,8 +45,8 @@ public class AwsMskSingleScramSecretAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArn is required")]
     public required TerraformProperty<string> SecretArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_arn");
-        set => this.WithProperty("secret_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_arn");
+        set => SetProperty("secret_arn", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleIapBrandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIapBrandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -41,8 +39,12 @@ public class GoogleIapBrand : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("org_internal_only");
+        SetOutput("name");
+        SetOutput("org_internal_only");
+        SetOutput("application_title");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("support_email");
     }
 
     /// <summary>
@@ -51,26 +53,26 @@ public class GoogleIapBrand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationTitle is required")]
     public required TerraformProperty<string> ApplicationTitle
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_title");
-        set => this.WithProperty("application_title", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_title");
+        set => SetProperty("application_title", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -83,8 +85,8 @@ public class GoogleIapBrand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportEmail is required")]
     public required TerraformProperty<string> SupportEmail
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("support_email");
-        set => this.WithProperty("support_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("support_email");
+        set => SetProperty("support_email", value);
     }
 
     /// <summary>
@@ -93,8 +95,7 @@ public class GoogleIapBrand : TerraformResource
     /// </summary>
     public GoogleIapBrandTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIapBrandTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

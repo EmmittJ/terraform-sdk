@@ -13,8 +13,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellContainerBlock : Terr
     /// </summary>
     public TerraformProperty<string>? ContainerGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("container_group_name");
-        set => WithProperty("container_group_name", value);
+        set => SetProperty("container_group_name", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBl
     /// </summary>
     public TerraformProperty<string>? SecureValue
     {
-        get => GetProperty<TerraformProperty<string>>("secure_value");
-        set => WithProperty("secure_value", value);
+        set => SetProperty("secure_value", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBl
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -95,8 +89,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -105,8 +98,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -122,8 +114,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -131,8 +122,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -140,8 +130,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -149,8 +138,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -168,43 +156,57 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("outputs");
+        SetOutput("outputs");
+        SetOutput("cleanup_preference");
+        SetOutput("command_line");
+        SetOutput("force_update_tag");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("primary_script_uri");
+        SetOutput("resource_group_name");
+        SetOutput("retention_interval");
+        SetOutput("script_content");
+        SetOutput("supporting_script_uris");
+        SetOutput("tags");
+        SetOutput("timeout");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The cleanup_preference attribute.
     /// </summary>
-    public TerraformProperty<string>? CleanupPreference
+    public TerraformProperty<string> CleanupPreference
     {
-        get => GetProperty<TerraformProperty<string>>("cleanup_preference");
-        set => this.WithProperty("cleanup_preference", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cleanup_preference");
+        set => SetProperty("cleanup_preference", value);
     }
 
     /// <summary>
     /// The command_line attribute.
     /// </summary>
-    public TerraformProperty<string>? CommandLine
+    public TerraformProperty<string> CommandLine
     {
-        get => GetProperty<TerraformProperty<string>>("command_line");
-        set => this.WithProperty("command_line", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("command_line");
+        set => SetProperty("command_line", value);
     }
 
     /// <summary>
     /// The force_update_tag attribute.
     /// </summary>
-    public TerraformProperty<string>? ForceUpdateTag
+    public TerraformProperty<string> ForceUpdateTag
     {
-        get => GetProperty<TerraformProperty<string>>("force_update_tag");
-        set => this.WithProperty("force_update_tag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("force_update_tag");
+        set => SetProperty("force_update_tag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -213,8 +215,8 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -223,17 +225,17 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The primary_script_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? PrimaryScriptUri
+    public TerraformProperty<string> PrimaryScriptUri
     {
-        get => GetProperty<TerraformProperty<string>>("primary_script_uri");
-        set => this.WithProperty("primary_script_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("primary_script_uri");
+        set => SetProperty("primary_script_uri", value);
     }
 
     /// <summary>
@@ -242,8 +244,8 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -252,44 +254,44 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInterval is required")]
     public required TerraformProperty<string> RetentionInterval
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("retention_interval");
-        set => this.WithProperty("retention_interval", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("retention_interval");
+        set => SetProperty("retention_interval", value);
     }
 
     /// <summary>
     /// The script_content attribute.
     /// </summary>
-    public TerraformProperty<string>? ScriptContent
+    public TerraformProperty<string> ScriptContent
     {
-        get => GetProperty<TerraformProperty<string>>("script_content");
-        set => this.WithProperty("script_content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("script_content");
+        set => SetProperty("script_content", value);
     }
 
     /// <summary>
     /// The supporting_script_uris attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SupportingScriptUris
+    public List<TerraformProperty<string>> SupportingScriptUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("supporting_script_uris");
-        set => this.WithProperty("supporting_script_uris", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("supporting_script_uris");
+        set => SetProperty("supporting_script_uris", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformProperty<string>? Timeout
+    public TerraformProperty<string> Timeout
     {
-        get => GetProperty<TerraformProperty<string>>("timeout");
-        set => this.WithProperty("timeout", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("timeout");
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>
@@ -298,8 +300,8 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -309,8 +311,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Container block(s) allowed")]
     public List<AzurermResourceDeploymentScriptAzurePowerShellContainerBlock>? Container
     {
-        get => GetProperty<List<AzurermResourceDeploymentScriptAzurePowerShellContainerBlock>>("container");
-        set => this.WithProperty("container", value);
+        set => SetProperty("container", value);
     }
 
     /// <summary>
@@ -319,8 +320,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// </summary>
     public HashSet<AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock>? EnvironmentVariable
     {
-        get => GetProperty<HashSet<AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock>>("environment_variable");
-        set => this.WithProperty("environment_variable", value);
+        set => SetProperty("environment_variable", value);
     }
 
     /// <summary>
@@ -330,8 +330,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -341,8 +340,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
     public List<AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock>? StorageAccount
     {
-        get => GetProperty<List<AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock>>("storage_account");
-        set => this.WithProperty("storage_account", value);
+        set => SetProperty("storage_account", value);
     }
 
     /// <summary>
@@ -351,8 +349,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// </summary>
     public AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

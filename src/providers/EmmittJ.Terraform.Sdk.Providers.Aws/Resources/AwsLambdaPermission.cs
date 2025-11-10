@@ -14,6 +14,19 @@ public class AwsLambdaPermission : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("action");
+        SetOutput("event_source_token");
+        SetOutput("function_name");
+        SetOutput("function_url_auth_type");
+        SetOutput("id");
+        SetOutput("principal");
+        SetOutput("principal_org_id");
+        SetOutput("qualifier");
+        SetOutput("region");
+        SetOutput("source_account");
+        SetOutput("source_arn");
+        SetOutput("statement_id");
+        SetOutput("statement_id_prefix");
     }
 
     /// <summary>
@@ -22,17 +35,17 @@ public class AwsLambdaPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// The event_source_token attribute.
     /// </summary>
-    public TerraformProperty<string>? EventSourceToken
+    public TerraformProperty<string> EventSourceToken
     {
-        get => GetProperty<TerraformProperty<string>>("event_source_token");
-        set => this.WithProperty("event_source_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_source_token");
+        set => SetProperty("event_source_token", value);
     }
 
     /// <summary>
@@ -41,26 +54,26 @@ public class AwsLambdaPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
     /// The function_url_auth_type attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionUrlAuthType
+    public TerraformProperty<string> FunctionUrlAuthType
     {
-        get => GetProperty<TerraformProperty<string>>("function_url_auth_type");
-        set => this.WithProperty("function_url_auth_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_url_auth_type");
+        set => SetProperty("function_url_auth_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,71 +82,71 @@ public class AwsLambdaPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => this.WithProperty("principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal");
+        set => SetProperty("principal", value);
     }
 
     /// <summary>
     /// The principal_org_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalOrgId
+    public TerraformProperty<string> PrincipalOrgId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_org_id");
-        set => this.WithProperty("principal_org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_org_id");
+        set => SetProperty("principal_org_id", value);
     }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string>? Qualifier
+    public TerraformProperty<string> Qualifier
     {
-        get => GetProperty<TerraformProperty<string>>("qualifier");
-        set => this.WithProperty("qualifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
+        set => SetProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The source_account attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceAccount
+    public TerraformProperty<string> SourceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("source_account");
-        set => this.WithProperty("source_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_account");
+        set => SetProperty("source_account", value);
     }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceArn
+    public TerraformProperty<string> SourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_arn");
-        set => this.WithProperty("source_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_arn");
+        set => SetProperty("source_arn", value);
     }
 
     /// <summary>
     /// The statement_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StatementId
+    public TerraformProperty<string> StatementId
     {
-        get => GetProperty<TerraformProperty<string>>("statement_id");
-        set => this.WithProperty("statement_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("statement_id");
+        set => SetProperty("statement_id", value);
     }
 
     /// <summary>
     /// The statement_id_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? StatementIdPrefix
+    public TerraformProperty<string> StatementIdPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("statement_id_prefix");
-        set => this.WithProperty("statement_id_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("statement_id_prefix");
+        set => SetProperty("statement_id_prefix", value);
     }
 
 }

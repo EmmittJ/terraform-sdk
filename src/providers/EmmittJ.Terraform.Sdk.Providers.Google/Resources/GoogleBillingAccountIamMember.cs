@@ -13,8 +13,7 @@ public class GoogleBillingAccountIamMemberConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleBillingAccountIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleBillingAccountIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -52,7 +49,11 @@ public class GoogleBillingAccountIamMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("billing_account_id");
+        SetOutput("id");
+        SetOutput("member");
+        SetOutput("role");
     }
 
     /// <summary>
@@ -61,17 +62,17 @@ public class GoogleBillingAccountIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountId is required")]
     public required TerraformProperty<string> BillingAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("billing_account_id");
-        set => this.WithProperty("billing_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_account_id");
+        set => SetProperty("billing_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -80,8 +81,8 @@ public class GoogleBillingAccountIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformProperty<string> Member
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("member");
-        set => this.WithProperty("member", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member");
+        set => SetProperty("member", value);
     }
 
     /// <summary>
@@ -90,8 +91,8 @@ public class GoogleBillingAccountIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -101,8 +102,7 @@ public class GoogleBillingAccountIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     public List<GoogleBillingAccountIamMemberConditionBlock>? Condition
     {
-        get => GetProperty<List<GoogleBillingAccountIamMemberConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>

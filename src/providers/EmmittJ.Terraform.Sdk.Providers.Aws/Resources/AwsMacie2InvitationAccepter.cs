@@ -13,8 +13,7 @@ public class AwsMacie2InvitationAccepterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,7 +30,10 @@ public class AwsMacie2InvitationAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("invitation_id");
+        SetOutput("invitation_id");
+        SetOutput("administrator_account_id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -40,26 +42,26 @@ public class AwsMacie2InvitationAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorAccountId is required")]
     public required TerraformProperty<string> AdministratorAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("administrator_account_id");
-        set => this.WithProperty("administrator_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administrator_account_id");
+        set => SetProperty("administrator_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -68,8 +70,7 @@ public class AwsMacie2InvitationAccepter : TerraformResource
     /// </summary>
     public AwsMacie2InvitationAccepterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMacie2InvitationAccepterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

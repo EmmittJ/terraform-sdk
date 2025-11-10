@@ -14,33 +14,38 @@ public class AwsDynamodbKinesisStreamingDestination : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("approximate_creation_date_time_precision");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("stream_arn");
+        SetOutput("table_name");
     }
 
     /// <summary>
     /// The approximate_creation_date_time_precision attribute.
     /// </summary>
-    public TerraformProperty<string>? ApproximateCreationDateTimePrecision
+    public TerraformProperty<string> ApproximateCreationDateTimePrecision
     {
-        get => GetProperty<TerraformProperty<string>>("approximate_creation_date_time_precision");
-        set => this.WithProperty("approximate_creation_date_time_precision", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("approximate_creation_date_time_precision");
+        set => SetProperty("approximate_creation_date_time_precision", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -49,8 +54,8 @@ public class AwsDynamodbKinesisStreamingDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformProperty<string> StreamArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_arn");
-        set => this.WithProperty("stream_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_arn");
+        set => SetProperty("stream_arn", value);
     }
 
     /// <summary>
@@ -59,8 +64,8 @@ public class AwsDynamodbKinesisStreamingDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AssociationId
     {
-        get => GetProperty<TerraformProperty<string>>("association_id");
-        set => WithProperty("association_id", value);
+        set => SetProperty("association_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRepositoryPath is required")]
     public required TerraformProperty<string> DataRepositoryPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_repository_path");
-        set => WithProperty("data_repository_path", value);
+        set => SetProperty("data_repository_path", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? DataRepositorySubdirectories
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("data_repository_subdirectories");
-        set => WithProperty("data_repository_subdirectories", value);
+        set => SetProperty("data_repository_subdirectories", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FileCacheId
     {
-        get => GetProperty<TerraformProperty<string>>("file_cache_id");
-        set => WithProperty("file_cache_id", value);
+        set => SetProperty("file_cache_id", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCachePath is required")]
     public required TerraformProperty<string> FileCachePath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_cache_path");
-        set => WithProperty("file_cache_path", value);
+        set => SetProperty("file_cache_path", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
-        set => WithProperty("file_system_id", value);
+        set => SetProperty("file_system_id", value);
     }
 
     /// <summary>
@@ -69,8 +63,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FileSystemPath
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_path");
-        set => WithProperty("file_system_path", value);
+        set => SetProperty("file_system_path", value);
     }
 
     /// <summary>
@@ -78,8 +71,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ImportedFileChunkSize
     {
-        get => GetProperty<TerraformProperty<double>>("imported_file_chunk_size");
-        set => WithProperty("imported_file_chunk_size", value);
+        set => SetProperty("imported_file_chunk_size", value);
     }
 
     /// <summary>
@@ -87,8 +79,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
-        set => WithProperty("resource_arn", value);
+        set => SetProperty("resource_arn", value);
     }
 
     /// <summary>
@@ -96,8 +87,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
 }
@@ -114,8 +104,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     public required TerraformProperty<string> DeploymentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deployment_type");
-        set => WithProperty("deployment_type", value);
+        set => SetProperty("deployment_type", value);
     }
 
     /// <summary>
@@ -123,8 +112,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<object>>? LogConfiguration
     {
-        get => GetProperty<HashSet<TerraformProperty<object>>>("log_configuration");
-        set => WithProperty("log_configuration", value);
+        set => SetProperty("log_configuration", value);
     }
 
     /// <summary>
@@ -132,8 +120,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MountName
     {
-        get => GetProperty<TerraformProperty<string>>("mount_name");
-        set => WithProperty("mount_name", value);
+        set => SetProperty("mount_name", value);
     }
 
     /// <summary>
@@ -142,8 +129,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerUnitStorageThroughput is required")]
     public required TerraformProperty<double> PerUnitStorageThroughput
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("per_unit_storage_throughput");
-        set => WithProperty("per_unit_storage_throughput", value);
+        set => SetProperty("per_unit_storage_throughput", value);
     }
 
     /// <summary>
@@ -151,8 +137,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WeeklyMaintenanceStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("weekly_maintenance_start_time");
-        set => WithProperty("weekly_maintenance_start_time", value);
+        set => SetProperty("weekly_maintenance_start_time", value);
     }
 
 }
@@ -168,8 +153,7 @@ public class AwsFsxFileCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -177,8 +161,7 @@ public class AwsFsxFileCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -186,8 +169,7 @@ public class AwsFsxFileCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -205,22 +187,33 @@ public class AwsFsxFileCache : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("data_repository_association_ids");
-        this.WithOutput("dns_name");
-        this.WithOutput("file_cache_id");
-        this.WithOutput("network_interface_ids");
-        this.WithOutput("owner_id");
-        this.WithOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("data_repository_association_ids");
+        SetOutput("dns_name");
+        SetOutput("file_cache_id");
+        SetOutput("network_interface_ids");
+        SetOutput("owner_id");
+        SetOutput("vpc_id");
+        SetOutput("copy_tags_to_data_repository_associations");
+        SetOutput("file_cache_type");
+        SetOutput("file_cache_type_version");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("storage_capacity");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The copy_tags_to_data_repository_associations attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyTagsToDataRepositoryAssociations
+    public TerraformProperty<bool> CopyTagsToDataRepositoryAssociations
     {
-        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_data_repository_associations");
-        set => this.WithProperty("copy_tags_to_data_repository_associations", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags_to_data_repository_associations");
+        set => SetProperty("copy_tags_to_data_repository_associations", value);
     }
 
     /// <summary>
@@ -229,8 +222,8 @@ public class AwsFsxFileCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCacheType is required")]
     public required TerraformProperty<string> FileCacheType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_cache_type");
-        set => this.WithProperty("file_cache_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_cache_type");
+        set => SetProperty("file_cache_type", value);
     }
 
     /// <summary>
@@ -239,44 +232,44 @@ public class AwsFsxFileCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCacheTypeVersion is required")]
     public required TerraformProperty<string> FileCacheTypeVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_cache_type_version");
-        set => this.WithProperty("file_cache_type_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_cache_type_version");
+        set => SetProperty("file_cache_type_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -285,36 +278,36 @@ public class AwsFsxFileCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     public required TerraformProperty<double> StorageCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("storage_capacity");
-        set => this.WithProperty("storage_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity");
+        set => SetProperty("storage_capacity", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public List<TerraformProperty<string>>? SubnetIds
+    public List<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -324,8 +317,7 @@ public class AwsFsxFileCache : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 DataRepositoryAssociation block(s) allowed")]
     public HashSet<AwsFsxFileCacheDataRepositoryAssociationBlock>? DataRepositoryAssociation
     {
-        get => GetProperty<HashSet<AwsFsxFileCacheDataRepositoryAssociationBlock>>("data_repository_association");
-        set => this.WithProperty("data_repository_association", value);
+        set => SetProperty("data_repository_association", value);
     }
 
     /// <summary>
@@ -334,8 +326,7 @@ public class AwsFsxFileCache : TerraformResource
     /// </summary>
     public HashSet<AwsFsxFileCacheLustreConfigurationBlock>? LustreConfiguration
     {
-        get => GetProperty<HashSet<AwsFsxFileCacheLustreConfigurationBlock>>("lustre_configuration");
-        set => this.WithProperty("lustre_configuration", value);
+        set => SetProperty("lustre_configuration", value);
     }
 
     /// <summary>
@@ -344,8 +335,7 @@ public class AwsFsxFileCache : TerraformResource
     /// </summary>
     public AwsFsxFileCacheTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFsxFileCacheTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

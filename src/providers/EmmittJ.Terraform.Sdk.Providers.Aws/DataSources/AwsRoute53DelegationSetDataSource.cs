@@ -14,9 +14,10 @@ public class AwsRoute53DelegationSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputaller_reference");
-        this.WithOutputame_servers");
+        SetOutput("arn");
+        SetOutput("caller_reference");
+        SetOutput("name_servers");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -25,8 +26,8 @@ public class AwsRoute53DelegationSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

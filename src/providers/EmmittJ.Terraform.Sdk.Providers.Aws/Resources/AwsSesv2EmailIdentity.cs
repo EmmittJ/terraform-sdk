@@ -13,8 +13,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CurrentSigningKeyLength
     {
-        get => GetProperty<TerraformProperty<string>>("current_signing_key_length");
-        set => WithProperty("current_signing_key_length", value);
+        set => SetProperty("current_signing_key_length", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DomainSigningPrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("domain_signing_private_key");
-        set => WithProperty("domain_signing_private_key", value);
+        set => SetProperty("domain_signing_private_key", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DomainSigningSelector
     {
-        get => GetProperty<TerraformProperty<string>>("domain_signing_selector");
-        set => WithProperty("domain_signing_selector", value);
+        set => SetProperty("domain_signing_selector", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastKeyGenerationTimestamp
     {
-        get => GetProperty<TerraformProperty<string>>("last_key_generation_timestamp");
-        set => WithProperty("last_key_generation_timestamp", value);
+        set => SetProperty("last_key_generation_timestamp", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NextSigningKeyLength
     {
-        get => GetProperty<TerraformProperty<string>>("next_signing_key_length");
-        set => WithProperty("next_signing_key_length", value);
+        set => SetProperty("next_signing_key_length", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SigningAttributesOrigin
     {
-        get => GetProperty<TerraformProperty<string>>("signing_attributes_origin");
-        set => WithProperty("signing_attributes_origin", value);
+        set => SetProperty("signing_attributes_origin", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Tokens
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tokens");
-        set => WithProperty("tokens", value);
+        set => SetProperty("tokens", value);
     }
 
 }
@@ -95,19 +87,25 @@ public class AwsSesv2EmailIdentity : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("identity_type");
-        this.WithOutput("verification_status");
-        this.WithOutput("verified_for_sending_status");
+        SetOutput("arn");
+        SetOutput("identity_type");
+        SetOutput("verification_status");
+        SetOutput("verified_for_sending_status");
+        SetOutput("configuration_set_name");
+        SetOutput("email_identity");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The configuration_set_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationSetName
+    public TerraformProperty<string> ConfigurationSetName
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_set_name");
-        set => this.WithProperty("configuration_set_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_set_name");
+        set => SetProperty("configuration_set_name", value);
     }
 
     /// <summary>
@@ -116,44 +114,44 @@ public class AwsSesv2EmailIdentity : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
     public required TerraformProperty<string> EmailIdentity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_identity");
-        set => this.WithProperty("email_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_identity");
+        set => SetProperty("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -163,8 +161,7 @@ public class AwsSesv2EmailIdentity : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DkimSigningAttributes block(s) allowed")]
     public List<AwsSesv2EmailIdentityDkimSigningAttributesBlock>? DkimSigningAttributes
     {
-        get => GetProperty<List<AwsSesv2EmailIdentityDkimSigningAttributesBlock>>("dkim_signing_attributes");
-        set => this.WithProperty("dkim_signing_attributes", value);
+        set => SetProperty("dkim_signing_attributes", value);
     }
 
     /// <summary>

@@ -21,8 +21,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Application
     {
-        get => GetProperty<TerraformProperty<string>>("application");
-        set => WithProperty("application", value);
+        set => SetProperty("application", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerTenantId is required")]
     public required TerraformProperty<string> CustomerTenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("customer_tenant_id");
-        set => WithProperty("customer_tenant_id", value);
+        set => SetProperty("customer_tenant_id", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FederatedApplicationClientId
     {
-        get => GetProperty<TerraformProperty<string>>("federated_application_client_id");
-        set => WithProperty("federated_application_client_id", value);
+        set => SetProperty("federated_application_client_id", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Identity
     {
-        get => GetProperty<TerraformProperty<string>>("identity");
-        set => WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
-        set => WithProperty("object_id", value);
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RedirectUri
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_uri");
-        set => WithProperty("redirect_uri", value);
+        set => SetProperty("redirect_uri", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class GoogleBigqueryConnectionCloudResourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_id");
-        set => WithProperty("service_account_id", value);
+        set => SetProperty("service_account_id", value);
     }
 
 }
@@ -111,8 +103,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database");
-        set => WithProperty("database", value);
+        set => SetProperty("database", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DatabaseRole
     {
-        get => GetProperty<TerraformProperty<string>>("database_role");
-        set => WithProperty("database_role", value);
+        set => SetProperty("database_role", value);
     }
 
     /// <summary>
@@ -129,8 +119,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxParallelism
     {
-        get => GetProperty<TerraformProperty<double>>("max_parallelism");
-        set => WithProperty("max_parallelism", value);
+        set => SetProperty("max_parallelism", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseDataBoost
     {
-        get => GetProperty<TerraformProperty<bool>>("use_data_boost");
-        set => WithProperty("use_data_boost", value);
+        set => SetProperty("use_data_boost", value);
     }
 
     /// <summary>
@@ -147,8 +135,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseParallelism
     {
-        get => GetProperty<TerraformProperty<bool>>("use_parallelism");
-        set => WithProperty("use_parallelism", value);
+        set => SetProperty("use_parallelism", value);
     }
 
     /// <summary>
@@ -157,8 +144,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<bool>? UseServerlessAnalytics
     {
-        get => GetProperty<TerraformProperty<bool>>("use_serverless_analytics");
-        set => WithProperty("use_serverless_analytics", value);
+        set => SetProperty("use_serverless_analytics", value);
     }
 
 }
@@ -175,8 +161,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database");
-        set => WithProperty("database", value);
+        set => SetProperty("database", value);
     }
 
     /// <summary>
@@ -185,8 +170,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => WithProperty("instance_id", value);
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -194,8 +178,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_id");
-        set => WithProperty("service_account_id", value);
+        set => SetProperty("service_account_id", value);
     }
 
     /// <summary>
@@ -204,8 +187,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -221,8 +203,7 @@ public class GoogleBigqueryConnectionSparkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_id");
-        set => WithProperty("service_account_id", value);
+        set => SetProperty("service_account_id", value);
     }
 
 }
@@ -238,8 +219,7 @@ public class GoogleBigqueryConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -247,8 +227,7 @@ public class GoogleBigqueryConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -256,8 +235,7 @@ public class GoogleBigqueryConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -275,44 +253,51 @@ public class GoogleBigqueryConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("has_credential");
-        this.WithOutput("name");
+        SetOutput("has_credential");
+        SetOutput("name");
+        SetOutput("connection_id");
+        SetOutput("description");
+        SetOutput("friendly_name");
+        SetOutput("id");
+        SetOutput("kms_key_name");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Optional connection id that should be assigned to the created connection.
     /// </summary>
-    public TerraformProperty<string>? ConnectionId
+    public TerraformProperty<string> ConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_id");
-        set => this.WithProperty("connection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_id");
+        set => SetProperty("connection_id", value);
     }
 
     /// <summary>
     /// A descriptive description for the connection
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// A descriptive name for the connection
     /// </summary>
-    public TerraformProperty<string>? FriendlyName
+    public TerraformProperty<string> FriendlyName
     {
-        get => GetProperty<TerraformProperty<string>>("friendly_name");
-        set => this.WithProperty("friendly_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
+        set => SetProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -320,10 +305,10 @@ public class GoogleBigqueryConnection : TerraformResource
     /// 
     /// Example: projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -335,19 +320,19 @@ public class GoogleBigqueryConnection : TerraformResource
     /// AWS allowed regions are aws-us-east-1
     /// Azure allowed regions are azure-eastus2
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -357,8 +342,7 @@ public class GoogleBigqueryConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Aws block(s) allowed")]
     public List<GoogleBigqueryConnectionAwsBlock>? Aws
     {
-        get => GetProperty<List<GoogleBigqueryConnectionAwsBlock>>("aws");
-        set => this.WithProperty("aws", value);
+        set => SetProperty("aws", value);
     }
 
     /// <summary>
@@ -368,8 +352,7 @@ public class GoogleBigqueryConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Azure block(s) allowed")]
     public List<GoogleBigqueryConnectionAzureBlock>? Azure
     {
-        get => GetProperty<List<GoogleBigqueryConnectionAzureBlock>>("azure");
-        set => this.WithProperty("azure", value);
+        set => SetProperty("azure", value);
     }
 
     /// <summary>
@@ -379,8 +362,7 @@ public class GoogleBigqueryConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudResource block(s) allowed")]
     public List<GoogleBigqueryConnectionCloudResourceBlock>? CloudResource
     {
-        get => GetProperty<List<GoogleBigqueryConnectionCloudResourceBlock>>("cloud_resource");
-        set => this.WithProperty("cloud_resource", value);
+        set => SetProperty("cloud_resource", value);
     }
 
     /// <summary>
@@ -390,8 +372,7 @@ public class GoogleBigqueryConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudSpanner block(s) allowed")]
     public List<GoogleBigqueryConnectionCloudSpannerBlock>? CloudSpanner
     {
-        get => GetProperty<List<GoogleBigqueryConnectionCloudSpannerBlock>>("cloud_spanner");
-        set => this.WithProperty("cloud_spanner", value);
+        set => SetProperty("cloud_spanner", value);
     }
 
     /// <summary>
@@ -401,8 +382,7 @@ public class GoogleBigqueryConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudSql block(s) allowed")]
     public List<GoogleBigqueryConnectionCloudSqlBlock>? CloudSql
     {
-        get => GetProperty<List<GoogleBigqueryConnectionCloudSqlBlock>>("cloud_sql");
-        set => this.WithProperty("cloud_sql", value);
+        set => SetProperty("cloud_sql", value);
     }
 
     /// <summary>
@@ -412,8 +392,7 @@ public class GoogleBigqueryConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spark block(s) allowed")]
     public List<GoogleBigqueryConnectionSparkBlock>? Spark
     {
-        get => GetProperty<List<GoogleBigqueryConnectionSparkBlock>>("spark");
-        set => this.WithProperty("spark", value);
+        set => SetProperty("spark", value);
     }
 
     /// <summary>
@@ -422,8 +401,7 @@ public class GoogleBigqueryConnection : TerraformResource
     /// </summary>
     public GoogleBigqueryConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

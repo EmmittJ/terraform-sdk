@@ -13,8 +13,7 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +54,25 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputame");
+        SetOutput("name");
+        SetOutput("categories");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("implementation_effort");
+        SetOutput("remediation_description");
+        SetOutput("severity");
+        SetOutput("threats");
+        SetOutput("user_impact");
     }
 
     /// <summary>
     /// The categories attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Categories
+    public HashSet<TerraformProperty<string>> Categories
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("categories");
-        set => this.WithProperty("categories", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("categories");
+        set => SetProperty("categories", value);
     }
 
     /// <summary>
@@ -76,8 +81,8 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -86,62 +91,62 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The implementation_effort attribute.
     /// </summary>
-    public TerraformProperty<string>? ImplementationEffort
+    public TerraformProperty<string> ImplementationEffort
     {
-        get => GetProperty<TerraformProperty<string>>("implementation_effort");
-        set => this.WithProperty("implementation_effort", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("implementation_effort");
+        set => SetProperty("implementation_effort", value);
     }
 
     /// <summary>
     /// The remediation_description attribute.
     /// </summary>
-    public TerraformProperty<string>? RemediationDescription
+    public TerraformProperty<string> RemediationDescription
     {
-        get => GetProperty<TerraformProperty<string>>("remediation_description");
-        set => this.WithProperty("remediation_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("remediation_description");
+        set => SetProperty("remediation_description", value);
     }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    public TerraformProperty<string>? Severity
+    public TerraformProperty<string> Severity
     {
-        get => GetProperty<TerraformProperty<string>>("severity");
-        set => this.WithProperty("severity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("severity");
+        set => SetProperty("severity", value);
     }
 
     /// <summary>
     /// The threats attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Threats
+    public HashSet<TerraformProperty<string>> Threats
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("threats");
-        set => this.WithProperty("threats", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("threats");
+        set => SetProperty("threats", value);
     }
 
     /// <summary>
     /// The user_impact attribute.
     /// </summary>
-    public TerraformProperty<string>? UserImpact
+    public TerraformProperty<string> UserImpact
     {
-        get => GetProperty<TerraformProperty<string>>("user_impact");
-        set => this.WithProperty("user_impact", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_impact");
+        set => SetProperty("user_impact", value);
     }
 
     /// <summary>
@@ -150,8 +155,7 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// </summary>
     public AzurermSecurityCenterAssessmentPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSecurityCenterAssessmentPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,27 +14,28 @@ public class AwsAccountPrimaryContactDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("address_line_1");
-        this.WithOutput("address_line_2");
-        this.WithOutput("address_line_3");
-        this.WithOutput("city");
-        this.WithOutput("company_name");
-        this.WithOutput("country_code");
-        this.WithOutput("district_or_county");
-        this.WithOutput("full_name");
-        this.WithOutput("phone_number");
-        this.WithOutput("postal_code");
-        this.WithOutput("state_or_region");
-        this.WithOutput("website_url");
+        SetOutput("address_line_1");
+        SetOutput("address_line_2");
+        SetOutput("address_line_3");
+        SetOutput("city");
+        SetOutput("company_name");
+        SetOutput("country_code");
+        SetOutput("district_or_county");
+        SetOutput("full_name");
+        SetOutput("phone_number");
+        SetOutput("postal_code");
+        SetOutput("state_or_region");
+        SetOutput("website_url");
+        SetOutput("account_id");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>

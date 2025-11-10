@@ -15,8 +15,7 @@ public class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
-        set => WithProperty("identifier", value);
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
@@ -25,8 +24,7 @@ public class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class GoogleSiteVerificationWebResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class GoogleSiteVerificationWebResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -70,17 +66,19 @@ public class GoogleSiteVerificationWebResource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("owners");
-        this.WithOutput("web_resource_id");
+        SetOutput("owners");
+        SetOutput("web_resource_id");
+        SetOutput("id");
+        SetOutput("verification_method");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -90,20 +88,20 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
     public required TerraformProperty<string> VerificationMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("verification_method");
-        set => this.WithProperty("verification_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("verification_method");
+        set => SetProperty("verification_method", value);
     }
 
     /// <summary>
     /// Block for site.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Site is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Site block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Site block(s) allowed")]
     public List<GoogleSiteVerificationWebResourceSiteBlock>? Site
     {
-        get => GetProperty<List<GoogleSiteVerificationWebResourceSiteBlock>>("site");
-        set => this.WithProperty("site", value);
+        set => SetProperty("site", value);
     }
 
     /// <summary>
@@ -112,8 +110,7 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     /// </summary>
     public GoogleSiteVerificationWebResourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSiteVerificationWebResourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

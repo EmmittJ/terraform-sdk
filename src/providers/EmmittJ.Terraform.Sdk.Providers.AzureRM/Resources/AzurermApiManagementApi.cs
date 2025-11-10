@@ -13,8 +13,7 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermApiManagementApiImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentFormat is required")]
     public required TerraformProperty<string> ContentFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content_format");
-        set => WithProperty("content_format", value);
+        set => SetProperty("content_format", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermApiManagementApiImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentValue is required")]
     public required TerraformProperty<string> ContentValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content_value");
-        set => WithProperty("content_value", value);
+        set => SetProperty("content_value", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class AzurermApiManagementApiLicenseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzurermApiManagementApiLicenseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -103,8 +96,7 @@ public class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationServerName is required")]
     public required TerraformProperty<string> AuthorizationServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorization_server_name");
-        set => WithProperty("authorization_server_name", value);
+        set => SetProperty("authorization_server_name", value);
     }
 
     /// <summary>
@@ -112,8 +104,7 @@ public class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
 }
@@ -129,8 +120,7 @@ public class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? BearerTokenSendingMethods
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("bearer_token_sending_methods");
-        set => WithProperty("bearer_token_sending_methods", value);
+        set => SetProperty("bearer_token_sending_methods", value);
     }
 
     /// <summary>
@@ -139,8 +129,7 @@ public class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenidProviderName is required")]
     public required TerraformProperty<string> OpenidProviderName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("openid_provider_name");
-        set => WithProperty("openid_provider_name", value);
+        set => SetProperty("openid_provider_name", value);
     }
 
 }
@@ -157,8 +146,7 @@ public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Header is required")]
     public required TerraformProperty<string> Header
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("header");
-        set => WithProperty("header", value);
+        set => SetProperty("header", value);
     }
 
     /// <summary>
@@ -167,8 +155,7 @@ public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query");
-        set => WithProperty("query", value);
+        set => SetProperty("query", value);
     }
 
 }
@@ -184,8 +171,7 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -193,8 +179,7 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -202,8 +187,7 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -211,8 +195,7 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -230,8 +213,26 @@ public class AzurermApiManagementApi : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("is_current");
-        this.WithOutput("is_online");
+        SetOutput("is_current");
+        SetOutput("is_online");
+        SetOutput("api_management_name");
+        SetOutput("api_type");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("path");
+        SetOutput("protocols");
+        SetOutput("resource_group_name");
+        SetOutput("revision");
+        SetOutput("revision_description");
+        SetOutput("service_url");
+        SetOutput("source_api_id");
+        SetOutput("subscription_required");
+        SetOutput("terms_of_service_url");
+        SetOutput("version");
+        SetOutput("version_description");
+        SetOutput("version_set_id");
     }
 
     /// <summary>
@@ -240,44 +241,44 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The api_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiType
+    public TerraformProperty<string> ApiType
     {
-        get => GetProperty<TerraformProperty<string>>("api_type");
-        set => this.WithProperty("api_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_type");
+        set => SetProperty("api_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -286,26 +287,26 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
+    public TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => this.WithProperty("path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path");
+        set => SetProperty("path", value);
     }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Protocols
+    public HashSet<TerraformProperty<string>> Protocols
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("protocols");
-        set => this.WithProperty("protocols", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("protocols");
+        set => SetProperty("protocols", value);
     }
 
     /// <summary>
@@ -314,8 +315,8 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -324,80 +325,80 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformProperty<string> Revision
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("revision");
-        set => this.WithProperty("revision", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revision");
+        set => SetProperty("revision", value);
     }
 
     /// <summary>
     /// The revision_description attribute.
     /// </summary>
-    public TerraformProperty<string>? RevisionDescription
+    public TerraformProperty<string> RevisionDescription
     {
-        get => GetProperty<TerraformProperty<string>>("revision_description");
-        set => this.WithProperty("revision_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revision_description");
+        set => SetProperty("revision_description", value);
     }
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceUrl
+    public TerraformProperty<string> ServiceUrl
     {
-        get => GetProperty<TerraformProperty<string>>("service_url");
-        set => this.WithProperty("service_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_url");
+        set => SetProperty("service_url", value);
     }
 
     /// <summary>
     /// The source_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceApiId
+    public TerraformProperty<string> SourceApiId
     {
-        get => GetProperty<TerraformProperty<string>>("source_api_id");
-        set => this.WithProperty("source_api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_api_id");
+        set => SetProperty("source_api_id", value);
     }
 
     /// <summary>
     /// The subscription_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? SubscriptionRequired
+    public TerraformProperty<bool> SubscriptionRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("subscription_required");
-        set => this.WithProperty("subscription_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("subscription_required");
+        set => SetProperty("subscription_required", value);
     }
 
     /// <summary>
     /// The terms_of_service_url attribute.
     /// </summary>
-    public TerraformProperty<string>? TermsOfServiceUrl
+    public TerraformProperty<string> TermsOfServiceUrl
     {
-        get => GetProperty<TerraformProperty<string>>("terms_of_service_url");
-        set => this.WithProperty("terms_of_service_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("terms_of_service_url");
+        set => SetProperty("terms_of_service_url", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
     /// The version_description attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionDescription
+    public TerraformProperty<string> VersionDescription
     {
-        get => GetProperty<TerraformProperty<string>>("version_description");
-        set => this.WithProperty("version_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_description");
+        set => SetProperty("version_description", value);
     }
 
     /// <summary>
     /// The version_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionSetId
+    public TerraformProperty<string> VersionSetId
     {
-        get => GetProperty<TerraformProperty<string>>("version_set_id");
-        set => this.WithProperty("version_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_set_id");
+        set => SetProperty("version_set_id", value);
     }
 
     /// <summary>
@@ -407,8 +408,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Contact block(s) allowed")]
     public List<AzurermApiManagementApiContactBlock>? Contact
     {
-        get => GetProperty<List<AzurermApiManagementApiContactBlock>>("contact");
-        set => this.WithProperty("contact", value);
+        set => SetProperty("contact", value);
     }
 
     /// <summary>
@@ -418,8 +418,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
     public List<AzurermApiManagementApiImportBlock>? Import
     {
-        get => GetProperty<List<AzurermApiManagementApiImportBlock>>("import");
-        set => this.WithProperty("import", value);
+        set => SetProperty("import", value);
     }
 
     /// <summary>
@@ -429,8 +428,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 License block(s) allowed")]
     public List<AzurermApiManagementApiLicenseBlock>? License
     {
-        get => GetProperty<List<AzurermApiManagementApiLicenseBlock>>("license");
-        set => this.WithProperty("license", value);
+        set => SetProperty("license", value);
     }
 
     /// <summary>
@@ -440,8 +438,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oauth2Authorization block(s) allowed")]
     public List<AzurermApiManagementApiOauth2AuthorizationBlock>? Oauth2Authorization
     {
-        get => GetProperty<List<AzurermApiManagementApiOauth2AuthorizationBlock>>("oauth2_authorization");
-        set => this.WithProperty("oauth2_authorization", value);
+        set => SetProperty("oauth2_authorization", value);
     }
 
     /// <summary>
@@ -451,8 +448,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenidAuthentication block(s) allowed")]
     public List<AzurermApiManagementApiOpenidAuthenticationBlock>? OpenidAuthentication
     {
-        get => GetProperty<List<AzurermApiManagementApiOpenidAuthenticationBlock>>("openid_authentication");
-        set => this.WithProperty("openid_authentication", value);
+        set => SetProperty("openid_authentication", value);
     }
 
     /// <summary>
@@ -462,8 +458,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubscriptionKeyParameterNames block(s) allowed")]
     public List<AzurermApiManagementApiSubscriptionKeyParameterNamesBlock>? SubscriptionKeyParameterNames
     {
-        get => GetProperty<List<AzurermApiManagementApiSubscriptionKeyParameterNamesBlock>>("subscription_key_parameter_names");
-        set => this.WithProperty("subscription_key_parameter_names", value);
+        set => SetProperty("subscription_key_parameter_names", value);
     }
 
     /// <summary>
@@ -472,8 +467,7 @@ public class AzurermApiManagementApi : TerraformResource
     /// </summary>
     public AzurermApiManagementApiTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementApiTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,43 +46,50 @@ public class AzurermSpringCloudCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputhumbprint");
+        SetOutput("thumbprint");
+        SetOutput("certificate_content");
+        SetOutput("exclude_private_key");
+        SetOutput("id");
+        SetOutput("key_vault_certificate_id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("service_name");
     }
 
     /// <summary>
     /// The certificate_content attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateContent
+    public TerraformProperty<string> CertificateContent
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_content");
-        set => this.WithProperty("certificate_content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_content");
+        set => SetProperty("certificate_content", value);
     }
 
     /// <summary>
     /// The exclude_private_key attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExcludePrivateKey
+    public TerraformProperty<bool> ExcludePrivateKey
     {
-        get => GetProperty<TerraformProperty<bool>>("exclude_private_key");
-        set => this.WithProperty("exclude_private_key", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_private_key");
+        set => SetProperty("exclude_private_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultCertificateId
+    public TerraformProperty<string> KeyVaultCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_certificate_id");
-        set => this.WithProperty("key_vault_certificate_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_certificate_id");
+        set => SetProperty("key_vault_certificate_id", value);
     }
 
     /// <summary>
@@ -94,8 +98,8 @@ public class AzurermSpringCloudCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,8 +108,8 @@ public class AzurermSpringCloudCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -114,8 +118,8 @@ public class AzurermSpringCloudCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
@@ -124,8 +128,7 @@ public class AzurermSpringCloudCertificate : TerraformResource
     /// </summary>
     public AzurermSpringCloudCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

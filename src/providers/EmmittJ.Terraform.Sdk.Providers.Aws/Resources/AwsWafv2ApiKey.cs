@@ -14,16 +14,19 @@ public class AwsWafv2ApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_key");
+        SetOutput("api_key");
+        SetOutput("region");
+        SetOutput("scope");
+        SetOutput("token_domains");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -32,18 +35,18 @@ public class AwsWafv2ApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenDomains is required")]
-    public HashSet<TerraformProperty<string>>? TokenDomains
+    public HashSet<TerraformProperty<string>> TokenDomains
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("token_domains");
-        set => this.WithProperty("token_domains", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("token_domains");
+        set => SetProperty("token_domains", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsEcrRepositoryEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncryptionType
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_type");
-        set => WithProperty("encryption_type", value);
+        set => SetProperty("encryption_type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEcrRepositoryEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => WithProperty("kms_key", value);
+        set => SetProperty("kms_key", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsEcrRepositoryImageScanningConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanOnPush is required")]
     public required TerraformProperty<bool> ScanOnPush
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("scan_on_push");
-        set => WithProperty("scan_on_push", value);
+        set => SetProperty("scan_on_push", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformProperty<string> FilterType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter_type");
-        set => WithProperty("filter_type", value);
+        set => SetProperty("filter_type", value);
     }
 
 }
@@ -85,8 +80,7 @@ public class AwsEcrRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -104,36 +98,43 @@ public class AwsEcrRepository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("registry_id");
-        this.WithOutput("repository_url");
+        SetOutput("arn");
+        SetOutput("registry_id");
+        SetOutput("repository_url");
+        SetOutput("force_delete");
+        SetOutput("id");
+        SetOutput("image_tag_mutability");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDelete
+    public TerraformProperty<bool> ForceDelete
     {
-        get => GetProperty<TerraformProperty<bool>>("force_delete");
-        set => this.WithProperty("force_delete", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete");
+        set => SetProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The image_tag_mutability attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageTagMutability
+    public TerraformProperty<string> ImageTagMutability
     {
-        get => GetProperty<TerraformProperty<string>>("image_tag_mutability");
-        set => this.WithProperty("image_tag_mutability", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_tag_mutability");
+        set => SetProperty("image_tag_mutability", value);
     }
 
     /// <summary>
@@ -142,35 +143,35 @@ public class AwsEcrRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -179,8 +180,7 @@ public class AwsEcrRepository : TerraformResource
     /// </summary>
     public List<AwsEcrRepositoryEncryptionConfigurationBlock>? EncryptionConfiguration
     {
-        get => GetProperty<List<AwsEcrRepositoryEncryptionConfigurationBlock>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -190,8 +190,7 @@ public class AwsEcrRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageScanningConfiguration block(s) allowed")]
     public List<AwsEcrRepositoryImageScanningConfigurationBlock>? ImageScanningConfiguration
     {
-        get => GetProperty<List<AwsEcrRepositoryImageScanningConfigurationBlock>>("image_scanning_configuration");
-        set => this.WithProperty("image_scanning_configuration", value);
+        set => SetProperty("image_scanning_configuration", value);
     }
 
     /// <summary>
@@ -201,8 +200,7 @@ public class AwsEcrRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ImageTagMutabilityExclusionFilter block(s) allowed")]
     public List<AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock>? ImageTagMutabilityExclusionFilter
     {
-        get => GetProperty<List<AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock>>("image_tag_mutability_exclusion_filter");
-        set => this.WithProperty("image_tag_mutability_exclusion_filter", value);
+        set => SetProperty("image_tag_mutability_exclusion_filter", value);
     }
 
     /// <summary>
@@ -211,8 +209,7 @@ public class AwsEcrRepository : TerraformResource
     /// </summary>
     public AwsEcrRepositoryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEcrRepositoryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

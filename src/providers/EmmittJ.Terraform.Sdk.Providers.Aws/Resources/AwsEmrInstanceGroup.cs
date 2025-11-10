@@ -13,8 +13,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Iops
     {
-        get => GetProperty<TerraformProperty<double>>("iops");
-        set => WithProperty("iops", value);
+        set => SetProperty("iops", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformProperty<double> Size
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? VolumesPerInstance
     {
-        get => GetProperty<TerraformProperty<double>>("volumes_per_instance");
-        set => WithProperty("volumes_per_instance", value);
+        set => SetProperty("volumes_per_instance", value);
     }
 
 }
@@ -60,26 +56,36 @@ public class AwsEmrInstanceGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("running_instance_count");
-        this.WithOutput("status");
+        SetOutput("running_instance_count");
+        SetOutput("status");
+        SetOutput("autoscaling_policy");
+        SetOutput("bid_price");
+        SetOutput("cluster_id");
+        SetOutput("configurations_json");
+        SetOutput("ebs_optimized");
+        SetOutput("id");
+        SetOutput("instance_count");
+        SetOutput("instance_type");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The autoscaling_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoscalingPolicy
+    public TerraformProperty<string> AutoscalingPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("autoscaling_policy");
-        set => this.WithProperty("autoscaling_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_policy");
+        set => SetProperty("autoscaling_policy", value);
     }
 
     /// <summary>
     /// The bid_price attribute.
     /// </summary>
-    public TerraformProperty<string>? BidPrice
+    public TerraformProperty<string> BidPrice
     {
-        get => GetProperty<TerraformProperty<string>>("bid_price");
-        set => this.WithProperty("bid_price", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bid_price");
+        set => SetProperty("bid_price", value);
     }
 
     /// <summary>
@@ -88,44 +94,44 @@ public class AwsEmrInstanceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The configurations_json attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationsJson
+    public TerraformProperty<string> ConfigurationsJson
     {
-        get => GetProperty<TerraformProperty<string>>("configurations_json");
-        set => this.WithProperty("configurations_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configurations_json");
+        set => SetProperty("configurations_json", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformProperty<bool>? EbsOptimized
+    public TerraformProperty<bool> EbsOptimized
     {
-        get => GetProperty<TerraformProperty<bool>>("ebs_optimized");
-        set => this.WithProperty("ebs_optimized", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ebs_optimized");
+        set => SetProperty("ebs_optimized", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InstanceCount
+    public TerraformProperty<double> InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
-        set => this.WithProperty("instance_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -134,26 +140,26 @@ public class AwsEmrInstanceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -162,8 +168,7 @@ public class AwsEmrInstanceGroup : TerraformResource
     /// </summary>
     public HashSet<AwsEmrInstanceGroupEbsConfigBlock>? EbsConfig
     {
-        get => GetProperty<HashSet<AwsEmrInstanceGroupEbsConfigBlock>>("ebs_config");
-        set => this.WithProperty("ebs_config", value);
+        set => SetProperty("ebs_config", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Ciphers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ciphers");
-        set => WithProperty("ciphers", value);
+        set => SetProperty("ciphers", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ClientAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("client_auth_enabled");
-        set => WithProperty("client_auth_enabled", value);
+        set => SetProperty("client_auth_enabled", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enforce
     {
-        get => GetProperty<TerraformProperty<bool>>("enforce");
-        set => WithProperty("enforce", value);
+        set => SetProperty("enforce", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IgnoreValidationErrors
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_validation_errors");
-        set => WithProperty("ignore_validation_errors", value);
+        set => SetProperty("ignore_validation_errors", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyAlias
     {
-        get => GetProperty<TerraformProperty<string>>("key_alias");
-        set => WithProperty("key_alias", value);
+        set => SetProperty("key_alias", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyStore
     {
-        get => GetProperty<TerraformProperty<string>>("key_store");
-        set => WithProperty("key_store", value);
+        set => SetProperty("key_store", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Protocols
     {
-        get => GetProperty<List<TerraformProperty<string>>>("protocols");
-        set => WithProperty("protocols", value);
+        set => SetProperty("protocols", value);
     }
 
     /// <summary>
@@ -86,8 +78,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TrustStore
     {
-        get => GetProperty<TerraformProperty<string>>("trust_store");
-        set => WithProperty("trust_store", value);
+        set => SetProperty("trust_store", value);
     }
 
 }
@@ -103,8 +94,7 @@ public class GoogleApigeeTargetServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class GoogleApigeeTargetServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class GoogleApigeeTargetServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -140,15 +128,23 @@ public class GoogleApigeeTargetServer : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("env_id");
+        SetOutput("host");
+        SetOutput("id");
+        SetOutput("is_enabled");
+        SetOutput("name");
+        SetOutput("port");
+        SetOutput("protocol");
     }
 
     /// <summary>
     /// A human-readable description of this TargetServer.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -158,8 +154,8 @@ public class GoogleApigeeTargetServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
-        set => this.WithProperty("env_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
+        set => SetProperty("env_id", value);
     }
 
     /// <summary>
@@ -168,26 +164,26 @@ public class GoogleApigeeTargetServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host");
-        set => this.WithProperty("host", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host");
+        set => SetProperty("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Enabling/disabling a TargetServer is useful when TargetServers are used in load balancing configurations, and one or more TargetServers need to taken out of rotation periodically. Defaults to true.
     /// </summary>
-    public TerraformProperty<bool>? IsEnabled
+    public TerraformProperty<bool> IsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_enabled");
-        set => this.WithProperty("is_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_enabled");
+        set => SetProperty("is_enabled", value);
     }
 
     /// <summary>
@@ -196,8 +192,8 @@ public class GoogleApigeeTargetServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -206,17 +202,17 @@ public class GoogleApigeeTargetServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// Immutable. The protocol used by this TargetServer. Possible values: [&amp;quot;HTTP&amp;quot;, &amp;quot;HTTP2&amp;quot;, &amp;quot;GRPC_TARGET&amp;quot;, &amp;quot;GRPC&amp;quot;, &amp;quot;EXTERNAL_CALLOUT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Protocol
+    public TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -226,8 +222,7 @@ public class GoogleApigeeTargetServer : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SSlInfo block(s) allowed")]
     public List<GoogleApigeeTargetServerSSlInfoBlock>? SSlInfo
     {
-        get => GetProperty<List<GoogleApigeeTargetServerSSlInfoBlock>>("s_sl_info");
-        set => this.WithProperty("s_sl_info", value);
+        set => SetProperty("s_sl_info", value);
     }
 
     /// <summary>
@@ -236,8 +231,7 @@ public class GoogleApigeeTargetServer : TerraformResource
     /// </summary>
     public GoogleApigeeTargetServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeTargetServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

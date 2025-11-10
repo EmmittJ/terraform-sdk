@@ -13,8 +13,7 @@ public class AzurermLogAnalyticsStorageInsightsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogAnalyticsStorageInsightsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogAnalyticsStorageInsightsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogAnalyticsStorageInsightsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,32 @@ public class AzurermLogAnalyticsStorageInsights : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("blob_container_names");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("storage_account_id");
+        SetOutput("storage_account_key");
+        SetOutput("table_names");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The blob_container_names attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? BlobContainerNames
+    public HashSet<TerraformProperty<string>> BlobContainerNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("blob_container_names");
-        set => this.WithProperty("blob_container_names", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("blob_container_names");
+        set => SetProperty("blob_container_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +88,8 @@ public class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -94,8 +98,8 @@ public class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -104,8 +108,8 @@ public class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -114,17 +118,17 @@ public class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
-        set => this.WithProperty("storage_account_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_key");
+        set => SetProperty("storage_account_key", value);
     }
 
     /// <summary>
     /// The table_names attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? TableNames
+    public HashSet<TerraformProperty<string>> TableNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("table_names");
-        set => this.WithProperty("table_names", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("table_names");
+        set => SetProperty("table_names", value);
     }
 
     /// <summary>
@@ -133,8 +137,8 @@ public class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -143,8 +147,7 @@ public class AzurermLogAnalyticsStorageInsights : TerraformResource
     /// </summary>
     public AzurermLogAnalyticsStorageInsightsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogAnalyticsStorageInsightsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

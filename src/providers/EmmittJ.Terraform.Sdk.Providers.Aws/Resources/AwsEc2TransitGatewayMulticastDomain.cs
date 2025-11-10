@@ -13,8 +13,7 @@ public class AwsEc2TransitGatewayMulticastDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2TransitGatewayMulticastDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,71 +38,79 @@ public class AwsEc2TransitGatewayMulticastDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("owner_id");
+        SetOutput("arn");
+        SetOutput("owner_id");
+        SetOutput("auto_accept_shared_associations");
+        SetOutput("id");
+        SetOutput("igmpv2_support");
+        SetOutput("region");
+        SetOutput("static_sources_support");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("transit_gateway_id");
     }
 
     /// <summary>
     /// The auto_accept_shared_associations attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoAcceptSharedAssociations
+    public TerraformProperty<string> AutoAcceptSharedAssociations
     {
-        get => GetProperty<TerraformProperty<string>>("auto_accept_shared_associations");
-        set => this.WithProperty("auto_accept_shared_associations", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_accept_shared_associations");
+        set => SetProperty("auto_accept_shared_associations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The igmpv2_support attribute.
     /// </summary>
-    public TerraformProperty<string>? Igmpv2Support
+    public TerraformProperty<string> Igmpv2Support
     {
-        get => GetProperty<TerraformProperty<string>>("igmpv2_support");
-        set => this.WithProperty("igmpv2_support", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("igmpv2_support");
+        set => SetProperty("igmpv2_support", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The static_sources_support attribute.
     /// </summary>
-    public TerraformProperty<string>? StaticSourcesSupport
+    public TerraformProperty<string> StaticSourcesSupport
     {
-        get => GetProperty<TerraformProperty<string>>("static_sources_support");
-        set => this.WithProperty("static_sources_support", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("static_sources_support");
+        set => SetProperty("static_sources_support", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -113,8 +119,8 @@ public class AwsEc2TransitGatewayMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformProperty<string> TransitGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_id");
-        set => this.WithProperty("transit_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_id");
+        set => SetProperty("transit_gateway_id", value);
     }
 
     /// <summary>
@@ -123,8 +129,7 @@ public class AwsEc2TransitGatewayMulticastDomain : TerraformResource
     /// </summary>
     public AwsEc2TransitGatewayMulticastDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2TransitGatewayMulticastDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

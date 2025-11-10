@@ -14,20 +14,24 @@ public class AwsMskClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("bootstrap_brokers");
-        this.WithOutput("bootstrap_brokers_public_sasl_iam");
-        this.WithOutput("bootstrap_brokers_public_sasl_scram");
-        this.WithOutput("bootstrap_brokers_public_tls");
-        this.WithOutput("bootstrap_brokers_sasl_iam");
-        this.WithOutput("bootstrap_brokers_sasl_scram");
-        this.WithOutput("bootstrap_brokers_tls");
-        this.WithOutput("broker_node_group_info");
-        this.WithOutput("cluster_uuid");
-        this.WithOutput("kafka_version");
-        this.WithOutput("number_of_broker_nodes");
-        this.WithOutput("zookeeper_connect_string");
-        this.WithOutput("zookeeper_connect_string_tls");
+        SetOutput("arn");
+        SetOutput("bootstrap_brokers");
+        SetOutput("bootstrap_brokers_public_sasl_iam");
+        SetOutput("bootstrap_brokers_public_sasl_scram");
+        SetOutput("bootstrap_brokers_public_tls");
+        SetOutput("bootstrap_brokers_sasl_iam");
+        SetOutput("bootstrap_brokers_sasl_scram");
+        SetOutput("bootstrap_brokers_tls");
+        SetOutput("broker_node_group_info");
+        SetOutput("cluster_uuid");
+        SetOutput("kafka_version");
+        SetOutput("number_of_broker_nodes");
+        SetOutput("zookeeper_connect_string");
+        SetOutput("zookeeper_connect_string_tls");
+        SetOutput("cluster_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -36,35 +40,35 @@ public class AwsMskClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

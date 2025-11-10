@@ -13,8 +13,7 @@ public class AwsCloudfrontVpcOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCloudfrontVpcOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCloudfrontVpcOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => WithProperty("arn", value);
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpPort is required")]
     public required TerraformProperty<double> HttpPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("http_port");
-        set => WithProperty("http_port", value);
+        set => SetProperty("http_port", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpsPort is required")]
     public required TerraformProperty<double> HttpsPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("https_port");
-        set => WithProperty("https_port", value);
+        set => SetProperty("https_port", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -89,8 +82,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginProtocolPolicy is required")]
     public required TerraformProperty<string> OriginProtocolPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("origin_protocol_policy");
-        set => WithProperty("origin_protocol_policy", value);
+        set => SetProperty("origin_protocol_policy", value);
     }
 
 }
@@ -107,19 +99,20 @@ public class AwsCloudfrontVpcOrigin : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("etag");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -128,8 +121,7 @@ public class AwsCloudfrontVpcOrigin : TerraformResource
     /// </summary>
     public AwsCloudfrontVpcOriginTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCloudfrontVpcOriginTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -138,8 +130,7 @@ public class AwsCloudfrontVpcOrigin : TerraformResource
     /// </summary>
     public List<AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock>? VpcOriginEndpointConfig
     {
-        get => GetProperty<List<AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock>>("vpc_origin_endpoint_config");
-        set => this.WithProperty("vpc_origin_endpoint_config", value);
+        set => SetProperty("vpc_origin_endpoint_config", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermMssqlDatabaseDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,30 +30,33 @@ public class AzurermMssqlDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("collation");
-        this.WithOutput("elastic_pool_id");
-        this.WithOutput("enclave_type");
-        this.WithOutput("identity");
-        this.WithOutput("license_type");
-        this.WithOutput("max_size_gb");
-        this.WithOutput("read_replica_count");
-        this.WithOutput("read_scale");
-        this.WithOutput("sku_name");
-        this.WithOutput("storage_account_type");
-        this.WithOutput("tags");
-        this.WithOutput("transparent_data_encryption_enabled");
-        this.WithOutput("transparent_data_encryption_key_automatic_rotation_enabled");
-        this.WithOutput("transparent_data_encryption_key_vault_key_id");
-        this.WithOutput("zone_redundant");
+        SetOutput("collation");
+        SetOutput("elastic_pool_id");
+        SetOutput("enclave_type");
+        SetOutput("identity");
+        SetOutput("license_type");
+        SetOutput("max_size_gb");
+        SetOutput("read_replica_count");
+        SetOutput("read_scale");
+        SetOutput("sku_name");
+        SetOutput("storage_account_type");
+        SetOutput("tags");
+        SetOutput("transparent_data_encryption_enabled");
+        SetOutput("transparent_data_encryption_key_automatic_rotation_enabled");
+        SetOutput("transparent_data_encryption_key_vault_key_id");
+        SetOutput("zone_redundant");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("server_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermMssqlDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -73,8 +75,8 @@ public class AzurermMssqlDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
-        set => this.WithProperty("server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
+        set => SetProperty("server_id", value);
     }
 
     /// <summary>
@@ -83,8 +85,7 @@ public class AzurermMssqlDatabaseDataSource : TerraformDataSource
     /// </summary>
     public AzurermMssqlDatabaseDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlDatabaseDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

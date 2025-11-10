@@ -14,29 +14,33 @@ public class GoogleCloudQuotasQuotaInfoDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("container_type");
-        this.WithOutput("dimensions");
-        this.WithOutput("dimensions_infos");
-        this.WithOutput("is_concurrent");
-        this.WithOutput("is_fixed");
-        this.WithOutput("is_precise");
-        this.WithOutput("metric");
-        this.WithOutput("metric_display_name");
-        this.WithOutput("metric_unit");
-        this.WithOutput("name");
-        this.WithOutput("quota_display_name");
-        this.WithOutput("quota_increase_eligibility");
-        this.WithOutput("refresh_interval");
-        this.WithOutput("service_request_quota_uri");
+        SetOutput("container_type");
+        SetOutput("dimensions");
+        SetOutput("dimensions_infos");
+        SetOutput("is_concurrent");
+        SetOutput("is_fixed");
+        SetOutput("is_precise");
+        SetOutput("metric");
+        SetOutput("metric_display_name");
+        SetOutput("metric_unit");
+        SetOutput("name");
+        SetOutput("quota_display_name");
+        SetOutput("quota_increase_eligibility");
+        SetOutput("refresh_interval");
+        SetOutput("service_request_quota_uri");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("quota_id");
+        SetOutput("service");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -45,8 +49,8 @@ public class GoogleCloudQuotasQuotaInfoDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -55,8 +59,8 @@ public class GoogleCloudQuotasQuotaInfoDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaId is required")]
     public required TerraformProperty<string> QuotaId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("quota_id");
-        set => this.WithProperty("quota_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("quota_id");
+        set => SetProperty("quota_id", value);
     }
 
     /// <summary>
@@ -65,8 +69,8 @@ public class GoogleCloudQuotasQuotaInfoDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>

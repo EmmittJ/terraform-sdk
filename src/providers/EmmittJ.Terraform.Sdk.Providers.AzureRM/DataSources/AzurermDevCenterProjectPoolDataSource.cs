@@ -13,8 +13,7 @@ public class AzurermDevCenterProjectPoolDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,13 +30,16 @@ public class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("dev_box_definition_name");
-        this.WithOutput("dev_center_attached_network_name");
-        this.WithOutput("local_administrator_enabled");
-        this.WithOutput("location");
-        this.WithOutput("single_sign_on_enabled");
-        this.WithOutput("stop_on_disconnect_grace_period_minutes");
-        this.WithOutput("tags");
+        SetOutput("dev_box_definition_name");
+        SetOutput("dev_center_attached_network_name");
+        SetOutput("local_administrator_enabled");
+        SetOutput("location");
+        SetOutput("single_sign_on_enabled");
+        SetOutput("stop_on_disconnect_grace_period_minutes");
+        SetOutput("tags");
+        SetOutput("dev_center_project_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -46,17 +48,17 @@ public class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     public required TerraformProperty<string> DevCenterProjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dev_center_project_id");
-        set => this.WithProperty("dev_center_project_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dev_center_project_id");
+        set => SetProperty("dev_center_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -75,8 +77,7 @@ public class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
     /// </summary>
     public AzurermDevCenterProjectPoolDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDevCenterProjectPoolDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

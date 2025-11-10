@@ -22,8 +22,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheNetbiosName is required")]
     public required TerraformProperty<string> CacheNetbiosName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cache_netbios_name");
-        set => WithProperty("cache_netbios_name", value);
+        set => SetProperty("cache_netbios_name", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsPrimaryIp is required")]
     public required TerraformProperty<string> DnsPrimaryIp
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns_primary_ip");
-        set => WithProperty("dns_primary_ip", value);
+        set => SetProperty("dns_primary_ip", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DnsSecondaryIp
     {
-        get => GetProperty<TerraformProperty<string>>("dns_secondary_ip");
-        set => WithProperty("dns_secondary_ip", value);
+        set => SetProperty("dns_secondary_ip", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => WithProperty("domain_name", value);
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNetbiosName is required")]
     public required TerraformProperty<string> DomainNetbiosName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_netbios_name");
-        set => WithProperty("domain_netbios_name", value);
+        set => SetProperty("domain_netbios_name", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -81,8 +75,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -99,8 +92,7 @@ public class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupFileUri is required")]
     public required TerraformProperty<string> GroupFileUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_file_uri");
-        set => WithProperty("group_file_uri", value);
+        set => SetProperty("group_file_uri", value);
     }
 
     /// <summary>
@@ -109,8 +101,7 @@ public class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordFileUri is required")]
     public required TerraformProperty<string> PasswordFileUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password_file_uri");
-        set => WithProperty("password_file_uri", value);
+        set => SetProperty("password_file_uri", value);
     }
 
 }
@@ -127,8 +118,7 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseDn is required")]
     public required TerraformProperty<string> BaseDn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("base_dn");
-        set => WithProperty("base_dn", value);
+        set => SetProperty("base_dn", value);
     }
 
     /// <summary>
@@ -136,8 +126,7 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateValidationUri
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_validation_uri");
-        set => WithProperty("certificate_validation_uri", value);
+        set => SetProperty("certificate_validation_uri", value);
     }
 
     /// <summary>
@@ -145,8 +134,7 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DownloadCertificateAutomatically
     {
-        get => GetProperty<TerraformProperty<bool>>("download_certificate_automatically");
-        set => WithProperty("download_certificate_automatically", value);
+        set => SetProperty("download_certificate_automatically", value);
     }
 
     /// <summary>
@@ -154,8 +142,7 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Encrypted
     {
-        get => GetProperty<TerraformProperty<bool>>("encrypted");
-        set => WithProperty("encrypted", value);
+        set => SetProperty("encrypted", value);
     }
 
     /// <summary>
@@ -164,8 +151,7 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server");
-        set => WithProperty("server", value);
+        set => SetProperty("server", value);
     }
 
 }
@@ -181,8 +167,7 @@ public class AzurermHpcCacheDnsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SearchDomain
     {
-        get => GetProperty<TerraformProperty<string>>("search_domain");
-        set => WithProperty("search_domain", value);
+        set => SetProperty("search_domain", value);
     }
 
     /// <summary>
@@ -191,8 +176,7 @@ public class AzurermHpcCacheDnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Servers is required")]
     public List<TerraformProperty<string>>? Servers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("servers");
-        set => WithProperty("servers", value);
+        set => SetProperty("servers", value);
     }
 
 }
@@ -208,8 +192,7 @@ public class AzurermHpcCacheIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -217,8 +200,7 @@ public class AzurermHpcCacheIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -226,8 +208,7 @@ public class AzurermHpcCacheIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -236,8 +217,7 @@ public class AzurermHpcCacheIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -253,8 +233,7 @@ public class AzurermHpcCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -262,8 +241,7 @@ public class AzurermHpcCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -271,8 +249,7 @@ public class AzurermHpcCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -280,8 +257,7 @@ public class AzurermHpcCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -300,16 +276,28 @@ public class AzurermHpcCache : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("mount_addresses");
+        SetOutput("mount_addresses");
+        SetOutput("automatically_rotate_key_to_latest_enabled");
+        SetOutput("cache_size_in_gb");
+        SetOutput("id");
+        SetOutput("key_vault_key_id");
+        SetOutput("location");
+        SetOutput("mtu");
+        SetOutput("name");
+        SetOutput("ntp_server");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("subnet_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The automatically_rotate_key_to_latest_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutomaticallyRotateKeyToLatestEnabled
+    public TerraformProperty<bool> AutomaticallyRotateKeyToLatestEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("automatically_rotate_key_to_latest_enabled");
-        set => this.WithProperty("automatically_rotate_key_to_latest_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("automatically_rotate_key_to_latest_enabled");
+        set => SetProperty("automatically_rotate_key_to_latest_enabled", value);
     }
 
     /// <summary>
@@ -318,26 +306,26 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheSizeInGb is required")]
     public required TerraformProperty<double> CacheSizeInGb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("cache_size_in_gb");
-        set => this.WithProperty("cache_size_in_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cache_size_in_gb");
+        set => SetProperty("cache_size_in_gb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
+    public TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => this.WithProperty("key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -346,17 +334,17 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The mtu attribute.
     /// </summary>
-    public TerraformProperty<double>? Mtu
+    public TerraformProperty<double> Mtu
     {
-        get => GetProperty<TerraformProperty<double>>("mtu");
-        set => this.WithProperty("mtu", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("mtu");
+        set => SetProperty("mtu", value);
     }
 
     /// <summary>
@@ -365,17 +353,17 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ntp_server attribute.
     /// </summary>
-    public TerraformProperty<string>? NtpServer
+    public TerraformProperty<string> NtpServer
     {
-        get => GetProperty<TerraformProperty<string>>("ntp_server");
-        set => this.WithProperty("ntp_server", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ntp_server");
+        set => SetProperty("ntp_server", value);
     }
 
     /// <summary>
@@ -384,8 +372,8 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -394,8 +382,8 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
@@ -404,17 +392,17 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -424,8 +412,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAccessPolicy block(s) allowed")]
     public List<AzurermHpcCacheDefaultAccessPolicyBlock>? DefaultAccessPolicy
     {
-        get => GetProperty<List<AzurermHpcCacheDefaultAccessPolicyBlock>>("default_access_policy");
-        set => this.WithProperty("default_access_policy", value);
+        set => SetProperty("default_access_policy", value);
     }
 
     /// <summary>
@@ -435,8 +422,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryActiveDirectory block(s) allowed")]
     public List<AzurermHpcCacheDirectoryActiveDirectoryBlock>? DirectoryActiveDirectory
     {
-        get => GetProperty<List<AzurermHpcCacheDirectoryActiveDirectoryBlock>>("directory_active_directory");
-        set => this.WithProperty("directory_active_directory", value);
+        set => SetProperty("directory_active_directory", value);
     }
 
     /// <summary>
@@ -446,8 +432,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryFlatFile block(s) allowed")]
     public List<AzurermHpcCacheDirectoryFlatFileBlock>? DirectoryFlatFile
     {
-        get => GetProperty<List<AzurermHpcCacheDirectoryFlatFileBlock>>("directory_flat_file");
-        set => this.WithProperty("directory_flat_file", value);
+        set => SetProperty("directory_flat_file", value);
     }
 
     /// <summary>
@@ -457,8 +442,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryLdap block(s) allowed")]
     public List<AzurermHpcCacheDirectoryLdapBlock>? DirectoryLdap
     {
-        get => GetProperty<List<AzurermHpcCacheDirectoryLdapBlock>>("directory_ldap");
-        set => this.WithProperty("directory_ldap", value);
+        set => SetProperty("directory_ldap", value);
     }
 
     /// <summary>
@@ -468,8 +452,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns block(s) allowed")]
     public List<AzurermHpcCacheDnsBlock>? Dns
     {
-        get => GetProperty<List<AzurermHpcCacheDnsBlock>>("dns");
-        set => this.WithProperty("dns", value);
+        set => SetProperty("dns", value);
     }
 
     /// <summary>
@@ -479,8 +462,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermHpcCacheIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermHpcCacheIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -489,8 +471,7 @@ public class AzurermHpcCache : TerraformResource
     /// </summary>
     public AzurermHpcCacheTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHpcCacheTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

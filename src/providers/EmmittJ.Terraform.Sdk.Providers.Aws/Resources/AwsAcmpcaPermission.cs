@@ -14,17 +14,23 @@ public class AwsAcmpcaPermission : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("policy");
+        SetOutput("policy");
+        SetOutput("actions");
+        SetOutput("certificate_authority_arn");
+        SetOutput("id");
+        SetOutput("principal");
+        SetOutput("region");
+        SetOutput("source_account");
     }
 
     /// <summary>
     /// The actions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
-    public HashSet<TerraformProperty<string>>? Actions
+    public HashSet<TerraformProperty<string>> Actions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
-        set => this.WithProperty("actions", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("actions");
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -33,17 +39,17 @@ public class AwsAcmpcaPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
     public required TerraformProperty<string> CertificateAuthorityArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_authority_arn");
-        set => this.WithProperty("certificate_authority_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_authority_arn");
+        set => SetProperty("certificate_authority_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,26 +58,26 @@ public class AwsAcmpcaPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => this.WithProperty("principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal");
+        set => SetProperty("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The source_account attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceAccount
+    public TerraformProperty<string> SourceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("source_account");
-        set => this.WithProperty("source_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_account");
+        set => SetProperty("source_account", value);
     }
 
     /// <summary>

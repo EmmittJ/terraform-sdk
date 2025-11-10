@@ -13,8 +13,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,17 @@ public class AzurermVirtualDesktopApplication : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("application_group_id");
+        SetOutput("command_line_argument_policy");
+        SetOutput("command_line_arguments");
+        SetOutput("description");
+        SetOutput("friendly_name");
+        SetOutput("icon_index");
+        SetOutput("icon_path");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("path");
+        SetOutput("show_in_portal");
     }
 
     /// <summary>
@@ -66,8 +73,8 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationGroupId is required")]
     public required TerraformProperty<string> ApplicationGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_group_id");
-        set => this.WithProperty("application_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_group_id");
+        set => SetProperty("application_group_id", value);
     }
 
     /// <summary>
@@ -76,62 +83,62 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLineArgumentPolicy is required")]
     public required TerraformProperty<string> CommandLineArgumentPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("command_line_argument_policy");
-        set => this.WithProperty("command_line_argument_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("command_line_argument_policy");
+        set => SetProperty("command_line_argument_policy", value);
     }
 
     /// <summary>
     /// The command_line_arguments attribute.
     /// </summary>
-    public TerraformProperty<string>? CommandLineArguments
+    public TerraformProperty<string> CommandLineArguments
     {
-        get => GetProperty<TerraformProperty<string>>("command_line_arguments");
-        set => this.WithProperty("command_line_arguments", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("command_line_arguments");
+        set => SetProperty("command_line_arguments", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FriendlyName
+    public TerraformProperty<string> FriendlyName
     {
-        get => GetProperty<TerraformProperty<string>>("friendly_name");
-        set => this.WithProperty("friendly_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
+        set => SetProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The icon_index attribute.
     /// </summary>
-    public TerraformProperty<double>? IconIndex
+    public TerraformProperty<double> IconIndex
     {
-        get => GetProperty<TerraformProperty<double>>("icon_index");
-        set => this.WithProperty("icon_index", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("icon_index");
+        set => SetProperty("icon_index", value);
     }
 
     /// <summary>
     /// The icon_path attribute.
     /// </summary>
-    public TerraformProperty<string>? IconPath
+    public TerraformProperty<string> IconPath
     {
-        get => GetProperty<TerraformProperty<string>>("icon_path");
-        set => this.WithProperty("icon_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("icon_path");
+        set => SetProperty("icon_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -140,8 +147,8 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -150,17 +157,17 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => this.WithProperty("path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path");
+        set => SetProperty("path", value);
     }
 
     /// <summary>
     /// The show_in_portal attribute.
     /// </summary>
-    public TerraformProperty<bool>? ShowInPortal
+    public TerraformProperty<bool> ShowInPortal
     {
-        get => GetProperty<TerraformProperty<bool>>("show_in_portal");
-        set => this.WithProperty("show_in_portal", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("show_in_portal");
+        set => SetProperty("show_in_portal", value);
     }
 
     /// <summary>
@@ -169,8 +176,7 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// </summary>
     public AzurermVirtualDesktopApplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualDesktopApplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

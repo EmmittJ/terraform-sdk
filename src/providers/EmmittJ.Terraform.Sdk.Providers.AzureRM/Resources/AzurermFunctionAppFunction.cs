@@ -14,8 +14,7 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,13 +80,20 @@ public class AzurermFunctionAppFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("config_url");
-        this.WithOutput("invocation_url");
-        this.WithOutput("script_root_path_url");
-        this.WithOutput("script_url");
-        this.WithOutput("secrets_file_url");
-        this.WithOutput("test_data_url");
-        this.WithOutput("url");
+        SetOutput("config_url");
+        SetOutput("invocation_url");
+        SetOutput("script_root_path_url");
+        SetOutput("script_url");
+        SetOutput("secrets_file_url");
+        SetOutput("test_data_url");
+        SetOutput("url");
+        SetOutput("config_json");
+        SetOutput("enabled");
+        SetOutput("function_app_id");
+        SetOutput("id");
+        SetOutput("language");
+        SetOutput("name");
+        SetOutput("test_data");
     }
 
     /// <summary>
@@ -101,17 +102,17 @@ public class AzurermFunctionAppFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigJson is required")]
     public required TerraformProperty<string> ConfigJson
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("config_json");
-        set => this.WithProperty("config_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("config_json");
+        set => SetProperty("config_json", value);
     }
 
     /// <summary>
     /// Should this function be enabled. Defaults to `true`.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -120,26 +121,26 @@ public class AzurermFunctionAppFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformProperty<string> FunctionAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_app_id");
-        set => this.WithProperty("function_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_app_id");
+        set => SetProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The language the Function is written in.
     /// </summary>
-    public TerraformProperty<string>? Language
+    public TerraformProperty<string> Language
     {
-        get => GetProperty<TerraformProperty<string>>("language");
-        set => this.WithProperty("language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language");
+        set => SetProperty("language", value);
     }
 
     /// <summary>
@@ -148,17 +149,17 @@ public class AzurermFunctionAppFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The test data for the function.
     /// </summary>
-    public TerraformProperty<string>? TestData
+    public TerraformProperty<string> TestData
     {
-        get => GetProperty<TerraformProperty<string>>("test_data");
-        set => this.WithProperty("test_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("test_data");
+        set => SetProperty("test_data", value);
     }
 
     /// <summary>
@@ -167,8 +168,7 @@ public class AzurermFunctionAppFunction : TerraformResource
     /// </summary>
     public List<AzurermFunctionAppFunctionFileBlock>? File
     {
-        get => GetProperty<List<AzurermFunctionAppFunctionFileBlock>>("file");
-        set => this.WithProperty("file", value);
+        set => SetProperty("file", value);
     }
 
     /// <summary>
@@ -177,8 +177,7 @@ public class AzurermFunctionAppFunction : TerraformResource
     /// </summary>
     public AzurermFunctionAppFunctionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFunctionAppFunctionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

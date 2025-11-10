@@ -14,25 +14,27 @@ public class AwsOdbDbSystemShapesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("db_system_shapes");
+        SetOutput("db_system_shapes");
+        SetOutput("availability_zone_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZoneId
+    public TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone_id");
-        set => this.WithProperty("availability_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone_id");
+        set => SetProperty("availability_zone_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

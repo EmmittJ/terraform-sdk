@@ -13,8 +13,7 @@ public class AwsAuditmanagerFrameworkControlSetsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsAuditmanagerFrameworkControlSetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -41,28 +39,33 @@ public class AwsAuditmanagerFramework : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("framework_type");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("framework_type");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("compliance_type");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The compliance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ComplianceType
+    public TerraformProperty<string> ComplianceType
     {
-        get => GetProperty<TerraformProperty<string>>("compliance_type");
-        set => this.WithProperty("compliance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compliance_type");
+        set => SetProperty("compliance_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -71,26 +74,26 @@ public class AwsAuditmanagerFramework : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -99,8 +102,7 @@ public class AwsAuditmanagerFramework : TerraformResource
     /// </summary>
     public HashSet<AwsAuditmanagerFrameworkControlSetsBlock>? ControlSets
     {
-        get => GetProperty<HashSet<AwsAuditmanagerFrameworkControlSetsBlock>>("control_sets");
-        set => this.WithProperty("control_sets", value);
+        set => SetProperty("control_sets", value);
     }
 
     /// <summary>

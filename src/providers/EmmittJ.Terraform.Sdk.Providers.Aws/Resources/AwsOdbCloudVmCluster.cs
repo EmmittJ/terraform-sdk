@@ -14,8 +14,7 @@ public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDiagnosticsEventsEnabled is required")]
     public required TerraformProperty<bool> IsDiagnosticsEventsEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("is_diagnostics_events_enabled");
-        set => WithProperty("is_diagnostics_events_enabled", value);
+        set => SetProperty("is_diagnostics_events_enabled", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsHealthMonitoringEnabled is required")]
     public required TerraformProperty<bool> IsHealthMonitoringEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("is_health_monitoring_enabled");
-        set => WithProperty("is_health_monitoring_enabled", value);
+        set => SetProperty("is_health_monitoring_enabled", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsIncidentLogsEnabled is required")]
     public required TerraformProperty<bool> IsIncidentLogsEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("is_incident_logs_enabled");
-        set => WithProperty("is_incident_logs_enabled", value);
+        set => SetProperty("is_incident_logs_enabled", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AwsOdbCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsOdbCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsOdbCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,32 +81,51 @@ public class AwsOdbCloudVmCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("compute_model");
-        this.WithOutput("created_at");
-        this.WithOutput("disk_redundancy");
-        this.WithOutput("domain");
-        this.WithOutput("gi_version_computed");
-        this.WithOutput("hostname_prefix_computed");
-        this.WithOutput("id");
-        this.WithOutput("iorm_config_cache");
-        this.WithOutput("last_update_history_entry_id");
-        this.WithOutput("listener_port");
-        this.WithOutput("node_count");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("oci_url");
-        this.WithOutput("ocid");
-        this.WithOutput("percent_progress");
-        this.WithOutput("scan_dns_name");
-        this.WithOutput("scan_dns_record_id");
-        this.WithOutput("scan_ip_ids");
-        this.WithOutput("shape");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("storage_size_in_gbs");
-        this.WithOutput("system_version");
-        this.WithOutput("tags_all");
-        this.WithOutput("vip_ids");
+        SetOutput("arn");
+        SetOutput("compute_model");
+        SetOutput("created_at");
+        SetOutput("disk_redundancy");
+        SetOutput("domain");
+        SetOutput("gi_version_computed");
+        SetOutput("hostname_prefix_computed");
+        SetOutput("id");
+        SetOutput("iorm_config_cache");
+        SetOutput("last_update_history_entry_id");
+        SetOutput("listener_port");
+        SetOutput("node_count");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("oci_url");
+        SetOutput("ocid");
+        SetOutput("percent_progress");
+        SetOutput("scan_dns_name");
+        SetOutput("scan_dns_record_id");
+        SetOutput("scan_ip_ids");
+        SetOutput("shape");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("storage_size_in_gbs");
+        SetOutput("system_version");
+        SetOutput("tags_all");
+        SetOutput("vip_ids");
+        SetOutput("cloud_exadata_infrastructure_id");
+        SetOutput("cluster_name");
+        SetOutput("cpu_core_count");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("db_node_storage_size_in_gbs");
+        SetOutput("db_servers");
+        SetOutput("display_name");
+        SetOutput("gi_version");
+        SetOutput("hostname_prefix");
+        SetOutput("is_local_backup_enabled");
+        SetOutput("is_sparse_diskgroup_enabled");
+        SetOutput("license_model");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("odb_network_id");
+        SetOutput("region");
+        SetOutput("scan_listener_port_tcp");
+        SetOutput("ssh_public_keys");
+        SetOutput("tags");
+        SetOutput("timezone");
     }
 
     /// <summary>
@@ -121,17 +134,17 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
-        set => this.WithProperty("cloud_exadata_infrastructure_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        set => SetProperty("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
     /// The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    public TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
@@ -140,8 +153,8 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformProperty<double> CpuCoreCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("cpu_core_count");
-        set => this.WithProperty("cpu_core_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cpu_core_count");
+        set => SetProperty("cpu_core_count", value);
     }
 
     /// <summary>
@@ -150,27 +163,27 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStorageSizeInTbs is required")]
     public required TerraformProperty<double> DataStorageSizeInTbs
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("data_storage_size_in_tbs");
-        set => this.WithProperty("data_storage_size_in_tbs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("data_storage_size_in_tbs");
+        set => SetProperty("data_storage_size_in_tbs", value);
     }
 
     /// <summary>
     /// The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<double>? DbNodeStorageSizeInGbs
+    public TerraformProperty<double> DbNodeStorageSizeInGbs
     {
-        get => GetProperty<TerraformProperty<double>>("db_node_storage_size_in_gbs");
-        set => this.WithProperty("db_node_storage_size_in_gbs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("db_node_storage_size_in_gbs");
+        set => SetProperty("db_node_storage_size_in_gbs", value);
     }
 
     /// <summary>
     /// The list of database servers for the VM cluster. Changing this will create a new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbServers is required")]
-    public HashSet<TerraformProperty<string>>? DbServers
+    public HashSet<TerraformProperty<string>> DbServers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("db_servers");
-        set => this.WithProperty("db_servers", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("db_servers");
+        set => SetProperty("db_servers", value);
     }
 
     /// <summary>
@@ -179,8 +192,8 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -189,8 +202,8 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GiVersion is required")]
     public required TerraformProperty<string> GiVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gi_version");
-        set => this.WithProperty("gi_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gi_version");
+        set => SetProperty("gi_version", value);
     }
 
     /// <summary>
@@ -199,44 +212,44 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnamePrefix is required")]
     public required TerraformProperty<string> HostnamePrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hostname_prefix");
-        set => this.WithProperty("hostname_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hostname_prefix");
+        set => SetProperty("hostname_prefix", value);
     }
 
     /// <summary>
     /// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<bool>? IsLocalBackupEnabled
+    public TerraformProperty<bool> IsLocalBackupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_local_backup_enabled");
-        set => this.WithProperty("is_local_backup_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_local_backup_enabled");
+        set => SetProperty("is_local_backup_enabled", value);
     }
 
     /// <summary>
     /// Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<bool>? IsSparseDiskgroupEnabled
+    public TerraformProperty<bool> IsSparseDiskgroupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_sparse_diskgroup_enabled");
-        set => this.WithProperty("is_sparse_diskgroup_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_sparse_diskgroup_enabled");
+        set => SetProperty("is_sparse_diskgroup_enabled", value);
     }
 
     /// <summary>
     /// The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<string>? LicenseModel
+    public TerraformProperty<string> LicenseModel
     {
-        get => GetProperty<TerraformProperty<string>>("license_model");
-        set => this.WithProperty("license_model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_model");
+        set => SetProperty("license_model", value);
     }
 
     /// <summary>
     /// The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<double>? MemorySizeInGbs
+    public TerraformProperty<double> MemorySizeInGbs
     {
-        get => GetProperty<TerraformProperty<double>>("memory_size_in_gbs");
-        set => this.WithProperty("memory_size_in_gbs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("memory_size_in_gbs");
+        set => SetProperty("memory_size_in_gbs", value);
     }
 
     /// <summary>
@@ -245,54 +258,54 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformProperty<string> OdbNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("odb_network_id");
-        set => this.WithProperty("odb_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("odb_network_id");
+        set => SetProperty("odb_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<double>? ScanListenerPortTcp
+    public TerraformProperty<double> ScanListenerPortTcp
     {
-        get => GetProperty<TerraformProperty<double>>("scan_listener_port_tcp");
-        set => this.WithProperty("scan_listener_port_tcp", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scan_listener_port_tcp");
+        set => SetProperty("scan_listener_port_tcp", value);
     }
 
     /// <summary>
     /// The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeys is required")]
-    public HashSet<TerraformProperty<string>>? SshPublicKeys
+    public HashSet<TerraformProperty<string>> SshPublicKeys
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ssh_public_keys");
-        set => this.WithProperty("ssh_public_keys", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ssh_public_keys");
+        set => SetProperty("ssh_public_keys", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The configured time zone of the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<string>? Timezone
+    public TerraformProperty<string> Timezone
     {
-        get => GetProperty<TerraformProperty<string>>("timezone");
-        set => this.WithProperty("timezone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("timezone");
+        set => SetProperty("timezone", value);
     }
 
     /// <summary>
@@ -301,8 +314,7 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// </summary>
     public List<AwsOdbCloudVmClusterDataCollectionOptionsBlock>? DataCollectionOptions
     {
-        get => GetProperty<List<AwsOdbCloudVmClusterDataCollectionOptionsBlock>>("data_collection_options");
-        set => this.WithProperty("data_collection_options", value);
+        set => SetProperty("data_collection_options", value);
     }
 
     /// <summary>
@@ -311,8 +323,7 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// </summary>
     public AwsOdbCloudVmClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsOdbCloudVmClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

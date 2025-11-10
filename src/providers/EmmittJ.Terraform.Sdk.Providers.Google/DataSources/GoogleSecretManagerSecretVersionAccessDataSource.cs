@@ -14,35 +14,40 @@ public class GoogleSecretManagerSecretVersionAccessDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("secret_data");
+        SetOutput("name");
+        SetOutput("secret_data");
+        SetOutput("id");
+        SetOutput("is_secret_data_base64");
+        SetOutput("project");
+        SetOutput("secret");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The is_secret_data_base64 attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsSecretDataBase64
+    public TerraformProperty<bool> IsSecretDataBase64
     {
-        get => GetProperty<TerraformProperty<bool>>("is_secret_data_base64");
-        set => this.WithProperty("is_secret_data_base64", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_secret_data_base64");
+        set => SetProperty("is_secret_data_base64", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -51,17 +56,17 @@ public class GoogleSecretManagerSecretVersionAccessDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret");
-        set => this.WithProperty("secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret");
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

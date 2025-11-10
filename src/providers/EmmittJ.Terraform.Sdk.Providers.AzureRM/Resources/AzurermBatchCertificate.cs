@@ -13,8 +13,7 @@ public class AzurermBatchCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermBatchCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermBatchCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermBatchCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,8 +54,16 @@ public class AzurermBatchCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("public_data");
+        SetOutput("name");
+        SetOutput("public_data");
+        SetOutput("account_name");
+        SetOutput("certificate");
+        SetOutput("format");
+        SetOutput("id");
+        SetOutput("password");
+        SetOutput("resource_group_name");
+        SetOutput("thumbprint");
+        SetOutput("thumbprint_algorithm");
     }
 
     /// <summary>
@@ -68,8 +72,8 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
@@ -78,8 +82,8 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
     public required TerraformProperty<string> Certificate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate");
-        set => this.WithProperty("certificate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate");
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
@@ -88,26 +92,26 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("format");
-        set => this.WithProperty("format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("format");
+        set => SetProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -116,8 +120,8 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -126,8 +130,8 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     public required TerraformProperty<string> Thumbprint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("thumbprint");
-        set => this.WithProperty("thumbprint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("thumbprint");
+        set => SetProperty("thumbprint", value);
     }
 
     /// <summary>
@@ -136,8 +140,8 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThumbprintAlgorithm is required")]
     public required TerraformProperty<string> ThumbprintAlgorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("thumbprint_algorithm");
-        set => this.WithProperty("thumbprint_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("thumbprint_algorithm");
+        set => SetProperty("thumbprint_algorithm", value);
     }
 
     /// <summary>
@@ -146,8 +150,7 @@ public class AzurermBatchCertificate : TerraformResource
     /// </summary>
     public AzurermBatchCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBatchCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermDevTestLabDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,24 +30,27 @@ public class AzurermDevTestLabDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrtifacts_storage_account_id");
-        this.WithOutputefault_premium_storage_account_id");
-        this.WithOutputefault_storage_account_id");
-        this.WithOutputey_vault_id");
-        this.WithOutputocation");
-        this.WithOutputremium_data_disk_storage_account_id");
-        this.WithOutputtorage_type");
-        this.WithOutputags");
-        this.WithOutputnique_identifier");
+        SetOutput("artifacts_storage_account_id");
+        SetOutput("default_premium_storage_account_id");
+        SetOutput("default_storage_account_id");
+        SetOutput("key_vault_id");
+        SetOutput("location");
+        SetOutput("premium_data_disk_storage_account_id");
+        SetOutput("storage_type");
+        SetOutput("tags");
+        SetOutput("unique_identifier");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -57,8 +59,8 @@ public class AzurermDevTestLabDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class AzurermDevTestLabDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -77,8 +79,7 @@ public class AzurermDevTestLabDataSource : TerraformDataSource
     /// </summary>
     public AzurermDevTestLabDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDevTestLabDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

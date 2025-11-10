@@ -13,8 +13,7 @@ public class AwsAutoscalingplansScalingPlanApplicationSourceBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? CloudformationStackArn
     {
-        get => GetProperty<TerraformProperty<string>>("cloudformation_stack_arn");
-        set => WithProperty("cloudformation_stack_arn", value);
+        set => SetProperty("cloudformation_stack_arn", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? DisableDynamicScaling
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_dynamic_scaling");
-        set => WithProperty("disable_dynamic_scaling", value);
+        set => SetProperty("disable_dynamic_scaling", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformProperty<double> MaxCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_capacity");
-        set => WithProperty("max_capacity", value);
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformProperty<double> MinCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_capacity");
-        set => WithProperty("min_capacity", value);
+        set => SetProperty("min_capacity", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PredictiveScalingMaxCapacityBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("predictive_scaling_max_capacity_behavior");
-        set => WithProperty("predictive_scaling_max_capacity_behavior", value);
+        set => SetProperty("predictive_scaling_max_capacity_behavior", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? PredictiveScalingMaxCapacityBuffer
     {
-        get => GetProperty<TerraformProperty<double>>("predictive_scaling_max_capacity_buffer");
-        set => WithProperty("predictive_scaling_max_capacity_buffer", value);
+        set => SetProperty("predictive_scaling_max_capacity_buffer", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PredictiveScalingMode
     {
-        get => GetProperty<TerraformProperty<string>>("predictive_scaling_mode");
-        set => WithProperty("predictive_scaling_mode", value);
+        set => SetProperty("predictive_scaling_mode", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => WithProperty("resource_id", value);
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     public required TerraformProperty<string> ScalableDimension
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scalable_dimension");
-        set => WithProperty("scalable_dimension", value);
+        set => SetProperty("scalable_dimension", value);
     }
 
     /// <summary>
@@ -106,8 +97,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? ScalingPolicyUpdateBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("scaling_policy_update_behavior");
-        set => WithProperty("scaling_policy_update_behavior", value);
+        set => SetProperty("scaling_policy_update_behavior", value);
     }
 
     /// <summary>
@@ -115,8 +105,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? ScheduledActionBufferTime
     {
-        get => GetProperty<TerraformProperty<double>>("scheduled_action_buffer_time");
-        set => WithProperty("scheduled_action_buffer_time", value);
+        set => SetProperty("scheduled_action_buffer_time", value);
     }
 
     /// <summary>
@@ -125,8 +114,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformProperty<string> ServiceNamespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_namespace");
-        set => WithProperty("service_namespace", value);
+        set => SetProperty("service_namespace", value);
     }
 
 }
@@ -144,16 +132,19 @@ public class AwsAutoscalingplansScalingPlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("scaling_plan_version");
+        SetOutput("scaling_plan_version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -162,40 +153,40 @@ public class AwsAutoscalingplansScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for application_source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSource is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApplicationSource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationSource block(s) allowed")]
     public List<AwsAutoscalingplansScalingPlanApplicationSourceBlock>? ApplicationSource
     {
-        get => GetProperty<List<AwsAutoscalingplansScalingPlanApplicationSourceBlock>>("application_source");
-        set => this.WithProperty("application_source", value);
+        set => SetProperty("application_source", value);
     }
 
     /// <summary>
     /// Block for scaling_instruction.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingInstruction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalingInstruction block(s) required")]
     public HashSet<AwsAutoscalingplansScalingPlanScalingInstructionBlock>? ScalingInstruction
     {
-        get => GetProperty<HashSet<AwsAutoscalingplansScalingPlanScalingInstructionBlock>>("scaling_instruction");
-        set => this.WithProperty("scaling_instruction", value);
+        set => SetProperty("scaling_instruction", value);
     }
 
     /// <summary>

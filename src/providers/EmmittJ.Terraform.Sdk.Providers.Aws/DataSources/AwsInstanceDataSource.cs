@@ -14,8 +14,7 @@ public class AwsInstanceDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsInstanceDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsInstanceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,111 +56,118 @@ public class AwsInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ami");
-        this.WithOutput("arn");
-        this.WithOutput("associate_public_ip_address");
-        this.WithOutput("availability_zone");
-        this.WithOutput("credit_specification");
-        this.WithOutput("disable_api_stop");
-        this.WithOutput("disable_api_termination");
-        this.WithOutput("ebs_block_device");
-        this.WithOutput("ebs_optimized");
-        this.WithOutput("enclave_options");
-        this.WithOutput("ephemeral_block_device");
-        this.WithOutput("host_id");
-        this.WithOutput("host_resource_group_arn");
-        this.WithOutput("iam_instance_profile");
-        this.WithOutput("instance_state");
-        this.WithOutput("instance_type");
-        this.WithOutput("ipv6_addresses");
-        this.WithOutput("key_name");
-        this.WithOutput("launch_time");
-        this.WithOutput("maintenance_options");
-        this.WithOutput("metadata_options");
-        this.WithOutput("monitoring");
-        this.WithOutput("network_interface_id");
-        this.WithOutput("outpost_arn");
-        this.WithOutput("password_data");
-        this.WithOutput("placement_group");
-        this.WithOutput("placement_group_id");
-        this.WithOutput("placement_partition_number");
-        this.WithOutput("private_dns");
-        this.WithOutput("private_dns_name_options");
-        this.WithOutput("private_ip");
-        this.WithOutput("public_dns");
-        this.WithOutput("public_ip");
-        this.WithOutput("root_block_device");
-        this.WithOutput("secondary_private_ips");
-        this.WithOutput("security_groups");
-        this.WithOutput("source_dest_check");
-        this.WithOutput("subnet_id");
-        this.WithOutput("tenancy");
-        this.WithOutput("user_data");
-        this.WithOutput("user_data_base64");
-        this.WithOutput("vpc_security_group_ids");
+        SetOutput("ami");
+        SetOutput("arn");
+        SetOutput("associate_public_ip_address");
+        SetOutput("availability_zone");
+        SetOutput("credit_specification");
+        SetOutput("disable_api_stop");
+        SetOutput("disable_api_termination");
+        SetOutput("ebs_block_device");
+        SetOutput("ebs_optimized");
+        SetOutput("enclave_options");
+        SetOutput("ephemeral_block_device");
+        SetOutput("host_id");
+        SetOutput("host_resource_group_arn");
+        SetOutput("iam_instance_profile");
+        SetOutput("instance_state");
+        SetOutput("instance_type");
+        SetOutput("ipv6_addresses");
+        SetOutput("key_name");
+        SetOutput("launch_time");
+        SetOutput("maintenance_options");
+        SetOutput("metadata_options");
+        SetOutput("monitoring");
+        SetOutput("network_interface_id");
+        SetOutput("outpost_arn");
+        SetOutput("password_data");
+        SetOutput("placement_group");
+        SetOutput("placement_group_id");
+        SetOutput("placement_partition_number");
+        SetOutput("private_dns");
+        SetOutput("private_dns_name_options");
+        SetOutput("private_ip");
+        SetOutput("public_dns");
+        SetOutput("public_ip");
+        SetOutput("root_block_device");
+        SetOutput("secondary_private_ips");
+        SetOutput("security_groups");
+        SetOutput("source_dest_check");
+        SetOutput("subnet_id");
+        SetOutput("tenancy");
+        SetOutput("user_data");
+        SetOutput("user_data_base64");
+        SetOutput("vpc_security_group_ids");
+        SetOutput("get_password_data");
+        SetOutput("get_user_data");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("instance_tags");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The get_password_data attribute.
     /// </summary>
-    public TerraformProperty<bool>? GetPasswordData
+    public TerraformProperty<bool> GetPasswordData
     {
-        get => GetProperty<TerraformProperty<bool>>("get_password_data");
-        set => this.WithProperty("get_password_data", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("get_password_data");
+        set => SetProperty("get_password_data", value);
     }
 
     /// <summary>
     /// The get_user_data attribute.
     /// </summary>
-    public TerraformProperty<bool>? GetUserData
+    public TerraformProperty<bool> GetUserData
     {
-        get => GetProperty<TerraformProperty<bool>>("get_user_data");
-        set => this.WithProperty("get_user_data", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("get_user_data");
+        set => SetProperty("get_user_data", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    public TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// The instance_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? InstanceTags
+    public Dictionary<string, TerraformProperty<string>> InstanceTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("instance_tags");
-        set => this.WithProperty("instance_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("instance_tags");
+        set => SetProperty("instance_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -172,8 +176,7 @@ public class AwsInstanceDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsInstanceDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsInstanceDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -182,8 +185,7 @@ public class AwsInstanceDataSource : TerraformDataSource
     /// </summary>
     public AwsInstanceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsInstanceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

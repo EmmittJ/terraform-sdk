@@ -14,45 +14,50 @@ public class AwsIamUserLoginProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("encrypted_password");
-        this.WithOutput("key_fingerprint");
-        this.WithOutput("password");
+        SetOutput("encrypted_password");
+        SetOutput("key_fingerprint");
+        SetOutput("password");
+        SetOutput("id");
+        SetOutput("password_length");
+        SetOutput("password_reset_required");
+        SetOutput("pgp_key");
+        SetOutput("user");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The password_length attribute.
     /// </summary>
-    public TerraformProperty<double>? PasswordLength
+    public TerraformProperty<double> PasswordLength
     {
-        get => GetProperty<TerraformProperty<double>>("password_length");
-        set => this.WithProperty("password_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("password_length");
+        set => SetProperty("password_length", value);
     }
 
     /// <summary>
     /// The password_reset_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? PasswordResetRequired
+    public TerraformProperty<bool> PasswordResetRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("password_reset_required");
-        set => this.WithProperty("password_reset_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("password_reset_required");
+        set => SetProperty("password_reset_required", value);
     }
 
     /// <summary>
     /// The pgp_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PgpKey
+    public TerraformProperty<string> PgpKey
     {
-        get => GetProperty<TerraformProperty<string>>("pgp_key");
-        set => this.WithProperty("pgp_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pgp_key");
+        set => SetProperty("pgp_key", value);
     }
 
     /// <summary>
@@ -61,8 +66,8 @@ public class AwsIamUserLoginProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user");
-        set => this.WithProperty("user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user");
+        set => SetProperty("user", value);
     }
 
     /// <summary>

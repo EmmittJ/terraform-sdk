@@ -14,8 +14,7 @@ public class GoogleComputeRegionSecurityPolicyRuleMatchBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VersionedExpr
     {
-        get => GetProperty<TerraformProperty<string>>("versioned_expr");
-        set => WithProperty("versioned_expr", value);
+        set => SetProperty("versioned_expr", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? DestIpRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dest_ip_ranges");
-        set => WithProperty("dest_ip_ranges", value);
+        set => SetProperty("dest_ip_ranges", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? DestPorts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dest_ports");
-        set => WithProperty("dest_ports", value);
+        set => SetProperty("dest_ports", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? IpProtocols
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ip_protocols");
-        set => WithProperty("ip_protocols", value);
+        set => SetProperty("ip_protocols", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<double>>? SrcAsns
     {
-        get => GetProperty<List<TerraformProperty<double>>>("src_asns");
-        set => WithProperty("src_asns", value);
+        set => SetProperty("src_asns", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? SrcIpRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("src_ip_ranges");
-        set => WithProperty("src_ip_ranges", value);
+        set => SetProperty("src_ip_ranges", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? SrcPorts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("src_ports");
-        set => WithProperty("src_ports", value);
+        set => SetProperty("src_ports", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : TerraformB
     /// </summary>
     public List<TerraformProperty<string>>? SrcRegionCodes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("src_region_codes");
-        set => WithProperty("src_region_codes", value);
+        set => SetProperty("src_region_codes", value);
     }
 
 }
@@ -111,8 +103,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? BanDurationSec
     {
-        get => GetProperty<TerraformProperty<double>>("ban_duration_sec");
-        set => WithProperty("ban_duration_sec", value);
+        set => SetProperty("ban_duration_sec", value);
     }
 
     /// <summary>
@@ -121,8 +112,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? ConformAction
     {
-        get => GetProperty<TerraformProperty<string>>("conform_action");
-        set => WithProperty("conform_action", value);
+        set => SetProperty("conform_action", value);
     }
 
     /// <summary>
@@ -141,8 +131,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? EnforceOnKey
     {
-        get => GetProperty<TerraformProperty<string>>("enforce_on_key");
-        set => WithProperty("enforce_on_key", value);
+        set => SetProperty("enforce_on_key", value);
     }
 
     /// <summary>
@@ -152,8 +141,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? EnforceOnKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("enforce_on_key_name");
-        set => WithProperty("enforce_on_key_name", value);
+        set => SetProperty("enforce_on_key_name", value);
     }
 
     /// <summary>
@@ -162,8 +150,7 @@ public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? ExceedAction
     {
-        get => GetProperty<TerraformProperty<string>>("exceed_action");
-        set => WithProperty("exceed_action", value);
+        set => SetProperty("exceed_action", value);
     }
 
 }
@@ -179,8 +166,7 @@ public class GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -188,8 +174,7 @@ public class GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -197,8 +182,7 @@ public class GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -216,6 +200,14 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("action");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("preview");
+        SetOutput("priority");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("security_policy");
     }
 
     /// <summary>
@@ -234,35 +226,35 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// If set to true, the specified action is not enforced.
     /// </summary>
-    public TerraformProperty<bool>? Preview
+    public TerraformProperty<bool> Preview
     {
-        get => GetProperty<TerraformProperty<bool>>("preview");
-        set => this.WithProperty("preview", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("preview");
+        set => SetProperty("preview", value);
     }
 
     /// <summary>
@@ -273,17 +265,17 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -292,8 +284,8 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -302,8 +294,8 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
     public required TerraformProperty<string> SecurityPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("security_policy");
-        set => this.WithProperty("security_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_policy");
+        set => SetProperty("security_policy", value);
     }
 
     /// <summary>
@@ -313,8 +305,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
     public List<GoogleComputeRegionSecurityPolicyRuleMatchBlock>? Match
     {
-        get => GetProperty<List<GoogleComputeRegionSecurityPolicyRuleMatchBlock>>("match");
-        set => this.WithProperty("match", value);
+        set => SetProperty("match", value);
     }
 
     /// <summary>
@@ -324,8 +315,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkMatch block(s) allowed")]
     public List<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock>? NetworkMatch
     {
-        get => GetProperty<List<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock>>("network_match");
-        set => this.WithProperty("network_match", value);
+        set => SetProperty("network_match", value);
     }
 
     /// <summary>
@@ -335,8 +325,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreconfiguredWafConfig block(s) allowed")]
     public List<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock>? PreconfiguredWafConfig
     {
-        get => GetProperty<List<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock>>("preconfigured_waf_config");
-        set => this.WithProperty("preconfigured_waf_config", value);
+        set => SetProperty("preconfigured_waf_config", value);
     }
 
     /// <summary>
@@ -346,8 +335,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimitOptions block(s) allowed")]
     public List<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock>? RateLimitOptions
     {
-        get => GetProperty<List<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock>>("rate_limit_options");
-        set => this.WithProperty("rate_limit_options", value);
+        set => SetProperty("rate_limit_options", value);
     }
 
     /// <summary>
@@ -356,8 +344,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     public GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

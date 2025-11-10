@@ -13,8 +13,7 @@ public class GoogleGeminiLoggingSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleGeminiLoggingSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleGeminiLoggingSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,20 +46,27 @@ public class GoogleGeminiLoggingSetting : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("log_metadata");
+        SetOutput("log_prompts_and_responses");
+        SetOutput("logging_setting_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -71,10 +75,10 @@ public class GoogleGeminiLoggingSetting : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -83,26 +87,26 @@ public class GoogleGeminiLoggingSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Whether to log metadata.
     /// </summary>
-    public TerraformProperty<bool>? LogMetadata
+    public TerraformProperty<bool> LogMetadata
     {
-        get => GetProperty<TerraformProperty<bool>>("log_metadata");
-        set => this.WithProperty("log_metadata", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("log_metadata");
+        set => SetProperty("log_metadata", value);
     }
 
     /// <summary>
     /// Whether to log prompts and responses.
     /// </summary>
-    public TerraformProperty<bool>? LogPromptsAndResponses
+    public TerraformProperty<bool> LogPromptsAndResponses
     {
-        get => GetProperty<TerraformProperty<bool>>("log_prompts_and_responses");
-        set => this.WithProperty("log_prompts_and_responses", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("log_prompts_and_responses");
+        set => SetProperty("log_prompts_and_responses", value);
     }
 
     /// <summary>
@@ -111,17 +115,17 @@ public class GoogleGeminiLoggingSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoggingSettingId is required")]
     public required TerraformProperty<string> LoggingSettingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("logging_setting_id");
-        set => this.WithProperty("logging_setting_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logging_setting_id");
+        set => SetProperty("logging_setting_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -130,8 +134,7 @@ public class GoogleGeminiLoggingSetting : TerraformResource
     /// </summary>
     public GoogleGeminiLoggingSettingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGeminiLoggingSettingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

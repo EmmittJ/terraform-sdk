@@ -13,8 +13,7 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CurrentVersionedKeyExpirationTimestamp
     {
-        get => GetProperty<TerraformProperty<string>>("current_versioned_key_expiration_timestamp");
-        set => WithProperty("current_versioned_key_expiration_timestamp", value);
+        set => SetProperty("current_versioned_key_expiration_timestamp", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CurrentVersionedKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("current_versioned_key_id");
-        set => WithProperty("current_versioned_key_id", value);
+        set => SetProperty("current_versioned_key_id", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => WithProperty("key_vault_key_id", value);
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastKeyRotationTimestamp
     {
-        get => GetProperty<TerraformProperty<string>>("last_key_rotation_timestamp");
-        set => WithProperty("last_key_rotation_timestamp", value);
+        set => SetProperty("last_key_rotation_timestamp", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
-        set => WithProperty("user_assigned_identity_id", value);
+        set => SetProperty("user_assigned_identity_id", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -112,8 +103,7 @@ public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -139,8 +128,7 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -148,8 +136,7 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -157,8 +144,7 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -166,8 +152,7 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -185,6 +170,11 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("elastic_san_id");
+        SetOutput("encryption_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("protocol_type");
     }
 
     /// <summary>
@@ -193,26 +183,26 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
     public required TerraformProperty<string> ElasticSanId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("elastic_san_id");
-        set => this.WithProperty("elastic_san_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("elastic_san_id");
+        set => SetProperty("elastic_san_id", value);
     }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionType
+    public TerraformProperty<string> EncryptionType
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_type");
-        set => this.WithProperty("encryption_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_type");
+        set => SetProperty("encryption_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -221,17 +211,17 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtocolType
+    public TerraformProperty<string> ProtocolType
     {
-        get => GetProperty<TerraformProperty<string>>("protocol_type");
-        set => this.WithProperty("protocol_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol_type");
+        set => SetProperty("protocol_type", value);
     }
 
     /// <summary>
@@ -241,8 +231,7 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     public List<AzurermElasticSanVolumeGroupEncryptionBlock>? Encryption
     {
-        get => GetProperty<List<AzurermElasticSanVolumeGroupEncryptionBlock>>("encryption");
-        set => this.WithProperty("encryption", value);
+        set => SetProperty("encryption", value);
     }
 
     /// <summary>
@@ -252,8 +241,7 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermElasticSanVolumeGroupIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermElasticSanVolumeGroupIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -262,8 +250,7 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     /// </summary>
     public List<AzurermElasticSanVolumeGroupNetworkRuleBlock>? NetworkRule
     {
-        get => GetProperty<List<AzurermElasticSanVolumeGroupNetworkRuleBlock>>("network_rule");
-        set => this.WithProperty("network_rule", value);
+        set => SetProperty("network_rule", value);
     }
 
     /// <summary>
@@ -272,8 +259,7 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     /// </summary>
     public AzurermElasticSanVolumeGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermElasticSanVolumeGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

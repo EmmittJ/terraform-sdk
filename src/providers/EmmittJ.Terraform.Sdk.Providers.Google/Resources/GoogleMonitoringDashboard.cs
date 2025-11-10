@@ -13,8 +13,7 @@ public class GoogleMonitoringDashboardTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleMonitoringDashboardTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleMonitoringDashboardTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,6 +46,9 @@ public class GoogleMonitoringDashboard : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dashboard_json");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -57,26 +57,26 @@ public class GoogleMonitoringDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DashboardJson is required")]
     public required TerraformProperty<string> DashboardJson
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dashboard_json");
-        set => this.WithProperty("dashboard_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dashboard_json");
+        set => SetProperty("dashboard_json", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -85,8 +85,7 @@ public class GoogleMonitoringDashboard : TerraformResource
     /// </summary>
     public GoogleMonitoringDashboardTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMonitoringDashboardTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

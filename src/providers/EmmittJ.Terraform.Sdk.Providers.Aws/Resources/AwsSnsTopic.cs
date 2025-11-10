@@ -14,288 +14,319 @@ public class AwsSnsTopic : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("beginning_archive_time");
-        this.WithOutput("owner");
+        SetOutput("arn");
+        SetOutput("beginning_archive_time");
+        SetOutput("owner");
+        SetOutput("application_failure_feedback_role_arn");
+        SetOutput("application_success_feedback_role_arn");
+        SetOutput("application_success_feedback_sample_rate");
+        SetOutput("archive_policy");
+        SetOutput("content_based_deduplication");
+        SetOutput("delivery_policy");
+        SetOutput("display_name");
+        SetOutput("fifo_throughput_scope");
+        SetOutput("fifo_topic");
+        SetOutput("firehose_failure_feedback_role_arn");
+        SetOutput("firehose_success_feedback_role_arn");
+        SetOutput("firehose_success_feedback_sample_rate");
+        SetOutput("http_failure_feedback_role_arn");
+        SetOutput("http_success_feedback_role_arn");
+        SetOutput("http_success_feedback_sample_rate");
+        SetOutput("id");
+        SetOutput("kms_master_key_id");
+        SetOutput("lambda_failure_feedback_role_arn");
+        SetOutput("lambda_success_feedback_role_arn");
+        SetOutput("lambda_success_feedback_sample_rate");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("policy");
+        SetOutput("region");
+        SetOutput("signature_version");
+        SetOutput("sqs_failure_feedback_role_arn");
+        SetOutput("sqs_success_feedback_role_arn");
+        SetOutput("sqs_success_feedback_sample_rate");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("tracing_config");
     }
 
     /// <summary>
     /// The application_failure_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationFailureFeedbackRoleArn
+    public TerraformProperty<string> ApplicationFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("application_failure_feedback_role_arn");
-        set => this.WithProperty("application_failure_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_failure_feedback_role_arn");
+        set => SetProperty("application_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The application_success_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationSuccessFeedbackRoleArn
+    public TerraformProperty<string> ApplicationSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("application_success_feedback_role_arn");
-        set => this.WithProperty("application_success_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_success_feedback_role_arn");
+        set => SetProperty("application_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The application_success_feedback_sample_rate attribute.
     /// </summary>
-    public TerraformProperty<double>? ApplicationSuccessFeedbackSampleRate
+    public TerraformProperty<double> ApplicationSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformProperty<double>>("application_success_feedback_sample_rate");
-        set => this.WithProperty("application_success_feedback_sample_rate", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("application_success_feedback_sample_rate");
+        set => SetProperty("application_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The archive_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? ArchivePolicy
+    public TerraformProperty<string> ArchivePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("archive_policy");
-        set => this.WithProperty("archive_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("archive_policy");
+        set => SetProperty("archive_policy", value);
     }
 
     /// <summary>
     /// The content_based_deduplication attribute.
     /// </summary>
-    public TerraformProperty<bool>? ContentBasedDeduplication
+    public TerraformProperty<bool> ContentBasedDeduplication
     {
-        get => GetProperty<TerraformProperty<bool>>("content_based_deduplication");
-        set => this.WithProperty("content_based_deduplication", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("content_based_deduplication");
+        set => SetProperty("content_based_deduplication", value);
     }
 
     /// <summary>
     /// The delivery_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? DeliveryPolicy
+    public TerraformProperty<string> DeliveryPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_policy");
-        set => this.WithProperty("delivery_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delivery_policy");
+        set => SetProperty("delivery_policy", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The fifo_throughput_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? FifoThroughputScope
+    public TerraformProperty<string> FifoThroughputScope
     {
-        get => GetProperty<TerraformProperty<string>>("fifo_throughput_scope");
-        set => this.WithProperty("fifo_throughput_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fifo_throughput_scope");
+        set => SetProperty("fifo_throughput_scope", value);
     }
 
     /// <summary>
     /// The fifo_topic attribute.
     /// </summary>
-    public TerraformProperty<bool>? FifoTopic
+    public TerraformProperty<bool> FifoTopic
     {
-        get => GetProperty<TerraformProperty<bool>>("fifo_topic");
-        set => this.WithProperty("fifo_topic", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("fifo_topic");
+        set => SetProperty("fifo_topic", value);
     }
 
     /// <summary>
     /// The firehose_failure_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? FirehoseFailureFeedbackRoleArn
+    public TerraformProperty<string> FirehoseFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("firehose_failure_feedback_role_arn");
-        set => this.WithProperty("firehose_failure_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firehose_failure_feedback_role_arn");
+        set => SetProperty("firehose_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The firehose_success_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? FirehoseSuccessFeedbackRoleArn
+    public TerraformProperty<string> FirehoseSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("firehose_success_feedback_role_arn");
-        set => this.WithProperty("firehose_success_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firehose_success_feedback_role_arn");
+        set => SetProperty("firehose_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The firehose_success_feedback_sample_rate attribute.
     /// </summary>
-    public TerraformProperty<double>? FirehoseSuccessFeedbackSampleRate
+    public TerraformProperty<double> FirehoseSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformProperty<double>>("firehose_success_feedback_sample_rate");
-        set => this.WithProperty("firehose_success_feedback_sample_rate", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("firehose_success_feedback_sample_rate");
+        set => SetProperty("firehose_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The http_failure_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? HttpFailureFeedbackRoleArn
+    public TerraformProperty<string> HttpFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("http_failure_feedback_role_arn");
-        set => this.WithProperty("http_failure_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("http_failure_feedback_role_arn");
+        set => SetProperty("http_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The http_success_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? HttpSuccessFeedbackRoleArn
+    public TerraformProperty<string> HttpSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("http_success_feedback_role_arn");
-        set => this.WithProperty("http_success_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("http_success_feedback_role_arn");
+        set => SetProperty("http_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The http_success_feedback_sample_rate attribute.
     /// </summary>
-    public TerraformProperty<double>? HttpSuccessFeedbackSampleRate
+    public TerraformProperty<double> HttpSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformProperty<double>>("http_success_feedback_sample_rate");
-        set => this.WithProperty("http_success_feedback_sample_rate", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("http_success_feedback_sample_rate");
+        set => SetProperty("http_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_master_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsMasterKeyId
+    public TerraformProperty<string> KmsMasterKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_master_key_id");
-        set => this.WithProperty("kms_master_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_master_key_id");
+        set => SetProperty("kms_master_key_id", value);
     }
 
     /// <summary>
     /// The lambda_failure_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LambdaFailureFeedbackRoleArn
+    public TerraformProperty<string> LambdaFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("lambda_failure_feedback_role_arn");
-        set => this.WithProperty("lambda_failure_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lambda_failure_feedback_role_arn");
+        set => SetProperty("lambda_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The lambda_success_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LambdaSuccessFeedbackRoleArn
+    public TerraformProperty<string> LambdaSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("lambda_success_feedback_role_arn");
-        set => this.WithProperty("lambda_success_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lambda_success_feedback_role_arn");
+        set => SetProperty("lambda_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The lambda_success_feedback_sample_rate attribute.
     /// </summary>
-    public TerraformProperty<double>? LambdaSuccessFeedbackSampleRate
+    public TerraformProperty<double> LambdaSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformProperty<double>>("lambda_success_feedback_sample_rate");
-        set => this.WithProperty("lambda_success_feedback_sample_rate", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("lambda_success_feedback_sample_rate");
+        set => SetProperty("lambda_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    public TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The signature_version attribute.
     /// </summary>
-    public TerraformProperty<double>? SignatureVersion
+    public TerraformProperty<double> SignatureVersion
     {
-        get => GetProperty<TerraformProperty<double>>("signature_version");
-        set => this.WithProperty("signature_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("signature_version");
+        set => SetProperty("signature_version", value);
     }
 
     /// <summary>
     /// The sqs_failure_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SqsFailureFeedbackRoleArn
+    public TerraformProperty<string> SqsFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("sqs_failure_feedback_role_arn");
-        set => this.WithProperty("sqs_failure_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sqs_failure_feedback_role_arn");
+        set => SetProperty("sqs_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The sqs_success_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SqsSuccessFeedbackRoleArn
+    public TerraformProperty<string> SqsSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("sqs_success_feedback_role_arn");
-        set => this.WithProperty("sqs_success_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sqs_success_feedback_role_arn");
+        set => SetProperty("sqs_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The sqs_success_feedback_sample_rate attribute.
     /// </summary>
-    public TerraformProperty<double>? SqsSuccessFeedbackSampleRate
+    public TerraformProperty<double> SqsSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformProperty<double>>("sqs_success_feedback_sample_rate");
-        set => this.WithProperty("sqs_success_feedback_sample_rate", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("sqs_success_feedback_sample_rate");
+        set => SetProperty("sqs_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tracing_config attribute.
     /// </summary>
-    public TerraformProperty<string>? TracingConfig
+    public TerraformProperty<string> TracingConfig
     {
-        get => GetProperty<TerraformProperty<string>>("tracing_config");
-        set => this.WithProperty("tracing_config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tracing_config");
+        set => SetProperty("tracing_config", value);
     }
 
     /// <summary>

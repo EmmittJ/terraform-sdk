@@ -18,8 +18,7 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Location
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Method
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("method");
-        set => WithProperty("method", value);
+        set => SetProperty("method", value);
     }
 
     /// <summary>
@@ -46,8 +44,7 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Version
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -71,8 +68,7 @@ public class GoogleMonitoringSloTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -80,8 +76,7 @@ public class GoogleMonitoringSloTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -89,8 +84,7 @@ public class GoogleMonitoringSloTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -110,8 +104,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GoodBadMetricFilter
     {
-        get => GetProperty<TerraformProperty<string>>("good_bad_metric_filter");
-        set => WithProperty("good_bad_metric_filter", value);
+        set => SetProperty("good_bad_metric_filter", value);
     }
 
     /// <summary>
@@ -121,8 +114,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WindowPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("window_period");
-        set => WithProperty("window_period", value);
+        set => SetProperty("window_period", value);
     }
 
 }
@@ -140,26 +132,35 @@ public class GoogleMonitoringSlo : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("calendar_period");
+        SetOutput("display_name");
+        SetOutput("goal");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("rolling_period_days");
+        SetOutput("service");
+        SetOutput("slo_id");
+        SetOutput("user_labels");
     }
 
     /// <summary>
     /// A calendar period, semantically &amp;quot;since the start of the current
     /// &amp;lt;calendarPeriod&amp;gt;&amp;quot;. Possible values: [&amp;quot;DAY&amp;quot;, &amp;quot;WEEK&amp;quot;, &amp;quot;FORTNIGHT&amp;quot;, &amp;quot;MONTH&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? CalendarPeriod
+    public TerraformProperty<string> CalendarPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("calendar_period");
-        set => this.WithProperty("calendar_period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("calendar_period");
+        set => SetProperty("calendar_period", value);
     }
 
     /// <summary>
     /// Name used for UI elements listing this SLO.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -169,36 +170,36 @@ public class GoogleMonitoringSlo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
     public required TerraformProperty<double> Goal
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("goal");
-        set => this.WithProperty("goal", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("goal");
+        set => SetProperty("goal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// A rolling time period, semantically &amp;quot;in the past X days&amp;quot;.
     /// Must be between 1 to 30 days, inclusive.
     /// </summary>
-    public TerraformProperty<double>? RollingPeriodDays
+    public TerraformProperty<double> RollingPeriodDays
     {
-        get => GetProperty<TerraformProperty<double>>("rolling_period_days");
-        set => this.WithProperty("rolling_period_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("rolling_period_days");
+        set => SetProperty("rolling_period_days", value);
     }
 
     /// <summary>
@@ -207,17 +208,17 @@ public class GoogleMonitoringSlo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
     /// The id to use for this ServiceLevelObjective. If omitted, an id will be generated instead.
     /// </summary>
-    public TerraformProperty<string>? SloId
+    public TerraformProperty<string> SloId
     {
-        get => GetProperty<TerraformProperty<string>>("slo_id");
-        set => this.WithProperty("slo_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("slo_id");
+        set => SetProperty("slo_id", value);
     }
 
     /// <summary>
@@ -227,10 +228,10 @@ public class GoogleMonitoringSlo : TerraformResource
     /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
     /// must begin with a letter.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? UserLabels
+    public Dictionary<string, TerraformProperty<string>> UserLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_labels");
-        set => this.WithProperty("user_labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("user_labels");
+        set => SetProperty("user_labels", value);
     }
 
     /// <summary>
@@ -240,8 +241,7 @@ public class GoogleMonitoringSlo : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicSli block(s) allowed")]
     public List<GoogleMonitoringSloBasicSliBlock>? BasicSli
     {
-        get => GetProperty<List<GoogleMonitoringSloBasicSliBlock>>("basic_sli");
-        set => this.WithProperty("basic_sli", value);
+        set => SetProperty("basic_sli", value);
     }
 
     /// <summary>
@@ -251,8 +251,7 @@ public class GoogleMonitoringSlo : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestBasedSli block(s) allowed")]
     public List<GoogleMonitoringSloRequestBasedSliBlock>? RequestBasedSli
     {
-        get => GetProperty<List<GoogleMonitoringSloRequestBasedSliBlock>>("request_based_sli");
-        set => this.WithProperty("request_based_sli", value);
+        set => SetProperty("request_based_sli", value);
     }
 
     /// <summary>
@@ -261,8 +260,7 @@ public class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     public GoogleMonitoringSloTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMonitoringSloTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -272,8 +270,7 @@ public class GoogleMonitoringSlo : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsBasedSli block(s) allowed")]
     public List<GoogleMonitoringSloWindowsBasedSliBlock>? WindowsBasedSli
     {
-        get => GetProperty<List<GoogleMonitoringSloWindowsBasedSliBlock>>("windows_based_sli");
-        set => this.WithProperty("windows_based_sli", value);
+        set => SetProperty("windows_based_sli", value);
     }
 
     /// <summary>

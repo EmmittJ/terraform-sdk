@@ -13,8 +13,7 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,24 +46,27 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("customer_managed_key_enabled");
+        SetOutput("id");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CustomerManagedKeyEnabled
+    public TerraformProperty<bool> CustomerManagedKeyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("customer_managed_key_enabled");
-        set => this.WithProperty("customer_managed_key_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("customer_managed_key_enabled");
+        set => SetProperty("customer_managed_key_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +75,8 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -85,8 +85,7 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
     /// </summary>
     public AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

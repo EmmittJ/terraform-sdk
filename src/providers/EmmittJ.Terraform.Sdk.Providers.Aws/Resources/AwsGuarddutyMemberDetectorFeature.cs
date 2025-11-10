@@ -14,8 +14,7 @@ public class AwsGuarddutyMemberDetectorFeatureAdditionalConfigurationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsGuarddutyMemberDetectorFeatureAdditionalConfigurationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -42,6 +40,11 @@ public class AwsGuarddutyMemberDetectorFeature : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_id");
+        SetOutput("detector_id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("status");
     }
 
     /// <summary>
@@ -50,8 +53,8 @@ public class AwsGuarddutyMemberDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -60,8 +63,8 @@ public class AwsGuarddutyMemberDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformProperty<string> DetectorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("detector_id");
-        set => this.WithProperty("detector_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("detector_id");
+        set => SetProperty("detector_id", value);
     }
 
     /// <summary>
@@ -70,17 +73,17 @@ public class AwsGuarddutyMemberDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -89,8 +92,8 @@ public class AwsGuarddutyMemberDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -99,8 +102,7 @@ public class AwsGuarddutyMemberDetectorFeature : TerraformResource
     /// </summary>
     public List<AwsGuarddutyMemberDetectorFeatureAdditionalConfigurationBlock>? AdditionalConfiguration
     {
-        get => GetProperty<List<AwsGuarddutyMemberDetectorFeatureAdditionalConfigurationBlock>>("additional_configuration");
-        set => this.WithProperty("additional_configuration", value);
+        set => SetProperty("additional_configuration", value);
     }
 
 }

@@ -14,8 +14,7 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluateTargetHealth is required")]
     public required TerraformProperty<bool> EvaluateTargetHealth
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("evaluate_target_health");
-        set => WithProperty("evaluate_target_health", value);
+        set => SetProperty("evaluate_target_health", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
-        set => WithProperty("zone_id", value);
+        set => SetProperty("zone_id", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
-        set => WithProperty("collection_id", value);
+        set => SetProperty("collection_id", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationName is required")]
     public required TerraformProperty<string> LocationName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location_name");
-        set => WithProperty("location_name", value);
+        set => SetProperty("location_name", value);
     }
 
 }
@@ -80,8 +75,7 @@ public class AwsRoute53RecordFailoverRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -97,8 +91,7 @@ public class AwsRoute53RecordGeolocationRoutingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Continent
     {
-        get => GetProperty<TerraformProperty<string>>("continent");
-        set => WithProperty("continent", value);
+        set => SetProperty("continent", value);
     }
 
     /// <summary>
@@ -106,8 +99,7 @@ public class AwsRoute53RecordGeolocationRoutingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Country
     {
-        get => GetProperty<TerraformProperty<string>>("country");
-        set => WithProperty("country", value);
+        set => SetProperty("country", value);
     }
 
     /// <summary>
@@ -115,8 +107,7 @@ public class AwsRoute53RecordGeolocationRoutingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subdivision
     {
-        get => GetProperty<TerraformProperty<string>>("subdivision");
-        set => WithProperty("subdivision", value);
+        set => SetProperty("subdivision", value);
     }
 
 }
@@ -132,8 +123,7 @@ public class AwsRoute53RecordGeoproximityRoutingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AwsRegion
     {
-        get => GetProperty<TerraformProperty<string>>("aws_region");
-        set => WithProperty("aws_region", value);
+        set => SetProperty("aws_region", value);
     }
 
     /// <summary>
@@ -141,8 +131,7 @@ public class AwsRoute53RecordGeoproximityRoutingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Bias
     {
-        get => GetProperty<TerraformProperty<double>>("bias");
-        set => WithProperty("bias", value);
+        set => SetProperty("bias", value);
     }
 
     /// <summary>
@@ -150,8 +139,7 @@ public class AwsRoute53RecordGeoproximityRoutingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocalZoneGroup
     {
-        get => GetProperty<TerraformProperty<string>>("local_zone_group");
-        set => WithProperty("local_zone_group", value);
+        set => SetProperty("local_zone_group", value);
     }
 
 }
@@ -168,8 +156,7 @@ public class AwsRoute53RecordLatencyRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
 }
@@ -185,8 +172,7 @@ public class AwsRoute53RecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -194,8 +180,7 @@ public class AwsRoute53RecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -203,8 +188,7 @@ public class AwsRoute53RecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -221,8 +205,7 @@ public class AwsRoute53RecordWeightedRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformProperty<double> Weight
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("weight");
-        set => WithProperty("weight", value);
+        set => SetProperty("weight", value);
     }
 
 }
@@ -240,43 +223,53 @@ public class AwsRoute53Record : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fqdn");
+        SetOutput("fqdn");
+        SetOutput("allow_overwrite");
+        SetOutput("health_check_id");
+        SetOutput("id");
+        SetOutput("multivalue_answer_routing_policy");
+        SetOutput("name");
+        SetOutput("records");
+        SetOutput("set_identifier");
+        SetOutput("ttl");
+        SetOutput("type");
+        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The allow_overwrite attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowOverwrite
+    public TerraformProperty<bool> AllowOverwrite
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_overwrite");
-        set => this.WithProperty("allow_overwrite", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_overwrite");
+        set => SetProperty("allow_overwrite", value);
     }
 
     /// <summary>
     /// The health_check_id attribute.
     /// </summary>
-    public TerraformProperty<string>? HealthCheckId
+    public TerraformProperty<string> HealthCheckId
     {
-        get => GetProperty<TerraformProperty<string>>("health_check_id");
-        set => this.WithProperty("health_check_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("health_check_id");
+        set => SetProperty("health_check_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The multivalue_answer_routing_policy attribute.
     /// </summary>
-    public TerraformProperty<bool>? MultivalueAnswerRoutingPolicy
+    public TerraformProperty<bool> MultivalueAnswerRoutingPolicy
     {
-        get => GetProperty<TerraformProperty<bool>>("multivalue_answer_routing_policy");
-        set => this.WithProperty("multivalue_answer_routing_policy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multivalue_answer_routing_policy");
+        set => SetProperty("multivalue_answer_routing_policy", value);
     }
 
     /// <summary>
@@ -285,35 +278,35 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The records attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Records
+    public HashSet<TerraformProperty<string>> Records
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("records");
-        set => this.WithProperty("records", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("records");
+        set => SetProperty("records", value);
     }
 
     /// <summary>
     /// The set_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SetIdentifier
+    public TerraformProperty<string> SetIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("set_identifier");
-        set => this.WithProperty("set_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("set_identifier");
+        set => SetProperty("set_identifier", value);
     }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? Ttl
+    public TerraformProperty<double> Ttl
     {
-        get => GetProperty<TerraformProperty<double>>("ttl");
-        set => this.WithProperty("ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ttl");
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>
@@ -322,8 +315,8 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -332,8 +325,8 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
-        set => this.WithProperty("zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
+        set => SetProperty("zone_id", value);
     }
 
     /// <summary>
@@ -343,8 +336,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Alias block(s) allowed")]
     public List<AwsRoute53RecordAliasBlock>? Alias
     {
-        get => GetProperty<List<AwsRoute53RecordAliasBlock>>("alias");
-        set => this.WithProperty("alias", value);
+        set => SetProperty("alias", value);
     }
 
     /// <summary>
@@ -354,8 +346,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CidrRoutingPolicy block(s) allowed")]
     public List<AwsRoute53RecordCidrRoutingPolicyBlock>? CidrRoutingPolicy
     {
-        get => GetProperty<List<AwsRoute53RecordCidrRoutingPolicyBlock>>("cidr_routing_policy");
-        set => this.WithProperty("cidr_routing_policy", value);
+        set => SetProperty("cidr_routing_policy", value);
     }
 
     /// <summary>
@@ -365,8 +356,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FailoverRoutingPolicy block(s) allowed")]
     public List<AwsRoute53RecordFailoverRoutingPolicyBlock>? FailoverRoutingPolicy
     {
-        get => GetProperty<List<AwsRoute53RecordFailoverRoutingPolicyBlock>>("failover_routing_policy");
-        set => this.WithProperty("failover_routing_policy", value);
+        set => SetProperty("failover_routing_policy", value);
     }
 
     /// <summary>
@@ -376,8 +366,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GeolocationRoutingPolicy block(s) allowed")]
     public List<AwsRoute53RecordGeolocationRoutingPolicyBlock>? GeolocationRoutingPolicy
     {
-        get => GetProperty<List<AwsRoute53RecordGeolocationRoutingPolicyBlock>>("geolocation_routing_policy");
-        set => this.WithProperty("geolocation_routing_policy", value);
+        set => SetProperty("geolocation_routing_policy", value);
     }
 
     /// <summary>
@@ -387,8 +376,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GeoproximityRoutingPolicy block(s) allowed")]
     public List<AwsRoute53RecordGeoproximityRoutingPolicyBlock>? GeoproximityRoutingPolicy
     {
-        get => GetProperty<List<AwsRoute53RecordGeoproximityRoutingPolicyBlock>>("geoproximity_routing_policy");
-        set => this.WithProperty("geoproximity_routing_policy", value);
+        set => SetProperty("geoproximity_routing_policy", value);
     }
 
     /// <summary>
@@ -398,8 +386,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LatencyRoutingPolicy block(s) allowed")]
     public List<AwsRoute53RecordLatencyRoutingPolicyBlock>? LatencyRoutingPolicy
     {
-        get => GetProperty<List<AwsRoute53RecordLatencyRoutingPolicyBlock>>("latency_routing_policy");
-        set => this.WithProperty("latency_routing_policy", value);
+        set => SetProperty("latency_routing_policy", value);
     }
 
     /// <summary>
@@ -408,8 +395,7 @@ public class AwsRoute53Record : TerraformResource
     /// </summary>
     public AwsRoute53RecordTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRoute53RecordTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -419,8 +405,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeightedRoutingPolicy block(s) allowed")]
     public List<AwsRoute53RecordWeightedRoutingPolicyBlock>? WeightedRoutingPolicy
     {
-        get => GetProperty<List<AwsRoute53RecordWeightedRoutingPolicyBlock>>("weighted_routing_policy");
-        set => this.WithProperty("weighted_routing_policy", value);
+        set => SetProperty("weighted_routing_policy", value);
     }
 
     /// <summary>

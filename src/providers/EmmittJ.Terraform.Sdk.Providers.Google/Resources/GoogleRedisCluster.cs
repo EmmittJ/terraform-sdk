@@ -16,8 +16,7 @@ public class GoogleRedisClusterAutomatedBackupConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     public required TerraformProperty<string> Retention
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("retention");
-        set => WithProperty("retention", value);
+        set => SetProperty("retention", value);
     }
 
 }
@@ -41,8 +40,7 @@ public class GoogleRedisClusterCrossClusterReplicationConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? ClusterRole
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_role");
-        set => WithProperty("cluster_role", value);
+        set => SetProperty("cluster_role", value);
     }
 
     /// <summary>
@@ -50,8 +48,7 @@ public class GoogleRedisClusterCrossClusterReplicationConfigBlock : TerraformBlo
     /// </summary>
     public List<TerraformProperty<object>>? Membership
     {
-        get => GetProperty<List<TerraformProperty<object>>>("membership");
-        set => WithProperty("membership", value);
+        set => SetProperty("membership", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class GoogleRedisClusterCrossClusterReplicationConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? UpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("update_time");
-        set => WithProperty("update_time", value);
+        set => SetProperty("update_time", value);
     }
 
 }
@@ -77,8 +73,7 @@ public class GoogleRedisClusterGcsSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     public HashSet<TerraformProperty<string>>? Uris
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("uris");
-        set => WithProperty("uris", value);
+        set => SetProperty("uris", value);
     }
 
 }
@@ -96,8 +91,7 @@ public class GoogleRedisClusterMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateTime
     {
-        get => GetProperty<TerraformProperty<string>>("create_time");
-        set => WithProperty("create_time", value);
+        set => SetProperty("create_time", value);
     }
 
     /// <summary>
@@ -107,8 +101,7 @@ public class GoogleRedisClusterMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("update_time");
-        set => WithProperty("update_time", value);
+        set => SetProperty("update_time", value);
     }
 
 }
@@ -125,8 +118,7 @@ public class GoogleRedisClusterManagedBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     public required TerraformProperty<string> Backup
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup");
-        set => WithProperty("backup", value);
+        set => SetProperty("backup", value);
     }
 
 }
@@ -146,8 +138,7 @@ public class GoogleRedisClusterPersistenceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -166,8 +157,7 @@ public class GoogleRedisClusterPscConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
 }
@@ -183,8 +173,7 @@ public class GoogleRedisClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -192,8 +181,7 @@ public class GoogleRedisClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -201,8 +189,7 @@ public class GoogleRedisClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -219,8 +206,7 @@ public class GoogleRedisClusterZoneDistributionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -228,8 +214,7 @@ public class GoogleRedisClusterZoneDistributionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => WithProperty("zone", value);
+        set => SetProperty("zone", value);
     }
 
 }
@@ -247,29 +232,42 @@ public class GoogleRedisCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("available_maintenance_versions");
-        this.WithOutput("backup_collection");
-        this.WithOutput("create_time");
-        this.WithOutput("discovery_endpoints");
-        this.WithOutput("effective_maintenance_version");
-        this.WithOutput("maintenance_schedule");
-        this.WithOutput("managed_server_ca");
-        this.WithOutput("precise_size_gb");
-        this.WithOutput("psc_connections");
-        this.WithOutput("psc_service_attachments");
-        this.WithOutput("size_gb");
-        this.WithOutput("state");
-        this.WithOutput("state_info");
-        this.WithOutput("uid");
+        SetOutput("available_maintenance_versions");
+        SetOutput("backup_collection");
+        SetOutput("create_time");
+        SetOutput("discovery_endpoints");
+        SetOutput("effective_maintenance_version");
+        SetOutput("maintenance_schedule");
+        SetOutput("managed_server_ca");
+        SetOutput("precise_size_gb");
+        SetOutput("psc_connections");
+        SetOutput("psc_service_attachments");
+        SetOutput("size_gb");
+        SetOutput("state");
+        SetOutput("state_info");
+        SetOutput("uid");
+        SetOutput("authorization_mode");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("id");
+        SetOutput("kms_key");
+        SetOutput("maintenance_version");
+        SetOutput("name");
+        SetOutput("node_type");
+        SetOutput("project");
+        SetOutput("redis_configs");
+        SetOutput("region");
+        SetOutput("replica_count");
+        SetOutput("shard_count");
+        SetOutput("transit_encryption_mode");
     }
 
     /// <summary>
     /// Optional. The authorization mode of the Redis cluster. If not provided, auth feature is disabled for the cluster. Default value: &amp;quot;AUTH_MODE_DISABLED&amp;quot; Possible values: [&amp;quot;AUTH_MODE_UNSPECIFIED&amp;quot;, &amp;quot;AUTH_MODE_IAM_AUTH&amp;quot;, &amp;quot;AUTH_MODE_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AuthorizationMode
+    public TerraformProperty<string> AuthorizationMode
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_mode");
-        set => this.WithProperty("authorization_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_mode");
+        set => SetProperty("authorization_mode", value);
     }
 
     /// <summary>
@@ -277,67 +275,67 @@ public class GoogleRedisCluster : TerraformResource
     /// If the value if set to true, any delete cluster operation will fail.
     /// Default value is true.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool> DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => this.WithProperty("deletion_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
+        set => SetProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster.
     /// </summary>
-    public TerraformProperty<string>? KmsKey
+    public TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => this.WithProperty("kms_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
     /// *Note*: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!
     /// </summary>
-    public TerraformProperty<string>? MaintenanceVersion
+    public TerraformProperty<string> MaintenanceVersion
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_version");
-        set => this.WithProperty("maintenance_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_version");
+        set => SetProperty("maintenance_version", value);
     }
 
     /// <summary>
     /// Unique name of the resource in this scope including project and location using the form:
     /// projects/{projectId}/locations/{locationId}/clusters/{clusterId}
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The nodeType for the Redis cluster.
     /// If not provided, REDIS_HIGHMEM_MEDIUM will be used as default Possible values: [&amp;quot;REDIS_SHARED_CORE_NANO&amp;quot;, &amp;quot;REDIS_HIGHMEM_MEDIUM&amp;quot;, &amp;quot;REDIS_HIGHMEM_XLARGE&amp;quot;, &amp;quot;REDIS_STANDARD_SMALL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NodeType
+    public TerraformProperty<string> NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
-        set => this.WithProperty("node_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
+        set => SetProperty("node_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -345,28 +343,28 @@ public class GoogleRedisCluster : TerraformResource
     /// Please check Memorystore documentation for the list of supported parameters:
     /// https://cloud.google.com/memorystore/docs/cluster/supported-instance-configurations
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? RedisConfigs
+    public Dictionary<string, TerraformProperty<string>> RedisConfigs
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("redis_configs");
-        set => this.WithProperty("redis_configs", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("redis_configs");
+        set => SetProperty("redis_configs", value);
     }
 
     /// <summary>
     /// The name of the region of the Redis cluster.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Optional. The number of replica nodes per shard.
     /// </summary>
-    public TerraformProperty<double>? ReplicaCount
+    public TerraformProperty<double> ReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("replica_count");
-        set => this.WithProperty("replica_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("replica_count");
+        set => SetProperty("replica_count", value);
     }
 
     /// <summary>
@@ -375,18 +373,18 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     public required TerraformProperty<double> ShardCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("shard_count");
-        set => this.WithProperty("shard_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("shard_count");
+        set => SetProperty("shard_count", value);
     }
 
     /// <summary>
     /// Optional. The in-transit encryption for the Redis cluster.
     /// If not provided, encryption is disabled for the cluster. Default value: &amp;quot;TRANSIT_ENCRYPTION_MODE_DISABLED&amp;quot; Possible values: [&amp;quot;TRANSIT_ENCRYPTION_MODE_UNSPECIFIED&amp;quot;, &amp;quot;TRANSIT_ENCRYPTION_MODE_DISABLED&amp;quot;, &amp;quot;TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? TransitEncryptionMode
+    public TerraformProperty<string> TransitEncryptionMode
     {
-        get => GetProperty<TerraformProperty<string>>("transit_encryption_mode");
-        set => this.WithProperty("transit_encryption_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_encryption_mode");
+        set => SetProperty("transit_encryption_mode", value);
     }
 
     /// <summary>
@@ -396,8 +394,7 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupConfig block(s) allowed")]
     public List<GoogleRedisClusterAutomatedBackupConfigBlock>? AutomatedBackupConfig
     {
-        get => GetProperty<List<GoogleRedisClusterAutomatedBackupConfigBlock>>("automated_backup_config");
-        set => this.WithProperty("automated_backup_config", value);
+        set => SetProperty("automated_backup_config", value);
     }
 
     /// <summary>
@@ -407,8 +404,7 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CrossClusterReplicationConfig block(s) allowed")]
     public List<GoogleRedisClusterCrossClusterReplicationConfigBlock>? CrossClusterReplicationConfig
     {
-        get => GetProperty<List<GoogleRedisClusterCrossClusterReplicationConfigBlock>>("cross_cluster_replication_config");
-        set => this.WithProperty("cross_cluster_replication_config", value);
+        set => SetProperty("cross_cluster_replication_config", value);
     }
 
     /// <summary>
@@ -418,8 +414,7 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsSource block(s) allowed")]
     public List<GoogleRedisClusterGcsSourceBlock>? GcsSource
     {
-        get => GetProperty<List<GoogleRedisClusterGcsSourceBlock>>("gcs_source");
-        set => this.WithProperty("gcs_source", value);
+        set => SetProperty("gcs_source", value);
     }
 
     /// <summary>
@@ -429,8 +424,7 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     public List<GoogleRedisClusterMaintenancePolicyBlock>? MaintenancePolicy
     {
-        get => GetProperty<List<GoogleRedisClusterMaintenancePolicyBlock>>("maintenance_policy");
-        set => this.WithProperty("maintenance_policy", value);
+        set => SetProperty("maintenance_policy", value);
     }
 
     /// <summary>
@@ -440,8 +434,7 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedBackupSource block(s) allowed")]
     public List<GoogleRedisClusterManagedBackupSourceBlock>? ManagedBackupSource
     {
-        get => GetProperty<List<GoogleRedisClusterManagedBackupSourceBlock>>("managed_backup_source");
-        set => this.WithProperty("managed_backup_source", value);
+        set => SetProperty("managed_backup_source", value);
     }
 
     /// <summary>
@@ -451,8 +444,7 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
     public List<GoogleRedisClusterPersistenceConfigBlock>? PersistenceConfig
     {
-        get => GetProperty<List<GoogleRedisClusterPersistenceConfigBlock>>("persistence_config");
-        set => this.WithProperty("persistence_config", value);
+        set => SetProperty("persistence_config", value);
     }
 
     /// <summary>
@@ -461,8 +453,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     public List<GoogleRedisClusterPscConfigsBlock>? PscConfigs
     {
-        get => GetProperty<List<GoogleRedisClusterPscConfigsBlock>>("psc_configs");
-        set => this.WithProperty("psc_configs", value);
+        set => SetProperty("psc_configs", value);
     }
 
     /// <summary>
@@ -471,8 +462,7 @@ public class GoogleRedisCluster : TerraformResource
     /// </summary>
     public GoogleRedisClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleRedisClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -482,8 +472,7 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZoneDistributionConfig block(s) allowed")]
     public List<GoogleRedisClusterZoneDistributionConfigBlock>? ZoneDistributionConfig
     {
-        get => GetProperty<List<GoogleRedisClusterZoneDistributionConfigBlock>>("zone_distribution_config");
-        set => this.WithProperty("zone_distribution_config", value);
+        set => SetProperty("zone_distribution_config", value);
     }
 
     /// <summary>

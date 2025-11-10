@@ -13,8 +13,7 @@ public class GoogleApigeeKeystoresAliasesKeyCertFileTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeKeystoresAliasesKeyCertFileTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeKeystoresAliasesKeyCertFileTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleApigeeKeystoresAliasesKeyCertFileTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,9 +54,16 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certs_info");
-        this.WithOutput("id");
-        this.WithOutput("type");
+        SetOutput("certs_info");
+        SetOutput("id");
+        SetOutput("type");
+        SetOutput("alias");
+        SetOutput("cert");
+        SetOutput("environment");
+        SetOutput("key");
+        SetOutput("keystore");
+        SetOutput("org_id");
+        SetOutput("password");
     }
 
     /// <summary>
@@ -69,8 +72,8 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformProperty<string> Alias
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alias");
-        set => this.WithProperty("alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias");
+        set => SetProperty("alias", value);
     }
 
     /// <summary>
@@ -79,8 +82,8 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cert is required")]
     public required TerraformProperty<string> Cert
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cert");
-        set => this.WithProperty("cert", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cert");
+        set => SetProperty("cert", value);
     }
 
     /// <summary>
@@ -89,17 +92,17 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment");
-        set => this.WithProperty("environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment");
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
     /// Private Key content, omit if uploading to truststore.
     /// </summary>
-    public TerraformProperty<string>? Key
+    public TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => this.WithProperty("key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key");
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -108,8 +111,8 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
     public required TerraformProperty<string> Keystore
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("keystore");
-        set => this.WithProperty("keystore", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("keystore");
+        set => SetProperty("keystore", value);
     }
 
     /// <summary>
@@ -118,17 +121,17 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
     /// Password for the Private Key if it&#39;s encrypted.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -137,8 +140,7 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     /// </summary>
     public GoogleApigeeKeystoresAliasesKeyCertFileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeKeystoresAliasesKeyCertFileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

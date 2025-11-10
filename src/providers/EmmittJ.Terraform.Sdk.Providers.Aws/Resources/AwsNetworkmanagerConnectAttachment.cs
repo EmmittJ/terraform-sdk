@@ -13,8 +13,7 @@ public class AwsNetworkmanagerConnectAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsNetworkmanagerConnectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsNetworkmanagerConnectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -58,15 +55,21 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("attachment_id");
-        this.WithOutput("attachment_policy_rule_number");
-        this.WithOutput("attachment_type");
-        this.WithOutput("core_network_arn");
-        this.WithOutput("owner_account_id");
-        this.WithOutput("resource_arn");
-        this.WithOutput("segment_name");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("attachment_id");
+        SetOutput("attachment_policy_rule_number");
+        SetOutput("attachment_type");
+        SetOutput("core_network_arn");
+        SetOutput("owner_account_id");
+        SetOutput("resource_arn");
+        SetOutput("segment_name");
+        SetOutput("state");
+        SetOutput("core_network_id");
+        SetOutput("edge_location");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("transport_attachment_id");
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
-        set => this.WithProperty("core_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("core_network_id");
+        set => SetProperty("core_network_id", value);
     }
 
     /// <summary>
@@ -85,35 +88,35 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeLocation is required")]
     public required TerraformProperty<string> EdgeLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("edge_location");
-        set => this.WithProperty("edge_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_location");
+        set => SetProperty("edge_location", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -122,20 +125,20 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportAttachmentId is required")]
     public required TerraformProperty<string> TransportAttachmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transport_attachment_id");
-        set => this.WithProperty("transport_attachment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transport_attachment_id");
+        set => SetProperty("transport_attachment_id", value);
     }
 
     /// <summary>
     /// Block for options.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Options is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Options block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     public List<AwsNetworkmanagerConnectAttachmentOptionsBlock>? Options
     {
-        get => GetProperty<List<AwsNetworkmanagerConnectAttachmentOptionsBlock>>("options");
-        set => this.WithProperty("options", value);
+        set => SetProperty("options", value);
     }
 
     /// <summary>
@@ -144,8 +147,7 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
     /// </summary>
     public AwsNetworkmanagerConnectAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerConnectAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

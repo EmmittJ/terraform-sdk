@@ -13,8 +13,7 @@ public class GoogleComputeNetworkFirewallPolicyAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeNetworkFirewallPolicyAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,7 +38,12 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("short_name");
+        SetOutput("short_name");
+        SetOutput("attachment_target");
+        SetOutput("firewall_policy");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -49,8 +52,8 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentTarget is required")]
     public required TerraformProperty<string> AttachmentTarget
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("attachment_target");
-        set => this.WithProperty("attachment_target", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("attachment_target");
+        set => SetProperty("attachment_target", value);
     }
 
     /// <summary>
@@ -59,17 +62,17 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
     public required TerraformProperty<string> FirewallPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("firewall_policy");
-        set => this.WithProperty("firewall_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firewall_policy");
+        set => SetProperty("firewall_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,17 +81,17 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -97,8 +100,7 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     /// </summary>
     public GoogleComputeNetworkFirewallPolicyAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNetworkFirewallPolicyAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

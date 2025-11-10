@@ -13,8 +13,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? DbSecurityGroupMemberships
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("db_security_group_memberships");
-        set => WithProperty("db_security_group_memberships", value);
+        set => SetProperty("db_security_group_memberships", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptionName is required")]
     public required TerraformProperty<string> OptionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("option_name");
-        set => WithProperty("option_name", value);
+        set => SetProperty("option_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? VpcSecurityGroupMemberships
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_memberships");
-        set => WithProperty("vpc_security_group_memberships", value);
+        set => SetProperty("vpc_security_group_memberships", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AwsDbOptionGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -85,7 +79,17 @@ public class AwsDbOptionGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("engine_name");
+        SetOutput("id");
+        SetOutput("major_engine_version");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("option_group_description");
+        SetOutput("region");
+        SetOutput("skip_destroy");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -94,17 +98,17 @@ public class AwsDbOptionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
     public required TerraformProperty<string> EngineName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_name");
-        set => this.WithProperty("engine_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_name");
+        set => SetProperty("engine_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,71 +117,71 @@ public class AwsDbOptionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MajorEngineVersion is required")]
     public required TerraformProperty<string> MajorEngineVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("major_engine_version");
-        set => this.WithProperty("major_engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("major_engine_version");
+        set => SetProperty("major_engine_version", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The option_group_description attribute.
     /// </summary>
-    public TerraformProperty<string>? OptionGroupDescription
+    public TerraformProperty<string> OptionGroupDescription
     {
-        get => GetProperty<TerraformProperty<string>>("option_group_description");
-        set => this.WithProperty("option_group_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("option_group_description");
+        set => SetProperty("option_group_description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -186,8 +190,7 @@ public class AwsDbOptionGroup : TerraformResource
     /// </summary>
     public HashSet<AwsDbOptionGroupOptionBlock>? Option
     {
-        get => GetProperty<HashSet<AwsDbOptionGroupOptionBlock>>("option");
-        set => this.WithProperty("option", value);
+        set => SetProperty("option", value);
     }
 
     /// <summary>
@@ -196,8 +199,7 @@ public class AwsDbOptionGroup : TerraformResource
     /// </summary>
     public AwsDbOptionGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDbOptionGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

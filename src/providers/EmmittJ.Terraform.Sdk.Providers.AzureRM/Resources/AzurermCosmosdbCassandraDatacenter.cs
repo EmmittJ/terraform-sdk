@@ -13,8 +13,7 @@ public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,34 +54,47 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("seed_node_ip_addresses");
+        SetOutput("seed_node_ip_addresses");
+        SetOutput("availability_zones_enabled");
+        SetOutput("backup_storage_customer_key_uri");
+        SetOutput("base64_encoded_yaml_fragment");
+        SetOutput("cassandra_cluster_id");
+        SetOutput("delegated_management_subnet_id");
+        SetOutput("disk_count");
+        SetOutput("disk_sku");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("managed_disk_customer_key_uri");
+        SetOutput("name");
+        SetOutput("node_count");
+        SetOutput("sku_name");
     }
 
     /// <summary>
     /// The availability_zones_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AvailabilityZonesEnabled
+    public TerraformProperty<bool> AvailabilityZonesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("availability_zones_enabled");
-        set => this.WithProperty("availability_zones_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("availability_zones_enabled");
+        set => SetProperty("availability_zones_enabled", value);
     }
 
     /// <summary>
     /// The backup_storage_customer_key_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupStorageCustomerKeyUri
+    public TerraformProperty<string> BackupStorageCustomerKeyUri
     {
-        get => GetProperty<TerraformProperty<string>>("backup_storage_customer_key_uri");
-        set => this.WithProperty("backup_storage_customer_key_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_storage_customer_key_uri");
+        set => SetProperty("backup_storage_customer_key_uri", value);
     }
 
     /// <summary>
     /// The base64_encoded_yaml_fragment attribute.
     /// </summary>
-    public TerraformProperty<string>? Base64EncodedYamlFragment
+    public TerraformProperty<string> Base64EncodedYamlFragment
     {
-        get => GetProperty<TerraformProperty<string>>("base64_encoded_yaml_fragment");
-        set => this.WithProperty("base64_encoded_yaml_fragment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("base64_encoded_yaml_fragment");
+        set => SetProperty("base64_encoded_yaml_fragment", value);
     }
 
     /// <summary>
@@ -94,8 +103,8 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraClusterId is required")]
     public required TerraformProperty<string> CassandraClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cassandra_cluster_id");
-        set => this.WithProperty("cassandra_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cassandra_cluster_id");
+        set => SetProperty("cassandra_cluster_id", value);
     }
 
     /// <summary>
@@ -104,35 +113,35 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
     public required TerraformProperty<string> DelegatedManagementSubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("delegated_management_subnet_id");
-        set => this.WithProperty("delegated_management_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delegated_management_subnet_id");
+        set => SetProperty("delegated_management_subnet_id", value);
     }
 
     /// <summary>
     /// The disk_count attribute.
     /// </summary>
-    public TerraformProperty<double>? DiskCount
+    public TerraformProperty<double> DiskCount
     {
-        get => GetProperty<TerraformProperty<double>>("disk_count");
-        set => this.WithProperty("disk_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("disk_count");
+        set => SetProperty("disk_count", value);
     }
 
     /// <summary>
     /// The disk_sku attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskSku
+    public TerraformProperty<string> DiskSku
     {
-        get => GetProperty<TerraformProperty<string>>("disk_sku");
-        set => this.WithProperty("disk_sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk_sku");
+        set => SetProperty("disk_sku", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -141,17 +150,17 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The managed_disk_customer_key_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedDiskCustomerKeyUri
+    public TerraformProperty<string> ManagedDiskCustomerKeyUri
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_customer_key_uri");
-        set => this.WithProperty("managed_disk_customer_key_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_disk_customer_key_uri");
+        set => SetProperty("managed_disk_customer_key_uri", value);
     }
 
     /// <summary>
@@ -160,26 +169,26 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
-    public TerraformProperty<double>? NodeCount
+    public TerraformProperty<double> NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
-        set => this.WithProperty("node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuName
+    public TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
@@ -188,8 +197,7 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     /// </summary>
     public AzurermCosmosdbCassandraDatacenterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbCassandraDatacenterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

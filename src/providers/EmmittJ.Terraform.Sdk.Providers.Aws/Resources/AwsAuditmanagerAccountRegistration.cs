@@ -14,44 +14,48 @@ public class AwsAuditmanagerAccountRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("status");
+        SetOutput("id");
+        SetOutput("status");
+        SetOutput("delegated_admin_account");
+        SetOutput("deregister_on_destroy");
+        SetOutput("kms_key");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The delegated_admin_account attribute.
     /// </summary>
-    public TerraformProperty<string>? DelegatedAdminAccount
+    public TerraformProperty<string> DelegatedAdminAccount
     {
-        get => GetProperty<TerraformProperty<string>>("delegated_admin_account");
-        set => this.WithProperty("delegated_admin_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delegated_admin_account");
+        set => SetProperty("delegated_admin_account", value);
     }
 
     /// <summary>
     /// The deregister_on_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeregisterOnDestroy
+    public TerraformProperty<bool> DeregisterOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("deregister_on_destroy");
-        set => this.WithProperty("deregister_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deregister_on_destroy");
+        set => SetProperty("deregister_on_destroy", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKey
+    public TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => this.WithProperty("kms_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

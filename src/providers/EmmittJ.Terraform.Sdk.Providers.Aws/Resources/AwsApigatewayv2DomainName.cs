@@ -14,8 +14,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
     public required TerraformProperty<string> CertificateArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_arn");
-        set => WithProperty("certificate_arn", value);
+        set => SetProperty("certificate_arn", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
-        set => WithProperty("endpoint_type", value);
+        set => SetProperty("endpoint_type", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? HostedZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("hosted_zone_id");
-        set => WithProperty("hosted_zone_id", value);
+        set => SetProperty("hosted_zone_id", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => WithProperty("ip_address_type", value);
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? OwnershipVerificationCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("ownership_verification_certificate_arn");
-        set => WithProperty("ownership_verification_certificate_arn", value);
+        set => SetProperty("ownership_verification_certificate_arn", value);
     }
 
     /// <summary>
@@ -61,8 +56,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
     public required TerraformProperty<string> SecurityPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("security_policy");
-        set => WithProperty("security_policy", value);
+        set => SetProperty("security_policy", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? TargetDomainName
     {
-        get => GetProperty<TerraformProperty<string>>("target_domain_name");
-        set => WithProperty("target_domain_name", value);
+        set => SetProperty("target_domain_name", value);
     }
 
 }
@@ -88,8 +81,7 @@ public class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TruststoreUri is required")]
     public required TerraformProperty<string> TruststoreUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("truststore_uri");
-        set => WithProperty("truststore_uri", value);
+        set => SetProperty("truststore_uri", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? TruststoreVersion
     {
-        get => GetProperty<TerraformProperty<string>>("truststore_version");
-        set => WithProperty("truststore_version", value);
+        set => SetProperty("truststore_version", value);
     }
 
 }
@@ -114,8 +105,7 @@ public class AwsApigatewayv2DomainNameTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AwsApigatewayv2DomainNameTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -142,8 +131,13 @@ public class AwsApigatewayv2DomainName : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_mapping_selection_expression");
-        this.WithOutput("arn");
+        SetOutput("api_mapping_selection_expression");
+        SetOutput("arn");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -152,56 +146,56 @@ public class AwsApigatewayv2DomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for domain_name_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNameConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DomainNameConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainNameConfiguration block(s) allowed")]
     public List<AwsApigatewayv2DomainNameDomainNameConfigurationBlock>? DomainNameConfiguration
     {
-        get => GetProperty<List<AwsApigatewayv2DomainNameDomainNameConfigurationBlock>>("domain_name_configuration");
-        set => this.WithProperty("domain_name_configuration", value);
+        set => SetProperty("domain_name_configuration", value);
     }
 
     /// <summary>
@@ -211,8 +205,7 @@ public class AwsApigatewayv2DomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MutualTlsAuthentication block(s) allowed")]
     public List<AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock>? MutualTlsAuthentication
     {
-        get => GetProperty<List<AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock>>("mutual_tls_authentication");
-        set => this.WithProperty("mutual_tls_authentication", value);
+        set => SetProperty("mutual_tls_authentication", value);
     }
 
     /// <summary>
@@ -221,8 +214,7 @@ public class AwsApigatewayv2DomainName : TerraformResource
     /// </summary>
     public AwsApigatewayv2DomainNameTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsApigatewayv2DomainNameTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

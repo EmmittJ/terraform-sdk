@@ -29,8 +29,7 @@ public class GoogleDataLossPreventionStoredInfoTypeRegexBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<double>>? GroupIndexes
     {
-        get => GetProperty<List<TerraformProperty<double>>>("group_indexes");
-        set => WithProperty("group_indexes", value);
+        set => SetProperty("group_indexes", value);
     }
 
     /// <summary>
@@ -40,8 +39,7 @@ public class GoogleDataLossPreventionStoredInfoTypeRegexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformProperty<string> Pattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pattern");
-        set => WithProperty("pattern", value);
+        set => SetProperty("pattern", value);
     }
 
 }
@@ -57,8 +55,7 @@ public class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +63,7 @@ public class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +71,7 @@ public class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,34 +89,39 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("stored_info_type_id");
     }
 
     /// <summary>
     /// A description of the info type.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// User set display name of the info type.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -135,8 +135,8 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -144,10 +144,10 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is 100
     /// characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformProperty<string>? StoredInfoTypeId
+    public TerraformProperty<string> StoredInfoTypeId
     {
-        get => GetProperty<TerraformProperty<string>>("stored_info_type_id");
-        set => this.WithProperty("stored_info_type_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stored_info_type_id");
+        set => SetProperty("stored_info_type_id", value);
     }
 
     /// <summary>
@@ -157,8 +157,7 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dictionary block(s) allowed")]
     public List<GoogleDataLossPreventionStoredInfoTypeDictionaryBlock>? Dictionary
     {
-        get => GetProperty<List<GoogleDataLossPreventionStoredInfoTypeDictionaryBlock>>("dictionary");
-        set => this.WithProperty("dictionary", value);
+        set => SetProperty("dictionary", value);
     }
 
     /// <summary>
@@ -168,8 +167,7 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LargeCustomDictionary block(s) allowed")]
     public List<GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock>? LargeCustomDictionary
     {
-        get => GetProperty<List<GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock>>("large_custom_dictionary");
-        set => this.WithProperty("large_custom_dictionary", value);
+        set => SetProperty("large_custom_dictionary", value);
     }
 
     /// <summary>
@@ -179,8 +177,7 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Regex block(s) allowed")]
     public List<GoogleDataLossPreventionStoredInfoTypeRegexBlock>? Regex
     {
-        get => GetProperty<List<GoogleDataLossPreventionStoredInfoTypeRegexBlock>>("regex");
-        set => this.WithProperty("regex", value);
+        set => SetProperty("regex", value);
     }
 
     /// <summary>
@@ -189,8 +186,7 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     /// </summary>
     public GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

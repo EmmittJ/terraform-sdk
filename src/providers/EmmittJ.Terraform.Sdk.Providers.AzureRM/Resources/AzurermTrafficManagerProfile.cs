@@ -14,8 +14,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeName is required")]
     public required TerraformProperty<string> RelativeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("relative_name");
-        set => WithProperty("relative_name", value);
+        set => SetProperty("relative_name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<double> Ttl
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("ttl");
-        set => WithProperty("ttl", value);
+        set => SetProperty("ttl", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ExpectedStatusCodeRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("expected_status_code_ranges");
-        set => WithProperty("expected_status_code_ranges", value);
+        set => SetProperty("expected_status_code_ranges", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IntervalInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("interval_in_seconds");
-        set => WithProperty("interval_in_seconds", value);
+        set => SetProperty("interval_in_seconds", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("timeout_in_seconds");
-        set => WithProperty("timeout_in_seconds", value);
+        set => SetProperty("timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ToleratedNumberOfFailures
     {
-        get => GetProperty<TerraformProperty<double>>("tolerated_number_of_failures");
-        set => WithProperty("tolerated_number_of_failures", value);
+        set => SetProperty("tolerated_number_of_failures", value);
     }
 
 }
@@ -114,8 +105,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -132,8 +121,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -160,25 +147,33 @@ public class AzurermTrafficManagerProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputqdn");
+        SetOutput("fqdn");
+        SetOutput("id");
+        SetOutput("max_return");
+        SetOutput("name");
+        SetOutput("profile_status");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("traffic_routing_method");
+        SetOutput("traffic_view_enabled");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_return attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxReturn
+    public TerraformProperty<double> MaxReturn
     {
-        get => GetProperty<TerraformProperty<double>>("max_return");
-        set => this.WithProperty("max_return", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_return");
+        set => SetProperty("max_return", value);
     }
 
     /// <summary>
@@ -187,17 +182,17 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The profile_status attribute.
     /// </summary>
-    public TerraformProperty<string>? ProfileStatus
+    public TerraformProperty<string> ProfileStatus
     {
-        get => GetProperty<TerraformProperty<string>>("profile_status");
-        set => this.WithProperty("profile_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_status");
+        set => SetProperty("profile_status", value);
     }
 
     /// <summary>
@@ -206,17 +201,17 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -225,41 +220,41 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficRoutingMethod is required")]
     public required TerraformProperty<string> TrafficRoutingMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("traffic_routing_method");
-        set => this.WithProperty("traffic_routing_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("traffic_routing_method");
+        set => SetProperty("traffic_routing_method", value);
     }
 
     /// <summary>
     /// The traffic_view_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TrafficViewEnabled
+    public TerraformProperty<bool> TrafficViewEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("traffic_view_enabled");
-        set => this.WithProperty("traffic_view_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("traffic_view_enabled");
+        set => SetProperty("traffic_view_enabled", value);
     }
 
     /// <summary>
     /// Block for dns_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DnsConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
     public List<AzurermTrafficManagerProfileDnsConfigBlock>? DnsConfig
     {
-        get => GetProperty<List<AzurermTrafficManagerProfileDnsConfigBlock>>("dns_config");
-        set => this.WithProperty("dns_config", value);
+        set => SetProperty("dns_config", value);
     }
 
     /// <summary>
     /// Block for monitor_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitorConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorConfig block(s) allowed")]
     public List<AzurermTrafficManagerProfileMonitorConfigBlock>? MonitorConfig
     {
-        get => GetProperty<List<AzurermTrafficManagerProfileMonitorConfigBlock>>("monitor_config");
-        set => this.WithProperty("monitor_config", value);
+        set => SetProperty("monitor_config", value);
     }
 
     /// <summary>
@@ -268,8 +263,7 @@ public class AzurermTrafficManagerProfile : TerraformResource
     /// </summary>
     public AzurermTrafficManagerProfileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermTrafficManagerProfileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

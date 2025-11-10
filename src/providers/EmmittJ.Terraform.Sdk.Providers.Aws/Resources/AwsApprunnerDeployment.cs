@@ -13,8 +13,7 @@ public class AwsApprunnerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,18 +30,20 @@ public class AwsApprunnerDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("operation_id");
-        this.WithOutput("status");
+        SetOutput("id");
+        SetOutput("operation_id");
+        SetOutput("status");
+        SetOutput("region");
+        SetOutput("service_arn");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -51,8 +52,8 @@ public class AwsApprunnerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
     public required TerraformProperty<string> ServiceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_arn");
-        set => this.WithProperty("service_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_arn");
+        set => SetProperty("service_arn", value);
     }
 
     /// <summary>
@@ -61,8 +62,7 @@ public class AwsApprunnerDeployment : TerraformResource
     /// </summary>
     public AwsApprunnerDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsApprunnerDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermVirtualHubIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualHubIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualHubIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermVirtualHubIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,22 @@ public class AzurermVirtualHubIp : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("private_ip_address");
+        SetOutput("private_ip_allocation_method");
+        SetOutput("public_ip_address_id");
+        SetOutput("subnet_id");
+        SetOutput("virtual_hub_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,26 +78,26 @@ public class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateIpAddress
+    public TerraformProperty<string> PrivateIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address");
-        set => this.WithProperty("private_ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_ip_address");
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
     /// The private_ip_allocation_method attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateIpAllocationMethod
+    public TerraformProperty<string> PrivateIpAllocationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_allocation_method");
-        set => this.WithProperty("private_ip_allocation_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_ip_allocation_method");
+        set => SetProperty("private_ip_allocation_method", value);
     }
 
     /// <summary>
@@ -103,8 +106,8 @@ public class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformProperty<string> PublicIpAddressId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("public_ip_address_id");
-        set => this.WithProperty("public_ip_address_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_ip_address_id");
+        set => SetProperty("public_ip_address_id", value);
     }
 
     /// <summary>
@@ -113,8 +116,8 @@ public class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -123,8 +126,8 @@ public class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
-        set => this.WithProperty("virtual_hub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_id");
+        set => SetProperty("virtual_hub_id", value);
     }
 
     /// <summary>
@@ -133,8 +136,7 @@ public class AzurermVirtualHubIp : TerraformResource
     /// </summary>
     public AzurermVirtualHubIpTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualHubIpTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

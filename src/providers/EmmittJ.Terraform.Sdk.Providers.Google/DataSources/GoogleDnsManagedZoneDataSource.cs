@@ -14,12 +14,14 @@ public class GoogleDnsManagedZoneDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("dns_name");
-        this.WithOutput("id");
-        this.WithOutput("managed_zone_id");
-        this.WithOutput("name_servers");
-        this.WithOutput("visibility");
+        SetOutput("description");
+        SetOutput("dns_name");
+        SetOutput("id");
+        SetOutput("managed_zone_id");
+        SetOutput("name_servers");
+        SetOutput("visibility");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -28,17 +30,17 @@ public class GoogleDnsManagedZoneDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

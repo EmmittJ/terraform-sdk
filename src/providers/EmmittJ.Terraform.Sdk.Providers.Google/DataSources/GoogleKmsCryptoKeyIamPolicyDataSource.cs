@@ -14,8 +14,10 @@ public class GoogleKmsCryptoKeyIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("crypto_key_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -24,17 +26,17 @@ public class GoogleKmsCryptoKeyIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyId is required")]
     public required TerraformProperty<string> CryptoKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("crypto_key_id");
-        set => this.WithProperty("crypto_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key_id");
+        set => SetProperty("crypto_key_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

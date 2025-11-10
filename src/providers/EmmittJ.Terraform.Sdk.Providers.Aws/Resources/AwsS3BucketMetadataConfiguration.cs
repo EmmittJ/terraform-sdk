@@ -13,8 +13,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlock : Terraf
     /// </summary>
     public List<TerraformProperty<object>>? Destination
     {
-        get => GetProperty<List<TerraformProperty<object>>>("destination");
-        set => WithProperty("destination", value);
+        set => SetProperty("destination", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsS3BucketMetadataConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -48,6 +46,9 @@ public class AwsS3BucketMetadataConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket");
+        SetOutput("expected_bucket_owner");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -56,26 +57,26 @@ public class AwsS3BucketMetadataConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpectedBucketOwner
+    public TerraformProperty<string> ExpectedBucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("expected_bucket_owner");
-        set => this.WithProperty("expected_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
+        set => SetProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -84,8 +85,7 @@ public class AwsS3BucketMetadataConfiguration : TerraformResource
     /// </summary>
     public List<AwsS3BucketMetadataConfigurationMetadataConfigurationBlock>? MetadataConfiguration
     {
-        get => GetProperty<List<AwsS3BucketMetadataConfigurationMetadataConfigurationBlock>>("metadata_configuration");
-        set => this.WithProperty("metadata_configuration", value);
+        set => SetProperty("metadata_configuration", value);
     }
 
     /// <summary>
@@ -94,8 +94,7 @@ public class AwsS3BucketMetadataConfiguration : TerraformResource
     /// </summary>
     public AwsS3BucketMetadataConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsS3BucketMetadataConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

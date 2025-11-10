@@ -14,7 +14,9 @@ public class AwsOrganizationsDelegatedServicesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("delegated_services");
+        SetOutput("delegated_services");
+        SetOutput("account_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -23,17 +25,17 @@ public class AwsOrganizationsDelegatedServicesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

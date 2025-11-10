@@ -14,8 +14,7 @@ public class AwsKeyPairDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsKeyPairDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsKeyPairDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,65 +56,71 @@ public class AwsKeyPairDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("create_time");
-        this.WithOutput("fingerprint");
-        this.WithOutput("key_type");
-        this.WithOutput("public_key");
+        SetOutput("arn");
+        SetOutput("create_time");
+        SetOutput("fingerprint");
+        SetOutput("key_type");
+        SetOutput("public_key");
+        SetOutput("id");
+        SetOutput("include_public_key");
+        SetOutput("key_name");
+        SetOutput("key_pair_id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_public_key attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludePublicKey
+    public TerraformProperty<bool> IncludePublicKey
     {
-        get => GetProperty<TerraformProperty<bool>>("include_public_key");
-        set => this.WithProperty("include_public_key", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_public_key");
+        set => SetProperty("include_public_key", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyName
+    public TerraformProperty<string> KeyName
     {
-        get => GetProperty<TerraformProperty<string>>("key_name");
-        set => this.WithProperty("key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_name");
+        set => SetProperty("key_name", value);
     }
 
     /// <summary>
     /// The key_pair_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyPairId
+    public TerraformProperty<string> KeyPairId
     {
-        get => GetProperty<TerraformProperty<string>>("key_pair_id");
-        set => this.WithProperty("key_pair_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_pair_id");
+        set => SetProperty("key_pair_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -126,8 +129,7 @@ public class AwsKeyPairDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsKeyPairDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsKeyPairDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -136,8 +138,7 @@ public class AwsKeyPairDataSource : TerraformDataSource
     /// </summary>
     public AwsKeyPairDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsKeyPairDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

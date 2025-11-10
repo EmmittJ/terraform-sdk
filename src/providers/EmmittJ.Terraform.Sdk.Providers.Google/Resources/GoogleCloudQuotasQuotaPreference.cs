@@ -15,8 +15,7 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => WithProperty("annotations", value);
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GrantedValue
     {
-        get => GetProperty<TerraformProperty<string>>("granted_value");
-        set => WithProperty("granted_value", value);
+        set => SetProperty("granted_value", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredValue is required")]
     public required TerraformProperty<string> PreferredValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("preferred_value");
-        set => WithProperty("preferred_value", value);
+        set => SetProperty("preferred_value", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RequestOrigin
     {
-        get => GetProperty<TerraformProperty<string>>("request_origin");
-        set => WithProperty("request_origin", value);
+        set => SetProperty("request_origin", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StateDetail
     {
-        get => GetProperty<TerraformProperty<string>>("state_detail");
-        set => WithProperty("state_detail", value);
+        set => SetProperty("state_detail", value);
     }
 
     /// <summary>
@@ -61,8 +56,7 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TraceId
     {
-        get => GetProperty<TerraformProperty<string>>("trace_id");
-        set => WithProperty("trace_id", value);
+        set => SetProperty("trace_id", value);
     }
 
 }
@@ -78,8 +72,7 @@ public class GoogleCloudQuotasQuotaPreferenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class GoogleCloudQuotasQuotaPreferenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -96,8 +88,7 @@ public class GoogleCloudQuotasQuotaPreferenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,10 +106,19 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("etag");
-        this.WithOutput("reconciling");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("etag");
+        SetOutput("reconciling");
+        SetOutput("update_time");
+        SetOutput("contact_email");
+        SetOutput("dimensions");
+        SetOutput("id");
+        SetOutput("ignore_safety_checks");
+        SetOutput("justification");
+        SetOutput("name");
+        SetOutput("parent");
+        SetOutput("quota_id");
+        SetOutput("service");
     }
 
     /// <summary>
@@ -126,10 +126,10 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// 
     /// The Google account for the email address must have quota update permission for the project, folder or organization this quota preference is for.
     /// </summary>
-    public TerraformProperty<string>? ContactEmail
+    public TerraformProperty<string> ContactEmail
     {
-        get => GetProperty<TerraformProperty<string>>("contact_email");
-        set => this.WithProperty("contact_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("contact_email");
+        set => SetProperty("contact_email", value);
     }
 
     /// <summary>
@@ -139,86 +139,86 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// 
     /// Example: &#39;{&amp;quot;provider&amp;quot;: &amp;quot;Foo Inc&amp;quot;}&#39; where &amp;quot;provider&amp;quot; is a service specific dimension.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Dimensions
+    public Dictionary<string, TerraformProperty<string>> Dimensions
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("dimensions");
-        set => this.WithProperty("dimensions", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("dimensions");
+        set => SetProperty("dimensions", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The list of quota safety checks to be ignored. Default value: &amp;quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&amp;quot;, &amp;quot;QUOTA_DECREASE_BELOW_USAGE&amp;quot;, &amp;quot;QUOTA_DECREASE_PERCENTAGE_TOO_HIGH&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? IgnoreSafetyChecks
+    public TerraformProperty<string> IgnoreSafetyChecks
     {
-        get => GetProperty<TerraformProperty<string>>("ignore_safety_checks");
-        set => this.WithProperty("ignore_safety_checks", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ignore_safety_checks");
+        set => SetProperty("ignore_safety_checks", value);
     }
 
     /// <summary>
     /// The reason / justification for this quota preference.
     /// </summary>
-    public TerraformProperty<string>? Justification
+    public TerraformProperty<string> Justification
     {
-        get => GetProperty<TerraformProperty<string>>("justification");
-        set => this.WithProperty("justification", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("justification");
+        set => SetProperty("justification", value);
     }
 
     /// <summary>
     /// The resource name of the quota preference. Required except in the CREATE requests.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parent of the quota preference. Allowed parents are &amp;quot;projects/[project-id / number]&amp;quot; or &amp;quot;folders/[folder-id / number]&amp;quot; or &amp;quot;organizations/[org-id / number]&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// The id of the quota to which the quota preference is applied. A quota id is unique in the service.
     /// Example: &#39;CPUS-per-project-region&#39;.
     /// </summary>
-    public TerraformProperty<string>? QuotaId
+    public TerraformProperty<string> QuotaId
     {
-        get => GetProperty<TerraformProperty<string>>("quota_id");
-        set => this.WithProperty("quota_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("quota_id");
+        set => SetProperty("quota_id", value);
     }
 
     /// <summary>
     /// The name of the service to which the quota preference is applied.
     /// </summary>
-    public TerraformProperty<string>? Service
+    public TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
     /// Block for quota_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QuotaConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuotaConfig block(s) allowed")]
     public List<GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock>? QuotaConfig
     {
-        get => GetProperty<List<GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock>>("quota_config");
-        set => this.WithProperty("quota_config", value);
+        set => SetProperty("quota_config", value);
     }
 
     /// <summary>
@@ -227,8 +227,7 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// </summary>
     public GoogleCloudQuotasQuotaPreferenceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudQuotasQuotaPreferenceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

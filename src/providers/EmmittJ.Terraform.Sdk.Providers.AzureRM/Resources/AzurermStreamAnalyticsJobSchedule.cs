@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +54,20 @@ public class AzurermStreamAnalyticsJobSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputast_output_time");
+        SetOutput("last_output_time");
+        SetOutput("id");
+        SetOutput("start_mode");
+        SetOutput("start_time");
+        SetOutput("stream_analytics_job_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,17 +76,17 @@ public class AzurermStreamAnalyticsJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartMode is required")]
     public required TerraformProperty<string> StartMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_mode");
-        set => this.WithProperty("start_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_mode");
+        set => SetProperty("start_mode", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzurermStreamAnalyticsJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformProperty<string> StreamAnalyticsJobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_id");
-        set => this.WithProperty("stream_analytics_job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_id");
+        set => SetProperty("stream_analytics_job_id", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzurermStreamAnalyticsJobSchedule : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsJobScheduleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsJobScheduleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

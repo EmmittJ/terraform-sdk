@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,11 @@ public class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("authentication_mode");
+        SetOutput("id");
+        SetOutput("storage_account_key");
+        SetOutput("storage_account_name");
+        SetOutput("stream_analytics_job_id");
     }
 
     /// <summary>
@@ -66,26 +67,26 @@ public class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMode is required")]
     public required TerraformProperty<string> AuthenticationMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authentication_mode");
-        set => this.WithProperty("authentication_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_mode");
+        set => SetProperty("authentication_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountKey
+    public TerraformProperty<string> StorageAccountKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_key");
-        set => this.WithProperty("storage_account_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_key");
+        set => SetProperty("storage_account_key", value);
     }
 
     /// <summary>
@@ -94,8 +95,8 @@ public class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
-        set => this.WithProperty("storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
+        set => SetProperty("storage_account_name", value);
     }
 
     /// <summary>
@@ -104,8 +105,8 @@ public class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformProperty<string> StreamAnalyticsJobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_id");
-        set => this.WithProperty("stream_analytics_job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_id");
+        set => SetProperty("stream_analytics_job_id", value);
     }
 
     /// <summary>
@@ -114,8 +115,7 @@ public class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

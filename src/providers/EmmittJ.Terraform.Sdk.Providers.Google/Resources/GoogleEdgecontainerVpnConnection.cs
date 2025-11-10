@@ -13,8 +13,7 @@ public class GoogleEdgecontainerVpnConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleEdgecontainerVpnConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleEdgecontainerVpnConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class GoogleEdgecontainerVpnConnectionVpcProjectBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
 }
@@ -67,11 +63,21 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("details");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("details");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("cluster");
+        SetOutput("enable_high_availability");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("nat_gateway_ip");
+        SetOutput("project");
+        SetOutput("router");
+        SetOutput("vpc");
     }
 
     /// <summary>
@@ -80,26 +86,26 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// Whether this VPN connection has HA enabled on cluster side. If enabled, when creating VPN connection we will attempt to use 2 ANG floating IPs.
     /// </summary>
-    public TerraformProperty<bool>? EnableHighAvailability
+    public TerraformProperty<bool> EnableHighAvailability
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_high_availability");
-        set => this.WithProperty("enable_high_availability", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_high_availability");
+        set => SetProperty("enable_high_availability", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -108,10 +114,10 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -120,8 +126,8 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -130,45 +136,45 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// NAT gateway IP, or WAN IP address. If a customer has multiple NAT IPs, the customer needs to configure NAT such that only one external IP maps to the GMEC Anthos cluster.
     /// This is empty if NAT is not used.
     /// </summary>
-    public TerraformProperty<string>? NatGatewayIp
+    public TerraformProperty<string> NatGatewayIp
     {
-        get => GetProperty<TerraformProperty<string>>("nat_gateway_ip");
-        set => this.WithProperty("nat_gateway_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nat_gateway_ip");
+        set => SetProperty("nat_gateway_ip", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The VPN connection Cloud Router name.
     /// </summary>
-    public TerraformProperty<string>? Router
+    public TerraformProperty<string> Router
     {
-        get => GetProperty<TerraformProperty<string>>("router");
-        set => this.WithProperty("router", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("router");
+        set => SetProperty("router", value);
     }
 
     /// <summary>
     /// The network ID of VPC to connect to.
     /// </summary>
-    public TerraformProperty<string>? Vpc
+    public TerraformProperty<string> Vpc
     {
-        get => GetProperty<TerraformProperty<string>>("vpc");
-        set => this.WithProperty("vpc", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc");
+        set => SetProperty("vpc", value);
     }
 
     /// <summary>
@@ -177,8 +183,7 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     /// </summary>
     public GoogleEdgecontainerVpnConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleEdgecontainerVpnConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -188,8 +193,7 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcProject block(s) allowed")]
     public List<GoogleEdgecontainerVpnConnectionVpcProjectBlock>? VpcProject
     {
-        get => GetProperty<List<GoogleEdgecontainerVpnConnectionVpcProjectBlock>>("vpc_project");
-        set => this.WithProperty("vpc_project", value);
+        set => SetProperty("vpc_project", value);
     }
 
     /// <summary>

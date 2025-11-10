@@ -13,8 +13,7 @@ public class AwsEipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,133 +46,146 @@ public class AwsEip : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allocation_id");
-        this.WithOutput("arn");
-        this.WithOutput("association_id");
-        this.WithOutput("carrier_ip");
-        this.WithOutput("customer_owned_ip");
-        this.WithOutput("private_dns");
-        this.WithOutput("private_ip");
-        this.WithOutput("ptr_record");
-        this.WithOutput("public_dns");
-        this.WithOutput("public_ip");
+        SetOutput("allocation_id");
+        SetOutput("arn");
+        SetOutput("association_id");
+        SetOutput("carrier_ip");
+        SetOutput("customer_owned_ip");
+        SetOutput("private_dns");
+        SetOutput("private_ip");
+        SetOutput("ptr_record");
+        SetOutput("public_dns");
+        SetOutput("public_ip");
+        SetOutput("address");
+        SetOutput("associate_with_private_ip");
+        SetOutput("customer_owned_ipv4_pool");
+        SetOutput("domain");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("ipam_pool_id");
+        SetOutput("network_border_group");
+        SetOutput("network_interface");
+        SetOutput("public_ipv4_pool");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The address attribute.
     /// </summary>
-    public TerraformProperty<string>? Address
+    public TerraformProperty<string> Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
-        set => this.WithProperty("address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address");
+        set => SetProperty("address", value);
     }
 
     /// <summary>
     /// The associate_with_private_ip attribute.
     /// </summary>
-    public TerraformProperty<string>? AssociateWithPrivateIp
+    public TerraformProperty<string> AssociateWithPrivateIp
     {
-        get => GetProperty<TerraformProperty<string>>("associate_with_private_ip");
-        set => this.WithProperty("associate_with_private_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("associate_with_private_ip");
+        set => SetProperty("associate_with_private_ip", value);
     }
 
     /// <summary>
     /// The customer_owned_ipv4_pool attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerOwnedIpv4Pool
+    public TerraformProperty<string> CustomerOwnedIpv4Pool
     {
-        get => GetProperty<TerraformProperty<string>>("customer_owned_ipv4_pool");
-        set => this.WithProperty("customer_owned_ipv4_pool", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_owned_ipv4_pool");
+        set => SetProperty("customer_owned_ipv4_pool", value);
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    public TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance attribute.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    public TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IpamPoolId
+    public TerraformProperty<string> IpamPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("ipam_pool_id");
-        set => this.WithProperty("ipam_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ipam_pool_id");
+        set => SetProperty("ipam_pool_id", value);
     }
 
     /// <summary>
     /// The network_border_group attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkBorderGroup
+    public TerraformProperty<string> NetworkBorderGroup
     {
-        get => GetProperty<TerraformProperty<string>>("network_border_group");
-        set => this.WithProperty("network_border_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_border_group");
+        set => SetProperty("network_border_group", value);
     }
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInterface
+    public TerraformProperty<string> NetworkInterface
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface");
-        set => this.WithProperty("network_interface", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_interface");
+        set => SetProperty("network_interface", value);
     }
 
     /// <summary>
     /// The public_ipv4_pool attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicIpv4Pool
+    public TerraformProperty<string> PublicIpv4Pool
     {
-        get => GetProperty<TerraformProperty<string>>("public_ipv4_pool");
-        set => this.WithProperty("public_ipv4_pool", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_ipv4_pool");
+        set => SetProperty("public_ipv4_pool", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -184,8 +194,7 @@ public class AwsEip : TerraformResource
     /// </summary>
     public AwsEipTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEipTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

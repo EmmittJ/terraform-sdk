@@ -14,28 +14,34 @@ public class AwsLightsailLbCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("domain_validation_records");
-        this.WithOutput("support_code");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("domain_validation_records");
+        SetOutput("support_code");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("lb_name");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("subject_alternative_names");
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    public TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -44,8 +50,8 @@ public class AwsLightsailLbCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbName is required")]
     public required TerraformProperty<string> LbName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lb_name");
-        set => this.WithProperty("lb_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lb_name");
+        set => SetProperty("lb_name", value);
     }
 
     /// <summary>
@@ -54,26 +60,26 @@ public class AwsLightsailLbCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The subject_alternative_names attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubjectAlternativeNames
+    public HashSet<TerraformProperty<string>> SubjectAlternativeNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subject_alternative_names");
-        set => this.WithProperty("subject_alternative_names", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subject_alternative_names");
+        set => SetProperty("subject_alternative_names", value);
     }
 
     /// <summary>

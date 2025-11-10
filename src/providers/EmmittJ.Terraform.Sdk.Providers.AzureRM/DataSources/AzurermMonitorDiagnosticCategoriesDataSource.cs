@@ -13,8 +13,7 @@ public class AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,18 +30,20 @@ public class AzurermMonitorDiagnosticCategoriesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("log_category_groups");
-        this.WithOutput("log_category_types");
-        this.WithOutput("metrics");
+        SetOutput("log_category_groups");
+        SetOutput("log_category_types");
+        SetOutput("metrics");
+        SetOutput("id");
+        SetOutput("resource_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +52,8 @@ public class AzurermMonitorDiagnosticCategoriesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -61,8 +62,7 @@ public class AzurermMonitorDiagnosticCategoriesDataSource : TerraformDataSource
     /// </summary>
     public AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

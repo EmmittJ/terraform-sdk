@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,15 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_key");
+        SetOutput("batch_max_count");
+        SetOutput("batch_max_in_bytes");
+        SetOutput("function_app");
+        SetOutput("function_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("stream_analytics_job_name");
     }
 
     /// <summary>
@@ -66,26 +71,26 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformProperty<string> ApiKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_key");
-        set => this.WithProperty("api_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_key");
+        set => SetProperty("api_key", value);
     }
 
     /// <summary>
     /// The batch_max_count attribute.
     /// </summary>
-    public TerraformProperty<double>? BatchMaxCount
+    public TerraformProperty<double> BatchMaxCount
     {
-        get => GetProperty<TerraformProperty<double>>("batch_max_count");
-        set => this.WithProperty("batch_max_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("batch_max_count");
+        set => SetProperty("batch_max_count", value);
     }
 
     /// <summary>
     /// The batch_max_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? BatchMaxInBytes
+    public TerraformProperty<double> BatchMaxInBytes
     {
-        get => GetProperty<TerraformProperty<double>>("batch_max_in_bytes");
-        set => this.WithProperty("batch_max_in_bytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("batch_max_in_bytes");
+        set => SetProperty("batch_max_in_bytes", value);
     }
 
     /// <summary>
@@ -94,8 +99,8 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionApp is required")]
     public required TerraformProperty<string> FunctionApp
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_app");
-        set => this.WithProperty("function_app", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_app");
+        set => SetProperty("function_app", value);
     }
 
     /// <summary>
@@ -104,17 +109,17 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,8 +128,8 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -133,8 +138,8 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -143,8 +148,8 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
-        set => this.WithProperty("stream_analytics_job_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_name");
+        set => SetProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
@@ -153,8 +158,7 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsOutputFunctionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsOutputFunctionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

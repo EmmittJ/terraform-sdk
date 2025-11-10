@@ -14,8 +14,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
-        set => WithProperty("prefix", value);
+        set => SetProperty("prefix", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AwsS3BucketLifecycleConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsS3BucketLifecycleConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -78,7 +73,11 @@ public class AwsS3BucketLifecycleConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("bucket");
+        SetOutput("expected_bucket_owner");
+        SetOutput("region");
+        SetOutput("transition_default_minimum_object_size");
     }
 
     /// <summary>
@@ -87,35 +86,35 @@ public class AwsS3BucketLifecycleConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpectedBucketOwner
+    public TerraformProperty<string> ExpectedBucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("expected_bucket_owner");
-        set => this.WithProperty("expected_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
+        set => SetProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The transition_default_minimum_object_size attribute.
     /// </summary>
-    public TerraformProperty<string>? TransitionDefaultMinimumObjectSize
+    public TerraformProperty<string> TransitionDefaultMinimumObjectSize
     {
-        get => GetProperty<TerraformProperty<string>>("transition_default_minimum_object_size");
-        set => this.WithProperty("transition_default_minimum_object_size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transition_default_minimum_object_size");
+        set => SetProperty("transition_default_minimum_object_size", value);
     }
 
     /// <summary>
@@ -124,8 +123,7 @@ public class AwsS3BucketLifecycleConfiguration : TerraformResource
     /// </summary>
     public List<AwsS3BucketLifecycleConfigurationRuleBlock>? Rule
     {
-        get => GetProperty<List<AwsS3BucketLifecycleConfigurationRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
@@ -134,8 +132,7 @@ public class AwsS3BucketLifecycleConfiguration : TerraformResource
     /// </summary>
     public AwsS3BucketLifecycleConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsS3BucketLifecycleConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

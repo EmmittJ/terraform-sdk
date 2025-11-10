@@ -13,8 +13,7 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,17 +46,23 @@ public class AzurermRedisLinkedServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputeo_replicated_primary_host_name");
-        this.WithOutputame");
+        SetOutput("geo_replicated_primary_host_name");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("linked_redis_cache_id");
+        SetOutput("linked_redis_cache_location");
+        SetOutput("resource_group_name");
+        SetOutput("server_role");
+        SetOutput("target_redis_cache_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +71,8 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheId is required")]
     public required TerraformProperty<string> LinkedRedisCacheId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_redis_cache_id");
-        set => this.WithProperty("linked_redis_cache_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("linked_redis_cache_id");
+        set => SetProperty("linked_redis_cache_id", value);
     }
 
     /// <summary>
@@ -78,8 +81,8 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheLocation is required")]
     public required TerraformProperty<string> LinkedRedisCacheLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_redis_cache_location");
-        set => this.WithProperty("linked_redis_cache_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("linked_redis_cache_location");
+        set => SetProperty("linked_redis_cache_location", value);
     }
 
     /// <summary>
@@ -88,8 +91,8 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -98,8 +101,8 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerRole is required")]
     public required TerraformProperty<string> ServerRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_role");
-        set => this.WithProperty("server_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_role");
+        set => SetProperty("server_role", value);
     }
 
     /// <summary>
@@ -108,8 +111,8 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRedisCacheName is required")]
     public required TerraformProperty<string> TargetRedisCacheName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_redis_cache_name");
-        set => this.WithProperty("target_redis_cache_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_redis_cache_name");
+        set => SetProperty("target_redis_cache_name", value);
     }
 
     /// <summary>
@@ -118,8 +121,7 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// </summary>
     public AzurermRedisLinkedServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRedisLinkedServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

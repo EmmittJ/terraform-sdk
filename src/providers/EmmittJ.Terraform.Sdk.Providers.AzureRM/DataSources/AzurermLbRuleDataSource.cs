@@ -13,8 +13,7 @@ public class AzurermLbRuleDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,28 +30,31 @@ public class AzurermLbRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backend_address_pool_id");
-        this.WithOutput("backend_port");
-        this.WithOutput("disable_outbound_snat");
-        this.WithOutput("enable_floating_ip");
-        this.WithOutput("enable_tcp_reset");
-        this.WithOutput("floating_ip_enabled");
-        this.WithOutput("frontend_ip_configuration_name");
-        this.WithOutput("frontend_port");
-        this.WithOutput("idle_timeout_in_minutes");
-        this.WithOutput("load_distribution");
-        this.WithOutput("probe_id");
-        this.WithOutput("protocol");
-        this.WithOutput("tcp_reset_enabled");
+        SetOutput("backend_address_pool_id");
+        SetOutput("backend_port");
+        SetOutput("disable_outbound_snat");
+        SetOutput("enable_floating_ip");
+        SetOutput("enable_tcp_reset");
+        SetOutput("floating_ip_enabled");
+        SetOutput("frontend_ip_configuration_name");
+        SetOutput("frontend_port");
+        SetOutput("idle_timeout_in_minutes");
+        SetOutput("load_distribution");
+        SetOutput("probe_id");
+        SetOutput("protocol");
+        SetOutput("tcp_reset_enabled");
+        SetOutput("id");
+        SetOutput("loadbalancer_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermLbRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
-        set => this.WithProperty("loadbalancer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("loadbalancer_id");
+        set => SetProperty("loadbalancer_id", value);
     }
 
     /// <summary>
@@ -71,8 +73,8 @@ public class AzurermLbRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -81,8 +83,7 @@ public class AzurermLbRuleDataSource : TerraformDataSource
     /// </summary>
     public AzurermLbRuleDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLbRuleDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

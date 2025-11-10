@@ -13,8 +13,7 @@ public class GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,15 +46,18 @@ public class GoogleApigeeEnvironmentAddonsConfig : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("analytics_enabled");
+        SetOutput("env_id");
+        SetOutput("id");
     }
 
     /// <summary>
     /// Flag to enable/disable Analytics.
     /// </summary>
-    public TerraformProperty<bool>? AnalyticsEnabled
+    public TerraformProperty<bool> AnalyticsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("analytics_enabled");
-        set => this.WithProperty("analytics_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("analytics_enabled");
+        set => SetProperty("analytics_enabled", value);
     }
 
     /// <summary>
@@ -67,17 +67,17 @@ public class GoogleApigeeEnvironmentAddonsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
-        set => this.WithProperty("env_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
+        set => SetProperty("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,8 +86,7 @@ public class GoogleApigeeEnvironmentAddonsConfig : TerraformResource
     /// </summary>
     public GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

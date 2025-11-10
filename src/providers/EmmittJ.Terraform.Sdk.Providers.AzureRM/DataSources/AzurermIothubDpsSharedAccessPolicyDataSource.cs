@@ -13,8 +13,7 @@ public class AzurermIothubDpsSharedAccessPolicyDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,19 +30,23 @@ public class AzurermIothubDpsSharedAccessPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("primary_connection_string");
-        this.WithOutput("primary_key");
-        this.WithOutput("secondary_connection_string");
-        this.WithOutput("secondary_key");
+        SetOutput("primary_connection_string");
+        SetOutput("primary_key");
+        SetOutput("secondary_connection_string");
+        SetOutput("secondary_key");
+        SetOutput("id");
+        SetOutput("iothub_dps_name");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,8 +55,8 @@ public class AzurermIothubDpsSharedAccessPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubDpsName is required")]
     public required TerraformProperty<string> IothubDpsName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_dps_name");
-        set => this.WithProperty("iothub_dps_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_dps_name");
+        set => SetProperty("iothub_dps_name", value);
     }
 
     /// <summary>
@@ -62,8 +65,8 @@ public class AzurermIothubDpsSharedAccessPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +75,8 @@ public class AzurermIothubDpsSharedAccessPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -82,8 +85,7 @@ public class AzurermIothubDpsSharedAccessPolicyDataSource : TerraformDataSource
     /// </summary>
     public AzurermIothubDpsSharedAccessPolicyDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubDpsSharedAccessPolicyDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

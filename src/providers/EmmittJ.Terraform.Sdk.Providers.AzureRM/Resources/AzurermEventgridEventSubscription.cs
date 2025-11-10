@@ -22,8 +22,7 @@ public class AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionId is required")]
     public required TerraformProperty<string> FunctionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_id");
-        set => WithProperty("function_id", value);
+        set => SetProperty("function_id", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock : Terra
     /// </summary>
     public TerraformProperty<double>? MaxEventsPerBatch
     {
-        get => GetProperty<TerraformProperty<double>>("max_events_per_batch");
-        set => WithProperty("max_events_per_batch", value);
+        set => SetProperty("max_events_per_batch", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock : Terra
     /// </summary>
     public TerraformProperty<double>? PreferredBatchSizeInKilobytes
     {
-        get => GetProperty<TerraformProperty<double>>("preferred_batch_size_in_kilobytes");
-        set => WithProperty("preferred_batch_size_in_kilobytes", value);
+        set => SetProperty("preferred_batch_size_in_kilobytes", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AzurermEventgridEventSubscriptionDeadLetterIdentityBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AzurermEventgridEventSubscriptionDeadLetterIdentityBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? UserAssignedIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity");
-        set => WithProperty("user_assigned_identity", value);
+        set => SetProperty("user_assigned_identity", value);
     }
 
 }
@@ -85,8 +80,7 @@ public class AzurermEventgridEventSubscriptionDeliveryIdentityBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class AzurermEventgridEventSubscriptionDeliveryIdentityBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? UserAssignedIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity");
-        set => WithProperty("user_assigned_identity", value);
+        set => SetProperty("user_assigned_identity", value);
     }
 
 }
@@ -112,8 +105,7 @@ public class AzurermEventgridEventSubscriptionDeliveryPropertyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformProperty<string> HeaderName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("header_name");
-        set => WithProperty("header_name", value);
+        set => SetProperty("header_name", value);
     }
 
     /// <summary>
@@ -121,8 +113,7 @@ public class AzurermEventgridEventSubscriptionDeliveryPropertyBlock : TerraformB
     /// </summary>
     public TerraformProperty<bool>? Secret
     {
-        get => GetProperty<TerraformProperty<bool>>("secret");
-        set => WithProperty("secret", value);
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
@@ -130,8 +121,7 @@ public class AzurermEventgridEventSubscriptionDeliveryPropertyBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? SourceField
     {
-        get => GetProperty<TerraformProperty<string>>("source_field");
-        set => WithProperty("source_field", value);
+        set => SetProperty("source_field", value);
     }
 
     /// <summary>
@@ -140,8 +130,7 @@ public class AzurermEventgridEventSubscriptionDeliveryPropertyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -149,8 +138,7 @@ public class AzurermEventgridEventSubscriptionDeliveryPropertyBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -167,8 +155,7 @@ public class AzurermEventgridEventSubscriptionRetryPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTimeToLive is required")]
     public required TerraformProperty<double> EventTimeToLive
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("event_time_to_live");
-        set => WithProperty("event_time_to_live", value);
+        set => SetProperty("event_time_to_live", value);
     }
 
     /// <summary>
@@ -177,8 +164,7 @@ public class AzurermEventgridEventSubscriptionRetryPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxDeliveryAttempts is required")]
     public required TerraformProperty<double> MaxDeliveryAttempts
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_delivery_attempts");
-        set => WithProperty("max_delivery_attempts", value);
+        set => SetProperty("max_delivery_attempts", value);
     }
 
 }
@@ -195,8 +181,7 @@ public class AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => WithProperty("storage_account_id", value);
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -205,8 +190,7 @@ public class AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageBlobContainerName is required")]
     public required TerraformProperty<string> StorageBlobContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_blob_container_name");
-        set => WithProperty("storage_blob_container_name", value);
+        set => SetProperty("storage_blob_container_name", value);
     }
 
 }
@@ -222,8 +206,7 @@ public class AzurermEventgridEventSubscriptionStorageQueueEndpointBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? QueueMessageTimeToLiveInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("queue_message_time_to_live_in_seconds");
-        set => WithProperty("queue_message_time_to_live_in_seconds", value);
+        set => SetProperty("queue_message_time_to_live_in_seconds", value);
     }
 
     /// <summary>
@@ -232,8 +215,7 @@ public class AzurermEventgridEventSubscriptionStorageQueueEndpointBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueName is required")]
     public required TerraformProperty<string> QueueName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("queue_name");
-        set => WithProperty("queue_name", value);
+        set => SetProperty("queue_name", value);
     }
 
     /// <summary>
@@ -242,8 +224,7 @@ public class AzurermEventgridEventSubscriptionStorageQueueEndpointBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => WithProperty("storage_account_id", value);
+        set => SetProperty("storage_account_id", value);
     }
 
 }
@@ -259,8 +240,7 @@ public class AzurermEventgridEventSubscriptionSubjectFilterBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? CaseSensitive
     {
-        get => GetProperty<TerraformProperty<bool>>("case_sensitive");
-        set => WithProperty("case_sensitive", value);
+        set => SetProperty("case_sensitive", value);
     }
 
     /// <summary>
@@ -268,8 +248,7 @@ public class AzurermEventgridEventSubscriptionSubjectFilterBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? SubjectBeginsWith
     {
-        get => GetProperty<TerraformProperty<string>>("subject_begins_with");
-        set => WithProperty("subject_begins_with", value);
+        set => SetProperty("subject_begins_with", value);
     }
 
     /// <summary>
@@ -277,8 +256,7 @@ public class AzurermEventgridEventSubscriptionSubjectFilterBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? SubjectEndsWith
     {
-        get => GetProperty<TerraformProperty<string>>("subject_ends_with");
-        set => WithProperty("subject_ends_with", value);
+        set => SetProperty("subject_ends_with", value);
     }
 
 }
@@ -294,8 +272,7 @@ public class AzurermEventgridEventSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -303,8 +280,7 @@ public class AzurermEventgridEventSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -312,8 +288,7 @@ public class AzurermEventgridEventSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -321,8 +296,7 @@ public class AzurermEventgridEventSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -338,8 +312,7 @@ public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? ActiveDirectoryAppIdOrUri
     {
-        get => GetProperty<TerraformProperty<string>>("active_directory_app_id_or_uri");
-        set => WithProperty("active_directory_app_id_or_uri", value);
+        set => SetProperty("active_directory_app_id_or_uri", value);
     }
 
     /// <summary>
@@ -347,8 +320,7 @@ public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? ActiveDirectoryTenantId
     {
-        get => GetProperty<TerraformProperty<string>>("active_directory_tenant_id");
-        set => WithProperty("active_directory_tenant_id", value);
+        set => SetProperty("active_directory_tenant_id", value);
     }
 
     /// <summary>
@@ -356,8 +328,7 @@ public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? BaseUrl
     {
-        get => GetProperty<TerraformProperty<string>>("base_url");
-        set => WithProperty("base_url", value);
+        set => SetProperty("base_url", value);
     }
 
     /// <summary>
@@ -365,8 +336,7 @@ public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? MaxEventsPerBatch
     {
-        get => GetProperty<TerraformProperty<double>>("max_events_per_batch");
-        set => WithProperty("max_events_per_batch", value);
+        set => SetProperty("max_events_per_batch", value);
     }
 
     /// <summary>
@@ -374,8 +344,7 @@ public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? PreferredBatchSizeInKilobytes
     {
-        get => GetProperty<TerraformProperty<double>>("preferred_batch_size_in_kilobytes");
-        set => WithProperty("preferred_batch_size_in_kilobytes", value);
+        set => SetProperty("preferred_batch_size_in_kilobytes", value);
     }
 
     /// <summary>
@@ -384,8 +353,7 @@ public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -403,78 +371,90 @@ public class AzurermEventgridEventSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("advanced_filtering_on_arrays_enabled");
+        SetOutput("event_delivery_schema");
+        SetOutput("eventhub_endpoint_id");
+        SetOutput("expiration_time_utc");
+        SetOutput("hybrid_connection_endpoint_id");
+        SetOutput("id");
+        SetOutput("included_event_types");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("scope");
+        SetOutput("service_bus_queue_endpoint_id");
+        SetOutput("service_bus_topic_endpoint_id");
     }
 
     /// <summary>
     /// The advanced_filtering_on_arrays_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AdvancedFilteringOnArraysEnabled
+    public TerraformProperty<bool> AdvancedFilteringOnArraysEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("advanced_filtering_on_arrays_enabled");
-        set => this.WithProperty("advanced_filtering_on_arrays_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("advanced_filtering_on_arrays_enabled");
+        set => SetProperty("advanced_filtering_on_arrays_enabled", value);
     }
 
     /// <summary>
     /// The event_delivery_schema attribute.
     /// </summary>
-    public TerraformProperty<string>? EventDeliverySchema
+    public TerraformProperty<string> EventDeliverySchema
     {
-        get => GetProperty<TerraformProperty<string>>("event_delivery_schema");
-        set => this.WithProperty("event_delivery_schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_delivery_schema");
+        set => SetProperty("event_delivery_schema", value);
     }
 
     /// <summary>
     /// The eventhub_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EventhubEndpointId
+    public TerraformProperty<string> EventhubEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_endpoint_id");
-        set => this.WithProperty("eventhub_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_endpoint_id");
+        set => SetProperty("eventhub_endpoint_id", value);
     }
 
     /// <summary>
     /// The expiration_time_utc attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpirationTimeUtc
+    public TerraformProperty<string> ExpirationTimeUtc
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_time_utc");
-        set => this.WithProperty("expiration_time_utc", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration_time_utc");
+        set => SetProperty("expiration_time_utc", value);
     }
 
     /// <summary>
     /// The hybrid_connection_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? HybridConnectionEndpointId
+    public TerraformProperty<string> HybridConnectionEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("hybrid_connection_endpoint_id");
-        set => this.WithProperty("hybrid_connection_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hybrid_connection_endpoint_id");
+        set => SetProperty("hybrid_connection_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The included_event_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? IncludedEventTypes
+    public List<TerraformProperty<string>> IncludedEventTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("included_event_types");
-        set => this.WithProperty("included_event_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("included_event_types");
+        set => SetProperty("included_event_types", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Labels
+    public List<TerraformProperty<string>> Labels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -483,8 +463,8 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -493,26 +473,26 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// The service_bus_queue_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceBusQueueEndpointId
+    public TerraformProperty<string> ServiceBusQueueEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("service_bus_queue_endpoint_id");
-        set => this.WithProperty("service_bus_queue_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_bus_queue_endpoint_id");
+        set => SetProperty("service_bus_queue_endpoint_id", value);
     }
 
     /// <summary>
     /// The service_bus_topic_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceBusTopicEndpointId
+    public TerraformProperty<string> ServiceBusTopicEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("service_bus_topic_endpoint_id");
-        set => this.WithProperty("service_bus_topic_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_bus_topic_endpoint_id");
+        set => SetProperty("service_bus_topic_endpoint_id", value);
     }
 
     /// <summary>
@@ -522,8 +502,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedFilter block(s) allowed")]
     public List<AzurermEventgridEventSubscriptionAdvancedFilterBlock>? AdvancedFilter
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionAdvancedFilterBlock>>("advanced_filter");
-        set => this.WithProperty("advanced_filter", value);
+        set => SetProperty("advanced_filter", value);
     }
 
     /// <summary>
@@ -533,8 +512,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureFunctionEndpoint block(s) allowed")]
     public List<AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock>? AzureFunctionEndpoint
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock>>("azure_function_endpoint");
-        set => this.WithProperty("azure_function_endpoint", value);
+        set => SetProperty("azure_function_endpoint", value);
     }
 
     /// <summary>
@@ -544,8 +522,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterIdentity block(s) allowed")]
     public List<AzurermEventgridEventSubscriptionDeadLetterIdentityBlock>? DeadLetterIdentity
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionDeadLetterIdentityBlock>>("dead_letter_identity");
-        set => this.WithProperty("dead_letter_identity", value);
+        set => SetProperty("dead_letter_identity", value);
     }
 
     /// <summary>
@@ -555,8 +532,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryIdentity block(s) allowed")]
     public List<AzurermEventgridEventSubscriptionDeliveryIdentityBlock>? DeliveryIdentity
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionDeliveryIdentityBlock>>("delivery_identity");
-        set => this.WithProperty("delivery_identity", value);
+        set => SetProperty("delivery_identity", value);
     }
 
     /// <summary>
@@ -565,8 +541,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     /// </summary>
     public List<AzurermEventgridEventSubscriptionDeliveryPropertyBlock>? DeliveryProperty
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionDeliveryPropertyBlock>>("delivery_property");
-        set => this.WithProperty("delivery_property", value);
+        set => SetProperty("delivery_property", value);
     }
 
     /// <summary>
@@ -576,8 +551,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     public List<AzurermEventgridEventSubscriptionRetryPolicyBlock>? RetryPolicy
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionRetryPolicyBlock>>("retry_policy");
-        set => this.WithProperty("retry_policy", value);
+        set => SetProperty("retry_policy", value);
     }
 
     /// <summary>
@@ -587,8 +561,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageBlobDeadLetterDestination block(s) allowed")]
     public List<AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBlock>? StorageBlobDeadLetterDestination
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBlock>>("storage_blob_dead_letter_destination");
-        set => this.WithProperty("storage_blob_dead_letter_destination", value);
+        set => SetProperty("storage_blob_dead_letter_destination", value);
     }
 
     /// <summary>
@@ -598,8 +571,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageQueueEndpoint block(s) allowed")]
     public List<AzurermEventgridEventSubscriptionStorageQueueEndpointBlock>? StorageQueueEndpoint
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionStorageQueueEndpointBlock>>("storage_queue_endpoint");
-        set => this.WithProperty("storage_queue_endpoint", value);
+        set => SetProperty("storage_queue_endpoint", value);
     }
 
     /// <summary>
@@ -609,8 +581,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubjectFilter block(s) allowed")]
     public List<AzurermEventgridEventSubscriptionSubjectFilterBlock>? SubjectFilter
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionSubjectFilterBlock>>("subject_filter");
-        set => this.WithProperty("subject_filter", value);
+        set => SetProperty("subject_filter", value);
     }
 
     /// <summary>
@@ -619,8 +590,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     /// </summary>
     public AzurermEventgridEventSubscriptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventgridEventSubscriptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -630,8 +600,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebhookEndpoint block(s) allowed")]
     public List<AzurermEventgridEventSubscriptionWebhookEndpointBlock>? WebhookEndpoint
     {
-        get => GetProperty<List<AzurermEventgridEventSubscriptionWebhookEndpointBlock>>("webhook_endpoint");
-        set => this.WithProperty("webhook_endpoint", value);
+        set => SetProperty("webhook_endpoint", value);
     }
 
 }

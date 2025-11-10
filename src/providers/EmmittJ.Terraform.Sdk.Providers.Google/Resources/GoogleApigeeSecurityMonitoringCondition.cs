@@ -21,8 +21,7 @@ public class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,11 +55,16 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("total_deployed_resources");
-        this.WithOutput("total_monitored_resources");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("total_deployed_resources");
+        SetOutput("total_monitored_resources");
+        SetOutput("update_time");
+        SetOutput("condition_id");
+        SetOutput("id");
+        SetOutput("org_id");
+        SetOutput("profile");
+        SetOutput("scope");
     }
 
     /// <summary>
@@ -71,17 +73,17 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionId is required")]
     public required TerraformProperty<string> ConditionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("condition_id");
-        set => this.WithProperty("condition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("condition_id");
+        set => SetProperty("condition_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -91,8 +93,8 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -101,8 +103,8 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Profile is required")]
     public required TerraformProperty<string> Profile
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("profile");
-        set => this.WithProperty("profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile");
+        set => SetProperty("profile", value);
     }
 
     /// <summary>
@@ -111,8 +113,8 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -122,8 +124,7 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeAllResources block(s) allowed")]
     public List<GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock>? IncludeAllResources
     {
-        get => GetProperty<List<GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock>>("include_all_resources");
-        set => this.WithProperty("include_all_resources", value);
+        set => SetProperty("include_all_resources", value);
     }
 
     /// <summary>
@@ -132,8 +133,7 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     /// </summary>
     public GoogleApigeeSecurityMonitoringConditionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeSecurityMonitoringConditionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

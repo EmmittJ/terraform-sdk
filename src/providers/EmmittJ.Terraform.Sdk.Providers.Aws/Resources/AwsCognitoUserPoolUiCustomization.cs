@@ -14,55 +14,61 @@ public class AwsCognitoUserPoolUiCustomization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_date");
-        this.WithOutput("css_version");
-        this.WithOutput("image_url");
-        this.WithOutput("last_modified_date");
+        SetOutput("creation_date");
+        SetOutput("css_version");
+        SetOutput("image_url");
+        SetOutput("last_modified_date");
+        SetOutput("client_id");
+        SetOutput("css");
+        SetOutput("id");
+        SetOutput("image_file");
+        SetOutput("region");
+        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    public TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// The css attribute.
     /// </summary>
-    public TerraformProperty<string>? Css
+    public TerraformProperty<string> Css
     {
-        get => GetProperty<TerraformProperty<string>>("css");
-        set => this.WithProperty("css", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("css");
+        set => SetProperty("css", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The image_file attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageFile
+    public TerraformProperty<string> ImageFile
     {
-        get => GetProperty<TerraformProperty<string>>("image_file");
-        set => this.WithProperty("image_file", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_file");
+        set => SetProperty("image_file", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -71,8 +77,8 @@ public class AwsCognitoUserPoolUiCustomization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>

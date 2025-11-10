@@ -14,10 +14,17 @@ public class AwsRedshiftserverlessEndpointAccess : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("address");
-        this.WithOutput("arn");
-        this.WithOutput("port");
-        this.WithOutput("vpc_endpoint");
+        SetOutput("address");
+        SetOutput("arn");
+        SetOutput("port");
+        SetOutput("vpc_endpoint");
+        SetOutput("endpoint_name");
+        SetOutput("id");
+        SetOutput("owner_account");
+        SetOutput("region");
+        SetOutput("subnet_ids");
+        SetOutput("vpc_security_group_ids");
+        SetOutput("workgroup_name");
     }
 
     /// <summary>
@@ -26,54 +33,54 @@ public class AwsRedshiftserverlessEndpointAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointName is required")]
     public required TerraformProperty<string> EndpointName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_name");
-        set => this.WithProperty("endpoint_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_name");
+        set => SetProperty("endpoint_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The owner_account attribute.
     /// </summary>
-    public TerraformProperty<string>? OwnerAccount
+    public TerraformProperty<string> OwnerAccount
     {
-        get => GetProperty<TerraformProperty<string>>("owner_account");
-        set => this.WithProperty("owner_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner_account");
+        set => SetProperty("owner_account", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => this.WithProperty("vpc_security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
+        set => SetProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
@@ -82,8 +89,8 @@ public class AwsRedshiftserverlessEndpointAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformProperty<string> WorkgroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workgroup_name");
-        set => this.WithProperty("workgroup_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workgroup_name");
+        set => SetProperty("workgroup_name", value);
     }
 
     /// <summary>

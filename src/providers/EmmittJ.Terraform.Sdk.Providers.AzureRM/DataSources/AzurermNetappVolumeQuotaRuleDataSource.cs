@@ -13,8 +13,7 @@ public class AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,19 +30,22 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("location");
-        this.WithOutput("quota_size_in_kib");
-        this.WithOutput("quota_target");
-        this.WithOutput("quota_type");
+        SetOutput("location");
+        SetOutput("quota_size_in_kib");
+        SetOutput("quota_target");
+        SetOutput("quota_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("volume_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,8 +54,8 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -62,8 +64,8 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
-        set => this.WithProperty("volume_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_id");
+        set => SetProperty("volume_id", value);
     }
 
     /// <summary>
@@ -72,8 +74,7 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     /// </summary>
     public AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

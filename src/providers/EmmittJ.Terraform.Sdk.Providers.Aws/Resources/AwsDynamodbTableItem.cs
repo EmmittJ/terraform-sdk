@@ -14,6 +14,12 @@ public class AwsDynamodbTableItem : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("hash_key");
+        SetOutput("id");
+        SetOutput("item");
+        SetOutput("range_key");
+        SetOutput("region");
+        SetOutput("table_name");
     }
 
     /// <summary>
@@ -22,17 +28,17 @@ public class AwsDynamodbTableItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKey is required")]
     public required TerraformProperty<string> HashKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hash_key");
-        set => this.WithProperty("hash_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hash_key");
+        set => SetProperty("hash_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,26 +47,26 @@ public class AwsDynamodbTableItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Item is required")]
     public required TerraformProperty<string> Item
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("item");
-        set => this.WithProperty("item", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("item");
+        set => SetProperty("item", value);
     }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
-    public TerraformProperty<string>? RangeKey
+    public TerraformProperty<string> RangeKey
     {
-        get => GetProperty<TerraformProperty<string>>("range_key");
-        set => this.WithProperty("range_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("range_key");
+        set => SetProperty("range_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,8 +75,8 @@ public class AwsDynamodbTableItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
 }

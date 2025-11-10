@@ -14,8 +14,14 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("attachment_id");
-        this.WithOutput("status");
+        SetOutput("attachment_id");
+        SetOutput("status");
+        SetOutput("device_index");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("network_card_index");
+        SetOutput("network_interface_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,17 +30,17 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
     public required TerraformProperty<double> DeviceIndex
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("device_index");
-        set => this.WithProperty("device_index", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("device_index");
+        set => SetProperty("device_index", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,17 +49,17 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// The network_card_index attribute.
     /// </summary>
-    public TerraformProperty<double>? NetworkCardIndex
+    public TerraformProperty<double> NetworkCardIndex
     {
-        get => GetProperty<TerraformProperty<double>>("network_card_index");
-        set => this.WithProperty("network_card_index", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("network_card_index");
+        set => SetProperty("network_card_index", value);
     }
 
     /// <summary>
@@ -62,17 +68,17 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
-        set => this.WithProperty("network_interface_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
+        set => SetProperty("network_interface_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

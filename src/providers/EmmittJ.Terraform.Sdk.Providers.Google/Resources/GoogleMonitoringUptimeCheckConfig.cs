@@ -14,8 +14,7 @@ public class GoogleMonitoringUptimeCheckConfigContentMatchersBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleMonitoringUptimeCheckConfigContentMatchersBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Matcher
     {
-        get => GetProperty<TerraformProperty<string>>("matcher");
-        set => WithProperty("matcher", value);
+        set => SetProperty("matcher", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
-        set => WithProperty("body", value);
+        set => SetProperty("body", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => WithProperty("content_type", value);
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomContentType
     {
-        get => GetProperty<TerraformProperty<string>>("custom_content_type");
-        set => WithProperty("custom_content_type", value);
+        set => SetProperty("custom_content_type", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Headers
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("headers");
-        set => WithProperty("headers", value);
+        set => SetProperty("headers", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MaskHeaders
     {
-        get => GetProperty<TerraformProperty<bool>>("mask_headers");
-        set => WithProperty("mask_headers", value);
+        set => SetProperty("mask_headers", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RequestMethod
     {
-        get => GetProperty<TerraformProperty<string>>("request_method");
-        set => WithProperty("request_method", value);
+        set => SetProperty("request_method", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseSsl
     {
-        get => GetProperty<TerraformProperty<bool>>("use_ssl");
-        set => WithProperty("use_ssl", value);
+        set => SetProperty("use_ssl", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ValidateSsl
     {
-        get => GetProperty<TerraformProperty<bool>>("validate_ssl");
-        set => WithProperty("validate_ssl", value);
+        set => SetProperty("validate_ssl", value);
     }
 
 }
@@ -139,8 +127,7 @@ public class GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -149,8 +136,7 @@ public class GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -166,8 +152,7 @@ public class GoogleMonitoringUptimeCheckConfigResourceGroupBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? GroupId
     {
-        get => GetProperty<TerraformProperty<string>>("group_id");
-        set => WithProperty("group_id", value);
+        set => SetProperty("group_id", value);
     }
 
     /// <summary>
@@ -175,8 +160,7 @@ public class GoogleMonitoringUptimeCheckConfigResourceGroupBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
-        set => WithProperty("resource_type", value);
+        set => SetProperty("resource_type", value);
     }
 
 }
@@ -201,8 +185,7 @@ public class GoogleMonitoringUptimeCheckConfigTcpCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
 }
@@ -218,8 +201,7 @@ public class GoogleMonitoringUptimeCheckConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -227,8 +209,7 @@ public class GoogleMonitoringUptimeCheckConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -236,8 +217,7 @@ public class GoogleMonitoringUptimeCheckConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -255,17 +235,26 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("uptime_check_id");
+        SetOutput("name");
+        SetOutput("uptime_check_id");
+        SetOutput("checker_type");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("log_check_failures");
+        SetOutput("period");
+        SetOutput("project");
+        SetOutput("selected_regions");
+        SetOutput("timeout");
+        SetOutput("user_labels");
     }
 
     /// <summary>
     /// The checker type to use for the check. If the monitored resource type is &#39;servicedirectory_service&#39;, &#39;checker_type&#39; must be set to &#39;VPC_CHECKERS&#39;. Possible values: [&amp;quot;STATIC_IP_CHECKERS&amp;quot;, &amp;quot;VPC_CHECKERS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? CheckerType
+    public TerraformProperty<string> CheckerType
     {
-        get => GetProperty<TerraformProperty<string>>("checker_type");
-        set => this.WithProperty("checker_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("checker_type");
+        set => SetProperty("checker_type", value);
     }
 
     /// <summary>
@@ -274,53 +263,53 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Specifies whether to log the results of failed probes to Cloud Logging.
     /// </summary>
-    public TerraformProperty<bool>? LogCheckFailures
+    public TerraformProperty<bool> LogCheckFailures
     {
-        get => GetProperty<TerraformProperty<bool>>("log_check_failures");
-        set => this.WithProperty("log_check_failures", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("log_check_failures");
+        set => SetProperty("log_check_failures", value);
     }
 
     /// <summary>
     /// How often, in seconds, the uptime check is performed. Currently, the only supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes), and 900s (15 minutes). Optional, defaults to 300s.
     /// </summary>
-    public TerraformProperty<string>? Period
+    public TerraformProperty<string> Period
     {
-        get => GetProperty<TerraformProperty<string>>("period");
-        set => this.WithProperty("period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("period");
+        set => SetProperty("period", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The list of regions from which the check will be run. Some regions contain one location, and others contain more than one. If this field is specified, enough regions to include a minimum of 3 locations must be provided, or an error message is returned. Not specifying this field will result in uptime checks running from all regions.
     /// </summary>
-    public List<TerraformProperty<string>>? SelectedRegions
+    public List<TerraformProperty<string>> SelectedRegions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("selected_regions");
-        set => this.WithProperty("selected_regions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("selected_regions");
+        set => SetProperty("selected_regions", value);
     }
 
     /// <summary>
@@ -329,17 +318,17 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformProperty<string> Timeout
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("timeout");
-        set => this.WithProperty("timeout", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("timeout");
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>
     /// User-supplied key/value data to be used for organizing and identifying the &#39;UptimeCheckConfig&#39; objects. The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? UserLabels
+    public Dictionary<string, TerraformProperty<string>> UserLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_labels");
-        set => this.WithProperty("user_labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("user_labels");
+        set => SetProperty("user_labels", value);
     }
 
     /// <summary>
@@ -348,8 +337,7 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// </summary>
     public List<GoogleMonitoringUptimeCheckConfigContentMatchersBlock>? ContentMatchers
     {
-        get => GetProperty<List<GoogleMonitoringUptimeCheckConfigContentMatchersBlock>>("content_matchers");
-        set => this.WithProperty("content_matchers", value);
+        set => SetProperty("content_matchers", value);
     }
 
     /// <summary>
@@ -359,8 +347,7 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpCheck block(s) allowed")]
     public List<GoogleMonitoringUptimeCheckConfigHttpCheckBlock>? HttpCheck
     {
-        get => GetProperty<List<GoogleMonitoringUptimeCheckConfigHttpCheckBlock>>("http_check");
-        set => this.WithProperty("http_check", value);
+        set => SetProperty("http_check", value);
     }
 
     /// <summary>
@@ -370,8 +357,7 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoredResource block(s) allowed")]
     public List<GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock>? MonitoredResource
     {
-        get => GetProperty<List<GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock>>("monitored_resource");
-        set => this.WithProperty("monitored_resource", value);
+        set => SetProperty("monitored_resource", value);
     }
 
     /// <summary>
@@ -381,8 +367,7 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceGroup block(s) allowed")]
     public List<GoogleMonitoringUptimeCheckConfigResourceGroupBlock>? ResourceGroup
     {
-        get => GetProperty<List<GoogleMonitoringUptimeCheckConfigResourceGroupBlock>>("resource_group");
-        set => this.WithProperty("resource_group", value);
+        set => SetProperty("resource_group", value);
     }
 
     /// <summary>
@@ -392,8 +377,7 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyntheticMonitor block(s) allowed")]
     public List<GoogleMonitoringUptimeCheckConfigSyntheticMonitorBlock>? SyntheticMonitor
     {
-        get => GetProperty<List<GoogleMonitoringUptimeCheckConfigSyntheticMonitorBlock>>("synthetic_monitor");
-        set => this.WithProperty("synthetic_monitor", value);
+        set => SetProperty("synthetic_monitor", value);
     }
 
     /// <summary>
@@ -403,8 +387,7 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TcpCheck block(s) allowed")]
     public List<GoogleMonitoringUptimeCheckConfigTcpCheckBlock>? TcpCheck
     {
-        get => GetProperty<List<GoogleMonitoringUptimeCheckConfigTcpCheckBlock>>("tcp_check");
-        set => this.WithProperty("tcp_check", value);
+        set => SetProperty("tcp_check", value);
     }
 
     /// <summary>
@@ -413,8 +396,7 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// </summary>
     public GoogleMonitoringUptimeCheckConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMonitoringUptimeCheckConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

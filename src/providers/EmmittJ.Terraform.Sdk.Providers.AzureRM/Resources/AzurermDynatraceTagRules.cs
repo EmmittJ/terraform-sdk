@@ -13,8 +13,7 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SendActivityLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("send_activity_logs_enabled");
-        set => WithProperty("send_activity_logs_enabled", value);
+        set => SetProperty("send_activity_logs_enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SendAzureActiveDirectoryLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("send_azure_active_directory_logs_enabled");
-        set => WithProperty("send_azure_active_directory_logs_enabled", value);
+        set => SetProperty("send_azure_active_directory_logs_enabled", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SendSubscriptionLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("send_subscription_logs_enabled");
-        set => WithProperty("send_subscription_logs_enabled", value);
+        set => SetProperty("send_subscription_logs_enabled", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SendingMetricsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sending_metrics_enabled");
-        set => WithProperty("sending_metrics_enabled", value);
+        set => SetProperty("sending_metrics_enabled", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,15 +103,18 @@ public class AzurermDynatraceTagRules : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("monitor_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -128,8 +123,8 @@ public class AzurermDynatraceTagRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorId is required")]
     public required TerraformProperty<string> MonitorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("monitor_id");
-        set => this.WithProperty("monitor_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("monitor_id");
+        set => SetProperty("monitor_id", value);
     }
 
     /// <summary>
@@ -138,8 +133,8 @@ public class AzurermDynatraceTagRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -149,8 +144,7 @@ public class AzurermDynatraceTagRules : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogRule block(s) allowed")]
     public List<AzurermDynatraceTagRulesLogRuleBlock>? LogRule
     {
-        get => GetProperty<List<AzurermDynatraceTagRulesLogRuleBlock>>("log_rule");
-        set => this.WithProperty("log_rule", value);
+        set => SetProperty("log_rule", value);
     }
 
     /// <summary>
@@ -160,8 +154,7 @@ public class AzurermDynatraceTagRules : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricRule block(s) allowed")]
     public List<AzurermDynatraceTagRulesMetricRuleBlock>? MetricRule
     {
-        get => GetProperty<List<AzurermDynatraceTagRulesMetricRuleBlock>>("metric_rule");
-        set => this.WithProperty("metric_rule", value);
+        set => SetProperty("metric_rule", value);
     }
 
     /// <summary>
@@ -170,8 +163,7 @@ public class AzurermDynatraceTagRules : TerraformResource
     /// </summary>
     public AzurermDynatraceTagRulesTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDynatraceTagRulesTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

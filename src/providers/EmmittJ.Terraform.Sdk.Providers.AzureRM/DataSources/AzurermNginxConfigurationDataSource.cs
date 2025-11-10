@@ -13,8 +13,7 @@ public class AzurermNginxConfigurationDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,19 +30,21 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("config_file");
-        this.WithOutput("package_data");
-        this.WithOutput("protected_file");
-        this.WithOutput("root_file");
+        SetOutput("config_file");
+        SetOutput("package_data");
+        SetOutput("protected_file");
+        SetOutput("root_file");
+        SetOutput("id");
+        SetOutput("nginx_deployment_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,8 +53,8 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
-        set => this.WithProperty("nginx_deployment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nginx_deployment_id");
+        set => SetProperty("nginx_deployment_id", value);
     }
 
     /// <summary>
@@ -62,8 +63,7 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
     /// </summary>
     public AzurermNginxConfigurationDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNginxConfigurationDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

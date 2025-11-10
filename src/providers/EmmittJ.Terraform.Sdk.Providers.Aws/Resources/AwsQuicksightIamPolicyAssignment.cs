@@ -13,8 +13,7 @@ public class AwsQuicksightIamPolicyAssignmentIdentitiesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Group
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("group");
-        set => WithProperty("group", value);
+        set => SetProperty("group", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsQuicksightIamPolicyAssignmentIdentitiesBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? User
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("user");
-        set => WithProperty("user", value);
+        set => SetProperty("user", value);
     }
 
 }
@@ -40,8 +38,14 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("assignment_id");
-        this.WithOutput("id");
+        SetOutput("assignment_id");
+        SetOutput("id");
+        SetOutput("assignment_name");
+        SetOutput("assignment_status");
+        SetOutput("aws_account_id");
+        SetOutput("namespace");
+        SetOutput("policy_arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentName is required")]
     public required TerraformProperty<string> AssignmentName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("assignment_name");
-        set => this.WithProperty("assignment_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("assignment_name");
+        set => SetProperty("assignment_name", value);
     }
 
     /// <summary>
@@ -60,44 +64,44 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentStatus is required")]
     public required TerraformProperty<string> AssignmentStatus
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("assignment_status");
-        set => this.WithProperty("assignment_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("assignment_status");
+        set => SetProperty("assignment_status", value);
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? Namespace
+    public TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
-        set => this.WithProperty("namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyArn
+    public TerraformProperty<string> PolicyArn
     {
-        get => GetProperty<TerraformProperty<string>>("policy_arn");
-        set => this.WithProperty("policy_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_arn");
+        set => SetProperty("policy_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -106,8 +110,7 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     /// </summary>
     public List<AwsQuicksightIamPolicyAssignmentIdentitiesBlock>? Identities
     {
-        get => GetProperty<List<AwsQuicksightIamPolicyAssignmentIdentitiesBlock>>("identities");
-        set => this.WithProperty("identities", value);
+        set => SetProperty("identities", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address");
-        set => WithProperty("private_ip_address", value);
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? PrivateIpAllocationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_allocation_method");
-        set => WithProperty("private_ip_allocation_method", value);
+        set => SetProperty("private_ip_allocation_method", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,15 +88,20 @@ public class AzurermPrivateDnsResolverInboundEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("private_dns_resolver_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,8 +110,8 @@ public class AzurermPrivateDnsResolverInboundEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -122,8 +120,8 @@ public class AzurermPrivateDnsResolverInboundEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -132,29 +130,29 @@ public class AzurermPrivateDnsResolverInboundEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsResolverId is required")]
     public required TerraformProperty<string> PrivateDnsResolverId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_dns_resolver_id");
-        set => this.WithProperty("private_dns_resolver_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_dns_resolver_id");
+        set => SetProperty("private_dns_resolver_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for ip_configurations.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfigurations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfigurations block(s) allowed")]
     public List<AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock>? IpConfigurations
     {
-        get => GetProperty<List<AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock>>("ip_configurations");
-        set => this.WithProperty("ip_configurations", value);
+        set => SetProperty("ip_configurations", value);
     }
 
     /// <summary>
@@ -163,8 +161,7 @@ public class AzurermPrivateDnsResolverInboundEndpoint : TerraformResource
     /// </summary>
     public AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

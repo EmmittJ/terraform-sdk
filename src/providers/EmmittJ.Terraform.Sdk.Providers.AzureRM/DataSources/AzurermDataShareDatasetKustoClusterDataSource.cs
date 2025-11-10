@@ -13,8 +13,7 @@ public class AzurermDataShareDatasetKustoClusterDataSourceTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,18 +30,21 @@ public class AzurermDataShareDatasetKustoClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("display_name");
-        this.WithOutput("kusto_cluster_id");
-        this.WithOutput("kusto_cluster_location");
+        SetOutput("display_name");
+        SetOutput("kusto_cluster_id");
+        SetOutput("kusto_cluster_location");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("share_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +53,8 @@ public class AzurermDataShareDatasetKustoClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermDataShareDatasetKustoClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     public required TerraformProperty<string> ShareId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("share_id");
-        set => this.WithProperty("share_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("share_id");
+        set => SetProperty("share_id", value);
     }
 
     /// <summary>
@@ -71,8 +73,7 @@ public class AzurermDataShareDatasetKustoClusterDataSource : TerraformDataSource
     /// </summary>
     public AzurermDataShareDatasetKustoClusterDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataShareDatasetKustoClusterDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

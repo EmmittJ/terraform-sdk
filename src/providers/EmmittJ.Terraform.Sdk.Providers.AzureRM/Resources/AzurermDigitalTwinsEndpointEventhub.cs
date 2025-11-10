@@ -13,8 +13,7 @@ public class AzurermDigitalTwinsEndpointEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDigitalTwinsEndpointEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDigitalTwinsEndpointEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDigitalTwinsEndpointEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,21 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dead_letter_storage_secret");
+        SetOutput("digital_twins_id");
+        SetOutput("eventhub_primary_connection_string");
+        SetOutput("eventhub_secondary_connection_string");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The dead_letter_storage_secret attribute.
     /// </summary>
-    public TerraformProperty<string>? DeadLetterStorageSecret
+    public TerraformProperty<string> DeadLetterStorageSecret
     {
-        get => GetProperty<TerraformProperty<string>>("dead_letter_storage_secret");
-        set => this.WithProperty("dead_letter_storage_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dead_letter_storage_secret");
+        set => SetProperty("dead_letter_storage_secret", value);
     }
 
     /// <summary>
@@ -75,8 +77,8 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformProperty<string> DigitalTwinsId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("digital_twins_id");
-        set => this.WithProperty("digital_twins_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("digital_twins_id");
+        set => SetProperty("digital_twins_id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubPrimaryConnectionString is required")]
     public required TerraformProperty<string> EventhubPrimaryConnectionString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_primary_connection_string");
-        set => this.WithProperty("eventhub_primary_connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_primary_connection_string");
+        set => SetProperty("eventhub_primary_connection_string", value);
     }
 
     /// <summary>
@@ -95,17 +97,17 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubSecondaryConnectionString is required")]
     public required TerraformProperty<string> EventhubSecondaryConnectionString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_secondary_connection_string");
-        set => this.WithProperty("eventhub_secondary_connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_secondary_connection_string");
+        set => SetProperty("eventhub_secondary_connection_string", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     /// </summary>
     public AzurermDigitalTwinsEndpointEventhubTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDigitalTwinsEndpointEventhubTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

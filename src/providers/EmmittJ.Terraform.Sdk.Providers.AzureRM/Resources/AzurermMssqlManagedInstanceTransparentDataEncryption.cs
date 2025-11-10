@@ -13,8 +13,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,42 +54,47 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
 
     private void InitializeOutputs()
     {
+        SetOutput("auto_rotation_enabled");
+        SetOutput("id");
+        SetOutput("key_vault_key_id");
+        SetOutput("managed_hsm_key_id");
+        SetOutput("managed_instance_id");
     }
 
     /// <summary>
     /// The auto_rotation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoRotationEnabled
+    public TerraformProperty<bool> AutoRotationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_rotation_enabled");
-        set => this.WithProperty("auto_rotation_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_rotation_enabled");
+        set => SetProperty("auto_rotation_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
+    public TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => this.WithProperty("key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedHsmKeyId
+    public TerraformProperty<string> ManagedHsmKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_hsm_key_id");
-        set => this.WithProperty("managed_hsm_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_key_id");
+        set => SetProperty("managed_hsm_key_id", value);
     }
 
     /// <summary>
@@ -102,8 +103,8 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
-        set => this.WithProperty("managed_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_instance_id");
+        set => SetProperty("managed_instance_id", value);
     }
 
     /// <summary>
@@ -112,8 +113,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
     /// </summary>
     public AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

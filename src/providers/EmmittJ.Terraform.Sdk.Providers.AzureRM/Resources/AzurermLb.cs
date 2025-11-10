@@ -13,8 +13,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GatewayLoadBalancerFrontendIpConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_load_balancer_frontend_ip_configuration_id");
-        set => WithProperty("gateway_load_balancer_frontend_ip_configuration_id", value);
+        set => SetProperty("gateway_load_balancer_frontend_ip_configuration_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? InboundNatRules
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("inbound_nat_rules");
-        set => WithProperty("inbound_nat_rules", value);
+        set => SetProperty("inbound_nat_rules", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? LoadBalancerRules
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("load_balancer_rules");
-        set => WithProperty("load_balancer_rules", value);
+        set => SetProperty("load_balancer_rules", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? OutboundRules
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("outbound_rules");
-        set => WithProperty("outbound_rules", value);
+        set => SetProperty("outbound_rules", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address");
-        set => WithProperty("private_ip_address", value);
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddressAllocation
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address_allocation");
-        set => WithProperty("private_ip_address_allocation", value);
+        set => SetProperty("private_ip_address_allocation", value);
     }
 
     /// <summary>
@@ -86,8 +78,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddressVersion
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address_version");
-        set => WithProperty("private_ip_address_version", value);
+        set => SetProperty("private_ip_address_version", value);
     }
 
     /// <summary>
@@ -95,8 +86,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PublicIpAddressId
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_address_id");
-        set => WithProperty("public_ip_address_id", value);
+        set => SetProperty("public_ip_address_id", value);
     }
 
     /// <summary>
@@ -104,8 +94,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PublicIpPrefixId
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_prefix_id");
-        set => WithProperty("public_ip_prefix_id", value);
+        set => SetProperty("public_ip_prefix_id", value);
     }
 
     /// <summary>
@@ -113,8 +102,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -122,8 +110,7 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => WithProperty("zones", value);
+        set => SetProperty("zones", value);
     }
 
 }
@@ -139,8 +126,7 @@ public class AzurermLbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -148,8 +134,7 @@ public class AzurermLbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -157,8 +142,7 @@ public class AzurermLbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -166,8 +150,7 @@ public class AzurermLbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -184,26 +167,36 @@ public class AzurermLb : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("private_ip_address");
-        this.WithOutput("private_ip_addresses");
+        SetOutput("private_ip_address");
+        SetOutput("private_ip_addresses");
+        SetOutput("edge_zone");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("public_ip_address_id");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("sku_tier");
+        SetOutput("subnet_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? EdgeZone
+    public TerraformProperty<string> EdgeZone
     {
-        get => GetProperty<TerraformProperty<string>>("edge_zone");
-        set => this.WithProperty("edge_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
+        set => SetProperty("edge_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -212,8 +205,8 @@ public class AzurermLb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -222,17 +215,17 @@ public class AzurermLb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicIpAddressId
+    public TerraformProperty<string> PublicIpAddressId
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_address_id");
-        set => this.WithProperty("public_ip_address_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_ip_address_id");
+        set => SetProperty("public_ip_address_id", value);
     }
 
     /// <summary>
@@ -241,44 +234,44 @@ public class AzurermLb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    public TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuTier
+    public TerraformProperty<string> SkuTier
     {
-        get => GetProperty<TerraformProperty<string>>("sku_tier");
-        set => this.WithProperty("sku_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_tier");
+        set => SetProperty("sku_tier", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    public TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -287,8 +280,7 @@ public class AzurermLb : TerraformResource
     /// </summary>
     public List<AzurermLbFrontendIpConfigurationBlock>? FrontendIpConfiguration
     {
-        get => GetProperty<List<AzurermLbFrontendIpConfigurationBlock>>("frontend_ip_configuration");
-        set => this.WithProperty("frontend_ip_configuration", value);
+        set => SetProperty("frontend_ip_configuration", value);
     }
 
     /// <summary>
@@ -297,8 +289,7 @@ public class AzurermLb : TerraformResource
     /// </summary>
     public AzurermLbTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLbTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

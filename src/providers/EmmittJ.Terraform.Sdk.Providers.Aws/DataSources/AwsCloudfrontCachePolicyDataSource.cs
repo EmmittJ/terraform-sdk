@@ -14,31 +14,33 @@ public class AwsCloudfrontCachePolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("comment");
-        this.WithOutput("default_ttl");
-        this.WithOutput("etag");
-        this.WithOutput("max_ttl");
-        this.WithOutput("min_ttl");
-        this.WithOutput("parameters_in_cache_key_and_forwarded_to_origin");
+        SetOutput("arn");
+        SetOutput("comment");
+        SetOutput("default_ttl");
+        SetOutput("etag");
+        SetOutput("max_ttl");
+        SetOutput("min_ttl");
+        SetOutput("parameters_in_cache_key_and_forwarded_to_origin");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

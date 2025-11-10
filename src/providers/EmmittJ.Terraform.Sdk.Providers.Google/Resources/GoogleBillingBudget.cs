@@ -16,8 +16,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DisableDefaultIamRecipients
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_default_iam_recipients");
-        set => WithProperty("disable_default_iam_recipients", value);
+        set => SetProperty("disable_default_iam_recipients", value);
     }
 
     /// <summary>
@@ -29,8 +28,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableProjectLevelRecipients
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_project_level_recipients");
-        set => WithProperty("enable_project_level_recipients", value);
+        set => SetProperty("enable_project_level_recipients", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? MonitoringNotificationChannels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("monitoring_notification_channels");
-        set => WithProperty("monitoring_notification_channels", value);
+        set => SetProperty("monitoring_notification_channels", value);
     }
 
     /// <summary>
@@ -53,8 +50,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PubsubTopic
     {
-        get => GetProperty<TerraformProperty<string>>("pubsub_topic");
-        set => WithProperty("pubsub_topic", value);
+        set => SetProperty("pubsub_topic", value);
     }
 
     /// <summary>
@@ -64,8 +60,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SchemaVersion
     {
-        get => GetProperty<TerraformProperty<string>>("schema_version");
-        set => WithProperty("schema_version", value);
+        set => SetProperty("schema_version", value);
     }
 
 }
@@ -84,8 +79,7 @@ public class GoogleBillingBudgetAmountBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? LastPeriodAmount
     {
-        get => GetProperty<TerraformProperty<bool>>("last_period_amount");
-        set => WithProperty("last_period_amount", value);
+        set => SetProperty("last_period_amount", value);
     }
 
 }
@@ -105,8 +99,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CalendarPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("calendar_period");
-        set => WithProperty("calendar_period", value);
+        set => SetProperty("calendar_period", value);
     }
 
     /// <summary>
@@ -116,8 +109,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? CreditTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("credit_types");
-        set => WithProperty("credit_types", value);
+        set => SetProperty("credit_types", value);
     }
 
     /// <summary>
@@ -126,8 +118,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreditTypesTreatment
     {
-        get => GetProperty<TerraformProperty<string>>("credit_types_treatment");
-        set => WithProperty("credit_types_treatment", value);
+        set => SetProperty("credit_types_treatment", value);
     }
 
     /// <summary>
@@ -136,8 +127,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -149,8 +139,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Projects
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("projects");
-        set => WithProperty("projects", value);
+        set => SetProperty("projects", value);
     }
 
     /// <summary>
@@ -161,8 +150,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ResourceAncestors
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_ancestors");
-        set => WithProperty("resource_ancestors", value);
+        set => SetProperty("resource_ancestors", value);
     }
 
     /// <summary>
@@ -175,8 +163,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Services
     {
-        get => GetProperty<List<TerraformProperty<string>>>("services");
-        set => WithProperty("services", value);
+        set => SetProperty("services", value);
     }
 
     /// <summary>
@@ -189,8 +176,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Subaccounts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subaccounts");
-        set => WithProperty("subaccounts", value);
+        set => SetProperty("subaccounts", value);
     }
 
 }
@@ -207,8 +193,7 @@ public class GoogleBillingBudgetThresholdRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SpendBasis
     {
-        get => GetProperty<TerraformProperty<string>>("spend_basis");
-        set => WithProperty("spend_basis", value);
+        set => SetProperty("spend_basis", value);
     }
 
     /// <summary>
@@ -218,8 +203,7 @@ public class GoogleBillingBudgetThresholdRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdPercent is required")]
     public required TerraformProperty<double> ThresholdPercent
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("threshold_percent");
-        set => WithProperty("threshold_percent", value);
+        set => SetProperty("threshold_percent", value);
     }
 
 }
@@ -235,8 +219,7 @@ public class GoogleBillingBudgetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -244,8 +227,7 @@ public class GoogleBillingBudgetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -253,8 +235,7 @@ public class GoogleBillingBudgetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -272,7 +253,11 @@ public class GoogleBillingBudget : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("billing_account");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("ownership_scope");
     }
 
     /// <summary>
@@ -281,36 +266,36 @@ public class GoogleBillingBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformProperty<string> BillingAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("billing_account");
-        set => this.WithProperty("billing_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_account");
+        set => SetProperty("billing_account", value);
     }
 
     /// <summary>
     /// User data for display name in UI. Must be &amp;lt;= 60 chars.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ownership scope of the budget. The ownership scope and users&#39;
     /// IAM permissions determine who has full access to the budget&#39;s data. Possible values: [&amp;quot;OWNERSHIP_SCOPE_UNSPECIFIED&amp;quot;, &amp;quot;ALL_USERS&amp;quot;, &amp;quot;BILLING_ACCOUNT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? OwnershipScope
+    public TerraformProperty<string> OwnershipScope
     {
-        get => GetProperty<TerraformProperty<string>>("ownership_scope");
-        set => this.WithProperty("ownership_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ownership_scope");
+        set => SetProperty("ownership_scope", value);
     }
 
     /// <summary>
@@ -320,20 +305,19 @@ public class GoogleBillingBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllUpdatesRule block(s) allowed")]
     public List<GoogleBillingBudgetAllUpdatesRuleBlock>? AllUpdatesRule
     {
-        get => GetProperty<List<GoogleBillingBudgetAllUpdatesRuleBlock>>("all_updates_rule");
-        set => this.WithProperty("all_updates_rule", value);
+        set => SetProperty("all_updates_rule", value);
     }
 
     /// <summary>
     /// Block for amount.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Amount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Amount block(s) allowed")]
     public List<GoogleBillingBudgetAmountBlock>? Amount
     {
-        get => GetProperty<List<GoogleBillingBudgetAmountBlock>>("amount");
-        set => this.WithProperty("amount", value);
+        set => SetProperty("amount", value);
     }
 
     /// <summary>
@@ -343,8 +327,7 @@ public class GoogleBillingBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BudgetFilter block(s) allowed")]
     public List<GoogleBillingBudgetBudgetFilterBlock>? BudgetFilter
     {
-        get => GetProperty<List<GoogleBillingBudgetBudgetFilterBlock>>("budget_filter");
-        set => this.WithProperty("budget_filter", value);
+        set => SetProperty("budget_filter", value);
     }
 
     /// <summary>
@@ -353,8 +336,7 @@ public class GoogleBillingBudget : TerraformResource
     /// </summary>
     public List<GoogleBillingBudgetThresholdRulesBlock>? ThresholdRules
     {
-        get => GetProperty<List<GoogleBillingBudgetThresholdRulesBlock>>("threshold_rules");
-        set => this.WithProperty("threshold_rules", value);
+        set => SetProperty("threshold_rules", value);
     }
 
     /// <summary>
@@ -363,8 +345,7 @@ public class GoogleBillingBudget : TerraformResource
     /// </summary>
     public GoogleBillingBudgetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBillingBudgetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleComputeTargetSslProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeTargetSslProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeTargetSslProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,9 +46,18 @@ public class GoogleComputeTargetSslProxy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("proxy_id");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("proxy_id");
+        SetOutput("self_link");
+        SetOutput("backend_service");
+        SetOutput("certificate_map");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("proxy_header");
+        SetOutput("ssl_certificates");
+        SetOutput("ssl_policy");
     }
 
     /// <summary>
@@ -60,8 +66,8 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformProperty<string> BackendService
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backend_service");
-        set => this.WithProperty("backend_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backend_service");
+        set => SetProperty("backend_service", value);
     }
 
     /// <summary>
@@ -69,28 +75,28 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// associated with the given target proxy. This field can only be set for global target proxies.
     /// Accepted format is &#39;//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificateMaps/{resourceName}&#39;.
     /// </summary>
-    public TerraformProperty<string>? CertificateMap
+    public TerraformProperty<string> CertificateMap
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_map");
-        set => this.WithProperty("certificate_map", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_map");
+        set => SetProperty("certificate_map", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,27 +111,27 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to
     /// the backend. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PROXY_V1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ProxyHeader
+    public TerraformProperty<string> ProxyHeader
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_header");
-        set => this.WithProperty("proxy_header", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("proxy_header");
+        set => SetProperty("proxy_header", value);
     }
 
     /// <summary>
@@ -133,10 +139,10 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// connections between users and the load balancer. At least one
     /// SSL certificate must be specified.
     /// </summary>
-    public List<TerraformProperty<string>>? SslCertificates
+    public List<TerraformProperty<string>> SslCertificates
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ssl_certificates");
-        set => this.WithProperty("ssl_certificates", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ssl_certificates");
+        set => SetProperty("ssl_certificates", value);
     }
 
     /// <summary>
@@ -144,10 +150,10 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// the TargetSslProxy resource. If not set, the TargetSslProxy
     /// resource will not have any SSL policy configured.
     /// </summary>
-    public TerraformProperty<string>? SslPolicy
+    public TerraformProperty<string> SslPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_policy");
-        set => this.WithProperty("ssl_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ssl_policy");
+        set => SetProperty("ssl_policy", value);
     }
 
     /// <summary>
@@ -156,8 +162,7 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// </summary>
     public GoogleComputeTargetSslProxyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeTargetSslProxyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

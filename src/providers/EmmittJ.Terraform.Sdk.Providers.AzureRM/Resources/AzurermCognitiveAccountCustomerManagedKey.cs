@@ -13,8 +13,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cognitive_account_id");
+        SetOutput("id");
+        SetOutput("identity_client_id");
+        SetOutput("key_vault_key_id");
     }
 
     /// <summary>
@@ -66,26 +66,26 @@ public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     public required TerraformProperty<string> CognitiveAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_account_id");
-        set => this.WithProperty("cognitive_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_account_id");
+        set => SetProperty("cognitive_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The identity_client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityClientId
+    public TerraformProperty<string> IdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_client_id");
-        set => this.WithProperty("identity_client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_client_id");
+        set => SetProperty("identity_client_id", value);
     }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => this.WithProperty("key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -104,8 +104,7 @@ public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
     /// </summary>
     public AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

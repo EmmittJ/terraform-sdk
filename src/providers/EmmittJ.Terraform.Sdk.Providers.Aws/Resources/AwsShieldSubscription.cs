@@ -14,25 +14,27 @@ public class AwsShieldSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("auto_renew");
+        SetOutput("skip_destroy");
     }
 
     /// <summary>
     /// Whether to automatically renew the subscription when it expires.
     /// </summary>
-    public TerraformProperty<string>? AutoRenew
+    public TerraformProperty<string> AutoRenew
     {
-        get => GetProperty<TerraformProperty<string>>("auto_renew");
-        set => this.WithProperty("auto_renew", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_renew");
+        set => SetProperty("auto_renew", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
-        set => WithProperty("role_definition_id", value);
+        set => SetProperty("role_definition_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformProperty<string> ServicePrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_id");
-        set => WithProperty("service_principal_id", value);
+        set => SetProperty("service_principal_id", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,24 +80,36 @@ public class AzurermManagedApplicationDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("create_ui_definition");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("lock_level");
+        SetOutput("main_template");
+        SetOutput("name");
+        SetOutput("package_enabled");
+        SetOutput("package_file_uri");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The create_ui_definition attribute.
     /// </summary>
-    public TerraformProperty<string>? CreateUiDefinition
+    public TerraformProperty<string> CreateUiDefinition
     {
-        get => GetProperty<TerraformProperty<string>>("create_ui_definition");
-        set => this.WithProperty("create_ui_definition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_ui_definition");
+        set => SetProperty("create_ui_definition", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -112,17 +118,17 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,8 +137,8 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -141,17 +147,17 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LockLevel is required")]
     public required TerraformProperty<string> LockLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lock_level");
-        set => this.WithProperty("lock_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lock_level");
+        set => SetProperty("lock_level", value);
     }
 
     /// <summary>
     /// The main_template attribute.
     /// </summary>
-    public TerraformProperty<string>? MainTemplate
+    public TerraformProperty<string> MainTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("main_template");
-        set => this.WithProperty("main_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("main_template");
+        set => SetProperty("main_template", value);
     }
 
     /// <summary>
@@ -160,26 +166,26 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The package_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PackageEnabled
+    public TerraformProperty<bool> PackageEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("package_enabled");
-        set => this.WithProperty("package_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("package_enabled");
+        set => SetProperty("package_enabled", value);
     }
 
     /// <summary>
     /// The package_file_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? PackageFileUri
+    public TerraformProperty<string> PackageFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("package_file_uri");
-        set => this.WithProperty("package_file_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("package_file_uri");
+        set => SetProperty("package_file_uri", value);
     }
 
     /// <summary>
@@ -188,17 +194,17 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -207,8 +213,7 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     /// </summary>
     public HashSet<AzurermManagedApplicationDefinitionAuthorizationBlock>? Authorization
     {
-        get => GetProperty<HashSet<AzurermManagedApplicationDefinitionAuthorizationBlock>>("authorization");
-        set => this.WithProperty("authorization", value);
+        set => SetProperty("authorization", value);
     }
 
     /// <summary>
@@ -217,8 +222,7 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     /// </summary>
     public AzurermManagedApplicationDefinitionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagedApplicationDefinitionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,25 +14,28 @@ public class AwsEcrImagesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("image_ids");
+        SetOutput("image_ids");
+        SetOutput("region");
+        SetOutput("registry_id");
+        SetOutput("repository_name");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// ID of the registry (AWS account ID)
     /// </summary>
-    public TerraformProperty<string>? RegistryId
+    public TerraformProperty<string> RegistryId
     {
-        get => GetProperty<TerraformProperty<string>>("registry_id");
-        set => this.WithProperty("registry_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("registry_id");
+        set => SetProperty("registry_id", value);
     }
 
     /// <summary>
@@ -41,8 +44,8 @@ public class AwsEcrImagesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
-        set => this.WithProperty("repository_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_name");
+        set => SetProperty("repository_name", value);
     }
 
     /// <summary>

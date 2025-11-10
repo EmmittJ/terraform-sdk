@@ -14,7 +14,13 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("hosted_zone_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("traffic_policy_id");
+        SetOutput("traffic_policy_version");
+        SetOutput("ttl");
     }
 
     /// <summary>
@@ -23,17 +29,17 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformProperty<string> HostedZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hosted_zone_id");
-        set => this.WithProperty("hosted_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hosted_zone_id");
+        set => SetProperty("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,8 +48,8 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -52,8 +58,8 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyId is required")]
     public required TerraformProperty<string> TrafficPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("traffic_policy_id");
-        set => this.WithProperty("traffic_policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("traffic_policy_id");
+        set => SetProperty("traffic_policy_id", value);
     }
 
     /// <summary>
@@ -62,8 +68,8 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyVersion is required")]
     public required TerraformProperty<double> TrafficPolicyVersion
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("traffic_policy_version");
-        set => this.WithProperty("traffic_policy_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("traffic_policy_version");
+        set => SetProperty("traffic_policy_version", value);
     }
 
     /// <summary>
@@ -72,8 +78,8 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<double> Ttl
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("ttl");
-        set => this.WithProperty("ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ttl");
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>

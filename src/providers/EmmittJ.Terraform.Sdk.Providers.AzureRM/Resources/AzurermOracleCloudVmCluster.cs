@@ -13,8 +13,7 @@ public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? DiagnosticsEventsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("diagnostics_events_enabled");
-        set => WithProperty("diagnostics_events_enabled", value);
+        set => SetProperty("diagnostics_events_enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? HealthMonitoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("health_monitoring_enabled");
-        set => WithProperty("health_monitoring_enabled", value);
+        set => SetProperty("health_monitoring_enabled", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? IncidentLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("incident_logs_enabled");
-        set => WithProperty("incident_logs_enabled", value);
+        set => SetProperty("incident_logs_enabled", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermOracleCloudVmClusterFileSystemConfigurationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? MountPoint
     {
-        get => GetProperty<TerraformProperty<string>>("mount_point");
-        set => WithProperty("mount_point", value);
+        set => SetProperty("mount_point", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermOracleCloudVmClusterFileSystemConfigurationBlock : Terraform
     /// </summary>
     public TerraformProperty<double>? SizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("size_in_gb");
-        set => WithProperty("size_in_gb", value);
+        set => SetProperty("size_in_gb", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class AzurermOracleCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AzurermOracleCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AzurermOracleCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AzurermOracleCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -120,17 +111,46 @@ public class AzurermOracleCloudVmCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("hostname_actual");
-        this.WithOutput("ocid");
+        SetOutput("hostname_actual");
+        SetOutput("ocid");
+        SetOutput("backup_subnet_cidr");
+        SetOutput("cloud_exadata_infrastructure_id");
+        SetOutput("cluster_name");
+        SetOutput("cpu_core_count");
+        SetOutput("data_storage_percentage");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("db_node_storage_size_in_gbs");
+        SetOutput("db_servers");
+        SetOutput("display_name");
+        SetOutput("domain");
+        SetOutput("gi_version");
+        SetOutput("hostname");
+        SetOutput("id");
+        SetOutput("license_model");
+        SetOutput("local_backup_enabled");
+        SetOutput("location");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("scan_listener_port_tcp");
+        SetOutput("scan_listener_port_tcp_ssl");
+        SetOutput("sparse_diskgroup_enabled");
+        SetOutput("ssh_public_keys");
+        SetOutput("subnet_id");
+        SetOutput("system_version");
+        SetOutput("tags");
+        SetOutput("time_zone");
+        SetOutput("virtual_network_id");
+        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The backup_subnet_cidr attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupSubnetCidr
+    public TerraformProperty<string> BackupSubnetCidr
     {
-        get => GetProperty<TerraformProperty<string>>("backup_subnet_cidr");
-        set => this.WithProperty("backup_subnet_cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_subnet_cidr");
+        set => SetProperty("backup_subnet_cidr", value);
     }
 
     /// <summary>
@@ -139,17 +159,17 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
-        set => this.WithProperty("cloud_exadata_infrastructure_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        set => SetProperty("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    public TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
@@ -158,45 +178,45 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformProperty<double> CpuCoreCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("cpu_core_count");
-        set => this.WithProperty("cpu_core_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cpu_core_count");
+        set => SetProperty("cpu_core_count", value);
     }
 
     /// <summary>
     /// The data_storage_percentage attribute.
     /// </summary>
-    public TerraformProperty<double>? DataStoragePercentage
+    public TerraformProperty<double> DataStoragePercentage
     {
-        get => GetProperty<TerraformProperty<double>>("data_storage_percentage");
-        set => this.WithProperty("data_storage_percentage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("data_storage_percentage");
+        set => SetProperty("data_storage_percentage", value);
     }
 
     /// <summary>
     /// The data_storage_size_in_tbs attribute.
     /// </summary>
-    public TerraformProperty<double>? DataStorageSizeInTbs
+    public TerraformProperty<double> DataStorageSizeInTbs
     {
-        get => GetProperty<TerraformProperty<double>>("data_storage_size_in_tbs");
-        set => this.WithProperty("data_storage_size_in_tbs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("data_storage_size_in_tbs");
+        set => SetProperty("data_storage_size_in_tbs", value);
     }
 
     /// <summary>
     /// The db_node_storage_size_in_gbs attribute.
     /// </summary>
-    public TerraformProperty<double>? DbNodeStorageSizeInGbs
+    public TerraformProperty<double> DbNodeStorageSizeInGbs
     {
-        get => GetProperty<TerraformProperty<double>>("db_node_storage_size_in_gbs");
-        set => this.WithProperty("db_node_storage_size_in_gbs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("db_node_storage_size_in_gbs");
+        set => SetProperty("db_node_storage_size_in_gbs", value);
     }
 
     /// <summary>
     /// The db_servers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbServers is required")]
-    public List<TerraformProperty<string>>? DbServers
+    public List<TerraformProperty<string>> DbServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("db_servers");
-        set => this.WithProperty("db_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("db_servers");
+        set => SetProperty("db_servers", value);
     }
 
     /// <summary>
@@ -205,17 +225,17 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    public TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
@@ -224,8 +244,8 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GiVersion is required")]
     public required TerraformProperty<string> GiVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gi_version");
-        set => this.WithProperty("gi_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gi_version");
+        set => SetProperty("gi_version", value);
     }
 
     /// <summary>
@@ -234,17 +254,17 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
-        set => this.WithProperty("hostname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hostname");
+        set => SetProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -253,17 +273,17 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
     public required TerraformProperty<string> LicenseModel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license_model");
-        set => this.WithProperty("license_model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_model");
+        set => SetProperty("license_model", value);
     }
 
     /// <summary>
     /// The local_backup_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalBackupEnabled
+    public TerraformProperty<bool> LocalBackupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_backup_enabled");
-        set => this.WithProperty("local_backup_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_backup_enabled");
+        set => SetProperty("local_backup_enabled", value);
     }
 
     /// <summary>
@@ -272,17 +292,17 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The memory_size_in_gbs attribute.
     /// </summary>
-    public TerraformProperty<double>? MemorySizeInGbs
+    public TerraformProperty<double> MemorySizeInGbs
     {
-        get => GetProperty<TerraformProperty<double>>("memory_size_in_gbs");
-        set => this.WithProperty("memory_size_in_gbs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("memory_size_in_gbs");
+        set => SetProperty("memory_size_in_gbs", value);
     }
 
     /// <summary>
@@ -291,8 +311,8 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -301,45 +321,45 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scan_listener_port_tcp attribute.
     /// </summary>
-    public TerraformProperty<double>? ScanListenerPortTcp
+    public TerraformProperty<double> ScanListenerPortTcp
     {
-        get => GetProperty<TerraformProperty<double>>("scan_listener_port_tcp");
-        set => this.WithProperty("scan_listener_port_tcp", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scan_listener_port_tcp");
+        set => SetProperty("scan_listener_port_tcp", value);
     }
 
     /// <summary>
     /// The scan_listener_port_tcp_ssl attribute.
     /// </summary>
-    public TerraformProperty<double>? ScanListenerPortTcpSsl
+    public TerraformProperty<double> ScanListenerPortTcpSsl
     {
-        get => GetProperty<TerraformProperty<double>>("scan_listener_port_tcp_ssl");
-        set => this.WithProperty("scan_listener_port_tcp_ssl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scan_listener_port_tcp_ssl");
+        set => SetProperty("scan_listener_port_tcp_ssl", value);
     }
 
     /// <summary>
     /// The sparse_diskgroup_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SparseDiskgroupEnabled
+    public TerraformProperty<bool> SparseDiskgroupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sparse_diskgroup_enabled");
-        set => this.WithProperty("sparse_diskgroup_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("sparse_diskgroup_enabled");
+        set => SetProperty("sparse_diskgroup_enabled", value);
     }
 
     /// <summary>
     /// The ssh_public_keys attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeys is required")]
-    public List<TerraformProperty<string>>? SshPublicKeys
+    public List<TerraformProperty<string>> SshPublicKeys
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ssh_public_keys");
-        set => this.WithProperty("ssh_public_keys", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ssh_public_keys");
+        set => SetProperty("ssh_public_keys", value);
     }
 
     /// <summary>
@@ -348,35 +368,35 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The system_version attribute.
     /// </summary>
-    public TerraformProperty<string>? SystemVersion
+    public TerraformProperty<string> SystemVersion
     {
-        get => GetProperty<TerraformProperty<string>>("system_version");
-        set => this.WithProperty("system_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("system_version");
+        set => SetProperty("system_version", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    public TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
@@ -385,17 +405,17 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
-        set => this.WithProperty("virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
+        set => SetProperty("virtual_network_id", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ZoneId
+    public TerraformProperty<string> ZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("zone_id");
-        set => this.WithProperty("zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
+        set => SetProperty("zone_id", value);
     }
 
     /// <summary>
@@ -405,8 +425,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCollectionOptions block(s) allowed")]
     public List<AzurermOracleCloudVmClusterDataCollectionOptionsBlock>? DataCollectionOptions
     {
-        get => GetProperty<List<AzurermOracleCloudVmClusterDataCollectionOptionsBlock>>("data_collection_options");
-        set => this.WithProperty("data_collection_options", value);
+        set => SetProperty("data_collection_options", value);
     }
 
     /// <summary>
@@ -415,8 +434,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     /// </summary>
     public List<AzurermOracleCloudVmClusterFileSystemConfigurationBlock>? FileSystemConfiguration
     {
-        get => GetProperty<List<AzurermOracleCloudVmClusterFileSystemConfigurationBlock>>("file_system_configuration");
-        set => this.WithProperty("file_system_configuration", value);
+        set => SetProperty("file_system_configuration", value);
     }
 
     /// <summary>
@@ -425,8 +443,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     /// </summary>
     public AzurermOracleCloudVmClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleCloudVmClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

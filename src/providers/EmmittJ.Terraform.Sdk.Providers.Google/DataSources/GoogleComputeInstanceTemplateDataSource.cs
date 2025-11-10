@@ -14,91 +14,97 @@ public class GoogleComputeInstanceTemplateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("advanced_machine_features");
-        this.WithOutput("can_ip_forward");
-        this.WithOutput("confidential_instance_config");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("description");
-        this.WithOutput("disk");
-        this.WithOutput("effective_labels");
-        this.WithOutput("guest_accelerator");
-        this.WithOutput("instance_description");
-        this.WithOutput("key_revocation_action_type");
-        this.WithOutput("labels");
-        this.WithOutput("machine_type");
-        this.WithOutput("metadata");
-        this.WithOutput("metadata_fingerprint");
-        this.WithOutput("metadata_startup_script");
-        this.WithOutput("min_cpu_platform");
-        this.WithOutput("name_prefix");
-        this.WithOutput("network_interface");
-        this.WithOutput("network_performance_config");
-        this.WithOutput("numeric_id");
-        this.WithOutput("region");
-        this.WithOutput("reservation_affinity");
-        this.WithOutput("resource_manager_tags");
-        this.WithOutput("resource_policies");
-        this.WithOutput("scheduling");
-        this.WithOutput("self_link");
-        this.WithOutput("service_account");
-        this.WithOutput("shielded_instance_config");
-        this.WithOutput("tags");
-        this.WithOutput("tags_fingerprint");
-        this.WithOutput("terraform_labels");
+        SetOutput("advanced_machine_features");
+        SetOutput("can_ip_forward");
+        SetOutput("confidential_instance_config");
+        SetOutput("creation_timestamp");
+        SetOutput("description");
+        SetOutput("disk");
+        SetOutput("effective_labels");
+        SetOutput("guest_accelerator");
+        SetOutput("instance_description");
+        SetOutput("key_revocation_action_type");
+        SetOutput("labels");
+        SetOutput("machine_type");
+        SetOutput("metadata");
+        SetOutput("metadata_fingerprint");
+        SetOutput("metadata_startup_script");
+        SetOutput("min_cpu_platform");
+        SetOutput("name_prefix");
+        SetOutput("network_interface");
+        SetOutput("network_performance_config");
+        SetOutput("numeric_id");
+        SetOutput("region");
+        SetOutput("reservation_affinity");
+        SetOutput("resource_manager_tags");
+        SetOutput("resource_policies");
+        SetOutput("scheduling");
+        SetOutput("self_link");
+        SetOutput("service_account");
+        SetOutput("shielded_instance_config");
+        SetOutput("tags");
+        SetOutput("tags_fingerprint");
+        SetOutput("terraform_labels");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("most_recent");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("self_link_unique");
     }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// The name of the instance template. If you leave this blank, Terraform will auto-generate a unique name.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The self_link_unique attribute.
     /// </summary>
-    public TerraformProperty<string>? SelfLinkUnique
+    public TerraformProperty<string> SelfLinkUnique
     {
-        get => GetProperty<TerraformProperty<string>>("self_link_unique");
-        set => this.WithProperty("self_link_unique", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("self_link_unique");
+        set => SetProperty("self_link_unique", value);
     }
 
     /// <summary>

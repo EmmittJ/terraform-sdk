@@ -13,8 +13,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformProperty<bool>? IsFilterable
     {
-        get => GetProperty<TerraformProperty<bool>>("is_filterable");
-        set => WithProperty("is_filterable", value);
+        set => SetProperty("is_filterable", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformProperty<bool>? IsMetadata
     {
-        get => GetProperty<TerraformProperty<bool>>("is_metadata");
-        set => WithProperty("is_metadata", value);
+        set => SetProperty("is_metadata", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformProperty<bool>? IsRepeatable
     {
-        get => GetProperty<TerraformProperty<bool>>("is_repeatable");
-        set => WithProperty("is_repeatable", value);
+        set => SetProperty("is_repeatable", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformProperty<bool>? IsRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("is_required");
-        set => WithProperty("is_required", value);
+        set => SetProperty("is_required", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformProperty<bool>? IsSearchable
     {
-        get => GetProperty<TerraformProperty<bool>>("is_searchable");
-        set => WithProperty("is_searchable", value);
+        set => SetProperty("is_searchable", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformProperty<string>? RetrievalImportance
     {
-        get => GetProperty<TerraformProperty<string>>("retrieval_importance");
-        set => WithProperty("retrieval_importance", value);
+        set => SetProperty("retrieval_importance", value);
     }
 
 }
@@ -94,8 +86,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -122,7 +112,12 @@ public class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("display_name");
+        SetOutput("document_is_folder");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project_number");
     }
 
     /// <summary>
@@ -131,26 +126,26 @@ public class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Tells whether the document is a folder or a typical document.
     /// </summary>
-    public TerraformProperty<bool>? DocumentIsFolder
+    public TerraformProperty<bool> DocumentIsFolder
     {
-        get => GetProperty<TerraformProperty<bool>>("document_is_folder");
-        set => this.WithProperty("document_is_folder", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("document_is_folder");
+        set => SetProperty("document_is_folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -159,8 +154,8 @@ public class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -169,19 +164,19 @@ public class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     public required TerraformProperty<string> ProjectNumber
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_number");
-        set => this.WithProperty("project_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_number");
+        set => SetProperty("project_number", value);
     }
 
     /// <summary>
     /// Block for property_definitions.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyDefinitions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PropertyDefinitions block(s) required")]
     public List<GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock>? PropertyDefinitions
     {
-        get => GetProperty<List<GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock>>("property_definitions");
-        set => this.WithProperty("property_definitions", value);
+        set => SetProperty("property_definitions", value);
     }
 
     /// <summary>
@@ -190,8 +185,7 @@ public class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
     /// </summary>
     public GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

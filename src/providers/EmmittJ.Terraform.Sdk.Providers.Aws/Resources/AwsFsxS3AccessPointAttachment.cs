@@ -14,8 +14,7 @@ public class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
-        set => WithProperty("volume_id", value);
+        set => SetProperty("volume_id", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsFsxS3AccessPointAttachmentS3AccessPointBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => WithProperty("policy", value);
+        set => SetProperty("policy", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsFsxS3AccessPointAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class AwsFsxS3AccessPointAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -75,8 +71,11 @@ public class AwsFsxS3AccessPointAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("s3_access_point_alias");
-        this.WithOutput("s3_access_point_arn");
+        SetOutput("s3_access_point_alias");
+        SetOutput("s3_access_point_arn");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -85,17 +84,17 @@ public class AwsFsxS3AccessPointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -104,8 +103,8 @@ public class AwsFsxS3AccessPointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -114,8 +113,7 @@ public class AwsFsxS3AccessPointAttachment : TerraformResource
     /// </summary>
     public List<AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock>? OpenzfsConfiguration
     {
-        get => GetProperty<List<AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock>>("openzfs_configuration");
-        set => this.WithProperty("openzfs_configuration", value);
+        set => SetProperty("openzfs_configuration", value);
     }
 
     /// <summary>
@@ -124,8 +122,7 @@ public class AwsFsxS3AccessPointAttachment : TerraformResource
     /// </summary>
     public List<AwsFsxS3AccessPointAttachmentS3AccessPointBlock>? S3AccessPoint
     {
-        get => GetProperty<List<AwsFsxS3AccessPointAttachmentS3AccessPointBlock>>("s3_access_point");
-        set => this.WithProperty("s3_access_point", value);
+        set => SetProperty("s3_access_point", value);
     }
 
     /// <summary>
@@ -134,8 +131,7 @@ public class AwsFsxS3AccessPointAttachment : TerraformResource
     /// </summary>
     public AwsFsxS3AccessPointAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFsxS3AccessPointAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermApplicationInsightsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,26 @@ public class AzurermApplicationInsightsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_id");
-        this.WithOutput("application_type");
-        this.WithOutput("connection_string");
-        this.WithOutput("instrumentation_key");
-        this.WithOutput("location");
-        this.WithOutput("retention_in_days");
-        this.WithOutput("tags");
-        this.WithOutput("workspace_id");
+        SetOutput("app_id");
+        SetOutput("application_type");
+        SetOutput("connection_string");
+        SetOutput("instrumentation_key");
+        SetOutput("location");
+        SetOutput("retention_in_days");
+        SetOutput("tags");
+        SetOutput("workspace_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -56,8 +58,8 @@ public class AzurermApplicationInsightsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermApplicationInsightsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -76,8 +78,7 @@ public class AzurermApplicationInsightsDataSource : TerraformDataSource
     /// </summary>
     public AzurermApplicationInsightsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApplicationInsightsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

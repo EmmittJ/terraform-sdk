@@ -14,8 +14,7 @@ public class AwsSsmDocumentAttachmentsSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSsmDocumentAttachmentsSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsSsmDocumentAttachmentsSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public List<TerraformProperty<string>>? Values
     {
-        get => GetProperty<List<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -52,19 +49,30 @@ public class AwsSsmDocument : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_date");
-        this.WithOutput("default_version");
-        this.WithOutput("description");
-        this.WithOutput("document_version");
-        this.WithOutput("hash");
-        this.WithOutput("hash_type");
-        this.WithOutput("latest_version");
-        this.WithOutput("owner");
-        this.WithOutput("parameter");
-        this.WithOutput("platform_types");
-        this.WithOutput("schema_version");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("created_date");
+        SetOutput("default_version");
+        SetOutput("description");
+        SetOutput("document_version");
+        SetOutput("hash");
+        SetOutput("hash_type");
+        SetOutput("latest_version");
+        SetOutput("owner");
+        SetOutput("parameter");
+        SetOutput("platform_types");
+        SetOutput("schema_version");
+        SetOutput("status");
+        SetOutput("content");
+        SetOutput("document_format");
+        SetOutput("document_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("permissions");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("target_type");
+        SetOutput("version_name");
     }
 
     /// <summary>
@@ -73,17 +81,17 @@ public class AwsSsmDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("content");
-        set => this.WithProperty("content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content");
+        set => SetProperty("content", value);
     }
 
     /// <summary>
     /// The document_format attribute.
     /// </summary>
-    public TerraformProperty<string>? DocumentFormat
+    public TerraformProperty<string> DocumentFormat
     {
-        get => GetProperty<TerraformProperty<string>>("document_format");
-        set => this.WithProperty("document_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("document_format");
+        set => SetProperty("document_format", value);
     }
 
     /// <summary>
@@ -92,17 +100,17 @@ public class AwsSsmDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentType is required")]
     public required TerraformProperty<string> DocumentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("document_type");
-        set => this.WithProperty("document_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("document_type");
+        set => SetProperty("document_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -111,62 +119,62 @@ public class AwsSsmDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Permissions
+    public Dictionary<string, TerraformProperty<string>> Permissions
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("permissions");
-        set => this.WithProperty("permissions", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("permissions");
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetType
+    public TerraformProperty<string> TargetType
     {
-        get => GetProperty<TerraformProperty<string>>("target_type");
-        set => this.WithProperty("target_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_type");
+        set => SetProperty("target_type", value);
     }
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionName
+    public TerraformProperty<string> VersionName
     {
-        get => GetProperty<TerraformProperty<string>>("version_name");
-        set => this.WithProperty("version_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_name");
+        set => SetProperty("version_name", value);
     }
 
     /// <summary>
@@ -176,8 +184,7 @@ public class AwsSsmDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 AttachmentsSource block(s) allowed")]
     public List<AwsSsmDocumentAttachmentsSourceBlock>? AttachmentsSource
     {
-        get => GetProperty<List<AwsSsmDocumentAttachmentsSourceBlock>>("attachments_source");
-        set => this.WithProperty("attachments_source", value);
+        set => SetProperty("attachments_source", value);
     }
 
     /// <summary>

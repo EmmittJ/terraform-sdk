@@ -14,54 +14,58 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authorization_mode");
-        this.WithOutput("automated_backup_config");
-        this.WithOutput("available_maintenance_versions");
-        this.WithOutput("backup_collection");
-        this.WithOutput("create_time");
-        this.WithOutput("cross_instance_replication_config");
-        this.WithOutput("deletion_protection_enabled");
-        this.WithOutput("desired_auto_created_endpoints");
-        this.WithOutput("desired_psc_auto_connections");
-        this.WithOutput("discovery_endpoints");
-        this.WithOutput("effective_labels");
-        this.WithOutput("effective_maintenance_version");
-        this.WithOutput("endpoints");
-        this.WithOutput("engine_configs");
-        this.WithOutput("engine_version");
-        this.WithOutput("gcs_source");
-        this.WithOutput("kms_key");
-        this.WithOutput("labels");
-        this.WithOutput("maintenance_policy");
-        this.WithOutput("maintenance_schedule");
-        this.WithOutput("maintenance_version");
-        this.WithOutput("managed_backup_source");
-        this.WithOutput("managed_server_ca");
-        this.WithOutput("mode");
-        this.WithOutput("name");
-        this.WithOutput("node_config");
-        this.WithOutput("node_type");
-        this.WithOutput("persistence_config");
-        this.WithOutput("psc_attachment_details");
-        this.WithOutput("psc_auto_connections");
-        this.WithOutput("replica_count");
-        this.WithOutput("shard_count");
-        this.WithOutput("state");
-        this.WithOutput("state_info");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("transit_encryption_mode");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("zone_distribution_config");
+        SetOutput("authorization_mode");
+        SetOutput("automated_backup_config");
+        SetOutput("available_maintenance_versions");
+        SetOutput("backup_collection");
+        SetOutput("create_time");
+        SetOutput("cross_instance_replication_config");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("desired_auto_created_endpoints");
+        SetOutput("desired_psc_auto_connections");
+        SetOutput("discovery_endpoints");
+        SetOutput("effective_labels");
+        SetOutput("effective_maintenance_version");
+        SetOutput("endpoints");
+        SetOutput("engine_configs");
+        SetOutput("engine_version");
+        SetOutput("gcs_source");
+        SetOutput("kms_key");
+        SetOutput("labels");
+        SetOutput("maintenance_policy");
+        SetOutput("maintenance_schedule");
+        SetOutput("maintenance_version");
+        SetOutput("managed_backup_source");
+        SetOutput("managed_server_ca");
+        SetOutput("mode");
+        SetOutput("name");
+        SetOutput("node_config");
+        SetOutput("node_type");
+        SetOutput("persistence_config");
+        SetOutput("psc_attachment_details");
+        SetOutput("psc_auto_connections");
+        SetOutput("replica_count");
+        SetOutput("shard_count");
+        SetOutput("state");
+        SetOutput("state_info");
+        SetOutput("terraform_labels");
+        SetOutput("transit_encryption_mode");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("zone_distribution_config");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -79,26 +83,26 @@ public class GoogleMemorystoreInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type &#39;memorystore.googleapis.com/CertificateAuthority&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

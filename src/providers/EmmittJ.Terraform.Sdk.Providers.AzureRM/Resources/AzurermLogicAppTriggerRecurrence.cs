@@ -13,8 +13,7 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<double>>? AtTheseHours
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("at_these_hours");
-        set => WithProperty("at_these_hours", value);
+        set => SetProperty("at_these_hours", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<double>>? AtTheseMinutes
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("at_these_minutes");
-        set => WithProperty("at_these_minutes", value);
+        set => SetProperty("at_these_minutes", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? OnTheseDays
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("on_these_days");
-        set => WithProperty("on_these_days", value);
+        set => SetProperty("on_these_days", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,6 +87,13 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("frequency");
+        SetOutput("id");
+        SetOutput("interval");
+        SetOutput("logic_app_id");
+        SetOutput("name");
+        SetOutput("start_time");
+        SetOutput("time_zone");
     }
 
     /// <summary>
@@ -102,17 +102,17 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
-        set => this.WithProperty("frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,8 +121,8 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("interval");
-        set => this.WithProperty("interval", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("interval");
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
@@ -131,8 +131,8 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformProperty<string> LogicAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("logic_app_id");
-        set => this.WithProperty("logic_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logic_app_id");
+        set => SetProperty("logic_app_id", value);
     }
 
     /// <summary>
@@ -141,26 +141,26 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    public TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
@@ -170,8 +170,7 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     public List<AzurermLogicAppTriggerRecurrenceScheduleBlock>? Schedule
     {
-        get => GetProperty<List<AzurermLogicAppTriggerRecurrenceScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -180,8 +179,7 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     /// </summary>
     public AzurermLogicAppTriggerRecurrenceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogicAppTriggerRecurrenceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsCloudtrailAdvancedEventSelectorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsCloudtrailEventSelectorBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExcludeManagementEventSources
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("exclude_management_event_sources");
-        set => WithProperty("exclude_management_event_sources", value);
+        set => SetProperty("exclude_management_event_sources", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsCloudtrailEventSelectorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeManagementEvents
     {
-        get => GetProperty<TerraformProperty<bool>>("include_management_events");
-        set => WithProperty("include_management_events", value);
+        set => SetProperty("include_management_events", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsCloudtrailEventSelectorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ReadWriteType
     {
-        get => GetProperty<TerraformProperty<string>>("read_write_type");
-        set => WithProperty("read_write_type", value);
+        set => SetProperty("read_write_type", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class AwsCloudtrailInsightSelectorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightType is required")]
     public required TerraformProperty<string> InsightType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("insight_type");
-        set => WithProperty("insight_type", value);
+        set => SetProperty("insight_type", value);
     }
 
 }
@@ -85,90 +80,106 @@ public class AwsCloudtrail : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("home_region");
-        this.WithOutput("sns_topic_arn");
+        SetOutput("arn");
+        SetOutput("home_region");
+        SetOutput("sns_topic_arn");
+        SetOutput("cloud_watch_logs_group_arn");
+        SetOutput("cloud_watch_logs_role_arn");
+        SetOutput("enable_log_file_validation");
+        SetOutput("enable_logging");
+        SetOutput("id");
+        SetOutput("include_global_service_events");
+        SetOutput("is_multi_region_trail");
+        SetOutput("is_organization_trail");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("s3_bucket_name");
+        SetOutput("s3_key_prefix");
+        SetOutput("sns_topic_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cloud_watch_logs_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudWatchLogsGroupArn
+    public TerraformProperty<string> CloudWatchLogsGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_watch_logs_group_arn");
-        set => this.WithProperty("cloud_watch_logs_group_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_watch_logs_group_arn");
+        set => SetProperty("cloud_watch_logs_group_arn", value);
     }
 
     /// <summary>
     /// The cloud_watch_logs_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudWatchLogsRoleArn
+    public TerraformProperty<string> CloudWatchLogsRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_watch_logs_role_arn");
-        set => this.WithProperty("cloud_watch_logs_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_watch_logs_role_arn");
+        set => SetProperty("cloud_watch_logs_role_arn", value);
     }
 
     /// <summary>
     /// The enable_log_file_validation attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableLogFileValidation
+    public TerraformProperty<bool> EnableLogFileValidation
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_log_file_validation");
-        set => this.WithProperty("enable_log_file_validation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_log_file_validation");
+        set => SetProperty("enable_log_file_validation", value);
     }
 
     /// <summary>
     /// The enable_logging attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableLogging
+    public TerraformProperty<bool> EnableLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_logging");
-        set => this.WithProperty("enable_logging", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_logging");
+        set => SetProperty("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_global_service_events attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeGlobalServiceEvents
+    public TerraformProperty<bool> IncludeGlobalServiceEvents
     {
-        get => GetProperty<TerraformProperty<bool>>("include_global_service_events");
-        set => this.WithProperty("include_global_service_events", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_global_service_events");
+        set => SetProperty("include_global_service_events", value);
     }
 
     /// <summary>
     /// The is_multi_region_trail attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsMultiRegionTrail
+    public TerraformProperty<bool> IsMultiRegionTrail
     {
-        get => GetProperty<TerraformProperty<bool>>("is_multi_region_trail");
-        set => this.WithProperty("is_multi_region_trail", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_multi_region_trail");
+        set => SetProperty("is_multi_region_trail", value);
     }
 
     /// <summary>
     /// The is_organization_trail attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsOrganizationTrail
+    public TerraformProperty<bool> IsOrganizationTrail
     {
-        get => GetProperty<TerraformProperty<bool>>("is_organization_trail");
-        set => this.WithProperty("is_organization_trail", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_organization_trail");
+        set => SetProperty("is_organization_trail", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -177,17 +188,17 @@ public class AwsCloudtrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -196,44 +207,44 @@ public class AwsCloudtrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
-        set => this.WithProperty("s3_bucket_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket_name");
+        set => SetProperty("s3_bucket_name", value);
     }
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? S3KeyPrefix
+    public TerraformProperty<string> S3KeyPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("s3_key_prefix");
-        set => this.WithProperty("s3_key_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("s3_key_prefix");
+        set => SetProperty("s3_key_prefix", value);
     }
 
     /// <summary>
     /// The sns_topic_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SnsTopicName
+    public TerraformProperty<string> SnsTopicName
     {
-        get => GetProperty<TerraformProperty<string>>("sns_topic_name");
-        set => this.WithProperty("sns_topic_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sns_topic_name");
+        set => SetProperty("sns_topic_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -242,8 +253,7 @@ public class AwsCloudtrail : TerraformResource
     /// </summary>
     public List<AwsCloudtrailAdvancedEventSelectorBlock>? AdvancedEventSelector
     {
-        get => GetProperty<List<AwsCloudtrailAdvancedEventSelectorBlock>>("advanced_event_selector");
-        set => this.WithProperty("advanced_event_selector", value);
+        set => SetProperty("advanced_event_selector", value);
     }
 
     /// <summary>
@@ -253,8 +263,7 @@ public class AwsCloudtrail : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 EventSelector block(s) allowed")]
     public List<AwsCloudtrailEventSelectorBlock>? EventSelector
     {
-        get => GetProperty<List<AwsCloudtrailEventSelectorBlock>>("event_selector");
-        set => this.WithProperty("event_selector", value);
+        set => SetProperty("event_selector", value);
     }
 
     /// <summary>
@@ -263,8 +272,7 @@ public class AwsCloudtrail : TerraformResource
     /// </summary>
     public HashSet<AwsCloudtrailInsightSelectorBlock>? InsightSelector
     {
-        get => GetProperty<HashSet<AwsCloudtrailInsightSelectorBlock>>("insight_selector");
-        set => this.WithProperty("insight_selector", value);
+        set => SetProperty("insight_selector", value);
     }
 
     /// <summary>

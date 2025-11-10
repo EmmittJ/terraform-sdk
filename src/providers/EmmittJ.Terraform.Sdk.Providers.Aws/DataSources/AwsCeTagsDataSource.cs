@@ -21,8 +21,7 @@ public class AwsCeTagsDataSourceSortByBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsCeTagsDataSourceSortByBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SortOrder
     {
-        get => GetProperty<TerraformProperty<string>>("sort_order");
-        set => WithProperty("sort_order", value);
+        set => SetProperty("sort_order", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformProperty<string> End
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("end");
-        set => WithProperty("end", value);
+        set => SetProperty("end", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformProperty<string> Start
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start");
-        set => WithProperty("start", value);
+        set => SetProperty("start", value);
     }
 
 }
@@ -77,34 +73,37 @@ public class AwsCeTagsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("tags");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("search_string");
+        SetOutput("tag_key");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The search_string attribute.
     /// </summary>
-    public TerraformProperty<string>? SearchString
+    public TerraformProperty<string> SearchString
     {
-        get => GetProperty<TerraformProperty<string>>("search_string");
-        set => this.WithProperty("search_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("search_string");
+        set => SetProperty("search_string", value);
     }
 
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
-    public TerraformProperty<string>? TagKey
+    public TerraformProperty<string> TagKey
     {
-        get => GetProperty<TerraformProperty<string>>("tag_key");
-        set => this.WithProperty("tag_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag_key");
+        set => SetProperty("tag_key", value);
     }
 
     /// <summary>
@@ -114,8 +113,7 @@ public class AwsCeTagsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     public List<AwsCeTagsDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<List<AwsCeTagsDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -124,20 +122,19 @@ public class AwsCeTagsDataSource : TerraformDataSource
     /// </summary>
     public List<AwsCeTagsDataSourceSortByBlock>? SortBy
     {
-        get => GetProperty<List<AwsCeTagsDataSourceSortByBlock>>("sort_by");
-        set => this.WithProperty("sort_by", value);
+        set => SetProperty("sort_by", value);
     }
 
     /// <summary>
     /// Block for time_period.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimePeriod is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
     public List<AwsCeTagsDataSourceTimePeriodBlock>? TimePeriod
     {
-        get => GetProperty<List<AwsCeTagsDataSourceTimePeriodBlock>>("time_period");
-        set => this.WithProperty("time_period", value);
+        set => SetProperty("time_period", value);
     }
 
     /// <summary>

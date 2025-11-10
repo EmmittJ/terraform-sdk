@@ -14,47 +14,51 @@ public class AwsS3controlAccessGrantsInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_grants_instance_arn");
-        this.WithOutput("access_grants_instance_id");
-        this.WithOutput("id");
-        this.WithOutput("identity_center_application_arn");
-        this.WithOutput("tags_all");
+        SetOutput("access_grants_instance_arn");
+        SetOutput("access_grants_instance_id");
+        SetOutput("id");
+        SetOutput("identity_center_application_arn");
+        SetOutput("tags_all");
+        SetOutput("account_id");
+        SetOutput("identity_center_arn");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The identity_center_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityCenterArn
+    public TerraformProperty<string> IdentityCenterArn
     {
-        get => GetProperty<TerraformProperty<string>>("identity_center_arn");
-        set => this.WithProperty("identity_center_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_center_arn");
+        set => SetProperty("identity_center_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

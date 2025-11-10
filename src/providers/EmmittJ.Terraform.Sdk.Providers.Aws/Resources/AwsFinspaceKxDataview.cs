@@ -14,8 +14,7 @@ public class AwsFinspaceKxDataviewSegmentConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbPaths is required")]
     public List<TerraformProperty<string>>? DbPaths
     {
-        get => GetProperty<List<TerraformProperty<string>>>("db_paths");
-        set => WithProperty("db_paths", value);
+        set => SetProperty("db_paths", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsFinspaceKxDataviewSegmentConfigurationsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? OnDemand
     {
-        get => GetProperty<TerraformProperty<bool>>("on_demand");
-        set => WithProperty("on_demand", value);
+        set => SetProperty("on_demand", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsFinspaceKxDataviewSegmentConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformProperty<string> VolumeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_name");
-        set => WithProperty("volume_name", value);
+        set => SetProperty("volume_name", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AwsFinspaceKxDataviewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsFinspaceKxDataviewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsFinspaceKxDataviewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,10 +80,23 @@ public class AwsFinspaceKxDataview : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_timestamp");
-        this.WithOutput("last_modified_timestamp");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("created_timestamp");
+        SetOutput("last_modified_timestamp");
+        SetOutput("status");
+        SetOutput("auto_update");
+        SetOutput("availability_zone_id");
+        SetOutput("az_mode");
+        SetOutput("changeset_id");
+        SetOutput("database_name");
+        SetOutput("description");
+        SetOutput("environment_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("read_write");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -98,17 +105,17 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoUpdate is required")]
     public required TerraformProperty<bool> AutoUpdate
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("auto_update");
-        set => this.WithProperty("auto_update", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_update");
+        set => SetProperty("auto_update", value);
     }
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZoneId
+    public TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone_id");
-        set => this.WithProperty("availability_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone_id");
+        set => SetProperty("availability_zone_id", value);
     }
 
     /// <summary>
@@ -117,17 +124,17 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
     public required TerraformProperty<string> AzMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("az_mode");
-        set => this.WithProperty("az_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("az_mode");
+        set => SetProperty("az_mode", value);
     }
 
     /// <summary>
     /// The changeset_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ChangesetId
+    public TerraformProperty<string> ChangesetId
     {
-        get => GetProperty<TerraformProperty<string>>("changeset_id");
-        set => this.WithProperty("changeset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("changeset_id");
+        set => SetProperty("changeset_id", value);
     }
 
     /// <summary>
@@ -136,17 +143,17 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -155,17 +162,17 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
-        set => this.WithProperty("environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_id");
+        set => SetProperty("environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -174,44 +181,44 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The read_write attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReadWrite
+    public TerraformProperty<bool> ReadWrite
     {
-        get => GetProperty<TerraformProperty<bool>>("read_write");
-        set => this.WithProperty("read_write", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("read_write");
+        set => SetProperty("read_write", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -220,8 +227,7 @@ public class AwsFinspaceKxDataview : TerraformResource
     /// </summary>
     public List<AwsFinspaceKxDataviewSegmentConfigurationsBlock>? SegmentConfigurations
     {
-        get => GetProperty<List<AwsFinspaceKxDataviewSegmentConfigurationsBlock>>("segment_configurations");
-        set => this.WithProperty("segment_configurations", value);
+        set => SetProperty("segment_configurations", value);
     }
 
     /// <summary>
@@ -230,8 +236,7 @@ public class AwsFinspaceKxDataview : TerraformResource
     /// </summary>
     public AwsFinspaceKxDataviewTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFinspaceKxDataviewTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,13 +14,16 @@ public class AwsCeCostCategoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_value");
-        this.WithOutput("effective_end");
-        this.WithOutput("effective_start");
-        this.WithOutput("name");
-        this.WithOutput("rule");
-        this.WithOutput("rule_version");
-        this.WithOutput("split_charge_rule");
+        SetOutput("default_value");
+        SetOutput("effective_end");
+        SetOutput("effective_start");
+        SetOutput("name");
+        SetOutput("rule");
+        SetOutput("rule_version");
+        SetOutput("split_charge_rule");
+        SetOutput("cost_category_arn");
+        SetOutput("id");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -29,26 +32,26 @@ public class AwsCeCostCategoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CostCategoryArn is required")]
     public required TerraformProperty<string> CostCategoryArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cost_category_arn");
-        set => this.WithProperty("cost_category_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cost_category_arn");
+        set => SetProperty("cost_category_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

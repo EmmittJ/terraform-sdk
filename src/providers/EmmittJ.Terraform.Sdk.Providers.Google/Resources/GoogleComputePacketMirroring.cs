@@ -14,8 +14,7 @@ public class GoogleComputePacketMirroringCollectorIlbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleComputePacketMirroringFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? CidrRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("cidr_ranges");
-        set => WithProperty("cidr_ranges", value);
+        set => SetProperty("cidr_ranges", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleComputePacketMirroringFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Direction
     {
-        get => GetProperty<TerraformProperty<string>>("direction");
-        set => WithProperty("direction", value);
+        set => SetProperty("direction", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleComputePacketMirroringFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? IpProtocols
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ip_protocols");
-        set => WithProperty("ip_protocols", value);
+        set => SetProperty("ip_protocols", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class GoogleComputePacketMirroringMirroredResourcesBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Tags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
 }
@@ -85,8 +80,7 @@ public class GoogleComputePacketMirroringNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -102,8 +96,7 @@ public class GoogleComputePacketMirroringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -111,8 +104,7 @@ public class GoogleComputePacketMirroringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -120,8 +112,7 @@ public class GoogleComputePacketMirroringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -139,24 +130,30 @@ public class GoogleComputePacketMirroring : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("priority");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// A human-readable description of the rule.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -165,8 +162,8 @@ public class GoogleComputePacketMirroring : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -174,41 +171,41 @@ public class GoogleComputePacketMirroring : TerraformResource
     /// used to break ties in the case of two rules that apply to
     /// the same instances.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The Region in which the created address should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for collector_ilb.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectorIlb is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CollectorIlb block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CollectorIlb block(s) allowed")]
     public List<GoogleComputePacketMirroringCollectorIlbBlock>? CollectorIlb
     {
-        get => GetProperty<List<GoogleComputePacketMirroringCollectorIlbBlock>>("collector_ilb");
-        set => this.WithProperty("collector_ilb", value);
+        set => SetProperty("collector_ilb", value);
     }
 
     /// <summary>
@@ -218,32 +215,31 @@ public class GoogleComputePacketMirroring : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     public List<GoogleComputePacketMirroringFilterBlock>? Filter
     {
-        get => GetProperty<List<GoogleComputePacketMirroringFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// Block for mirrored_resources.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroredResources is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MirroredResources block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MirroredResources block(s) allowed")]
     public List<GoogleComputePacketMirroringMirroredResourcesBlock>? MirroredResources
     {
-        get => GetProperty<List<GoogleComputePacketMirroringMirroredResourcesBlock>>("mirrored_resources");
-        set => this.WithProperty("mirrored_resources", value);
+        set => SetProperty("mirrored_resources", value);
     }
 
     /// <summary>
     /// Block for network.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Network block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     public List<GoogleComputePacketMirroringNetworkBlock>? Network
     {
-        get => GetProperty<List<GoogleComputePacketMirroringNetworkBlock>>("network");
-        set => this.WithProperty("network", value);
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -252,8 +248,7 @@ public class GoogleComputePacketMirroring : TerraformResource
     /// </summary>
     public GoogleComputePacketMirroringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputePacketMirroringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

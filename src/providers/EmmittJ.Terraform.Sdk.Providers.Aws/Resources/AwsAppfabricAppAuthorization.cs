@@ -22,8 +22,7 @@ public class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantDisplayName is required")]
     public required TerraformProperty<string> TenantDisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_display_name");
-        set => WithProperty("tenant_display_name", value);
+        set => SetProperty("tenant_display_name", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantIdentifier is required")]
     public required TerraformProperty<string> TenantIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_identifier");
-        set => WithProperty("tenant_identifier", value);
+        set => SetProperty("tenant_identifier", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsAppfabricAppAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsAppfabricAppAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AwsAppfabricAppAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,13 +80,18 @@ public class AwsAppfabricAppAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("auth_url");
-        this.WithOutput("created_at");
-        this.WithOutput("id");
-        this.WithOutput("persona");
-        this.WithOutput("tags_all");
-        this.WithOutput("updated_at");
+        SetOutput("arn");
+        SetOutput("auth_url");
+        SetOutput("created_at");
+        SetOutput("id");
+        SetOutput("persona");
+        SetOutput("tags_all");
+        SetOutput("updated_at");
+        SetOutput("app");
+        SetOutput("app_bundle_arn");
+        SetOutput("auth_type");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -100,8 +100,8 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     public required TerraformProperty<string> App
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app");
-        set => this.WithProperty("app", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app");
+        set => SetProperty("app", value);
     }
 
     /// <summary>
@@ -110,8 +110,8 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformProperty<string> AppBundleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_bundle_arn");
-        set => this.WithProperty("app_bundle_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_bundle_arn");
+        set => SetProperty("app_bundle_arn", value);
     }
 
     /// <summary>
@@ -120,26 +120,26 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
-        set => this.WithProperty("auth_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auth_type");
+        set => SetProperty("auth_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -148,8 +148,7 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     /// </summary>
     public List<AwsAppfabricAppAuthorizationCredentialBlock>? Credential
     {
-        get => GetProperty<List<AwsAppfabricAppAuthorizationCredentialBlock>>("credential");
-        set => this.WithProperty("credential", value);
+        set => SetProperty("credential", value);
     }
 
     /// <summary>
@@ -158,8 +157,7 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     /// </summary>
     public List<AwsAppfabricAppAuthorizationTenantBlock>? Tenant
     {
-        get => GetProperty<List<AwsAppfabricAppAuthorizationTenantBlock>>("tenant");
-        set => this.WithProperty("tenant", value);
+        set => SetProperty("tenant", value);
     }
 
     /// <summary>
@@ -168,8 +166,7 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     /// </summary>
     public AwsAppfabricAppAuthorizationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAppfabricAppAuthorizationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

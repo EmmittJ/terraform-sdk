@@ -13,8 +13,7 @@ public class AwsBedrockGuardrailContentPolicyConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? TierConfig
     {
-        get => GetProperty<List<TerraformProperty<object>>>("tier_config");
-        set => WithProperty("tier_config", value);
+        set => SetProperty("tier_config", value);
     }
 
 }
@@ -39,8 +38,7 @@ public class AwsBedrockGuardrailCrossRegionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailProfileIdentifier is required")]
     public required TerraformProperty<string> GuardrailProfileIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("guardrail_profile_identifier");
-        set => WithProperty("guardrail_profile_identifier", value);
+        set => SetProperty("guardrail_profile_identifier", value);
     }
 
 }
@@ -64,8 +62,7 @@ public class AwsBedrockGuardrailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -73,8 +70,7 @@ public class AwsBedrockGuardrailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -82,8 +78,7 @@ public class AwsBedrockGuardrailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -99,8 +94,7 @@ public class AwsBedrockGuardrailTopicPolicyConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? TierConfig
     {
-        get => GetProperty<List<TerraformProperty<object>>>("tier_config");
-        set => WithProperty("tier_config", value);
+        set => SetProperty("tier_config", value);
     }
 
 }
@@ -125,12 +119,19 @@ public class AwsBedrockGuardrail : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("guardrail_arn");
-        this.WithOutput("guardrail_id");
-        this.WithOutput("status");
-        this.WithOutput("tags_all");
-        this.WithOutput("version");
+        SetOutput("created_at");
+        SetOutput("guardrail_arn");
+        SetOutput("guardrail_id");
+        SetOutput("status");
+        SetOutput("tags_all");
+        SetOutput("version");
+        SetOutput("blocked_input_messaging");
+        SetOutput("blocked_outputs_messaging");
+        SetOutput("description");
+        SetOutput("kms_key_arn");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -139,8 +140,8 @@ public class AwsBedrockGuardrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockedInputMessaging is required")]
     public required TerraformProperty<string> BlockedInputMessaging
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("blocked_input_messaging");
-        set => this.WithProperty("blocked_input_messaging", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blocked_input_messaging");
+        set => SetProperty("blocked_input_messaging", value);
     }
 
     /// <summary>
@@ -149,26 +150,26 @@ public class AwsBedrockGuardrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockedOutputsMessaging is required")]
     public required TerraformProperty<string> BlockedOutputsMessaging
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("blocked_outputs_messaging");
-        set => this.WithProperty("blocked_outputs_messaging", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blocked_outputs_messaging");
+        set => SetProperty("blocked_outputs_messaging", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
@@ -177,26 +178,26 @@ public class AwsBedrockGuardrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -205,8 +206,7 @@ public class AwsBedrockGuardrail : TerraformResource
     /// </summary>
     public List<AwsBedrockGuardrailContentPolicyConfigBlock>? ContentPolicyConfig
     {
-        get => GetProperty<List<AwsBedrockGuardrailContentPolicyConfigBlock>>("content_policy_config");
-        set => this.WithProperty("content_policy_config", value);
+        set => SetProperty("content_policy_config", value);
     }
 
     /// <summary>
@@ -215,8 +215,7 @@ public class AwsBedrockGuardrail : TerraformResource
     /// </summary>
     public List<AwsBedrockGuardrailContextualGroundingPolicyConfigBlock>? ContextualGroundingPolicyConfig
     {
-        get => GetProperty<List<AwsBedrockGuardrailContextualGroundingPolicyConfigBlock>>("contextual_grounding_policy_config");
-        set => this.WithProperty("contextual_grounding_policy_config", value);
+        set => SetProperty("contextual_grounding_policy_config", value);
     }
 
     /// <summary>
@@ -225,8 +224,7 @@ public class AwsBedrockGuardrail : TerraformResource
     /// </summary>
     public List<AwsBedrockGuardrailCrossRegionConfigBlock>? CrossRegionConfig
     {
-        get => GetProperty<List<AwsBedrockGuardrailCrossRegionConfigBlock>>("cross_region_config");
-        set => this.WithProperty("cross_region_config", value);
+        set => SetProperty("cross_region_config", value);
     }
 
     /// <summary>
@@ -235,8 +233,7 @@ public class AwsBedrockGuardrail : TerraformResource
     /// </summary>
     public List<AwsBedrockGuardrailSensitiveInformationPolicyConfigBlock>? SensitiveInformationPolicyConfig
     {
-        get => GetProperty<List<AwsBedrockGuardrailSensitiveInformationPolicyConfigBlock>>("sensitive_information_policy_config");
-        set => this.WithProperty("sensitive_information_policy_config", value);
+        set => SetProperty("sensitive_information_policy_config", value);
     }
 
     /// <summary>
@@ -245,8 +242,7 @@ public class AwsBedrockGuardrail : TerraformResource
     /// </summary>
     public AwsBedrockGuardrailTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockGuardrailTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -255,8 +251,7 @@ public class AwsBedrockGuardrail : TerraformResource
     /// </summary>
     public List<AwsBedrockGuardrailTopicPolicyConfigBlock>? TopicPolicyConfig
     {
-        get => GetProperty<List<AwsBedrockGuardrailTopicPolicyConfigBlock>>("topic_policy_config");
-        set => this.WithProperty("topic_policy_config", value);
+        set => SetProperty("topic_policy_config", value);
     }
 
     /// <summary>
@@ -265,8 +260,7 @@ public class AwsBedrockGuardrail : TerraformResource
     /// </summary>
     public List<AwsBedrockGuardrailWordPolicyConfigBlock>? WordPolicyConfig
     {
-        get => GetProperty<List<AwsBedrockGuardrailWordPolicyConfigBlock>>("word_policy_config");
-        set => this.WithProperty("word_policy_config", value);
+        set => SetProperty("word_policy_config", value);
     }
 
     /// <summary>

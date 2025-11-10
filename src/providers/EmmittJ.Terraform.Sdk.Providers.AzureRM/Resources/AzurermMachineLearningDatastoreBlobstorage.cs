@@ -13,8 +13,7 @@ public class AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,42 +54,52 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_key");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("is_default");
+        SetOutput("name");
+        SetOutput("service_data_auth_identity");
+        SetOutput("shared_access_signature");
+        SetOutput("storage_container_id");
+        SetOutput("tags");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The account_key attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountKey
+    public TerraformProperty<string> AccountKey
     {
-        get => GetProperty<TerraformProperty<string>>("account_key");
-        set => this.WithProperty("account_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_key");
+        set => SetProperty("account_key", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsDefault
+    public TerraformProperty<bool> IsDefault
     {
-        get => GetProperty<TerraformProperty<bool>>("is_default");
-        set => this.WithProperty("is_default", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_default");
+        set => SetProperty("is_default", value);
     }
 
     /// <summary>
@@ -102,26 +108,26 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The service_data_auth_identity attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceDataAuthIdentity
+    public TerraformProperty<string> ServiceDataAuthIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("service_data_auth_identity");
-        set => this.WithProperty("service_data_auth_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_data_auth_identity");
+        set => SetProperty("service_data_auth_identity", value);
     }
 
     /// <summary>
     /// The shared_access_signature attribute.
     /// </summary>
-    public TerraformProperty<string>? SharedAccessSignature
+    public TerraformProperty<string> SharedAccessSignature
     {
-        get => GetProperty<TerraformProperty<string>>("shared_access_signature");
-        set => this.WithProperty("shared_access_signature", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shared_access_signature");
+        set => SetProperty("shared_access_signature", value);
     }
 
     /// <summary>
@@ -130,17 +136,17 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     public required TerraformProperty<string> StorageContainerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_id");
-        set => this.WithProperty("storage_container_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_id");
+        set => SetProperty("storage_container_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -149,8 +155,8 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -159,8 +165,7 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     /// </summary>
     public AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

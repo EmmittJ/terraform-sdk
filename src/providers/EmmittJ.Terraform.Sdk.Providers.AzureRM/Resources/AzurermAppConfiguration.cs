@@ -13,8 +13,7 @@ public class AzurermAppConfigurationEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_client_id");
-        set => WithProperty("identity_client_id", value);
+        set => SetProperty("identity_client_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAppConfigurationEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultKeyIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_identifier");
-        set => WithProperty("key_vault_key_identifier", value);
+        set => SetProperty("key_vault_key_identifier", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermAppConfigurationIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermAppConfigurationIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermAppConfigurationIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermAppConfigurationIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class AzurermAppConfigurationReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
-        set => WithProperty("endpoint", value);
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermAppConfigurationReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermAppConfigurationReplicaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermAppConfigurationReplicaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -130,8 +120,7 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -139,8 +128,7 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -148,8 +136,7 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -157,8 +144,7 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -176,47 +162,59 @@ public class AzurermAppConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("endpoint");
-        this.WithOutput("primary_read_key");
-        this.WithOutput("primary_write_key");
-        this.WithOutput("secondary_read_key");
-        this.WithOutput("secondary_write_key");
+        SetOutput("endpoint");
+        SetOutput("primary_read_key");
+        SetOutput("primary_write_key");
+        SetOutput("secondary_read_key");
+        SetOutput("secondary_write_key");
+        SetOutput("data_plane_proxy_authentication_mode");
+        SetOutput("data_plane_proxy_private_link_delegation_enabled");
+        SetOutput("id");
+        SetOutput("local_auth_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("public_network_access");
+        SetOutput("purge_protection_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("soft_delete_retention_days");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The data_plane_proxy_authentication_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? DataPlaneProxyAuthenticationMode
+    public TerraformProperty<string> DataPlaneProxyAuthenticationMode
     {
-        get => GetProperty<TerraformProperty<string>>("data_plane_proxy_authentication_mode");
-        set => this.WithProperty("data_plane_proxy_authentication_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_plane_proxy_authentication_mode");
+        set => SetProperty("data_plane_proxy_authentication_mode", value);
     }
 
     /// <summary>
     /// The data_plane_proxy_private_link_delegation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DataPlaneProxyPrivateLinkDelegationEnabled
+    public TerraformProperty<bool> DataPlaneProxyPrivateLinkDelegationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("data_plane_proxy_private_link_delegation_enabled");
-        set => this.WithProperty("data_plane_proxy_private_link_delegation_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("data_plane_proxy_private_link_delegation_enabled");
+        set => SetProperty("data_plane_proxy_private_link_delegation_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthEnabled
+    public TerraformProperty<bool> LocalAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_auth_enabled");
-        set => this.WithProperty("local_auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_auth_enabled");
+        set => SetProperty("local_auth_enabled", value);
     }
 
     /// <summary>
@@ -225,8 +223,8 @@ public class AzurermAppConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -235,26 +233,26 @@ public class AzurermAppConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string> PublicNetworkAccess
     {
-        get => GetProperty<TerraformProperty<string>>("public_network_access");
-        set => this.WithProperty("public_network_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_network_access");
+        set => SetProperty("public_network_access", value);
     }
 
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PurgeProtectionEnabled
+    public TerraformProperty<bool> PurgeProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("purge_protection_enabled");
-        set => this.WithProperty("purge_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("purge_protection_enabled");
+        set => SetProperty("purge_protection_enabled", value);
     }
 
     /// <summary>
@@ -263,35 +261,35 @@ public class AzurermAppConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    public TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The soft_delete_retention_days attribute.
     /// </summary>
-    public TerraformProperty<double>? SoftDeleteRetentionDays
+    public TerraformProperty<double> SoftDeleteRetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("soft_delete_retention_days");
-        set => this.WithProperty("soft_delete_retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("soft_delete_retention_days");
+        set => SetProperty("soft_delete_retention_days", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -301,8 +299,7 @@ public class AzurermAppConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     public List<AzurermAppConfigurationEncryptionBlock>? Encryption
     {
-        get => GetProperty<List<AzurermAppConfigurationEncryptionBlock>>("encryption");
-        set => this.WithProperty("encryption", value);
+        set => SetProperty("encryption", value);
     }
 
     /// <summary>
@@ -312,8 +309,7 @@ public class AzurermAppConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermAppConfigurationIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermAppConfigurationIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -322,8 +318,7 @@ public class AzurermAppConfiguration : TerraformResource
     /// </summary>
     public HashSet<AzurermAppConfigurationReplicaBlock>? Replica
     {
-        get => GetProperty<HashSet<AzurermAppConfigurationReplicaBlock>>("replica");
-        set => this.WithProperty("replica", value);
+        set => SetProperty("replica", value);
     }
 
     /// <summary>
@@ -332,8 +327,7 @@ public class AzurermAppConfiguration : TerraformResource
     /// </summary>
     public AzurermAppConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

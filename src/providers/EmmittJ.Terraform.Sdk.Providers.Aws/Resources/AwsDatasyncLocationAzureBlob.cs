@@ -14,8 +14,7 @@ public class AwsDatasyncLocationAzureBlobSasConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformProperty<string> Token
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("token");
-        set => WithProperty("token", value);
+        set => SetProperty("token", value);
     }
 
 }
@@ -33,27 +32,37 @@ public class AwsDatasyncLocationAzureBlob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("uri");
+        SetOutput("arn");
+        SetOutput("uri");
+        SetOutput("access_tier");
+        SetOutput("agent_arns");
+        SetOutput("authentication_type");
+        SetOutput("blob_type");
+        SetOutput("container_url");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("subdirectory");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessTier
+    public TerraformProperty<string> AccessTier
     {
-        get => GetProperty<TerraformProperty<string>>("access_tier");
-        set => this.WithProperty("access_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_tier");
+        set => SetProperty("access_tier", value);
     }
 
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
-    public HashSet<TerraformProperty<string>>? AgentArns
+    public HashSet<TerraformProperty<string>> AgentArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("agent_arns");
-        set => this.WithProperty("agent_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("agent_arns");
+        set => SetProperty("agent_arns", value);
     }
 
     /// <summary>
@@ -62,17 +71,17 @@ public class AwsDatasyncLocationAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
-        set => this.WithProperty("authentication_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The blob_type attribute.
     /// </summary>
-    public TerraformProperty<string>? BlobType
+    public TerraformProperty<string> BlobType
     {
-        get => GetProperty<TerraformProperty<string>>("blob_type");
-        set => this.WithProperty("blob_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blob_type");
+        set => SetProperty("blob_type", value);
     }
 
     /// <summary>
@@ -81,53 +90,53 @@ public class AwsDatasyncLocationAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerUrl is required")]
     public required TerraformProperty<string> ContainerUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_url");
-        set => this.WithProperty("container_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_url");
+        set => SetProperty("container_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformProperty<string>? Subdirectory
+    public TerraformProperty<string> Subdirectory
     {
-        get => GetProperty<TerraformProperty<string>>("subdirectory");
-        set => this.WithProperty("subdirectory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subdirectory");
+        set => SetProperty("subdirectory", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -137,8 +146,7 @@ public class AwsDatasyncLocationAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SasConfiguration block(s) allowed")]
     public List<AwsDatasyncLocationAzureBlobSasConfigurationBlock>? SasConfiguration
     {
-        get => GetProperty<List<AwsDatasyncLocationAzureBlobSasConfigurationBlock>>("sas_configuration");
-        set => this.WithProperty("sas_configuration", value);
+        set => SetProperty("sas_configuration", value);
     }
 
     /// <summary>

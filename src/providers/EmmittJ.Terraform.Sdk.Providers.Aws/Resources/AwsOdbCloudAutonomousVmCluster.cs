@@ -13,8 +13,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public HashSet<TerraformProperty<object>>? DaysOfWeek
     {
-        get => GetProperty<HashSet<TerraformProperty<object>>>("days_of_week");
-        set => WithProperty("days_of_week", value);
+        set => SetProperty("days_of_week", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public HashSet<TerraformProperty<double>>? HoursOfDay
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("hours_of_day");
-        set => WithProperty("hours_of_day", value);
+        set => SetProperty("hours_of_day", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? LeadTimeInWeeks
     {
-        get => GetProperty<TerraformProperty<double>>("lead_time_in_weeks");
-        set => WithProperty("lead_time_in_weeks", value);
+        set => SetProperty("lead_time_in_weeks", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public HashSet<TerraformProperty<object>>? Months
     {
-        get => GetProperty<HashSet<TerraformProperty<object>>>("months");
-        set => WithProperty("months", value);
+        set => SetProperty("months", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformProperty<string> Preference
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("preference");
-        set => WithProperty("preference", value);
+        set => SetProperty("preference", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public HashSet<TerraformProperty<double>>? WeeksOfMonth
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("weeks_of_month");
-        set => WithProperty("weeks_of_month", value);
+        set => SetProperty("weeks_of_month", value);
     }
 
 }
@@ -76,8 +70,7 @@ public class AwsOdbCloudAutonomousVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AwsOdbCloudAutonomousVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AwsOdbCloudAutonomousVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -112,41 +103,57 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("autonomous_data_storage_percentage");
-        this.WithOutput("available_autonomous_data_storage_size_in_tbs");
-        this.WithOutput("available_container_databases");
-        this.WithOutput("available_cpus");
-        this.WithOutput("compute_model");
-        this.WithOutput("cpu_core_count");
-        this.WithOutput("cpu_percentage");
-        this.WithOutput("created_at");
-        this.WithOutput("data_storage_size_in_gbs");
-        this.WithOutput("data_storage_size_in_tbs");
-        this.WithOutput("domain");
-        this.WithOutput("exadata_storage_in_tbs_lowest_scaled_value");
-        this.WithOutput("hostname");
-        this.WithOutput("id");
-        this.WithOutput("max_acds_lowest_scaled_value");
-        this.WithOutput("memory_size_in_gbs");
-        this.WithOutput("node_count");
-        this.WithOutput("non_provisionable_autonomous_container_databases");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("oci_url");
-        this.WithOutput("ocid");
-        this.WithOutput("odb_node_storage_size_in_gbs");
-        this.WithOutput("percent_progress");
-        this.WithOutput("provisionable_autonomous_container_databases");
-        this.WithOutput("provisioned_autonomous_container_databases");
-        this.WithOutput("provisioned_cpus");
-        this.WithOutput("reclaimable_cpus");
-        this.WithOutput("reserved_cpus");
-        this.WithOutput("shape");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("tags_all");
-        this.WithOutput("time_database_ssl_certificate_expires");
-        this.WithOutput("time_ords_certificate_expires");
+        SetOutput("arn");
+        SetOutput("autonomous_data_storage_percentage");
+        SetOutput("available_autonomous_data_storage_size_in_tbs");
+        SetOutput("available_container_databases");
+        SetOutput("available_cpus");
+        SetOutput("compute_model");
+        SetOutput("cpu_core_count");
+        SetOutput("cpu_percentage");
+        SetOutput("created_at");
+        SetOutput("data_storage_size_in_gbs");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("domain");
+        SetOutput("exadata_storage_in_tbs_lowest_scaled_value");
+        SetOutput("hostname");
+        SetOutput("id");
+        SetOutput("max_acds_lowest_scaled_value");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("node_count");
+        SetOutput("non_provisionable_autonomous_container_databases");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("oci_url");
+        SetOutput("ocid");
+        SetOutput("odb_node_storage_size_in_gbs");
+        SetOutput("percent_progress");
+        SetOutput("provisionable_autonomous_container_databases");
+        SetOutput("provisioned_autonomous_container_databases");
+        SetOutput("provisioned_cpus");
+        SetOutput("reclaimable_cpus");
+        SetOutput("reserved_cpus");
+        SetOutput("shape");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("tags_all");
+        SetOutput("time_database_ssl_certificate_expires");
+        SetOutput("time_ords_certificate_expires");
+        SetOutput("autonomous_data_storage_size_in_tbs");
+        SetOutput("cloud_exadata_infrastructure_id");
+        SetOutput("cpu_core_count_per_node");
+        SetOutput("db_servers");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("is_mtls_enabled_vm_cluster");
+        SetOutput("license_model");
+        SetOutput("memory_per_oracle_compute_unit_in_gbs");
+        SetOutput("odb_network_id");
+        SetOutput("region");
+        SetOutput("scan_listener_port_non_tls");
+        SetOutput("scan_listener_port_tls");
+        SetOutput("tags");
+        SetOutput("time_zone");
+        SetOutput("total_container_databases");
     }
 
     /// <summary>
@@ -155,8 +162,8 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDataStorageSizeInTbs is required")]
     public required TerraformProperty<double> AutonomousDataStorageSizeInTbs
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("autonomous_data_storage_size_in_tbs");
-        set => this.WithProperty("autonomous_data_storage_size_in_tbs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("autonomous_data_storage_size_in_tbs");
+        set => SetProperty("autonomous_data_storage_size_in_tbs", value);
     }
 
     /// <summary>
@@ -165,8 +172,8 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
-        set => this.WithProperty("cloud_exadata_infrastructure_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        set => SetProperty("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
@@ -175,27 +182,27 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCountPerNode is required")]
     public required TerraformProperty<double> CpuCoreCountPerNode
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("cpu_core_count_per_node");
-        set => this.WithProperty("cpu_core_count_per_node", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cpu_core_count_per_node");
+        set => SetProperty("cpu_core_count_per_node", value);
     }
 
     /// <summary>
     /// The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbServers is required")]
-    public HashSet<TerraformProperty<string>>? DbServers
+    public HashSet<TerraformProperty<string>> DbServers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("db_servers");
-        set => this.WithProperty("db_servers", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("db_servers");
+        set => SetProperty("db_servers", value);
     }
 
     /// <summary>
     /// The description of the Autonomous VM cluster.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -204,26 +211,26 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource. 
     /// </summary>
-    public TerraformProperty<bool>? IsMtlsEnabledVmCluster
+    public TerraformProperty<bool> IsMtlsEnabledVmCluster
     {
-        get => GetProperty<TerraformProperty<bool>>("is_mtls_enabled_vm_cluster");
-        set => this.WithProperty("is_mtls_enabled_vm_cluster", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_mtls_enabled_vm_cluster");
+        set => SetProperty("is_mtls_enabled_vm_cluster", value);
     }
 
     /// <summary>
     /// The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE . Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformProperty<string>? LicenseModel
+    public TerraformProperty<string> LicenseModel
     {
-        get => GetProperty<TerraformProperty<string>>("license_model");
-        set => this.WithProperty("license_model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_model");
+        set => SetProperty("license_model", value);
     }
 
     /// <summary>
@@ -232,8 +239,8 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryPerOracleComputeUnitInGbs is required")]
     public required TerraformProperty<double> MemoryPerOracleComputeUnitInGbs
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("memory_per_oracle_compute_unit_in_gbs");
-        set => this.WithProperty("memory_per_oracle_compute_unit_in_gbs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("memory_per_oracle_compute_unit_in_gbs");
+        set => SetProperty("memory_per_oracle_compute_unit_in_gbs", value);
     }
 
     /// <summary>
@@ -242,17 +249,17 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformProperty<string> OdbNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("odb_network_id");
-        set => this.WithProperty("odb_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("odb_network_id");
+        set => SetProperty("odb_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -261,8 +268,8 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortNonTls is required")]
     public required TerraformProperty<double> ScanListenerPortNonTls
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("scan_listener_port_non_tls");
-        set => this.WithProperty("scan_listener_port_non_tls", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scan_listener_port_non_tls");
+        set => SetProperty("scan_listener_port_non_tls", value);
     }
 
     /// <summary>
@@ -271,26 +278,26 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortTls is required")]
     public required TerraformProperty<double> ScanListenerPortTls
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("scan_listener_port_tls");
-        set => this.WithProperty("scan_listener_port_tls", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scan_listener_port_tls");
+        set => SetProperty("scan_listener_port_tls", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    public TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
@@ -299,8 +306,8 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalContainerDatabases is required")]
     public required TerraformProperty<double> TotalContainerDatabases
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("total_container_databases");
-        set => this.WithProperty("total_container_databases", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("total_container_databases");
+        set => SetProperty("total_container_databases", value);
     }
 
     /// <summary>
@@ -309,8 +316,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     /// </summary>
     public List<AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetProperty<List<AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
@@ -319,8 +325,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     /// </summary>
     public AwsOdbCloudAutonomousVmClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsOdbCloudAutonomousVmClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

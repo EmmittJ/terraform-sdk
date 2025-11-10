@@ -13,8 +13,7 @@ public class GoogleCloudbuildv2RepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleCloudbuildv2RepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,10 +38,17 @@ public class GoogleCloudbuildv2Repository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("etag");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("etag");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("parent_connection");
+        SetOutput("project");
+        SetOutput("remote_uri");
     }
 
     /// <summary>
@@ -52,28 +57,28 @@ public class GoogleCloudbuildv2Repository : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -82,8 +87,8 @@ public class GoogleCloudbuildv2Repository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -92,17 +97,17 @@ public class GoogleCloudbuildv2Repository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentConnection is required")]
     public required TerraformProperty<string> ParentConnection
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent_connection");
-        set => this.WithProperty("parent_connection", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_connection");
+        set => SetProperty("parent_connection", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -111,8 +116,8 @@ public class GoogleCloudbuildv2Repository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteUri is required")]
     public required TerraformProperty<string> RemoteUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("remote_uri");
-        set => this.WithProperty("remote_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("remote_uri");
+        set => SetProperty("remote_uri", value);
     }
 
     /// <summary>
@@ -121,8 +126,7 @@ public class GoogleCloudbuildv2Repository : TerraformResource
     /// </summary>
     public GoogleCloudbuildv2RepositoryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudbuildv2RepositoryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

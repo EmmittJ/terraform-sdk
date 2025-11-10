@@ -13,8 +13,7 @@ public class AzurermAiServicesCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_client_id");
-        set => WithProperty("identity_client_id", value);
+        set => SetProperty("identity_client_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAiServicesCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => WithProperty("key_vault_key_id", value);
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAiServicesCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedHsmKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_hsm_key_id");
-        set => WithProperty("managed_hsm_key_id", value);
+        set => SetProperty("managed_hsm_key_id", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermAiServicesIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermAiServicesIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermAiServicesIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermAiServicesIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AzurermAiServicesNetworkAclsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Bypass
     {
-        get => GetProperty<TerraformProperty<string>>("bypass");
-        set => WithProperty("bypass", value);
+        set => SetProperty("bypass", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermAiServicesNetworkAclsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformProperty<string> DefaultAction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_action");
-        set => WithProperty("default_action", value);
+        set => SetProperty("default_action", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermAiServicesNetworkAclsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IpRules
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("ip_rules");
-        set => WithProperty("ip_rules", value);
+        set => SetProperty("ip_rules", value);
     }
 
 }
@@ -129,8 +119,7 @@ public class AzurermAiServicesStorageBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_client_id");
-        set => WithProperty("identity_client_id", value);
+        set => SetProperty("identity_client_id", value);
     }
 
     /// <summary>
@@ -139,8 +128,7 @@ public class AzurermAiServicesStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => WithProperty("storage_account_id", value);
+        set => SetProperty("storage_account_id", value);
     }
 
 }
@@ -156,8 +144,7 @@ public class AzurermAiServicesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -165,8 +152,7 @@ public class AzurermAiServicesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -174,8 +160,7 @@ public class AzurermAiServicesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -183,8 +168,7 @@ public class AzurermAiServicesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -202,45 +186,56 @@ public class AzurermAiServices : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("endpoint");
-        this.WithOutput("primary_access_key");
-        this.WithOutput("secondary_access_key");
+        SetOutput("endpoint");
+        SetOutput("primary_access_key");
+        SetOutput("secondary_access_key");
+        SetOutput("custom_subdomain_name");
+        SetOutput("fqdns");
+        SetOutput("id");
+        SetOutput("local_authentication_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("outbound_network_access_restricted");
+        SetOutput("public_network_access");
+        SetOutput("resource_group_name");
+        SetOutput("sku_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The custom_subdomain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomSubdomainName
+    public TerraformProperty<string> CustomSubdomainName
     {
-        get => GetProperty<TerraformProperty<string>>("custom_subdomain_name");
-        set => this.WithProperty("custom_subdomain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_subdomain_name");
+        set => SetProperty("custom_subdomain_name", value);
     }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Fqdns
+    public List<TerraformProperty<string>> Fqdns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("fqdns");
-        set => this.WithProperty("fqdns", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("fqdns");
+        set => SetProperty("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthenticationEnabled
+    public TerraformProperty<bool> LocalAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_authentication_enabled");
-        set => this.WithProperty("local_authentication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
+        set => SetProperty("local_authentication_enabled", value);
     }
 
     /// <summary>
@@ -249,8 +244,8 @@ public class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -259,26 +254,26 @@ public class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
-    public TerraformProperty<bool>? OutboundNetworkAccessRestricted
+    public TerraformProperty<bool> OutboundNetworkAccessRestricted
     {
-        get => GetProperty<TerraformProperty<bool>>("outbound_network_access_restricted");
-        set => this.WithProperty("outbound_network_access_restricted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("outbound_network_access_restricted");
+        set => SetProperty("outbound_network_access_restricted", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string> PublicNetworkAccess
     {
-        get => GetProperty<TerraformProperty<string>>("public_network_access");
-        set => this.WithProperty("public_network_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_network_access");
+        set => SetProperty("public_network_access", value);
     }
 
     /// <summary>
@@ -287,8 +282,8 @@ public class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -297,17 +292,17 @@ public class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -317,8 +312,7 @@ public class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     public List<AzurermAiServicesCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetProperty<List<AzurermAiServicesCustomerManagedKeyBlock>>("customer_managed_key");
-        set => this.WithProperty("customer_managed_key", value);
+        set => SetProperty("customer_managed_key", value);
     }
 
     /// <summary>
@@ -328,8 +322,7 @@ public class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermAiServicesIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermAiServicesIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -339,8 +332,7 @@ public class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
     public List<AzurermAiServicesNetworkAclsBlock>? NetworkAcls
     {
-        get => GetProperty<List<AzurermAiServicesNetworkAclsBlock>>("network_acls");
-        set => this.WithProperty("network_acls", value);
+        set => SetProperty("network_acls", value);
     }
 
     /// <summary>
@@ -349,8 +341,7 @@ public class AzurermAiServices : TerraformResource
     /// </summary>
     public List<AzurermAiServicesStorageBlock>? Storage
     {
-        get => GetProperty<List<AzurermAiServicesStorageBlock>>("storage");
-        set => this.WithProperty("storage", value);
+        set => SetProperty("storage", value);
     }
 
     /// <summary>
@@ -359,8 +350,7 @@ public class AzurermAiServices : TerraformResource
     /// </summary>
     public AzurermAiServicesTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAiServicesTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleIamOauthClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIamOauthClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleIamOauthClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,20 +46,31 @@ public class GoogleIamOauthClient : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("client_id");
-        this.WithOutput("expire_time");
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("client_id");
+        SetOutput("expire_time");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("allowed_grant_types");
+        SetOutput("allowed_redirect_uris");
+        SetOutput("allowed_scopes");
+        SetOutput("client_type");
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("oauth_client_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Required. The list of OAuth grant types is allowed for the OauthClient.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedGrantTypes is required")]
-    public List<TerraformProperty<string>>? AllowedGrantTypes
+    public List<TerraformProperty<string>> AllowedGrantTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_grant_types");
-        set => this.WithProperty("allowed_grant_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("allowed_grant_types");
+        set => SetProperty("allowed_grant_types", value);
     }
 
     /// <summary>
@@ -70,10 +78,10 @@ public class GoogleIamOauthClient : TerraformResource
     /// when authorization process is completed.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedRedirectUris is required")]
-    public List<TerraformProperty<string>>? AllowedRedirectUris
+    public List<TerraformProperty<string>> AllowedRedirectUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_redirect_uris");
-        set => this.WithProperty("allowed_redirect_uris", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("allowed_redirect_uris");
+        set => SetProperty("allowed_redirect_uris", value);
     }
 
     /// <summary>
@@ -91,10 +99,10 @@ public class GoogleIamOauthClient : TerraformResource
     /// * &#39;groups&#39;: The OAuth client can read a federated identity&#39;s groups.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedScopes is required")]
-    public List<TerraformProperty<string>>? AllowedScopes
+    public List<TerraformProperty<string>> AllowedScopes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_scopes");
-        set => this.WithProperty("allowed_scopes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("allowed_scopes");
+        set => SetProperty("allowed_scopes", value);
     }
 
     /// <summary>
@@ -106,10 +114,10 @@ public class GoogleIamOauthClient : TerraformResource
     /// PUBLIC_CLIENT
     /// CONFIDENTIAL_CLIENT
     /// </summary>
-    public TerraformProperty<string>? ClientType
+    public TerraformProperty<string> ClientType
     {
-        get => GetProperty<TerraformProperty<string>>("client_type");
-        set => this.WithProperty("client_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_type");
+        set => SetProperty("client_type", value);
     }
 
     /// <summary>
@@ -117,20 +125,20 @@ public class GoogleIamOauthClient : TerraformResource
     /// 
     /// Cannot exceed 256 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Whether the OauthClient is disabled. You cannot use a disabled OAuth
     /// client.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -138,19 +146,19 @@ public class GoogleIamOauthClient : TerraformResource
     /// 
     /// Cannot exceed 32 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -159,8 +167,8 @@ public class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -173,17 +181,17 @@ public class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientId is required")]
     public required TerraformProperty<string> OauthClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("oauth_client_id");
-        set => this.WithProperty("oauth_client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("oauth_client_id");
+        set => SetProperty("oauth_client_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -192,8 +200,7 @@ public class GoogleIamOauthClient : TerraformResource
     /// </summary>
     public GoogleIamOauthClientTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamOauthClientTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

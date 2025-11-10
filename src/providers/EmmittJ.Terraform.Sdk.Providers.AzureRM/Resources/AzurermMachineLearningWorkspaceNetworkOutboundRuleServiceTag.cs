@@ -13,8 +13,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,21 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("port_ranges");
+        SetOutput("protocol");
+        SetOutput("service_tag");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +77,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortRanges is required")]
     public required TerraformProperty<string> PortRanges
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("port_ranges");
-        set => this.WithProperty("port_ranges", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("port_ranges");
+        set => SetProperty("port_ranges", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceTag is required")]
     public required TerraformProperty<string> ServiceTag
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_tag");
-        set => this.WithProperty("service_tag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_tag");
+        set => SetProperty("service_tag", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     /// </summary>
     public AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

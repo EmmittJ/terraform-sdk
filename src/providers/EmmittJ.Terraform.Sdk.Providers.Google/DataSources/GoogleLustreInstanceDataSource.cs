@@ -14,30 +14,34 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("capacity_gib");
-        this.WithOutput("create_time");
-        this.WithOutput("description");
-        this.WithOutput("effective_labels");
-        this.WithOutput("filesystem");
-        this.WithOutput("gke_support_enabled");
-        this.WithOutput("labels");
-        this.WithOutput("location");
-        this.WithOutput("mount_point");
-        this.WithOutput("name");
-        this.WithOutput("network");
-        this.WithOutput("per_unit_storage_throughput");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("capacity_gib");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("effective_labels");
+        SetOutput("filesystem");
+        SetOutput("gke_support_enabled");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("mount_point");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("per_unit_storage_throughput");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("project");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,26 +55,26 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Zone of Lustre instance
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>

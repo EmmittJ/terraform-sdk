@@ -14,8 +14,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("format");
-        set => WithProperty("format", value);
+        set => SetProperty("format", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformProperty<string> Schedule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule");
-        set => WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaFields is required")]
     public List<TerraformProperty<string>>? SchemaFields
     {
-        get => GetProperty<List<TerraformProperty<string>>>("schema_fields");
-        set => WithProperty("schema_fields", value);
+        set => SetProperty("schema_fields", value);
     }
 
     /// <summary>
@@ -54,8 +50,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -64,8 +59,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformProperty<string> StorageContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_name");
-        set => WithProperty("storage_container_name", value);
+        set => SetProperty("storage_container_name", value);
     }
 
 }
@@ -81,8 +75,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -90,8 +83,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -99,8 +91,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -108,8 +99,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -127,15 +117,17 @@ public class AzurermStorageBlobInventoryPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("storage_account_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -144,19 +136,19 @@ public class AzurermStorageBlobInventoryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// Block for rules.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     public HashSet<AzurermStorageBlobInventoryPolicyRulesBlock>? Rules
     {
-        get => GetProperty<HashSet<AzurermStorageBlobInventoryPolicyRulesBlock>>("rules");
-        set => this.WithProperty("rules", value);
+        set => SetProperty("rules", value);
     }
 
     /// <summary>
@@ -165,8 +157,7 @@ public class AzurermStorageBlobInventoryPolicy : TerraformResource
     /// </summary>
     public AzurermStorageBlobInventoryPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageBlobInventoryPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

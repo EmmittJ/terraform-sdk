@@ -21,8 +21,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformProperty<string>? MaxInactivity
     {
-        get => GetProperty<TerraformProperty<string>>("max_inactivity");
-        set => WithProperty("max_inactivity", value);
+        set => SetProperty("max_inactivity", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformProperty<string>? SessionLength
     {
-        get => GetProperty<TerraformProperty<string>>("session_length");
-        set => WithProperty("session_length", value);
+        set => SetProperty("session_length", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformProperty<bool>? SessionLengthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("session_length_enabled");
-        set => WithProperty("session_length_enabled", value);
+        set => SetProperty("session_length_enabled", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformProperty<string>? SessionReauthMethod
     {
-        get => GetProperty<TerraformProperty<string>>("session_reauth_method");
-        set => WithProperty("session_reauth_method", value);
+        set => SetProperty("session_reauth_method", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformProperty<bool>? UseOidcMaxAge
     {
-        get => GetProperty<TerraformProperty<bool>>("use_oidc_max_age");
-        set => WithProperty("use_oidc_max_age", value);
+        set => SetProperty("use_oidc_max_age", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,16 +103,20 @@ public class GoogleAccessContextManagerGcpUserAccessBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("access_levels");
+        SetOutput("group_key");
+        SetOutput("id");
+        SetOutput("organization_id");
     }
 
     /// <summary>
     /// Optional. Access level that a user must have to be granted access. Only one access level is supported, not multiple. This repeated field must have exactly one element. Example: &amp;quot;accessPolicies/9522/accessLevels/device_trusted&amp;quot;
     /// </summary>
-    public List<TerraformProperty<string>>? AccessLevels
+    public List<TerraformProperty<string>> AccessLevels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("access_levels");
-        set => this.WithProperty("access_levels", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("access_levels");
+        set => SetProperty("access_levels", value);
     }
 
     /// <summary>
@@ -129,17 +125,17 @@ public class GoogleAccessContextManagerGcpUserAccessBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupKey is required")]
     public required TerraformProperty<string> GroupKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_key");
-        set => this.WithProperty("group_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_key");
+        set => SetProperty("group_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -148,8 +144,8 @@ public class GoogleAccessContextManagerGcpUserAccessBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformProperty<string> OrganizationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization_id");
-        set => this.WithProperty("organization_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization_id");
+        set => SetProperty("organization_id", value);
     }
 
     /// <summary>
@@ -158,8 +154,7 @@ public class GoogleAccessContextManagerGcpUserAccessBinding : TerraformResource
     /// </summary>
     public List<GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsBlock>? ScopedAccessSettings
     {
-        get => GetProperty<List<GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsBlock>>("scoped_access_settings");
-        set => this.WithProperty("scoped_access_settings", value);
+        set => SetProperty("scoped_access_settings", value);
     }
 
     /// <summary>
@@ -169,8 +164,7 @@ public class GoogleAccessContextManagerGcpUserAccessBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SessionSettings block(s) allowed")]
     public List<GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock>? SessionSettings
     {
-        get => GetProperty<List<GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock>>("session_settings");
-        set => this.WithProperty("session_settings", value);
+        set => SetProperty("session_settings", value);
     }
 
     /// <summary>
@@ -179,8 +173,7 @@ public class GoogleAccessContextManagerGcpUserAccessBinding : TerraformResource
     /// </summary>
     public GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

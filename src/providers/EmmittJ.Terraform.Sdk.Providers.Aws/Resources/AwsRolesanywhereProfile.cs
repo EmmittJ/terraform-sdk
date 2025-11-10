@@ -14,43 +14,53 @@ public class AwsRolesanywhereProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("duration_seconds");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("managed_policy_arns");
+        SetOutput("name");
+        SetOutput("require_instance_properties");
+        SetOutput("role_arns");
+        SetOutput("session_policy");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? DurationSeconds
+    public TerraformProperty<double> DurationSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("duration_seconds");
-        set => this.WithProperty("duration_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("duration_seconds");
+        set => SetProperty("duration_seconds", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The managed_policy_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ManagedPolicyArns
+    public HashSet<TerraformProperty<string>> ManagedPolicyArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("managed_policy_arns");
-        set => this.WithProperty("managed_policy_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("managed_policy_arns");
+        set => SetProperty("managed_policy_arns", value);
     }
 
     /// <summary>
@@ -59,53 +69,53 @@ public class AwsRolesanywhereProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The require_instance_properties attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireInstanceProperties
+    public TerraformProperty<bool> RequireInstanceProperties
     {
-        get => GetProperty<TerraformProperty<bool>>("require_instance_properties");
-        set => this.WithProperty("require_instance_properties", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_instance_properties");
+        set => SetProperty("require_instance_properties", value);
     }
 
     /// <summary>
     /// The role_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? RoleArns
+    public HashSet<TerraformProperty<string>> RoleArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("role_arns");
-        set => this.WithProperty("role_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("role_arns");
+        set => SetProperty("role_arns", value);
     }
 
     /// <summary>
     /// The session_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? SessionPolicy
+    public TerraformProperty<string> SessionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("session_policy");
-        set => this.WithProperty("session_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("session_policy");
+        set => SetProperty("session_policy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

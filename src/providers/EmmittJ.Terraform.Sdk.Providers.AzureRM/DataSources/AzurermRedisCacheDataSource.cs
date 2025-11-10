@@ -13,8 +13,7 @@ public class AzurermRedisCacheDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,36 +30,39 @@ public class AzurermRedisCacheDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_keys_authentication_enabled");
-        this.WithOutput("capacity");
-        this.WithOutput("family");
-        this.WithOutput("hostname");
-        this.WithOutput("location");
-        this.WithOutput("minimum_tls_version");
-        this.WithOutput("non_ssl_port_enabled");
-        this.WithOutput("patch_schedule");
-        this.WithOutput("port");
-        this.WithOutput("primary_access_key");
-        this.WithOutput("primary_connection_string");
-        this.WithOutput("private_static_ip_address");
-        this.WithOutput("redis_configuration");
-        this.WithOutput("secondary_access_key");
-        this.WithOutput("secondary_connection_string");
-        this.WithOutput("shard_count");
-        this.WithOutput("sku_name");
-        this.WithOutput("ssl_port");
-        this.WithOutput("subnet_id");
-        this.WithOutput("tags");
-        this.WithOutput("zones");
+        SetOutput("access_keys_authentication_enabled");
+        SetOutput("capacity");
+        SetOutput("family");
+        SetOutput("hostname");
+        SetOutput("location");
+        SetOutput("minimum_tls_version");
+        SetOutput("non_ssl_port_enabled");
+        SetOutput("patch_schedule");
+        SetOutput("port");
+        SetOutput("primary_access_key");
+        SetOutput("primary_connection_string");
+        SetOutput("private_static_ip_address");
+        SetOutput("redis_configuration");
+        SetOutput("secondary_access_key");
+        SetOutput("secondary_connection_string");
+        SetOutput("shard_count");
+        SetOutput("sku_name");
+        SetOutput("ssl_port");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,8 +71,8 @@ public class AzurermRedisCacheDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -79,8 +81,8 @@ public class AzurermRedisCacheDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -89,8 +91,7 @@ public class AzurermRedisCacheDataSource : TerraformDataSource
     /// </summary>
     public AzurermRedisCacheDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRedisCacheDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

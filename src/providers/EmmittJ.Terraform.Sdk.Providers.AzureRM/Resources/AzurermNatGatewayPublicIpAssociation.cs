@@ -13,8 +13,7 @@ public class AzurermNatGatewayPublicIpAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNatGatewayPublicIpAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNatGatewayPublicIpAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,18 @@ public class AzurermNatGatewayPublicIpAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("nat_gateway_id");
+        SetOutput("public_ip_address_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +66,8 @@ public class AzurermNatGatewayPublicIpAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatGatewayId is required")]
     public required TerraformProperty<string> NatGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("nat_gateway_id");
-        set => this.WithProperty("nat_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nat_gateway_id");
+        set => SetProperty("nat_gateway_id", value);
     }
 
     /// <summary>
@@ -76,8 +76,8 @@ public class AzurermNatGatewayPublicIpAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformProperty<string> PublicIpAddressId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("public_ip_address_id");
-        set => this.WithProperty("public_ip_address_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_ip_address_id");
+        set => SetProperty("public_ip_address_id", value);
     }
 
     /// <summary>
@@ -86,8 +86,7 @@ public class AzurermNatGatewayPublicIpAssociation : TerraformResource
     /// </summary>
     public AzurermNatGatewayPublicIpAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNatGatewayPublicIpAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

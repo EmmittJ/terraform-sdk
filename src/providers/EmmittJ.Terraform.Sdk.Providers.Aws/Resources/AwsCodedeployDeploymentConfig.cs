@@ -13,8 +13,7 @@ public class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? Value
     {
-        get => GetProperty<TerraformProperty<double>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class AwsCodedeployDeploymentConfigZonalConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? FirstZoneMonitorDurationInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("first_zone_monitor_duration_in_seconds");
-        set => WithProperty("first_zone_monitor_duration_in_seconds", value);
+        set => SetProperty("first_zone_monitor_duration_in_seconds", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AwsCodedeployDeploymentConfigZonalConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MonitorDurationInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("monitor_duration_in_seconds");
-        set => WithProperty("monitor_duration_in_seconds", value);
+        set => SetProperty("monitor_duration_in_seconds", value);
     }
 
 }
@@ -84,17 +79,21 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("deployment_config_id");
+        SetOutput("arn");
+        SetOutput("deployment_config_id");
+        SetOutput("compute_platform");
+        SetOutput("deployment_config_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The compute_platform attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputePlatform
+    public TerraformProperty<string> ComputePlatform
     {
-        get => GetProperty<TerraformProperty<string>>("compute_platform");
-        set => this.WithProperty("compute_platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compute_platform");
+        set => SetProperty("compute_platform", value);
     }
 
     /// <summary>
@@ -103,26 +102,26 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentConfigName is required")]
     public required TerraformProperty<string> DeploymentConfigName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deployment_config_name");
-        set => this.WithProperty("deployment_config_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_config_name");
+        set => SetProperty("deployment_config_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -132,8 +131,7 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinimumHealthyHosts block(s) allowed")]
     public List<AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock>? MinimumHealthyHosts
     {
-        get => GetProperty<List<AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock>>("minimum_healthy_hosts");
-        set => this.WithProperty("minimum_healthy_hosts", value);
+        set => SetProperty("minimum_healthy_hosts", value);
     }
 
     /// <summary>
@@ -143,8 +141,7 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficRoutingConfig block(s) allowed")]
     public List<AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock>? TrafficRoutingConfig
     {
-        get => GetProperty<List<AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock>>("traffic_routing_config");
-        set => this.WithProperty("traffic_routing_config", value);
+        set => SetProperty("traffic_routing_config", value);
     }
 
     /// <summary>
@@ -154,8 +151,7 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZonalConfig block(s) allowed")]
     public List<AwsCodedeployDeploymentConfigZonalConfigBlock>? ZonalConfig
     {
-        get => GetProperty<List<AwsCodedeployDeploymentConfigZonalConfigBlock>>("zonal_config");
-        set => this.WithProperty("zonal_config", value);
+        set => SetProperty("zonal_config", value);
     }
 
     /// <summary>

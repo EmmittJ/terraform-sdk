@@ -13,8 +13,7 @@ public class GoogleIntegrationConnectorsManagedZoneTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIntegrationConnectorsManagedZoneTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleIntegrationConnectorsManagedZoneTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,19 +46,27 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("dns");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("target_project");
+        SetOutput("target_vpc");
     }
 
     /// <summary>
     /// Description of the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -70,17 +75,17 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
     public required TerraformProperty<string> Dns
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns");
-        set => this.WithProperty("dns", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns");
+        set => SetProperty("dns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -90,10 +95,10 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -102,17 +107,17 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -121,8 +126,8 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetProject is required")]
     public required TerraformProperty<string> TargetProject
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_project");
-        set => this.WithProperty("target_project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_project");
+        set => SetProperty("target_project", value);
     }
 
     /// <summary>
@@ -131,8 +136,8 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpc is required")]
     public required TerraformProperty<string> TargetVpc
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_vpc");
-        set => this.WithProperty("target_vpc", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_vpc");
+        set => SetProperty("target_vpc", value);
     }
 
     /// <summary>
@@ -141,8 +146,7 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     /// </summary>
     public GoogleIntegrationConnectorsManagedZoneTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIntegrationConnectorsManagedZoneTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

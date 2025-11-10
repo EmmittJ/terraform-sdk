@@ -14,8 +14,7 @@ public class GoogleAppEngineApplicationFeatureSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SplitHealthChecks is required")]
     public required TerraformProperty<bool> SplitHealthChecks
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("split_health_checks");
-        set => WithProperty("split_health_checks", value);
+        set => SetProperty("split_health_checks", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientId is required")]
     public required TerraformProperty<string> Oauth2ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("oauth2_client_id");
-        set => WithProperty("oauth2_client_id", value);
+        set => SetProperty("oauth2_client_id", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientSecret is required")]
     public required TerraformProperty<string> Oauth2ClientSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("oauth2_client_secret");
-        set => WithProperty("oauth2_client_secret", value);
+        set => SetProperty("oauth2_client_secret", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Oauth2ClientSecretSha256
     {
-        get => GetProperty<TerraformProperty<string>>("oauth2_client_secret_sha256");
-        set => WithProperty("oauth2_client_secret_sha256", value);
+        set => SetProperty("oauth2_client_secret_sha256", value);
     }
 
 }
@@ -77,8 +72,7 @@ public class GoogleAppEngineApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class GoogleAppEngineApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -105,40 +98,47 @@ public class GoogleAppEngineApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_id");
-        this.WithOutput("code_bucket");
-        this.WithOutput("default_bucket");
-        this.WithOutput("default_hostname");
-        this.WithOutput("gcr_domain");
-        this.WithOutput("name");
-        this.WithOutput("url_dispatch_rule");
+        SetOutput("app_id");
+        SetOutput("code_bucket");
+        SetOutput("default_bucket");
+        SetOutput("default_hostname");
+        SetOutput("gcr_domain");
+        SetOutput("name");
+        SetOutput("url_dispatch_rule");
+        SetOutput("auth_domain");
+        SetOutput("database_type");
+        SetOutput("id");
+        SetOutput("location_id");
+        SetOutput("project");
+        SetOutput("serving_status");
+        SetOutput("ssl_policy");
     }
 
     /// <summary>
     /// The domain to authenticate users with when using App Engine&#39;s User API.
     /// </summary>
-    public TerraformProperty<string>? AuthDomain
+    public TerraformProperty<string> AuthDomain
     {
-        get => GetProperty<TerraformProperty<string>>("auth_domain");
-        set => this.WithProperty("auth_domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auth_domain");
+        set => SetProperty("auth_domain", value);
     }
 
     /// <summary>
     /// The database_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseType
+    public TerraformProperty<string> DatabaseType
     {
-        get => GetProperty<TerraformProperty<string>>("database_type");
-        set => this.WithProperty("database_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_type");
+        set => SetProperty("database_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -147,35 +147,35 @@ public class GoogleAppEngineApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
     public required TerraformProperty<string> LocationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location_id");
-        set => this.WithProperty("location_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location_id");
+        set => SetProperty("location_id", value);
     }
 
     /// <summary>
     /// The project ID to create the application under.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The serving status of the app.
     /// </summary>
-    public TerraformProperty<string>? ServingStatus
+    public TerraformProperty<string> ServingStatus
     {
-        get => GetProperty<TerraformProperty<string>>("serving_status");
-        set => this.WithProperty("serving_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("serving_status");
+        set => SetProperty("serving_status", value);
     }
 
     /// <summary>
     /// The SSL policy that will be applied to the application. If set to Modern it will restrict traffic with TLS \u003c 1.2 and allow only Modern Ciphers suite
     /// </summary>
-    public TerraformProperty<string>? SslPolicy
+    public TerraformProperty<string> SslPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_policy");
-        set => this.WithProperty("ssl_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ssl_policy");
+        set => SetProperty("ssl_policy", value);
     }
 
     /// <summary>
@@ -185,8 +185,7 @@ public class GoogleAppEngineApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureSettings block(s) allowed")]
     public List<GoogleAppEngineApplicationFeatureSettingsBlock>? FeatureSettings
     {
-        get => GetProperty<List<GoogleAppEngineApplicationFeatureSettingsBlock>>("feature_settings");
-        set => this.WithProperty("feature_settings", value);
+        set => SetProperty("feature_settings", value);
     }
 
     /// <summary>
@@ -196,8 +195,7 @@ public class GoogleAppEngineApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Iap block(s) allowed")]
     public List<GoogleAppEngineApplicationIapBlock>? Iap
     {
-        get => GetProperty<List<GoogleAppEngineApplicationIapBlock>>("iap");
-        set => this.WithProperty("iap", value);
+        set => SetProperty("iap", value);
     }
 
     /// <summary>
@@ -206,8 +204,7 @@ public class GoogleAppEngineApplication : TerraformResource
     /// </summary>
     public GoogleAppEngineApplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAppEngineApplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

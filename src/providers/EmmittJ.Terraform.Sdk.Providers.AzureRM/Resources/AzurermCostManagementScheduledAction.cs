@@ -13,8 +13,7 @@ public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +54,39 @@ public class AzurermCostManagementScheduledAction : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("day_of_month");
+        SetOutput("days_of_week");
+        SetOutput("display_name");
+        SetOutput("email_address_sender");
+        SetOutput("email_addresses");
+        SetOutput("email_subject");
+        SetOutput("end_date");
+        SetOutput("frequency");
+        SetOutput("hour_of_day");
+        SetOutput("id");
+        SetOutput("message");
+        SetOutput("name");
+        SetOutput("start_date");
+        SetOutput("view_id");
+        SetOutput("weeks_of_month");
     }
 
     /// <summary>
     /// The day_of_month attribute.
     /// </summary>
-    public TerraformProperty<double>? DayOfMonth
+    public TerraformProperty<double> DayOfMonth
     {
-        get => GetProperty<TerraformProperty<double>>("day_of_month");
-        set => this.WithProperty("day_of_month", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("day_of_month");
+        set => SetProperty("day_of_month", value);
     }
 
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DaysOfWeek
+    public List<TerraformProperty<string>> DaysOfWeek
     {
-        get => GetProperty<List<TerraformProperty<string>>>("days_of_week");
-        set => this.WithProperty("days_of_week", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("days_of_week");
+        set => SetProperty("days_of_week", value);
     }
 
     /// <summary>
@@ -84,8 +95,8 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -94,18 +105,18 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddressSender is required")]
     public required TerraformProperty<string> EmailAddressSender
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_address_sender");
-        set => this.WithProperty("email_address_sender", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_address_sender");
+        set => SetProperty("email_address_sender", value);
     }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddresses is required")]
-    public List<TerraformProperty<string>>? EmailAddresses
+    public List<TerraformProperty<string>> EmailAddresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("email_addresses");
-        set => this.WithProperty("email_addresses", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("email_addresses");
+        set => SetProperty("email_addresses", value);
     }
 
     /// <summary>
@@ -114,8 +125,8 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailSubject is required")]
     public required TerraformProperty<string> EmailSubject
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_subject");
-        set => this.WithProperty("email_subject", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_subject");
+        set => SetProperty("email_subject", value);
     }
 
     /// <summary>
@@ -124,8 +135,8 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDate is required")]
     public required TerraformProperty<string> EndDate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("end_date");
-        set => this.WithProperty("end_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date");
+        set => SetProperty("end_date", value);
     }
 
     /// <summary>
@@ -134,35 +145,35 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
-        set => this.WithProperty("frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
     /// The hour_of_day attribute.
     /// </summary>
-    public TerraformProperty<double>? HourOfDay
+    public TerraformProperty<double> HourOfDay
     {
-        get => GetProperty<TerraformProperty<double>>("hour_of_day");
-        set => this.WithProperty("hour_of_day", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("hour_of_day");
+        set => SetProperty("hour_of_day", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public TerraformProperty<string>? Message
+    public TerraformProperty<string> Message
     {
-        get => GetProperty<TerraformProperty<string>>("message");
-        set => this.WithProperty("message", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("message");
+        set => SetProperty("message", value);
     }
 
     /// <summary>
@@ -171,8 +182,8 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -181,8 +192,8 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     public required TerraformProperty<string> StartDate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_date");
-        set => this.WithProperty("start_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_date");
+        set => SetProperty("start_date", value);
     }
 
     /// <summary>
@@ -191,17 +202,17 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewId is required")]
     public required TerraformProperty<string> ViewId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("view_id");
-        set => this.WithProperty("view_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("view_id");
+        set => SetProperty("view_id", value);
     }
 
     /// <summary>
     /// The weeks_of_month attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? WeeksOfMonth
+    public List<TerraformProperty<string>> WeeksOfMonth
     {
-        get => GetProperty<List<TerraformProperty<string>>>("weeks_of_month");
-        set => this.WithProperty("weeks_of_month", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("weeks_of_month");
+        set => SetProperty("weeks_of_month", value);
     }
 
     /// <summary>
@@ -210,8 +221,7 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     /// </summary>
     public AzurermCostManagementScheduledActionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCostManagementScheduledActionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

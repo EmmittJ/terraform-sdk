@@ -12,28 +12,26 @@ public class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlock
     /// Groups that can perform operations as a cluster admin. A managed
     /// ClusterRoleBinding will be created to grant the &#39;cluster-admin&#39; ClusterRole
     /// to the groups. Up to ten admin groups can be provided.
-    ///
+    /// 
     /// For more info on RBAC, see
     /// https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles
     /// </summary>
     public List<TerraformProperty<string>>? AdminGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("admin_groups");
-        set => WithProperty("admin_groups", value);
+        set => SetProperty("admin_groups", value);
     }
 
     /// <summary>
     /// Users that can perform operations as a cluster admin. A managed
     /// ClusterRoleBinding will be created to grant the &#39;cluster-admin&#39; ClusterRole
     /// to the users. Up to ten admin users can be provided.
-    ///
+    /// 
     /// For more info on RBAC, see
     /// https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles
     /// </summary>
     public List<TerraformProperty<string>>? AdminUsers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("admin_users");
-        set => WithProperty("admin_users", value);
+        set => SetProperty("admin_users", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class GoogleContainerAttachedClusterBinaryAuthorizationBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? EvaluationMode
     {
-        get => GetProperty<TerraformProperty<string>>("evaluation_mode");
-        set => WithProperty("evaluation_mode", value);
+        set => SetProperty("evaluation_mode", value);
     }
 
 }
@@ -68,8 +65,7 @@ public class GoogleContainerAttachedClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Membership
     {
-        get => GetProperty<TerraformProperty<string>>("membership");
-        set => WithProperty("membership", value);
+        set => SetProperty("membership", value);
     }
 
     /// <summary>
@@ -78,8 +74,7 @@ public class GoogleContainerAttachedClusterFleetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => WithProperty("project", value);
+        set => SetProperty("project", value);
     }
 
 }
@@ -112,8 +107,7 @@ public class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     public required TerraformProperty<string> IssuerUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("issuer_url");
-        set => WithProperty("issuer_url", value);
+        set => SetProperty("issuer_url", value);
     }
 
     /// <summary>
@@ -121,8 +115,7 @@ public class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Jwks
     {
-        get => GetProperty<TerraformProperty<string>>("jwks");
-        set => WithProperty("jwks", value);
+        set => SetProperty("jwks", value);
     }
 
 }
@@ -148,8 +141,7 @@ public class GoogleContainerAttachedClusterSecurityPostureConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VulnerabilityMode is required")]
     public required TerraformProperty<string> VulnerabilityMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vulnerability_mode");
-        set => WithProperty("vulnerability_mode", value);
+        set => SetProperty("vulnerability_mode", value);
     }
 
 }
@@ -165,8 +157,7 @@ public class GoogleContainerAttachedClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -174,8 +165,7 @@ public class GoogleContainerAttachedClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -183,8 +173,7 @@ public class GoogleContainerAttachedClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -202,16 +191,25 @@ public class GoogleContainerAttachedCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cluster_region");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("errors");
-        this.WithOutput("kubernetes_version");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("workload_identity_config");
+        SetOutput("cluster_region");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("errors");
+        SetOutput("kubernetes_version");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("workload_identity_config");
+        SetOutput("annotations");
+        SetOutput("deletion_policy");
+        SetOutput("description");
+        SetOutput("distribution");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("platform_version");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -221,34 +219,34 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// and name (required), separated by a slash (/). Prefix must be a DNS subdomain.
     /// Name must be 63 characters or less, begin and end with alphanumerics,
     /// with dashes (-), underscores (_), dots (.), and alphanumerics between.
-    ///
-    ///
+    /// 
+    /// 
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// Policy to determine what flags to send on delete. Possible values: DELETE, DELETE_IGNORE_ERRORS
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// A human readable description of this attached cluster. Cannot be longer
     /// than 255 UTF-8 encoded bytes.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -259,17 +257,17 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distribution is required")]
     public required TerraformProperty<string> Distribution
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("distribution");
-        set => this.WithProperty("distribution", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("distribution");
+        set => SetProperty("distribution", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -278,8 +276,8 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -288,8 +286,8 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -298,17 +296,17 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
     public required TerraformProperty<string> PlatformVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("platform_version");
-        set => this.WithProperty("platform_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform_version");
+        set => SetProperty("platform_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -318,8 +316,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     public List<GoogleContainerAttachedClusterAuthorizationBlock>? Authorization
     {
-        get => GetProperty<List<GoogleContainerAttachedClusterAuthorizationBlock>>("authorization");
-        set => this.WithProperty("authorization", value);
+        set => SetProperty("authorization", value);
     }
 
     /// <summary>
@@ -329,20 +326,19 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     public List<GoogleContainerAttachedClusterBinaryAuthorizationBlock>? BinaryAuthorization
     {
-        get => GetProperty<List<GoogleContainerAttachedClusterBinaryAuthorizationBlock>>("binary_authorization");
-        set => this.WithProperty("binary_authorization", value);
+        set => SetProperty("binary_authorization", value);
     }
 
     /// <summary>
     /// Block for fleet.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fleet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     public List<GoogleContainerAttachedClusterFleetBlock>? Fleet
     {
-        get => GetProperty<List<GoogleContainerAttachedClusterFleetBlock>>("fleet");
-        set => this.WithProperty("fleet", value);
+        set => SetProperty("fleet", value);
     }
 
     /// <summary>
@@ -352,8 +348,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     public List<GoogleContainerAttachedClusterLoggingConfigBlock>? LoggingConfig
     {
-        get => GetProperty<List<GoogleContainerAttachedClusterLoggingConfigBlock>>("logging_config");
-        set => this.WithProperty("logging_config", value);
+        set => SetProperty("logging_config", value);
     }
 
     /// <summary>
@@ -363,20 +358,19 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringConfig block(s) allowed")]
     public List<GoogleContainerAttachedClusterMonitoringConfigBlock>? MonitoringConfig
     {
-        get => GetProperty<List<GoogleContainerAttachedClusterMonitoringConfigBlock>>("monitoring_config");
-        set => this.WithProperty("monitoring_config", value);
+        set => SetProperty("monitoring_config", value);
     }
 
     /// <summary>
     /// Block for oidc_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OidcConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OidcConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcConfig block(s) allowed")]
     public List<GoogleContainerAttachedClusterOidcConfigBlock>? OidcConfig
     {
-        get => GetProperty<List<GoogleContainerAttachedClusterOidcConfigBlock>>("oidc_config");
-        set => this.WithProperty("oidc_config", value);
+        set => SetProperty("oidc_config", value);
     }
 
     /// <summary>
@@ -386,8 +380,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyConfig block(s) allowed")]
     public List<GoogleContainerAttachedClusterProxyConfigBlock>? ProxyConfig
     {
-        get => GetProperty<List<GoogleContainerAttachedClusterProxyConfigBlock>>("proxy_config");
-        set => this.WithProperty("proxy_config", value);
+        set => SetProperty("proxy_config", value);
     }
 
     /// <summary>
@@ -398,8 +391,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [Obsolete("This block is deprecated.")]
     public List<GoogleContainerAttachedClusterSecurityPostureConfigBlock>? SecurityPostureConfig
     {
-        get => GetProperty<List<GoogleContainerAttachedClusterSecurityPostureConfigBlock>>("security_posture_config");
-        set => this.WithProperty("security_posture_config", value);
+        set => SetProperty("security_posture_config", value);
     }
 
     /// <summary>
@@ -408,13 +400,12 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     public GoogleContainerAttachedClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleContainerAttachedClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Output only. The region where this cluster runs.
-    ///
+    /// 
     /// For EKS clusters, this is an AWS region. For AKS clusters,
     /// this is an Azure region.
     /// </summary>

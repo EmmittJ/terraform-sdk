@@ -14,8 +14,7 @@ public class GoogleComputeImageGuestOsFeaturesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeySelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
-        set => WithProperty("kms_key_self_link", value);
+        set => SetProperty("kms_key_self_link", value);
     }
 
     /// <summary>
@@ -43,8 +41,7 @@ public class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
-        set => WithProperty("kms_key_service_account", value);
+        set => SetProperty("kms_key_service_account", value);
     }
 
     /// <summary>
@@ -53,8 +50,7 @@ public class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RawKey
     {
-        get => GetProperty<TerraformProperty<string>>("raw_key");
-        set => WithProperty("raw_key", value);
+        set => SetProperty("raw_key", value);
     }
 
     /// <summary>
@@ -63,8 +59,7 @@ public class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RsaEncryptedKey
     {
-        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
-        set => WithProperty("rsa_encrypted_key", value);
+        set => SetProperty("rsa_encrypted_key", value);
     }
 
 }
@@ -83,8 +78,7 @@ public class GoogleComputeImageRawDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerType
     {
-        get => GetProperty<TerraformProperty<string>>("container_type");
-        set => WithProperty("container_type", value);
+        set => SetProperty("container_type", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class GoogleComputeImageRawDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Sha1
     {
-        get => GetProperty<TerraformProperty<string>>("sha1");
-        set => WithProperty("sha1", value);
+        set => SetProperty("sha1", value);
     }
 
     /// <summary>
@@ -105,8 +98,7 @@ public class GoogleComputeImageRawDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -134,8 +126,7 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeySelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
-        set => WithProperty("kms_key_self_link", value);
+        set => SetProperty("kms_key_self_link", value);
     }
 
     /// <summary>
@@ -145,8 +136,7 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
-        set => WithProperty("kms_key_service_account", value);
+        set => SetProperty("kms_key_service_account", value);
     }
 
     /// <summary>
@@ -155,8 +145,7 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RawKey
     {
-        get => GetProperty<TerraformProperty<string>>("raw_key");
-        set => WithProperty("raw_key", value);
+        set => SetProperty("raw_key", value);
     }
 
     /// <summary>
@@ -166,8 +155,7 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RsaEncryptedKey
     {
-        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
-        set => WithProperty("rsa_encrypted_key", value);
+        set => SetProperty("rsa_encrypted_key", value);
     }
 
 }
@@ -187,8 +175,7 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeySelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
-        set => WithProperty("kms_key_self_link", value);
+        set => SetProperty("kms_key_self_link", value);
     }
 
     /// <summary>
@@ -198,8 +185,7 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
-        set => WithProperty("kms_key_service_account", value);
+        set => SetProperty("kms_key_service_account", value);
     }
 
     /// <summary>
@@ -208,8 +194,7 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RawKey
     {
-        get => GetProperty<TerraformProperty<string>>("raw_key");
-        set => WithProperty("raw_key", value);
+        set => SetProperty("raw_key", value);
     }
 
     /// <summary>
@@ -219,8 +204,7 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RsaEncryptedKey
     {
-        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
-        set => WithProperty("rsa_encrypted_key", value);
+        set => SetProperty("rsa_encrypted_key", value);
     }
 
 }
@@ -240,8 +224,7 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeySelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
-        set => WithProperty("kms_key_self_link", value);
+        set => SetProperty("kms_key_self_link", value);
     }
 
     /// <summary>
@@ -251,8 +234,7 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
-        set => WithProperty("kms_key_service_account", value);
+        set => SetProperty("kms_key_service_account", value);
     }
 
     /// <summary>
@@ -261,8 +243,7 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RawKey
     {
-        get => GetProperty<TerraformProperty<string>>("raw_key");
-        set => WithProperty("raw_key", value);
+        set => SetProperty("raw_key", value);
     }
 
     /// <summary>
@@ -272,8 +253,7 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RsaEncryptedKey
     {
-        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
-        set => WithProperty("rsa_encrypted_key", value);
+        set => SetProperty("rsa_encrypted_key", value);
     }
 
 }
@@ -289,8 +269,7 @@ public class GoogleComputeImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -298,8 +277,7 @@ public class GoogleComputeImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -307,8 +285,7 @@ public class GoogleComputeImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -326,31 +303,43 @@ public class GoogleComputeImage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("archive_size_bytes");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("effective_labels");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
+        SetOutput("archive_size_bytes");
+        SetOutput("creation_timestamp");
+        SetOutput("effective_labels");
+        SetOutput("label_fingerprint");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("disk_size_gb");
+        SetOutput("family");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("licenses");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("source_disk");
+        SetOutput("source_image");
+        SetOutput("source_snapshot");
+        SetOutput("storage_locations");
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Size of the image when restored onto a persistent disk (in GB).
     /// </summary>
-    public TerraformProperty<double>? DiskSizeGb
+    public TerraformProperty<double> DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
-        set => this.WithProperty("disk_size_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("disk_size_gb");
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
@@ -360,19 +349,19 @@ public class GoogleComputeImage : TerraformResource
     /// not deprecated. The name of the image family must comply with
     /// RFC1035.
     /// </summary>
-    public TerraformProperty<string>? Family
+    public TerraformProperty<string> Family
     {
-        get => GetProperty<TerraformProperty<string>>("family");
-        set => this.WithProperty("family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("family");
+        set => SetProperty("family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -381,19 +370,19 @@ public class GoogleComputeImage : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public List<TerraformProperty<string>>? Licenses
+    public List<TerraformProperty<string>> Licenses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("licenses");
-        set => this.WithProperty("licenses", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("licenses");
+        set => SetProperty("licenses", value);
     }
 
     /// <summary>
@@ -408,17 +397,17 @@ public class GoogleComputeImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -426,10 +415,10 @@ public class GoogleComputeImage : TerraformResource
     /// You must provide either this property or the
     /// rawDisk.source property but not both to create an image.
     /// </summary>
-    public TerraformProperty<string>? SourceDisk
+    public TerraformProperty<string> SourceDisk
     {
-        get => GetProperty<TerraformProperty<string>>("source_disk");
-        set => this.WithProperty("source_disk", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_disk");
+        set => SetProperty("source_disk", value);
     }
 
     /// <summary>
@@ -441,10 +430,10 @@ public class GoogleComputeImage : TerraformResource
     /// * The rawDisk.source URL
     /// * The sourceDisk URL
     /// </summary>
-    public TerraformProperty<string>? SourceImage
+    public TerraformProperty<string> SourceImage
     {
-        get => GetProperty<TerraformProperty<string>>("source_image");
-        set => this.WithProperty("source_image", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_image");
+        set => SetProperty("source_image", value);
     }
 
     /// <summary>
@@ -458,10 +447,10 @@ public class GoogleComputeImage : TerraformResource
     /// * The rawDisk.source URL
     /// * The sourceDisk URL
     /// </summary>
-    public TerraformProperty<string>? SourceSnapshot
+    public TerraformProperty<string> SourceSnapshot
     {
-        get => GetProperty<TerraformProperty<string>>("source_snapshot");
-        set => this.WithProperty("source_snapshot", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_snapshot");
+        set => SetProperty("source_snapshot", value);
     }
 
     /// <summary>
@@ -469,10 +458,10 @@ public class GoogleComputeImage : TerraformResource
     /// (regional or multi-regional).
     /// Reference link: https://cloud.google.com/compute/docs/reference/rest/v1/images
     /// </summary>
-    public List<TerraformProperty<string>>? StorageLocations
+    public List<TerraformProperty<string>> StorageLocations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("storage_locations");
-        set => this.WithProperty("storage_locations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("storage_locations");
+        set => SetProperty("storage_locations", value);
     }
 
     /// <summary>
@@ -481,8 +470,7 @@ public class GoogleComputeImage : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeImageGuestOsFeaturesBlock>? GuestOsFeatures
     {
-        get => GetProperty<HashSet<GoogleComputeImageGuestOsFeaturesBlock>>("guest_os_features");
-        set => this.WithProperty("guest_os_features", value);
+        set => SetProperty("guest_os_features", value);
     }
 
     /// <summary>
@@ -492,8 +480,7 @@ public class GoogleComputeImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageEncryptionKey block(s) allowed")]
     public List<GoogleComputeImageImageEncryptionKeyBlock>? ImageEncryptionKey
     {
-        get => GetProperty<List<GoogleComputeImageImageEncryptionKeyBlock>>("image_encryption_key");
-        set => this.WithProperty("image_encryption_key", value);
+        set => SetProperty("image_encryption_key", value);
     }
 
     /// <summary>
@@ -503,8 +490,7 @@ public class GoogleComputeImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RawDisk block(s) allowed")]
     public List<GoogleComputeImageRawDiskBlock>? RawDisk
     {
-        get => GetProperty<List<GoogleComputeImageRawDiskBlock>>("raw_disk");
-        set => this.WithProperty("raw_disk", value);
+        set => SetProperty("raw_disk", value);
     }
 
     /// <summary>
@@ -514,8 +500,7 @@ public class GoogleComputeImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceInitialState block(s) allowed")]
     public List<GoogleComputeImageShieldedInstanceInitialStateBlock>? ShieldedInstanceInitialState
     {
-        get => GetProperty<List<GoogleComputeImageShieldedInstanceInitialStateBlock>>("shielded_instance_initial_state");
-        set => this.WithProperty("shielded_instance_initial_state", value);
+        set => SetProperty("shielded_instance_initial_state", value);
     }
 
     /// <summary>
@@ -525,8 +510,7 @@ public class GoogleComputeImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceDiskEncryptionKey block(s) allowed")]
     public List<GoogleComputeImageSourceDiskEncryptionKeyBlock>? SourceDiskEncryptionKey
     {
-        get => GetProperty<List<GoogleComputeImageSourceDiskEncryptionKeyBlock>>("source_disk_encryption_key");
-        set => this.WithProperty("source_disk_encryption_key", value);
+        set => SetProperty("source_disk_encryption_key", value);
     }
 
     /// <summary>
@@ -536,8 +520,7 @@ public class GoogleComputeImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageEncryptionKey block(s) allowed")]
     public List<GoogleComputeImageSourceImageEncryptionKeyBlock>? SourceImageEncryptionKey
     {
-        get => GetProperty<List<GoogleComputeImageSourceImageEncryptionKeyBlock>>("source_image_encryption_key");
-        set => this.WithProperty("source_image_encryption_key", value);
+        set => SetProperty("source_image_encryption_key", value);
     }
 
     /// <summary>
@@ -547,8 +530,7 @@ public class GoogleComputeImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceSnapshotEncryptionKey block(s) allowed")]
     public List<GoogleComputeImageSourceSnapshotEncryptionKeyBlock>? SourceSnapshotEncryptionKey
     {
-        get => GetProperty<List<GoogleComputeImageSourceSnapshotEncryptionKeyBlock>>("source_snapshot_encryption_key");
-        set => this.WithProperty("source_snapshot_encryption_key", value);
+        set => SetProperty("source_snapshot_encryption_key", value);
     }
 
     /// <summary>
@@ -557,8 +539,7 @@ public class GoogleComputeImage : TerraformResource
     /// </summary>
     public GoogleComputeImageTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeImageTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

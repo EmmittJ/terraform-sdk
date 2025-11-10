@@ -13,8 +13,7 @@ public class AzurermVmwareNetappVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVmwareNetappVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVmwareNetappVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,19 @@ public class AzurermVmwareNetappVolumeAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("netapp_volume_id");
+        SetOutput("vmware_cluster_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AzurermVmwareNetappVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AzurermVmwareNetappVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappVolumeId is required")]
     public required TerraformProperty<string> NetappVolumeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("netapp_volume_id");
-        set => this.WithProperty("netapp_volume_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("netapp_volume_id");
+        set => SetProperty("netapp_volume_id", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class AzurermVmwareNetappVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareClusterId is required")]
     public required TerraformProperty<string> VmwareClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vmware_cluster_id");
-        set => this.WithProperty("vmware_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vmware_cluster_id");
+        set => SetProperty("vmware_cluster_id", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class AzurermVmwareNetappVolumeAttachment : TerraformResource
     /// </summary>
     public AzurermVmwareNetappVolumeAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVmwareNetappVolumeAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

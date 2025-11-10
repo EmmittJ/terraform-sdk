@@ -25,8 +25,7 @@ public class GoogleContainerClusterAnonymousAuthenticationConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -43,8 +42,7 @@ public class GoogleContainerClusterAuthenticatorGroupsConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroup is required")]
     public required TerraformProperty<string> SecurityGroup
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("security_group");
-        set => WithProperty("security_group", value);
+        set => SetProperty("security_group", value);
     }
 
 }
@@ -61,8 +59,7 @@ public class GoogleContainerClusterBinaryAuthorizationBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -70,8 +67,7 @@ public class GoogleContainerClusterBinaryAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EvaluationMode
     {
-        get => GetProperty<TerraformProperty<string>>("evaluation_mode");
-        set => WithProperty("evaluation_mode", value);
+        set => SetProperty("evaluation_mode", value);
     }
 
 }
@@ -87,8 +83,7 @@ public class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AutoProvisioningLocations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("auto_provisioning_locations");
-        set => WithProperty("auto_provisioning_locations", value);
+        set => SetProperty("auto_provisioning_locations", value);
     }
 
     /// <summary>
@@ -96,8 +91,7 @@ public class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AutoscalingProfile
     {
-        get => GetProperty<TerraformProperty<string>>("autoscaling_profile");
-        set => WithProperty("autoscaling_profile", value);
+        set => SetProperty("autoscaling_profile", value);
     }
 
     /// <summary>
@@ -105,8 +99,7 @@ public class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DefaultComputeClassEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("default_compute_class_enabled");
-        set => WithProperty("default_compute_class_enabled", value);
+        set => SetProperty("default_compute_class_enabled", value);
     }
 
     /// <summary>
@@ -114,8 +107,7 @@ public class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -131,8 +123,7 @@ public class GoogleContainerClusterConfidentialNodesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConfidentialInstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("confidential_instance_type");
-        set => WithProperty("confidential_instance_type", value);
+        set => SetProperty("confidential_instance_type", value);
     }
 
     /// <summary>
@@ -141,8 +132,7 @@ public class GoogleContainerClusterConfidentialNodesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -167,8 +157,7 @@ public class GoogleContainerClusterCostManagementConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -184,8 +173,7 @@ public class GoogleContainerClusterDatabaseEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyName
     {
-        get => GetProperty<TerraformProperty<string>>("key_name");
-        set => WithProperty("key_name", value);
+        set => SetProperty("key_name", value);
     }
 
     /// <summary>
@@ -194,8 +182,7 @@ public class GoogleContainerClusterDatabaseEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -212,8 +199,7 @@ public class GoogleContainerClusterDefaultSnatStatusBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformProperty<bool> Disabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("disabled");
-        set => WithProperty("disabled", value);
+        set => SetProperty("disabled", value);
     }
 
 }
@@ -229,8 +215,7 @@ public class GoogleContainerClusterDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AdditiveVpcScopeDnsDomain
     {
-        get => GetProperty<TerraformProperty<string>>("additive_vpc_scope_dns_domain");
-        set => WithProperty("additive_vpc_scope_dns_domain", value);
+        set => SetProperty("additive_vpc_scope_dns_domain", value);
     }
 
     /// <summary>
@@ -238,8 +223,7 @@ public class GoogleContainerClusterDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterDns
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_dns");
-        set => WithProperty("cluster_dns", value);
+        set => SetProperty("cluster_dns", value);
     }
 
     /// <summary>
@@ -247,8 +231,7 @@ public class GoogleContainerClusterDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterDnsDomain
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_dns_domain");
-        set => WithProperty("cluster_dns_domain", value);
+        set => SetProperty("cluster_dns_domain", value);
     }
 
     /// <summary>
@@ -256,8 +239,7 @@ public class GoogleContainerClusterDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterDnsScope
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_dns_scope");
-        set => WithProperty("cluster_dns_scope", value);
+        set => SetProperty("cluster_dns_scope", value);
     }
 
 }
@@ -274,8 +256,7 @@ public class GoogleContainerClusterEnableK8sBetaApisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledApis is required")]
     public HashSet<TerraformProperty<string>>? EnabledApis
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_apis");
-        set => WithProperty("enabled_apis", value);
+        set => SetProperty("enabled_apis", value);
     }
 
 }
@@ -293,8 +274,7 @@ public class GoogleContainerClusterEnterpriseConfigBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? ClusterTier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_tier");
-        set => WithProperty("cluster_tier", value);
+        set => SetProperty("cluster_tier", value);
     }
 
     /// <summary>
@@ -303,8 +283,7 @@ public class GoogleContainerClusterEnterpriseConfigBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? DesiredTier
     {
-        get => GetProperty<TerraformProperty<string>>("desired_tier");
-        set => WithProperty("desired_tier", value);
+        set => SetProperty("desired_tier", value);
     }
 
 }
@@ -320,8 +299,7 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Membership
     {
-        get => GetProperty<TerraformProperty<string>>("membership");
-        set => WithProperty("membership", value);
+        set => SetProperty("membership", value);
     }
 
     /// <summary>
@@ -329,8 +307,7 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MembershipId
     {
-        get => GetProperty<TerraformProperty<string>>("membership_id");
-        set => WithProperty("membership_id", value);
+        set => SetProperty("membership_id", value);
     }
 
     /// <summary>
@@ -338,8 +315,7 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MembershipLocation
     {
-        get => GetProperty<TerraformProperty<string>>("membership_location");
-        set => WithProperty("membership_location", value);
+        set => SetProperty("membership_location", value);
     }
 
     /// <summary>
@@ -347,8 +323,7 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MembershipType
     {
-        get => GetProperty<TerraformProperty<string>>("membership_type");
-        set => WithProperty("membership_type", value);
+        set => SetProperty("membership_type", value);
     }
 
     /// <summary>
@@ -356,8 +331,7 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PreRegistered
     {
-        get => GetProperty<TerraformProperty<bool>>("pre_registered");
-        set => WithProperty("pre_registered", value);
+        set => SetProperty("pre_registered", value);
     }
 
     /// <summary>
@@ -365,8 +339,7 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => WithProperty("project", value);
+        set => SetProperty("project", value);
     }
 
 }
@@ -383,8 +356,7 @@ public class GoogleContainerClusterGatewayApiConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformProperty<string> Channel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("channel");
-        set => WithProperty("channel", value);
+        set => SetProperty("channel", value);
     }
 
 }
@@ -402,8 +374,7 @@ public class GoogleContainerClusterGkeAutoUpgradeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchMode is required")]
     public required TerraformProperty<string> PatchMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("patch_mode");
-        set => WithProperty("patch_mode", value);
+        set => SetProperty("patch_mode", value);
     }
 
 }
@@ -419,8 +390,7 @@ public class GoogleContainerClusterIdentityServiceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -436,8 +406,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterIpv4CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_ipv4_cidr_block");
-        set => WithProperty("cluster_ipv4_cidr_block", value);
+        set => SetProperty("cluster_ipv4_cidr_block", value);
     }
 
     /// <summary>
@@ -445,8 +414,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterSecondaryRangeName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_secondary_range_name");
-        set => WithProperty("cluster_secondary_range_name", value);
+        set => SetProperty("cluster_secondary_range_name", value);
     }
 
     /// <summary>
@@ -454,8 +422,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServicesIpv4CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("services_ipv4_cidr_block");
-        set => WithProperty("services_ipv4_cidr_block", value);
+        set => SetProperty("services_ipv4_cidr_block", value);
     }
 
     /// <summary>
@@ -463,8 +430,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServicesSecondaryRangeName
     {
-        get => GetProperty<TerraformProperty<string>>("services_secondary_range_name");
-        set => WithProperty("services_secondary_range_name", value);
+        set => SetProperty("services_secondary_range_name", value);
     }
 
     /// <summary>
@@ -472,8 +438,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StackType
     {
-        get => GetProperty<TerraformProperty<string>>("stack_type");
-        set => WithProperty("stack_type", value);
+        set => SetProperty("stack_type", value);
     }
 
 }
@@ -490,8 +455,7 @@ public class GoogleContainerClusterLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableComponents is required")]
     public List<TerraformProperty<string>>? EnableComponents
     {
-        get => GetProperty<List<TerraformProperty<string>>>("enable_components");
-        set => WithProperty("enable_components", value);
+        set => SetProperty("enable_components", value);
     }
 
 }
@@ -515,8 +479,7 @@ public class GoogleContainerClusterMasterAuthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate");
-        set => WithProperty("client_certificate", value);
+        set => SetProperty("client_certificate", value);
     }
 
     /// <summary>
@@ -524,8 +487,7 @@ public class GoogleContainerClusterMasterAuthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientKey
     {
-        get => GetProperty<TerraformProperty<string>>("client_key");
-        set => WithProperty("client_key", value);
+        set => SetProperty("client_key", value);
     }
 
     /// <summary>
@@ -533,8 +495,7 @@ public class GoogleContainerClusterMasterAuthBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterCaCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_ca_certificate");
-        set => WithProperty("cluster_ca_certificate", value);
+        set => SetProperty("cluster_ca_certificate", value);
     }
 
 }
@@ -550,8 +511,7 @@ public class GoogleContainerClusterMasterAuthorizedNetworksConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? GcpPublicCidrsAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("gcp_public_cidrs_access_enabled");
-        set => WithProperty("gcp_public_cidrs_access_enabled", value);
+        set => SetProperty("gcp_public_cidrs_access_enabled", value);
     }
 
     /// <summary>
@@ -559,8 +519,7 @@ public class GoogleContainerClusterMasterAuthorizedNetworksConfigBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? PrivateEndpointEnforcementEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_endpoint_enforcement_enabled");
-        set => WithProperty("private_endpoint_enforcement_enabled", value);
+        set => SetProperty("private_endpoint_enforcement_enabled", value);
     }
 
 }
@@ -577,8 +536,7 @@ public class GoogleContainerClusterMeshCertificatesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableCertificates is required")]
     public required TerraformProperty<bool> EnableCertificates
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enable_certificates");
-        set => WithProperty("enable_certificates", value);
+        set => SetProperty("enable_certificates", value);
     }
 
 }
@@ -594,8 +552,7 @@ public class GoogleContainerClusterMonitoringConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? EnableComponents
     {
-        get => GetProperty<List<TerraformProperty<string>>>("enable_components");
-        set => WithProperty("enable_components", value);
+        set => SetProperty("enable_components", value);
     }
 
 }
@@ -612,8 +569,7 @@ public class GoogleContainerClusterNetworkPerformanceConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalEgressBandwidthTier is required")]
     public required TerraformProperty<string> TotalEgressBandwidthTier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("total_egress_bandwidth_tier");
-        set => WithProperty("total_egress_bandwidth_tier", value);
+        set => SetProperty("total_egress_bandwidth_tier", value);
     }
 
 }
@@ -630,8 +586,7 @@ public class GoogleContainerClusterNetworkPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -639,8 +594,7 @@ public class GoogleContainerClusterNetworkPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Provider
     {
-        get => GetProperty<TerraformProperty<string>>("provider");
-        set => WithProperty("provider", value);
+        set => SetProperty("provider", value);
     }
 
 }
@@ -656,8 +610,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BootDiskKmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("boot_disk_kms_key");
-        set => WithProperty("boot_disk_kms_key", value);
+        set => SetProperty("boot_disk_kms_key", value);
     }
 
     /// <summary>
@@ -665,8 +618,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
-        set => WithProperty("disk_size_gb", value);
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
@@ -674,8 +626,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskType
     {
-        get => GetProperty<TerraformProperty<string>>("disk_type");
-        set => WithProperty("disk_type", value);
+        set => SetProperty("disk_type", value);
     }
 
     /// <summary>
@@ -683,8 +634,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? EffectiveTaints
     {
-        get => GetProperty<List<TerraformProperty<object>>>("effective_taints");
-        set => WithProperty("effective_taints", value);
+        set => SetProperty("effective_taints", value);
     }
 
     /// <summary>
@@ -692,8 +642,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableConfidentialStorage
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_confidential_storage");
-        set => WithProperty("enable_confidential_storage", value);
+        set => SetProperty("enable_confidential_storage", value);
     }
 
     /// <summary>
@@ -701,8 +650,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? FlexStart
     {
-        get => GetProperty<TerraformProperty<bool>>("flex_start");
-        set => WithProperty("flex_start", value);
+        set => SetProperty("flex_start", value);
     }
 
     /// <summary>
@@ -710,8 +658,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImageType
     {
-        get => GetProperty<TerraformProperty<string>>("image_type");
-        set => WithProperty("image_type", value);
+        set => SetProperty("image_type", value);
     }
 
     /// <summary>
@@ -719,8 +666,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -728,8 +674,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? LocalSsdCount
     {
-        get => GetProperty<TerraformProperty<double>>("local_ssd_count");
-        set => WithProperty("local_ssd_count", value);
+        set => SetProperty("local_ssd_count", value);
     }
 
     /// <summary>
@@ -737,8 +682,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocalSsdEncryptionMode
     {
-        get => GetProperty<TerraformProperty<string>>("local_ssd_encryption_mode");
-        set => WithProperty("local_ssd_encryption_mode", value);
+        set => SetProperty("local_ssd_encryption_mode", value);
     }
 
     /// <summary>
@@ -746,8 +690,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LoggingVariant
     {
-        get => GetProperty<TerraformProperty<string>>("logging_variant");
-        set => WithProperty("logging_variant", value);
+        set => SetProperty("logging_variant", value);
     }
 
     /// <summary>
@@ -755,8 +698,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
-        set => WithProperty("machine_type", value);
+        set => SetProperty("machine_type", value);
     }
 
     /// <summary>
@@ -764,8 +706,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxRunDuration
     {
-        get => GetProperty<TerraformProperty<string>>("max_run_duration");
-        set => WithProperty("max_run_duration", value);
+        set => SetProperty("max_run_duration", value);
     }
 
     /// <summary>
@@ -773,8 +714,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -782,8 +722,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinCpuPlatform
     {
-        get => GetProperty<TerraformProperty<string>>("min_cpu_platform");
-        set => WithProperty("min_cpu_platform", value);
+        set => SetProperty("min_cpu_platform", value);
     }
 
     /// <summary>
@@ -791,8 +730,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NodeGroup
     {
-        get => GetProperty<TerraformProperty<string>>("node_group");
-        set => WithProperty("node_group", value);
+        set => SetProperty("node_group", value);
     }
 
     /// <summary>
@@ -800,8 +738,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? OauthScopes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("oauth_scopes");
-        set => WithProperty("oauth_scopes", value);
+        set => SetProperty("oauth_scopes", value);
     }
 
     /// <summary>
@@ -809,8 +746,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Preemptible
     {
-        get => GetProperty<TerraformProperty<bool>>("preemptible");
-        set => WithProperty("preemptible", value);
+        set => SetProperty("preemptible", value);
     }
 
     /// <summary>
@@ -818,8 +754,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_labels");
-        set => WithProperty("resource_labels", value);
+        set => SetProperty("resource_labels", value);
     }
 
     /// <summary>
@@ -827,8 +762,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
-        set => WithProperty("resource_manager_tags", value);
+        set => SetProperty("resource_manager_tags", value);
     }
 
     /// <summary>
@@ -836,8 +770,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => WithProperty("service_account", value);
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
@@ -845,8 +778,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Spot
     {
-        get => GetProperty<TerraformProperty<bool>>("spot");
-        set => WithProperty("spot", value);
+        set => SetProperty("spot", value);
     }
 
     /// <summary>
@@ -854,8 +786,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? StoragePools
     {
-        get => GetProperty<List<TerraformProperty<string>>>("storage_pools");
-        set => WithProperty("storage_pools", value);
+        set => SetProperty("storage_pools", value);
     }
 
     /// <summary>
@@ -863,8 +794,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Tags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
 }
@@ -880,8 +810,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? InitialNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("initial_node_count");
-        set => WithProperty("initial_node_count", value);
+        set => SetProperty("initial_node_count", value);
     }
 
     /// <summary>
@@ -889,8 +818,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? InstanceGroupUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("instance_group_urls");
-        set => WithProperty("instance_group_urls", value);
+        set => SetProperty("instance_group_urls", value);
     }
 
     /// <summary>
@@ -898,8 +826,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ManagedInstanceGroupUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("managed_instance_group_urls");
-        set => WithProperty("managed_instance_group_urls", value);
+        set => SetProperty("managed_instance_group_urls", value);
     }
 
     /// <summary>
@@ -907,8 +834,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxPodsPerNode
     {
-        get => GetProperty<TerraformProperty<double>>("max_pods_per_node");
-        set => WithProperty("max_pods_per_node", value);
+        set => SetProperty("max_pods_per_node", value);
     }
 
     /// <summary>
@@ -916,8 +842,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -925,8 +850,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => WithProperty("name_prefix", value);
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
@@ -934,8 +858,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
-        set => WithProperty("node_count", value);
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
@@ -943,8 +866,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? NodeLocations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("node_locations");
-        set => WithProperty("node_locations", value);
+        set => SetProperty("node_locations", value);
     }
 
     /// <summary>
@@ -952,8 +874,7 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -969,8 +890,7 @@ public class GoogleContainerClusterNodePoolAutoConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
-        set => WithProperty("resource_manager_tags", value);
+        set => SetProperty("resource_manager_tags", value);
     }
 
 }
@@ -1008,8 +928,7 @@ public class GoogleContainerClusterPodAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HpaProfile is required")]
     public required TerraformProperty<string> HpaProfile
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hpa_profile");
-        set => WithProperty("hpa_profile", value);
+        set => SetProperty("hpa_profile", value);
     }
 
 }
@@ -1025,8 +944,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnablePrivateEndpoint
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_private_endpoint");
-        set => WithProperty("enable_private_endpoint", value);
+        set => SetProperty("enable_private_endpoint", value);
     }
 
     /// <summary>
@@ -1034,8 +952,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnablePrivateNodes
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_private_nodes");
-        set => WithProperty("enable_private_nodes", value);
+        set => SetProperty("enable_private_nodes", value);
     }
 
     /// <summary>
@@ -1043,8 +960,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MasterIpv4CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("master_ipv4_cidr_block");
-        set => WithProperty("master_ipv4_cidr_block", value);
+        set => SetProperty("master_ipv4_cidr_block", value);
     }
 
     /// <summary>
@@ -1052,8 +968,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PeeringName
     {
-        get => GetProperty<TerraformProperty<string>>("peering_name");
-        set => WithProperty("peering_name", value);
+        set => SetProperty("peering_name", value);
     }
 
     /// <summary>
@@ -1061,8 +976,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("private_endpoint");
-        set => WithProperty("private_endpoint", value);
+        set => SetProperty("private_endpoint", value);
     }
 
     /// <summary>
@@ -1070,8 +984,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateEndpointSubnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("private_endpoint_subnetwork");
-        set => WithProperty("private_endpoint_subnetwork", value);
+        set => SetProperty("private_endpoint_subnetwork", value);
     }
 
     /// <summary>
@@ -1079,8 +992,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PublicEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("public_endpoint");
-        set => WithProperty("public_endpoint", value);
+        set => SetProperty("public_endpoint", value);
     }
 
 }
@@ -1096,8 +1008,7 @@ public class GoogleContainerClusterRbacBindingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableInsecureBindingSystemAuthenticated
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_insecure_binding_system_authenticated");
-        set => WithProperty("enable_insecure_binding_system_authenticated", value);
+        set => SetProperty("enable_insecure_binding_system_authenticated", value);
     }
 
     /// <summary>
@@ -1105,8 +1016,7 @@ public class GoogleContainerClusterRbacBindingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableInsecureBindingSystemUnauthenticated
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_insecure_binding_system_unauthenticated");
-        set => WithProperty("enable_insecure_binding_system_unauthenticated", value);
+        set => SetProperty("enable_insecure_binding_system_unauthenticated", value);
     }
 
 }
@@ -1128,8 +1038,7 @@ public class GoogleContainerClusterReleaseChannelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformProperty<string> Channel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("channel");
-        set => WithProperty("channel", value);
+        set => SetProperty("channel", value);
     }
 
 }
@@ -1145,8 +1054,7 @@ public class GoogleContainerClusterResourceUsageExportConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? EnableNetworkEgressMetering
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_network_egress_metering");
-        set => WithProperty("enable_network_egress_metering", value);
+        set => SetProperty("enable_network_egress_metering", value);
     }
 
     /// <summary>
@@ -1154,8 +1062,7 @@ public class GoogleContainerClusterResourceUsageExportConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? EnableResourceConsumptionMetering
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_resource_consumption_metering");
-        set => WithProperty("enable_resource_consumption_metering", value);
+        set => SetProperty("enable_resource_consumption_metering", value);
     }
 
 }
@@ -1172,8 +1079,7 @@ public class GoogleContainerClusterSecretManagerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -1189,8 +1095,7 @@ public class GoogleContainerClusterSecurityPostureConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -1198,8 +1103,7 @@ public class GoogleContainerClusterSecurityPostureConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VulnerabilityMode
     {
-        get => GetProperty<TerraformProperty<string>>("vulnerability_mode");
-        set => WithProperty("vulnerability_mode", value);
+        set => SetProperty("vulnerability_mode", value);
     }
 
 }
@@ -1216,8 +1120,7 @@ public class GoogleContainerClusterServiceExternalIpsConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -1233,8 +1136,7 @@ public class GoogleContainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -1242,8 +1144,7 @@ public class GoogleContainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -1251,8 +1152,7 @@ public class GoogleContainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -1260,8 +1160,7 @@ public class GoogleContainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -1277,8 +1176,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AggregationCa
     {
-        get => GetProperty<TerraformProperty<string>>("aggregation_ca");
-        set => WithProperty("aggregation_ca", value);
+        set => SetProperty("aggregation_ca", value);
     }
 
     /// <summary>
@@ -1286,8 +1184,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterCa
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_ca");
-        set => WithProperty("cluster_ca", value);
+        set => SetProperty("cluster_ca", value);
     }
 
     /// <summary>
@@ -1295,8 +1192,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ControlPlaneDiskEncryptionKey
     {
-        get => GetProperty<TerraformProperty<string>>("control_plane_disk_encryption_key");
-        set => WithProperty("control_plane_disk_encryption_key", value);
+        set => SetProperty("control_plane_disk_encryption_key", value);
     }
 
     /// <summary>
@@ -1304,8 +1200,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EtcdApiCa
     {
-        get => GetProperty<TerraformProperty<string>>("etcd_api_ca");
-        set => WithProperty("etcd_api_ca", value);
+        set => SetProperty("etcd_api_ca", value);
     }
 
     /// <summary>
@@ -1313,8 +1208,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EtcdPeerCa
     {
-        get => GetProperty<TerraformProperty<string>>("etcd_peer_ca");
-        set => WithProperty("etcd_peer_ca", value);
+        set => SetProperty("etcd_peer_ca", value);
     }
 
     /// <summary>
@@ -1322,8 +1216,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GkeopsEtcdBackupEncryptionKey
     {
-        get => GetProperty<TerraformProperty<string>>("gkeops_etcd_backup_encryption_key");
-        set => WithProperty("gkeops_etcd_backup_encryption_key", value);
+        set => SetProperty("gkeops_etcd_backup_encryption_key", value);
     }
 
     /// <summary>
@@ -1331,8 +1224,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ServiceAccountSigningKeys
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("service_account_signing_keys");
-        set => WithProperty("service_account_signing_keys", value);
+        set => SetProperty("service_account_signing_keys", value);
     }
 
     /// <summary>
@@ -1340,8 +1232,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ServiceAccountVerificationKeys
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("service_account_verification_keys");
-        set => WithProperty("service_account_verification_keys", value);
+        set => SetProperty("service_account_verification_keys", value);
     }
 
 }
@@ -1358,8 +1249,7 @@ public class GoogleContainerClusterVerticalPodAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -1375,8 +1265,7 @@ public class GoogleContainerClusterWorkloadIdentityConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WorkloadPool
     {
-        get => GetProperty<TerraformProperty<string>>("workload_pool");
-        set => WithProperty("workload_pool", value);
+        set => SetProperty("workload_pool", value);
     }
 
 }
@@ -1394,231 +1283,265 @@ public class GoogleContainerCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("endpoint");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("master_version");
-        this.WithOutput("operation");
-        this.WithOutput("self_link");
-        this.WithOutput("services_ipv4_cidr");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("tpu_ipv4_cidr_block");
+        SetOutput("effective_labels");
+        SetOutput("endpoint");
+        SetOutput("label_fingerprint");
+        SetOutput("master_version");
+        SetOutput("operation");
+        SetOutput("self_link");
+        SetOutput("services_ipv4_cidr");
+        SetOutput("terraform_labels");
+        SetOutput("tpu_ipv4_cidr_block");
+        SetOutput("allow_net_admin");
+        SetOutput("cluster_ipv4_cidr");
+        SetOutput("datapath_provider");
+        SetOutput("default_max_pods_per_node");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("disable_l4_lb_firewall_reconciliation");
+        SetOutput("enable_autopilot");
+        SetOutput("enable_cilium_clusterwide_network_policy");
+        SetOutput("enable_fqdn_network_policy");
+        SetOutput("enable_intranode_visibility");
+        SetOutput("enable_kubernetes_alpha");
+        SetOutput("enable_l4_ilb_subsetting");
+        SetOutput("enable_legacy_abac");
+        SetOutput("enable_multi_networking");
+        SetOutput("enable_shielded_nodes");
+        SetOutput("enable_tpu");
+        SetOutput("id");
+        SetOutput("in_transit_encryption_config");
+        SetOutput("initial_node_count");
+        SetOutput("location");
+        SetOutput("logging_service");
+        SetOutput("min_master_version");
+        SetOutput("monitoring_service");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("networking_mode");
+        SetOutput("node_locations");
+        SetOutput("node_version");
+        SetOutput("private_ipv6_google_access");
+        SetOutput("project");
+        SetOutput("remove_default_node_pool");
+        SetOutput("resource_labels");
+        SetOutput("subnetwork");
     }
 
     /// <summary>
     /// Enable NET_ADMIN for this cluster.
     /// </summary>
-    public TerraformProperty<bool>? AllowNetAdmin
+    public TerraformProperty<bool> AllowNetAdmin
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_net_admin");
-        set => this.WithProperty("allow_net_admin", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_net_admin");
+        set => SetProperty("allow_net_admin", value);
     }
 
     /// <summary>
     /// The IP address range of the Kubernetes pods in this cluster in CIDR notation (e.g. 10.96.0.0/14). Leave blank to have one automatically chosen or specify a /14 block in 10.0.0.0/8. This field will only work for routes-based clusters, where ip_allocation_policy is not defined.
     /// </summary>
-    public TerraformProperty<string>? ClusterIpv4Cidr
+    public TerraformProperty<string> ClusterIpv4Cidr
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_ipv4_cidr");
-        set => this.WithProperty("cluster_ipv4_cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_ipv4_cidr");
+        set => SetProperty("cluster_ipv4_cidr", value);
     }
 
     /// <summary>
     /// The desired datapath provider for this cluster. By default, uses the IPTables-based kube-proxy implementation.
     /// </summary>
-    public TerraformProperty<string>? DatapathProvider
+    public TerraformProperty<string> DatapathProvider
     {
-        get => GetProperty<TerraformProperty<string>>("datapath_provider");
-        set => this.WithProperty("datapath_provider", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("datapath_provider");
+        set => SetProperty("datapath_provider", value);
     }
 
     /// <summary>
     /// The default maximum number of pods per node in this cluster. This doesn&#39;t work on &amp;quot;routes-based&amp;quot; clusters, clusters that don&#39;t have IP Aliasing enabled.
     /// </summary>
-    public TerraformProperty<double>? DefaultMaxPodsPerNode
+    public TerraformProperty<double> DefaultMaxPodsPerNode
     {
-        get => GetProperty<TerraformProperty<double>>("default_max_pods_per_node");
-        set => this.WithProperty("default_max_pods_per_node", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_max_pods_per_node");
+        set => SetProperty("default_max_pods_per_node", value);
     }
 
     /// <summary>
     /// When the field is set to true or unset in Terraform state, a terraform apply or terraform destroy that would delete the cluster will fail. When the field is set to false, deleting the cluster is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     ///  Description of the cluster.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Disable L4 load balancer VPC firewalls to enable firewall policies.
     /// </summary>
-    public TerraformProperty<bool>? DisableL4LbFirewallReconciliation
+    public TerraformProperty<bool> DisableL4LbFirewallReconciliation
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_l4_lb_firewall_reconciliation");
-        set => this.WithProperty("disable_l4_lb_firewall_reconciliation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_l4_lb_firewall_reconciliation");
+        set => SetProperty("disable_l4_lb_firewall_reconciliation", value);
     }
 
     /// <summary>
     /// Enable Autopilot for this cluster.
     /// </summary>
-    public TerraformProperty<bool>? EnableAutopilot
+    public TerraformProperty<bool> EnableAutopilot
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_autopilot");
-        set => this.WithProperty("enable_autopilot", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_autopilot");
+        set => SetProperty("enable_autopilot", value);
     }
 
     /// <summary>
     /// Whether Cilium cluster-wide network policy is enabled on this cluster.
     /// </summary>
-    public TerraformProperty<bool>? EnableCiliumClusterwideNetworkPolicy
+    public TerraformProperty<bool> EnableCiliumClusterwideNetworkPolicy
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_cilium_clusterwide_network_policy");
-        set => this.WithProperty("enable_cilium_clusterwide_network_policy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_cilium_clusterwide_network_policy");
+        set => SetProperty("enable_cilium_clusterwide_network_policy", value);
     }
 
     /// <summary>
     /// Whether FQDN Network Policy is enabled on this cluster.
     /// </summary>
-    public TerraformProperty<bool>? EnableFqdnNetworkPolicy
+    public TerraformProperty<bool> EnableFqdnNetworkPolicy
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_fqdn_network_policy");
-        set => this.WithProperty("enable_fqdn_network_policy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_fqdn_network_policy");
+        set => SetProperty("enable_fqdn_network_policy", value);
     }
 
     /// <summary>
     /// Whether Intra-node visibility is enabled for this cluster. This makes same node pod to pod traffic visible for VPC network.
     /// </summary>
-    public TerraformProperty<bool>? EnableIntranodeVisibility
+    public TerraformProperty<bool> EnableIntranodeVisibility
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_intranode_visibility");
-        set => this.WithProperty("enable_intranode_visibility", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_intranode_visibility");
+        set => SetProperty("enable_intranode_visibility", value);
     }
 
     /// <summary>
     /// Whether to enable Kubernetes Alpha features for this cluster. Note that when this option is enabled, the cluster cannot be upgraded and will be automatically deleted after 30 days.
     /// </summary>
-    public TerraformProperty<bool>? EnableKubernetesAlpha
+    public TerraformProperty<bool> EnableKubernetesAlpha
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_kubernetes_alpha");
-        set => this.WithProperty("enable_kubernetes_alpha", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_kubernetes_alpha");
+        set => SetProperty("enable_kubernetes_alpha", value);
     }
 
     /// <summary>
     /// Whether L4ILB Subsetting is enabled for this cluster.
     /// </summary>
-    public TerraformProperty<bool>? EnableL4IlbSubsetting
+    public TerraformProperty<bool> EnableL4IlbSubsetting
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_l4_ilb_subsetting");
-        set => this.WithProperty("enable_l4_ilb_subsetting", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_l4_ilb_subsetting");
+        set => SetProperty("enable_l4_ilb_subsetting", value);
     }
 
     /// <summary>
     /// Whether the ABAC authorizer is enabled for this cluster. When enabled, identities in the system, including service accounts, nodes, and controllers, will have statically granted permissions beyond those provided by the RBAC configuration or IAM. Defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? EnableLegacyAbac
+    public TerraformProperty<bool> EnableLegacyAbac
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_legacy_abac");
-        set => this.WithProperty("enable_legacy_abac", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_legacy_abac");
+        set => SetProperty("enable_legacy_abac", value);
     }
 
     /// <summary>
     /// Whether multi-networking is enabled for this cluster.
     /// </summary>
-    public TerraformProperty<bool>? EnableMultiNetworking
+    public TerraformProperty<bool> EnableMultiNetworking
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_multi_networking");
-        set => this.WithProperty("enable_multi_networking", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_multi_networking");
+        set => SetProperty("enable_multi_networking", value);
     }
 
     /// <summary>
     /// Enable Shielded Nodes features on all nodes in this cluster. Defaults to true.
     /// </summary>
-    public TerraformProperty<bool>? EnableShieldedNodes
+    public TerraformProperty<bool> EnableShieldedNodes
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_shielded_nodes");
-        set => this.WithProperty("enable_shielded_nodes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_shielded_nodes");
+        set => SetProperty("enable_shielded_nodes", value);
     }
 
     /// <summary>
     /// Whether to enable Cloud TPU resources in this cluster.
     /// </summary>
-    public TerraformProperty<bool>? EnableTpu
+    public TerraformProperty<bool> EnableTpu
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_tpu");
-        set => this.WithProperty("enable_tpu", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_tpu");
+        set => SetProperty("enable_tpu", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Defines the config of in-transit encryption
     /// </summary>
-    public TerraformProperty<string>? InTransitEncryptionConfig
+    public TerraformProperty<string> InTransitEncryptionConfig
     {
-        get => GetProperty<TerraformProperty<string>>("in_transit_encryption_config");
-        set => this.WithProperty("in_transit_encryption_config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("in_transit_encryption_config");
+        set => SetProperty("in_transit_encryption_config", value);
     }
 
     /// <summary>
     /// The number of nodes to create in this cluster&#39;s default node pool. In regional or multi-zonal clusters, this is the number of nodes per zone. Must be set if node_pool is not set. If you&#39;re using google_container_node_pool objects with no default node pool, you&#39;ll need to set this to a value of at least 1, alongside setting remove_default_node_pool to true.
     /// </summary>
-    public TerraformProperty<double>? InitialNodeCount
+    public TerraformProperty<double> InitialNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("initial_node_count");
-        set => this.WithProperty("initial_node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("initial_node_count");
+        set => SetProperty("initial_node_count", value);
     }
 
     /// <summary>
     /// The location (region or zone) in which the cluster master will be created, as well as the default node location. If you specify a zone (such as us-central1-a), the cluster will be a zonal cluster with a single cluster master. If you specify a region (such as us-west1), the cluster will be a regional cluster with multiple masters spread across zones in the region, and with default node locations in those zones as well.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The logging service that the cluster should write logs to. Available options include logging.googleapis.com(Legacy Stackdriver), logging.googleapis.com/kubernetes(Stackdriver Kubernetes Engine Logging), and none. Defaults to logging.googleapis.com/kubernetes.
     /// </summary>
-    public TerraformProperty<string>? LoggingService
+    public TerraformProperty<string> LoggingService
     {
-        get => GetProperty<TerraformProperty<string>>("logging_service");
-        set => this.WithProperty("logging_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logging_service");
+        set => SetProperty("logging_service", value);
     }
 
     /// <summary>
     /// The minimum version of the master. GKE will auto-update the master to new versions, so this does not guarantee the current master version--use the read-only master_version field to obtain that. If unset, the cluster&#39;s version will be set by GKE to the version of the most recent official release (which is not necessarily the latest version).
     /// </summary>
-    public TerraformProperty<string>? MinMasterVersion
+    public TerraformProperty<string> MinMasterVersion
     {
-        get => GetProperty<TerraformProperty<string>>("min_master_version");
-        set => this.WithProperty("min_master_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("min_master_version");
+        set => SetProperty("min_master_version", value);
     }
 
     /// <summary>
     /// The monitoring service that the cluster should write metrics to. Automatically send metrics from pods in the cluster to the Google Cloud Monitoring API. VM metrics will be collected by Google Compute Engine regardless of this setting Available options include monitoring.googleapis.com(Legacy Stackdriver), monitoring.googleapis.com/kubernetes(Stackdriver Kubernetes Engine Monitoring), and none. Defaults to monitoring.googleapis.com/kubernetes.
     /// </summary>
-    public TerraformProperty<string>? MonitoringService
+    public TerraformProperty<string> MonitoringService
     {
-        get => GetProperty<TerraformProperty<string>>("monitoring_service");
-        set => this.WithProperty("monitoring_service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("monitoring_service");
+        set => SetProperty("monitoring_service", value);
     }
 
     /// <summary>
@@ -1627,71 +1550,71 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name or self_link of the Google Compute Engine network to which the cluster is connected. For Shared VPC, set this to the self link of the shared network.
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// Determines whether alias IPs or routes will be used for pod IPs in the cluster. Defaults to VPC_NATIVE for new clusters.
     /// </summary>
-    public TerraformProperty<string>? NetworkingMode
+    public TerraformProperty<string> NetworkingMode
     {
-        get => GetProperty<TerraformProperty<string>>("networking_mode");
-        set => this.WithProperty("networking_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("networking_mode");
+        set => SetProperty("networking_mode", value);
     }
 
     /// <summary>
     /// The list of zones in which the cluster&#39;s nodes are located. Nodes must be in the region of their regional cluster or in the same region as their cluster&#39;s zone for zonal clusters. If this is specified for a zonal cluster, omit the cluster&#39;s zone.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NodeLocations
+    public HashSet<TerraformProperty<string>> NodeLocations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("node_locations");
-        set => this.WithProperty("node_locations", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("node_locations");
+        set => SetProperty("node_locations", value);
     }
 
     /// <summary>
     /// The Kubernetes version on the nodes. Must either be unset or set to the same value as min_master_version on create. Defaults to the default version set by GKE which is not necessarily the latest version. This only affects nodes in the default node pool. While a fuzzy version can be specified, it&#39;s recommended that you specify explicit versions as Terraform will see spurious diffs when fuzzy versions are used. See the google_container_engine_versions data source&#39;s version_prefix field to approximate fuzzy versions in a Terraform-compatible way. To update nodes in other node pools, use the version attribute on the node pool.
     /// </summary>
-    public TerraformProperty<string>? NodeVersion
+    public TerraformProperty<string> NodeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("node_version");
-        set => this.WithProperty("node_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_version");
+        set => SetProperty("node_version", value);
     }
 
     /// <summary>
     /// The desired state of IPv6 connectivity to Google Services. By default, no private IPv6 access to or from Google Services (all access will be via IPv4).
     /// </summary>
-    public TerraformProperty<string>? PrivateIpv6GoogleAccess
+    public TerraformProperty<string> PrivateIpv6GoogleAccess
     {
-        get => GetProperty<TerraformProperty<string>>("private_ipv6_google_access");
-        set => this.WithProperty("private_ipv6_google_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_ipv6_google_access");
+        set => SetProperty("private_ipv6_google_access", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// If true, deletes the default node pool upon cluster creation. If you&#39;re using google_container_node_pool resources with no default node pool, this should be set to true, alongside setting initial_node_count to at least 1.
     /// </summary>
-    public TerraformProperty<bool>? RemoveDefaultNodePool
+    public TerraformProperty<bool> RemoveDefaultNodePool
     {
-        get => GetProperty<TerraformProperty<bool>>("remove_default_node_pool");
-        set => this.WithProperty("remove_default_node_pool", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("remove_default_node_pool");
+        set => SetProperty("remove_default_node_pool", value);
     }
 
     /// <summary>
@@ -1700,19 +1623,19 @@ public class GoogleContainerCluster : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResourceLabels
+    public Dictionary<string, TerraformProperty<string>> ResourceLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_labels");
-        set => this.WithProperty("resource_labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("resource_labels");
+        set => SetProperty("resource_labels", value);
     }
 
     /// <summary>
     /// The name or self_link of the Google Compute Engine subnetwork in which the cluster&#39;s instances are launched.
     /// </summary>
-    public TerraformProperty<string>? Subnetwork
+    public TerraformProperty<string> Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => this.WithProperty("subnetwork", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnetwork");
+        set => SetProperty("subnetwork", value);
     }
 
     /// <summary>
@@ -1722,8 +1645,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddonsConfig block(s) allowed")]
     public List<GoogleContainerClusterAddonsConfigBlock>? AddonsConfig
     {
-        get => GetProperty<List<GoogleContainerClusterAddonsConfigBlock>>("addons_config");
-        set => this.WithProperty("addons_config", value);
+        set => SetProperty("addons_config", value);
     }
 
     /// <summary>
@@ -1733,8 +1655,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnonymousAuthenticationConfig block(s) allowed")]
     public List<GoogleContainerClusterAnonymousAuthenticationConfigBlock>? AnonymousAuthenticationConfig
     {
-        get => GetProperty<List<GoogleContainerClusterAnonymousAuthenticationConfigBlock>>("anonymous_authentication_config");
-        set => this.WithProperty("anonymous_authentication_config", value);
+        set => SetProperty("anonymous_authentication_config", value);
     }
 
     /// <summary>
@@ -1744,8 +1665,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticatorGroupsConfig block(s) allowed")]
     public List<GoogleContainerClusterAuthenticatorGroupsConfigBlock>? AuthenticatorGroupsConfig
     {
-        get => GetProperty<List<GoogleContainerClusterAuthenticatorGroupsConfigBlock>>("authenticator_groups_config");
-        set => this.WithProperty("authenticator_groups_config", value);
+        set => SetProperty("authenticator_groups_config", value);
     }
 
     /// <summary>
@@ -1755,8 +1675,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     public List<GoogleContainerClusterBinaryAuthorizationBlock>? BinaryAuthorization
     {
-        get => GetProperty<List<GoogleContainerClusterBinaryAuthorizationBlock>>("binary_authorization");
-        set => this.WithProperty("binary_authorization", value);
+        set => SetProperty("binary_authorization", value);
     }
 
     /// <summary>
@@ -1766,8 +1685,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterAutoscaling block(s) allowed")]
     public List<GoogleContainerClusterClusterAutoscalingBlock>? ClusterAutoscaling
     {
-        get => GetProperty<List<GoogleContainerClusterClusterAutoscalingBlock>>("cluster_autoscaling");
-        set => this.WithProperty("cluster_autoscaling", value);
+        set => SetProperty("cluster_autoscaling", value);
     }
 
     /// <summary>
@@ -1777,8 +1695,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfidentialNodes block(s) allowed")]
     public List<GoogleContainerClusterConfidentialNodesBlock>? ConfidentialNodes
     {
-        get => GetProperty<List<GoogleContainerClusterConfidentialNodesBlock>>("confidential_nodes");
-        set => this.WithProperty("confidential_nodes", value);
+        set => SetProperty("confidential_nodes", value);
     }
 
     /// <summary>
@@ -1788,8 +1705,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneEndpointsConfig block(s) allowed")]
     public List<GoogleContainerClusterControlPlaneEndpointsConfigBlock>? ControlPlaneEndpointsConfig
     {
-        get => GetProperty<List<GoogleContainerClusterControlPlaneEndpointsConfigBlock>>("control_plane_endpoints_config");
-        set => this.WithProperty("control_plane_endpoints_config", value);
+        set => SetProperty("control_plane_endpoints_config", value);
     }
 
     /// <summary>
@@ -1799,8 +1715,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CostManagementConfig block(s) allowed")]
     public List<GoogleContainerClusterCostManagementConfigBlock>? CostManagementConfig
     {
-        get => GetProperty<List<GoogleContainerClusterCostManagementConfigBlock>>("cost_management_config");
-        set => this.WithProperty("cost_management_config", value);
+        set => SetProperty("cost_management_config", value);
     }
 
     /// <summary>
@@ -1810,8 +1725,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DatabaseEncryption block(s) allowed")]
     public List<GoogleContainerClusterDatabaseEncryptionBlock>? DatabaseEncryption
     {
-        get => GetProperty<List<GoogleContainerClusterDatabaseEncryptionBlock>>("database_encryption");
-        set => this.WithProperty("database_encryption", value);
+        set => SetProperty("database_encryption", value);
     }
 
     /// <summary>
@@ -1821,8 +1735,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultSnatStatus block(s) allowed")]
     public List<GoogleContainerClusterDefaultSnatStatusBlock>? DefaultSnatStatus
     {
-        get => GetProperty<List<GoogleContainerClusterDefaultSnatStatusBlock>>("default_snat_status");
-        set => this.WithProperty("default_snat_status", value);
+        set => SetProperty("default_snat_status", value);
     }
 
     /// <summary>
@@ -1832,8 +1745,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
     public List<GoogleContainerClusterDnsConfigBlock>? DnsConfig
     {
-        get => GetProperty<List<GoogleContainerClusterDnsConfigBlock>>("dns_config");
-        set => this.WithProperty("dns_config", value);
+        set => SetProperty("dns_config", value);
     }
 
     /// <summary>
@@ -1843,8 +1755,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnableK8sBetaApis block(s) allowed")]
     public List<GoogleContainerClusterEnableK8sBetaApisBlock>? EnableK8sBetaApis
     {
-        get => GetProperty<List<GoogleContainerClusterEnableK8sBetaApisBlock>>("enable_k8s_beta_apis");
-        set => this.WithProperty("enable_k8s_beta_apis", value);
+        set => SetProperty("enable_k8s_beta_apis", value);
     }
 
     /// <summary>
@@ -1855,8 +1766,7 @@ public class GoogleContainerCluster : TerraformResource
     [Obsolete("This block is deprecated.")]
     public List<GoogleContainerClusterEnterpriseConfigBlock>? EnterpriseConfig
     {
-        get => GetProperty<List<GoogleContainerClusterEnterpriseConfigBlock>>("enterprise_config");
-        set => this.WithProperty("enterprise_config", value);
+        set => SetProperty("enterprise_config", value);
     }
 
     /// <summary>
@@ -1866,8 +1776,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     public List<GoogleContainerClusterFleetBlock>? Fleet
     {
-        get => GetProperty<List<GoogleContainerClusterFleetBlock>>("fleet");
-        set => this.WithProperty("fleet", value);
+        set => SetProperty("fleet", value);
     }
 
     /// <summary>
@@ -1877,8 +1786,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GatewayApiConfig block(s) allowed")]
     public List<GoogleContainerClusterGatewayApiConfigBlock>? GatewayApiConfig
     {
-        get => GetProperty<List<GoogleContainerClusterGatewayApiConfigBlock>>("gateway_api_config");
-        set => this.WithProperty("gateway_api_config", value);
+        set => SetProperty("gateway_api_config", value);
     }
 
     /// <summary>
@@ -1888,8 +1796,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GkeAutoUpgradeConfig block(s) allowed")]
     public List<GoogleContainerClusterGkeAutoUpgradeConfigBlock>? GkeAutoUpgradeConfig
     {
-        get => GetProperty<List<GoogleContainerClusterGkeAutoUpgradeConfigBlock>>("gke_auto_upgrade_config");
-        set => this.WithProperty("gke_auto_upgrade_config", value);
+        set => SetProperty("gke_auto_upgrade_config", value);
     }
 
     /// <summary>
@@ -1899,8 +1806,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdentityServiceConfig block(s) allowed")]
     public List<GoogleContainerClusterIdentityServiceConfigBlock>? IdentityServiceConfig
     {
-        get => GetProperty<List<GoogleContainerClusterIdentityServiceConfigBlock>>("identity_service_config");
-        set => this.WithProperty("identity_service_config", value);
+        set => SetProperty("identity_service_config", value);
     }
 
     /// <summary>
@@ -1910,8 +1816,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpAllocationPolicy block(s) allowed")]
     public List<GoogleContainerClusterIpAllocationPolicyBlock>? IpAllocationPolicy
     {
-        get => GetProperty<List<GoogleContainerClusterIpAllocationPolicyBlock>>("ip_allocation_policy");
-        set => this.WithProperty("ip_allocation_policy", value);
+        set => SetProperty("ip_allocation_policy", value);
     }
 
     /// <summary>
@@ -1921,8 +1826,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     public List<GoogleContainerClusterLoggingConfigBlock>? LoggingConfig
     {
-        get => GetProperty<List<GoogleContainerClusterLoggingConfigBlock>>("logging_config");
-        set => this.WithProperty("logging_config", value);
+        set => SetProperty("logging_config", value);
     }
 
     /// <summary>
@@ -1932,8 +1836,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     public List<GoogleContainerClusterMaintenancePolicyBlock>? MaintenancePolicy
     {
-        get => GetProperty<List<GoogleContainerClusterMaintenancePolicyBlock>>("maintenance_policy");
-        set => this.WithProperty("maintenance_policy", value);
+        set => SetProperty("maintenance_policy", value);
     }
 
     /// <summary>
@@ -1943,8 +1846,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MasterAuth block(s) allowed")]
     public List<GoogleContainerClusterMasterAuthBlock>? MasterAuth
     {
-        get => GetProperty<List<GoogleContainerClusterMasterAuthBlock>>("master_auth");
-        set => this.WithProperty("master_auth", value);
+        set => SetProperty("master_auth", value);
     }
 
     /// <summary>
@@ -1954,8 +1856,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MasterAuthorizedNetworksConfig block(s) allowed")]
     public List<GoogleContainerClusterMasterAuthorizedNetworksConfigBlock>? MasterAuthorizedNetworksConfig
     {
-        get => GetProperty<List<GoogleContainerClusterMasterAuthorizedNetworksConfigBlock>>("master_authorized_networks_config");
-        set => this.WithProperty("master_authorized_networks_config", value);
+        set => SetProperty("master_authorized_networks_config", value);
     }
 
     /// <summary>
@@ -1965,8 +1866,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MeshCertificates block(s) allowed")]
     public List<GoogleContainerClusterMeshCertificatesBlock>? MeshCertificates
     {
-        get => GetProperty<List<GoogleContainerClusterMeshCertificatesBlock>>("mesh_certificates");
-        set => this.WithProperty("mesh_certificates", value);
+        set => SetProperty("mesh_certificates", value);
     }
 
     /// <summary>
@@ -1976,8 +1876,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringConfig block(s) allowed")]
     public List<GoogleContainerClusterMonitoringConfigBlock>? MonitoringConfig
     {
-        get => GetProperty<List<GoogleContainerClusterMonitoringConfigBlock>>("monitoring_config");
-        set => this.WithProperty("monitoring_config", value);
+        set => SetProperty("monitoring_config", value);
     }
 
     /// <summary>
@@ -1987,8 +1886,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkPerformanceConfig block(s) allowed")]
     public List<GoogleContainerClusterNetworkPerformanceConfigBlock>? NetworkPerformanceConfig
     {
-        get => GetProperty<List<GoogleContainerClusterNetworkPerformanceConfigBlock>>("network_performance_config");
-        set => this.WithProperty("network_performance_config", value);
+        set => SetProperty("network_performance_config", value);
     }
 
     /// <summary>
@@ -1998,8 +1896,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkPolicy block(s) allowed")]
     public List<GoogleContainerClusterNetworkPolicyBlock>? NetworkPolicy
     {
-        get => GetProperty<List<GoogleContainerClusterNetworkPolicyBlock>>("network_policy");
-        set => this.WithProperty("network_policy", value);
+        set => SetProperty("network_policy", value);
     }
 
     /// <summary>
@@ -2009,8 +1906,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     public List<GoogleContainerClusterNodeConfigBlock>? NodeConfig
     {
-        get => GetProperty<List<GoogleContainerClusterNodeConfigBlock>>("node_config");
-        set => this.WithProperty("node_config", value);
+        set => SetProperty("node_config", value);
     }
 
     /// <summary>
@@ -2019,8 +1915,7 @@ public class GoogleContainerCluster : TerraformResource
     /// </summary>
     public List<GoogleContainerClusterNodePoolBlock>? NodePool
     {
-        get => GetProperty<List<GoogleContainerClusterNodePoolBlock>>("node_pool");
-        set => this.WithProperty("node_pool", value);
+        set => SetProperty("node_pool", value);
     }
 
     /// <summary>
@@ -2030,8 +1925,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolAutoConfig block(s) allowed")]
     public List<GoogleContainerClusterNodePoolAutoConfigBlock>? NodePoolAutoConfig
     {
-        get => GetProperty<List<GoogleContainerClusterNodePoolAutoConfigBlock>>("node_pool_auto_config");
-        set => this.WithProperty("node_pool_auto_config", value);
+        set => SetProperty("node_pool_auto_config", value);
     }
 
     /// <summary>
@@ -2041,8 +1935,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolDefaults block(s) allowed")]
     public List<GoogleContainerClusterNodePoolDefaultsBlock>? NodePoolDefaults
     {
-        get => GetProperty<List<GoogleContainerClusterNodePoolDefaultsBlock>>("node_pool_defaults");
-        set => this.WithProperty("node_pool_defaults", value);
+        set => SetProperty("node_pool_defaults", value);
     }
 
     /// <summary>
@@ -2052,8 +1945,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     public List<GoogleContainerClusterNotificationConfigBlock>? NotificationConfig
     {
-        get => GetProperty<List<GoogleContainerClusterNotificationConfigBlock>>("notification_config");
-        set => this.WithProperty("notification_config", value);
+        set => SetProperty("notification_config", value);
     }
 
     /// <summary>
@@ -2063,8 +1955,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PodAutoscaling block(s) allowed")]
     public List<GoogleContainerClusterPodAutoscalingBlock>? PodAutoscaling
     {
-        get => GetProperty<List<GoogleContainerClusterPodAutoscalingBlock>>("pod_autoscaling");
-        set => this.WithProperty("pod_autoscaling", value);
+        set => SetProperty("pod_autoscaling", value);
     }
 
     /// <summary>
@@ -2074,8 +1965,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateClusterConfig block(s) allowed")]
     public List<GoogleContainerClusterPrivateClusterConfigBlock>? PrivateClusterConfig
     {
-        get => GetProperty<List<GoogleContainerClusterPrivateClusterConfigBlock>>("private_cluster_config");
-        set => this.WithProperty("private_cluster_config", value);
+        set => SetProperty("private_cluster_config", value);
     }
 
     /// <summary>
@@ -2085,8 +1975,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RbacBindingConfig block(s) allowed")]
     public List<GoogleContainerClusterRbacBindingConfigBlock>? RbacBindingConfig
     {
-        get => GetProperty<List<GoogleContainerClusterRbacBindingConfigBlock>>("rbac_binding_config");
-        set => this.WithProperty("rbac_binding_config", value);
+        set => SetProperty("rbac_binding_config", value);
     }
 
     /// <summary>
@@ -2096,8 +1985,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReleaseChannel block(s) allowed")]
     public List<GoogleContainerClusterReleaseChannelBlock>? ReleaseChannel
     {
-        get => GetProperty<List<GoogleContainerClusterReleaseChannelBlock>>("release_channel");
-        set => this.WithProperty("release_channel", value);
+        set => SetProperty("release_channel", value);
     }
 
     /// <summary>
@@ -2107,8 +1995,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceUsageExportConfig block(s) allowed")]
     public List<GoogleContainerClusterResourceUsageExportConfigBlock>? ResourceUsageExportConfig
     {
-        get => GetProperty<List<GoogleContainerClusterResourceUsageExportConfigBlock>>("resource_usage_export_config");
-        set => this.WithProperty("resource_usage_export_config", value);
+        set => SetProperty("resource_usage_export_config", value);
     }
 
     /// <summary>
@@ -2118,8 +2005,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretManagerConfig block(s) allowed")]
     public List<GoogleContainerClusterSecretManagerConfigBlock>? SecretManagerConfig
     {
-        get => GetProperty<List<GoogleContainerClusterSecretManagerConfigBlock>>("secret_manager_config");
-        set => this.WithProperty("secret_manager_config", value);
+        set => SetProperty("secret_manager_config", value);
     }
 
     /// <summary>
@@ -2129,8 +2015,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityPostureConfig block(s) allowed")]
     public List<GoogleContainerClusterSecurityPostureConfigBlock>? SecurityPostureConfig
     {
-        get => GetProperty<List<GoogleContainerClusterSecurityPostureConfigBlock>>("security_posture_config");
-        set => this.WithProperty("security_posture_config", value);
+        set => SetProperty("security_posture_config", value);
     }
 
     /// <summary>
@@ -2140,8 +2025,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceExternalIpsConfig block(s) allowed")]
     public List<GoogleContainerClusterServiceExternalIpsConfigBlock>? ServiceExternalIpsConfig
     {
-        get => GetProperty<List<GoogleContainerClusterServiceExternalIpsConfigBlock>>("service_external_ips_config");
-        set => this.WithProperty("service_external_ips_config", value);
+        set => SetProperty("service_external_ips_config", value);
     }
 
     /// <summary>
@@ -2150,8 +2034,7 @@ public class GoogleContainerCluster : TerraformResource
     /// </summary>
     public GoogleContainerClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleContainerClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -2161,8 +2044,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserManagedKeysConfig block(s) allowed")]
     public List<GoogleContainerClusterUserManagedKeysConfigBlock>? UserManagedKeysConfig
     {
-        get => GetProperty<List<GoogleContainerClusterUserManagedKeysConfigBlock>>("user_managed_keys_config");
-        set => this.WithProperty("user_managed_keys_config", value);
+        set => SetProperty("user_managed_keys_config", value);
     }
 
     /// <summary>
@@ -2172,8 +2054,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VerticalPodAutoscaling block(s) allowed")]
     public List<GoogleContainerClusterVerticalPodAutoscalingBlock>? VerticalPodAutoscaling
     {
-        get => GetProperty<List<GoogleContainerClusterVerticalPodAutoscalingBlock>>("vertical_pod_autoscaling");
-        set => this.WithProperty("vertical_pod_autoscaling", value);
+        set => SetProperty("vertical_pod_autoscaling", value);
     }
 
     /// <summary>
@@ -2183,8 +2064,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadIdentityConfig block(s) allowed")]
     public List<GoogleContainerClusterWorkloadIdentityConfigBlock>? WorkloadIdentityConfig
     {
-        get => GetProperty<List<GoogleContainerClusterWorkloadIdentityConfigBlock>>("workload_identity_config");
-        set => this.WithProperty("workload_identity_config", value);
+        set => SetProperty("workload_identity_config", value);
     }
 
     /// <summary>

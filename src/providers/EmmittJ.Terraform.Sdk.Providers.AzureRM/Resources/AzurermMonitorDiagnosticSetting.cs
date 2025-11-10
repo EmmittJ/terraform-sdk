@@ -13,8 +13,7 @@ public class AzurermMonitorDiagnosticSettingEnabledLogBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Category
     {
-        get => GetProperty<TerraformProperty<string>>("category");
-        set => WithProperty("category", value);
+        set => SetProperty("category", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMonitorDiagnosticSettingEnabledLogBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CategoryGroup
     {
-        get => GetProperty<TerraformProperty<string>>("category_group");
-        set => WithProperty("category_group", value);
+        set => SetProperty("category_group", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermMonitorDiagnosticSettingEnabledMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("category");
-        set => WithProperty("category", value);
+        set => SetProperty("category", value);
     }
 
 }
@@ -59,8 +56,7 @@ public class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("category");
-        set => WithProperty("category", value);
+        set => SetProperty("category", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -85,8 +80,7 @@ public class AzurermMonitorDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class AzurermMonitorDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class AzurermMonitorDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -112,8 +104,7 @@ public class AzurermMonitorDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -130,51 +121,60 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("eventhub_authorization_rule_id");
+        SetOutput("eventhub_name");
+        SetOutput("id");
+        SetOutput("log_analytics_destination_type");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("name");
+        SetOutput("partner_solution_id");
+        SetOutput("storage_account_id");
+        SetOutput("target_resource_id");
     }
 
     /// <summary>
     /// The eventhub_authorization_rule_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EventhubAuthorizationRuleId
+    public TerraformProperty<string> EventhubAuthorizationRuleId
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_authorization_rule_id");
-        set => this.WithProperty("eventhub_authorization_rule_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_authorization_rule_id");
+        set => SetProperty("eventhub_authorization_rule_id", value);
     }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EventhubName
+    public TerraformProperty<string> EventhubName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_name");
-        set => this.WithProperty("eventhub_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_name");
+        set => SetProperty("eventhub_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_destination_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LogAnalyticsDestinationType
+    public TerraformProperty<string> LogAnalyticsDestinationType
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_destination_type");
-        set => this.WithProperty("log_analytics_destination_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_destination_type");
+        set => SetProperty("log_analytics_destination_type", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -183,26 +183,26 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The partner_solution_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PartnerSolutionId
+    public TerraformProperty<string> PartnerSolutionId
     {
-        get => GetProperty<TerraformProperty<string>>("partner_solution_id");
-        set => this.WithProperty("partner_solution_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partner_solution_id");
+        set => SetProperty("partner_solution_id", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    public TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -211,8 +211,8 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
@@ -221,8 +221,7 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     /// </summary>
     public HashSet<AzurermMonitorDiagnosticSettingEnabledLogBlock>? EnabledLog
     {
-        get => GetProperty<HashSet<AzurermMonitorDiagnosticSettingEnabledLogBlock>>("enabled_log");
-        set => this.WithProperty("enabled_log", value);
+        set => SetProperty("enabled_log", value);
     }
 
     /// <summary>
@@ -231,8 +230,7 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     /// </summary>
     public HashSet<AzurermMonitorDiagnosticSettingEnabledMetricBlock>? EnabledMetric
     {
-        get => GetProperty<HashSet<AzurermMonitorDiagnosticSettingEnabledMetricBlock>>("enabled_metric");
-        set => this.WithProperty("enabled_metric", value);
+        set => SetProperty("enabled_metric", value);
     }
 
     /// <summary>
@@ -242,8 +240,7 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     [Obsolete("This block is deprecated.")]
     public HashSet<AzurermMonitorDiagnosticSettingMetricBlock>? Metric
     {
-        get => GetProperty<HashSet<AzurermMonitorDiagnosticSettingMetricBlock>>("metric");
-        set => this.WithProperty("metric", value);
+        set => SetProperty("metric", value);
     }
 
     /// <summary>
@@ -252,8 +249,7 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     /// </summary>
     public AzurermMonitorDiagnosticSettingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorDiagnosticSettingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

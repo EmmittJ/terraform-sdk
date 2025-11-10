@@ -14,11 +14,19 @@ public class AwsEksPodIdentityAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("association_arn");
-        this.WithOutput("association_id");
-        this.WithOutput("external_id");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("association_arn");
+        SetOutput("association_id");
+        SetOutput("external_id");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("cluster_name");
+        SetOutput("disable_session_tags");
+        SetOutput("namespace");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("service_account");
+        SetOutput("tags");
+        SetOutput("target_role_arn");
     }
 
     /// <summary>
@@ -27,17 +35,17 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The disable_session_tags attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableSessionTags
+    public TerraformProperty<bool> DisableSessionTags
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_session_tags");
-        set => this.WithProperty("disable_session_tags", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_session_tags");
+        set => SetProperty("disable_session_tags", value);
     }
 
     /// <summary>
@@ -46,17 +54,17 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
-        set => this.WithProperty("namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -65,8 +73,8 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -75,26 +83,26 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformProperty<string> ServiceAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_account");
-        set => this.WithProperty("service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The target_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetRoleArn
+    public TerraformProperty<string> TargetRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_role_arn");
-        set => this.WithProperty("target_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_role_arn");
+        set => SetProperty("target_role_arn", value);
     }
 
     /// <summary>

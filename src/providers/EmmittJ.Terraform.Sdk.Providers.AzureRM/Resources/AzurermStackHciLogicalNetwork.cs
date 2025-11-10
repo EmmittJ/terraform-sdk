@@ -13,8 +13,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("address_prefix");
-        set => WithProperty("address_prefix", value);
+        set => SetProperty("address_prefix", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAllocationMethod is required")]
     public required TerraformProperty<string> IpAllocationMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_allocation_method");
-        set => WithProperty("ip_allocation_method", value);
+        set => SetProperty("ip_allocation_method", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? VlanId
     {
-        get => GetProperty<TerraformProperty<double>>("vlan_id");
-        set => WithProperty("vlan_id", value);
+        set => SetProperty("vlan_id", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,6 +88,14 @@ public class AzurermStackHciLogicalNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("custom_location_id");
+        SetOutput("dns_servers");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("virtual_switch_name");
     }
 
     /// <summary>
@@ -103,26 +104,26 @@ public class AzurermStackHciLogicalNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformProperty<string> CustomLocationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_location_id");
-        set => this.WithProperty("custom_location_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_location_id");
+        set => SetProperty("custom_location_id", value);
     }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DnsServers
+    public List<TerraformProperty<string>> DnsServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
-        set => this.WithProperty("dns_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("dns_servers");
+        set => SetProperty("dns_servers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,8 +132,8 @@ public class AzurermStackHciLogicalNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -141,8 +142,8 @@ public class AzurermStackHciLogicalNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -151,17 +152,17 @@ public class AzurermStackHciLogicalNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -170,20 +171,20 @@ public class AzurermStackHciLogicalNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualSwitchName is required")]
     public required TerraformProperty<string> VirtualSwitchName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_switch_name");
-        set => this.WithProperty("virtual_switch_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_switch_name");
+        set => SetProperty("virtual_switch_name", value);
     }
 
     /// <summary>
     /// Block for subnet.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subnet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
     public List<AzurermStackHciLogicalNetworkSubnetBlock>? Subnet
     {
-        get => GetProperty<List<AzurermStackHciLogicalNetworkSubnetBlock>>("subnet");
-        set => this.WithProperty("subnet", value);
+        set => SetProperty("subnet", value);
     }
 
     /// <summary>
@@ -192,8 +193,7 @@ public class AzurermStackHciLogicalNetwork : TerraformResource
     /// </summary>
     public AzurermStackHciLogicalNetworkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStackHciLogicalNetworkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

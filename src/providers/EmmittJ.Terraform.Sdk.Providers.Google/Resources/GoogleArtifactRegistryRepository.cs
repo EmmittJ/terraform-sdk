@@ -13,8 +13,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleArtifactRegistryRepositoryDockerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ImmutableTags
     {
-        get => GetProperty<TerraformProperty<bool>>("immutable_tags");
-        set => WithProperty("immutable_tags", value);
+        set => SetProperty("immutable_tags", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class GoogleArtifactRegistryRepositoryMavenConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowSnapshotOverwrites
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_snapshot_overwrites");
-        set => WithProperty("allow_snapshot_overwrites", value);
+        set => SetProperty("allow_snapshot_overwrites", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class GoogleArtifactRegistryRepositoryMavenConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VersionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("version_policy");
-        set => WithProperty("version_policy", value);
+        set => SetProperty("version_policy", value);
     }
 
 }
@@ -84,8 +79,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock : Terra
     /// </summary>
     public TerraformProperty<bool>? DisableUpstreamValidation
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_upstream_validation");
-        set => WithProperty("disable_upstream_validation", value);
+        set => SetProperty("disable_upstream_validation", value);
     }
 
 }
@@ -111,8 +104,7 @@ public class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -120,8 +112,7 @@ public class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -129,8 +120,7 @@ public class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -154,8 +144,7 @@ public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : 
     /// </summary>
     public TerraformProperty<string>? EnablementConfig
     {
-        get => GetProperty<TerraformProperty<string>>("enablement_config");
-        set => WithProperty("enablement_config", value);
+        set => SetProperty("enablement_config", value);
     }
 
     /// <summary>
@@ -163,8 +152,7 @@ public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : 
     /// </summary>
     public TerraformProperty<string>? EnablementState
     {
-        get => GetProperty<TerraformProperty<string>>("enablement_state");
-        set => WithProperty("enablement_state", value);
+        set => SetProperty("enablement_state", value);
     }
 
     /// <summary>
@@ -172,8 +160,7 @@ public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : 
     /// </summary>
     public TerraformProperty<string>? EnablementStateReason
     {
-        get => GetProperty<TerraformProperty<string>>("enablement_state_reason");
-        set => WithProperty("enablement_state_reason", value);
+        set => SetProperty("enablement_state_reason", value);
     }
 
 }
@@ -191,31 +178,41 @@ public class GoogleArtifactRegistryRepository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("registry_uri");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("registry_uri");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("cleanup_policy_dry_run");
+        SetOutput("description");
+        SetOutput("format");
+        SetOutput("id");
+        SetOutput("kms_key_name");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("mode");
+        SetOutput("project");
+        SetOutput("repository_id");
     }
 
     /// <summary>
     /// If true, the cleanup pipeline is prevented from deleting versions in this
     /// repository.
     /// </summary>
-    public TerraformProperty<bool>? CleanupPolicyDryRun
+    public TerraformProperty<bool> CleanupPolicyDryRun
     {
-        get => GetProperty<TerraformProperty<bool>>("cleanup_policy_dry_run");
-        set => this.WithProperty("cleanup_policy_dry_run", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cleanup_policy_dry_run");
+        set => SetProperty("cleanup_policy_dry_run", value);
     }
 
     /// <summary>
     /// The user-provided description of the repository.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -227,17 +224,17 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("format");
-        set => this.WithProperty("format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("format");
+        set => SetProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -246,10 +243,10 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;.
     /// This value may not be changed after the Repository has been created.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -263,10 +260,10 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -277,28 +274,28 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// [google_artifact_registry_locations](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/artifact_registry_locations)
     /// data source for possible values.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The mode configures the repository to serve artifacts from different sources. Default value: &amp;quot;STANDARD_REPOSITORY&amp;quot; Possible values: [&amp;quot;STANDARD_REPOSITORY&amp;quot;, &amp;quot;VIRTUAL_REPOSITORY&amp;quot;, &amp;quot;REMOTE_REPOSITORY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Mode
+    public TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => this.WithProperty("mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mode");
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -308,8 +305,8 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
-        set => this.WithProperty("repository_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_id");
+        set => SetProperty("repository_id", value);
     }
 
     /// <summary>
@@ -318,8 +315,7 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     public HashSet<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock>? CleanupPolicies
     {
-        get => GetProperty<HashSet<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock>>("cleanup_policies");
-        set => this.WithProperty("cleanup_policies", value);
+        set => SetProperty("cleanup_policies", value);
     }
 
     /// <summary>
@@ -329,8 +325,7 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerConfig block(s) allowed")]
     public List<GoogleArtifactRegistryRepositoryDockerConfigBlock>? DockerConfig
     {
-        get => GetProperty<List<GoogleArtifactRegistryRepositoryDockerConfigBlock>>("docker_config");
-        set => this.WithProperty("docker_config", value);
+        set => SetProperty("docker_config", value);
     }
 
     /// <summary>
@@ -340,8 +335,7 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MavenConfig block(s) allowed")]
     public List<GoogleArtifactRegistryRepositoryMavenConfigBlock>? MavenConfig
     {
-        get => GetProperty<List<GoogleArtifactRegistryRepositoryMavenConfigBlock>>("maven_config");
-        set => this.WithProperty("maven_config", value);
+        set => SetProperty("maven_config", value);
     }
 
     /// <summary>
@@ -351,8 +345,7 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteRepositoryConfig block(s) allowed")]
     public List<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock>? RemoteRepositoryConfig
     {
-        get => GetProperty<List<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock>>("remote_repository_config");
-        set => this.WithProperty("remote_repository_config", value);
+        set => SetProperty("remote_repository_config", value);
     }
 
     /// <summary>
@@ -361,8 +354,7 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     public GoogleArtifactRegistryRepositoryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleArtifactRegistryRepositoryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -372,8 +364,7 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualRepositoryConfig block(s) allowed")]
     public List<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock>? VirtualRepositoryConfig
     {
-        get => GetProperty<List<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock>>("virtual_repository_config");
-        set => this.WithProperty("virtual_repository_config", value);
+        set => SetProperty("virtual_repository_config", value);
     }
 
     /// <summary>
@@ -383,8 +374,7 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VulnerabilityScanningConfig block(s) allowed")]
     public List<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock>? VulnerabilityScanningConfig
     {
-        get => GetProperty<List<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock>>("vulnerability_scanning_config");
-        set => this.WithProperty("vulnerability_scanning_config", value);
+        set => SetProperty("vulnerability_scanning_config", value);
     }
 
     /// <summary>

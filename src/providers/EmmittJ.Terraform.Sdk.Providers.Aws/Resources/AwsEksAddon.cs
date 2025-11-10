@@ -14,8 +14,7 @@ public class AwsEksAddonPodIdentityAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsEksAddonPodIdentityAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformProperty<string> ServiceAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_account");
-        set => WithProperty("service_account", value);
+        set => SetProperty("service_account", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsEksAddonTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsEksAddonTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsEksAddonTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,9 +72,21 @@ public class AwsEksAddon : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("modified_at");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("modified_at");
+        SetOutput("addon_name");
+        SetOutput("addon_version");
+        SetOutput("cluster_name");
+        SetOutput("configuration_values");
+        SetOutput("id");
+        SetOutput("preserve");
+        SetOutput("region");
+        SetOutput("resolve_conflicts_on_create");
+        SetOutput("resolve_conflicts_on_update");
+        SetOutput("service_account_role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -88,17 +95,17 @@ public class AwsEksAddon : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddonName is required")]
     public required TerraformProperty<string> AddonName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("addon_name");
-        set => this.WithProperty("addon_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("addon_name");
+        set => SetProperty("addon_name", value);
     }
 
     /// <summary>
     /// The addon_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AddonVersion
+    public TerraformProperty<string> AddonVersion
     {
-        get => GetProperty<TerraformProperty<string>>("addon_version");
-        set => this.WithProperty("addon_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("addon_version");
+        set => SetProperty("addon_version", value);
     }
 
     /// <summary>
@@ -107,89 +114,89 @@ public class AwsEksAddon : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The configuration_values attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationValues
+    public TerraformProperty<string> ConfigurationValues
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_values");
-        set => this.WithProperty("configuration_values", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_values");
+        set => SetProperty("configuration_values", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The preserve attribute.
     /// </summary>
-    public TerraformProperty<bool>? Preserve
+    public TerraformProperty<bool> Preserve
     {
-        get => GetProperty<TerraformProperty<bool>>("preserve");
-        set => this.WithProperty("preserve", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("preserve");
+        set => SetProperty("preserve", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resolve_conflicts_on_create attribute.
     /// </summary>
-    public TerraformProperty<string>? ResolveConflictsOnCreate
+    public TerraformProperty<string> ResolveConflictsOnCreate
     {
-        get => GetProperty<TerraformProperty<string>>("resolve_conflicts_on_create");
-        set => this.WithProperty("resolve_conflicts_on_create", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resolve_conflicts_on_create");
+        set => SetProperty("resolve_conflicts_on_create", value);
     }
 
     /// <summary>
     /// The resolve_conflicts_on_update attribute.
     /// </summary>
-    public TerraformProperty<string>? ResolveConflictsOnUpdate
+    public TerraformProperty<string> ResolveConflictsOnUpdate
     {
-        get => GetProperty<TerraformProperty<string>>("resolve_conflicts_on_update");
-        set => this.WithProperty("resolve_conflicts_on_update", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resolve_conflicts_on_update");
+        set => SetProperty("resolve_conflicts_on_update", value);
     }
 
     /// <summary>
     /// The service_account_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccountRoleArn
+    public TerraformProperty<string> ServiceAccountRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_role_arn");
-        set => this.WithProperty("service_account_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account_role_arn");
+        set => SetProperty("service_account_role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -198,8 +205,7 @@ public class AwsEksAddon : TerraformResource
     /// </summary>
     public HashSet<AwsEksAddonPodIdentityAssociationBlock>? PodIdentityAssociation
     {
-        get => GetProperty<HashSet<AwsEksAddonPodIdentityAssociationBlock>>("pod_identity_association");
-        set => this.WithProperty("pod_identity_association", value);
+        set => SetProperty("pod_identity_association", value);
     }
 
     /// <summary>
@@ -208,8 +214,7 @@ public class AwsEksAddon : TerraformResource
     /// </summary>
     public AwsEksAddonTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEksAddonTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

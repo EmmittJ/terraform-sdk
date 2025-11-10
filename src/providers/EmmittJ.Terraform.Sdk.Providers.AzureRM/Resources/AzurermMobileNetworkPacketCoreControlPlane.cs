@@ -14,8 +14,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
-        set => WithProperty("authentication_type", value);
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlo
     /// </summary>
     public TerraformProperty<string>? HttpsServerCertificateUrl
     {
-        get => GetProperty<TerraformProperty<string>>("https_server_certificate_url");
-        set => WithProperty("https_server_certificate_url", value);
+        set => SetProperty("https_server_certificate_url", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? ArcKubernetesClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("arc_kubernetes_cluster_id");
-        set => WithProperty("arc_kubernetes_cluster_id", value);
+        set => SetProperty("arc_kubernetes_cluster_id", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? CustomLocationId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_location_id");
-        set => WithProperty("custom_location_id", value);
+        set => SetProperty("custom_location_id", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? EdgeDeviceId
     {
-        get => GetProperty<TerraformProperty<string>>("edge_device_id");
-        set => WithProperty("edge_device_id", value);
+        set => SetProperty("edge_device_id", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? StackHciClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("stack_hci_cluster_id");
-        set => WithProperty("stack_hci_cluster_id", value);
+        set => SetProperty("stack_hci_cluster_id", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -122,8 +113,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -131,8 +121,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -140,8 +129,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -149,8 +137,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -168,69 +155,84 @@ public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("control_plane_access_ipv4_address");
+        SetOutput("control_plane_access_ipv4_gateway");
+        SetOutput("control_plane_access_ipv4_subnet");
+        SetOutput("control_plane_access_name");
+        SetOutput("core_network_technology");
+        SetOutput("id");
+        SetOutput("interoperability_settings_json");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("site_ids");
+        SetOutput("sku");
+        SetOutput("software_version");
+        SetOutput("tags");
+        SetOutput("user_equipment_mtu_in_bytes");
     }
 
     /// <summary>
     /// The control_plane_access_ipv4_address attribute.
     /// </summary>
-    public TerraformProperty<string>? ControlPlaneAccessIpv4Address
+    public TerraformProperty<string> ControlPlaneAccessIpv4Address
     {
-        get => GetProperty<TerraformProperty<string>>("control_plane_access_ipv4_address");
-        set => this.WithProperty("control_plane_access_ipv4_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("control_plane_access_ipv4_address");
+        set => SetProperty("control_plane_access_ipv4_address", value);
     }
 
     /// <summary>
     /// The control_plane_access_ipv4_gateway attribute.
     /// </summary>
-    public TerraformProperty<string>? ControlPlaneAccessIpv4Gateway
+    public TerraformProperty<string> ControlPlaneAccessIpv4Gateway
     {
-        get => GetProperty<TerraformProperty<string>>("control_plane_access_ipv4_gateway");
-        set => this.WithProperty("control_plane_access_ipv4_gateway", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("control_plane_access_ipv4_gateway");
+        set => SetProperty("control_plane_access_ipv4_gateway", value);
     }
 
     /// <summary>
     /// The control_plane_access_ipv4_subnet attribute.
     /// </summary>
-    public TerraformProperty<string>? ControlPlaneAccessIpv4Subnet
+    public TerraformProperty<string> ControlPlaneAccessIpv4Subnet
     {
-        get => GetProperty<TerraformProperty<string>>("control_plane_access_ipv4_subnet");
-        set => this.WithProperty("control_plane_access_ipv4_subnet", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("control_plane_access_ipv4_subnet");
+        set => SetProperty("control_plane_access_ipv4_subnet", value);
     }
 
     /// <summary>
     /// The control_plane_access_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ControlPlaneAccessName
+    public TerraformProperty<string> ControlPlaneAccessName
     {
-        get => GetProperty<TerraformProperty<string>>("control_plane_access_name");
-        set => this.WithProperty("control_plane_access_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("control_plane_access_name");
+        set => SetProperty("control_plane_access_name", value);
     }
 
     /// <summary>
     /// The core_network_technology attribute.
     /// </summary>
-    public TerraformProperty<string>? CoreNetworkTechnology
+    public TerraformProperty<string> CoreNetworkTechnology
     {
-        get => GetProperty<TerraformProperty<string>>("core_network_technology");
-        set => this.WithProperty("core_network_technology", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("core_network_technology");
+        set => SetProperty("core_network_technology", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The interoperability_settings_json attribute.
     /// </summary>
-    public TerraformProperty<string>? InteroperabilitySettingsJson
+    public TerraformProperty<string> InteroperabilitySettingsJson
     {
-        get => GetProperty<TerraformProperty<string>>("interoperability_settings_json");
-        set => this.WithProperty("interoperability_settings_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("interoperability_settings_json");
+        set => SetProperty("interoperability_settings_json", value);
     }
 
     /// <summary>
@@ -239,8 +241,8 @@ public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -249,8 +251,8 @@ public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -259,18 +261,18 @@ public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The site_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteIds is required")]
-    public List<TerraformProperty<string>>? SiteIds
+    public List<TerraformProperty<string>> SiteIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("site_ids");
-        set => this.WithProperty("site_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("site_ids");
+        set => SetProperty("site_ids", value);
     }
 
     /// <summary>
@@ -279,35 +281,35 @@ public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The software_version attribute.
     /// </summary>
-    public TerraformProperty<string>? SoftwareVersion
+    public TerraformProperty<string> SoftwareVersion
     {
-        get => GetProperty<TerraformProperty<string>>("software_version");
-        set => this.WithProperty("software_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("software_version");
+        set => SetProperty("software_version", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The user_equipment_mtu_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? UserEquipmentMtuInBytes
+    public TerraformProperty<double> UserEquipmentMtuInBytes
     {
-        get => GetProperty<TerraformProperty<double>>("user_equipment_mtu_in_bytes");
-        set => this.WithProperty("user_equipment_mtu_in_bytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("user_equipment_mtu_in_bytes");
+        set => SetProperty("user_equipment_mtu_in_bytes", value);
     }
 
     /// <summary>
@@ -317,20 +319,19 @@ public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
     /// Block for local_diagnostics_access.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalDiagnosticsAccess is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocalDiagnosticsAccess block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDiagnosticsAccess block(s) allowed")]
     public List<AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock>? LocalDiagnosticsAccess
     {
-        get => GetProperty<List<AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock>>("local_diagnostics_access");
-        set => this.WithProperty("local_diagnostics_access", value);
+        set => SetProperty("local_diagnostics_access", value);
     }
 
     /// <summary>
@@ -340,8 +341,7 @@ public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Platform block(s) allowed")]
     public List<AzurermMobileNetworkPacketCoreControlPlanePlatformBlock>? Platform
     {
-        get => GetProperty<List<AzurermMobileNetworkPacketCoreControlPlanePlatformBlock>>("platform");
-        set => this.WithProperty("platform", value);
+        set => SetProperty("platform", value);
     }
 
     /// <summary>
@@ -350,8 +350,7 @@ public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
     /// </summary>
     public AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

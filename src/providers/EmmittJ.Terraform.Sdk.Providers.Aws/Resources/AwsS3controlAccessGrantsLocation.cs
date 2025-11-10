@@ -14,19 +14,24 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_grants_location_arn");
-        this.WithOutput("access_grants_location_id");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("access_grants_location_arn");
+        SetOutput("access_grants_location_id");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("account_id");
+        SetOutput("iam_role_arn");
+        SetOutput("location_scope");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -35,8 +40,8 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
@@ -45,26 +50,26 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationScope is required")]
     public required TerraformProperty<string> LocationScope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location_scope");
-        set => this.WithProperty("location_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location_scope");
+        set => SetProperty("location_scope", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

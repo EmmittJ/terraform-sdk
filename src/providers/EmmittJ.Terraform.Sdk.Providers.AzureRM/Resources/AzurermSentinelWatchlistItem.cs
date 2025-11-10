@@ -13,8 +13,7 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,34 +54,38 @@ public class AzurermSentinelWatchlistItem : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("properties");
+        SetOutput("watchlist_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
-    public Dictionary<string, TerraformProperty<string>>? Properties
+    public Dictionary<string, TerraformProperty<string>> Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => this.WithProperty("properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("properties");
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class AzurermSentinelWatchlistItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WatchlistId is required")]
     public required TerraformProperty<string> WatchlistId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("watchlist_id");
-        set => this.WithProperty("watchlist_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("watchlist_id");
+        set => SetProperty("watchlist_id", value);
     }
 
     /// <summary>
@@ -104,8 +104,7 @@ public class AzurermSentinelWatchlistItem : TerraformResource
     /// </summary>
     public AzurermSentinelWatchlistItemTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSentinelWatchlistItemTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

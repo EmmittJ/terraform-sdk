@@ -13,8 +13,7 @@ public class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? KmsDataKeyReusePeriodSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("kms_data_key_reuse_period_seconds");
-        set => WithProperty("kms_data_key_reuse_period_seconds", value);
+        set => SetProperty("kms_data_key_reuse_period_seconds", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeExecutionData
     {
-        get => GetProperty<TerraformProperty<bool>>("include_execution_data");
-        set => WithProperty("include_execution_data", value);
+        set => SetProperty("include_execution_data", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Level
     {
-        get => GetProperty<TerraformProperty<string>>("level");
-        set => WithProperty("level", value);
+        set => SetProperty("level", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LogDestination
     {
-        get => GetProperty<TerraformProperty<string>>("log_destination");
-        set => WithProperty("log_destination", value);
+        set => SetProperty("log_destination", value);
     }
 
 }
@@ -83,8 +77,7 @@ public class AwsSfnStateMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AwsSfnStateMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AwsSfnStateMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -118,8 +109,7 @@ public class AwsSfnStateMachineTracingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -137,13 +127,23 @@ public class AwsSfnStateMachine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("creation_date");
-        this.WithOutput("description");
-        this.WithOutput("revision_id");
-        this.WithOutput("state_machine_version_arn");
-        this.WithOutput("status");
-        this.WithOutput("version_description");
+        SetOutput("arn");
+        SetOutput("creation_date");
+        SetOutput("description");
+        SetOutput("revision_id");
+        SetOutput("state_machine_version_arn");
+        SetOutput("status");
+        SetOutput("version_description");
+        SetOutput("definition");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("publish");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -152,53 +152,53 @@ public class AwsSfnStateMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     public required TerraformProperty<string> Definition
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("definition");
-        set => this.WithProperty("definition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("definition");
+        set => SetProperty("definition", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The publish attribute.
     /// </summary>
-    public TerraformProperty<bool>? Publish
+    public TerraformProperty<bool> Publish
     {
-        get => GetProperty<TerraformProperty<bool>>("publish");
-        set => this.WithProperty("publish", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publish");
+        set => SetProperty("publish", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -207,35 +207,35 @@ public class AwsSfnStateMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -245,8 +245,7 @@ public class AwsSfnStateMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     public List<AwsSfnStateMachineEncryptionConfigurationBlock>? EncryptionConfiguration
     {
-        get => GetProperty<List<AwsSfnStateMachineEncryptionConfigurationBlock>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -256,8 +255,7 @@ public class AwsSfnStateMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     public List<AwsSfnStateMachineLoggingConfigurationBlock>? LoggingConfiguration
     {
-        get => GetProperty<List<AwsSfnStateMachineLoggingConfigurationBlock>>("logging_configuration");
-        set => this.WithProperty("logging_configuration", value);
+        set => SetProperty("logging_configuration", value);
     }
 
     /// <summary>
@@ -266,8 +264,7 @@ public class AwsSfnStateMachine : TerraformResource
     /// </summary>
     public AwsSfnStateMachineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSfnStateMachineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -277,8 +274,7 @@ public class AwsSfnStateMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TracingConfiguration block(s) allowed")]
     public List<AwsSfnStateMachineTracingConfigurationBlock>? TracingConfiguration
     {
-        get => GetProperty<List<AwsSfnStateMachineTracingConfigurationBlock>>("tracing_configuration");
-        set => this.WithProperty("tracing_configuration", value);
+        set => SetProperty("tracing_configuration", value);
     }
 
     /// <summary>

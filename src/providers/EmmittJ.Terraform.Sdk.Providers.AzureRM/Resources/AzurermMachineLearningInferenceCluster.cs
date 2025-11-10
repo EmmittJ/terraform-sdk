@@ -13,8 +13,7 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBloc
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cert
     {
-        get => GetProperty<TerraformProperty<string>>("cert");
-        set => WithProperty("cert", value);
+        set => SetProperty("cert", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cname
     {
-        get => GetProperty<TerraformProperty<string>>("cname");
-        set => WithProperty("cname", value);
+        set => SetProperty("cname", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LeafDomainLabel
     {
-        get => GetProperty<TerraformProperty<string>>("leaf_domain_label");
-        set => WithProperty("leaf_domain_label", value);
+        set => SetProperty("leaf_domain_label", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? OverwriteExistingDomain
     {
-        get => GetProperty<TerraformProperty<bool>>("overwrite_existing_domain");
-        set => WithProperty("overwrite_existing_domain", value);
+        set => SetProperty("overwrite_existing_domain", value);
     }
 
 }
@@ -111,8 +102,7 @@ public class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -148,33 +136,41 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cluster_purpose");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("kubernetes_cluster_id");
+        SetOutput("location");
+        SetOutput("machine_learning_workspace_id");
+        SetOutput("name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The cluster_purpose attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterPurpose
+    public TerraformProperty<string> ClusterPurpose
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_purpose");
-        set => this.WithProperty("cluster_purpose", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_purpose");
+        set => SetProperty("cluster_purpose", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -183,8 +179,8 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformProperty<string> KubernetesClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_cluster_id");
-        set => this.WithProperty("kubernetes_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kubernetes_cluster_id");
+        set => SetProperty("kubernetes_cluster_id", value);
     }
 
     /// <summary>
@@ -193,8 +189,8 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -203,8 +199,8 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformProperty<string> MachineLearningWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("machine_learning_workspace_id");
-        set => this.WithProperty("machine_learning_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("machine_learning_workspace_id");
+        set => SetProperty("machine_learning_workspace_id", value);
     }
 
     /// <summary>
@@ -213,17 +209,17 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -233,8 +229,7 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermMachineLearningInferenceClusterIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermMachineLearningInferenceClusterIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -244,8 +239,7 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssl block(s) allowed")]
     public List<AzurermMachineLearningInferenceClusterSslBlock>? Ssl
     {
-        get => GetProperty<List<AzurermMachineLearningInferenceClusterSslBlock>>("ssl");
-        set => this.WithProperty("ssl", value);
+        set => SetProperty("ssl", value);
     }
 
     /// <summary>
@@ -254,8 +248,7 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     /// </summary>
     public AzurermMachineLearningInferenceClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMachineLearningInferenceClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

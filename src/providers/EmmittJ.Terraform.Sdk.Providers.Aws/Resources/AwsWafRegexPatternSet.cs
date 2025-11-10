@@ -14,16 +14,19 @@ public class AwsWafRegexPatternSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("regex_pattern_strings");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,17 +35,17 @@ public class AwsWafRegexPatternSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The regex_pattern_strings attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? RegexPatternStrings
+    public HashSet<TerraformProperty<string>> RegexPatternStrings
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("regex_pattern_strings");
-        set => this.WithProperty("regex_pattern_strings", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("regex_pattern_strings");
+        set => SetProperty("regex_pattern_strings", value);
     }
 
     /// <summary>

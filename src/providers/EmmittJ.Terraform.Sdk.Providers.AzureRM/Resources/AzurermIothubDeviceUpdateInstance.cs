@@ -14,8 +14,7 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
-        set => WithProperty("connection_string", value);
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,6 +81,12 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("device_update_account_id");
+        SetOutput("diagnostic_enabled");
+        SetOutput("id");
+        SetOutput("iothub_id");
+        SetOutput("name");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -95,26 +95,26 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceUpdateAccountId is required")]
     public required TerraformProperty<string> DeviceUpdateAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("device_update_account_id");
-        set => this.WithProperty("device_update_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_update_account_id");
+        set => SetProperty("device_update_account_id", value);
     }
 
     /// <summary>
     /// The diagnostic_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DiagnosticEnabled
+    public TerraformProperty<bool> DiagnosticEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("diagnostic_enabled");
-        set => this.WithProperty("diagnostic_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("diagnostic_enabled");
+        set => SetProperty("diagnostic_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,8 +123,8 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
-        set => this.WithProperty("iothub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
+        set => SetProperty("iothub_id", value);
     }
 
     /// <summary>
@@ -133,17 +133,17 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -153,8 +153,7 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticStorageAccount block(s) allowed")]
     public List<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>? DiagnosticStorageAccount
     {
-        get => GetProperty<List<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>>("diagnostic_storage_account");
-        set => this.WithProperty("diagnostic_storage_account", value);
+        set => SetProperty("diagnostic_storage_account", value);
     }
 
     /// <summary>
@@ -163,8 +162,7 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     /// </summary>
     public AzurermIothubDeviceUpdateInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubDeviceUpdateInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

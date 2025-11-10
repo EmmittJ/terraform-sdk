@@ -13,8 +13,7 @@ public class GoogleActiveDirectoryDomainTrustTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleActiveDirectoryDomainTrustTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleActiveDirectoryDomainTrustTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,6 +46,15 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("domain");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("selective_authentication");
+        SetOutput("target_dns_ip_addresses");
+        SetOutput("target_domain_name");
+        SetOutput("trust_direction");
+        SetOutput("trust_handshake_secret");
+        SetOutput("trust_type");
     }
 
     /// <summary>
@@ -58,45 +64,45 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Whether the trusted side has forest/domain wide access or selective access to an approved set of resources.
     /// </summary>
-    public TerraformProperty<bool>? SelectiveAuthentication
+    public TerraformProperty<bool> SelectiveAuthentication
     {
-        get => GetProperty<TerraformProperty<bool>>("selective_authentication");
-        set => this.WithProperty("selective_authentication", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("selective_authentication");
+        set => SetProperty("selective_authentication", value);
     }
 
     /// <summary>
     /// The target DNS server IP addresses which can resolve the remote domain involved in the trust.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDnsIpAddresses is required")]
-    public HashSet<TerraformProperty<string>>? TargetDnsIpAddresses
+    public HashSet<TerraformProperty<string>> TargetDnsIpAddresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("target_dns_ip_addresses");
-        set => this.WithProperty("target_dns_ip_addresses", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("target_dns_ip_addresses");
+        set => SetProperty("target_dns_ip_addresses", value);
     }
 
     /// <summary>
@@ -105,8 +111,8 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDomainName is required")]
     public required TerraformProperty<string> TargetDomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_domain_name");
-        set => this.WithProperty("target_domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_domain_name");
+        set => SetProperty("target_domain_name", value);
     }
 
     /// <summary>
@@ -115,8 +121,8 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustDirection is required")]
     public required TerraformProperty<string> TrustDirection
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trust_direction");
-        set => this.WithProperty("trust_direction", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trust_direction");
+        set => SetProperty("trust_direction", value);
     }
 
     /// <summary>
@@ -125,8 +131,8 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustHandshakeSecret is required")]
     public required TerraformProperty<string> TrustHandshakeSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trust_handshake_secret");
-        set => this.WithProperty("trust_handshake_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trust_handshake_secret");
+        set => SetProperty("trust_handshake_secret", value);
     }
 
     /// <summary>
@@ -135,8 +141,8 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustType is required")]
     public required TerraformProperty<string> TrustType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trust_type");
-        set => this.WithProperty("trust_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trust_type");
+        set => SetProperty("trust_type", value);
     }
 
     /// <summary>
@@ -145,8 +151,7 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     /// </summary>
     public GoogleActiveDirectoryDomainTrustTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleActiveDirectoryDomainTrustTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

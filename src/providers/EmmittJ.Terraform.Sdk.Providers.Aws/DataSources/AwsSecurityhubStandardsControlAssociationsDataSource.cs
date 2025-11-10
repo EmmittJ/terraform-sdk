@@ -14,17 +14,19 @@ public class AwsSecurityhubStandardsControlAssociationsDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("standards_control_associations");
+        SetOutput("id");
+        SetOutput("standards_control_associations");
+        SetOutput("region");
+        SetOutput("security_control_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -33,8 +35,8 @@ public class AwsSecurityhubStandardsControlAssociationsDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
     public required TerraformProperty<string> SecurityControlId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("security_control_id");
-        set => this.WithProperty("security_control_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_control_id");
+        set => SetProperty("security_control_id", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -88,8 +82,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
     /// <summary>
@@ -98,8 +91,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -116,8 +108,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumInstances is required")]
     public required TerraformProperty<double> MaximumInstances
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("maximum_instances");
-        set => WithProperty("maximum_instances", value);
+        set => SetProperty("maximum_instances", value);
     }
 
     /// <summary>
@@ -126,8 +117,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumInstances is required")]
     public required TerraformProperty<double> MinimumInstances
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("minimum_instances");
-        set => WithProperty("minimum_instances", value);
+        set => SetProperty("minimum_instances", value);
     }
 
 }
@@ -143,8 +133,7 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
-        set => WithProperty("capacity", value);
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
@@ -153,8 +142,7 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -170,8 +158,7 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -179,8 +166,7 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -188,8 +174,7 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -197,8 +182,7 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -216,8 +200,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataManagementPublicIpId is required")]
     public required TerraformProperty<string> DataManagementPublicIpId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_management_public_ip_id");
-        set => WithProperty("data_management_public_ip_id", value);
+        set => SetProperty("data_management_public_ip_id", value);
     }
 
     /// <summary>
@@ -226,8 +209,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnginePublicIpId is required")]
     public required TerraformProperty<string> EnginePublicIpId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_public_ip_id");
-        set => WithProperty("engine_public_ip_id", value);
+        set => SetProperty("engine_public_ip_id", value);
     }
 
     /// <summary>
@@ -236,8 +218,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -255,62 +236,79 @@ public class AzurermKustoCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("data_ingestion_uri");
-        this.WithOutput("uri");
+        SetOutput("data_ingestion_uri");
+        SetOutput("uri");
+        SetOutput("allowed_fqdns");
+        SetOutput("allowed_ip_ranges");
+        SetOutput("auto_stop_enabled");
+        SetOutput("disk_encryption_enabled");
+        SetOutput("double_encryption_enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("outbound_network_access_restricted");
+        SetOutput("public_ip_type");
+        SetOutput("public_network_access_enabled");
+        SetOutput("purge_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("streaming_ingestion_enabled");
+        SetOutput("tags");
+        SetOutput("trusted_external_tenants");
+        SetOutput("zones");
     }
 
     /// <summary>
     /// The allowed_fqdns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AllowedFqdns
+    public List<TerraformProperty<string>> AllowedFqdns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_fqdns");
-        set => this.WithProperty("allowed_fqdns", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("allowed_fqdns");
+        set => SetProperty("allowed_fqdns", value);
     }
 
     /// <summary>
     /// The allowed_ip_ranges attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AllowedIpRanges
+    public List<TerraformProperty<string>> AllowedIpRanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_ip_ranges");
-        set => this.WithProperty("allowed_ip_ranges", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("allowed_ip_ranges");
+        set => SetProperty("allowed_ip_ranges", value);
     }
 
     /// <summary>
     /// The auto_stop_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoStopEnabled
+    public TerraformProperty<bool> AutoStopEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_stop_enabled");
-        set => this.WithProperty("auto_stop_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_stop_enabled");
+        set => SetProperty("auto_stop_enabled", value);
     }
 
     /// <summary>
     /// The disk_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DiskEncryptionEnabled
+    public TerraformProperty<bool> DiskEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disk_encryption_enabled");
-        set => this.WithProperty("disk_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disk_encryption_enabled");
+        set => SetProperty("disk_encryption_enabled", value);
     }
 
     /// <summary>
     /// The double_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DoubleEncryptionEnabled
+    public TerraformProperty<bool> DoubleEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("double_encryption_enabled");
-        set => this.WithProperty("double_encryption_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("double_encryption_enabled");
+        set => SetProperty("double_encryption_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -319,8 +317,8 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -329,44 +327,44 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
-    public TerraformProperty<bool>? OutboundNetworkAccessRestricted
+    public TerraformProperty<bool> OutboundNetworkAccessRestricted
     {
-        get => GetProperty<TerraformProperty<bool>>("outbound_network_access_restricted");
-        set => this.WithProperty("outbound_network_access_restricted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("outbound_network_access_restricted");
+        set => SetProperty("outbound_network_access_restricted", value);
     }
 
     /// <summary>
     /// The public_ip_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicIpType
+    public TerraformProperty<string> PublicIpType
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_type");
-        set => this.WithProperty("public_ip_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_ip_type");
+        set => SetProperty("public_ip_type", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The purge_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PurgeEnabled
+    public TerraformProperty<bool> PurgeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("purge_enabled");
-        set => this.WithProperty("purge_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("purge_enabled");
+        set => SetProperty("purge_enabled", value);
     }
 
     /// <summary>
@@ -375,44 +373,44 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The streaming_ingestion_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? StreamingIngestionEnabled
+    public TerraformProperty<bool> StreamingIngestionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("streaming_ingestion_enabled");
-        set => this.WithProperty("streaming_ingestion_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("streaming_ingestion_enabled");
+        set => SetProperty("streaming_ingestion_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The trusted_external_tenants attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? TrustedExternalTenants
+    public List<TerraformProperty<string>> TrustedExternalTenants
     {
-        get => GetProperty<List<TerraformProperty<string>>>("trusted_external_tenants");
-        set => this.WithProperty("trusted_external_tenants", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("trusted_external_tenants");
+        set => SetProperty("trusted_external_tenants", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
@@ -422,8 +420,7 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermKustoClusterIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermKustoClusterIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -432,8 +429,7 @@ public class AzurermKustoCluster : TerraformResource
     /// </summary>
     public List<AzurermKustoClusterLanguageExtensionBlock>? LanguageExtension
     {
-        get => GetProperty<List<AzurermKustoClusterLanguageExtensionBlock>>("language_extension");
-        set => this.WithProperty("language_extension", value);
+        set => SetProperty("language_extension", value);
     }
 
     /// <summary>
@@ -443,8 +439,7 @@ public class AzurermKustoCluster : TerraformResource
     [Obsolete("This block is deprecated.")]
     public List<AzurermKustoClusterLanguageExtensionsBlock>? LanguageExtensions
     {
-        get => GetProperty<List<AzurermKustoClusterLanguageExtensionsBlock>>("language_extensions");
-        set => this.WithProperty("language_extensions", value);
+        set => SetProperty("language_extensions", value);
     }
 
     /// <summary>
@@ -454,20 +449,19 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OptimizedAutoScale block(s) allowed")]
     public List<AzurermKustoClusterOptimizedAutoScaleBlock>? OptimizedAutoScale
     {
-        get => GetProperty<List<AzurermKustoClusterOptimizedAutoScaleBlock>>("optimized_auto_scale");
-        set => this.WithProperty("optimized_auto_scale", value);
+        set => SetProperty("optimized_auto_scale", value);
     }
 
     /// <summary>
     /// Block for sku.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     public List<AzurermKustoClusterSkuBlock>? Sku
     {
-        get => GetProperty<List<AzurermKustoClusterSkuBlock>>("sku");
-        set => this.WithProperty("sku", value);
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
@@ -476,8 +470,7 @@ public class AzurermKustoCluster : TerraformResource
     /// </summary>
     public AzurermKustoClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKustoClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -488,8 +481,7 @@ public class AzurermKustoCluster : TerraformResource
     [Obsolete("This block is deprecated.")]
     public List<AzurermKustoClusterVirtualNetworkConfigurationBlock>? VirtualNetworkConfiguration
     {
-        get => GetProperty<List<AzurermKustoClusterVirtualNetworkConfigurationBlock>>("virtual_network_configuration");
-        set => this.WithProperty("virtual_network_configuration", value);
+        set => SetProperty("virtual_network_configuration", value);
     }
 
     /// <summary>

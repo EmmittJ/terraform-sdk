@@ -13,8 +13,7 @@ public class AzurermDatabricksWorkspaceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,27 @@ public class AzurermDatabricksWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("custom_parameters");
-        this.WithOutput("enhanced_security_compliance");
-        this.WithOutput("location");
-        this.WithOutput("managed_disk_identity");
-        this.WithOutput("sku");
-        this.WithOutput("storage_account_identity");
-        this.WithOutput("workspace_id");
-        this.WithOutput("workspace_url");
+        SetOutput("custom_parameters");
+        SetOutput("enhanced_security_compliance");
+        SetOutput("location");
+        SetOutput("managed_disk_identity");
+        SetOutput("sku");
+        SetOutput("storage_account_identity");
+        SetOutput("workspace_id");
+        SetOutput("workspace_url");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -56,8 +59,8 @@ public class AzurermDatabricksWorkspaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -66,17 +69,17 @@ public class AzurermDatabricksWorkspaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -85,8 +88,7 @@ public class AzurermDatabricksWorkspaceDataSource : TerraformDataSource
     /// </summary>
     public AzurermDatabricksWorkspaceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDatabricksWorkspaceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

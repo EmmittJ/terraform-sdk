@@ -13,8 +13,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformProperty<string>? AzureKeyVaultCertificateSecretName
     {
-        get => GetProperty<TerraformProperty<string>>("azure_key_vault_certificate_secret_name");
-        set => WithProperty("azure_key_vault_certificate_secret_name", value);
+        set => SetProperty("azure_key_vault_certificate_secret_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformProperty<string>? AzureKeyVaultCertificateSecretVersion
     {
-        get => GetProperty<TerraformProperty<string>>("azure_key_vault_certificate_secret_version");
-        set => WithProperty("azure_key_vault_certificate_secret_version", value);
+        set => SetProperty("azure_key_vault_certificate_secret_version", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformProperty<string>? AzureKeyVaultCertificateVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("azure_key_vault_certificate_vault_id");
-        set => WithProperty("azure_key_vault_certificate_vault_id", value);
+        set => SetProperty("azure_key_vault_certificate_vault_id", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformProperty<string>? CertificateSource
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_source");
-        set => WithProperty("certificate_source", value);
+        set => SetProperty("certificate_source", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformProperty<string>? MinimumTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_tls_version");
-        set => WithProperty("minimum_tls_version", value);
+        set => SetProperty("minimum_tls_version", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformProperty<string>? ProvisioningState
     {
-        get => GetProperty<TerraformProperty<string>>("provisioning_state");
-        set => WithProperty("provisioning_state", value);
+        set => SetProperty("provisioning_state", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformProperty<string>? ProvisioningSubstate
     {
-        get => GetProperty<TerraformProperty<string>>("provisioning_substate");
-        set => WithProperty("provisioning_substate", value);
+        set => SetProperty("provisioning_substate", value);
     }
 
 }
@@ -84,8 +77,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -130,6 +119,9 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("custom_https_provisioning_enabled");
+        SetOutput("frontend_endpoint_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -138,8 +130,8 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHttpsProvisioningEnabled is required")]
     public required TerraformProperty<bool> CustomHttpsProvisioningEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("custom_https_provisioning_enabled");
-        set => this.WithProperty("custom_https_provisioning_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("custom_https_provisioning_enabled");
+        set => SetProperty("custom_https_provisioning_enabled", value);
     }
 
     /// <summary>
@@ -148,17 +140,17 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpointId is required")]
     public required TerraformProperty<string> FrontendEndpointId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frontend_endpoint_id");
-        set => this.WithProperty("frontend_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("frontend_endpoint_id");
+        set => SetProperty("frontend_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -168,8 +160,7 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomHttpsConfiguration block(s) allowed")]
     public List<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>? CustomHttpsConfiguration
     {
-        get => GetProperty<List<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>>("custom_https_configuration");
-        set => this.WithProperty("custom_https_configuration", value);
+        set => SetProperty("custom_https_configuration", value);
     }
 
     /// <summary>
@@ -178,8 +169,7 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
     /// </summary>
     public AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

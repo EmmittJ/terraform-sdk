@@ -14,7 +14,11 @@ public class GoogleStorageManagedFolderIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("bucket");
+        SetOutput("id");
+        SetOutput("managed_folder");
+        SetOutput("policy_data");
     }
 
     /// <summary>
@@ -23,17 +27,17 @@ public class GoogleStorageManagedFolderIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,8 +46,8 @@ public class GoogleStorageManagedFolderIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedFolder is required")]
     public required TerraformProperty<string> ManagedFolder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_folder");
-        set => this.WithProperty("managed_folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_folder");
+        set => SetProperty("managed_folder", value);
     }
 
     /// <summary>
@@ -52,8 +56,8 @@ public class GoogleStorageManagedFolderIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
-        set => this.WithProperty("policy_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
+        set => SetProperty("policy_data", value);
     }
 
     /// <summary>

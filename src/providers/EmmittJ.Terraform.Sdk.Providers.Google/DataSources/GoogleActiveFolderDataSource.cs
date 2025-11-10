@@ -14,16 +14,20 @@ public class GoogleActiveFolderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("api_method");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// Provides the REST method through which to find the folder. LIST is recommended as it is strongly consistent.
     /// </summary>
-    public TerraformProperty<string>? ApiMethod
+    public TerraformProperty<string> ApiMethod
     {
-        get => GetProperty<TerraformProperty<string>>("api_method");
-        set => this.WithProperty("api_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_method");
+        set => SetProperty("api_method", value);
     }
 
     /// <summary>
@@ -32,17 +36,17 @@ public class GoogleActiveFolderDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +55,8 @@ public class GoogleActiveFolderDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>

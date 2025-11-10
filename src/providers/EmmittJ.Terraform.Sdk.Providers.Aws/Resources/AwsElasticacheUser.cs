@@ -13,8 +13,7 @@ public class AwsElasticacheUserAuthenticationModeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? PasswordCount
     {
-        get => GetProperty<TerraformProperty<double>>("password_count");
-        set => WithProperty("password_count", value);
+        set => SetProperty("password_count", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsElasticacheUserAuthenticationModeBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Passwords
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("passwords");
-        set => WithProperty("passwords", value);
+        set => SetProperty("passwords", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsElasticacheUserAuthenticationModeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsElasticacheUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsElasticacheUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AwsElasticacheUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsElasticacheUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,7 +88,17 @@ public class AwsElasticacheUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("access_string");
+        SetOutput("engine");
+        SetOutput("id");
+        SetOutput("no_password_required");
+        SetOutput("passwords");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("user_id");
+        SetOutput("user_name");
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class AwsElasticacheUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessString is required")]
     public required TerraformProperty<string> AccessString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_string");
-        set => this.WithProperty("access_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_string");
+        set => SetProperty("access_string", value);
     }
 
     /// <summary>
@@ -114,62 +117,62 @@ public class AwsElasticacheUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The no_password_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? NoPasswordRequired
+    public TerraformProperty<bool> NoPasswordRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("no_password_required");
-        set => this.WithProperty("no_password_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("no_password_required");
+        set => SetProperty("no_password_required", value);
     }
 
     /// <summary>
     /// The passwords attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Passwords
+    public HashSet<TerraformProperty<string>> Passwords
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("passwords");
-        set => this.WithProperty("passwords", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("passwords");
+        set => SetProperty("passwords", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -178,8 +181,8 @@ public class AwsElasticacheUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformProperty<string> UserId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_id");
-        set => this.WithProperty("user_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_id");
+        set => SetProperty("user_id", value);
     }
 
     /// <summary>
@@ -188,8 +191,8 @@ public class AwsElasticacheUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
@@ -199,8 +202,7 @@ public class AwsElasticacheUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationMode block(s) allowed")]
     public List<AwsElasticacheUserAuthenticationModeBlock>? AuthenticationMode
     {
-        get => GetProperty<List<AwsElasticacheUserAuthenticationModeBlock>>("authentication_mode");
-        set => this.WithProperty("authentication_mode", value);
+        set => SetProperty("authentication_mode", value);
     }
 
     /// <summary>
@@ -209,8 +211,7 @@ public class AwsElasticacheUser : TerraformResource
     /// </summary>
     public AwsElasticacheUserTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsElasticacheUserTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

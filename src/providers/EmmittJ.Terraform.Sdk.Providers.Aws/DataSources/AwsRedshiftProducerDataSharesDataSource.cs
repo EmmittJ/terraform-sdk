@@ -14,8 +14,11 @@ public class AwsRedshiftProducerDataSharesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputata_shares");
-        this.WithOutputd");
+        SetOutput("data_shares");
+        SetOutput("id");
+        SetOutput("producer_arn");
+        SetOutput("region");
+        SetOutput("status");
     }
 
     /// <summary>
@@ -24,26 +27,26 @@ public class AwsRedshiftProducerDataSharesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProducerArn is required")]
     public required TerraformProperty<string> ProducerArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("producer_arn");
-        set => this.WithProperty("producer_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("producer_arn");
+        set => SetProperty("producer_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>

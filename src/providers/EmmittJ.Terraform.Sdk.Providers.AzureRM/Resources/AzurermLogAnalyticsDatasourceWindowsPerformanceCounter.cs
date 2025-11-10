@@ -13,8 +13,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,14 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
 
     private void InitializeOutputs()
     {
+        SetOutput("counter_name");
+        SetOutput("id");
+        SetOutput("instance_name");
+        SetOutput("interval_seconds");
+        SetOutput("name");
+        SetOutput("object_name");
+        SetOutput("resource_group_name");
+        SetOutput("workspace_name");
     }
 
     /// <summary>
@@ -66,17 +70,17 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CounterName is required")]
     public required TerraformProperty<string> CounterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("counter_name");
-        set => this.WithProperty("counter_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("counter_name");
+        set => SetProperty("counter_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +89,8 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
-        set => this.WithProperty("instance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_name");
+        set => SetProperty("instance_name", value);
     }
 
     /// <summary>
@@ -95,8 +99,8 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalSeconds is required")]
     public required TerraformProperty<double> IntervalSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("interval_seconds");
-        set => this.WithProperty("interval_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("interval_seconds");
+        set => SetProperty("interval_seconds", value);
     }
 
     /// <summary>
@@ -105,8 +109,8 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -115,8 +119,8 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectName is required")]
     public required TerraformProperty<string> ObjectName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("object_name");
-        set => this.WithProperty("object_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_name");
+        set => SetProperty("object_name", value);
     }
 
     /// <summary>
@@ -125,8 +129,8 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -135,8 +139,8 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     public required TerraformProperty<string> WorkspaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_name");
-        set => this.WithProperty("workspace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_name");
+        set => SetProperty("workspace_name", value);
     }
 
     /// <summary>
@@ -145,8 +149,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     /// </summary>
     public AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

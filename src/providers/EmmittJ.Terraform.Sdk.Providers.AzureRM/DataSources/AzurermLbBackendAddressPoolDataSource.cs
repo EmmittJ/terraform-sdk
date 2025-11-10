@@ -13,8 +13,7 @@ public class AzurermLbBackendAddressPoolDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backend_address");
-        this.WithOutput("backend_ip_configurations");
-        this.WithOutput("inbound_nat_rules");
-        this.WithOutput("load_balancing_rules");
-        this.WithOutput("outbound_rules");
+        SetOutput("backend_address");
+        SetOutput("backend_ip_configurations");
+        SetOutput("inbound_nat_rules");
+        SetOutput("load_balancing_rules");
+        SetOutput("outbound_rules");
+        SetOutput("id");
+        SetOutput("loadbalancer_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
-        set => this.WithProperty("loadbalancer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("loadbalancer_id");
+        set => SetProperty("loadbalancer_id", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
     /// </summary>
     public AzurermLbBackendAddressPoolDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLbBackendAddressPoolDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnectionTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnectionTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnectionTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnectionTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnection : TerraformResou
 
     private void InitializeOutputs()
     {
+        SetOutput("app_service_id");
+        SetOutput("id");
+        SetOutput("slot_name");
+        SetOutput("subnet_id");
     }
 
     /// <summary>
@@ -66,17 +66,17 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnection : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceId is required")]
     public required TerraformProperty<string> AppServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_service_id");
-        set => this.WithProperty("app_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_service_id");
+        set => SetProperty("app_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +85,8 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnection : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotName is required")]
     public required TerraformProperty<string> SlotName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("slot_name");
-        set => this.WithProperty("slot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("slot_name");
+        set => SetProperty("slot_name", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnection : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnection : TerraformResou
     /// </summary>
     public AzurermAppServiceSlotVirtualNetworkSwiftConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceSlotVirtualNetworkSwiftConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

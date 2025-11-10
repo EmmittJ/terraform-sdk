@@ -14,45 +14,51 @@ public class AwsLambdaLayerVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("code_sha256");
-        this.WithOutput("compatible_architectures");
-        this.WithOutput("compatible_runtimes");
-        this.WithOutput("created_date");
-        this.WithOutput("description");
-        this.WithOutput("layer_arn");
-        this.WithOutput("license_info");
-        this.WithOutput("signing_job_arn");
-        this.WithOutput("signing_profile_version_arn");
-        this.WithOutput("source_code_hash");
-        this.WithOutput("source_code_size");
+        SetOutput("arn");
+        SetOutput("code_sha256");
+        SetOutput("compatible_architectures");
+        SetOutput("compatible_runtimes");
+        SetOutput("created_date");
+        SetOutput("description");
+        SetOutput("layer_arn");
+        SetOutput("license_info");
+        SetOutput("signing_job_arn");
+        SetOutput("signing_profile_version_arn");
+        SetOutput("source_code_hash");
+        SetOutput("source_code_size");
+        SetOutput("compatible_architecture");
+        SetOutput("compatible_runtime");
+        SetOutput("id");
+        SetOutput("layer_name");
+        SetOutput("region");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The compatible_architecture attribute.
     /// </summary>
-    public TerraformProperty<string>? CompatibleArchitecture
+    public TerraformProperty<string> CompatibleArchitecture
     {
-        get => GetProperty<TerraformProperty<string>>("compatible_architecture");
-        set => this.WithProperty("compatible_architecture", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compatible_architecture");
+        set => SetProperty("compatible_architecture", value);
     }
 
     /// <summary>
     /// The compatible_runtime attribute.
     /// </summary>
-    public TerraformProperty<string>? CompatibleRuntime
+    public TerraformProperty<string> CompatibleRuntime
     {
-        get => GetProperty<TerraformProperty<string>>("compatible_runtime");
-        set => this.WithProperty("compatible_runtime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compatible_runtime");
+        set => SetProperty("compatible_runtime", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,26 +67,26 @@ public class AwsLambdaLayerVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     public required TerraformProperty<string> LayerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("layer_name");
-        set => this.WithProperty("layer_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("layer_name");
+        set => SetProperty("layer_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<double>? Version
+    public TerraformProperty<double> Version
     {
-        get => GetProperty<TerraformProperty<double>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

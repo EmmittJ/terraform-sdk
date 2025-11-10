@@ -14,8 +14,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Primary is required")]
     public required TerraformProperty<bool> Primary
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("primary");
-        set => WithProperty("primary", value);
+        set => SetProperty("primary", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address");
-        set => WithProperty("private_ip_address", value);
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddressVersion
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address_version");
-        set => WithProperty("private_ip_address_version", value);
+        set => SetProperty("private_ip_address_version", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -69,8 +64,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -96,8 +88,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,61 +106,72 @@ public class AzurermPrivateLinkService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("alias");
+        SetOutput("alias");
+        SetOutput("auto_approval_subscription_ids");
+        SetOutput("destination_ip_address");
+        SetOutput("enable_proxy_protocol");
+        SetOutput("fqdns");
+        SetOutput("id");
+        SetOutput("load_balancer_frontend_ip_configuration_ids");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("visibility_subscription_ids");
     }
 
     /// <summary>
     /// The auto_approval_subscription_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AutoApprovalSubscriptionIds
+    public HashSet<TerraformProperty<string>> AutoApprovalSubscriptionIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("auto_approval_subscription_ids");
-        set => this.WithProperty("auto_approval_subscription_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("auto_approval_subscription_ids");
+        set => SetProperty("auto_approval_subscription_ids", value);
     }
 
     /// <summary>
     /// The destination_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationIpAddress
+    public TerraformProperty<string> DestinationIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("destination_ip_address");
-        set => this.WithProperty("destination_ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_ip_address");
+        set => SetProperty("destination_ip_address", value);
     }
 
     /// <summary>
     /// The enable_proxy_protocol attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableProxyProtocol
+    public TerraformProperty<bool> EnableProxyProtocol
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_proxy_protocol");
-        set => this.WithProperty("enable_proxy_protocol", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_proxy_protocol");
+        set => SetProperty("enable_proxy_protocol", value);
     }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Fqdns
+    public List<TerraformProperty<string>> Fqdns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("fqdns");
-        set => this.WithProperty("fqdns", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("fqdns");
+        set => SetProperty("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The load_balancer_frontend_ip_configuration_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? LoadBalancerFrontendIpConfigurationIds
+    public HashSet<TerraformProperty<string>> LoadBalancerFrontendIpConfigurationIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("load_balancer_frontend_ip_configuration_ids");
-        set => this.WithProperty("load_balancer_frontend_ip_configuration_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("load_balancer_frontend_ip_configuration_ids");
+        set => SetProperty("load_balancer_frontend_ip_configuration_ids", value);
     }
 
     /// <summary>
@@ -178,8 +180,8 @@ public class AzurermPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -188,8 +190,8 @@ public class AzurermPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -198,38 +200,38 @@ public class AzurermPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The visibility_subscription_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VisibilitySubscriptionIds
+    public HashSet<TerraformProperty<string>> VisibilitySubscriptionIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("visibility_subscription_ids");
-        set => this.WithProperty("visibility_subscription_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("visibility_subscription_ids");
+        set => SetProperty("visibility_subscription_ids", value);
     }
 
     /// <summary>
     /// Block for nat_ip_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatIpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NatIpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 NatIpConfiguration block(s) allowed")]
     public List<AzurermPrivateLinkServiceNatIpConfigurationBlock>? NatIpConfiguration
     {
-        get => GetProperty<List<AzurermPrivateLinkServiceNatIpConfigurationBlock>>("nat_ip_configuration");
-        set => this.WithProperty("nat_ip_configuration", value);
+        set => SetProperty("nat_ip_configuration", value);
     }
 
     /// <summary>
@@ -238,8 +240,7 @@ public class AzurermPrivateLinkService : TerraformResource
     /// </summary>
     public AzurermPrivateLinkServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateLinkServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

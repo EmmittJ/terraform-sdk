@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsStreamInputBlobSerializationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Encoding
     {
-        get => GetProperty<TerraformProperty<string>>("encoding");
-        set => WithProperty("encoding", value);
+        set => SetProperty("encoding", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsStreamInputBlobSerializationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? FieldDelimiter
     {
-        get => GetProperty<TerraformProperty<string>>("field_delimiter");
-        set => WithProperty("field_delimiter", value);
+        set => SetProperty("field_delimiter", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermStreamAnalyticsStreamInputBlobSerializationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermStreamAnalyticsStreamInputBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermStreamAnalyticsStreamInputBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermStreamAnalyticsStreamInputBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermStreamAnalyticsStreamInputBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,15 +88,26 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("authentication_mode");
+        SetOutput("date_format");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("path_pattern");
+        SetOutput("resource_group_name");
+        SetOutput("storage_account_key");
+        SetOutput("storage_account_name");
+        SetOutput("storage_container_name");
+        SetOutput("stream_analytics_job_name");
+        SetOutput("time_format");
     }
 
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationMode
+    public TerraformProperty<string> AuthenticationMode
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_mode");
-        set => this.WithProperty("authentication_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_mode");
+        set => SetProperty("authentication_mode", value);
     }
 
     /// <summary>
@@ -112,17 +116,17 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DateFormat is required")]
     public required TerraformProperty<string> DateFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("date_format");
-        set => this.WithProperty("date_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("date_format");
+        set => SetProperty("date_format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,8 +135,8 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -141,8 +145,8 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
     public required TerraformProperty<string> PathPattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path_pattern");
-        set => this.WithProperty("path_pattern", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path_pattern");
+        set => SetProperty("path_pattern", value);
     }
 
     /// <summary>
@@ -151,8 +155,8 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -161,8 +165,8 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
-        set => this.WithProperty("storage_account_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_key");
+        set => SetProperty("storage_account_key", value);
     }
 
     /// <summary>
@@ -171,8 +175,8 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
-        set => this.WithProperty("storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
+        set => SetProperty("storage_account_name", value);
     }
 
     /// <summary>
@@ -181,8 +185,8 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformProperty<string> StorageContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_name");
-        set => this.WithProperty("storage_container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_name");
+        set => SetProperty("storage_container_name", value);
     }
 
     /// <summary>
@@ -191,8 +195,8 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
-        set => this.WithProperty("stream_analytics_job_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_name");
+        set => SetProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
@@ -201,20 +205,20 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFormat is required")]
     public required TerraformProperty<string> TimeFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_format");
-        set => this.WithProperty("time_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_format");
+        set => SetProperty("time_format", value);
     }
 
     /// <summary>
     /// Block for serialization.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
     public List<AzurermStreamAnalyticsStreamInputBlobSerializationBlock>? Serialization
     {
-        get => GetProperty<List<AzurermStreamAnalyticsStreamInputBlobSerializationBlock>>("serialization");
-        set => this.WithProperty("serialization", value);
+        set => SetProperty("serialization", value);
     }
 
     /// <summary>
@@ -223,8 +227,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsStreamInputBlobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsStreamInputBlobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

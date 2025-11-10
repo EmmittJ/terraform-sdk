@@ -13,8 +13,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EndpointFilter
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_filter");
-        set => WithProperty("endpoint_filter", value);
+        set => SetProperty("endpoint_filter", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
-        set => WithProperty("hostname", value);
+        set => SetProperty("hostname", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceDirectoryService is required")]
     public required TerraformProperty<string> ServiceDirectoryService
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_directory_service");
-        set => WithProperty("service_directory_service", value);
+        set => SetProperty("service_directory_service", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class GoogleKmsEkmConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleKmsEkmConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class GoogleKmsEkmConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,43 +81,50 @@ public class GoogleKmsEkmConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
+        SetOutput("create_time");
+        SetOutput("crypto_space_path");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("key_management_mode");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if KeyManagementMode is CLOUD_KMS.
     /// </summary>
-    public TerraformProperty<string>? CryptoSpacePath
+    public TerraformProperty<string> CryptoSpacePath
     {
-        get => GetProperty<TerraformProperty<string>>("crypto_space_path");
-        set => this.WithProperty("crypto_space_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_space_path");
+        set => SetProperty("crypto_space_path", value);
     }
 
     /// <summary>
     /// Optional. Etag of the currently stored EkmConnection.
     /// </summary>
-    public TerraformProperty<string>? Etag
+    public TerraformProperty<string> Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => this.WithProperty("etag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("etag");
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL Default value: &amp;quot;MANUAL&amp;quot; Possible values: [&amp;quot;MANUAL&amp;quot;, &amp;quot;CLOUD_KMS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? KeyManagementMode
+    public TerraformProperty<string> KeyManagementMode
     {
-        get => GetProperty<TerraformProperty<string>>("key_management_mode");
-        set => this.WithProperty("key_management_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_management_mode");
+        set => SetProperty("key_management_mode", value);
     }
 
     /// <summary>
@@ -133,8 +134,8 @@ public class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -143,28 +144,28 @@ public class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for service_resolvers.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResolvers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceResolvers block(s) required")]
     public List<GoogleKmsEkmConnectionServiceResolversBlock>? ServiceResolvers
     {
-        get => GetProperty<List<GoogleKmsEkmConnectionServiceResolversBlock>>("service_resolvers");
-        set => this.WithProperty("service_resolvers", value);
+        set => SetProperty("service_resolvers", value);
     }
 
     /// <summary>
@@ -173,8 +174,7 @@ public class GoogleKmsEkmConnection : TerraformResource
     /// </summary>
     public GoogleKmsEkmConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleKmsEkmConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

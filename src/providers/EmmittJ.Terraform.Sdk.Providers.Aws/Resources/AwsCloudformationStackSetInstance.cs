@@ -13,8 +13,7 @@ public class AwsCloudformationStackSetInstanceDeploymentTargetsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? AccountFilterType
     {
-        get => GetProperty<TerraformProperty<string>>("account_filter_type");
-        set => WithProperty("account_filter_type", value);
+        set => SetProperty("account_filter_type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCloudformationStackSetInstanceDeploymentTargetsBlock : Terraform
     /// </summary>
     public HashSet<TerraformProperty<string>>? Accounts
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("accounts");
-        set => WithProperty("accounts", value);
+        set => SetProperty("accounts", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCloudformationStackSetInstanceDeploymentTargetsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? AccountsUrl
     {
-        get => GetProperty<TerraformProperty<string>>("accounts_url");
-        set => WithProperty("accounts_url", value);
+        set => SetProperty("accounts_url", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsCloudformationStackSetInstanceDeploymentTargetsBlock : Terraform
     /// </summary>
     public HashSet<TerraformProperty<string>>? OrganizationalUnitIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("organizational_unit_ids");
-        set => WithProperty("organizational_unit_ids", value);
+        set => SetProperty("organizational_unit_ids", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AwsCloudformationStackSetInstanceOperationPreferencesBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? ConcurrencyMode
     {
-        get => GetProperty<TerraformProperty<string>>("concurrency_mode");
-        set => WithProperty("concurrency_mode", value);
+        set => SetProperty("concurrency_mode", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsCloudformationStackSetInstanceOperationPreferencesBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? FailureToleranceCount
     {
-        get => GetProperty<TerraformProperty<double>>("failure_tolerance_count");
-        set => WithProperty("failure_tolerance_count", value);
+        set => SetProperty("failure_tolerance_count", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsCloudformationStackSetInstanceOperationPreferencesBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? FailureTolerancePercentage
     {
-        get => GetProperty<TerraformProperty<double>>("failure_tolerance_percentage");
-        set => WithProperty("failure_tolerance_percentage", value);
+        set => SetProperty("failure_tolerance_percentage", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AwsCloudformationStackSetInstanceOperationPreferencesBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? MaxConcurrentCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_concurrent_count");
-        set => WithProperty("max_concurrent_count", value);
+        set => SetProperty("max_concurrent_count", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AwsCloudformationStackSetInstanceOperationPreferencesBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? MaxConcurrentPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("max_concurrent_percentage");
-        set => WithProperty("max_concurrent_percentage", value);
+        set => SetProperty("max_concurrent_percentage", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AwsCloudformationStackSetInstanceOperationPreferencesBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? RegionConcurrencyType
     {
-        get => GetProperty<TerraformProperty<string>>("region_concurrency_type");
-        set => WithProperty("region_concurrency_type", value);
+        set => SetProperty("region_concurrency_type", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class AwsCloudformationStackSetInstanceOperationPreferencesBlock : Terraf
     /// </summary>
     public List<TerraformProperty<string>>? RegionOrder
     {
-        get => GetProperty<List<TerraformProperty<string>>>("region_order");
-        set => WithProperty("region_order", value);
+        set => SetProperty("region_order", value);
     }
 
 }
@@ -128,8 +117,7 @@ public class AwsCloudformationStackSetInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -137,8 +125,7 @@ public class AwsCloudformationStackSetInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -146,8 +133,7 @@ public class AwsCloudformationStackSetInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -165,73 +151,81 @@ public class AwsCloudformationStackSetInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("organizational_unit_id");
-        this.WithOutput("stack_id");
-        this.WithOutput("stack_instance_summaries");
+        SetOutput("organizational_unit_id");
+        SetOutput("stack_id");
+        SetOutput("stack_instance_summaries");
+        SetOutput("account_id");
+        SetOutput("call_as");
+        SetOutput("id");
+        SetOutput("parameter_overrides");
+        SetOutput("region");
+        SetOutput("retain_stack");
+        SetOutput("stack_set_instance_region");
+        SetOutput("stack_set_name");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
     /// The call_as attribute.
     /// </summary>
-    public TerraformProperty<string>? CallAs
+    public TerraformProperty<string> CallAs
     {
-        get => GetProperty<TerraformProperty<string>>("call_as");
-        set => this.WithProperty("call_as", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("call_as");
+        set => SetProperty("call_as", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The parameter_overrides attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ParameterOverrides
+    public Dictionary<string, TerraformProperty<string>> ParameterOverrides
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameter_overrides");
-        set => this.WithProperty("parameter_overrides", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameter_overrides");
+        set => SetProperty("parameter_overrides", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retain_stack attribute.
     /// </summary>
-    public TerraformProperty<bool>? RetainStack
+    public TerraformProperty<bool> RetainStack
     {
-        get => GetProperty<TerraformProperty<bool>>("retain_stack");
-        set => this.WithProperty("retain_stack", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("retain_stack");
+        set => SetProperty("retain_stack", value);
     }
 
     /// <summary>
     /// The stack_set_instance_region attribute.
     /// </summary>
-    public TerraformProperty<string>? StackSetInstanceRegion
+    public TerraformProperty<string> StackSetInstanceRegion
     {
-        get => GetProperty<TerraformProperty<string>>("stack_set_instance_region");
-        set => this.WithProperty("stack_set_instance_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stack_set_instance_region");
+        set => SetProperty("stack_set_instance_region", value);
     }
 
     /// <summary>
@@ -240,8 +234,8 @@ public class AwsCloudformationStackSetInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackSetName is required")]
     public required TerraformProperty<string> StackSetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stack_set_name");
-        set => this.WithProperty("stack_set_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stack_set_name");
+        set => SetProperty("stack_set_name", value);
     }
 
     /// <summary>
@@ -251,8 +245,7 @@ public class AwsCloudformationStackSetInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentTargets block(s) allowed")]
     public List<AwsCloudformationStackSetInstanceDeploymentTargetsBlock>? DeploymentTargets
     {
-        get => GetProperty<List<AwsCloudformationStackSetInstanceDeploymentTargetsBlock>>("deployment_targets");
-        set => this.WithProperty("deployment_targets", value);
+        set => SetProperty("deployment_targets", value);
     }
 
     /// <summary>
@@ -262,8 +255,7 @@ public class AwsCloudformationStackSetInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationPreferences block(s) allowed")]
     public List<AwsCloudformationStackSetInstanceOperationPreferencesBlock>? OperationPreferences
     {
-        get => GetProperty<List<AwsCloudformationStackSetInstanceOperationPreferencesBlock>>("operation_preferences");
-        set => this.WithProperty("operation_preferences", value);
+        set => SetProperty("operation_preferences", value);
     }
 
     /// <summary>
@@ -272,8 +264,7 @@ public class AwsCloudformationStackSetInstance : TerraformResource
     /// </summary>
     public AwsCloudformationStackSetInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCloudformationStackSetInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

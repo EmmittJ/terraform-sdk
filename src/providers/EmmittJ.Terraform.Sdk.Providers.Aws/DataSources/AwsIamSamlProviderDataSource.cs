@@ -14,10 +14,13 @@ public class AwsIamSamlProviderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_date");
-        this.WithOutput("name");
-        this.WithOutput("saml_metadata_document");
-        this.WithOutput("valid_until");
+        SetOutput("create_date");
+        SetOutput("name");
+        SetOutput("saml_metadata_document");
+        SetOutput("valid_until");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -26,26 +29,26 @@ public class AwsIamSamlProviderDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

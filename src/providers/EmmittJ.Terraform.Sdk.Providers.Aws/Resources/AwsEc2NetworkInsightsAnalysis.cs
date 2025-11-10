@@ -14,34 +14,41 @@ public class AwsEc2NetworkInsightsAnalysis : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("alternate_path_hints");
-        this.WithOutput("arn");
-        this.WithOutput("explanations");
-        this.WithOutput("forward_path_components");
-        this.WithOutput("path_found");
-        this.WithOutput("return_path_components");
-        this.WithOutput("start_date");
-        this.WithOutput("status");
-        this.WithOutput("status_message");
-        this.WithOutput("warning_message");
+        SetOutput("alternate_path_hints");
+        SetOutput("arn");
+        SetOutput("explanations");
+        SetOutput("forward_path_components");
+        SetOutput("path_found");
+        SetOutput("return_path_components");
+        SetOutput("start_date");
+        SetOutput("status");
+        SetOutput("status_message");
+        SetOutput("warning_message");
+        SetOutput("filter_in_arns");
+        SetOutput("id");
+        SetOutput("network_insights_path_id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("wait_for_completion");
     }
 
     /// <summary>
     /// The filter_in_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? FilterInArns
+    public HashSet<TerraformProperty<string>> FilterInArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("filter_in_arns");
-        set => this.WithProperty("filter_in_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("filter_in_arns");
+        set => SetProperty("filter_in_arns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,44 +57,44 @@ public class AwsEc2NetworkInsightsAnalysis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInsightsPathId is required")]
     public required TerraformProperty<string> NetworkInsightsPathId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_insights_path_id");
-        set => this.WithProperty("network_insights_path_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_insights_path_id");
+        set => SetProperty("network_insights_path_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The wait_for_completion attribute.
     /// </summary>
-    public TerraformProperty<bool>? WaitForCompletion
+    public TerraformProperty<bool> WaitForCompletion
     {
-        get => GetProperty<TerraformProperty<bool>>("wait_for_completion");
-        set => this.WithProperty("wait_for_completion", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_completion");
+        set => SetProperty("wait_for_completion", value);
     }
 
     /// <summary>

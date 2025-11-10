@@ -13,8 +13,7 @@ public class GoogleParameterManagerRegionalParameterTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleParameterManagerRegionalParameterTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleParameterManagerRegionalParameterTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,40 +46,47 @@ public class GoogleParameterManagerRegionalParameter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("policy_member");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("policy_member");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("format");
+        SetOutput("id");
+        SetOutput("kms_key");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("parameter_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The format type of the regional parameter. Default value: &amp;quot;UNFORMATTED&amp;quot; Possible values: [&amp;quot;UNFORMATTED&amp;quot;, &amp;quot;YAML&amp;quot;, &amp;quot;JSON&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Format
+    public TerraformProperty<string> Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
-        set => this.WithProperty("format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("format");
+        set => SetProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey used to encrypt regional parameter version payload. Format
     /// &#39;projects/{{project}}/locations/{{location}}/keyRings/{{key_ring}}/cryptoKeys/{{crypto_key}}&#39;
     /// </summary>
-    public TerraformProperty<string>? KmsKey
+    public TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => this.WithProperty("kms_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
@@ -103,10 +107,10 @@ public class GoogleParameterManagerRegionalParameter : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -115,8 +119,8 @@ public class GoogleParameterManagerRegionalParameter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -125,17 +129,17 @@ public class GoogleParameterManagerRegionalParameter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterId is required")]
     public required TerraformProperty<string> ParameterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter_id");
-        set => this.WithProperty("parameter_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_id");
+        set => SetProperty("parameter_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -144,8 +148,7 @@ public class GoogleParameterManagerRegionalParameter : TerraformResource
     /// </summary>
     public GoogleParameterManagerRegionalParameterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleParameterManagerRegionalParameterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

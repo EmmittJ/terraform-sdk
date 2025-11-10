@@ -13,8 +13,7 @@ public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("destination_fhir_mapping_json");
+        SetOutput("destination_fhir_service_id");
+        SetOutput("destination_identity_resolution_type");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("medtech_service_id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -66,8 +69,8 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirMappingJson is required")]
     public required TerraformProperty<string> DestinationFhirMappingJson
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_fhir_mapping_json");
-        set => this.WithProperty("destination_fhir_mapping_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_fhir_mapping_json");
+        set => SetProperty("destination_fhir_mapping_json", value);
     }
 
     /// <summary>
@@ -76,8 +79,8 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirServiceId is required")]
     public required TerraformProperty<string> DestinationFhirServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_fhir_service_id");
-        set => this.WithProperty("destination_fhir_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_fhir_service_id");
+        set => SetProperty("destination_fhir_service_id", value);
     }
 
     /// <summary>
@@ -86,17 +89,17 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIdentityResolutionType is required")]
     public required TerraformProperty<string> DestinationIdentityResolutionType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_identity_resolution_type");
-        set => this.WithProperty("destination_identity_resolution_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_identity_resolution_type");
+        set => SetProperty("destination_identity_resolution_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,8 +108,8 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -115,8 +118,8 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MedtechServiceId is required")]
     public required TerraformProperty<string> MedtechServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("medtech_service_id");
-        set => this.WithProperty("medtech_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("medtech_service_id");
+        set => SetProperty("medtech_service_id", value);
     }
 
     /// <summary>
@@ -125,8 +128,8 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -135,8 +138,7 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     /// </summary>
     public AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

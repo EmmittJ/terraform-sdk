@@ -14,8 +14,7 @@ public class AwsSsmcontactsContactChannelDeliveryAddressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SimpleAddress is required")]
     public required TerraformProperty<string> SimpleAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("simple_address");
-        set => WithProperty("simple_address", value);
+        set => SetProperty("simple_address", value);
     }
 
 }
@@ -33,8 +32,13 @@ public class AwsSsmcontactsContactChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("activation_status");
-        this.WithOutput("arn");
+        SetOutput("activation_status");
+        SetOutput("arn");
+        SetOutput("contact_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -43,17 +47,17 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
     public required TerraformProperty<string> ContactId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("contact_id");
-        set => this.WithProperty("contact_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("contact_id");
+        set => SetProperty("contact_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,17 +66,17 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -81,20 +85,20 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Block for delivery_address.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryAddress is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DeliveryAddress block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryAddress block(s) allowed")]
     public List<AwsSsmcontactsContactChannelDeliveryAddressBlock>? DeliveryAddress
     {
-        get => GetProperty<List<AwsSsmcontactsContactChannelDeliveryAddressBlock>>("delivery_address");
-        set => this.WithProperty("delivery_address", value);
+        set => SetProperty("delivery_address", value);
     }
 
     /// <summary>

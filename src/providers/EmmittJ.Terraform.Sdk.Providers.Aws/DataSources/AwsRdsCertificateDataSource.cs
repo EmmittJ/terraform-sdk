@@ -14,49 +14,53 @@ public class AwsRdsCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("certificate_type");
-        this.WithOutput("customer_override");
-        this.WithOutput("customer_override_valid_till");
-        this.WithOutput("thumbprint");
-        this.WithOutput("valid_from");
-        this.WithOutput("valid_till");
+        SetOutput("arn");
+        SetOutput("certificate_type");
+        SetOutput("customer_override");
+        SetOutput("customer_override_valid_till");
+        SetOutput("thumbprint");
+        SetOutput("valid_from");
+        SetOutput("valid_till");
+        SetOutput("default_for_new_launches");
+        SetOutput("id");
+        SetOutput("latest_valid_till");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The default_for_new_launches attribute.
     /// </summary>
-    public TerraformProperty<bool>? DefaultForNewLaunches
+    public TerraformProperty<bool> DefaultForNewLaunches
     {
-        get => GetProperty<TerraformProperty<bool>>("default_for_new_launches");
-        set => this.WithProperty("default_for_new_launches", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default_for_new_launches");
+        set => SetProperty("default_for_new_launches", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The latest_valid_till attribute.
     /// </summary>
-    public TerraformProperty<bool>? LatestValidTill
+    public TerraformProperty<bool> LatestValidTill
     {
-        get => GetProperty<TerraformProperty<bool>>("latest_valid_till");
-        set => this.WithProperty("latest_valid_till", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("latest_valid_till");
+        set => SetProperty("latest_valid_till", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

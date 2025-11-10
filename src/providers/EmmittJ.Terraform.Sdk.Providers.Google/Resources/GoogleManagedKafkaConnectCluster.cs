@@ -14,8 +14,7 @@ public class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryBytes is required")]
     public required TerraformProperty<string> MemoryBytes
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("memory_bytes");
-        set => WithProperty("memory_bytes", value);
+        set => SetProperty("memory_bytes", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VcpuCount is required")]
     public required TerraformProperty<string> VcpuCount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vcpu_count");
-        set => WithProperty("vcpu_count", value);
+        set => SetProperty("vcpu_count", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class GoogleManagedKafkaConnectClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class GoogleManagedKafkaConnectClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class GoogleManagedKafkaConnectClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,12 +81,18 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("connect_cluster_id");
+        SetOutput("id");
+        SetOutput("kafka_cluster");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -100,17 +101,17 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectClusterId is required")]
     public required TerraformProperty<string> ConnectClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connect_cluster_id");
-        set => this.WithProperty("connect_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connect_cluster_id");
+        set => SetProperty("connect_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -119,8 +120,8 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaCluster is required")]
     public required TerraformProperty<string> KafkaCluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kafka_cluster");
-        set => this.WithProperty("kafka_cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kafka_cluster");
+        set => SetProperty("kafka_cluster", value);
     }
 
     /// <summary>
@@ -129,10 +130,10 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -141,41 +142,41 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for capacity_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CapacityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityConfig block(s) allowed")]
     public List<GoogleManagedKafkaConnectClusterCapacityConfigBlock>? CapacityConfig
     {
-        get => GetProperty<List<GoogleManagedKafkaConnectClusterCapacityConfigBlock>>("capacity_config");
-        set => this.WithProperty("capacity_config", value);
+        set => SetProperty("capacity_config", value);
     }
 
     /// <summary>
     /// Block for gcp_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GcpConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcpConfig block(s) allowed")]
     public List<GoogleManagedKafkaConnectClusterGcpConfigBlock>? GcpConfig
     {
-        get => GetProperty<List<GoogleManagedKafkaConnectClusterGcpConfigBlock>>("gcp_config");
-        set => this.WithProperty("gcp_config", value);
+        set => SetProperty("gcp_config", value);
     }
 
     /// <summary>
@@ -184,8 +185,7 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     /// </summary>
     public GoogleManagedKafkaConnectClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleManagedKafkaConnectClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

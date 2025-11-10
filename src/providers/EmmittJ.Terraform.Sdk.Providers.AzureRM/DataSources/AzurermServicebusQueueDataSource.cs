@@ -13,8 +13,7 @@ public class AzurermServicebusQueueDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,33 +30,38 @@ public class AzurermServicebusQueueDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("auto_delete_on_idle");
-        this.WithOutput("batched_operations_enabled");
-        this.WithOutput("dead_lettering_on_message_expiration");
-        this.WithOutput("default_message_ttl");
-        this.WithOutput("duplicate_detection_history_time_window");
-        this.WithOutput("enable_batched_operations");
-        this.WithOutput("enable_express");
-        this.WithOutput("enable_partitioning");
-        this.WithOutput("express_enabled");
-        this.WithOutput("forward_dead_lettered_messages_to");
-        this.WithOutput("forward_to");
-        this.WithOutput("lock_duration");
-        this.WithOutput("max_delivery_count");
-        this.WithOutput("max_size_in_megabytes");
-        this.WithOutput("partitioning_enabled");
-        this.WithOutput("requires_duplicate_detection");
-        this.WithOutput("requires_session");
-        this.WithOutput("status");
+        SetOutput("auto_delete_on_idle");
+        SetOutput("batched_operations_enabled");
+        SetOutput("dead_lettering_on_message_expiration");
+        SetOutput("default_message_ttl");
+        SetOutput("duplicate_detection_history_time_window");
+        SetOutput("enable_batched_operations");
+        SetOutput("enable_express");
+        SetOutput("enable_partitioning");
+        SetOutput("express_enabled");
+        SetOutput("forward_dead_lettered_messages_to");
+        SetOutput("forward_to");
+        SetOutput("lock_duration");
+        SetOutput("max_delivery_count");
+        SetOutput("max_size_in_megabytes");
+        SetOutput("partitioning_enabled");
+        SetOutput("requires_duplicate_detection");
+        SetOutput("requires_session");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("namespace_id");
+        SetOutput("namespace_name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,37 +70,37 @@ public class AzurermServicebusQueueDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NamespaceId
+    public TerraformProperty<string> NamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_id");
-        set => this.WithProperty("namespace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_id");
+        set => SetProperty("namespace_id", value);
     }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? NamespaceName
+    public TerraformProperty<string> NamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_name");
-        set => this.WithProperty("namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
+        set => SetProperty("namespace_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? ResourceGroupName
+    public TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -105,8 +109,7 @@ public class AzurermServicebusQueueDataSource : TerraformDataSource
     /// </summary>
     public AzurermServicebusQueueDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermServicebusQueueDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermLogAnalyticsSavedSearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogAnalyticsSavedSearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogAnalyticsSavedSearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,15 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("category");
+        SetOutput("display_name");
+        SetOutput("function_alias");
+        SetOutput("function_parameters");
+        SetOutput("id");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("name");
+        SetOutput("query");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -57,8 +63,8 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("category");
-        set => this.WithProperty("category", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("category");
+        set => SetProperty("category", value);
     }
 
     /// <summary>
@@ -67,35 +73,35 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The function_alias attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionAlias
+    public TerraformProperty<string> FunctionAlias
     {
-        get => GetProperty<TerraformProperty<string>>("function_alias");
-        set => this.WithProperty("function_alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_alias");
+        set => SetProperty("function_alias", value);
     }
 
     /// <summary>
     /// The function_parameters attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? FunctionParameters
+    public List<TerraformProperty<string>> FunctionParameters
     {
-        get => GetProperty<List<TerraformProperty<string>>>("function_parameters");
-        set => this.WithProperty("function_parameters", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("function_parameters");
+        set => SetProperty("function_parameters", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,8 +110,8 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -114,8 +120,8 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -124,17 +130,17 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query");
-        set => this.WithProperty("query", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query");
+        set => SetProperty("query", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -143,8 +149,7 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     /// </summary>
     public AzurermLogAnalyticsSavedSearchTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogAnalyticsSavedSearchTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

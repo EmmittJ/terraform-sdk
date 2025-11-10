@@ -13,8 +13,7 @@ public class AzurermStorageTableEntitiesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,7 +30,11 @@ public class AzurermStorageTableEntitiesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("items");
+        SetOutput("items");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("select");
+        SetOutput("storage_table_id");
     }
 
     /// <summary>
@@ -40,26 +43,26 @@ public class AzurermStorageTableEntitiesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The select attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Select
+    public List<TerraformProperty<string>> Select
     {
-        get => GetProperty<List<TerraformProperty<string>>>("select");
-        set => this.WithProperty("select", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("select");
+        set => SetProperty("select", value);
     }
 
     /// <summary>
@@ -68,8 +71,8 @@ public class AzurermStorageTableEntitiesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     public required TerraformProperty<string> StorageTableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_table_id");
-        set => this.WithProperty("storage_table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_table_id");
+        set => SetProperty("storage_table_id", value);
     }
 
     /// <summary>
@@ -78,8 +81,7 @@ public class AzurermStorageTableEntitiesDataSource : TerraformDataSource
     /// </summary>
     public AzurermStorageTableEntitiesDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageTableEntitiesDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

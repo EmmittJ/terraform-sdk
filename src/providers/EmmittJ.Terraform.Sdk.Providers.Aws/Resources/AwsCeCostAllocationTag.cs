@@ -14,16 +14,19 @@ public class AwsCeCostAllocationTag : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("type");
+        SetOutput("type");
+        SetOutput("id");
+        SetOutput("status");
+        SetOutput("tag_key");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -32,8 +35,8 @@ public class AwsCeCostAllocationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -42,8 +45,8 @@ public class AwsCeCostAllocationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     public required TerraformProperty<string> TagKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tag_key");
-        set => this.WithProperty("tag_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag_key");
+        set => SetProperty("tag_key", value);
     }
 
     /// <summary>

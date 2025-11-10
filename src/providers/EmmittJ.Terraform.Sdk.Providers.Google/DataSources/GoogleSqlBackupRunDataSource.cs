@@ -14,27 +14,32 @@ public class GoogleSqlBackupRunDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("location");
-        this.WithOutput("start_time");
-        this.WithOutput("status");
+        SetOutput("location");
+        SetOutput("start_time");
+        SetOutput("status");
+        SetOutput("backup_id");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("most_recent");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The identifier for this backup run. Unique only for a specific Cloud SQL instance. If left empty and multiple backups exist for the instance, most_recent must be set to true.
     /// </summary>
-    public TerraformProperty<double>? BackupId
+    public TerraformProperty<double> BackupId
     {
-        get => GetProperty<TerraformProperty<double>>("backup_id");
-        set => this.WithProperty("backup_id", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("backup_id");
+        set => SetProperty("backup_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,26 +48,26 @@ public class GoogleSqlBackupRunDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
     /// Toggles use of the most recent backup run if multiple backups exist for a Cloud SQL instance.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// Project ID of the project that contains the instance.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

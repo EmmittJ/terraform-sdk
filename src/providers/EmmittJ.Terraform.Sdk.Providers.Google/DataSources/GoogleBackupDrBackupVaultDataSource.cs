@@ -14,31 +14,35 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_restriction");
-        this.WithOutput("allow_missing");
-        this.WithOutput("annotations");
-        this.WithOutput("backup_count");
-        this.WithOutput("backup_minimum_enforced_retention_duration");
-        this.WithOutput("backup_retention_inheritance");
-        this.WithOutput("create_time");
-        this.WithOutput("deletable");
-        this.WithOutput("description");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("effective_time");
-        this.WithOutput("etag");
-        this.WithOutput("force_delete");
-        this.WithOutput("force_update");
-        this.WithOutput("ignore_backup_plan_references");
-        this.WithOutput("ignore_inactive_datasources");
-        this.WithOutput("labels");
-        this.WithOutput("name");
-        this.WithOutput("service_account");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("total_stored_bytes");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("access_restriction");
+        SetOutput("allow_missing");
+        SetOutput("annotations");
+        SetOutput("backup_count");
+        SetOutput("backup_minimum_enforced_retention_duration");
+        SetOutput("backup_retention_inheritance");
+        SetOutput("create_time");
+        SetOutput("deletable");
+        SetOutput("description");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("effective_time");
+        SetOutput("etag");
+        SetOutput("force_delete");
+        SetOutput("force_update");
+        SetOutput("ignore_backup_plan_references");
+        SetOutput("ignore_inactive_datasources");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("service_account");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("total_stored_bytes");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("backup_vault_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -47,17 +51,17 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
     public required TerraformProperty<string> BackupVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_vault_id");
-        set => this.WithProperty("backup_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_vault_id");
+        set => SetProperty("backup_vault_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,17 +70,17 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

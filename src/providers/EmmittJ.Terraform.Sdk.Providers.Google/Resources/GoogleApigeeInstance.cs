@@ -14,8 +14,7 @@ public class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
 }
@@ -43,8 +41,7 @@ public class GoogleApigeeInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class GoogleApigeeInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class GoogleApigeeInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -80,9 +75,19 @@ public class GoogleApigeeInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("host");
-        this.WithOutput("port");
-        this.WithOutput("service_attachment");
+        SetOutput("host");
+        SetOutput("port");
+        SetOutput("service_attachment");
+        SetOutput("consumer_accept_list");
+        SetOutput("description");
+        SetOutput("disk_encryption_key_name");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("ip_range");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("org_id");
+        SetOutput("peering_cidr_range");
     }
 
     /// <summary>
@@ -91,47 +96,47 @@ public class GoogleApigeeInstance : TerraformResource
     /// which the customers can provide during the instance creation. By default, the customer
     /// project associated with the Apigee organization will be included to the list.
     /// </summary>
-    public List<TerraformProperty<string>>? ConsumerAcceptList
+    public List<TerraformProperty<string>> ConsumerAcceptList
     {
-        get => GetProperty<List<TerraformProperty<string>>>("consumer_accept_list");
-        set => this.WithProperty("consumer_accept_list", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("consumer_accept_list");
+        set => SetProperty("consumer_accept_list", value);
     }
 
     /// <summary>
     /// Description of the instance.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Customer Managed Encryption Key (CMEK) used for disk and volume encryption. Required for Apigee paid subscriptions only.
     /// Use the following format: &#39;projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)&#39;
     /// </summary>
-    public TerraformProperty<string>? DiskEncryptionKeyName
+    public TerraformProperty<string> DiskEncryptionKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_key_name");
-        set => this.WithProperty("disk_encryption_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk_encryption_key_name");
+        set => SetProperty("disk_encryption_key_name", value);
     }
 
     /// <summary>
     /// Display name of the instance.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -143,10 +148,10 @@ public class GoogleApigeeInstance : TerraformResource
     /// for configuring their firewall needs to allow traffic from Apigee.
     /// Input format: &amp;quot;a.b.c.d/22&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? IpRange
+    public TerraformProperty<string> IpRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_range");
-        set => this.WithProperty("ip_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_range");
+        set => SetProperty("ip_range", value);
     }
 
     /// <summary>
@@ -155,8 +160,8 @@ public class GoogleApigeeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -165,8 +170,8 @@ public class GoogleApigeeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -176,18 +181,18 @@ public class GoogleApigeeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
     /// The size of the CIDR block range that will be reserved by the instance. For valid values,
     /// see [CidrRange](https://cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.instances#CidrRange) on the documentation.
     /// </summary>
-    public TerraformProperty<string>? PeeringCidrRange
+    public TerraformProperty<string> PeeringCidrRange
     {
-        get => GetProperty<TerraformProperty<string>>("peering_cidr_range");
-        set => this.WithProperty("peering_cidr_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peering_cidr_range");
+        set => SetProperty("peering_cidr_range", value);
     }
 
     /// <summary>
@@ -197,8 +202,7 @@ public class GoogleApigeeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLoggingConfig block(s) allowed")]
     public List<GoogleApigeeInstanceAccessLoggingConfigBlock>? AccessLoggingConfig
     {
-        get => GetProperty<List<GoogleApigeeInstanceAccessLoggingConfigBlock>>("access_logging_config");
-        set => this.WithProperty("access_logging_config", value);
+        set => SetProperty("access_logging_config", value);
     }
 
     /// <summary>
@@ -207,8 +211,7 @@ public class GoogleApigeeInstance : TerraformResource
     /// </summary>
     public GoogleApigeeInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

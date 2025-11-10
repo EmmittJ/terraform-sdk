@@ -14,11 +14,16 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("expires_at");
-        this.WithOutput("id");
-        this.WithOutput("key");
-        this.WithOutput("service_account_token_id");
+        SetOutput("created_at");
+        SetOutput("expires_at");
+        SetOutput("id");
+        SetOutput("key");
+        SetOutput("service_account_token_id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("seconds_to_live");
+        SetOutput("service_account_id");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
@@ -27,17 +32,17 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -46,8 +51,8 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondsToLive is required")]
     public required TerraformProperty<double> SecondsToLive
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("seconds_to_live");
-        set => this.WithProperty("seconds_to_live", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("seconds_to_live");
+        set => SetProperty("seconds_to_live", value);
     }
 
     /// <summary>
@@ -56,8 +61,8 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
     public required TerraformProperty<string> ServiceAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_account_id");
-        set => this.WithProperty("service_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account_id");
+        set => SetProperty("service_account_id", value);
     }
 
     /// <summary>
@@ -66,8 +71,8 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>

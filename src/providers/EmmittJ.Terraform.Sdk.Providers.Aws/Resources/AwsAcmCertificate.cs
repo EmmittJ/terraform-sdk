@@ -13,8 +13,7 @@ public class AwsAcmCertificateOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateTransparencyLoggingPreference
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_transparency_logging_preference");
-        set => WithProperty("certificate_transparency_logging_preference", value);
+        set => SetProperty("certificate_transparency_logging_preference", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAcmCertificateOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Export
     {
-        get => GetProperty<TerraformProperty<string>>("export");
-        set => WithProperty("export", value);
+        set => SetProperty("export", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => WithProperty("domain_name", value);
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidationDomain is required")]
     public required TerraformProperty<string> ValidationDomain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("validation_domain");
-        set => WithProperty("validation_domain", value);
+        set => SetProperty("validation_domain", value);
     }
 
 }
@@ -69,133 +65,146 @@ public class AwsAcmCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("domain_validation_options");
-        this.WithOutput("not_after");
-        this.WithOutput("not_before");
-        this.WithOutput("pending_renewal");
-        this.WithOutput("renewal_eligibility");
-        this.WithOutput("renewal_summary");
-        this.WithOutput("status");
-        this.WithOutput("type");
-        this.WithOutput("validation_emails");
+        SetOutput("arn");
+        SetOutput("domain_validation_options");
+        SetOutput("not_after");
+        SetOutput("not_before");
+        SetOutput("pending_renewal");
+        SetOutput("renewal_eligibility");
+        SetOutput("renewal_summary");
+        SetOutput("status");
+        SetOutput("type");
+        SetOutput("validation_emails");
+        SetOutput("certificate_authority_arn");
+        SetOutput("certificate_body");
+        SetOutput("certificate_chain");
+        SetOutput("domain_name");
+        SetOutput("early_renewal_duration");
+        SetOutput("id");
+        SetOutput("key_algorithm");
+        SetOutput("private_key");
+        SetOutput("region");
+        SetOutput("subject_alternative_names");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("validation_method");
     }
 
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateAuthorityArn
+    public TerraformProperty<string> CertificateAuthorityArn
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_authority_arn");
-        set => this.WithProperty("certificate_authority_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_authority_arn");
+        set => SetProperty("certificate_authority_arn", value);
     }
 
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateBody
+    public TerraformProperty<string> CertificateBody
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_body");
-        set => this.WithProperty("certificate_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_body");
+        set => SetProperty("certificate_body", value);
     }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateChain
+    public TerraformProperty<string> CertificateChain
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_chain");
-        set => this.WithProperty("certificate_chain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_chain");
+        set => SetProperty("certificate_chain", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    public TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The early_renewal_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? EarlyRenewalDuration
+    public TerraformProperty<string> EarlyRenewalDuration
     {
-        get => GetProperty<TerraformProperty<string>>("early_renewal_duration");
-        set => this.WithProperty("early_renewal_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("early_renewal_duration");
+        set => SetProperty("early_renewal_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyAlgorithm
+    public TerraformProperty<string> KeyAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("key_algorithm");
-        set => this.WithProperty("key_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_algorithm");
+        set => SetProperty("key_algorithm", value);
     }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateKey
+    public TerraformProperty<string> PrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("private_key");
-        set => this.WithProperty("private_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_key");
+        set => SetProperty("private_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The subject_alternative_names attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubjectAlternativeNames
+    public HashSet<TerraformProperty<string>> SubjectAlternativeNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subject_alternative_names");
-        set => this.WithProperty("subject_alternative_names", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subject_alternative_names");
+        set => SetProperty("subject_alternative_names", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The validation_method attribute.
     /// </summary>
-    public TerraformProperty<string>? ValidationMethod
+    public TerraformProperty<string> ValidationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("validation_method");
-        set => this.WithProperty("validation_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("validation_method");
+        set => SetProperty("validation_method", value);
     }
 
     /// <summary>
@@ -205,8 +214,7 @@ public class AwsAcmCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     public List<AwsAcmCertificateOptionsBlock>? Options
     {
-        get => GetProperty<List<AwsAcmCertificateOptionsBlock>>("options");
-        set => this.WithProperty("options", value);
+        set => SetProperty("options", value);
     }
 
     /// <summary>
@@ -215,8 +223,7 @@ public class AwsAcmCertificate : TerraformResource
     /// </summary>
     public HashSet<AwsAcmCertificateValidationOptionBlock>? ValidationOption
     {
-        get => GetProperty<HashSet<AwsAcmCertificateValidationOptionBlock>>("validation_option");
-        set => this.WithProperty("validation_option", value);
+        set => SetProperty("validation_option", value);
     }
 
     /// <summary>

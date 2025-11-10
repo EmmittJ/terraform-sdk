@@ -13,8 +13,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformProperty<double>? GlobalConfidenceLevel
     {
-        get => GetProperty<TerraformProperty<double>>("global_confidence_level");
-        set => WithProperty("global_confidence_level", value);
+        set => SetProperty("global_confidence_level", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public List<TerraformProperty<string>>? GlobalEnforcedUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("global_enforced_urls");
-        set => WithProperty("global_enforced_urls", value);
+        set => SetProperty("global_enforced_urls", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public List<TerraformProperty<string>>? GlobalExemptUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("global_exempt_urls");
-        set => WithProperty("global_exempt_urls", value);
+        set => SetProperty("global_exempt_urls", value);
     }
 
 }
@@ -49,36 +46,42 @@ public class AwsWorkspaceswebDataProtectionSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("associated_portal_arns");
-        this.WithOutput("data_protection_settings_arn");
-        this.WithOutput("tags_all");
+        SetOutput("associated_portal_arns");
+        SetOutput("data_protection_settings_arn");
+        SetOutput("tags_all");
+        SetOutput("additional_encryption_context");
+        SetOutput("customer_managed_key");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>> AdditionalEncryptionContext
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
-        set => this.WithProperty("additional_encryption_context", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
+        set => SetProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerManagedKey
+    public TerraformProperty<string> CustomerManagedKey
     {
-        get => GetProperty<TerraformProperty<string>>("customer_managed_key");
-        set => this.WithProperty("customer_managed_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_managed_key");
+        set => SetProperty("customer_managed_key", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -87,26 +90,26 @@ public class AwsWorkspaceswebDataProtectionSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -115,8 +118,7 @@ public class AwsWorkspaceswebDataProtectionSettings : TerraformResource
     /// </summary>
     public List<AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationBlock>? InlineRedactionConfiguration
     {
-        get => GetProperty<List<AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationBlock>>("inline_redaction_configuration");
-        set => this.WithProperty("inline_redaction_configuration", value);
+        set => SetProperty("inline_redaction_configuration", value);
     }
 
     /// <summary>

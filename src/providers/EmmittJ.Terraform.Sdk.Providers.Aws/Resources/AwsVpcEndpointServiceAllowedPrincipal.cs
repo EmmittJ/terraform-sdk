@@ -14,15 +14,19 @@ public class AwsVpcEndpointServiceAllowedPrincipal : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("principal_arn");
+        SetOutput("region");
+        SetOutput("vpc_endpoint_service_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,17 +35,17 @@ public class AwsVpcEndpointServiceAllowedPrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformProperty<string> PrincipalArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_arn");
-        set => this.WithProperty("principal_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_arn");
+        set => SetProperty("principal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class AwsVpcEndpointServiceAllowedPrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointServiceId is required")]
     public required TerraformProperty<string> VpcEndpointServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_endpoint_service_id");
-        set => this.WithProperty("vpc_endpoint_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_endpoint_service_id");
+        set => SetProperty("vpc_endpoint_service_id", value);
     }
 
 }

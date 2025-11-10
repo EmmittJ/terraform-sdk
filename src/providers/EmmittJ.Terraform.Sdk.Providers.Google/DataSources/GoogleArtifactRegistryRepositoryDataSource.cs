@@ -14,33 +14,37 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cleanup_policies");
-        this.WithOutput("cleanup_policy_dry_run");
-        this.WithOutput("create_time");
-        this.WithOutput("description");
-        this.WithOutput("docker_config");
-        this.WithOutput("effective_labels");
-        this.WithOutput("format");
-        this.WithOutput("kms_key_name");
-        this.WithOutput("labels");
-        this.WithOutput("maven_config");
-        this.WithOutput("mode");
-        this.WithOutput("name");
-        this.WithOutput("registry_uri");
-        this.WithOutput("remote_repository_config");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
-        this.WithOutput("virtual_repository_config");
-        this.WithOutput("vulnerability_scanning_config");
+        SetOutput("cleanup_policies");
+        SetOutput("cleanup_policy_dry_run");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("docker_config");
+        SetOutput("effective_labels");
+        SetOutput("format");
+        SetOutput("kms_key_name");
+        SetOutput("labels");
+        SetOutput("maven_config");
+        SetOutput("mode");
+        SetOutput("name");
+        SetOutput("registry_uri");
+        SetOutput("remote_repository_config");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("virtual_repository_config");
+        SetOutput("vulnerability_scanning_config");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("repository_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,17 +58,17 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -74,8 +78,8 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
-        set => this.WithProperty("repository_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("repository_id");
+        set => SetProperty("repository_id", value);
     }
 
     /// <summary>

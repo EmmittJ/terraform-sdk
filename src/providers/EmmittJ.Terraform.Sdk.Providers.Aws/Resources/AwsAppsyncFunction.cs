@@ -14,8 +14,7 @@ public class AwsAppsyncFunctionRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsAppsyncFunctionRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformProperty<string> RuntimeVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runtime_version");
-        set => WithProperty("runtime_version", value);
+        set => SetProperty("runtime_version", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsAppsyncFunctionSyncConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConflictDetection
     {
-        get => GetProperty<TerraformProperty<string>>("conflict_detection");
-        set => WithProperty("conflict_detection", value);
+        set => SetProperty("conflict_detection", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsAppsyncFunctionSyncConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConflictHandler
     {
-        get => GetProperty<TerraformProperty<string>>("conflict_handler");
-        set => WithProperty("conflict_handler", value);
+        set => SetProperty("conflict_handler", value);
     }
 
 }
@@ -69,8 +65,19 @@ public class AwsAppsyncFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("function_id");
+        SetOutput("arn");
+        SetOutput("function_id");
+        SetOutput("api_id");
+        SetOutput("code");
+        SetOutput("data_source");
+        SetOutput("description");
+        SetOutput("function_version");
+        SetOutput("id");
+        SetOutput("max_batch_size");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("request_mapping_template");
+        SetOutput("response_mapping_template");
     }
 
     /// <summary>
@@ -79,17 +86,17 @@ public class AwsAppsyncFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The code attribute.
     /// </summary>
-    public TerraformProperty<string>? Code
+    public TerraformProperty<string> Code
     {
-        get => GetProperty<TerraformProperty<string>>("code");
-        set => this.WithProperty("code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("code");
+        set => SetProperty("code", value);
     }
 
     /// <summary>
@@ -98,44 +105,44 @@ public class AwsAppsyncFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformProperty<string> DataSource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_source");
-        set => this.WithProperty("data_source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_source");
+        set => SetProperty("data_source", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The function_version attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionVersion
+    public TerraformProperty<string> FunctionVersion
     {
-        get => GetProperty<TerraformProperty<string>>("function_version");
-        set => this.WithProperty("function_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_version");
+        set => SetProperty("function_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_batch_size attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxBatchSize
+    public TerraformProperty<double> MaxBatchSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_batch_size");
-        set => this.WithProperty("max_batch_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_batch_size");
+        set => SetProperty("max_batch_size", value);
     }
 
     /// <summary>
@@ -144,35 +151,35 @@ public class AwsAppsyncFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The request_mapping_template attribute.
     /// </summary>
-    public TerraformProperty<string>? RequestMappingTemplate
+    public TerraformProperty<string> RequestMappingTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("request_mapping_template");
-        set => this.WithProperty("request_mapping_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("request_mapping_template");
+        set => SetProperty("request_mapping_template", value);
     }
 
     /// <summary>
     /// The response_mapping_template attribute.
     /// </summary>
-    public TerraformProperty<string>? ResponseMappingTemplate
+    public TerraformProperty<string> ResponseMappingTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("response_mapping_template");
-        set => this.WithProperty("response_mapping_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("response_mapping_template");
+        set => SetProperty("response_mapping_template", value);
     }
 
     /// <summary>
@@ -182,8 +189,7 @@ public class AwsAppsyncFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Runtime block(s) allowed")]
     public List<AwsAppsyncFunctionRuntimeBlock>? Runtime
     {
-        get => GetProperty<List<AwsAppsyncFunctionRuntimeBlock>>("runtime");
-        set => this.WithProperty("runtime", value);
+        set => SetProperty("runtime", value);
     }
 
     /// <summary>
@@ -193,8 +199,7 @@ public class AwsAppsyncFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
     public List<AwsAppsyncFunctionSyncConfigBlock>? SyncConfig
     {
-        get => GetProperty<List<AwsAppsyncFunctionSyncConfigBlock>>("sync_config");
-        set => this.WithProperty("sync_config", value);
+        set => SetProperty("sync_config", value);
     }
 
     /// <summary>

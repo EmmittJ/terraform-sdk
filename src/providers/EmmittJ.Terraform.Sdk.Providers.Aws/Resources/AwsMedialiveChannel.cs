@@ -14,8 +14,7 @@ public class AwsMedialiveChannelCdiInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resolution is required")]
     public required TerraformProperty<string> Resolution
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resolution");
-        set => WithProperty("resolution", value);
+        set => SetProperty("resolution", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsMedialiveChannelDestinationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -58,8 +56,7 @@ public class AwsMedialiveChannelInputAttachmentsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputAttachmentName is required")]
     public required TerraformProperty<string> InputAttachmentName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("input_attachment_name");
-        set => WithProperty("input_attachment_name", value);
+        set => SetProperty("input_attachment_name", value);
     }
 
     /// <summary>
@@ -68,8 +65,7 @@ public class AwsMedialiveChannelInputAttachmentsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputId is required")]
     public required TerraformProperty<string> InputId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("input_id");
-        set => WithProperty("input_id", value);
+        set => SetProperty("input_id", value);
     }
 
 }
@@ -86,8 +82,7 @@ public class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Codec is required")]
     public required TerraformProperty<string> Codec
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("codec");
-        set => WithProperty("codec", value);
+        set => SetProperty("codec", value);
     }
 
     /// <summary>
@@ -96,8 +91,7 @@ public class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputResolution is required")]
     public required TerraformProperty<string> InputResolution
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("input_resolution");
-        set => WithProperty("input_resolution", value);
+        set => SetProperty("input_resolution", value);
     }
 
     /// <summary>
@@ -106,8 +100,7 @@ public class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumBitrate is required")]
     public required TerraformProperty<string> MaximumBitrate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("maximum_bitrate");
-        set => WithProperty("maximum_bitrate", value);
+        set => SetProperty("maximum_bitrate", value);
     }
 
 }
@@ -124,8 +117,7 @@ public class AwsMedialiveChannelMaintenanceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceDay is required")]
     public required TerraformProperty<string> MaintenanceDay
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("maintenance_day");
-        set => WithProperty("maintenance_day", value);
+        set => SetProperty("maintenance_day", value);
     }
 
     /// <summary>
@@ -134,8 +126,7 @@ public class AwsMedialiveChannelMaintenanceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceStartTime is required")]
     public required TerraformProperty<string> MaintenanceStartTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("maintenance_start_time");
-        set => WithProperty("maintenance_start_time", value);
+        set => SetProperty("maintenance_start_time", value);
     }
 
 }
@@ -151,8 +142,7 @@ public class AwsMedialiveChannelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -160,8 +150,7 @@ public class AwsMedialiveChannelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -169,8 +158,7 @@ public class AwsMedialiveChannelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -186,8 +174,7 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AvailabilityZones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
-        set => WithProperty("availability_zones", value);
+        set => SetProperty("availability_zones", value);
     }
 
     /// <summary>
@@ -195,8 +182,7 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? NetworkInterfaceIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("network_interface_ids");
-        set => WithProperty("network_interface_ids", value);
+        set => SetProperty("network_interface_ids", value);
     }
 
     /// <summary>
@@ -205,8 +191,7 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicAddressAllocationIds is required")]
     public List<TerraformProperty<string>>? PublicAddressAllocationIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("public_address_allocation_ids");
-        set => WithProperty("public_address_allocation_ids", value);
+        set => SetProperty("public_address_allocation_ids", value);
     }
 
     /// <summary>
@@ -214,8 +199,7 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -224,8 +208,7 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -243,8 +226,17 @@ public class AwsMedialiveChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("channel_id");
+        SetOutput("arn");
+        SetOutput("channel_id");
+        SetOutput("channel_class");
+        SetOutput("id");
+        SetOutput("log_level");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("start_channel");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -253,26 +245,26 @@ public class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelClass is required")]
     public required TerraformProperty<string> ChannelClass
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("channel_class");
-        set => this.WithProperty("channel_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("channel_class");
+        set => SetProperty("channel_class", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformProperty<string>? LogLevel
+    public TerraformProperty<string> LogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("log_level");
-        set => this.WithProperty("log_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_level");
+        set => SetProperty("log_level", value);
     }
 
     /// <summary>
@@ -281,53 +273,53 @@ public class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The start_channel attribute.
     /// </summary>
-    public TerraformProperty<bool>? StartChannel
+    public TerraformProperty<bool> StartChannel
     {
-        get => GetProperty<TerraformProperty<bool>>("start_channel");
-        set => this.WithProperty("start_channel", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("start_channel");
+        set => SetProperty("start_channel", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -337,54 +329,53 @@ public class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdiInputSpecification block(s) allowed")]
     public List<AwsMedialiveChannelCdiInputSpecificationBlock>? CdiInputSpecification
     {
-        get => GetProperty<List<AwsMedialiveChannelCdiInputSpecificationBlock>>("cdi_input_specification");
-        set => this.WithProperty("cdi_input_specification", value);
+        set => SetProperty("cdi_input_specification", value);
     }
 
     /// <summary>
     /// Block for destinations.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     public HashSet<AwsMedialiveChannelDestinationsBlock>? Destinations
     {
-        get => GetProperty<HashSet<AwsMedialiveChannelDestinationsBlock>>("destinations");
-        set => this.WithProperty("destinations", value);
+        set => SetProperty("destinations", value);
     }
 
     /// <summary>
     /// Block for encoder_settings.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncoderSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EncoderSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncoderSettings block(s) allowed")]
     public List<AwsMedialiveChannelEncoderSettingsBlock>? EncoderSettings
     {
-        get => GetProperty<List<AwsMedialiveChannelEncoderSettingsBlock>>("encoder_settings");
-        set => this.WithProperty("encoder_settings", value);
+        set => SetProperty("encoder_settings", value);
     }
 
     /// <summary>
     /// Block for input_attachments.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputAttachments is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputAttachments block(s) required")]
     public HashSet<AwsMedialiveChannelInputAttachmentsBlock>? InputAttachments
     {
-        get => GetProperty<HashSet<AwsMedialiveChannelInputAttachmentsBlock>>("input_attachments");
-        set => this.WithProperty("input_attachments", value);
+        set => SetProperty("input_attachments", value);
     }
 
     /// <summary>
     /// Block for input_specification.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputSpecification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputSpecification block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputSpecification block(s) allowed")]
     public List<AwsMedialiveChannelInputSpecificationBlock>? InputSpecification
     {
-        get => GetProperty<List<AwsMedialiveChannelInputSpecificationBlock>>("input_specification");
-        set => this.WithProperty("input_specification", value);
+        set => SetProperty("input_specification", value);
     }
 
     /// <summary>
@@ -394,8 +385,7 @@ public class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Maintenance block(s) allowed")]
     public List<AwsMedialiveChannelMaintenanceBlock>? Maintenance
     {
-        get => GetProperty<List<AwsMedialiveChannelMaintenanceBlock>>("maintenance");
-        set => this.WithProperty("maintenance", value);
+        set => SetProperty("maintenance", value);
     }
 
     /// <summary>
@@ -404,8 +394,7 @@ public class AwsMedialiveChannel : TerraformResource
     /// </summary>
     public AwsMedialiveChannelTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMedialiveChannelTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -415,8 +404,7 @@ public class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vpc block(s) allowed")]
     public List<AwsMedialiveChannelVpcBlock>? Vpc
     {
-        get => GetProperty<List<AwsMedialiveChannelVpcBlock>>("vpc");
-        set => this.WithProperty("vpc", value);
+        set => SetProperty("vpc", value);
     }
 
     /// <summary>

@@ -21,8 +21,7 @@ public class AwsBedrockagentFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsBedrockagentFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsBedrockagentFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,31 +54,37 @@ public class AwsBedrockagentFlow : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("id");
-        this.WithOutput("status");
-        this.WithOutput("tags_all");
-        this.WithOutput("updated_at");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("id");
+        SetOutput("status");
+        SetOutput("tags_all");
+        SetOutput("updated_at");
+        SetOutput("version");
+        SetOutput("customer_encryption_key_arn");
+        SetOutput("description");
+        SetOutput("execution_role_arn");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The customer_encryption_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerEncryptionKeyArn
+    public TerraformProperty<string> CustomerEncryptionKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("customer_encryption_key_arn");
-        set => this.WithProperty("customer_encryption_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_encryption_key_arn");
+        set => SetProperty("customer_encryption_key_arn", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -90,8 +93,8 @@ public class AwsBedrockagentFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
@@ -100,26 +103,26 @@ public class AwsBedrockagentFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -128,8 +131,7 @@ public class AwsBedrockagentFlow : TerraformResource
     /// </summary>
     public List<AwsBedrockagentFlowDefinitionBlock>? Definition
     {
-        get => GetProperty<List<AwsBedrockagentFlowDefinitionBlock>>("definition");
-        set => this.WithProperty("definition", value);
+        set => SetProperty("definition", value);
     }
 
     /// <summary>
@@ -138,8 +140,7 @@ public class AwsBedrockagentFlow : TerraformResource
     /// </summary>
     public AwsBedrockagentFlowTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentFlowTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

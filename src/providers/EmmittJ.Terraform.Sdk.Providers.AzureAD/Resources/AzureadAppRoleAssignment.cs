@@ -13,8 +13,7 @@ public class AzureadAppRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadAppRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadAppRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,9 +46,13 @@ public class AzureadAppRoleAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("principal_display_name");
-        this.WithOutput("principal_type");
-        this.WithOutput("resource_display_name");
+        SetOutput("principal_display_name");
+        SetOutput("principal_type");
+        SetOutput("resource_display_name");
+        SetOutput("app_role_id");
+        SetOutput("id");
+        SetOutput("principal_object_id");
+        SetOutput("resource_object_id");
     }
 
     /// <summary>
@@ -60,17 +61,17 @@ public class AzureadAppRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppRoleId is required")]
     public required TerraformProperty<string> AppRoleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_role_id");
-        set => this.WithProperty("app_role_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_role_id");
+        set => SetProperty("app_role_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -79,8 +80,8 @@ public class AzureadAppRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
     public required TerraformProperty<string> PrincipalObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_object_id");
-        set => this.WithProperty("principal_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_object_id");
+        set => SetProperty("principal_object_id", value);
     }
 
     /// <summary>
@@ -89,8 +90,8 @@ public class AzureadAppRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceObjectId is required")]
     public required TerraformProperty<string> ResourceObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_object_id");
-        set => this.WithProperty("resource_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_object_id");
+        set => SetProperty("resource_object_id", value);
     }
 
     /// <summary>
@@ -99,8 +100,7 @@ public class AzureadAppRoleAssignment : TerraformResource
     /// </summary>
     public AzureadAppRoleAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAppRoleAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

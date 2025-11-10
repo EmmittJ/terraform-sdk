@@ -14,8 +14,7 @@ public class AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationType is required")]
     public required TerraformProperty<string> ConfigurationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_type");
-        set => WithProperty("configuration_type", value);
+        set => SetProperty("configuration_type", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -68,6 +64,10 @@ public class AwsSecurityhubOrganizationConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("auto_enable");
+        SetOutput("auto_enable_standards");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -76,35 +76,35 @@ public class AwsSecurityhubOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     public required TerraformProperty<bool> AutoEnable
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("auto_enable");
-        set => this.WithProperty("auto_enable", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_enable");
+        set => SetProperty("auto_enable", value);
     }
 
     /// <summary>
     /// The auto_enable_standards attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoEnableStandards
+    public TerraformProperty<string> AutoEnableStandards
     {
-        get => GetProperty<TerraformProperty<string>>("auto_enable_standards");
-        set => this.WithProperty("auto_enable_standards", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_enable_standards");
+        set => SetProperty("auto_enable_standards", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -114,8 +114,7 @@ public class AwsSecurityhubOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrganizationConfiguration block(s) allowed")]
     public List<AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock>? OrganizationConfiguration
     {
-        get => GetProperty<List<AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock>>("organization_configuration");
-        set => this.WithProperty("organization_configuration", value);
+        set => SetProperty("organization_configuration", value);
     }
 
     /// <summary>
@@ -124,8 +123,7 @@ public class AwsSecurityhubOrganizationConfiguration : TerraformResource
     /// </summary>
     public AwsSecurityhubOrganizationConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSecurityhubOrganizationConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

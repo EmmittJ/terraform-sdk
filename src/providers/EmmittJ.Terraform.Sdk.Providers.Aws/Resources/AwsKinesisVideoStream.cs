@@ -13,8 +13,7 @@ public class AwsKinesisVideoStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsKinesisVideoStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsKinesisVideoStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,54 +46,63 @@ public class AwsKinesisVideoStream : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("creation_time");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("creation_time");
+        SetOutput("version");
+        SetOutput("data_retention_in_hours");
+        SetOutput("device_name");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("media_type");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The data_retention_in_hours attribute.
     /// </summary>
-    public TerraformProperty<double>? DataRetentionInHours
+    public TerraformProperty<double> DataRetentionInHours
     {
-        get => GetProperty<TerraformProperty<double>>("data_retention_in_hours");
-        set => this.WithProperty("data_retention_in_hours", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("data_retention_in_hours");
+        set => SetProperty("data_retention_in_hours", value);
     }
 
     /// <summary>
     /// The device_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DeviceName
+    public TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
-        set => this.WithProperty("device_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_name");
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The media_type attribute.
     /// </summary>
-    public TerraformProperty<string>? MediaType
+    public TerraformProperty<string> MediaType
     {
-        get => GetProperty<TerraformProperty<string>>("media_type");
-        set => this.WithProperty("media_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("media_type");
+        set => SetProperty("media_type", value);
     }
 
     /// <summary>
@@ -105,35 +111,35 @@ public class AwsKinesisVideoStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -142,8 +148,7 @@ public class AwsKinesisVideoStream : TerraformResource
     /// </summary>
     public AwsKinesisVideoStreamTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsKinesisVideoStreamTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

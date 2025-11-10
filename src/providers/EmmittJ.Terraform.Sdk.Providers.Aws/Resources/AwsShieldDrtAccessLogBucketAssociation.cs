@@ -13,8 +13,7 @@ public class AwsShieldDrtAccessLogBucketAssociationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsShieldDrtAccessLogBucketAssociationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,7 +38,9 @@ public class AwsShieldDrtAccessLogBucketAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("log_bucket");
+        SetOutput("role_arn_association_id");
     }
 
     /// <summary>
@@ -49,8 +49,8 @@ public class AwsShieldDrtAccessLogBucketAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBucket is required")]
     public required TerraformProperty<string> LogBucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_bucket");
-        set => this.WithProperty("log_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_bucket");
+        set => SetProperty("log_bucket", value);
     }
 
     /// <summary>
@@ -59,8 +59,8 @@ public class AwsShieldDrtAccessLogBucketAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArnAssociationId is required")]
     public required TerraformProperty<string> RoleArnAssociationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn_association_id");
-        set => this.WithProperty("role_arn_association_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn_association_id");
+        set => SetProperty("role_arn_association_id", value);
     }
 
     /// <summary>
@@ -69,8 +69,7 @@ public class AwsShieldDrtAccessLogBucketAssociation : TerraformResource
     /// </summary>
     public AwsShieldDrtAccessLogBucketAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsShieldDrtAccessLogBucketAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

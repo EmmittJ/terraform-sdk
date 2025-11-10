@@ -14,39 +14,43 @@ public class AwsMemorydbClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("acl_name");
-        this.WithOutput("arn");
-        this.WithOutput("auto_minor_version_upgrade");
-        this.WithOutput("cluster_endpoint");
-        this.WithOutput("data_tiering");
-        this.WithOutput("description");
-        this.WithOutput("engine");
-        this.WithOutput("engine_patch_version");
-        this.WithOutput("engine_version");
-        this.WithOutput("final_snapshot_name");
-        this.WithOutput("kms_key_arn");
-        this.WithOutput("maintenance_window");
-        this.WithOutput("node_type");
-        this.WithOutput("num_replicas_per_shard");
-        this.WithOutput("num_shards");
-        this.WithOutput("parameter_group_name");
-        this.WithOutput("port");
-        this.WithOutput("security_group_ids");
-        this.WithOutput("shards");
-        this.WithOutput("snapshot_retention_limit");
-        this.WithOutput("snapshot_window");
-        this.WithOutput("sns_topic_arn");
-        this.WithOutput("subnet_group_name");
-        this.WithOutput("tls_enabled");
+        SetOutput("acl_name");
+        SetOutput("arn");
+        SetOutput("auto_minor_version_upgrade");
+        SetOutput("cluster_endpoint");
+        SetOutput("data_tiering");
+        SetOutput("description");
+        SetOutput("engine");
+        SetOutput("engine_patch_version");
+        SetOutput("engine_version");
+        SetOutput("final_snapshot_name");
+        SetOutput("kms_key_arn");
+        SetOutput("maintenance_window");
+        SetOutput("node_type");
+        SetOutput("num_replicas_per_shard");
+        SetOutput("num_shards");
+        SetOutput("parameter_group_name");
+        SetOutput("port");
+        SetOutput("security_group_ids");
+        SetOutput("shards");
+        SetOutput("snapshot_retention_limit");
+        SetOutput("snapshot_window");
+        SetOutput("sns_topic_arn");
+        SetOutput("subnet_group_name");
+        SetOutput("tls_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,26 +59,26 @@ public class AwsMemorydbClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

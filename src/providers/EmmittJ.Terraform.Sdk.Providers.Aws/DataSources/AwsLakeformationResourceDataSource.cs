@@ -14,11 +14,14 @@ public class AwsLakeformationResourceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("hybrid_access_enabled");
-        this.WithOutput("last_modified");
-        this.WithOutput("role_arn");
-        this.WithOutput("with_federation");
-        this.WithOutput("with_privileged_access");
+        SetOutput("hybrid_access_enabled");
+        SetOutput("last_modified");
+        SetOutput("role_arn");
+        SetOutput("with_federation");
+        SetOutput("with_privileged_access");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -27,26 +30,26 @@ public class AwsLakeformationResourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

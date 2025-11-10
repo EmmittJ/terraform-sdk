@@ -14,17 +14,24 @@ public class GoogleComputeInstanceGuestAttributesDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.WithOutput("query_value");
-        this.WithOutput("variable_value");
+        SetOutput("query_value");
+        SetOutput("variable_value");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("query_path");
+        SetOutput("region");
+        SetOutput("variable_key");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,53 +40,53 @@ public class GoogleComputeInstanceGuestAttributesDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The query_path attribute.
     /// </summary>
-    public TerraformProperty<string>? QueryPath
+    public TerraformProperty<string> QueryPath
     {
-        get => GetProperty<TerraformProperty<string>>("query_path");
-        set => this.WithProperty("query_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_path");
+        set => SetProperty("query_path", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The variable_key attribute.
     /// </summary>
-    public TerraformProperty<string>? VariableKey
+    public TerraformProperty<string> VariableKey
     {
-        get => GetProperty<TerraformProperty<string>>("variable_key");
-        set => this.WithProperty("variable_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("variable_key");
+        set => SetProperty("variable_key", value);
     }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MemberName
     {
-        get => GetProperty<TerraformProperty<string>>("member_name");
-        set => WithProperty("member_name", value);
+        set => SetProperty("member_name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     public required TerraformProperty<string> PrivateIpAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_ip_address");
-        set => WithProperty("private_ip_address", value);
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubresourceName
     {
-        get => GetProperty<TerraformProperty<string>>("subresource_name");
-        set => WithProperty("subresource_name", value);
+        set => SetProperty("subresource_name", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneIds is required")]
     public List<TerraformProperty<string>>? PrivateDnsZoneIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("private_dns_zone_ids");
-        set => WithProperty("private_dns_zone_ids", value);
+        set => SetProperty("private_dns_zone_ids", value);
     }
 
 }
@@ -97,8 +90,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsManualConnection is required")]
     public required TerraformProperty<bool> IsManualConnection
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("is_manual_connection");
-        set => WithProperty("is_manual_connection", value);
+        set => SetProperty("is_manual_connection", value);
     }
 
     /// <summary>
@@ -107,8 +99,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -116,8 +107,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PrivateConnectionResourceAlias
     {
-        get => GetProperty<TerraformProperty<string>>("private_connection_resource_alias");
-        set => WithProperty("private_connection_resource_alias", value);
+        set => SetProperty("private_connection_resource_alias", value);
     }
 
     /// <summary>
@@ -125,8 +115,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PrivateConnectionResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("private_connection_resource_id");
-        set => WithProperty("private_connection_resource_id", value);
+        set => SetProperty("private_connection_resource_id", value);
     }
 
     /// <summary>
@@ -134,8 +123,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address");
-        set => WithProperty("private_ip_address", value);
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
@@ -143,8 +131,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? RequestMessage
     {
-        get => GetProperty<TerraformProperty<string>>("request_message");
-        set => WithProperty("request_message", value);
+        set => SetProperty("request_message", value);
     }
 
     /// <summary>
@@ -152,8 +139,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// </summary>
     public List<TerraformProperty<string>>? SubresourceNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subresource_names");
-        set => WithProperty("subresource_names", value);
+        set => SetProperty("subresource_names", value);
     }
 
 }
@@ -169,8 +155,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -178,8 +163,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -187,8 +171,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -196,8 +179,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -215,27 +197,34 @@ public class AzurermPrivateEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputustom_dns_configs");
-        this.WithOutputetwork_interface");
-        this.WithOutputrivate_dns_zone_configs");
+        SetOutput("custom_dns_configs");
+        SetOutput("network_interface");
+        SetOutput("private_dns_zone_configs");
+        SetOutput("custom_network_interface_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("subnet_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The custom_network_interface_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomNetworkInterfaceName
+    public TerraformProperty<string> CustomNetworkInterfaceName
     {
-        get => GetProperty<TerraformProperty<string>>("custom_network_interface_name");
-        set => this.WithProperty("custom_network_interface_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_network_interface_name");
+        set => SetProperty("custom_network_interface_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -244,8 +233,8 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -254,8 +243,8 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -264,8 +253,8 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -274,17 +263,17 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -293,8 +282,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     /// </summary>
     public List<AzurermPrivateEndpointIpConfigurationBlock>? IpConfiguration
     {
-        get => GetProperty<List<AzurermPrivateEndpointIpConfigurationBlock>>("ip_configuration");
-        set => this.WithProperty("ip_configuration", value);
+        set => SetProperty("ip_configuration", value);
     }
 
     /// <summary>
@@ -304,20 +292,19 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateDnsZoneGroup block(s) allowed")]
     public List<AzurermPrivateEndpointPrivateDnsZoneGroupBlock>? PrivateDnsZoneGroup
     {
-        get => GetProperty<List<AzurermPrivateEndpointPrivateDnsZoneGroupBlock>>("private_dns_zone_group");
-        set => this.WithProperty("private_dns_zone_group", value);
+        set => SetProperty("private_dns_zone_group", value);
     }
 
     /// <summary>
     /// Block for private_service_connection.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateServiceConnection is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PrivateServiceConnection block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnection block(s) allowed")]
     public List<AzurermPrivateEndpointPrivateServiceConnectionBlock>? PrivateServiceConnection
     {
-        get => GetProperty<List<AzurermPrivateEndpointPrivateServiceConnectionBlock>>("private_service_connection");
-        set => this.WithProperty("private_service_connection", value);
+        set => SetProperty("private_service_connection", value);
     }
 
     /// <summary>
@@ -326,8 +313,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     /// </summary>
     public AzurermPrivateEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -22,8 +22,11 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputlient_secret_arn");
-        this.WithOutputredential_provider_arn");
+        SetOutput("client_secret_arn");
+        SetOutput("credential_provider_arn");
+        SetOutput("credential_provider_vendor");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -32,8 +35,8 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialProviderVendor is required")]
     public required TerraformProperty<string> CredentialProviderVendor
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("credential_provider_vendor");
-        set => this.WithProperty("credential_provider_vendor", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("credential_provider_vendor");
+        set => SetProperty("credential_provider_vendor", value);
     }
 
     /// <summary>
@@ -42,17 +45,17 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -61,8 +64,7 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
     /// </summary>
     public List<AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBlock>? Oauth2ProviderConfig
     {
-        get => GetProperty<List<AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBlock>>("oauth2_provider_config");
-        set => this.WithProperty("oauth2_provider_config", value);
+        set => SetProperty("oauth2_provider_config", value);
     }
 
     /// <summary>

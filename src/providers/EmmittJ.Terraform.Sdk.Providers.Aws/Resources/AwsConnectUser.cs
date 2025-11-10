@@ -13,8 +13,7 @@ public class AwsConnectUserIdentityInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsConnectUserIdentityInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FirstName
     {
-        get => GetProperty<TerraformProperty<string>>("first_name");
-        set => WithProperty("first_name", value);
+        set => SetProperty("first_name", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsConnectUserIdentityInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastName
     {
-        get => GetProperty<TerraformProperty<string>>("last_name");
-        set => WithProperty("last_name", value);
+        set => SetProperty("last_name", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsConnectUserIdentityInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SecondaryEmail
     {
-        get => GetProperty<TerraformProperty<string>>("secondary_email");
-        set => WithProperty("secondary_email", value);
+        set => SetProperty("secondary_email", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AfterContactWorkTimeLimit
     {
-        get => GetProperty<TerraformProperty<double>>("after_contact_work_time_limit");
-        set => WithProperty("after_contact_work_time_limit", value);
+        set => SetProperty("after_contact_work_time_limit", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AutoAccept
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_accept");
-        set => WithProperty("auto_accept", value);
+        set => SetProperty("auto_accept", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeskPhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("desk_phone_number");
-        set => WithProperty("desk_phone_number", value);
+        set => SetProperty("desk_phone_number", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneType is required")]
     public required TerraformProperty<string> PhoneType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("phone_type");
-        set => WithProperty("phone_type", value);
+        set => SetProperty("phone_type", value);
     }
 
 }
@@ -104,35 +96,46 @@ public class AwsConnectUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("user_id");
+        SetOutput("arn");
+        SetOutput("user_id");
+        SetOutput("directory_user_id");
+        SetOutput("hierarchy_group_id");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("name");
+        SetOutput("password");
+        SetOutput("region");
+        SetOutput("routing_profile_id");
+        SetOutput("security_profile_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The directory_user_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DirectoryUserId
+    public TerraformProperty<string> DirectoryUserId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_user_id");
-        set => this.WithProperty("directory_user_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_user_id");
+        set => SetProperty("directory_user_id", value);
     }
 
     /// <summary>
     /// The hierarchy_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? HierarchyGroupId
+    public TerraformProperty<string> HierarchyGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("hierarchy_group_id");
-        set => this.WithProperty("hierarchy_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hierarchy_group_id");
+        set => SetProperty("hierarchy_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -141,8 +144,8 @@ public class AwsConnectUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -151,26 +154,26 @@ public class AwsConnectUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -179,36 +182,36 @@ public class AwsConnectUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingProfileId is required")]
     public required TerraformProperty<string> RoutingProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("routing_profile_id");
-        set => this.WithProperty("routing_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("routing_profile_id");
+        set => SetProperty("routing_profile_id", value);
     }
 
     /// <summary>
     /// The security_profile_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityProfileIds is required")]
-    public HashSet<TerraformProperty<string>>? SecurityProfileIds
+    public HashSet<TerraformProperty<string>> SecurityProfileIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_profile_ids");
-        set => this.WithProperty("security_profile_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_profile_ids");
+        set => SetProperty("security_profile_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -218,20 +221,19 @@ public class AwsConnectUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdentityInfo block(s) allowed")]
     public List<AwsConnectUserIdentityInfoBlock>? IdentityInfo
     {
-        get => GetProperty<List<AwsConnectUserIdentityInfoBlock>>("identity_info");
-        set => this.WithProperty("identity_info", value);
+        set => SetProperty("identity_info", value);
     }
 
     /// <summary>
     /// Block for phone_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PhoneConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PhoneConfig block(s) allowed")]
     public List<AwsConnectUserPhoneConfigBlock>? PhoneConfig
     {
-        get => GetProperty<List<AwsConnectUserPhoneConfigBlock>>("phone_config");
-        set => this.WithProperty("phone_config", value);
+        set => SetProperty("phone_config", value);
     }
 
     /// <summary>

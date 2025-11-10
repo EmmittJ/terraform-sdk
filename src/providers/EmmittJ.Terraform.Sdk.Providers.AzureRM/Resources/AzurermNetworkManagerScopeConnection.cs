@@ -13,8 +13,7 @@ public class AzurermNetworkManagerScopeConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkManagerScopeConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkManagerScopeConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetworkManagerScopeConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,31 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connection_state");
+        SetOutput("connection_state");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_manager_id");
+        SetOutput("target_scope_id");
+        SetOutput("tenant_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformProperty<string> NetworkManagerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_manager_id");
-        set => this.WithProperty("network_manager_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_manager_id");
+        set => SetProperty("network_manager_id", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetScopeId is required")]
     public required TerraformProperty<string> TargetScopeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_scope_id");
-        set => this.WithProperty("target_scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_scope_id");
+        set => SetProperty("target_scope_id", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
-        set => this.WithProperty("tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
     /// </summary>
     public AzurermNetworkManagerScopeConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerScopeConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

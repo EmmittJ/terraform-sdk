@@ -15,8 +15,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformProperty<string> EntityType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entity_type");
-        set => WithProperty("entity_type", value);
+        set => SetProperty("entity_type", value);
     }
 
     /// <summary>
@@ -25,8 +24,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IsList
     {
-        get => GetProperty<TerraformProperty<bool>>("is_list");
-        set => WithProperty("is_list", value);
+        set => SetProperty("is_list", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Redact
     {
-        get => GetProperty<TerraformProperty<bool>>("redact");
-        set => WithProperty("redact", value);
+        set => SetProperty("redact", value);
     }
 
 }
@@ -61,8 +57,7 @@ public class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -96,8 +89,7 @@ public class GoogleDialogflowCxIntentTrainingPhrasesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class GoogleDialogflowCxIntentTrainingPhrasesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RepeatCount
     {
-        get => GetProperty<TerraformProperty<double>>("repeat_count");
-        set => WithProperty("repeat_count", value);
+        set => SetProperty("repeat_count", value);
     }
 
 }
@@ -123,18 +114,28 @@ public class GoogleDialogflowCxIntent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("is_default_negative_intent");
+        SetOutput("is_default_welcome_intent");
+        SetOutput("is_fallback");
+        SetOutput("labels");
+        SetOutput("language_code");
+        SetOutput("parent");
+        SetOutput("priority");
     }
 
     /// <summary>
     /// Human readable description for better understanding an intent like its scope, content, result etc. Maximum character limit: 140 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -143,17 +144,17 @@ public class GoogleDialogflowCxIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -162,10 +163,10 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// 
     /// ~&amp;gt; Avoid having multiple &#39;google_dialogflow_cx_intent&#39; resources linked to the same agent with &#39;is_default_negative_intent = true&#39; because they will compete to control a single Default Negative Intent resource in GCP.
     /// </summary>
-    public TerraformProperty<bool>? IsDefaultNegativeIntent
+    public TerraformProperty<bool> IsDefaultNegativeIntent
     {
-        get => GetProperty<TerraformProperty<bool>>("is_default_negative_intent");
-        set => this.WithProperty("is_default_negative_intent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_default_negative_intent");
+        set => SetProperty("is_default_negative_intent", value);
     }
 
     /// <summary>
@@ -174,10 +175,10 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// 
     /// ~&amp;gt; Avoid having multiple &#39;google_dialogflow_cx_intent&#39; resources linked to the same agent with &#39;is_default_welcome_intent = true&#39; because they will compete to control a single Default Welcome Intent resource in GCP.
     /// </summary>
-    public TerraformProperty<bool>? IsDefaultWelcomeIntent
+    public TerraformProperty<bool> IsDefaultWelcomeIntent
     {
-        get => GetProperty<TerraformProperty<bool>>("is_default_welcome_intent");
-        set => this.WithProperty("is_default_welcome_intent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_default_welcome_intent");
+        set => SetProperty("is_default_welcome_intent", value);
     }
 
     /// <summary>
@@ -185,10 +186,10 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// Adding training phrases to fallback intent is useful in the case of requests that are mistakenly matched, since training phrases assigned to fallback intents act as negative examples that triggers no-match event.
     /// To manage the fallback intent, set &#39;is_default_negative_intent = true&#39;
     /// </summary>
-    public TerraformProperty<bool>? IsFallback
+    public TerraformProperty<bool> IsFallback
     {
-        get => GetProperty<TerraformProperty<bool>>("is_fallback");
-        set => this.WithProperty("is_fallback", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_fallback");
+        set => SetProperty("is_fallback", value);
     }
 
     /// <summary>
@@ -200,10 +201,10 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -211,20 +212,20 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// Intent.training_phrases.parts.text
     /// If not specified, the agent&#39;s default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
+    public TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
-        set => this.WithProperty("language_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
+        set => SetProperty("language_code", value);
     }
 
     /// <summary>
     /// The agent to create an intent for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -232,10 +233,10 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// If the supplied value is unspecified or 0, the service translates the value to 500,000, which corresponds to the Normal priority in the console.
     /// If the supplied value is negative, the intent is ignored in runtime detect intent requests.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -244,8 +245,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     public List<GoogleDialogflowCxIntentParametersBlock>? Parameters
     {
-        get => GetProperty<List<GoogleDialogflowCxIntentParametersBlock>>("parameters");
-        set => this.WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -254,8 +254,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     public GoogleDialogflowCxIntentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowCxIntentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -264,8 +263,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     public List<GoogleDialogflowCxIntentTrainingPhrasesBlock>? TrainingPhrases
     {
-        get => GetProperty<List<GoogleDialogflowCxIntentTrainingPhrasesBlock>>("training_phrases");
-        set => this.WithProperty("training_phrases", value);
+        set => SetProperty("training_phrases", value);
     }
 
     /// <summary>

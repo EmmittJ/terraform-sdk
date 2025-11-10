@@ -13,8 +13,7 @@ public class AwsSagemakerHubS3StorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? S3OutputPath
     {
-        get => GetProperty<TerraformProperty<string>>("s3_output_path");
-        set => WithProperty("s3_output_path", value);
+        set => SetProperty("s3_output_path", value);
     }
 
 }
@@ -32,7 +31,15 @@ public class AwsSagemakerHub : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("hub_description");
+        SetOutput("hub_display_name");
+        SetOutput("hub_name");
+        SetOutput("hub_search_keywords");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -41,17 +48,17 @@ public class AwsSagemakerHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubDescription is required")]
     public required TerraformProperty<string> HubDescription
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hub_description");
-        set => this.WithProperty("hub_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hub_description");
+        set => SetProperty("hub_description", value);
     }
 
     /// <summary>
     /// The hub_display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? HubDisplayName
+    public TerraformProperty<string> HubDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("hub_display_name");
-        set => this.WithProperty("hub_display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hub_display_name");
+        set => SetProperty("hub_display_name", value);
     }
 
     /// <summary>
@@ -60,53 +67,53 @@ public class AwsSagemakerHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubName is required")]
     public required TerraformProperty<string> HubName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hub_name");
-        set => this.WithProperty("hub_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hub_name");
+        set => SetProperty("hub_name", value);
     }
 
     /// <summary>
     /// The hub_search_keywords attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? HubSearchKeywords
+    public HashSet<TerraformProperty<string>> HubSearchKeywords
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("hub_search_keywords");
-        set => this.WithProperty("hub_search_keywords", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("hub_search_keywords");
+        set => SetProperty("hub_search_keywords", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -116,8 +123,7 @@ public class AwsSagemakerHub : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3StorageConfig block(s) allowed")]
     public List<AwsSagemakerHubS3StorageConfigBlock>? S3StorageConfig
     {
-        get => GetProperty<List<AwsSagemakerHubS3StorageConfigBlock>>("s3_storage_config");
-        set => this.WithProperty("s3_storage_config", value);
+        set => SetProperty("s3_storage_config", value);
     }
 
     /// <summary>

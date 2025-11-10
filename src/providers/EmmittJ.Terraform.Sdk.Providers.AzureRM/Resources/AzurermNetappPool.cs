@@ -13,8 +13,7 @@ public class AzurermNetappPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetappPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetappPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetappPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,18 @@ public class AzurermNetappPool : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_name");
+        SetOutput("cool_access_enabled");
+        SetOutput("custom_throughput_mibps");
+        SetOutput("encryption_type");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("qos_type");
+        SetOutput("resource_group_name");
+        SetOutput("service_level");
+        SetOutput("size_in_tb");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -66,44 +74,44 @@ public class AzurermNetappPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The cool_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CoolAccessEnabled
+    public TerraformProperty<bool> CoolAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cool_access_enabled");
-        set => this.WithProperty("cool_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cool_access_enabled");
+        set => SetProperty("cool_access_enabled", value);
     }
 
     /// <summary>
     /// The custom_throughput_mibps attribute.
     /// </summary>
-    public TerraformProperty<double>? CustomThroughputMibps
+    public TerraformProperty<double> CustomThroughputMibps
     {
-        get => GetProperty<TerraformProperty<double>>("custom_throughput_mibps");
-        set => this.WithProperty("custom_throughput_mibps", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("custom_throughput_mibps");
+        set => SetProperty("custom_throughput_mibps", value);
     }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionType
+    public TerraformProperty<string> EncryptionType
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_type");
-        set => this.WithProperty("encryption_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_type");
+        set => SetProperty("encryption_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,8 +120,8 @@ public class AzurermNetappPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -122,17 +130,17 @@ public class AzurermNetappPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The qos_type attribute.
     /// </summary>
-    public TerraformProperty<string>? QosType
+    public TerraformProperty<string> QosType
     {
-        get => GetProperty<TerraformProperty<string>>("qos_type");
-        set => this.WithProperty("qos_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("qos_type");
+        set => SetProperty("qos_type", value);
     }
 
     /// <summary>
@@ -141,8 +149,8 @@ public class AzurermNetappPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -151,8 +159,8 @@ public class AzurermNetappPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformProperty<string> ServiceLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_level");
-        set => this.WithProperty("service_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_level");
+        set => SetProperty("service_level", value);
     }
 
     /// <summary>
@@ -161,17 +169,17 @@ public class AzurermNetappPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInTb is required")]
     public required TerraformProperty<double> SizeInTb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("size_in_tb");
-        set => this.WithProperty("size_in_tb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("size_in_tb");
+        set => SetProperty("size_in_tb", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -180,8 +188,7 @@ public class AzurermNetappPool : TerraformResource
     /// </summary>
     public AzurermNetappPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

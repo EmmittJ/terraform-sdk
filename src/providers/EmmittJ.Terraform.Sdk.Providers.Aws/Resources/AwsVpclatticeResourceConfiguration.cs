@@ -21,8 +21,7 @@ public class AwsVpclatticeResourceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class AwsVpclatticeResourceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsVpclatticeResourceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,18 +54,27 @@ public class AwsVpclatticeResourceConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("allow_association_to_shareable_service_network");
+        SetOutput("name");
+        SetOutput("port_ranges");
+        SetOutput("protocol");
+        SetOutput("region");
+        SetOutput("resource_configuration_group_id");
+        SetOutput("resource_gateway_identifier");
+        SetOutput("tags");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The allow_association_to_shareable_service_network attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowAssociationToShareableServiceNetwork
+    public TerraformProperty<bool> AllowAssociationToShareableServiceNetwork
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_association_to_shareable_service_network");
-        set => this.WithProperty("allow_association_to_shareable_service_network", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_association_to_shareable_service_network");
+        set => SetProperty("allow_association_to_shareable_service_network", value);
     }
 
     /// <summary>
@@ -77,71 +83,71 @@ public class AwsVpclatticeResourceConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The port_ranges attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? PortRanges
+    public HashSet<TerraformProperty<string>> PortRanges
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("port_ranges");
-        set => this.WithProperty("port_ranges", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("port_ranges");
+        set => SetProperty("port_ranges", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
+    public TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resource_configuration_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceConfigurationGroupId
+    public TerraformProperty<string> ResourceConfigurationGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_configuration_group_id");
-        set => this.WithProperty("resource_configuration_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_configuration_group_id");
+        set => SetProperty("resource_configuration_group_id", value);
     }
 
     /// <summary>
     /// The resource_gateway_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGatewayIdentifier
+    public TerraformProperty<string> ResourceGatewayIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("resource_gateway_identifier");
-        set => this.WithProperty("resource_gateway_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_gateway_identifier");
+        set => SetProperty("resource_gateway_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -150,8 +156,7 @@ public class AwsVpclatticeResourceConfiguration : TerraformResource
     /// </summary>
     public List<AwsVpclatticeResourceConfigurationResourceConfigurationDefinitionBlock>? ResourceConfigurationDefinition
     {
-        get => GetProperty<List<AwsVpclatticeResourceConfigurationResourceConfigurationDefinitionBlock>>("resource_configuration_definition");
-        set => this.WithProperty("resource_configuration_definition", value);
+        set => SetProperty("resource_configuration_definition", value);
     }
 
     /// <summary>
@@ -160,8 +165,7 @@ public class AwsVpclatticeResourceConfiguration : TerraformResource
     /// </summary>
     public AwsVpclatticeResourceConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpclatticeResourceConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

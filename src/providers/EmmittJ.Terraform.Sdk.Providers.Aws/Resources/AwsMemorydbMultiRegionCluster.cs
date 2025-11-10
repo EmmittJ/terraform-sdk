@@ -13,8 +13,7 @@ public class AwsMemorydbMultiRegionClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsMemorydbMultiRegionClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsMemorydbMultiRegionClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,37 +46,48 @@ public class AwsMemorydbMultiRegionCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("multi_region_cluster_name");
-        this.WithOutput("status");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("multi_region_cluster_name");
+        SetOutput("status");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("multi_region_cluster_name_suffix");
+        SetOutput("multi_region_parameter_group_name");
+        SetOutput("node_type");
+        SetOutput("num_shards");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tls_enabled");
+        SetOutput("update_strategy");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    public TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
@@ -88,17 +96,17 @@ public class AwsMemorydbMultiRegionCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiRegionClusterNameSuffix is required")]
     public required TerraformProperty<string> MultiRegionClusterNameSuffix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("multi_region_cluster_name_suffix");
-        set => this.WithProperty("multi_region_cluster_name_suffix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("multi_region_cluster_name_suffix");
+        set => SetProperty("multi_region_cluster_name_suffix", value);
     }
 
     /// <summary>
     /// The multi_region_parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MultiRegionParameterGroupName
+    public TerraformProperty<string> MultiRegionParameterGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("multi_region_parameter_group_name");
-        set => this.WithProperty("multi_region_parameter_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("multi_region_parameter_group_name");
+        set => SetProperty("multi_region_parameter_group_name", value);
     }
 
     /// <summary>
@@ -107,53 +115,53 @@ public class AwsMemorydbMultiRegionCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
-        set => this.WithProperty("node_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
+        set => SetProperty("node_type", value);
     }
 
     /// <summary>
     /// The num_shards attribute.
     /// </summary>
-    public TerraformProperty<double>? NumShards
+    public TerraformProperty<double> NumShards
     {
-        get => GetProperty<TerraformProperty<double>>("num_shards");
-        set => this.WithProperty("num_shards", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("num_shards");
+        set => SetProperty("num_shards", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsEnabled
+    public TerraformProperty<bool> TlsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tls_enabled");
-        set => this.WithProperty("tls_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tls_enabled");
+        set => SetProperty("tls_enabled", value);
     }
 
     /// <summary>
     /// The update_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? UpdateStrategy
+    public TerraformProperty<string> UpdateStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("update_strategy");
-        set => this.WithProperty("update_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("update_strategy");
+        set => SetProperty("update_strategy", value);
     }
 
     /// <summary>
@@ -162,8 +170,7 @@ public class AwsMemorydbMultiRegionCluster : TerraformResource
     /// </summary>
     public AwsMemorydbMultiRegionClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMemorydbMultiRegionClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

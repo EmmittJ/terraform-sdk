@@ -13,8 +13,7 @@ public class AzurermManagementGroupDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,39 +30,42 @@ public class AzurermManagementGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("all_management_group_ids");
-        this.WithOutput("all_subscription_ids");
-        this.WithOutput("management_group_ids");
-        this.WithOutput("parent_management_group_id");
-        this.WithOutput("subscription_ids");
-        this.WithOutput("tenant_scoped_id");
+        SetOutput("all_management_group_ids");
+        SetOutput("all_subscription_ids");
+        SetOutput("management_group_ids");
+        SetOutput("parent_management_group_id");
+        SetOutput("subscription_ids");
+        SetOutput("tenant_scoped_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +74,7 @@ public class AzurermManagementGroupDataSource : TerraformDataSource
     /// </summary>
     public AzurermManagementGroupDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagementGroupDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -15,8 +15,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateTime
     {
-        get => GetProperty<TerraformProperty<string>>("create_time");
-        set => WithProperty("create_time", value);
+        set => SetProperty("create_time", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -37,8 +35,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("update_time");
-        set => WithProperty("update_time", value);
+        set => SetProperty("update_time", value);
     }
 
 }
@@ -54,8 +51,7 @@ public class GoogleMemcacheInstanceMemcacheParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,8 +59,7 @@ public class GoogleMemcacheInstanceMemcacheParametersBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Params
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("params");
-        set => WithProperty("params", value);
+        set => SetProperty("params", value);
     }
 
 }
@@ -81,8 +76,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCount is required")]
     public required TerraformProperty<double> CpuCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("cpu_count");
-        set => WithProperty("cpu_count", value);
+        set => SetProperty("cpu_count", value);
     }
 
     /// <summary>
@@ -91,8 +85,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeMb is required")]
     public required TerraformProperty<double> MemorySizeMb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("memory_size_mb");
-        set => WithProperty("memory_size_mb", value);
+        set => SetProperty("memory_size_mb", value);
     }
 
 }
@@ -108,8 +101,7 @@ public class GoogleMemcacheInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -117,8 +109,7 @@ public class GoogleMemcacheInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -126,8 +117,7 @@ public class GoogleMemcacheInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -145,23 +135,35 @@ public class GoogleMemcacheInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("discovery_endpoint");
-        this.WithOutput("effective_labels");
-        this.WithOutput("maintenance_schedule");
-        this.WithOutput("memcache_full_version");
-        this.WithOutput("memcache_nodes");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("discovery_endpoint");
+        SetOutput("effective_labels");
+        SetOutput("maintenance_schedule");
+        SetOutput("memcache_full_version");
+        SetOutput("memcache_nodes");
+        SetOutput("terraform_labels");
+        SetOutput("authorized_network");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("memcache_version");
+        SetOutput("name");
+        SetOutput("node_count");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("reserved_ip_range_id");
+        SetOutput("zones");
     }
 
     /// <summary>
     /// The full name of the GCE network to connect the instance to.  If not provided,
     /// &#39;default&#39; will be used.
     /// </summary>
-    public TerraformProperty<string>? AuthorizedNetwork
+    public TerraformProperty<string> AuthorizedNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("authorized_network");
-        set => this.WithProperty("authorized_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorized_network");
+        set => SetProperty("authorized_network", value);
     }
 
     /// <summary>
@@ -172,28 +174,28 @@ public class GoogleMemcacheInstance : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the instance will fail.
     /// When the field is set to false, deleting the instance is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -203,10 +205,10 @@ public class GoogleMemcacheInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -214,10 +216,10 @@ public class GoogleMemcacheInstance : TerraformResource
     /// Currently the latest supported major version is MEMCACHE_1_5. The minor version will be automatically
     /// determined by our system based on the latest supported minor version. Default value: &amp;quot;MEMCACHE_1_5&amp;quot; Possible values: [&amp;quot;MEMCACHE_1_5&amp;quot;, &amp;quot;MEMCACHE_1_6_15&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? MemcacheVersion
+    public TerraformProperty<string> MemcacheVersion
     {
-        get => GetProperty<TerraformProperty<string>>("memcache_version");
-        set => this.WithProperty("memcache_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("memcache_version");
+        set => SetProperty("memcache_version", value);
     }
 
     /// <summary>
@@ -226,8 +228,8 @@ public class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -236,26 +238,26 @@ public class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
-        set => this.WithProperty("node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region of the Memcache instance. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -263,20 +265,20 @@ public class GoogleMemcacheInstance : TerraformResource
     /// the private service access connection for example, &amp;quot;test-default&amp;quot;
     /// associated with IP range 10.0.0.0/29.
     /// </summary>
-    public List<TerraformProperty<string>>? ReservedIpRangeId
+    public List<TerraformProperty<string>> ReservedIpRangeId
     {
-        get => GetProperty<List<TerraformProperty<string>>>("reserved_ip_range_id");
-        set => this.WithProperty("reserved_ip_range_id", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("reserved_ip_range_id");
+        set => SetProperty("reserved_ip_range_id", value);
     }
 
     /// <summary>
     /// Zones where memcache nodes should be provisioned.  If not
     /// provided, all zones will be used.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
@@ -286,8 +288,7 @@ public class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     public List<GoogleMemcacheInstanceMaintenancePolicyBlock>? MaintenancePolicy
     {
-        get => GetProperty<List<GoogleMemcacheInstanceMaintenancePolicyBlock>>("maintenance_policy");
-        set => this.WithProperty("maintenance_policy", value);
+        set => SetProperty("maintenance_policy", value);
     }
 
     /// <summary>
@@ -297,20 +298,19 @@ public class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MemcacheParameters block(s) allowed")]
     public List<GoogleMemcacheInstanceMemcacheParametersBlock>? MemcacheParameters
     {
-        get => GetProperty<List<GoogleMemcacheInstanceMemcacheParametersBlock>>("memcache_parameters");
-        set => this.WithProperty("memcache_parameters", value);
+        set => SetProperty("memcache_parameters", value);
     }
 
     /// <summary>
     /// Block for node_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodeConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     public List<GoogleMemcacheInstanceNodeConfigBlock>? NodeConfig
     {
-        get => GetProperty<List<GoogleMemcacheInstanceNodeConfigBlock>>("node_config");
-        set => this.WithProperty("node_config", value);
+        set => SetProperty("node_config", value);
     }
 
     /// <summary>
@@ -319,8 +319,7 @@ public class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     public GoogleMemcacheInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMemcacheInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

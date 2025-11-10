@@ -16,8 +16,7 @@ public class GoogleVertexAiReasoningEngineEncryptionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
 }
@@ -33,8 +32,7 @@ public class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AgentFramework
     {
-        get => GetProperty<TerraformProperty<string>>("agent_framework");
-        set => WithProperty("agent_framework", value);
+        set => SetProperty("agent_framework", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClassMethods
     {
-        get => GetProperty<TerraformProperty<string>>("class_methods");
-        set => WithProperty("class_methods", value);
+        set => SetProperty("class_methods", value);
     }
 
     /// <summary>
@@ -54,8 +51,7 @@ public class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => WithProperty("service_account", value);
+        set => SetProperty("service_account", value);
     }
 
 }
@@ -71,8 +67,7 @@ public class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -80,8 +75,7 @@ public class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -89,8 +83,7 @@ public class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -108,18 +101,23 @@ public class GoogleVertexAiReasoningEngine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The description of the ReasoningEngine.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -128,35 +126,35 @@ public class GoogleVertexAiReasoningEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region of the reasoning engine. eg us-central1
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -166,8 +164,7 @@ public class GoogleVertexAiReasoningEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     public List<GoogleVertexAiReasoningEngineEncryptionSpecBlock>? EncryptionSpec
     {
-        get => GetProperty<List<GoogleVertexAiReasoningEngineEncryptionSpecBlock>>("encryption_spec");
-        set => this.WithProperty("encryption_spec", value);
+        set => SetProperty("encryption_spec", value);
     }
 
     /// <summary>
@@ -177,8 +174,7 @@ public class GoogleVertexAiReasoningEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     public List<GoogleVertexAiReasoningEngineSpecBlock>? Spec
     {
-        get => GetProperty<List<GoogleVertexAiReasoningEngineSpecBlock>>("spec");
-        set => this.WithProperty("spec", value);
+        set => SetProperty("spec", value);
     }
 
     /// <summary>
@@ -187,8 +183,7 @@ public class GoogleVertexAiReasoningEngine : TerraformResource
     /// </summary>
     public GoogleVertexAiReasoningEngineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVertexAiReasoningEngineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

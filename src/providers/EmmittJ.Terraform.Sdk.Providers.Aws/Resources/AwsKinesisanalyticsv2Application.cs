@@ -21,8 +21,7 @@ public class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? CloudwatchLoggingOptionId
     {
-        get => GetProperty<TerraformProperty<string>>("cloudwatch_logging_option_id");
-        set => WithProperty("cloudwatch_logging_option_id", value);
+        set => SetProperty("cloudwatch_logging_option_id", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
     public required TerraformProperty<string> LogStreamArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_stream_arn");
-        set => WithProperty("log_stream_arn", value);
+        set => SetProperty("log_stream_arn", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsKinesisanalyticsv2ApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class AwsKinesisanalyticsv2ApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class AwsKinesisanalyticsv2ApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,47 +80,58 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("create_timestamp");
-        this.WithOutput("last_update_timestamp");
-        this.WithOutput("status");
-        this.WithOutput("version_id");
+        SetOutput("arn");
+        SetOutput("create_timestamp");
+        SetOutput("last_update_timestamp");
+        SetOutput("status");
+        SetOutput("version_id");
+        SetOutput("application_mode");
+        SetOutput("description");
+        SetOutput("force_stop");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("runtime_environment");
+        SetOutput("service_execution_role");
+        SetOutput("start_application");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The application_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationMode
+    public TerraformProperty<string> ApplicationMode
     {
-        get => GetProperty<TerraformProperty<string>>("application_mode");
-        set => this.WithProperty("application_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_mode");
+        set => SetProperty("application_mode", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The force_stop attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceStop
+    public TerraformProperty<bool> ForceStop
     {
-        get => GetProperty<TerraformProperty<bool>>("force_stop");
-        set => this.WithProperty("force_stop", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_stop");
+        set => SetProperty("force_stop", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -134,17 +140,17 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -153,8 +159,8 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeEnvironment is required")]
     public required TerraformProperty<string> RuntimeEnvironment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runtime_environment");
-        set => this.WithProperty("runtime_environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime_environment");
+        set => SetProperty("runtime_environment", value);
     }
 
     /// <summary>
@@ -163,35 +169,35 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRole is required")]
     public required TerraformProperty<string> ServiceExecutionRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_execution_role");
-        set => this.WithProperty("service_execution_role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_execution_role");
+        set => SetProperty("service_execution_role", value);
     }
 
     /// <summary>
     /// The start_application attribute.
     /// </summary>
-    public TerraformProperty<bool>? StartApplication
+    public TerraformProperty<bool> StartApplication
     {
-        get => GetProperty<TerraformProperty<bool>>("start_application");
-        set => this.WithProperty("start_application", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("start_application");
+        set => SetProperty("start_application", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -201,8 +207,7 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationConfiguration block(s) allowed")]
     public List<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock>? ApplicationConfiguration
     {
-        get => GetProperty<List<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock>>("application_configuration");
-        set => this.WithProperty("application_configuration", value);
+        set => SetProperty("application_configuration", value);
     }
 
     /// <summary>
@@ -212,8 +217,7 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudwatchLoggingOptions block(s) allowed")]
     public List<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock>? CloudwatchLoggingOptions
     {
-        get => GetProperty<List<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock>>("cloudwatch_logging_options");
-        set => this.WithProperty("cloudwatch_logging_options", value);
+        set => SetProperty("cloudwatch_logging_options", value);
     }
 
     /// <summary>
@@ -222,8 +226,7 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     /// </summary>
     public AwsKinesisanalyticsv2ApplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsKinesisanalyticsv2ApplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

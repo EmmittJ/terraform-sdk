@@ -14,33 +14,36 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ack_deadline_seconds");
-        this.WithOutput("bigquery_config");
-        this.WithOutput("cloud_storage_config");
-        this.WithOutput("dead_letter_policy");
-        this.WithOutput("effective_labels");
-        this.WithOutput("enable_exactly_once_delivery");
-        this.WithOutput("enable_message_ordering");
-        this.WithOutput("expiration_policy");
-        this.WithOutput("filter");
-        this.WithOutput("labels");
-        this.WithOutput("message_retention_duration");
-        this.WithOutput("message_transforms");
-        this.WithOutput("push_config");
-        this.WithOutput("retain_acked_messages");
-        this.WithOutput("retry_policy");
-        this.WithOutput("tags");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("topic");
+        SetOutput("ack_deadline_seconds");
+        SetOutput("bigquery_config");
+        SetOutput("cloud_storage_config");
+        SetOutput("dead_letter_policy");
+        SetOutput("effective_labels");
+        SetOutput("enable_exactly_once_delivery");
+        SetOutput("enable_message_ordering");
+        SetOutput("expiration_policy");
+        SetOutput("filter");
+        SetOutput("labels");
+        SetOutput("message_retention_duration");
+        SetOutput("message_transforms");
+        SetOutput("push_config");
+        SetOutput("retain_acked_messages");
+        SetOutput("retry_policy");
+        SetOutput("tags");
+        SetOutput("terraform_labels");
+        SetOutput("topic");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,17 +52,17 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

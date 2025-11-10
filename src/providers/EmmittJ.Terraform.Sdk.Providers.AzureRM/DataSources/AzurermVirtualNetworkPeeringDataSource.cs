@@ -13,8 +13,7 @@ public class AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,22 +30,25 @@ public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allow_forwarded_traffic");
-        this.WithOutput("allow_gateway_transit");
-        this.WithOutput("allow_virtual_network_access");
-        this.WithOutput("only_ipv6_peering_enabled");
-        this.WithOutput("peer_complete_virtual_networks_enabled");
-        this.WithOutput("remote_virtual_network_id");
-        this.WithOutput("use_remote_gateways");
+        SetOutput("allow_forwarded_traffic");
+        SetOutput("allow_gateway_transit");
+        SetOutput("allow_virtual_network_access");
+        SetOutput("only_ipv6_peering_enabled");
+        SetOutput("peer_complete_virtual_networks_enabled");
+        SetOutput("remote_virtual_network_id");
+        SetOutput("use_remote_gateways");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("virtual_network_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,8 +57,8 @@ public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
-        set => this.WithProperty("virtual_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
+        set => SetProperty("virtual_network_id", value);
     }
 
     /// <summary>
@@ -75,8 +77,7 @@ public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
     /// </summary>
     public AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

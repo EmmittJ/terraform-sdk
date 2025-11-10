@@ -14,16 +14,17 @@ public class AwsDefaultTagsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("tags");
+        SetOutput("tags");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

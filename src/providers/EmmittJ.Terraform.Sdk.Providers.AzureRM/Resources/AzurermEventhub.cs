@@ -14,8 +14,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     public required TerraformProperty<string> Encoding
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("encoding");
-        set => WithProperty("encoding", value);
+        set => SetProperty("encoding", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IntervalInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("interval_in_seconds");
-        set => WithProperty("interval_in_seconds", value);
+        set => SetProperty("interval_in_seconds", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SizeLimitInBytes
     {
-        get => GetProperty<TerraformProperty<double>>("size_limit_in_bytes");
-        set => WithProperty("size_limit_in_bytes", value);
+        set => SetProperty("size_limit_in_bytes", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SkipEmptyArchives
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_empty_archives");
-        set => WithProperty("skip_empty_archives", value);
+        set => SetProperty("skip_empty_archives", value);
     }
 
 }
@@ -69,8 +64,7 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CleanupPolicy is required")]
     public required TerraformProperty<string> CleanupPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cleanup_policy");
-        set => WithProperty("cleanup_policy", value);
+        set => SetProperty("cleanup_policy", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RetentionTimeInHours
     {
-        get => GetProperty<TerraformProperty<double>>("retention_time_in_hours");
-        set => WithProperty("retention_time_in_hours", value);
+        set => SetProperty("retention_time_in_hours", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TombstoneRetentionTimeInHours
     {
-        get => GetProperty<TerraformProperty<double>>("tombstone_retention_time_in_hours");
-        set => WithProperty("tombstone_retention_time_in_hours", value);
+        set => SetProperty("tombstone_retention_time_in_hours", value);
     }
 
 }
@@ -104,8 +96,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -131,8 +120,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -150,25 +138,33 @@ public class AzurermEventhub : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("partition_ids");
+        SetOutput("partition_ids");
+        SetOutput("id");
+        SetOutput("message_retention");
+        SetOutput("name");
+        SetOutput("namespace_id");
+        SetOutput("namespace_name");
+        SetOutput("partition_count");
+        SetOutput("resource_group_name");
+        SetOutput("status");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The message_retention attribute.
     /// </summary>
-    public TerraformProperty<double>? MessageRetention
+    public TerraformProperty<double> MessageRetention
     {
-        get => GetProperty<TerraformProperty<double>>("message_retention");
-        set => this.WithProperty("message_retention", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("message_retention");
+        set => SetProperty("message_retention", value);
     }
 
     /// <summary>
@@ -177,27 +173,27 @@ public class AzurermEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NamespaceId
+    public TerraformProperty<string> NamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_id");
-        set => this.WithProperty("namespace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_id");
+        set => SetProperty("namespace_id", value);
     }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? NamespaceName
+    public TerraformProperty<string> NamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_name");
-        set => this.WithProperty("namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
+        set => SetProperty("namespace_name", value);
     }
 
     /// <summary>
@@ -206,27 +202,27 @@ public class AzurermEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionCount is required")]
     public required TerraformProperty<double> PartitionCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("partition_count");
-        set => this.WithProperty("partition_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("partition_count");
+        set => SetProperty("partition_count", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? ResourceGroupName
+    public TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -236,8 +232,7 @@ public class AzurermEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CaptureDescription block(s) allowed")]
     public List<AzurermEventhubCaptureDescriptionBlock>? CaptureDescription
     {
-        get => GetProperty<List<AzurermEventhubCaptureDescriptionBlock>>("capture_description");
-        set => this.WithProperty("capture_description", value);
+        set => SetProperty("capture_description", value);
     }
 
     /// <summary>
@@ -247,8 +242,7 @@ public class AzurermEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDescription block(s) allowed")]
     public List<AzurermEventhubRetentionDescriptionBlock>? RetentionDescription
     {
-        get => GetProperty<List<AzurermEventhubRetentionDescriptionBlock>>("retention_description");
-        set => this.WithProperty("retention_description", value);
+        set => SetProperty("retention_description", value);
     }
 
     /// <summary>
@@ -257,8 +251,7 @@ public class AzurermEventhub : TerraformResource
     /// </summary>
     public AzurermEventhubTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventhubTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsEc2TransitGatewayDefaultRouteTablePropagationTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2TransitGatewayDefaultRouteTablePropagationTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEc2TransitGatewayDefaultRouteTablePropagationTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,17 +46,20 @@ public class AwsEc2TransitGatewayDefaultRouteTablePropagation : TerraformResourc
 
     private void InitializeOutputs()
     {
-        this.WithOutputd");
-        this.WithOutputriginal_default_route_table_id");
+        SetOutput("id");
+        SetOutput("original_default_route_table_id");
+        SetOutput("region");
+        SetOutput("transit_gateway_id");
+        SetOutput("transit_gateway_route_table_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -68,8 +68,8 @@ public class AwsEc2TransitGatewayDefaultRouteTablePropagation : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformProperty<string> TransitGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_id");
-        set => this.WithProperty("transit_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_id");
+        set => SetProperty("transit_gateway_id", value);
     }
 
     /// <summary>
@@ -78,8 +78,8 @@ public class AwsEc2TransitGatewayDefaultRouteTablePropagation : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableId is required")]
     public required TerraformProperty<string> TransitGatewayRouteTableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_route_table_id");
-        set => this.WithProperty("transit_gateway_route_table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_route_table_id");
+        set => SetProperty("transit_gateway_route_table_id", value);
     }
 
     /// <summary>
@@ -88,8 +88,7 @@ public class AwsEc2TransitGatewayDefaultRouteTablePropagation : TerraformResourc
     /// </summary>
     public AwsEc2TransitGatewayDefaultRouteTablePropagationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2TransitGatewayDefaultRouteTablePropagationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,127 +14,139 @@ public class AwsNeptuneEngineVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_character_set");
-        this.WithOutput("engine_description");
-        this.WithOutput("exportable_log_types");
-        this.WithOutput("supported_character_sets");
-        this.WithOutput("supported_timezones");
-        this.WithOutput("supports_global_databases");
-        this.WithOutput("supports_log_exports_to_cloudwatch");
-        this.WithOutput("supports_read_replica");
-        this.WithOutput("valid_major_targets");
-        this.WithOutput("valid_minor_targets");
-        this.WithOutput("valid_upgrade_targets");
-        this.WithOutput("version_actual");
-        this.WithOutput("version_description");
+        SetOutput("default_character_set");
+        SetOutput("engine_description");
+        SetOutput("exportable_log_types");
+        SetOutput("supported_character_sets");
+        SetOutput("supported_timezones");
+        SetOutput("supports_global_databases");
+        SetOutput("supports_log_exports_to_cloudwatch");
+        SetOutput("supports_read_replica");
+        SetOutput("valid_major_targets");
+        SetOutput("valid_minor_targets");
+        SetOutput("valid_upgrade_targets");
+        SetOutput("version_actual");
+        SetOutput("version_description");
+        SetOutput("default_only");
+        SetOutput("engine");
+        SetOutput("has_major_target");
+        SetOutput("has_minor_target");
+        SetOutput("id");
+        SetOutput("latest");
+        SetOutput("parameter_group_family");
+        SetOutput("preferred_major_targets");
+        SetOutput("preferred_upgrade_targets");
+        SetOutput("preferred_versions");
+        SetOutput("region");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The default_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? DefaultOnly
+    public TerraformProperty<bool> DefaultOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("default_only");
-        set => this.WithProperty("default_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default_only");
+        set => SetProperty("default_only", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    public TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The has_major_target attribute.
     /// </summary>
-    public TerraformProperty<bool>? HasMajorTarget
+    public TerraformProperty<bool> HasMajorTarget
     {
-        get => GetProperty<TerraformProperty<bool>>("has_major_target");
-        set => this.WithProperty("has_major_target", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("has_major_target");
+        set => SetProperty("has_major_target", value);
     }
 
     /// <summary>
     /// The has_minor_target attribute.
     /// </summary>
-    public TerraformProperty<bool>? HasMinorTarget
+    public TerraformProperty<bool> HasMinorTarget
     {
-        get => GetProperty<TerraformProperty<bool>>("has_minor_target");
-        set => this.WithProperty("has_minor_target", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("has_minor_target");
+        set => SetProperty("has_minor_target", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public TerraformProperty<bool>? Latest
+    public TerraformProperty<bool> Latest
     {
-        get => GetProperty<TerraformProperty<bool>>("latest");
-        set => this.WithProperty("latest", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("latest");
+        set => SetProperty("latest", value);
     }
 
     /// <summary>
     /// The parameter_group_family attribute.
     /// </summary>
-    public TerraformProperty<string>? ParameterGroupFamily
+    public TerraformProperty<string> ParameterGroupFamily
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_group_family");
-        set => this.WithProperty("parameter_group_family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_group_family");
+        set => SetProperty("parameter_group_family", value);
     }
 
     /// <summary>
     /// The preferred_major_targets attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PreferredMajorTargets
+    public List<TerraformProperty<string>> PreferredMajorTargets
     {
-        get => GetProperty<List<TerraformProperty<string>>>("preferred_major_targets");
-        set => this.WithProperty("preferred_major_targets", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("preferred_major_targets");
+        set => SetProperty("preferred_major_targets", value);
     }
 
     /// <summary>
     /// The preferred_upgrade_targets attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PreferredUpgradeTargets
+    public List<TerraformProperty<string>> PreferredUpgradeTargets
     {
-        get => GetProperty<List<TerraformProperty<string>>>("preferred_upgrade_targets");
-        set => this.WithProperty("preferred_upgrade_targets", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("preferred_upgrade_targets");
+        set => SetProperty("preferred_upgrade_targets", value);
     }
 
     /// <summary>
     /// The preferred_versions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PreferredVersions
+    public List<TerraformProperty<string>> PreferredVersions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("preferred_versions");
-        set => this.WithProperty("preferred_versions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("preferred_versions");
+        set => SetProperty("preferred_versions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

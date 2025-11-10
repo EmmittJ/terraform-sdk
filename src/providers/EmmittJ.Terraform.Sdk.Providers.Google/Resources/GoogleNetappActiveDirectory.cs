@@ -13,8 +13,7 @@ public class GoogleNetappActiveDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetappActiveDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetappActiveDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,47 +46,69 @@ public class GoogleNetappActiveDirectory : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("state");
-        this.WithOutput("state_details");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("state");
+        SetOutput("state_details");
+        SetOutput("terraform_labels");
+        SetOutput("administrators");
+        SetOutput("aes_encryption");
+        SetOutput("backup_operators");
+        SetOutput("description");
+        SetOutput("dns");
+        SetOutput("domain");
+        SetOutput("encrypt_dc_connections");
+        SetOutput("id");
+        SetOutput("kdc_hostname");
+        SetOutput("kdc_ip");
+        SetOutput("labels");
+        SetOutput("ldap_signing");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("net_bios_prefix");
+        SetOutput("nfs_users_with_ldap");
+        SetOutput("organizational_unit");
+        SetOutput("password");
+        SetOutput("project");
+        SetOutput("security_operators");
+        SetOutput("site");
+        SetOutput("username");
     }
 
     /// <summary>
     /// Domain user accounts to be added to the local Administrators group of the SMB service. Comma-separated list of domain users or groups. The Domain Admin group is automatically added when the service joins your domain as a hidden group.
     /// </summary>
-    public List<TerraformProperty<string>>? Administrators
+    public List<TerraformProperty<string>> Administrators
     {
-        get => GetProperty<List<TerraformProperty<string>>>("administrators");
-        set => this.WithProperty("administrators", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("administrators");
+        set => SetProperty("administrators", value);
     }
 
     /// <summary>
     /// Enables AES-128 and AES-256 encryption for Kerberos-based communication with Active Directory.
     /// </summary>
-    public TerraformProperty<bool>? AesEncryption
+    public TerraformProperty<bool> AesEncryption
     {
-        get => GetProperty<TerraformProperty<bool>>("aes_encryption");
-        set => this.WithProperty("aes_encryption", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("aes_encryption");
+        set => SetProperty("aes_encryption", value);
     }
 
     /// <summary>
     /// Domain user/group accounts to be added to the Backup Operators group of the SMB service. The Backup Operators group allows members to backup and restore files regardless of whether they have read or write access to the files. Comma-separated list.
     /// </summary>
-    public List<TerraformProperty<string>>? BackupOperators
+    public List<TerraformProperty<string>> BackupOperators
     {
-        get => GetProperty<List<TerraformProperty<string>>>("backup_operators");
-        set => this.WithProperty("backup_operators", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("backup_operators");
+        set => SetProperty("backup_operators", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -98,8 +117,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
     public required TerraformProperty<string> Dns
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns");
-        set => this.WithProperty("dns", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns");
+        set => SetProperty("dns", value);
     }
 
     /// <summary>
@@ -108,44 +127,44 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// If enabled, traffic between the SMB server to Domain Controller (DC) will be encrypted.
     /// </summary>
-    public TerraformProperty<bool>? EncryptDcConnections
+    public TerraformProperty<bool> EncryptDcConnections
     {
-        get => GetProperty<TerraformProperty<bool>>("encrypt_dc_connections");
-        set => this.WithProperty("encrypt_dc_connections", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("encrypt_dc_connections");
+        set => SetProperty("encrypt_dc_connections", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Hostname of the Active Directory server used as Kerberos Key Distribution Center. Only required for volumes using kerberized NFSv4.1
     /// </summary>
-    public TerraformProperty<string>? KdcHostname
+    public TerraformProperty<string> KdcHostname
     {
-        get => GetProperty<TerraformProperty<string>>("kdc_hostname");
-        set => this.WithProperty("kdc_hostname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kdc_hostname");
+        set => SetProperty("kdc_hostname", value);
     }
 
     /// <summary>
     /// IP address of the Active Directory server used as Kerberos Key Distribution Center.
     /// </summary>
-    public TerraformProperty<string>? KdcIp
+    public TerraformProperty<string> KdcIp
     {
-        get => GetProperty<TerraformProperty<string>>("kdc_ip");
-        set => this.WithProperty("kdc_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kdc_ip");
+        set => SetProperty("kdc_ip", value);
     }
 
     /// <summary>
@@ -155,19 +174,19 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// Specifies whether or not the LDAP traffic needs to be signed.
     /// </summary>
-    public TerraformProperty<bool>? LdapSigning
+    public TerraformProperty<bool> LdapSigning
     {
-        get => GetProperty<TerraformProperty<bool>>("ldap_signing");
-        set => this.WithProperty("ldap_signing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ldap_signing");
+        set => SetProperty("ldap_signing", value);
     }
 
     /// <summary>
@@ -176,8 +195,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -186,8 +205,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -198,28 +217,28 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetBiosPrefix is required")]
     public required TerraformProperty<string> NetBiosPrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("net_bios_prefix");
-        set => this.WithProperty("net_bios_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("net_bios_prefix");
+        set => SetProperty("net_bios_prefix", value);
     }
 
     /// <summary>
     /// Local UNIX users on clients without valid user information in Active Directory are blocked from access to LDAP enabled volumes.
     /// This option can be used to temporarily switch such volumes to AUTH_SYS authentication (user ID + 1-16 groups).
     /// </summary>
-    public TerraformProperty<bool>? NfsUsersWithLdap
+    public TerraformProperty<bool> NfsUsersWithLdap
     {
-        get => GetProperty<TerraformProperty<bool>>("nfs_users_with_ldap");
-        set => this.WithProperty("nfs_users_with_ldap", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("nfs_users_with_ldap");
+        set => SetProperty("nfs_users_with_ldap", value);
     }
 
     /// <summary>
     /// Name of the Organizational Unit where you intend to create the computer account for NetApp Volumes.
     /// Defaults to &#39;CN=Computers&#39; if left empty.
     /// </summary>
-    public TerraformProperty<string>? OrganizationalUnit
+    public TerraformProperty<string> OrganizationalUnit
     {
-        get => GetProperty<TerraformProperty<string>>("organizational_unit");
-        set => this.WithProperty("organizational_unit", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organizational_unit");
+        set => SetProperty("organizational_unit", value);
     }
 
     /// <summary>
@@ -228,36 +247,36 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Domain accounts that require elevated privileges such as &#39;SeSecurityPrivilege&#39; to manage security logs. Comma-separated list.
     /// </summary>
-    public List<TerraformProperty<string>>? SecurityOperators
+    public List<TerraformProperty<string>> SecurityOperators
     {
-        get => GetProperty<List<TerraformProperty<string>>>("security_operators");
-        set => this.WithProperty("security_operators", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("security_operators");
+        set => SetProperty("security_operators", value);
     }
 
     /// <summary>
     /// Specifies an Active Directory site to manage domain controller selection.
     /// Use when Active Directory domain controllers in multiple regions are configured. Defaults to &#39;Default-First-Site-Name&#39; if left empty.
     /// </summary>
-    public TerraformProperty<string>? Site
+    public TerraformProperty<string> Site
     {
-        get => GetProperty<TerraformProperty<string>>("site");
-        set => this.WithProperty("site", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("site");
+        set => SetProperty("site", value);
     }
 
     /// <summary>
@@ -266,8 +285,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -276,8 +295,7 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// </summary>
     public GoogleNetappActiveDirectoryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetappActiveDirectoryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

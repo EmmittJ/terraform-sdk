@@ -14,8 +14,7 @@ public class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelSet is required")]
     public Dictionary<string, TerraformProperty<string>>? LabelSet
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("label_set");
-        set => WithProperty("label_set", value);
+        set => SetProperty("label_set", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsPrometheusWorkspaceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsPrometheusWorkspaceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,24 +55,27 @@ public class AwsPrometheusWorkspaceConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("region");
+        SetOutput("retention_period_in_days");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retention_period_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionPeriodInDays
+    public TerraformProperty<double> RetentionPeriodInDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_period_in_days");
-        set => this.WithProperty("retention_period_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_period_in_days");
+        set => SetProperty("retention_period_in_days", value);
     }
 
     /// <summary>
@@ -84,8 +84,8 @@ public class AwsPrometheusWorkspaceConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -94,8 +94,7 @@ public class AwsPrometheusWorkspaceConfiguration : TerraformResource
     /// </summary>
     public List<AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock>? LimitsPerLabelSet
     {
-        get => GetProperty<List<AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock>>("limits_per_label_set");
-        set => this.WithProperty("limits_per_label_set", value);
+        set => SetProperty("limits_per_label_set", value);
     }
 
     /// <summary>
@@ -104,8 +103,7 @@ public class AwsPrometheusWorkspaceConfiguration : TerraformResource
     /// </summary>
     public AwsPrometheusWorkspaceConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsPrometheusWorkspaceConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

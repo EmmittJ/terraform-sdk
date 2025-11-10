@@ -13,8 +13,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ElasticPoolName
     {
-        get => GetProperty<TerraformProperty<string>>("elastic_pool_name");
-        set => WithProperty("elastic_pool_name", value);
+        set => SetProperty("elastic_pool_name", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JobCredentialId
     {
-        get => GetProperty<TerraformProperty<string>>("job_credential_id");
-        set => WithProperty("job_credential_id", value);
+        set => SetProperty("job_credential_id", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MembershipType
     {
-        get => GetProperty<TerraformProperty<string>>("membership_type");
-        set => WithProperty("membership_type", value);
+        set => SetProperty("membership_type", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
-        set => WithProperty("server_name", value);
+        set => SetProperty("server_name", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -76,8 +70,7 @@ public class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,15 +111,18 @@ public class AzurermMssqlJobTargetGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("job_agent_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -138,8 +131,8 @@ public class AzurermMssqlJobTargetGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobAgentId is required")]
     public required TerraformProperty<string> JobAgentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("job_agent_id");
-        set => this.WithProperty("job_agent_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_agent_id");
+        set => SetProperty("job_agent_id", value);
     }
 
     /// <summary>
@@ -148,8 +141,8 @@ public class AzurermMssqlJobTargetGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -158,8 +151,7 @@ public class AzurermMssqlJobTargetGroup : TerraformResource
     /// </summary>
     public HashSet<AzurermMssqlJobTargetGroupJobTargetBlock>? JobTarget
     {
-        get => GetProperty<HashSet<AzurermMssqlJobTargetGroupJobTargetBlock>>("job_target");
-        set => this.WithProperty("job_target", value);
+        set => SetProperty("job_target", value);
     }
 
     /// <summary>
@@ -168,8 +160,7 @@ public class AzurermMssqlJobTargetGroup : TerraformResource
     /// </summary>
     public AzurermMssqlJobTargetGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlJobTargetGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

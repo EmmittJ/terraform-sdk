@@ -13,8 +13,7 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Reboot
     {
-        get => GetProperty<TerraformProperty<string>>("reboot");
-        set => WithProperty("reboot", value);
+        set => SetProperty("reboot", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
-        set => WithProperty("duration", value);
+        set => SetProperty("duration", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExpirationDateTime
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_date_time");
-        set => WithProperty("expiration_date_time", value);
+        set => SetProperty("expiration_date_time", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RecurEvery
     {
-        get => GetProperty<TerraformProperty<string>>("recur_every");
-        set => WithProperty("recur_every", value);
+        set => SetProperty("recur_every", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDateTime is required")]
     public required TerraformProperty<string> StartDateTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_date_time");
-        set => WithProperty("start_date_time", value);
+        set => SetProperty("start_date_time", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
 }
@@ -131,24 +121,33 @@ public class AzurermMaintenanceConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("in_guest_user_patch_mode");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("properties");
+        SetOutput("resource_group_name");
+        SetOutput("scope");
+        SetOutput("tags");
+        SetOutput("visibility");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The in_guest_user_patch_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? InGuestUserPatchMode
+    public TerraformProperty<string> InGuestUserPatchMode
     {
-        get => GetProperty<TerraformProperty<string>>("in_guest_user_patch_mode");
-        set => this.WithProperty("in_guest_user_patch_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("in_guest_user_patch_mode");
+        set => SetProperty("in_guest_user_patch_mode", value);
     }
 
     /// <summary>
@@ -157,8 +156,8 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -167,17 +166,17 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Properties
+    public Dictionary<string, TerraformProperty<string>> Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => this.WithProperty("properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("properties");
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -186,8 +185,8 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -196,26 +195,26 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    public TerraformProperty<string>? Visibility
+    public TerraformProperty<string> Visibility
     {
-        get => GetProperty<TerraformProperty<string>>("visibility");
-        set => this.WithProperty("visibility", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("visibility");
+        set => SetProperty("visibility", value);
     }
 
     /// <summary>
@@ -225,8 +224,7 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstallPatches block(s) allowed")]
     public List<AzurermMaintenanceConfigurationInstallPatchesBlock>? InstallPatches
     {
-        get => GetProperty<List<AzurermMaintenanceConfigurationInstallPatchesBlock>>("install_patches");
-        set => this.WithProperty("install_patches", value);
+        set => SetProperty("install_patches", value);
     }
 
     /// <summary>
@@ -235,8 +233,7 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// </summary>
     public AzurermMaintenanceConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMaintenanceConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -246,8 +243,7 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Window block(s) allowed")]
     public List<AzurermMaintenanceConfigurationWindowBlock>? Window
     {
-        get => GetProperty<List<AzurermMaintenanceConfigurationWindowBlock>>("window");
-        set => this.WithProperty("window", value);
+        set => SetProperty("window", value);
     }
 
 }

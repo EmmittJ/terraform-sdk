@@ -14,8 +14,7 @@ public class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeBillingOwner is required")]
     public required TerraformProperty<string> ComputeBillingOwner
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("compute_billing_owner");
-        set => WithProperty("compute_billing_owner", value);
+        set => SetProperty("compute_billing_owner", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleBigtableAppProfileSingleClusterRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowTransactionalWrites
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_transactional_writes");
-        set => WithProperty("allow_transactional_writes", value);
+        set => SetProperty("allow_transactional_writes", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleBigtableAppProfileSingleClusterRoutingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => WithProperty("cluster_id", value);
+        set => SetProperty("cluster_id", value);
     }
 
 }
@@ -60,8 +57,7 @@ public class GoogleBigtableAppProfileStandardIsolationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<string> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
 }
@@ -77,8 +73,7 @@ public class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -86,8 +81,7 @@ public class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -95,8 +89,7 @@ public class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,7 +107,16 @@ public class GoogleBigtableAppProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("app_profile_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("ignore_warnings");
+        SetOutput("instance");
+        SetOutput("multi_cluster_routing_cluster_ids");
+        SetOutput("multi_cluster_routing_use_any");
+        SetOutput("project");
+        SetOutput("row_affinity");
     }
 
     /// <summary>
@@ -123,53 +125,53 @@ public class GoogleBigtableAppProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppProfileId is required")]
     public required TerraformProperty<string> AppProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_profile_id");
-        set => this.WithProperty("app_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_profile_id");
+        set => SetProperty("app_profile_id", value);
     }
 
     /// <summary>
     /// Long form description of the use case for this app profile.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// If true, ignore safety checks when deleting/updating the app profile.
     /// </summary>
-    public TerraformProperty<bool>? IgnoreWarnings
+    public TerraformProperty<bool> IgnoreWarnings
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_warnings");
-        set => this.WithProperty("ignore_warnings", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_warnings");
+        set => SetProperty("ignore_warnings", value);
     }
 
     /// <summary>
     /// The name of the instance to create the app profile within.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    public TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
     /// The set of clusters to route to. The order is ignored; clusters will be tried in order of distance. If left empty, all clusters are eligible.
     /// </summary>
-    public List<TerraformProperty<string>>? MultiClusterRoutingClusterIds
+    public List<TerraformProperty<string>> MultiClusterRoutingClusterIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("multi_cluster_routing_cluster_ids");
-        set => this.WithProperty("multi_cluster_routing_cluster_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("multi_cluster_routing_cluster_ids");
+        set => SetProperty("multi_cluster_routing_cluster_ids", value);
     }
 
     /// <summary>
@@ -177,28 +179,28 @@ public class GoogleBigtableAppProfile : TerraformResource
     /// in the event of transient errors or delays. Clusters in a region are considered equidistant. Choosing this option sacrifices read-your-writes
     /// consistency to improve availability.
     /// </summary>
-    public TerraformProperty<bool>? MultiClusterRoutingUseAny
+    public TerraformProperty<bool> MultiClusterRoutingUseAny
     {
-        get => GetProperty<TerraformProperty<bool>>("multi_cluster_routing_use_any");
-        set => this.WithProperty("multi_cluster_routing_use_any", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multi_cluster_routing_use_any");
+        set => SetProperty("multi_cluster_routing_use_any", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Must be used with multi-cluster routing. If true, then this app profile will use row affinity sticky routing. With row affinity, Bigtable will route single row key requests based on the row key, rather than randomly. Instead, each row key will be assigned to a cluster by Cloud Bigtable, and will stick to that cluster. Choosing this option improves read-your-writes consistency for most requests under most circumstances, without sacrificing availability. Consistency is not guaranteed, as requests may still fail over between clusters in the event of errors or latency.
     /// </summary>
-    public TerraformProperty<bool>? RowAffinity
+    public TerraformProperty<bool> RowAffinity
     {
-        get => GetProperty<TerraformProperty<bool>>("row_affinity");
-        set => this.WithProperty("row_affinity", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("row_affinity");
+        set => SetProperty("row_affinity", value);
     }
 
     /// <summary>
@@ -208,8 +210,7 @@ public class GoogleBigtableAppProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataBoostIsolationReadOnly block(s) allowed")]
     public List<GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock>? DataBoostIsolationReadOnly
     {
-        get => GetProperty<List<GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock>>("data_boost_isolation_read_only");
-        set => this.WithProperty("data_boost_isolation_read_only", value);
+        set => SetProperty("data_boost_isolation_read_only", value);
     }
 
     /// <summary>
@@ -219,8 +220,7 @@ public class GoogleBigtableAppProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleClusterRouting block(s) allowed")]
     public List<GoogleBigtableAppProfileSingleClusterRoutingBlock>? SingleClusterRouting
     {
-        get => GetProperty<List<GoogleBigtableAppProfileSingleClusterRoutingBlock>>("single_cluster_routing");
-        set => this.WithProperty("single_cluster_routing", value);
+        set => SetProperty("single_cluster_routing", value);
     }
 
     /// <summary>
@@ -230,8 +230,7 @@ public class GoogleBigtableAppProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StandardIsolation block(s) allowed")]
     public List<GoogleBigtableAppProfileStandardIsolationBlock>? StandardIsolation
     {
-        get => GetProperty<List<GoogleBigtableAppProfileStandardIsolationBlock>>("standard_isolation");
-        set => this.WithProperty("standard_isolation", value);
+        set => SetProperty("standard_isolation", value);
     }
 
     /// <summary>
@@ -240,8 +239,7 @@ public class GoogleBigtableAppProfile : TerraformResource
     /// </summary>
     public GoogleBigtableAppProfileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigtableAppProfileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

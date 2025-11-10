@@ -13,8 +13,7 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,100 +96,117 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("primary_shared_key");
-        this.WithOutput("secondary_shared_key");
-        this.WithOutput("workspace_id");
+        SetOutput("primary_shared_key");
+        SetOutput("secondary_shared_key");
+        SetOutput("workspace_id");
+        SetOutput("allow_resource_only_permissions");
+        SetOutput("cmk_for_query_forced");
+        SetOutput("daily_quota_gb");
+        SetOutput("data_collection_rule_id");
+        SetOutput("id");
+        SetOutput("immediate_data_purge_on_30_days_enabled");
+        SetOutput("internet_ingestion_enabled");
+        SetOutput("internet_query_enabled");
+        SetOutput("local_authentication_disabled");
+        SetOutput("local_authentication_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("reservation_capacity_in_gb_per_day");
+        SetOutput("resource_group_name");
+        SetOutput("retention_in_days");
+        SetOutput("sku");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The allow_resource_only_permissions attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowResourceOnlyPermissions
+    public TerraformProperty<bool> AllowResourceOnlyPermissions
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_resource_only_permissions");
-        set => this.WithProperty("allow_resource_only_permissions", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_resource_only_permissions");
+        set => SetProperty("allow_resource_only_permissions", value);
     }
 
     /// <summary>
     /// The cmk_for_query_forced attribute.
     /// </summary>
-    public TerraformProperty<bool>? CmkForQueryForced
+    public TerraformProperty<bool> CmkForQueryForced
     {
-        get => GetProperty<TerraformProperty<bool>>("cmk_for_query_forced");
-        set => this.WithProperty("cmk_for_query_forced", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cmk_for_query_forced");
+        set => SetProperty("cmk_for_query_forced", value);
     }
 
     /// <summary>
     /// The daily_quota_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? DailyQuotaGb
+    public TerraformProperty<double> DailyQuotaGb
     {
-        get => GetProperty<TerraformProperty<double>>("daily_quota_gb");
-        set => this.WithProperty("daily_quota_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("daily_quota_gb");
+        set => SetProperty("daily_quota_gb", value);
     }
 
     /// <summary>
     /// The data_collection_rule_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataCollectionRuleId
+    public TerraformProperty<string> DataCollectionRuleId
     {
-        get => GetProperty<TerraformProperty<string>>("data_collection_rule_id");
-        set => this.WithProperty("data_collection_rule_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_collection_rule_id");
+        set => SetProperty("data_collection_rule_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The immediate_data_purge_on_30_days_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ImmediateDataPurgeOn30DaysEnabled
+    public TerraformProperty<bool> ImmediateDataPurgeOn30DaysEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("immediate_data_purge_on_30_days_enabled");
-        set => this.WithProperty("immediate_data_purge_on_30_days_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("immediate_data_purge_on_30_days_enabled");
+        set => SetProperty("immediate_data_purge_on_30_days_enabled", value);
     }
 
     /// <summary>
     /// The internet_ingestion_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? InternetIngestionEnabled
+    public TerraformProperty<bool> InternetIngestionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("internet_ingestion_enabled");
-        set => this.WithProperty("internet_ingestion_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("internet_ingestion_enabled");
+        set => SetProperty("internet_ingestion_enabled", value);
     }
 
     /// <summary>
     /// The internet_query_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? InternetQueryEnabled
+    public TerraformProperty<bool> InternetQueryEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("internet_query_enabled");
-        set => this.WithProperty("internet_query_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("internet_query_enabled");
+        set => SetProperty("internet_query_enabled", value);
     }
 
     /// <summary>
     /// The local_authentication_disabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? LocalAuthenticationDisabled
+    public TerraformProperty<bool> LocalAuthenticationDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_authentication_disabled");
-        set => this.WithProperty("local_authentication_disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_disabled");
+        set => SetProperty("local_authentication_disabled", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthenticationEnabled
+    public TerraformProperty<bool> LocalAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_authentication_enabled");
-        set => this.WithProperty("local_authentication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
+        set => SetProperty("local_authentication_enabled", value);
     }
 
     /// <summary>
@@ -206,8 +215,8 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -216,17 +225,17 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The reservation_capacity_in_gb_per_day attribute.
     /// </summary>
-    public TerraformProperty<double>? ReservationCapacityInGbPerDay
+    public TerraformProperty<double> ReservationCapacityInGbPerDay
     {
-        get => GetProperty<TerraformProperty<double>>("reservation_capacity_in_gb_per_day");
-        set => this.WithProperty("reservation_capacity_in_gb_per_day", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("reservation_capacity_in_gb_per_day");
+        set => SetProperty("reservation_capacity_in_gb_per_day", value);
     }
 
     /// <summary>
@@ -235,35 +244,35 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionInDays
+    public TerraformProperty<double> RetentionInDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_in_days");
-        set => this.WithProperty("retention_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_in_days");
+        set => SetProperty("retention_in_days", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    public TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -273,8 +282,7 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermLogAnalyticsWorkspaceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermLogAnalyticsWorkspaceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -283,8 +291,7 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
     /// </summary>
     public AzurermLogAnalyticsWorkspaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogAnalyticsWorkspaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

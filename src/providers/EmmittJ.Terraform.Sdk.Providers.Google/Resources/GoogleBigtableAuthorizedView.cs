@@ -13,8 +13,7 @@ public class GoogleBigtableAuthorizedViewSubsetViewBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? RowPrefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("row_prefixes");
-        set => WithProperty("row_prefixes", value);
+        set => SetProperty("row_prefixes", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleBigtableAuthorizedViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleBigtableAuthorizedViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +55,31 @@ public class GoogleBigtableAuthorizedView : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("deletion_protection");
+        SetOutput("id");
+        SetOutput("instance_name");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("table_name");
     }
 
     /// <summary>
     /// A field to make the authorized view protected against data loss i.e. when set to PROTECTED, deleting the authorized view, the table containing the authorized view, and the instance containing the authorized view would be prohibited.
     /// If not provided, currently deletion protection will be set to UNPROTECTED as it is the API default value. Note this field configs the deletion protection provided by the API in the backend, and should not be confused with Terraform-side deletion protection.
     /// </summary>
-    public TerraformProperty<string>? DeletionProtection
+    public TerraformProperty<string> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +88,8 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
-        set => this.WithProperty("instance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_name");
+        set => SetProperty("instance_name", value);
     }
 
     /// <summary>
@@ -95,17 +98,17 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -114,8 +117,8 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
@@ -125,8 +128,7 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubsetView block(s) allowed")]
     public List<GoogleBigtableAuthorizedViewSubsetViewBlock>? SubsetView
     {
-        get => GetProperty<List<GoogleBigtableAuthorizedViewSubsetViewBlock>>("subset_view");
-        set => this.WithProperty("subset_view", value);
+        set => SetProperty("subset_view", value);
     }
 
     /// <summary>
@@ -135,8 +137,7 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     /// </summary>
     public GoogleBigtableAuthorizedViewTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigtableAuthorizedViewTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

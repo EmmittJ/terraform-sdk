@@ -13,8 +13,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Country
     {
-        get => GetProperty<TerraformProperty<string>>("country");
-        set => WithProperty("country", value);
+        set => SetProperty("country", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Formatted
     {
-        get => GetProperty<TerraformProperty<string>>("formatted");
-        set => WithProperty("formatted", value);
+        set => SetProperty("formatted", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Locality
     {
-        get => GetProperty<TerraformProperty<string>>("locality");
-        set => WithProperty("locality", value);
+        set => SetProperty("locality", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PostalCode
     {
-        get => GetProperty<TerraformProperty<string>>("postal_code");
-        set => WithProperty("postal_code", value);
+        set => SetProperty("postal_code", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Primary
     {
-        get => GetProperty<TerraformProperty<bool>>("primary");
-        set => WithProperty("primary", value);
+        set => SetProperty("primary", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StreetAddress
     {
-        get => GetProperty<TerraformProperty<string>>("street_address");
-        set => WithProperty("street_address", value);
+        set => SetProperty("street_address", value);
     }
 
     /// <summary>
@@ -76,8 +69,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -93,8 +85,7 @@ public class AwsIdentitystoreUserEmailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Primary
     {
-        get => GetProperty<TerraformProperty<bool>>("primary");
-        set => WithProperty("primary", value);
+        set => SetProperty("primary", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AwsIdentitystoreUserEmailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class AwsIdentitystoreUserEmailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -129,8 +118,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FamilyName is required")]
     public required TerraformProperty<string> FamilyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("family_name");
-        set => WithProperty("family_name", value);
+        set => SetProperty("family_name", value);
     }
 
     /// <summary>
@@ -138,8 +126,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Formatted
     {
-        get => GetProperty<TerraformProperty<string>>("formatted");
-        set => WithProperty("formatted", value);
+        set => SetProperty("formatted", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GivenName is required")]
     public required TerraformProperty<string> GivenName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("given_name");
-        set => WithProperty("given_name", value);
+        set => SetProperty("given_name", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HonorificPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("honorific_prefix");
-        set => WithProperty("honorific_prefix", value);
+        set => SetProperty("honorific_prefix", value);
     }
 
     /// <summary>
@@ -166,8 +151,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HonorificSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("honorific_suffix");
-        set => WithProperty("honorific_suffix", value);
+        set => SetProperty("honorific_suffix", value);
     }
 
     /// <summary>
@@ -175,8 +159,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MiddleName
     {
-        get => GetProperty<TerraformProperty<string>>("middle_name");
-        set => WithProperty("middle_name", value);
+        set => SetProperty("middle_name", value);
     }
 
 }
@@ -192,8 +175,7 @@ public class AwsIdentitystoreUserPhoneNumbersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Primary
     {
-        get => GetProperty<TerraformProperty<bool>>("primary");
-        set => WithProperty("primary", value);
+        set => SetProperty("primary", value);
     }
 
     /// <summary>
@@ -201,8 +183,7 @@ public class AwsIdentitystoreUserPhoneNumbersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -210,8 +191,7 @@ public class AwsIdentitystoreUserPhoneNumbersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -229,8 +209,20 @@ public class AwsIdentitystoreUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("external_ids");
-        this.WithOutput("user_id");
+        SetOutput("external_ids");
+        SetOutput("user_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("identity_store_id");
+        SetOutput("locale");
+        SetOutput("nickname");
+        SetOutput("preferred_language");
+        SetOutput("profile_url");
+        SetOutput("region");
+        SetOutput("timezone");
+        SetOutput("title");
+        SetOutput("user_name");
+        SetOutput("user_type");
     }
 
     /// <summary>
@@ -239,17 +231,17 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -258,71 +250,71 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformProperty<string> IdentityStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_store_id");
-        set => this.WithProperty("identity_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_store_id");
+        set => SetProperty("identity_store_id", value);
     }
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
-    public TerraformProperty<string>? Locale
+    public TerraformProperty<string> Locale
     {
-        get => GetProperty<TerraformProperty<string>>("locale");
-        set => this.WithProperty("locale", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("locale");
+        set => SetProperty("locale", value);
     }
 
     /// <summary>
     /// The nickname attribute.
     /// </summary>
-    public TerraformProperty<string>? Nickname
+    public TerraformProperty<string> Nickname
     {
-        get => GetProperty<TerraformProperty<string>>("nickname");
-        set => this.WithProperty("nickname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nickname");
+        set => SetProperty("nickname", value);
     }
 
     /// <summary>
     /// The preferred_language attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredLanguage
+    public TerraformProperty<string> PreferredLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_language");
-        set => this.WithProperty("preferred_language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_language");
+        set => SetProperty("preferred_language", value);
     }
 
     /// <summary>
     /// The profile_url attribute.
     /// </summary>
-    public TerraformProperty<string>? ProfileUrl
+    public TerraformProperty<string> ProfileUrl
     {
-        get => GetProperty<TerraformProperty<string>>("profile_url");
-        set => this.WithProperty("profile_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_url");
+        set => SetProperty("profile_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformProperty<string>? Timezone
+    public TerraformProperty<string> Timezone
     {
-        get => GetProperty<TerraformProperty<string>>("timezone");
-        set => this.WithProperty("timezone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("timezone");
+        set => SetProperty("timezone", value);
     }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    public TerraformProperty<string>? Title
+    public TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
-        set => this.WithProperty("title", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("title");
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -331,17 +323,17 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
-    public TerraformProperty<string>? UserType
+    public TerraformProperty<string> UserType
     {
-        get => GetProperty<TerraformProperty<string>>("user_type");
-        set => this.WithProperty("user_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_type");
+        set => SetProperty("user_type", value);
     }
 
     /// <summary>
@@ -351,8 +343,7 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Addresses block(s) allowed")]
     public List<AwsIdentitystoreUserAddressesBlock>? Addresses
     {
-        get => GetProperty<List<AwsIdentitystoreUserAddressesBlock>>("addresses");
-        set => this.WithProperty("addresses", value);
+        set => SetProperty("addresses", value);
     }
 
     /// <summary>
@@ -362,20 +353,19 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Emails block(s) allowed")]
     public List<AwsIdentitystoreUserEmailsBlock>? Emails
     {
-        get => GetProperty<List<AwsIdentitystoreUserEmailsBlock>>("emails");
-        set => this.WithProperty("emails", value);
+        set => SetProperty("emails", value);
     }
 
     /// <summary>
     /// Block for name.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Name block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Name block(s) allowed")]
     public List<AwsIdentitystoreUserNameBlock>? Name
     {
-        get => GetProperty<List<AwsIdentitystoreUserNameBlock>>("name");
-        set => this.WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -385,8 +375,7 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PhoneNumbers block(s) allowed")]
     public List<AwsIdentitystoreUserPhoneNumbersBlock>? PhoneNumbers
     {
-        get => GetProperty<List<AwsIdentitystoreUserPhoneNumbersBlock>>("phone_numbers");
-        set => this.WithProperty("phone_numbers", value);
+        set => SetProperty("phone_numbers", value);
     }
 
     /// <summary>

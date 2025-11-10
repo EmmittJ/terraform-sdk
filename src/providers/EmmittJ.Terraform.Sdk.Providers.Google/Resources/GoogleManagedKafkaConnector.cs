@@ -14,8 +14,7 @@ public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaximumBackoff
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_backoff");
-        set => WithProperty("maximum_backoff", value);
+        set => SetProperty("maximum_backoff", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinimumBackoff
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_backoff");
-        set => WithProperty("minimum_backoff", value);
+        set => SetProperty("minimum_backoff", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -78,17 +73,23 @@ public class GoogleManagedKafkaConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("configs");
+        SetOutput("connect_cluster");
+        SetOutput("connector_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Connector config as keys/values. The keys of the map are connector property names, for example: &#39;connector.class&#39;, &#39;tasks.max&#39;, &#39;key.converter&#39;.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Configs
+    public Dictionary<string, TerraformProperty<string>> Configs
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("configs");
-        set => this.WithProperty("configs", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("configs");
+        set => SetProperty("configs", value);
     }
 
     /// <summary>
@@ -97,8 +98,8 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectCluster is required")]
     public required TerraformProperty<string> ConnectCluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connect_cluster");
-        set => this.WithProperty("connect_cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connect_cluster");
+        set => SetProperty("connect_cluster", value);
     }
 
     /// <summary>
@@ -107,17 +108,17 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorId is required")]
     public required TerraformProperty<string> ConnectorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connector_id");
-        set => this.WithProperty("connector_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connector_id");
+        set => SetProperty("connector_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -126,17 +127,17 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -146,8 +147,7 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskRestartPolicy block(s) allowed")]
     public List<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>? TaskRestartPolicy
     {
-        get => GetProperty<List<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>>("task_restart_policy");
-        set => this.WithProperty("task_restart_policy", value);
+        set => SetProperty("task_restart_policy", value);
     }
 
     /// <summary>
@@ -156,8 +156,7 @@ public class GoogleManagedKafkaConnector : TerraformResource
     /// </summary>
     public GoogleManagedKafkaConnectorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleManagedKafkaConnectorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleBigqueryRoutineArgumentsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ArgumentKind
     {
-        get => GetProperty<TerraformProperty<string>>("argument_kind");
-        set => WithProperty("argument_kind", value);
+        set => SetProperty("argument_kind", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleBigqueryRoutineArgumentsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DataType
     {
-        get => GetProperty<TerraformProperty<string>>("data_type");
-        set => WithProperty("data_type", value);
+        set => SetProperty("data_type", value);
     }
 
     /// <summary>
@@ -37,8 +35,7 @@ public class GoogleBigqueryRoutineArgumentsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -46,8 +43,7 @@ public class GoogleBigqueryRoutineArgumentsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Connection
     {
-        get => GetProperty<TerraformProperty<string>>("connection");
-        set => WithProperty("connection", value);
+        set => SetProperty("connection", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
-        set => WithProperty("endpoint", value);
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxBatchingRows
     {
-        get => GetProperty<TerraformProperty<string>>("max_batching_rows");
-        set => WithProperty("max_batching_rows", value);
+        set => SetProperty("max_batching_rows", value);
     }
 
     /// <summary>
@@ -99,8 +92,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? UserDefinedContext
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_defined_context");
-        set => WithProperty("user_defined_context", value);
+        set => SetProperty("user_defined_context", value);
     }
 
 }
@@ -116,8 +108,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -126,8 +117,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Connection
     {
-        get => GetProperty<TerraformProperty<string>>("connection");
-        set => WithProperty("connection", value);
+        set => SetProperty("connection", value);
     }
 
     /// <summary>
@@ -135,8 +125,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerImage
     {
-        get => GetProperty<TerraformProperty<string>>("container_image");
-        set => WithProperty("container_image", value);
+        set => SetProperty("container_image", value);
     }
 
     /// <summary>
@@ -144,8 +133,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -153,8 +141,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_uris");
-        set => WithProperty("jar_uris", value);
+        set => SetProperty("jar_uris", value);
     }
 
     /// <summary>
@@ -163,8 +150,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainClass
     {
-        get => GetProperty<TerraformProperty<string>>("main_class");
-        set => WithProperty("main_class", value);
+        set => SetProperty("main_class", value);
     }
 
     /// <summary>
@@ -174,8 +160,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_file_uri");
-        set => WithProperty("main_file_uri", value);
+        set => SetProperty("main_file_uri", value);
     }
 
     /// <summary>
@@ -185,8 +170,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -194,8 +178,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? PyFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("py_file_uris");
-        set => WithProperty("py_file_uris", value);
+        set => SetProperty("py_file_uris", value);
     }
 
     /// <summary>
@@ -203,8 +186,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
-        set => WithProperty("runtime_version", value);
+        set => SetProperty("runtime_version", value);
     }
 
 }
@@ -220,8 +202,7 @@ public class GoogleBigqueryRoutineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -229,8 +210,7 @@ public class GoogleBigqueryRoutineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -238,8 +218,7 @@ public class GoogleBigqueryRoutineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -257,17 +236,31 @@ public class GoogleBigqueryRoutine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_time");
-        this.WithOutput("last_modified_time");
+        SetOutput("creation_time");
+        SetOutput("last_modified_time");
+        SetOutput("data_governance_type");
+        SetOutput("dataset_id");
+        SetOutput("definition_body");
+        SetOutput("description");
+        SetOutput("determinism_level");
+        SetOutput("id");
+        SetOutput("imported_libraries");
+        SetOutput("language");
+        SetOutput("project");
+        SetOutput("return_table_type");
+        SetOutput("return_type");
+        SetOutput("routine_id");
+        SetOutput("routine_type");
+        SetOutput("security_mode");
     }
 
     /// <summary>
     /// If set to DATA_MASKING, the function is validated and made available as a masking function. For more information, see https://cloud.google.com/bigquery/docs/user-defined-functions#custom-mask Possible values: [&amp;quot;DATA_MASKING&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DataGovernanceType
+    public TerraformProperty<string> DataGovernanceType
     {
-        get => GetProperty<TerraformProperty<string>>("data_governance_type");
-        set => this.WithProperty("data_governance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_governance_type");
+        set => SetProperty("data_governance_type", value);
     }
 
     /// <summary>
@@ -276,8 +269,8 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
-        set => this.WithProperty("dataset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
+        set => SetProperty("dataset_id", value);
     }
 
     /// <summary>
@@ -287,63 +280,63 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefinitionBody is required")]
     public required TerraformProperty<string> DefinitionBody
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("definition_body");
-        set => this.WithProperty("definition_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("definition_body");
+        set => SetProperty("definition_body", value);
     }
 
     /// <summary>
     /// The description of the routine if defined.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The determinism level of the JavaScript UDF if defined. Possible values: [&amp;quot;DETERMINISM_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;DETERMINISTIC&amp;quot;, &amp;quot;NOT_DETERMINISTIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DeterminismLevel
+    public TerraformProperty<string> DeterminismLevel
     {
-        get => GetProperty<TerraformProperty<string>>("determinism_level");
-        set => this.WithProperty("determinism_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("determinism_level");
+        set => SetProperty("determinism_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Optional. If language = &amp;quot;JAVASCRIPT&amp;quot;, this field stores the path of the
     /// imported JAVASCRIPT libraries.
     /// </summary>
-    public List<TerraformProperty<string>>? ImportedLibraries
+    public List<TerraformProperty<string>> ImportedLibraries
     {
-        get => GetProperty<List<TerraformProperty<string>>>("imported_libraries");
-        set => this.WithProperty("imported_libraries", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("imported_libraries");
+        set => SetProperty("imported_libraries", value);
     }
 
     /// <summary>
     /// The language of the routine. Possible values: [&amp;quot;SQL&amp;quot;, &amp;quot;JAVASCRIPT&amp;quot;, &amp;quot;PYTHON&amp;quot;, &amp;quot;JAVA&amp;quot;, &amp;quot;SCALA&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Language
+    public TerraformProperty<string> Language
     {
-        get => GetProperty<TerraformProperty<string>>("language");
-        set => this.WithProperty("language", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("language");
+        set => SetProperty("language", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -353,10 +346,10 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// that references this routine. If present, then the columns in the evaluated table result will
     /// be cast to match the column types specificed in return table type, at query time.
     /// </summary>
-    public TerraformProperty<string>? ReturnTableType
+    public TerraformProperty<string> ReturnTableType
     {
-        get => GetProperty<TerraformProperty<string>>("return_table_type");
-        set => this.WithProperty("return_table_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("return_table_type");
+        set => SetProperty("return_table_type", value);
     }
 
     /// <summary>
@@ -370,10 +363,10 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// cannot suppress the recurring diff this causes. As a workaround, we recommend using
     /// the schema as returned by the API.
     /// </summary>
-    public TerraformProperty<string>? ReturnType
+    public TerraformProperty<string> ReturnType
     {
-        get => GetProperty<TerraformProperty<string>>("return_type");
-        set => this.WithProperty("return_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("return_type");
+        set => SetProperty("return_type", value);
     }
 
     /// <summary>
@@ -382,8 +375,8 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     public required TerraformProperty<string> RoutineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("routine_id");
-        set => this.WithProperty("routine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("routine_id");
+        set => SetProperty("routine_id", value);
     }
 
     /// <summary>
@@ -392,17 +385,17 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineType is required")]
     public required TerraformProperty<string> RoutineType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("routine_type");
-        set => this.WithProperty("routine_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("routine_type");
+        set => SetProperty("routine_type", value);
     }
 
     /// <summary>
     /// Optional. The security mode of the routine, if defined. If not defined, the security mode is automatically determined from the routine&#39;s configuration. Possible values: [&amp;quot;DEFINER&amp;quot;, &amp;quot;INVOKER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? SecurityMode
+    public TerraformProperty<string> SecurityMode
     {
-        get => GetProperty<TerraformProperty<string>>("security_mode");
-        set => this.WithProperty("security_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_mode");
+        set => SetProperty("security_mode", value);
     }
 
     /// <summary>
@@ -411,8 +404,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     public List<GoogleBigqueryRoutineArgumentsBlock>? Arguments
     {
-        get => GetProperty<List<GoogleBigqueryRoutineArgumentsBlock>>("arguments");
-        set => this.WithProperty("arguments", value);
+        set => SetProperty("arguments", value);
     }
 
     /// <summary>
@@ -422,8 +414,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteFunctionOptions block(s) allowed")]
     public List<GoogleBigqueryRoutineRemoteFunctionOptionsBlock>? RemoteFunctionOptions
     {
-        get => GetProperty<List<GoogleBigqueryRoutineRemoteFunctionOptionsBlock>>("remote_function_options");
-        set => this.WithProperty("remote_function_options", value);
+        set => SetProperty("remote_function_options", value);
     }
 
     /// <summary>
@@ -433,8 +424,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkOptions block(s) allowed")]
     public List<GoogleBigqueryRoutineSparkOptionsBlock>? SparkOptions
     {
-        get => GetProperty<List<GoogleBigqueryRoutineSparkOptionsBlock>>("spark_options");
-        set => this.WithProperty("spark_options", value);
+        set => SetProperty("spark_options", value);
     }
 
     /// <summary>
@@ -443,8 +433,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     public GoogleBigqueryRoutineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryRoutineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,27 +14,29 @@ public class AwsOdbNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone");
-        this.WithOutput("availability_zone_id");
-        this.WithOutput("backup_subnet_cidr");
-        this.WithOutput("client_subnet_cidr");
-        this.WithOutput("created_at");
-        this.WithOutput("custom_domain_name");
-        this.WithOutput("default_dns_prefix");
-        this.WithOutput("display_name");
-        this.WithOutput("managed_services");
-        this.WithOutput("oci_dns_forwarding_configs");
-        this.WithOutput("oci_network_anchor_id");
-        this.WithOutput("oci_network_anchor_url");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("oci_vcn_id");
-        this.WithOutput("oci_vcn_url");
-        this.WithOutput("peered_cidrs");
-        this.WithOutput("percent_progress");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("tags");
+        SetOutput("arn");
+        SetOutput("availability_zone");
+        SetOutput("availability_zone_id");
+        SetOutput("backup_subnet_cidr");
+        SetOutput("client_subnet_cidr");
+        SetOutput("created_at");
+        SetOutput("custom_domain_name");
+        SetOutput("default_dns_prefix");
+        SetOutput("display_name");
+        SetOutput("managed_services");
+        SetOutput("oci_dns_forwarding_configs");
+        SetOutput("oci_network_anchor_id");
+        SetOutput("oci_network_anchor_url");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("oci_vcn_id");
+        SetOutput("oci_vcn_url");
+        SetOutput("peered_cidrs");
+        SetOutput("percent_progress");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -43,17 +45,17 @@ public class AwsOdbNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

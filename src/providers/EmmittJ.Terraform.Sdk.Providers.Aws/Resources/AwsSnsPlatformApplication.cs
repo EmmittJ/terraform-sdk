@@ -14,79 +14,94 @@ public class AwsSnsPlatformApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("apple_platform_bundle_id");
+        SetOutput("apple_platform_team_id");
+        SetOutput("event_delivery_failure_topic_arn");
+        SetOutput("event_endpoint_created_topic_arn");
+        SetOutput("event_endpoint_deleted_topic_arn");
+        SetOutput("event_endpoint_updated_topic_arn");
+        SetOutput("failure_feedback_role_arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("platform");
+        SetOutput("platform_credential");
+        SetOutput("platform_principal");
+        SetOutput("region");
+        SetOutput("success_feedback_role_arn");
+        SetOutput("success_feedback_sample_rate");
     }
 
     /// <summary>
     /// The apple_platform_bundle_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplePlatformBundleId
+    public TerraformProperty<string> ApplePlatformBundleId
     {
-        get => GetProperty<TerraformProperty<string>>("apple_platform_bundle_id");
-        set => this.WithProperty("apple_platform_bundle_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("apple_platform_bundle_id");
+        set => SetProperty("apple_platform_bundle_id", value);
     }
 
     /// <summary>
     /// The apple_platform_team_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplePlatformTeamId
+    public TerraformProperty<string> ApplePlatformTeamId
     {
-        get => GetProperty<TerraformProperty<string>>("apple_platform_team_id");
-        set => this.WithProperty("apple_platform_team_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("apple_platform_team_id");
+        set => SetProperty("apple_platform_team_id", value);
     }
 
     /// <summary>
     /// The event_delivery_failure_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? EventDeliveryFailureTopicArn
+    public TerraformProperty<string> EventDeliveryFailureTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_delivery_failure_topic_arn");
-        set => this.WithProperty("event_delivery_failure_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_delivery_failure_topic_arn");
+        set => SetProperty("event_delivery_failure_topic_arn", value);
     }
 
     /// <summary>
     /// The event_endpoint_created_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? EventEndpointCreatedTopicArn
+    public TerraformProperty<string> EventEndpointCreatedTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_endpoint_created_topic_arn");
-        set => this.WithProperty("event_endpoint_created_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_endpoint_created_topic_arn");
+        set => SetProperty("event_endpoint_created_topic_arn", value);
     }
 
     /// <summary>
     /// The event_endpoint_deleted_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? EventEndpointDeletedTopicArn
+    public TerraformProperty<string> EventEndpointDeletedTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_endpoint_deleted_topic_arn");
-        set => this.WithProperty("event_endpoint_deleted_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_endpoint_deleted_topic_arn");
+        set => SetProperty("event_endpoint_deleted_topic_arn", value);
     }
 
     /// <summary>
     /// The event_endpoint_updated_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? EventEndpointUpdatedTopicArn
+    public TerraformProperty<string> EventEndpointUpdatedTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_endpoint_updated_topic_arn");
-        set => this.WithProperty("event_endpoint_updated_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_endpoint_updated_topic_arn");
+        set => SetProperty("event_endpoint_updated_topic_arn", value);
     }
 
     /// <summary>
     /// The failure_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? FailureFeedbackRoleArn
+    public TerraformProperty<string> FailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("failure_feedback_role_arn");
-        set => this.WithProperty("failure_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("failure_feedback_role_arn");
+        set => SetProperty("failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +110,8 @@ public class AwsSnsPlatformApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +120,8 @@ public class AwsSnsPlatformApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platform is required")]
     public required TerraformProperty<string> Platform
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("platform");
-        set => this.WithProperty("platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform");
+        set => SetProperty("platform", value);
     }
 
     /// <summary>
@@ -115,44 +130,44 @@ public class AwsSnsPlatformApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformCredential is required")]
     public required TerraformProperty<string> PlatformCredential
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("platform_credential");
-        set => this.WithProperty("platform_credential", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform_credential");
+        set => SetProperty("platform_credential", value);
     }
 
     /// <summary>
     /// The platform_principal attribute.
     /// </summary>
-    public TerraformProperty<string>? PlatformPrincipal
+    public TerraformProperty<string> PlatformPrincipal
     {
-        get => GetProperty<TerraformProperty<string>>("platform_principal");
-        set => this.WithProperty("platform_principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform_principal");
+        set => SetProperty("platform_principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The success_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SuccessFeedbackRoleArn
+    public TerraformProperty<string> SuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("success_feedback_role_arn");
-        set => this.WithProperty("success_feedback_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("success_feedback_role_arn");
+        set => SetProperty("success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The success_feedback_sample_rate attribute.
     /// </summary>
-    public TerraformProperty<string>? SuccessFeedbackSampleRate
+    public TerraformProperty<string> SuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformProperty<string>>("success_feedback_sample_rate");
-        set => this.WithProperty("success_feedback_sample_rate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("success_feedback_sample_rate");
+        set => SetProperty("success_feedback_sample_rate", value);
     }
 
     /// <summary>

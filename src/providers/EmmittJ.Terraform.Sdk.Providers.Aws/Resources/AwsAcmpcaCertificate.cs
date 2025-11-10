@@ -14,8 +14,7 @@ public class AwsAcmpcaCertificateValidityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsAcmpcaCertificateValidityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -43,18 +41,25 @@ public class AwsAcmpcaCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("certificate");
-        this.WithOutput("certificate_chain");
+        SetOutput("arn");
+        SetOutput("certificate");
+        SetOutput("certificate_chain");
+        SetOutput("api_passthrough");
+        SetOutput("certificate_authority_arn");
+        SetOutput("certificate_signing_request");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("signing_algorithm");
+        SetOutput("template_arn");
     }
 
     /// <summary>
     /// The api_passthrough attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiPassthrough
+    public TerraformProperty<string> ApiPassthrough
     {
-        get => GetProperty<TerraformProperty<string>>("api_passthrough");
-        set => this.WithProperty("api_passthrough", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_passthrough");
+        set => SetProperty("api_passthrough", value);
     }
 
     /// <summary>
@@ -63,8 +68,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
     public required TerraformProperty<string> CertificateAuthorityArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_authority_arn");
-        set => this.WithProperty("certificate_authority_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_authority_arn");
+        set => SetProperty("certificate_authority_arn", value);
     }
 
     /// <summary>
@@ -73,26 +78,26 @@ public class AwsAcmpcaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateSigningRequest is required")]
     public required TerraformProperty<string> CertificateSigningRequest
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_signing_request");
-        set => this.WithProperty("certificate_signing_request", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_signing_request");
+        set => SetProperty("certificate_signing_request", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -101,29 +106,29 @@ public class AwsAcmpcaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformProperty<string> SigningAlgorithm
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signing_algorithm");
-        set => this.WithProperty("signing_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("signing_algorithm");
+        set => SetProperty("signing_algorithm", value);
     }
 
     /// <summary>
     /// The template_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateArn
+    public TerraformProperty<string> TemplateArn
     {
-        get => GetProperty<TerraformProperty<string>>("template_arn");
-        set => this.WithProperty("template_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_arn");
+        set => SetProperty("template_arn", value);
     }
 
     /// <summary>
     /// Block for validity.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Validity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Validity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Validity block(s) allowed")]
     public List<AwsAcmpcaCertificateValidityBlock>? Validity
     {
-        get => GetProperty<List<AwsAcmpcaCertificateValidityBlock>>("validity");
-        set => this.WithProperty("validity", value);
+        set => SetProperty("validity", value);
     }
 
     /// <summary>

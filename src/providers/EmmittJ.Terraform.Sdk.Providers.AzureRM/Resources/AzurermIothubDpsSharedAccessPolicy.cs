@@ -13,8 +13,7 @@ public class AzurermIothubDpsSharedAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubDpsSharedAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIothubDpsSharedAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIothubDpsSharedAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,37 +54,46 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("primary_connection_string");
-        this.WithOutput("primary_key");
-        this.WithOutput("secondary_connection_string");
-        this.WithOutput("secondary_key");
+        SetOutput("primary_connection_string");
+        SetOutput("primary_key");
+        SetOutput("secondary_connection_string");
+        SetOutput("secondary_key");
+        SetOutput("enrollment_read");
+        SetOutput("enrollment_write");
+        SetOutput("id");
+        SetOutput("iothub_dps_name");
+        SetOutput("name");
+        SetOutput("registration_read");
+        SetOutput("registration_write");
+        SetOutput("resource_group_name");
+        SetOutput("service_config");
     }
 
     /// <summary>
     /// The enrollment_read attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnrollmentRead
+    public TerraformProperty<bool> EnrollmentRead
     {
-        get => GetProperty<TerraformProperty<bool>>("enrollment_read");
-        set => this.WithProperty("enrollment_read", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enrollment_read");
+        set => SetProperty("enrollment_read", value);
     }
 
     /// <summary>
     /// The enrollment_write attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnrollmentWrite
+    public TerraformProperty<bool> EnrollmentWrite
     {
-        get => GetProperty<TerraformProperty<bool>>("enrollment_write");
-        set => this.WithProperty("enrollment_write", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enrollment_write");
+        set => SetProperty("enrollment_write", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -97,8 +102,8 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubDpsName is required")]
     public required TerraformProperty<string> IothubDpsName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_dps_name");
-        set => this.WithProperty("iothub_dps_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_dps_name");
+        set => SetProperty("iothub_dps_name", value);
     }
 
     /// <summary>
@@ -107,26 +112,26 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The registration_read attribute.
     /// </summary>
-    public TerraformProperty<bool>? RegistrationRead
+    public TerraformProperty<bool> RegistrationRead
     {
-        get => GetProperty<TerraformProperty<bool>>("registration_read");
-        set => this.WithProperty("registration_read", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("registration_read");
+        set => SetProperty("registration_read", value);
     }
 
     /// <summary>
     /// The registration_write attribute.
     /// </summary>
-    public TerraformProperty<bool>? RegistrationWrite
+    public TerraformProperty<bool> RegistrationWrite
     {
-        get => GetProperty<TerraformProperty<bool>>("registration_write");
-        set => this.WithProperty("registration_write", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("registration_write");
+        set => SetProperty("registration_write", value);
     }
 
     /// <summary>
@@ -135,17 +140,17 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_config attribute.
     /// </summary>
-    public TerraformProperty<bool>? ServiceConfig
+    public TerraformProperty<bool> ServiceConfig
     {
-        get => GetProperty<TerraformProperty<bool>>("service_config");
-        set => this.WithProperty("service_config", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("service_config");
+        set => SetProperty("service_config", value);
     }
 
     /// <summary>
@@ -154,8 +159,7 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// </summary>
     public AzurermIothubDpsSharedAccessPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubDpsSharedAccessPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

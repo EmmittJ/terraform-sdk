@@ -14,28 +14,42 @@ public class AwsSnsTopicSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("confirmation_was_authenticated");
-        this.WithOutput("owner_id");
-        this.WithOutput("pending_confirmation");
+        SetOutput("arn");
+        SetOutput("confirmation_was_authenticated");
+        SetOutput("owner_id");
+        SetOutput("pending_confirmation");
+        SetOutput("confirmation_timeout_in_minutes");
+        SetOutput("delivery_policy");
+        SetOutput("endpoint");
+        SetOutput("endpoint_auto_confirms");
+        SetOutput("filter_policy");
+        SetOutput("filter_policy_scope");
+        SetOutput("id");
+        SetOutput("protocol");
+        SetOutput("raw_message_delivery");
+        SetOutput("redrive_policy");
+        SetOutput("region");
+        SetOutput("replay_policy");
+        SetOutput("subscription_role_arn");
+        SetOutput("topic_arn");
     }
 
     /// <summary>
     /// The confirmation_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? ConfirmationTimeoutInMinutes
+    public TerraformProperty<double> ConfirmationTimeoutInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("confirmation_timeout_in_minutes");
-        set => this.WithProperty("confirmation_timeout_in_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("confirmation_timeout_in_minutes");
+        set => SetProperty("confirmation_timeout_in_minutes", value);
     }
 
     /// <summary>
     /// The delivery_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? DeliveryPolicy
+    public TerraformProperty<string> DeliveryPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_policy");
-        set => this.WithProperty("delivery_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delivery_policy");
+        set => SetProperty("delivery_policy", value);
     }
 
     /// <summary>
@@ -44,44 +58,44 @@ public class AwsSnsTopicSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
-        set => this.WithProperty("endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint");
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
     /// The endpoint_auto_confirms attribute.
     /// </summary>
-    public TerraformProperty<bool>? EndpointAutoConfirms
+    public TerraformProperty<bool> EndpointAutoConfirms
     {
-        get => GetProperty<TerraformProperty<bool>>("endpoint_auto_confirms");
-        set => this.WithProperty("endpoint_auto_confirms", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("endpoint_auto_confirms");
+        set => SetProperty("endpoint_auto_confirms", value);
     }
 
     /// <summary>
     /// The filter_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterPolicy
+    public TerraformProperty<string> FilterPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("filter_policy");
-        set => this.WithProperty("filter_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter_policy");
+        set => SetProperty("filter_policy", value);
     }
 
     /// <summary>
     /// The filter_policy_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterPolicyScope
+    public TerraformProperty<string> FilterPolicyScope
     {
-        get => GetProperty<TerraformProperty<string>>("filter_policy_scope");
-        set => this.WithProperty("filter_policy_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter_policy_scope");
+        set => SetProperty("filter_policy_scope", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -90,53 +104,53 @@ public class AwsSnsTopicSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
     /// The raw_message_delivery attribute.
     /// </summary>
-    public TerraformProperty<bool>? RawMessageDelivery
+    public TerraformProperty<bool> RawMessageDelivery
     {
-        get => GetProperty<TerraformProperty<bool>>("raw_message_delivery");
-        set => this.WithProperty("raw_message_delivery", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("raw_message_delivery");
+        set => SetProperty("raw_message_delivery", value);
     }
 
     /// <summary>
     /// The redrive_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? RedrivePolicy
+    public TerraformProperty<string> RedrivePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("redrive_policy");
-        set => this.WithProperty("redrive_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redrive_policy");
+        set => SetProperty("redrive_policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The replay_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplayPolicy
+    public TerraformProperty<string> ReplayPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("replay_policy");
-        set => this.WithProperty("replay_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replay_policy");
+        set => SetProperty("replay_policy", value);
     }
 
     /// <summary>
     /// The subscription_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionRoleArn
+    public TerraformProperty<string> SubscriptionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_role_arn");
-        set => this.WithProperty("subscription_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_role_arn");
+        set => SetProperty("subscription_role_arn", value);
     }
 
     /// <summary>
@@ -145,8 +159,8 @@ public class AwsSnsTopicSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformProperty<string> TopicArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic_arn");
-        set => this.WithProperty("topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("topic_arn");
+        set => SetProperty("topic_arn", value);
     }
 
     /// <summary>

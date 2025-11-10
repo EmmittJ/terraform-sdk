@@ -13,8 +13,7 @@ public class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,19 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("allowed_tenant");
+        SetOutput("api_management_name");
+        SetOutput("authority");
+        SetOutput("client_id");
+        SetOutput("client_library");
+        SetOutput("client_secret");
+        SetOutput("id");
+        SetOutput("password_reset_policy");
+        SetOutput("profile_editing_policy");
+        SetOutput("resource_group_name");
+        SetOutput("signin_policy");
+        SetOutput("signin_tenant");
+        SetOutput("signup_policy");
     }
 
     /// <summary>
@@ -66,8 +75,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedTenant is required")]
     public required TerraformProperty<string> AllowedTenant
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("allowed_tenant");
-        set => this.WithProperty("allowed_tenant", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("allowed_tenant");
+        set => SetProperty("allowed_tenant", value);
     }
 
     /// <summary>
@@ -76,8 +85,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
@@ -86,8 +95,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     public required TerraformProperty<string> Authority
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authority");
-        set => this.WithProperty("authority", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authority");
+        set => SetProperty("authority", value);
     }
 
     /// <summary>
@@ -96,17 +105,17 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// The client_library attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientLibrary
+    public TerraformProperty<string> ClientLibrary
     {
-        get => GetProperty<TerraformProperty<string>>("client_library");
-        set => this.WithProperty("client_library", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_library");
+        set => SetProperty("client_library", value);
     }
 
     /// <summary>
@@ -115,35 +124,35 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
-        set => this.WithProperty("client_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_secret");
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The password_reset_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? PasswordResetPolicy
+    public TerraformProperty<string> PasswordResetPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("password_reset_policy");
-        set => this.WithProperty("password_reset_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password_reset_policy");
+        set => SetProperty("password_reset_policy", value);
     }
 
     /// <summary>
     /// The profile_editing_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? ProfileEditingPolicy
+    public TerraformProperty<string> ProfileEditingPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("profile_editing_policy");
-        set => this.WithProperty("profile_editing_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_editing_policy");
+        set => SetProperty("profile_editing_policy", value);
     }
 
     /// <summary>
@@ -152,8 +161,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -162,8 +171,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninPolicy is required")]
     public required TerraformProperty<string> SigninPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signin_policy");
-        set => this.WithProperty("signin_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("signin_policy");
+        set => SetProperty("signin_policy", value);
     }
 
     /// <summary>
@@ -172,8 +181,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninTenant is required")]
     public required TerraformProperty<string> SigninTenant
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signin_tenant");
-        set => this.WithProperty("signin_tenant", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("signin_tenant");
+        set => SetProperty("signin_tenant", value);
     }
 
     /// <summary>
@@ -182,8 +191,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignupPolicy is required")]
     public required TerraformProperty<string> SignupPolicy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signup_policy");
-        set => this.WithProperty("signup_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("signup_policy");
+        set => SetProperty("signup_policy", value);
     }
 
     /// <summary>
@@ -192,8 +201,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// </summary>
     public AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

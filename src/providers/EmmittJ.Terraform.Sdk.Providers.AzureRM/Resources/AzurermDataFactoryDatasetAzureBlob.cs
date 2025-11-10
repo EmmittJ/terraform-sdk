@@ -13,8 +13,7 @@ public class AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermDataFactoryDatasetAzureBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermDataFactoryDatasetAzureBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermDataFactoryDatasetAzureBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermDataFactoryDatasetAzureBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,24 +87,37 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("additional_properties");
+        SetOutput("annotations");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("dynamic_filename_enabled");
+        SetOutput("dynamic_path_enabled");
+        SetOutput("filename");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("linked_service_name");
+        SetOutput("name");
+        SetOutput("parameters");
+        SetOutput("path");
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => this.WithProperty("additional_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
+        set => SetProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Annotations
+    public List<TerraformProperty<string>> Annotations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -120,62 +126,62 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The dynamic_filename_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicFilenameEnabled
+    public TerraformProperty<bool> DynamicFilenameEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_filename_enabled");
-        set => this.WithProperty("dynamic_filename_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("dynamic_filename_enabled");
+        set => SetProperty("dynamic_filename_enabled", value);
     }
 
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicPathEnabled
+    public TerraformProperty<bool> DynamicPathEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_path_enabled");
-        set => this.WithProperty("dynamic_path_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("dynamic_path_enabled");
+        set => SetProperty("dynamic_path_enabled", value);
     }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public TerraformProperty<string>? Filename
+    public TerraformProperty<string> Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
-        set => this.WithProperty("filename", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filename");
+        set => SetProperty("filename", value);
     }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    public TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -184,8 +190,8 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
-        set => this.WithProperty("linked_service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("linked_service_name");
+        set => SetProperty("linked_service_name", value);
     }
 
     /// <summary>
@@ -194,26 +200,26 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
+    public TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => this.WithProperty("path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path");
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -222,8 +228,7 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// </summary>
     public List<AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock>? SchemaColumn
     {
-        get => GetProperty<List<AzurermDataFactoryDatasetAzureBlobSchemaColumnBlock>>("schema_column");
-        set => this.WithProperty("schema_column", value);
+        set => SetProperty("schema_column", value);
     }
 
     /// <summary>
@@ -232,8 +237,7 @@ public class AzurermDataFactoryDatasetAzureBlob : TerraformResource
     /// </summary>
     public AzurermDataFactoryDatasetAzureBlobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryDatasetAzureBlobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

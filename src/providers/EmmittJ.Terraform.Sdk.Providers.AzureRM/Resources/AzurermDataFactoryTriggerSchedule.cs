@@ -14,8 +14,7 @@ public class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<double>>? DaysOfMonth
     {
-        get => GetProperty<List<TerraformProperty<double>>>("days_of_month");
-        set => WithProperty("days_of_month", value);
+        set => SetProperty("days_of_month", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DaysOfWeek
     {
-        get => GetProperty<List<TerraformProperty<string>>>("days_of_week");
-        set => WithProperty("days_of_week", value);
+        set => SetProperty("days_of_week", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<double>>? Hours
     {
-        get => GetProperty<List<TerraformProperty<double>>>("hours");
-        set => WithProperty("hours", value);
+        set => SetProperty("hours", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<double>>? Minutes
     {
-        get => GetProperty<List<TerraformProperty<double>>>("minutes");
-        set => WithProperty("minutes", value);
+        set => SetProperty("minutes", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -130,24 +120,37 @@ public class AzurermDataFactoryTriggerSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("activated");
+        SetOutput("annotations");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("end_time");
+        SetOutput("frequency");
+        SetOutput("id");
+        SetOutput("interval");
+        SetOutput("name");
+        SetOutput("pipeline_name");
+        SetOutput("pipeline_parameters");
+        SetOutput("start_time");
+        SetOutput("time_zone");
     }
 
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    public TerraformProperty<bool>? Activated
+    public TerraformProperty<bool> Activated
     {
-        get => GetProperty<TerraformProperty<bool>>("activated");
-        set => this.WithProperty("activated", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("activated");
+        set => SetProperty("activated", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Annotations
+    public List<TerraformProperty<string>> Annotations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
@@ -156,53 +159,53 @@ public class AzurermDataFactoryTriggerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformProperty<string>? EndTime
+    public TerraformProperty<string> EndTime
     {
-        get => GetProperty<TerraformProperty<string>>("end_time");
-        set => this.WithProperty("end_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_time");
+        set => SetProperty("end_time", value);
     }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public TerraformProperty<string>? Frequency
+    public TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
-        set => this.WithProperty("frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public TerraformProperty<double>? Interval
+    public TerraformProperty<double> Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
-        set => this.WithProperty("interval", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("interval");
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
@@ -211,44 +214,44 @@ public class AzurermDataFactoryTriggerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PipelineName
+    public TerraformProperty<string> PipelineName
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_name");
-        set => this.WithProperty("pipeline_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_name");
+        set => SetProperty("pipeline_name", value);
     }
 
     /// <summary>
     /// The pipeline_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? PipelineParameters
+    public Dictionary<string, TerraformProperty<string>> PipelineParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("pipeline_parameters");
-        set => this.WithProperty("pipeline_parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("pipeline_parameters");
+        set => SetProperty("pipeline_parameters", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    public TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
@@ -257,8 +260,7 @@ public class AzurermDataFactoryTriggerSchedule : TerraformResource
     /// </summary>
     public List<AzurermDataFactoryTriggerSchedulePipelineBlock>? Pipeline
     {
-        get => GetProperty<List<AzurermDataFactoryTriggerSchedulePipelineBlock>>("pipeline");
-        set => this.WithProperty("pipeline", value);
+        set => SetProperty("pipeline", value);
     }
 
     /// <summary>
@@ -268,8 +270,7 @@ public class AzurermDataFactoryTriggerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     public List<AzurermDataFactoryTriggerScheduleScheduleBlock>? Schedule
     {
-        get => GetProperty<List<AzurermDataFactoryTriggerScheduleScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -278,8 +279,7 @@ public class AzurermDataFactoryTriggerSchedule : TerraformResource
     /// </summary>
     public AzurermDataFactoryTriggerScheduleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryTriggerScheduleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

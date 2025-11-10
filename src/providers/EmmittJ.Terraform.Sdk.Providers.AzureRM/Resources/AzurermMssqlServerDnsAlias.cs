@@ -13,8 +13,7 @@ public class AzurermMssqlServerDnsAliasTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMssqlServerDnsAliasTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMssqlServerDnsAliasTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,16 +46,19 @@ public class AzurermMssqlServerDnsAlias : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("dns_record");
+        SetOutput("dns_record");
+        SetOutput("id");
+        SetOutput("mssql_server_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,8 +67,8 @@ public class AzurermMssqlServerDnsAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MssqlServerId is required")]
     public required TerraformProperty<string> MssqlServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mssql_server_id");
-        set => this.WithProperty("mssql_server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mssql_server_id");
+        set => SetProperty("mssql_server_id", value);
     }
 
     /// <summary>
@@ -77,8 +77,8 @@ public class AzurermMssqlServerDnsAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -87,8 +87,7 @@ public class AzurermMssqlServerDnsAlias : TerraformResource
     /// </summary>
     public AzurermMssqlServerDnsAliasTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlServerDnsAliasTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

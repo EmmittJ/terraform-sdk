@@ -14,15 +14,25 @@ public class AwsApiGatewayIntegrationResponse : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("content_handling");
+        SetOutput("http_method");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("resource_id");
+        SetOutput("response_parameters");
+        SetOutput("response_templates");
+        SetOutput("rest_api_id");
+        SetOutput("selection_pattern");
+        SetOutput("status_code");
     }
 
     /// <summary>
     /// The content_handling attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentHandling
+    public TerraformProperty<string> ContentHandling
     {
-        get => GetProperty<TerraformProperty<string>>("content_handling");
-        set => this.WithProperty("content_handling", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_handling");
+        set => SetProperty("content_handling", value);
     }
 
     /// <summary>
@@ -31,26 +41,26 @@ public class AwsApiGatewayIntegrationResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformProperty<string> HttpMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("http_method");
-        set => this.WithProperty("http_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
+        set => SetProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -59,26 +69,26 @@ public class AwsApiGatewayIntegrationResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
     /// The response_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResponseParameters
+    public Dictionary<string, TerraformProperty<string>> ResponseParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("response_parameters");
-        set => this.WithProperty("response_parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("response_parameters");
+        set => SetProperty("response_parameters", value);
     }
 
     /// <summary>
     /// The response_templates attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResponseTemplates
+    public Dictionary<string, TerraformProperty<string>> ResponseTemplates
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("response_templates");
-        set => this.WithProperty("response_templates", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("response_templates");
+        set => SetProperty("response_templates", value);
     }
 
     /// <summary>
@@ -87,17 +97,17 @@ public class AwsApiGatewayIntegrationResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
-        set => this.WithProperty("rest_api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
+        set => SetProperty("rest_api_id", value);
     }
 
     /// <summary>
     /// The selection_pattern attribute.
     /// </summary>
-    public TerraformProperty<string>? SelectionPattern
+    public TerraformProperty<string> SelectionPattern
     {
-        get => GetProperty<TerraformProperty<string>>("selection_pattern");
-        set => this.WithProperty("selection_pattern", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("selection_pattern");
+        set => SetProperty("selection_pattern", value);
     }
 
     /// <summary>
@@ -106,8 +116,8 @@ public class AwsApiGatewayIntegrationResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformProperty<string> StatusCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("status_code");
-        set => this.WithProperty("status_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status_code");
+        set => SetProperty("status_code", value);
     }
 
 }

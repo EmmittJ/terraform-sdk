@@ -14,9 +14,15 @@ public class GoogleStorageNotification : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("notification_id");
-        this.WithOutput("self_link");
+        SetOutput("id");
+        SetOutput("notification_id");
+        SetOutput("self_link");
+        SetOutput("bucket");
+        SetOutput("custom_attributes");
+        SetOutput("event_types");
+        SetOutput("object_name_prefix");
+        SetOutput("payload_format");
+        SetOutput("topic");
     }
 
     /// <summary>
@@ -25,35 +31,35 @@ public class GoogleStorageNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// A set of key/value attribute pairs to attach to each Cloud Pub/Sub message published for this notification subscription.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? CustomAttributes
+    public Dictionary<string, TerraformProperty<string>> CustomAttributes
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("custom_attributes");
-        set => this.WithProperty("custom_attributes", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("custom_attributes");
+        set => SetProperty("custom_attributes", value);
     }
 
     /// <summary>
     /// List of event type filters for this notification config. If not specified, Cloud Storage will send notifications for all event types. The valid types are: &amp;quot;OBJECT_FINALIZE&amp;quot;, &amp;quot;OBJECT_METADATA_UPDATE&amp;quot;, &amp;quot;OBJECT_DELETE&amp;quot;, &amp;quot;OBJECT_ARCHIVE&amp;quot;
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EventTypes
+    public HashSet<TerraformProperty<string>> EventTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("event_types");
-        set => this.WithProperty("event_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("event_types");
+        set => SetProperty("event_types", value);
     }
 
     /// <summary>
     /// Specifies a prefix path filter for this notification config. Cloud Storage will only send notifications for objects in this bucket whose names begin with the specified prefix.
     /// </summary>
-    public TerraformProperty<string>? ObjectNamePrefix
+    public TerraformProperty<string> ObjectNamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("object_name_prefix");
-        set => this.WithProperty("object_name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_name_prefix");
+        set => SetProperty("object_name_prefix", value);
     }
 
     /// <summary>
@@ -62,8 +68,8 @@ public class GoogleStorageNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
     public required TerraformProperty<string> PayloadFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("payload_format");
-        set => this.WithProperty("payload_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("payload_format");
+        set => SetProperty("payload_format", value);
     }
 
     /// <summary>
@@ -72,8 +78,8 @@ public class GoogleStorageNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic");
-        set => this.WithProperty("topic", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("topic");
+        set => SetProperty("topic", value);
     }
 
     /// <summary>

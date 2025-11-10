@@ -14,42 +14,45 @@ public class AwsElasticacheReplicationGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("auth_token_enabled");
-        this.WithOutput("automatic_failover_enabled");
-        this.WithOutput("cluster_mode");
-        this.WithOutput("configuration_endpoint_address");
-        this.WithOutput("description");
-        this.WithOutput("log_delivery_configuration");
-        this.WithOutput("member_clusters");
-        this.WithOutput("multi_az_enabled");
-        this.WithOutput("node_type");
-        this.WithOutput("num_cache_clusters");
-        this.WithOutput("num_node_groups");
-        this.WithOutput("port");
-        this.WithOutput("primary_endpoint_address");
-        this.WithOutput("reader_endpoint_address");
-        this.WithOutput("replicas_per_node_group");
-        this.WithOutput("snapshot_retention_limit");
-        this.WithOutput("snapshot_window");
+        SetOutput("arn");
+        SetOutput("auth_token_enabled");
+        SetOutput("automatic_failover_enabled");
+        SetOutput("cluster_mode");
+        SetOutput("configuration_endpoint_address");
+        SetOutput("description");
+        SetOutput("log_delivery_configuration");
+        SetOutput("member_clusters");
+        SetOutput("multi_az_enabled");
+        SetOutput("node_type");
+        SetOutput("num_cache_clusters");
+        SetOutput("num_node_groups");
+        SetOutput("port");
+        SetOutput("primary_endpoint_address");
+        SetOutput("reader_endpoint_address");
+        SetOutput("replicas_per_node_group");
+        SetOutput("snapshot_retention_limit");
+        SetOutput("snapshot_window");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("replication_group_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -58,8 +61,8 @@ public class AwsElasticacheReplicationGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationGroupId is required")]
     public required TerraformProperty<string> ReplicationGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("replication_group_id");
-        set => this.WithProperty("replication_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_group_id");
+        set => SetProperty("replication_group_id", value);
     }
 
     /// <summary>

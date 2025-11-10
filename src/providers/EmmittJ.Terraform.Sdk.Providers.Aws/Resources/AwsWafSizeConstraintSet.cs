@@ -14,8 +14,7 @@ public class AwsWafSizeConstraintSetSizeConstraintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     public required TerraformProperty<string> ComparisonOperator
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("comparison_operator");
-        set => WithProperty("comparison_operator", value);
+        set => SetProperty("comparison_operator", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsWafSizeConstraintSetSizeConstraintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformProperty<double> Size
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("size");
-        set => WithProperty("size", value);
+        set => SetProperty("size", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AwsWafSizeConstraintSetSizeConstraintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformProperty<string> TextTransformation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("text_transformation");
-        set => WithProperty("text_transformation", value);
+        set => SetProperty("text_transformation", value);
     }
 
 }
@@ -52,16 +49,18 @@ public class AwsWafSizeConstraintSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -70,8 +69,8 @@ public class AwsWafSizeConstraintSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -80,8 +79,7 @@ public class AwsWafSizeConstraintSet : TerraformResource
     /// </summary>
     public HashSet<AwsWafSizeConstraintSetSizeConstraintsBlock>? SizeConstraints
     {
-        get => GetProperty<HashSet<AwsWafSizeConstraintSetSizeConstraintsBlock>>("size_constraints");
-        set => this.WithProperty("size_constraints", value);
+        set => SetProperty("size_constraints", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleIapTunnelDestGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIapTunnelDestGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleIapTunnelDestGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,25 +46,31 @@ public class GoogleIapTunnelDestGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("cidrs");
+        SetOutput("fqdns");
+        SetOutput("group_name");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// List of CIDRs that this group applies to.
     /// </summary>
-    public List<TerraformProperty<string>>? Cidrs
+    public List<TerraformProperty<string>> Cidrs
     {
-        get => GetProperty<List<TerraformProperty<string>>>("cidrs");
-        set => this.WithProperty("cidrs", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("cidrs");
+        set => SetProperty("cidrs", value);
     }
 
     /// <summary>
     /// List of FQDNs that this group applies to.
     /// </summary>
-    public List<TerraformProperty<string>>? Fqdns
+    public List<TerraformProperty<string>> Fqdns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("fqdns");
-        set => this.WithProperty("fqdns", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("fqdns");
+        set => SetProperty("fqdns", value);
     }
 
     /// <summary>
@@ -76,35 +79,35 @@ public class GoogleIapTunnelDestGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformProperty<string> GroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_name");
-        set => this.WithProperty("group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_name");
+        set => SetProperty("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region of the tunnel group. Must be the same as the network resources in the group.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -113,8 +116,7 @@ public class GoogleIapTunnelDestGroup : TerraformResource
     /// </summary>
     public GoogleIapTunnelDestGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIapTunnelDestGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

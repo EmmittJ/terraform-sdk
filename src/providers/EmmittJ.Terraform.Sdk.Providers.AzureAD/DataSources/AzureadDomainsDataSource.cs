@@ -13,8 +13,7 @@ public class AzureadDomainsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,70 +30,77 @@ public class AzureadDomainsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("domains");
+        SetOutput("domains");
+        SetOutput("admin_managed");
+        SetOutput("id");
+        SetOutput("include_unverified");
+        SetOutput("only_default");
+        SetOutput("only_initial");
+        SetOutput("only_root");
+        SetOutput("supports_services");
     }
 
     /// <summary>
     /// Set to `true` to only return domains whose DNS is managed by Microsoft 365
     /// </summary>
-    public TerraformProperty<bool>? AdminManaged
+    public TerraformProperty<bool> AdminManaged
     {
-        get => GetProperty<TerraformProperty<bool>>("admin_managed");
-        set => this.WithProperty("admin_managed", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("admin_managed");
+        set => SetProperty("admin_managed", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Set to `true` if unverified Azure AD domains should be included
     /// </summary>
-    public TerraformProperty<bool>? IncludeUnverified
+    public TerraformProperty<bool> IncludeUnverified
     {
-        get => GetProperty<TerraformProperty<bool>>("include_unverified");
-        set => this.WithProperty("include_unverified", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_unverified");
+        set => SetProperty("include_unverified", value);
     }
 
     /// <summary>
     /// Set to `true` to only return the default domain
     /// </summary>
-    public TerraformProperty<bool>? OnlyDefault
+    public TerraformProperty<bool> OnlyDefault
     {
-        get => GetProperty<TerraformProperty<bool>>("only_default");
-        set => this.WithProperty("only_default", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("only_default");
+        set => SetProperty("only_default", value);
     }
 
     /// <summary>
     /// Set to `true` to only return the initial domain, which is your primary Azure Active Directory tenant domain
     /// </summary>
-    public TerraformProperty<bool>? OnlyInitial
+    public TerraformProperty<bool> OnlyInitial
     {
-        get => GetProperty<TerraformProperty<bool>>("only_initial");
-        set => this.WithProperty("only_initial", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("only_initial");
+        set => SetProperty("only_initial", value);
     }
 
     /// <summary>
     /// Set to `true` to only return verified root domains. Excludes subdomains and unverified domains
     /// </summary>
-    public TerraformProperty<bool>? OnlyRoot
+    public TerraformProperty<bool> OnlyRoot
     {
-        get => GetProperty<TerraformProperty<bool>>("only_root");
-        set => this.WithProperty("only_root", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("only_root");
+        set => SetProperty("only_root", value);
     }
 
     /// <summary>
     /// A list of supported services that must be supported by a domain
     /// </summary>
-    public List<TerraformProperty<string>>? SupportsServices
+    public List<TerraformProperty<string>> SupportsServices
     {
-        get => GetProperty<List<TerraformProperty<string>>>("supports_services");
-        set => this.WithProperty("supports_services", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("supports_services");
+        set => SetProperty("supports_services", value);
     }
 
     /// <summary>
@@ -103,8 +109,7 @@ public class AzureadDomainsDataSource : TerraformDataSource
     /// </summary>
     public AzureadDomainsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadDomainsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSecurityCenterAutoProvisioningTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSecurityCenterAutoProvisioningTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSecurityCenterAutoProvisioningTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSecurityCenterAutoProvisioningTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -59,6 +55,8 @@ public class AzurermSecurityCenterAutoProvisioning : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("auto_provision");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -67,17 +65,17 @@ public class AzurermSecurityCenterAutoProvisioning : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoProvision is required")]
     public required TerraformProperty<string> AutoProvision
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auto_provision");
-        set => this.WithProperty("auto_provision", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_provision");
+        set => SetProperty("auto_provision", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,8 +84,7 @@ public class AzurermSecurityCenterAutoProvisioning : TerraformResource
     /// </summary>
     public AzurermSecurityCenterAutoProvisioningTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSecurityCenterAutoProvisioningTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

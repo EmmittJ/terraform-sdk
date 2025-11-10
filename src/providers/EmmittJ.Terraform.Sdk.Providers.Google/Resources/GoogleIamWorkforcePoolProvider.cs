@@ -22,8 +22,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     public required TerraformProperty<string> AttributesType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("attributes_type");
-        set => WithProperty("attributes_type", value);
+        set => SetProperty("attributes_type", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformProperty<string> IssuerUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("issuer_uri");
-        set => WithProperty("issuer_uri", value);
+        set => SetProperty("issuer_uri", value);
     }
 
 }
@@ -72,8 +69,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     public required TerraformProperty<string> AttributesType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("attributes_type");
-        set => WithProperty("attributes_type", value);
+        set => SetProperty("attributes_type", value);
     }
 
     /// <summary>
@@ -82,8 +78,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -92,8 +87,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformProperty<string> IssuerUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("issuer_uri");
-        set => WithProperty("issuer_uri", value);
+        set => SetProperty("issuer_uri", value);
     }
 
 }
@@ -110,8 +104,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -120,8 +113,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformProperty<string> IssuerUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("issuer_uri");
-        set => WithProperty("issuer_uri", value);
+        set => SetProperty("issuer_uri", value);
     }
 
     /// <summary>
@@ -151,8 +143,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JwksJson
     {
-        get => GetProperty<TerraformProperty<string>>("jwks_json");
-        set => WithProperty("jwks_json", value);
+        set => SetProperty("jwks_json", value);
     }
 
 }
@@ -183,8 +174,7 @@ public class GoogleIamWorkforcePoolProviderSamlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
     public required TerraformProperty<string> IdpMetadataXml
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("idp_metadata_xml");
-        set => WithProperty("idp_metadata_xml", value);
+        set => SetProperty("idp_metadata_xml", value);
     }
 
 }
@@ -200,8 +190,7 @@ public class GoogleIamWorkforcePoolProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -209,8 +198,7 @@ public class GoogleIamWorkforcePoolProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -218,8 +206,7 @@ public class GoogleIamWorkforcePoolProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -237,8 +224,18 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("attribute_condition");
+        SetOutput("attribute_mapping");
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("provider_id");
+        SetOutput("scim_usage");
+        SetOutput("workforce_pool_id");
     }
 
     /// <summary>
@@ -262,10 +259,10 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// &amp;quot;&#39;admins&#39; in google.groups&amp;quot;
     /// &#39;&#39;&#39;
     /// </summary>
-    public TerraformProperty<string>? AttributeCondition
+    public TerraformProperty<string> AttributeCondition
     {
-        get => GetProperty<TerraformProperty<string>>("attribute_condition");
-        set => this.WithProperty("attribute_condition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("attribute_condition");
+        set => SetProperty("attribute_condition", value);
     }
 
     /// <summary>
@@ -321,47 +318,47 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// An object containing a list of &#39;&amp;quot;key&amp;quot;: value&#39; pairs.
     /// Example: &#39;{ &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }&#39;.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AttributeMapping
+    public Dictionary<string, TerraformProperty<string>> AttributeMapping
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attribute_mapping");
-        set => this.WithProperty("attribute_mapping", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attribute_mapping");
+        set => SetProperty("attribute_mapping", value);
     }
 
     /// <summary>
     /// A user-specified description of the provider. Cannot exceed 256 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
     /// However, existing tokens still grant access.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// A user-specified display name for the provider. Cannot exceed 32 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -370,8 +367,8 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -382,8 +379,8 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformProperty<string> ProviderId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provider_id");
-        set => this.WithProperty("provider_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provider_id");
+        set => SetProperty("provider_id", value);
     }
 
     /// <summary>
@@ -398,10 +395,10 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// * ENABLED_FOR_GROUPS: Use SCIM-managed groups instead of the &#39;google.groups&#39;
     ///   attribute mapping for authorization checks Possible values: [&amp;quot;SCIM_USAGE_UNSPECIFIED&amp;quot;, &amp;quot;ENABLED_FOR_GROUPS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ScimUsage
+    public TerraformProperty<string> ScimUsage
     {
-        get => GetProperty<TerraformProperty<string>>("scim_usage");
-        set => this.WithProperty("scim_usage", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scim_usage");
+        set => SetProperty("scim_usage", value);
     }
 
     /// <summary>
@@ -413,8 +410,8 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
-        set => this.WithProperty("workforce_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workforce_pool_id");
+        set => SetProperty("workforce_pool_id", value);
     }
 
     /// <summary>
@@ -424,8 +421,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtendedAttributesOauth2Client block(s) allowed")]
     public List<GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock>? ExtendedAttributesOauth2Client
     {
-        get => GetProperty<List<GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock>>("extended_attributes_oauth2_client");
-        set => this.WithProperty("extended_attributes_oauth2_client", value);
+        set => SetProperty("extended_attributes_oauth2_client", value);
     }
 
     /// <summary>
@@ -435,8 +431,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtraAttributesOauth2Client block(s) allowed")]
     public List<GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock>? ExtraAttributesOauth2Client
     {
-        get => GetProperty<List<GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock>>("extra_attributes_oauth2_client");
-        set => this.WithProperty("extra_attributes_oauth2_client", value);
+        set => SetProperty("extra_attributes_oauth2_client", value);
     }
 
     /// <summary>
@@ -446,8 +441,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
     public List<GoogleIamWorkforcePoolProviderOidcBlock>? Oidc
     {
-        get => GetProperty<List<GoogleIamWorkforcePoolProviderOidcBlock>>("oidc");
-        set => this.WithProperty("oidc", value);
+        set => SetProperty("oidc", value);
     }
 
     /// <summary>
@@ -457,8 +451,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Saml block(s) allowed")]
     public List<GoogleIamWorkforcePoolProviderSamlBlock>? Saml
     {
-        get => GetProperty<List<GoogleIamWorkforcePoolProviderSamlBlock>>("saml");
-        set => this.WithProperty("saml", value);
+        set => SetProperty("saml", value);
     }
 
     /// <summary>
@@ -467,8 +460,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// </summary>
     public GoogleIamWorkforcePoolProviderTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamWorkforcePoolProviderTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

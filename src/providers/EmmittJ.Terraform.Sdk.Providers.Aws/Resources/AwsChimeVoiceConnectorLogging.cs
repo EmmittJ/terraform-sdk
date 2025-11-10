@@ -14,42 +14,47 @@ public class AwsChimeVoiceConnectorLogging : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("enable_media_metric_logs");
+        SetOutput("enable_sip_logs");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("voice_connector_id");
     }
 
     /// <summary>
     /// The enable_media_metric_logs attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableMediaMetricLogs
+    public TerraformProperty<bool> EnableMediaMetricLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_media_metric_logs");
-        set => this.WithProperty("enable_media_metric_logs", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_media_metric_logs");
+        set => SetProperty("enable_media_metric_logs", value);
     }
 
     /// <summary>
     /// The enable_sip_logs attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableSipLogs
+    public TerraformProperty<bool> EnableSipLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_sip_logs");
-        set => this.WithProperty("enable_sip_logs", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_sip_logs");
+        set => SetProperty("enable_sip_logs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -58,8 +63,8 @@ public class AwsChimeVoiceConnectorLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformProperty<string> VoiceConnectorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("voice_connector_id");
-        set => this.WithProperty("voice_connector_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("voice_connector_id");
+        set => SetProperty("voice_connector_id", value);
     }
 
 }

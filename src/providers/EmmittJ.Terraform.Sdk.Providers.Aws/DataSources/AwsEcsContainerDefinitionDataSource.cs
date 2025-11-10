@@ -14,14 +14,18 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cpu");
-        this.WithOutput("disable_networking");
-        this.WithOutput("docker_labels");
-        this.WithOutput("environment");
-        this.WithOutput("image");
-        this.WithOutput("image_digest");
-        this.WithOutput("memory");
-        this.WithOutput("memory_reservation");
+        SetOutput("cpu");
+        SetOutput("disable_networking");
+        SetOutput("docker_labels");
+        SetOutput("environment");
+        SetOutput("image");
+        SetOutput("image_digest");
+        SetOutput("memory");
+        SetOutput("memory_reservation");
+        SetOutput("container_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("task_definition");
     }
 
     /// <summary>
@@ -30,26 +34,26 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => this.WithProperty("container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -58,8 +62,8 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     public required TerraformProperty<string> TaskDefinition
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_definition");
-        set => this.WithProperty("task_definition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_definition");
+        set => SetProperty("task_definition", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsGlobalacceleratorListenerPortRangeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
-        set => WithProperty("from_port", value);
+        set => SetProperty("from_port", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGlobalacceleratorListenerPortRangeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
-        set => WithProperty("to_port", value);
+        set => SetProperty("to_port", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsGlobalacceleratorListenerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsGlobalacceleratorListenerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsGlobalacceleratorListenerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,7 +71,11 @@ public class AwsGlobalacceleratorListener : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("accelerator_arn");
+        SetOutput("client_affinity");
+        SetOutput("id");
+        SetOutput("protocol");
     }
 
     /// <summary>
@@ -85,26 +84,26 @@ public class AwsGlobalacceleratorListener : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorArn is required")]
     public required TerraformProperty<string> AcceleratorArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("accelerator_arn");
-        set => this.WithProperty("accelerator_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("accelerator_arn");
+        set => SetProperty("accelerator_arn", value);
     }
 
     /// <summary>
     /// The client_affinity attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientAffinity
+    public TerraformProperty<string> ClientAffinity
     {
-        get => GetProperty<TerraformProperty<string>>("client_affinity");
-        set => this.WithProperty("client_affinity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_affinity");
+        set => SetProperty("client_affinity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,20 +112,20 @@ public class AwsGlobalacceleratorListener : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
     /// Block for port_range.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortRange is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PortRange block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PortRange block(s) allowed")]
     public HashSet<AwsGlobalacceleratorListenerPortRangeBlock>? PortRange
     {
-        get => GetProperty<HashSet<AwsGlobalacceleratorListenerPortRangeBlock>>("port_range");
-        set => this.WithProperty("port_range", value);
+        set => SetProperty("port_range", value);
     }
 
     /// <summary>
@@ -135,8 +134,7 @@ public class AwsGlobalacceleratorListener : TerraformResource
     /// </summary>
     public AwsGlobalacceleratorListenerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsGlobalacceleratorListenerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

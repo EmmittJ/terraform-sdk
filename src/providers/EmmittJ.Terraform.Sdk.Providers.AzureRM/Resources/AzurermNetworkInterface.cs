@@ -13,8 +13,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GatewayLoadBalancerFrontendIpConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_load_balancer_frontend_ip_configuration_id");
-        set => WithProperty("gateway_load_balancer_frontend_ip_configuration_id", value);
+        set => SetProperty("gateway_load_balancer_frontend_ip_configuration_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Primary
     {
-        get => GetProperty<TerraformProperty<bool>>("primary");
-        set => WithProperty("primary", value);
+        set => SetProperty("primary", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address");
-        set => WithProperty("private_ip_address", value);
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddressAllocation is required")]
     public required TerraformProperty<string> PrivateIpAddressAllocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_ip_address_allocation");
-        set => WithProperty("private_ip_address_allocation", value);
+        set => SetProperty("private_ip_address_allocation", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddressVersion
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address_version");
-        set => WithProperty("private_ip_address_version", value);
+        set => SetProperty("private_ip_address_version", value);
     }
 
     /// <summary>
@@ -69,8 +63,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PublicIpAddressId
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_address_id");
-        set => WithProperty("public_ip_address_id", value);
+        set => SetProperty("public_ip_address_id", value);
     }
 
     /// <summary>
@@ -78,8 +71,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -95,8 +87,7 @@ public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -104,8 +95,7 @@ public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -113,8 +103,7 @@ public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -122,8 +111,7 @@ public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -141,84 +129,96 @@ public class AzurermNetworkInterface : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("applied_dns_servers");
-        this.WithOutput("internal_domain_name_suffix");
-        this.WithOutput("mac_address");
-        this.WithOutput("private_ip_address");
-        this.WithOutput("private_ip_addresses");
-        this.WithOutput("virtual_machine_id");
+        SetOutput("applied_dns_servers");
+        SetOutput("internal_domain_name_suffix");
+        SetOutput("mac_address");
+        SetOutput("private_ip_address");
+        SetOutput("private_ip_addresses");
+        SetOutput("virtual_machine_id");
+        SetOutput("accelerated_networking_enabled");
+        SetOutput("auxiliary_mode");
+        SetOutput("auxiliary_sku");
+        SetOutput("dns_servers");
+        SetOutput("edge_zone");
+        SetOutput("id");
+        SetOutput("internal_dns_name_label");
+        SetOutput("ip_forwarding_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The accelerated_networking_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AcceleratedNetworkingEnabled
+    public TerraformProperty<bool> AcceleratedNetworkingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("accelerated_networking_enabled");
-        set => this.WithProperty("accelerated_networking_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("accelerated_networking_enabled");
+        set => SetProperty("accelerated_networking_enabled", value);
     }
 
     /// <summary>
     /// The auxiliary_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AuxiliaryMode
+    public TerraformProperty<string> AuxiliaryMode
     {
-        get => GetProperty<TerraformProperty<string>>("auxiliary_mode");
-        set => this.WithProperty("auxiliary_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auxiliary_mode");
+        set => SetProperty("auxiliary_mode", value);
     }
 
     /// <summary>
     /// The auxiliary_sku attribute.
     /// </summary>
-    public TerraformProperty<string>? AuxiliarySku
+    public TerraformProperty<string> AuxiliarySku
     {
-        get => GetProperty<TerraformProperty<string>>("auxiliary_sku");
-        set => this.WithProperty("auxiliary_sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auxiliary_sku");
+        set => SetProperty("auxiliary_sku", value);
     }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DnsServers
+    public List<TerraformProperty<string>> DnsServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
-        set => this.WithProperty("dns_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("dns_servers");
+        set => SetProperty("dns_servers", value);
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? EdgeZone
+    public TerraformProperty<string> EdgeZone
     {
-        get => GetProperty<TerraformProperty<string>>("edge_zone");
-        set => this.WithProperty("edge_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
+        set => SetProperty("edge_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The internal_dns_name_label attribute.
     /// </summary>
-    public TerraformProperty<string>? InternalDnsNameLabel
+    public TerraformProperty<string> InternalDnsNameLabel
     {
-        get => GetProperty<TerraformProperty<string>>("internal_dns_name_label");
-        set => this.WithProperty("internal_dns_name_label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("internal_dns_name_label");
+        set => SetProperty("internal_dns_name_label", value);
     }
 
     /// <summary>
     /// The ip_forwarding_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IpForwardingEnabled
+    public TerraformProperty<bool> IpForwardingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ip_forwarding_enabled");
-        set => this.WithProperty("ip_forwarding_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ip_forwarding_enabled");
+        set => SetProperty("ip_forwarding_enabled", value);
     }
 
     /// <summary>
@@ -227,8 +227,8 @@ public class AzurermNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -237,8 +237,8 @@ public class AzurermNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -247,28 +247,28 @@ public class AzurermNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Block for ip_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
     public List<AzurermNetworkInterfaceIpConfigurationBlock>? IpConfiguration
     {
-        get => GetProperty<List<AzurermNetworkInterfaceIpConfigurationBlock>>("ip_configuration");
-        set => this.WithProperty("ip_configuration", value);
+        set => SetProperty("ip_configuration", value);
     }
 
     /// <summary>
@@ -277,8 +277,7 @@ public class AzurermNetworkInterface : TerraformResource
     /// </summary>
     public AzurermNetworkInterfaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkInterfaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

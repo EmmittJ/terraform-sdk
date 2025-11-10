@@ -13,8 +13,7 @@ public class AzurermOracleDbServersDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,7 +30,10 @@ public class AzurermOracleDbServersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("db_servers");
+        SetOutput("db_servers");
+        SetOutput("cloud_exadata_infrastructure_name");
+        SetOutput("id");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -40,17 +42,17 @@ public class AzurermOracleDbServersDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureName is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_name");
-        set => this.WithProperty("cloud_exadata_infrastructure_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_name");
+        set => SetProperty("cloud_exadata_infrastructure_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class AzurermOracleDbServersDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -69,8 +71,7 @@ public class AzurermOracleDbServersDataSource : TerraformDataSource
     /// </summary>
     public AzurermOracleDbServersDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleDbServersDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

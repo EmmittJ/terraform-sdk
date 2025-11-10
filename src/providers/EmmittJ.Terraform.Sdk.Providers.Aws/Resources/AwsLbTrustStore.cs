@@ -13,8 +13,7 @@ public class AwsLbTrustStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsLbTrustStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,8 +38,17 @@ public class AwsLbTrustStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("arn_suffix");
+        SetOutput("arn");
+        SetOutput("arn_suffix");
+        SetOutput("ca_certificates_bundle_s3_bucket");
+        SetOutput("ca_certificates_bundle_s3_key");
+        SetOutput("ca_certificates_bundle_s3_object_version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -50,8 +57,8 @@ public class AwsLbTrustStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatesBundleS3Bucket is required")]
     public required TerraformProperty<string> CaCertificatesBundleS3Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ca_certificates_bundle_s3_bucket");
-        set => this.WithProperty("ca_certificates_bundle_s3_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ca_certificates_bundle_s3_bucket");
+        set => SetProperty("ca_certificates_bundle_s3_bucket", value);
     }
 
     /// <summary>
@@ -60,71 +67,71 @@ public class AwsLbTrustStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatesBundleS3Key is required")]
     public required TerraformProperty<string> CaCertificatesBundleS3Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ca_certificates_bundle_s3_key");
-        set => this.WithProperty("ca_certificates_bundle_s3_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ca_certificates_bundle_s3_key");
+        set => SetProperty("ca_certificates_bundle_s3_key", value);
     }
 
     /// <summary>
     /// The ca_certificates_bundle_s3_object_version attribute.
     /// </summary>
-    public TerraformProperty<string>? CaCertificatesBundleS3ObjectVersion
+    public TerraformProperty<string> CaCertificatesBundleS3ObjectVersion
     {
-        get => GetProperty<TerraformProperty<string>>("ca_certificates_bundle_s3_object_version");
-        set => this.WithProperty("ca_certificates_bundle_s3_object_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ca_certificates_bundle_s3_object_version");
+        set => SetProperty("ca_certificates_bundle_s3_object_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -133,8 +140,7 @@ public class AwsLbTrustStore : TerraformResource
     /// </summary>
     public AwsLbTrustStoreTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLbTrustStoreTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

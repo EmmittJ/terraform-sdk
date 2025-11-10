@@ -13,8 +13,7 @@ public class AwsFmsPolicyExcludeMapBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Account
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("account");
-        set => WithProperty("account", value);
+        set => SetProperty("account", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsFmsPolicyExcludeMapBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Orgunit
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("orgunit");
-        set => WithProperty("orgunit", value);
+        set => SetProperty("orgunit", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsFmsPolicyIncludeMapBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Account
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("account");
-        set => WithProperty("account", value);
+        set => SetProperty("account", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsFmsPolicyIncludeMapBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Orgunit
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("orgunit");
-        set => WithProperty("orgunit", value);
+        set => SetProperty("orgunit", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedServiceData
     {
-        get => GetProperty<TerraformProperty<string>>("managed_service_data");
-        set => WithProperty("managed_service_data", value);
+        set => SetProperty("managed_service_data", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -94,35 +88,50 @@ public class AwsFmsPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("policy_update_token");
+        SetOutput("arn");
+        SetOutput("policy_update_token");
+        SetOutput("delete_all_policy_resources");
+        SetOutput("delete_unused_fm_managed_resources");
+        SetOutput("description");
+        SetOutput("exclude_resource_tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("remediation_enabled");
+        SetOutput("resource_set_ids");
+        SetOutput("resource_tag_logical_operator");
+        SetOutput("resource_tags");
+        SetOutput("resource_type");
+        SetOutput("resource_type_list");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The delete_all_policy_resources attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeleteAllPolicyResources
+    public TerraformProperty<bool> DeleteAllPolicyResources
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_all_policy_resources");
-        set => this.WithProperty("delete_all_policy_resources", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_all_policy_resources");
+        set => SetProperty("delete_all_policy_resources", value);
     }
 
     /// <summary>
     /// The delete_unused_fm_managed_resources attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeleteUnusedFmManagedResources
+    public TerraformProperty<bool> DeleteUnusedFmManagedResources
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_unused_fm_managed_resources");
-        set => this.WithProperty("delete_unused_fm_managed_resources", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_unused_fm_managed_resources");
+        set => SetProperty("delete_unused_fm_managed_resources", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -131,17 +140,17 @@ public class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExcludeResourceTags is required")]
     public required TerraformProperty<bool> ExcludeResourceTags
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("exclude_resource_tags");
-        set => this.WithProperty("exclude_resource_tags", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_resource_tags");
+        set => SetProperty("exclude_resource_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -150,89 +159,89 @@ public class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The remediation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RemediationEnabled
+    public TerraformProperty<bool> RemediationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("remediation_enabled");
-        set => this.WithProperty("remediation_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("remediation_enabled");
+        set => SetProperty("remediation_enabled", value);
     }
 
     /// <summary>
     /// The resource_set_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ResourceSetIds
+    public HashSet<TerraformProperty<string>> ResourceSetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_set_ids");
-        set => this.WithProperty("resource_set_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resource_set_ids");
+        set => SetProperty("resource_set_ids", value);
     }
 
     /// <summary>
     /// The resource_tag_logical_operator attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceTagLogicalOperator
+    public TerraformProperty<string> ResourceTagLogicalOperator
     {
-        get => GetProperty<TerraformProperty<string>>("resource_tag_logical_operator");
-        set => this.WithProperty("resource_tag_logical_operator", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_tag_logical_operator");
+        set => SetProperty("resource_tag_logical_operator", value);
     }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>> ResourceTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
-        set => this.WithProperty("resource_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("resource_tags");
+        set => SetProperty("resource_tags", value);
     }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
+    public TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
-        set => this.WithProperty("resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
     /// The resource_type_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ResourceTypeList
+    public HashSet<TerraformProperty<string>> ResourceTypeList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_type_list");
-        set => this.WithProperty("resource_type_list", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resource_type_list");
+        set => SetProperty("resource_type_list", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -242,8 +251,7 @@ public class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeMap block(s) allowed")]
     public List<AwsFmsPolicyExcludeMapBlock>? ExcludeMap
     {
-        get => GetProperty<List<AwsFmsPolicyExcludeMapBlock>>("exclude_map");
-        set => this.WithProperty("exclude_map", value);
+        set => SetProperty("exclude_map", value);
     }
 
     /// <summary>
@@ -253,20 +261,19 @@ public class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeMap block(s) allowed")]
     public List<AwsFmsPolicyIncludeMapBlock>? IncludeMap
     {
-        get => GetProperty<List<AwsFmsPolicyIncludeMapBlock>>("include_map");
-        set => this.WithProperty("include_map", value);
+        set => SetProperty("include_map", value);
     }
 
     /// <summary>
     /// Block for security_service_policy_data.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityServicePolicyData is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecurityServicePolicyData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityServicePolicyData block(s) allowed")]
     public List<AwsFmsPolicySecurityServicePolicyDataBlock>? SecurityServicePolicyData
     {
-        get => GetProperty<List<AwsFmsPolicySecurityServicePolicyDataBlock>>("security_service_policy_data");
-        set => this.WithProperty("security_service_policy_data", value);
+        set => SetProperty("security_service_policy_data", value);
     }
 
     /// <summary>

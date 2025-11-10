@@ -13,8 +13,7 @@ public class AwsSagemakerDeviceFleetOutputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSagemakerDeviceFleetOutputConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputLocation is required")]
     public required TerraformProperty<string> S3OutputLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_output_location");
-        set => WithProperty("s3_output_location", value);
+        set => SetProperty("s3_output_location", value);
     }
 
 }
@@ -42,17 +40,25 @@ public class AwsSagemakerDeviceFleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("iot_role_alias");
+        SetOutput("arn");
+        SetOutput("iot_role_alias");
+        SetOutput("description");
+        SetOutput("device_fleet_name");
+        SetOutput("enable_iot_role_alias");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -61,35 +67,35 @@ public class AwsSagemakerDeviceFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceFleetName is required")]
     public required TerraformProperty<string> DeviceFleetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("device_fleet_name");
-        set => this.WithProperty("device_fleet_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_fleet_name");
+        set => SetProperty("device_fleet_name", value);
     }
 
     /// <summary>
     /// The enable_iot_role_alias attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableIotRoleAlias
+    public TerraformProperty<bool> EnableIotRoleAlias
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_iot_role_alias");
-        set => this.WithProperty("enable_iot_role_alias", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_iot_role_alias");
+        set => SetProperty("enable_iot_role_alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -98,38 +104,38 @@ public class AwsSagemakerDeviceFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for output_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputConfig block(s) allowed")]
     public List<AwsSagemakerDeviceFleetOutputConfigBlock>? OutputConfig
     {
-        get => GetProperty<List<AwsSagemakerDeviceFleetOutputConfigBlock>>("output_config");
-        set => this.WithProperty("output_config", value);
+        set => SetProperty("output_config", value);
     }
 
     /// <summary>

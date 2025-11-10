@@ -13,8 +13,7 @@ public class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,29 @@ public class AzurermStackHciVirtualHardDisk : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("block_size_in_bytes");
+        SetOutput("custom_location_id");
+        SetOutput("disk_file_format");
+        SetOutput("disk_size_in_gb");
+        SetOutput("dynamic_enabled");
+        SetOutput("hyperv_generation");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("logical_sector_in_bytes");
+        SetOutput("name");
+        SetOutput("physical_sector_in_bytes");
+        SetOutput("resource_group_name");
+        SetOutput("storage_path_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The block_size_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? BlockSizeInBytes
+    public TerraformProperty<double> BlockSizeInBytes
     {
-        get => GetProperty<TerraformProperty<double>>("block_size_in_bytes");
-        set => this.WithProperty("block_size_in_bytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("block_size_in_bytes");
+        set => SetProperty("block_size_in_bytes", value);
     }
 
     /// <summary>
@@ -75,17 +85,17 @@ public class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformProperty<string> CustomLocationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_location_id");
-        set => this.WithProperty("custom_location_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_location_id");
+        set => SetProperty("custom_location_id", value);
     }
 
     /// <summary>
     /// The disk_file_format attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskFileFormat
+    public TerraformProperty<string> DiskFileFormat
     {
-        get => GetProperty<TerraformProperty<string>>("disk_file_format");
-        set => this.WithProperty("disk_file_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk_file_format");
+        set => SetProperty("disk_file_format", value);
     }
 
     /// <summary>
@@ -94,35 +104,35 @@ public class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeInGb is required")]
     public required TerraformProperty<double> DiskSizeInGb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("disk_size_in_gb");
-        set => this.WithProperty("disk_size_in_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("disk_size_in_gb");
+        set => SetProperty("disk_size_in_gb", value);
     }
 
     /// <summary>
     /// The dynamic_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicEnabled
+    public TerraformProperty<bool> DynamicEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dynamic_enabled");
-        set => this.WithProperty("dynamic_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("dynamic_enabled");
+        set => SetProperty("dynamic_enabled", value);
     }
 
     /// <summary>
     /// The hyperv_generation attribute.
     /// </summary>
-    public TerraformProperty<string>? HypervGeneration
+    public TerraformProperty<string> HypervGeneration
     {
-        get => GetProperty<TerraformProperty<string>>("hyperv_generation");
-        set => this.WithProperty("hyperv_generation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hyperv_generation");
+        set => SetProperty("hyperv_generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,17 +141,17 @@ public class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The logical_sector_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? LogicalSectorInBytes
+    public TerraformProperty<double> LogicalSectorInBytes
     {
-        get => GetProperty<TerraformProperty<double>>("logical_sector_in_bytes");
-        set => this.WithProperty("logical_sector_in_bytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("logical_sector_in_bytes");
+        set => SetProperty("logical_sector_in_bytes", value);
     }
 
     /// <summary>
@@ -150,17 +160,17 @@ public class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The physical_sector_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? PhysicalSectorInBytes
+    public TerraformProperty<double> PhysicalSectorInBytes
     {
-        get => GetProperty<TerraformProperty<double>>("physical_sector_in_bytes");
-        set => this.WithProperty("physical_sector_in_bytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("physical_sector_in_bytes");
+        set => SetProperty("physical_sector_in_bytes", value);
     }
 
     /// <summary>
@@ -169,26 +179,26 @@ public class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_path_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StoragePathId
+    public TerraformProperty<string> StoragePathId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_path_id");
-        set => this.WithProperty("storage_path_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_path_id");
+        set => SetProperty("storage_path_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -197,8 +207,7 @@ public class AzurermStackHciVirtualHardDisk : TerraformResource
     /// </summary>
     public AzurermStackHciVirtualHardDiskTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStackHciVirtualHardDiskTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermMonitorWorkspaceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,24 @@ public class AzurermMonitorWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_data_collection_endpoint_id");
-        this.WithOutput("default_data_collection_rule_id");
-        this.WithOutput("location");
-        this.WithOutput("public_network_access_enabled");
-        this.WithOutput("query_endpoint");
-        this.WithOutput("tags");
+        SetOutput("default_data_collection_endpoint_id");
+        SetOutput("default_data_collection_rule_id");
+        SetOutput("location");
+        SetOutput("public_network_access_enabled");
+        SetOutput("query_endpoint");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +56,8 @@ public class AzurermMonitorWorkspaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermMonitorWorkspaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermMonitorWorkspaceDataSource : TerraformDataSource
     /// </summary>
     public AzurermMonitorWorkspaceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorWorkspaceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -86,52 +80,57 @@ public class AwsRoute53TrafficPolicyDocumentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputson");
+        SetOutput("json");
+        SetOutput("id");
+        SetOutput("record_type");
+        SetOutput("start_endpoint");
+        SetOutput("start_rule");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The record_type attribute.
     /// </summary>
-    public TerraformProperty<string>? RecordType
+    public TerraformProperty<string> RecordType
     {
-        get => GetProperty<TerraformProperty<string>>("record_type");
-        set => this.WithProperty("record_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("record_type");
+        set => SetProperty("record_type", value);
     }
 
     /// <summary>
     /// The start_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? StartEndpoint
+    public TerraformProperty<string> StartEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("start_endpoint");
-        set => this.WithProperty("start_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_endpoint");
+        set => SetProperty("start_endpoint", value);
     }
 
     /// <summary>
     /// The start_rule attribute.
     /// </summary>
-    public TerraformProperty<string>? StartRule
+    public TerraformProperty<string> StartRule
     {
-        get => GetProperty<TerraformProperty<string>>("start_rule");
-        set => this.WithProperty("start_rule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_rule");
+        set => SetProperty("start_rule", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -140,8 +139,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock>? Endpoint
     {
-        get => GetProperty<HashSet<AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock>>("endpoint");
-        set => this.WithProperty("endpoint", value);
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>
@@ -150,8 +148,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock>? Rule
     {
-        get => GetProperty<HashSet<AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock>>("rule");
-        set => this.WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleNetappBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetappBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetappBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,33 +46,42 @@ public class GoogleNetappBackup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backup_region");
-        this.WithOutput("backup_type");
-        this.WithOutput("chain_storage_bytes");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("volume_region");
-        this.WithOutput("volume_usage_bytes");
+        SetOutput("backup_region");
+        SetOutput("backup_type");
+        SetOutput("chain_storage_bytes");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("volume_region");
+        SetOutput("volume_usage_bytes");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("source_snapshot");
+        SetOutput("source_volume");
+        SetOutput("vault_name");
     }
 
     /// <summary>
     /// A description of the backup with 2048 characters or less. Requests with longer descriptions will be rejected.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,10 +91,10 @@ public class GoogleNetappBackup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -97,8 +103,8 @@ public class GoogleNetappBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -107,17 +113,17 @@ public class GoogleNetappBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -125,19 +131,19 @@ public class GoogleNetappBackup : TerraformResource
     /// there will be a new snapshot taken to initiate the backup creation.
     /// Format: &#39;projects/{{projectId}}/locations/{{location}}/volumes/{{volumename}}/snapshots/{{snapshotname}}&#39;&#39;
     /// </summary>
-    public TerraformProperty<string>? SourceSnapshot
+    public TerraformProperty<string> SourceSnapshot
     {
-        get => GetProperty<TerraformProperty<string>>("source_snapshot");
-        set => this.WithProperty("source_snapshot", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_snapshot");
+        set => SetProperty("source_snapshot", value);
     }
 
     /// <summary>
     /// ID of volumes this backup belongs to. Format: &#39;projects/{{projects_id}}/locations/{{location}}/volumes/{{name}}&#39;&#39;
     /// </summary>
-    public TerraformProperty<string>? SourceVolume
+    public TerraformProperty<string> SourceVolume
     {
-        get => GetProperty<TerraformProperty<string>>("source_volume");
-        set => this.WithProperty("source_volume", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_volume");
+        set => SetProperty("source_volume", value);
     }
 
     /// <summary>
@@ -146,8 +152,8 @@ public class GoogleNetappBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultName is required")]
     public required TerraformProperty<string> VaultName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vault_name");
-        set => this.WithProperty("vault_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vault_name");
+        set => SetProperty("vault_name", value);
     }
 
     /// <summary>
@@ -156,8 +162,7 @@ public class GoogleNetappBackup : TerraformResource
     /// </summary>
     public GoogleNetappBackupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetappBackupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

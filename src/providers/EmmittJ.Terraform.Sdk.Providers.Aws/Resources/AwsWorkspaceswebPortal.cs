@@ -13,8 +13,7 @@ public class AwsWorkspaceswebPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsWorkspaceswebPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsWorkspaceswebPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,102 +46,111 @@ public class AwsWorkspaceswebPortal : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("browser_type");
-        this.WithOutput("creation_date");
-        this.WithOutput("data_protection_settings_arn");
-        this.WithOutput("ip_access_settings_arn");
-        this.WithOutput("network_settings_arn");
-        this.WithOutput("portal_arn");
-        this.WithOutput("portal_endpoint");
-        this.WithOutput("portal_status");
-        this.WithOutput("renderer_type");
-        this.WithOutput("session_logger_arn");
-        this.WithOutput("status_reason");
-        this.WithOutput("tags_all");
-        this.WithOutput("trust_store_arn");
-        this.WithOutput("user_access_logging_settings_arn");
-        this.WithOutput("user_settings_arn");
+        SetOutput("browser_type");
+        SetOutput("creation_date");
+        SetOutput("data_protection_settings_arn");
+        SetOutput("ip_access_settings_arn");
+        SetOutput("network_settings_arn");
+        SetOutput("portal_arn");
+        SetOutput("portal_endpoint");
+        SetOutput("portal_status");
+        SetOutput("renderer_type");
+        SetOutput("session_logger_arn");
+        SetOutput("status_reason");
+        SetOutput("tags_all");
+        SetOutput("trust_store_arn");
+        SetOutput("user_access_logging_settings_arn");
+        SetOutput("user_settings_arn");
+        SetOutput("additional_encryption_context");
+        SetOutput("authentication_type");
+        SetOutput("browser_settings_arn");
+        SetOutput("customer_managed_key");
+        SetOutput("display_name");
+        SetOutput("instance_type");
+        SetOutput("max_concurrent_sessions");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>> AdditionalEncryptionContext
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
-        set => this.WithProperty("additional_encryption_context", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
+        set => SetProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationType
+    public TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
-        set => this.WithProperty("authentication_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
+        set => SetProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The browser_settings_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? BrowserSettingsArn
+    public TerraformProperty<string> BrowserSettingsArn
     {
-        get => GetProperty<TerraformProperty<string>>("browser_settings_arn");
-        set => this.WithProperty("browser_settings_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("browser_settings_arn");
+        set => SetProperty("browser_settings_arn", value);
     }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerManagedKey
+    public TerraformProperty<string> CustomerManagedKey
     {
-        get => GetProperty<TerraformProperty<string>>("customer_managed_key");
-        set => this.WithProperty("customer_managed_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("customer_managed_key");
+        set => SetProperty("customer_managed_key", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    public TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
     /// The max_concurrent_sessions attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxConcurrentSessions
+    public TerraformProperty<double> MaxConcurrentSessions
     {
-        get => GetProperty<TerraformProperty<double>>("max_concurrent_sessions");
-        set => this.WithProperty("max_concurrent_sessions", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_concurrent_sessions");
+        set => SetProperty("max_concurrent_sessions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -153,8 +159,7 @@ public class AwsWorkspaceswebPortal : TerraformResource
     /// </summary>
     public AwsWorkspaceswebPortalTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsWorkspaceswebPortalTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

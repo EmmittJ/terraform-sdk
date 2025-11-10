@@ -14,50 +14,54 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("alternative_location_id");
-        this.WithOutput("auth_enabled");
-        this.WithOutput("auth_string");
-        this.WithOutput("authorized_network");
-        this.WithOutput("connect_mode");
-        this.WithOutput("create_time");
-        this.WithOutput("current_location_id");
-        this.WithOutput("customer_managed_key");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("display_name");
-        this.WithOutput("effective_labels");
-        this.WithOutput("effective_reserved_ip_range");
-        this.WithOutput("host");
-        this.WithOutput("labels");
-        this.WithOutput("location_id");
-        this.WithOutput("maintenance_policy");
-        this.WithOutput("maintenance_schedule");
-        this.WithOutput("maintenance_version");
-        this.WithOutput("memory_size_gb");
-        this.WithOutput("nodes");
-        this.WithOutput("persistence_config");
-        this.WithOutput("persistence_iam_identity");
-        this.WithOutput("port");
-        this.WithOutput("read_endpoint");
-        this.WithOutput("read_endpoint_port");
-        this.WithOutput("read_replicas_mode");
-        this.WithOutput("redis_configs");
-        this.WithOutput("redis_version");
-        this.WithOutput("replica_count");
-        this.WithOutput("reserved_ip_range");
-        this.WithOutput("secondary_ip_range");
-        this.WithOutput("server_ca_certs");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("tier");
-        this.WithOutput("transit_encryption_mode");
+        SetOutput("alternative_location_id");
+        SetOutput("auth_enabled");
+        SetOutput("auth_string");
+        SetOutput("authorized_network");
+        SetOutput("connect_mode");
+        SetOutput("create_time");
+        SetOutput("current_location_id");
+        SetOutput("customer_managed_key");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("effective_labels");
+        SetOutput("effective_reserved_ip_range");
+        SetOutput("host");
+        SetOutput("labels");
+        SetOutput("location_id");
+        SetOutput("maintenance_policy");
+        SetOutput("maintenance_schedule");
+        SetOutput("maintenance_version");
+        SetOutput("memory_size_gb");
+        SetOutput("nodes");
+        SetOutput("persistence_config");
+        SetOutput("persistence_iam_identity");
+        SetOutput("port");
+        SetOutput("read_endpoint");
+        SetOutput("read_endpoint_port");
+        SetOutput("read_replicas_mode");
+        SetOutput("redis_configs");
+        SetOutput("redis_version");
+        SetOutput("replica_count");
+        SetOutput("reserved_ip_range");
+        SetOutput("secondary_ip_range");
+        SetOutput("server_ca_certs");
+        SetOutput("terraform_labels");
+        SetOutput("tier");
+        SetOutput("transit_encryption_mode");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,26 +70,26 @@ public class GoogleRedisInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The name of the Redis region of the instance.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

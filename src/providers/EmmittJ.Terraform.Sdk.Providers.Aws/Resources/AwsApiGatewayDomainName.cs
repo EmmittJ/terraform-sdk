@@ -13,8 +13,7 @@ public class AwsApiGatewayDomainNameEndpointConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => WithProperty("ip_address_type", value);
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsApiGatewayDomainNameEndpointConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Types is required")]
     public List<TerraformProperty<string>>? Types
     {
-        get => GetProperty<List<TerraformProperty<string>>>("types");
-        set => WithProperty("types", value);
+        set => SetProperty("types", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TruststoreUri is required")]
     public required TerraformProperty<string> TruststoreUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("truststore_uri");
-        set => WithProperty("truststore_uri", value);
+        set => SetProperty("truststore_uri", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? TruststoreVersion
     {
-        get => GetProperty<TerraformProperty<string>>("truststore_version");
-        set => WithProperty("truststore_version", value);
+        set => SetProperty("truststore_version", value);
     }
 
 }
@@ -69,58 +65,73 @@ public class AwsApiGatewayDomainName : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("certificate_upload_date");
-        this.WithOutput("cloudfront_domain_name");
-        this.WithOutput("cloudfront_zone_id");
-        this.WithOutput("domain_name_id");
-        this.WithOutput("regional_domain_name");
-        this.WithOutput("regional_zone_id");
+        SetOutput("arn");
+        SetOutput("certificate_upload_date");
+        SetOutput("cloudfront_domain_name");
+        SetOutput("cloudfront_zone_id");
+        SetOutput("domain_name_id");
+        SetOutput("regional_domain_name");
+        SetOutput("regional_zone_id");
+        SetOutput("certificate_arn");
+        SetOutput("certificate_body");
+        SetOutput("certificate_chain");
+        SetOutput("certificate_name");
+        SetOutput("certificate_private_key");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("ownership_verification_certificate_arn");
+        SetOutput("policy");
+        SetOutput("region");
+        SetOutput("regional_certificate_arn");
+        SetOutput("regional_certificate_name");
+        SetOutput("security_policy");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateArn
+    public TerraformProperty<string> CertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_arn");
-        set => this.WithProperty("certificate_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_arn");
+        set => SetProperty("certificate_arn", value);
     }
 
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateBody
+    public TerraformProperty<string> CertificateBody
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_body");
-        set => this.WithProperty("certificate_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_body");
+        set => SetProperty("certificate_body", value);
     }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateChain
+    public TerraformProperty<string> CertificateChain
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_chain");
-        set => this.WithProperty("certificate_chain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_chain");
+        set => SetProperty("certificate_chain", value);
     }
 
     /// <summary>
     /// The certificate_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateName
+    public TerraformProperty<string> CertificateName
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_name");
-        set => this.WithProperty("certificate_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_name");
+        set => SetProperty("certificate_name", value);
     }
 
     /// <summary>
     /// The certificate_private_key attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificatePrivateKey
+    public TerraformProperty<string> CertificatePrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_private_key");
-        set => this.WithProperty("certificate_private_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_private_key");
+        set => SetProperty("certificate_private_key", value);
     }
 
     /// <summary>
@@ -129,89 +140,89 @@ public class AwsApiGatewayDomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ownership_verification_certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? OwnershipVerificationCertificateArn
+    public TerraformProperty<string> OwnershipVerificationCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("ownership_verification_certificate_arn");
-        set => this.WithProperty("ownership_verification_certificate_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ownership_verification_certificate_arn");
+        set => SetProperty("ownership_verification_certificate_arn", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    public TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The regional_certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RegionalCertificateArn
+    public TerraformProperty<string> RegionalCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("regional_certificate_arn");
-        set => this.WithProperty("regional_certificate_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("regional_certificate_arn");
+        set => SetProperty("regional_certificate_arn", value);
     }
 
     /// <summary>
     /// The regional_certificate_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RegionalCertificateName
+    public TerraformProperty<string> RegionalCertificateName
     {
-        get => GetProperty<TerraformProperty<string>>("regional_certificate_name");
-        set => this.WithProperty("regional_certificate_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("regional_certificate_name");
+        set => SetProperty("regional_certificate_name", value);
     }
 
     /// <summary>
     /// The security_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityPolicy
+    public TerraformProperty<string> SecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("security_policy");
-        set => this.WithProperty("security_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_policy");
+        set => SetProperty("security_policy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -221,8 +232,7 @@ public class AwsApiGatewayDomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointConfiguration block(s) allowed")]
     public List<AwsApiGatewayDomainNameEndpointConfigurationBlock>? EndpointConfiguration
     {
-        get => GetProperty<List<AwsApiGatewayDomainNameEndpointConfigurationBlock>>("endpoint_configuration");
-        set => this.WithProperty("endpoint_configuration", value);
+        set => SetProperty("endpoint_configuration", value);
     }
 
     /// <summary>
@@ -232,8 +242,7 @@ public class AwsApiGatewayDomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MutualTlsAuthentication block(s) allowed")]
     public List<AwsApiGatewayDomainNameMutualTlsAuthenticationBlock>? MutualTlsAuthentication
     {
-        get => GetProperty<List<AwsApiGatewayDomainNameMutualTlsAuthenticationBlock>>("mutual_tls_authentication");
-        set => this.WithProperty("mutual_tls_authentication", value);
+        set => SetProperty("mutual_tls_authentication", value);
     }
 
     /// <summary>

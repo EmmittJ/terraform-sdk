@@ -14,8 +14,7 @@ public class AwsCloudfrontRealtimeLogConfigEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamType is required")]
     public required TerraformProperty<string> StreamType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_type");
-        set => WithProperty("stream_type", value);
+        set => SetProperty("stream_type", value);
     }
 
 }
@@ -33,26 +32,30 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("fields");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("sampling_rate");
     }
 
     /// <summary>
     /// The fields attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
-    public HashSet<TerraformProperty<string>>? Fields
+    public HashSet<TerraformProperty<string>> Fields
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("fields");
-        set => this.WithProperty("fields", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("fields");
+        set => SetProperty("fields", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +64,8 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,20 +74,20 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
     public required TerraformProperty<double> SamplingRate
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("sampling_rate");
-        set => this.WithProperty("sampling_rate", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("sampling_rate");
+        set => SetProperty("sampling_rate", value);
     }
 
     /// <summary>
     /// Block for endpoint.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
     public List<AwsCloudfrontRealtimeLogConfigEndpointBlock>? Endpoint
     {
-        get => GetProperty<List<AwsCloudfrontRealtimeLogConfigEndpointBlock>>("endpoint");
-        set => this.WithProperty("endpoint", value);
+        set => SetProperty("endpoint", value);
     }
 
     /// <summary>

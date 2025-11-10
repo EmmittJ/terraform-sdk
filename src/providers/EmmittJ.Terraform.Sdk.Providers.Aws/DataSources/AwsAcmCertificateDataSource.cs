@@ -14,82 +14,90 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("certificate");
-        this.WithOutput("certificate_chain");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("certificate");
+        SetOutput("certificate_chain");
+        SetOutput("status");
+        SetOutput("domain");
+        SetOutput("id");
+        SetOutput("key_types");
+        SetOutput("most_recent");
+        SetOutput("region");
+        SetOutput("statuses");
+        SetOutput("tags");
+        SetOutput("types");
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    public TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? KeyTypes
+    public HashSet<TerraformProperty<string>> KeyTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("key_types");
-        set => this.WithProperty("key_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("key_types");
+        set => SetProperty("key_types", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The statuses attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Statuses
+    public List<TerraformProperty<string>> Statuses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("statuses");
-        set => this.WithProperty("statuses", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("statuses");
+        set => SetProperty("statuses", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The types attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Types
+    public List<TerraformProperty<string>> Types
     {
-        get => GetProperty<List<TerraformProperty<string>>>("types");
-        set => this.WithProperty("types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("types");
+        set => SetProperty("types", value);
     }
 
     /// <summary>

@@ -16,8 +16,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EnforcementVersion
     {
-        get => GetProperty<TerraformProperty<string>>("enforcement_version");
-        set => WithProperty("enforcement_version", value);
+        set => SetProperty("enforcement_version", value);
     }
 
 }
@@ -33,8 +32,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -70,12 +66,18 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("organization");
+        SetOutput("principal_access_boundary_policy_id");
     }
 
     /// <summary>
@@ -86,28 +88,28 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// The description of the principal access boundary policy. Must be less than or equal to 63 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -116,8 +118,8 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -126,8 +128,8 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization");
-        set => this.WithProperty("organization", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization");
+        set => SetProperty("organization", value);
     }
 
     /// <summary>
@@ -137,8 +139,8 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalAccessBoundaryPolicyId is required")]
     public required TerraformProperty<string> PrincipalAccessBoundaryPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_access_boundary_policy_id");
-        set => this.WithProperty("principal_access_boundary_policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_access_boundary_policy_id");
+        set => SetProperty("principal_access_boundary_policy_id", value);
     }
 
     /// <summary>
@@ -148,8 +150,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Details block(s) allowed")]
     public List<GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock>? Details
     {
-        get => GetProperty<List<GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock>>("details");
-        set => this.WithProperty("details", value);
+        set => SetProperty("details", value);
     }
 
     /// <summary>
@@ -158,8 +159,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// </summary>
     public GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

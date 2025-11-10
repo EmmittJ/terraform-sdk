@@ -13,8 +13,7 @@ public class GoogleFirestoreDocumentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleFirestoreDocumentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleFirestoreDocumentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,16 @@ public class GoogleFirestoreDocument : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("path");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("path");
+        SetOutput("update_time");
+        SetOutput("collection");
+        SetOutput("database");
+        SetOutput("document_id");
+        SetOutput("fields");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -61,17 +64,17 @@ public class GoogleFirestoreDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformProperty<string> Collection
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection");
-        set => this.WithProperty("collection", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collection");
+        set => SetProperty("collection", value);
     }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    public TerraformProperty<string>? Database
+    public TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
-        set => this.WithProperty("database", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database");
+        set => SetProperty("database", value);
     }
 
     /// <summary>
@@ -80,8 +83,8 @@ public class GoogleFirestoreDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
     public required TerraformProperty<string> DocumentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("document_id");
-        set => this.WithProperty("document_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("document_id");
+        set => SetProperty("document_id", value);
     }
 
     /// <summary>
@@ -90,26 +93,26 @@ public class GoogleFirestoreDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     public required TerraformProperty<string> Fields
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("fields");
-        set => this.WithProperty("fields", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fields");
+        set => SetProperty("fields", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -118,8 +121,7 @@ public class GoogleFirestoreDocument : TerraformResource
     /// </summary>
     public GoogleFirestoreDocumentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFirestoreDocumentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

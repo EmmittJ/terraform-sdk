@@ -13,8 +13,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public List<TerraformProperty<string>>? Locations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("locations");
-        set => WithProperty("locations", value);
+        set => SetProperty("locations", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public List<TerraformProperty<string>>? OsTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("os_types");
-        set => WithProperty("os_types", value);
+        set => SetProperty("os_types", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public List<TerraformProperty<string>>? ResourceGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_groups");
-        set => WithProperty("resource_groups", value);
+        set => SetProperty("resource_groups", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public List<TerraformProperty<string>>? ResourceTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("resource_types");
-        set => WithProperty("resource_types", value);
+        set => SetProperty("resource_types", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? TagFilter
     {
-        get => GetProperty<TerraformProperty<string>>("tag_filter");
-        set => WithProperty("tag_filter", value);
+        set => SetProperty("tag_filter", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -112,15 +103,18 @@ public class AzurermMaintenanceAssignmentDynamicScope : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("maintenance_configuration_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -129,8 +123,8 @@ public class AzurermMaintenanceAssignmentDynamicScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
     public required TerraformProperty<string> MaintenanceConfigurationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("maintenance_configuration_id");
-        set => this.WithProperty("maintenance_configuration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_configuration_id");
+        set => SetProperty("maintenance_configuration_id", value);
     }
 
     /// <summary>
@@ -139,20 +133,20 @@ public class AzurermMaintenanceAssignmentDynamicScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     public List<AzurermMaintenanceAssignmentDynamicScopeFilterBlock>? Filter
     {
-        get => GetProperty<List<AzurermMaintenanceAssignmentDynamicScopeFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -161,8 +155,7 @@ public class AzurermMaintenanceAssignmentDynamicScope : TerraformResource
     /// </summary>
     public AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

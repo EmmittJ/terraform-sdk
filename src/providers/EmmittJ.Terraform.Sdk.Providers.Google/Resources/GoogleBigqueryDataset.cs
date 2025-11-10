@@ -14,8 +14,7 @@ public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => WithProperty("domain", value);
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GroupByEmail
     {
-        get => GetProperty<TerraformProperty<string>>("group_by_email");
-        set => WithProperty("group_by_email", value);
+        set => SetProperty("group_by_email", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IamMember
     {
-        get => GetProperty<TerraformProperty<string>>("iam_member");
-        set => WithProperty("iam_member", value);
+        set => SetProperty("iam_member", value);
     }
 
     /// <summary>
@@ -46,8 +43,7 @@ public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
-        set => WithProperty("role", value);
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SpecialGroup
     {
-        get => GetProperty<TerraformProperty<string>>("special_group");
-        set => WithProperty("special_group", value);
+        set => SetProperty("special_group", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserByEmail
     {
-        get => GetProperty<TerraformProperty<string>>("user_by_email");
-        set => WithProperty("user_by_email", value);
+        set => SetProperty("user_by_email", value);
     }
 
 }
@@ -89,8 +83,7 @@ public class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
 }
@@ -107,8 +100,7 @@ public class GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? DefaultStorageLocationUri
     {
-        get => GetProperty<TerraformProperty<string>>("default_storage_location_uri");
-        set => WithProperty("default_storage_location_uri", value);
+        set => SetProperty("default_storage_location_uri", value);
     }
 
     /// <summary>
@@ -117,8 +109,7 @@ public class GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock : Terraform
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
 }
@@ -136,8 +127,7 @@ public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connection is required")]
     public required TerraformProperty<string> Connection
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection");
-        set => WithProperty("connection", value);
+        set => SetProperty("connection", value);
     }
 
     /// <summary>
@@ -146,8 +136,7 @@ public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalSource is required")]
     public required TerraformProperty<string> ExternalSource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("external_source");
-        set => WithProperty("external_source", value);
+        set => SetProperty("external_source", value);
     }
 
 }
@@ -163,8 +152,7 @@ public class GoogleBigqueryDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -172,8 +160,7 @@ public class GoogleBigqueryDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -181,8 +168,7 @@ public class GoogleBigqueryDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -200,12 +186,27 @@ public class GoogleBigqueryDataset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("last_modified_time");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
+        SetOutput("creation_time");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("last_modified_time");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("dataset_id");
+        SetOutput("default_collation");
+        SetOutput("default_partition_expiration_ms");
+        SetOutput("default_table_expiration_ms");
+        SetOutput("delete_contents_on_destroy");
+        SetOutput("description");
+        SetOutput("friendly_name");
+        SetOutput("id");
+        SetOutput("is_case_insensitive");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("max_time_travel_hours");
+        SetOutput("project");
+        SetOutput("resource_tags");
+        SetOutput("storage_billing_model");
     }
 
     /// <summary>
@@ -216,8 +217,8 @@ public class GoogleBigqueryDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
-        set => this.WithProperty("dataset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
+        set => SetProperty("dataset_id", value);
     }
 
     /// <summary>
@@ -232,10 +233,10 @@ public class GoogleBigqueryDataset : TerraformResource
     /// - &#39;und:ci&#39;: undetermined locale, case insensitive.
     /// - &#39;&#39;: empty string. Default to case-sensitive behavior.
     /// </summary>
-    public TerraformProperty<string>? DefaultCollation
+    public TerraformProperty<string> DefaultCollation
     {
-        get => GetProperty<TerraformProperty<string>>("default_collation");
-        set => this.WithProperty("default_collation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_collation");
+        set => SetProperty("default_collation", value);
     }
 
     /// <summary>
@@ -253,10 +254,10 @@ public class GoogleBigqueryDataset : TerraformResource
     /// creating or updating a partitioned table, that value takes precedence
     /// over the default partition expiration time indicated by this property.
     /// </summary>
-    public TerraformProperty<double>? DefaultPartitionExpirationMs
+    public TerraformProperty<double> DefaultPartitionExpirationMs
     {
-        get => GetProperty<TerraformProperty<double>>("default_partition_expiration_ms");
-        set => this.WithProperty("default_partition_expiration_ms", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_partition_expiration_ms");
+        set => SetProperty("default_partition_expiration_ms", value);
     }
 
     /// <summary>
@@ -272,10 +273,10 @@ public class GoogleBigqueryDataset : TerraformResource
     /// creating a table, that value takes precedence over the default
     /// expiration time indicated by this property.
     /// </summary>
-    public TerraformProperty<double>? DefaultTableExpirationMs
+    public TerraformProperty<double> DefaultTableExpirationMs
     {
-        get => GetProperty<TerraformProperty<double>>("default_table_expiration_ms");
-        set => this.WithProperty("default_table_expiration_ms", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_table_expiration_ms");
+        set => SetProperty("default_table_expiration_ms", value);
     }
 
     /// <summary>
@@ -283,37 +284,37 @@ public class GoogleBigqueryDataset : TerraformResource
     /// dataset when destroying the resource; otherwise,
     /// destroying the resource will fail if tables are present.
     /// </summary>
-    public TerraformProperty<bool>? DeleteContentsOnDestroy
+    public TerraformProperty<bool> DeleteContentsOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_contents_on_destroy");
-        set => this.WithProperty("delete_contents_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_contents_on_destroy");
+        set => SetProperty("delete_contents_on_destroy", value);
     }
 
     /// <summary>
     /// A user-friendly description of the dataset
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// A descriptive name for the dataset
     /// </summary>
-    public TerraformProperty<string>? FriendlyName
+    public TerraformProperty<string> FriendlyName
     {
-        get => GetProperty<TerraformProperty<string>>("friendly_name");
-        set => this.WithProperty("friendly_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
+        set => SetProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -321,10 +322,10 @@ public class GoogleBigqueryDataset : TerraformResource
     /// By default, this is FALSE, which means the dataset and its table names are
     /// case-sensitive. This field does not affect routine references.
     /// </summary>
-    public TerraformProperty<bool>? IsCaseInsensitive
+    public TerraformProperty<bool> IsCaseInsensitive
     {
-        get => GetProperty<TerraformProperty<bool>>("is_case_insensitive");
-        set => this.WithProperty("is_case_insensitive", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_case_insensitive");
+        set => SetProperty("is_case_insensitive", value);
     }
 
     /// <summary>
@@ -335,10 +336,10 @@ public class GoogleBigqueryDataset : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -351,28 +352,28 @@ public class GoogleBigqueryDataset : TerraformResource
     /// The default value is multi-regional location &#39;US&#39;.
     /// Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Defines the time travel window in hours. The value can be from 48 to 168 hours (2 to 7 days).
     /// </summary>
-    public TerraformProperty<string>? MaxTimeTravelHours
+    public TerraformProperty<string> MaxTimeTravelHours
     {
-        get => GetProperty<TerraformProperty<string>>("max_time_travel_hours");
-        set => this.WithProperty("max_time_travel_hours", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("max_time_travel_hours");
+        set => SetProperty("max_time_travel_hours", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -382,10 +383,10 @@ public class GoogleBigqueryDataset : TerraformResource
     /// to be the short name, for example &amp;quot;Production&amp;quot;. See [Tag definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
     /// for more details.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>> ResourceTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
-        set => this.WithProperty("resource_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("resource_tags");
+        set => SetProperty("resource_tags", value);
     }
 
     /// <summary>
@@ -395,10 +396,10 @@ public class GoogleBigqueryDataset : TerraformResource
     /// 
     /// LOGICAL is the default if this flag isn&#39;t specified.
     /// </summary>
-    public TerraformProperty<string>? StorageBillingModel
+    public TerraformProperty<string> StorageBillingModel
     {
-        get => GetProperty<TerraformProperty<string>>("storage_billing_model");
-        set => this.WithProperty("storage_billing_model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_billing_model");
+        set => SetProperty("storage_billing_model", value);
     }
 
     /// <summary>
@@ -407,8 +408,7 @@ public class GoogleBigqueryDataset : TerraformResource
     /// </summary>
     public HashSet<GoogleBigqueryDatasetAccessBlock>? Access
     {
-        get => GetProperty<HashSet<GoogleBigqueryDatasetAccessBlock>>("access");
-        set => this.WithProperty("access", value);
+        set => SetProperty("access", value);
     }
 
     /// <summary>
@@ -418,8 +418,7 @@ public class GoogleBigqueryDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultEncryptionConfiguration block(s) allowed")]
     public List<GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock>? DefaultEncryptionConfiguration
     {
-        get => GetProperty<List<GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock>>("default_encryption_configuration");
-        set => this.WithProperty("default_encryption_configuration", value);
+        set => SetProperty("default_encryption_configuration", value);
     }
 
     /// <summary>
@@ -429,8 +428,7 @@ public class GoogleBigqueryDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalCatalogDatasetOptions block(s) allowed")]
     public List<GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock>? ExternalCatalogDatasetOptions
     {
-        get => GetProperty<List<GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock>>("external_catalog_dataset_options");
-        set => this.WithProperty("external_catalog_dataset_options", value);
+        set => SetProperty("external_catalog_dataset_options", value);
     }
 
     /// <summary>
@@ -440,8 +438,7 @@ public class GoogleBigqueryDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalDatasetReference block(s) allowed")]
     public List<GoogleBigqueryDatasetExternalDatasetReferenceBlock>? ExternalDatasetReference
     {
-        get => GetProperty<List<GoogleBigqueryDatasetExternalDatasetReferenceBlock>>("external_dataset_reference");
-        set => this.WithProperty("external_dataset_reference", value);
+        set => SetProperty("external_dataset_reference", value);
     }
 
     /// <summary>
@@ -450,8 +447,7 @@ public class GoogleBigqueryDataset : TerraformResource
     /// </summary>
     public GoogleBigqueryDatasetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryDatasetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

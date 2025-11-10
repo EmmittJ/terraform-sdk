@@ -13,8 +13,7 @@ public class GoogleComputeProjectDefaultNetworkTierTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,15 +30,18 @@ public class GoogleComputeProjectDefaultNetworkTier : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("network_tier");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -48,17 +50,17 @@ public class GoogleComputeProjectDefaultNetworkTier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkTier is required")]
     public required TerraformProperty<string> NetworkTier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_tier");
-        set => this.WithProperty("network_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_tier");
+        set => SetProperty("network_tier", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -67,8 +69,7 @@ public class GoogleComputeProjectDefaultNetworkTier : TerraformResource
     /// </summary>
     public GoogleComputeProjectDefaultNetworkTierTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeProjectDefaultNetworkTierTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

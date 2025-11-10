@@ -13,8 +13,7 @@ public class GoogleComputePublicAdvertisedPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputePublicAdvertisedPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,17 +38,24 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("self_link");
-        this.WithOutput("shared_secret");
+        SetOutput("self_link");
+        SetOutput("shared_secret");
+        SetOutput("description");
+        SetOutput("dns_verification_ip");
+        SetOutput("id");
+        SetOutput("ip_cidr_range");
+        SetOutput("name");
+        SetOutput("pdp_scope");
+        SetOutput("project");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -59,17 +64,17 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsVerificationIp is required")]
     public required TerraformProperty<string> DnsVerificationIp
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns_verification_ip");
-        set => this.WithProperty("dns_verification_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_verification_ip");
+        set => SetProperty("dns_verification_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,8 +83,8 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformProperty<string> IpCidrRange
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_cidr_range");
-        set => this.WithProperty("ip_cidr_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_cidr_range");
+        set => SetProperty("ip_cidr_range", value);
     }
 
     /// <summary>
@@ -93,8 +98,8 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,19 +110,19 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// * GLOBAL: The public delegated prefix is global only. The provisioning
     /// will take ~4 weeks. Possible values: [&amp;quot;GLOBAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PdpScope
+    public TerraformProperty<string> PdpScope
     {
-        get => GetProperty<TerraformProperty<string>>("pdp_scope");
-        set => this.WithProperty("pdp_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pdp_scope");
+        set => SetProperty("pdp_scope", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -126,8 +131,7 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// </summary>
     public GoogleComputePublicAdvertisedPrefixTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputePublicAdvertisedPrefixTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,33 +14,40 @@ public class AwsEmrStudioSessionMapping : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("identity_id");
+        SetOutput("identity_name");
+        SetOutput("identity_type");
+        SetOutput("region");
+        SetOutput("session_policy_arn");
+        SetOutput("studio_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityId
+    public TerraformProperty<string> IdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_id");
-        set => this.WithProperty("identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_id");
+        set => SetProperty("identity_id", value);
     }
 
     /// <summary>
     /// The identity_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityName
+    public TerraformProperty<string> IdentityName
     {
-        get => GetProperty<TerraformProperty<string>>("identity_name");
-        set => this.WithProperty("identity_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_name");
+        set => SetProperty("identity_name", value);
     }
 
     /// <summary>
@@ -49,17 +56,17 @@ public class AwsEmrStudioSessionMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityType is required")]
     public required TerraformProperty<string> IdentityType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_type");
-        set => this.WithProperty("identity_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_type");
+        set => SetProperty("identity_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -68,8 +75,8 @@ public class AwsEmrStudioSessionMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionPolicyArn is required")]
     public required TerraformProperty<string> SessionPolicyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("session_policy_arn");
-        set => this.WithProperty("session_policy_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("session_policy_arn");
+        set => SetProperty("session_policy_arn", value);
     }
 
     /// <summary>
@@ -78,8 +85,8 @@ public class AwsEmrStudioSessionMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioId is required")]
     public required TerraformProperty<string> StudioId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("studio_id");
-        set => this.WithProperty("studio_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("studio_id");
+        set => SetProperty("studio_id", value);
     }
 
 }

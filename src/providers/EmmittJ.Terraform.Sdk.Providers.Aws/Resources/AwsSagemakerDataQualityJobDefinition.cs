@@ -13,8 +13,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Environment
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment");
-        set => WithProperty("environment", value);
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
     public required TerraformProperty<string> ImageUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image_uri");
-        set => WithProperty("image_uri", value);
+        set => SetProperty("image_uri", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     /// </summary>
     public TerraformProperty<string>? PostAnalyticsProcessorSourceUri
     {
-        get => GetProperty<TerraformProperty<string>>("post_analytics_processor_source_uri");
-        set => WithProperty("post_analytics_processor_source_uri", value);
+        set => SetProperty("post_analytics_processor_source_uri", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     /// </summary>
     public TerraformProperty<string>? RecordPreprocessorSourceUri
     {
-        get => GetProperty<TerraformProperty<string>>("record_preprocessor_source_uri");
-        set => WithProperty("record_preprocessor_source_uri", value);
+        set => SetProperty("record_preprocessor_source_uri", value);
     }
 
 }
@@ -74,8 +70,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
 }
@@ -99,8 +94,7 @@ public class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock : TerraformB
     /// </summary>
     public TerraformProperty<bool>? EnableInterContainerTrafficEncryption
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_inter_container_traffic_encryption");
-        set => WithProperty("enable_inter_container_traffic_encryption", value);
+        set => SetProperty("enable_inter_container_traffic_encryption", value);
     }
 
     /// <summary>
@@ -108,8 +102,7 @@ public class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock : TerraformB
     /// </summary>
     public TerraformProperty<bool>? EnableNetworkIsolation
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_network_isolation");
-        set => WithProperty("enable_network_isolation", value);
+        set => SetProperty("enable_network_isolation", value);
     }
 
 }
@@ -125,8 +118,7 @@ public class AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock : Terraf
     /// </summary>
     public TerraformProperty<double>? MaxRuntimeInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_runtime_in_seconds");
-        set => WithProperty("max_runtime_in_seconds", value);
+        set => SetProperty("max_runtime_in_seconds", value);
     }
 
 }
@@ -144,34 +136,40 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -180,38 +178,38 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for data_quality_app_specification.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataQualityAppSpecification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityAppSpecification block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityAppSpecification block(s) allowed")]
     public List<AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock>? DataQualityAppSpecification
     {
-        get => GetProperty<List<AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock>>("data_quality_app_specification");
-        set => this.WithProperty("data_quality_app_specification", value);
+        set => SetProperty("data_quality_app_specification", value);
     }
 
     /// <summary>
@@ -221,44 +219,43 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityBaselineConfig block(s) allowed")]
     public List<AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock>? DataQualityBaselineConfig
     {
-        get => GetProperty<List<AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock>>("data_quality_baseline_config");
-        set => this.WithProperty("data_quality_baseline_config", value);
+        set => SetProperty("data_quality_baseline_config", value);
     }
 
     /// <summary>
     /// Block for data_quality_job_input.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataQualityJobInput is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityJobInput block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityJobInput block(s) allowed")]
     public List<AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock>? DataQualityJobInput
     {
-        get => GetProperty<List<AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock>>("data_quality_job_input");
-        set => this.WithProperty("data_quality_job_input", value);
+        set => SetProperty("data_quality_job_input", value);
     }
 
     /// <summary>
     /// Block for data_quality_job_output_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataQualityJobOutputConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityJobOutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityJobOutputConfig block(s) allowed")]
     public List<AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock>? DataQualityJobOutputConfig
     {
-        get => GetProperty<List<AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock>>("data_quality_job_output_config");
-        set => this.WithProperty("data_quality_job_output_config", value);
+        set => SetProperty("data_quality_job_output_config", value);
     }
 
     /// <summary>
     /// Block for job_resources.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobResources is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 JobResources block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobResources block(s) allowed")]
     public List<AwsSagemakerDataQualityJobDefinitionJobResourcesBlock>? JobResources
     {
-        get => GetProperty<List<AwsSagemakerDataQualityJobDefinitionJobResourcesBlock>>("job_resources");
-        set => this.WithProperty("job_resources", value);
+        set => SetProperty("job_resources", value);
     }
 
     /// <summary>
@@ -268,8 +265,7 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -279,8 +275,7 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StoppingCondition block(s) allowed")]
     public List<AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock>? StoppingCondition
     {
-        get => GetProperty<List<AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock>>("stopping_condition");
-        set => this.WithProperty("stopping_condition", value);
+        set => SetProperty("stopping_condition", value);
     }
 
     /// <summary>

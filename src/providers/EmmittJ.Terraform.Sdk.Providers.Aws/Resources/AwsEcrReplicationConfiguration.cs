@@ -23,25 +23,27 @@ public class AwsEcrReplicationConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("registry_id");
+        SetOutput("registry_id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -51,8 +53,7 @@ public class AwsEcrReplicationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfiguration block(s) allowed")]
     public List<AwsEcrReplicationConfigurationReplicationConfigurationBlock>? ReplicationConfiguration
     {
-        get => GetProperty<List<AwsEcrReplicationConfigurationReplicationConfigurationBlock>>("replication_configuration");
-        set => this.WithProperty("replication_configuration", value);
+        set => SetProperty("replication_configuration", value);
     }
 
     /// <summary>

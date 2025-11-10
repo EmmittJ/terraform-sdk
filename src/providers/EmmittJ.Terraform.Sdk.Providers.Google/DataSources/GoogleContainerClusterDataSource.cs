@@ -14,105 +14,109 @@ public class GoogleContainerClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("addons_config");
-        this.WithOutput("allow_net_admin");
-        this.WithOutput("anonymous_authentication_config");
-        this.WithOutput("authenticator_groups_config");
-        this.WithOutput("binary_authorization");
-        this.WithOutput("cluster_autoscaling");
-        this.WithOutput("cluster_ipv4_cidr");
-        this.WithOutput("confidential_nodes");
-        this.WithOutput("control_plane_endpoints_config");
-        this.WithOutput("cost_management_config");
-        this.WithOutput("database_encryption");
-        this.WithOutput("datapath_provider");
-        this.WithOutput("default_max_pods_per_node");
-        this.WithOutput("default_snat_status");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("description");
-        this.WithOutput("disable_l4_lb_firewall_reconciliation");
-        this.WithOutput("dns_config");
-        this.WithOutput("effective_labels");
-        this.WithOutput("enable_autopilot");
-        this.WithOutput("enable_cilium_clusterwide_network_policy");
-        this.WithOutput("enable_fqdn_network_policy");
-        this.WithOutput("enable_intranode_visibility");
-        this.WithOutput("enable_k8s_beta_apis");
-        this.WithOutput("enable_kubernetes_alpha");
-        this.WithOutput("enable_l4_ilb_subsetting");
-        this.WithOutput("enable_legacy_abac");
-        this.WithOutput("enable_multi_networking");
-        this.WithOutput("enable_shielded_nodes");
-        this.WithOutput("enable_tpu");
-        this.WithOutput("endpoint");
-        this.WithOutput("enterprise_config");
-        this.WithOutput("fleet");
-        this.WithOutput("gateway_api_config");
-        this.WithOutput("gke_auto_upgrade_config");
-        this.WithOutput("identity_service_config");
-        this.WithOutput("in_transit_encryption_config");
-        this.WithOutput("initial_node_count");
-        this.WithOutput("ip_allocation_policy");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("logging_config");
-        this.WithOutput("logging_service");
-        this.WithOutput("maintenance_policy");
-        this.WithOutput("master_auth");
-        this.WithOutput("master_authorized_networks_config");
-        this.WithOutput("master_version");
-        this.WithOutput("mesh_certificates");
-        this.WithOutput("min_master_version");
-        this.WithOutput("monitoring_config");
-        this.WithOutput("monitoring_service");
-        this.WithOutput("network");
-        this.WithOutput("network_performance_config");
-        this.WithOutput("network_policy");
-        this.WithOutput("networking_mode");
-        this.WithOutput("node_config");
-        this.WithOutput("node_locations");
-        this.WithOutput("node_pool");
-        this.WithOutput("node_pool_auto_config");
-        this.WithOutput("node_pool_defaults");
-        this.WithOutput("node_version");
-        this.WithOutput("notification_config");
-        this.WithOutput("operation");
-        this.WithOutput("pod_autoscaling");
-        this.WithOutput("private_cluster_config");
-        this.WithOutput("private_ipv6_google_access");
-        this.WithOutput("rbac_binding_config");
-        this.WithOutput("release_channel");
-        this.WithOutput("remove_default_node_pool");
-        this.WithOutput("resource_labels");
-        this.WithOutput("resource_usage_export_config");
-        this.WithOutput("secret_manager_config");
-        this.WithOutput("security_posture_config");
-        this.WithOutput("self_link");
-        this.WithOutput("service_external_ips_config");
-        this.WithOutput("services_ipv4_cidr");
-        this.WithOutput("subnetwork");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("tpu_ipv4_cidr_block");
-        this.WithOutput("user_managed_keys_config");
-        this.WithOutput("vertical_pod_autoscaling");
-        this.WithOutput("workload_identity_config");
+        SetOutput("addons_config");
+        SetOutput("allow_net_admin");
+        SetOutput("anonymous_authentication_config");
+        SetOutput("authenticator_groups_config");
+        SetOutput("binary_authorization");
+        SetOutput("cluster_autoscaling");
+        SetOutput("cluster_ipv4_cidr");
+        SetOutput("confidential_nodes");
+        SetOutput("control_plane_endpoints_config");
+        SetOutput("cost_management_config");
+        SetOutput("database_encryption");
+        SetOutput("datapath_provider");
+        SetOutput("default_max_pods_per_node");
+        SetOutput("default_snat_status");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("disable_l4_lb_firewall_reconciliation");
+        SetOutput("dns_config");
+        SetOutput("effective_labels");
+        SetOutput("enable_autopilot");
+        SetOutput("enable_cilium_clusterwide_network_policy");
+        SetOutput("enable_fqdn_network_policy");
+        SetOutput("enable_intranode_visibility");
+        SetOutput("enable_k8s_beta_apis");
+        SetOutput("enable_kubernetes_alpha");
+        SetOutput("enable_l4_ilb_subsetting");
+        SetOutput("enable_legacy_abac");
+        SetOutput("enable_multi_networking");
+        SetOutput("enable_shielded_nodes");
+        SetOutput("enable_tpu");
+        SetOutput("endpoint");
+        SetOutput("enterprise_config");
+        SetOutput("fleet");
+        SetOutput("gateway_api_config");
+        SetOutput("gke_auto_upgrade_config");
+        SetOutput("identity_service_config");
+        SetOutput("in_transit_encryption_config");
+        SetOutput("initial_node_count");
+        SetOutput("ip_allocation_policy");
+        SetOutput("label_fingerprint");
+        SetOutput("logging_config");
+        SetOutput("logging_service");
+        SetOutput("maintenance_policy");
+        SetOutput("master_auth");
+        SetOutput("master_authorized_networks_config");
+        SetOutput("master_version");
+        SetOutput("mesh_certificates");
+        SetOutput("min_master_version");
+        SetOutput("monitoring_config");
+        SetOutput("monitoring_service");
+        SetOutput("network");
+        SetOutput("network_performance_config");
+        SetOutput("network_policy");
+        SetOutput("networking_mode");
+        SetOutput("node_config");
+        SetOutput("node_locations");
+        SetOutput("node_pool");
+        SetOutput("node_pool_auto_config");
+        SetOutput("node_pool_defaults");
+        SetOutput("node_version");
+        SetOutput("notification_config");
+        SetOutput("operation");
+        SetOutput("pod_autoscaling");
+        SetOutput("private_cluster_config");
+        SetOutput("private_ipv6_google_access");
+        SetOutput("rbac_binding_config");
+        SetOutput("release_channel");
+        SetOutput("remove_default_node_pool");
+        SetOutput("resource_labels");
+        SetOutput("resource_usage_export_config");
+        SetOutput("secret_manager_config");
+        SetOutput("security_posture_config");
+        SetOutput("self_link");
+        SetOutput("service_external_ips_config");
+        SetOutput("services_ipv4_cidr");
+        SetOutput("subnetwork");
+        SetOutput("terraform_labels");
+        SetOutput("tpu_ipv4_cidr_block");
+        SetOutput("user_managed_keys_config");
+        SetOutput("vertical_pod_autoscaling");
+        SetOutput("workload_identity_config");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location (region or zone) in which the cluster master will be created, as well as the default node location. If you specify a zone (such as us-central1-a), the cluster will be a zonal cluster with a single cluster master. If you specify a region (such as us-west1), the cluster will be a regional cluster with multiple masters spread across zones in the region, and with default node locations in those zones as well.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -121,17 +125,17 @@ public class GoogleContainerClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -50,6 +47,12 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("end_ip_address");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("server_name");
+        SetOutput("start_ip_address");
     }
 
     /// <summary>
@@ -58,17 +61,17 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIpAddress is required")]
     public required TerraformProperty<string> EndIpAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("end_ip_address");
-        set => this.WithProperty("end_ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_ip_address");
+        set => SetProperty("end_ip_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,8 +80,8 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -87,8 +90,8 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -97,8 +100,8 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
-        set => this.WithProperty("server_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_name");
+        set => SetProperty("server_name", value);
     }
 
     /// <summary>
@@ -107,8 +110,8 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIpAddress is required")]
     public required TerraformProperty<string> StartIpAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_ip_address");
-        set => this.WithProperty("start_ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_ip_address");
+        set => SetProperty("start_ip_address", value);
     }
 
     /// <summary>
@@ -117,8 +120,7 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     /// </summary>
     public AzurermPostgresqlFirewallRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPostgresqlFirewallRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

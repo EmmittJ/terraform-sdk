@@ -14,10 +14,21 @@ public class AwsAppconfigDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("deployment_number");
-        this.WithOutput("kms_key_arn");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("deployment_number");
+        SetOutput("kms_key_arn");
+        SetOutput("state");
+        SetOutput("application_id");
+        SetOutput("configuration_profile_id");
+        SetOutput("configuration_version");
+        SetOutput("deployment_strategy_id");
+        SetOutput("description");
+        SetOutput("environment_id");
+        SetOutput("id");
+        SetOutput("kms_key_identifier");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -26,8 +37,8 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -36,8 +47,8 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
     public required TerraformProperty<string> ConfigurationProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_profile_id");
-        set => this.WithProperty("configuration_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_profile_id");
+        set => SetProperty("configuration_profile_id", value);
     }
 
     /// <summary>
@@ -46,8 +57,8 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationVersion is required")]
     public required TerraformProperty<string> ConfigurationVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_version");
-        set => this.WithProperty("configuration_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_version");
+        set => SetProperty("configuration_version", value);
     }
 
     /// <summary>
@@ -56,17 +67,17 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentStrategyId is required")]
     public required TerraformProperty<string> DeploymentStrategyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deployment_strategy_id");
-        set => this.WithProperty("deployment_strategy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_strategy_id");
+        set => SetProperty("deployment_strategy_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -75,53 +86,53 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
-        set => this.WithProperty("environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_id");
+        set => SetProperty("environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyIdentifier
+    public TerraformProperty<string> KmsKeyIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_identifier");
-        set => this.WithProperty("kms_key_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
+        set => SetProperty("kms_key_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

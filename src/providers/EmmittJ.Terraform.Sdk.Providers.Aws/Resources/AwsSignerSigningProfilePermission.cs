@@ -14,6 +14,14 @@ public class AwsSignerSigningProfilePermission : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("action");
+        SetOutput("id");
+        SetOutput("principal");
+        SetOutput("profile_name");
+        SetOutput("profile_version");
+        SetOutput("region");
+        SetOutput("statement_id");
+        SetOutput("statement_id_prefix");
     }
 
     /// <summary>
@@ -22,17 +30,17 @@ public class AwsSignerSigningProfilePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,8 +49,8 @@ public class AwsSignerSigningProfilePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => this.WithProperty("principal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal");
+        set => SetProperty("principal", value);
     }
 
     /// <summary>
@@ -51,44 +59,44 @@ public class AwsSignerSigningProfilePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformProperty<string> ProfileName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("profile_name");
-        set => this.WithProperty("profile_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_name");
+        set => SetProperty("profile_name", value);
     }
 
     /// <summary>
     /// The profile_version attribute.
     /// </summary>
-    public TerraformProperty<string>? ProfileVersion
+    public TerraformProperty<string> ProfileVersion
     {
-        get => GetProperty<TerraformProperty<string>>("profile_version");
-        set => this.WithProperty("profile_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile_version");
+        set => SetProperty("profile_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The statement_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StatementId
+    public TerraformProperty<string> StatementId
     {
-        get => GetProperty<TerraformProperty<string>>("statement_id");
-        set => this.WithProperty("statement_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("statement_id");
+        set => SetProperty("statement_id", value);
     }
 
     /// <summary>
     /// The statement_id_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? StatementIdPrefix
+    public TerraformProperty<string> StatementIdPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("statement_id_prefix");
-        set => this.WithProperty("statement_id_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("statement_id_prefix");
+        set => SetProperty("statement_id_prefix", value);
     }
 
 }

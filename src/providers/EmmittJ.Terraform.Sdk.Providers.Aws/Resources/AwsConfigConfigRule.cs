@@ -13,8 +13,7 @@ public class AwsConfigConfigRuleEvaluationModeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsConfigConfigRuleScopeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ComplianceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("compliance_resource_id");
-        set => WithProperty("compliance_resource_id", value);
+        set => SetProperty("compliance_resource_id", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsConfigConfigRuleScopeBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ComplianceResourceTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("compliance_resource_types");
-        set => WithProperty("compliance_resource_types", value);
+        set => SetProperty("compliance_resource_types", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsConfigConfigRuleScopeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TagKey
     {
-        get => GetProperty<TerraformProperty<string>>("tag_key");
-        set => WithProperty("tag_key", value);
+        set => SetProperty("tag_key", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsConfigConfigRuleScopeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TagValue
     {
-        get => GetProperty<TerraformProperty<string>>("tag_value");
-        set => WithProperty("tag_value", value);
+        set => SetProperty("tag_value", value);
     }
 
 }
@@ -75,8 +70,7 @@ public class AwsConfigConfigRuleSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformProperty<string> Owner
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("owner");
-        set => WithProperty("owner", value);
+        set => SetProperty("owner", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AwsConfigConfigRuleSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("source_identifier");
-        set => WithProperty("source_identifier", value);
+        set => SetProperty("source_identifier", value);
     }
 
 }
@@ -103,44 +96,52 @@ public class AwsConfigConfigRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("rule_id");
+        SetOutput("arn");
+        SetOutput("rule_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("input_parameters");
+        SetOutput("maximum_execution_frequency");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The input_parameters attribute.
     /// </summary>
-    public TerraformProperty<string>? InputParameters
+    public TerraformProperty<string> InputParameters
     {
-        get => GetProperty<TerraformProperty<string>>("input_parameters");
-        set => this.WithProperty("input_parameters", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("input_parameters");
+        set => SetProperty("input_parameters", value);
     }
 
     /// <summary>
     /// The maximum_execution_frequency attribute.
     /// </summary>
-    public TerraformProperty<string>? MaximumExecutionFrequency
+    public TerraformProperty<string> MaximumExecutionFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_execution_frequency");
-        set => this.WithProperty("maximum_execution_frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maximum_execution_frequency");
+        set => SetProperty("maximum_execution_frequency", value);
     }
 
     /// <summary>
@@ -149,35 +150,35 @@ public class AwsConfigConfigRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -186,8 +187,7 @@ public class AwsConfigConfigRule : TerraformResource
     /// </summary>
     public HashSet<AwsConfigConfigRuleEvaluationModeBlock>? EvaluationMode
     {
-        get => GetProperty<HashSet<AwsConfigConfigRuleEvaluationModeBlock>>("evaluation_mode");
-        set => this.WithProperty("evaluation_mode", value);
+        set => SetProperty("evaluation_mode", value);
     }
 
     /// <summary>
@@ -197,20 +197,19 @@ public class AwsConfigConfigRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scope block(s) allowed")]
     public List<AwsConfigConfigRuleScopeBlock>? Scope
     {
-        get => GetProperty<List<AwsConfigConfigRuleScopeBlock>>("scope");
-        set => this.WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     public List<AwsConfigConfigRuleSourceBlock>? Source
     {
-        get => GetProperty<List<AwsConfigConfigRuleSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>

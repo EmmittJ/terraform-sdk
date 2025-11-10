@@ -13,8 +13,7 @@ public class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.WithOutput("amount");
-        this.WithOutput("filter");
-        this.WithOutput("notification");
-        this.WithOutput("time_grain");
-        this.WithOutput("time_period");
+        SetOutput("amount");
+        SetOutput("filter");
+        SetOutput("notification");
+        SetOutput("time_grain");
+        SetOutput("time_period");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     /// </summary>
     public AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

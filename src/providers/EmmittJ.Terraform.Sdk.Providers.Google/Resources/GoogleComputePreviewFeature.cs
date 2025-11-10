@@ -21,8 +21,7 @@ public class GoogleComputePreviewFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleComputePreviewFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleComputePreviewFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +55,10 @@ public class GoogleComputePreviewFeature : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("activation_status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -66,17 +67,17 @@ public class GoogleComputePreviewFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActivationStatus is required")]
     public required TerraformProperty<string> ActivationStatus
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("activation_status");
-        set => this.WithProperty("activation_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("activation_status");
+        set => SetProperty("activation_status", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,17 +86,17 @@ public class GoogleComputePreviewFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -105,8 +106,7 @@ public class GoogleComputePreviewFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RolloutOperation block(s) allowed")]
     public List<GoogleComputePreviewFeatureRolloutOperationBlock>? RolloutOperation
     {
-        get => GetProperty<List<GoogleComputePreviewFeatureRolloutOperationBlock>>("rollout_operation");
-        set => this.WithProperty("rollout_operation", value);
+        set => SetProperty("rollout_operation", value);
     }
 
     /// <summary>
@@ -115,8 +115,7 @@ public class GoogleComputePreviewFeature : TerraformResource
     /// </summary>
     public GoogleComputePreviewFeatureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputePreviewFeatureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

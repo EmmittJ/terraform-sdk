@@ -13,8 +13,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamBindingConditionBlock 
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamBindingConditionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamBindingConditionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -52,7 +49,13 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamBinding : TerraformRes
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("application_id");
+        SetOutput("id");
+        SetOutput("members");
+        SetOutput("project");
+        SetOutput("role");
+        SetOutput("security_gateway_id");
     }
 
     /// <summary>
@@ -61,36 +64,36 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamBinding : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
-    public HashSet<TerraformProperty<string>>? Members
+    public HashSet<TerraformProperty<string>> Members
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
-        set => this.WithProperty("members", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("members");
+        set => SetProperty("members", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -99,8 +102,8 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamBinding : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -109,8 +112,8 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamBinding : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformProperty<string> SecurityGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("security_gateway_id");
-        set => this.WithProperty("security_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_gateway_id");
+        set => SetProperty("security_gateway_id", value);
     }
 
     /// <summary>
@@ -120,8 +123,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamBinding : TerraformRes
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     public List<GoogleBeyondcorpSecurityGatewayApplicationIamBindingConditionBlock>? Condition
     {
-        get => GetProperty<List<GoogleBeyondcorpSecurityGatewayApplicationIamBindingConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>

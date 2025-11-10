@@ -13,8 +13,7 @@ public class GoogleComputeSslPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeSslPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeSslPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,17 @@ public class GoogleComputeSslPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("enabled_features");
-        this.WithOutput("fingerprint");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("enabled_features");
+        SetOutput("fingerprint");
+        SetOutput("self_link");
+        SetOutput("custom_features");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("min_tls_version");
+        SetOutput("name");
+        SetOutput("profile");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -67,38 +71,38 @@ public class GoogleComputeSslPolicy : TerraformResource
     /// *must* be present when using the &#39;CUSTOM&#39; profile. This argument
     /// *must not* be present when using any other profile.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? CustomFeatures
+    public HashSet<TerraformProperty<string>> CustomFeatures
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("custom_features");
-        set => this.WithProperty("custom_features", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("custom_features");
+        set => SetProperty("custom_features", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The minimum version of SSL protocol that can be used by the clients
     /// to establish a connection with the load balancer. Default value: &amp;quot;TLS_1_0&amp;quot; Possible values: [&amp;quot;TLS_1_0&amp;quot;, &amp;quot;TLS_1_1&amp;quot;, &amp;quot;TLS_1_2&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? MinTlsVersion
+    public TerraformProperty<string> MinTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("min_tls_version");
-        set => this.WithProperty("min_tls_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("min_tls_version");
+        set => SetProperty("min_tls_version", value);
     }
 
     /// <summary>
@@ -113,8 +117,8 @@ public class GoogleComputeSslPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -127,19 +131,19 @@ public class GoogleComputeSslPolicy : TerraformResource
     /// for information on what cipher suites each profile provides. If
     /// &#39;CUSTOM&#39; is used, the &#39;custom_features&#39; attribute **must be set**. Default value: &amp;quot;COMPATIBLE&amp;quot; Possible values: [&amp;quot;COMPATIBLE&amp;quot;, &amp;quot;MODERN&amp;quot;, &amp;quot;RESTRICTED&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Profile
+    public TerraformProperty<string> Profile
     {
-        get => GetProperty<TerraformProperty<string>>("profile");
-        set => this.WithProperty("profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("profile");
+        set => SetProperty("profile", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -148,8 +152,7 @@ public class GoogleComputeSslPolicy : TerraformResource
     /// </summary>
     public GoogleComputeSslPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeSslPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

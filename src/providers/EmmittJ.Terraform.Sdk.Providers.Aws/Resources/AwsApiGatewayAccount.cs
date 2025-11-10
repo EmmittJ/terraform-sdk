@@ -14,28 +14,30 @@ public class AwsApiGatewayAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_key_version");
-        this.WithOutput("features");
-        this.WithOutput("id");
-        this.WithOutput("throttle_settings");
+        SetOutput("api_key_version");
+        SetOutput("features");
+        SetOutput("id");
+        SetOutput("throttle_settings");
+        SetOutput("cloudwatch_role_arn");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The cloudwatch_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudwatchRoleArn
+    public TerraformProperty<string> CloudwatchRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("cloudwatch_role_arn");
-        set => this.WithProperty("cloudwatch_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloudwatch_role_arn");
+        set => SetProperty("cloudwatch_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

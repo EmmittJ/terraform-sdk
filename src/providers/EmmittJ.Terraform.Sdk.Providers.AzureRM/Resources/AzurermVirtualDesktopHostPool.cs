@@ -13,8 +13,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Timezone
     {
-        get => GetProperty<TerraformProperty<string>>("timezone");
-        set => WithProperty("timezone", value);
+        set => SetProperty("timezone", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
     /// </summary>
     public TerraformProperty<bool>? UseSessionHostTimezone
     {
-        get => GetProperty<TerraformProperty<bool>>("use_session_host_timezone");
-        set => WithProperty("use_session_host_timezone", value);
+        set => SetProperty("use_session_host_timezone", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,42 +87,59 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("custom_rdp_properties");
+        SetOutput("description");
+        SetOutput("friendly_name");
+        SetOutput("id");
+        SetOutput("load_balancer_type");
+        SetOutput("location");
+        SetOutput("maximum_sessions_allowed");
+        SetOutput("name");
+        SetOutput("personal_desktop_assignment_type");
+        SetOutput("preferred_app_group_type");
+        SetOutput("public_network_access");
+        SetOutput("resource_group_name");
+        SetOutput("start_vm_on_connect");
+        SetOutput("tags");
+        SetOutput("type");
+        SetOutput("validate_environment");
+        SetOutput("vm_template");
     }
 
     /// <summary>
     /// The custom_rdp_properties attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomRdpProperties
+    public TerraformProperty<string> CustomRdpProperties
     {
-        get => GetProperty<TerraformProperty<string>>("custom_rdp_properties");
-        set => this.WithProperty("custom_rdp_properties", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_rdp_properties");
+        set => SetProperty("custom_rdp_properties", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FriendlyName
+    public TerraformProperty<string> FriendlyName
     {
-        get => GetProperty<TerraformProperty<string>>("friendly_name");
-        set => this.WithProperty("friendly_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
+        set => SetProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -138,8 +148,8 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerType is required")]
     public required TerraformProperty<string> LoadBalancerType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("load_balancer_type");
-        set => this.WithProperty("load_balancer_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("load_balancer_type");
+        set => SetProperty("load_balancer_type", value);
     }
 
     /// <summary>
@@ -148,17 +158,17 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The maximum_sessions_allowed attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumSessionsAllowed
+    public TerraformProperty<double> MaximumSessionsAllowed
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_sessions_allowed");
-        set => this.WithProperty("maximum_sessions_allowed", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_sessions_allowed");
+        set => SetProperty("maximum_sessions_allowed", value);
     }
 
     /// <summary>
@@ -167,35 +177,35 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The personal_desktop_assignment_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PersonalDesktopAssignmentType
+    public TerraformProperty<string> PersonalDesktopAssignmentType
     {
-        get => GetProperty<TerraformProperty<string>>("personal_desktop_assignment_type");
-        set => this.WithProperty("personal_desktop_assignment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("personal_desktop_assignment_type");
+        set => SetProperty("personal_desktop_assignment_type", value);
     }
 
     /// <summary>
     /// Preferred App Group type to display
     /// </summary>
-    public TerraformProperty<string>? PreferredAppGroupType
+    public TerraformProperty<string> PreferredAppGroupType
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_app_group_type");
-        set => this.WithProperty("preferred_app_group_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_app_group_type");
+        set => SetProperty("preferred_app_group_type", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string> PublicNetworkAccess
     {
-        get => GetProperty<TerraformProperty<string>>("public_network_access");
-        set => this.WithProperty("public_network_access", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_network_access");
+        set => SetProperty("public_network_access", value);
     }
 
     /// <summary>
@@ -204,26 +214,26 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The start_vm_on_connect attribute.
     /// </summary>
-    public TerraformProperty<bool>? StartVmOnConnect
+    public TerraformProperty<bool> StartVmOnConnect
     {
-        get => GetProperty<TerraformProperty<bool>>("start_vm_on_connect");
-        set => this.WithProperty("start_vm_on_connect", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("start_vm_on_connect");
+        set => SetProperty("start_vm_on_connect", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -232,26 +242,26 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The validate_environment attribute.
     /// </summary>
-    public TerraformProperty<bool>? ValidateEnvironment
+    public TerraformProperty<bool> ValidateEnvironment
     {
-        get => GetProperty<TerraformProperty<bool>>("validate_environment");
-        set => this.WithProperty("validate_environment", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("validate_environment");
+        set => SetProperty("validate_environment", value);
     }
 
     /// <summary>
     /// The vm_template attribute.
     /// </summary>
-    public TerraformProperty<string>? VmTemplate
+    public TerraformProperty<string> VmTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("vm_template");
-        set => this.WithProperty("vm_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vm_template");
+        set => SetProperty("vm_template", value);
     }
 
     /// <summary>
@@ -261,8 +271,7 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledAgentUpdates block(s) allowed")]
     public List<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock>? ScheduledAgentUpdates
     {
-        get => GetProperty<List<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock>>("scheduled_agent_updates");
-        set => this.WithProperty("scheduled_agent_updates", value);
+        set => SetProperty("scheduled_agent_updates", value);
     }
 
     /// <summary>
@@ -271,8 +280,7 @@ public class AzurermVirtualDesktopHostPool : TerraformResource
     /// </summary>
     public AzurermVirtualDesktopHostPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualDesktopHostPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

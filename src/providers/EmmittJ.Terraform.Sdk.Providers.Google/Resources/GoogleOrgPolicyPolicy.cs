@@ -13,8 +13,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => WithProperty("etag", value);
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InheritFromParent
     {
-        get => GetProperty<TerraformProperty<bool>>("inherit_from_parent");
-        set => WithProperty("inherit_from_parent", value);
+        set => SetProperty("inherit_from_parent", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Reset
     {
-        get => GetProperty<TerraformProperty<bool>>("reset");
-        set => WithProperty("reset", value);
+        set => SetProperty("reset", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("update_time");
-        set => WithProperty("update_time", value);
+        set => SetProperty("update_time", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class GoogleOrgPolicyPolicySpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => WithProperty("etag", value);
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class GoogleOrgPolicyPolicySpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? InheritFromParent
     {
-        get => GetProperty<TerraformProperty<bool>>("inherit_from_parent");
-        set => WithProperty("inherit_from_parent", value);
+        set => SetProperty("inherit_from_parent", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class GoogleOrgPolicyPolicySpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Reset
     {
-        get => GetProperty<TerraformProperty<bool>>("reset");
-        set => WithProperty("reset", value);
+        set => SetProperty("reset", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class GoogleOrgPolicyPolicySpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateTime
     {
-        get => GetProperty<TerraformProperty<string>>("update_time");
-        set => WithProperty("update_time", value);
+        set => SetProperty("update_time", value);
     }
 
 }
@@ -101,8 +93,7 @@ public class GoogleOrgPolicyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class GoogleOrgPolicyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -119,8 +109,7 @@ public class GoogleOrgPolicyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -138,16 +127,19 @@ public class GoogleOrgPolicyPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -156,8 +148,8 @@ public class GoogleOrgPolicyPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -166,8 +158,8 @@ public class GoogleOrgPolicyPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -177,8 +169,7 @@ public class GoogleOrgPolicyPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DryRunSpec block(s) allowed")]
     public List<GoogleOrgPolicyPolicyDryRunSpecBlock>? DryRunSpec
     {
-        get => GetProperty<List<GoogleOrgPolicyPolicyDryRunSpecBlock>>("dry_run_spec");
-        set => this.WithProperty("dry_run_spec", value);
+        set => SetProperty("dry_run_spec", value);
     }
 
     /// <summary>
@@ -188,8 +179,7 @@ public class GoogleOrgPolicyPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     public List<GoogleOrgPolicyPolicySpecBlock>? Spec
     {
-        get => GetProperty<List<GoogleOrgPolicyPolicySpecBlock>>("spec");
-        set => this.WithProperty("spec", value);
+        set => SetProperty("spec", value);
     }
 
     /// <summary>
@@ -198,8 +188,7 @@ public class GoogleOrgPolicyPolicy : TerraformResource
     /// </summary>
     public GoogleOrgPolicyPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOrgPolicyPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsApigatewayv2AuthorizerJwtConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Audience
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("audience");
-        set => WithProperty("audience", value);
+        set => SetProperty("audience", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsApigatewayv2AuthorizerJwtConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
-        set => WithProperty("issuer", value);
+        set => SetProperty("issuer", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsApigatewayv2AuthorizerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -58,6 +55,17 @@ public class AwsApigatewayv2Authorizer : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_id");
+        SetOutput("authorizer_credentials_arn");
+        SetOutput("authorizer_payload_format_version");
+        SetOutput("authorizer_result_ttl_in_seconds");
+        SetOutput("authorizer_type");
+        SetOutput("authorizer_uri");
+        SetOutput("enable_simple_responses");
+        SetOutput("id");
+        SetOutput("identity_sources");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -66,35 +74,35 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The authorizer_credentials_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizerCredentialsArn
+    public TerraformProperty<string> AuthorizerCredentialsArn
     {
-        get => GetProperty<TerraformProperty<string>>("authorizer_credentials_arn");
-        set => this.WithProperty("authorizer_credentials_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_credentials_arn");
+        set => SetProperty("authorizer_credentials_arn", value);
     }
 
     /// <summary>
     /// The authorizer_payload_format_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizerPayloadFormatVersion
+    public TerraformProperty<string> AuthorizerPayloadFormatVersion
     {
-        get => GetProperty<TerraformProperty<string>>("authorizer_payload_format_version");
-        set => this.WithProperty("authorizer_payload_format_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_payload_format_version");
+        set => SetProperty("authorizer_payload_format_version", value);
     }
 
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? AuthorizerResultTtlInSeconds
+    public TerraformProperty<double> AuthorizerResultTtlInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("authorizer_result_ttl_in_seconds");
-        set => this.WithProperty("authorizer_result_ttl_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("authorizer_result_ttl_in_seconds");
+        set => SetProperty("authorizer_result_ttl_in_seconds", value);
     }
 
     /// <summary>
@@ -103,44 +111,44 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerType is required")]
     public required TerraformProperty<string> AuthorizerType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorizer_type");
-        set => this.WithProperty("authorizer_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_type");
+        set => SetProperty("authorizer_type", value);
     }
 
     /// <summary>
     /// The authorizer_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizerUri
+    public TerraformProperty<string> AuthorizerUri
     {
-        get => GetProperty<TerraformProperty<string>>("authorizer_uri");
-        set => this.WithProperty("authorizer_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_uri");
+        set => SetProperty("authorizer_uri", value);
     }
 
     /// <summary>
     /// The enable_simple_responses attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableSimpleResponses
+    public TerraformProperty<bool> EnableSimpleResponses
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_simple_responses");
-        set => this.WithProperty("enable_simple_responses", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_simple_responses");
+        set => SetProperty("enable_simple_responses", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The identity_sources attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentitySources
+    public HashSet<TerraformProperty<string>> IdentitySources
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_sources");
-        set => this.WithProperty("identity_sources", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("identity_sources");
+        set => SetProperty("identity_sources", value);
     }
 
     /// <summary>
@@ -149,17 +157,17 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -169,8 +177,7 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JwtConfiguration block(s) allowed")]
     public List<AwsApigatewayv2AuthorizerJwtConfigurationBlock>? JwtConfiguration
     {
-        get => GetProperty<List<AwsApigatewayv2AuthorizerJwtConfigurationBlock>>("jwt_configuration");
-        set => this.WithProperty("jwt_configuration", value);
+        set => SetProperty("jwt_configuration", value);
     }
 
     /// <summary>
@@ -179,8 +186,7 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     /// </summary>
     public AwsApigatewayv2AuthorizerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsApigatewayv2AuthorizerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

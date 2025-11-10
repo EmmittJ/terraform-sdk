@@ -14,8 +14,7 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     public HashSet<TerraformProperty<string>>? Destinations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("destinations");
-        set => WithProperty("destinations", value);
+        set => SetProperty("destinations", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationsType is required")]
     public required TerraformProperty<string> DestinationsType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destinations_type");
-        set => WithProperty("destinations_type", value);
+        set => SetProperty("destinations_type", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     public required TerraformProperty<string> NextHop
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("next_hop");
-        set => WithProperty("next_hop", value);
+        set => SetProperty("next_hop", value);
     }
 
     /// <summary>
@@ -53,8 +49,7 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NextHopType
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_type");
-        set => WithProperty("next_hop_type", value);
+        set => SetProperty("next_hop_type", value);
     }
 
 }
@@ -70,8 +65,7 @@ public class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class AzurermVirtualHubRouteTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,24 +106,28 @@ public class AzurermVirtualHubRouteTable : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("virtual_hub_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Labels
+    public HashSet<TerraformProperty<string>> Labels
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -141,8 +136,8 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -151,8 +146,8 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
-        set => this.WithProperty("virtual_hub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_id");
+        set => SetProperty("virtual_hub_id", value);
     }
 
     /// <summary>
@@ -161,8 +156,7 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     /// </summary>
     public HashSet<AzurermVirtualHubRouteTableRouteBlock>? Route
     {
-        get => GetProperty<HashSet<AzurermVirtualHubRouteTableRouteBlock>>("route");
-        set => this.WithProperty("route", value);
+        set => SetProperty("route", value);
     }
 
     /// <summary>
@@ -171,8 +165,7 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     /// </summary>
     public AzurermVirtualHubRouteTableTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualHubRouteTableTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

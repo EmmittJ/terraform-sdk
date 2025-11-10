@@ -14,8 +14,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GroupsClaim
     {
-        get => GetProperty<TerraformProperty<string>>("groups_claim");
-        set => WithProperty("groups_claim", value);
+        set => SetProperty("groups_claim", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GroupsPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("groups_prefix");
-        set => WithProperty("groups_prefix", value);
+        set => SetProperty("groups_prefix", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderConfigName is required")]
     public required TerraformProperty<string> IdentityProviderConfigName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_provider_config_name");
-        set => WithProperty("identity_provider_config_name", value);
+        set => SetProperty("identity_provider_config_name", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     public required TerraformProperty<string> IssuerUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("issuer_url");
-        set => WithProperty("issuer_url", value);
+        set => SetProperty("issuer_url", value);
     }
 
     /// <summary>
@@ -61,8 +56,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? RequiredClaims
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("required_claims");
-        set => WithProperty("required_claims", value);
+        set => SetProperty("required_claims", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UsernameClaim
     {
-        get => GetProperty<TerraformProperty<string>>("username_claim");
-        set => WithProperty("username_claim", value);
+        set => SetProperty("username_claim", value);
     }
 
     /// <summary>
@@ -79,8 +72,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UsernamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("username_prefix");
-        set => WithProperty("username_prefix", value);
+        set => SetProperty("username_prefix", value);
     }
 
 }
@@ -96,8 +88,7 @@ public class AwsEksIdentityProviderConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -105,8 +96,7 @@ public class AwsEksIdentityProviderConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -124,8 +114,13 @@ public class AwsEksIdentityProviderConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("status");
+        SetOutput("cluster_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -134,56 +129,56 @@ public class AwsEksIdentityProviderConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for oidc.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oidc is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Oidc block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
     public List<AwsEksIdentityProviderConfigOidcBlock>? Oidc
     {
-        get => GetProperty<List<AwsEksIdentityProviderConfigOidcBlock>>("oidc");
-        set => this.WithProperty("oidc", value);
+        set => SetProperty("oidc", value);
     }
 
     /// <summary>
@@ -192,8 +187,7 @@ public class AwsEksIdentityProviderConfig : TerraformResource
     /// </summary>
     public AwsEksIdentityProviderConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEksIdentityProviderConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

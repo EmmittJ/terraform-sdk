@@ -13,8 +13,7 @@ public class AzureadAdministrativeUnitMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadAdministrativeUnitMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadAdministrativeUnitMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,33 +46,36 @@ public class AzureadAdministrativeUnitMember : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("administrative_unit_object_id");
+        SetOutput("id");
+        SetOutput("member_object_id");
     }
 
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    public TerraformProperty<string>? AdministrativeUnitObjectId
+    public TerraformProperty<string> AdministrativeUnitObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("administrative_unit_object_id");
-        set => this.WithProperty("administrative_unit_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administrative_unit_object_id");
+        set => SetProperty("administrative_unit_object_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the member
     /// </summary>
-    public TerraformProperty<string>? MemberObjectId
+    public TerraformProperty<string> MemberObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("member_object_id");
-        set => this.WithProperty("member_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member_object_id");
+        set => SetProperty("member_object_id", value);
     }
 
     /// <summary>
@@ -84,8 +84,7 @@ public class AzureadAdministrativeUnitMember : TerraformResource
     /// </summary>
     public AzureadAdministrativeUnitMemberTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAdministrativeUnitMemberTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

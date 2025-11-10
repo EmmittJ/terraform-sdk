@@ -14,44 +14,48 @@ public class AwsRedshiftClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allow_version_upgrade");
-        this.WithOutput("aqua_configuration_status");
-        this.WithOutput("arn");
-        this.WithOutput("automated_snapshot_retention_period");
-        this.WithOutput("availability_zone");
-        this.WithOutput("availability_zone_relocation_enabled");
-        this.WithOutput("bucket_name");
-        this.WithOutput("cluster_namespace_arn");
-        this.WithOutput("cluster_nodes");
-        this.WithOutput("cluster_parameter_group_name");
-        this.WithOutput("cluster_public_key");
-        this.WithOutput("cluster_revision_number");
-        this.WithOutput("cluster_subnet_group_name");
-        this.WithOutput("cluster_type");
-        this.WithOutput("cluster_version");
-        this.WithOutput("database_name");
-        this.WithOutput("default_iam_role_arn");
-        this.WithOutput("elastic_ip");
-        this.WithOutput("enable_logging");
-        this.WithOutput("encrypted");
-        this.WithOutput("endpoint");
-        this.WithOutput("enhanced_vpc_routing");
-        this.WithOutput("iam_roles");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("log_destination_type");
-        this.WithOutput("log_exports");
-        this.WithOutput("maintenance_track_name");
-        this.WithOutput("manual_snapshot_retention_period");
-        this.WithOutput("master_username");
-        this.WithOutput("multi_az");
-        this.WithOutput("node_type");
-        this.WithOutput("number_of_nodes");
-        this.WithOutput("port");
-        this.WithOutput("preferred_maintenance_window");
-        this.WithOutput("publicly_accessible");
-        this.WithOutput("s3_key_prefix");
-        this.WithOutput("vpc_id");
-        this.WithOutput("vpc_security_group_ids");
+        SetOutput("allow_version_upgrade");
+        SetOutput("aqua_configuration_status");
+        SetOutput("arn");
+        SetOutput("automated_snapshot_retention_period");
+        SetOutput("availability_zone");
+        SetOutput("availability_zone_relocation_enabled");
+        SetOutput("bucket_name");
+        SetOutput("cluster_namespace_arn");
+        SetOutput("cluster_nodes");
+        SetOutput("cluster_parameter_group_name");
+        SetOutput("cluster_public_key");
+        SetOutput("cluster_revision_number");
+        SetOutput("cluster_subnet_group_name");
+        SetOutput("cluster_type");
+        SetOutput("cluster_version");
+        SetOutput("database_name");
+        SetOutput("default_iam_role_arn");
+        SetOutput("elastic_ip");
+        SetOutput("enable_logging");
+        SetOutput("encrypted");
+        SetOutput("endpoint");
+        SetOutput("enhanced_vpc_routing");
+        SetOutput("iam_roles");
+        SetOutput("kms_key_id");
+        SetOutput("log_destination_type");
+        SetOutput("log_exports");
+        SetOutput("maintenance_track_name");
+        SetOutput("manual_snapshot_retention_period");
+        SetOutput("master_username");
+        SetOutput("multi_az");
+        SetOutput("node_type");
+        SetOutput("number_of_nodes");
+        SetOutput("port");
+        SetOutput("preferred_maintenance_window");
+        SetOutput("publicly_accessible");
+        SetOutput("s3_key_prefix");
+        SetOutput("vpc_id");
+        SetOutput("vpc_security_group_ids");
+        SetOutput("cluster_identifier");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -60,35 +64,35 @@ public class AwsRedshiftClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsEc2TransitGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsEc2TransitGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsEc2TransitGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,47 +56,50 @@ public class AwsEc2TransitGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("amazon_side_asn");
-        this.WithOutput("arn");
-        this.WithOutput("association_default_route_table_id");
-        this.WithOutput("auto_accept_shared_attachments");
-        this.WithOutput("default_route_table_association");
-        this.WithOutput("default_route_table_propagation");
-        this.WithOutput("description");
-        this.WithOutput("dns_support");
-        this.WithOutput("multicast_support");
-        this.WithOutput("owner_id");
-        this.WithOutput("propagation_default_route_table_id");
-        this.WithOutput("security_group_referencing_support");
-        this.WithOutput("transit_gateway_cidr_blocks");
-        this.WithOutput("vpn_ecmp_support");
+        SetOutput("amazon_side_asn");
+        SetOutput("arn");
+        SetOutput("association_default_route_table_id");
+        SetOutput("auto_accept_shared_attachments");
+        SetOutput("default_route_table_association");
+        SetOutput("default_route_table_propagation");
+        SetOutput("description");
+        SetOutput("dns_support");
+        SetOutput("multicast_support");
+        SetOutput("owner_id");
+        SetOutput("propagation_default_route_table_id");
+        SetOutput("security_group_referencing_support");
+        SetOutput("transit_gateway_cidr_blocks");
+        SetOutput("vpn_ecmp_support");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -108,8 +108,7 @@ public class AwsEc2TransitGatewayDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsEc2TransitGatewayDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsEc2TransitGatewayDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -118,8 +117,7 @@ public class AwsEc2TransitGatewayDataSource : TerraformDataSource
     /// </summary>
     public AwsEc2TransitGatewayDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2TransitGatewayDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

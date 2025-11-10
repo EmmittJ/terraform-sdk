@@ -13,8 +13,7 @@ public class GoogleSiteVerificationTokenDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,20 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("token");
+        SetOutput("token");
+        SetOutput("id");
+        SetOutput("identifier");
+        SetOutput("type");
+        SetOutput("verification_method");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +53,8 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
-        set => this.WithProperty("identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identifier");
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
@@ -60,8 +63,8 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -71,8 +74,8 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
     public required TerraformProperty<string> VerificationMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("verification_method");
-        set => this.WithProperty("verification_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("verification_method");
+        set => SetProperty("verification_method", value);
     }
 
     /// <summary>
@@ -81,8 +84,7 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     /// </summary>
     public GoogleSiteVerificationTokenDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSiteVerificationTokenDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

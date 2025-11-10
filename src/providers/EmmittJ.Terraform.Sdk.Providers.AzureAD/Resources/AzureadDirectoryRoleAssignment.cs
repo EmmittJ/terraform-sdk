@@ -13,8 +13,7 @@ public class AzureadDirectoryRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadDirectoryRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadDirectoryRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,33 +46,38 @@ public class AzureadDirectoryRoleAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("app_scope_id");
+        SetOutput("directory_scope_id");
+        SetOutput("id");
+        SetOutput("principal_object_id");
+        SetOutput("role_id");
     }
 
     /// <summary>
     /// Identifier of the app-specific scope when the assignment scope is app-specific
     /// </summary>
-    public TerraformProperty<string>? AppScopeId
+    public TerraformProperty<string> AppScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("app_scope_id");
-        set => this.WithProperty("app_scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_scope_id");
+        set => SetProperty("app_scope_id", value);
     }
 
     /// <summary>
     /// Identifier of the directory object representing the scope of the assignment
     /// </summary>
-    public TerraformProperty<string>? DirectoryScopeId
+    public TerraformProperty<string> DirectoryScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_scope_id");
-        set => this.WithProperty("directory_scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_scope_id");
+        set => SetProperty("directory_scope_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -84,8 +86,8 @@ public class AzureadDirectoryRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
     public required TerraformProperty<string> PrincipalObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_object_id");
-        set => this.WithProperty("principal_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_object_id");
+        set => SetProperty("principal_object_id", value);
     }
 
     /// <summary>
@@ -94,8 +96,8 @@ public class AzureadDirectoryRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
-        set => this.WithProperty("role_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_id");
+        set => SetProperty("role_id", value);
     }
 
     /// <summary>
@@ -104,8 +106,7 @@ public class AzureadDirectoryRoleAssignment : TerraformResource
     /// </summary>
     public AzureadDirectoryRoleAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadDirectoryRoleAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

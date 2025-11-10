@@ -13,8 +13,7 @@ public class GoogleComputeRouterNatAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeRouterNatAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeRouterNatAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,25 +46,32 @@ public class GoogleComputeRouterNatAddress : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("drain_nat_ips");
+        SetOutput("id");
+        SetOutput("nat_ips");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("router");
+        SetOutput("router_nat");
     }
 
     /// <summary>
     /// A list of URLs of the IP resources to be drained. These IPs must be
     /// valid static external IPs that have been assigned to the NAT.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DrainNatIps
+    public HashSet<TerraformProperty<string>> DrainNatIps
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("drain_nat_ips");
-        set => this.WithProperty("drain_nat_ips", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("drain_nat_ips");
+        set => SetProperty("drain_nat_ips", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,28 +79,28 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     /// natIpAllocateOption is set to MANUAL_ONLY.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatIps is required")]
-    public HashSet<TerraformProperty<string>>? NatIps
+    public HashSet<TerraformProperty<string>> NatIps
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("nat_ips");
-        set => this.WithProperty("nat_ips", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("nat_ips");
+        set => SetProperty("nat_ips", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where the NAT service reside.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -105,8 +109,8 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformProperty<string> Router
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("router");
-        set => this.WithProperty("router", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("router");
+        set => SetProperty("router", value);
     }
 
     /// <summary>
@@ -115,8 +119,8 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterNat is required")]
     public required TerraformProperty<string> RouterNat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("router_nat");
-        set => this.WithProperty("router_nat", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("router_nat");
+        set => SetProperty("router_nat", value);
     }
 
     /// <summary>
@@ -125,8 +129,7 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     /// </summary>
     public GoogleComputeRouterNatAddressTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRouterNatAddressTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

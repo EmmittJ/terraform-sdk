@@ -13,8 +13,7 @@ public class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("max_throughput");
-        set => WithProperty("max_throughput", value);
+        set => SetProperty("max_throughput", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? ConflictResolutionPath
     {
-        get => GetProperty<TerraformProperty<string>>("conflict_resolution_path");
-        set => WithProperty("conflict_resolution_path", value);
+        set => SetProperty("conflict_resolution_path", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? ConflictResolutionProcedure
     {
-        get => GetProperty<TerraformProperty<string>>("conflict_resolution_procedure");
-        set => WithProperty("conflict_resolution_procedure", value);
+        set => SetProperty("conflict_resolution_procedure", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -66,8 +62,7 @@ public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Automatic
     {
-        get => GetProperty<TerraformProperty<bool>>("automatic");
-        set => WithProperty("automatic", value);
+        set => SetProperty("automatic", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExcludedPaths
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_paths");
-        set => WithProperty("excluded_paths", value);
+        set => SetProperty("excluded_paths", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IncludedPaths
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("included_paths");
-        set => WithProperty("included_paths", value);
+        set => SetProperty("included_paths", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexingMode is required")]
     public required TerraformProperty<string> IndexingMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("indexing_mode");
-        set => WithProperty("indexing_mode", value);
+        set => SetProperty("indexing_mode", value);
     }
 
 }
@@ -111,8 +103,7 @@ public class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -129,8 +119,7 @@ public class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -156,8 +144,7 @@ public class AzurermCosmosdbGremlinGraphUniqueKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public HashSet<TerraformProperty<string>>? Paths
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("paths");
-        set => WithProperty("paths", value);
+        set => SetProperty("paths", value);
     }
 
 }
@@ -175,6 +162,16 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_name");
+        SetOutput("analytical_storage_ttl");
+        SetOutput("database_name");
+        SetOutput("default_ttl");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("partition_key_path");
+        SetOutput("partition_key_version");
+        SetOutput("resource_group_name");
+        SetOutput("throughput");
     }
 
     /// <summary>
@@ -183,17 +180,17 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? AnalyticalStorageTtl
+    public TerraformProperty<double> AnalyticalStorageTtl
     {
-        get => GetProperty<TerraformProperty<double>>("analytical_storage_ttl");
-        set => this.WithProperty("analytical_storage_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("analytical_storage_ttl");
+        set => SetProperty("analytical_storage_ttl", value);
     }
 
     /// <summary>
@@ -202,26 +199,26 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultTtl
+    public TerraformProperty<double> DefaultTtl
     {
-        get => GetProperty<TerraformProperty<double>>("default_ttl");
-        set => this.WithProperty("default_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_ttl");
+        set => SetProperty("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -230,8 +227,8 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -240,17 +237,17 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKeyPath is required")]
     public required TerraformProperty<string> PartitionKeyPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partition_key_path");
-        set => this.WithProperty("partition_key_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partition_key_path");
+        set => SetProperty("partition_key_path", value);
     }
 
     /// <summary>
     /// The partition_key_version attribute.
     /// </summary>
-    public TerraformProperty<double>? PartitionKeyVersion
+    public TerraformProperty<double> PartitionKeyVersion
     {
-        get => GetProperty<TerraformProperty<double>>("partition_key_version");
-        set => this.WithProperty("partition_key_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("partition_key_version");
+        set => SetProperty("partition_key_version", value);
     }
 
     /// <summary>
@@ -259,17 +256,17 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformProperty<double>? Throughput
+    public TerraformProperty<double> Throughput
     {
-        get => GetProperty<TerraformProperty<double>>("throughput");
-        set => this.WithProperty("throughput", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput");
+        set => SetProperty("throughput", value);
     }
 
     /// <summary>
@@ -279,8 +276,7 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     public List<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetProperty<List<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>>("autoscale_settings");
-        set => this.WithProperty("autoscale_settings", value);
+        set => SetProperty("autoscale_settings", value);
     }
 
     /// <summary>
@@ -290,8 +286,7 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConflictResolutionPolicy block(s) allowed")]
     public List<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>? ConflictResolutionPolicy
     {
-        get => GetProperty<List<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>>("conflict_resolution_policy");
-        set => this.WithProperty("conflict_resolution_policy", value);
+        set => SetProperty("conflict_resolution_policy", value);
     }
 
     /// <summary>
@@ -301,8 +296,7 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexPolicy block(s) allowed")]
     public List<AzurermCosmosdbGremlinGraphIndexPolicyBlock>? IndexPolicy
     {
-        get => GetProperty<List<AzurermCosmosdbGremlinGraphIndexPolicyBlock>>("index_policy");
-        set => this.WithProperty("index_policy", value);
+        set => SetProperty("index_policy", value);
     }
 
     /// <summary>
@@ -311,8 +305,7 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     /// </summary>
     public AzurermCosmosdbGremlinGraphTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbGremlinGraphTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -321,8 +314,7 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
     /// </summary>
     public HashSet<AzurermCosmosdbGremlinGraphUniqueKeyBlock>? UniqueKey
     {
-        get => GetProperty<HashSet<AzurermCosmosdbGremlinGraphUniqueKeyBlock>>("unique_key");
-        set => this.WithProperty("unique_key", value);
+        set => SetProperty("unique_key", value);
     }
 
 }

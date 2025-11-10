@@ -14,8 +14,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalInSeconds is required")]
     public required TerraformProperty<double> IntervalInSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("interval_in_seconds");
-        set => WithProperty("interval_in_seconds", value);
+        set => SetProperty("interval_in_seconds", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RequestType
     {
-        get => GetProperty<TerraformProperty<string>>("request_type");
-        set => WithProperty("request_type", value);
+        set => SetProperty("request_type", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AdditionalLatencyInMilliseconds
     {
-        get => GetProperty<TerraformProperty<double>>("additional_latency_in_milliseconds");
-        set => WithProperty("additional_latency_in_milliseconds", value);
+        set => SetProperty("additional_latency_in_milliseconds", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SampleSize
     {
-        get => GetProperty<TerraformProperty<double>>("sample_size");
-        set => WithProperty("sample_size", value);
+        set => SetProperty("sample_size", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SuccessfulSamplesRequired
     {
-        get => GetProperty<TerraformProperty<double>>("successful_samples_required");
-        set => WithProperty("successful_samples_required", value);
+        set => SetProperty("successful_samples_required", value);
     }
 
 }
@@ -94,8 +87,7 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -140,6 +129,11 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cdn_frontdoor_profile_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
+        SetOutput("session_affinity_enabled");
     }
 
     /// <summary>
@@ -148,17 +142,17 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformProperty<string> CdnFrontdoorProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_profile_id");
-        set => this.WithProperty("cdn_frontdoor_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cdn_frontdoor_profile_id");
+        set => SetProperty("cdn_frontdoor_profile_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -167,26 +161,26 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The restore_traffic_time_to_healed_or_new_endpoint_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? RestoreTrafficTimeToHealedOrNewEndpointInMinutes
+    public TerraformProperty<double> RestoreTrafficTimeToHealedOrNewEndpointInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
-        set => this.WithProperty("restore_traffic_time_to_healed_or_new_endpoint_in_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
+        set => SetProperty("restore_traffic_time_to_healed_or_new_endpoint_in_minutes", value);
     }
 
     /// <summary>
     /// The session_affinity_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SessionAffinityEnabled
+    public TerraformProperty<bool> SessionAffinityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("session_affinity_enabled");
-        set => this.WithProperty("session_affinity_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("session_affinity_enabled");
+        set => SetProperty("session_affinity_enabled", value);
     }
 
     /// <summary>
@@ -196,20 +190,19 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthProbe block(s) allowed")]
     public List<AzurermCdnFrontdoorOriginGroupHealthProbeBlock>? HealthProbe
     {
-        get => GetProperty<List<AzurermCdnFrontdoorOriginGroupHealthProbeBlock>>("health_probe");
-        set => this.WithProperty("health_probe", value);
+        set => SetProperty("health_probe", value);
     }
 
     /// <summary>
     /// Block for load_balancing.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancing is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancing block(s) allowed")]
     public List<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock>? LoadBalancing
     {
-        get => GetProperty<List<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock>>("load_balancing");
-        set => this.WithProperty("load_balancing", value);
+        set => SetProperty("load_balancing", value);
     }
 
     /// <summary>
@@ -218,8 +211,7 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     /// </summary>
     public AzurermCdnFrontdoorOriginGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCdnFrontdoorOriginGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

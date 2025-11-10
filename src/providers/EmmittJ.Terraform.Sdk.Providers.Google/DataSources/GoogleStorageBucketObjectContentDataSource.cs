@@ -14,33 +14,37 @@ public class GoogleStorageBucketObjectContentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cache_control");
-        this.WithOutput("content_base64");
-        this.WithOutput("content_base64sha512");
-        this.WithOutput("content_disposition");
-        this.WithOutput("content_encoding");
-        this.WithOutput("content_hexsha512");
-        this.WithOutput("content_language");
-        this.WithOutput("content_type");
-        this.WithOutput("crc32c");
-        this.WithOutput("customer_encryption");
-        this.WithOutput("deletion_policy");
-        this.WithOutput("detect_md5hash");
-        this.WithOutput("event_based_hold");
-        this.WithOutput("force_empty_content_type");
-        this.WithOutput("generation");
-        this.WithOutput("kms_key_name");
-        this.WithOutput("md5hash");
-        this.WithOutput("md5hexhash");
-        this.WithOutput("media_link");
-        this.WithOutput("metadata");
-        this.WithOutput("output_name");
-        this.WithOutput("retention");
-        this.WithOutput("self_link");
-        this.WithOutput("source");
-        this.WithOutput("source_md5hash");
-        this.WithOutput("storage_class");
-        this.WithOutput("temporary_hold");
+        SetOutput("cache_control");
+        SetOutput("content_base64");
+        SetOutput("content_base64sha512");
+        SetOutput("content_disposition");
+        SetOutput("content_encoding");
+        SetOutput("content_hexsha512");
+        SetOutput("content_language");
+        SetOutput("content_type");
+        SetOutput("crc32c");
+        SetOutput("customer_encryption");
+        SetOutput("deletion_policy");
+        SetOutput("detect_md5hash");
+        SetOutput("event_based_hold");
+        SetOutput("force_empty_content_type");
+        SetOutput("generation");
+        SetOutput("kms_key_name");
+        SetOutput("md5hash");
+        SetOutput("md5hexhash");
+        SetOutput("media_link");
+        SetOutput("metadata");
+        SetOutput("output_name");
+        SetOutput("retention");
+        SetOutput("self_link");
+        SetOutput("source");
+        SetOutput("source_md5hash");
+        SetOutput("storage_class");
+        SetOutput("temporary_hold");
+        SetOutput("bucket");
+        SetOutput("content");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -49,26 +53,26 @@ public class GoogleStorageBucketObjectContentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// Data as string to be uploaded. Must be defined if source is not. Note: The content field is marked as sensitive. To view the raw contents of the object, please define an output.
     /// </summary>
-    public TerraformProperty<string>? Content
+    public TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
-        set => this.WithProperty("content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content");
+        set => SetProperty("content", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,8 +81,8 @@ public class GoogleStorageBucketObjectContentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

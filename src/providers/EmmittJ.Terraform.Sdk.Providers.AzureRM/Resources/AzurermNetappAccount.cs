@@ -13,8 +13,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AesEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("aes_encryption_enabled");
-        set => WithProperty("aes_encryption_enabled", value);
+        set => SetProperty("aes_encryption_enabled", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsServers is required")]
     public List<TerraformProperty<string>>? DnsServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
-        set => WithProperty("dns_servers", value);
+        set => SetProperty("dns_servers", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain");
-        set => WithProperty("domain", value);
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KerberosAdName
     {
-        get => GetProperty<TerraformProperty<string>>("kerberos_ad_name");
-        set => WithProperty("kerberos_ad_name", value);
+        set => SetProperty("kerberos_ad_name", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KerberosKdcIp
     {
-        get => GetProperty<TerraformProperty<string>>("kerberos_kdc_ip");
-        set => WithProperty("kerberos_kdc_ip", value);
+        set => SetProperty("kerberos_kdc_ip", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? LdapOverTlsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ldap_over_tls_enabled");
-        set => WithProperty("ldap_over_tls_enabled", value);
+        set => SetProperty("ldap_over_tls_enabled", value);
     }
 
     /// <summary>
@@ -69,8 +63,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? LdapSigningEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ldap_signing_enabled");
-        set => WithProperty("ldap_signing_enabled", value);
+        set => SetProperty("ldap_signing_enabled", value);
     }
 
     /// <summary>
@@ -78,8 +71,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? LocalNfsUsersWithLdapAllowed
     {
-        get => GetProperty<TerraformProperty<bool>>("local_nfs_users_with_ldap_allowed");
-        set => WithProperty("local_nfs_users_with_ldap_allowed", value);
+        set => SetProperty("local_nfs_users_with_ldap_allowed", value);
     }
 
     /// <summary>
@@ -87,8 +79,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OrganizationalUnit
     {
-        get => GetProperty<TerraformProperty<string>>("organizational_unit");
-        set => WithProperty("organizational_unit", value);
+        set => SetProperty("organizational_unit", value);
     }
 
     /// <summary>
@@ -97,8 +88,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -106,8 +96,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServerRootCaCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("server_root_ca_certificate");
-        set => WithProperty("server_root_ca_certificate", value);
+        set => SetProperty("server_root_ca_certificate", value);
     }
 
     /// <summary>
@@ -115,8 +104,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SiteName
     {
-        get => GetProperty<TerraformProperty<string>>("site_name");
-        set => WithProperty("site_name", value);
+        set => SetProperty("site_name", value);
     }
 
     /// <summary>
@@ -125,8 +113,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmbServerName is required")]
     public required TerraformProperty<string> SmbServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("smb_server_name");
-        set => WithProperty("smb_server_name", value);
+        set => SetProperty("smb_server_name", value);
     }
 
     /// <summary>
@@ -135,8 +122,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -152,8 +138,7 @@ public class AzurermNetappAccountIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -161,8 +146,7 @@ public class AzurermNetappAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -170,8 +154,7 @@ public class AzurermNetappAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -180,8 +163,7 @@ public class AzurermNetappAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -197,8 +179,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -206,8 +187,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -215,8 +195,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -224,8 +203,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -243,15 +221,20 @@ public class AzurermNetappAccount : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -260,8 +243,8 @@ public class AzurermNetappAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -270,8 +253,8 @@ public class AzurermNetappAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -280,17 +263,17 @@ public class AzurermNetappAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -300,8 +283,7 @@ public class AzurermNetappAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectory block(s) allowed")]
     public List<AzurermNetappAccountActiveDirectoryBlock>? ActiveDirectory
     {
-        get => GetProperty<List<AzurermNetappAccountActiveDirectoryBlock>>("active_directory");
-        set => this.WithProperty("active_directory", value);
+        set => SetProperty("active_directory", value);
     }
 
     /// <summary>
@@ -311,8 +293,7 @@ public class AzurermNetappAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermNetappAccountIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermNetappAccountIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -321,8 +302,7 @@ public class AzurermNetappAccount : TerraformResource
     /// </summary>
     public AzurermNetappAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

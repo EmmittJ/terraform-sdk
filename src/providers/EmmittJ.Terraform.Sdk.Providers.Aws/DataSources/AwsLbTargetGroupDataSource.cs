@@ -13,8 +13,7 @@ public class AwsLbTargetGroupDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,77 +30,83 @@ public class AwsLbTargetGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn_suffix");
-        this.WithOutput("connection_termination");
-        this.WithOutput("deregistration_delay");
-        this.WithOutput("health_check");
-        this.WithOutput("lambda_multi_value_headers_enabled");
-        this.WithOutput("load_balancer_arns");
-        this.WithOutput("load_balancing_algorithm_type");
-        this.WithOutput("load_balancing_cross_zone_enabled");
-        this.WithOutput("port");
-        this.WithOutput("preserve_client_ip");
-        this.WithOutput("protocol");
-        this.WithOutput("protocol_version");
-        this.WithOutput("proxy_protocol_v2");
-        this.WithOutput("slow_start");
-        this.WithOutput("stickiness");
-        this.WithOutput("target_type");
-        this.WithOutput("vpc_id");
+        SetOutput("arn_suffix");
+        SetOutput("connection_termination");
+        SetOutput("deregistration_delay");
+        SetOutput("health_check");
+        SetOutput("lambda_multi_value_headers_enabled");
+        SetOutput("load_balancer_arns");
+        SetOutput("load_balancing_algorithm_type");
+        SetOutput("load_balancing_cross_zone_enabled");
+        SetOutput("port");
+        SetOutput("preserve_client_ip");
+        SetOutput("protocol");
+        SetOutput("protocol_version");
+        SetOutput("proxy_protocol_v2");
+        SetOutput("slow_start");
+        SetOutput("stickiness");
+        SetOutput("target_type");
+        SetOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("load_balancing_anomaly_mitigation");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The load_balancing_anomaly_mitigation attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancingAnomalyMitigation
+    public TerraformProperty<string> LoadBalancingAnomalyMitigation
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancing_anomaly_mitigation");
-        set => this.WithProperty("load_balancing_anomaly_mitigation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("load_balancing_anomaly_mitigation");
+        set => SetProperty("load_balancing_anomaly_mitigation", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -110,8 +115,7 @@ public class AwsLbTargetGroupDataSource : TerraformDataSource
     /// </summary>
     public AwsLbTargetGroupDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLbTargetGroupDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsQuicksightDataSourceCredentialsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CopySourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("copy_source_arn");
-        set => WithProperty("copy_source_arn", value);
+        set => SetProperty("copy_source_arn", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsQuicksightDataSourceCredentialsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SecretArn
     {
-        get => GetProperty<TerraformProperty<string>>("secret_arn");
-        set => WithProperty("secret_arn", value);
+        set => SetProperty("secret_arn", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsQuicksightDataSourcePermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public HashSet<TerraformProperty<string>>? Actions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
-        set => WithProperty("actions", value);
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsQuicksightDataSourcePermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => WithProperty("principal", value);
+        set => SetProperty("principal", value);
     }
 
 }
@@ -76,8 +72,7 @@ public class AwsQuicksightDataSourceSslPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableSsl is required")]
     public required TerraformProperty<bool> DisableSsl
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("disable_ssl");
-        set => WithProperty("disable_ssl", value);
+        set => SetProperty("disable_ssl", value);
     }
 
 }
@@ -94,8 +89,7 @@ public class AwsQuicksightDataSourceVpcConnectionPropertiesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectionArn is required")]
     public required TerraformProperty<string> VpcConnectionArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_connection_arn");
-        set => WithProperty("vpc_connection_arn", value);
+        set => SetProperty("vpc_connection_arn", value);
     }
 
 }
@@ -113,16 +107,24 @@ public class AwsQuicksightDataSource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("aws_account_id");
+        SetOutput("data_source_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -131,17 +133,17 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformProperty<string> DataSourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_source_id");
-        set => this.WithProperty("data_source_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_source_id");
+        set => SetProperty("data_source_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -150,35 +152,35 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -187,8 +189,8 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -198,20 +200,19 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Credentials block(s) allowed")]
     public List<AwsQuicksightDataSourceCredentialsBlock>? Credentials
     {
-        get => GetProperty<List<AwsQuicksightDataSourceCredentialsBlock>>("credentials");
-        set => this.WithProperty("credentials", value);
+        set => SetProperty("credentials", value);
     }
 
     /// <summary>
     /// Block for parameters.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameters is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Parameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
     public List<AwsQuicksightDataSourceParametersBlock>? Parameters
     {
-        get => GetProperty<List<AwsQuicksightDataSourceParametersBlock>>("parameters");
-        set => this.WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -221,8 +222,7 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permission block(s) allowed")]
     public HashSet<AwsQuicksightDataSourcePermissionBlock>? Permission
     {
-        get => GetProperty<HashSet<AwsQuicksightDataSourcePermissionBlock>>("permission");
-        set => this.WithProperty("permission", value);
+        set => SetProperty("permission", value);
     }
 
     /// <summary>
@@ -232,8 +232,7 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslProperties block(s) allowed")]
     public List<AwsQuicksightDataSourceSslPropertiesBlock>? SslProperties
     {
-        get => GetProperty<List<AwsQuicksightDataSourceSslPropertiesBlock>>("ssl_properties");
-        set => this.WithProperty("ssl_properties", value);
+        set => SetProperty("ssl_properties", value);
     }
 
     /// <summary>
@@ -243,8 +242,7 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConnectionProperties block(s) allowed")]
     public List<AwsQuicksightDataSourceVpcConnectionPropertiesBlock>? VpcConnectionProperties
     {
-        get => GetProperty<List<AwsQuicksightDataSourceVpcConnectionPropertiesBlock>>("vpc_connection_properties");
-        set => this.WithProperty("vpc_connection_properties", value);
+        set => SetProperty("vpc_connection_properties", value);
     }
 
     /// <summary>

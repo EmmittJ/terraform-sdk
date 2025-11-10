@@ -22,8 +22,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
     public required TerraformProperty<string> DestinationS3Uri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_s3_uri");
-        set => WithProperty("destination_s3_uri", value);
+        set => SetProperty("destination_s3_uri", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     /// </summary>
     public TerraformProperty<bool>? EnableCapture
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_capture");
-        set => WithProperty("enable_capture", value);
+        set => SetProperty("enable_capture", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialSamplingPercentage is required")]
     public required TerraformProperty<double> InitialSamplingPercentage
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("initial_sampling_percentage");
-        set => WithProperty("initial_sampling_percentage", value);
+        set => SetProperty("initial_sampling_percentage", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? AcceleratorType
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_type");
-        set => WithProperty("accelerator_type", value);
+        set => SetProperty("accelerator_type", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? ContainerStartupHealthCheckTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("container_startup_health_check_timeout_in_seconds");
-        set => WithProperty("container_startup_health_check_timeout_in_seconds", value);
+        set => SetProperty("container_startup_health_check_timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<bool>? EnableSsmAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_ssm_access");
-        set => WithProperty("enable_ssm_access", value);
+        set => SetProperty("enable_ssm_access", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? InferenceAmiVersion
     {
-        get => GetProperty<TerraformProperty<string>>("inference_ami_version");
-        set => WithProperty("inference_ami_version", value);
+        set => SetProperty("inference_ami_version", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? InitialInstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("initial_instance_count");
-        set => WithProperty("initial_instance_count", value);
+        set => SetProperty("initial_instance_count", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? InitialVariantWeight
     {
-        get => GetProperty<TerraformProperty<double>>("initial_variant_weight");
-        set => WithProperty("initial_variant_weight", value);
+        set => SetProperty("initial_variant_weight", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? ModelDataDownloadTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("model_data_download_timeout_in_seconds");
-        set => WithProperty("model_data_download_timeout_in_seconds", value);
+        set => SetProperty("model_data_download_timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -140,8 +128,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     public required TerraformProperty<string> ModelName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("model_name");
-        set => WithProperty("model_name", value);
+        set => SetProperty("model_name", value);
     }
 
     /// <summary>
@@ -149,8 +136,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? VariantName
     {
-        get => GetProperty<TerraformProperty<string>>("variant_name");
-        set => WithProperty("variant_name", value);
+        set => SetProperty("variant_name", value);
     }
 
     /// <summary>
@@ -158,8 +144,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformProperty<double>? VolumeSizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("volume_size_in_gb");
-        set => WithProperty("volume_size_in_gb", value);
+        set => SetProperty("volume_size_in_gb", value);
     }
 
 }
@@ -175,8 +160,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<string>? AcceleratorType
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_type");
-        set => WithProperty("accelerator_type", value);
+        set => SetProperty("accelerator_type", value);
     }
 
     /// <summary>
@@ -184,8 +168,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<double>? ContainerStartupHealthCheckTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("container_startup_health_check_timeout_in_seconds");
-        set => WithProperty("container_startup_health_check_timeout_in_seconds", value);
+        set => SetProperty("container_startup_health_check_timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -193,8 +176,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<bool>? EnableSsmAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_ssm_access");
-        set => WithProperty("enable_ssm_access", value);
+        set => SetProperty("enable_ssm_access", value);
     }
 
     /// <summary>
@@ -202,8 +184,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<string>? InferenceAmiVersion
     {
-        get => GetProperty<TerraformProperty<string>>("inference_ami_version");
-        set => WithProperty("inference_ami_version", value);
+        set => SetProperty("inference_ami_version", value);
     }
 
     /// <summary>
@@ -211,8 +192,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<double>? InitialInstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("initial_instance_count");
-        set => WithProperty("initial_instance_count", value);
+        set => SetProperty("initial_instance_count", value);
     }
 
     /// <summary>
@@ -220,8 +200,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<double>? InitialVariantWeight
     {
-        get => GetProperty<TerraformProperty<double>>("initial_variant_weight");
-        set => WithProperty("initial_variant_weight", value);
+        set => SetProperty("initial_variant_weight", value);
     }
 
     /// <summary>
@@ -229,8 +208,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -238,8 +216,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<double>? ModelDataDownloadTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("model_data_download_timeout_in_seconds");
-        set => WithProperty("model_data_download_timeout_in_seconds", value);
+        set => SetProperty("model_data_download_timeout_in_seconds", value);
     }
 
     /// <summary>
@@ -248,8 +225,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     public required TerraformProperty<string> ModelName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("model_name");
-        set => WithProperty("model_name", value);
+        set => SetProperty("model_name", value);
     }
 
     /// <summary>
@@ -257,8 +233,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<string>? VariantName
     {
-        get => GetProperty<TerraformProperty<string>>("variant_name");
-        set => WithProperty("variant_name", value);
+        set => SetProperty("variant_name", value);
     }
 
     /// <summary>
@@ -266,8 +241,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformProperty<double>? VolumeSizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("volume_size_in_gb");
-        set => WithProperty("volume_size_in_gb", value);
+        set => SetProperty("volume_size_in_gb", value);
     }
 
 }
@@ -285,70 +259,77 @@ public class AwsSagemakerEndpointConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("kms_key_arn");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -358,8 +339,7 @@ public class AwsSagemakerEndpointConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AsyncInferenceConfig block(s) allowed")]
     public List<AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock>? AsyncInferenceConfig
     {
-        get => GetProperty<List<AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock>>("async_inference_config");
-        set => this.WithProperty("async_inference_config", value);
+        set => SetProperty("async_inference_config", value);
     }
 
     /// <summary>
@@ -369,20 +349,19 @@ public class AwsSagemakerEndpointConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCaptureConfig block(s) allowed")]
     public List<AwsSagemakerEndpointConfigurationDataCaptureConfigBlock>? DataCaptureConfig
     {
-        get => GetProperty<List<AwsSagemakerEndpointConfigurationDataCaptureConfigBlock>>("data_capture_config");
-        set => this.WithProperty("data_capture_config", value);
+        set => SetProperty("data_capture_config", value);
     }
 
     /// <summary>
     /// Block for production_variants.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductionVariants is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProductionVariants block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ProductionVariants block(s) allowed")]
     public List<AwsSagemakerEndpointConfigurationProductionVariantsBlock>? ProductionVariants
     {
-        get => GetProperty<List<AwsSagemakerEndpointConfigurationProductionVariantsBlock>>("production_variants");
-        set => this.WithProperty("production_variants", value);
+        set => SetProperty("production_variants", value);
     }
 
     /// <summary>
@@ -392,8 +371,7 @@ public class AwsSagemakerEndpointConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ShadowProductionVariants block(s) allowed")]
     public List<AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock>? ShadowProductionVariants
     {
-        get => GetProperty<List<AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock>>("shadow_production_variants");
-        set => this.WithProperty("shadow_production_variants", value);
+        set => SetProperty("shadow_production_variants", value);
     }
 
     /// <summary>

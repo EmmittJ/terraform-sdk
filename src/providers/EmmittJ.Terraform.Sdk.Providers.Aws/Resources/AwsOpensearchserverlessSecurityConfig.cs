@@ -13,8 +13,7 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? GroupAttribute
     {
-        get => GetProperty<TerraformProperty<string>>("group_attribute");
-        set => WithProperty("group_attribute", value);
+        set => SetProperty("group_attribute", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     public required TerraformProperty<string> Metadata
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metadata");
-        set => WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? SessionTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("session_timeout");
-        set => WithProperty("session_timeout", value);
+        set => SetProperty("session_timeout", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? UserAttribute
     {
-        get => GetProperty<TerraformProperty<string>>("user_attribute");
-        set => WithProperty("user_attribute", value);
+        set => SetProperty("user_attribute", value);
     }
 
 }
@@ -59,17 +55,21 @@ public class AwsOpensearchserverlessSecurityConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("config_version");
-        this.WithOutput("id");
+        SetOutput("config_version");
+        SetOutput("id");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("type");
     }
 
     /// <summary>
     /// Description of the security configuration.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -78,17 +78,17 @@ public class AwsOpensearchserverlessSecurityConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -97,8 +97,8 @@ public class AwsOpensearchserverlessSecurityConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -107,8 +107,7 @@ public class AwsOpensearchserverlessSecurityConfig : TerraformResource
     /// </summary>
     public List<AwsOpensearchserverlessSecurityConfigSamlOptionsBlock>? SamlOptions
     {
-        get => GetProperty<List<AwsOpensearchserverlessSecurityConfigSamlOptionsBlock>>("saml_options");
-        set => this.WithProperty("saml_options", value);
+        set => SetProperty("saml_options", value);
     }
 
     /// <summary>

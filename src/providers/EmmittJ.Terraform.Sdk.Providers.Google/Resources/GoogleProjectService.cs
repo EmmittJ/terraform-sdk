@@ -13,8 +13,7 @@ public class GoogleProjectServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleProjectServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleProjectServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleProjectServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,42 +54,47 @@ public class GoogleProjectService : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("disable_dependent_services");
+        SetOutput("disable_on_destroy");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("service");
     }
 
     /// <summary>
     /// The disable_dependent_services attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableDependentServices
+    public TerraformProperty<bool> DisableDependentServices
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_dependent_services");
-        set => this.WithProperty("disable_dependent_services", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_dependent_services");
+        set => SetProperty("disable_dependent_services", value);
     }
 
     /// <summary>
     /// The disable_on_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableOnDestroy
+    public TerraformProperty<bool> DisableOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_on_destroy");
-        set => this.WithProperty("disable_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_on_destroy");
+        set => SetProperty("disable_on_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -102,8 +103,8 @@ public class GoogleProjectService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
@@ -112,8 +113,7 @@ public class GoogleProjectService : TerraformResource
     /// </summary>
     public GoogleProjectServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleProjectServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

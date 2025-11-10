@@ -14,25 +14,27 @@ public class AwsBackupGlobalSettings : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("global_settings");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The global_settings attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalSettings is required")]
-    public Dictionary<string, TerraformProperty<string>>? GlobalSettings
+    public Dictionary<string, TerraformProperty<string>> GlobalSettings
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("global_settings");
-        set => this.WithProperty("global_settings", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("global_settings");
+        set => SetProperty("global_settings", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
 }

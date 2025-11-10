@@ -14,17 +14,20 @@ public class GoogleAccessContextManagerAccessPolicyDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("title");
+        SetOutput("name");
+        SetOutput("title");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("scopes");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,17 +36,17 @@ public class GoogleAccessContextManagerAccessPolicyDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Scopes
+    public List<TerraformProperty<string>> Scopes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("scopes");
-        set => this.WithProperty("scopes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("scopes");
+        set => SetProperty("scopes", value);
     }
 
     /// <summary>

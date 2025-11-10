@@ -14,11 +14,17 @@ public class AwsIamServiceLinkedRole : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("create_date");
-        this.WithOutput("name");
-        this.WithOutput("path");
-        this.WithOutput("unique_id");
+        SetOutput("arn");
+        SetOutput("create_date");
+        SetOutput("name");
+        SetOutput("path");
+        SetOutput("unique_id");
+        SetOutput("aws_service_name");
+        SetOutput("custom_suffix");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -27,53 +33,53 @@ public class AwsIamServiceLinkedRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsServiceName is required")]
     public required TerraformProperty<string> AwsServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aws_service_name");
-        set => this.WithProperty("aws_service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_service_name");
+        set => SetProperty("aws_service_name", value);
     }
 
     /// <summary>
     /// The custom_suffix attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomSuffix
+    public TerraformProperty<string> CustomSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("custom_suffix");
-        set => this.WithProperty("custom_suffix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_suffix");
+        set => SetProperty("custom_suffix", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

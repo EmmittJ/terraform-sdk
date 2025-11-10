@@ -13,8 +13,7 @@ public class AzurermStaticSiteCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStaticSiteCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStaticSiteCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -50,7 +47,11 @@ public class AzurermStaticSiteCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputalidation_token");
+        SetOutput("validation_token");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("static_site_id");
+        SetOutput("validation_type");
     }
 
     /// <summary>
@@ -59,17 +60,17 @@ public class AzurermStaticSiteCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,17 +79,17 @@ public class AzurermStaticSiteCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticSiteId is required")]
     public required TerraformProperty<string> StaticSiteId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("static_site_id");
-        set => this.WithProperty("static_site_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("static_site_id");
+        set => SetProperty("static_site_id", value);
     }
 
     /// <summary>
     /// The validation_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ValidationType
+    public TerraformProperty<string> ValidationType
     {
-        get => GetProperty<TerraformProperty<string>>("validation_type");
-        set => this.WithProperty("validation_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("validation_type");
+        set => SetProperty("validation_type", value);
     }
 
     /// <summary>
@@ -97,8 +98,7 @@ public class AzurermStaticSiteCustomDomain : TerraformResource
     /// </summary>
     public AzurermStaticSiteCustomDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStaticSiteCustomDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

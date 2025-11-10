@@ -13,8 +13,7 @@ public class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? All
     {
-        get => GetProperty<TerraformProperty<bool>>("all");
-        set => WithProperty("all", value);
+        set => SetProperty("all", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowNoResourceGroupMatch
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_no_resource_group_match");
-        set => WithProperty("allow_no_resource_group_match", value);
+        set => SetProperty("allow_no_resource_group_match", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -54,8 +51,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -64,8 +60,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -82,8 +77,7 @@ public class GoogleOsConfigOsPolicyAssignmentRolloutBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinWaitDuration is required")]
     public required TerraformProperty<string> MinWaitDuration
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("min_wait_duration");
-        set => WithProperty("min_wait_duration", value);
+        set => SetProperty("min_wait_duration", value);
     }
 
 }
@@ -99,8 +93,7 @@ public class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -108,8 +101,7 @@ public class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -117,8 +109,7 @@ public class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -136,32 +127,38 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("baseline");
-        this.WithOutput("deleted");
-        this.WithOutput("etag");
-        this.WithOutput("reconciling");
-        this.WithOutput("revision_create_time");
-        this.WithOutput("revision_id");
-        this.WithOutput("rollout_state");
-        this.WithOutput("uid");
+        SetOutput("baseline");
+        SetOutput("deleted");
+        SetOutput("etag");
+        SetOutput("reconciling");
+        SetOutput("revision_create_time");
+        SetOutput("revision_id");
+        SetOutput("rollout_state");
+        SetOutput("uid");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("skip_await_rollout");
     }
 
     /// <summary>
     /// OS policy assignment description. Length of the description is limited to 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -170,8 +167,8 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -180,61 +177,61 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Set to true to skip awaiting rollout during resource creation and update.
     /// </summary>
-    public TerraformProperty<bool>? SkipAwaitRollout
+    public TerraformProperty<bool> SkipAwaitRollout
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_await_rollout");
-        set => this.WithProperty("skip_await_rollout", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_await_rollout");
+        set => SetProperty("skip_await_rollout", value);
     }
 
     /// <summary>
     /// Block for instance_filter.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceFilter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InstanceFilter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceFilter block(s) allowed")]
     public List<GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock>? InstanceFilter
     {
-        get => GetProperty<List<GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock>>("instance_filter");
-        set => this.WithProperty("instance_filter", value);
+        set => SetProperty("instance_filter", value);
     }
 
     /// <summary>
     /// Block for os_policies.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsPolicies is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsPolicies block(s) required")]
     public List<GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock>? OsPolicies
     {
-        get => GetProperty<List<GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock>>("os_policies");
-        set => this.WithProperty("os_policies", value);
+        set => SetProperty("os_policies", value);
     }
 
     /// <summary>
     /// Block for rollout.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rollout is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rollout block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rollout block(s) allowed")]
     public List<GoogleOsConfigOsPolicyAssignmentRolloutBlock>? Rollout
     {
-        get => GetProperty<List<GoogleOsConfigOsPolicyAssignmentRolloutBlock>>("rollout");
-        set => this.WithProperty("rollout", value);
+        set => SetProperty("rollout", value);
     }
 
     /// <summary>
@@ -243,8 +240,7 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     /// </summary>
     public GoogleOsConfigOsPolicyAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOsConfigOsPolicyAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

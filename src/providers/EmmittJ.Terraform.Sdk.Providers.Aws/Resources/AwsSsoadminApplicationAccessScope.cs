@@ -14,7 +14,11 @@ public class AwsSsoadminApplicationAccessScope : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("application_arn");
+        SetOutput("authorized_targets");
+        SetOutput("region");
+        SetOutput("scope");
     }
 
     /// <summary>
@@ -23,26 +27,26 @@ public class AwsSsoadminApplicationAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     public required TerraformProperty<string> ApplicationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_arn");
-        set => this.WithProperty("application_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_arn");
+        set => SetProperty("application_arn", value);
     }
 
     /// <summary>
     /// The authorized_targets attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AuthorizedTargets
+    public List<TerraformProperty<string>> AuthorizedTargets
     {
-        get => GetProperty<List<TerraformProperty<string>>>("authorized_targets");
-        set => this.WithProperty("authorized_targets", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("authorized_targets");
+        set => SetProperty("authorized_targets", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -51,8 +55,8 @@ public class AwsSsoadminApplicationAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>

@@ -14,89 +14,94 @@ public class GoogleComputeInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("advanced_machine_features");
-        this.WithOutput("allow_stopping_for_update");
-        this.WithOutput("attached_disk");
-        this.WithOutput("boot_disk");
-        this.WithOutput("can_ip_forward");
-        this.WithOutput("confidential_instance_config");
-        this.WithOutput("cpu_platform");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("current_status");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("description");
-        this.WithOutput("desired_status");
-        this.WithOutput("effective_labels");
-        this.WithOutput("enable_display");
-        this.WithOutput("guest_accelerator");
-        this.WithOutput("hostname");
-        this.WithOutput("instance_encryption_key");
-        this.WithOutput("instance_id");
-        this.WithOutput("key_revocation_action_type");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("labels");
-        this.WithOutput("machine_type");
-        this.WithOutput("metadata");
-        this.WithOutput("metadata_fingerprint");
-        this.WithOutput("metadata_startup_script");
-        this.WithOutput("min_cpu_platform");
-        this.WithOutput("network_interface");
-        this.WithOutput("network_performance_config");
-        this.WithOutput("params");
-        this.WithOutput("reservation_affinity");
-        this.WithOutput("resource_policies");
-        this.WithOutput("scheduling");
-        this.WithOutput("scratch_disk");
-        this.WithOutput("service_account");
-        this.WithOutput("shielded_instance_config");
-        this.WithOutput("tags");
-        this.WithOutput("tags_fingerprint");
-        this.WithOutput("terraform_labels");
+        SetOutput("advanced_machine_features");
+        SetOutput("allow_stopping_for_update");
+        SetOutput("attached_disk");
+        SetOutput("boot_disk");
+        SetOutput("can_ip_forward");
+        SetOutput("confidential_instance_config");
+        SetOutput("cpu_platform");
+        SetOutput("creation_timestamp");
+        SetOutput("current_status");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("desired_status");
+        SetOutput("effective_labels");
+        SetOutput("enable_display");
+        SetOutput("guest_accelerator");
+        SetOutput("hostname");
+        SetOutput("instance_encryption_key");
+        SetOutput("instance_id");
+        SetOutput("key_revocation_action_type");
+        SetOutput("label_fingerprint");
+        SetOutput("labels");
+        SetOutput("machine_type");
+        SetOutput("metadata");
+        SetOutput("metadata_fingerprint");
+        SetOutput("metadata_startup_script");
+        SetOutput("min_cpu_platform");
+        SetOutput("network_interface");
+        SetOutput("network_performance_config");
+        SetOutput("params");
+        SetOutput("reservation_affinity");
+        SetOutput("resource_policies");
+        SetOutput("scheduling");
+        SetOutput("scratch_disk");
+        SetOutput("service_account");
+        SetOutput("shielded_instance_config");
+        SetOutput("tags");
+        SetOutput("tags_fingerprint");
+        SetOutput("terraform_labels");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("self_link");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name of the instance. One of name or self_link must be provided.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If self_link is provided, this value is ignored. If neither self_link nor project are provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
-    public TerraformProperty<string>? SelfLink
+    public TerraformProperty<string> SelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("self_link");
-        set => this.WithProperty("self_link", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("self_link");
+        set => SetProperty("self_link", value);
     }
 
     /// <summary>
     /// The zone of the instance. If self_link is provided, this value is ignored. If neither self_link nor zone are provided, the provider zone is used.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsRoute53ResolverQueryLogConfigDataSourceFilterBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsRoute53ResolverQueryLogConfigDataSourceFilterBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -42,55 +40,60 @@ public class AwsRoute53ResolverQueryLogConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputestination_arn");
-        this.WithOutputwner_id");
-        this.WithOutputhare_status");
+        SetOutput("arn");
+        SetOutput("destination_arn");
+        SetOutput("owner_id");
+        SetOutput("share_status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("resolver_query_log_config_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resolver_query_log_config_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResolverQueryLogConfigId
+    public TerraformProperty<string> ResolverQueryLogConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("resolver_query_log_config_id");
-        set => this.WithProperty("resolver_query_log_config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resolver_query_log_config_id");
+        set => SetProperty("resolver_query_log_config_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -99,8 +102,7 @@ public class AwsRoute53ResolverQueryLogConfigDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsRoute53ResolverQueryLogConfigDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsRoute53ResolverQueryLogConfigDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>

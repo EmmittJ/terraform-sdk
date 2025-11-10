@@ -13,8 +13,7 @@ public class AwsAppautoscalingScheduledActionScalableTargetActionBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? MaxCapacity
     {
-        get => GetProperty<TerraformProperty<string>>("max_capacity");
-        set => WithProperty("max_capacity", value);
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAppautoscalingScheduledActionScalableTargetActionBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? MinCapacity
     {
-        get => GetProperty<TerraformProperty<string>>("min_capacity");
-        set => WithProperty("min_capacity", value);
+        set => SetProperty("min_capacity", value);
     }
 
 }
@@ -41,25 +39,35 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("end_time");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("resource_id");
+        SetOutput("scalable_dimension");
+        SetOutput("schedule");
+        SetOutput("service_namespace");
+        SetOutput("start_time");
+        SetOutput("timezone");
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformProperty<string>? EndTime
+    public TerraformProperty<string> EndTime
     {
-        get => GetProperty<TerraformProperty<string>>("end_time");
-        set => this.WithProperty("end_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_time");
+        set => SetProperty("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,17 +76,17 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -87,8 +95,8 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -97,8 +105,8 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     public required TerraformProperty<string> ScalableDimension
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scalable_dimension");
-        set => this.WithProperty("scalable_dimension", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scalable_dimension");
+        set => SetProperty("scalable_dimension", value);
     }
 
     /// <summary>
@@ -107,8 +115,8 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformProperty<string> Schedule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schedule");
-        set => this.WithProperty("schedule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule");
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -117,38 +125,38 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformProperty<string> ServiceNamespace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_namespace");
-        set => this.WithProperty("service_namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_namespace");
+        set => SetProperty("service_namespace", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformProperty<string>? Timezone
+    public TerraformProperty<string> Timezone
     {
-        get => GetProperty<TerraformProperty<string>>("timezone");
-        set => this.WithProperty("timezone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("timezone");
+        set => SetProperty("timezone", value);
     }
 
     /// <summary>
     /// Block for scalable_target_action.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableTargetAction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalableTargetAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalableTargetAction block(s) allowed")]
     public List<AwsAppautoscalingScheduledActionScalableTargetActionBlock>? ScalableTargetAction
     {
-        get => GetProperty<List<AwsAppautoscalingScheduledActionScalableTargetActionBlock>>("scalable_target_action");
-        set => this.WithProperty("scalable_target_action", value);
+        set => SetProperty("scalable_target_action", value);
     }
 
     /// <summary>

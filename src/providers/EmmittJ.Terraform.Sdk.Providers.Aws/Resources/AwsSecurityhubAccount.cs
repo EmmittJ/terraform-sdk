@@ -14,52 +14,57 @@ public class AwsSecurityhubAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("auto_enable_controls");
+        SetOutput("control_finding_generator");
+        SetOutput("enable_default_standards");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The auto_enable_controls attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoEnableControls
+    public TerraformProperty<bool> AutoEnableControls
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_enable_controls");
-        set => this.WithProperty("auto_enable_controls", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_enable_controls");
+        set => SetProperty("auto_enable_controls", value);
     }
 
     /// <summary>
     /// The control_finding_generator attribute.
     /// </summary>
-    public TerraformProperty<string>? ControlFindingGenerator
+    public TerraformProperty<string> ControlFindingGenerator
     {
-        get => GetProperty<TerraformProperty<string>>("control_finding_generator");
-        set => this.WithProperty("control_finding_generator", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("control_finding_generator");
+        set => SetProperty("control_finding_generator", value);
     }
 
     /// <summary>
     /// The enable_default_standards attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableDefaultStandards
+    public TerraformProperty<bool> EnableDefaultStandards
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_default_standards");
-        set => this.WithProperty("enable_default_standards", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_default_standards");
+        set => SetProperty("enable_default_standards", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

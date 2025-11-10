@@ -13,8 +13,7 @@ public class AzurermRoleAssignmentsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,34 +30,39 @@ public class AzurermRoleAssignmentsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("role_assignments");
+        SetOutput("role_assignments");
+        SetOutput("id");
+        SetOutput("limit_at_scope");
+        SetOutput("principal_id");
+        SetOutput("scope");
+        SetOutput("tenant_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The limit_at_scope attribute.
     /// </summary>
-    public TerraformProperty<bool>? LimitAtScope
+    public TerraformProperty<bool> LimitAtScope
     {
-        get => GetProperty<TerraformProperty<bool>>("limit_at_scope");
-        set => this.WithProperty("limit_at_scope", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("limit_at_scope");
+        set => SetProperty("limit_at_scope", value);
     }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
+    public TerraformProperty<string> PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -67,17 +71,17 @@ public class AzurermRoleAssignmentsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
+    public TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => this.WithProperty("tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -86,8 +90,7 @@ public class AzurermRoleAssignmentsDataSource : TerraformDataSource
     /// </summary>
     public AzurermRoleAssignmentsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRoleAssignmentsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

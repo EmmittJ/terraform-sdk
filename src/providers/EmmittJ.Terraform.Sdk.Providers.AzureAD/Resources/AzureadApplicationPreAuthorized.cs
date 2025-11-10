@@ -13,8 +13,7 @@ public class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzureadApplicationPreAuthorized : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("application_id");
+        SetOutput("authorized_client_id");
+        SetOutput("id");
+        SetOutput("permission_ids");
     }
 
     /// <summary>
@@ -66,8 +66,8 @@ public class AzureadApplicationPreAuthorized : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -76,27 +76,27 @@ public class AzureadApplicationPreAuthorized : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizedClientId is required")]
     public required TerraformProperty<string> AuthorizedClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorized_client_id");
-        set => this.WithProperty("authorized_client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorized_client_id");
+        set => SetProperty("authorized_client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The IDs of the permission scopes required by the pre-authorized application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionIds is required")]
-    public HashSet<TerraformProperty<string>>? PermissionIds
+    public HashSet<TerraformProperty<string>> PermissionIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("permission_ids");
-        set => this.WithProperty("permission_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("permission_ids");
+        set => SetProperty("permission_ids", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzureadApplicationPreAuthorized : TerraformResource
     /// </summary>
     public AzureadApplicationPreAuthorizedTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationPreAuthorizedTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

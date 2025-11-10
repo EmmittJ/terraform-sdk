@@ -13,8 +13,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public TerraformProperty<bool>? ClusterScopedResourcesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cluster_scoped_resources_enabled");
-        set => WithProperty("cluster_scoped_resources_enabled", value);
+        set => SetProperty("cluster_scoped_resources_enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public List<TerraformProperty<string>>? ExcludedNamespaces
     {
-        get => GetProperty<List<TerraformProperty<string>>>("excluded_namespaces");
-        set => WithProperty("excluded_namespaces", value);
+        set => SetProperty("excluded_namespaces", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public List<TerraformProperty<string>>? ExcludedResourceTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("excluded_resource_types");
-        set => WithProperty("excluded_resource_types", value);
+        set => SetProperty("excluded_resource_types", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public List<TerraformProperty<string>>? IncludedNamespaces
     {
-        get => GetProperty<List<TerraformProperty<string>>>("included_namespaces");
-        set => WithProperty("included_namespaces", value);
+        set => SetProperty("included_namespaces", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public List<TerraformProperty<string>>? IncludedResourceTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("included_resource_types");
-        set => WithProperty("included_resource_types", value);
+        set => SetProperty("included_resource_types", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public List<TerraformProperty<string>>? LabelSelectors
     {
-        get => GetProperty<List<TerraformProperty<string>>>("label_selectors");
-        set => WithProperty("label_selectors", value);
+        set => SetProperty("label_selectors", value);
     }
 
     /// <summary>
@@ -67,8 +61,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public TerraformProperty<bool>? VolumeSnapshotEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("volume_snapshot_enabled");
-        set => WithProperty("volume_snapshot_enabled", value);
+        set => SetProperty("volume_snapshot_enabled", value);
     }
 
 }
@@ -84,8 +77,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +85,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +93,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -121,6 +111,13 @@ public class AzurermDataProtectionBackupInstanceKubernetesCluster : TerraformRes
 
     private void InitializeOutputs()
     {
+        SetOutput("backup_policy_id");
+        SetOutput("id");
+        SetOutput("kubernetes_cluster_id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("snapshot_resource_group_name");
+        SetOutput("vault_id");
     }
 
     /// <summary>
@@ -129,17 +126,17 @@ public class AzurermDataProtectionBackupInstanceKubernetesCluster : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformProperty<string> BackupPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_policy_id");
-        set => this.WithProperty("backup_policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_policy_id");
+        set => SetProperty("backup_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -148,8 +145,8 @@ public class AzurermDataProtectionBackupInstanceKubernetesCluster : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformProperty<string> KubernetesClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_cluster_id");
-        set => this.WithProperty("kubernetes_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kubernetes_cluster_id");
+        set => SetProperty("kubernetes_cluster_id", value);
     }
 
     /// <summary>
@@ -158,8 +155,8 @@ public class AzurermDataProtectionBackupInstanceKubernetesCluster : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -168,8 +165,8 @@ public class AzurermDataProtectionBackupInstanceKubernetesCluster : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -178,8 +175,8 @@ public class AzurermDataProtectionBackupInstanceKubernetesCluster : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotResourceGroupName is required")]
     public required TerraformProperty<string> SnapshotResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_resource_group_name");
-        set => this.WithProperty("snapshot_resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_resource_group_name");
+        set => SetProperty("snapshot_resource_group_name", value);
     }
 
     /// <summary>
@@ -188,8 +185,8 @@ public class AzurermDataProtectionBackupInstanceKubernetesCluster : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformProperty<string> VaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vault_id");
-        set => this.WithProperty("vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vault_id");
+        set => SetProperty("vault_id", value);
     }
 
     /// <summary>
@@ -199,8 +196,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesCluster : TerraformRes
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupDatasourceParameters block(s) allowed")]
     public List<AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock>? BackupDatasourceParameters
     {
-        get => GetProperty<List<AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock>>("backup_datasource_parameters");
-        set => this.WithProperty("backup_datasource_parameters", value);
+        set => SetProperty("backup_datasource_parameters", value);
     }
 
     /// <summary>
@@ -209,8 +205,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesCluster : TerraformRes
     /// </summary>
     public AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

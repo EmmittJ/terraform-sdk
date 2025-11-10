@@ -13,8 +13,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? DestRange
     {
-        get => GetProperty<TerraformProperty<string>>("dest_range");
-        set => WithProperty("dest_range", value);
+        set => SetProperty("dest_range", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? IpProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("ip_protocol");
-        set => WithProperty("ip_protocol", value);
+        set => SetProperty("ip_protocol", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolVersion is required")]
     public required TerraformProperty<string> ProtocolVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol_version");
-        set => WithProperty("protocol_version", value);
+        set => SetProperty("protocol_version", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? SrcRange
     {
-        get => GetProperty<TerraformProperty<string>>("src_range");
-        set => WithProperty("src_range", value);
+        set => SetProperty("src_range", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -112,8 +104,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tags is required")]
     public List<TerraformProperty<string>>? Tags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
 }
@@ -131,30 +122,39 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("kind");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
-        this.WithOutput("warnings");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("kind");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("warnings");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("next_hop_ilb_ip");
+        SetOutput("next_hop_other_routes");
+        SetOutput("priority");
+        SetOutput("project");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -164,10 +164,10 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -176,8 +176,8 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -186,56 +186,56 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The IP address of a global-access-enabled L4 ILB that is the next hop for matching packets.
     /// </summary>
-    public TerraformProperty<string>? NextHopIlbIp
+    public TerraformProperty<string> NextHopIlbIp
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_ilb_ip");
-        set => this.WithProperty("next_hop_ilb_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_ilb_ip");
+        set => SetProperty("next_hop_ilb_ip", value);
     }
 
     /// <summary>
     /// Other routes that will be referenced to determine the next hop of the packet. Possible values: [&amp;quot;DEFAULT_ROUTING&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NextHopOtherRoutes
+    public TerraformProperty<string> NextHopOtherRoutes
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_other_routes");
-        set => this.WithProperty("next_hop_other_routes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("next_hop_other_routes");
+        set => SetProperty("next_hop_other_routes", value);
     }
 
     /// <summary>
     /// The priority of this policy-based route. Priority is used to break ties in cases where there are more than one matching policy-based routes found. In cases where multiple policy-based routes are matched, the one with the lowest-numbered priority value wins. The default value is 1000. The priority value must be from 1 to 65535, inclusive.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     public List<GoogleNetworkConnectivityPolicyBasedRouteFilterBlock>? Filter
     {
-        get => GetProperty<List<GoogleNetworkConnectivityPolicyBasedRouteFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -245,8 +245,7 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InterconnectAttachment block(s) allowed")]
     public List<GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock>? InterconnectAttachment
     {
-        get => GetProperty<List<GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock>>("interconnect_attachment");
-        set => this.WithProperty("interconnect_attachment", value);
+        set => SetProperty("interconnect_attachment", value);
     }
 
     /// <summary>
@@ -255,8 +254,7 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     /// </summary>
     public GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -266,8 +264,7 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachine block(s) allowed")]
     public List<GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock>? VirtualMachine
     {
-        get => GetProperty<List<GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock>>("virtual_machine");
-        set => this.WithProperty("virtual_machine", value);
+        set => SetProperty("virtual_machine", value);
     }
 
     /// <summary>

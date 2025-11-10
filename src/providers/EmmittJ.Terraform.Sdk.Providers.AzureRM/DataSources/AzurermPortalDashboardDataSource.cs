@@ -13,8 +13,7 @@ public class AzurermPortalDashboardDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,44 +30,49 @@ public class AzurermPortalDashboardDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("location");
-        this.WithOutput("tags");
+        SetOutput("location");
+        SetOutput("tags");
+        SetOutput("dashboard_properties");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The dashboard_properties attribute.
     /// </summary>
-    public TerraformProperty<string>? DashboardProperties
+    public TerraformProperty<string> DashboardProperties
     {
-        get => GetProperty<TerraformProperty<string>>("dashboard_properties");
-        set => this.WithProperty("dashboard_properties", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dashboard_properties");
+        set => SetProperty("dashboard_properties", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -77,8 +81,8 @@ public class AzurermPortalDashboardDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -87,8 +91,7 @@ public class AzurermPortalDashboardDataSource : TerraformDataSource
     /// </summary>
     public AzurermPortalDashboardDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPortalDashboardDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

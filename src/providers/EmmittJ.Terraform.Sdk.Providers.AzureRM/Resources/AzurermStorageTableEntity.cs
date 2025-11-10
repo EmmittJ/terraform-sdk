@@ -13,8 +13,7 @@ public class AzurermStorageTableEntityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageTableEntityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageTableEntityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStorageTableEntityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,25 +54,30 @@ public class AzurermStorageTableEntity : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("entity");
+        SetOutput("id");
+        SetOutput("partition_key");
+        SetOutput("row_key");
+        SetOutput("storage_table_id");
     }
 
     /// <summary>
     /// The entity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
-    public Dictionary<string, TerraformProperty<string>>? Entity
+    public Dictionary<string, TerraformProperty<string>> Entity
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("entity");
-        set => this.WithProperty("entity", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("entity");
+        set => SetProperty("entity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +86,8 @@ public class AzurermStorageTableEntity : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformProperty<string> PartitionKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partition_key");
-        set => this.WithProperty("partition_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partition_key");
+        set => SetProperty("partition_key", value);
     }
 
     /// <summary>
@@ -95,8 +96,8 @@ public class AzurermStorageTableEntity : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     public required TerraformProperty<string> RowKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("row_key");
-        set => this.WithProperty("row_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("row_key");
+        set => SetProperty("row_key", value);
     }
 
     /// <summary>
@@ -105,8 +106,8 @@ public class AzurermStorageTableEntity : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     public required TerraformProperty<string> StorageTableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_table_id");
-        set => this.WithProperty("storage_table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_table_id");
+        set => SetProperty("storage_table_id", value);
     }
 
     /// <summary>
@@ -115,8 +116,7 @@ public class AzurermStorageTableEntity : TerraformResource
     /// </summary>
     public AzurermStorageTableEntityTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageTableEntityTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

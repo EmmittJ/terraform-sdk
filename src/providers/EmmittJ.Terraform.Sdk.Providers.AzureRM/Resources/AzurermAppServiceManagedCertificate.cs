@@ -13,8 +13,7 @@ public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,14 +54,17 @@ public class AzurermAppServiceManagedCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("canonical_name");
-        this.WithOutput("expiration_date");
-        this.WithOutput("friendly_name");
-        this.WithOutput("host_names");
-        this.WithOutput("issue_date");
-        this.WithOutput("issuer");
-        this.WithOutput("subject_name");
-        this.WithOutput("thumbprint");
+        SetOutput("canonical_name");
+        SetOutput("expiration_date");
+        SetOutput("friendly_name");
+        SetOutput("host_names");
+        SetOutput("issue_date");
+        SetOutput("issuer");
+        SetOutput("subject_name");
+        SetOutput("thumbprint");
+        SetOutput("custom_hostname_binding_id");
+        SetOutput("id");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -74,26 +73,26 @@ public class AzurermAppServiceManagedCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHostnameBindingId is required")]
     public required TerraformProperty<string> CustomHostnameBindingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("custom_hostname_binding_id");
-        set => this.WithProperty("custom_hostname_binding_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_hostname_binding_id");
+        set => SetProperty("custom_hostname_binding_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -102,8 +101,7 @@ public class AzurermAppServiceManagedCertificate : TerraformResource
     /// </summary>
     public AzurermAppServiceManagedCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceManagedCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

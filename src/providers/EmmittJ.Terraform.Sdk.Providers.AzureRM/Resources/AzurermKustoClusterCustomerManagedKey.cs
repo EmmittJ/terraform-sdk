@@ -13,8 +13,7 @@ public class AzurermKustoClusterCustomerManagedKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKustoClusterCustomerManagedKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKustoClusterCustomerManagedKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKustoClusterCustomerManagedKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,13 @@ public class AzurermKustoClusterCustomerManagedKey : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cluster_id");
+        SetOutput("id");
+        SetOutput("key_name");
+        SetOutput("key_vault_id");
+        SetOutput("key_version");
+        SetOutput("managed_hsm_key_id");
+        SetOutput("user_identity");
     }
 
     /// <summary>
@@ -66,62 +69,62 @@ public class AzurermKustoClusterCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyName
+    public TerraformProperty<string> KeyName
     {
-        get => GetProperty<TerraformProperty<string>>("key_name");
-        set => this.WithProperty("key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_name");
+        set => SetProperty("key_name", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultId
+    public TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
     /// The key_version attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVersion
+    public TerraformProperty<string> KeyVersion
     {
-        get => GetProperty<TerraformProperty<string>>("key_version");
-        set => this.WithProperty("key_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_version");
+        set => SetProperty("key_version", value);
     }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedHsmKeyId
+    public TerraformProperty<string> ManagedHsmKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_hsm_key_id");
-        set => this.WithProperty("managed_hsm_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_key_id");
+        set => SetProperty("managed_hsm_key_id", value);
     }
 
     /// <summary>
     /// The user_identity attribute.
     /// </summary>
-    public TerraformProperty<string>? UserIdentity
+    public TerraformProperty<string> UserIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("user_identity");
-        set => this.WithProperty("user_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_identity");
+        set => SetProperty("user_identity", value);
     }
 
     /// <summary>
@@ -130,8 +133,7 @@ public class AzurermKustoClusterCustomerManagedKey : TerraformResource
     /// </summary>
     public AzurermKustoClusterCustomerManagedKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKustoClusterCustomerManagedKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

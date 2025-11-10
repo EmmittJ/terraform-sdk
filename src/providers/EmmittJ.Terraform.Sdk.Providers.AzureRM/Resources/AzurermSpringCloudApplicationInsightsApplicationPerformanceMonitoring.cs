@@ -13,8 +13,7 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,33 +54,42 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
 
     private void InitializeOutputs()
     {
+        SetOutput("connection_string");
+        SetOutput("globally_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("role_instance");
+        SetOutput("role_name");
+        SetOutput("sampling_percentage");
+        SetOutput("sampling_requests_per_second");
+        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
+    public TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? GloballyEnabled
+    public TerraformProperty<bool> GloballyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("globally_enabled");
-        set => this.WithProperty("globally_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("globally_enabled");
+        set => SetProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -93,44 +98,44 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The role_instance attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleInstance
+    public TerraformProperty<string> RoleInstance
     {
-        get => GetProperty<TerraformProperty<string>>("role_instance");
-        set => this.WithProperty("role_instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_instance");
+        set => SetProperty("role_instance", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleName
+    public TerraformProperty<string> RoleName
     {
-        get => GetProperty<TerraformProperty<string>>("role_name");
-        set => this.WithProperty("role_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
+        set => SetProperty("role_name", value);
     }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformProperty<double>? SamplingPercentage
+    public TerraformProperty<double> SamplingPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("sampling_percentage");
-        set => this.WithProperty("sampling_percentage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("sampling_percentage");
+        set => SetProperty("sampling_percentage", value);
     }
 
     /// <summary>
     /// The sampling_requests_per_second attribute.
     /// </summary>
-    public TerraformProperty<double>? SamplingRequestsPerSecond
+    public TerraformProperty<double> SamplingRequestsPerSecond
     {
-        get => GetProperty<TerraformProperty<double>>("sampling_requests_per_second");
-        set => this.WithProperty("sampling_requests_per_second", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("sampling_requests_per_second");
+        set => SetProperty("sampling_requests_per_second", value);
     }
 
     /// <summary>
@@ -139,8 +144,8 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
-        set => this.WithProperty("spring_cloud_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
+        set => SetProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
@@ -149,8 +154,7 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// </summary>
     public AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

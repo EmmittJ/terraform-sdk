@@ -30,19 +30,20 @@ public class AwsDataexchangeEventAction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("id");
-        this.WithOutput("updated_at");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("id");
+        SetOutput("updated_at");
+        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -51,8 +52,7 @@ public class AwsDataexchangeEventAction : TerraformResource
     /// </summary>
     public List<AwsDataexchangeEventActionActionBlock>? Action
     {
-        get => GetProperty<List<AwsDataexchangeEventActionActionBlock>>("action");
-        set => this.WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -61,8 +61,7 @@ public class AwsDataexchangeEventAction : TerraformResource
     /// </summary>
     public List<AwsDataexchangeEventActionEventBlock>? Event
     {
-        get => GetProperty<List<AwsDataexchangeEventActionEventBlock>>("event");
-        set => this.WithProperty("event", value);
+        set => SetProperty("event", value);
     }
 
     /// <summary>

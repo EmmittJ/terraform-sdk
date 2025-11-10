@@ -13,8 +13,7 @@ public class GoogleComputeNetworkPeeringDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,24 +30,27 @@ public class GoogleComputeNetworkPeeringDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("export_custom_routes");
-        this.WithOutput("export_subnet_routes_with_public_ip");
-        this.WithOutput("import_custom_routes");
-        this.WithOutput("import_subnet_routes_with_public_ip");
-        this.WithOutput("peer_network");
-        this.WithOutput("stack_type");
-        this.WithOutput("state");
-        this.WithOutput("state_details");
-        this.WithOutput("update_strategy");
+        SetOutput("export_custom_routes");
+        SetOutput("export_subnet_routes_with_public_ip");
+        SetOutput("import_custom_routes");
+        SetOutput("import_subnet_routes_with_public_ip");
+        SetOutput("peer_network");
+        SetOutput("stack_type");
+        SetOutput("state");
+        SetOutput("state_details");
+        SetOutput("update_strategy");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -57,8 +59,8 @@ public class GoogleComputeNetworkPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class GoogleComputeNetworkPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -77,8 +79,7 @@ public class GoogleComputeNetworkPeeringDataSource : TerraformDataSource
     /// </summary>
     public GoogleComputeNetworkPeeringDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNetworkPeeringDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

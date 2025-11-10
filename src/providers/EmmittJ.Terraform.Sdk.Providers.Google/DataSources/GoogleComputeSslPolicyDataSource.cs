@@ -14,23 +14,26 @@ public class GoogleComputeSslPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("custom_features");
-        this.WithOutput("description");
-        this.WithOutput("enabled_features");
-        this.WithOutput("fingerprint");
-        this.WithOutput("min_tls_version");
-        this.WithOutput("profile");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("custom_features");
+        SetOutput("description");
+        SetOutput("enabled_features");
+        SetOutput("fingerprint");
+        SetOutput("min_tls_version");
+        SetOutput("profile");
+        SetOutput("self_link");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -45,17 +48,17 @@ public class GoogleComputeSslPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

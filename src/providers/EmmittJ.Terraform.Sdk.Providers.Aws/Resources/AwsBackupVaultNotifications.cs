@@ -14,17 +14,22 @@ public class AwsBackupVaultNotifications : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backup_vault_arn");
+        SetOutput("backup_vault_arn");
+        SetOutput("backup_vault_events");
+        SetOutput("backup_vault_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("sns_topic_arn");
     }
 
     /// <summary>
     /// The backup_vault_events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultEvents is required")]
-    public HashSet<TerraformProperty<string>>? BackupVaultEvents
+    public HashSet<TerraformProperty<string>> BackupVaultEvents
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("backup_vault_events");
-        set => this.WithProperty("backup_vault_events", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("backup_vault_events");
+        set => SetProperty("backup_vault_events", value);
     }
 
     /// <summary>
@@ -33,26 +38,26 @@ public class AwsBackupVaultNotifications : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultName is required")]
     public required TerraformProperty<string> BackupVaultName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_vault_name");
-        set => this.WithProperty("backup_vault_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_vault_name");
+        set => SetProperty("backup_vault_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -61,8 +66,8 @@ public class AwsBackupVaultNotifications : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopicArn is required")]
     public required TerraformProperty<string> SnsTopicArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sns_topic_arn");
-        set => this.WithProperty("sns_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sns_topic_arn");
+        set => SetProperty("sns_topic_arn", value);
     }
 
     /// <summary>

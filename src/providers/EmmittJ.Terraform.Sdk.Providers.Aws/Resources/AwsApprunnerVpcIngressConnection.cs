@@ -13,8 +13,7 @@ public class AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? VpcEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
-        set => WithProperty("vpc_endpoint_id", value);
+        set => SetProperty("vpc_endpoint_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -41,18 +39,24 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("domain_name");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("domain_name");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("service_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,17 +65,17 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -80,38 +84,38 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
     public required TerraformProperty<string> ServiceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_arn");
-        set => this.WithProperty("service_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_arn");
+        set => SetProperty("service_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for ingress_vpc_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngressVpcConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IngressVpcConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressVpcConfiguration block(s) allowed")]
     public List<AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock>? IngressVpcConfiguration
     {
-        get => GetProperty<List<AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock>>("ingress_vpc_configuration");
-        set => this.WithProperty("ingress_vpc_configuration", value);
+        set => SetProperty("ingress_vpc_configuration", value);
     }
 
     /// <summary>

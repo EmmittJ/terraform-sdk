@@ -15,8 +15,7 @@ public class GoogleComputeManagedSslCertificateManagedBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domains is required")]
     public List<TerraformProperty<string>>? Domains
     {
-        get => GetProperty<List<TerraformProperty<string>>>("domains");
-        set => WithProperty("domains", value);
+        set => SetProperty("domains", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleComputeManagedSslCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleComputeManagedSslCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -60,29 +57,34 @@ public class GoogleComputeManagedSslCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate_id");
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("expire_time");
-        this.WithOutput("self_link");
-        this.WithOutput("subject_alternative_names");
+        SetOutput("certificate_id");
+        SetOutput("creation_timestamp");
+        SetOutput("expire_time");
+        SetOutput("self_link");
+        SetOutput("subject_alternative_names");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("type");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -96,29 +98,29 @@ public class GoogleComputeManagedSslCertificate : TerraformResource
     /// 
     /// These are in the same namespace as the managed SSL certificates.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Enum field whose value is always &#39;MANAGED&#39; - used to signal to the API
     /// which type this is. Default value: &amp;quot;MANAGED&amp;quot; Possible values: [&amp;quot;MANAGED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -128,8 +130,7 @@ public class GoogleComputeManagedSslCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Managed block(s) allowed")]
     public List<GoogleComputeManagedSslCertificateManagedBlock>? Managed
     {
-        get => GetProperty<List<GoogleComputeManagedSslCertificateManagedBlock>>("managed");
-        set => this.WithProperty("managed", value);
+        set => SetProperty("managed", value);
     }
 
     /// <summary>
@@ -138,8 +139,7 @@ public class GoogleComputeManagedSslCertificate : TerraformResource
     /// </summary>
     public GoogleComputeManagedSslCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeManagedSslCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

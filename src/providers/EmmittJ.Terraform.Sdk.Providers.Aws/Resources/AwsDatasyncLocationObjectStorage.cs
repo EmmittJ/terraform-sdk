@@ -14,26 +14,39 @@ public class AwsDatasyncLocationObjectStorage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("uri");
+        SetOutput("arn");
+        SetOutput("uri");
+        SetOutput("access_key");
+        SetOutput("agent_arns");
+        SetOutput("bucket_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("secret_key");
+        SetOutput("server_certificate");
+        SetOutput("server_hostname");
+        SetOutput("server_port");
+        SetOutput("server_protocol");
+        SetOutput("subdirectory");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The access_key attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessKey
+    public TerraformProperty<string> AccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("access_key");
-        set => this.WithProperty("access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_key");
+        set => SetProperty("access_key", value);
     }
 
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AgentArns
+    public HashSet<TerraformProperty<string>> AgentArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("agent_arns");
-        set => this.WithProperty("agent_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("agent_arns");
+        set => SetProperty("agent_arns", value);
     }
 
     /// <summary>
@@ -42,44 +55,44 @@ public class AwsDatasyncLocationObjectStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
-        set => this.WithProperty("bucket_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket_name");
+        set => SetProperty("bucket_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The secret_key attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretKey
+    public TerraformProperty<string> SecretKey
     {
-        get => GetProperty<TerraformProperty<string>>("secret_key");
-        set => this.WithProperty("secret_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_key");
+        set => SetProperty("secret_key", value);
     }
 
     /// <summary>
     /// The server_certificate attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerCertificate
+    public TerraformProperty<string> ServerCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("server_certificate");
-        set => this.WithProperty("server_certificate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_certificate");
+        set => SetProperty("server_certificate", value);
     }
 
     /// <summary>
@@ -88,53 +101,53 @@ public class AwsDatasyncLocationObjectStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
     public required TerraformProperty<string> ServerHostname
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_hostname");
-        set => this.WithProperty("server_hostname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_hostname");
+        set => SetProperty("server_hostname", value);
     }
 
     /// <summary>
     /// The server_port attribute.
     /// </summary>
-    public TerraformProperty<double>? ServerPort
+    public TerraformProperty<double> ServerPort
     {
-        get => GetProperty<TerraformProperty<double>>("server_port");
-        set => this.WithProperty("server_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("server_port");
+        set => SetProperty("server_port", value);
     }
 
     /// <summary>
     /// The server_protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerProtocol
+    public TerraformProperty<string> ServerProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("server_protocol");
-        set => this.WithProperty("server_protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_protocol");
+        set => SetProperty("server_protocol", value);
     }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformProperty<string>? Subdirectory
+    public TerraformProperty<string> Subdirectory
     {
-        get => GetProperty<TerraformProperty<string>>("subdirectory");
-        set => this.WithProperty("subdirectory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subdirectory");
+        set => SetProperty("subdirectory", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

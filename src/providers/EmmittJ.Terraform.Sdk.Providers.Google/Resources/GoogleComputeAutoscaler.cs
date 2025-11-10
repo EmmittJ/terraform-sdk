@@ -22,8 +22,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CooldownPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("cooldown_period");
-        set => WithProperty("cooldown_period", value);
+        set => SetProperty("cooldown_period", value);
     }
 
     /// <summary>
@@ -35,8 +34,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReplicas is required")]
     public required TerraformProperty<double> MaxReplicas
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_replicas");
-        set => WithProperty("max_replicas", value);
+        set => SetProperty("max_replicas", value);
     }
 
     /// <summary>
@@ -48,8 +46,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicas is required")]
     public required TerraformProperty<double> MinReplicas
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_replicas");
-        set => WithProperty("min_replicas", value);
+        set => SetProperty("min_replicas", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -74,8 +70,7 @@ public class GoogleComputeAutoscalerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -83,8 +78,7 @@ public class GoogleComputeAutoscalerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -92,8 +86,7 @@ public class GoogleComputeAutoscalerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,26 +104,32 @@ public class GoogleComputeAutoscaler : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("self_link");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("target");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -143,17 +142,17 @@ public class GoogleComputeAutoscaler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -162,29 +161,29 @@ public class GoogleComputeAutoscaler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target");
-        set => this.WithProperty("target", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target");
+        set => SetProperty("target", value);
     }
 
     /// <summary>
     /// URL of the zone where the instance group resides.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
     /// Block for autoscaling_policy.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AutoscalingPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingPolicy block(s) allowed")]
     public List<GoogleComputeAutoscalerAutoscalingPolicyBlock>? AutoscalingPolicy
     {
-        get => GetProperty<List<GoogleComputeAutoscalerAutoscalingPolicyBlock>>("autoscaling_policy");
-        set => this.WithProperty("autoscaling_policy", value);
+        set => SetProperty("autoscaling_policy", value);
     }
 
     /// <summary>
@@ -193,8 +192,7 @@ public class GoogleComputeAutoscaler : TerraformResource
     /// </summary>
     public GoogleComputeAutoscalerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeAutoscalerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

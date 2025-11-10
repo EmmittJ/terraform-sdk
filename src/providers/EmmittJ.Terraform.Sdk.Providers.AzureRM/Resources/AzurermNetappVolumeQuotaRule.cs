@@ -13,8 +13,7 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,22 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("quota_size_in_kib");
+        SetOutput("quota_target");
+        SetOutput("quota_type");
+        SetOutput("volume_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -85,8 +88,8 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -95,17 +98,17 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaSizeInKib is required")]
     public required TerraformProperty<double> QuotaSizeInKib
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("quota_size_in_kib");
-        set => this.WithProperty("quota_size_in_kib", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("quota_size_in_kib");
+        set => SetProperty("quota_size_in_kib", value);
     }
 
     /// <summary>
     /// The quota_target attribute.
     /// </summary>
-    public TerraformProperty<string>? QuotaTarget
+    public TerraformProperty<string> QuotaTarget
     {
-        get => GetProperty<TerraformProperty<string>>("quota_target");
-        set => this.WithProperty("quota_target", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("quota_target");
+        set => SetProperty("quota_target", value);
     }
 
     /// <summary>
@@ -114,8 +117,8 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaType is required")]
     public required TerraformProperty<string> QuotaType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("quota_type");
-        set => this.WithProperty("quota_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("quota_type");
+        set => SetProperty("quota_type", value);
     }
 
     /// <summary>
@@ -124,8 +127,8 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
-        set => this.WithProperty("volume_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_id");
+        set => SetProperty("volume_id", value);
     }
 
     /// <summary>
@@ -134,8 +137,7 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// </summary>
     public AzurermNetappVolumeQuotaRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappVolumeQuotaRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

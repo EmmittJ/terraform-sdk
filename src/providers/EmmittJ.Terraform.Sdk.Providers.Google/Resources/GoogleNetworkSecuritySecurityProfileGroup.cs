@@ -13,8 +13,7 @@ public class GoogleNetworkSecuritySecurityProfileGroupTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetworkSecuritySecurityProfileGroupTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetworkSecuritySecurityProfileGroupTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,47 +46,56 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("custom_intercept_profile");
+        SetOutput("custom_mirroring_profile");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("parent");
+        SetOutput("threat_prevention_profile");
     }
 
     /// <summary>
     /// Reference to a SecurityProfile with the CustomIntercept configuration.
     /// </summary>
-    public TerraformProperty<string>? CustomInterceptProfile
+    public TerraformProperty<string> CustomInterceptProfile
     {
-        get => GetProperty<TerraformProperty<string>>("custom_intercept_profile");
-        set => this.WithProperty("custom_intercept_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_intercept_profile");
+        set => SetProperty("custom_intercept_profile", value);
     }
 
     /// <summary>
     /// Reference to a SecurityProfile with the custom mirroring configuration for the SecurityProfileGroup.
     /// </summary>
-    public TerraformProperty<string>? CustomMirroringProfile
+    public TerraformProperty<string> CustomMirroringProfile
     {
-        get => GetProperty<TerraformProperty<string>>("custom_mirroring_profile");
-        set => this.WithProperty("custom_mirroring_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_mirroring_profile");
+        set => SetProperty("custom_mirroring_profile", value);
     }
 
     /// <summary>
     /// An optional description of the profile. The Max length is 512 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -99,20 +105,20 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the security profile group.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -121,27 +127,27 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name of the parent this security profile group belongs to.
     /// Format: organizations/{organization_id}.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    public TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// Reference to a SecurityProfile with the threat prevention configuration for the SecurityProfileGroup.
     /// </summary>
-    public TerraformProperty<string>? ThreatPreventionProfile
+    public TerraformProperty<string> ThreatPreventionProfile
     {
-        get => GetProperty<TerraformProperty<string>>("threat_prevention_profile");
-        set => this.WithProperty("threat_prevention_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("threat_prevention_profile");
+        set => SetProperty("threat_prevention_profile", value);
     }
 
     /// <summary>
@@ -150,8 +156,7 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// </summary>
     public GoogleNetworkSecuritySecurityProfileGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkSecuritySecurityProfileGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

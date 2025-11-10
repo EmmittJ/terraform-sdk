@@ -13,8 +13,7 @@ public class GoogleComputeInstanceGroupManagerAllInstancesConfigBlock : Terrafor
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeInstanceGroupManagerAllInstancesConfigBlock : Terrafor
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthCheck is required")]
     public required TerraformProperty<string> HealthCheck
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("health_check");
-        set => WithProperty("health_check", value);
+        set => SetProperty("health_check", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialDelaySec is required")]
     public required TerraformProperty<double> InitialDelaySec
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("initial_delay_sec");
-        set => WithProperty("initial_delay_sec", value);
+        set => SetProperty("initial_delay_sec", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock : Ter
     /// </summary>
     public TerraformProperty<string>? DefaultActionOnFailure
     {
-        get => GetProperty<TerraformProperty<string>>("default_action_on_failure");
-        set => WithProperty("default_action_on_failure", value);
+        set => SetProperty("default_action_on_failure", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock : Ter
     /// </summary>
     public TerraformProperty<string>? ForceUpdateOnRepair
     {
-        get => GetProperty<TerraformProperty<string>>("force_update_on_repair");
-        set => WithProperty("force_update_on_repair", value);
+        set => SetProperty("force_update_on_repair", value);
     }
 
 }
@@ -94,8 +88,7 @@ public class GoogleComputeInstanceGroupManagerNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,8 +97,7 @@ public class GoogleComputeInstanceGroupManagerNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
 }
@@ -121,8 +113,7 @@ public class GoogleComputeInstanceGroupManagerResourcePoliciesBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? WorkloadPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("workload_policy");
-        set => WithProperty("workload_policy", value);
+        set => SetProperty("workload_policy", value);
     }
 
 }
@@ -138,8 +129,7 @@ public class GoogleComputeInstanceGroupManagerStandbyPolicyBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? InitialDelaySec
     {
-        get => GetProperty<TerraformProperty<double>>("initial_delay_sec");
-        set => WithProperty("initial_delay_sec", value);
+        set => SetProperty("initial_delay_sec", value);
     }
 
     /// <summary>
@@ -147,8 +137,7 @@ public class GoogleComputeInstanceGroupManagerStandbyPolicyBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -164,8 +153,7 @@ public class GoogleComputeInstanceGroupManagerStatefulDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeleteRule
     {
-        get => GetProperty<TerraformProperty<string>>("delete_rule");
-        set => WithProperty("delete_rule", value);
+        set => SetProperty("delete_rule", value);
     }
 
     /// <summary>
@@ -174,8 +162,7 @@ public class GoogleComputeInstanceGroupManagerStatefulDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
-        set => WithProperty("device_name", value);
+        set => SetProperty("device_name", value);
     }
 
 }
@@ -191,8 +178,7 @@ public class GoogleComputeInstanceGroupManagerStatefulExternalIpBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? DeleteRule
     {
-        get => GetProperty<TerraformProperty<string>>("delete_rule");
-        set => WithProperty("delete_rule", value);
+        set => SetProperty("delete_rule", value);
     }
 
     /// <summary>
@@ -200,8 +186,7 @@ public class GoogleComputeInstanceGroupManagerStatefulExternalIpBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? InterfaceName
     {
-        get => GetProperty<TerraformProperty<string>>("interface_name");
-        set => WithProperty("interface_name", value);
+        set => SetProperty("interface_name", value);
     }
 
 }
@@ -217,8 +202,7 @@ public class GoogleComputeInstanceGroupManagerStatefulInternalIpBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? DeleteRule
     {
-        get => GetProperty<TerraformProperty<string>>("delete_rule");
-        set => WithProperty("delete_rule", value);
+        set => SetProperty("delete_rule", value);
     }
 
     /// <summary>
@@ -226,8 +210,7 @@ public class GoogleComputeInstanceGroupManagerStatefulInternalIpBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? InterfaceName
     {
-        get => GetProperty<TerraformProperty<string>>("interface_name");
-        set => WithProperty("interface_name", value);
+        set => SetProperty("interface_name", value);
     }
 
 }
@@ -243,8 +226,7 @@ public class GoogleComputeInstanceGroupManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -252,8 +234,7 @@ public class GoogleComputeInstanceGroupManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -261,8 +242,7 @@ public class GoogleComputeInstanceGroupManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -278,8 +258,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxSurgeFixed
     {
-        get => GetProperty<TerraformProperty<double>>("max_surge_fixed");
-        set => WithProperty("max_surge_fixed", value);
+        set => SetProperty("max_surge_fixed", value);
     }
 
     /// <summary>
@@ -287,8 +266,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxSurgePercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_surge_percent");
-        set => WithProperty("max_surge_percent", value);
+        set => SetProperty("max_surge_percent", value);
     }
 
     /// <summary>
@@ -296,8 +274,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxUnavailableFixed
     {
-        get => GetProperty<TerraformProperty<double>>("max_unavailable_fixed");
-        set => WithProperty("max_unavailable_fixed", value);
+        set => SetProperty("max_unavailable_fixed", value);
     }
 
     /// <summary>
@@ -305,8 +282,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxUnavailablePercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_unavailable_percent");
-        set => WithProperty("max_unavailable_percent", value);
+        set => SetProperty("max_unavailable_percent", value);
     }
 
     /// <summary>
@@ -315,8 +291,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimalAction is required")]
     public required TerraformProperty<string> MinimalAction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("minimal_action");
-        set => WithProperty("minimal_action", value);
+        set => SetProperty("minimal_action", value);
     }
 
     /// <summary>
@@ -324,8 +299,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MostDisruptiveAllowedAction
     {
-        get => GetProperty<TerraformProperty<string>>("most_disruptive_allowed_action");
-        set => WithProperty("most_disruptive_allowed_action", value);
+        set => SetProperty("most_disruptive_allowed_action", value);
     }
 
     /// <summary>
@@ -333,8 +307,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ReplacementMethod
     {
-        get => GetProperty<TerraformProperty<string>>("replacement_method");
-        set => WithProperty("replacement_method", value);
+        set => SetProperty("replacement_method", value);
     }
 
     /// <summary>
@@ -343,8 +316,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -361,8 +333,7 @@ public class GoogleComputeInstanceGroupManagerVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceTemplate is required")]
     public required TerraformProperty<string> InstanceTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_template");
-        set => WithProperty("instance_template", value);
+        set => SetProperty("instance_template", value);
     }
 
     /// <summary>
@@ -370,8 +341,7 @@ public class GoogleComputeInstanceGroupManagerVersionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -389,13 +359,26 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("fingerprint");
-        this.WithOutput("instance_group");
-        this.WithOutput("instance_group_manager_id");
-        this.WithOutput("operation");
-        this.WithOutput("self_link");
-        this.WithOutput("status");
+        SetOutput("creation_timestamp");
+        SetOutput("fingerprint");
+        SetOutput("instance_group");
+        SetOutput("instance_group_manager_id");
+        SetOutput("operation");
+        SetOutput("self_link");
+        SetOutput("status");
+        SetOutput("base_instance_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("list_managed_instances_results");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("target_pools");
+        SetOutput("target_size");
+        SetOutput("target_stopped_size");
+        SetOutput("target_suspended_size");
+        SetOutput("wait_for_instances");
+        SetOutput("wait_for_instances_status");
+        SetOutput("zone");
     }
 
     /// <summary>
@@ -404,35 +387,35 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseInstanceName is required")]
     public required TerraformProperty<string> BaseInstanceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("base_instance_name");
-        set => this.WithProperty("base_instance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("base_instance_name");
+        set => SetProperty("base_instance_name", value);
     }
 
     /// <summary>
     /// An optional textual description of the instance group manager.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Pagination behavior of the listManagedInstances API method for this managed instance group. Valid values are: &amp;quot;PAGELESS&amp;quot;, &amp;quot;PAGINATED&amp;quot;. If PAGELESS (default), Pagination is disabled for the group&#39;s listManagedInstances API method. maxResults and pageToken query parameters are ignored and all instances are returned in a single response. If PAGINATED, pagination is enabled, maxResults and pageToken query parameters are respected.
     /// </summary>
-    public TerraformProperty<string>? ListManagedInstancesResults
+    public TerraformProperty<string> ListManagedInstancesResults
     {
-        get => GetProperty<TerraformProperty<string>>("list_managed_instances_results");
-        set => this.WithProperty("list_managed_instances_results", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("list_managed_instances_results");
+        set => SetProperty("list_managed_instances_results", value);
     }
 
     /// <summary>
@@ -441,80 +424,80 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The full URL of all target pools to which new instances in the group are added. Updating the target pools attribute does not affect existing instances.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? TargetPools
+    public HashSet<TerraformProperty<string>> TargetPools
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("target_pools");
-        set => this.WithProperty("target_pools", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("target_pools");
+        set => SetProperty("target_pools", value);
     }
 
     /// <summary>
     /// The target number of running instances for this managed instance group. This value should always be explicitly set unless this resource is attached to an autoscaler, in which case it should never be set. Defaults to 0.
     /// </summary>
-    public TerraformProperty<double>? TargetSize
+    public TerraformProperty<double> TargetSize
     {
-        get => GetProperty<TerraformProperty<double>>("target_size");
-        set => this.WithProperty("target_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("target_size");
+        set => SetProperty("target_size", value);
     }
 
     /// <summary>
     /// The target number of stopped instances for this managed instance group.
     /// </summary>
-    public TerraformProperty<double>? TargetStoppedSize
+    public TerraformProperty<double> TargetStoppedSize
     {
-        get => GetProperty<TerraformProperty<double>>("target_stopped_size");
-        set => this.WithProperty("target_stopped_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("target_stopped_size");
+        set => SetProperty("target_stopped_size", value);
     }
 
     /// <summary>
     /// The target number of suspended instances for this managed instance group.
     /// </summary>
-    public TerraformProperty<double>? TargetSuspendedSize
+    public TerraformProperty<double> TargetSuspendedSize
     {
-        get => GetProperty<TerraformProperty<double>>("target_suspended_size");
-        set => this.WithProperty("target_suspended_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("target_suspended_size");
+        set => SetProperty("target_suspended_size", value);
     }
 
     /// <summary>
     /// Whether to wait for all instances to be created/updated before returning. Note that if this is set to true and the operation does not succeed, Terraform will continue trying until it times out.
     /// </summary>
-    public TerraformProperty<bool>? WaitForInstances
+    public TerraformProperty<bool> WaitForInstances
     {
-        get => GetProperty<TerraformProperty<bool>>("wait_for_instances");
-        set => this.WithProperty("wait_for_instances", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_instances");
+        set => SetProperty("wait_for_instances", value);
     }
 
     /// <summary>
     /// When used with wait_for_instances specifies the status to wait for. When STABLE is specified this resource will wait until the instances are stable before returning. When UPDATED is set, it will wait for the version target to be reached and any per instance configs to be effective and all instances configs to be effective as well as all instances to be stable before returning.
     /// </summary>
-    public TerraformProperty<string>? WaitForInstancesStatus
+    public TerraformProperty<string> WaitForInstancesStatus
     {
-        get => GetProperty<TerraformProperty<string>>("wait_for_instances_status");
-        set => this.WithProperty("wait_for_instances_status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("wait_for_instances_status");
+        set => SetProperty("wait_for_instances_status", value);
     }
 
     /// <summary>
     /// The zone that instances in this group should be created in.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -524,8 +507,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllInstancesConfig block(s) allowed")]
     public List<GoogleComputeInstanceGroupManagerAllInstancesConfigBlock>? AllInstancesConfig
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupManagerAllInstancesConfigBlock>>("all_instances_config");
-        set => this.WithProperty("all_instances_config", value);
+        set => SetProperty("all_instances_config", value);
     }
 
     /// <summary>
@@ -535,8 +517,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoHealingPolicies block(s) allowed")]
     public List<GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock>? AutoHealingPolicies
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock>>("auto_healing_policies");
-        set => this.WithProperty("auto_healing_policies", value);
+        set => SetProperty("auto_healing_policies", value);
     }
 
     /// <summary>
@@ -546,8 +527,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceLifecyclePolicy block(s) allowed")]
     public List<GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock>? InstanceLifecyclePolicy
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock>>("instance_lifecycle_policy");
-        set => this.WithProperty("instance_lifecycle_policy", value);
+        set => SetProperty("instance_lifecycle_policy", value);
     }
 
     /// <summary>
@@ -556,8 +536,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeInstanceGroupManagerNamedPortBlock>? NamedPort
     {
-        get => GetProperty<HashSet<GoogleComputeInstanceGroupManagerNamedPortBlock>>("named_port");
-        set => this.WithProperty("named_port", value);
+        set => SetProperty("named_port", value);
     }
 
     /// <summary>
@@ -567,8 +546,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourcePolicies block(s) allowed")]
     public List<GoogleComputeInstanceGroupManagerResourcePoliciesBlock>? ResourcePolicies
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupManagerResourcePoliciesBlock>>("resource_policies");
-        set => this.WithProperty("resource_policies", value);
+        set => SetProperty("resource_policies", value);
     }
 
     /// <summary>
@@ -578,8 +556,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StandbyPolicy block(s) allowed")]
     public List<GoogleComputeInstanceGroupManagerStandbyPolicyBlock>? StandbyPolicy
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupManagerStandbyPolicyBlock>>("standby_policy");
-        set => this.WithProperty("standby_policy", value);
+        set => SetProperty("standby_policy", value);
     }
 
     /// <summary>
@@ -588,8 +565,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeInstanceGroupManagerStatefulDiskBlock>? StatefulDisk
     {
-        get => GetProperty<HashSet<GoogleComputeInstanceGroupManagerStatefulDiskBlock>>("stateful_disk");
-        set => this.WithProperty("stateful_disk", value);
+        set => SetProperty("stateful_disk", value);
     }
 
     /// <summary>
@@ -598,8 +574,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     public List<GoogleComputeInstanceGroupManagerStatefulExternalIpBlock>? StatefulExternalIp
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupManagerStatefulExternalIpBlock>>("stateful_external_ip");
-        set => this.WithProperty("stateful_external_ip", value);
+        set => SetProperty("stateful_external_ip", value);
     }
 
     /// <summary>
@@ -608,8 +583,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     public List<GoogleComputeInstanceGroupManagerStatefulInternalIpBlock>? StatefulInternalIp
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupManagerStatefulInternalIpBlock>>("stateful_internal_ip");
-        set => this.WithProperty("stateful_internal_ip", value);
+        set => SetProperty("stateful_internal_ip", value);
     }
 
     /// <summary>
@@ -618,8 +592,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     /// </summary>
     public GoogleComputeInstanceGroupManagerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeInstanceGroupManagerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -629,19 +602,18 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdatePolicy block(s) allowed")]
     public List<GoogleComputeInstanceGroupManagerUpdatePolicyBlock>? UpdatePolicy
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupManagerUpdatePolicyBlock>>("update_policy");
-        set => this.WithProperty("update_policy", value);
+        set => SetProperty("update_policy", value);
     }
 
     /// <summary>
     /// Block for version.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Version block(s) required")]
     public List<GoogleComputeInstanceGroupManagerVersionBlock>? Version
     {
-        get => GetProperty<List<GoogleComputeInstanceGroupManagerVersionBlock>>("version");
-        set => this.WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
     /// <summary>

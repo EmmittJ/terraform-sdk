@@ -14,6 +14,9 @@ public class AwsIamGroupPolicyAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("group");
+        SetOutput("id");
+        SetOutput("policy_arn");
     }
 
     /// <summary>
@@ -22,17 +25,17 @@ public class AwsIamGroupPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformProperty<string> Group
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group");
-        set => this.WithProperty("group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group");
+        set => SetProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,8 +44,8 @@ public class AwsIamGroupPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformProperty<string> PolicyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_arn");
-        set => this.WithProperty("policy_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_arn");
+        set => SetProperty("policy_arn", value);
     }
 
 }

@@ -37,8 +37,7 @@ public class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -46,8 +45,7 @@ public class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -55,8 +53,7 @@ public class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -73,8 +70,7 @@ public class AwsLexv2modelsSlotTypeValueSelectionSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolutionStrategy is required")]
     public required TerraformProperty<string> ResolutionStrategy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resolution_strategy");
-        set => WithProperty("resolution_strategy", value);
+        set => SetProperty("resolution_strategy", value);
     }
 
 }
@@ -91,8 +87,15 @@ public class AwsLexv2modelsSlotType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("slot_type_id");
+        SetOutput("id");
+        SetOutput("slot_type_id");
+        SetOutput("bot_id");
+        SetOutput("bot_version");
+        SetOutput("description");
+        SetOutput("locale_id");
+        SetOutput("name");
+        SetOutput("parent_slot_type_signature");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -101,8 +104,8 @@ public class AwsLexv2modelsSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformProperty<string> BotId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_id");
-        set => this.WithProperty("bot_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_id");
+        set => SetProperty("bot_id", value);
     }
 
     /// <summary>
@@ -111,17 +114,17 @@ public class AwsLexv2modelsSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformProperty<string> BotVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bot_version");
-        set => this.WithProperty("bot_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bot_version");
+        set => SetProperty("bot_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -130,8 +133,8 @@ public class AwsLexv2modelsSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformProperty<string> LocaleId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("locale_id");
-        set => this.WithProperty("locale_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("locale_id");
+        set => SetProperty("locale_id", value);
     }
 
     /// <summary>
@@ -140,26 +143,26 @@ public class AwsLexv2modelsSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parent_slot_type_signature attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentSlotTypeSignature
+    public TerraformProperty<string> ParentSlotTypeSignature
     {
-        get => GetProperty<TerraformProperty<string>>("parent_slot_type_signature");
-        set => this.WithProperty("parent_slot_type_signature", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_slot_type_signature");
+        set => SetProperty("parent_slot_type_signature", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -168,8 +171,7 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock>? CompositeSlotTypeSetting
     {
-        get => GetProperty<List<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock>>("composite_slot_type_setting");
-        set => this.WithProperty("composite_slot_type_setting", value);
+        set => SetProperty("composite_slot_type_setting", value);
     }
 
     /// <summary>
@@ -178,8 +180,7 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsSlotTypeExternalSourceSettingBlock>? ExternalSourceSetting
     {
-        get => GetProperty<List<AwsLexv2modelsSlotTypeExternalSourceSettingBlock>>("external_source_setting");
-        set => this.WithProperty("external_source_setting", value);
+        set => SetProperty("external_source_setting", value);
     }
 
     /// <summary>
@@ -188,8 +189,7 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsSlotTypeSlotTypeValuesBlock>? SlotTypeValues
     {
-        get => GetProperty<List<AwsLexv2modelsSlotTypeSlotTypeValuesBlock>>("slot_type_values");
-        set => this.WithProperty("slot_type_values", value);
+        set => SetProperty("slot_type_values", value);
     }
 
     /// <summary>
@@ -198,8 +198,7 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// </summary>
     public AwsLexv2modelsSlotTypeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLexv2modelsSlotTypeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -208,8 +207,7 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// </summary>
     public List<AwsLexv2modelsSlotTypeValueSelectionSettingBlock>? ValueSelectionSetting
     {
-        get => GetProperty<List<AwsLexv2modelsSlotTypeValueSelectionSettingBlock>>("value_selection_setting");
-        set => this.WithProperty("value_selection_setting", value);
+        set => SetProperty("value_selection_setting", value);
     }
 
     /// <summary>

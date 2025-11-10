@@ -14,17 +14,20 @@ public class AwsRoute53CidrLocation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("cidr_blocks");
+        SetOutput("cidr_collection_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlocks is required")]
-    public HashSet<TerraformProperty<string>>? CidrBlocks
+    public HashSet<TerraformProperty<string>> CidrBlocks
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("cidr_blocks");
-        set => this.WithProperty("cidr_blocks", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("cidr_blocks");
+        set => SetProperty("cidr_blocks", value);
     }
 
     /// <summary>
@@ -33,8 +36,8 @@ public class AwsRoute53CidrLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrCollectionId is required")]
     public required TerraformProperty<string> CidrCollectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cidr_collection_id");
-        set => this.WithProperty("cidr_collection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr_collection_id");
+        set => SetProperty("cidr_collection_id", value);
     }
 
     /// <summary>
@@ -43,8 +46,8 @@ public class AwsRoute53CidrLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

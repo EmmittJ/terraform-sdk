@@ -21,8 +21,7 @@ public class AzurermMonitorAutoscaleSettingPredictiveBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LookAheadTime
     {
-        get => GetProperty<TerraformProperty<string>>("look_ahead_time");
-        set => WithProperty("look_ahead_time", value);
+        set => SetProperty("look_ahead_time", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AzurermMonitorAutoscaleSettingPredictiveBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleMode is required")]
     public required TerraformProperty<string> ScaleMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scale_mode");
-        set => WithProperty("scale_mode", value);
+        set => SetProperty("scale_mode", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AzurermMonitorAutoscaleSettingProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -66,8 +63,7 @@ public class AzurermMonitorAutoscaleSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -75,8 +71,7 @@ public class AzurermMonitorAutoscaleSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -84,8 +79,7 @@ public class AzurermMonitorAutoscaleSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class AzurermMonitorAutoscaleSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -112,24 +105,31 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("target_resource_id");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -138,8 +138,8 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -148,8 +148,8 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -158,17 +158,17 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -177,8 +177,8 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
@@ -188,8 +188,7 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notification block(s) allowed")]
     public List<AzurermMonitorAutoscaleSettingNotificationBlock>? Notification
     {
-        get => GetProperty<List<AzurermMonitorAutoscaleSettingNotificationBlock>>("notification");
-        set => this.WithProperty("notification", value);
+        set => SetProperty("notification", value);
     }
 
     /// <summary>
@@ -199,20 +198,19 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Predictive block(s) allowed")]
     public List<AzurermMonitorAutoscaleSettingPredictiveBlock>? Predictive
     {
-        get => GetProperty<List<AzurermMonitorAutoscaleSettingPredictiveBlock>>("predictive");
-        set => this.WithProperty("predictive", value);
+        set => SetProperty("predictive", value);
     }
 
     /// <summary>
     /// Block for profile.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Profile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Profile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Profile block(s) allowed")]
     public List<AzurermMonitorAutoscaleSettingProfileBlock>? Profile
     {
-        get => GetProperty<List<AzurermMonitorAutoscaleSettingProfileBlock>>("profile");
-        set => this.WithProperty("profile", value);
+        set => SetProperty("profile", value);
     }
 
     /// <summary>
@@ -221,8 +219,7 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
     /// </summary>
     public AzurermMonitorAutoscaleSettingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorAutoscaleSettingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

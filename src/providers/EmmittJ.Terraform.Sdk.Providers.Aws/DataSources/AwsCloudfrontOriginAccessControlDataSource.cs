@@ -14,13 +14,14 @@ public class AwsCloudfrontOriginAccessControlDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("description");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("origin_access_control_origin_type");
-        this.WithOutput("signing_behavior");
-        this.WithOutput("signing_protocol");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("origin_access_control_origin_type");
+        SetOutput("signing_behavior");
+        SetOutput("signing_protocol");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -29,8 +30,8 @@ public class AwsCloudfrontOriginAccessControlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

@@ -14,24 +14,32 @@ public class AwsS3BucketPublicAccessBlock : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("block_public_acls");
+        SetOutput("block_public_policy");
+        SetOutput("bucket");
+        SetOutput("id");
+        SetOutput("ignore_public_acls");
+        SetOutput("region");
+        SetOutput("restrict_public_buckets");
+        SetOutput("skip_destroy");
     }
 
     /// <summary>
     /// The block_public_acls attribute.
     /// </summary>
-    public TerraformProperty<bool>? BlockPublicAcls
+    public TerraformProperty<bool> BlockPublicAcls
     {
-        get => GetProperty<TerraformProperty<bool>>("block_public_acls");
-        set => this.WithProperty("block_public_acls", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("block_public_acls");
+        set => SetProperty("block_public_acls", value);
     }
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
-    public TerraformProperty<bool>? BlockPublicPolicy
+    public TerraformProperty<bool> BlockPublicPolicy
     {
-        get => GetProperty<TerraformProperty<bool>>("block_public_policy");
-        set => this.WithProperty("block_public_policy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("block_public_policy");
+        set => SetProperty("block_public_policy", value);
     }
 
     /// <summary>
@@ -40,53 +48,53 @@ public class AwsS3BucketPublicAccessBlock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ignore_public_acls attribute.
     /// </summary>
-    public TerraformProperty<bool>? IgnorePublicAcls
+    public TerraformProperty<bool> IgnorePublicAcls
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_public_acls");
-        set => this.WithProperty("ignore_public_acls", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_public_acls");
+        set => SetProperty("ignore_public_acls", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The restrict_public_buckets attribute.
     /// </summary>
-    public TerraformProperty<bool>? RestrictPublicBuckets
+    public TerraformProperty<bool> RestrictPublicBuckets
     {
-        get => GetProperty<TerraformProperty<bool>>("restrict_public_buckets");
-        set => this.WithProperty("restrict_public_buckets", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("restrict_public_buckets");
+        set => SetProperty("restrict_public_buckets", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
 }

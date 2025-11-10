@@ -13,8 +13,7 @@ public class AzurermIothubConsumerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIothubConsumerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIothubConsumerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,11 @@ public class AzurermIothubConsumerGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("eventhub_endpoint_name");
+        SetOutput("id");
+        SetOutput("iothub_name");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -57,17 +59,17 @@ public class AzurermIothubConsumerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubEndpointName is required")]
     public required TerraformProperty<string> EventhubEndpointName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_endpoint_name");
-        set => this.WithProperty("eventhub_endpoint_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_endpoint_name");
+        set => SetProperty("eventhub_endpoint_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AzurermIothubConsumerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
     public required TerraformProperty<string> IothubName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iothub_name");
-        set => this.WithProperty("iothub_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iothub_name");
+        set => SetProperty("iothub_name", value);
     }
 
     /// <summary>
@@ -86,8 +88,8 @@ public class AzurermIothubConsumerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -96,8 +98,8 @@ public class AzurermIothubConsumerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -106,8 +108,7 @@ public class AzurermIothubConsumerGroup : TerraformResource
     /// </summary>
     public AzurermIothubConsumerGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIothubConsumerGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

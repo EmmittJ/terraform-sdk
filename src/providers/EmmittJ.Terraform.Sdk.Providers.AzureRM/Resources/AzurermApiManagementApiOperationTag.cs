@@ -13,8 +13,7 @@ public class AzurermApiManagementApiOperationTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementApiOperationTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementApiOperationTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementApiOperationTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,10 @@ public class AzurermApiManagementApiOperationTag : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_operation_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -66,8 +66,8 @@ public class AzurermApiManagementApiOperationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiOperationId is required")]
     public required TerraformProperty<string> ApiOperationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_operation_id");
-        set => this.WithProperty("api_operation_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_operation_id");
+        set => SetProperty("api_operation_id", value);
     }
 
     /// <summary>
@@ -76,17 +76,17 @@ public class AzurermApiManagementApiOperationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ public class AzurermApiManagementApiOperationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ public class AzurermApiManagementApiOperationTag : TerraformResource
     /// </summary>
     public AzurermApiManagementApiOperationTagTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementApiOperationTagTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

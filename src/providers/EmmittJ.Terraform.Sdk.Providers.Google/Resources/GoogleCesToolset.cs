@@ -14,8 +14,7 @@ public class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IgnoreUnknownFields
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_unknown_fields");
-        set => WithProperty("ignore_unknown_fields", value);
+        set => SetProperty("ignore_unknown_fields", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenApiSchema is required")]
     public required TerraformProperty<string> OpenApiSchema
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("open_api_schema");
-        set => WithProperty("open_api_schema", value);
+        set => SetProperty("open_api_schema", value);
     }
 
     /// <summary>
@@ -38,8 +36,7 @@ public class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -55,8 +52,7 @@ public class GoogleCesToolsetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -64,8 +60,7 @@ public class GoogleCesToolsetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -73,8 +68,7 @@ public class GoogleCesToolsetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -92,10 +86,18 @@ public class GoogleCesToolset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("app");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("execution_type");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("toolset_id");
     }
 
     /// <summary>
@@ -104,26 +106,26 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     public required TerraformProperty<string> App
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app");
-        set => this.WithProperty("app", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app");
+        set => SetProperty("app", value);
     }
 
     /// <summary>
     /// The description of the toolset.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The display name of the toolset. Must be unique within the same app.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -131,19 +133,19 @@ public class GoogleCesToolset : TerraformResource
     /// SYNCHRONOUS
     /// ASYNCHRONOUS
     /// </summary>
-    public TerraformProperty<string>? ExecutionType
+    public TerraformProperty<string> ExecutionType
     {
-        get => GetProperty<TerraformProperty<string>>("execution_type");
-        set => this.WithProperty("execution_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_type");
+        set => SetProperty("execution_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -152,17 +154,17 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -173,8 +175,8 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToolsetId is required")]
     public required TerraformProperty<string> ToolsetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("toolset_id");
-        set => this.WithProperty("toolset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("toolset_id");
+        set => SetProperty("toolset_id", value);
     }
 
     /// <summary>
@@ -184,8 +186,7 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApiToolset block(s) allowed")]
     public List<GoogleCesToolsetOpenApiToolsetBlock>? OpenApiToolset
     {
-        get => GetProperty<List<GoogleCesToolsetOpenApiToolsetBlock>>("open_api_toolset");
-        set => this.WithProperty("open_api_toolset", value);
+        set => SetProperty("open_api_toolset", value);
     }
 
     /// <summary>
@@ -194,8 +195,7 @@ public class GoogleCesToolset : TerraformResource
     /// </summary>
     public GoogleCesToolsetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCesToolsetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

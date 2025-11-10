@@ -13,8 +13,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowCredentials
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_credentials");
-        set => WithProperty("allow_credentials", value);
+        set => SetProperty("allow_credentials", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowHeaders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_headers");
-        set => WithProperty("allow_headers", value);
+        set => SetProperty("allow_headers", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowMethods
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_methods");
-        set => WithProperty("allow_methods", value);
+        set => SetProperty("allow_methods", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowOrigins
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_origins");
-        set => WithProperty("allow_origins", value);
+        set => SetProperty("allow_origins", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExposeHeaders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("expose_headers");
-        set => WithProperty("expose_headers", value);
+        set => SetProperty("expose_headers", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAge
     {
-        get => GetProperty<TerraformProperty<double>>("max_age");
-        set => WithProperty("max_age", value);
+        set => SetProperty("max_age", value);
     }
 
 }
@@ -75,8 +69,7 @@ public class AwsLambdaFunctionUrlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -94,9 +87,15 @@ public class AwsLambdaFunctionUrl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("function_arn");
-        this.WithOutput("function_url");
-        this.WithOutput("url_id");
+        SetOutput("function_arn");
+        SetOutput("function_url");
+        SetOutput("url_id");
+        SetOutput("authorization_type");
+        SetOutput("function_name");
+        SetOutput("id");
+        SetOutput("invoke_mode");
+        SetOutput("qualifier");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -105,8 +104,8 @@ public class AwsLambdaFunctionUrl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
     public required TerraformProperty<string> AuthorizationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorization_type");
-        set => this.WithProperty("authorization_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_type");
+        set => SetProperty("authorization_type", value);
     }
 
     /// <summary>
@@ -115,44 +114,44 @@ public class AwsLambdaFunctionUrl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The invoke_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? InvokeMode
+    public TerraformProperty<string> InvokeMode
     {
-        get => GetProperty<TerraformProperty<string>>("invoke_mode");
-        set => this.WithProperty("invoke_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("invoke_mode");
+        set => SetProperty("invoke_mode", value);
     }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string>? Qualifier
+    public TerraformProperty<string> Qualifier
     {
-        get => GetProperty<TerraformProperty<string>>("qualifier");
-        set => this.WithProperty("qualifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
+        set => SetProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -162,8 +161,7 @@ public class AwsLambdaFunctionUrl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     public List<AwsLambdaFunctionUrlCorsBlock>? Cors
     {
-        get => GetProperty<List<AwsLambdaFunctionUrlCorsBlock>>("cors");
-        set => this.WithProperty("cors", value);
+        set => SetProperty("cors", value);
     }
 
     /// <summary>
@@ -172,8 +170,7 @@ public class AwsLambdaFunctionUrl : TerraformResource
     /// </summary>
     public AwsLambdaFunctionUrlTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLambdaFunctionUrlTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CodebaseBranch
     {
-        get => GetProperty<TerraformProperty<string>>("codebase_branch");
-        set => WithProperty("codebase_branch", value);
+        set => SetProperty("codebase_branch", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => WithProperty("disabled", value);
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DisabledTime
     {
-        get => GetProperty<TerraformProperty<string>>("disabled_time");
-        set => WithProperty("disabled_time", value);
+        set => SetProperty("disabled_time", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class GoogleFirebaseAppHostingTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class GoogleFirebaseAppHostingTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleFirebaseAppHostingTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,13 +88,17 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("current");
-        this.WithOutput("delete_time");
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("current");
+        SetOutput("delete_time");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("backend");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -109,17 +107,17 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     public required TerraformProperty<string> Backend
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backend");
-        set => this.WithProperty("backend", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backend");
+        set => SetProperty("backend", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -128,17 +126,17 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -148,8 +146,7 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RolloutPolicy block(s) allowed")]
     public List<GoogleFirebaseAppHostingTrafficRolloutPolicyBlock>? RolloutPolicy
     {
-        get => GetProperty<List<GoogleFirebaseAppHostingTrafficRolloutPolicyBlock>>("rollout_policy");
-        set => this.WithProperty("rollout_policy", value);
+        set => SetProperty("rollout_policy", value);
     }
 
     /// <summary>
@@ -159,8 +156,7 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     public List<GoogleFirebaseAppHostingTrafficTargetBlock>? Target
     {
-        get => GetProperty<List<GoogleFirebaseAppHostingTrafficTargetBlock>>("target");
-        set => this.WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -169,8 +165,7 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// </summary>
     public GoogleFirebaseAppHostingTrafficTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleFirebaseAppHostingTrafficTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

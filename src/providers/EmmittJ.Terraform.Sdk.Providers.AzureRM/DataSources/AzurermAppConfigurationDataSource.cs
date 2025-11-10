@@ -13,8 +13,7 @@ public class AzurermAppConfigurationDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,33 +30,36 @@ public class AzurermAppConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("data_plane_proxy_authentication_mode");
-        this.WithOutput("data_plane_proxy_private_link_delegation_enabled");
-        this.WithOutput("encryption");
-        this.WithOutput("endpoint");
-        this.WithOutput("identity");
-        this.WithOutput("local_auth_enabled");
-        this.WithOutput("location");
-        this.WithOutput("primary_read_key");
-        this.WithOutput("primary_write_key");
-        this.WithOutput("public_network_access");
-        this.WithOutput("public_network_access_enabled");
-        this.WithOutput("purge_protection_enabled");
-        this.WithOutput("replica");
-        this.WithOutput("secondary_read_key");
-        this.WithOutput("secondary_write_key");
-        this.WithOutput("sku");
-        this.WithOutput("soft_delete_retention_days");
-        this.WithOutput("tags");
+        SetOutput("data_plane_proxy_authentication_mode");
+        SetOutput("data_plane_proxy_private_link_delegation_enabled");
+        SetOutput("encryption");
+        SetOutput("endpoint");
+        SetOutput("identity");
+        SetOutput("local_auth_enabled");
+        SetOutput("location");
+        SetOutput("primary_read_key");
+        SetOutput("primary_write_key");
+        SetOutput("public_network_access");
+        SetOutput("public_network_access_enabled");
+        SetOutput("purge_protection_enabled");
+        SetOutput("replica");
+        SetOutput("secondary_read_key");
+        SetOutput("secondary_write_key");
+        SetOutput("sku");
+        SetOutput("soft_delete_retention_days");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermAppConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AzurermAppConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -86,8 +88,7 @@ public class AzurermAppConfigurationDataSource : TerraformDataSource
     /// </summary>
     public AzurermAppConfigurationDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppConfigurationDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

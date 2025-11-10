@@ -14,8 +14,7 @@ public class GoogleDataPipelinePipelineScheduleInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NextJobTime
     {
-        get => GetProperty<TerraformProperty<string>>("next_job_time");
-        set => WithProperty("next_job_time", value);
+        set => SetProperty("next_job_time", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleDataPipelinePipelineScheduleInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
-        set => WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleDataPipelinePipelineScheduleInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class GoogleDataPipelinePipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleDataPipelinePipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class GoogleDataPipelinePipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,27 +88,36 @@ public class GoogleDataPipelinePipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("job_count");
-        this.WithOutput("last_update_time");
+        SetOutput("create_time");
+        SetOutput("job_count");
+        SetOutput("last_update_time");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("pipeline_sources");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("scheduler_service_account_email");
+        SetOutput("state");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The display name of the pipeline. It can contain only letters ([A-Za-z]), numbers ([0-9]), hyphens (-), and underscores (_).
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -126,45 +129,45 @@ public class GoogleDataPipelinePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The sources of the pipeline (for example, Dataplex). The keys and values are set by the corresponding sources during pipeline creation.
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? PipelineSources
+    public Dictionary<string, TerraformProperty<string>> PipelineSources
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("pipeline_sources");
-        set => this.WithProperty("pipeline_sources", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("pipeline_sources");
+        set => SetProperty("pipeline_sources", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// A reference to the region
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Optional. A service account email to be used with the Cloud Scheduler job. If not specified, the default compute engine service account will be used.
     /// </summary>
-    public TerraformProperty<string>? SchedulerServiceAccountEmail
+    public TerraformProperty<string> SchedulerServiceAccountEmail
     {
-        get => GetProperty<TerraformProperty<string>>("scheduler_service_account_email");
-        set => this.WithProperty("scheduler_service_account_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scheduler_service_account_email");
+        set => SetProperty("scheduler_service_account_email", value);
     }
 
     /// <summary>
@@ -174,8 +177,8 @@ public class GoogleDataPipelinePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -185,8 +188,8 @@ public class GoogleDataPipelinePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -196,8 +199,7 @@ public class GoogleDataPipelinePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleInfo block(s) allowed")]
     public List<GoogleDataPipelinePipelineScheduleInfoBlock>? ScheduleInfo
     {
-        get => GetProperty<List<GoogleDataPipelinePipelineScheduleInfoBlock>>("schedule_info");
-        set => this.WithProperty("schedule_info", value);
+        set => SetProperty("schedule_info", value);
     }
 
     /// <summary>
@@ -206,8 +208,7 @@ public class GoogleDataPipelinePipeline : TerraformResource
     /// </summary>
     public GoogleDataPipelinePipelineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataPipelinePipelineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -217,8 +218,7 @@ public class GoogleDataPipelinePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Workload block(s) allowed")]
     public List<GoogleDataPipelinePipelineWorkloadBlock>? Workload
     {
-        get => GetProperty<List<GoogleDataPipelinePipelineWorkloadBlock>>("workload");
-        set => this.WithProperty("workload", value);
+        set => SetProperty("workload", value);
     }
 
     /// <summary>

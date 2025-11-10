@@ -14,8 +14,7 @@ public class AwsAppconfigEnvironmentMonitorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmArn is required")]
     public required TerraformProperty<string> AlarmArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alarm_arn");
-        set => WithProperty("alarm_arn", value);
+        set => SetProperty("alarm_arn", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsAppconfigEnvironmentMonitorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AlarmRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("alarm_role_arn");
-        set => WithProperty("alarm_role_arn", value);
+        set => SetProperty("alarm_role_arn", value);
     }
 
 }
@@ -41,11 +39,16 @@ public class AwsAppconfigEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("environment_id");
-        this.WithOutput("id");
-        this.WithOutput("state");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("environment_id");
+        SetOutput("id");
+        SetOutput("state");
+        SetOutput("tags_all");
+        SetOutput("application_id");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -54,17 +57,17 @@ public class AwsAppconfigEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -73,26 +76,26 @@ public class AwsAppconfigEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -101,8 +104,7 @@ public class AwsAppconfigEnvironment : TerraformResource
     /// </summary>
     public HashSet<AwsAppconfigEnvironmentMonitorBlock>? Monitor
     {
-        get => GetProperty<HashSet<AwsAppconfigEnvironmentMonitorBlock>>("monitor");
-        set => this.WithProperty("monitor", value);
+        set => SetProperty("monitor", value);
     }
 
     /// <summary>

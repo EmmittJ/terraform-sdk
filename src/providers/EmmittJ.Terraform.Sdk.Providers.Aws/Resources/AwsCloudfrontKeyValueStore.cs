@@ -13,8 +13,7 @@ public class AwsCloudfrontKeyValueStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,19 +30,21 @@ public class AwsCloudfrontKeyValueStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("etag");
-        this.WithOutput("id");
-        this.WithOutput("last_modified_time");
+        SetOutput("arn");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("last_modified_time");
+        SetOutput("comment");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
@@ -52,8 +53,8 @@ public class AwsCloudfrontKeyValueStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -62,8 +63,7 @@ public class AwsCloudfrontKeyValueStore : TerraformResource
     /// </summary>
     public AwsCloudfrontKeyValueStoreTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCloudfrontKeyValueStoreTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

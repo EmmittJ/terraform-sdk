@@ -13,8 +13,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BlobUri
     {
-        get => GetProperty<TerraformProperty<string>>("blob_uri");
-        set => WithProperty("blob_uri", value);
+        set => SetProperty("blob_uri", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
-        set => WithProperty("caching", value);
+        set => SetProperty("caching", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionSetId
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_set_id");
-        set => WithProperty("disk_encryption_set_id", value);
+        set => SetProperty("disk_encryption_set_id", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Lun
     {
-        get => GetProperty<TerraformProperty<double>>("lun");
-        set => WithProperty("lun", value);
+        set => SetProperty("lun", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedDiskId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_id");
-        set => WithProperty("managed_disk_id", value);
+        set => SetProperty("managed_disk_id", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("size_gb");
-        set => WithProperty("size_gb", value);
+        set => SetProperty("size_gb", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermImageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     public required TerraformProperty<string> StorageType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_type");
-        set => WithProperty("storage_type", value);
+        set => SetProperty("storage_type", value);
     }
 
 }
@@ -85,8 +78,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BlobUri
     {
-        get => GetProperty<TerraformProperty<string>>("blob_uri");
-        set => WithProperty("blob_uri", value);
+        set => SetProperty("blob_uri", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
-        set => WithProperty("caching", value);
+        set => SetProperty("caching", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskEncryptionSetId
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_set_id");
-        set => WithProperty("disk_encryption_set_id", value);
+        set => SetProperty("disk_encryption_set_id", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedDiskId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_id");
-        set => WithProperty("managed_disk_id", value);
+        set => SetProperty("managed_disk_id", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OsState
     {
-        get => GetProperty<TerraformProperty<string>>("os_state");
-        set => WithProperty("os_state", value);
+        set => SetProperty("os_state", value);
     }
 
     /// <summary>
@@ -130,8 +118,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OsType
     {
-        get => GetProperty<TerraformProperty<string>>("os_type");
-        set => WithProperty("os_type", value);
+        set => SetProperty("os_type", value);
     }
 
     /// <summary>
@@ -139,8 +126,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("size_gb");
-        set => WithProperty("size_gb", value);
+        set => SetProperty("size_gb", value);
     }
 
     /// <summary>
@@ -149,8 +135,7 @@ public class AzurermImageOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     public required TerraformProperty<string> StorageType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_type");
-        set => WithProperty("storage_type", value);
+        set => SetProperty("storage_type", value);
     }
 
 }
@@ -166,8 +151,7 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -175,8 +159,7 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -184,8 +167,7 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -193,8 +175,7 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -212,24 +193,32 @@ public class AzurermImage : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("hyper_v_generation");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("source_virtual_machine_id");
+        SetOutput("tags");
+        SetOutput("zone_resilient");
     }
 
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
-    public TerraformProperty<string>? HyperVGeneration
+    public TerraformProperty<string> HyperVGeneration
     {
-        get => GetProperty<TerraformProperty<string>>("hyper_v_generation");
-        set => this.WithProperty("hyper_v_generation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hyper_v_generation");
+        set => SetProperty("hyper_v_generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -238,8 +227,8 @@ public class AzurermImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -248,8 +237,8 @@ public class AzurermImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -258,35 +247,35 @@ public class AzurermImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_virtual_machine_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceVirtualMachineId
+    public TerraformProperty<string> SourceVirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("source_virtual_machine_id");
-        set => this.WithProperty("source_virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_virtual_machine_id");
+        set => SetProperty("source_virtual_machine_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_resilient attribute.
     /// </summary>
-    public TerraformProperty<bool>? ZoneResilient
+    public TerraformProperty<bool> ZoneResilient
     {
-        get => GetProperty<TerraformProperty<bool>>("zone_resilient");
-        set => this.WithProperty("zone_resilient", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("zone_resilient");
+        set => SetProperty("zone_resilient", value);
     }
 
     /// <summary>
@@ -295,8 +284,7 @@ public class AzurermImage : TerraformResource
     /// </summary>
     public List<AzurermImageDataDiskBlock>? DataDisk
     {
-        get => GetProperty<List<AzurermImageDataDiskBlock>>("data_disk");
-        set => this.WithProperty("data_disk", value);
+        set => SetProperty("data_disk", value);
     }
 
     /// <summary>
@@ -306,8 +294,7 @@ public class AzurermImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
     public List<AzurermImageOsDiskBlock>? OsDisk
     {
-        get => GetProperty<List<AzurermImageOsDiskBlock>>("os_disk");
-        set => this.WithProperty("os_disk", value);
+        set => SetProperty("os_disk", value);
     }
 
     /// <summary>
@@ -316,8 +303,7 @@ public class AzurermImage : TerraformResource
     /// </summary>
     public AzurermImageTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermImageTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

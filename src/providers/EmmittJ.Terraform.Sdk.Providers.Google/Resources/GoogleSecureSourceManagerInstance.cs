@@ -13,8 +13,7 @@ public class GoogleSecureSourceManagerInstancePrivateConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? CaPool
     {
-        get => GetProperty<TerraformProperty<string>>("ca_pool");
-        set => WithProperty("ca_pool", value);
+        set => SetProperty("ca_pool", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSecureSourceManagerInstancePrivateConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? HttpServiceAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("http_service_attachment");
-        set => WithProperty("http_service_attachment", value);
+        set => SetProperty("http_service_attachment", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleSecureSourceManagerInstancePrivateConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrivate is required")]
     public required TerraformProperty<bool> IsPrivate
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("is_private");
-        set => WithProperty("is_private", value);
+        set => SetProperty("is_private", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class GoogleSecureSourceManagerInstancePrivateConfigBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? SshServiceAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("ssh_service_attachment");
-        set => WithProperty("ssh_service_attachment", value);
+        set => SetProperty("ssh_service_attachment", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class GoogleSecureSourceManagerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class GoogleSecureSourceManagerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class GoogleSecureSourceManagerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,8 +87,7 @@ public class GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -113,14 +105,21 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("host_config");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("state_note");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("host_config");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("state_note");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("deletion_policy");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("kms_key");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -133,19 +132,19 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     ///   * PREVENT
     ///   * ABANDON
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -154,17 +153,17 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// Customer-managed encryption key name, in the format projects/*/locations/*/keyRings/*/cryptoKeys/*.
     /// </summary>
-    public TerraformProperty<string>? KmsKey
+    public TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => this.WithProperty("kms_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
@@ -174,10 +173,10 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -186,17 +185,17 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -206,8 +205,7 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateConfig block(s) allowed")]
     public List<GoogleSecureSourceManagerInstancePrivateConfigBlock>? PrivateConfig
     {
-        get => GetProperty<List<GoogleSecureSourceManagerInstancePrivateConfigBlock>>("private_config");
-        set => this.WithProperty("private_config", value);
+        set => SetProperty("private_config", value);
     }
 
     /// <summary>
@@ -216,8 +214,7 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     public GoogleSecureSourceManagerInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSecureSourceManagerInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -227,8 +224,7 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkforceIdentityFederationConfig block(s) allowed")]
     public List<GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock>? WorkforceIdentityFederationConfig
     {
-        get => GetProperty<List<GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock>>("workforce_identity_federation_config");
-        set => this.WithProperty("workforce_identity_federation_config", value);
+        set => SetProperty("workforce_identity_federation_config", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
-        set => WithProperty("host", value);
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
     public required TerraformProperty<string> Operation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("operation");
-        set => WithProperty("operation", value);
+        set => SetProperty("operation", value);
     }
 
     /// <summary>
@@ -35,8 +33,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PermissionType
     {
-        get => GetProperty<TerraformProperty<string>>("permission_type");
-        set => WithProperty("permission_type", value);
+        set => SetProperty("permission_type", value);
     }
 
     /// <summary>
@@ -45,8 +42,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => WithProperty("principal", value);
+        set => SetProperty("principal", value);
     }
 
 }
@@ -62,8 +58,7 @@ public class GoogleManagedKafkaAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class GoogleManagedKafkaAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -80,8 +74,7 @@ public class GoogleManagedKafkaAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -99,11 +92,16 @@ public class GoogleManagedKafkaAcl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("name");
-        this.WithOutput("pattern_type");
-        this.WithOutput("resource_name");
-        this.WithOutput("resource_type");
+        SetOutput("etag");
+        SetOutput("name");
+        SetOutput("pattern_type");
+        SetOutput("resource_name");
+        SetOutput("resource_type");
+        SetOutput("acl_id");
+        SetOutput("cluster");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -116,8 +114,8 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclId is required")]
     public required TerraformProperty<string> AclId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("acl_id");
-        set => this.WithProperty("acl_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("acl_id");
+        set => SetProperty("acl_id", value);
     }
 
     /// <summary>
@@ -126,17 +124,17 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -145,28 +143,28 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for acl_entries.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclEntries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AclEntries block(s) required")]
     public HashSet<GoogleManagedKafkaAclAclEntriesBlock>? AclEntries
     {
-        get => GetProperty<HashSet<GoogleManagedKafkaAclAclEntriesBlock>>("acl_entries");
-        set => this.WithProperty("acl_entries", value);
+        set => SetProperty("acl_entries", value);
     }
 
     /// <summary>
@@ -175,8 +173,7 @@ public class GoogleManagedKafkaAcl : TerraformResource
     /// </summary>
     public GoogleManagedKafkaAclTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleManagedKafkaAclTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -184,7 +181,7 @@ public class GoogleManagedKafkaAcl : TerraformResource
     /// response to &#39;GetAcl&#39; and &#39;CreateAcl&#39;. Callers are required to put that etag
     /// in the request to &#39;UpdateAcl&#39; to ensure that their change will be applied
     /// to the same version of the acl that exists in the Kafka Cluster.
-    ///
+    /// 
     /// A terminal &#39;T&#39; character in the etag indicates that the AclEntries were
     /// truncated due to repeated field limits.
     /// </summary>

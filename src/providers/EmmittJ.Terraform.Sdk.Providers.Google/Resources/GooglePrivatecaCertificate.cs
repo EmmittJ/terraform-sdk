@@ -21,8 +21,7 @@ public class GooglePrivatecaCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GooglePrivatecaCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GooglePrivatecaCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +55,25 @@ public class GooglePrivatecaCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificate_description");
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("issuer_certificate_authority");
-        this.WithOutput("pem_certificate");
-        this.WithOutput("pem_certificate_chain");
-        this.WithOutput("revocation_details");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("certificate_description");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("issuer_certificate_authority");
+        SetOutput("pem_certificate");
+        SetOutput("pem_certificate_chain");
+        SetOutput("revocation_details");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("certificate_authority");
+        SetOutput("certificate_template");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("lifetime");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("pem_csr");
+        SetOutput("pool");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -75,10 +82,10 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// argument &#39;pool&#39; should be set to &#39;projects/my-project/locations/us-central1/caPools/my-pool&#39;, argument &#39;certificate_authority&#39;
     /// should be set to &#39;my-ca&#39;.
     /// </summary>
-    public TerraformProperty<string>? CertificateAuthority
+    public TerraformProperty<string> CertificateAuthority
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_authority");
-        set => this.WithProperty("certificate_authority", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_authority");
+        set => SetProperty("certificate_authority", value);
     }
 
     /// <summary>
@@ -88,19 +95,19 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// omitted, no template will be used. This template must be in the same location
     /// as the Certificate.
     /// </summary>
-    public TerraformProperty<string>? CertificateTemplate
+    public TerraformProperty<string> CertificateTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_template");
-        set => this.WithProperty("certificate_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_template");
+        set => SetProperty("certificate_template", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -110,10 +117,10 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -121,10 +128,10 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// &amp;quot;notAfterTime&amp;quot; fields inside an X.509 certificate. A duration in seconds with up to nine
     /// fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Lifetime
+    public TerraformProperty<string> Lifetime
     {
-        get => GetProperty<TerraformProperty<string>>("lifetime");
-        set => this.WithProperty("lifetime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lifetime");
+        set => SetProperty("lifetime", value);
     }
 
     /// <summary>
@@ -134,8 +141,8 @@ public class GooglePrivatecaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -144,17 +151,17 @@ public class GooglePrivatecaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Immutable. A pem-encoded X.509 certificate signing request (CSR).
     /// </summary>
-    public TerraformProperty<string>? PemCsr
+    public TerraformProperty<string> PemCsr
     {
-        get => GetProperty<TerraformProperty<string>>("pem_csr");
-        set => this.WithProperty("pem_csr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pem_csr");
+        set => SetProperty("pem_csr", value);
     }
 
     /// <summary>
@@ -163,17 +170,17 @@ public class GooglePrivatecaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
     public required TerraformProperty<string> Pool
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pool");
-        set => this.WithProperty("pool", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool");
+        set => SetProperty("pool", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -183,8 +190,7 @@ public class GooglePrivatecaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     public List<GooglePrivatecaCertificateConfigBlock>? Config
     {
-        get => GetProperty<List<GooglePrivatecaCertificateConfigBlock>>("config");
-        set => this.WithProperty("config", value);
+        set => SetProperty("config", value);
     }
 
     /// <summary>
@@ -193,8 +199,7 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     public GooglePrivatecaCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GooglePrivatecaCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

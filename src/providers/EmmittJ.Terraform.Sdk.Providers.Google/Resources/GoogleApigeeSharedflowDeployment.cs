@@ -13,8 +13,7 @@ public class GoogleApigeeSharedflowDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeSharedflowDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeSharedflowDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,6 +46,12 @@ public class GoogleApigeeSharedflowDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("environment");
+        SetOutput("id");
+        SetOutput("org_id");
+        SetOutput("revision");
+        SetOutput("service_account");
+        SetOutput("sharedflow_id");
     }
 
     /// <summary>
@@ -57,17 +60,17 @@ public class GoogleApigeeSharedflowDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment");
-        set => this.WithProperty("environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment");
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +79,8 @@ public class GoogleApigeeSharedflowDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -86,17 +89,17 @@ public class GoogleApigeeSharedflowDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformProperty<string> Revision
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("revision");
-        set => this.WithProperty("revision", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revision");
+        set => SetProperty("revision", value);
     }
 
     /// <summary>
     /// The service account represents the identity of the deployed proxy, and determines what permissions it has. The format must be {ACCOUNT_ID}@{PROJECT}.iam.gserviceaccount.com.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
+    public TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => this.WithProperty("service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
@@ -105,8 +108,8 @@ public class GoogleApigeeSharedflowDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedflowId is required")]
     public required TerraformProperty<string> SharedflowId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sharedflow_id");
-        set => this.WithProperty("sharedflow_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sharedflow_id");
+        set => SetProperty("sharedflow_id", value);
     }
 
     /// <summary>
@@ -115,8 +118,7 @@ public class GoogleApigeeSharedflowDeployment : TerraformResource
     /// </summary>
     public GoogleApigeeSharedflowDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeSharedflowDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,11 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("directory_scope_id");
+        SetOutput("id");
+        SetOutput("justification");
+        SetOutput("principal_id");
+        SetOutput("role_definition_id");
     }
 
     /// <summary>
@@ -57,17 +59,17 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryScopeId is required")]
     public required TerraformProperty<string> DirectoryScopeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("directory_scope_id");
-        set => this.WithProperty("directory_scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_scope_id");
+        set => SetProperty("directory_scope_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Justification is required")]
     public required TerraformProperty<string> Justification
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("justification");
-        set => this.WithProperty("justification", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("justification");
+        set => SetProperty("justification", value);
     }
 
     /// <summary>
@@ -86,8 +88,8 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -96,8 +98,8 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
-        set => this.WithProperty("role_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
+        set => SetProperty("role_definition_id", value);
     }
 
     /// <summary>
@@ -106,8 +108,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     /// </summary>
     public AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

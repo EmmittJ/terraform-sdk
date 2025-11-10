@@ -13,8 +13,7 @@ public class AzurermSignalrServiceNetworkAclPrivateEndpointBlock : TerraformBloc
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedRequestTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_request_types");
-        set => WithProperty("allowed_request_types", value);
+        set => SetProperty("allowed_request_types", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSignalrServiceNetworkAclPrivateEndpointBlock : TerraformBloc
     /// </summary>
     public HashSet<TerraformProperty<string>>? DeniedRequestTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("denied_request_types");
-        set => WithProperty("denied_request_types", value);
+        set => SetProperty("denied_request_types", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermSignalrServiceNetworkAclPrivateEndpointBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermSignalrServiceNetworkAclPublicNetworkBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedRequestTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_request_types");
-        set => WithProperty("allowed_request_types", value);
+        set => SetProperty("allowed_request_types", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermSignalrServiceNetworkAclPublicNetworkBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? DeniedRequestTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("denied_request_types");
-        set => WithProperty("denied_request_types", value);
+        set => SetProperty("denied_request_types", value);
     }
 
 }
@@ -75,8 +70,7 @@ public class AzurermSignalrServiceNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AzurermSignalrServiceNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermSignalrServiceNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AzurermSignalrServiceNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,6 +112,9 @@ public class AzurermSignalrServiceNetworkAcl : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("default_action");
+        SetOutput("id");
+        SetOutput("signalr_service_id");
     }
 
     /// <summary>
@@ -129,17 +123,17 @@ public class AzurermSignalrServiceNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformProperty<string> DefaultAction
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_action");
-        set => this.WithProperty("default_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_action");
+        set => SetProperty("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -148,8 +142,8 @@ public class AzurermSignalrServiceNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     public required TerraformProperty<string> SignalrServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("signalr_service_id");
-        set => this.WithProperty("signalr_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("signalr_service_id");
+        set => SetProperty("signalr_service_id", value);
     }
 
     /// <summary>
@@ -158,20 +152,19 @@ public class AzurermSignalrServiceNetworkAcl : TerraformResource
     /// </summary>
     public HashSet<AzurermSignalrServiceNetworkAclPrivateEndpointBlock>? PrivateEndpoint
     {
-        get => GetProperty<HashSet<AzurermSignalrServiceNetworkAclPrivateEndpointBlock>>("private_endpoint");
-        set => this.WithProperty("private_endpoint", value);
+        set => SetProperty("private_endpoint", value);
     }
 
     /// <summary>
     /// Block for public_network.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetwork is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PublicNetwork block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicNetwork block(s) allowed")]
     public List<AzurermSignalrServiceNetworkAclPublicNetworkBlock>? PublicNetwork
     {
-        get => GetProperty<List<AzurermSignalrServiceNetworkAclPublicNetworkBlock>>("public_network");
-        set => this.WithProperty("public_network", value);
+        set => SetProperty("public_network", value);
     }
 
     /// <summary>
@@ -180,8 +173,7 @@ public class AzurermSignalrServiceNetworkAcl : TerraformResource
     /// </summary>
     public AzurermSignalrServiceNetworkAclTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSignalrServiceNetworkAclTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

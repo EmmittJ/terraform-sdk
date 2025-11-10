@@ -14,8 +14,7 @@ public class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieBehavior is required")]
     public required TerraformProperty<string> CookieBehavior
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cookie_behavior");
-        set => WithProperty("cookie_behavior", value);
+        set => SetProperty("cookie_behavior", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsCloudfrontOriginRequestPolicyHeadersConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HeaderBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("header_behavior");
-        set => WithProperty("header_behavior", value);
+        set => SetProperty("header_behavior", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStringBehavior is required")]
     public required TerraformProperty<string> QueryStringBehavior
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query_string_behavior");
-        set => WithProperty("query_string_behavior", value);
+        set => SetProperty("query_string_behavior", value);
     }
 
 }
@@ -68,26 +65,29 @@ public class AwsCloudfrontOriginRequestPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("etag");
+        SetOutput("arn");
+        SetOutput("etag");
+        SetOutput("comment");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -96,44 +96,44 @@ public class AwsCloudfrontOriginRequestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Block for cookies_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookiesConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CookiesConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CookiesConfig block(s) allowed")]
     public List<AwsCloudfrontOriginRequestPolicyCookiesConfigBlock>? CookiesConfig
     {
-        get => GetProperty<List<AwsCloudfrontOriginRequestPolicyCookiesConfigBlock>>("cookies_config");
-        set => this.WithProperty("cookies_config", value);
+        set => SetProperty("cookies_config", value);
     }
 
     /// <summary>
     /// Block for headers_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeadersConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HeadersConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeadersConfig block(s) allowed")]
     public List<AwsCloudfrontOriginRequestPolicyHeadersConfigBlock>? HeadersConfig
     {
-        get => GetProperty<List<AwsCloudfrontOriginRequestPolicyHeadersConfigBlock>>("headers_config");
-        set => this.WithProperty("headers_config", value);
+        set => SetProperty("headers_config", value);
     }
 
     /// <summary>
     /// Block for query_strings_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStringsConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QueryStringsConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryStringsConfig block(s) allowed")]
     public List<AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock>? QueryStringsConfig
     {
-        get => GetProperty<List<AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock>>("query_strings_config");
-        set => this.WithProperty("query_strings_config", value);
+        set => SetProperty("query_strings_config", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermMobileNetworkSiteDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,18 +30,21 @@ public class AzurermMobileNetworkSiteDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("location");
-        this.WithOutput("network_function_ids");
-        this.WithOutput("tags");
+        SetOutput("location");
+        SetOutput("network_function_ids");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("mobile_network_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +53,8 @@ public class AzurermMobileNetworkSiteDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformProperty<string> MobileNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_id");
-        set => this.WithProperty("mobile_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_id");
+        set => SetProperty("mobile_network_id", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermMobileNetworkSiteDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,8 +73,7 @@ public class AzurermMobileNetworkSiteDataSource : TerraformDataSource
     /// </summary>
     public AzurermMobileNetworkSiteDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMobileNetworkSiteDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

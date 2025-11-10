@@ -14,25 +14,31 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("item");
+        SetOutput("item");
+        SetOutput("expression_attribute_names");
+        SetOutput("id");
+        SetOutput("key");
+        SetOutput("projection_expression");
+        SetOutput("region");
+        SetOutput("table_name");
     }
 
     /// <summary>
     /// The expression_attribute_names attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ExpressionAttributeNames
+    public Dictionary<string, TerraformProperty<string>> ExpressionAttributeNames
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("expression_attribute_names");
-        set => this.WithProperty("expression_attribute_names", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("expression_attribute_names");
+        set => SetProperty("expression_attribute_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,26 +47,26 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => this.WithProperty("key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key");
+        set => SetProperty("key", value);
     }
 
     /// <summary>
     /// The projection_expression attribute.
     /// </summary>
-    public TerraformProperty<string>? ProjectionExpression
+    public TerraformProperty<string> ProjectionExpression
     {
-        get => GetProperty<TerraformProperty<string>>("projection_expression");
-        set => this.WithProperty("projection_expression", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("projection_expression");
+        set => SetProperty("projection_expression", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,8 +75,8 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>

@@ -19,8 +19,7 @@ public class GoogleHealthcareHl7V2StoreNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
-        set => WithProperty("pubsub_topic", value);
+        set => SetProperty("pubsub_topic", value);
     }
 
 }
@@ -46,8 +45,7 @@ public class GoogleHealthcareHl7V2StoreNotificationConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -63,8 +61,7 @@ public class GoogleHealthcareHl7V2StoreNotificationConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
-        set => WithProperty("pubsub_topic", value);
+        set => SetProperty("pubsub_topic", value);
     }
 
 }
@@ -80,8 +77,7 @@ public class GoogleHealthcareHl7V2StoreParserConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowNullHeader
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_null_header");
-        set => WithProperty("allow_null_header", value);
+        set => SetProperty("allow_null_header", value);
     }
 
     /// <summary>
@@ -90,8 +86,7 @@ public class GoogleHealthcareHl7V2StoreParserConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
-        set => WithProperty("schema", value);
+        set => SetProperty("schema", value);
     }
 
     /// <summary>
@@ -101,8 +96,7 @@ public class GoogleHealthcareHl7V2StoreParserConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SegmentTerminator
     {
-        get => GetProperty<TerraformProperty<string>>("segment_terminator");
-        set => WithProperty("segment_terminator", value);
+        set => SetProperty("segment_terminator", value);
     }
 
     /// <summary>
@@ -110,8 +104,7 @@ public class GoogleHealthcareHl7V2StoreParserConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -127,8 +120,7 @@ public class GoogleHealthcareHl7V2StoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -136,8 +128,7 @@ public class GoogleHealthcareHl7V2StoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -145,8 +136,7 @@ public class GoogleHealthcareHl7V2StoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -164,9 +154,14 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("dataset");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("reject_duplicate_message");
     }
 
     /// <summary>
@@ -176,17 +171,17 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
-        set => this.WithProperty("dataset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -207,10 +202,10 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -221,17 +216,17 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Determines whether duplicate messages are allowed.
     /// </summary>
-    public TerraformProperty<bool>? RejectDuplicateMessage
+    public TerraformProperty<bool> RejectDuplicateMessage
     {
-        get => GetProperty<TerraformProperty<bool>>("reject_duplicate_message");
-        set => this.WithProperty("reject_duplicate_message", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("reject_duplicate_message");
+        set => SetProperty("reject_duplicate_message", value);
     }
 
     /// <summary>
@@ -241,8 +236,7 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     public List<GoogleHealthcareHl7V2StoreNotificationConfigBlock>? NotificationConfig
     {
-        get => GetProperty<List<GoogleHealthcareHl7V2StoreNotificationConfigBlock>>("notification_config");
-        set => this.WithProperty("notification_config", value);
+        set => SetProperty("notification_config", value);
     }
 
     /// <summary>
@@ -251,8 +245,7 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     /// </summary>
     public List<GoogleHealthcareHl7V2StoreNotificationConfigsBlock>? NotificationConfigs
     {
-        get => GetProperty<List<GoogleHealthcareHl7V2StoreNotificationConfigsBlock>>("notification_configs");
-        set => this.WithProperty("notification_configs", value);
+        set => SetProperty("notification_configs", value);
     }
 
     /// <summary>
@@ -262,8 +255,7 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParserConfig block(s) allowed")]
     public List<GoogleHealthcareHl7V2StoreParserConfigBlock>? ParserConfig
     {
-        get => GetProperty<List<GoogleHealthcareHl7V2StoreParserConfigBlock>>("parser_config");
-        set => this.WithProperty("parser_config", value);
+        set => SetProperty("parser_config", value);
     }
 
     /// <summary>
@@ -272,8 +264,7 @@ public class GoogleHealthcareHl7V2Store : TerraformResource
     /// </summary>
     public GoogleHealthcareHl7V2StoreTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleHealthcareHl7V2StoreTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

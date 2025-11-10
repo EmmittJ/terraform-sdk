@@ -14,8 +14,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsBedrockagentDataSourceServerSideEncryptionConfigurationBlock : T
     /// </summary>
     public TerraformProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => WithProperty("kms_key_arn", value);
+        set => SetProperty("kms_key_arn", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsBedrockagentDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class AwsBedrockagentDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -83,26 +79,31 @@ public class AwsBedrockagentDataSource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("data_source_id");
-        this.WithOutput("id");
+        SetOutput("data_source_id");
+        SetOutput("id");
+        SetOutput("data_deletion_policy");
+        SetOutput("description");
+        SetOutput("knowledge_base_id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The data_deletion_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? DataDeletionPolicy
+    public TerraformProperty<string> DataDeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("data_deletion_policy");
-        set => this.WithProperty("data_deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_deletion_policy");
+        set => SetProperty("data_deletion_policy", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -111,8 +112,8 @@ public class AwsBedrockagentDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseId is required")]
     public required TerraformProperty<string> KnowledgeBaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("knowledge_base_id");
-        set => this.WithProperty("knowledge_base_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("knowledge_base_id");
+        set => SetProperty("knowledge_base_id", value);
     }
 
     /// <summary>
@@ -121,17 +122,17 @@ public class AwsBedrockagentDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -140,8 +141,7 @@ public class AwsBedrockagentDataSource : TerraformResource
     /// </summary>
     public List<AwsBedrockagentDataSourceDataSourceConfigurationBlock>? DataSourceConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentDataSourceDataSourceConfigurationBlock>>("data_source_configuration");
-        set => this.WithProperty("data_source_configuration", value);
+        set => SetProperty("data_source_configuration", value);
     }
 
     /// <summary>
@@ -150,8 +150,7 @@ public class AwsBedrockagentDataSource : TerraformResource
     /// </summary>
     public List<AwsBedrockagentDataSourceServerSideEncryptionConfigurationBlock>? ServerSideEncryptionConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentDataSourceServerSideEncryptionConfigurationBlock>>("server_side_encryption_configuration");
-        set => this.WithProperty("server_side_encryption_configuration", value);
+        set => SetProperty("server_side_encryption_configuration", value);
     }
 
     /// <summary>
@@ -160,8 +159,7 @@ public class AwsBedrockagentDataSource : TerraformResource
     /// </summary>
     public AwsBedrockagentDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -170,8 +168,7 @@ public class AwsBedrockagentDataSource : TerraformResource
     /// </summary>
     public List<AwsBedrockagentDataSourceVectorIngestionConfigurationBlock>? VectorIngestionConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentDataSourceVectorIngestionConfigurationBlock>>("vector_ingestion_configuration");
-        set => this.WithProperty("vector_ingestion_configuration", value);
+        set => SetProperty("vector_ingestion_configuration", value);
     }
 
     /// <summary>

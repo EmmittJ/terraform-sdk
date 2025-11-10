@@ -13,8 +13,7 @@ public class AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,37 +30,40 @@ public class AzurermVirtualNetworkGatewayConnectionDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authorization_key");
-        this.WithOutput("connection_protocol");
-        this.WithOutput("dpd_timeout_seconds");
-        this.WithOutput("egress_bytes_transferred");
-        this.WithOutput("enable_bgp");
-        this.WithOutput("express_route_circuit_id");
-        this.WithOutput("express_route_gateway_bypass");
-        this.WithOutput("ingress_bytes_transferred");
-        this.WithOutput("ipsec_policy");
-        this.WithOutput("local_azure_ip_address_enabled");
-        this.WithOutput("local_network_gateway_id");
-        this.WithOutput("location");
-        this.WithOutput("peer_virtual_network_gateway_id");
-        this.WithOutput("private_link_fast_path_enabled");
-        this.WithOutput("resource_guid");
-        this.WithOutput("routing_weight");
-        this.WithOutput("shared_key");
-        this.WithOutput("tags");
-        this.WithOutput("traffic_selector_policy");
-        this.WithOutput("type");
-        this.WithOutput("use_policy_based_traffic_selectors");
-        this.WithOutput("virtual_network_gateway_id");
+        SetOutput("authorization_key");
+        SetOutput("connection_protocol");
+        SetOutput("dpd_timeout_seconds");
+        SetOutput("egress_bytes_transferred");
+        SetOutput("enable_bgp");
+        SetOutput("express_route_circuit_id");
+        SetOutput("express_route_gateway_bypass");
+        SetOutput("ingress_bytes_transferred");
+        SetOutput("ipsec_policy");
+        SetOutput("local_azure_ip_address_enabled");
+        SetOutput("local_network_gateway_id");
+        SetOutput("location");
+        SetOutput("peer_virtual_network_gateway_id");
+        SetOutput("private_link_fast_path_enabled");
+        SetOutput("resource_guid");
+        SetOutput("routing_weight");
+        SetOutput("shared_key");
+        SetOutput("tags");
+        SetOutput("traffic_selector_policy");
+        SetOutput("type");
+        SetOutput("use_policy_based_traffic_selectors");
+        SetOutput("virtual_network_gateway_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -70,8 +72,8 @@ public class AzurermVirtualNetworkGatewayConnectionDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -80,8 +82,8 @@ public class AzurermVirtualNetworkGatewayConnectionDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -90,8 +92,7 @@ public class AzurermVirtualNetworkGatewayConnectionDataSource : TerraformDataSou
     /// </summary>
     public AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

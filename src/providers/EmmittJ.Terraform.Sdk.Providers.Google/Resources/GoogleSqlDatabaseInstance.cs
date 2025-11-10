@@ -13,8 +13,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AllocatedIpRange
     {
-        get => GetProperty<TerraformProperty<string>>("allocated_ip_range");
-        set => WithProperty("allocated_ip_range", value);
+        set => SetProperty("allocated_ip_range", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DatabaseNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("database_names");
-        set => WithProperty("database_names", value);
+        set => SetProperty("database_names", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PointInTime
     {
-        get => GetProperty<TerraformProperty<string>>("point_in_time");
-        set => WithProperty("point_in_time", value);
+        set => SetProperty("point_in_time", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PreferredZone
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_zone");
-        set => WithProperty("preferred_zone", value);
+        set => SetProperty("preferred_zone", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceInstanceDeletionTime
     {
-        get => GetProperty<TerraformProperty<string>>("source_instance_deletion_time");
-        set => WithProperty("source_instance_deletion_time", value);
+        set => SetProperty("source_instance_deletion_time", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstanceName is required")]
     public required TerraformProperty<string> SourceInstanceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_instance_name");
-        set => WithProperty("source_instance_name", value);
+        set => SetProperty("source_instance_name", value);
     }
 
 }
@@ -76,8 +70,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? AllocatedIpRange
     {
-        get => GetProperty<TerraformProperty<string>>("allocated_ip_range");
-        set => WithProperty("allocated_ip_range", value);
+        set => SetProperty("allocated_ip_range", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Datasource is required")]
     public required TerraformProperty<string> Datasource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("datasource");
-        set => WithProperty("datasource", value);
+        set => SetProperty("datasource", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? PointInTime
     {
-        get => GetProperty<TerraformProperty<string>>("point_in_time");
-        set => WithProperty("point_in_time", value);
+        set => SetProperty("point_in_time", value);
     }
 
     /// <summary>
@@ -104,8 +95,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? PreferredZone
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_zone");
-        set => WithProperty("preferred_zone", value);
+        set => SetProperty("preferred_zone", value);
     }
 
     /// <summary>
@@ -113,8 +103,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? TargetInstance
     {
-        get => GetProperty<TerraformProperty<string>>("target_instance");
-        set => WithProperty("target_instance", value);
+        set => SetProperty("target_instance", value);
     }
 
 }
@@ -130,8 +119,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CaCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("ca_certificate");
-        set => WithProperty("ca_certificate", value);
+        set => SetProperty("ca_certificate", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CascadableReplica
     {
-        get => GetProperty<TerraformProperty<bool>>("cascadable_replica");
-        set => WithProperty("cascadable_replica", value);
+        set => SetProperty("cascadable_replica", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate");
-        set => WithProperty("client_certificate", value);
+        set => SetProperty("client_certificate", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClientKey
     {
-        get => GetProperty<TerraformProperty<string>>("client_key");
-        set => WithProperty("client_key", value);
+        set => SetProperty("client_key", value);
     }
 
     /// <summary>
@@ -166,8 +151,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ConnectRetryInterval
     {
-        get => GetProperty<TerraformProperty<double>>("connect_retry_interval");
-        set => WithProperty("connect_retry_interval", value);
+        set => SetProperty("connect_retry_interval", value);
     }
 
     /// <summary>
@@ -175,8 +159,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DumpFilePath
     {
-        get => GetProperty<TerraformProperty<string>>("dump_file_path");
-        set => WithProperty("dump_file_path", value);
+        set => SetProperty("dump_file_path", value);
     }
 
     /// <summary>
@@ -184,8 +167,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? FailoverTarget
     {
-        get => GetProperty<TerraformProperty<bool>>("failover_target");
-        set => WithProperty("failover_target", value);
+        set => SetProperty("failover_target", value);
     }
 
     /// <summary>
@@ -193,8 +175,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MasterHeartbeatPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("master_heartbeat_period");
-        set => WithProperty("master_heartbeat_period", value);
+        set => SetProperty("master_heartbeat_period", value);
     }
 
     /// <summary>
@@ -202,8 +183,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -211,8 +191,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SslCipher
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_cipher");
-        set => WithProperty("ssl_cipher", value);
+        set => SetProperty("ssl_cipher", value);
     }
 
     /// <summary>
@@ -220,8 +199,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -229,8 +207,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? VerifyServerCertificate
     {
-        get => GetProperty<TerraformProperty<bool>>("verify_server_certificate");
-        set => WithProperty("verify_server_certificate", value);
+        set => SetProperty("verify_server_certificate", value);
     }
 
 }
@@ -246,8 +223,7 @@ public class GoogleSqlDatabaseInstanceReplicationClusterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DrReplica
     {
-        get => GetProperty<TerraformProperty<bool>>("dr_replica");
-        set => WithProperty("dr_replica", value);
+        set => SetProperty("dr_replica", value);
     }
 
     /// <summary>
@@ -255,8 +231,7 @@ public class GoogleSqlDatabaseInstanceReplicationClusterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FailoverDrReplicaName
     {
-        get => GetProperty<TerraformProperty<string>>("failover_dr_replica_name");
-        set => WithProperty("failover_dr_replica_name", value);
+        set => SetProperty("failover_dr_replica_name", value);
     }
 
     /// <summary>
@@ -264,8 +239,7 @@ public class GoogleSqlDatabaseInstanceReplicationClusterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PsaWriteEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("psa_write_endpoint");
-        set => WithProperty("psa_write_endpoint", value);
+        set => SetProperty("psa_write_endpoint", value);
     }
 
 }
@@ -282,8 +256,7 @@ public class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRunId is required")]
     public required TerraformProperty<double> BackupRunId
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("backup_run_id");
-        set => WithProperty("backup_run_id", value);
+        set => SetProperty("backup_run_id", value);
     }
 
     /// <summary>
@@ -291,8 +264,7 @@ public class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
-        set => WithProperty("instance_id", value);
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -300,8 +272,7 @@ public class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => WithProperty("project", value);
+        set => SetProperty("project", value);
     }
 
 }
@@ -317,8 +288,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ActivationPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("activation_policy");
-        set => WithProperty("activation_policy", value);
+        set => SetProperty("activation_policy", value);
     }
 
     /// <summary>
@@ -333,8 +303,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AvailabilityType
     {
-        get => GetProperty<TerraformProperty<string>>("availability_type");
-        set => WithProperty("availability_type", value);
+        set => SetProperty("availability_type", value);
     }
 
     /// <summary>
@@ -342,8 +311,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Collation
     {
-        get => GetProperty<TerraformProperty<string>>("collation");
-        set => WithProperty("collation", value);
+        set => SetProperty("collation", value);
     }
 
     /// <summary>
@@ -351,8 +319,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectorEnforcement
     {
-        get => GetProperty<TerraformProperty<string>>("connector_enforcement");
-        set => WithProperty("connector_enforcement", value);
+        set => SetProperty("connector_enforcement", value);
     }
 
     /// <summary>
@@ -360,8 +327,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => WithProperty("deletion_protection_enabled", value);
+        set => SetProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
@@ -369,8 +335,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DiskAutoresize
     {
-        get => GetProperty<TerraformProperty<bool>>("disk_autoresize");
-        set => WithProperty("disk_autoresize", value);
+        set => SetProperty("disk_autoresize", value);
     }
 
     /// <summary>
@@ -378,8 +343,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DiskAutoresizeLimit
     {
-        get => GetProperty<TerraformProperty<double>>("disk_autoresize_limit");
-        set => WithProperty("disk_autoresize_limit", value);
+        set => SetProperty("disk_autoresize_limit", value);
     }
 
     /// <summary>
@@ -387,8 +351,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DiskSize
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size");
-        set => WithProperty("disk_size", value);
+        set => SetProperty("disk_size", value);
     }
 
     /// <summary>
@@ -396,8 +359,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskType
     {
-        get => GetProperty<TerraformProperty<string>>("disk_type");
-        set => WithProperty("disk_type", value);
+        set => SetProperty("disk_type", value);
     }
 
     /// <summary>
@@ -405,8 +367,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Edition
     {
-        get => GetProperty<TerraformProperty<string>>("edition");
-        set => WithProperty("edition", value);
+        set => SetProperty("edition", value);
     }
 
     /// <summary>
@@ -416,8 +377,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EffectiveAvailabilityType
     {
-        get => GetProperty<TerraformProperty<string>>("effective_availability_type");
-        set => WithProperty("effective_availability_type", value);
+        set => SetProperty("effective_availability_type", value);
     }
 
     /// <summary>
@@ -425,8 +385,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableDataplexIntegration
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_dataplex_integration");
-        set => WithProperty("enable_dataplex_integration", value);
+        set => SetProperty("enable_dataplex_integration", value);
     }
 
     /// <summary>
@@ -434,8 +393,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableGoogleMlIntegration
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_google_ml_integration");
-        set => WithProperty("enable_google_ml_integration", value);
+        set => SetProperty("enable_google_ml_integration", value);
     }
 
     /// <summary>
@@ -443,8 +401,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PricingPlan
     {
-        get => GetProperty<TerraformProperty<string>>("pricing_plan");
-        set => WithProperty("pricing_plan", value);
+        set => SetProperty("pricing_plan", value);
     }
 
     /// <summary>
@@ -452,8 +409,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RetainBackupsOnDelete
     {
-        get => GetProperty<TerraformProperty<bool>>("retain_backups_on_delete");
-        set => WithProperty("retain_backups_on_delete", value);
+        set => SetProperty("retain_backups_on_delete", value);
     }
 
     /// <summary>
@@ -462,8 +418,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tier");
-        set => WithProperty("tier", value);
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
@@ -471,8 +426,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
@@ -480,8 +434,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? UserLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_labels");
-        set => WithProperty("user_labels", value);
+        set => SetProperty("user_labels", value);
     }
 
     /// <summary>
@@ -489,8 +442,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Version
     {
-        get => GetProperty<TerraformProperty<double>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -506,8 +458,7 @@ public class GoogleSqlDatabaseInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -515,8 +466,7 @@ public class GoogleSqlDatabaseInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -524,8 +474,7 @@ public class GoogleSqlDatabaseInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -543,27 +492,42 @@ public class GoogleSqlDatabaseInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("available_maintenance_versions");
-        this.WithOutput("connection_name");
-        this.WithOutput("dns_name");
-        this.WithOutput("dns_names");
-        this.WithOutput("first_ip_address");
-        this.WithOutput("ip_address");
-        this.WithOutput("private_ip_address");
-        this.WithOutput("psc_service_attachment_link");
-        this.WithOutput("public_ip_address");
-        this.WithOutput("self_link");
-        this.WithOutput("server_ca_cert");
-        this.WithOutput("service_account_email_address");
+        SetOutput("available_maintenance_versions");
+        SetOutput("connection_name");
+        SetOutput("dns_name");
+        SetOutput("dns_names");
+        SetOutput("first_ip_address");
+        SetOutput("ip_address");
+        SetOutput("private_ip_address");
+        SetOutput("psc_service_attachment_link");
+        SetOutput("public_ip_address");
+        SetOutput("self_link");
+        SetOutput("server_ca_cert");
+        SetOutput("service_account_email_address");
+        SetOutput("backupdr_backup");
+        SetOutput("database_version");
+        SetOutput("deletion_protection");
+        SetOutput("encryption_key_name");
+        SetOutput("final_backup_description");
+        SetOutput("id");
+        SetOutput("instance_type");
+        SetOutput("maintenance_version");
+        SetOutput("master_instance_name");
+        SetOutput("name");
+        SetOutput("node_count");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("replica_names");
+        SetOutput("root_password");
     }
 
     /// <summary>
     /// The name of the BackupDR backup to restore from.
     /// </summary>
-    public TerraformProperty<string>? BackupdrBackup
+    public TerraformProperty<string> BackupdrBackup
     {
-        get => GetProperty<TerraformProperty<string>>("backupdr_backup");
-        set => this.WithProperty("backupdr_backup", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backupdr_backup");
+        set => SetProperty("backupdr_backup", value);
     }
 
     /// <summary>
@@ -572,125 +536,125 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
     public required TerraformProperty<string> DatabaseVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_version");
-        set => this.WithProperty("database_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_version");
+        set => SetProperty("database_version", value);
     }
 
     /// <summary>
     /// Used to block Terraform from deleting a SQL Instance. Defaults to true.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The encryption_key_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionKeyName
+    public TerraformProperty<string> EncryptionKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key_name");
-        set => this.WithProperty("encryption_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key_name");
+        set => SetProperty("encryption_key_name", value);
     }
 
     /// <summary>
     /// The description of final backup if instance enable create final backup during instance deletion. 
     /// </summary>
-    public TerraformProperty<string>? FinalBackupDescription
+    public TerraformProperty<string> FinalBackupDescription
     {
-        get => GetProperty<TerraformProperty<string>>("final_backup_description");
-        set => this.WithProperty("final_backup_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("final_backup_description");
+        set => SetProperty("final_backup_description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The type of the instance. See https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances#SqlInstanceType for supported values.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    public TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
     /// Maintenance version.
     /// </summary>
-    public TerraformProperty<string>? MaintenanceVersion
+    public TerraformProperty<string> MaintenanceVersion
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_version");
-        set => this.WithProperty("maintenance_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_version");
+        set => SetProperty("maintenance_version", value);
     }
 
     /// <summary>
     /// The name of the instance that will act as the master in the replication setup. Note, this requires the master to have binary_log_enabled set, as well as existing backups.
     /// </summary>
-    public TerraformProperty<string>? MasterInstanceName
+    public TerraformProperty<string> MasterInstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("master_instance_name");
-        set => this.WithProperty("master_instance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("master_instance_name");
+        set => SetProperty("master_instance_name", value);
     }
 
     /// <summary>
     /// The name of the instance. If the name is left blank, Terraform will randomly generate one when the instance is first created. This is done because after a name is used, it cannot be reused for up to one week.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// For a read pool instance, the number of nodes in the read pool. For read pools with auto scaling enabled, this field is read only.
     /// </summary>
-    public TerraformProperty<double>? NodeCount
+    public TerraformProperty<double> NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
-        set => this.WithProperty("node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region the instance will sit in. Note, Cloud SQL is not available in all regions. A valid region must be provided to use this resource. If a region is not provided in the resource definition, the provider region will be used instead, but this will be an apply-time error for instances if the provider region is not supported with Cloud SQL. If you choose not to provide the region argument for this resource, make sure you understand this.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The replicas of the instance.
     /// </summary>
-    public List<TerraformProperty<string>>? ReplicaNames
+    public List<TerraformProperty<string>> ReplicaNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("replica_names");
-        set => this.WithProperty("replica_names", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("replica_names");
+        set => SetProperty("replica_names", value);
     }
 
     /// <summary>
     /// Initial root password. Required for MS SQL Server.
     /// </summary>
-    public TerraformProperty<string>? RootPassword
+    public TerraformProperty<string> RootPassword
     {
-        get => GetProperty<TerraformProperty<string>>("root_password");
-        set => this.WithProperty("root_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("root_password");
+        set => SetProperty("root_password", value);
     }
 
     /// <summary>
@@ -700,8 +664,7 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Clone block(s) allowed")]
     public List<GoogleSqlDatabaseInstanceCloneBlock>? Clone
     {
-        get => GetProperty<List<GoogleSqlDatabaseInstanceCloneBlock>>("clone");
-        set => this.WithProperty("clone", value);
+        set => SetProperty("clone", value);
     }
 
     /// <summary>
@@ -711,8 +674,7 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRestoreContext block(s) allowed")]
     public List<GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock>? PointInTimeRestoreContext
     {
-        get => GetProperty<List<GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock>>("point_in_time_restore_context");
-        set => this.WithProperty("point_in_time_restore_context", value);
+        set => SetProperty("point_in_time_restore_context", value);
     }
 
     /// <summary>
@@ -722,8 +684,7 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicaConfiguration block(s) allowed")]
     public List<GoogleSqlDatabaseInstanceReplicaConfigurationBlock>? ReplicaConfiguration
     {
-        get => GetProperty<List<GoogleSqlDatabaseInstanceReplicaConfigurationBlock>>("replica_configuration");
-        set => this.WithProperty("replica_configuration", value);
+        set => SetProperty("replica_configuration", value);
     }
 
     /// <summary>
@@ -733,8 +694,7 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationCluster block(s) allowed")]
     public List<GoogleSqlDatabaseInstanceReplicationClusterBlock>? ReplicationCluster
     {
-        get => GetProperty<List<GoogleSqlDatabaseInstanceReplicationClusterBlock>>("replication_cluster");
-        set => this.WithProperty("replication_cluster", value);
+        set => SetProperty("replication_cluster", value);
     }
 
     /// <summary>
@@ -744,8 +704,7 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreBackupContext block(s) allowed")]
     public List<GoogleSqlDatabaseInstanceRestoreBackupContextBlock>? RestoreBackupContext
     {
-        get => GetProperty<List<GoogleSqlDatabaseInstanceRestoreBackupContextBlock>>("restore_backup_context");
-        set => this.WithProperty("restore_backup_context", value);
+        set => SetProperty("restore_backup_context", value);
     }
 
     /// <summary>
@@ -755,8 +714,7 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
     public List<GoogleSqlDatabaseInstanceSettingsBlock>? Settings
     {
-        get => GetProperty<List<GoogleSqlDatabaseInstanceSettingsBlock>>("settings");
-        set => this.WithProperty("settings", value);
+        set => SetProperty("settings", value);
     }
 
     /// <summary>
@@ -765,8 +723,7 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     /// </summary>
     public GoogleSqlDatabaseInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSqlDatabaseInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

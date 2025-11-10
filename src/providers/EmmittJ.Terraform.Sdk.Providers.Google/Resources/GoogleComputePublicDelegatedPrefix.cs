@@ -13,8 +13,7 @@ public class GoogleComputePublicDelegatedPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputePublicDelegatedPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,35 +38,45 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("public_delegated_sub_prefixs");
-        this.WithOutput("self_link");
+        SetOutput("public_delegated_sub_prefixs");
+        SetOutput("self_link");
+        SetOutput("allocatable_prefix_length");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("ip_cidr_range");
+        SetOutput("is_live_migration");
+        SetOutput("mode");
+        SetOutput("name");
+        SetOutput("parent_prefix");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The allocatable prefix length supported by this public delegated prefix. This field is optional and cannot be set for prefixes in DELEGATION mode. It cannot be set for IPv4 prefixes either, and it always defaults to 32.
     /// </summary>
-    public TerraformProperty<double>? AllocatablePrefixLength
+    public TerraformProperty<double> AllocatablePrefixLength
     {
-        get => GetProperty<TerraformProperty<double>>("allocatable_prefix_length");
-        set => this.WithProperty("allocatable_prefix_length", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("allocatable_prefix_length");
+        set => SetProperty("allocatable_prefix_length", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,27 +85,27 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformProperty<string> IpCidrRange
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_cidr_range");
-        set => this.WithProperty("ip_cidr_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_cidr_range");
+        set => SetProperty("ip_cidr_range", value);
     }
 
     /// <summary>
     /// If true, the prefix will be live migrated.
     /// </summary>
-    public TerraformProperty<bool>? IsLiveMigration
+    public TerraformProperty<bool> IsLiveMigration
     {
-        get => GetProperty<TerraformProperty<bool>>("is_live_migration");
-        set => this.WithProperty("is_live_migration", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_live_migration");
+        set => SetProperty("is_live_migration", value);
     }
 
     /// <summary>
     /// Specifies the mode of this IPv6 PDP. MODE must be one of: DELEGATION,
     /// EXTERNAL_IPV6_FORWARDING_RULE_CREATION and EXTERNAL_IPV6_SUBNETWORK_CREATION. Possible values: [&amp;quot;DELEGATION&amp;quot;, &amp;quot;EXTERNAL_IPV6_FORWARDING_RULE_CREATION&amp;quot;, &amp;quot;EXTERNAL_IPV6_SUBNETWORK_CREATION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Mode
+    public TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => this.WithProperty("mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mode");
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -111,8 +119,8 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -121,17 +129,17 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentPrefix is required")]
     public required TerraformProperty<string> ParentPrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent_prefix");
-        set => this.WithProperty("parent_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_prefix");
+        set => SetProperty("parent_prefix", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -140,8 +148,8 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -150,8 +158,7 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// </summary>
     public GoogleComputePublicDelegatedPrefixTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputePublicDelegatedPrefixTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

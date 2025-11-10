@@ -13,8 +13,7 @@ public class AzurermMonitorActionGroupDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,28 +30,31 @@ public class AzurermMonitorActionGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arm_role_receiver");
-        this.WithOutput("automation_runbook_receiver");
-        this.WithOutput("azure_app_push_receiver");
-        this.WithOutput("azure_function_receiver");
-        this.WithOutput("email_receiver");
-        this.WithOutput("enabled");
-        this.WithOutput("event_hub_receiver");
-        this.WithOutput("itsm_receiver");
-        this.WithOutput("logic_app_receiver");
-        this.WithOutput("short_name");
-        this.WithOutput("sms_receiver");
-        this.WithOutput("voice_receiver");
-        this.WithOutput("webhook_receiver");
+        SetOutput("arm_role_receiver");
+        SetOutput("automation_runbook_receiver");
+        SetOutput("azure_app_push_receiver");
+        SetOutput("azure_function_receiver");
+        SetOutput("email_receiver");
+        SetOutput("enabled");
+        SetOutput("event_hub_receiver");
+        SetOutput("itsm_receiver");
+        SetOutput("logic_app_receiver");
+        SetOutput("short_name");
+        SetOutput("sms_receiver");
+        SetOutput("voice_receiver");
+        SetOutput("webhook_receiver");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermMonitorActionGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,8 +73,8 @@ public class AzurermMonitorActionGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -81,8 +83,7 @@ public class AzurermMonitorActionGroupDataSource : TerraformDataSource
     /// </summary>
     public AzurermMonitorActionGroupDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorActionGroupDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

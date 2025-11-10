@@ -13,8 +13,7 @@ public class AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,51 +38,57 @@ public class AwsDbInstanceAutomatedBackupsReplication : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("pre_signed_url");
+        SetOutput("region");
+        SetOutput("retention_period");
+        SetOutput("source_db_instance_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The pre_signed_url attribute.
     /// </summary>
-    public TerraformProperty<string>? PreSignedUrl
+    public TerraformProperty<string> PreSignedUrl
     {
-        get => GetProperty<TerraformProperty<string>>("pre_signed_url");
-        set => this.WithProperty("pre_signed_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pre_signed_url");
+        set => SetProperty("pre_signed_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionPeriod
+    public TerraformProperty<double> RetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("retention_period");
-        set => this.WithProperty("retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_period");
+        set => SetProperty("retention_period", value);
     }
 
     /// <summary>
@@ -93,8 +97,8 @@ public class AwsDbInstanceAutomatedBackupsReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbInstanceArn is required")]
     public required TerraformProperty<string> SourceDbInstanceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_db_instance_arn");
-        set => this.WithProperty("source_db_instance_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_db_instance_arn");
+        set => SetProperty("source_db_instance_arn", value);
     }
 
     /// <summary>
@@ -103,8 +107,7 @@ public class AwsDbInstanceAutomatedBackupsReplication : TerraformResource
     /// </summary>
     public AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

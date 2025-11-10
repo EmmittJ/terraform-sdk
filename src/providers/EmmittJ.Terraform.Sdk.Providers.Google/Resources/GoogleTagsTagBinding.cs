@@ -13,8 +13,7 @@ public class GoogleTagsTagBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleTagsTagBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,16 +38,19 @@ public class GoogleTagsTagBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("tag_value");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -58,8 +59,8 @@ public class GoogleTagsTagBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -68,8 +69,8 @@ public class GoogleTagsTagBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValue is required")]
     public required TerraformProperty<string> TagValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tag_value");
-        set => this.WithProperty("tag_value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag_value");
+        set => SetProperty("tag_value", value);
     }
 
     /// <summary>
@@ -78,8 +79,7 @@ public class GoogleTagsTagBinding : TerraformResource
     /// </summary>
     public GoogleTagsTagBindingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleTagsTagBindingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

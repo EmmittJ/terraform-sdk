@@ -13,8 +13,7 @@ public class GoogleComputeTargetGrpcProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeTargetGrpcProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeTargetGrpcProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,28 +46,34 @@ public class GoogleComputeTargetGrpcProxy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("fingerprint");
-        this.WithOutput("self_link");
-        this.WithOutput("self_link_with_id");
+        SetOutput("creation_timestamp");
+        SetOutput("fingerprint");
+        SetOutput("self_link");
+        SetOutput("self_link_with_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("url_map");
+        SetOutput("validate_for_proxyless");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,17 +88,17 @@ public class GoogleComputeTargetGrpcProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -103,10 +106,10 @@ public class GoogleComputeTargetGrpcProxy : TerraformResource
     /// the BackendService. The protocol field in the BackendService
     /// must be set to GRPC.
     /// </summary>
-    public TerraformProperty<string>? UrlMap
+    public TerraformProperty<string> UrlMap
     {
-        get => GetProperty<TerraformProperty<string>>("url_map");
-        set => this.WithProperty("url_map", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url_map");
+        set => SetProperty("url_map", value);
     }
 
     /// <summary>
@@ -121,10 +124,10 @@ public class GoogleComputeTargetGrpcProxy : TerraformResource
     /// must not use &amp;quot;xds:///&amp;quot; scheme in the target URI of the service
     /// it is connecting to
     /// </summary>
-    public TerraformProperty<bool>? ValidateForProxyless
+    public TerraformProperty<bool> ValidateForProxyless
     {
-        get => GetProperty<TerraformProperty<bool>>("validate_for_proxyless");
-        set => this.WithProperty("validate_for_proxyless", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("validate_for_proxyless");
+        set => SetProperty("validate_for_proxyless", value);
     }
 
     /// <summary>
@@ -133,8 +136,7 @@ public class GoogleComputeTargetGrpcProxy : TerraformResource
     /// </summary>
     public GoogleComputeTargetGrpcProxyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeTargetGrpcProxyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

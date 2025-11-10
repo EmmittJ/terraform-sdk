@@ -13,8 +13,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeySelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
-        set => WithProperty("kms_key_self_link", value);
+        set => SetProperty("kms_key_self_link", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
-        set => WithProperty("kms_key_service_account", value);
+        set => SetProperty("kms_key_service_account", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RawKey
     {
-        get => GetProperty<TerraformProperty<string>>("raw_key");
-        set => WithProperty("raw_key", value);
+        set => SetProperty("raw_key", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RsaEncryptedKey
     {
-        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
-        set => WithProperty("rsa_encrypted_key", value);
+        set => SetProperty("rsa_encrypted_key", value);
     }
 
     /// <summary>
@@ -53,8 +49,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Sha256
     {
-        get => GetProperty<TerraformProperty<string>>("sha256");
-        set => WithProperty("sha256", value);
+        set => SetProperty("sha256", value);
     }
 
 }
@@ -70,8 +65,7 @@ public class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeySelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
-        set => WithProperty("kms_key_self_link", value);
+        set => SetProperty("kms_key_self_link", value);
     }
 
     /// <summary>
@@ -80,8 +74,7 @@ public class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
-        set => WithProperty("kms_key_service_account", value);
+        set => SetProperty("kms_key_service_account", value);
     }
 
     /// <summary>
@@ -90,8 +83,7 @@ public class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RawKey
     {
-        get => GetProperty<TerraformProperty<string>>("raw_key");
-        set => WithProperty("raw_key", value);
+        set => SetProperty("raw_key", value);
     }
 
     /// <summary>
@@ -100,8 +92,7 @@ public class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RsaEncryptedKey
     {
-        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
-        set => WithProperty("rsa_encrypted_key", value);
+        set => SetProperty("rsa_encrypted_key", value);
     }
 
 }
@@ -117,8 +108,7 @@ public class GoogleComputeSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -126,8 +116,7 @@ public class GoogleComputeSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -135,8 +124,7 @@ public class GoogleComputeSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -154,15 +142,24 @@ public class GoogleComputeSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("disk_size_gb");
-        this.WithOutput("effective_labels");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("licenses");
-        this.WithOutput("self_link");
-        this.WithOutput("snapshot_id");
-        this.WithOutput("storage_bytes");
-        this.WithOutput("terraform_labels");
+        SetOutput("creation_timestamp");
+        SetOutput("disk_size_gb");
+        SetOutput("effective_labels");
+        SetOutput("label_fingerprint");
+        SetOutput("licenses");
+        SetOutput("self_link");
+        SetOutput("snapshot_id");
+        SetOutput("storage_bytes");
+        SetOutput("terraform_labels");
+        SetOutput("chain_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("source_disk");
+        SetOutput("storage_locations");
+        SetOutput("zone");
     }
 
     /// <summary>
@@ -173,28 +170,28 @@ public class GoogleComputeSnapshot : TerraformResource
     /// example, for chargeback tracking.  When you describe your snapshot
     /// resource, this field is visible only if it has a non-empty value.
     /// </summary>
-    public TerraformProperty<string>? ChainName
+    public TerraformProperty<string> ChainName
     {
-        get => GetProperty<TerraformProperty<string>>("chain_name");
-        set => this.WithProperty("chain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("chain_name");
+        set => SetProperty("chain_name", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -203,10 +200,10 @@ public class GoogleComputeSnapshot : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -221,17 +218,17 @@ public class GoogleComputeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -240,26 +237,26 @@ public class GoogleComputeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDisk is required")]
     public required TerraformProperty<string> SourceDisk
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_disk");
-        set => this.WithProperty("source_disk", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_disk");
+        set => SetProperty("source_disk", value);
     }
 
     /// <summary>
     /// Cloud Storage bucket storage location of the snapshot (regional or multi-regional).
     /// </summary>
-    public List<TerraformProperty<string>>? StorageLocations
+    public List<TerraformProperty<string>> StorageLocations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("storage_locations");
-        set => this.WithProperty("storage_locations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("storage_locations");
+        set => SetProperty("storage_locations", value);
     }
 
     /// <summary>
     /// A reference to the zone where the disk is hosted.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -269,8 +266,7 @@ public class GoogleComputeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotEncryptionKey block(s) allowed")]
     public List<GoogleComputeSnapshotSnapshotEncryptionKeyBlock>? SnapshotEncryptionKey
     {
-        get => GetProperty<List<GoogleComputeSnapshotSnapshotEncryptionKeyBlock>>("snapshot_encryption_key");
-        set => this.WithProperty("snapshot_encryption_key", value);
+        set => SetProperty("snapshot_encryption_key", value);
     }
 
     /// <summary>
@@ -280,8 +276,7 @@ public class GoogleComputeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceDiskEncryptionKey block(s) allowed")]
     public List<GoogleComputeSnapshotSourceDiskEncryptionKeyBlock>? SourceDiskEncryptionKey
     {
-        get => GetProperty<List<GoogleComputeSnapshotSourceDiskEncryptionKeyBlock>>("source_disk_encryption_key");
-        set => this.WithProperty("source_disk_encryption_key", value);
+        set => SetProperty("source_disk_encryption_key", value);
     }
 
     /// <summary>
@@ -290,8 +285,7 @@ public class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     public GoogleComputeSnapshotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeSnapshotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

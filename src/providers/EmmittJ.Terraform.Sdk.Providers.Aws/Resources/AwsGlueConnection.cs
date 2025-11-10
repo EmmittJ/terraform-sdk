@@ -13,8 +13,7 @@ public class AwsGlueConnectionPhysicalConnectionRequirementsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
-        set => WithProperty("availability_zone", value);
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGlueConnectionPhysicalConnectionRequirementsBlock : TerraformBlo
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroupIdList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_id_list");
-        set => WithProperty("security_group_id_list", value);
+        set => SetProperty("security_group_id_list", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsGlueConnectionPhysicalConnectionRequirementsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -50,70 +47,81 @@ public class AwsGlueConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("athena_properties");
+        SetOutput("catalog_id");
+        SetOutput("connection_properties");
+        SetOutput("connection_type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("match_criteria");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The athena_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AthenaProperties
+    public Dictionary<string, TerraformProperty<string>> AthenaProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("athena_properties");
-        set => this.WithProperty("athena_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("athena_properties");
+        set => SetProperty("athena_properties", value);
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The connection_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ConnectionProperties
+    public Dictionary<string, TerraformProperty<string>> ConnectionProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("connection_properties");
-        set => this.WithProperty("connection_properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("connection_properties");
+        set => SetProperty("connection_properties", value);
     }
 
     /// <summary>
     /// The connection_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionType
+    public TerraformProperty<string> ConnectionType
     {
-        get => GetProperty<TerraformProperty<string>>("connection_type");
-        set => this.WithProperty("connection_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_type");
+        set => SetProperty("connection_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The match_criteria attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? MatchCriteria
+    public List<TerraformProperty<string>> MatchCriteria
     {
-        get => GetProperty<List<TerraformProperty<string>>>("match_criteria");
-        set => this.WithProperty("match_criteria", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("match_criteria");
+        set => SetProperty("match_criteria", value);
     }
 
     /// <summary>
@@ -122,35 +130,35 @@ public class AwsGlueConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -160,8 +168,7 @@ public class AwsGlueConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PhysicalConnectionRequirements block(s) allowed")]
     public List<AwsGlueConnectionPhysicalConnectionRequirementsBlock>? PhysicalConnectionRequirements
     {
-        get => GetProperty<List<AwsGlueConnectionPhysicalConnectionRequirementsBlock>>("physical_connection_requirements");
-        set => this.WithProperty("physical_connection_requirements", value);
+        set => SetProperty("physical_connection_requirements", value);
     }
 
     /// <summary>

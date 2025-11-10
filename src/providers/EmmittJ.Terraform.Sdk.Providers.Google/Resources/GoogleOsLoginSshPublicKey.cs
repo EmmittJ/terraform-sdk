@@ -13,8 +13,7 @@ public class GoogleOsLoginSshPublicKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleOsLoginSshPublicKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleOsLoginSshPublicKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,25 +46,30 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fingerprint");
+        SetOutput("fingerprint");
+        SetOutput("expiration_time_usec");
+        SetOutput("id");
+        SetOutput("key");
+        SetOutput("project");
+        SetOutput("user");
     }
 
     /// <summary>
     /// An expiration time in microseconds since epoch.
     /// </summary>
-    public TerraformProperty<string>? ExpirationTimeUsec
+    public TerraformProperty<string> ExpirationTimeUsec
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_time_usec");
-        set => this.WithProperty("expiration_time_usec", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration_time_usec");
+        set => SetProperty("expiration_time_usec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,17 +78,17 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => this.WithProperty("key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key");
+        set => SetProperty("key", value);
     }
 
     /// <summary>
     /// The project ID of the Google Cloud Platform project.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user");
-        set => this.WithProperty("user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user");
+        set => SetProperty("user", value);
     }
 
     /// <summary>
@@ -105,8 +107,7 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     /// </summary>
     public GoogleOsLoginSshPublicKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOsLoginSshPublicKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleBigqueryDataTransferConfigEmailPreferencesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableFailureEmail is required")]
     public required TerraformProperty<bool> EnableFailureEmail
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enable_failure_email");
-        set => WithProperty("enable_failure_email", value);
+        set => SetProperty("enable_failure_email", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
 }
@@ -53,8 +51,7 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? DisableAutoScheduling
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_auto_scheduling");
-        set => WithProperty("disable_auto_scheduling", value);
+        set => SetProperty("disable_auto_scheduling", value);
     }
 
     /// <summary>
@@ -65,8 +62,7 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? EndTime
     {
-        get => GetProperty<TerraformProperty<string>>("end_time");
-        set => WithProperty("end_time", value);
+        set => SetProperty("end_time", value);
     }
 
     /// <summary>
@@ -78,8 +74,7 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
 }
@@ -95,8 +90,7 @@ public class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? SecretAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("secret_access_key");
-        set => WithProperty("secret_access_key", value);
+        set => SetProperty("secret_access_key", value);
     }
 
     /// <summary>
@@ -104,8 +98,7 @@ public class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? SecretAccessKeyWo
     {
-        get => GetProperty<TerraformProperty<string>>("secret_access_key_wo");
-        set => WithProperty("secret_access_key_wo", value);
+        set => SetProperty("secret_access_key_wo", value);
     }
 
     /// <summary>
@@ -113,8 +106,7 @@ public class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? SecretAccessKeyWoVersion
     {
-        get => GetProperty<TerraformProperty<double>>("secret_access_key_wo_version");
-        set => WithProperty("secret_access_key_wo_version", value);
+        set => SetProperty("secret_access_key_wo_version", value);
     }
 
 }
@@ -130,8 +122,7 @@ public class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -139,8 +130,7 @@ public class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -148,8 +138,7 @@ public class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -167,7 +156,19 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("data_refresh_window_days");
+        SetOutput("data_source_id");
+        SetOutput("destination_dataset_id");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("notification_pubsub_topic");
+        SetOutput("params");
+        SetOutput("project");
+        SetOutput("schedule");
+        SetOutput("service_account_name");
     }
 
     /// <summary>
@@ -177,10 +178,10 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// just [today-1]. Only valid if the data source supports the feature.
     /// Set the value to 0 to use the default value.
     /// </summary>
-    public TerraformProperty<double>? DataRefreshWindowDays
+    public TerraformProperty<double> DataRefreshWindowDays
     {
-        get => GetProperty<TerraformProperty<double>>("data_refresh_window_days");
-        set => this.WithProperty("data_refresh_window_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("data_refresh_window_days");
+        set => SetProperty("data_refresh_window_days", value);
     }
 
     /// <summary>
@@ -189,26 +190,26 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformProperty<string> DataSourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_source_id");
-        set => this.WithProperty("data_source_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_source_id");
+        set => SetProperty("data_source_id", value);
     }
 
     /// <summary>
     /// The BigQuery target dataset id.
     /// </summary>
-    public TerraformProperty<string>? DestinationDatasetId
+    public TerraformProperty<string> DestinationDatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("destination_dataset_id");
-        set => this.WithProperty("destination_dataset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_dataset_id");
+        set => SetProperty("destination_dataset_id", value);
     }
 
     /// <summary>
     /// When set to true, no runs are scheduled for a given transfer.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -217,37 +218,37 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The geographic location where the transfer config should reside.
     /// Examples: US, EU, asia-northeast1. The default value is US.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Pub/Sub topic where notifications will be sent after transfer runs
     /// associated with this transfer config finish.
     /// </summary>
-    public TerraformProperty<string>? NotificationPubsubTopic
+    public TerraformProperty<string> NotificationPubsubTopic
     {
-        get => GetProperty<TerraformProperty<string>>("notification_pubsub_topic");
-        set => this.WithProperty("notification_pubsub_topic", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_pubsub_topic");
+        set => SetProperty("notification_pubsub_topic", value);
     }
 
     /// <summary>
@@ -258,19 +259,19 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// **NOTE** : If you are attempting to update a parameter that cannot be updated (due to api limitations) [please force recreation of the resource](https://www.terraform.io/cli/state/taint#forcing-re-creation-of-resources).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Params is required")]
-    public Dictionary<string, TerraformProperty<string>>? Params
+    public Dictionary<string, TerraformProperty<string>> Params
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("params");
-        set => this.WithProperty("params", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("params");
+        set => SetProperty("params", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -284,10 +285,10 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// NOTE: The minimum interval time between recurring transfers depends
     /// on the data source; refer to the documentation for your data source.
     /// </summary>
-    public TerraformProperty<string>? Schedule
+    public TerraformProperty<string> Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
-        set => this.WithProperty("schedule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule");
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -295,10 +296,10 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// be created with this service account credentials. It requires that
     /// requesting user calling this API has permissions to act as this service account.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccountName
+    public TerraformProperty<string> ServiceAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_name");
-        set => this.WithProperty("service_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account_name");
+        set => SetProperty("service_account_name", value);
     }
 
     /// <summary>
@@ -308,8 +309,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EmailPreferences block(s) allowed")]
     public List<GoogleBigqueryDataTransferConfigEmailPreferencesBlock>? EmailPreferences
     {
-        get => GetProperty<List<GoogleBigqueryDataTransferConfigEmailPreferencesBlock>>("email_preferences");
-        set => this.WithProperty("email_preferences", value);
+        set => SetProperty("email_preferences", value);
     }
 
     /// <summary>
@@ -319,8 +319,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     public List<GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock>? EncryptionConfiguration
     {
-        get => GetProperty<List<GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -330,8 +329,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleOptions block(s) allowed")]
     public List<GoogleBigqueryDataTransferConfigScheduleOptionsBlock>? ScheduleOptions
     {
-        get => GetProperty<List<GoogleBigqueryDataTransferConfigScheduleOptionsBlock>>("schedule_options");
-        set => this.WithProperty("schedule_options", value);
+        set => SetProperty("schedule_options", value);
     }
 
     /// <summary>
@@ -341,8 +339,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SensitiveParams block(s) allowed")]
     public List<GoogleBigqueryDataTransferConfigSensitiveParamsBlock>? SensitiveParams
     {
-        get => GetProperty<List<GoogleBigqueryDataTransferConfigSensitiveParamsBlock>>("sensitive_params");
-        set => this.WithProperty("sensitive_params", value);
+        set => SetProperty("sensitive_params", value);
     }
 
     /// <summary>
@@ -351,8 +348,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// </summary>
     public GoogleBigqueryDataTransferConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryDataTransferConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

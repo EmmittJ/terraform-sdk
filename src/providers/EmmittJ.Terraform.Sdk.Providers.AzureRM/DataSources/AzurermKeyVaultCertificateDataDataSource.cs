@@ -13,8 +13,7 @@ public class AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,22 +30,26 @@ public class AzurermKeyVaultCertificateDataDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("certificates_count");
-        this.WithOutput("expires");
-        this.WithOutput("hex");
-        this.WithOutput("key");
-        this.WithOutput("not_before");
-        this.WithOutput("pem");
-        this.WithOutput("tags");
+        SetOutput("certificates_count");
+        SetOutput("expires");
+        SetOutput("hex");
+        SetOutput("key");
+        SetOutput("not_before");
+        SetOutput("pem");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("key_vault_id");
+        SetOutput("name");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,8 +58,8 @@ public class AzurermKeyVaultCertificateDataDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -65,17 +68,17 @@ public class AzurermKeyVaultCertificateDataDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -84,8 +87,7 @@ public class AzurermKeyVaultCertificateDataDataSource : TerraformDataSource
     /// </summary>
     public AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

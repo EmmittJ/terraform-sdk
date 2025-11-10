@@ -13,8 +13,7 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,17 +54,27 @@ public class AzurermAttestationProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("attestation_uri");
-        this.WithOutput("trust_model");
+        SetOutput("attestation_uri");
+        SetOutput("trust_model");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("open_enclave_policy_base64");
+        SetOutput("policy_signing_certificate_data");
+        SetOutput("resource_group_name");
+        SetOutput("sev_snp_policy_base64");
+        SetOutput("sgx_enclave_policy_base64");
+        SetOutput("tags");
+        SetOutput("tpm_policy_base64");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,8 +83,8 @@ public class AzurermAttestationProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -87,26 +93,26 @@ public class AzurermAttestationProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The open_enclave_policy_base64 attribute.
     /// </summary>
-    public TerraformProperty<string>? OpenEnclavePolicyBase64
+    public TerraformProperty<string> OpenEnclavePolicyBase64
     {
-        get => GetProperty<TerraformProperty<string>>("open_enclave_policy_base64");
-        set => this.WithProperty("open_enclave_policy_base64", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("open_enclave_policy_base64");
+        set => SetProperty("open_enclave_policy_base64", value);
     }
 
     /// <summary>
     /// The policy_signing_certificate_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicySigningCertificateData
+    public TerraformProperty<string> PolicySigningCertificateData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_signing_certificate_data");
-        set => this.WithProperty("policy_signing_certificate_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_signing_certificate_data");
+        set => SetProperty("policy_signing_certificate_data", value);
     }
 
     /// <summary>
@@ -115,44 +121,44 @@ public class AzurermAttestationProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sev_snp_policy_base64 attribute.
     /// </summary>
-    public TerraformProperty<string>? SevSnpPolicyBase64
+    public TerraformProperty<string> SevSnpPolicyBase64
     {
-        get => GetProperty<TerraformProperty<string>>("sev_snp_policy_base64");
-        set => this.WithProperty("sev_snp_policy_base64", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sev_snp_policy_base64");
+        set => SetProperty("sev_snp_policy_base64", value);
     }
 
     /// <summary>
     /// The sgx_enclave_policy_base64 attribute.
     /// </summary>
-    public TerraformProperty<string>? SgxEnclavePolicyBase64
+    public TerraformProperty<string> SgxEnclavePolicyBase64
     {
-        get => GetProperty<TerraformProperty<string>>("sgx_enclave_policy_base64");
-        set => this.WithProperty("sgx_enclave_policy_base64", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sgx_enclave_policy_base64");
+        set => SetProperty("sgx_enclave_policy_base64", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tpm_policy_base64 attribute.
     /// </summary>
-    public TerraformProperty<string>? TpmPolicyBase64
+    public TerraformProperty<string> TpmPolicyBase64
     {
-        get => GetProperty<TerraformProperty<string>>("tpm_policy_base64");
-        set => this.WithProperty("tpm_policy_base64", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tpm_policy_base64");
+        set => SetProperty("tpm_policy_base64", value);
     }
 
     /// <summary>
@@ -161,8 +167,7 @@ public class AzurermAttestationProvider : TerraformResource
     /// </summary>
     public AzurermAttestationProviderTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAttestationProviderTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

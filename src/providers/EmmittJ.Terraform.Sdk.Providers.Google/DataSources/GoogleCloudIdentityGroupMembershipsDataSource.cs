@@ -14,7 +14,9 @@ public class GoogleCloudIdentityGroupMembershipsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("memberships");
+        SetOutput("memberships");
+        SetOutput("group");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -23,17 +25,17 @@ public class GoogleCloudIdentityGroupMembershipsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformProperty<string> Group
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group");
-        set => this.WithProperty("group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group");
+        set => SetProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

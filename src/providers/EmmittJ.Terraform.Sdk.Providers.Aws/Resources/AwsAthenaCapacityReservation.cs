@@ -13,8 +13,7 @@ public class AwsAthenaCapacityReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAthenaCapacityReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsAthenaCapacityReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,14 @@ public class AwsAthenaCapacityReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allocated_dpus");
-        this.WithOutput("arn");
-        this.WithOutput("status");
-        this.WithOutput("tags_all");
+        SetOutput("allocated_dpus");
+        SetOutput("arn");
+        SetOutput("status");
+        SetOutput("tags_all");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("target_dpus");
     }
 
     /// <summary>
@@ -61,26 +62,26 @@ public class AwsAthenaCapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -89,8 +90,8 @@ public class AwsAthenaCapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDpus is required")]
     public required TerraformProperty<double> TargetDpus
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("target_dpus");
-        set => this.WithProperty("target_dpus", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("target_dpus");
+        set => SetProperty("target_dpus", value);
     }
 
     /// <summary>
@@ -99,8 +100,7 @@ public class AwsAthenaCapacityReservation : TerraformResource
     /// </summary>
     public AwsAthenaCapacityReservationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAthenaCapacityReservationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

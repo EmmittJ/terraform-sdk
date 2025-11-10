@@ -12,6 +12,20 @@ namespace {{Namespace}};
 {{/IsDeprecated}}
 public class {{ClassName}} : TerraformBlock
 {
+    public {{ClassName}}()
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+{{#Properties}}
+{{#IsArgument}}
+        SetOutput("{{TerraformName}}");
+{{/IsArgument}}
+{{/Properties}}
+    }
+
 {{#Properties}}
     /// <summary>
     /// {{Description}}
@@ -22,6 +36,19 @@ public class {{ClassName}} : TerraformBlock
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
+{{#IsArgument}}
+{{#UseRequiredKeyword}}
+    public required {{{PropertyWrapper}}} {{Name}}
+{{/UseRequiredKeyword}}
+{{#UseNullable}}
+    public {{{PropertyWrapper}}} {{Name}}
+{{/UseNullable}}
+    {
+        get => GetRequiredOutput<{{{PropertyWrapper}}}>("{{TerraformName}}");
+        set => SetProperty("{{TerraformName}}", value);
+    }
+{{/IsArgument}}
+{{^IsArgument}}
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}}
 {{/UseRequiredKeyword}}
@@ -29,14 +56,9 @@ public class {{ClassName}} : TerraformBlock
     public {{{PropertyWrapper}}}? {{Name}}
 {{/UseNullable}}
     {
-{{#UseRequiredKeyword}}
-        get => GetRequiredProperty<{{{PropertyWrapper}}}>("{{TerraformName}}");
-{{/UseRequiredKeyword}}
-{{#UseNullable}}
-        get => GetProperty<{{{PropertyWrapper}}}>("{{TerraformName}}");
-{{/UseNullable}}
-        set => WithProperty("{{TerraformName}}", value);
+        set => SetProperty("{{TerraformName}}", value);
     }
+{{/IsArgument}}
 
 {{/Properties}}
 }
@@ -64,6 +86,11 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#OutputAttributes}}
         SetOutput("{{TerraformName}}");
 {{/OutputAttributes}}
+{{#Properties}}
+{{#IsArgument}}
+        SetOutput("{{TerraformName}}");
+{{/IsArgument}}
+{{/Properties}}
     }
 
 {{#Properties}}
@@ -76,6 +103,19 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
+{{#IsArgument}}
+{{#UseRequiredKeyword}}
+    public required {{{PropertyWrapper}}} {{Name}}
+{{/UseRequiredKeyword}}
+{{#UseNullable}}
+    public {{{PropertyWrapper}}} {{Name}}
+{{/UseNullable}}
+    {
+        get => GetRequiredOutput<{{{PropertyWrapper}}}>("{{TerraformName}}");
+        set => SetProperty("{{TerraformName}}", value);
+    }
+{{/IsArgument}}
+{{^IsArgument}}
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}}
 {{/UseRequiredKeyword}}
@@ -83,14 +123,9 @@ public class {{ClassName}} : {{BaseClassName}}
     public {{{PropertyWrapper}}}? {{Name}}
 {{/UseNullable}}
     {
-{{#UseRequiredKeyword}}
-        get => GetRequiredOutput<{{{PropertyWrapper}}}>("{{TerraformName}}");
-{{/UseRequiredKeyword}}
-{{#UseNullable}}
-        get => GetOutput<{{{PropertyWrapper}}}?>("{{TerraformName}}");
-{{/UseNullable}}
         set => SetProperty("{{TerraformName}}", value);
     }
+{{/IsArgument}}
 
 {{/Properties}}
 {{#BlockTypes}}
@@ -111,12 +146,6 @@ public class {{ClassName}} : {{BaseClassName}}
     public {{{BlockPropertyType}}}? {{Name}}
 {{/UseNullable}}
     {
-{{#UseRequiredKeyword}}
-        get => GetRequiredOutput<{{{BlockPropertyType}}}>("{{TerraformName}}");
-{{/UseRequiredKeyword}}
-{{#UseNullable}}
-        get => GetOutput<{{{BlockPropertyType}}}?>("{{TerraformName}}");
-{{/UseNullable}}
         set => SetProperty("{{TerraformName}}", value);
     }
 

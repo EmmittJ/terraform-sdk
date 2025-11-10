@@ -22,8 +22,7 @@ public class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -38,8 +37,7 @@ public class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
-        set => WithProperty("namespace", value);
+        set => SetProperty("namespace", value);
     }
 
 }
@@ -55,8 +53,7 @@ public class GoogleCloudIdentityGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -64,8 +61,7 @@ public class GoogleCloudIdentityGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -73,8 +69,7 @@ public class GoogleCloudIdentityGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -92,38 +87,44 @@ public class GoogleCloudIdentityGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("additional_group_keys");
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("additional_group_keys");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("initial_group_config");
+        SetOutput("labels");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// An extended description to help users determine the purpose of a Group.
     /// Must not be longer than 4,096 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The display name of the Group.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -133,10 +134,10 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// [API reference](https://cloud.google.com/identity/docs/reference/rest/v1beta1/groups/create#initialgroupconfig)
     /// for possible values. Default value: &amp;quot;EMPTY&amp;quot; Possible values: [&amp;quot;INITIAL_GROUP_CONFIG_UNSPECIFIED&amp;quot;, &amp;quot;WITH_INITIAL_OWNER&amp;quot;, &amp;quot;EMPTY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? InitialGroupConfig
+    public TerraformProperty<string> InitialGroupConfig
     {
-        get => GetProperty<TerraformProperty<string>>("initial_group_config");
-        set => this.WithProperty("initial_group_config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("initial_group_config");
+        set => SetProperty("initial_group_config", value);
     }
 
     /// <summary>
@@ -151,10 +152,10 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// Identity-mapped groups for Cloud Search have a label with a key of system/groups/external and an empty value.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -167,20 +168,20 @@ public class GoogleCloudIdentityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// Block for group_key.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupKey is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GroupKey block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupKey block(s) allowed")]
     public List<GoogleCloudIdentityGroupGroupKeyBlock>? GroupKey
     {
-        get => GetProperty<List<GoogleCloudIdentityGroupGroupKeyBlock>>("group_key");
-        set => this.WithProperty("group_key", value);
+        set => SetProperty("group_key", value);
     }
 
     /// <summary>
@@ -189,8 +190,7 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// </summary>
     public GoogleCloudIdentityGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudIdentityGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

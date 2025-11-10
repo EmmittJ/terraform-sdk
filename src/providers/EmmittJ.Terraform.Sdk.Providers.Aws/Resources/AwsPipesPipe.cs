@@ -13,8 +13,7 @@ public class AwsPipesPipeEnrichmentParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InputTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("input_template");
-        set => WithProperty("input_template", value);
+        set => SetProperty("input_template", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsPipesPipeLogConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IncludeExecutionData
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("include_execution_data");
-        set => WithProperty("include_execution_data", value);
+        set => SetProperty("include_execution_data", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsPipesPipeLogConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Level is required")]
     public required TerraformProperty<string> Level
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("level");
-        set => WithProperty("level", value);
+        set => SetProperty("level", value);
     }
 
 }
@@ -65,8 +62,7 @@ public class AwsPipesPipeTargetParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InputTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("input_template");
-        set => WithProperty("input_template", value);
+        set => SetProperty("input_template", value);
     }
 
 }
@@ -82,8 +78,7 @@ public class AwsPipesPipeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -91,8 +86,7 @@ public class AwsPipesPipeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -100,8 +94,7 @@ public class AwsPipesPipeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -119,79 +112,92 @@ public class AwsPipesPipe : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("desired_state");
+        SetOutput("enrichment");
+        SetOutput("id");
+        SetOutput("kms_key_identifier");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("source");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("target");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The desired_state attribute.
     /// </summary>
-    public TerraformProperty<string>? DesiredState
+    public TerraformProperty<string> DesiredState
     {
-        get => GetProperty<TerraformProperty<string>>("desired_state");
-        set => this.WithProperty("desired_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("desired_state");
+        set => SetProperty("desired_state", value);
     }
 
     /// <summary>
     /// The enrichment attribute.
     /// </summary>
-    public TerraformProperty<string>? Enrichment
+    public TerraformProperty<string> Enrichment
     {
-        get => GetProperty<TerraformProperty<string>>("enrichment");
-        set => this.WithProperty("enrichment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enrichment");
+        set => SetProperty("enrichment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyIdentifier
+    public TerraformProperty<string> KmsKeyIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_identifier");
-        set => this.WithProperty("kms_key_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
+        set => SetProperty("kms_key_identifier", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -200,8 +206,8 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -210,26 +216,26 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -238,8 +244,8 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target");
-        set => this.WithProperty("target", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target");
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -249,8 +255,7 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnrichmentParameters block(s) allowed")]
     public List<AwsPipesPipeEnrichmentParametersBlock>? EnrichmentParameters
     {
-        get => GetProperty<List<AwsPipesPipeEnrichmentParametersBlock>>("enrichment_parameters");
-        set => this.WithProperty("enrichment_parameters", value);
+        set => SetProperty("enrichment_parameters", value);
     }
 
     /// <summary>
@@ -260,8 +265,7 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfiguration block(s) allowed")]
     public List<AwsPipesPipeLogConfigurationBlock>? LogConfiguration
     {
-        get => GetProperty<List<AwsPipesPipeLogConfigurationBlock>>("log_configuration");
-        set => this.WithProperty("log_configuration", value);
+        set => SetProperty("log_configuration", value);
     }
 
     /// <summary>
@@ -271,8 +275,7 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceParameters block(s) allowed")]
     public List<AwsPipesPipeSourceParametersBlock>? SourceParameters
     {
-        get => GetProperty<List<AwsPipesPipeSourceParametersBlock>>("source_parameters");
-        set => this.WithProperty("source_parameters", value);
+        set => SetProperty("source_parameters", value);
     }
 
     /// <summary>
@@ -282,8 +285,7 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetParameters block(s) allowed")]
     public List<AwsPipesPipeTargetParametersBlock>? TargetParameters
     {
-        get => GetProperty<List<AwsPipesPipeTargetParametersBlock>>("target_parameters");
-        set => this.WithProperty("target_parameters", value);
+        set => SetProperty("target_parameters", value);
     }
 
     /// <summary>
@@ -292,8 +294,7 @@ public class AwsPipesPipe : TerraformResource
     /// </summary>
     public AwsPipesPipeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsPipesPipeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

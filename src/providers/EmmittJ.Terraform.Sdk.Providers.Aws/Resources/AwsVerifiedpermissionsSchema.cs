@@ -14,8 +14,7 @@ public class AwsVerifiedpermissionsSchemaDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -32,8 +31,10 @@ public class AwsVerifiedpermissionsSchema : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("namespaces");
+        SetOutput("id");
+        SetOutput("namespaces");
+        SetOutput("policy_store_id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -42,17 +43,17 @@ public class AwsVerifiedpermissionsSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
     public required TerraformProperty<string> PolicyStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_store_id");
-        set => this.WithProperty("policy_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_store_id");
+        set => SetProperty("policy_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -61,8 +62,7 @@ public class AwsVerifiedpermissionsSchema : TerraformResource
     /// </summary>
     public List<AwsVerifiedpermissionsSchemaDefinitionBlock>? Definition
     {
-        get => GetProperty<List<AwsVerifiedpermissionsSchemaDefinitionBlock>>("definition");
-        set => this.WithProperty("definition", value);
+        set => SetProperty("definition", value);
     }
 
     /// <summary>

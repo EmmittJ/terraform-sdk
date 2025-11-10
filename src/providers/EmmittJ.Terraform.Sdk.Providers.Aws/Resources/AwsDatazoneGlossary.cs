@@ -14,16 +14,22 @@ public class AwsDatazoneGlossary : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("description");
+        SetOutput("domain_identifier");
+        SetOutput("name");
+        SetOutput("owning_project_identifier");
+        SetOutput("region");
+        SetOutput("status");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -32,8 +38,8 @@ public class AwsDatazoneGlossary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
-        set => this.WithProperty("domain_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_identifier");
+        set => SetProperty("domain_identifier", value);
     }
 
     /// <summary>
@@ -42,8 +48,8 @@ public class AwsDatazoneGlossary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -52,26 +58,26 @@ public class AwsDatazoneGlossary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwningProjectIdentifier is required")]
     public required TerraformProperty<string> OwningProjectIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("owning_project_identifier");
-        set => this.WithProperty("owning_project_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owning_project_identifier");
+        set => SetProperty("owning_project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>

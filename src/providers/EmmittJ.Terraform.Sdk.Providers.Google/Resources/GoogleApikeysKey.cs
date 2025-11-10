@@ -21,8 +21,7 @@ public class GoogleApikeysKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleApikeysKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleApikeysKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,26 +55,31 @@ public class GoogleApikeysKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("key_string");
-        this.WithOutput("uid");
+        SetOutput("key_string");
+        SetOutput("uid");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("service_account_email");
     }
 
     /// <summary>
     /// Human-readable display name of this API key. Modifiable by user.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,26 +88,26 @@ public class GoogleApikeysKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The email of the service account the key is bound to. If this field is specified, the key is a service account bound key and auth enabled. See [Documentation](https://cloud.devsite.corp.google.com/docs/authentication/api-keys?#api-keys-bound-sa) for more details.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccountEmail
+    public TerraformProperty<string> ServiceAccountEmail
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_email");
-        set => this.WithProperty("service_account_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account_email");
+        set => SetProperty("service_account_email", value);
     }
 
     /// <summary>
@@ -115,8 +117,7 @@ public class GoogleApikeysKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restrictions block(s) allowed")]
     public List<GoogleApikeysKeyRestrictionsBlock>? Restrictions
     {
-        get => GetProperty<List<GoogleApikeysKeyRestrictionsBlock>>("restrictions");
-        set => this.WithProperty("restrictions", value);
+        set => SetProperty("restrictions", value);
     }
 
     /// <summary>
@@ -125,8 +126,7 @@ public class GoogleApikeysKey : TerraformResource
     /// </summary>
     public GoogleApikeysKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApikeysKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

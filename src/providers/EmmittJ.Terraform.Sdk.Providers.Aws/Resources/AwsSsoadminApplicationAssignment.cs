@@ -14,7 +14,11 @@ public class AwsSsoadminApplicationAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("application_arn");
+        SetOutput("principal_id");
+        SetOutput("principal_type");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -23,8 +27,8 @@ public class AwsSsoadminApplicationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     public required TerraformProperty<string> ApplicationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_arn");
-        set => this.WithProperty("application_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_arn");
+        set => SetProperty("application_arn", value);
     }
 
     /// <summary>
@@ -33,8 +37,8 @@ public class AwsSsoadminApplicationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -43,17 +47,17 @@ public class AwsSsoadminApplicationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformProperty<string> PrincipalType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_type");
-        set => this.WithProperty("principal_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_type");
+        set => SetProperty("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

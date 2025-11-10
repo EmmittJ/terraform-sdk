@@ -13,8 +13,7 @@ public class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? AudioExportPattern
     {
-        get => GetProperty<TerraformProperty<string>>("audio_export_pattern");
-        set => WithProperty("audio_export_pattern", value);
+        set => SetProperty("audio_export_pattern", value);
     }
 
     /// <summary>
@@ -25,8 +24,7 @@ public class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? AudioFormat
     {
-        get => GetProperty<TerraformProperty<string>>("audio_format");
-        set => WithProperty("audio_format", value);
+        set => SetProperty("audio_format", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : Terraf
     /// </summary>
     public TerraformProperty<bool>? EnableAudioRedaction
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_audio_redaction");
-        set => WithProperty("enable_audio_redaction", value);
+        set => SetProperty("enable_audio_redaction", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? GcsBucket
     {
-        get => GetProperty<TerraformProperty<string>>("gcs_bucket");
-        set => WithProperty("gcs_bucket", value);
+        set => SetProperty("gcs_bucket", value);
     }
 
 }
@@ -61,8 +57,7 @@ public class GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableInsightsExport is required")]
     public required TerraformProperty<bool> EnableInsightsExport
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enable_insights_export");
-        set => WithProperty("enable_insights_export", value);
+        set => SetProperty("enable_insights_export", value);
     }
 
 }
@@ -78,8 +73,7 @@ public class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,7 +107,18 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("deidentify_template");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("inspect_template");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("purge_data_types");
+        SetOutput("redaction_scope");
+        SetOutput("redaction_strategy");
+        SetOutput("retention_strategy");
+        SetOutput("retention_window_days");
     }
 
     /// <summary>
@@ -123,10 +126,10 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// Note: deidentifyTemplate must be located in the same region as the SecuritySettings.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/deidentifyTemplates/&amp;lt;Template ID&amp;gt; OR organizations/&amp;lt;Organization ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/deidentifyTemplates/&amp;lt;Template ID&amp;gt;
     /// </summary>
-    public TerraformProperty<string>? DeidentifyTemplate
+    public TerraformProperty<string> DeidentifyTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("deidentify_template");
-        set => this.WithProperty("deidentify_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deidentify_template");
+        set => SetProperty("deidentify_template", value);
     }
 
     /// <summary>
@@ -135,17 +138,17 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -153,10 +156,10 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// Note: inspectTemplate must be located in the same region as the SecuritySettings.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/inspectTemplates/&amp;lt;Template ID&amp;gt; OR organizations/&amp;lt;Organization ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/inspectTemplates/&amp;lt;Template ID&amp;gt;
     /// </summary>
-    public TerraformProperty<string>? InspectTemplate
+    public TerraformProperty<string> InspectTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("inspect_template");
-        set => this.WithProperty("inspect_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("inspect_template");
+        set => SetProperty("inspect_template", value);
     }
 
     /// <summary>
@@ -166,66 +169,66 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// List of types of data to remove when retention settings triggers purge. Possible values: [&amp;quot;DIALOGFLOW_HISTORY&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? PurgeDataTypes
+    public List<TerraformProperty<string>> PurgeDataTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("purge_data_types");
-        set => this.WithProperty("purge_data_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("purge_data_types");
+        set => SetProperty("purge_data_types", value);
     }
 
     /// <summary>
     /// Defines what types of data to redact. If not set, defaults to not redacting any kind of data.
     /// * REDACT_DISK_STORAGE: On data to be written to disk or similar devices that are capable of holding data even if power is disconnected. This includes data that are temporarily saved on disk. Possible values: [&amp;quot;REDACT_DISK_STORAGE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? RedactionScope
+    public TerraformProperty<string> RedactionScope
     {
-        get => GetProperty<TerraformProperty<string>>("redaction_scope");
-        set => this.WithProperty("redaction_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redaction_scope");
+        set => SetProperty("redaction_scope", value);
     }
 
     /// <summary>
     /// Defines how we redact data. If not set, defaults to not redacting.
     /// * REDACT_WITH_SERVICE: Call redaction service to clean up the data to be persisted. Possible values: [&amp;quot;REDACT_WITH_SERVICE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? RedactionStrategy
+    public TerraformProperty<string> RedactionStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("redaction_strategy");
-        set => this.WithProperty("redaction_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redaction_strategy");
+        set => SetProperty("redaction_strategy", value);
     }
 
     /// <summary>
     /// Defines how long we retain persisted data that contains sensitive info. Only one of &#39;retention_window_days&#39; and &#39;retention_strategy&#39; may be set.
     /// * REMOVE_AFTER_CONVERSATION: Removes data when the conversation ends. If there is no conversation explicitly established, a default conversation ends when the corresponding Dialogflow session ends. Possible values: [&amp;quot;REMOVE_AFTER_CONVERSATION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? RetentionStrategy
+    public TerraformProperty<string> RetentionStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("retention_strategy");
-        set => this.WithProperty("retention_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("retention_strategy");
+        set => SetProperty("retention_strategy", value);
     }
 
     /// <summary>
     /// Retains the data for the specified number of days. User must set a value lower than Dialogflow&#39;s default 365d TTL (30 days for Agent Assist traffic), higher value will be ignored and use default. Setting a value higher than that has no effect. A missing value or setting to 0 also means we use default TTL.
     /// Only one of &#39;retention_window_days&#39; and &#39;retention_strategy&#39; may be set.
     /// </summary>
-    public TerraformProperty<double>? RetentionWindowDays
+    public TerraformProperty<double> RetentionWindowDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_window_days");
-        set => this.WithProperty("retention_window_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_window_days");
+        set => SetProperty("retention_window_days", value);
     }
 
     /// <summary>
@@ -235,8 +238,7 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioExportSettings block(s) allowed")]
     public List<GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock>? AudioExportSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock>>("audio_export_settings");
-        set => this.WithProperty("audio_export_settings", value);
+        set => SetProperty("audio_export_settings", value);
     }
 
     /// <summary>
@@ -246,8 +248,7 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InsightsExportSettings block(s) allowed")]
     public List<GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock>? InsightsExportSettings
     {
-        get => GetProperty<List<GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock>>("insights_export_settings");
-        set => this.WithProperty("insights_export_settings", value);
+        set => SetProperty("insights_export_settings", value);
     }
 
     /// <summary>
@@ -256,8 +257,7 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     public GoogleDialogflowCxSecuritySettingsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDialogflowCxSecuritySettingsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

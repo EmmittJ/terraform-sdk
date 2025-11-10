@@ -13,8 +13,7 @@ public class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ClassificationTags
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("classification_tags");
-        set => WithProperty("classification_tags", value);
+        set => SetProperty("classification_tags", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Filters
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("filters");
-        set => WithProperty("filters", value);
+        set => SetProperty("filters", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("order");
-        set => WithProperty("order", value);
+        set => SetProperty("order", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Predicates
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("predicates");
-        set => WithProperty("predicates", value);
+        set => SetProperty("predicates", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SsoValidationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sso_validation_enabled");
-        set => WithProperty("sso_validation_enabled", value);
+        set => SetProperty("sso_validation_enabled", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? TokenRelay
     {
-        get => GetProperty<TerraformProperty<bool>>("token_relay");
-        set => WithProperty("token_relay", value);
+        set => SetProperty("token_relay", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
-        set => WithProperty("uri", value);
+        set => SetProperty("uri", value);
     }
 
 }
@@ -120,8 +110,7 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -138,8 +126,7 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -147,8 +134,7 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -166,24 +152,32 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("filters");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("predicates");
+        SetOutput("protocol");
+        SetOutput("spring_cloud_app_id");
+        SetOutput("spring_cloud_gateway_id");
+        SetOutput("sso_validation_enabled");
     }
 
     /// <summary>
     /// The filters attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Filters
+    public HashSet<TerraformProperty<string>> Filters
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("filters");
-        set => this.WithProperty("filters", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("filters");
+        set => SetProperty("filters", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -192,17 +186,17 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The predicates attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Predicates
+    public HashSet<TerraformProperty<string>> Predicates
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("predicates");
-        set => this.WithProperty("predicates", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("predicates");
+        set => SetProperty("predicates", value);
     }
 
     /// <summary>
@@ -211,17 +205,17 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SpringCloudAppId
+    public TerraformProperty<string> SpringCloudAppId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
-        set => this.WithProperty("spring_cloud_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
+        set => SetProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
@@ -230,17 +224,17 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudGatewayId is required")]
     public required TerraformProperty<string> SpringCloudGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_gateway_id");
-        set => this.WithProperty("spring_cloud_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_gateway_id");
+        set => SetProperty("spring_cloud_gateway_id", value);
     }
 
     /// <summary>
     /// The sso_validation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SsoValidationEnabled
+    public TerraformProperty<bool> SsoValidationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sso_validation_enabled");
-        set => this.WithProperty("sso_validation_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("sso_validation_enabled");
+        set => SetProperty("sso_validation_enabled", value);
     }
 
     /// <summary>
@@ -250,8 +244,7 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApi block(s) allowed")]
     public List<AzurermSpringCloudGatewayRouteConfigOpenApiBlock>? OpenApi
     {
-        get => GetProperty<List<AzurermSpringCloudGatewayRouteConfigOpenApiBlock>>("open_api");
-        set => this.WithProperty("open_api", value);
+        set => SetProperty("open_api", value);
     }
 
     /// <summary>
@@ -260,8 +253,7 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// </summary>
     public HashSet<AzurermSpringCloudGatewayRouteConfigRouteBlock>? Route
     {
-        get => GetProperty<HashSet<AzurermSpringCloudGatewayRouteConfigRouteBlock>>("route");
-        set => this.WithProperty("route", value);
+        set => SetProperty("route", value);
     }
 
     /// <summary>
@@ -270,8 +262,7 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// </summary>
     public AzurermSpringCloudGatewayRouteConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudGatewayRouteConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

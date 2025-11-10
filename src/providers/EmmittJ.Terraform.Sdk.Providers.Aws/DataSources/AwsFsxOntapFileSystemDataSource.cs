@@ -14,27 +14,30 @@ public class AwsFsxOntapFileSystemDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("automatic_backup_retention_days");
-        this.WithOutput("daily_automatic_backup_start_time");
-        this.WithOutput("deployment_type");
-        this.WithOutput("disk_iops_configuration");
-        this.WithOutput("dns_name");
-        this.WithOutput("endpoint_ip_address_range");
-        this.WithOutput("endpoints");
-        this.WithOutput("ha_pairs");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("network_interface_ids");
-        this.WithOutput("owner_id");
-        this.WithOutput("preferred_subnet_id");
-        this.WithOutput("route_table_ids");
-        this.WithOutput("storage_capacity");
-        this.WithOutput("storage_type");
-        this.WithOutput("subnet_ids");
-        this.WithOutput("throughput_capacity");
-        this.WithOutput("throughput_capacity_per_ha_pair");
-        this.WithOutput("vpc_id");
-        this.WithOutput("weekly_maintenance_start_time");
+        SetOutput("arn");
+        SetOutput("automatic_backup_retention_days");
+        SetOutput("daily_automatic_backup_start_time");
+        SetOutput("deployment_type");
+        SetOutput("disk_iops_configuration");
+        SetOutput("dns_name");
+        SetOutput("endpoint_ip_address_range");
+        SetOutput("endpoints");
+        SetOutput("ha_pairs");
+        SetOutput("kms_key_id");
+        SetOutput("network_interface_ids");
+        SetOutput("owner_id");
+        SetOutput("preferred_subnet_id");
+        SetOutput("route_table_ids");
+        SetOutput("storage_capacity");
+        SetOutput("storage_type");
+        SetOutput("subnet_ids");
+        SetOutput("throughput_capacity");
+        SetOutput("throughput_capacity_per_ha_pair");
+        SetOutput("vpc_id");
+        SetOutput("weekly_maintenance_start_time");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -43,26 +46,26 @@ public class AwsFsxOntapFileSystemDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

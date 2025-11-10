@@ -13,8 +13,7 @@ public class GoogleComputeRouterInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeRouterInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,42 +38,54 @@ public class GoogleComputeRouterInterface : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("interconnect_attachment");
+        SetOutput("ip_range");
+        SetOutput("ip_version");
+        SetOutput("name");
+        SetOutput("private_ip_address");
+        SetOutput("project");
+        SetOutput("redundant_interface");
+        SetOutput("region");
+        SetOutput("router");
+        SetOutput("subnetwork");
+        SetOutput("vpn_tunnel");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name or resource link to the VLAN interconnect for this interface. Changing this forces a new interface to be created. Only one of interconnect_attachment, subnetwork or vpn_tunnel can be specified.
     /// </summary>
-    public TerraformProperty<string>? InterconnectAttachment
+    public TerraformProperty<string> InterconnectAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("interconnect_attachment");
-        set => this.WithProperty("interconnect_attachment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("interconnect_attachment");
+        set => SetProperty("interconnect_attachment", value);
     }
 
     /// <summary>
     /// The IP address and range of the interface. The IP range must be in the RFC3927 link-local IP space. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformProperty<string>? IpRange
+    public TerraformProperty<string> IpRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_range");
-        set => this.WithProperty("ip_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_range");
+        set => SetProperty("ip_range", value);
     }
 
     /// <summary>
     /// IP version of this interface.
     /// </summary>
-    public TerraformProperty<string>? IpVersion
+    public TerraformProperty<string> IpVersion
     {
-        get => GetProperty<TerraformProperty<string>>("ip_version");
-        set => this.WithProperty("ip_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_version");
+        set => SetProperty("ip_version", value);
     }
 
     /// <summary>
@@ -84,44 +94,44 @@ public class GoogleComputeRouterInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The regional private internal IP address that is used to establish BGP sessions to a VM instance acting as a third-party Router Appliance. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformProperty<string>? PrivateIpAddress
+    public TerraformProperty<string> PrivateIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address");
-        set => this.WithProperty("private_ip_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_ip_address");
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
     /// The ID of the project in which this interface&#39;s router belongs. If it is not provided, the provider project is used. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The name of the interface that is redundant to this interface. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformProperty<string>? RedundantInterface
+    public TerraformProperty<string> RedundantInterface
     {
-        get => GetProperty<TerraformProperty<string>>("redundant_interface");
-        set => this.WithProperty("redundant_interface", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redundant_interface");
+        set => SetProperty("redundant_interface", value);
     }
 
     /// <summary>
     /// The region this interface&#39;s router sits in. If not specified, the project region will be used. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -130,26 +140,26 @@ public class GoogleComputeRouterInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformProperty<string> Router
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("router");
-        set => this.WithProperty("router", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("router");
+        set => SetProperty("router", value);
     }
 
     /// <summary>
     /// The URI of the subnetwork resource that this interface belongs to, which must be in the same region as the Cloud Router. Changing this forces a new interface to be created. Only one of subnetwork, interconnect_attachment or vpn_tunnel can be specified.
     /// </summary>
-    public TerraformProperty<string>? Subnetwork
+    public TerraformProperty<string> Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => this.WithProperty("subnetwork", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnetwork");
+        set => SetProperty("subnetwork", value);
     }
 
     /// <summary>
     /// The name or resource link to the VPN tunnel this interface will be linked to. Changing this forces a new interface to be created. Only one of vpn_tunnel, interconnect_attachment or subnetwork can be specified.
     /// </summary>
-    public TerraformProperty<string>? VpnTunnel
+    public TerraformProperty<string> VpnTunnel
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_tunnel");
-        set => this.WithProperty("vpn_tunnel", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpn_tunnel");
+        set => SetProperty("vpn_tunnel", value);
     }
 
     /// <summary>
@@ -158,8 +168,7 @@ public class GoogleComputeRouterInterface : TerraformResource
     /// </summary>
     public GoogleComputeRouterInterfaceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRouterInterfaceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

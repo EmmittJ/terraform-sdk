@@ -14,8 +14,7 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceId is required")]
     public required TerraformProperty<string> SourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_id");
-        set => WithProperty("source_id", value);
+        set => SetProperty("source_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformProperty<string> SourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_type");
-        set => WithProperty("source_type", value);
+        set => SetProperty("source_type", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,19 +81,23 @@ public class AzurermElasticSanVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("target_iqn");
-        this.WithOutput("target_portal_hostname");
-        this.WithOutput("target_portal_port");
-        this.WithOutput("volume_id");
+        SetOutput("target_iqn");
+        SetOutput("target_portal_hostname");
+        SetOutput("target_portal_port");
+        SetOutput("volume_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("size_in_gib");
+        SetOutput("volume_group_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -108,8 +106,8 @@ public class AzurermElasticSanVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -118,8 +116,8 @@ public class AzurermElasticSanVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     public required TerraformProperty<double> SizeInGib
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("size_in_gib");
-        set => this.WithProperty("size_in_gib", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("size_in_gib");
+        set => SetProperty("size_in_gib", value);
     }
 
     /// <summary>
@@ -128,8 +126,8 @@ public class AzurermElasticSanVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
     public required TerraformProperty<string> VolumeGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_group_id");
-        set => this.WithProperty("volume_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_group_id");
+        set => SetProperty("volume_group_id", value);
     }
 
     /// <summary>
@@ -139,8 +137,7 @@ public class AzurermElasticSanVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreateSource block(s) allowed")]
     public List<AzurermElasticSanVolumeCreateSourceBlock>? CreateSource
     {
-        get => GetProperty<List<AzurermElasticSanVolumeCreateSourceBlock>>("create_source");
-        set => this.WithProperty("create_source", value);
+        set => SetProperty("create_source", value);
     }
 
     /// <summary>
@@ -149,8 +146,7 @@ public class AzurermElasticSanVolume : TerraformResource
     /// </summary>
     public AzurermElasticSanVolumeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermElasticSanVolumeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

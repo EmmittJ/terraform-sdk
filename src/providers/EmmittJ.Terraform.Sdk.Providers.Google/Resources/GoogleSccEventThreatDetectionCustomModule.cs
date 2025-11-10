@@ -13,8 +13,7 @@ public class GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,9 +46,15 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("last_editor");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("last_editor");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("config");
+        SetOutput("display_name");
+        SetOutput("enablement_state");
+        SetOutput("id");
+        SetOutput("organization");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -61,17 +64,17 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     public required TerraformProperty<string> Config
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("config");
-        set => this.WithProperty("config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("config");
+        set => SetProperty("config", value);
     }
 
     /// <summary>
     /// The human readable name to be displayed for the module.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -80,17 +83,17 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablementState is required")]
     public required TerraformProperty<string> EnablementState
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("enablement_state");
-        set => this.WithProperty("enablement_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enablement_state");
+        set => SetProperty("enablement_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -99,8 +102,8 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization");
-        set => this.WithProperty("organization", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization");
+        set => SetProperty("organization", value);
     }
 
     /// <summary>
@@ -109,8 +112,8 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -119,8 +122,7 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
     /// </summary>
     public GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

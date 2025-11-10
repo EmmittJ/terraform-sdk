@@ -14,6 +14,10 @@ public class AwsDirectoryServiceLogSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("directory_id");
+        SetOutput("id");
+        SetOutput("log_group_name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,17 +26,17 @@ public class AwsDirectoryServiceLogSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
-        set => this.WithProperty("directory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
+        set => SetProperty("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,17 +45,17 @@ public class AwsDirectoryServiceLogSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
-        set => this.WithProperty("log_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_group_name");
+        set => SetProperty("log_group_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

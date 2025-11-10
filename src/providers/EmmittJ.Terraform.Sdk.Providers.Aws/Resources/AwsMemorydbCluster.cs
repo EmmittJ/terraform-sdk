@@ -13,8 +13,7 @@ public class AwsMemorydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsMemorydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsMemorydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,39 @@ public class AwsMemorydbCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cluster_endpoint");
-        this.WithOutput("engine_patch_version");
-        this.WithOutput("shards");
+        SetOutput("arn");
+        SetOutput("cluster_endpoint");
+        SetOutput("engine_patch_version");
+        SetOutput("shards");
+        SetOutput("acl_name");
+        SetOutput("auto_minor_version_upgrade");
+        SetOutput("data_tiering");
+        SetOutput("description");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("final_snapshot_name");
+        SetOutput("id");
+        SetOutput("kms_key_arn");
+        SetOutput("maintenance_window");
+        SetOutput("multi_region_cluster_name");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("node_type");
+        SetOutput("num_replicas_per_shard");
+        SetOutput("num_shards");
+        SetOutput("parameter_group_name");
+        SetOutput("port");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("snapshot_arns");
+        SetOutput("snapshot_name");
+        SetOutput("snapshot_retention_limit");
+        SetOutput("snapshot_window");
+        SetOutput("sns_topic_arn");
+        SetOutput("subnet_group_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("tls_enabled");
     }
 
     /// <summary>
@@ -61,116 +87,116 @@ public class AwsMemorydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclName is required")]
     public required TerraformProperty<string> AclName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("acl_name");
-        set => this.WithProperty("acl_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("acl_name");
+        set => SetProperty("acl_name", value);
     }
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoMinorVersionUpgrade
+    public TerraformProperty<bool> AutoMinorVersionUpgrade
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_minor_version_upgrade");
-        set => this.WithProperty("auto_minor_version_upgrade", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_minor_version_upgrade");
+        set => SetProperty("auto_minor_version_upgrade", value);
     }
 
     /// <summary>
     /// The data_tiering attribute.
     /// </summary>
-    public TerraformProperty<bool>? DataTiering
+    public TerraformProperty<bool> DataTiering
     {
-        get => GetProperty<TerraformProperty<bool>>("data_tiering");
-        set => this.WithProperty("data_tiering", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("data_tiering");
+        set => SetProperty("data_tiering", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    public TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    public TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
     /// The final_snapshot_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FinalSnapshotName
+    public TerraformProperty<string> FinalSnapshotName
     {
-        get => GetProperty<TerraformProperty<string>>("final_snapshot_name");
-        set => this.WithProperty("final_snapshot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("final_snapshot_name");
+        set => SetProperty("final_snapshot_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    public TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string>? MaintenanceWindow
+    public TerraformProperty<string> MaintenanceWindow
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_window");
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
     /// The multi_region_cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MultiRegionClusterName
+    public TerraformProperty<string> MultiRegionClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("multi_region_cluster_name");
-        set => this.WithProperty("multi_region_cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("multi_region_cluster_name");
+        set => SetProperty("multi_region_cluster_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
@@ -179,143 +205,143 @@ public class AwsMemorydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
-        set => this.WithProperty("node_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
+        set => SetProperty("node_type", value);
     }
 
     /// <summary>
     /// The num_replicas_per_shard attribute.
     /// </summary>
-    public TerraformProperty<double>? NumReplicasPerShard
+    public TerraformProperty<double> NumReplicasPerShard
     {
-        get => GetProperty<TerraformProperty<double>>("num_replicas_per_shard");
-        set => this.WithProperty("num_replicas_per_shard", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("num_replicas_per_shard");
+        set => SetProperty("num_replicas_per_shard", value);
     }
 
     /// <summary>
     /// The num_shards attribute.
     /// </summary>
-    public TerraformProperty<double>? NumShards
+    public TerraformProperty<double> NumShards
     {
-        get => GetProperty<TerraformProperty<double>>("num_shards");
-        set => this.WithProperty("num_shards", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("num_shards");
+        set => SetProperty("num_shards", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ParameterGroupName
+    public TerraformProperty<string> ParameterGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_group_name");
-        set => this.WithProperty("parameter_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_group_name");
+        set => SetProperty("parameter_group_name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The snapshot_arns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SnapshotArns
+    public List<TerraformProperty<string>> SnapshotArns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("snapshot_arns");
-        set => this.WithProperty("snapshot_arns", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("snapshot_arns");
+        set => SetProperty("snapshot_arns", value);
     }
 
     /// <summary>
     /// The snapshot_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotName
+    public TerraformProperty<string> SnapshotName
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_name");
-        set => this.WithProperty("snapshot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_name");
+        set => SetProperty("snapshot_name", value);
     }
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? SnapshotRetentionLimit
+    public TerraformProperty<double> SnapshotRetentionLimit
     {
-        get => GetProperty<TerraformProperty<double>>("snapshot_retention_limit");
-        set => this.WithProperty("snapshot_retention_limit", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("snapshot_retention_limit");
+        set => SetProperty("snapshot_retention_limit", value);
     }
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotWindow
+    public TerraformProperty<string> SnapshotWindow
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_window");
-        set => this.WithProperty("snapshot_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_window");
+        set => SetProperty("snapshot_window", value);
     }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SnsTopicArn
+    public TerraformProperty<string> SnsTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
-        set => this.WithProperty("sns_topic_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sns_topic_arn");
+        set => SetProperty("sns_topic_arn", value);
     }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetGroupName
+    public TerraformProperty<string> SubnetGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_group_name");
-        set => this.WithProperty("subnet_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_group_name");
+        set => SetProperty("subnet_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsEnabled
+    public TerraformProperty<bool> TlsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tls_enabled");
-        set => this.WithProperty("tls_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tls_enabled");
+        set => SetProperty("tls_enabled", value);
     }
 
     /// <summary>
@@ -324,8 +350,7 @@ public class AwsMemorydbCluster : TerraformResource
     /// </summary>
     public AwsMemorydbClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMemorydbClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

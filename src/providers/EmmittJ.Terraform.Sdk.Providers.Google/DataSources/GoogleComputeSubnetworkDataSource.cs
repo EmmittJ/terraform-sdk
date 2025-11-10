@@ -14,62 +14,67 @@ public class GoogleComputeSubnetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("description");
-        this.WithOutput("external_ipv6_prefix");
-        this.WithOutput("gateway_address");
-        this.WithOutput("internal_ipv6_prefix");
-        this.WithOutput("ip_cidr_range");
-        this.WithOutput("ipv6_access_type");
-        this.WithOutput("network");
-        this.WithOutput("private_ip_google_access");
-        this.WithOutput("secondary_ip_range");
-        this.WithOutput("stack_type");
-        this.WithOutput("subnetwork_id");
+        SetOutput("description");
+        SetOutput("external_ipv6_prefix");
+        SetOutput("gateway_address");
+        SetOutput("internal_ipv6_prefix");
+        SetOutput("ip_cidr_range");
+        SetOutput("ipv6_access_type");
+        SetOutput("network");
+        SetOutput("private_ip_google_access");
+        SetOutput("secondary_ip_range");
+        SetOutput("stack_type");
+        SetOutput("subnetwork_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("self_link");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformProperty<string>? SelfLink
+    public TerraformProperty<string> SelfLink
     {
-        get => GetProperty<TerraformProperty<string>>("self_link");
-        set => this.WithProperty("self_link", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("self_link");
+        set => SetProperty("self_link", value);
     }
 
     /// <summary>

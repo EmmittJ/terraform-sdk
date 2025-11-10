@@ -13,8 +13,7 @@ public class GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,15 +38,18 @@ public class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("processor");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -57,8 +58,8 @@ public class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Processor is required")]
     public required TerraformProperty<string> Processor
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("processor");
-        set => this.WithProperty("processor", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("processor");
+        set => SetProperty("processor", value);
     }
 
     /// <summary>
@@ -68,8 +69,8 @@ public class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -78,8 +79,7 @@ public class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
     /// </summary>
     public GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

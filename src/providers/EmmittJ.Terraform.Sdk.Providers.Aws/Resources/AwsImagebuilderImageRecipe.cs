@@ -13,8 +13,7 @@ public class AwsImagebuilderImageRecipeBlockDeviceMappingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
-        set => WithProperty("device_name", value);
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsImagebuilderImageRecipeBlockDeviceMappingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NoDevice
     {
-        get => GetProperty<TerraformProperty<bool>>("no_device");
-        set => WithProperty("no_device", value);
+        set => SetProperty("no_device", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsImagebuilderImageRecipeBlockDeviceMappingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VirtualName
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_name");
-        set => WithProperty("virtual_name", value);
+        set => SetProperty("virtual_name", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AwsImagebuilderImageRecipeComponentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
     public required TerraformProperty<string> ComponentArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("component_arn");
-        set => WithProperty("component_arn", value);
+        set => SetProperty("component_arn", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class AwsImagebuilderImageRecipeSystemsManagerAgentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UninstallAfterBuild is required")]
     public required TerraformProperty<bool> UninstallAfterBuild
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("uninstall_after_build");
-        set => WithProperty("uninstall_after_build", value);
+        set => SetProperty("uninstall_after_build", value);
     }
 
 }
@@ -86,37 +81,48 @@ public class AwsImagebuilderImageRecipe : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("date_created");
-        this.WithOutput("owner");
-        this.WithOutput("platform");
+        SetOutput("arn");
+        SetOutput("date_created");
+        SetOutput("owner");
+        SetOutput("platform");
+        SetOutput("ami_tags");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent_image");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("user_data_base64");
+        SetOutput("version");
+        SetOutput("working_directory");
     }
 
     /// <summary>
     /// The ami_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AmiTags
+    public Dictionary<string, TerraformProperty<string>> AmiTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("ami_tags");
-        set => this.WithProperty("ami_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("ami_tags");
+        set => SetProperty("ami_tags", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -125,8 +131,8 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -135,44 +141,44 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
     public required TerraformProperty<string> ParentImage
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent_image");
-        set => this.WithProperty("parent_image", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_image");
+        set => SetProperty("parent_image", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
-    public TerraformProperty<string>? UserDataBase64
+    public TerraformProperty<string> UserDataBase64
     {
-        get => GetProperty<TerraformProperty<string>>("user_data_base64");
-        set => this.WithProperty("user_data_base64", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_data_base64");
+        set => SetProperty("user_data_base64", value);
     }
 
     /// <summary>
@@ -181,17 +187,17 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkingDirectory
+    public TerraformProperty<string> WorkingDirectory
     {
-        get => GetProperty<TerraformProperty<string>>("working_directory");
-        set => this.WithProperty("working_directory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("working_directory");
+        set => SetProperty("working_directory", value);
     }
 
     /// <summary>
@@ -200,19 +206,18 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     /// </summary>
     public HashSet<AwsImagebuilderImageRecipeBlockDeviceMappingBlock>? BlockDeviceMapping
     {
-        get => GetProperty<HashSet<AwsImagebuilderImageRecipeBlockDeviceMappingBlock>>("block_device_mapping");
-        set => this.WithProperty("block_device_mapping", value);
+        set => SetProperty("block_device_mapping", value);
     }
 
     /// <summary>
     /// Block for component.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Component is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Component block(s) required")]
     public List<AwsImagebuilderImageRecipeComponentBlock>? Component
     {
-        get => GetProperty<List<AwsImagebuilderImageRecipeComponentBlock>>("component");
-        set => this.WithProperty("component", value);
+        set => SetProperty("component", value);
     }
 
     /// <summary>
@@ -222,8 +227,7 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SystemsManagerAgent block(s) allowed")]
     public List<AwsImagebuilderImageRecipeSystemsManagerAgentBlock>? SystemsManagerAgent
     {
-        get => GetProperty<List<AwsImagebuilderImageRecipeSystemsManagerAgentBlock>>("systems_manager_agent");
-        set => this.WithProperty("systems_manager_agent", value);
+        set => SetProperty("systems_manager_agent", value);
     }
 
     /// <summary>

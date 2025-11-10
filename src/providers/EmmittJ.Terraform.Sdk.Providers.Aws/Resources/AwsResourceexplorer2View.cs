@@ -14,8 +14,7 @@ public class AwsResourceexplorer2ViewFiltersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterString is required")]
     public required TerraformProperty<string> FilterString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter_string");
-        set => WithProperty("filter_string", value);
+        set => SetProperty("filter_string", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsResourceexplorer2ViewIncludedPropertyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -50,18 +48,23 @@ public class AwsResourceexplorer2View : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("default_view");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("scope");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The default_view attribute.
     /// </summary>
-    public TerraformProperty<bool>? DefaultView
+    public TerraformProperty<bool> DefaultView
     {
-        get => GetProperty<TerraformProperty<bool>>("default_view");
-        set => this.WithProperty("default_view", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default_view");
+        set => SetProperty("default_view", value);
     }
 
     /// <summary>
@@ -70,35 +73,35 @@ public class AwsResourceexplorer2View : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    public TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -107,8 +110,7 @@ public class AwsResourceexplorer2View : TerraformResource
     /// </summary>
     public List<AwsResourceexplorer2ViewFiltersBlock>? Filters
     {
-        get => GetProperty<List<AwsResourceexplorer2ViewFiltersBlock>>("filters");
-        set => this.WithProperty("filters", value);
+        set => SetProperty("filters", value);
     }
 
     /// <summary>
@@ -117,8 +119,7 @@ public class AwsResourceexplorer2View : TerraformResource
     /// </summary>
     public List<AwsResourceexplorer2ViewIncludedPropertyBlock>? IncludedProperty
     {
-        get => GetProperty<List<AwsResourceexplorer2ViewIncludedPropertyBlock>>("included_property");
-        set => this.WithProperty("included_property", value);
+        set => SetProperty("included_property", value);
     }
 
     /// <summary>

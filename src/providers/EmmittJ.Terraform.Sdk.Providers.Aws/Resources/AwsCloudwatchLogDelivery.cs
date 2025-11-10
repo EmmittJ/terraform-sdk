@@ -14,9 +14,16 @@ public class AwsCloudwatchLogDelivery : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("delivery_destination_arn");
+        SetOutput("delivery_source_name");
+        SetOutput("field_delimiter");
+        SetOutput("record_fields");
+        SetOutput("region");
+        SetOutput("s3_delivery_configuration");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -25,8 +32,8 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationArn is required")]
     public required TerraformProperty<string> DeliveryDestinationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("delivery_destination_arn");
-        set => this.WithProperty("delivery_destination_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delivery_destination_arn");
+        set => SetProperty("delivery_destination_arn", value);
     }
 
     /// <summary>
@@ -35,53 +42,53 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliverySourceName is required")]
     public required TerraformProperty<string> DeliverySourceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("delivery_source_name");
-        set => this.WithProperty("delivery_source_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delivery_source_name");
+        set => SetProperty("delivery_source_name", value);
     }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
-    public TerraformProperty<string>? FieldDelimiter
+    public TerraformProperty<string> FieldDelimiter
     {
-        get => GetProperty<TerraformProperty<string>>("field_delimiter");
-        set => this.WithProperty("field_delimiter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("field_delimiter");
+        set => SetProperty("field_delimiter", value);
     }
 
     /// <summary>
     /// The record_fields attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? RecordFields
+    public List<TerraformProperty<string>> RecordFields
     {
-        get => GetProperty<List<TerraformProperty<string>>>("record_fields");
-        set => this.WithProperty("record_fields", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("record_fields");
+        set => SetProperty("record_fields", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The s3_delivery_configuration attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? S3DeliveryConfiguration
+    public List<TerraformProperty<object>> S3DeliveryConfiguration
     {
-        get => GetProperty<List<TerraformProperty<object>>>("s3_delivery_configuration");
-        set => this.WithProperty("s3_delivery_configuration", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("s3_delivery_configuration");
+        set => SetProperty("s3_delivery_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

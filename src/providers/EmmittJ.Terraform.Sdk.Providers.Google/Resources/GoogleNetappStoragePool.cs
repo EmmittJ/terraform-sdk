@@ -13,8 +13,7 @@ public class GoogleNetappStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetappStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetappStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,34 +46,56 @@ public class GoogleNetappStoragePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("available_throughput_mibps");
-        this.WithOutput("cold_tier_size_used_gib");
-        this.WithOutput("effective_labels");
-        this.WithOutput("encryption_type");
-        this.WithOutput("hot_tier_size_used_gib");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("volume_capacity_gib");
-        this.WithOutput("volume_count");
+        SetOutput("available_throughput_mibps");
+        SetOutput("cold_tier_size_used_gib");
+        SetOutput("effective_labels");
+        SetOutput("encryption_type");
+        SetOutput("hot_tier_size_used_gib");
+        SetOutput("terraform_labels");
+        SetOutput("volume_capacity_gib");
+        SetOutput("volume_count");
+        SetOutput("active_directory");
+        SetOutput("allow_auto_tiering");
+        SetOutput("capacity_gib");
+        SetOutput("custom_performance_enabled");
+        SetOutput("description");
+        SetOutput("enable_hot_tier_auto_resize");
+        SetOutput("hot_tier_size_gib");
+        SetOutput("id");
+        SetOutput("kms_config");
+        SetOutput("labels");
+        SetOutput("ldap_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("qos_type");
+        SetOutput("replica_zone");
+        SetOutput("service_level");
+        SetOutput("total_iops");
+        SetOutput("total_throughput_mibps");
+        SetOutput("type");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// Specifies the Active Directory policy to be used. Format: &#39;projects/{{project}}/locations/{{location}}/activeDirectories/{{name}}&#39;.
     /// The policy needs to be in the same location as the storage pool.
     /// </summary>
-    public TerraformProperty<string>? ActiveDirectory
+    public TerraformProperty<string> ActiveDirectory
     {
-        get => GetProperty<TerraformProperty<string>>("active_directory");
-        set => this.WithProperty("active_directory", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("active_directory");
+        set => SetProperty("active_directory", value);
     }
 
     /// <summary>
     /// Optional. True if the storage pool supports Auto Tiering enabled volumes. Default is false.
     /// Auto-tiering can be enabled after storage pool creation but it can&#39;t be disabled once enabled.
     /// </summary>
-    public TerraformProperty<bool>? AllowAutoTiering
+    public TerraformProperty<bool> AllowAutoTiering
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_auto_tiering");
-        set => this.WithProperty("allow_auto_tiering", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_auto_tiering");
+        set => SetProperty("allow_auto_tiering", value);
     }
 
     /// <summary>
@@ -85,65 +104,65 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformProperty<string> CapacityGib
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capacity_gib");
-        set => this.WithProperty("capacity_gib", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capacity_gib");
+        set => SetProperty("capacity_gib", value);
     }
 
     /// <summary>
     /// Optional. True if using Independent Scaling of capacity and performance (Hyperdisk). Default is false.
     /// </summary>
-    public TerraformProperty<bool>? CustomPerformanceEnabled
+    public TerraformProperty<bool> CustomPerformanceEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("custom_performance_enabled");
-        set => this.WithProperty("custom_performance_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("custom_performance_enabled");
+        set => SetProperty("custom_performance_enabled", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Flag indicating that the hot-tier threshold will be auto-increased by 10% of the hot-tier when it hits 100%. Default is true.
     /// The increment will kick in only if the new size after increment is still less than or equal to storage pool size.
     /// </summary>
-    public TerraformProperty<bool>? EnableHotTierAutoResize
+    public TerraformProperty<bool> EnableHotTierAutoResize
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_hot_tier_auto_resize");
-        set => this.WithProperty("enable_hot_tier_auto_resize", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_hot_tier_auto_resize");
+        set => SetProperty("enable_hot_tier_auto_resize", value);
     }
 
     /// <summary>
     /// Total hot tier capacity for the Storage Pool. It is applicable only to Flex service level.
     /// It should be less than the minimum storage pool size and cannot be more than the current storage pool size. It cannot be decreased once set.
     /// </summary>
-    public TerraformProperty<string>? HotTierSizeGib
+    public TerraformProperty<string> HotTierSizeGib
     {
-        get => GetProperty<TerraformProperty<string>>("hot_tier_size_gib");
-        set => this.WithProperty("hot_tier_size_gib", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hot_tier_size_gib");
+        set => SetProperty("hot_tier_size_gib", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Specifies the CMEK policy to be used for volume encryption. Format: &#39;projects/{{project}}/locations/{{location}}/kmsConfigs/{{name}}&#39;.
     /// The policy needs to be in the same location as the storage pool.
     /// </summary>
-    public TerraformProperty<string>? KmsConfig
+    public TerraformProperty<string> KmsConfig
     {
-        get => GetProperty<TerraformProperty<string>>("kms_config");
-        set => this.WithProperty("kms_config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_config");
+        set => SetProperty("kms_config", value);
     }
 
     /// <summary>
@@ -153,20 +172,20 @@ public class GoogleNetappStoragePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// When enabled, the volumes uses Active Directory as LDAP name service for UID/GID lookups. Required to enable extended group support for NFSv3,
     /// using security identifiers for NFSv4.1 or principal names for kerberized NFSv4.1.
     /// </summary>
-    public TerraformProperty<bool>? LdapEnabled
+    public TerraformProperty<bool> LdapEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ldap_enabled");
-        set => this.WithProperty("ldap_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ldap_enabled");
+        set => SetProperty("ldap_enabled", value);
     }
 
     /// <summary>
@@ -175,8 +194,8 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -185,8 +204,8 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -195,37 +214,37 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// QoS (Quality of Service) type of the storage pool.
     /// Possible values are: AUTO, MANUAL. Possible values: [&amp;quot;QOS_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;AUTO&amp;quot;, &amp;quot;MANUAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? QosType
+    public TerraformProperty<string> QosType
     {
-        get => GetProperty<TerraformProperty<string>>("qos_type");
-        set => this.WithProperty("qos_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("qos_type");
+        set => SetProperty("qos_type", value);
     }
 
     /// <summary>
     /// Specifies the replica zone for regional Flex pools. &#39;zone&#39; and &#39;replica_zone&#39; values can be swapped to initiate a
     /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
     /// </summary>
-    public TerraformProperty<string>? ReplicaZone
+    public TerraformProperty<string> ReplicaZone
     {
-        get => GetProperty<TerraformProperty<string>>("replica_zone");
-        set => this.WithProperty("replica_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replica_zone");
+        set => SetProperty("replica_zone", value);
     }
 
     /// <summary>
@@ -234,26 +253,26 @@ public class GoogleNetappStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformProperty<string> ServiceLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_level");
-        set => this.WithProperty("service_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_level");
+        set => SetProperty("service_level", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total IOPS of the pool If not provided, it will be calculated based on the totalThroughputMibps
     /// </summary>
-    public TerraformProperty<string>? TotalIops
+    public TerraformProperty<string> TotalIops
     {
-        get => GetProperty<TerraformProperty<string>>("total_iops");
-        set => this.WithProperty("total_iops", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("total_iops");
+        set => SetProperty("total_iops", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
-    public TerraformProperty<string>? TotalThroughputMibps
+    public TerraformProperty<string> TotalThroughputMibps
     {
-        get => GetProperty<TerraformProperty<string>>("total_throughput_mibps");
-        set => this.WithProperty("total_throughput_mibps", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("total_throughput_mibps");
+        set => SetProperty("total_throughput_mibps", value);
     }
 
     /// <summary>
@@ -261,10 +280,10 @@ public class GoogleNetappStoragePool : TerraformResource
     /// This field is used to control whether the pool supports FILE based volumes only or UNIFIED (both FILE and BLOCK) volumes.
     /// If not specified during creation, it defaults to FILE. Possible values: [&amp;quot;STORAGE_POOL_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;UNIFIED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -272,10 +291,10 @@ public class GoogleNetappStoragePool : TerraformResource
     /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
     /// If you want to create a zonal Flex pool, specify a zone name for &#39;location&#39; and omit &#39;zone&#39;.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -284,8 +303,7 @@ public class GoogleNetappStoragePool : TerraformResource
     /// </summary>
     public GoogleNetappStoragePoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetappStoragePoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

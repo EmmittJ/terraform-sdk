@@ -13,8 +13,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformProperty<string>? ConditionLogic
     {
-        get => GetProperty<TerraformProperty<string>>("condition_logic");
-        set => WithProperty("condition_logic", value);
+        set => SetProperty("condition_logic", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformProperty<double> RuleNumber
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("rule_number");
-        set => WithProperty("rule_number", value);
+        set => SetProperty("rule_number", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AsnRanges is required")]
     public HashSet<TerraformProperty<string>>? AsnRanges
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("asn_ranges");
-        set => WithProperty("asn_ranges", value);
+        set => SetProperty("asn_ranges", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public TerraformProperty<bool>? DnsSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("dns_support");
-        set => WithProperty("dns_support", value);
+        set => SetProperty("dns_support", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public HashSet<TerraformProperty<string>>? InsideCidrBlocks
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("inside_cidr_blocks");
-        set => WithProperty("inside_cidr_blocks", value);
+        set => SetProperty("inside_cidr_blocks", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public TerraformProperty<bool>? SecurityGroupReferencingSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("security_group_referencing_support");
-        set => WithProperty("security_group_referencing_support", value);
+        set => SetProperty("security_group_referencing_support", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public TerraformProperty<bool>? VpnEcmpSupport
     {
-        get => GetProperty<TerraformProperty<bool>>("vpn_ecmp_support");
-        set => WithProperty("vpn_ecmp_support", value);
+        set => SetProperty("vpn_ecmp_support", value);
     }
 
 }
@@ -103,8 +95,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequireAttachmentAcceptance is required")]
     public required TerraformProperty<bool> RequireAttachmentAcceptance
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("require_attachment_acceptance");
-        set => WithProperty("require_attachment_acceptance", value);
+        set => SetProperty("require_attachment_acceptance", value);
     }
 
 }
@@ -141,8 +130,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -150,8 +138,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -159,8 +146,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public HashSet<TerraformProperty<string>>? DestinationCidrBlocks
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("destination_cidr_blocks");
-        set => WithProperty("destination_cidr_blocks", value);
+        set => SetProperty("destination_cidr_blocks", value);
     }
 
     /// <summary>
@@ -168,8 +154,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public HashSet<TerraformProperty<string>>? Destinations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("destinations");
-        set => WithProperty("destinations", value);
+        set => SetProperty("destinations", value);
     }
 
     /// <summary>
@@ -177,8 +162,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -187,8 +171,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segment is required")]
     public required TerraformProperty<string> Segment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("segment");
-        set => WithProperty("segment", value);
+        set => SetProperty("segment", value);
     }
 
     /// <summary>
@@ -196,8 +179,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public HashSet<TerraformProperty<string>>? ShareWith
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("share_with");
-        set => WithProperty("share_with", value);
+        set => SetProperty("share_with", value);
     }
 
     /// <summary>
@@ -205,8 +187,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public HashSet<TerraformProperty<string>>? ShareWithExcept
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("share_with_except");
-        set => WithProperty("share_with_except", value);
+        set => SetProperty("share_with_except", value);
     }
 
 }
@@ -222,8 +203,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowFilter
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_filter");
-        set => WithProperty("allow_filter", value);
+        set => SetProperty("allow_filter", value);
     }
 
     /// <summary>
@@ -231,8 +211,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public HashSet<TerraformProperty<string>>? DenyFilter
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("deny_filter");
-        set => WithProperty("deny_filter", value);
+        set => SetProperty("deny_filter", value);
     }
 
     /// <summary>
@@ -240,8 +219,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -249,8 +227,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public HashSet<TerraformProperty<string>>? EdgeLocations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("edge_locations");
-        set => WithProperty("edge_locations", value);
+        set => SetProperty("edge_locations", value);
     }
 
     /// <summary>
@@ -258,8 +235,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public TerraformProperty<bool>? IsolateAttachments
     {
-        get => GetProperty<TerraformProperty<bool>>("isolate_attachments");
-        set => WithProperty("isolate_attachments", value);
+        set => SetProperty("isolate_attachments", value);
     }
 
     /// <summary>
@@ -268,8 +244,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -277,8 +252,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public TerraformProperty<bool>? RequireAttachmentAcceptance
     {
-        get => GetProperty<TerraformProperty<bool>>("require_attachment_acceptance");
-        set => WithProperty("require_attachment_acceptance", value);
+        set => SetProperty("require_attachment_acceptance", value);
     }
 
 }
@@ -296,25 +270,27 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.WithOutput("json");
+        SetOutput("json");
+        SetOutput("id");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -323,19 +299,18 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : TerraformDat
     /// </summary>
     public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock>? AttachmentPolicies
     {
-        get => GetProperty<List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock>>("attachment_policies");
-        set => this.WithProperty("attachment_policies", value);
+        set => SetProperty("attachment_policies", value);
     }
 
     /// <summary>
     /// Block for core_network_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CoreNetworkConfiguration block(s) required")]
     public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock>? CoreNetworkConfiguration
     {
-        get => GetProperty<List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock>>("core_network_configuration");
-        set => this.WithProperty("core_network_configuration", value);
+        set => SetProperty("core_network_configuration", value);
     }
 
     /// <summary>
@@ -344,8 +319,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : TerraformDat
     /// </summary>
     public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock>? NetworkFunctionGroups
     {
-        get => GetProperty<List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock>>("network_function_groups");
-        set => this.WithProperty("network_function_groups", value);
+        set => SetProperty("network_function_groups", value);
     }
 
     /// <summary>
@@ -354,19 +328,18 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : TerraformDat
     /// </summary>
     public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock>? SegmentActions
     {
-        get => GetProperty<List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock>>("segment_actions");
-        set => this.WithProperty("segment_actions", value);
+        set => SetProperty("segment_actions", value);
     }
 
     /// <summary>
     /// Block for segments.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segments is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Segments block(s) required")]
     public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock>? Segments
     {
-        get => GetProperty<List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock>>("segments");
-        set => this.WithProperty("segments", value);
+        set => SetProperty("segments", value);
     }
 
     /// <summary>

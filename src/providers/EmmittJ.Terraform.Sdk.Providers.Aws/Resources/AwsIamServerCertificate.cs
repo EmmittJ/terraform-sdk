@@ -13,8 +13,7 @@ public class AwsIamServerCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -31,9 +30,18 @@ public class AwsIamServerCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("expiration");
-        this.WithOutput("upload_date");
+        SetOutput("arn");
+        SetOutput("expiration");
+        SetOutput("upload_date");
+        SetOutput("certificate_body");
+        SetOutput("certificate_chain");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("path");
+        SetOutput("private_key");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -42,53 +50,53 @@ public class AwsIamServerCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
     public required TerraformProperty<string> CertificateBody
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_body");
-        set => this.WithProperty("certificate_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_body");
+        set => SetProperty("certificate_body", value);
     }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateChain
+    public TerraformProperty<string> CertificateChain
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_chain");
-        set => this.WithProperty("certificate_chain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_chain");
+        set => SetProperty("certificate_chain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
+    public TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => this.WithProperty("path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path");
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -97,26 +105,26 @@ public class AwsIamServerCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformProperty<string> PrivateKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_key");
-        set => this.WithProperty("private_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_key");
+        set => SetProperty("private_key", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -125,8 +133,7 @@ public class AwsIamServerCertificate : TerraformResource
     /// </summary>
     public AwsIamServerCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsIamServerCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

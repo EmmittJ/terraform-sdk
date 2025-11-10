@@ -14,8 +14,7 @@ public class AzurermSubnetDelegationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllocatedIpAddressPrefixes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allocated_ip_address_prefixes");
-        set => WithProperty("allocated_ip_address_prefixes", value);
+        set => SetProperty("allocated_ip_address_prefixes", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
     public required TerraformProperty<string> NumberOfIpAddresses
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("number_of_ip_addresses");
-        set => WithProperty("number_of_ip_addresses", value);
+        set => SetProperty("number_of_ip_addresses", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -114,33 +106,44 @@ public class AzurermSubnet : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("address_prefixes");
+        SetOutput("default_outbound_access_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("private_endpoint_network_policies");
+        SetOutput("private_link_service_network_policies_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("service_endpoint_policy_ids");
+        SetOutput("service_endpoints");
+        SetOutput("sharing_scope");
+        SetOutput("virtual_network_name");
     }
 
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AddressPrefixes
+    public List<TerraformProperty<string>> AddressPrefixes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("address_prefixes");
-        set => this.WithProperty("address_prefixes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("address_prefixes");
+        set => SetProperty("address_prefixes", value);
     }
 
     /// <summary>
     /// The default_outbound_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DefaultOutboundAccessEnabled
+    public TerraformProperty<bool> DefaultOutboundAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("default_outbound_access_enabled");
-        set => this.WithProperty("default_outbound_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("default_outbound_access_enabled");
+        set => SetProperty("default_outbound_access_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -149,26 +152,26 @@ public class AzurermSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The private_endpoint_network_policies attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateEndpointNetworkPolicies
+    public TerraformProperty<string> PrivateEndpointNetworkPolicies
     {
-        get => GetProperty<TerraformProperty<string>>("private_endpoint_network_policies");
-        set => this.WithProperty("private_endpoint_network_policies", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_endpoint_network_policies");
+        set => SetProperty("private_endpoint_network_policies", value);
     }
 
     /// <summary>
     /// The private_link_service_network_policies_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivateLinkServiceNetworkPoliciesEnabled
+    public TerraformProperty<bool> PrivateLinkServiceNetworkPoliciesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_link_service_network_policies_enabled");
-        set => this.WithProperty("private_link_service_network_policies_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_link_service_network_policies_enabled");
+        set => SetProperty("private_link_service_network_policies_enabled", value);
     }
 
     /// <summary>
@@ -177,35 +180,35 @@ public class AzurermSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_endpoint_policy_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ServiceEndpointPolicyIds
+    public HashSet<TerraformProperty<string>> ServiceEndpointPolicyIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("service_endpoint_policy_ids");
-        set => this.WithProperty("service_endpoint_policy_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("service_endpoint_policy_ids");
+        set => SetProperty("service_endpoint_policy_ids", value);
     }
 
     /// <summary>
     /// The service_endpoints attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ServiceEndpoints
+    public HashSet<TerraformProperty<string>> ServiceEndpoints
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("service_endpoints");
-        set => this.WithProperty("service_endpoints", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("service_endpoints");
+        set => SetProperty("service_endpoints", value);
     }
 
     /// <summary>
     /// The sharing_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? SharingScope
+    public TerraformProperty<string> SharingScope
     {
-        get => GetProperty<TerraformProperty<string>>("sharing_scope");
-        set => this.WithProperty("sharing_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sharing_scope");
+        set => SetProperty("sharing_scope", value);
     }
 
     /// <summary>
@@ -214,8 +217,8 @@ public class AzurermSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
     public required TerraformProperty<string> VirtualNetworkName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_name");
-        set => this.WithProperty("virtual_network_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_name");
+        set => SetProperty("virtual_network_name", value);
     }
 
     /// <summary>
@@ -224,8 +227,7 @@ public class AzurermSubnet : TerraformResource
     /// </summary>
     public List<AzurermSubnetDelegationBlock>? Delegation
     {
-        get => GetProperty<List<AzurermSubnetDelegationBlock>>("delegation");
-        set => this.WithProperty("delegation", value);
+        set => SetProperty("delegation", value);
     }
 
     /// <summary>
@@ -235,8 +237,7 @@ public class AzurermSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpAddressPool block(s) allowed")]
     public List<AzurermSubnetIpAddressPoolBlock>? IpAddressPool
     {
-        get => GetProperty<List<AzurermSubnetIpAddressPoolBlock>>("ip_address_pool");
-        set => this.WithProperty("ip_address_pool", value);
+        set => SetProperty("ip_address_pool", value);
     }
 
     /// <summary>
@@ -245,8 +246,7 @@ public class AzurermSubnet : TerraformResource
     /// </summary>
     public AzurermSubnetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSubnetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,62 +14,66 @@ public class GoogleCloudRunV2ServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("annotations");
-        this.WithOutput("binary_authorization");
-        this.WithOutput("build_config");
-        this.WithOutput("client");
-        this.WithOutput("client_version");
-        this.WithOutput("conditions");
-        this.WithOutput("create_time");
-        this.WithOutput("creator");
-        this.WithOutput("custom_audiences");
-        this.WithOutput("default_uri_disabled");
-        this.WithOutput("delete_time");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("description");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("expire_time");
-        this.WithOutput("generation");
-        this.WithOutput("ingress");
-        this.WithOutput("invoker_iam_disabled");
-        this.WithOutput("labels");
-        this.WithOutput("last_modifier");
-        this.WithOutput("latest_created_revision");
-        this.WithOutput("latest_ready_revision");
-        this.WithOutput("launch_stage");
-        this.WithOutput("multi_region_settings");
-        this.WithOutput("observed_generation");
-        this.WithOutput("reconciling");
-        this.WithOutput("scaling");
-        this.WithOutput("template");
-        this.WithOutput("terminal_condition");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("traffic");
-        this.WithOutput("traffic_statuses");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("uri");
-        this.WithOutput("urls");
+        SetOutput("annotations");
+        SetOutput("binary_authorization");
+        SetOutput("build_config");
+        SetOutput("client");
+        SetOutput("client_version");
+        SetOutput("conditions");
+        SetOutput("create_time");
+        SetOutput("creator");
+        SetOutput("custom_audiences");
+        SetOutput("default_uri_disabled");
+        SetOutput("delete_time");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("expire_time");
+        SetOutput("generation");
+        SetOutput("ingress");
+        SetOutput("invoker_iam_disabled");
+        SetOutput("labels");
+        SetOutput("last_modifier");
+        SetOutput("latest_created_revision");
+        SetOutput("latest_ready_revision");
+        SetOutput("launch_stage");
+        SetOutput("multi_region_settings");
+        SetOutput("observed_generation");
+        SetOutput("reconciling");
+        SetOutput("scaling");
+        SetOutput("template");
+        SetOutput("terminal_condition");
+        SetOutput("terraform_labels");
+        SetOutput("traffic");
+        SetOutput("traffic_statuses");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("uri");
+        SetOutput("urls");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location of the cloud run service
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -78,17 +82,17 @@ public class GoogleCloudRunV2ServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

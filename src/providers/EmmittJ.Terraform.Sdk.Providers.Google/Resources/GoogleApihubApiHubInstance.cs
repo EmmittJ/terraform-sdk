@@ -17,8 +17,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CmekKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("cmek_key_name");
-        set => WithProperty("cmek_key_name", value);
+        set => SetProperty("cmek_key_name", value);
     }
 
     /// <summary>
@@ -27,8 +26,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DisableSearch
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_search");
-        set => WithProperty("disable_search", value);
+        set => SetProperty("disable_search", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncryptionType
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_type");
-        set => WithProperty("encryption_type", value);
+        set => SetProperty("encryption_type", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VertexLocation
     {
-        get => GetProperty<TerraformProperty<string>>("vertex_location");
-        set => WithProperty("vertex_location", value);
+        set => SetProperty("vertex_location", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class GoogleApihubApiHubInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class GoogleApihubApiHubInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class GoogleApihubApiHubInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -105,13 +98,19 @@ public class GoogleApihubApiHubInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("state_message");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("state_message");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("api_hub_instance_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -122,28 +121,28 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// This value should be 4-40 characters, and valid characters
     /// are &#39;/a-z[0-9]-_/&#39;.
     /// </summary>
-    public TerraformProperty<string>? ApiHubInstanceId
+    public TerraformProperty<string> ApiHubInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("api_hub_instance_id");
-        set => this.WithProperty("api_hub_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_hub_instance_id");
+        set => SetProperty("api_hub_instance_id", value);
     }
 
     /// <summary>
     /// Optional. Description of the ApiHub instance.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -154,10 +153,10 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -166,29 +165,29 @@ public class GoogleApihubApiHubInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     public List<GoogleApihubApiHubInstanceConfigBlock>? Config
     {
-        get => GetProperty<List<GoogleApihubApiHubInstanceConfigBlock>>("config");
-        set => this.WithProperty("config", value);
+        set => SetProperty("config", value);
     }
 
     /// <summary>
@@ -197,8 +196,7 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     public GoogleApihubApiHubInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApihubApiHubInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,15 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dataset");
+        SetOutput("group_id");
+        SetOutput("group_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("stream_analytics_job_id");
+        SetOutput("table");
+        SetOutput("token_user_display_name");
+        SetOutput("token_user_principal_name");
     }
 
     /// <summary>
@@ -66,8 +71,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
-        set => this.WithProperty("dataset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
@@ -76,8 +81,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformProperty<string> GroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_id");
-        set => this.WithProperty("group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_id");
+        set => SetProperty("group_id", value);
     }
 
     /// <summary>
@@ -86,17 +91,17 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformProperty<string> GroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_name");
-        set => this.WithProperty("group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_name");
+        set => SetProperty("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,8 +110,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -115,8 +120,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformProperty<string> StreamAnalyticsJobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_id");
-        set => this.WithProperty("stream_analytics_job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_id");
+        set => SetProperty("stream_analytics_job_id", value);
     }
 
     /// <summary>
@@ -125,26 +130,26 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table");
-        set => this.WithProperty("table", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table");
+        set => SetProperty("table", value);
     }
 
     /// <summary>
     /// The token_user_display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TokenUserDisplayName
+    public TerraformProperty<string> TokenUserDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("token_user_display_name");
-        set => this.WithProperty("token_user_display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("token_user_display_name");
+        set => SetProperty("token_user_display_name", value);
     }
 
     /// <summary>
     /// The token_user_principal_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TokenUserPrincipalName
+    public TerraformProperty<string> TokenUserPrincipalName
     {
-        get => GetProperty<TerraformProperty<string>>("token_user_principal_name");
-        set => this.WithProperty("token_user_principal_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("token_user_principal_name");
+        set => SetProperty("token_user_principal_name", value);
     }
 
     /// <summary>
@@ -153,8 +158,7 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermKubernetesClusterNodePoolDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,39 +30,43 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("auto_scaling_enabled");
-        this.WithOutput("eviction_policy");
-        this.WithOutput("gpu_driver");
-        this.WithOutput("max_count");
-        this.WithOutput("max_pods");
-        this.WithOutput("min_count");
-        this.WithOutput("mode");
-        this.WithOutput("node_count");
-        this.WithOutput("node_labels");
-        this.WithOutput("node_public_ip_enabled");
-        this.WithOutput("node_public_ip_prefix_id");
-        this.WithOutput("node_taints");
-        this.WithOutput("orchestrator_version");
-        this.WithOutput("os_disk_size_gb");
-        this.WithOutput("os_disk_type");
-        this.WithOutput("os_type");
-        this.WithOutput("priority");
-        this.WithOutput("proximity_placement_group_id");
-        this.WithOutput("spot_max_price");
-        this.WithOutput("tags");
-        this.WithOutput("upgrade_settings");
-        this.WithOutput("vm_size");
-        this.WithOutput("vnet_subnet_id");
-        this.WithOutput("zones");
+        SetOutput("auto_scaling_enabled");
+        SetOutput("eviction_policy");
+        SetOutput("gpu_driver");
+        SetOutput("max_count");
+        SetOutput("max_pods");
+        SetOutput("min_count");
+        SetOutput("mode");
+        SetOutput("node_count");
+        SetOutput("node_labels");
+        SetOutput("node_public_ip_enabled");
+        SetOutput("node_public_ip_prefix_id");
+        SetOutput("node_taints");
+        SetOutput("orchestrator_version");
+        SetOutput("os_disk_size_gb");
+        SetOutput("os_disk_type");
+        SetOutput("os_type");
+        SetOutput("priority");
+        SetOutput("proximity_placement_group_id");
+        SetOutput("spot_max_price");
+        SetOutput("tags");
+        SetOutput("upgrade_settings");
+        SetOutput("vm_size");
+        SetOutput("vnet_subnet_id");
+        SetOutput("zones");
+        SetOutput("id");
+        SetOutput("kubernetes_cluster_name");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -72,8 +75,8 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterName is required")]
     public required TerraformProperty<string> KubernetesClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_cluster_name");
-        set => this.WithProperty("kubernetes_cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kubernetes_cluster_name");
+        set => SetProperty("kubernetes_cluster_name", value);
     }
 
     /// <summary>
@@ -82,8 +85,8 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -92,8 +95,8 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -102,8 +105,7 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
     /// </summary>
     public AzurermKubernetesClusterNodePoolDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKubernetesClusterNodePoolDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

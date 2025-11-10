@@ -13,8 +13,7 @@ public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,22 @@ public class AzurermNetappAccountEncryption : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cross_tenant_key_vault_resource_id");
+        SetOutput("encryption_key");
+        SetOutput("federated_client_id");
+        SetOutput("id");
+        SetOutput("netapp_account_id");
+        SetOutput("system_assigned_identity_principal_id");
+        SetOutput("user_assigned_identity_id");
     }
 
     /// <summary>
     /// The full resource ID of the cross-tenant key vault. Required when using federated_client_id for cross-tenant scenarios.
     /// </summary>
-    public TerraformProperty<string>? CrossTenantKeyVaultResourceId
+    public TerraformProperty<string> CrossTenantKeyVaultResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("cross_tenant_key_vault_resource_id");
-        set => this.WithProperty("cross_tenant_key_vault_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cross_tenant_key_vault_resource_id");
+        set => SetProperty("cross_tenant_key_vault_resource_id", value);
     }
 
     /// <summary>
@@ -75,26 +78,26 @@ public class AzurermNetappAccountEncryption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
     public required TerraformProperty<string> EncryptionKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("encryption_key");
-        set => this.WithProperty("encryption_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key");
+        set => SetProperty("encryption_key", value);
     }
 
     /// <summary>
     /// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults.
     /// </summary>
-    public TerraformProperty<string>? FederatedClientId
+    public TerraformProperty<string> FederatedClientId
     {
-        get => GetProperty<TerraformProperty<string>>("federated_client_id");
-        set => this.WithProperty("federated_client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("federated_client_id");
+        set => SetProperty("federated_client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,26 +106,26 @@ public class AzurermNetappAccountEncryption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
     public required TerraformProperty<string> NetappAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("netapp_account_id");
-        set => this.WithProperty("netapp_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("netapp_account_id");
+        set => SetProperty("netapp_account_id", value);
     }
 
     /// <summary>
     /// The Principal ID of the System Assigned Identity to use for encryption.
     /// </summary>
-    public TerraformProperty<string>? SystemAssignedIdentityPrincipalId
+    public TerraformProperty<string> SystemAssignedIdentityPrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("system_assigned_identity_principal_id");
-        set => this.WithProperty("system_assigned_identity_principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("system_assigned_identity_principal_id");
+        set => SetProperty("system_assigned_identity_principal_id", value);
     }
 
     /// <summary>
     /// The resource ID of the User Assigned Identity to use for encryption.
     /// </summary>
-    public TerraformProperty<string>? UserAssignedIdentityId
+    public TerraformProperty<string> UserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
-        set => this.WithProperty("user_assigned_identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_assigned_identity_id");
+        set => SetProperty("user_assigned_identity_id", value);
     }
 
     /// <summary>
@@ -131,8 +134,7 @@ public class AzurermNetappAccountEncryption : TerraformResource
     /// </summary>
     public AzurermNetappAccountEncryptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappAccountEncryptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

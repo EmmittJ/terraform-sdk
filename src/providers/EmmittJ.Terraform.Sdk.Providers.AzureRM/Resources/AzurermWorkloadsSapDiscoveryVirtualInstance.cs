@@ -14,8 +14,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,6 +81,17 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("central_server_virtual_machine_id");
+        SetOutput("environment");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("managed_resource_group_name");
+        SetOutput("managed_resources_network_access_type");
+        SetOutput("managed_storage_account_name");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sap_product");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -95,8 +100,8 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CentralServerVirtualMachineId is required")]
     public required TerraformProperty<string> CentralServerVirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("central_server_virtual_machine_id");
-        set => this.WithProperty("central_server_virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("central_server_virtual_machine_id");
+        set => SetProperty("central_server_virtual_machine_id", value);
     }
 
     /// <summary>
@@ -105,17 +110,17 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment");
-        set => this.WithProperty("environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment");
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -124,35 +129,35 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedResourceGroupName
+    public TerraformProperty<string> ManagedResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("managed_resource_group_name");
-        set => this.WithProperty("managed_resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_resource_group_name");
+        set => SetProperty("managed_resource_group_name", value);
     }
 
     /// <summary>
     /// The managed_resources_network_access_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedResourcesNetworkAccessType
+    public TerraformProperty<string> ManagedResourcesNetworkAccessType
     {
-        get => GetProperty<TerraformProperty<string>>("managed_resources_network_access_type");
-        set => this.WithProperty("managed_resources_network_access_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_resources_network_access_type");
+        set => SetProperty("managed_resources_network_access_type", value);
     }
 
     /// <summary>
     /// The managed_storage_account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedStorageAccountName
+    public TerraformProperty<string> ManagedStorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("managed_storage_account_name");
-        set => this.WithProperty("managed_storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_storage_account_name");
+        set => SetProperty("managed_storage_account_name", value);
     }
 
     /// <summary>
@@ -161,8 +166,8 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -171,8 +176,8 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -181,17 +186,17 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapProduct is required")]
     public required TerraformProperty<string> SapProduct
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sap_product");
-        set => this.WithProperty("sap_product", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sap_product");
+        set => SetProperty("sap_product", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -201,8 +206,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -211,8 +215,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     /// </summary>
     public AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

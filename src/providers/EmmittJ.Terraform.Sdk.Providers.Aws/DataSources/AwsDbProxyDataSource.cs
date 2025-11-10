@@ -14,27 +14,30 @@ public class AwsDbProxyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("auth");
-        this.WithOutput("debug_logging");
-        this.WithOutput("default_auth_scheme");
-        this.WithOutput("endpoint");
-        this.WithOutput("engine_family");
-        this.WithOutput("idle_client_timeout");
-        this.WithOutput("require_tls");
-        this.WithOutput("role_arn");
-        this.WithOutput("vpc_id");
-        this.WithOutput("vpc_security_group_ids");
-        this.WithOutput("vpc_subnet_ids");
+        SetOutput("arn");
+        SetOutput("auth");
+        SetOutput("debug_logging");
+        SetOutput("default_auth_scheme");
+        SetOutput("endpoint");
+        SetOutput("engine_family");
+        SetOutput("idle_client_timeout");
+        SetOutput("require_tls");
+        SetOutput("role_arn");
+        SetOutput("vpc_id");
+        SetOutput("vpc_security_group_ids");
+        SetOutput("vpc_subnet_ids");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,17 +46,17 @@ public class AwsDbProxyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

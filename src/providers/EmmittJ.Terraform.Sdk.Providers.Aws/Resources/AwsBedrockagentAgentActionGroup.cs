@@ -13,8 +13,7 @@ public class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? CustomControl
     {
-        get => GetProperty<TerraformProperty<string>>("custom_control");
-        set => WithProperty("custom_control", value);
+        set => SetProperty("custom_control", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Lambda
     {
-        get => GetProperty<TerraformProperty<string>>("lambda");
-        set => WithProperty("lambda", value);
+        set => SetProperty("lambda", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsBedrockagentAgentActionGroupApiSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Payload
     {
-        get => GetProperty<TerraformProperty<string>>("payload");
-        set => WithProperty("payload", value);
+        set => SetProperty("payload", value);
     }
 
 }
@@ -64,8 +61,7 @@ public class AwsBedrockagentAgentActionGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -73,8 +69,7 @@ public class AwsBedrockagentAgentActionGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -91,8 +86,17 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("action_group_id");
-        this.WithOutput("id");
+        SetOutput("action_group_id");
+        SetOutput("id");
+        SetOutput("action_group_name");
+        SetOutput("action_group_state");
+        SetOutput("agent_id");
+        SetOutput("agent_version");
+        SetOutput("description");
+        SetOutput("parent_action_group_signature");
+        SetOutput("prepare_agent");
+        SetOutput("region");
+        SetOutput("skip_resource_in_use_check");
     }
 
     /// <summary>
@@ -101,17 +105,17 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupName is required")]
     public required TerraformProperty<string> ActionGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action_group_name");
-        set => this.WithProperty("action_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action_group_name");
+        set => SetProperty("action_group_name", value);
     }
 
     /// <summary>
     /// The action_group_state attribute.
     /// </summary>
-    public TerraformProperty<string>? ActionGroupState
+    public TerraformProperty<string> ActionGroupState
     {
-        get => GetProperty<TerraformProperty<string>>("action_group_state");
-        set => this.WithProperty("action_group_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action_group_state");
+        set => SetProperty("action_group_state", value);
     }
 
     /// <summary>
@@ -120,8 +124,8 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
-        set => this.WithProperty("agent_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_id");
+        set => SetProperty("agent_id", value);
     }
 
     /// <summary>
@@ -130,53 +134,53 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentVersion is required")]
     public required TerraformProperty<string> AgentVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_version");
-        set => this.WithProperty("agent_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_version");
+        set => SetProperty("agent_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The parent_action_group_signature attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentActionGroupSignature
+    public TerraformProperty<string> ParentActionGroupSignature
     {
-        get => GetProperty<TerraformProperty<string>>("parent_action_group_signature");
-        set => this.WithProperty("parent_action_group_signature", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_action_group_signature");
+        set => SetProperty("parent_action_group_signature", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrepareAgent
+    public TerraformProperty<bool> PrepareAgent
     {
-        get => GetProperty<TerraformProperty<bool>>("prepare_agent");
-        set => this.WithProperty("prepare_agent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("prepare_agent");
+        set => SetProperty("prepare_agent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The skip_resource_in_use_check attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipResourceInUseCheck
+    public TerraformProperty<bool> SkipResourceInUseCheck
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_resource_in_use_check");
-        set => this.WithProperty("skip_resource_in_use_check", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_resource_in_use_check");
+        set => SetProperty("skip_resource_in_use_check", value);
     }
 
     /// <summary>
@@ -185,8 +189,7 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     /// </summary>
     public List<AwsBedrockagentAgentActionGroupActionGroupExecutorBlock>? ActionGroupExecutor
     {
-        get => GetProperty<List<AwsBedrockagentAgentActionGroupActionGroupExecutorBlock>>("action_group_executor");
-        set => this.WithProperty("action_group_executor", value);
+        set => SetProperty("action_group_executor", value);
     }
 
     /// <summary>
@@ -195,8 +198,7 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     /// </summary>
     public List<AwsBedrockagentAgentActionGroupApiSchemaBlock>? ApiSchema
     {
-        get => GetProperty<List<AwsBedrockagentAgentActionGroupApiSchemaBlock>>("api_schema");
-        set => this.WithProperty("api_schema", value);
+        set => SetProperty("api_schema", value);
     }
 
     /// <summary>
@@ -205,8 +207,7 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     /// </summary>
     public List<AwsBedrockagentAgentActionGroupFunctionSchemaBlock>? FunctionSchema
     {
-        get => GetProperty<List<AwsBedrockagentAgentActionGroupFunctionSchemaBlock>>("function_schema");
-        set => this.WithProperty("function_schema", value);
+        set => SetProperty("function_schema", value);
     }
 
     /// <summary>
@@ -215,8 +216,7 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     /// </summary>
     public AwsBedrockagentAgentActionGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentAgentActionGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

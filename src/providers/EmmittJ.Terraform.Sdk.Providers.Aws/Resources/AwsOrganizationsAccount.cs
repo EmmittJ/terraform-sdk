@@ -13,8 +13,7 @@ public class AwsOrganizationsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsOrganizationsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsOrganizationsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,30 +46,40 @@ public class AwsOrganizationsAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("govcloud_id");
-        this.WithOutput("joined_method");
-        this.WithOutput("joined_timestamp");
-        this.WithOutput("state");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("govcloud_id");
+        SetOutput("joined_method");
+        SetOutput("joined_timestamp");
+        SetOutput("state");
+        SetOutput("status");
+        SetOutput("close_on_deletion");
+        SetOutput("create_govcloud");
+        SetOutput("email");
+        SetOutput("iam_user_access_to_billing");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent_id");
+        SetOutput("role_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The close_on_deletion attribute.
     /// </summary>
-    public TerraformProperty<bool>? CloseOnDeletion
+    public TerraformProperty<bool> CloseOnDeletion
     {
-        get => GetProperty<TerraformProperty<bool>>("close_on_deletion");
-        set => this.WithProperty("close_on_deletion", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("close_on_deletion");
+        set => SetProperty("close_on_deletion", value);
     }
 
     /// <summary>
     /// The create_govcloud attribute.
     /// </summary>
-    public TerraformProperty<bool>? CreateGovcloud
+    public TerraformProperty<bool> CreateGovcloud
     {
-        get => GetProperty<TerraformProperty<bool>>("create_govcloud");
-        set => this.WithProperty("create_govcloud", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_govcloud");
+        set => SetProperty("create_govcloud", value);
     }
 
     /// <summary>
@@ -81,26 +88,26 @@ public class AwsOrganizationsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email");
-        set => this.WithProperty("email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email");
+        set => SetProperty("email", value);
     }
 
     /// <summary>
     /// The iam_user_access_to_billing attribute.
     /// </summary>
-    public TerraformProperty<string>? IamUserAccessToBilling
+    public TerraformProperty<string> IamUserAccessToBilling
     {
-        get => GetProperty<TerraformProperty<string>>("iam_user_access_to_billing");
-        set => this.WithProperty("iam_user_access_to_billing", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_user_access_to_billing");
+        set => SetProperty("iam_user_access_to_billing", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -109,44 +116,44 @@ public class AwsOrganizationsAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentId
+    public TerraformProperty<string> ParentId
     {
-        get => GetProperty<TerraformProperty<string>>("parent_id");
-        set => this.WithProperty("parent_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_id");
+        set => SetProperty("parent_id", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleName
+    public TerraformProperty<string> RoleName
     {
-        get => GetProperty<TerraformProperty<string>>("role_name");
-        set => this.WithProperty("role_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
+        set => SetProperty("role_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -155,8 +162,7 @@ public class AwsOrganizationsAccount : TerraformResource
     /// </summary>
     public AwsOrganizationsAccountTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsOrganizationsAccountTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

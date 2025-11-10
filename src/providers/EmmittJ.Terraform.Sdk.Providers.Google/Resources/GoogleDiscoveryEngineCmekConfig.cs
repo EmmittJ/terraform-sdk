@@ -16,8 +16,7 @@ public class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
-        set => WithProperty("kms_key", value);
+        set => SetProperty("kms_key", value);
     }
 
 }
@@ -33,8 +32,7 @@ public class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -69,30 +65,36 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("is_default");
-        this.WithOutput("kms_key_version");
-        this.WithOutput("last_rotation_timestamp_micros");
-        this.WithOutput("name");
-        this.WithOutput("notebooklm_state");
-        this.WithOutput("state");
+        SetOutput("is_default");
+        SetOutput("kms_key_version");
+        SetOutput("last_rotation_timestamp_micros");
+        SetOutput("name");
+        SetOutput("notebooklm_state");
+        SetOutput("state");
+        SetOutput("cmek_config_id");
+        SetOutput("id");
+        SetOutput("kms_key");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("set_default");
     }
 
     /// <summary>
     /// The unique id of the cmek config.
     /// </summary>
-    public TerraformProperty<string>? CmekConfigId
+    public TerraformProperty<string> CmekConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("cmek_config_id");
-        set => this.WithProperty("cmek_config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cmek_config_id");
+        set => SetProperty("cmek_config_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -102,8 +104,8 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
-        set => this.WithProperty("kms_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
@@ -113,27 +115,27 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Set the following CmekConfig as the default to be used for child resources
     /// if one is not specified. The default value is true.
     /// </summary>
-    public TerraformProperty<bool>? SetDefault
+    public TerraformProperty<bool> SetDefault
     {
-        get => GetProperty<TerraformProperty<bool>>("set_default");
-        set => this.WithProperty("set_default", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("set_default");
+        set => SetProperty("set_default", value);
     }
 
     /// <summary>
@@ -142,8 +144,7 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// </summary>
     public List<GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock>? SingleRegionKeys
     {
-        get => GetProperty<List<GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock>>("single_region_keys");
-        set => this.WithProperty("single_region_keys", value);
+        set => SetProperty("single_region_keys", value);
     }
 
     /// <summary>
@@ -152,8 +153,7 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineCmekConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineCmekConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermStorageTableDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,9 +30,11 @@ public class AzurermStorageTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("acl");
-        this.WithOutput("id");
-        this.WithOutput("resource_manager_id");
+        SetOutput("acl");
+        SetOutput("id");
+        SetOutput("resource_manager_id");
+        SetOutput("name");
+        SetOutput("storage_account_name");
     }
 
     /// <summary>
@@ -42,8 +43,8 @@ public class AzurermStorageTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -52,8 +53,8 @@ public class AzurermStorageTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
-        set => this.WithProperty("storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
+        set => SetProperty("storage_account_name", value);
     }
 
     /// <summary>
@@ -62,8 +63,7 @@ public class AzurermStorageTableDataSource : TerraformDataSource
     /// </summary>
     public AzurermStorageTableDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageTableDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

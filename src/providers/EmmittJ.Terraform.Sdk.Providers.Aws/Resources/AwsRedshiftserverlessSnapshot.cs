@@ -14,22 +14,27 @@ public class AwsRedshiftserverlessSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("accounts_with_provisioned_restore_access");
-        this.WithOutput("accounts_with_restore_access");
-        this.WithOutput("admin_username");
-        this.WithOutput("arn");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("namespace_arn");
-        this.WithOutput("owner_account");
+        SetOutput("accounts_with_provisioned_restore_access");
+        SetOutput("accounts_with_restore_access");
+        SetOutput("admin_username");
+        SetOutput("arn");
+        SetOutput("kms_key_id");
+        SetOutput("namespace_arn");
+        SetOutput("owner_account");
+        SetOutput("id");
+        SetOutput("namespace_name");
+        SetOutput("region");
+        SetOutput("retention_period");
+        SetOutput("snapshot_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -38,26 +43,26 @@ public class AwsRedshiftserverlessSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
-        set => this.WithProperty("namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
+        set => SetProperty("namespace_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionPeriod
+    public TerraformProperty<double> RetentionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("retention_period");
-        set => this.WithProperty("retention_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("retention_period");
+        set => SetProperty("retention_period", value);
     }
 
     /// <summary>
@@ -66,8 +71,8 @@ public class AwsRedshiftserverlessSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotName is required")]
     public required TerraformProperty<string> SnapshotName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_name");
-        set => this.WithProperty("snapshot_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_name");
+        set => SetProperty("snapshot_name", value);
     }
 
     /// <summary>

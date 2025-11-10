@@ -13,8 +13,7 @@ public class AwsCloudsearchDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnforceHttps
     {
-        get => GetProperty<TerraformProperty<bool>>("enforce_https");
-        set => WithProperty("enforce_https", value);
+        set => SetProperty("enforce_https", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCloudsearchDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TlsSecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("tls_security_policy");
-        set => WithProperty("tls_security_policy", value);
+        set => SetProperty("tls_security_policy", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AnalysisScheme
     {
-        get => GetProperty<TerraformProperty<string>>("analysis_scheme");
-        set => WithProperty("analysis_scheme", value);
+        set => SetProperty("analysis_scheme", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultValue
     {
-        get => GetProperty<TerraformProperty<string>>("default_value");
-        set => WithProperty("default_value", value);
+        set => SetProperty("default_value", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Facet
     {
-        get => GetProperty<TerraformProperty<bool>>("facet");
-        set => WithProperty("facet", value);
+        set => SetProperty("facet", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Highlight
     {
-        get => GetProperty<TerraformProperty<bool>>("highlight");
-        set => WithProperty("highlight", value);
+        set => SetProperty("highlight", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Return
     {
-        get => GetProperty<TerraformProperty<bool>>("return");
-        set => WithProperty("return", value);
+        set => SetProperty("return", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Search
     {
-        get => GetProperty<TerraformProperty<bool>>("search");
-        set => WithProperty("search", value);
+        set => SetProperty("search", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Sort
     {
-        get => GetProperty<TerraformProperty<bool>>("sort");
-        set => WithProperty("sort", value);
+        set => SetProperty("sort", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceFields
     {
-        get => GetProperty<TerraformProperty<string>>("source_fields");
-        set => WithProperty("source_fields", value);
+        set => SetProperty("source_fields", value);
     }
 
     /// <summary>
@@ -122,8 +111,7 @@ public class AwsCloudsearchDomainIndexFieldBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -139,8 +127,7 @@ public class AwsCloudsearchDomainScalingParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DesiredInstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("desired_instance_type");
-        set => WithProperty("desired_instance_type", value);
+        set => SetProperty("desired_instance_type", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class AwsCloudsearchDomainScalingParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DesiredPartitionCount
     {
-        get => GetProperty<TerraformProperty<double>>("desired_partition_count");
-        set => WithProperty("desired_partition_count", value);
+        set => SetProperty("desired_partition_count", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class AwsCloudsearchDomainScalingParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DesiredReplicationCount
     {
-        get => GetProperty<TerraformProperty<double>>("desired_replication_count");
-        set => WithProperty("desired_replication_count", value);
+        set => SetProperty("desired_replication_count", value);
     }
 
 }
@@ -174,8 +159,7 @@ public class AwsCloudsearchDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -183,8 +167,7 @@ public class AwsCloudsearchDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -192,8 +175,7 @@ public class AwsCloudsearchDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -211,28 +193,32 @@ public class AwsCloudsearchDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("document_service_endpoint");
-        this.WithOutput("domain_id");
-        this.WithOutput("search_service_endpoint");
+        SetOutput("arn");
+        SetOutput("document_service_endpoint");
+        SetOutput("domain_id");
+        SetOutput("search_service_endpoint");
+        SetOutput("id");
+        SetOutput("multi_az");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public TerraformProperty<bool>? MultiAz
+    public TerraformProperty<bool> MultiAz
     {
-        get => GetProperty<TerraformProperty<bool>>("multi_az");
-        set => this.WithProperty("multi_az", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("multi_az");
+        set => SetProperty("multi_az", value);
     }
 
     /// <summary>
@@ -241,17 +227,17 @@ public class AwsCloudsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -261,8 +247,7 @@ public class AwsCloudsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointOptions block(s) allowed")]
     public List<AwsCloudsearchDomainEndpointOptionsBlock>? EndpointOptions
     {
-        get => GetProperty<List<AwsCloudsearchDomainEndpointOptionsBlock>>("endpoint_options");
-        set => this.WithProperty("endpoint_options", value);
+        set => SetProperty("endpoint_options", value);
     }
 
     /// <summary>
@@ -271,8 +256,7 @@ public class AwsCloudsearchDomain : TerraformResource
     /// </summary>
     public HashSet<AwsCloudsearchDomainIndexFieldBlock>? IndexField
     {
-        get => GetProperty<HashSet<AwsCloudsearchDomainIndexFieldBlock>>("index_field");
-        set => this.WithProperty("index_field", value);
+        set => SetProperty("index_field", value);
     }
 
     /// <summary>
@@ -282,8 +266,7 @@ public class AwsCloudsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingParameters block(s) allowed")]
     public List<AwsCloudsearchDomainScalingParametersBlock>? ScalingParameters
     {
-        get => GetProperty<List<AwsCloudsearchDomainScalingParametersBlock>>("scaling_parameters");
-        set => this.WithProperty("scaling_parameters", value);
+        set => SetProperty("scaling_parameters", value);
     }
 
     /// <summary>
@@ -292,8 +275,7 @@ public class AwsCloudsearchDomain : TerraformResource
     /// </summary>
     public AwsCloudsearchDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsCloudsearchDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

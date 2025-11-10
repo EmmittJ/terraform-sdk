@@ -13,8 +13,7 @@ public class AzurermPrivateLinkServiceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,26 @@ public class AzurermPrivateLinkServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("alias");
-        this.WithOutput("auto_approval_subscription_ids");
-        this.WithOutput("enable_proxy_protocol");
-        this.WithOutput("load_balancer_frontend_ip_configuration_ids");
-        this.WithOutput("location");
-        this.WithOutput("nat_ip_configuration");
-        this.WithOutput("tags");
-        this.WithOutput("visibility_subscription_ids");
+        SetOutput("alias");
+        SetOutput("auto_approval_subscription_ids");
+        SetOutput("enable_proxy_protocol");
+        SetOutput("load_balancer_frontend_ip_configuration_ids");
+        SetOutput("location");
+        SetOutput("nat_ip_configuration");
+        SetOutput("tags");
+        SetOutput("visibility_subscription_ids");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -56,8 +58,8 @@ public class AzurermPrivateLinkServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermPrivateLinkServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -76,8 +78,7 @@ public class AzurermPrivateLinkServiceDataSource : TerraformDataSource
     /// </summary>
     public AzurermPrivateLinkServiceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateLinkServiceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

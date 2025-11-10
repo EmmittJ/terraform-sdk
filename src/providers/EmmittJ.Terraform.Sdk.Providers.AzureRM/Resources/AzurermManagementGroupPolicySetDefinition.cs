@@ -13,8 +13,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     /// </summary>
     public TerraformProperty<string>? AdditionalMetadataResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("additional_metadata_resource_id");
-        set => WithProperty("additional_metadata_resource_id", value);
+        set => SetProperty("additional_metadata_resource_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     /// </summary>
     public TerraformProperty<string>? Category
     {
-        get => GetProperty<TerraformProperty<string>>("category");
-        set => WithProperty("category", value);
+        set => SetProperty("category", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     /// </summary>
     public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceB
     /// </summary>
     public TerraformProperty<string>? ParameterValues
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_values");
-        set => WithProperty("parameter_values", value);
+        set => SetProperty("parameter_values", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionId is required")]
     public required TerraformProperty<string> PolicyDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_definition_id");
-        set => WithProperty("policy_definition_id", value);
+        set => SetProperty("policy_definition_id", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceB
     /// </summary>
     public HashSet<TerraformProperty<string>>? PolicyGroupNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("policy_group_names");
-        set => WithProperty("policy_group_names", value);
+        set => SetProperty("policy_group_names", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceB
     /// </summary>
     public TerraformProperty<string>? ReferenceId
     {
-        get => GetProperty<TerraformProperty<string>>("reference_id");
-        set => WithProperty("reference_id", value);
+        set => SetProperty("reference_id", value);
     }
 
     /// <summary>
@@ -104,8 +95,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceB
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -121,8 +111,7 @@ public class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -167,15 +153,23 @@ public class AzurermManagementGroupPolicySetDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("management_group_id");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("parameters");
+        SetOutput("policy_type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -184,17 +178,17 @@ public class AzurermManagementGroupPolicySetDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -203,17 +197,17 @@ public class AzurermManagementGroupPolicySetDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
-        set => this.WithProperty("management_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("management_group_id");
+        set => SetProperty("management_group_id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformProperty<string>? Metadata
+    public TerraformProperty<string> Metadata
     {
-        get => GetProperty<TerraformProperty<string>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -222,17 +216,17 @@ public class AzurermManagementGroupPolicySetDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformProperty<string>? Parameters
+    public TerraformProperty<string> Parameters
     {
-        get => GetProperty<TerraformProperty<string>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
@@ -241,8 +235,8 @@ public class AzurermManagementGroupPolicySetDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformProperty<string> PolicyType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_type");
-        set => this.WithProperty("policy_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_type");
+        set => SetProperty("policy_type", value);
     }
 
     /// <summary>
@@ -251,19 +245,18 @@ public class AzurermManagementGroupPolicySetDefinition : TerraformResource
     /// </summary>
     public HashSet<AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock>? PolicyDefinitionGroup
     {
-        get => GetProperty<HashSet<AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock>>("policy_definition_group");
-        set => this.WithProperty("policy_definition_group", value);
+        set => SetProperty("policy_definition_group", value);
     }
 
     /// <summary>
     /// Block for policy_definition_reference.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicyDefinitionReference block(s) required")]
     public List<AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceBlock>? PolicyDefinitionReference
     {
-        get => GetProperty<List<AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceBlock>>("policy_definition_reference");
-        set => this.WithProperty("policy_definition_reference", value);
+        set => SetProperty("policy_definition_reference", value);
     }
 
     /// <summary>
@@ -272,8 +265,7 @@ public class AzurermManagementGroupPolicySetDefinition : TerraformResource
     /// </summary>
     public AzurermManagementGroupPolicySetDefinitionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermManagementGroupPolicySetDefinitionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

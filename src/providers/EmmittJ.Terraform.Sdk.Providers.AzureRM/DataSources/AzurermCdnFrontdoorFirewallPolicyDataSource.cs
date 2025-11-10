@@ -13,8 +13,7 @@ public class AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,22 +30,25 @@ public class AzurermCdnFrontdoorFirewallPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("captcha_cookie_expiration_in_minutes");
-        this.WithOutput("enabled");
-        this.WithOutput("frontend_endpoint_ids");
-        this.WithOutput("js_challenge_cookie_expiration_in_minutes");
-        this.WithOutput("mode");
-        this.WithOutput("redirect_url");
-        this.WithOutput("sku_name");
+        SetOutput("captcha_cookie_expiration_in_minutes");
+        SetOutput("enabled");
+        SetOutput("frontend_endpoint_ids");
+        SetOutput("js_challenge_cookie_expiration_in_minutes");
+        SetOutput("mode");
+        SetOutput("redirect_url");
+        SetOutput("sku_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,8 +57,8 @@ public class AzurermCdnFrontdoorFirewallPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermCdnFrontdoorFirewallPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -75,8 +77,7 @@ public class AzurermCdnFrontdoorFirewallPolicyDataSource : TerraformDataSource
     /// </summary>
     public AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

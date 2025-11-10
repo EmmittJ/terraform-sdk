@@ -13,8 +13,7 @@ public class AzurermSpringCloudGatewayCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudGatewayCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudGatewayCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudGatewayCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,19 @@ public class AzurermSpringCloudGatewayCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("spring_cloud_gateway_id");
+        SetOutput("thumbprint");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +75,8 @@ public class AzurermSpringCloudGatewayCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,17 +85,17 @@ public class AzurermSpringCloudGatewayCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudGatewayId is required")]
     public required TerraformProperty<string> SpringCloudGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_gateway_id");
-        set => this.WithProperty("spring_cloud_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_gateway_id");
+        set => SetProperty("spring_cloud_gateway_id", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformProperty<string>? Thumbprint
+    public TerraformProperty<string> Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
-        set => this.WithProperty("thumbprint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("thumbprint");
+        set => SetProperty("thumbprint", value);
     }
 
     /// <summary>
@@ -104,8 +104,7 @@ public class AzurermSpringCloudGatewayCustomDomain : TerraformResource
     /// </summary>
     public AzurermSpringCloudGatewayCustomDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudGatewayCustomDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

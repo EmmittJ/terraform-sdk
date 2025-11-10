@@ -13,8 +13,7 @@ public class GoogleContainerNodePoolAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocationPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("location_policy");
-        set => WithProperty("location_policy", value);
+        set => SetProperty("location_policy", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleContainerNodePoolAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_node_count");
-        set => WithProperty("max_node_count", value);
+        set => SetProperty("max_node_count", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleContainerNodePoolAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_node_count");
-        set => WithProperty("min_node_count", value);
+        set => SetProperty("min_node_count", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class GoogleContainerNodePoolAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TotalMaxNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("total_max_node_count");
-        set => WithProperty("total_max_node_count", value);
+        set => SetProperty("total_max_node_count", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class GoogleContainerNodePoolAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TotalMinNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("total_min_node_count");
-        set => WithProperty("total_min_node_count", value);
+        set => SetProperty("total_min_node_count", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class GoogleContainerNodePoolManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AutoRepair
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_repair");
-        set => WithProperty("auto_repair", value);
+        set => SetProperty("auto_repair", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class GoogleContainerNodePoolManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AutoUpgrade
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_upgrade");
-        set => WithProperty("auto_upgrade", value);
+        set => SetProperty("auto_upgrade", value);
     }
 
 }
@@ -92,8 +85,7 @@ public class GoogleContainerNodePoolNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CreatePodRange
     {
-        get => GetProperty<TerraformProperty<bool>>("create_pod_range");
-        set => WithProperty("create_pod_range", value);
+        set => SetProperty("create_pod_range", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class GoogleContainerNodePoolNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnablePrivateNodes
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_private_nodes");
-        set => WithProperty("enable_private_nodes", value);
+        set => SetProperty("enable_private_nodes", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class GoogleContainerNodePoolNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PodIpv4CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("pod_ipv4_cidr_block");
-        set => WithProperty("pod_ipv4_cidr_block", value);
+        set => SetProperty("pod_ipv4_cidr_block", value);
     }
 
     /// <summary>
@@ -119,8 +109,7 @@ public class GoogleContainerNodePoolNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PodRange
     {
-        get => GetProperty<TerraformProperty<string>>("pod_range");
-        set => WithProperty("pod_range", value);
+        set => SetProperty("pod_range", value);
     }
 
     /// <summary>
@@ -128,8 +117,7 @@ public class GoogleContainerNodePoolNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => WithProperty("subnetwork", value);
+        set => SetProperty("subnetwork", value);
     }
 
 }
@@ -145,8 +133,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BootDiskKmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("boot_disk_kms_key");
-        set => WithProperty("boot_disk_kms_key", value);
+        set => SetProperty("boot_disk_kms_key", value);
     }
 
     /// <summary>
@@ -154,8 +141,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
-        set => WithProperty("disk_size_gb", value);
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
@@ -163,8 +149,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskType
     {
-        get => GetProperty<TerraformProperty<string>>("disk_type");
-        set => WithProperty("disk_type", value);
+        set => SetProperty("disk_type", value);
     }
 
     /// <summary>
@@ -172,8 +157,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? EffectiveTaints
     {
-        get => GetProperty<List<TerraformProperty<object>>>("effective_taints");
-        set => WithProperty("effective_taints", value);
+        set => SetProperty("effective_taints", value);
     }
 
     /// <summary>
@@ -181,8 +165,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableConfidentialStorage
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_confidential_storage");
-        set => WithProperty("enable_confidential_storage", value);
+        set => SetProperty("enable_confidential_storage", value);
     }
 
     /// <summary>
@@ -190,8 +173,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? FlexStart
     {
-        get => GetProperty<TerraformProperty<bool>>("flex_start");
-        set => WithProperty("flex_start", value);
+        set => SetProperty("flex_start", value);
     }
 
     /// <summary>
@@ -199,8 +181,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImageType
     {
-        get => GetProperty<TerraformProperty<string>>("image_type");
-        set => WithProperty("image_type", value);
+        set => SetProperty("image_type", value);
     }
 
     /// <summary>
@@ -208,8 +189,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -217,8 +197,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? LocalSsdCount
     {
-        get => GetProperty<TerraformProperty<double>>("local_ssd_count");
-        set => WithProperty("local_ssd_count", value);
+        set => SetProperty("local_ssd_count", value);
     }
 
     /// <summary>
@@ -226,8 +205,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocalSsdEncryptionMode
     {
-        get => GetProperty<TerraformProperty<string>>("local_ssd_encryption_mode");
-        set => WithProperty("local_ssd_encryption_mode", value);
+        set => SetProperty("local_ssd_encryption_mode", value);
     }
 
     /// <summary>
@@ -235,8 +213,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LoggingVariant
     {
-        get => GetProperty<TerraformProperty<string>>("logging_variant");
-        set => WithProperty("logging_variant", value);
+        set => SetProperty("logging_variant", value);
     }
 
     /// <summary>
@@ -244,8 +221,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
-        set => WithProperty("machine_type", value);
+        set => SetProperty("machine_type", value);
     }
 
     /// <summary>
@@ -253,8 +229,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxRunDuration
     {
-        get => GetProperty<TerraformProperty<string>>("max_run_duration");
-        set => WithProperty("max_run_duration", value);
+        set => SetProperty("max_run_duration", value);
     }
 
     /// <summary>
@@ -262,8 +237,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -271,8 +245,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinCpuPlatform
     {
-        get => GetProperty<TerraformProperty<string>>("min_cpu_platform");
-        set => WithProperty("min_cpu_platform", value);
+        set => SetProperty("min_cpu_platform", value);
     }
 
     /// <summary>
@@ -280,8 +253,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NodeGroup
     {
-        get => GetProperty<TerraformProperty<string>>("node_group");
-        set => WithProperty("node_group", value);
+        set => SetProperty("node_group", value);
     }
 
     /// <summary>
@@ -289,8 +261,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? OauthScopes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("oauth_scopes");
-        set => WithProperty("oauth_scopes", value);
+        set => SetProperty("oauth_scopes", value);
     }
 
     /// <summary>
@@ -298,8 +269,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Preemptible
     {
-        get => GetProperty<TerraformProperty<bool>>("preemptible");
-        set => WithProperty("preemptible", value);
+        set => SetProperty("preemptible", value);
     }
 
     /// <summary>
@@ -307,8 +277,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_labels");
-        set => WithProperty("resource_labels", value);
+        set => SetProperty("resource_labels", value);
     }
 
     /// <summary>
@@ -316,8 +285,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
-        set => WithProperty("resource_manager_tags", value);
+        set => SetProperty("resource_manager_tags", value);
     }
 
     /// <summary>
@@ -325,8 +293,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => WithProperty("service_account", value);
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
@@ -334,8 +301,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Spot
     {
-        get => GetProperty<TerraformProperty<bool>>("spot");
-        set => WithProperty("spot", value);
+        set => SetProperty("spot", value);
     }
 
     /// <summary>
@@ -343,8 +309,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? StoragePools
     {
-        get => GetProperty<List<TerraformProperty<string>>>("storage_pools");
-        set => WithProperty("storage_pools", value);
+        set => SetProperty("storage_pools", value);
     }
 
     /// <summary>
@@ -352,8 +317,7 @@ public class GoogleContainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Tags
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
 }
@@ -369,8 +333,7 @@ public class GoogleContainerNodePoolPlacementPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("policy_name");
-        set => WithProperty("policy_name", value);
+        set => SetProperty("policy_name", value);
     }
 
     /// <summary>
@@ -378,8 +341,7 @@ public class GoogleContainerNodePoolPlacementPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TpuTopology
     {
-        get => GetProperty<TerraformProperty<string>>("tpu_topology");
-        set => WithProperty("tpu_topology", value);
+        set => SetProperty("tpu_topology", value);
     }
 
     /// <summary>
@@ -388,8 +350,7 @@ public class GoogleContainerNodePoolPlacementPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -406,8 +367,7 @@ public class GoogleContainerNodePoolQueuedProvisioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -423,8 +383,7 @@ public class GoogleContainerNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -432,8 +391,7 @@ public class GoogleContainerNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -441,8 +399,7 @@ public class GoogleContainerNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -458,8 +415,7 @@ public class GoogleContainerNodePoolUpgradeSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxSurge
     {
-        get => GetProperty<TerraformProperty<double>>("max_surge");
-        set => WithProperty("max_surge", value);
+        set => SetProperty("max_surge", value);
     }
 
     /// <summary>
@@ -467,8 +423,7 @@ public class GoogleContainerNodePoolUpgradeSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxUnavailable
     {
-        get => GetProperty<TerraformProperty<double>>("max_unavailable");
-        set => WithProperty("max_unavailable", value);
+        set => SetProperty("max_unavailable", value);
     }
 
     /// <summary>
@@ -476,8 +431,7 @@ public class GoogleContainerNodePoolUpgradeSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Strategy
     {
-        get => GetProperty<TerraformProperty<string>>("strategy");
-        set => WithProperty("strategy", value);
+        set => SetProperty("strategy", value);
     }
 
 }
@@ -495,9 +449,20 @@ public class GoogleContainerNodePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("instance_group_urls");
-        this.WithOutput("managed_instance_group_urls");
-        this.WithOutput("operation");
+        SetOutput("instance_group_urls");
+        SetOutput("managed_instance_group_urls");
+        SetOutput("operation");
+        SetOutput("cluster");
+        SetOutput("id");
+        SetOutput("initial_node_count");
+        SetOutput("location");
+        SetOutput("max_pods_per_node");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("node_count");
+        SetOutput("node_locations");
+        SetOutput("project");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -506,98 +471,98 @@ public class GoogleContainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The initial number of nodes for the pool. In regional or multi-zonal clusters, this is the number of nodes per zone. Changing this will force recreation of the resource.
     /// </summary>
-    public TerraformProperty<double>? InitialNodeCount
+    public TerraformProperty<double> InitialNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("initial_node_count");
-        set => this.WithProperty("initial_node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("initial_node_count");
+        set => SetProperty("initial_node_count", value);
     }
 
     /// <summary>
     /// The location (region or zone) of the cluster.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The maximum number of pods per node in this node pool. Note that this does not work on node pools which are &amp;quot;route-based&amp;quot; - that is, node pools belonging to clusters that do not have IP Aliasing enabled.
     /// </summary>
-    public TerraformProperty<double>? MaxPodsPerNode
+    public TerraformProperty<double> MaxPodsPerNode
     {
-        get => GetProperty<TerraformProperty<double>>("max_pods_per_node");
-        set => this.WithProperty("max_pods_per_node", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_pods_per_node");
+        set => SetProperty("max_pods_per_node", value);
     }
 
     /// <summary>
     /// The name of the node pool. If left blank, Terraform will auto-generate a unique name.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Creates a unique name for the node pool beginning with the specified prefix. Conflicts with name.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The number of nodes per instance group. This field can be used to update the number of nodes per instance group but should not be used alongside autoscaling.
     /// </summary>
-    public TerraformProperty<double>? NodeCount
+    public TerraformProperty<double> NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
-        set => this.WithProperty("node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
     /// The list of zones in which the node pool&#39;s nodes should be located. Nodes must be in the region of their regional cluster or in the same region as their cluster&#39;s zone for zonal clusters. If unspecified, the cluster-level node_locations will be used.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NodeLocations
+    public HashSet<TerraformProperty<string>> NodeLocations
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("node_locations");
-        set => this.WithProperty("node_locations", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("node_locations");
+        set => SetProperty("node_locations", value);
     }
 
     /// <summary>
     /// The ID of the project in which to create the node pool. If blank, the provider-configured project will be used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The Kubernetes version for the nodes in this pool. Note that if this field and auto_upgrade are both specified, they will fight each other for what the node version should be, so setting both is highly discouraged. While a fuzzy version can be specified, it&#39;s recommended that you specify explicit versions as Terraform will see spurious diffs when fuzzy versions are used. See the google_container_engine_versions data source&#39;s version_prefix field to approximate fuzzy versions in a Terraform-compatible way.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -607,8 +572,7 @@ public class GoogleContainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscaling block(s) allowed")]
     public List<GoogleContainerNodePoolAutoscalingBlock>? Autoscaling
     {
-        get => GetProperty<List<GoogleContainerNodePoolAutoscalingBlock>>("autoscaling");
-        set => this.WithProperty("autoscaling", value);
+        set => SetProperty("autoscaling", value);
     }
 
     /// <summary>
@@ -618,8 +582,7 @@ public class GoogleContainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Management block(s) allowed")]
     public List<GoogleContainerNodePoolManagementBlock>? Management
     {
-        get => GetProperty<List<GoogleContainerNodePoolManagementBlock>>("management");
-        set => this.WithProperty("management", value);
+        set => SetProperty("management", value);
     }
 
     /// <summary>
@@ -629,8 +592,7 @@ public class GoogleContainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<GoogleContainerNodePoolNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<GoogleContainerNodePoolNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -640,8 +602,7 @@ public class GoogleContainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     public List<GoogleContainerNodePoolNodeConfigBlock>? NodeConfig
     {
-        get => GetProperty<List<GoogleContainerNodePoolNodeConfigBlock>>("node_config");
-        set => this.WithProperty("node_config", value);
+        set => SetProperty("node_config", value);
     }
 
     /// <summary>
@@ -651,8 +612,7 @@ public class GoogleContainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PlacementPolicy block(s) allowed")]
     public List<GoogleContainerNodePoolPlacementPolicyBlock>? PlacementPolicy
     {
-        get => GetProperty<List<GoogleContainerNodePoolPlacementPolicyBlock>>("placement_policy");
-        set => this.WithProperty("placement_policy", value);
+        set => SetProperty("placement_policy", value);
     }
 
     /// <summary>
@@ -662,8 +622,7 @@ public class GoogleContainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueuedProvisioning block(s) allowed")]
     public List<GoogleContainerNodePoolQueuedProvisioningBlock>? QueuedProvisioning
     {
-        get => GetProperty<List<GoogleContainerNodePoolQueuedProvisioningBlock>>("queued_provisioning");
-        set => this.WithProperty("queued_provisioning", value);
+        set => SetProperty("queued_provisioning", value);
     }
 
     /// <summary>
@@ -672,8 +631,7 @@ public class GoogleContainerNodePool : TerraformResource
     /// </summary>
     public GoogleContainerNodePoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleContainerNodePoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -683,8 +641,7 @@ public class GoogleContainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeSettings block(s) allowed")]
     public List<GoogleContainerNodePoolUpgradeSettingsBlock>? UpgradeSettings
     {
-        get => GetProperty<List<GoogleContainerNodePoolUpgradeSettingsBlock>>("upgrade_settings");
-        set => this.WithProperty("upgrade_settings", value);
+        set => SetProperty("upgrade_settings", value);
     }
 
     /// <summary>

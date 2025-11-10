@@ -13,8 +13,7 @@ public class AzurermNetworkManagerIpamPoolDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,21 +30,24 @@ public class AzurermNetworkManagerIpamPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("address_prefixes");
-        this.WithOutput("description");
-        this.WithOutput("display_name");
-        this.WithOutput("location");
-        this.WithOutput("parent_pool_name");
-        this.WithOutput("tags");
+        SetOutput("address_prefixes");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("location");
+        SetOutput("parent_pool_name");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_manager_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -54,8 +56,8 @@ public class AzurermNetworkManagerIpamPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -64,8 +66,8 @@ public class AzurermNetworkManagerIpamPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformProperty<string> NetworkManagerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_manager_id");
-        set => this.WithProperty("network_manager_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_manager_id");
+        set => SetProperty("network_manager_id", value);
     }
 
     /// <summary>
@@ -74,8 +76,7 @@ public class AzurermNetworkManagerIpamPoolDataSource : TerraformDataSource
     /// </summary>
     public AzurermNetworkManagerIpamPoolDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerIpamPoolDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

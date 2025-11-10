@@ -14,8 +14,11 @@ public class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("public_key");
-        this.WithOutput("versions");
+        SetOutput("public_key");
+        SetOutput("versions");
+        SetOutput("crypto_key");
+        SetOutput("filter");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -24,8 +27,8 @@ public class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformProperty<string> CryptoKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("crypto_key");
-        set => this.WithProperty("crypto_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key");
+        set => SetProperty("crypto_key", value);
     }
 
     /// <summary>
@@ -39,19 +42,19 @@ public class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

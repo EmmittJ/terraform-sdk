@@ -14,8 +14,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingGroupArn is required")]
     public required TerraformProperty<string> AutoScalingGroupArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("auto_scaling_group_arn");
-        set => WithProperty("auto_scaling_group_arn", value);
+        set => SetProperty("auto_scaling_group_arn", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ManagedDraining
     {
-        get => GetProperty<TerraformProperty<string>>("managed_draining");
-        set => WithProperty("managed_draining", value);
+        set => SetProperty("managed_draining", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ManagedTerminationProtection
     {
-        get => GetProperty<TerraformProperty<string>>("managed_termination_protection");
-        set => WithProperty("managed_termination_protection", value);
+        set => SetProperty("managed_termination_protection", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureRoleArn is required")]
     public required TerraformProperty<string> InfrastructureRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("infrastructure_role_arn");
-        set => WithProperty("infrastructure_role_arn", value);
+        set => SetProperty("infrastructure_role_arn", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? PropagateTags
     {
-        get => GetProperty<TerraformProperty<string>>("propagate_tags");
-        set => WithProperty("propagate_tags", value);
+        set => SetProperty("propagate_tags", value);
     }
 
 }
@@ -78,25 +73,31 @@ public class AwsEcsCapacityProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("cluster");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cluster attribute.
     /// </summary>
-    public TerraformProperty<string>? Cluster
+    public TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,35 +106,35 @@ public class AwsEcsCapacityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -143,8 +144,7 @@ public class AwsEcsCapacityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingGroupProvider block(s) allowed")]
     public List<AwsEcsCapacityProviderAutoScalingGroupProviderBlock>? AutoScalingGroupProvider
     {
-        get => GetProperty<List<AwsEcsCapacityProviderAutoScalingGroupProviderBlock>>("auto_scaling_group_provider");
-        set => this.WithProperty("auto_scaling_group_provider", value);
+        set => SetProperty("auto_scaling_group_provider", value);
     }
 
     /// <summary>
@@ -154,8 +154,7 @@ public class AwsEcsCapacityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedInstancesProvider block(s) allowed")]
     public List<AwsEcsCapacityProviderManagedInstancesProviderBlock>? ManagedInstancesProvider
     {
-        get => GetProperty<List<AwsEcsCapacityProviderManagedInstancesProviderBlock>>("managed_instances_provider");
-        set => this.WithProperty("managed_instances_provider", value);
+        set => SetProperty("managed_instances_provider", value);
     }
 
     /// <summary>

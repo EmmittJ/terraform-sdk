@@ -14,8 +14,7 @@ public class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestParameterKey is required")]
     public required TerraformProperty<string> RequestParameterKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("request_parameter_key");
-        set => WithProperty("request_parameter_key", value);
+        set => SetProperty("request_parameter_key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformProperty<bool> Required
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("required");
-        set => WithProperty("required", value);
+        set => SetProperty("required", value);
     }
 
 }
@@ -42,6 +40,19 @@ public class AwsApigatewayv2Route : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_id");
+        SetOutput("api_key_required");
+        SetOutput("authorization_scopes");
+        SetOutput("authorization_type");
+        SetOutput("authorizer_id");
+        SetOutput("id");
+        SetOutput("model_selection_expression");
+        SetOutput("operation_name");
+        SetOutput("region");
+        SetOutput("request_models");
+        SetOutput("route_key");
+        SetOutput("route_response_selection_expression");
+        SetOutput("target");
     }
 
     /// <summary>
@@ -50,89 +61,89 @@ public class AwsApigatewayv2Route : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The api_key_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApiKeyRequired
+    public TerraformProperty<bool> ApiKeyRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("api_key_required");
-        set => this.WithProperty("api_key_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("api_key_required");
+        set => SetProperty("api_key_required", value);
     }
 
     /// <summary>
     /// The authorization_scopes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AuthorizationScopes
+    public HashSet<TerraformProperty<string>> AuthorizationScopes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("authorization_scopes");
-        set => this.WithProperty("authorization_scopes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("authorization_scopes");
+        set => SetProperty("authorization_scopes", value);
     }
 
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizationType
+    public TerraformProperty<string> AuthorizationType
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_type");
-        set => this.WithProperty("authorization_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_type");
+        set => SetProperty("authorization_type", value);
     }
 
     /// <summary>
     /// The authorizer_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizerId
+    public TerraformProperty<string> AuthorizerId
     {
-        get => GetProperty<TerraformProperty<string>>("authorizer_id");
-        set => this.WithProperty("authorizer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_id");
+        set => SetProperty("authorizer_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The model_selection_expression attribute.
     /// </summary>
-    public TerraformProperty<string>? ModelSelectionExpression
+    public TerraformProperty<string> ModelSelectionExpression
     {
-        get => GetProperty<TerraformProperty<string>>("model_selection_expression");
-        set => this.WithProperty("model_selection_expression", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("model_selection_expression");
+        set => SetProperty("model_selection_expression", value);
     }
 
     /// <summary>
     /// The operation_name attribute.
     /// </summary>
-    public TerraformProperty<string>? OperationName
+    public TerraformProperty<string> OperationName
     {
-        get => GetProperty<TerraformProperty<string>>("operation_name");
-        set => this.WithProperty("operation_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("operation_name");
+        set => SetProperty("operation_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The request_models attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? RequestModels
+    public Dictionary<string, TerraformProperty<string>> RequestModels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("request_models");
-        set => this.WithProperty("request_models", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("request_models");
+        set => SetProperty("request_models", value);
     }
 
     /// <summary>
@@ -141,26 +152,26 @@ public class AwsApigatewayv2Route : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteKey is required")]
     public required TerraformProperty<string> RouteKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("route_key");
-        set => this.WithProperty("route_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("route_key");
+        set => SetProperty("route_key", value);
     }
 
     /// <summary>
     /// The route_response_selection_expression attribute.
     /// </summary>
-    public TerraformProperty<string>? RouteResponseSelectionExpression
+    public TerraformProperty<string> RouteResponseSelectionExpression
     {
-        get => GetProperty<TerraformProperty<string>>("route_response_selection_expression");
-        set => this.WithProperty("route_response_selection_expression", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("route_response_selection_expression");
+        set => SetProperty("route_response_selection_expression", value);
     }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public TerraformProperty<string>? Target
+    public TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
-        set => this.WithProperty("target", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target");
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -169,8 +180,7 @@ public class AwsApigatewayv2Route : TerraformResource
     /// </summary>
     public HashSet<AwsApigatewayv2RouteRequestParameterBlock>? RequestParameter
     {
-        get => GetProperty<HashSet<AwsApigatewayv2RouteRequestParameterBlock>>("request_parameter");
-        set => this.WithProperty("request_parameter", value);
+        set => SetProperty("request_parameter", value);
     }
 
 }

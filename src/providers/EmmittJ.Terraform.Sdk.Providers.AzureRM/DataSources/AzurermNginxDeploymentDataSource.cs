@@ -13,8 +13,7 @@ public class AzurermNginxDeploymentDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,33 +30,36 @@ public class AzurermNginxDeploymentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("auto_scale_profile");
-        this.WithOutput("automatic_upgrade_channel");
-        this.WithOutput("capacity");
-        this.WithOutput("dataplane_api_endpoint");
-        this.WithOutput("diagnose_support_enabled");
-        this.WithOutput("email");
-        this.WithOutput("frontend_private");
-        this.WithOutput("frontend_public");
-        this.WithOutput("identity");
-        this.WithOutput("ip_address");
-        this.WithOutput("location");
-        this.WithOutput("logging_storage_account");
-        this.WithOutput("managed_resource_group");
-        this.WithOutput("network_interface");
-        this.WithOutput("nginx_version");
-        this.WithOutput("sku");
-        this.WithOutput("tags");
-        this.WithOutput("web_application_firewall");
+        SetOutput("auto_scale_profile");
+        SetOutput("automatic_upgrade_channel");
+        SetOutput("capacity");
+        SetOutput("dataplane_api_endpoint");
+        SetOutput("diagnose_support_enabled");
+        SetOutput("email");
+        SetOutput("frontend_private");
+        SetOutput("frontend_public");
+        SetOutput("identity");
+        SetOutput("ip_address");
+        SetOutput("location");
+        SetOutput("logging_storage_account");
+        SetOutput("managed_resource_group");
+        SetOutput("network_interface");
+        SetOutput("nginx_version");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("web_application_firewall");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermNginxDeploymentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AzurermNginxDeploymentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -86,8 +88,7 @@ public class AzurermNginxDeploymentDataSource : TerraformDataSource
     /// </summary>
     public AzurermNginxDeploymentDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNginxDeploymentDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

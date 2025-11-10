@@ -22,8 +22,7 @@ public class GoogleCloudfunctionsFunctionEventTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformProperty<string> EventType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("event_type");
-        set => WithProperty("event_type", value);
+        set => SetProperty("event_type", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class GoogleCloudfunctionsFunctionEventTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource");
-        set => WithProperty("resource", value);
+        set => SetProperty("resource", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
-        set => WithProperty("runtime_version", value);
+        set => SetProperty("runtime_version", value);
     }
 
 }
@@ -67,8 +64,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -76,8 +72,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     /// </summary>
     public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>
@@ -86,8 +81,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret");
-        set => WithProperty("secret", value);
+        set => SetProperty("secret", value);
     }
 
     /// <summary>
@@ -96,8 +90,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -114,8 +107,7 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformProperty<string> MountPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mount_path");
-        set => WithProperty("mount_path", value);
+        set => SetProperty("mount_path", value);
     }
 
     /// <summary>
@@ -123,8 +115,7 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
-        set => WithProperty("project_id", value);
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>
@@ -133,8 +124,7 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret");
-        set => WithProperty("secret", value);
+        set => SetProperty("secret", value);
     }
 
 }
@@ -150,8 +140,7 @@ public class GoogleCloudfunctionsFunctionSourceRepositoryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeployedUrl
     {
-        get => GetProperty<TerraformProperty<string>>("deployed_url");
-        set => WithProperty("deployed_url", value);
+        set => SetProperty("deployed_url", value);
     }
 
     /// <summary>
@@ -160,8 +149,7 @@ public class GoogleCloudfunctionsFunctionSourceRepositoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -177,8 +165,7 @@ public class GoogleCloudfunctionsFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -186,8 +173,7 @@ public class GoogleCloudfunctionsFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -195,8 +181,7 @@ public class GoogleCloudfunctionsFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -204,8 +189,7 @@ public class GoogleCloudfunctionsFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -223,136 +207,164 @@ public class GoogleCloudfunctionsFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("status");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("version_id");
+        SetOutput("effective_labels");
+        SetOutput("status");
+        SetOutput("terraform_labels");
+        SetOutput("version_id");
+        SetOutput("available_memory_mb");
+        SetOutput("build_environment_variables");
+        SetOutput("build_service_account");
+        SetOutput("build_worker_pool");
+        SetOutput("description");
+        SetOutput("docker_registry");
+        SetOutput("docker_repository");
+        SetOutput("entry_point");
+        SetOutput("environment_variables");
+        SetOutput("https_trigger_security_level");
+        SetOutput("https_trigger_url");
+        SetOutput("id");
+        SetOutput("ingress_settings");
+        SetOutput("kms_key_name");
+        SetOutput("labels");
+        SetOutput("max_instances");
+        SetOutput("min_instances");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("runtime");
+        SetOutput("service_account_email");
+        SetOutput("source_archive_bucket");
+        SetOutput("source_archive_object");
+        SetOutput("timeout");
+        SetOutput("trigger_http");
+        SetOutput("vpc_connector");
+        SetOutput("vpc_connector_egress_settings");
     }
 
     /// <summary>
     /// Memory (in MB), available to the function. Default value is 256. Possible values include 128, 256, 512, 1024, etc.
     /// </summary>
-    public TerraformProperty<double>? AvailableMemoryMb
+    public TerraformProperty<double> AvailableMemoryMb
     {
-        get => GetProperty<TerraformProperty<double>>("available_memory_mb");
-        set => this.WithProperty("available_memory_mb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("available_memory_mb");
+        set => SetProperty("available_memory_mb", value);
     }
 
     /// <summary>
     ///  A set of key/value environment variable pairs available during build time.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? BuildEnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>> BuildEnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("build_environment_variables");
-        set => this.WithProperty("build_environment_variables", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("build_environment_variables");
+        set => SetProperty("build_environment_variables", value);
     }
 
     /// <summary>
     /// The fully-qualified name of the service account to be used for the build step of deploying this function
     /// </summary>
-    public TerraformProperty<string>? BuildServiceAccount
+    public TerraformProperty<string> BuildServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("build_service_account");
-        set => this.WithProperty("build_service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("build_service_account");
+        set => SetProperty("build_service_account", value);
     }
 
     /// <summary>
     /// Name of the Cloud Build Custom Worker Pool that should be used to build the function.
     /// </summary>
-    public TerraformProperty<string>? BuildWorkerPool
+    public TerraformProperty<string> BuildWorkerPool
     {
-        get => GetProperty<TerraformProperty<string>>("build_worker_pool");
-        set => this.WithProperty("build_worker_pool", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("build_worker_pool");
+        set => SetProperty("build_worker_pool", value);
     }
 
     /// <summary>
     /// Description of the function.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Docker Registry to use for storing the function&#39;s Docker images. Allowed values are ARTIFACT_REGISTRY (default) and CONTAINER_REGISTRY.
     /// </summary>
-    public TerraformProperty<string>? DockerRegistry
+    public TerraformProperty<string> DockerRegistry
     {
-        get => GetProperty<TerraformProperty<string>>("docker_registry");
-        set => this.WithProperty("docker_registry", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("docker_registry");
+        set => SetProperty("docker_registry", value);
     }
 
     /// <summary>
     /// User managed repository created in Artifact Registry optionally with a customer managed encryption key. If specified, deployments will use Artifact Registry for storing images built with Cloud Build.
     /// </summary>
-    public TerraformProperty<string>? DockerRepository
+    public TerraformProperty<string> DockerRepository
     {
-        get => GetProperty<TerraformProperty<string>>("docker_repository");
-        set => this.WithProperty("docker_repository", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("docker_repository");
+        set => SetProperty("docker_repository", value);
     }
 
     /// <summary>
     /// Name of the function that will be executed when the Google Cloud Function is triggered.
     /// </summary>
-    public TerraformProperty<string>? EntryPoint
+    public TerraformProperty<string> EntryPoint
     {
-        get => GetProperty<TerraformProperty<string>>("entry_point");
-        set => this.WithProperty("entry_point", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entry_point");
+        set => SetProperty("entry_point", value);
     }
 
     /// <summary>
     /// A set of key/value environment variable pairs to assign to the function.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>> EnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => this.WithProperty("environment_variables", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("environment_variables");
+        set => SetProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The security level for the function. Defaults to SECURE_OPTIONAL. Valid only if trigger_http is used.
     /// </summary>
-    public TerraformProperty<string>? HttpsTriggerSecurityLevel
+    public TerraformProperty<string> HttpsTriggerSecurityLevel
     {
-        get => GetProperty<TerraformProperty<string>>("https_trigger_security_level");
-        set => this.WithProperty("https_trigger_security_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("https_trigger_security_level");
+        set => SetProperty("https_trigger_security_level", value);
     }
 
     /// <summary>
     /// URL which triggers function execution. Returned only if trigger_http is used.
     /// </summary>
-    public TerraformProperty<string>? HttpsTriggerUrl
+    public TerraformProperty<string> HttpsTriggerUrl
     {
-        get => GetProperty<TerraformProperty<string>>("https_trigger_url");
-        set => this.WithProperty("https_trigger_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("https_trigger_url");
+        set => SetProperty("https_trigger_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// String value that controls what traffic can reach the function. Allowed values are ALLOW_ALL and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function.
     /// </summary>
-    public TerraformProperty<string>? IngressSettings
+    public TerraformProperty<string> IngressSettings
     {
-        get => GetProperty<TerraformProperty<string>>("ingress_settings");
-        set => this.WithProperty("ingress_settings", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ingress_settings");
+        set => SetProperty("ingress_settings", value);
     }
 
     /// <summary>
     /// Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -361,28 +373,28 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The limit on the maximum number of function instances that may coexist at a given time.
     /// </summary>
-    public TerraformProperty<double>? MaxInstances
+    public TerraformProperty<double> MaxInstances
     {
-        get => GetProperty<TerraformProperty<double>>("max_instances");
-        set => this.WithProperty("max_instances", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_instances");
+        set => SetProperty("max_instances", value);
     }
 
     /// <summary>
     /// The limit on the minimum number of function instances that may coexist at a given time.
     /// </summary>
-    public TerraformProperty<double>? MinInstances
+    public TerraformProperty<double> MinInstances
     {
-        get => GetProperty<TerraformProperty<double>>("min_instances");
-        set => this.WithProperty("min_instances", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_instances");
+        set => SetProperty("min_instances", value);
     }
 
     /// <summary>
@@ -391,26 +403,26 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Project of the function. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region of function. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -419,71 +431,71 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformProperty<string> Runtime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runtime");
-        set => this.WithProperty("runtime", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime");
+        set => SetProperty("runtime", value);
     }
 
     /// <summary>
     ///  If provided, the self-provided service account to run the function with.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccountEmail
+    public TerraformProperty<string> ServiceAccountEmail
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_email");
-        set => this.WithProperty("service_account_email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account_email");
+        set => SetProperty("service_account_email", value);
     }
 
     /// <summary>
     /// The GCS bucket containing the zip archive which contains the function.
     /// </summary>
-    public TerraformProperty<string>? SourceArchiveBucket
+    public TerraformProperty<string> SourceArchiveBucket
     {
-        get => GetProperty<TerraformProperty<string>>("source_archive_bucket");
-        set => this.WithProperty("source_archive_bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_archive_bucket");
+        set => SetProperty("source_archive_bucket", value);
     }
 
     /// <summary>
     /// The source archive object (file) in archive bucket.
     /// </summary>
-    public TerraformProperty<string>? SourceArchiveObject
+    public TerraformProperty<string> SourceArchiveObject
     {
-        get => GetProperty<TerraformProperty<string>>("source_archive_object");
-        set => this.WithProperty("source_archive_object", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_archive_object");
+        set => SetProperty("source_archive_object", value);
     }
 
     /// <summary>
     /// Timeout (in seconds) for the function. Default value is 60 seconds. Cannot be more than 540 seconds.
     /// </summary>
-    public TerraformProperty<double>? Timeout
+    public TerraformProperty<double> Timeout
     {
-        get => GetProperty<TerraformProperty<double>>("timeout");
-        set => this.WithProperty("timeout", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout");
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>
     /// Boolean variable. Any HTTP request (of a supported type) to the endpoint will trigger function execution. Supported HTTP request types are: POST, PUT, GET, DELETE, and OPTIONS. Endpoint is returned as https_trigger_url. Cannot be used with trigger_bucket and trigger_topic.
     /// </summary>
-    public TerraformProperty<bool>? TriggerHttp
+    public TerraformProperty<bool> TriggerHttp
     {
-        get => GetProperty<TerraformProperty<bool>>("trigger_http");
-        set => this.WithProperty("trigger_http", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("trigger_http");
+        set => SetProperty("trigger_http", value);
     }
 
     /// <summary>
     /// The VPC Network Connector that this cloud function can connect to. It can be either the fully-qualified URI, or the short name of the network connector resource. The format of this field is projects/*/locations/*/connectors/*.
     /// </summary>
-    public TerraformProperty<string>? VpcConnector
+    public TerraformProperty<string> VpcConnector
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_connector");
-        set => this.WithProperty("vpc_connector", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_connector");
+        set => SetProperty("vpc_connector", value);
     }
 
     /// <summary>
     /// The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. Defaults to PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value.
     /// </summary>
-    public TerraformProperty<string>? VpcConnectorEgressSettings
+    public TerraformProperty<string> VpcConnectorEgressSettings
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_connector_egress_settings");
-        set => this.WithProperty("vpc_connector_egress_settings", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_connector_egress_settings");
+        set => SetProperty("vpc_connector_egress_settings", value);
     }
 
     /// <summary>
@@ -493,8 +505,7 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticUpdatePolicy block(s) allowed")]
     public List<GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock>? AutomaticUpdatePolicy
     {
-        get => GetProperty<List<GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock>>("automatic_update_policy");
-        set => this.WithProperty("automatic_update_policy", value);
+        set => SetProperty("automatic_update_policy", value);
     }
 
     /// <summary>
@@ -504,8 +515,7 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventTrigger block(s) allowed")]
     public List<GoogleCloudfunctionsFunctionEventTriggerBlock>? EventTrigger
     {
-        get => GetProperty<List<GoogleCloudfunctionsFunctionEventTriggerBlock>>("event_trigger");
-        set => this.WithProperty("event_trigger", value);
+        set => SetProperty("event_trigger", value);
     }
 
     /// <summary>
@@ -515,8 +525,7 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnDeployUpdatePolicy block(s) allowed")]
     public List<GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock>? OnDeployUpdatePolicy
     {
-        get => GetProperty<List<GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock>>("on_deploy_update_policy");
-        set => this.WithProperty("on_deploy_update_policy", value);
+        set => SetProperty("on_deploy_update_policy", value);
     }
 
     /// <summary>
@@ -525,8 +534,7 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     /// </summary>
     public List<GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock>? SecretEnvironmentVariables
     {
-        get => GetProperty<List<GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock>>("secret_environment_variables");
-        set => this.WithProperty("secret_environment_variables", value);
+        set => SetProperty("secret_environment_variables", value);
     }
 
     /// <summary>
@@ -535,8 +543,7 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     /// </summary>
     public List<GoogleCloudfunctionsFunctionSecretVolumesBlock>? SecretVolumes
     {
-        get => GetProperty<List<GoogleCloudfunctionsFunctionSecretVolumesBlock>>("secret_volumes");
-        set => this.WithProperty("secret_volumes", value);
+        set => SetProperty("secret_volumes", value);
     }
 
     /// <summary>
@@ -546,8 +553,7 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceRepository block(s) allowed")]
     public List<GoogleCloudfunctionsFunctionSourceRepositoryBlock>? SourceRepository
     {
-        get => GetProperty<List<GoogleCloudfunctionsFunctionSourceRepositoryBlock>>("source_repository");
-        set => this.WithProperty("source_repository", value);
+        set => SetProperty("source_repository", value);
     }
 
     /// <summary>
@@ -556,8 +562,7 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     /// </summary>
     public GoogleCloudfunctionsFunctionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleCloudfunctionsFunctionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

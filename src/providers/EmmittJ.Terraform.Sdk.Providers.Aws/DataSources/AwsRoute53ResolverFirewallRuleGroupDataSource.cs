@@ -14,16 +14,19 @@ public class AwsRoute53ResolverFirewallRuleGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputrn");
-        this.WithOutputreation_time");
-        this.WithOutputreator_request_id");
-        this.WithOutputodification_time");
-        this.WithOutputame");
-        this.WithOutputwner_id");
-        this.WithOutputule_count");
-        this.WithOutputhare_status");
-        this.WithOutputtatus");
-        this.WithOutputtatus_message");
+        SetOutput("arn");
+        SetOutput("creation_time");
+        SetOutput("creator_request_id");
+        SetOutput("modification_time");
+        SetOutput("name");
+        SetOutput("owner_id");
+        SetOutput("rule_count");
+        SetOutput("share_status");
+        SetOutput("status");
+        SetOutput("status_message");
+        SetOutput("firewall_rule_group_id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -32,26 +35,26 @@ public class AwsRoute53ResolverFirewallRuleGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
     public required TerraformProperty<string> FirewallRuleGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("firewall_rule_group_id");
-        set => this.WithProperty("firewall_rule_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firewall_rule_group_id");
+        set => SetProperty("firewall_rule_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

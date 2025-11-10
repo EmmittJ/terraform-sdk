@@ -13,8 +13,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Classification
     {
-        get => GetProperty<TerraformProperty<string>>("classification");
-        set => WithProperty("classification", value);
+        set => SetProperty("classification", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClassificationComment
     {
-        get => GetProperty<TerraformProperty<string>>("classification_comment");
-        set => WithProperty("classification_comment", value);
+        set => SetProperty("classification_comment", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Labels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("order");
-        set => WithProperty("order", value);
+        set => SetProperty("order", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OwnerId
     {
-        get => GetProperty<TerraformProperty<string>>("owner_id");
-        set => WithProperty("owner_id", value);
+        set => SetProperty("owner_id", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Severity
     {
-        get => GetProperty<TerraformProperty<string>>("severity");
-        set => WithProperty("severity", value);
+        set => SetProperty("severity", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
 }
@@ -85,8 +78,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("order");
-        set => WithProperty("order", value);
+        set => SetProperty("order", value);
     }
 
     /// <summary>
@@ -105,8 +96,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => WithProperty("title", value);
+        set => SetProperty("title", value);
     }
 
 }
@@ -123,8 +113,7 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformProperty<string> LogicAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("logic_app_id");
-        set => WithProperty("logic_app_id", value);
+        set => SetProperty("logic_app_id", value);
     }
 
     /// <summary>
@@ -133,8 +122,7 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("order");
-        set => WithProperty("order", value);
+        set => SetProperty("order", value);
     }
 
     /// <summary>
@@ -142,8 +130,7 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
 }
@@ -159,8 +146,7 @@ public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -168,8 +154,7 @@ public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -177,8 +162,7 @@ public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -186,8 +170,7 @@ public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -204,15 +187,25 @@ public class AzurermSentinelAutomationRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("condition_json");
+        SetOutput("display_name");
+        SetOutput("enabled");
+        SetOutput("expiration");
+        SetOutput("id");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("name");
+        SetOutput("order");
+        SetOutput("triggers_on");
+        SetOutput("triggers_when");
     }
 
     /// <summary>
     /// The condition_json attribute.
     /// </summary>
-    public TerraformProperty<string>? ConditionJson
+    public TerraformProperty<string> ConditionJson
     {
-        get => GetProperty<TerraformProperty<string>>("condition_json");
-        set => this.WithProperty("condition_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("condition_json");
+        set => SetProperty("condition_json", value);
     }
 
     /// <summary>
@@ -221,35 +214,35 @@ public class AzurermSentinelAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
-    public TerraformProperty<string>? Expiration
+    public TerraformProperty<string> Expiration
     {
-        get => GetProperty<TerraformProperty<string>>("expiration");
-        set => this.WithProperty("expiration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration");
+        set => SetProperty("expiration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -258,8 +251,8 @@ public class AzurermSentinelAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
@@ -268,8 +261,8 @@ public class AzurermSentinelAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -278,26 +271,26 @@ public class AzurermSentinelAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("order");
-        set => this.WithProperty("order", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("order");
+        set => SetProperty("order", value);
     }
 
     /// <summary>
     /// The triggers_on attribute.
     /// </summary>
-    public TerraformProperty<string>? TriggersOn
+    public TerraformProperty<string> TriggersOn
     {
-        get => GetProperty<TerraformProperty<string>>("triggers_on");
-        set => this.WithProperty("triggers_on", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("triggers_on");
+        set => SetProperty("triggers_on", value);
     }
 
     /// <summary>
     /// The triggers_when attribute.
     /// </summary>
-    public TerraformProperty<string>? TriggersWhen
+    public TerraformProperty<string> TriggersWhen
     {
-        get => GetProperty<TerraformProperty<string>>("triggers_when");
-        set => this.WithProperty("triggers_when", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("triggers_when");
+        set => SetProperty("triggers_when", value);
     }
 
     /// <summary>
@@ -306,8 +299,7 @@ public class AzurermSentinelAutomationRule : TerraformResource
     /// </summary>
     public List<AzurermSentinelAutomationRuleActionIncidentBlock>? ActionIncident
     {
-        get => GetProperty<List<AzurermSentinelAutomationRuleActionIncidentBlock>>("action_incident");
-        set => this.WithProperty("action_incident", value);
+        set => SetProperty("action_incident", value);
     }
 
     /// <summary>
@@ -316,8 +308,7 @@ public class AzurermSentinelAutomationRule : TerraformResource
     /// </summary>
     public List<AzurermSentinelAutomationRuleActionIncidentTaskBlock>? ActionIncidentTask
     {
-        get => GetProperty<List<AzurermSentinelAutomationRuleActionIncidentTaskBlock>>("action_incident_task");
-        set => this.WithProperty("action_incident_task", value);
+        set => SetProperty("action_incident_task", value);
     }
 
     /// <summary>
@@ -326,8 +317,7 @@ public class AzurermSentinelAutomationRule : TerraformResource
     /// </summary>
     public List<AzurermSentinelAutomationRuleActionPlaybookBlock>? ActionPlaybook
     {
-        get => GetProperty<List<AzurermSentinelAutomationRuleActionPlaybookBlock>>("action_playbook");
-        set => this.WithProperty("action_playbook", value);
+        set => SetProperty("action_playbook", value);
     }
 
     /// <summary>
@@ -336,8 +326,7 @@ public class AzurermSentinelAutomationRule : TerraformResource
     /// </summary>
     public AzurermSentinelAutomationRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSentinelAutomationRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

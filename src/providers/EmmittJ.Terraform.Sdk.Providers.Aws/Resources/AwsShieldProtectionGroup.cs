@@ -14,7 +14,15 @@ public class AwsShieldProtectionGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("protection_group_arn");
+        SetOutput("protection_group_arn");
+        SetOutput("aggregation");
+        SetOutput("id");
+        SetOutput("members");
+        SetOutput("pattern");
+        SetOutput("protection_group_id");
+        SetOutput("resource_type");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -23,26 +31,26 @@ public class AwsShieldProtectionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformProperty<string> Aggregation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aggregation");
-        set => this.WithProperty("aggregation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aggregation");
+        set => SetProperty("aggregation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Members
+    public List<TerraformProperty<string>> Members
     {
-        get => GetProperty<List<TerraformProperty<string>>>("members");
-        set => this.WithProperty("members", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("members");
+        set => SetProperty("members", value);
     }
 
     /// <summary>
@@ -51,8 +59,8 @@ public class AwsShieldProtectionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformProperty<string> Pattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pattern");
-        set => this.WithProperty("pattern", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pattern");
+        set => SetProperty("pattern", value);
     }
 
     /// <summary>
@@ -61,35 +69,35 @@ public class AwsShieldProtectionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionGroupId is required")]
     public required TerraformProperty<string> ProtectionGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protection_group_id");
-        set => this.WithProperty("protection_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protection_group_id");
+        set => SetProperty("protection_group_id", value);
     }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
+    public TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
-        set => this.WithProperty("resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

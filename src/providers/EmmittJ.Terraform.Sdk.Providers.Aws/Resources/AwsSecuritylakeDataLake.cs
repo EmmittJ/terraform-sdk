@@ -13,8 +13,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? EncryptionConfiguration
     {
-        get => GetProperty<List<TerraformProperty<object>>>("encryption_configuration");
-        set => WithProperty("encryption_configuration", value);
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region");
-        set => WithProperty("region", value);
+        set => SetProperty("region", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsSecuritylakeDataLakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsSecuritylakeDataLakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsSecuritylakeDataLakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,10 +71,13 @@ public class AwsSecuritylakeDataLake : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("s3_bucket_arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("s3_bucket_arn");
+        SetOutput("tags_all");
+        SetOutput("meta_store_manager_role_arn");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -88,26 +86,26 @@ public class AwsSecuritylakeDataLake : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetaStoreManagerRoleArn is required")]
     public required TerraformProperty<string> MetaStoreManagerRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("meta_store_manager_role_arn");
-        set => this.WithProperty("meta_store_manager_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("meta_store_manager_role_arn");
+        set => SetProperty("meta_store_manager_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -116,8 +114,7 @@ public class AwsSecuritylakeDataLake : TerraformResource
     /// </summary>
     public List<AwsSecuritylakeDataLakeConfigurationBlock>? Configuration
     {
-        get => GetProperty<List<AwsSecuritylakeDataLakeConfigurationBlock>>("configuration");
-        set => this.WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>
@@ -126,8 +123,7 @@ public class AwsSecuritylakeDataLake : TerraformResource
     /// </summary>
     public AwsSecuritylakeDataLakeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSecuritylakeDataLakeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AzureadCustomDirectoryRolePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedResourceActions is required")]
     public HashSet<TerraformProperty<string>>? AllowedResourceActions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_resource_actions");
-        set => WithProperty("allowed_resource_actions", value);
+        set => SetProperty("allowed_resource_actions", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AzureadCustomDirectoryRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzureadCustomDirectoryRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzureadCustomDirectoryRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzureadCustomDirectoryRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,16 +72,22 @@ public class AzureadCustomDirectoryRole : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("object_id");
+        SetOutput("object_id");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("template_id");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The description of the custom directory role
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -95,8 +96,8 @@ public class AzureadCustomDirectoryRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -105,26 +106,26 @@ public class AzureadCustomDirectoryRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Custom template identifier that is typically used if one needs an identifier to be the same across different directories.
     /// </summary>
-    public TerraformProperty<string>? TemplateId
+    public TerraformProperty<string> TemplateId
     {
-        get => GetProperty<TerraformProperty<string>>("template_id");
-        set => this.WithProperty("template_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
+        set => SetProperty("template_id", value);
     }
 
     /// <summary>
@@ -133,19 +134,19 @@ public class AzureadCustomDirectoryRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
     /// Block for permissions.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     public HashSet<AzureadCustomDirectoryRolePermissionsBlock>? Permissions
     {
-        get => GetProperty<HashSet<AzureadCustomDirectoryRolePermissionsBlock>>("permissions");
-        set => this.WithProperty("permissions", value);
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
@@ -154,8 +155,7 @@ public class AzureadCustomDirectoryRole : TerraformResource
     /// </summary>
     public AzureadCustomDirectoryRoleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadCustomDirectoryRoleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

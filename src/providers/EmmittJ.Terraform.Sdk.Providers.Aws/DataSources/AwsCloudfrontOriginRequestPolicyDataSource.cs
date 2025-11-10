@@ -14,30 +14,32 @@ public class AwsCloudfrontOriginRequestPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("comment");
-        this.WithOutput("cookies_config");
-        this.WithOutput("etag");
-        this.WithOutput("headers_config");
-        this.WithOutput("query_strings_config");
+        SetOutput("arn");
+        SetOutput("comment");
+        SetOutput("cookies_config");
+        SetOutput("etag");
+        SetOutput("headers_config");
+        SetOutput("query_strings_config");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

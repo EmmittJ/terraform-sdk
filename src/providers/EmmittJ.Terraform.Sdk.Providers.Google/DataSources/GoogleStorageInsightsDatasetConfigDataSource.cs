@@ -14,25 +14,29 @@ public class GoogleStorageInsightsDatasetConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("dataset_config_state");
-        this.WithOutput("description");
-        this.WithOutput("exclude_cloud_storage_buckets");
-        this.WithOutput("exclude_cloud_storage_locations");
-        this.WithOutput("identity");
-        this.WithOutput("include_cloud_storage_buckets");
-        this.WithOutput("include_cloud_storage_locations");
-        this.WithOutput("include_newly_created_buckets");
-        this.WithOutput("link");
-        this.WithOutput("link_dataset");
-        this.WithOutput("name");
-        this.WithOutput("organization_number");
-        this.WithOutput("organization_scope");
-        this.WithOutput("retention_period_days");
-        this.WithOutput("source_folders");
-        this.WithOutput("source_projects");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("dataset_config_state");
+        SetOutput("description");
+        SetOutput("exclude_cloud_storage_buckets");
+        SetOutput("exclude_cloud_storage_locations");
+        SetOutput("identity");
+        SetOutput("include_cloud_storage_buckets");
+        SetOutput("include_cloud_storage_locations");
+        SetOutput("include_newly_created_buckets");
+        SetOutput("link");
+        SetOutput("link_dataset");
+        SetOutput("name");
+        SetOutput("organization_number");
+        SetOutput("organization_scope");
+        SetOutput("retention_period_days");
+        SetOutput("source_folders");
+        SetOutput("source_projects");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("dataset_config_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -41,17 +45,17 @@ public class GoogleStorageInsightsDatasetConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetConfigId is required")]
     public required TerraformProperty<string> DatasetConfigId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_config_id");
-        set => this.WithProperty("dataset_config_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset_config_id");
+        set => SetProperty("dataset_config_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,17 +64,17 @@ public class GoogleStorageInsightsDatasetConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

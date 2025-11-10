@@ -14,37 +14,42 @@ public class AwsLambdaFunctionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("architectures");
-        this.WithOutput("arn");
-        this.WithOutput("code_sha256");
-        this.WithOutput("code_signing_config_arn");
-        this.WithOutput("dead_letter_config");
-        this.WithOutput("description");
-        this.WithOutput("environment");
-        this.WithOutput("ephemeral_storage");
-        this.WithOutput("file_system_config");
-        this.WithOutput("handler");
-        this.WithOutput("image_uri");
-        this.WithOutput("invoke_arn");
-        this.WithOutput("kms_key_arn");
-        this.WithOutput("last_modified");
-        this.WithOutput("layers");
-        this.WithOutput("logging_config");
-        this.WithOutput("memory_size");
-        this.WithOutput("qualified_arn");
-        this.WithOutput("qualified_invoke_arn");
-        this.WithOutput("reserved_concurrent_executions");
-        this.WithOutput("role");
-        this.WithOutput("runtime");
-        this.WithOutput("signing_job_arn");
-        this.WithOutput("signing_profile_version_arn");
-        this.WithOutput("source_code_hash");
-        this.WithOutput("source_code_size");
-        this.WithOutput("source_kms_key_arn");
-        this.WithOutput("timeout");
-        this.WithOutput("tracing_config");
-        this.WithOutput("version");
-        this.WithOutput("vpc_config");
+        SetOutput("architectures");
+        SetOutput("arn");
+        SetOutput("code_sha256");
+        SetOutput("code_signing_config_arn");
+        SetOutput("dead_letter_config");
+        SetOutput("description");
+        SetOutput("environment");
+        SetOutput("ephemeral_storage");
+        SetOutput("file_system_config");
+        SetOutput("handler");
+        SetOutput("image_uri");
+        SetOutput("invoke_arn");
+        SetOutput("kms_key_arn");
+        SetOutput("last_modified");
+        SetOutput("layers");
+        SetOutput("logging_config");
+        SetOutput("memory_size");
+        SetOutput("qualified_arn");
+        SetOutput("qualified_invoke_arn");
+        SetOutput("reserved_concurrent_executions");
+        SetOutput("role");
+        SetOutput("runtime");
+        SetOutput("signing_job_arn");
+        SetOutput("signing_profile_version_arn");
+        SetOutput("source_code_hash");
+        SetOutput("source_code_size");
+        SetOutput("source_kms_key_arn");
+        SetOutput("timeout");
+        SetOutput("tracing_config");
+        SetOutput("version");
+        SetOutput("vpc_config");
+        SetOutput("function_name");
+        SetOutput("id");
+        SetOutput("qualifier");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -53,44 +58,44 @@ public class AwsLambdaFunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string>? Qualifier
+    public TerraformProperty<string> Qualifier
     {
-        get => GetProperty<TerraformProperty<string>>("qualifier");
-        set => this.WithProperty("qualifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
+        set => SetProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

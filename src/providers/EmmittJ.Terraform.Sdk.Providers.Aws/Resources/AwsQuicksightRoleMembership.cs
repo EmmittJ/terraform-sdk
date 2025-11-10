@@ -14,15 +14,20 @@ public class AwsQuicksightRoleMembership : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("aws_account_id");
+        SetOutput("member_name");
+        SetOutput("namespace");
+        SetOutput("region");
+        SetOutput("role");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -31,26 +36,26 @@ public class AwsQuicksightRoleMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberName is required")]
     public required TerraformProperty<string> MemberName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("member_name");
-        set => this.WithProperty("member_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member_name");
+        set => SetProperty("member_name", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? Namespace
+    public TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
-        set => this.WithProperty("namespace", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
+        set => SetProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -59,8 +64,8 @@ public class AwsQuicksightRoleMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
 }

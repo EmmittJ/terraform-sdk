@@ -14,30 +14,33 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("deprecated");
-        this.WithOutput("description");
-        this.WithOutput("id");
-        this.WithOutput("kind");
-        this.WithOutput("max_pool_provisioned_capacity_gb");
-        this.WithOutput("max_pool_provisioned_iops");
-        this.WithOutput("max_pool_provisioned_throughput");
-        this.WithOutput("min_pool_provisioned_capacity_gb");
-        this.WithOutput("min_pool_provisioned_iops");
-        this.WithOutput("min_pool_provisioned_throughput");
-        this.WithOutput("name");
-        this.WithOutput("self_link");
-        this.WithOutput("self_link_with_id");
-        this.WithOutput("supported_disk_types");
+        SetOutput("creation_timestamp");
+        SetOutput("deprecated");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("max_pool_provisioned_capacity_gb");
+        SetOutput("max_pool_provisioned_iops");
+        SetOutput("max_pool_provisioned_throughput");
+        SetOutput("min_pool_provisioned_capacity_gb");
+        SetOutput("min_pool_provisioned_iops");
+        SetOutput("min_pool_provisioned_throughput");
+        SetOutput("name");
+        SetOutput("self_link");
+        SetOutput("self_link_with_id");
+        SetOutput("supported_disk_types");
+        SetOutput("project");
+        SetOutput("storage_pool_type");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -46,8 +49,8 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
     public required TerraformProperty<string> StoragePoolType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_pool_type");
-        set => this.WithProperty("storage_pool_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_pool_type");
+        set => SetProperty("storage_pool_type", value);
     }
 
     /// <summary>
@@ -56,8 +59,8 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,12 @@ public class AzurermDataFactoryManagedPrivateEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("data_factory_id");
+        SetOutput("fqdns");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("subresource_name");
+        SetOutput("target_resource_id");
     }
 
     /// <summary>
@@ -57,26 +60,26 @@ public class AzurermDataFactoryManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Fqdns
+    public List<TerraformProperty<string>> Fqdns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("fqdns");
-        set => this.WithProperty("fqdns", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("fqdns");
+        set => SetProperty("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,17 +88,17 @@ public class AzurermDataFactoryManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The subresource_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SubresourceName
+    public TerraformProperty<string> SubresourceName
     {
-        get => GetProperty<TerraformProperty<string>>("subresource_name");
-        set => this.WithProperty("subresource_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subresource_name");
+        set => SetProperty("subresource_name", value);
     }
 
     /// <summary>
@@ -104,8 +107,8 @@ public class AzurermDataFactoryManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
@@ -114,8 +117,7 @@ public class AzurermDataFactoryManagedPrivateEndpoint : TerraformResource
     /// </summary>
     public AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -21,8 +21,7 @@ public class GoogleApigeeAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleApigeeAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleApigeeAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +55,17 @@ public class GoogleApigeeAddonsConfig : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("org");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +74,8 @@ public class GoogleApigeeAddonsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Org is required")]
     public required TerraformProperty<string> Org
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org");
-        set => this.WithProperty("org", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org");
+        set => SetProperty("org", value);
     }
 
     /// <summary>
@@ -86,8 +85,7 @@ public class GoogleApigeeAddonsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddonsConfig block(s) allowed")]
     public List<GoogleApigeeAddonsConfigAddonsConfigBlock>? AddonsConfig
     {
-        get => GetProperty<List<GoogleApigeeAddonsConfigAddonsConfigBlock>>("addons_config");
-        set => this.WithProperty("addons_config", value);
+        set => SetProperty("addons_config", value);
     }
 
     /// <summary>
@@ -96,8 +94,7 @@ public class GoogleApigeeAddonsConfig : TerraformResource
     /// </summary>
     public GoogleApigeeAddonsConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeAddonsConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

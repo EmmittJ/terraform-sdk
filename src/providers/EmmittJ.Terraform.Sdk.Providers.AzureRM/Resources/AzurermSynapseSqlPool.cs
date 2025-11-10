@@ -14,8 +14,7 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
     public required TerraformProperty<string> PointInTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("point_in_time");
-        set => WithProperty("point_in_time", value);
+        set => SetProperty("point_in_time", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
     public required TerraformProperty<string> SourceDatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_database_id");
-        set => WithProperty("source_database_id", value);
+        set => SetProperty("source_database_id", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,51 +81,62 @@ public class AzurermSynapseSqlPool : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("collation");
+        SetOutput("create_mode");
+        SetOutput("data_encrypted");
+        SetOutput("geo_backup_policy_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("recovery_database_id");
+        SetOutput("sku_name");
+        SetOutput("storage_account_type");
+        SetOutput("synapse_workspace_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    public TerraformProperty<string>? Collation
+    public TerraformProperty<string> Collation
     {
-        get => GetProperty<TerraformProperty<string>>("collation");
-        set => this.WithProperty("collation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collation");
+        set => SetProperty("collation", value);
     }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? CreateMode
+    public TerraformProperty<string> CreateMode
     {
-        get => GetProperty<TerraformProperty<string>>("create_mode");
-        set => this.WithProperty("create_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_mode");
+        set => SetProperty("create_mode", value);
     }
 
     /// <summary>
     /// The data_encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool>? DataEncrypted
+    public TerraformProperty<bool> DataEncrypted
     {
-        get => GetProperty<TerraformProperty<bool>>("data_encrypted");
-        set => this.WithProperty("data_encrypted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("data_encrypted");
+        set => SetProperty("data_encrypted", value);
     }
 
     /// <summary>
     /// The geo_backup_policy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? GeoBackupPolicyEnabled
+    public TerraformProperty<bool> GeoBackupPolicyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("geo_backup_policy_enabled");
-        set => this.WithProperty("geo_backup_policy_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("geo_backup_policy_enabled");
+        set => SetProperty("geo_backup_policy_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -140,17 +145,17 @@ public class AzurermSynapseSqlPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The recovery_database_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RecoveryDatabaseId
+    public TerraformProperty<string> RecoveryDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_database_id");
-        set => this.WithProperty("recovery_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_database_id");
+        set => SetProperty("recovery_database_id", value);
     }
 
     /// <summary>
@@ -159,8 +164,8 @@ public class AzurermSynapseSqlPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
@@ -169,8 +174,8 @@ public class AzurermSynapseSqlPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformProperty<string> StorageAccountType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_type");
-        set => this.WithProperty("storage_account_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_type");
+        set => SetProperty("storage_account_type", value);
     }
 
     /// <summary>
@@ -179,17 +184,17 @@ public class AzurermSynapseSqlPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
-        set => this.WithProperty("synapse_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("synapse_workspace_id");
+        set => SetProperty("synapse_workspace_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -199,8 +204,7 @@ public class AzurermSynapseSqlPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restore block(s) allowed")]
     public List<AzurermSynapseSqlPoolRestoreBlock>? Restore
     {
-        get => GetProperty<List<AzurermSynapseSqlPoolRestoreBlock>>("restore");
-        set => this.WithProperty("restore", value);
+        set => SetProperty("restore", value);
     }
 
     /// <summary>
@@ -209,8 +213,7 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// </summary>
     public AzurermSynapseSqlPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSynapseSqlPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

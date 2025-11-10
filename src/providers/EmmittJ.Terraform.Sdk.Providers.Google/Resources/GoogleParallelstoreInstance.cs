@@ -13,8 +13,7 @@ public class GoogleParallelstoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleParallelstoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleParallelstoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,15 +46,27 @@ public class GoogleParallelstoreInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_points");
-        this.WithOutput("create_time");
-        this.WithOutput("daos_version");
-        this.WithOutput("effective_labels");
-        this.WithOutput("effective_reserved_ip_range");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("access_points");
+        SetOutput("create_time");
+        SetOutput("daos_version");
+        SetOutput("effective_labels");
+        SetOutput("effective_reserved_ip_range");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("capacity_gib");
+        SetOutput("deployment_type");
+        SetOutput("description");
+        SetOutput("directory_stripe_level");
+        SetOutput("file_stripe_level");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("reserved_ip_range");
     }
 
     /// <summary>
@@ -66,8 +75,8 @@ public class GoogleParallelstoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformProperty<string> CapacityGib
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capacity_gib");
-        set => this.WithProperty("capacity_gib", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("capacity_gib");
+        set => SetProperty("capacity_gib", value);
     }
 
     /// <summary>
@@ -77,19 +86,19 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   SCRATCH
     ///   PERSISTENT
     /// </summary>
-    public TerraformProperty<string>? DeploymentType
+    public TerraformProperty<string> DeploymentType
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_type");
-        set => this.WithProperty("deployment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_type");
+        set => SetProperty("deployment_type", value);
     }
 
     /// <summary>
     /// The description of the instance. 2048 characters or less.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -102,10 +111,10 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   DIRECTORY_STRIPE_LEVEL_BALANCED
     ///   DIRECTORY_STRIPE_LEVEL_MAX
     /// </summary>
-    public TerraformProperty<string>? DirectoryStripeLevel
+    public TerraformProperty<string> DirectoryStripeLevel
     {
-        get => GetProperty<TerraformProperty<string>>("directory_stripe_level");
-        set => this.WithProperty("directory_stripe_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_stripe_level");
+        set => SetProperty("directory_stripe_level", value);
     }
 
     /// <summary>
@@ -118,19 +127,19 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   FILE_STRIPE_LEVEL_BALANCED
     ///   FILE_STRIPE_LEVEL_MAX
     /// </summary>
-    public TerraformProperty<string>? FileStripeLevel
+    public TerraformProperty<string> FileStripeLevel
     {
-        get => GetProperty<TerraformProperty<string>>("file_stripe_level");
-        set => this.WithProperty("file_stripe_level", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_stripe_level");
+        set => SetProperty("file_stripe_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -144,8 +153,8 @@ public class GoogleParallelstoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -175,10 +184,10 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -187,27 +196,27 @@ public class GoogleParallelstoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Immutable. The name of the Google Compute Engine [VPC network](https://cloud.google.com/vpc/docs/vpc)
     /// to which the instance is connected.
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -216,10 +225,10 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// associated with IP range 10.0.0.0/29. If no range id is provided all ranges will
     /// be considered.
     /// </summary>
-    public TerraformProperty<string>? ReservedIpRange
+    public TerraformProperty<string> ReservedIpRange
     {
-        get => GetProperty<TerraformProperty<string>>("reserved_ip_range");
-        set => this.WithProperty("reserved_ip_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reserved_ip_range");
+        set => SetProperty("reserved_ip_range", value);
     }
 
     /// <summary>
@@ -228,8 +237,7 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// </summary>
     public GoogleParallelstoreInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleParallelstoreInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

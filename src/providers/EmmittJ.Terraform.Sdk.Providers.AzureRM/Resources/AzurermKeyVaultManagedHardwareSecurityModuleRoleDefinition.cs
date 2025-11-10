@@ -13,8 +13,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// </summary>
     public List<TerraformProperty<string>>? Actions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("actions");
-        set => WithProperty("actions", value);
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// </summary>
     public HashSet<TerraformProperty<string>>? DataActions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("data_actions");
-        set => WithProperty("data_actions", value);
+        set => SetProperty("data_actions", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// </summary>
     public List<TerraformProperty<string>>? NotActions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("not_actions");
-        set => WithProperty("not_actions", value);
+        set => SetProperty("not_actions", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// </summary>
     public HashSet<TerraformProperty<string>>? NotDataActions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("not_data_actions");
-        set => WithProperty("not_data_actions", value);
+        set => SetProperty("not_data_actions", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -102,26 +94,31 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
 
     private void InitializeOutputs()
     {
-        this.WithOutput("resource_manager_id");
-        this.WithOutput("role_type");
+        SetOutput("resource_manager_id");
+        SetOutput("role_type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("managed_hsm_id");
+        SetOutput("name");
+        SetOutput("role_name");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -130,8 +127,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformProperty<string> ManagedHsmId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_hsm_id");
-        set => this.WithProperty("managed_hsm_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_id");
+        set => SetProperty("managed_hsm_id", value);
     }
 
     /// <summary>
@@ -140,17 +137,17 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleName
+    public TerraformProperty<string> RoleName
     {
-        get => GetProperty<TerraformProperty<string>>("role_name");
-        set => this.WithProperty("role_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
+        set => SetProperty("role_name", value);
     }
 
     /// <summary>
@@ -159,8 +156,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     /// </summary>
     public List<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>? Permission
     {
-        get => GetProperty<List<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>>("permission");
-        set => this.WithProperty("permission", value);
+        set => SetProperty("permission", value);
     }
 
     /// <summary>
@@ -169,8 +165,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

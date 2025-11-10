@@ -14,8 +14,7 @@ public class GoogleComputeRegionDiskAsyncPrimaryDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformProperty<string> Disk
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("disk");
-        set => WithProperty("disk", value);
+        set => SetProperty("disk", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleComputeRegionDiskDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleComputeRegionDiskDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RawKey
     {
-        get => GetProperty<TerraformProperty<string>>("raw_key");
-        set => WithProperty("raw_key", value);
+        set => SetProperty("raw_key", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class GoogleComputeRegionDiskDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RsaEncryptedKey
     {
-        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
-        set => WithProperty("rsa_encrypted_key", value);
+        set => SetProperty("rsa_encrypted_key", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class GoogleComputeRegionDiskDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Sha256
     {
-        get => GetProperty<TerraformProperty<string>>("sha256");
-        set => WithProperty("sha256", value);
+        set => SetProperty("sha256", value);
     }
 
 }
@@ -80,8 +75,7 @@ public class GoogleComputeRegionDiskGuestOsFeaturesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -98,8 +92,7 @@ public class GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? RawKey
     {
-        get => GetProperty<TerraformProperty<string>>("raw_key");
-        set => WithProperty("raw_key", value);
+        set => SetProperty("raw_key", value);
     }
 
     /// <summary>
@@ -108,8 +101,7 @@ public class GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Sha256
     {
-        get => GetProperty<TerraformProperty<string>>("sha256");
-        set => WithProperty("sha256", value);
+        set => SetProperty("sha256", value);
     }
 
 }
@@ -125,8 +117,7 @@ public class GoogleComputeRegionDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -134,8 +125,7 @@ public class GoogleComputeRegionDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -143,8 +133,7 @@ public class GoogleComputeRegionDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -162,17 +151,35 @@ public class GoogleComputeRegionDisk : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("disk_id");
-        this.WithOutput("effective_labels");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("last_attach_timestamp");
-        this.WithOutput("last_detach_timestamp");
-        this.WithOutput("self_link");
-        this.WithOutput("source_disk_id");
-        this.WithOutput("source_snapshot_id");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("users");
+        SetOutput("creation_timestamp");
+        SetOutput("disk_id");
+        SetOutput("effective_labels");
+        SetOutput("label_fingerprint");
+        SetOutput("last_attach_timestamp");
+        SetOutput("last_detach_timestamp");
+        SetOutput("self_link");
+        SetOutput("source_disk_id");
+        SetOutput("source_snapshot_id");
+        SetOutput("terraform_labels");
+        SetOutput("users");
+        SetOutput("access_mode");
+        SetOutput("create_snapshot_before_destroy");
+        SetOutput("create_snapshot_before_destroy_prefix");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("licenses");
+        SetOutput("name");
+        SetOutput("physical_block_size_bytes");
+        SetOutput("project");
+        SetOutput("provisioned_iops");
+        SetOutput("provisioned_throughput");
+        SetOutput("region");
+        SetOutput("replica_zones");
+        SetOutput("size");
+        SetOutput("snapshot");
+        SetOutput("source_disk");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -183,10 +190,10 @@ public class GoogleComputeRegionDisk : TerraformResource
     ///   * READ_ONLY_SINGLE: The AccessMode means the disk can be attached to multiple instances in RO mode.
     /// The AccessMode is only valid for Hyperdisk disk types.
     /// </summary>
-    public TerraformProperty<string>? AccessMode
+    public TerraformProperty<string> AccessMode
     {
-        get => GetProperty<TerraformProperty<string>>("access_mode");
-        set => this.WithProperty("access_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_mode");
+        set => SetProperty("access_mode", value);
     }
 
     /// <summary>
@@ -194,38 +201,38 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// If your disk is encrypted with customer managed encryption keys these will be reused for the snapshot creation.
     /// The name of the snapshot by default will be &#39;{{disk-name}}-YYYYMMDD-HHmm&#39;
     /// </summary>
-    public TerraformProperty<bool>? CreateSnapshotBeforeDestroy
+    public TerraformProperty<bool> CreateSnapshotBeforeDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("create_snapshot_before_destroy");
-        set => this.WithProperty("create_snapshot_before_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_snapshot_before_destroy");
+        set => SetProperty("create_snapshot_before_destroy", value);
     }
 
     /// <summary>
     /// This will set a custom name prefix for the snapshot that&#39;s created when the disk is deleted.
     /// </summary>
-    public TerraformProperty<string>? CreateSnapshotBeforeDestroyPrefix
+    public TerraformProperty<string> CreateSnapshotBeforeDestroyPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("create_snapshot_before_destroy_prefix");
-        set => this.WithProperty("create_snapshot_before_destroy_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_snapshot_before_destroy_prefix");
+        set => SetProperty("create_snapshot_before_destroy_prefix", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -235,19 +242,19 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public List<TerraformProperty<string>>? Licenses
+    public List<TerraformProperty<string>> Licenses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("licenses");
-        set => this.WithProperty("licenses", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("licenses");
+        set => SetProperty("licenses", value);
     }
 
     /// <summary>
@@ -262,8 +269,8 @@ public class GoogleComputeRegionDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -273,19 +280,19 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// If an unsupported value is requested, the error message will list
     /// the supported values for the caller&#39;s project.
     /// </summary>
-    public TerraformProperty<double>? PhysicalBlockSizeBytes
+    public TerraformProperty<double> PhysicalBlockSizeBytes
     {
-        get => GetProperty<TerraformProperty<double>>("physical_block_size_bytes");
-        set => this.WithProperty("physical_block_size_bytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("physical_block_size_bytes");
+        set => SetProperty("physical_block_size_bytes", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -293,39 +300,39 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// that the disk can handle. Values must be between 10,000 and 120,000.
     /// For more details, see the Extreme persistent disk [documentation](https://cloud.google.com/compute/docs/disks/extreme-persistent-disk).
     /// </summary>
-    public TerraformProperty<double>? ProvisionedIops
+    public TerraformProperty<double> ProvisionedIops
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_iops");
-        set => this.WithProperty("provisioned_iops", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("provisioned_iops");
+        set => SetProperty("provisioned_iops", value);
     }
 
     /// <summary>
     /// Indicates how much throughput to provision for the disk. This sets the number of throughput
     /// mb per second that the disk can handle. Values must be greater than or equal to 1.
     /// </summary>
-    public TerraformProperty<double>? ProvisionedThroughput
+    public TerraformProperty<double> ProvisionedThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_throughput");
-        set => this.WithProperty("provisioned_throughput", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("provisioned_throughput");
+        set => SetProperty("provisioned_throughput", value);
     }
 
     /// <summary>
     /// A reference to the region where the disk resides.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// URLs of the zones where the disk should be replicated to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicaZones is required")]
-    public List<TerraformProperty<string>>? ReplicaZones
+    public List<TerraformProperty<string>> ReplicaZones
     {
-        get => GetProperty<List<TerraformProperty<string>>>("replica_zones");
-        set => this.WithProperty("replica_zones", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("replica_zones");
+        set => SetProperty("replica_zones", value);
     }
 
     /// <summary>
@@ -338,10 +345,10 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// the value of sizeGb must not be less than the size of the sourceImage
     /// or the size of the snapshot.
     /// </summary>
-    public TerraformProperty<double>? Size
+    public TerraformProperty<double> Size
     {
-        get => GetProperty<TerraformProperty<double>>("size");
-        set => this.WithProperty("size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("size");
+        set => SetProperty("size", value);
     }
 
     /// <summary>
@@ -354,10 +361,10 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// * &#39;global/snapshots/snapshot&#39;
     /// * &#39;snapshot&#39;
     /// </summary>
-    public TerraformProperty<string>? Snapshot
+    public TerraformProperty<string> Snapshot
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot");
-        set => this.WithProperty("snapshot", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot");
+        set => SetProperty("snapshot", value);
     }
 
     /// <summary>
@@ -371,20 +378,20 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// * zones/{zone}/disks/{disk}
     /// * regions/{region}/disks/{disk}
     /// </summary>
-    public TerraformProperty<string>? SourceDisk
+    public TerraformProperty<string> SourceDisk
     {
-        get => GetProperty<TerraformProperty<string>>("source_disk");
-        set => this.WithProperty("source_disk", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_disk");
+        set => SetProperty("source_disk", value);
     }
 
     /// <summary>
     /// URL of the disk type resource describing which disk type to use to
     /// create the disk. Provide this when creating the disk.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -394,8 +401,7 @@ public class GoogleComputeRegionDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AsyncPrimaryDisk block(s) allowed")]
     public List<GoogleComputeRegionDiskAsyncPrimaryDiskBlock>? AsyncPrimaryDisk
     {
-        get => GetProperty<List<GoogleComputeRegionDiskAsyncPrimaryDiskBlock>>("async_primary_disk");
-        set => this.WithProperty("async_primary_disk", value);
+        set => SetProperty("async_primary_disk", value);
     }
 
     /// <summary>
@@ -405,8 +411,7 @@ public class GoogleComputeRegionDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskEncryptionKey block(s) allowed")]
     public List<GoogleComputeRegionDiskDiskEncryptionKeyBlock>? DiskEncryptionKey
     {
-        get => GetProperty<List<GoogleComputeRegionDiskDiskEncryptionKeyBlock>>("disk_encryption_key");
-        set => this.WithProperty("disk_encryption_key", value);
+        set => SetProperty("disk_encryption_key", value);
     }
 
     /// <summary>
@@ -415,8 +420,7 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeRegionDiskGuestOsFeaturesBlock>? GuestOsFeatures
     {
-        get => GetProperty<HashSet<GoogleComputeRegionDiskGuestOsFeaturesBlock>>("guest_os_features");
-        set => this.WithProperty("guest_os_features", value);
+        set => SetProperty("guest_os_features", value);
     }
 
     /// <summary>
@@ -426,8 +430,7 @@ public class GoogleComputeRegionDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceSnapshotEncryptionKey block(s) allowed")]
     public List<GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock>? SourceSnapshotEncryptionKey
     {
-        get => GetProperty<List<GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock>>("source_snapshot_encryption_key");
-        set => this.WithProperty("source_snapshot_encryption_key", value);
+        set => SetProperty("source_snapshot_encryption_key", value);
     }
 
     /// <summary>
@@ -436,8 +439,7 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// </summary>
     public GoogleComputeRegionDiskTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRegionDiskTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

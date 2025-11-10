@@ -14,8 +14,7 @@ public class AwsVpnConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsVpnConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -42,38 +40,40 @@ public class AwsVpnConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("category");
-        this.WithOutput("core_network_arn");
-        this.WithOutput("core_network_attachment_arn");
-        this.WithOutput("customer_gateway_configuration");
-        this.WithOutput("customer_gateway_id");
-        this.WithOutput("gateway_association_state");
-        this.WithOutput("pre_shared_key_arn");
-        this.WithOutput("routes");
-        this.WithOutput("state");
-        this.WithOutput("tags");
-        this.WithOutput("transit_gateway_id");
-        this.WithOutput("type");
-        this.WithOutput("vgw_telemetries");
-        this.WithOutput("vpn_gateway_id");
+        SetOutput("category");
+        SetOutput("core_network_arn");
+        SetOutput("core_network_attachment_arn");
+        SetOutput("customer_gateway_configuration");
+        SetOutput("customer_gateway_id");
+        SetOutput("gateway_association_state");
+        SetOutput("pre_shared_key_arn");
+        SetOutput("routes");
+        SetOutput("state");
+        SetOutput("tags");
+        SetOutput("transit_gateway_id");
+        SetOutput("type");
+        SetOutput("vgw_telemetries");
+        SetOutput("vpn_gateway_id");
+        SetOutput("region");
+        SetOutput("vpn_connection_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The vpn_connection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpnConnectionId
+    public TerraformProperty<string> VpnConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_connection_id");
-        set => this.WithProperty("vpn_connection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpn_connection_id");
+        set => SetProperty("vpn_connection_id", value);
     }
 
     /// <summary>
@@ -82,8 +82,7 @@ public class AwsVpnConnectionDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsVpnConnectionDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsVpnConnectionDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>

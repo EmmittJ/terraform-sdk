@@ -13,8 +13,7 @@ public class AwsDatazoneEnvironmentProfileUserParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDatazoneEnvironmentProfileUserParametersBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -40,19 +38,27 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("created_by");
-        this.WithOutput("id");
-        this.WithOutput("updated_at");
+        SetOutput("created_at");
+        SetOutput("created_by");
+        SetOutput("id");
+        SetOutput("updated_at");
+        SetOutput("aws_account_id");
+        SetOutput("aws_account_region");
+        SetOutput("description");
+        SetOutput("domain_identifier");
+        SetOutput("environment_blueprint_identifier");
+        SetOutput("name");
+        SetOutput("project_identifier");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountId
+    public TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
-        set => this.WithProperty("aws_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
+        set => SetProperty("aws_account_id", value);
     }
 
     /// <summary>
@@ -61,17 +67,17 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsAccountRegion is required")]
     public required TerraformProperty<string> AwsAccountRegion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aws_account_region");
-        set => this.WithProperty("aws_account_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_region");
+        set => SetProperty("aws_account_region", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -80,8 +86,8 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
-        set => this.WithProperty("domain_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_identifier");
+        set => SetProperty("domain_identifier", value);
     }
 
     /// <summary>
@@ -90,8 +96,8 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentBlueprintIdentifier is required")]
     public required TerraformProperty<string> EnvironmentBlueprintIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment_blueprint_identifier");
-        set => this.WithProperty("environment_blueprint_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_blueprint_identifier");
+        set => SetProperty("environment_blueprint_identifier", value);
     }
 
     /// <summary>
@@ -100,8 +106,8 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -110,17 +116,17 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
     public required TerraformProperty<string> ProjectIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_identifier");
-        set => this.WithProperty("project_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_identifier");
+        set => SetProperty("project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -129,8 +135,7 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     /// </summary>
     public List<AwsDatazoneEnvironmentProfileUserParametersBlock>? UserParameters
     {
-        get => GetProperty<List<AwsDatazoneEnvironmentProfileUserParametersBlock>>("user_parameters");
-        set => this.WithProperty("user_parameters", value);
+        set => SetProperty("user_parameters", value);
     }
 
     /// <summary>

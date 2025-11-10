@@ -14,21 +14,27 @@ public class AwsCognitoUserPoolDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("aws_account_id");
-        this.WithOutput("cloudfront_distribution");
-        this.WithOutput("cloudfront_distribution_arn");
-        this.WithOutput("cloudfront_distribution_zone_id");
-        this.WithOutput("s3_bucket");
-        this.WithOutput("version");
+        SetOutput("aws_account_id");
+        SetOutput("cloudfront_distribution");
+        SetOutput("cloudfront_distribution_arn");
+        SetOutput("cloudfront_distribution_zone_id");
+        SetOutput("s3_bucket");
+        SetOutput("version");
+        SetOutput("certificate_arn");
+        SetOutput("domain");
+        SetOutput("id");
+        SetOutput("managed_login_version");
+        SetOutput("region");
+        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateArn
+    public TerraformProperty<string> CertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_arn");
-        set => this.WithProperty("certificate_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_arn");
+        set => SetProperty("certificate_arn", value);
     }
 
     /// <summary>
@@ -37,35 +43,35 @@ public class AwsCognitoUserPoolDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The managed_login_version attribute.
     /// </summary>
-    public TerraformProperty<double>? ManagedLoginVersion
+    public TerraformProperty<double> ManagedLoginVersion
     {
-        get => GetProperty<TerraformProperty<double>>("managed_login_version");
-        set => this.WithProperty("managed_login_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("managed_login_version");
+        set => SetProperty("managed_login_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -74,8 +80,8 @@ public class AwsCognitoUserPoolDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>

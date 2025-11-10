@@ -14,6 +14,14 @@ public class AwsCloudwatchLogSubscriptionFilter : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("destination_arn");
+        SetOutput("distribution");
+        SetOutput("filter_pattern");
+        SetOutput("id");
+        SetOutput("log_group_name");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role_arn");
     }
 
     /// <summary>
@@ -22,17 +30,17 @@ public class AwsCloudwatchLogSubscriptionFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
-        set => this.WithProperty("destination_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_arn");
+        set => SetProperty("destination_arn", value);
     }
 
     /// <summary>
     /// The distribution attribute.
     /// </summary>
-    public TerraformProperty<string>? Distribution
+    public TerraformProperty<string> Distribution
     {
-        get => GetProperty<TerraformProperty<string>>("distribution");
-        set => this.WithProperty("distribution", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("distribution");
+        set => SetProperty("distribution", value);
     }
 
     /// <summary>
@@ -41,17 +49,17 @@ public class AwsCloudwatchLogSubscriptionFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPattern is required")]
     public required TerraformProperty<string> FilterPattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter_pattern");
-        set => this.WithProperty("filter_pattern", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter_pattern");
+        set => SetProperty("filter_pattern", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,8 +68,8 @@ public class AwsCloudwatchLogSubscriptionFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
-        set => this.WithProperty("log_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_group_name");
+        set => SetProperty("log_group_name", value);
     }
 
     /// <summary>
@@ -70,26 +78,26 @@ public class AwsCloudwatchLogSubscriptionFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    public TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
 }

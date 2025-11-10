@@ -13,8 +13,7 @@ public class AwsSecurityhubStandardsSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSecurityhubStandardsSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,24 +38,27 @@ public class AwsSecurityhubStandardsSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("standards_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AwsSecurityhubStandardsSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StandardsArn is required")]
     public required TerraformProperty<string> StandardsArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("standards_arn");
-        set => this.WithProperty("standards_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("standards_arn");
+        set => SetProperty("standards_arn", value);
     }
 
     /// <summary>
@@ -76,8 +77,7 @@ public class AwsSecurityhubStandardsSubscription : TerraformResource
     /// </summary>
     public AwsSecurityhubStandardsSubscriptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSecurityhubStandardsSubscriptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

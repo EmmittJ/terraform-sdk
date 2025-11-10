@@ -14,28 +14,31 @@ public class GoogleBigqueryDatasetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access");
-        this.WithOutput("creation_time");
-        this.WithOutput("default_collation");
-        this.WithOutput("default_encryption_configuration");
-        this.WithOutput("default_partition_expiration_ms");
-        this.WithOutput("default_table_expiration_ms");
-        this.WithOutput("delete_contents_on_destroy");
-        this.WithOutput("description");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("external_catalog_dataset_options");
-        this.WithOutput("external_dataset_reference");
-        this.WithOutput("friendly_name");
-        this.WithOutput("is_case_insensitive");
-        this.WithOutput("labels");
-        this.WithOutput("last_modified_time");
-        this.WithOutput("location");
-        this.WithOutput("max_time_travel_hours");
-        this.WithOutput("resource_tags");
-        this.WithOutput("self_link");
-        this.WithOutput("storage_billing_model");
-        this.WithOutput("terraform_labels");
+        SetOutput("access");
+        SetOutput("creation_time");
+        SetOutput("default_collation");
+        SetOutput("default_encryption_configuration");
+        SetOutput("default_partition_expiration_ms");
+        SetOutput("default_table_expiration_ms");
+        SetOutput("delete_contents_on_destroy");
+        SetOutput("description");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("external_catalog_dataset_options");
+        SetOutput("external_dataset_reference");
+        SetOutput("friendly_name");
+        SetOutput("is_case_insensitive");
+        SetOutput("labels");
+        SetOutput("last_modified_time");
+        SetOutput("location");
+        SetOutput("max_time_travel_hours");
+        SetOutput("resource_tags");
+        SetOutput("self_link");
+        SetOutput("storage_billing_model");
+        SetOutput("terraform_labels");
+        SetOutput("dataset_id");
+        SetOutput("id");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -46,26 +49,26 @@ public class GoogleBigqueryDatasetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
-        set => this.WithProperty("dataset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
+        set => SetProperty("dataset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

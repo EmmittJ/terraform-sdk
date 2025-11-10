@@ -14,24 +14,30 @@ public class AwsLbCookieStickinessPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cookie_expiration_period");
+        SetOutput("id");
+        SetOutput("lb_port");
+        SetOutput("load_balancer");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The cookie_expiration_period attribute.
     /// </summary>
-    public TerraformProperty<double>? CookieExpirationPeriod
+    public TerraformProperty<double> CookieExpirationPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("cookie_expiration_period");
-        set => this.WithProperty("cookie_expiration_period", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cookie_expiration_period");
+        set => SetProperty("cookie_expiration_period", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -40,8 +46,8 @@ public class AwsLbCookieStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
     public required TerraformProperty<double> LbPort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("lb_port");
-        set => this.WithProperty("lb_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("lb_port");
+        set => SetProperty("lb_port", value);
     }
 
     /// <summary>
@@ -50,8 +56,8 @@ public class AwsLbCookieStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
     public required TerraformProperty<string> LoadBalancer
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("load_balancer");
-        set => this.WithProperty("load_balancer", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("load_balancer");
+        set => SetProperty("load_balancer", value);
     }
 
     /// <summary>
@@ -60,17 +66,17 @@ public class AwsLbCookieStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

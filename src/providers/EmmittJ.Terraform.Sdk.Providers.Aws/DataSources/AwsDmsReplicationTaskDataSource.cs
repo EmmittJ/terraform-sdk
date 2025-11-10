@@ -14,35 +14,39 @@ public class AwsDmsReplicationTaskDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cdc_start_position");
-        this.WithOutput("cdc_start_time");
-        this.WithOutput("migration_type");
-        this.WithOutput("replication_instance_arn");
-        this.WithOutput("replication_task_arn");
-        this.WithOutput("replication_task_settings");
-        this.WithOutput("source_endpoint_arn");
-        this.WithOutput("start_replication_task");
-        this.WithOutput("status");
-        this.WithOutput("table_mappings");
-        this.WithOutput("target_endpoint_arn");
+        SetOutput("cdc_start_position");
+        SetOutput("cdc_start_time");
+        SetOutput("migration_type");
+        SetOutput("replication_instance_arn");
+        SetOutput("replication_task_arn");
+        SetOutput("replication_task_settings");
+        SetOutput("source_endpoint_arn");
+        SetOutput("start_replication_task");
+        SetOutput("status");
+        SetOutput("table_mappings");
+        SetOutput("target_endpoint_arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("replication_task_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -51,17 +55,17 @@ public class AwsDmsReplicationTaskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationTaskId is required")]
     public required TerraformProperty<string> ReplicationTaskId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("replication_task_id");
-        set => this.WithProperty("replication_task_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_task_id");
+        set => SetProperty("replication_task_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

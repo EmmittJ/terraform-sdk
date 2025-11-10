@@ -13,8 +13,7 @@ public class AzurermHealthcareFhirServiceDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,27 @@ public class AzurermHealthcareFhirServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_policy_object_ids");
-        this.WithOutput("authentication");
-        this.WithOutput("configuration_export_storage_account_name");
-        this.WithOutput("container_registry_login_server_url");
-        this.WithOutput("cors");
-        this.WithOutput("identity");
-        this.WithOutput("kind");
-        this.WithOutput("location");
+        SetOutput("access_policy_object_ids");
+        SetOutput("authentication");
+        SetOutput("configuration_export_storage_account_name");
+        SetOutput("container_registry_login_server_url");
+        SetOutput("cors");
+        SetOutput("identity");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -56,17 +59,17 @@ public class AzurermHealthcareFhirServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AzurermHealthcareFhirServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -85,8 +88,7 @@ public class AzurermHealthcareFhirServiceDataSource : TerraformDataSource
     /// </summary>
     public AzurermHealthcareFhirServiceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHealthcareFhirServiceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

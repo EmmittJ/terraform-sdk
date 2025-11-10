@@ -13,8 +13,7 @@ public class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock : Terr
     /// </summary>
     public TerraformProperty<string>? ExternalAddress
     {
-        get => GetProperty<TerraformProperty<string>>("external_address");
-        set => WithProperty("external_address", value);
+        set => SetProperty("external_address", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock : Terr
     /// </summary>
     public TerraformProperty<string>? IpAddressRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_range");
-        set => WithProperty("ip_address_range", value);
+        set => SetProperty("ip_address_range", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => WithProperty("ip_address", value);
+        set => SetProperty("ip_address", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? IpAddressRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_range");
-        set => WithProperty("ip_address_range", value);
+        set => SetProperty("ip_address_range", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class GoogleVmwareengineExternalAccessRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class GoogleVmwareengineExternalAccessRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class GoogleVmwareengineExternalAccessRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -102,10 +95,19 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("action");
+        SetOutput("description");
+        SetOutput("destination_ports");
+        SetOutput("id");
+        SetOutput("ip_protocol");
+        SetOutput("name");
+        SetOutput("parent");
+        SetOutput("priority");
+        SetOutput("source_ports");
     }
 
     /// <summary>
@@ -114,36 +116,36 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// User-provided description for the external access rule.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// A list of destination ports to which the external access rule applies.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
-    public List<TerraformProperty<string>>? DestinationPorts
+    public List<TerraformProperty<string>> DestinationPorts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destination_ports");
-        set => this.WithProperty("destination_ports", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("destination_ports");
+        set => SetProperty("destination_ports", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -152,8 +154,8 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformProperty<string> IpProtocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ip_protocol");
-        set => this.WithProperty("ip_protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_protocol");
+        set => SetProperty("ip_protocol", value);
     }
 
     /// <summary>
@@ -162,8 +164,8 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -174,8 +176,8 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -184,40 +186,40 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// A list of source ports to which the external access rule applies.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePorts is required")]
-    public List<TerraformProperty<string>>? SourcePorts
+    public List<TerraformProperty<string>> SourcePorts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("source_ports");
-        set => this.WithProperty("source_ports", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("source_ports");
+        set => SetProperty("source_ports", value);
     }
 
     /// <summary>
     /// Block for destination_ip_ranges.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationIpRanges block(s) required")]
     public List<GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock>? DestinationIpRanges
     {
-        get => GetProperty<List<GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock>>("destination_ip_ranges");
-        set => this.WithProperty("destination_ip_ranges", value);
+        set => SetProperty("destination_ip_ranges", value);
     }
 
     /// <summary>
     /// Block for source_ip_ranges.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceIpRanges block(s) required")]
     public List<GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock>? SourceIpRanges
     {
-        get => GetProperty<List<GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock>>("source_ip_ranges");
-        set => this.WithProperty("source_ip_ranges", value);
+        set => SetProperty("source_ip_ranges", value);
     }
 
     /// <summary>
@@ -226,8 +228,7 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// </summary>
     public GoogleVmwareengineExternalAccessRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVmwareengineExternalAccessRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

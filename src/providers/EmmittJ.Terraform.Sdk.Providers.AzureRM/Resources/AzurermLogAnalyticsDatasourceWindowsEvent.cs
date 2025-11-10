@@ -13,8 +13,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("event_log_name");
+        SetOutput("event_types");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("workspace_name");
     }
 
     /// <summary>
@@ -66,27 +68,27 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventLogName is required")]
     public required TerraformProperty<string> EventLogName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("event_log_name");
-        set => this.WithProperty("event_log_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_log_name");
+        set => SetProperty("event_log_name", value);
     }
 
     /// <summary>
     /// The event_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTypes is required")]
-    public HashSet<TerraformProperty<string>>? EventTypes
+    public HashSet<TerraformProperty<string>> EventTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("event_types");
-        set => this.WithProperty("event_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("event_types");
+        set => SetProperty("event_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +107,8 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     public required TerraformProperty<string> WorkspaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_name");
-        set => this.WithProperty("workspace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_name");
+        set => SetProperty("workspace_name", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     /// </summary>
     public AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

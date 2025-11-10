@@ -14,6 +14,10 @@ public class AwsVpcDhcpOptionsAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("dhcp_options_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
@@ -22,26 +26,26 @@ public class AwsVpcDhcpOptionsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DhcpOptionsId is required")]
     public required TerraformProperty<string> DhcpOptionsId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dhcp_options_id");
-        set => this.WithProperty("dhcp_options_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dhcp_options_id");
+        set => SetProperty("dhcp_options_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class AwsVpcDhcpOptionsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
 }

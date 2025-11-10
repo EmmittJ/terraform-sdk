@@ -13,8 +13,7 @@ public class AzurermKustoEventgridDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKustoEventgridDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKustoEventgridDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKustoEventgridDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,34 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("blob_storage_event_type");
+        SetOutput("cluster_name");
+        SetOutput("data_format");
+        SetOutput("database_name");
+        SetOutput("database_routing_type");
+        SetOutput("eventgrid_event_subscription_id");
+        SetOutput("eventgrid_resource_id");
+        SetOutput("eventhub_consumer_group_name");
+        SetOutput("eventhub_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("managed_identity_id");
+        SetOutput("managed_identity_resource_id");
+        SetOutput("mapping_rule_name");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("skip_first_record");
+        SetOutput("storage_account_id");
+        SetOutput("table_name");
     }
 
     /// <summary>
     /// The blob_storage_event_type attribute.
     /// </summary>
-    public TerraformProperty<string>? BlobStorageEventType
+    public TerraformProperty<string> BlobStorageEventType
     {
-        get => GetProperty<TerraformProperty<string>>("blob_storage_event_type");
-        set => this.WithProperty("blob_storage_event_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("blob_storage_event_type");
+        set => SetProperty("blob_storage_event_type", value);
     }
 
     /// <summary>
@@ -75,17 +90,17 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The data_format attribute.
     /// </summary>
-    public TerraformProperty<string>? DataFormat
+    public TerraformProperty<string> DataFormat
     {
-        get => GetProperty<TerraformProperty<string>>("data_format");
-        set => this.WithProperty("data_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_format");
+        set => SetProperty("data_format", value);
     }
 
     /// <summary>
@@ -94,36 +109,36 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The database_routing_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseRoutingType
+    public TerraformProperty<string> DatabaseRoutingType
     {
-        get => GetProperty<TerraformProperty<string>>("database_routing_type");
-        set => this.WithProperty("database_routing_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_routing_type");
+        set => SetProperty("database_routing_type", value);
     }
 
     /// <summary>
     /// The eventgrid_event_subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EventgridEventSubscriptionId
+    public TerraformProperty<string> EventgridEventSubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("eventgrid_event_subscription_id");
-        set => this.WithProperty("eventgrid_event_subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventgrid_event_subscription_id");
+        set => SetProperty("eventgrid_event_subscription_id", value);
     }
 
     /// <summary>
     /// The eventgrid_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? EventgridResourceId
+    public TerraformProperty<string> EventgridResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("eventgrid_resource_id");
-        set => this.WithProperty("eventgrid_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventgrid_resource_id");
+        set => SetProperty("eventgrid_resource_id", value);
     }
 
     /// <summary>
@@ -132,8 +147,8 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformProperty<string> EventhubConsumerGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
-        set => this.WithProperty("eventhub_consumer_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_consumer_group_name");
+        set => SetProperty("eventhub_consumer_group_name", value);
     }
 
     /// <summary>
@@ -142,17 +157,17 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubId is required")]
     public required TerraformProperty<string> EventhubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_id");
-        set => this.WithProperty("eventhub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_id");
+        set => SetProperty("eventhub_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -161,36 +176,36 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The managed_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedIdentityId
+    public TerraformProperty<string> ManagedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_identity_id");
-        set => this.WithProperty("managed_identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_identity_id");
+        set => SetProperty("managed_identity_id", value);
     }
 
     /// <summary>
     /// The managed_identity_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? ManagedIdentityResourceId
+    public TerraformProperty<string> ManagedIdentityResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_identity_resource_id");
-        set => this.WithProperty("managed_identity_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_identity_resource_id");
+        set => SetProperty("managed_identity_resource_id", value);
     }
 
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MappingRuleName
+    public TerraformProperty<string> MappingRuleName
     {
-        get => GetProperty<TerraformProperty<string>>("mapping_rule_name");
-        set => this.WithProperty("mapping_rule_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mapping_rule_name");
+        set => SetProperty("mapping_rule_name", value);
     }
 
     /// <summary>
@@ -199,8 +214,8 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -209,17 +224,17 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The skip_first_record attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipFirstRecord
+    public TerraformProperty<bool> SkipFirstRecord
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_first_record");
-        set => this.WithProperty("skip_first_record", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_first_record");
+        set => SetProperty("skip_first_record", value);
     }
 
     /// <summary>
@@ -228,17 +243,17 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    public TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
@@ -247,8 +262,7 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     /// </summary>
     public AzurermKustoEventgridDataConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKustoEventgridDataConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

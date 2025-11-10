@@ -14,6 +14,8 @@ public class AwsIamGroupPoliciesExclusive : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("group_name");
+        SetOutput("policy_names");
     }
 
     /// <summary>
@@ -22,18 +24,18 @@ public class AwsIamGroupPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformProperty<string> GroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_name");
-        set => this.WithProperty("group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_name");
+        set => SetProperty("group_name", value);
     }
 
     /// <summary>
     /// The policy_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
-    public HashSet<TerraformProperty<string>>? PolicyNames
+    public HashSet<TerraformProperty<string>> PolicyNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("policy_names");
-        set => this.WithProperty("policy_names", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("policy_names");
+        set => SetProperty("policy_names", value);
     }
 
 }

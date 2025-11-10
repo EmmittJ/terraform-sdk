@@ -13,8 +13,7 @@ public class AwsNetworkmanagerAttachmentAccepterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,15 +30,18 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("attachment_policy_rule_number");
-        this.WithOutput("core_network_arn");
-        this.WithOutput("core_network_id");
-        this.WithOutput("edge_location");
-        this.WithOutput("edge_locations");
-        this.WithOutput("owner_account_id");
-        this.WithOutput("resource_arn");
-        this.WithOutput("segment_name");
-        this.WithOutput("state");
+        SetOutput("attachment_policy_rule_number");
+        SetOutput("core_network_arn");
+        SetOutput("core_network_id");
+        SetOutput("edge_location");
+        SetOutput("edge_locations");
+        SetOutput("owner_account_id");
+        SetOutput("resource_arn");
+        SetOutput("segment_name");
+        SetOutput("state");
+        SetOutput("attachment_id");
+        SetOutput("attachment_type");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -48,8 +50,8 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentId is required")]
     public required TerraformProperty<string> AttachmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("attachment_id");
-        set => this.WithProperty("attachment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("attachment_id");
+        set => SetProperty("attachment_id", value);
     }
 
     /// <summary>
@@ -58,17 +60,17 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
     public required TerraformProperty<string> AttachmentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("attachment_type");
-        set => this.WithProperty("attachment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("attachment_type");
+        set => SetProperty("attachment_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,8 +79,7 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
     /// </summary>
     public AwsNetworkmanagerAttachmentAccepterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerAttachmentAccepterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,45 +14,50 @@ public class AwsRedshiftserverlessCredentialsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("db_password");
-        this.WithOutput("db_user");
-        this.WithOutput("expiration");
+        SetOutput("db_password");
+        SetOutput("db_user");
+        SetOutput("expiration");
+        SetOutput("db_name");
+        SetOutput("duration_seconds");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("workgroup_name");
     }
 
     /// <summary>
     /// The db_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DbName
+    public TerraformProperty<string> DbName
     {
-        get => GetProperty<TerraformProperty<string>>("db_name");
-        set => this.WithProperty("db_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_name");
+        set => SetProperty("db_name", value);
     }
 
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? DurationSeconds
+    public TerraformProperty<double> DurationSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("duration_seconds");
-        set => this.WithProperty("duration_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("duration_seconds");
+        set => SetProperty("duration_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -61,8 +66,8 @@ public class AwsRedshiftserverlessCredentialsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformProperty<string> WorkgroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workgroup_name");
-        set => this.WithProperty("workgroup_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workgroup_name");
+        set => SetProperty("workgroup_name", value);
     }
 
     /// <summary>

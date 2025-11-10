@@ -14,8 +14,7 @@ public class AwsEc2InstanceTypeOfferingsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsEc2InstanceTypeOfferingsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsEc2InstanceTypeOfferingsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,36 +56,39 @@ public class AwsEc2InstanceTypeOfferingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("instance_types");
-        this.WithOutput("location_types");
-        this.WithOutput("locations");
+        SetOutput("instance_types");
+        SetOutput("location_types");
+        SetOutput("locations");
+        SetOutput("id");
+        SetOutput("location_type");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LocationType
+    public TerraformProperty<string> LocationType
     {
-        get => GetProperty<TerraformProperty<string>>("location_type");
-        set => this.WithProperty("location_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location_type");
+        set => SetProperty("location_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -97,8 +97,7 @@ public class AwsEc2InstanceTypeOfferingsDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsEc2InstanceTypeOfferingsDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsEc2InstanceTypeOfferingsDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -107,8 +106,7 @@ public class AwsEc2InstanceTypeOfferingsDataSource : TerraformDataSource
     /// </summary>
     public AwsEc2InstanceTypeOfferingsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2InstanceTypeOfferingsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

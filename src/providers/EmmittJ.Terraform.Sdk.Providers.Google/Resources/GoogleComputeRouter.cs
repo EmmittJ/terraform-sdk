@@ -13,8 +13,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AdvertiseMode
     {
-        get => GetProperty<TerraformProperty<string>>("advertise_mode");
-        set => WithProperty("advertise_mode", value);
+        set => SetProperty("advertise_mode", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AdvertisedGroups
     {
-        get => GetProperty<List<TerraformProperty<string>>>("advertised_groups");
-        set => WithProperty("advertised_groups", value);
+        set => SetProperty("advertised_groups", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformProperty<double> Asn
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("asn");
-        set => WithProperty("asn", value);
+        set => SetProperty("asn", value);
     }
 
     /// <summary>
@@ -54,8 +51,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdentifierRange
     {
-        get => GetProperty<TerraformProperty<string>>("identifier_range");
-        set => WithProperty("identifier_range", value);
+        set => SetProperty("identifier_range", value);
     }
 
     /// <summary>
@@ -72,8 +68,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? KeepaliveInterval
     {
-        get => GetProperty<TerraformProperty<double>>("keepalive_interval");
-        set => WithProperty("keepalive_interval", value);
+        set => SetProperty("keepalive_interval", value);
     }
 
 }
@@ -90,8 +85,7 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -101,8 +95,7 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -120,8 +113,7 @@ public class GoogleComputeRouterParamsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
-        set => WithProperty("resource_manager_tags", value);
+        set => SetProperty("resource_manager_tags", value);
     }
 
 }
@@ -137,8 +129,7 @@ public class GoogleComputeRouterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -146,8 +137,7 @@ public class GoogleComputeRouterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -155,8 +145,7 @@ public class GoogleComputeRouterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -174,36 +163,43 @@ public class GoogleComputeRouter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("self_link");
+        SetOutput("creation_timestamp");
+        SetOutput("self_link");
+        SetOutput("description");
+        SetOutput("encrypted_interconnect_router");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Indicates if a router is dedicated for use with encrypted VLAN
     /// attachments (interconnectAttachments).
     /// </summary>
-    public TerraformProperty<bool>? EncryptedInterconnectRouter
+    public TerraformProperty<bool> EncryptedInterconnectRouter
     {
-        get => GetProperty<TerraformProperty<bool>>("encrypted_interconnect_router");
-        set => this.WithProperty("encrypted_interconnect_router", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("encrypted_interconnect_router");
+        set => SetProperty("encrypted_interconnect_router", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -217,35 +213,35 @@ public class GoogleComputeRouter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// A reference to the network to which this router belongs.
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where the router resides.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -255,8 +251,7 @@ public class GoogleComputeRouter : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bgp block(s) allowed")]
     public List<GoogleComputeRouterBgpBlock>? Bgp
     {
-        get => GetProperty<List<GoogleComputeRouterBgpBlock>>("bgp");
-        set => this.WithProperty("bgp", value);
+        set => SetProperty("bgp", value);
     }
 
     /// <summary>
@@ -266,8 +261,7 @@ public class GoogleComputeRouter : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Md5AuthenticationKeys block(s) allowed")]
     public List<GoogleComputeRouterMd5AuthenticationKeysBlock>? Md5AuthenticationKeys
     {
-        get => GetProperty<List<GoogleComputeRouterMd5AuthenticationKeysBlock>>("md5_authentication_keys");
-        set => this.WithProperty("md5_authentication_keys", value);
+        set => SetProperty("md5_authentication_keys", value);
     }
 
     /// <summary>
@@ -277,8 +271,7 @@ public class GoogleComputeRouter : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     public List<GoogleComputeRouterParamsBlock>? Params
     {
-        get => GetProperty<List<GoogleComputeRouterParamsBlock>>("params");
-        set => this.WithProperty("params", value);
+        set => SetProperty("params", value);
     }
 
     /// <summary>
@@ -287,8 +280,7 @@ public class GoogleComputeRouter : TerraformResource
     /// </summary>
     public GoogleComputeRouterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRouterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

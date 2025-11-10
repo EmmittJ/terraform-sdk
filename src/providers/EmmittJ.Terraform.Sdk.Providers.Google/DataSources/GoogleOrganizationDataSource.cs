@@ -14,38 +14,41 @@ public class GoogleOrganizationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("directory_customer_id");
-        this.WithOutput("lifecycle_state");
-        this.WithOutput("name");
-        this.WithOutput("org_id");
+        SetOutput("create_time");
+        SetOutput("directory_customer_id");
+        SetOutput("lifecycle_state");
+        SetOutput("name");
+        SetOutput("org_id");
+        SetOutput("domain");
+        SetOutput("id");
+        SetOutput("organization");
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    public TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    public TerraformProperty<string> Organization
     {
-        get => GetProperty<TerraformProperty<string>>("organization");
-        set => this.WithProperty("organization", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization");
+        set => SetProperty("organization", value);
     }
 
     /// <summary>

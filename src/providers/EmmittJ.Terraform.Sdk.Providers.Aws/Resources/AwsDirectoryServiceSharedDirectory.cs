@@ -14,8 +14,7 @@ public class AwsDirectoryServiceSharedDirectoryTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsDirectoryServiceSharedDirectoryTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsDirectoryServiceSharedDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -59,7 +56,12 @@ public class AwsDirectoryServiceSharedDirectory : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputhared_directory_id");
+        SetOutput("shared_directory_id");
+        SetOutput("directory_id");
+        SetOutput("id");
+        SetOutput("method");
+        SetOutput("notes");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -68,56 +70,56 @@ public class AwsDirectoryServiceSharedDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
-        set => this.WithProperty("directory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
+        set => SetProperty("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
-    public TerraformProperty<string>? Method
+    public TerraformProperty<string> Method
     {
-        get => GetProperty<TerraformProperty<string>>("method");
-        set => this.WithProperty("method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("method");
+        set => SetProperty("method", value);
     }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    public TerraformProperty<string>? Notes
+    public TerraformProperty<string> Notes
     {
-        get => GetProperty<TerraformProperty<string>>("notes");
-        set => this.WithProperty("notes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notes");
+        set => SetProperty("notes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for target.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     public List<AwsDirectoryServiceSharedDirectoryTargetBlock>? Target
     {
-        get => GetProperty<List<AwsDirectoryServiceSharedDirectoryTargetBlock>>("target");
-        set => this.WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
     /// <summary>
@@ -126,8 +128,7 @@ public class AwsDirectoryServiceSharedDirectory : TerraformResource
     /// </summary>
     public AwsDirectoryServiceSharedDirectoryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDirectoryServiceSharedDirectoryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

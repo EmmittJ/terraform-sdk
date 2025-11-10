@@ -14,6 +14,10 @@ public class AwsLightsailLbCertificateAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("certificate_name");
+        SetOutput("id");
+        SetOutput("lb_name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,17 +26,17 @@ public class AwsLightsailLbCertificateAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     public required TerraformProperty<string> CertificateName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate_name");
-        set => this.WithProperty("certificate_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_name");
+        set => SetProperty("certificate_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,17 +45,17 @@ public class AwsLightsailLbCertificateAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbName is required")]
     public required TerraformProperty<string> LbName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lb_name");
-        set => this.WithProperty("lb_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lb_name");
+        set => SetProperty("lb_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

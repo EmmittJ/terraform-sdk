@@ -13,8 +13,7 @@ public class AwsKendraIndexCapacityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? QueryCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("query_capacity_units");
-        set => WithProperty("query_capacity_units", value);
+        set => SetProperty("query_capacity_units", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsKendraIndexCapacityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? StorageCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("storage_capacity_units");
-        set => WithProperty("storage_capacity_units", value);
+        set => SetProperty("storage_capacity_units", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class AwsKendraIndexServerSideEncryptionConfigurationBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
 }
@@ -84,8 +79,7 @@ public class AwsKendraIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class AwsKendraIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +95,7 @@ public class AwsKendraIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -120,8 +112,7 @@ public class AwsKendraIndexUserGroupResolutionConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserGroupResolutionMode is required")]
     public required TerraformProperty<string> UserGroupResolutionMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_group_resolution_mode");
-        set => WithProperty("user_group_resolution_mode", value);
+        set => SetProperty("user_group_resolution_mode", value);
     }
 
 }
@@ -147,39 +138,48 @@ public class AwsKendraIndex : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("error_message");
-        this.WithOutput("index_statistics");
-        this.WithOutput("status");
-        this.WithOutput("updated_at");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("error_message");
+        SetOutput("index_statistics");
+        SetOutput("status");
+        SetOutput("updated_at");
+        SetOutput("description");
+        SetOutput("edition");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("user_context_policy");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
-    public TerraformProperty<string>? Edition
+    public TerraformProperty<string> Edition
     {
-        get => GetProperty<TerraformProperty<string>>("edition");
-        set => this.WithProperty("edition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edition");
+        set => SetProperty("edition", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -188,17 +188,17 @@ public class AwsKendraIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -207,35 +207,35 @@ public class AwsKendraIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_context_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? UserContextPolicy
+    public TerraformProperty<string> UserContextPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("user_context_policy");
-        set => this.WithProperty("user_context_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_context_policy");
+        set => SetProperty("user_context_policy", value);
     }
 
     /// <summary>
@@ -245,8 +245,7 @@ public class AwsKendraIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityUnits block(s) allowed")]
     public List<AwsKendraIndexCapacityUnitsBlock>? CapacityUnits
     {
-        get => GetProperty<List<AwsKendraIndexCapacityUnitsBlock>>("capacity_units");
-        set => this.WithProperty("capacity_units", value);
+        set => SetProperty("capacity_units", value);
     }
 
     /// <summary>
@@ -256,8 +255,7 @@ public class AwsKendraIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 DocumentMetadataConfigurationUpdates block(s) allowed")]
     public HashSet<AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock>? DocumentMetadataConfigurationUpdates
     {
-        get => GetProperty<HashSet<AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock>>("document_metadata_configuration_updates");
-        set => this.WithProperty("document_metadata_configuration_updates", value);
+        set => SetProperty("document_metadata_configuration_updates", value);
     }
 
     /// <summary>
@@ -267,8 +265,7 @@ public class AwsKendraIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryptionConfiguration block(s) allowed")]
     public List<AwsKendraIndexServerSideEncryptionConfigurationBlock>? ServerSideEncryptionConfiguration
     {
-        get => GetProperty<List<AwsKendraIndexServerSideEncryptionConfigurationBlock>>("server_side_encryption_configuration");
-        set => this.WithProperty("server_side_encryption_configuration", value);
+        set => SetProperty("server_side_encryption_configuration", value);
     }
 
     /// <summary>
@@ -277,8 +274,7 @@ public class AwsKendraIndex : TerraformResource
     /// </summary>
     public AwsKendraIndexTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsKendraIndexTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -288,8 +284,7 @@ public class AwsKendraIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserGroupResolutionConfiguration block(s) allowed")]
     public List<AwsKendraIndexUserGroupResolutionConfigurationBlock>? UserGroupResolutionConfiguration
     {
-        get => GetProperty<List<AwsKendraIndexUserGroupResolutionConfigurationBlock>>("user_group_resolution_configuration");
-        set => this.WithProperty("user_group_resolution_configuration", value);
+        set => SetProperty("user_group_resolution_configuration", value);
     }
 
     /// <summary>
@@ -299,8 +294,7 @@ public class AwsKendraIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserTokenConfigurations block(s) allowed")]
     public List<AwsKendraIndexUserTokenConfigurationsBlock>? UserTokenConfigurations
     {
-        get => GetProperty<List<AwsKendraIndexUserTokenConfigurationsBlock>>("user_token_configurations");
-        set => this.WithProperty("user_token_configurations", value);
+        set => SetProperty("user_token_configurations", value);
     }
 
     /// <summary>

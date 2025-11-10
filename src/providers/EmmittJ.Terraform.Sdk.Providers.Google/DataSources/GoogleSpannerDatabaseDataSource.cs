@@ -14,23 +14,27 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("database_dialect");
-        this.WithOutput("ddl");
-        this.WithOutput("default_time_zone");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("enable_drop_protection");
-        this.WithOutput("encryption_config");
-        this.WithOutput("state");
-        this.WithOutput("version_retention_period");
+        SetOutput("database_dialect");
+        SetOutput("ddl");
+        SetOutput("default_time_zone");
+        SetOutput("deletion_protection");
+        SetOutput("enable_drop_protection");
+        SetOutput("encryption_config");
+        SetOutput("state");
+        SetOutput("version_retention_period");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -39,8 +43,8 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -50,17 +54,17 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

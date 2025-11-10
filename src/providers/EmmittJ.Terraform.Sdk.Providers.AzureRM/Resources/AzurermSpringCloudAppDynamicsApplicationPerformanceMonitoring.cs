@@ -13,8 +13,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,19 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
 
     private void InitializeOutputs()
     {
+        SetOutput("agent_account_access_key");
+        SetOutput("agent_account_name");
+        SetOutput("agent_application_name");
+        SetOutput("agent_node_name");
+        SetOutput("agent_tier_name");
+        SetOutput("agent_unique_host_id");
+        SetOutput("controller_host_name");
+        SetOutput("controller_port");
+        SetOutput("controller_ssl_enabled");
+        SetOutput("globally_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
@@ -66,8 +75,8 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountAccessKey is required")]
     public required TerraformProperty<string> AgentAccountAccessKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_account_access_key");
-        set => this.WithProperty("agent_account_access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_account_access_key");
+        set => SetProperty("agent_account_access_key", value);
     }
 
     /// <summary>
@@ -76,44 +85,44 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountName is required")]
     public required TerraformProperty<string> AgentAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("agent_account_name");
-        set => this.WithProperty("agent_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_account_name");
+        set => SetProperty("agent_account_name", value);
     }
 
     /// <summary>
     /// The agent_application_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentApplicationName
+    public TerraformProperty<string> AgentApplicationName
     {
-        get => GetProperty<TerraformProperty<string>>("agent_application_name");
-        set => this.WithProperty("agent_application_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_application_name");
+        set => SetProperty("agent_application_name", value);
     }
 
     /// <summary>
     /// The agent_node_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentNodeName
+    public TerraformProperty<string> AgentNodeName
     {
-        get => GetProperty<TerraformProperty<string>>("agent_node_name");
-        set => this.WithProperty("agent_node_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_node_name");
+        set => SetProperty("agent_node_name", value);
     }
 
     /// <summary>
     /// The agent_tier_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentTierName
+    public TerraformProperty<string> AgentTierName
     {
-        get => GetProperty<TerraformProperty<string>>("agent_tier_name");
-        set => this.WithProperty("agent_tier_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_tier_name");
+        set => SetProperty("agent_tier_name", value);
     }
 
     /// <summary>
     /// The agent_unique_host_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentUniqueHostId
+    public TerraformProperty<string> AgentUniqueHostId
     {
-        get => GetProperty<TerraformProperty<string>>("agent_unique_host_id");
-        set => this.WithProperty("agent_unique_host_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("agent_unique_host_id");
+        set => SetProperty("agent_unique_host_id", value);
     }
 
     /// <summary>
@@ -122,44 +131,44 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControllerHostName is required")]
     public required TerraformProperty<string> ControllerHostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("controller_host_name");
-        set => this.WithProperty("controller_host_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("controller_host_name");
+        set => SetProperty("controller_host_name", value);
     }
 
     /// <summary>
     /// The controller_port attribute.
     /// </summary>
-    public TerraformProperty<double>? ControllerPort
+    public TerraformProperty<double> ControllerPort
     {
-        get => GetProperty<TerraformProperty<double>>("controller_port");
-        set => this.WithProperty("controller_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("controller_port");
+        set => SetProperty("controller_port", value);
     }
 
     /// <summary>
     /// The controller_ssl_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ControllerSslEnabled
+    public TerraformProperty<bool> ControllerSslEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("controller_ssl_enabled");
-        set => this.WithProperty("controller_ssl_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("controller_ssl_enabled");
+        set => SetProperty("controller_ssl_enabled", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? GloballyEnabled
+    public TerraformProperty<bool> GloballyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("globally_enabled");
-        set => this.WithProperty("globally_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("globally_enabled");
+        set => SetProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -168,8 +177,8 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -178,8 +187,8 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
-        set => this.WithProperty("spring_cloud_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
+        set => SetProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
@@ -188,8 +197,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// </summary>
     public AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

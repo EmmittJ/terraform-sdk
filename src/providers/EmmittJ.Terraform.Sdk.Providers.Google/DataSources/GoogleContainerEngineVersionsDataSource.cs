@@ -14,50 +14,54 @@ public class GoogleContainerEngineVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_cluster_version");
-        this.WithOutput("latest_master_version");
-        this.WithOutput("latest_node_version");
-        this.WithOutput("release_channel_default_version");
-        this.WithOutput("release_channel_latest_version");
-        this.WithOutput("release_channel_upgrade_target_version");
-        this.WithOutput("valid_master_versions");
-        this.WithOutput("valid_node_versions");
+        SetOutput("default_cluster_version");
+        SetOutput("latest_master_version");
+        SetOutput("latest_node_version");
+        SetOutput("release_channel_default_version");
+        SetOutput("release_channel_latest_version");
+        SetOutput("release_channel_upgrade_target_version");
+        SetOutput("valid_master_versions");
+        SetOutput("valid_node_versions");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("version_prefix");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The version_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionPrefix
+    public TerraformProperty<string> VersionPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("version_prefix");
-        set => this.WithProperty("version_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_prefix");
+        set => SetProperty("version_prefix", value);
     }
 
     /// <summary>

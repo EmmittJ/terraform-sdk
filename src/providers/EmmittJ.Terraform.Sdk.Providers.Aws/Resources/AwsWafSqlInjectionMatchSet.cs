@@ -14,8 +14,7 @@ public class AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformProperty<string> TextTransformation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("text_transformation");
-        set => WithProperty("text_transformation", value);
+        set => SetProperty("text_transformation", value);
     }
 
 }
@@ -32,16 +31,18 @@ public class AwsWafSqlInjectionMatchSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +51,8 @@ public class AwsWafSqlInjectionMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -60,8 +61,7 @@ public class AwsWafSqlInjectionMatchSet : TerraformResource
     /// </summary>
     public HashSet<AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock>? SqlInjectionMatchTuples
     {
-        get => GetProperty<HashSet<AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock>>("sql_injection_match_tuples");
-        set => this.WithProperty("sql_injection_match_tuples", value);
+        set => SetProperty("sql_injection_match_tuples", value);
     }
 
     /// <summary>

@@ -14,10 +14,19 @@ public class AwsTransferCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("active_date");
-        this.WithOutput("arn");
-        this.WithOutput("certificate_id");
-        this.WithOutput("inactive_date");
+        SetOutput("active_date");
+        SetOutput("arn");
+        SetOutput("certificate_id");
+        SetOutput("inactive_date");
+        SetOutput("certificate");
+        SetOutput("certificate_chain");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("private_key");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("usage");
     }
 
     /// <summary>
@@ -26,71 +35,71 @@ public class AwsTransferCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
     public required TerraformProperty<string> Certificate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("certificate");
-        set => this.WithProperty("certificate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate");
+        set => SetProperty("certificate", value);
     }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateChain
+    public TerraformProperty<string> CertificateChain
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_chain");
-        set => this.WithProperty("certificate_chain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_chain");
+        set => SetProperty("certificate_chain", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateKey
+    public TerraformProperty<string> PrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("private_key");
-        set => this.WithProperty("private_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_key");
+        set => SetProperty("private_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -99,8 +108,8 @@ public class AwsTransferCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
     public required TerraformProperty<string> Usage
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("usage");
-        set => this.WithProperty("usage", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("usage");
+        set => SetProperty("usage", value);
     }
 
     /// <summary>

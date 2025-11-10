@@ -13,8 +13,7 @@ public class AwsGrafanaRoleAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGrafanaRoleAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,33 +38,39 @@ public class AwsGrafanaRoleAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("group_ids");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("role");
+        SetOutput("user_ids");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? GroupIds
+    public HashSet<TerraformProperty<string>> GroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("group_ids");
-        set => this.WithProperty("group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("group_ids");
+        set => SetProperty("group_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -75,17 +79,17 @@ public class AwsGrafanaRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
     /// The user_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? UserIds
+    public HashSet<TerraformProperty<string>> UserIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("user_ids");
-        set => this.WithProperty("user_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("user_ids");
+        set => SetProperty("user_ids", value);
     }
 
     /// <summary>
@@ -94,8 +98,8 @@ public class AwsGrafanaRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -104,8 +108,7 @@ public class AwsGrafanaRoleAssociation : TerraformResource
     /// </summary>
     public AwsGrafanaRoleAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsGrafanaRoleAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

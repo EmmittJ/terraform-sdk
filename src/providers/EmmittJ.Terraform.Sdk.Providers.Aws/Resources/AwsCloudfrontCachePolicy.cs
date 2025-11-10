@@ -13,8 +13,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     /// </summary>
     public TerraformProperty<bool>? EnableAcceptEncodingBrotli
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_accept_encoding_brotli");
-        set => WithProperty("enable_accept_encoding_brotli", value);
+        set => SetProperty("enable_accept_encoding_brotli", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     /// </summary>
     public TerraformProperty<bool>? EnableAcceptEncodingGzip
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_accept_encoding_gzip");
-        set => WithProperty("enable_accept_encoding_gzip", value);
+        set => SetProperty("enable_accept_encoding_gzip", value);
     }
 
 }
@@ -41,53 +39,59 @@ public class AwsCloudfrontCachePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("etag");
+        SetOutput("arn");
+        SetOutput("etag");
+        SetOutput("comment");
+        SetOutput("default_ttl");
+        SetOutput("id");
+        SetOutput("max_ttl");
+        SetOutput("min_ttl");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultTtl
+    public TerraformProperty<double> DefaultTtl
     {
-        get => GetProperty<TerraformProperty<double>>("default_ttl");
-        set => this.WithProperty("default_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_ttl");
+        set => SetProperty("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxTtl
+    public TerraformProperty<double> MaxTtl
     {
-        get => GetProperty<TerraformProperty<double>>("max_ttl");
-        set => this.WithProperty("max_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_ttl");
+        set => SetProperty("max_ttl", value);
     }
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? MinTtl
+    public TerraformProperty<double> MinTtl
     {
-        get => GetProperty<TerraformProperty<double>>("min_ttl");
-        set => this.WithProperty("min_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_ttl");
+        set => SetProperty("min_ttl", value);
     }
 
     /// <summary>
@@ -96,20 +100,20 @@ public class AwsCloudfrontCachePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Block for parameters_in_cache_key_and_forwarded_to_origin.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParametersInCacheKeyAndForwardedToOrigin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ParametersInCacheKeyAndForwardedToOrigin block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParametersInCacheKeyAndForwardedToOrigin block(s) allowed")]
     public List<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock>? ParametersInCacheKeyAndForwardedToOrigin
     {
-        get => GetProperty<List<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock>>("parameters_in_cache_key_and_forwarded_to_origin");
-        set => this.WithProperty("parameters_in_cache_key_and_forwarded_to_origin", value);
+        set => SetProperty("parameters_in_cache_key_and_forwarded_to_origin", value);
     }
 
     /// <summary>

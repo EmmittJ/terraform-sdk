@@ -13,8 +13,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Bytes
     {
-        get => GetProperty<TerraformProperty<string>>("bytes");
-        set => WithProperty("bytes", value);
+        set => SetProperty("bytes", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("category");
-        set => WithProperty("category", value);
+        set => SetProperty("category", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColorMode is required")]
     public required TerraformProperty<string> ColorMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("color_mode");
-        set => WithProperty("color_mode", value);
+        set => SetProperty("color_mode", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Extension is required")]
     public required TerraformProperty<string> Extension
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("extension");
-        set => WithProperty("extension", value);
+        set => SetProperty("extension", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
-        set => WithProperty("resource_id", value);
+        set => SetProperty("resource_id", value);
     }
 
 }
@@ -70,8 +65,13 @@ public class AwsCognitoManagedLoginBranding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("managed_login_branding_id");
-        this.WithOutput("settings_all");
+        SetOutput("managed_login_branding_id");
+        SetOutput("settings_all");
+        SetOutput("client_id");
+        SetOutput("region");
+        SetOutput("settings");
+        SetOutput("use_cognito_provided_values");
+        SetOutput("user_pool_id");
     }
 
     /// <summary>
@@ -80,35 +80,35 @@ public class AwsCognitoManagedLoginBranding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    public TerraformProperty<string>? Settings
+    public TerraformProperty<string> Settings
     {
-        get => GetProperty<TerraformProperty<string>>("settings");
-        set => this.WithProperty("settings", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("settings");
+        set => SetProperty("settings", value);
     }
 
     /// <summary>
     /// The use_cognito_provided_values attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseCognitoProvidedValues
+    public TerraformProperty<bool> UseCognitoProvidedValues
     {
-        get => GetProperty<TerraformProperty<bool>>("use_cognito_provided_values");
-        set => this.WithProperty("use_cognito_provided_values", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("use_cognito_provided_values");
+        set => SetProperty("use_cognito_provided_values", value);
     }
 
     /// <summary>
@@ -117,8 +117,8 @@ public class AwsCognitoManagedLoginBranding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>
@@ -127,8 +127,7 @@ public class AwsCognitoManagedLoginBranding : TerraformResource
     /// </summary>
     public HashSet<AwsCognitoManagedLoginBrandingAssetBlock>? Asset
     {
-        get => GetProperty<HashSet<AwsCognitoManagedLoginBrandingAssetBlock>>("asset");
-        set => this.WithProperty("asset", value);
+        set => SetProperty("asset", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleApigeeApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,15 @@ public class GoogleApigeeApi : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("latest_revision_id");
-        this.WithOutput("md5hash");
-        this.WithOutput("meta_data");
-        this.WithOutput("revision");
+        SetOutput("latest_revision_id");
+        SetOutput("md5hash");
+        SetOutput("meta_data");
+        SetOutput("revision");
+        SetOutput("config_bundle");
+        SetOutput("detect_md5hash");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("org_id");
     }
 
     /// <summary>
@@ -61,26 +63,26 @@ public class GoogleApigeeApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigBundle is required")]
     public required TerraformProperty<string> ConfigBundle
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("config_bundle");
-        set => this.WithProperty("config_bundle", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("config_bundle");
+        set => SetProperty("config_bundle", value);
     }
 
     /// <summary>
     /// A hash of local config bundle in string, user needs to use a Terraform Hash function of their choice. A change in hash will trigger an update.
     /// </summary>
-    public TerraformProperty<string>? DetectMd5hash
+    public TerraformProperty<string> DetectMd5hash
     {
-        get => GetProperty<TerraformProperty<string>>("detect_md5hash");
-        set => this.WithProperty("detect_md5hash", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("detect_md5hash");
+        set => SetProperty("detect_md5hash", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -89,8 +91,8 @@ public class GoogleApigeeApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -99,8 +101,8 @@ public class GoogleApigeeApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -109,8 +111,7 @@ public class GoogleApigeeApi : TerraformResource
     /// </summary>
     public GoogleApigeeApiTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeApiTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

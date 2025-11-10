@@ -13,8 +13,7 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ApplicationArn
     {
-        get => GetProperty<TerraformProperty<string>>("application_arn");
-        set => WithProperty("application_arn", value);
+        set => SetProperty("application_arn", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
-        set => WithProperty("application_id", value);
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ExternalId
     {
-        get => GetProperty<TerraformProperty<string>>("external_id");
-        set => WithProperty("external_id", value);
+        set => SetProperty("external_id", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? UserDataShared
     {
-        get => GetProperty<TerraformProperty<bool>>("user_data_shared");
-        set => WithProperty("user_data_shared", value);
+        set => SetProperty("user_data_shared", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AwsCognitoUserPoolClientRefreshTokenRotationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformProperty<string> Feature
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("feature");
-        set => WithProperty("feature", value);
+        set => SetProperty("feature", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsCognitoUserPoolClientRefreshTokenRotationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RetryGracePeriodSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("retry_grace_period_seconds");
-        set => WithProperty("retry_grace_period_seconds", value);
+        set => SetProperty("retry_grace_period_seconds", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AwsCognitoUserPoolClientTokenValidityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AccessToken
     {
-        get => GetProperty<TerraformProperty<string>>("access_token");
-        set => WithProperty("access_token", value);
+        set => SetProperty("access_token", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AwsCognitoUserPoolClientTokenValidityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IdToken
     {
-        get => GetProperty<TerraformProperty<string>>("id_token");
-        set => WithProperty("id_token", value);
+        set => SetProperty("id_token", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AwsCognitoUserPoolClientTokenValidityUnitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RefreshToken
     {
-        get => GetProperty<TerraformProperty<string>>("refresh_token");
-        set => WithProperty("refresh_token", value);
+        set => SetProperty("refresh_token", value);
     }
 
 }
@@ -129,125 +119,146 @@ public class AwsCognitoUserPoolClient : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("client_secret");
-        this.WithOutput("id");
+        SetOutput("client_secret");
+        SetOutput("id");
+        SetOutput("access_token_validity");
+        SetOutput("allowed_oauth_flows");
+        SetOutput("allowed_oauth_flows_user_pool_client");
+        SetOutput("allowed_oauth_scopes");
+        SetOutput("auth_session_validity");
+        SetOutput("callback_urls");
+        SetOutput("default_redirect_uri");
+        SetOutput("enable_propagate_additional_user_context_data");
+        SetOutput("enable_token_revocation");
+        SetOutput("explicit_auth_flows");
+        SetOutput("generate_secret");
+        SetOutput("id_token_validity");
+        SetOutput("logout_urls");
+        SetOutput("name");
+        SetOutput("prevent_user_existence_errors");
+        SetOutput("read_attributes");
+        SetOutput("refresh_token_validity");
+        SetOutput("region");
+        SetOutput("supported_identity_providers");
+        SetOutput("user_pool_id");
+        SetOutput("write_attributes");
     }
 
     /// <summary>
     /// The access_token_validity attribute.
     /// </summary>
-    public TerraformProperty<double>? AccessTokenValidity
+    public TerraformProperty<double> AccessTokenValidity
     {
-        get => GetProperty<TerraformProperty<double>>("access_token_validity");
-        set => this.WithProperty("access_token_validity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("access_token_validity");
+        set => SetProperty("access_token_validity", value);
     }
 
     /// <summary>
     /// The allowed_oauth_flows attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedOauthFlows
+    public HashSet<TerraformProperty<string>> AllowedOauthFlows
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_oauth_flows");
-        set => this.WithProperty("allowed_oauth_flows", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_oauth_flows");
+        set => SetProperty("allowed_oauth_flows", value);
     }
 
     /// <summary>
     /// The allowed_oauth_flows_user_pool_client attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowedOauthFlowsUserPoolClient
+    public TerraformProperty<bool> AllowedOauthFlowsUserPoolClient
     {
-        get => GetProperty<TerraformProperty<bool>>("allowed_oauth_flows_user_pool_client");
-        set => this.WithProperty("allowed_oauth_flows_user_pool_client", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allowed_oauth_flows_user_pool_client");
+        set => SetProperty("allowed_oauth_flows_user_pool_client", value);
     }
 
     /// <summary>
     /// The allowed_oauth_scopes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedOauthScopes
+    public HashSet<TerraformProperty<string>> AllowedOauthScopes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_oauth_scopes");
-        set => this.WithProperty("allowed_oauth_scopes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_oauth_scopes");
+        set => SetProperty("allowed_oauth_scopes", value);
     }
 
     /// <summary>
     /// The auth_session_validity attribute.
     /// </summary>
-    public TerraformProperty<double>? AuthSessionValidity
+    public TerraformProperty<double> AuthSessionValidity
     {
-        get => GetProperty<TerraformProperty<double>>("auth_session_validity");
-        set => this.WithProperty("auth_session_validity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("auth_session_validity");
+        set => SetProperty("auth_session_validity", value);
     }
 
     /// <summary>
     /// The callback_urls attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? CallbackUrls
+    public HashSet<TerraformProperty<string>> CallbackUrls
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("callback_urls");
-        set => this.WithProperty("callback_urls", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("callback_urls");
+        set => SetProperty("callback_urls", value);
     }
 
     /// <summary>
     /// The default_redirect_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultRedirectUri
+    public TerraformProperty<string> DefaultRedirectUri
     {
-        get => GetProperty<TerraformProperty<string>>("default_redirect_uri");
-        set => this.WithProperty("default_redirect_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_redirect_uri");
+        set => SetProperty("default_redirect_uri", value);
     }
 
     /// <summary>
     /// The enable_propagate_additional_user_context_data attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnablePropagateAdditionalUserContextData
+    public TerraformProperty<bool> EnablePropagateAdditionalUserContextData
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_propagate_additional_user_context_data");
-        set => this.WithProperty("enable_propagate_additional_user_context_data", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_propagate_additional_user_context_data");
+        set => SetProperty("enable_propagate_additional_user_context_data", value);
     }
 
     /// <summary>
     /// The enable_token_revocation attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableTokenRevocation
+    public TerraformProperty<bool> EnableTokenRevocation
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_token_revocation");
-        set => this.WithProperty("enable_token_revocation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_token_revocation");
+        set => SetProperty("enable_token_revocation", value);
     }
 
     /// <summary>
     /// The explicit_auth_flows attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExplicitAuthFlows
+    public HashSet<TerraformProperty<string>> ExplicitAuthFlows
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("explicit_auth_flows");
-        set => this.WithProperty("explicit_auth_flows", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("explicit_auth_flows");
+        set => SetProperty("explicit_auth_flows", value);
     }
 
     /// <summary>
     /// The generate_secret attribute.
     /// </summary>
-    public TerraformProperty<bool>? GenerateSecret
+    public TerraformProperty<bool> GenerateSecret
     {
-        get => GetProperty<TerraformProperty<bool>>("generate_secret");
-        set => this.WithProperty("generate_secret", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("generate_secret");
+        set => SetProperty("generate_secret", value);
     }
 
     /// <summary>
     /// The id_token_validity attribute.
     /// </summary>
-    public TerraformProperty<double>? IdTokenValidity
+    public TerraformProperty<double> IdTokenValidity
     {
-        get => GetProperty<TerraformProperty<double>>("id_token_validity");
-        set => this.WithProperty("id_token_validity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("id_token_validity");
+        set => SetProperty("id_token_validity", value);
     }
 
     /// <summary>
     /// The logout_urls attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? LogoutUrls
+    public HashSet<TerraformProperty<string>> LogoutUrls
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("logout_urls");
-        set => this.WithProperty("logout_urls", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("logout_urls");
+        set => SetProperty("logout_urls", value);
     }
 
     /// <summary>
@@ -256,53 +267,53 @@ public class AwsCognitoUserPoolClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The prevent_user_existence_errors attribute.
     /// </summary>
-    public TerraformProperty<string>? PreventUserExistenceErrors
+    public TerraformProperty<string> PreventUserExistenceErrors
     {
-        get => GetProperty<TerraformProperty<string>>("prevent_user_existence_errors");
-        set => this.WithProperty("prevent_user_existence_errors", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("prevent_user_existence_errors");
+        set => SetProperty("prevent_user_existence_errors", value);
     }
 
     /// <summary>
     /// The read_attributes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ReadAttributes
+    public HashSet<TerraformProperty<string>> ReadAttributes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("read_attributes");
-        set => this.WithProperty("read_attributes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("read_attributes");
+        set => SetProperty("read_attributes", value);
     }
 
     /// <summary>
     /// The refresh_token_validity attribute.
     /// </summary>
-    public TerraformProperty<double>? RefreshTokenValidity
+    public TerraformProperty<double> RefreshTokenValidity
     {
-        get => GetProperty<TerraformProperty<double>>("refresh_token_validity");
-        set => this.WithProperty("refresh_token_validity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("refresh_token_validity");
+        set => SetProperty("refresh_token_validity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The supported_identity_providers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SupportedIdentityProviders
+    public HashSet<TerraformProperty<string>> SupportedIdentityProviders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("supported_identity_providers");
-        set => this.WithProperty("supported_identity_providers", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("supported_identity_providers");
+        set => SetProperty("supported_identity_providers", value);
     }
 
     /// <summary>
@@ -311,17 +322,17 @@ public class AwsCognitoUserPoolClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>
     /// The write_attributes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? WriteAttributes
+    public HashSet<TerraformProperty<string>> WriteAttributes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("write_attributes");
-        set => this.WithProperty("write_attributes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("write_attributes");
+        set => SetProperty("write_attributes", value);
     }
 
     /// <summary>
@@ -330,8 +341,7 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// </summary>
     public List<AwsCognitoUserPoolClientAnalyticsConfigurationBlock>? AnalyticsConfiguration
     {
-        get => GetProperty<List<AwsCognitoUserPoolClientAnalyticsConfigurationBlock>>("analytics_configuration");
-        set => this.WithProperty("analytics_configuration", value);
+        set => SetProperty("analytics_configuration", value);
     }
 
     /// <summary>
@@ -340,8 +350,7 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// </summary>
     public List<AwsCognitoUserPoolClientRefreshTokenRotationBlock>? RefreshTokenRotation
     {
-        get => GetProperty<List<AwsCognitoUserPoolClientRefreshTokenRotationBlock>>("refresh_token_rotation");
-        set => this.WithProperty("refresh_token_rotation", value);
+        set => SetProperty("refresh_token_rotation", value);
     }
 
     /// <summary>
@@ -350,8 +359,7 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// </summary>
     public List<AwsCognitoUserPoolClientTokenValidityUnitsBlock>? TokenValidityUnits
     {
-        get => GetProperty<List<AwsCognitoUserPoolClientTokenValidityUnitsBlock>>("token_validity_units");
-        set => this.WithProperty("token_validity_units", value);
+        set => SetProperty("token_validity_units", value);
     }
 
     /// <summary>

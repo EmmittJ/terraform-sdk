@@ -14,36 +14,42 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("body");
-        this.WithOutput("content_disposition");
-        this.WithOutput("content_type");
+        SetOutput("body");
+        SetOutput("content_disposition");
+        SetOutput("content_type");
+        SetOutput("id");
+        SetOutput("parameters");
+        SetOutput("region");
+        SetOutput("rest_api_id");
+        SetOutput("sdk_type");
+        SetOutput("stage_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
+    public Dictionary<string, TerraformProperty<string>> Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => this.WithProperty("parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => SetProperty("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -52,8 +58,8 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
-        set => this.WithProperty("rest_api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
+        set => SetProperty("rest_api_id", value);
     }
 
     /// <summary>
@@ -62,8 +68,8 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SdkType is required")]
     public required TerraformProperty<string> SdkType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sdk_type");
-        set => this.WithProperty("sdk_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sdk_type");
+        set => SetProperty("sdk_type", value);
     }
 
     /// <summary>
@@ -72,8 +78,8 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     public required TerraformProperty<string> StageName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stage_name");
-        set => this.WithProperty("stage_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stage_name");
+        set => SetProperty("stage_name", value);
     }
 
     /// <summary>

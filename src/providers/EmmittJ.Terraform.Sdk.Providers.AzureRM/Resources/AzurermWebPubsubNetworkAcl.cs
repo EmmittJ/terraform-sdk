@@ -13,8 +13,7 @@ public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedRequestTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_request_types");
-        set => WithProperty("allowed_request_types", value);
+        set => SetProperty("allowed_request_types", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? DeniedRequestTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("denied_request_types");
-        set => WithProperty("denied_request_types", value);
+        set => SetProperty("denied_request_types", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedRequestTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_request_types");
-        set => WithProperty("allowed_request_types", value);
+        set => SetProperty("allowed_request_types", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? DeniedRequestTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("denied_request_types");
-        set => WithProperty("denied_request_types", value);
+        set => SetProperty("denied_request_types", value);
     }
 
 }
@@ -75,8 +70,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -121,24 +112,27 @@ public class AzurermWebPubsubNetworkAcl : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("default_action");
+        SetOutput("id");
+        SetOutput("web_pubsub_id");
     }
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultAction
+    public TerraformProperty<string> DefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("default_action");
-        set => this.WithProperty("default_action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_action");
+        set => SetProperty("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -147,8 +141,8 @@ public class AzurermWebPubsubNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformProperty<string> WebPubsubId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("web_pubsub_id");
-        set => this.WithProperty("web_pubsub_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("web_pubsub_id");
+        set => SetProperty("web_pubsub_id", value);
     }
 
     /// <summary>
@@ -157,20 +151,19 @@ public class AzurermWebPubsubNetworkAcl : TerraformResource
     /// </summary>
     public HashSet<AzurermWebPubsubNetworkAclPrivateEndpointBlock>? PrivateEndpoint
     {
-        get => GetProperty<HashSet<AzurermWebPubsubNetworkAclPrivateEndpointBlock>>("private_endpoint");
-        set => this.WithProperty("private_endpoint", value);
+        set => SetProperty("private_endpoint", value);
     }
 
     /// <summary>
     /// Block for public_network.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetwork is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PublicNetwork block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicNetwork block(s) allowed")]
     public List<AzurermWebPubsubNetworkAclPublicNetworkBlock>? PublicNetwork
     {
-        get => GetProperty<List<AzurermWebPubsubNetworkAclPublicNetworkBlock>>("public_network");
-        set => this.WithProperty("public_network", value);
+        set => SetProperty("public_network", value);
     }
 
     /// <summary>
@@ -179,8 +172,7 @@ public class AzurermWebPubsubNetworkAcl : TerraformResource
     /// </summary>
     public AzurermWebPubsubNetworkAclTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermWebPubsubNetworkAclTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

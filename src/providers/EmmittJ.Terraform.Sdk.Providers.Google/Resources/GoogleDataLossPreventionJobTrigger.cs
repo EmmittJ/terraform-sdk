@@ -13,8 +13,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InspectTemplateName
     {
-        get => GetProperty<TerraformProperty<string>>("inspect_template_name");
-        set => WithProperty("inspect_template_name", value);
+        set => SetProperty("inspect_template_name", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleDataLossPreventionJobTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleDataLossPreventionJobTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleDataLossPreventionJobTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -75,37 +71,43 @@ public class GoogleDataLossPreventionJobTrigger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("last_run_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("last_run_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("parent");
+        SetOutput("status");
+        SetOutput("trigger_id");
     }
 
     /// <summary>
     /// A description of the job trigger.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// User set display name of the job trigger.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -115,17 +117,17 @@ public class GoogleDataLossPreventionJobTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
     /// Whether the trigger is currently active. Default value: &amp;quot;HEALTHY&amp;quot; Possible values: [&amp;quot;PAUSED&amp;quot;, &amp;quot;HEALTHY&amp;quot;, &amp;quot;CANCELLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -133,10 +135,10 @@ public class GoogleDataLossPreventionJobTrigger : TerraformResource
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+.
     /// The maximum length is 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformProperty<string>? TriggerId
+    public TerraformProperty<string> TriggerId
     {
-        get => GetProperty<TerraformProperty<string>>("trigger_id");
-        set => this.WithProperty("trigger_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trigger_id");
+        set => SetProperty("trigger_id", value);
     }
 
     /// <summary>
@@ -146,8 +148,7 @@ public class GoogleDataLossPreventionJobTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InspectJob block(s) allowed")]
     public List<GoogleDataLossPreventionJobTriggerInspectJobBlock>? InspectJob
     {
-        get => GetProperty<List<GoogleDataLossPreventionJobTriggerInspectJobBlock>>("inspect_job");
-        set => this.WithProperty("inspect_job", value);
+        set => SetProperty("inspect_job", value);
     }
 
     /// <summary>
@@ -156,19 +157,18 @@ public class GoogleDataLossPreventionJobTrigger : TerraformResource
     /// </summary>
     public GoogleDataLossPreventionJobTriggerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataLossPreventionJobTriggerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for triggers.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Triggers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Triggers block(s) required")]
     public List<GoogleDataLossPreventionJobTriggerTriggersBlock>? Triggers
     {
-        get => GetProperty<List<GoogleDataLossPreventionJobTriggerTriggersBlock>>("triggers");
-        set => this.WithProperty("triggers", value);
+        set => SetProperty("triggers", value);
     }
 
     /// <summary>

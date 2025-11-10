@@ -13,8 +13,7 @@ public class AzurermOracleDbNodesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,7 +30,9 @@ public class AzurermOracleDbNodesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("db_nodes");
+        SetOutput("db_nodes");
+        SetOutput("cloud_vm_cluster_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -40,17 +41,17 @@ public class AzurermOracleDbNodesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformProperty<string> CloudVmClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
-        set => this.WithProperty("cloud_vm_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_vm_cluster_id");
+        set => SetProperty("cloud_vm_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,8 +60,7 @@ public class AzurermOracleDbNodesDataSource : TerraformDataSource
     /// </summary>
     public AzurermOracleDbNodesDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleDbNodesDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

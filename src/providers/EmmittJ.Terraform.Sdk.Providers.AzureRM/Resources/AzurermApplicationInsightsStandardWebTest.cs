@@ -13,8 +13,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
-        set => WithProperty("body", value);
+        set => SetProperty("body", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? FollowRedirectsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("follow_redirects_enabled");
-        set => WithProperty("follow_redirects_enabled", value);
+        set => SetProperty("follow_redirects_enabled", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? HttpVerb
     {
-        get => GetProperty<TerraformProperty<string>>("http_verb");
-        set => WithProperty("http_verb", value);
+        set => SetProperty("http_verb", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? ParseDependentRequestsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("parse_dependent_requests_enabled");
-        set => WithProperty("parse_dependent_requests_enabled", value);
+        set => SetProperty("parse_dependent_requests_enabled", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,8 +102,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? ExpectedStatusCode
     {
-        get => GetProperty<TerraformProperty<double>>("expected_status_code");
-        set => WithProperty("expected_status_code", value);
+        set => SetProperty("expected_status_code", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : Ter
     /// </summary>
     public TerraformProperty<double>? SslCertRemainingLifetime
     {
-        get => GetProperty<TerraformProperty<double>>("ssl_cert_remaining_lifetime");
-        set => WithProperty("ssl_cert_remaining_lifetime", value);
+        set => SetProperty("ssl_cert_remaining_lifetime", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? SslCheckEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ssl_check_enabled");
-        set => WithProperty("ssl_check_enabled", value);
+        set => SetProperty("ssl_check_enabled", value);
     }
 
 }
@@ -148,7 +136,19 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputynthetic_monitor_id");
+        SetOutput("synthetic_monitor_id");
+        SetOutput("application_insights_id");
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("frequency");
+        SetOutput("geo_locations");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("retry_enabled");
+        SetOutput("tags");
+        SetOutput("timeout");
     }
 
     /// <summary>
@@ -157,54 +157,54 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformProperty<string> ApplicationInsightsId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_insights_id");
-        set => this.WithProperty("application_insights_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_insights_id");
+        set => SetProperty("application_insights_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public TerraformProperty<double>? Frequency
+    public TerraformProperty<double> Frequency
     {
-        get => GetProperty<TerraformProperty<double>>("frequency");
-        set => this.WithProperty("frequency", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("frequency");
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
     /// The geo_locations attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeoLocations is required")]
-    public List<TerraformProperty<string>>? GeoLocations
+    public List<TerraformProperty<string>> GeoLocations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("geo_locations");
-        set => this.WithProperty("geo_locations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("geo_locations");
+        set => SetProperty("geo_locations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -213,8 +213,8 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -223,8 +223,8 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -233,47 +233,47 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retry_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RetryEnabled
+    public TerraformProperty<bool> RetryEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("retry_enabled");
-        set => this.WithProperty("retry_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("retry_enabled");
+        set => SetProperty("retry_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? Timeout
+    public TerraformProperty<double> Timeout
     {
-        get => GetProperty<TerraformProperty<double>>("timeout");
-        set => this.WithProperty("timeout", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout");
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>
     /// Block for request.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Request is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Request block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Request block(s) allowed")]
     public List<AzurermApplicationInsightsStandardWebTestRequestBlock>? Request
     {
-        get => GetProperty<List<AzurermApplicationInsightsStandardWebTestRequestBlock>>("request");
-        set => this.WithProperty("request", value);
+        set => SetProperty("request", value);
     }
 
     /// <summary>
@@ -282,8 +282,7 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     /// </summary>
     public AzurermApplicationInsightsStandardWebTestTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApplicationInsightsStandardWebTestTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -293,8 +292,7 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValidationRules block(s) allowed")]
     public List<AzurermApplicationInsightsStandardWebTestValidationRulesBlock>? ValidationRules
     {
-        get => GetProperty<List<AzurermApplicationInsightsStandardWebTestValidationRulesBlock>>("validation_rules");
-        set => this.WithProperty("validation_rules", value);
+        set => SetProperty("validation_rules", value);
     }
 
     /// <summary>

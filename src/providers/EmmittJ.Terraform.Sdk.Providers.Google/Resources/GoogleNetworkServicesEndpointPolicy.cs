@@ -21,8 +21,7 @@ public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
     public List<TerraformProperty<string>>? Ports
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ports");
-        set => WithProperty("ports", value);
+        set => SetProperty("ports", value);
     }
 
 }
@@ -76,46 +72,55 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("authorization_policy");
+        SetOutput("client_tls_policy");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("server_tls_policy");
+        SetOutput("type");
     }
 
     /// <summary>
     /// This field specifies the URL of AuthorizationPolicy resource that applies authorization policies to the inbound traffic at the matched endpoints.
     /// </summary>
-    public TerraformProperty<string>? AuthorizationPolicy
+    public TerraformProperty<string> AuthorizationPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_policy");
-        set => this.WithProperty("authorization_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authorization_policy");
+        set => SetProperty("authorization_policy", value);
     }
 
     /// <summary>
     /// A URL referring to a ClientTlsPolicy resource. ClientTlsPolicy can be set to specify the authentication for traffic from the proxy to the actual endpoints.
     /// </summary>
-    public TerraformProperty<string>? ClientTlsPolicy
+    public TerraformProperty<string> ClientTlsPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("client_tls_policy");
-        set => this.WithProperty("client_tls_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_tls_policy");
+        set => SetProperty("client_tls_policy", value);
     }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -124,10 +129,10 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -136,26 +141,26 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// A URL referring to ServerTlsPolicy resource. ServerTlsPolicy is used to determine the authentication policy to be applied to terminate the inbound traffic at the identified backends.
     /// </summary>
-    public TerraformProperty<string>? ServerTlsPolicy
+    public TerraformProperty<string> ServerTlsPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("server_tls_policy");
-        set => this.WithProperty("server_tls_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_tls_policy");
+        set => SetProperty("server_tls_policy", value);
     }
 
     /// <summary>
@@ -164,20 +169,20 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Block for endpoint_matcher.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointMatcher is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EndpointMatcher block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointMatcher block(s) allowed")]
     public List<GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock>? EndpointMatcher
     {
-        get => GetProperty<List<GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock>>("endpoint_matcher");
-        set => this.WithProperty("endpoint_matcher", value);
+        set => SetProperty("endpoint_matcher", value);
     }
 
     /// <summary>
@@ -186,8 +191,7 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// </summary>
     public GoogleNetworkServicesEndpointPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkServicesEndpointPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -197,8 +201,7 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficPortSelector block(s) allowed")]
     public List<GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock>? TrafficPortSelector
     {
-        get => GetProperty<List<GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock>>("traffic_port_selector");
-        set => this.WithProperty("traffic_port_selector", value);
+        set => SetProperty("traffic_port_selector", value);
     }
 
     /// <summary>

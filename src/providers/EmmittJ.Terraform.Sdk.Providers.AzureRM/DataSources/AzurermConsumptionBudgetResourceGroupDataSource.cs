@@ -13,8 +13,7 @@ public class AzurermConsumptionBudgetResourceGroupDataSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermConsumptionBudgetResourceGroupDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.WithOutput("amount");
-        this.WithOutput("filter");
-        this.WithOutput("notification");
-        this.WithOutput("time_grain");
-        this.WithOutput("time_period");
+        SetOutput("amount");
+        SetOutput("filter");
+        SetOutput("notification");
+        SetOutput("time_grain");
+        SetOutput("time_period");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermConsumptionBudgetResourceGroupDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermConsumptionBudgetResourceGroupDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformProperty<string> ResourceGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_id");
-        set => this.WithProperty("resource_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_id");
+        set => SetProperty("resource_group_id", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermConsumptionBudgetResourceGroupDataSource : TerraformDataSour
     /// </summary>
     public AzurermConsumptionBudgetResourceGroupDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermConsumptionBudgetResourceGroupDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

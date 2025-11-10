@@ -13,8 +13,7 @@ public class AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,17 +30,21 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("azure_asn");
-        this.WithOutput("gateway_manager_etag");
-        this.WithOutput("ipv4_enabled");
-        this.WithOutput("peer_asn");
-        this.WithOutput("primary_azure_port");
-        this.WithOutput("primary_peer_address_prefix");
-        this.WithOutput("route_filter_id");
-        this.WithOutput("secondary_azure_port");
-        this.WithOutput("secondary_peer_address_prefix");
-        this.WithOutput("shared_key");
-        this.WithOutput("vlan_id");
+        SetOutput("azure_asn");
+        SetOutput("gateway_manager_etag");
+        SetOutput("ipv4_enabled");
+        SetOutput("peer_asn");
+        SetOutput("primary_azure_port");
+        SetOutput("primary_peer_address_prefix");
+        SetOutput("route_filter_id");
+        SetOutput("secondary_azure_port");
+        SetOutput("secondary_peer_address_prefix");
+        SetOutput("shared_key");
+        SetOutput("vlan_id");
+        SetOutput("express_route_circuit_name");
+        SetOutput("id");
+        SetOutput("peering_type");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -50,17 +53,17 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
     public required TerraformProperty<string> ExpressRouteCircuitName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("express_route_circuit_name");
-        set => this.WithProperty("express_route_circuit_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("express_route_circuit_name");
+        set => SetProperty("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,8 +72,8 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringType is required")]
     public required TerraformProperty<string> PeeringType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peering_type");
-        set => this.WithProperty("peering_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peering_type");
+        set => SetProperty("peering_type", value);
     }
 
     /// <summary>
@@ -79,8 +82,8 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -89,8 +92,7 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     /// </summary>
     public AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

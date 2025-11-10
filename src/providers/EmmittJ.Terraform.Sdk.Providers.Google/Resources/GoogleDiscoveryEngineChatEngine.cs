@@ -19,8 +19,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? AllowCrossRegion
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_cross_region");
-        set => WithProperty("allow_cross_region", value);
+        set => SetProperty("allow_cross_region", value);
     }
 
     /// <summary>
@@ -29,8 +28,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? DialogflowAgentToLink
     {
-        get => GetProperty<TerraformProperty<string>>("dialogflow_agent_to_link");
-        set => WithProperty("dialogflow_agent_to_link", value);
+        set => SetProperty("dialogflow_agent_to_link", value);
     }
 
 }
@@ -46,8 +44,7 @@ public class GoogleDiscoveryEngineChatEngineCommonConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CompanyName
     {
-        get => GetProperty<TerraformProperty<string>>("company_name");
-        set => WithProperty("company_name", value);
+        set => SetProperty("company_name", value);
     }
 
 }
@@ -63,8 +60,7 @@ public class GoogleDiscoveryEngineChatEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -72,8 +68,7 @@ public class GoogleDiscoveryEngineChatEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -81,8 +76,7 @@ public class GoogleDiscoveryEngineChatEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -100,10 +94,18 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("chat_engine_metadata");
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("chat_engine_metadata");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("collection_id");
+        SetOutput("data_store_ids");
+        SetOutput("display_name");
+        SetOutput("engine_id");
+        SetOutput("id");
+        SetOutput("industry_vertical");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -112,18 +114,18 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
-        set => this.WithProperty("collection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collection_id");
+        set => SetProperty("collection_id", value);
     }
 
     /// <summary>
     /// The data stores associated with this engine. Multiple DataStores in the same Collection can be associated here. All listed DataStores must be &#39;SOLUTION_TYPE_CHAT&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreIds is required")]
-    public List<TerraformProperty<string>>? DataStoreIds
+    public List<TerraformProperty<string>> DataStoreIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("data_store_ids");
-        set => this.WithProperty("data_store_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("data_store_ids");
+        set => SetProperty("data_store_ids", value);
     }
 
     /// <summary>
@@ -132,8 +134,8 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -142,26 +144,26 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformProperty<string> EngineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_id");
-        set => this.WithProperty("engine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_id");
+        set => SetProperty("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The industry vertical that the chat engine registers. Vertical on Engine has to match vertical of the DataStore linked to the engine. Default value: &amp;quot;GENERIC&amp;quot; Possible values: [&amp;quot;GENERIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? IndustryVertical
+    public TerraformProperty<string> IndustryVertical
     {
-        get => GetProperty<TerraformProperty<string>>("industry_vertical");
-        set => this.WithProperty("industry_vertical", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("industry_vertical");
+        set => SetProperty("industry_vertical", value);
     }
 
     /// <summary>
@@ -170,29 +172,29 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for chat_engine_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChatEngineConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ChatEngineConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ChatEngineConfig block(s) allowed")]
     public List<GoogleDiscoveryEngineChatEngineChatEngineConfigBlock>? ChatEngineConfig
     {
-        get => GetProperty<List<GoogleDiscoveryEngineChatEngineChatEngineConfigBlock>>("chat_engine_config");
-        set => this.WithProperty("chat_engine_config", value);
+        set => SetProperty("chat_engine_config", value);
     }
 
     /// <summary>
@@ -202,8 +204,7 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommonConfig block(s) allowed")]
     public List<GoogleDiscoveryEngineChatEngineCommonConfigBlock>? CommonConfig
     {
-        get => GetProperty<List<GoogleDiscoveryEngineChatEngineCommonConfigBlock>>("common_config");
-        set => this.WithProperty("common_config", value);
+        set => SetProperty("common_config", value);
     }
 
     /// <summary>
@@ -212,8 +213,7 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineChatEngineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineChatEngineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

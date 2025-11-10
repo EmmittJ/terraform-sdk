@@ -13,8 +13,7 @@ public class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Base
     {
-        get => GetProperty<TerraformProperty<double>>("base");
-        set => WithProperty("base", value);
+        set => SetProperty("base", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformProperty<string> CapacityProvider
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capacity_provider");
-        set => WithProperty("capacity_provider", value);
+        set => SetProperty("capacity_provider", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformProperty<double> Weight
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("weight");
-        set => WithProperty("weight", value);
+        set => SetProperty("weight", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AwsEcsTaskSetLoadBalancerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => WithProperty("container_name", value);
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsEcsTaskSetLoadBalancerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ContainerPort
     {
-        get => GetProperty<TerraformProperty<double>>("container_port");
-        set => WithProperty("container_port", value);
+        set => SetProperty("container_port", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsEcsTaskSetLoadBalancerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LoadBalancerName
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer_name");
-        set => WithProperty("load_balancer_name", value);
+        set => SetProperty("load_balancer_name", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AwsEcsTaskSetLoadBalancerBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_group_arn");
-        set => WithProperty("target_group_arn", value);
+        set => SetProperty("target_group_arn", value);
     }
 
 }
@@ -95,8 +88,7 @@ public class AwsEcsTaskSetNetworkConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AssignPublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("assign_public_ip");
-        set => WithProperty("assign_public_ip", value);
+        set => SetProperty("assign_public_ip", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class AwsEcsTaskSetNetworkConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => WithProperty("security_groups", value);
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
@@ -114,8 +105,7 @@ public class AwsEcsTaskSetNetworkConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
-        set => WithProperty("subnets", value);
+        set => SetProperty("subnets", value);
     }
 
 }
@@ -131,8 +121,7 @@ public class AwsEcsTaskSetScaleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Unit
     {
-        get => GetProperty<TerraformProperty<string>>("unit");
-        set => WithProperty("unit", value);
+        set => SetProperty("unit", value);
     }
 
     /// <summary>
@@ -140,8 +129,7 @@ public class AwsEcsTaskSetScaleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Value
     {
-        get => GetProperty<TerraformProperty<double>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -157,8 +145,7 @@ public class AwsEcsTaskSetServiceRegistriesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
-        set => WithProperty("container_name", value);
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
@@ -166,8 +153,7 @@ public class AwsEcsTaskSetServiceRegistriesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ContainerPort
     {
-        get => GetProperty<TerraformProperty<double>>("container_port");
-        set => WithProperty("container_port", value);
+        set => SetProperty("container_port", value);
     }
 
     /// <summary>
@@ -175,8 +161,7 @@ public class AwsEcsTaskSetServiceRegistriesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => WithProperty("port", value);
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -185,8 +170,7 @@ public class AwsEcsTaskSetServiceRegistriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryArn is required")]
     public required TerraformProperty<string> RegistryArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("registry_arn");
-        set => WithProperty("registry_arn", value);
+        set => SetProperty("registry_arn", value);
     }
 
 }
@@ -204,10 +188,23 @@ public class AwsEcsTaskSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("stability_status");
-        this.WithOutput("status");
-        this.WithOutput("task_set_id");
+        SetOutput("arn");
+        SetOutput("stability_status");
+        SetOutput("status");
+        SetOutput("task_set_id");
+        SetOutput("cluster");
+        SetOutput("external_id");
+        SetOutput("force_delete");
+        SetOutput("id");
+        SetOutput("launch_type");
+        SetOutput("platform_version");
+        SetOutput("region");
+        SetOutput("service");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("task_definition");
+        SetOutput("wait_until_stable");
+        SetOutput("wait_until_stable_timeout");
     }
 
     /// <summary>
@@ -216,62 +213,62 @@ public class AwsEcsTaskSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ExternalId
+    public TerraformProperty<string> ExternalId
     {
-        get => GetProperty<TerraformProperty<string>>("external_id");
-        set => this.WithProperty("external_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("external_id");
+        set => SetProperty("external_id", value);
     }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDelete
+    public TerraformProperty<bool> ForceDelete
     {
-        get => GetProperty<TerraformProperty<bool>>("force_delete");
-        set => this.WithProperty("force_delete", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete");
+        set => SetProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LaunchType
+    public TerraformProperty<string> LaunchType
     {
-        get => GetProperty<TerraformProperty<string>>("launch_type");
-        set => this.WithProperty("launch_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("launch_type");
+        set => SetProperty("launch_type", value);
     }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
-    public TerraformProperty<string>? PlatformVersion
+    public TerraformProperty<string> PlatformVersion
     {
-        get => GetProperty<TerraformProperty<string>>("platform_version");
-        set => this.WithProperty("platform_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("platform_version");
+        set => SetProperty("platform_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -280,26 +277,26 @@ public class AwsEcsTaskSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -308,26 +305,26 @@ public class AwsEcsTaskSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     public required TerraformProperty<string> TaskDefinition
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_definition");
-        set => this.WithProperty("task_definition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_definition");
+        set => SetProperty("task_definition", value);
     }
 
     /// <summary>
     /// The wait_until_stable attribute.
     /// </summary>
-    public TerraformProperty<bool>? WaitUntilStable
+    public TerraformProperty<bool> WaitUntilStable
     {
-        get => GetProperty<TerraformProperty<bool>>("wait_until_stable");
-        set => this.WithProperty("wait_until_stable", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("wait_until_stable");
+        set => SetProperty("wait_until_stable", value);
     }
 
     /// <summary>
     /// The wait_until_stable_timeout attribute.
     /// </summary>
-    public TerraformProperty<string>? WaitUntilStableTimeout
+    public TerraformProperty<string> WaitUntilStableTimeout
     {
-        get => GetProperty<TerraformProperty<string>>("wait_until_stable_timeout");
-        set => this.WithProperty("wait_until_stable_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("wait_until_stable_timeout");
+        set => SetProperty("wait_until_stable_timeout", value);
     }
 
     /// <summary>
@@ -336,8 +333,7 @@ public class AwsEcsTaskSet : TerraformResource
     /// </summary>
     public HashSet<AwsEcsTaskSetCapacityProviderStrategyBlock>? CapacityProviderStrategy
     {
-        get => GetProperty<HashSet<AwsEcsTaskSetCapacityProviderStrategyBlock>>("capacity_provider_strategy");
-        set => this.WithProperty("capacity_provider_strategy", value);
+        set => SetProperty("capacity_provider_strategy", value);
     }
 
     /// <summary>
@@ -346,8 +342,7 @@ public class AwsEcsTaskSet : TerraformResource
     /// </summary>
     public HashSet<AwsEcsTaskSetLoadBalancerBlock>? LoadBalancer
     {
-        get => GetProperty<HashSet<AwsEcsTaskSetLoadBalancerBlock>>("load_balancer");
-        set => this.WithProperty("load_balancer", value);
+        set => SetProperty("load_balancer", value);
     }
 
     /// <summary>
@@ -357,8 +352,7 @@ public class AwsEcsTaskSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     public List<AwsEcsTaskSetNetworkConfigurationBlock>? NetworkConfiguration
     {
-        get => GetProperty<List<AwsEcsTaskSetNetworkConfigurationBlock>>("network_configuration");
-        set => this.WithProperty("network_configuration", value);
+        set => SetProperty("network_configuration", value);
     }
 
     /// <summary>
@@ -368,8 +362,7 @@ public class AwsEcsTaskSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scale block(s) allowed")]
     public List<AwsEcsTaskSetScaleBlock>? Scale
     {
-        get => GetProperty<List<AwsEcsTaskSetScaleBlock>>("scale");
-        set => this.WithProperty("scale", value);
+        set => SetProperty("scale", value);
     }
 
     /// <summary>
@@ -379,8 +372,7 @@ public class AwsEcsTaskSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceRegistries block(s) allowed")]
     public List<AwsEcsTaskSetServiceRegistriesBlock>? ServiceRegistries
     {
-        get => GetProperty<List<AwsEcsTaskSetServiceRegistriesBlock>>("service_registries");
-        set => this.WithProperty("service_registries", value);
+        set => SetProperty("service_registries", value);
     }
 
     /// <summary>

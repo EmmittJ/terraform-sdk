@@ -14,65 +14,72 @@ public class GoogleServiceAccountKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("private_key");
-        this.WithOutput("public_key");
-        this.WithOutput("valid_after");
-        this.WithOutput("valid_before");
+        SetOutput("name");
+        SetOutput("private_key");
+        SetOutput("public_key");
+        SetOutput("valid_after");
+        SetOutput("valid_before");
+        SetOutput("id");
+        SetOutput("keepers");
+        SetOutput("key_algorithm");
+        SetOutput("private_key_type");
+        SetOutput("public_key_data");
+        SetOutput("public_key_type");
+        SetOutput("service_account_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger recreation of resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Keepers
+    public Dictionary<string, TerraformProperty<string>> Keepers
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("keepers");
-        set => this.WithProperty("keepers", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("keepers");
+        set => SetProperty("keepers", value);
     }
 
     /// <summary>
     /// The algorithm used to generate the key, used only on create. KEY_ALG_RSA_2048 is the default algorithm. Valid values are: &amp;quot;KEY_ALG_RSA_1024&amp;quot;, &amp;quot;KEY_ALG_RSA_2048&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? KeyAlgorithm
+    public TerraformProperty<string> KeyAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("key_algorithm");
-        set => this.WithProperty("key_algorithm", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_algorithm");
+        set => SetProperty("key_algorithm", value);
     }
 
     /// <summary>
     /// The private_key_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateKeyType
+    public TerraformProperty<string> PrivateKeyType
     {
-        get => GetProperty<TerraformProperty<string>>("private_key_type");
-        set => this.WithProperty("private_key_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_key_type");
+        set => SetProperty("private_key_type", value);
     }
 
     /// <summary>
     /// A field that allows clients to upload their own public key. If set, use this public key data to create a service account key for given service account. Please note, the expected format for this field is a base64 encoded X509_PEM.
     /// </summary>
-    public TerraformProperty<string>? PublicKeyData
+    public TerraformProperty<string> PublicKeyData
     {
-        get => GetProperty<TerraformProperty<string>>("public_key_data");
-        set => this.WithProperty("public_key_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_key_data");
+        set => SetProperty("public_key_data", value);
     }
 
     /// <summary>
     /// The public_key_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicKeyType
+    public TerraformProperty<string> PublicKeyType
     {
-        get => GetProperty<TerraformProperty<string>>("public_key_type");
-        set => this.WithProperty("public_key_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_key_type");
+        set => SetProperty("public_key_type", value);
     }
 
     /// <summary>
@@ -81,8 +88,8 @@ public class GoogleServiceAccountKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
     public required TerraformProperty<string> ServiceAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_account_id");
-        set => this.WithProperty("service_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account_id");
+        set => SetProperty("service_account_id", value);
     }
 
     /// <summary>

@@ -14,17 +14,19 @@ public class GoogleAccessApprovalOrganizationServiceAccountDataSource : Terrafor
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_email");
-        this.WithOutput("name");
+        SetOutput("account_email");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("organization_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,8 +35,8 @@ public class GoogleAccessApprovalOrganizationServiceAccountDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformProperty<string> OrganizationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization_id");
-        set => this.WithProperty("organization_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization_id");
+        set => SetProperty("organization_id", value);
     }
 
     /// <summary>

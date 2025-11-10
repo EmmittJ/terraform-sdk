@@ -14,8 +14,7 @@ public class AwsApprunnerServiceEncryptionConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
-        set => WithProperty("kms_key", value);
+        set => SetProperty("kms_key", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsApprunnerServiceHealthCheckConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? HealthyThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("healthy_threshold");
-        set => WithProperty("healthy_threshold", value);
+        set => SetProperty("healthy_threshold", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsApprunnerServiceHealthCheckConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
-        set => WithProperty("interval", value);
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsApprunnerServiceHealthCheckConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsApprunnerServiceHealthCheckConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AwsApprunnerServiceHealthCheckConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Timeout
     {
-        get => GetProperty<TerraformProperty<double>>("timeout");
-        set => WithProperty("timeout", value);
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsApprunnerServiceHealthCheckConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? UnhealthyThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("unhealthy_threshold");
-        set => WithProperty("unhealthy_threshold", value);
+        set => SetProperty("unhealthy_threshold", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AwsApprunnerServiceInstanceConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cpu
     {
-        get => GetProperty<TerraformProperty<string>>("cpu");
-        set => WithProperty("cpu", value);
+        set => SetProperty("cpu", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AwsApprunnerServiceInstanceConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("instance_role_arn");
-        set => WithProperty("instance_role_arn", value);
+        set => SetProperty("instance_role_arn", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AwsApprunnerServiceInstanceConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Memory
     {
-        get => GetProperty<TerraformProperty<string>>("memory");
-        set => WithProperty("memory", value);
+        set => SetProperty("memory", value);
     }
 
 }
@@ -128,8 +118,7 @@ public class AwsApprunnerServiceNetworkConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => WithProperty("ip_address_type", value);
+        set => SetProperty("ip_address_type", value);
     }
 
 }
@@ -145,8 +134,7 @@ public class AwsApprunnerServiceObservabilityConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ObservabilityConfigurationArn
     {
-        get => GetProperty<TerraformProperty<string>>("observability_configuration_arn");
-        set => WithProperty("observability_configuration_arn", value);
+        set => SetProperty("observability_configuration_arn", value);
     }
 
     /// <summary>
@@ -155,8 +143,7 @@ public class AwsApprunnerServiceObservabilityConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObservabilityEnabled is required")]
     public required TerraformProperty<bool> ObservabilityEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("observability_enabled");
-        set => WithProperty("observability_enabled", value);
+        set => SetProperty("observability_enabled", value);
     }
 
 }
@@ -172,8 +159,7 @@ public class AwsApprunnerServiceSourceConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AutoDeploymentsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_deployments_enabled");
-        set => WithProperty("auto_deployments_enabled", value);
+        set => SetProperty("auto_deployments_enabled", value);
     }
 
 }
@@ -191,37 +177,43 @@ public class AwsApprunnerService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("service_id");
-        this.WithOutput("service_url");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("service_id");
+        SetOutput("service_url");
+        SetOutput("status");
+        SetOutput("auto_scaling_configuration_arn");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("service_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The auto_scaling_configuration_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoScalingConfigurationArn
+    public TerraformProperty<string> AutoScalingConfigurationArn
     {
-        get => GetProperty<TerraformProperty<string>>("auto_scaling_configuration_arn");
-        set => this.WithProperty("auto_scaling_configuration_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_scaling_configuration_arn");
+        set => SetProperty("auto_scaling_configuration_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -230,26 +222,26 @@ public class AwsApprunnerService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -259,8 +251,7 @@ public class AwsApprunnerService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     public List<AwsApprunnerServiceEncryptionConfigurationBlock>? EncryptionConfiguration
     {
-        get => GetProperty<List<AwsApprunnerServiceEncryptionConfigurationBlock>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -270,8 +261,7 @@ public class AwsApprunnerService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheckConfiguration block(s) allowed")]
     public List<AwsApprunnerServiceHealthCheckConfigurationBlock>? HealthCheckConfiguration
     {
-        get => GetProperty<List<AwsApprunnerServiceHealthCheckConfigurationBlock>>("health_check_configuration");
-        set => this.WithProperty("health_check_configuration", value);
+        set => SetProperty("health_check_configuration", value);
     }
 
     /// <summary>
@@ -281,8 +271,7 @@ public class AwsApprunnerService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceConfiguration block(s) allowed")]
     public List<AwsApprunnerServiceInstanceConfigurationBlock>? InstanceConfiguration
     {
-        get => GetProperty<List<AwsApprunnerServiceInstanceConfigurationBlock>>("instance_configuration");
-        set => this.WithProperty("instance_configuration", value);
+        set => SetProperty("instance_configuration", value);
     }
 
     /// <summary>
@@ -292,8 +281,7 @@ public class AwsApprunnerService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     public List<AwsApprunnerServiceNetworkConfigurationBlock>? NetworkConfiguration
     {
-        get => GetProperty<List<AwsApprunnerServiceNetworkConfigurationBlock>>("network_configuration");
-        set => this.WithProperty("network_configuration", value);
+        set => SetProperty("network_configuration", value);
     }
 
     /// <summary>
@@ -303,20 +291,19 @@ public class AwsApprunnerService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObservabilityConfiguration block(s) allowed")]
     public List<AwsApprunnerServiceObservabilityConfigurationBlock>? ObservabilityConfiguration
     {
-        get => GetProperty<List<AwsApprunnerServiceObservabilityConfigurationBlock>>("observability_configuration");
-        set => this.WithProperty("observability_configuration", value);
+        set => SetProperty("observability_configuration", value);
     }
 
     /// <summary>
     /// Block for source_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceConfiguration block(s) allowed")]
     public List<AwsApprunnerServiceSourceConfigurationBlock>? SourceConfiguration
     {
-        get => GetProperty<List<AwsApprunnerServiceSourceConfigurationBlock>>("source_configuration");
-        set => this.WithProperty("source_configuration", value);
+        set => SetProperty("source_configuration", value);
     }
 
     /// <summary>

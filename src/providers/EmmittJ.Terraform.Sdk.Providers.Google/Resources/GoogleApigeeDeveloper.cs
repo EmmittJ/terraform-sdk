@@ -13,8 +13,7 @@ public class GoogleApigeeDeveloperAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeDeveloperAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleApigeeDeveloperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleApigeeDeveloperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleApigeeDeveloperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -75,10 +70,16 @@ public class GoogleApigeeDeveloper : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("created_at");
-        this.WithOutput("last_modified_at");
-        this.WithOutput("organizatio_name");
-        this.WithOutput("status");
+        SetOutput("created_at");
+        SetOutput("last_modified_at");
+        SetOutput("organizatio_name");
+        SetOutput("status");
+        SetOutput("email");
+        SetOutput("first_name");
+        SetOutput("id");
+        SetOutput("last_name");
+        SetOutput("org_id");
+        SetOutput("user_name");
     }
 
     /// <summary>
@@ -87,8 +88,8 @@ public class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email");
-        set => this.WithProperty("email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email");
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -97,17 +98,17 @@ public class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     public required TerraformProperty<string> FirstName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("first_name");
-        set => this.WithProperty("first_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("first_name");
+        set => SetProperty("first_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -116,8 +117,8 @@ public class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     public required TerraformProperty<string> LastName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("last_name");
-        set => this.WithProperty("last_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("last_name");
+        set => SetProperty("last_name", value);
     }
 
     /// <summary>
@@ -127,8 +128,8 @@ public class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -137,8 +138,8 @@ public class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
@@ -147,8 +148,7 @@ public class GoogleApigeeDeveloper : TerraformResource
     /// </summary>
     public List<GoogleApigeeDeveloperAttributesBlock>? Attributes
     {
-        get => GetProperty<List<GoogleApigeeDeveloperAttributesBlock>>("attributes");
-        set => this.WithProperty("attributes", value);
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
@@ -157,8 +157,7 @@ public class GoogleApigeeDeveloper : TerraformResource
     /// </summary>
     public GoogleApigeeDeveloperTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeDeveloperTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,7 +14,15 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("connection_arn");
+        SetOutput("description");
+        SetOutput("http_method");
+        SetOutput("id");
+        SetOutput("invocation_endpoint");
+        SetOutput("invocation_rate_limit_per_second");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -23,17 +31,17 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionArn is required")]
     public required TerraformProperty<string> ConnectionArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_arn");
-        set => this.WithProperty("connection_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connection_arn");
+        set => SetProperty("connection_arn", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -42,17 +50,17 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformProperty<string> HttpMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("http_method");
-        set => this.WithProperty("http_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
+        set => SetProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,17 +69,17 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvocationEndpoint is required")]
     public required TerraformProperty<string> InvocationEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("invocation_endpoint");
-        set => this.WithProperty("invocation_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("invocation_endpoint");
+        set => SetProperty("invocation_endpoint", value);
     }
 
     /// <summary>
     /// The invocation_rate_limit_per_second attribute.
     /// </summary>
-    public TerraformProperty<double>? InvocationRateLimitPerSecond
+    public TerraformProperty<double> InvocationRateLimitPerSecond
     {
-        get => GetProperty<TerraformProperty<double>>("invocation_rate_limit_per_second");
-        set => this.WithProperty("invocation_rate_limit_per_second", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("invocation_rate_limit_per_second");
+        set => SetProperty("invocation_rate_limit_per_second", value);
     }
 
     /// <summary>
@@ -80,17 +88,17 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

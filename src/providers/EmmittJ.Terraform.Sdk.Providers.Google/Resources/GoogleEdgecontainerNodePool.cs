@@ -14,8 +14,7 @@ public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => WithProperty("kms_key", value);
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? KmsKeyActiveVersion
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_active_version");
-        set => WithProperty("kms_key_active_version", value);
+        set => SetProperty("kms_key_active_version", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? KmsKeyState
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_state");
-        set => WithProperty("kms_key_state", value);
+        set => SetProperty("kms_key_state", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class GoogleEdgecontainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,11 +97,20 @@ public class GoogleEdgecontainerNodePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("node_version");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("node_version");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("cluster");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("machine_filter");
+        SetOutput("name");
+        SetOutput("node_count");
+        SetOutput("node_location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -117,17 +119,17 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -136,10 +138,10 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -148,8 +150,8 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -157,10 +159,10 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// The filtering language accepts strings like &amp;quot;name=&amp;lt;name&amp;gt;&amp;quot;, and is
     /// documented in more detail in [AIP-160](https://google.aip.dev/160).
     /// </summary>
-    public TerraformProperty<string>? MachineFilter
+    public TerraformProperty<string> MachineFilter
     {
-        get => GetProperty<TerraformProperty<string>>("machine_filter");
-        set => this.WithProperty("machine_filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("machine_filter");
+        set => SetProperty("machine_filter", value);
     }
 
     /// <summary>
@@ -169,8 +171,8 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -179,8 +181,8 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
-        set => this.WithProperty("node_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
@@ -189,17 +191,17 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeLocation is required")]
     public required TerraformProperty<string> NodeLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("node_location");
-        set => this.WithProperty("node_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("node_location");
+        set => SetProperty("node_location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -209,8 +211,7 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDiskEncryption block(s) allowed")]
     public List<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock>? LocalDiskEncryption
     {
-        get => GetProperty<List<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock>>("local_disk_encryption");
-        set => this.WithProperty("local_disk_encryption", value);
+        set => SetProperty("local_disk_encryption", value);
     }
 
     /// <summary>
@@ -220,8 +221,7 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     public List<GoogleEdgecontainerNodePoolNodeConfigBlock>? NodeConfig
     {
-        get => GetProperty<List<GoogleEdgecontainerNodePoolNodeConfigBlock>>("node_config");
-        set => this.WithProperty("node_config", value);
+        set => SetProperty("node_config", value);
     }
 
     /// <summary>
@@ -230,8 +230,7 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     public GoogleEdgecontainerNodePoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleEdgecontainerNodePoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

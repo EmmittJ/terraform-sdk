@@ -13,8 +13,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BidPrice
     {
-        get => GetProperty<TerraformProperty<string>>("bid_price");
-        set => WithProperty("bid_price", value);
+        set => SetProperty("bid_price", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? BidPriceAsPercentageOfOnDemandPrice
     {
-        get => GetProperty<TerraformProperty<double>>("bid_price_as_percentage_of_on_demand_price");
-        set => WithProperty("bid_price_as_percentage_of_on_demand_price", value);
+        set => SetProperty("bid_price_as_percentage_of_on_demand_price", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? WeightedCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("weighted_capacity");
-        set => WithProperty("weighted_capacity", value);
+        set => SetProperty("weighted_capacity", value);
     }
 
 }
@@ -68,8 +64,14 @@ public class AwsEmrInstanceFleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("provisioned_on_demand_capacity");
-        this.WithOutput("provisioned_spot_capacity");
+        SetOutput("provisioned_on_demand_capacity");
+        SetOutput("provisioned_spot_capacity");
+        SetOutput("cluster_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("target_on_demand_capacity");
+        SetOutput("target_spot_capacity");
     }
 
     /// <summary>
@@ -78,53 +80,53 @@ public class AwsEmrInstanceFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The target_on_demand_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? TargetOnDemandCapacity
+    public TerraformProperty<double> TargetOnDemandCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("target_on_demand_capacity");
-        set => this.WithProperty("target_on_demand_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("target_on_demand_capacity");
+        set => SetProperty("target_on_demand_capacity", value);
     }
 
     /// <summary>
     /// The target_spot_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? TargetSpotCapacity
+    public TerraformProperty<double> TargetSpotCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("target_spot_capacity");
-        set => this.WithProperty("target_spot_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("target_spot_capacity");
+        set => SetProperty("target_spot_capacity", value);
     }
 
     /// <summary>
@@ -133,8 +135,7 @@ public class AwsEmrInstanceFleet : TerraformResource
     /// </summary>
     public HashSet<AwsEmrInstanceFleetInstanceTypeConfigsBlock>? InstanceTypeConfigs
     {
-        get => GetProperty<HashSet<AwsEmrInstanceFleetInstanceTypeConfigsBlock>>("instance_type_configs");
-        set => this.WithProperty("instance_type_configs", value);
+        set => SetProperty("instance_type_configs", value);
     }
 
     /// <summary>
@@ -144,8 +145,7 @@ public class AwsEmrInstanceFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchSpecifications block(s) allowed")]
     public List<AwsEmrInstanceFleetLaunchSpecificationsBlock>? LaunchSpecifications
     {
-        get => GetProperty<List<AwsEmrInstanceFleetLaunchSpecificationsBlock>>("launch_specifications");
-        set => this.WithProperty("launch_specifications", value);
+        set => SetProperty("launch_specifications", value);
     }
 
     /// <summary>

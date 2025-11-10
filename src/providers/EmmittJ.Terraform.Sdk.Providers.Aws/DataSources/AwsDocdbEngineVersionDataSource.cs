@@ -14,65 +14,71 @@ public class AwsDocdbEngineVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("engine_description");
-        this.WithOutput("exportable_log_types");
-        this.WithOutput("supports_log_exports_to_cloudwatch");
-        this.WithOutput("valid_upgrade_targets");
-        this.WithOutput("version_description");
+        SetOutput("engine_description");
+        SetOutput("exportable_log_types");
+        SetOutput("supports_log_exports_to_cloudwatch");
+        SetOutput("valid_upgrade_targets");
+        SetOutput("version_description");
+        SetOutput("engine");
+        SetOutput("id");
+        SetOutput("parameter_group_family");
+        SetOutput("preferred_versions");
+        SetOutput("region");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    public TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
-        set => this.WithProperty("engine", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine");
+        set => SetProperty("engine", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The parameter_group_family attribute.
     /// </summary>
-    public TerraformProperty<string>? ParameterGroupFamily
+    public TerraformProperty<string> ParameterGroupFamily
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_group_family");
-        set => this.WithProperty("parameter_group_family", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_group_family");
+        set => SetProperty("parameter_group_family", value);
     }
 
     /// <summary>
     /// The preferred_versions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PreferredVersions
+    public List<TerraformProperty<string>> PreferredVersions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("preferred_versions");
-        set => this.WithProperty("preferred_versions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("preferred_versions");
+        set => SetProperty("preferred_versions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

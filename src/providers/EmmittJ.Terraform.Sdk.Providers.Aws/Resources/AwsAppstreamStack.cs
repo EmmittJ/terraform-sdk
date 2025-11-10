@@ -14,8 +14,7 @@ public class AwsAppstreamStackAccessEndpointsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
-        set => WithProperty("endpoint_type", value);
+        set => SetProperty("endpoint_type", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsAppstreamStackAccessEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VpceId
     {
-        get => GetProperty<TerraformProperty<string>>("vpce_id");
-        set => WithProperty("vpce_id", value);
+        set => SetProperty("vpce_id", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsAppstreamStackApplicationSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsAppstreamStackApplicationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SettingsGroup
     {
-        get => GetProperty<TerraformProperty<string>>("settings_group");
-        set => WithProperty("settings_group", value);
+        set => SetProperty("settings_group", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class AwsAppstreamStackStorageConnectorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     public required TerraformProperty<string> ConnectorType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connector_type");
-        set => WithProperty("connector_type", value);
+        set => SetProperty("connector_type", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AwsAppstreamStackStorageConnectorsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Domains
     {
-        get => GetProperty<List<TerraformProperty<string>>>("domains");
-        set => WithProperty("domains", value);
+        set => SetProperty("domains", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AwsAppstreamStackStorageConnectorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResourceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("resource_identifier");
-        set => WithProperty("resource_identifier", value);
+        set => SetProperty("resource_identifier", value);
     }
 
 }
@@ -103,8 +96,7 @@ public class AwsAppstreamStackStreamingExperienceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PreferredProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_protocol");
-        set => WithProperty("preferred_protocol", value);
+        set => SetProperty("preferred_protocol", value);
     }
 
 }
@@ -121,8 +113,7 @@ public class AwsAppstreamStackUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -131,8 +122,7 @@ public class AwsAppstreamStackUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformProperty<string> Permission
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("permission");
-        set => WithProperty("permission", value);
+        set => SetProperty("permission", value);
     }
 
 }
@@ -150,53 +140,63 @@ public class AwsAppstreamStack : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_time");
+        SetOutput("arn");
+        SetOutput("created_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("embed_host_domains");
+        SetOutput("feedback_url");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("redirect_url");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The embed_host_domains attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EmbedHostDomains
+    public HashSet<TerraformProperty<string>> EmbedHostDomains
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("embed_host_domains");
-        set => this.WithProperty("embed_host_domains", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("embed_host_domains");
+        set => SetProperty("embed_host_domains", value);
     }
 
     /// <summary>
     /// The feedback_url attribute.
     /// </summary>
-    public TerraformProperty<string>? FeedbackUrl
+    public TerraformProperty<string> FeedbackUrl
     {
-        get => GetProperty<TerraformProperty<string>>("feedback_url");
-        set => this.WithProperty("feedback_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("feedback_url");
+        set => SetProperty("feedback_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -205,44 +205,44 @@ public class AwsAppstreamStack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
-    public TerraformProperty<string>? RedirectUrl
+    public TerraformProperty<string> RedirectUrl
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_url");
-        set => this.WithProperty("redirect_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redirect_url");
+        set => SetProperty("redirect_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -252,8 +252,7 @@ public class AwsAppstreamStack : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 AccessEndpoints block(s) allowed")]
     public HashSet<AwsAppstreamStackAccessEndpointsBlock>? AccessEndpoints
     {
-        get => GetProperty<HashSet<AwsAppstreamStackAccessEndpointsBlock>>("access_endpoints");
-        set => this.WithProperty("access_endpoints", value);
+        set => SetProperty("access_endpoints", value);
     }
 
     /// <summary>
@@ -263,8 +262,7 @@ public class AwsAppstreamStack : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationSettings block(s) allowed")]
     public List<AwsAppstreamStackApplicationSettingsBlock>? ApplicationSettings
     {
-        get => GetProperty<List<AwsAppstreamStackApplicationSettingsBlock>>("application_settings");
-        set => this.WithProperty("application_settings", value);
+        set => SetProperty("application_settings", value);
     }
 
     /// <summary>
@@ -273,8 +271,7 @@ public class AwsAppstreamStack : TerraformResource
     /// </summary>
     public HashSet<AwsAppstreamStackStorageConnectorsBlock>? StorageConnectors
     {
-        get => GetProperty<HashSet<AwsAppstreamStackStorageConnectorsBlock>>("storage_connectors");
-        set => this.WithProperty("storage_connectors", value);
+        set => SetProperty("storage_connectors", value);
     }
 
     /// <summary>
@@ -284,8 +281,7 @@ public class AwsAppstreamStack : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingExperienceSettings block(s) allowed")]
     public List<AwsAppstreamStackStreamingExperienceSettingsBlock>? StreamingExperienceSettings
     {
-        get => GetProperty<List<AwsAppstreamStackStreamingExperienceSettingsBlock>>("streaming_experience_settings");
-        set => this.WithProperty("streaming_experience_settings", value);
+        set => SetProperty("streaming_experience_settings", value);
     }
 
     /// <summary>
@@ -294,8 +290,7 @@ public class AwsAppstreamStack : TerraformResource
     /// </summary>
     public HashSet<AwsAppstreamStackUserSettingsBlock>? UserSettings
     {
-        get => GetProperty<HashSet<AwsAppstreamStackUserSettingsBlock>>("user_settings");
-        set => this.WithProperty("user_settings", value);
+        set => SetProperty("user_settings", value);
     }
 
     /// <summary>

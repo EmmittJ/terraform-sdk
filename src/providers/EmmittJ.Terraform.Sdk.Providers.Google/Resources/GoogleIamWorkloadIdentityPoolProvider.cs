@@ -14,8 +14,7 @@ public class GoogleIamWorkloadIdentityPoolProviderAwsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => WithProperty("account_id", value);
+        set => SetProperty("account_id", value);
     }
 
 }
@@ -42,8 +41,7 @@ public class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedAudiences
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_audiences");
-        set => WithProperty("allowed_audiences", value);
+        set => SetProperty("allowed_audiences", value);
     }
 
     /// <summary>
@@ -52,8 +50,7 @@ public class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformProperty<string> IssuerUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("issuer_uri");
-        set => WithProperty("issuer_uri", value);
+        set => SetProperty("issuer_uri", value);
     }
 
     /// <summary>
@@ -83,8 +80,7 @@ public class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JwksJson
     {
-        get => GetProperty<TerraformProperty<string>>("jwks_json");
-        set => WithProperty("jwks_json", value);
+        set => SetProperty("jwks_json", value);
     }
 
 }
@@ -101,8 +97,7 @@ public class GoogleIamWorkloadIdentityPoolProviderSamlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
     public required TerraformProperty<string> IdpMetadataXml
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("idp_metadata_xml");
-        set => WithProperty("idp_metadata_xml", value);
+        set => SetProperty("idp_metadata_xml", value);
     }
 
 }
@@ -118,8 +113,7 @@ public class GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -127,8 +121,7 @@ public class GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -136,8 +129,7 @@ public class GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -163,8 +155,17 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("attribute_condition");
+        SetOutput("attribute_mapping");
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("workload_identity_pool_id");
+        SetOutput("workload_identity_pool_provider_id");
     }
 
     /// <summary>
@@ -188,10 +189,10 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// &amp;quot;&#39;admins&#39; in google.groups&amp;quot;
     /// &#39;&#39;&#39;
     /// </summary>
-    public TerraformProperty<string>? AttributeCondition
+    public TerraformProperty<string> AttributeCondition
     {
-        get => GetProperty<TerraformProperty<string>>("attribute_condition");
-        set => this.WithProperty("attribute_condition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("attribute_condition");
+        set => SetProperty("attribute_condition", value);
     }
 
     /// <summary>
@@ -256,56 +257,56 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     ///     {&amp;quot;google.subject&amp;quot;: &amp;quot;assertion.sub&amp;quot;}
     ///     &#39;&#39;&#39;
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AttributeMapping
+    public Dictionary<string, TerraformProperty<string>> AttributeMapping
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attribute_mapping");
-        set => this.WithProperty("attribute_mapping", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attribute_mapping");
+        set => SetProperty("attribute_mapping", value);
     }
 
     /// <summary>
     /// A description for the provider. Cannot exceed 256 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
     /// However, existing tokens still grant access.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// A display name for the provider. Cannot exceed 32 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -316,8 +317,8 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     public required TerraformProperty<string> WorkloadIdentityPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workload_identity_pool_id");
-        set => this.WithProperty("workload_identity_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_identity_pool_id");
+        set => SetProperty("workload_identity_pool_id", value);
     }
 
     /// <summary>
@@ -328,8 +329,8 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolProviderId is required")]
     public required TerraformProperty<string> WorkloadIdentityPoolProviderId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workload_identity_pool_provider_id");
-        set => this.WithProperty("workload_identity_pool_provider_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload_identity_pool_provider_id");
+        set => SetProperty("workload_identity_pool_provider_id", value);
     }
 
     /// <summary>
@@ -339,8 +340,7 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Aws block(s) allowed")]
     public List<GoogleIamWorkloadIdentityPoolProviderAwsBlock>? Aws
     {
-        get => GetProperty<List<GoogleIamWorkloadIdentityPoolProviderAwsBlock>>("aws");
-        set => this.WithProperty("aws", value);
+        set => SetProperty("aws", value);
     }
 
     /// <summary>
@@ -350,8 +350,7 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
     public List<GoogleIamWorkloadIdentityPoolProviderOidcBlock>? Oidc
     {
-        get => GetProperty<List<GoogleIamWorkloadIdentityPoolProviderOidcBlock>>("oidc");
-        set => this.WithProperty("oidc", value);
+        set => SetProperty("oidc", value);
     }
 
     /// <summary>
@@ -361,8 +360,7 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Saml block(s) allowed")]
     public List<GoogleIamWorkloadIdentityPoolProviderSamlBlock>? Saml
     {
-        get => GetProperty<List<GoogleIamWorkloadIdentityPoolProviderSamlBlock>>("saml");
-        set => this.WithProperty("saml", value);
+        set => SetProperty("saml", value);
     }
 
     /// <summary>
@@ -371,8 +369,7 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     public GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -382,8 +379,7 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 X509 block(s) allowed")]
     public List<GoogleIamWorkloadIdentityPoolProviderX509Block>? X509
     {
-        get => GetProperty<List<GoogleIamWorkloadIdentityPoolProviderX509Block>>("x509");
-        set => this.WithProperty("x509", value);
+        set => SetProperty("x509", value);
     }
 
     /// <summary>

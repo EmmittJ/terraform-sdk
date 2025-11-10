@@ -13,8 +13,7 @@ public class AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,24 +38,31 @@ public class AwsEc2ClientVpnAuthorizationRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("access_group_id");
+        SetOutput("authorize_all_groups");
+        SetOutput("client_vpn_endpoint_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("target_network_cidr");
     }
 
     /// <summary>
     /// The access_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessGroupId
+    public TerraformProperty<string> AccessGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("access_group_id");
-        set => this.WithProperty("access_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_group_id");
+        set => SetProperty("access_group_id", value);
     }
 
     /// <summary>
     /// The authorize_all_groups attribute.
     /// </summary>
-    public TerraformProperty<bool>? AuthorizeAllGroups
+    public TerraformProperty<bool> AuthorizeAllGroups
     {
-        get => GetProperty<TerraformProperty<bool>>("authorize_all_groups");
-        set => this.WithProperty("authorize_all_groups", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("authorize_all_groups");
+        set => SetProperty("authorize_all_groups", value);
     }
 
     /// <summary>
@@ -66,35 +71,35 @@ public class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
     public required TerraformProperty<string> ClientVpnEndpointId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_vpn_endpoint_id");
-        set => this.WithProperty("client_vpn_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_vpn_endpoint_id");
+        set => SetProperty("client_vpn_endpoint_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -103,8 +108,8 @@ public class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkCidr is required")]
     public required TerraformProperty<string> TargetNetworkCidr
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_network_cidr");
-        set => this.WithProperty("target_network_cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_network_cidr");
+        set => SetProperty("target_network_cidr", value);
     }
 
     /// <summary>
@@ -113,8 +118,7 @@ public class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     /// </summary>
     public AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

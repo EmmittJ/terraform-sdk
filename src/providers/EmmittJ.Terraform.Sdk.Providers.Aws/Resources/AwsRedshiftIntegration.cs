@@ -13,8 +13,7 @@ public class AwsRedshiftIntegrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsRedshiftIntegrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsRedshiftIntegrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,26 +46,34 @@ public class AwsRedshiftIntegration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("tags_all");
+        SetOutput("additional_encryption_context");
+        SetOutput("description");
+        SetOutput("integration_name");
+        SetOutput("kms_key_id");
+        SetOutput("region");
+        SetOutput("source_arn");
+        SetOutput("tags");
+        SetOutput("target_arn");
     }
 
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>> AdditionalEncryptionContext
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
-        set => this.WithProperty("additional_encryption_context", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
+        set => SetProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -77,26 +82,26 @@ public class AwsRedshiftIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationName is required")]
     public required TerraformProperty<string> IntegrationName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("integration_name");
-        set => this.WithProperty("integration_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("integration_name");
+        set => SetProperty("integration_name", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -105,17 +110,17 @@ public class AwsRedshiftIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformProperty<string> SourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_arn");
-        set => this.WithProperty("source_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_arn");
+        set => SetProperty("source_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -124,8 +129,8 @@ public class AwsRedshiftIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
-        set => this.WithProperty("target_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_arn");
+        set => SetProperty("target_arn", value);
     }
 
     /// <summary>
@@ -134,8 +139,7 @@ public class AwsRedshiftIntegration : TerraformResource
     /// </summary>
     public AwsRedshiftIntegrationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRedshiftIntegrationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,37 +54,47 @@ public class AzurermKeyVaultSecret : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("resource_id");
-        this.WithOutput("resource_versionless_id");
-        this.WithOutput("version");
-        this.WithOutput("versionless_id");
+        SetOutput("resource_id");
+        SetOutput("resource_versionless_id");
+        SetOutput("version");
+        SetOutput("versionless_id");
+        SetOutput("content_type");
+        SetOutput("expiration_date");
+        SetOutput("id");
+        SetOutput("key_vault_id");
+        SetOutput("name");
+        SetOutput("not_before_date");
+        SetOutput("tags");
+        SetOutput("value");
+        SetOutput("value_wo");
+        SetOutput("value_wo_version");
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    public TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => this.WithProperty("content_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpirationDate
+    public TerraformProperty<string> ExpirationDate
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_date");
-        set => this.WithProperty("expiration_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration_date");
+        set => SetProperty("expiration_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -97,8 +103,8 @@ public class AzurermKeyVaultSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -107,53 +113,53 @@ public class AzurermKeyVaultSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
-    public TerraformProperty<string>? NotBeforeDate
+    public TerraformProperty<string> NotBeforeDate
     {
-        get => GetProperty<TerraformProperty<string>>("not_before_date");
-        set => this.WithProperty("not_before_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("not_before_date");
+        set => SetProperty("not_before_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
+    public TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>
     /// The value_wo attribute.
     /// </summary>
-    public TerraformProperty<string>? ValueWo
+    public TerraformProperty<string> ValueWo
     {
-        get => GetProperty<TerraformProperty<string>>("value_wo");
-        set => this.WithProperty("value_wo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value_wo");
+        set => SetProperty("value_wo", value);
     }
 
     /// <summary>
     /// The value_wo_version attribute.
     /// </summary>
-    public TerraformProperty<double>? ValueWoVersion
+    public TerraformProperty<double> ValueWoVersion
     {
-        get => GetProperty<TerraformProperty<double>>("value_wo_version");
-        set => this.WithProperty("value_wo_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("value_wo_version");
+        set => SetProperty("value_wo_version", value);
     }
 
     /// <summary>
@@ -162,8 +168,7 @@ public class AzurermKeyVaultSecret : TerraformResource
     /// </summary>
     public AzurermKeyVaultSecretTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultSecretTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

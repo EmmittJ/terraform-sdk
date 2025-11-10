@@ -14,8 +14,7 @@ public class AwsRekognitionStreamProcessorDataSharingPreferenceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptIn is required")]
     public required TerraformProperty<bool> OptIn
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("opt_in");
-        set => WithProperty("opt_in", value);
+        set => SetProperty("opt_in", value);
     }
 
 }
@@ -39,8 +38,7 @@ public class AwsRekognitionStreamProcessorNotificationChannelBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? SnsTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
-        set => WithProperty("sns_topic_arn", value);
+        set => SetProperty("sns_topic_arn", value);
     }
 
 }
@@ -80,8 +78,7 @@ public class AwsRekognitionStreamProcessorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -89,8 +86,7 @@ public class AwsRekognitionStreamProcessorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -98,8 +94,7 @@ public class AwsRekognitionStreamProcessorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -116,18 +111,23 @@ public class AwsRekognitionStreamProcessor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("stream_processor_arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("stream_processor_arn");
+        SetOutput("tags_all");
+        SetOutput("kms_key_id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -136,17 +136,17 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -155,17 +155,17 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -174,8 +174,7 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// </summary>
     public List<AwsRekognitionStreamProcessorDataSharingPreferenceBlock>? DataSharingPreference
     {
-        get => GetProperty<List<AwsRekognitionStreamProcessorDataSharingPreferenceBlock>>("data_sharing_preference");
-        set => this.WithProperty("data_sharing_preference", value);
+        set => SetProperty("data_sharing_preference", value);
     }
 
     /// <summary>
@@ -184,8 +183,7 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// </summary>
     public List<AwsRekognitionStreamProcessorInputBlock>? Input
     {
-        get => GetProperty<List<AwsRekognitionStreamProcessorInputBlock>>("input");
-        set => this.WithProperty("input", value);
+        set => SetProperty("input", value);
     }
 
     /// <summary>
@@ -194,8 +192,7 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// </summary>
     public List<AwsRekognitionStreamProcessorNotificationChannelBlock>? NotificationChannel
     {
-        get => GetProperty<List<AwsRekognitionStreamProcessorNotificationChannelBlock>>("notification_channel");
-        set => this.WithProperty("notification_channel", value);
+        set => SetProperty("notification_channel", value);
     }
 
     /// <summary>
@@ -204,8 +201,7 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// </summary>
     public List<AwsRekognitionStreamProcessorOutputBlock>? Output
     {
-        get => GetProperty<List<AwsRekognitionStreamProcessorOutputBlock>>("output");
-        set => this.WithProperty("output", value);
+        set => SetProperty("output", value);
     }
 
     /// <summary>
@@ -214,8 +210,7 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// </summary>
     public List<AwsRekognitionStreamProcessorRegionsOfInterestBlock>? RegionsOfInterest
     {
-        get => GetProperty<List<AwsRekognitionStreamProcessorRegionsOfInterestBlock>>("regions_of_interest");
-        set => this.WithProperty("regions_of_interest", value);
+        set => SetProperty("regions_of_interest", value);
     }
 
     /// <summary>
@@ -224,8 +219,7 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// </summary>
     public List<AwsRekognitionStreamProcessorSettingsBlock>? Settings
     {
-        get => GetProperty<List<AwsRekognitionStreamProcessorSettingsBlock>>("settings");
-        set => this.WithProperty("settings", value);
+        set => SetProperty("settings", value);
     }
 
     /// <summary>
@@ -234,8 +228,7 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// </summary>
     public AwsRekognitionStreamProcessorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRekognitionStreamProcessorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

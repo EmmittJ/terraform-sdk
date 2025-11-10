@@ -13,8 +13,7 @@ public class AzurermVirtualMachinePacketCaptureFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocalIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("local_ip_address");
-        set => WithProperty("local_ip_address", value);
+        set => SetProperty("local_ip_address", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualMachinePacketCaptureFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LocalPort
     {
-        get => GetProperty<TerraformProperty<string>>("local_port");
-        set => WithProperty("local_port", value);
+        set => SetProperty("local_port", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermVirtualMachinePacketCaptureFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => WithProperty("protocol", value);
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermVirtualMachinePacketCaptureFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RemoteIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("remote_ip_address");
-        set => WithProperty("remote_ip_address", value);
+        set => SetProperty("remote_ip_address", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermVirtualMachinePacketCaptureFilterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RemotePort
     {
-        get => GetProperty<TerraformProperty<string>>("remote_port");
-        set => WithProperty("remote_port", value);
+        set => SetProperty("remote_port", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AzurermVirtualMachinePacketCaptureStorageLocationBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? FilePath
     {
-        get => GetProperty<TerraformProperty<string>>("file_path");
-        set => WithProperty("file_path", value);
+        set => SetProperty("file_path", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermVirtualMachinePacketCaptureStorageLocationBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
-        set => WithProperty("storage_account_id", value);
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermVirtualMachinePacketCaptureStorageLocationBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? StoragePath
     {
-        get => GetProperty<TerraformProperty<string>>("storage_path");
-        set => WithProperty("storage_path", value);
+        set => SetProperty("storage_path", value);
     }
 
 }
@@ -102,8 +94,7 @@ public class AzurermVirtualMachinePacketCaptureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermVirtualMachinePacketCaptureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AzurermVirtualMachinePacketCaptureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -139,42 +128,49 @@ public class AzurermVirtualMachinePacketCapture : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("maximum_bytes_per_packet");
+        SetOutput("maximum_bytes_per_session");
+        SetOutput("maximum_capture_duration_in_seconds");
+        SetOutput("name");
+        SetOutput("network_watcher_id");
+        SetOutput("virtual_machine_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The maximum_bytes_per_packet attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumBytesPerPacket
+    public TerraformProperty<double> MaximumBytesPerPacket
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_bytes_per_packet");
-        set => this.WithProperty("maximum_bytes_per_packet", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_bytes_per_packet");
+        set => SetProperty("maximum_bytes_per_packet", value);
     }
 
     /// <summary>
     /// The maximum_bytes_per_session attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumBytesPerSession
+    public TerraformProperty<double> MaximumBytesPerSession
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_bytes_per_session");
-        set => this.WithProperty("maximum_bytes_per_session", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_bytes_per_session");
+        set => SetProperty("maximum_bytes_per_session", value);
     }
 
     /// <summary>
     /// The maximum_capture_duration_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumCaptureDurationInSeconds
+    public TerraformProperty<double> MaximumCaptureDurationInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_capture_duration_in_seconds");
-        set => this.WithProperty("maximum_capture_duration_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_capture_duration_in_seconds");
+        set => SetProperty("maximum_capture_duration_in_seconds", value);
     }
 
     /// <summary>
@@ -183,8 +179,8 @@ public class AzurermVirtualMachinePacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -193,8 +189,8 @@ public class AzurermVirtualMachinePacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherId is required")]
     public required TerraformProperty<string> NetworkWatcherId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_watcher_id");
-        set => this.WithProperty("network_watcher_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_watcher_id");
+        set => SetProperty("network_watcher_id", value);
     }
 
     /// <summary>
@@ -203,8 +199,8 @@ public class AzurermVirtualMachinePacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
-        set => this.WithProperty("virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
+        set => SetProperty("virtual_machine_id", value);
     }
 
     /// <summary>
@@ -213,20 +209,19 @@ public class AzurermVirtualMachinePacketCapture : TerraformResource
     /// </summary>
     public List<AzurermVirtualMachinePacketCaptureFilterBlock>? Filter
     {
-        get => GetProperty<List<AzurermVirtualMachinePacketCaptureFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// Block for storage_location.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
     public List<AzurermVirtualMachinePacketCaptureStorageLocationBlock>? StorageLocation
     {
-        get => GetProperty<List<AzurermVirtualMachinePacketCaptureStorageLocationBlock>>("storage_location");
-        set => this.WithProperty("storage_location", value);
+        set => SetProperty("storage_location", value);
     }
 
     /// <summary>
@@ -235,8 +230,7 @@ public class AzurermVirtualMachinePacketCapture : TerraformResource
     /// </summary>
     public AzurermVirtualMachinePacketCaptureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualMachinePacketCaptureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

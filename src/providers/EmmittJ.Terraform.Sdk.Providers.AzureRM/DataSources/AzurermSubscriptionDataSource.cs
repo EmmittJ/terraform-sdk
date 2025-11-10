@@ -13,8 +13,7 @@ public class AzurermSubscriptionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,31 +30,33 @@ public class AzurermSubscriptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("display_name");
-        this.WithOutput("location_placement_id");
-        this.WithOutput("quota_id");
-        this.WithOutput("spending_limit");
-        this.WithOutput("state");
-        this.WithOutput("tags");
-        this.WithOutput("tenant_id");
+        SetOutput("display_name");
+        SetOutput("location_placement_id");
+        SetOutput("quota_id");
+        SetOutput("spending_limit");
+        SetOutput("state");
+        SetOutput("tags");
+        SetOutput("tenant_id");
+        SetOutput("id");
+        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionId
+    public TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -64,8 +65,7 @@ public class AzurermSubscriptionDataSource : TerraformDataSource
     /// </summary>
     public AzurermSubscriptionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSubscriptionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

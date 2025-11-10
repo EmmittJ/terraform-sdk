@@ -13,8 +13,7 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,7 +54,18 @@ public class AzurermAutomationWatcher : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("status");
+        SetOutput("status");
+        SetOutput("automation_account_id");
+        SetOutput("description");
+        SetOutput("etag");
+        SetOutput("execution_frequency_in_seconds");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("script_name");
+        SetOutput("script_parameters");
+        SetOutput("script_run_on");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -67,26 +74,26 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformProperty<string> AutomationAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_id");
-        set => this.WithProperty("automation_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_id");
+        set => SetProperty("automation_account_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformProperty<string>? Etag
+    public TerraformProperty<string> Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => this.WithProperty("etag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("etag");
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
@@ -95,17 +102,17 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionFrequencyInSeconds is required")]
     public required TerraformProperty<double> ExecutionFrequencyInSeconds
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("execution_frequency_in_seconds");
-        set => this.WithProperty("execution_frequency_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("execution_frequency_in_seconds");
+        set => SetProperty("execution_frequency_in_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -114,8 +121,8 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -124,8 +131,8 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -134,17 +141,17 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptName is required")]
     public required TerraformProperty<string> ScriptName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("script_name");
-        set => this.WithProperty("script_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("script_name");
+        set => SetProperty("script_name", value);
     }
 
     /// <summary>
     /// The script_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ScriptParameters
+    public Dictionary<string, TerraformProperty<string>> ScriptParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("script_parameters");
-        set => this.WithProperty("script_parameters", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("script_parameters");
+        set => SetProperty("script_parameters", value);
     }
 
     /// <summary>
@@ -153,17 +160,17 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptRunOn is required")]
     public required TerraformProperty<string> ScriptRunOn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("script_run_on");
-        set => this.WithProperty("script_run_on", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("script_run_on");
+        set => SetProperty("script_run_on", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -172,8 +179,7 @@ public class AzurermAutomationWatcher : TerraformResource
     /// </summary>
     public AzurermAutomationWatcherTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAutomationWatcherTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

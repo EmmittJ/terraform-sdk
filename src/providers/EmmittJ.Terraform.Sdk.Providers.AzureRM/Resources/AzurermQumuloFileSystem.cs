@@ -13,8 +13,7 @@ public class AzurermQumuloFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermQumuloFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermQumuloFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermQumuloFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,19 @@ public class AzurermQumuloFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("admin_password");
+        SetOutput("email");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("offer_id");
+        SetOutput("plan_id");
+        SetOutput("publisher_id");
+        SetOutput("resource_group_name");
+        SetOutput("storage_sku");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("zone");
     }
 
     /// <summary>
@@ -66,8 +75,8 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformProperty<string> AdminPassword
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_password");
-        set => this.WithProperty("admin_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admin_password");
+        set => SetProperty("admin_password", value);
     }
 
     /// <summary>
@@ -76,17 +85,17 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email");
-        set => this.WithProperty("email", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email");
+        set => SetProperty("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +104,8 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -105,35 +114,35 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The offer_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OfferId
+    public TerraformProperty<string> OfferId
     {
-        get => GetProperty<TerraformProperty<string>>("offer_id");
-        set => this.WithProperty("offer_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("offer_id");
+        set => SetProperty("offer_id", value);
     }
 
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PlanId
+    public TerraformProperty<string> PlanId
     {
-        get => GetProperty<TerraformProperty<string>>("plan_id");
-        set => this.WithProperty("plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plan_id");
+        set => SetProperty("plan_id", value);
     }
 
     /// <summary>
     /// The publisher_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PublisherId
+    public TerraformProperty<string> PublisherId
     {
-        get => GetProperty<TerraformProperty<string>>("publisher_id");
-        set => this.WithProperty("publisher_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("publisher_id");
+        set => SetProperty("publisher_id", value);
     }
 
     /// <summary>
@@ -142,8 +151,8 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -152,8 +161,8 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSku is required")]
     public required TerraformProperty<string> StorageSku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_sku");
-        set => this.WithProperty("storage_sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_sku");
+        set => SetProperty("storage_sku", value);
     }
 
     /// <summary>
@@ -162,17 +171,17 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -181,8 +190,8 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -191,8 +200,7 @@ public class AzurermQumuloFileSystem : TerraformResource
     /// </summary>
     public AzurermQumuloFileSystemTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermQumuloFileSystemTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

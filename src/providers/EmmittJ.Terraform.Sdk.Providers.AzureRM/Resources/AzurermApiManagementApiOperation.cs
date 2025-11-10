@@ -13,8 +13,7 @@ public class AzurermApiManagementApiOperationRequestBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AzurermApiManagementApiOperationResponseBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AzurermApiManagementApiOperationResponseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformProperty<double> StatusCode
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("status_code");
-        set => WithProperty("status_code", value);
+        set => SetProperty("status_code", value);
     }
 
 }
@@ -57,8 +54,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? DefaultValue
     {
-        get => GetProperty<TerraformProperty<string>>("default_value");
-        set => WithProperty("default_value", value);
+        set => SetProperty("default_value", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformProperty<bool> Required
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("required");
-        set => WithProperty("required", value);
+        set => SetProperty("required", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? SchemaId
     {
-        get => GetProperty<TerraformProperty<string>>("schema_id");
-        set => WithProperty("schema_id", value);
+        set => SetProperty("schema_id", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -114,8 +105,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? TypeName
     {
-        get => GetProperty<TerraformProperty<string>>("type_name");
-        set => WithProperty("type_name", value);
+        set => SetProperty("type_name", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
     /// </summary>
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -140,8 +129,7 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -149,8 +137,7 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -158,8 +145,7 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -167,8 +153,7 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -186,6 +171,15 @@ public class AzurermApiManagementApiOperation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_name");
+        SetOutput("api_name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("method");
+        SetOutput("operation_id");
+        SetOutput("resource_group_name");
+        SetOutput("url_template");
     }
 
     /// <summary>
@@ -194,8 +188,8 @@ public class AzurermApiManagementApiOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
@@ -204,17 +198,17 @@ public class AzurermApiManagementApiOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
     public required TerraformProperty<string> ApiName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_name");
-        set => this.WithProperty("api_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_name");
+        set => SetProperty("api_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -223,17 +217,17 @@ public class AzurermApiManagementApiOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -242,8 +236,8 @@ public class AzurermApiManagementApiOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformProperty<string> Method
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("method");
-        set => this.WithProperty("method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("method");
+        set => SetProperty("method", value);
     }
 
     /// <summary>
@@ -252,8 +246,8 @@ public class AzurermApiManagementApiOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationId is required")]
     public required TerraformProperty<string> OperationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("operation_id");
-        set => this.WithProperty("operation_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("operation_id");
+        set => SetProperty("operation_id", value);
     }
 
     /// <summary>
@@ -262,8 +256,8 @@ public class AzurermApiManagementApiOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -272,8 +266,8 @@ public class AzurermApiManagementApiOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
     public required TerraformProperty<string> UrlTemplate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url_template");
-        set => this.WithProperty("url_template", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url_template");
+        set => SetProperty("url_template", value);
     }
 
     /// <summary>
@@ -283,8 +277,7 @@ public class AzurermApiManagementApiOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Request block(s) allowed")]
     public List<AzurermApiManagementApiOperationRequestBlock>? Request
     {
-        get => GetProperty<List<AzurermApiManagementApiOperationRequestBlock>>("request");
-        set => this.WithProperty("request", value);
+        set => SetProperty("request", value);
     }
 
     /// <summary>
@@ -293,8 +286,7 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// </summary>
     public List<AzurermApiManagementApiOperationResponseBlock>? Response
     {
-        get => GetProperty<List<AzurermApiManagementApiOperationResponseBlock>>("response");
-        set => this.WithProperty("response", value);
+        set => SetProperty("response", value);
     }
 
     /// <summary>
@@ -303,8 +295,7 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// </summary>
     public List<AzurermApiManagementApiOperationTemplateParameterBlock>? TemplateParameter
     {
-        get => GetProperty<List<AzurermApiManagementApiOperationTemplateParameterBlock>>("template_parameter");
-        set => this.WithProperty("template_parameter", value);
+        set => SetProperty("template_parameter", value);
     }
 
     /// <summary>
@@ -313,8 +304,7 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// </summary>
     public AzurermApiManagementApiOperationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementApiOperationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

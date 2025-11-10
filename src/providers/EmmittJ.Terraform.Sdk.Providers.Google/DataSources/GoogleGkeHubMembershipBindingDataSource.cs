@@ -14,25 +14,30 @@ public class GoogleGkeHubMembershipBindingDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("labels");
-        this.WithOutput("name");
-        this.WithOutput("scope");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_labels");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("scope");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("membership_binding_id");
+        SetOutput("membership_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,8 +46,8 @@ public class GoogleGkeHubMembershipBindingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -51,8 +56,8 @@ public class GoogleGkeHubMembershipBindingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipBindingId is required")]
     public required TerraformProperty<string> MembershipBindingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("membership_binding_id");
-        set => this.WithProperty("membership_binding_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("membership_binding_id");
+        set => SetProperty("membership_binding_id", value);
     }
 
     /// <summary>
@@ -61,17 +66,17 @@ public class GoogleGkeHubMembershipBindingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
     public required TerraformProperty<string> MembershipId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("membership_id");
-        set => this.WithProperty("membership_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("membership_id");
+        set => SetProperty("membership_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

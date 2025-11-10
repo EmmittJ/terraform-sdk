@@ -13,8 +13,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministratorTimeouts
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministratorTimeouts
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministratorTimeouts
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,22 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("object_id");
+        SetOutput("principal_name");
+        SetOutput("principal_type");
+        SetOutput("resource_group_name");
+        SetOutput("server_name");
+        SetOutput("tenant_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +70,8 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
-        set => this.WithProperty("object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
@@ -76,8 +80,8 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalName is required")]
     public required TerraformProperty<string> PrincipalName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_name");
-        set => this.WithProperty("principal_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_name");
+        set => SetProperty("principal_name", value);
     }
 
     /// <summary>
@@ -86,8 +90,8 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformProperty<string> PrincipalType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_type");
-        set => this.WithProperty("principal_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_type");
+        set => SetProperty("principal_type", value);
     }
 
     /// <summary>
@@ -96,8 +100,8 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -106,8 +110,8 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
-        set => this.WithProperty("server_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_name");
+        set => SetProperty("server_name", value);
     }
 
     /// <summary>
@@ -116,8 +120,8 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
-        set => this.WithProperty("tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -126,8 +130,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     /// </summary>
     public AzurermPostgresqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPostgresqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

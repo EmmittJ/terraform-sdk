@@ -13,8 +13,7 @@ public class AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,10 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("catalog_id");
+        SetOutput("id");
+        SetOutput("resource_origin_id");
+        SetOutput("resource_origin_system");
     }
 
     /// <summary>
@@ -57,17 +58,17 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginId is required")]
     public required TerraformProperty<string> ResourceOriginId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_origin_id");
-        set => this.WithProperty("resource_origin_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_origin_id");
+        set => SetProperty("resource_origin_id", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginSystem is required")]
     public required TerraformProperty<string> ResourceOriginSystem
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_origin_system");
-        set => this.WithProperty("resource_origin_system", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_origin_system");
+        set => SetProperty("resource_origin_system", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
     /// </summary>
     public AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,55 +14,59 @@ public class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("annotations");
-        this.WithOutput("binary_authorization");
-        this.WithOutput("client");
-        this.WithOutput("client_version");
-        this.WithOutput("conditions");
-        this.WithOutput("create_time");
-        this.WithOutput("creator");
-        this.WithOutput("custom_audiences");
-        this.WithOutput("delete_time");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("description");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("expire_time");
-        this.WithOutput("generation");
-        this.WithOutput("instance_split_statuses");
-        this.WithOutput("instance_splits");
-        this.WithOutput("labels");
-        this.WithOutput("last_modifier");
-        this.WithOutput("latest_created_revision");
-        this.WithOutput("latest_ready_revision");
-        this.WithOutput("launch_stage");
-        this.WithOutput("observed_generation");
-        this.WithOutput("reconciling");
-        this.WithOutput("scaling");
-        this.WithOutput("template");
-        this.WithOutput("terminal_condition");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("binary_authorization");
+        SetOutput("client");
+        SetOutput("client_version");
+        SetOutput("conditions");
+        SetOutput("create_time");
+        SetOutput("creator");
+        SetOutput("custom_audiences");
+        SetOutput("delete_time");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("expire_time");
+        SetOutput("generation");
+        SetOutput("instance_split_statuses");
+        SetOutput("instance_splits");
+        SetOutput("labels");
+        SetOutput("last_modifier");
+        SetOutput("latest_created_revision");
+        SetOutput("latest_ready_revision");
+        SetOutput("launch_stage");
+        SetOutput("observed_generation");
+        SetOutput("reconciling");
+        SetOutput("scaling");
+        SetOutput("template");
+        SetOutput("terminal_condition");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location of the cloud run worker pool
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -71,17 +75,17 @@ public class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

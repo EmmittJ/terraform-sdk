@@ -14,8 +14,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetastoreType is required")]
     public required TerraformProperty<string> MetastoreType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metastore_type");
-        set => WithProperty("metastore_type", value);
+        set => SetProperty("metastore_type", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
     public required TerraformProperty<string> Rank
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rank");
-        set => WithProperty("rank", value);
+        set => SetProperty("rank", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class GoogleDataprocMetastoreFederationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class GoogleDataprocMetastoreFederationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class GoogleDataprocMetastoreFederationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -88,15 +82,23 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("endpoint_uri");
-        this.WithOutput("name");
-        this.WithOutput("state");
-        this.WithOutput("state_message");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("endpoint_uri");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("state_message");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("deletion_protection");
+        SetOutput("federation_id");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("tags");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -104,10 +106,10 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// When the field is set to true in Terraform state, a &#39;terraform apply&#39;
     /// or &#39;terraform destroy&#39; that would delete the federation will fail.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
@@ -118,17 +120,17 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FederationId is required")]
     public required TerraformProperty<string> FederationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("federation_id");
-        set => this.WithProperty("federation_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("federation_id");
+        set => SetProperty("federation_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -137,28 +139,28 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location where the metastore federation should reside.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -166,10 +168,10 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -178,19 +180,19 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
     /// Block for backend_metastores.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendMetastores is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendMetastores block(s) required")]
     public HashSet<GoogleDataprocMetastoreFederationBackendMetastoresBlock>? BackendMetastores
     {
-        get => GetProperty<HashSet<GoogleDataprocMetastoreFederationBackendMetastoresBlock>>("backend_metastores");
-        set => this.WithProperty("backend_metastores", value);
+        set => SetProperty("backend_metastores", value);
     }
 
     /// <summary>
@@ -199,8 +201,7 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// </summary>
     public GoogleDataprocMetastoreFederationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataprocMetastoreFederationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

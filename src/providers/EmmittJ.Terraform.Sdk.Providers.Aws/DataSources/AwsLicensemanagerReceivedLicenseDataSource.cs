@@ -14,29 +14,32 @@ public class AwsLicensemanagerReceivedLicenseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("beneficiary");
-        this.WithOutput("consumption_configuration");
-        this.WithOutput("create_time");
-        this.WithOutput("entitlements");
-        this.WithOutput("home_region");
-        this.WithOutput("issuer");
-        this.WithOutput("license_metadata");
-        this.WithOutput("license_name");
-        this.WithOutput("product_name");
-        this.WithOutput("product_sku");
-        this.WithOutput("received_metadata");
-        this.WithOutput("status");
-        this.WithOutput("validity");
-        this.WithOutput("version");
+        SetOutput("beneficiary");
+        SetOutput("consumption_configuration");
+        SetOutput("create_time");
+        SetOutput("entitlements");
+        SetOutput("home_region");
+        SetOutput("issuer");
+        SetOutput("license_metadata");
+        SetOutput("license_name");
+        SetOutput("product_name");
+        SetOutput("product_sku");
+        SetOutput("received_metadata");
+        SetOutput("status");
+        SetOutput("validity");
+        SetOutput("version");
+        SetOutput("id");
+        SetOutput("license_arn");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -45,17 +48,17 @@ public class AwsLicensemanagerReceivedLicenseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
     public required TerraformProperty<string> LicenseArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license_arn");
-        set => this.WithProperty("license_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_arn");
+        set => SetProperty("license_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

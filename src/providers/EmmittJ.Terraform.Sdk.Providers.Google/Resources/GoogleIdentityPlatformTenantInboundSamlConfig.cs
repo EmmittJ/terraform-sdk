@@ -14,8 +14,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpEntityId is required")]
     public required TerraformProperty<string> IdpEntityId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("idp_entity_id");
-        set => WithProperty("idp_entity_id", value);
+        set => SetProperty("idp_entity_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock : Terra
     /// </summary>
     public TerraformProperty<bool>? SignRequest
     {
-        get => GetProperty<TerraformProperty<bool>>("sign_request");
-        set => WithProperty("sign_request", value);
+        set => SetProperty("sign_request", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SsoUrl is required")]
     public required TerraformProperty<string> SsoUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sso_url");
-        set => WithProperty("sso_url", value);
+        set => SetProperty("sso_url", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUri is required")]
     public required TerraformProperty<string> CallbackUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("callback_uri");
-        set => WithProperty("callback_uri", value);
+        set => SetProperty("callback_uri", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock : Terraf
     /// </summary>
     public List<TerraformProperty<object>>? SpCertificates
     {
-        get => GetProperty<List<TerraformProperty<object>>>("sp_certificates");
-        set => WithProperty("sp_certificates", value);
+        set => SetProperty("sp_certificates", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpEntityId is required")]
     public required TerraformProperty<string> SpEntityId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sp_entity_id");
-        set => WithProperty("sp_entity_id", value);
+        set => SetProperty("sp_entity_id", value);
     }
 
 }
@@ -87,8 +81,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -96,8 +89,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -124,6 +115,12 @@ public class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("display_name");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("tenant");
     }
 
     /// <summary>
@@ -132,26 +129,26 @@ public class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// If this config allows users to sign in with the provider.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -162,17 +159,17 @@ public class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -181,32 +178,32 @@ public class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     public required TerraformProperty<string> Tenant
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tenant");
-        set => this.WithProperty("tenant", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant");
+        set => SetProperty("tenant", value);
     }
 
     /// <summary>
     /// Block for idp_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IdpConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdpConfig block(s) allowed")]
     public List<GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock>? IdpConfig
     {
-        get => GetProperty<List<GoogleIdentityPlatformTenantInboundSamlConfigIdpConfigBlock>>("idp_config");
-        set => this.WithProperty("idp_config", value);
+        set => SetProperty("idp_config", value);
     }
 
     /// <summary>
     /// Block for sp_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SpConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpConfig block(s) allowed")]
     public List<GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock>? SpConfig
     {
-        get => GetProperty<List<GoogleIdentityPlatformTenantInboundSamlConfigSpConfigBlock>>("sp_config");
-        set => this.WithProperty("sp_config", value);
+        set => SetProperty("sp_config", value);
     }
 
     /// <summary>
@@ -215,8 +212,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformResource
     /// </summary>
     public GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

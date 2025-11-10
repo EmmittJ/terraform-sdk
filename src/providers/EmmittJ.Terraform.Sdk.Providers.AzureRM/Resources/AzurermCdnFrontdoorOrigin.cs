@@ -14,8 +14,7 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkTargetId is required")]
     public required TerraformProperty<string> PrivateLinkTargetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_link_target_id");
-        set => WithProperty("private_link_target_id", value);
+        set => SetProperty("private_link_target_id", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RequestMessage
     {
-        get => GetProperty<TerraformProperty<string>>("request_message");
-        set => WithProperty("request_message", value);
+        set => SetProperty("request_message", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetType
     {
-        get => GetProperty<TerraformProperty<string>>("target_type");
-        set => WithProperty("target_type", value);
+        set => SetProperty("target_type", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -105,6 +97,17 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cdn_frontdoor_origin_group_id");
+        SetOutput("certificate_name_check_enabled");
+        SetOutput("enabled");
+        SetOutput("host_name");
+        SetOutput("http_port");
+        SetOutput("https_port");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("origin_host_header");
+        SetOutput("priority");
+        SetOutput("weight");
     }
 
     /// <summary>
@@ -113,8 +116,8 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorOriginGroupId is required")]
     public required TerraformProperty<string> CdnFrontdoorOriginGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_origin_group_id");
-        set => this.WithProperty("cdn_frontdoor_origin_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cdn_frontdoor_origin_group_id");
+        set => SetProperty("cdn_frontdoor_origin_group_id", value);
     }
 
     /// <summary>
@@ -123,17 +126,17 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateNameCheckEnabled is required")]
     public required TerraformProperty<bool> CertificateNameCheckEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("certificate_name_check_enabled");
-        set => this.WithProperty("certificate_name_check_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("certificate_name_check_enabled");
+        set => SetProperty("certificate_name_check_enabled", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -142,35 +145,35 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => this.WithProperty("host_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_name");
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
     /// The http_port attribute.
     /// </summary>
-    public TerraformProperty<double>? HttpPort
+    public TerraformProperty<double> HttpPort
     {
-        get => GetProperty<TerraformProperty<double>>("http_port");
-        set => this.WithProperty("http_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("http_port");
+        set => SetProperty("http_port", value);
     }
 
     /// <summary>
     /// The https_port attribute.
     /// </summary>
-    public TerraformProperty<double>? HttpsPort
+    public TerraformProperty<double> HttpsPort
     {
-        get => GetProperty<TerraformProperty<double>>("https_port");
-        set => this.WithProperty("https_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("https_port");
+        set => SetProperty("https_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -179,35 +182,35 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The origin_host_header attribute.
     /// </summary>
-    public TerraformProperty<string>? OriginHostHeader
+    public TerraformProperty<string> OriginHostHeader
     {
-        get => GetProperty<TerraformProperty<string>>("origin_host_header");
-        set => this.WithProperty("origin_host_header", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("origin_host_header");
+        set => SetProperty("origin_host_header", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    public TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
-    public TerraformProperty<double>? Weight
+    public TerraformProperty<double> Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
-        set => this.WithProperty("weight", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("weight");
+        set => SetProperty("weight", value);
     }
 
     /// <summary>
@@ -217,8 +220,7 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLink block(s) allowed")]
     public List<AzurermCdnFrontdoorOriginPrivateLinkBlock>? PrivateLink
     {
-        get => GetProperty<List<AzurermCdnFrontdoorOriginPrivateLinkBlock>>("private_link");
-        set => this.WithProperty("private_link", value);
+        set => SetProperty("private_link", value);
     }
 
     /// <summary>
@@ -227,8 +229,7 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// </summary>
     public AzurermCdnFrontdoorOriginTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCdnFrontdoorOriginTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

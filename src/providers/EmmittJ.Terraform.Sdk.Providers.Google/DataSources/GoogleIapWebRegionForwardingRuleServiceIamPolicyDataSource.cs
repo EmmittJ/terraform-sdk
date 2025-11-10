@@ -14,8 +14,12 @@ public class GoogleIapWebRegionForwardingRuleServiceIamPolicyDataSource : Terraf
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("forwarding_rule_region_service_name");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,35 +28,35 @@ public class GoogleIapWebRegionForwardingRuleServiceIamPolicyDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRuleRegionServiceName is required")]
     public required TerraformProperty<string> ForwardingRuleRegionServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("forwarding_rule_region_service_name");
-        set => this.WithProperty("forwarding_rule_region_service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("forwarding_rule_region_service_name");
+        set => SetProperty("forwarding_rule_region_service_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

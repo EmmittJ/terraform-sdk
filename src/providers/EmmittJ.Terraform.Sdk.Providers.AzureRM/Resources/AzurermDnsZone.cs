@@ -14,8 +14,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email");
-        set => WithProperty("email", value);
+        set => SetProperty("email", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ExpireTime
     {
-        get => GetProperty<TerraformProperty<double>>("expire_time");
-        set => WithProperty("expire_time", value);
+        set => SetProperty("expire_time", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Fqdn
     {
-        get => GetProperty<TerraformProperty<string>>("fqdn");
-        set => WithProperty("fqdn", value);
+        set => SetProperty("fqdn", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
-        set => WithProperty("host_name", value);
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinimumTtl
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_ttl");
-        set => WithProperty("minimum_ttl", value);
+        set => SetProperty("minimum_ttl", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RefreshTime
     {
-        get => GetProperty<TerraformProperty<double>>("refresh_time");
-        set => WithProperty("refresh_time", value);
+        set => SetProperty("refresh_time", value);
     }
 
     /// <summary>
@@ -68,8 +62,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RetryTime
     {
-        get => GetProperty<TerraformProperty<double>>("retry_time");
-        set => WithProperty("retry_time", value);
+        set => SetProperty("retry_time", value);
     }
 
     /// <summary>
@@ -77,8 +70,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SerialNumber
     {
-        get => GetProperty<TerraformProperty<double>>("serial_number");
-        set => WithProperty("serial_number", value);
+        set => SetProperty("serial_number", value);
     }
 
     /// <summary>
@@ -86,8 +78,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -95,8 +86,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Ttl
     {
-        get => GetProperty<TerraformProperty<double>>("ttl");
-        set => WithProperty("ttl", value);
+        set => SetProperty("ttl", value);
     }
 
 }
@@ -112,8 +102,7 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -121,8 +110,7 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -130,8 +118,7 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -139,8 +126,7 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -158,18 +144,22 @@ public class AzurermDnsZone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("max_number_of_record_sets");
-        this.WithOutput("name_servers");
-        this.WithOutput("number_of_record_sets");
+        SetOutput("max_number_of_record_sets");
+        SetOutput("name_servers");
+        SetOutput("number_of_record_sets");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -178,8 +168,8 @@ public class AzurermDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -188,17 +178,17 @@ public class AzurermDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -208,8 +198,7 @@ public class AzurermDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoaRecord block(s) allowed")]
     public List<AzurermDnsZoneSoaRecordBlock>? SoaRecord
     {
-        get => GetProperty<List<AzurermDnsZoneSoaRecordBlock>>("soa_record");
-        set => this.WithProperty("soa_record", value);
+        set => SetProperty("soa_record", value);
     }
 
     /// <summary>
@@ -218,8 +207,7 @@ public class AzurermDnsZone : TerraformResource
     /// </summary>
     public AzurermDnsZoneTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDnsZoneTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

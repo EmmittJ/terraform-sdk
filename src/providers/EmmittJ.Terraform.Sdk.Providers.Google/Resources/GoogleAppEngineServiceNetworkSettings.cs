@@ -13,8 +13,7 @@ public class GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? IngressTrafficAllowed
     {
-        get => GetProperty<TerraformProperty<string>>("ingress_traffic_allowed");
-        set => WithProperty("ingress_traffic_allowed", value);
+        set => SetProperty("ingress_traffic_allowed", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleAppEngineServiceNetworkSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleAppEngineServiceNetworkSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleAppEngineServiceNetworkSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,24 +63,27 @@ public class GoogleAppEngineServiceNetworkSettings : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("service");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -93,20 +92,20 @@ public class GoogleAppEngineServiceNetworkSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
     /// Block for network_settings.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkSettings block(s) allowed")]
     public List<GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock>? NetworkSettings
     {
-        get => GetProperty<List<GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock>>("network_settings");
-        set => this.WithProperty("network_settings", value);
+        set => SetProperty("network_settings", value);
     }
 
     /// <summary>
@@ -115,8 +114,7 @@ public class GoogleAppEngineServiceNetworkSettings : TerraformResource
     /// </summary>
     public GoogleAppEngineServiceNetworkSettingsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAppEngineServiceNetworkSettingsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

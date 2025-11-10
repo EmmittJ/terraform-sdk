@@ -13,8 +13,7 @@ public class AzurermDashboardGrafanaDataSourceIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDashboardGrafanaDataSourceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDashboardGrafanaDataSourceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermDashboardGrafanaDataSourceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermDashboardGrafanaDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -77,28 +72,31 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_key_enabled");
-        this.WithOutput("auto_generated_domain_name_label_scope");
-        this.WithOutput("azure_monitor_workspace_integrations");
-        this.WithOutput("deterministic_outbound_ip_enabled");
-        this.WithOutput("endpoint");
-        this.WithOutput("grafana_major_version");
-        this.WithOutput("grafana_version");
-        this.WithOutput("location");
-        this.WithOutput("outbound_ips");
-        this.WithOutput("public_network_access_enabled");
-        this.WithOutput("sku");
-        this.WithOutput("tags");
-        this.WithOutput("zone_redundancy_enabled");
+        SetOutput("api_key_enabled");
+        SetOutput("auto_generated_domain_name_label_scope");
+        SetOutput("azure_monitor_workspace_integrations");
+        SetOutput("deterministic_outbound_ip_enabled");
+        SetOutput("endpoint");
+        SetOutput("grafana_major_version");
+        SetOutput("grafana_version");
+        SetOutput("location");
+        SetOutput("outbound_ips");
+        SetOutput("public_network_access_enabled");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("zone_redundancy_enabled");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -107,8 +105,8 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -117,8 +115,8 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -128,8 +126,7 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermDashboardGrafanaDataSourceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermDashboardGrafanaDataSourceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -138,8 +135,7 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
     /// </summary>
     public AzurermDashboardGrafanaDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDashboardGrafanaDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

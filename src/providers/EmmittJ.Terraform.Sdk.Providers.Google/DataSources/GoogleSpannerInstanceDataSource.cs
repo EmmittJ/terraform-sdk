@@ -14,17 +14,22 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("autoscaling_config");
-        this.WithOutput("default_backup_schedule_type");
-        this.WithOutput("edition");
-        this.WithOutput("effective_labels");
-        this.WithOutput("force_destroy");
-        this.WithOutput("instance_type");
-        this.WithOutput("labels");
-        this.WithOutput("num_nodes");
-        this.WithOutput("processing_units");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("autoscaling_config");
+        SetOutput("default_backup_schedule_type");
+        SetOutput("edition");
+        SetOutput("effective_labels");
+        SetOutput("force_destroy");
+        SetOutput("instance_type");
+        SetOutput("labels");
+        SetOutput("num_nodes");
+        SetOutput("processing_units");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("config");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -35,29 +40,29 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// In order to obtain a valid list please consult the
     /// [Configuration section of the docs](https://cloud.google.com/spanner/docs/instances).
     /// </summary>
-    public TerraformProperty<string>? Config
+    public TerraformProperty<string> Config
     {
-        get => GetProperty<TerraformProperty<string>>("config");
-        set => this.WithProperty("config", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("config");
+        set => SetProperty("config", value);
     }
 
     /// <summary>
     /// The descriptive name for this instance as it appears in UIs. Must be
     /// unique per project and between 4 and 30 characters in length.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,17 +74,17 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

@@ -14,38 +14,42 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("approval_config");
-        this.WithOutput("bitbucket_server_trigger_config");
-        this.WithOutput("build");
-        this.WithOutput("create_time");
-        this.WithOutput("description");
-        this.WithOutput("developer_connect_event_config");
-        this.WithOutput("disabled");
-        this.WithOutput("filename");
-        this.WithOutput("filter");
-        this.WithOutput("git_file_source");
-        this.WithOutput("github");
-        this.WithOutput("ignored_files");
-        this.WithOutput("include_build_logs");
-        this.WithOutput("included_files");
-        this.WithOutput("name");
-        this.WithOutput("pubsub_config");
-        this.WithOutput("repository_event_config");
-        this.WithOutput("service_account");
-        this.WithOutput("source_to_build");
-        this.WithOutput("substitutions");
-        this.WithOutput("tags");
-        this.WithOutput("trigger_template");
-        this.WithOutput("webhook_config");
+        SetOutput("approval_config");
+        SetOutput("bitbucket_server_trigger_config");
+        SetOutput("build");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("developer_connect_event_config");
+        SetOutput("disabled");
+        SetOutput("filename");
+        SetOutput("filter");
+        SetOutput("git_file_source");
+        SetOutput("github");
+        SetOutput("ignored_files");
+        SetOutput("include_build_logs");
+        SetOutput("included_files");
+        SetOutput("name");
+        SetOutput("pubsub_config");
+        SetOutput("repository_event_config");
+        SetOutput("service_account");
+        SetOutput("source_to_build");
+        SetOutput("substitutions");
+        SetOutput("tags");
+        SetOutput("trigger_template");
+        SetOutput("webhook_config");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("trigger_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,17 +59,17 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -74,8 +78,8 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerId is required")]
     public required TerraformProperty<string> TriggerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trigger_id");
-        set => this.WithProperty("trigger_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trigger_id");
+        set => SetProperty("trigger_id", value);
     }
 
     /// <summary>

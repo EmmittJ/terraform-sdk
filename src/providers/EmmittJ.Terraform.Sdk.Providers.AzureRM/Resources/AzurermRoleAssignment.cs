@@ -13,8 +13,7 @@ public class AzurermRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,60 +46,72 @@ public class AzurermRoleAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("condition");
+        SetOutput("condition_version");
+        SetOutput("delegated_managed_identity_resource_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("principal_id");
+        SetOutput("principal_type");
+        SetOutput("role_definition_id");
+        SetOutput("role_definition_name");
+        SetOutput("scope");
+        SetOutput("skip_service_principal_aad_check");
     }
 
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    public TerraformProperty<string>? Condition
+    public TerraformProperty<string> Condition
     {
-        get => GetProperty<TerraformProperty<string>>("condition");
-        set => this.WithProperty("condition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("condition");
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
     /// The condition_version attribute.
     /// </summary>
-    public TerraformProperty<string>? ConditionVersion
+    public TerraformProperty<string> ConditionVersion
     {
-        get => GetProperty<TerraformProperty<string>>("condition_version");
-        set => this.WithProperty("condition_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("condition_version");
+        set => SetProperty("condition_version", value);
     }
 
     /// <summary>
     /// The delegated_managed_identity_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DelegatedManagedIdentityResourceId
+    public TerraformProperty<string> DelegatedManagedIdentityResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("delegated_managed_identity_resource_id");
-        set => this.WithProperty("delegated_managed_identity_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("delegated_managed_identity_resource_id");
+        set => SetProperty("delegated_managed_identity_resource_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -111,35 +120,35 @@ public class AzurermRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => this.WithProperty("principal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalType
+    public TerraformProperty<string> PrincipalType
     {
-        get => GetProperty<TerraformProperty<string>>("principal_type");
-        set => this.WithProperty("principal_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("principal_type");
+        set => SetProperty("principal_type", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleDefinitionId
+    public TerraformProperty<string> RoleDefinitionId
     {
-        get => GetProperty<TerraformProperty<string>>("role_definition_id");
-        set => this.WithProperty("role_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
+        set => SetProperty("role_definition_id", value);
     }
 
     /// <summary>
     /// The role_definition_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleDefinitionName
+    public TerraformProperty<string> RoleDefinitionName
     {
-        get => GetProperty<TerraformProperty<string>>("role_definition_name");
-        set => this.WithProperty("role_definition_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_name");
+        set => SetProperty("role_definition_name", value);
     }
 
     /// <summary>
@@ -148,17 +157,17 @@ public class AzurermRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// The skip_service_principal_aad_check attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipServicePrincipalAadCheck
+    public TerraformProperty<bool> SkipServicePrincipalAadCheck
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_service_principal_aad_check");
-        set => this.WithProperty("skip_service_principal_aad_check", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_service_principal_aad_check");
+        set => SetProperty("skip_service_principal_aad_check", value);
     }
 
     /// <summary>
@@ -167,8 +176,7 @@ public class AzurermRoleAssignment : TerraformResource
     /// </summary>
     public AzurermRoleAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermRoleAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

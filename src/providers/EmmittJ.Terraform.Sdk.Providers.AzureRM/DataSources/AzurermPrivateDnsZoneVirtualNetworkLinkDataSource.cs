@@ -13,8 +13,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSourceTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,19 +30,23 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.WithOutput("registration_enabled");
-        this.WithOutput("resolution_policy");
-        this.WithOutput("tags");
-        this.WithOutput("virtual_network_id");
+        SetOutput("registration_enabled");
+        SetOutput("resolution_policy");
+        SetOutput("tags");
+        SetOutput("virtual_network_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("private_dns_zone_name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,8 +55,8 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -62,8 +65,8 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneName is required")]
     public required TerraformProperty<string> PrivateDnsZoneName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_dns_zone_name");
-        set => this.WithProperty("private_dns_zone_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_dns_zone_name");
+        set => SetProperty("private_dns_zone_name", value);
     }
 
     /// <summary>
@@ -72,8 +75,8 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -82,8 +85,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSo
     /// </summary>
     public AzurermPrivateDnsZoneVirtualNetworkLinkDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPrivateDnsZoneVirtualNetworkLinkDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

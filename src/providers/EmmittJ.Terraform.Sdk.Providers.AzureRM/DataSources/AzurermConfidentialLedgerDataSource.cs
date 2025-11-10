@@ -13,8 +13,7 @@ public class AzurermConfidentialLedgerDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,22 +30,25 @@ public class AzurermConfidentialLedgerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("azuread_based_service_principal");
-        this.WithOutput("certificate_based_security_principal");
-        this.WithOutput("identity_service_endpoint");
-        this.WithOutput("ledger_endpoint");
-        this.WithOutput("ledger_type");
-        this.WithOutput("location");
-        this.WithOutput("tags");
+        SetOutput("azuread_based_service_principal");
+        SetOutput("certificate_based_security_principal");
+        SetOutput("identity_service_endpoint");
+        SetOutput("ledger_endpoint");
+        SetOutput("ledger_type");
+        SetOutput("location");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,8 +57,8 @@ public class AzurermConfidentialLedgerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermConfidentialLedgerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -75,8 +77,7 @@ public class AzurermConfidentialLedgerDataSource : TerraformDataSource
     /// </summary>
     public AzurermConfidentialLedgerDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermConfidentialLedgerDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

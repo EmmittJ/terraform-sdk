@@ -13,8 +13,7 @@ public class AzurermCdnFrontdoorProfileIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCdnFrontdoorProfileIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCdnFrontdoorProfileIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermCdnFrontdoorProfileIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermCdnFrontdoorProfileLogScrubbingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
     public required TerraformProperty<string> MatchVariable
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("match_variable");
-        set => WithProperty("match_variable", value);
+        set => SetProperty("match_variable", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class AzurermCdnFrontdoorProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzurermCdnFrontdoorProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AzurermCdnFrontdoorProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -103,8 +95,7 @@ public class AzurermCdnFrontdoorProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -122,16 +113,22 @@ public class AzurermCdnFrontdoorProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("resource_guid");
+        SetOutput("resource_guid");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("response_timeout_seconds");
+        SetOutput("sku_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -140,8 +137,8 @@ public class AzurermCdnFrontdoorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -150,17 +147,17 @@ public class AzurermCdnFrontdoorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The response_timeout_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? ResponseTimeoutSeconds
+    public TerraformProperty<double> ResponseTimeoutSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("response_timeout_seconds");
-        set => this.WithProperty("response_timeout_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("response_timeout_seconds");
+        set => SetProperty("response_timeout_seconds", value);
     }
 
     /// <summary>
@@ -169,17 +166,17 @@ public class AzurermCdnFrontdoorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
-        set => this.WithProperty("sku_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
+        set => SetProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -189,8 +186,7 @@ public class AzurermCdnFrontdoorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermCdnFrontdoorProfileIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermCdnFrontdoorProfileIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -200,8 +196,7 @@ public class AzurermCdnFrontdoorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 LogScrubbingRule block(s) allowed")]
     public HashSet<AzurermCdnFrontdoorProfileLogScrubbingRuleBlock>? LogScrubbingRule
     {
-        get => GetProperty<HashSet<AzurermCdnFrontdoorProfileLogScrubbingRuleBlock>>("log_scrubbing_rule");
-        set => this.WithProperty("log_scrubbing_rule", value);
+        set => SetProperty("log_scrubbing_rule", value);
     }
 
     /// <summary>
@@ -210,8 +205,7 @@ public class AzurermCdnFrontdoorProfile : TerraformResource
     /// </summary>
     public AzurermCdnFrontdoorProfileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCdnFrontdoorProfileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

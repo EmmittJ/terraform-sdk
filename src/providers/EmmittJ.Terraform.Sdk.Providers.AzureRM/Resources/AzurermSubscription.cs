@@ -13,8 +13,7 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,43 +54,50 @@ public class AzurermSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputenant_id");
+        SetOutput("tenant_id");
+        SetOutput("alias");
+        SetOutput("billing_scope_id");
+        SetOutput("id");
+        SetOutput("subscription_id");
+        SetOutput("subscription_name");
+        SetOutput("tags");
+        SetOutput("workload");
     }
 
     /// <summary>
     /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
     /// </summary>
-    public TerraformProperty<string>? Alias
+    public TerraformProperty<string> Alias
     {
-        get => GetProperty<TerraformProperty<string>>("alias");
-        set => this.WithProperty("alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias");
+        set => SetProperty("alias", value);
     }
 
     /// <summary>
     /// The billing_scope_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BillingScopeId
+    public TerraformProperty<string> BillingScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("billing_scope_id");
-        set => this.WithProperty("billing_scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_scope_id");
+        set => SetProperty("billing_scope_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The GUID of the Subscription.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionId
+    public TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
-        set => this.WithProperty("subscription_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
+        set => SetProperty("subscription_id", value);
     }
 
     /// <summary>
@@ -103,26 +106,26 @@ public class AzurermSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionName is required")]
     public required TerraformProperty<string> SubscriptionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subscription_name");
-        set => this.WithProperty("subscription_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscription_name");
+        set => SetProperty("subscription_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The workload type for the Subscription. Possible values are `Production` (default) and `DevTest`.
     /// </summary>
-    public TerraformProperty<string>? Workload
+    public TerraformProperty<string> Workload
     {
-        get => GetProperty<TerraformProperty<string>>("workload");
-        set => this.WithProperty("workload", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workload");
+        set => SetProperty("workload", value);
     }
 
     /// <summary>
@@ -131,8 +134,7 @@ public class AzurermSubscription : TerraformResource
     /// </summary>
     public AzurermSubscriptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSubscriptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

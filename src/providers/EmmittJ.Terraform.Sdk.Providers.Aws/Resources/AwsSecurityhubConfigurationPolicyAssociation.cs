@@ -13,8 +13,7 @@ public class AwsSecurityhubConfigurationPolicyAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSecurityhubConfigurationPolicyAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,15 +38,19 @@ public class AwsSecurityhubConfigurationPolicyAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("policy_id");
+        SetOutput("region");
+        SetOutput("target_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -57,17 +59,17 @@ public class AwsSecurityhubConfigurationPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
-        set => this.WithProperty("policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
+        set => SetProperty("policy_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -76,8 +78,8 @@ public class AwsSecurityhubConfigurationPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformProperty<string> TargetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_id");
-        set => this.WithProperty("target_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_id");
+        set => SetProperty("target_id", value);
     }
 
     /// <summary>
@@ -86,8 +88,7 @@ public class AwsSecurityhubConfigurationPolicyAssociation : TerraformResource
     /// </summary>
     public AwsSecurityhubConfigurationPolicyAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSecurityhubConfigurationPolicyAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class GoogleSqlSourceRepresentationInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSqlSourceRepresentationInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,33 +38,46 @@ public class GoogleSqlSourceRepresentationInstance : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("ca_certificate");
+        SetOutput("client_certificate");
+        SetOutput("client_key");
+        SetOutput("database_version");
+        SetOutput("dump_file_path");
+        SetOutput("host");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("password");
+        SetOutput("port");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("username");
     }
 
     /// <summary>
     /// The CA certificate on the external server. Include only if SSL/TLS is used on the external server.
     /// </summary>
-    public TerraformProperty<string>? CaCertificate
+    public TerraformProperty<string> CaCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("ca_certificate");
-        set => this.WithProperty("ca_certificate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ca_certificate");
+        set => SetProperty("ca_certificate", value);
     }
 
     /// <summary>
     /// The client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
     /// </summary>
-    public TerraformProperty<string>? ClientCertificate
+    public TerraformProperty<string> ClientCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate");
-        set => this.WithProperty("client_certificate", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_certificate");
+        set => SetProperty("client_certificate", value);
     }
 
     /// <summary>
     /// The private key file for the client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
     /// </summary>
-    public TerraformProperty<string>? ClientKey
+    public TerraformProperty<string> ClientKey
     {
-        get => GetProperty<TerraformProperty<string>>("client_key");
-        set => this.WithProperty("client_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_key");
+        set => SetProperty("client_key", value);
     }
 
     /// <summary>
@@ -75,17 +86,17 @@ public class GoogleSqlSourceRepresentationInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
     public required TerraformProperty<string> DatabaseVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_version");
-        set => this.WithProperty("database_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_version");
+        set => SetProperty("database_version", value);
     }
 
     /// <summary>
     /// A file in the bucket that contains the data from the external server.
     /// </summary>
-    public TerraformProperty<string>? DumpFilePath
+    public TerraformProperty<string> DumpFilePath
     {
-        get => GetProperty<TerraformProperty<string>>("dump_file_path");
-        set => this.WithProperty("dump_file_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dump_file_path");
+        set => SetProperty("dump_file_path", value);
     }
 
     /// <summary>
@@ -94,17 +105,17 @@ public class GoogleSqlSourceRepresentationInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host");
-        set => this.WithProperty("host", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host");
+        set => SetProperty("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,55 +124,55 @@ public class GoogleSqlSourceRepresentationInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The password for the replication user account.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// The externally accessible port for the source database server.
     /// Defaults to 3306.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The Region in which the created instance should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The replication user account on the external server.
     /// </summary>
-    public TerraformProperty<string>? Username
+    public TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
-        set => this.WithProperty("username", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("username");
+        set => SetProperty("username", value);
     }
 
     /// <summary>
@@ -170,8 +181,7 @@ public class GoogleSqlSourceRepresentationInstance : TerraformResource
     /// </summary>
     public GoogleSqlSourceRepresentationInstanceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSqlSourceRepresentationInstanceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

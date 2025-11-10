@@ -13,8 +13,7 @@ public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
-        set => WithProperty("connection_string", value);
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstrumentationKey
     {
-        get => GetProperty<TerraformProperty<string>>("instrumentation_key");
-        set => WithProperty("instrumentation_key", value);
+        set => SetProperty("instrumentation_key", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
-        set => WithProperty("connection_string", value);
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EndpointUri
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_uri");
-        set => WithProperty("endpoint_uri", value);
+        set => SetProperty("endpoint_uri", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserAssignedIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_client_id");
-        set => WithProperty("user_assigned_identity_client_id", value);
+        set => SetProperty("user_assigned_identity_client_id", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -130,6 +120,13 @@ public class AzurermApiManagementLogger : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_management_name");
+        SetOutput("buffered");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("resource_id");
     }
 
     /// <summary>
@@ -138,35 +135,35 @@ public class AzurermApiManagementLogger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The buffered attribute.
     /// </summary>
-    public TerraformProperty<bool>? Buffered
+    public TerraformProperty<bool> Buffered
     {
-        get => GetProperty<TerraformProperty<bool>>("buffered");
-        set => this.WithProperty("buffered", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("buffered");
+        set => SetProperty("buffered", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -175,8 +172,8 @@ public class AzurermApiManagementLogger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -185,17 +182,17 @@ public class AzurermApiManagementLogger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    public TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
-        set => this.WithProperty("resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
+        set => SetProperty("resource_id", value);
     }
 
     /// <summary>
@@ -205,8 +202,7 @@ public class AzurermApiManagementLogger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationInsights block(s) allowed")]
     public List<AzurermApiManagementLoggerApplicationInsightsBlock>? ApplicationInsights
     {
-        get => GetProperty<List<AzurermApiManagementLoggerApplicationInsightsBlock>>("application_insights");
-        set => this.WithProperty("application_insights", value);
+        set => SetProperty("application_insights", value);
     }
 
     /// <summary>
@@ -216,8 +212,7 @@ public class AzurermApiManagementLogger : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Eventhub block(s) allowed")]
     public List<AzurermApiManagementLoggerEventhubBlock>? Eventhub
     {
-        get => GetProperty<List<AzurermApiManagementLoggerEventhubBlock>>("eventhub");
-        set => this.WithProperty("eventhub", value);
+        set => SetProperty("eventhub", value);
     }
 
     /// <summary>
@@ -226,8 +221,7 @@ public class AzurermApiManagementLogger : TerraformResource
     /// </summary>
     public AzurermApiManagementLoggerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementLoggerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

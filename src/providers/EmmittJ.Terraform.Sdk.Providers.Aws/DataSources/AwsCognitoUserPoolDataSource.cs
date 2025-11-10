@@ -14,39 +14,41 @@ public class AwsCognitoUserPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_recovery_setting");
-        this.WithOutput("admin_create_user_config");
-        this.WithOutput("arn");
-        this.WithOutput("auto_verified_attributes");
-        this.WithOutput("creation_date");
-        this.WithOutput("custom_domain");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("device_configuration");
-        this.WithOutput("domain");
-        this.WithOutput("email_configuration");
-        this.WithOutput("estimated_number_of_users");
-        this.WithOutput("id");
-        this.WithOutput("lambda_config");
-        this.WithOutput("last_modified_date");
-        this.WithOutput("mfa_configuration");
-        this.WithOutput("name");
-        this.WithOutput("schema_attributes");
-        this.WithOutput("sms_authentication_message");
-        this.WithOutput("sms_configuration_failure");
-        this.WithOutput("sms_verification_message");
-        this.WithOutput("tags");
-        this.WithOutput("user_pool_add_ons");
-        this.WithOutput("user_pool_tags");
-        this.WithOutput("username_attributes");
+        SetOutput("account_recovery_setting");
+        SetOutput("admin_create_user_config");
+        SetOutput("arn");
+        SetOutput("auto_verified_attributes");
+        SetOutput("creation_date");
+        SetOutput("custom_domain");
+        SetOutput("deletion_protection");
+        SetOutput("device_configuration");
+        SetOutput("domain");
+        SetOutput("email_configuration");
+        SetOutput("estimated_number_of_users");
+        SetOutput("id");
+        SetOutput("lambda_config");
+        SetOutput("last_modified_date");
+        SetOutput("mfa_configuration");
+        SetOutput("name");
+        SetOutput("schema_attributes");
+        SetOutput("sms_authentication_message");
+        SetOutput("sms_configuration_failure");
+        SetOutput("sms_verification_message");
+        SetOutput("tags");
+        SetOutput("user_pool_add_ons");
+        SetOutput("user_pool_tags");
+        SetOutput("username_attributes");
+        SetOutput("region");
+        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -55,8 +57,8 @@ public class AwsCognitoUserPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>

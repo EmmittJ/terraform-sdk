@@ -13,8 +13,7 @@ public class AwsVpcRouteServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpcRouteServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsVpcRouteServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,10 +46,16 @@ public class AwsVpcRouteServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("route_server_id");
-        this.WithOutput("sns_topic_arn");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("route_server_id");
+        SetOutput("sns_topic_arn");
+        SetOutput("tags_all");
+        SetOutput("amazon_side_asn");
+        SetOutput("persist_routes");
+        SetOutput("persist_routes_duration");
+        SetOutput("region");
+        SetOutput("sns_notifications_enabled");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -61,53 +64,53 @@ public class AwsVpcRouteServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AmazonSideAsn is required")]
     public required TerraformProperty<double> AmazonSideAsn
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("amazon_side_asn");
-        set => this.WithProperty("amazon_side_asn", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("amazon_side_asn");
+        set => SetProperty("amazon_side_asn", value);
     }
 
     /// <summary>
     /// The persist_routes attribute.
     /// </summary>
-    public TerraformProperty<string>? PersistRoutes
+    public TerraformProperty<string> PersistRoutes
     {
-        get => GetProperty<TerraformProperty<string>>("persist_routes");
-        set => this.WithProperty("persist_routes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("persist_routes");
+        set => SetProperty("persist_routes", value);
     }
 
     /// <summary>
     /// The persist_routes_duration attribute.
     /// </summary>
-    public TerraformProperty<double>? PersistRoutesDuration
+    public TerraformProperty<double> PersistRoutesDuration
     {
-        get => GetProperty<TerraformProperty<double>>("persist_routes_duration");
-        set => this.WithProperty("persist_routes_duration", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("persist_routes_duration");
+        set => SetProperty("persist_routes_duration", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The sns_notifications_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SnsNotificationsEnabled
+    public TerraformProperty<bool> SnsNotificationsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sns_notifications_enabled");
-        set => this.WithProperty("sns_notifications_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("sns_notifications_enabled");
+        set => SetProperty("sns_notifications_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -116,8 +119,7 @@ public class AwsVpcRouteServer : TerraformResource
     /// </summary>
     public AwsVpcRouteServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcRouteServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

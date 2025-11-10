@@ -13,8 +13,7 @@ public class AwsNatGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNatGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsNatGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,81 +46,92 @@ public class AwsNatGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("association_id");
-        this.WithOutput("network_interface_id");
-        this.WithOutput("public_ip");
+        SetOutput("association_id");
+        SetOutput("network_interface_id");
+        SetOutput("public_ip");
+        SetOutput("allocation_id");
+        SetOutput("connectivity_type");
+        SetOutput("id");
+        SetOutput("private_ip");
+        SetOutput("region");
+        SetOutput("secondary_allocation_ids");
+        SetOutput("secondary_private_ip_address_count");
+        SetOutput("secondary_private_ip_addresses");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The allocation_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AllocationId
+    public TerraformProperty<string> AllocationId
     {
-        get => GetProperty<TerraformProperty<string>>("allocation_id");
-        set => this.WithProperty("allocation_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("allocation_id");
+        set => SetProperty("allocation_id", value);
     }
 
     /// <summary>
     /// The connectivity_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectivityType
+    public TerraformProperty<string> ConnectivityType
     {
-        get => GetProperty<TerraformProperty<string>>("connectivity_type");
-        set => this.WithProperty("connectivity_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("connectivity_type");
+        set => SetProperty("connectivity_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateIp
+    public TerraformProperty<string> PrivateIp
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip");
-        set => this.WithProperty("private_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_ip");
+        set => SetProperty("private_ip", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The secondary_allocation_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecondaryAllocationIds
+    public HashSet<TerraformProperty<string>> SecondaryAllocationIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("secondary_allocation_ids");
-        set => this.WithProperty("secondary_allocation_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("secondary_allocation_ids");
+        set => SetProperty("secondary_allocation_ids", value);
     }
 
     /// <summary>
     /// The secondary_private_ip_address_count attribute.
     /// </summary>
-    public TerraformProperty<double>? SecondaryPrivateIpAddressCount
+    public TerraformProperty<double> SecondaryPrivateIpAddressCount
     {
-        get => GetProperty<TerraformProperty<double>>("secondary_private_ip_address_count");
-        set => this.WithProperty("secondary_private_ip_address_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("secondary_private_ip_address_count");
+        set => SetProperty("secondary_private_ip_address_count", value);
     }
 
     /// <summary>
     /// The secondary_private_ip_addresses attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecondaryPrivateIpAddresses
+    public HashSet<TerraformProperty<string>> SecondaryPrivateIpAddresses
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("secondary_private_ip_addresses");
-        set => this.WithProperty("secondary_private_ip_addresses", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("secondary_private_ip_addresses");
+        set => SetProperty("secondary_private_ip_addresses", value);
     }
 
     /// <summary>
@@ -132,26 +140,26 @@ public class AwsNatGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -160,8 +168,7 @@ public class AwsNatGateway : TerraformResource
     /// </summary>
     public AwsNatGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNatGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

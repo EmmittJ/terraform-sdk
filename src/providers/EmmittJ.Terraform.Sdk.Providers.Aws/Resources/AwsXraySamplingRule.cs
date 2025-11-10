@@ -14,16 +14,32 @@ public class AwsXraySamplingRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("attributes");
+        SetOutput("fixed_rate");
+        SetOutput("host");
+        SetOutput("http_method");
+        SetOutput("id");
+        SetOutput("priority");
+        SetOutput("region");
+        SetOutput("reservoir_size");
+        SetOutput("resource_arn");
+        SetOutput("rule_name");
+        SetOutput("service_name");
+        SetOutput("service_type");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("url_path");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Attributes
+    public Dictionary<string, TerraformProperty<string>> Attributes
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attributes");
-        set => this.WithProperty("attributes", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attributes");
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
@@ -32,8 +48,8 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FixedRate is required")]
     public required TerraformProperty<double> FixedRate
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("fixed_rate");
-        set => this.WithProperty("fixed_rate", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("fixed_rate");
+        set => SetProperty("fixed_rate", value);
     }
 
     /// <summary>
@@ -42,8 +58,8 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host");
-        set => this.WithProperty("host", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host");
+        set => SetProperty("host", value);
     }
 
     /// <summary>
@@ -52,17 +68,17 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformProperty<string> HttpMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("http_method");
-        set => this.WithProperty("http_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
+        set => SetProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -71,17 +87,17 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => this.WithProperty("priority", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("priority");
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -90,8 +106,8 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservoirSize is required")]
     public required TerraformProperty<double> ReservoirSize
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("reservoir_size");
-        set => this.WithProperty("reservoir_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("reservoir_size");
+        set => SetProperty("reservoir_size", value);
     }
 
     /// <summary>
@@ -100,17 +116,17 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
-        set => this.WithProperty("resource_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
+        set => SetProperty("resource_arn", value);
     }
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleName
+    public TerraformProperty<string> RuleName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_name");
-        set => this.WithProperty("rule_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
+        set => SetProperty("rule_name", value);
     }
 
     /// <summary>
@@ -119,8 +135,8 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
-        set => this.WithProperty("service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
+        set => SetProperty("service_name", value);
     }
 
     /// <summary>
@@ -129,26 +145,26 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceType is required")]
     public required TerraformProperty<string> ServiceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_type");
-        set => this.WithProperty("service_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_type");
+        set => SetProperty("service_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -157,8 +173,8 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlPath is required")]
     public required TerraformProperty<string> UrlPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("url_path");
-        set => this.WithProperty("url_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("url_path");
+        set => SetProperty("url_path", value);
     }
 
     /// <summary>
@@ -167,8 +183,8 @@ public class AwsXraySamplingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<double> Version
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>

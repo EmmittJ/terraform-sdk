@@ -14,8 +14,7 @@ public class AzurermDevTestScheduleDailyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformProperty<string> Time
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time");
-        set => WithProperty("time", value);
+        set => SetProperty("time", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AzurermDevTestScheduleHourlyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
     public required TerraformProperty<double> Minute
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("minute");
-        set => WithProperty("minute", value);
+        set => SetProperty("minute", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TimeInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("time_in_minutes");
-        set => WithProperty("time_in_minutes", value);
+        set => SetProperty("time_in_minutes", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WebhookUrl
     {
-        get => GetProperty<TerraformProperty<string>>("webhook_url");
-        set => WithProperty("webhook_url", value);
+        set => SetProperty("webhook_url", value);
     }
 
 }
@@ -84,8 +79,7 @@ public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -93,8 +87,7 @@ public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -102,8 +95,7 @@ public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -111,8 +103,7 @@ public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -129,8 +120,7 @@ public class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformProperty<string> Time
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time");
-        set => WithProperty("time", value);
+        set => SetProperty("time", value);
     }
 
     /// <summary>
@@ -138,8 +128,7 @@ public class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? WeekDays
     {
-        get => GetProperty<List<TerraformProperty<string>>>("week_days");
-        set => WithProperty("week_days", value);
+        set => SetProperty("week_days", value);
     }
 
 }
@@ -157,15 +146,24 @@ public class AzurermDevTestSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("lab_name");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("task_type");
+        SetOutput("time_zone_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -174,8 +172,8 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformProperty<string> LabName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lab_name");
-        set => this.WithProperty("lab_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lab_name");
+        set => SetProperty("lab_name", value);
     }
 
     /// <summary>
@@ -184,8 +182,8 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -194,8 +192,8 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -204,26 +202,26 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -232,8 +230,8 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformProperty<string> TaskType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_type");
-        set => this.WithProperty("task_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("task_type");
+        set => SetProperty("task_type", value);
     }
 
     /// <summary>
@@ -242,8 +240,8 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
     public required TerraformProperty<string> TimeZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_zone_id");
-        set => this.WithProperty("time_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone_id");
+        set => SetProperty("time_zone_id", value);
     }
 
     /// <summary>
@@ -253,8 +251,7 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailyRecurrence block(s) allowed")]
     public List<AzurermDevTestScheduleDailyRecurrenceBlock>? DailyRecurrence
     {
-        get => GetProperty<List<AzurermDevTestScheduleDailyRecurrenceBlock>>("daily_recurrence");
-        set => this.WithProperty("daily_recurrence", value);
+        set => SetProperty("daily_recurrence", value);
     }
 
     /// <summary>
@@ -264,20 +261,19 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourlyRecurrence block(s) allowed")]
     public List<AzurermDevTestScheduleHourlyRecurrenceBlock>? HourlyRecurrence
     {
-        get => GetProperty<List<AzurermDevTestScheduleHourlyRecurrenceBlock>>("hourly_recurrence");
-        set => this.WithProperty("hourly_recurrence", value);
+        set => SetProperty("hourly_recurrence", value);
     }
 
     /// <summary>
     /// Block for notification_settings.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NotificationSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationSettings block(s) allowed")]
     public List<AzurermDevTestScheduleNotificationSettingsBlock>? NotificationSettings
     {
-        get => GetProperty<List<AzurermDevTestScheduleNotificationSettingsBlock>>("notification_settings");
-        set => this.WithProperty("notification_settings", value);
+        set => SetProperty("notification_settings", value);
     }
 
     /// <summary>
@@ -286,8 +282,7 @@ public class AzurermDevTestSchedule : TerraformResource
     /// </summary>
     public AzurermDevTestScheduleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDevTestScheduleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -297,8 +292,7 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklyRecurrence block(s) allowed")]
     public List<AzurermDevTestScheduleWeeklyRecurrenceBlock>? WeeklyRecurrence
     {
-        get => GetProperty<List<AzurermDevTestScheduleWeeklyRecurrenceBlock>>("weekly_recurrence");
-        set => this.WithProperty("weekly_recurrence", value);
+        set => SetProperty("weekly_recurrence", value);
     }
 
 }

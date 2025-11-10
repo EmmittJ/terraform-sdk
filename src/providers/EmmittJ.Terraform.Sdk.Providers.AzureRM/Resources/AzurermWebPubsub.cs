@@ -13,8 +13,7 @@ public class AzurermWebPubsubIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermWebPubsubIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermWebPubsubIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermWebPubsubIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ConnectivityLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("connectivity_logs_enabled");
-        set => WithProperty("connectivity_logs_enabled", value);
+        set => SetProperty("connectivity_logs_enabled", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? HttpRequestLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("http_request_logs_enabled");
-        set => WithProperty("http_request_logs_enabled", value);
+        set => SetProperty("http_request_logs_enabled", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MessagingLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("messaging_logs_enabled");
-        set => WithProperty("messaging_logs_enabled", value);
+        set => SetProperty("messaging_logs_enabled", value);
     }
 
 }
@@ -102,8 +94,7 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -148,51 +136,62 @@ public class AzurermWebPubsub : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputxternal_ip");
-        this.WithOutputostname");
-        this.WithOutputrimary_access_key");
-        this.WithOutputrimary_connection_string");
-        this.WithOutputublic_port");
-        this.WithOutputecondary_access_key");
-        this.WithOutputecondary_connection_string");
-        this.WithOutputerver_port");
-        this.WithOutputersion");
+        SetOutput("external_ip");
+        SetOutput("hostname");
+        SetOutput("primary_access_key");
+        SetOutput("primary_connection_string");
+        SetOutput("public_port");
+        SetOutput("secondary_access_key");
+        SetOutput("secondary_connection_string");
+        SetOutput("server_port");
+        SetOutput("version");
+        SetOutput("aad_auth_enabled");
+        SetOutput("capacity");
+        SetOutput("id");
+        SetOutput("local_auth_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("tls_client_cert_enabled");
     }
 
     /// <summary>
     /// The aad_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AadAuthEnabled
+    public TerraformProperty<bool> AadAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("aad_auth_enabled");
-        set => this.WithProperty("aad_auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("aad_auth_enabled");
+        set => SetProperty("aad_auth_enabled", value);
     }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? Capacity
+    public TerraformProperty<double> Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
-        set => this.WithProperty("capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("capacity");
+        set => SetProperty("capacity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthEnabled
+    public TerraformProperty<bool> LocalAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_auth_enabled");
-        set => this.WithProperty("local_auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_auth_enabled");
+        set => SetProperty("local_auth_enabled", value);
     }
 
     /// <summary>
@@ -201,8 +200,8 @@ public class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -211,17 +210,17 @@ public class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -230,8 +229,8 @@ public class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -240,26 +239,26 @@ public class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tls_client_cert_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsClientCertEnabled
+    public TerraformProperty<bool> TlsClientCertEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("tls_client_cert_enabled");
-        set => this.WithProperty("tls_client_cert_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("tls_client_cert_enabled");
+        set => SetProperty("tls_client_cert_enabled", value);
     }
 
     /// <summary>
@@ -269,8 +268,7 @@ public class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermWebPubsubIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermWebPubsubIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -280,8 +278,7 @@ public class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LiveTrace block(s) allowed")]
     public List<AzurermWebPubsubLiveTraceBlock>? LiveTrace
     {
-        get => GetProperty<List<AzurermWebPubsubLiveTraceBlock>>("live_trace");
-        set => this.WithProperty("live_trace", value);
+        set => SetProperty("live_trace", value);
     }
 
     /// <summary>
@@ -290,8 +287,7 @@ public class AzurermWebPubsub : TerraformResource
     /// </summary>
     public AzurermWebPubsubTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermWebPubsubTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

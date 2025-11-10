@@ -14,44 +14,54 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("owner_account_id");
+        SetOutput("arn");
+        SetOutput("owner_account_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("license_count");
+        SetOutput("license_count_hard_limit");
+        SetOutput("license_counting_type");
+        SetOutput("license_rules");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The license_count attribute.
     /// </summary>
-    public TerraformProperty<double>? LicenseCount
+    public TerraformProperty<double> LicenseCount
     {
-        get => GetProperty<TerraformProperty<double>>("license_count");
-        set => this.WithProperty("license_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("license_count");
+        set => SetProperty("license_count", value);
     }
 
     /// <summary>
     /// The license_count_hard_limit attribute.
     /// </summary>
-    public TerraformProperty<bool>? LicenseCountHardLimit
+    public TerraformProperty<bool> LicenseCountHardLimit
     {
-        get => GetProperty<TerraformProperty<bool>>("license_count_hard_limit");
-        set => this.WithProperty("license_count_hard_limit", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("license_count_hard_limit");
+        set => SetProperty("license_count_hard_limit", value);
     }
 
     /// <summary>
@@ -60,17 +70,17 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseCountingType is required")]
     public required TerraformProperty<string> LicenseCountingType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license_counting_type");
-        set => this.WithProperty("license_counting_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_counting_type");
+        set => SetProperty("license_counting_type", value);
     }
 
     /// <summary>
     /// The license_rules attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? LicenseRules
+    public List<TerraformProperty<string>> LicenseRules
     {
-        get => GetProperty<List<TerraformProperty<string>>>("license_rules");
-        set => this.WithProperty("license_rules", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("license_rules");
+        set => SetProperty("license_rules", value);
     }
 
     /// <summary>
@@ -79,35 +89,35 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>

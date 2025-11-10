@@ -13,8 +13,7 @@ public class AzurermNetappAccountEncryptionDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,22 @@ public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cross_tenant_key_vault_resource_id");
-        this.WithOutput("encryption_key");
-        this.WithOutput("federated_client_id");
-        this.WithOutput("system_assigned_identity_principal_id");
-        this.WithOutput("user_assigned_identity_id");
+        SetOutput("cross_tenant_key_vault_resource_id");
+        SetOutput("encryption_key");
+        SetOutput("federated_client_id");
+        SetOutput("system_assigned_identity_principal_id");
+        SetOutput("user_assigned_identity_id");
+        SetOutput("id");
+        SetOutput("netapp_account_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +54,8 @@ public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
     public required TerraformProperty<string> NetappAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("netapp_account_id");
-        set => this.WithProperty("netapp_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("netapp_account_id");
+        set => SetProperty("netapp_account_id", value);
     }
 
     /// <summary>
@@ -63,8 +64,7 @@ public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
     /// </summary>
     public AzurermNetappAccountEncryptionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappAccountEncryptionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,25 +14,28 @@ public class AwsIamUserGroupMembership : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("groups");
+        SetOutput("id");
+        SetOutput("user");
     }
 
     /// <summary>
     /// The groups attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Groups is required")]
-    public HashSet<TerraformProperty<string>>? Groups
+    public HashSet<TerraformProperty<string>> Groups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("groups");
-        set => this.WithProperty("groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("groups");
+        set => SetProperty("groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,8 +44,8 @@ public class AwsIamUserGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user");
-        set => this.WithProperty("user", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user");
+        set => SetProperty("user", value);
     }
 
 }

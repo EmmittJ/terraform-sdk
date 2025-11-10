@@ -13,8 +13,7 @@ public class GoogleComputeHaVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleComputeHaVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleComputeHaVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class GoogleComputeHaVpnGatewayVpnInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Id
     {
-        get => GetProperty<TerraformProperty<double>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,8 +59,7 @@ public class GoogleComputeHaVpnGatewayVpnInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InterconnectAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("interconnect_attachment");
-        set => WithProperty("interconnect_attachment", value);
+        set => SetProperty("interconnect_attachment", value);
     }
 
     /// <summary>
@@ -72,8 +67,7 @@ public class GoogleComputeHaVpnGatewayVpnInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
-        set => WithProperty("ip_address", value);
+        set => SetProperty("ip_address", value);
     }
 
 }
@@ -90,37 +84,46 @@ public class GoogleComputeHaVpnGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("label_fingerprint");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("label_fingerprint");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("gateway_ip_version");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("stack_type");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The IP family of the gateway IPs for the HA-VPN gateway interfaces. If not specified, IPV4 will be used. Default value: &amp;quot;IPV4&amp;quot; Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? GatewayIpVersion
+    public TerraformProperty<string> GatewayIpVersion
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_ip_version");
-        set => this.WithProperty("gateway_ip_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_ip_version");
+        set => SetProperty("gateway_ip_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -131,10 +134,10 @@ public class GoogleComputeHaVpnGateway : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -149,8 +152,8 @@ public class GoogleComputeHaVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -159,36 +162,36 @@ public class GoogleComputeHaVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region this gateway should sit in.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The stack type for this VPN gateway to identify the IP protocols that are enabled.
     /// If not specified, IPV4_ONLY will be used. Default value: &amp;quot;IPV4_ONLY&amp;quot; Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? StackType
+    public TerraformProperty<string> StackType
     {
-        get => GetProperty<TerraformProperty<string>>("stack_type");
-        set => this.WithProperty("stack_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stack_type");
+        set => SetProperty("stack_type", value);
     }
 
     /// <summary>
@@ -197,8 +200,7 @@ public class GoogleComputeHaVpnGateway : TerraformResource
     /// </summary>
     public GoogleComputeHaVpnGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeHaVpnGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -207,8 +209,7 @@ public class GoogleComputeHaVpnGateway : TerraformResource
     /// </summary>
     public List<GoogleComputeHaVpnGatewayVpnInterfacesBlock>? VpnInterfaces
     {
-        get => GetProperty<List<GoogleComputeHaVpnGatewayVpnInterfacesBlock>>("vpn_interfaces");
-        set => this.WithProperty("vpn_interfaces", value);
+        set => SetProperty("vpn_interfaces", value);
     }
 
     /// <summary>

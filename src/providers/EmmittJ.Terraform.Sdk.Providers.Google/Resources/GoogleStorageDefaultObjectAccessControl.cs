@@ -13,8 +13,7 @@ public class GoogleStorageDefaultObjectAccessControlTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleStorageDefaultObjectAccessControlTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleStorageDefaultObjectAccessControlTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,11 +46,16 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("domain");
-        this.WithOutput("email");
-        this.WithOutput("entity_id");
-        this.WithOutput("generation");
-        this.WithOutput("project_team");
+        SetOutput("domain");
+        SetOutput("email");
+        SetOutput("entity_id");
+        SetOutput("generation");
+        SetOutput("project_team");
+        SetOutput("bucket");
+        SetOutput("entity");
+        SetOutput("id");
+        SetOutput("object");
+        SetOutput("role");
     }
 
     /// <summary>
@@ -62,8 +64,8 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
@@ -80,26 +82,26 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
     public required TerraformProperty<string> Entity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entity");
-        set => this.WithProperty("entity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entity");
+        set => SetProperty("entity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name of the object, if applied to an object.
     /// </summary>
-    public TerraformProperty<string>? Object
+    public TerraformProperty<string> Object
     {
-        get => GetProperty<TerraformProperty<string>>("object");
-        set => this.WithProperty("object", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object");
+        set => SetProperty("object", value);
     }
 
     /// <summary>
@@ -108,8 +110,8 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -118,8 +120,7 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     /// </summary>
     public GoogleStorageDefaultObjectAccessControlTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageDefaultObjectAccessControlTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

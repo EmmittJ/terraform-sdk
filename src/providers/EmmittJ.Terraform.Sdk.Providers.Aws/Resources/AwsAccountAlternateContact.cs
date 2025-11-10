@@ -13,8 +13,7 @@ public class AwsAccountAlternateContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAccountAlternateContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsAccountAlternateContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,15 +46,22 @@ public class AwsAccountAlternateContact : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("account_id");
+        SetOutput("alternate_contact_type");
+        SetOutput("email_address");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("phone_number");
+        SetOutput("title");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -66,8 +70,8 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlternateContactType is required")]
     public required TerraformProperty<string> AlternateContactType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("alternate_contact_type");
-        set => this.WithProperty("alternate_contact_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alternate_contact_type");
+        set => SetProperty("alternate_contact_type", value);
     }
 
     /// <summary>
@@ -76,17 +80,17 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformProperty<string> EmailAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_address");
-        set => this.WithProperty("email_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_address");
+        set => SetProperty("email_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +99,8 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +109,8 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformProperty<string> PhoneNumber
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("phone_number");
-        set => this.WithProperty("phone_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("phone_number");
+        set => SetProperty("phone_number", value);
     }
 
     /// <summary>
@@ -115,8 +119,8 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => this.WithProperty("title", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("title");
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -125,8 +129,7 @@ public class AwsAccountAlternateContact : TerraformResource
     /// </summary>
     public AwsAccountAlternateContactTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAccountAlternateContactTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

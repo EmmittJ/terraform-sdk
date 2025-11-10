@@ -13,8 +13,7 @@ public class AwsSagemakerHumanTaskUiUiTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSagemakerHumanTaskUiUiTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContentSha256
     {
-        get => GetProperty<TerraformProperty<string>>("content_sha256");
-        set => WithProperty("content_sha256", value);
+        set => SetProperty("content_sha256", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSagemakerHumanTaskUiUiTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
-        set => WithProperty("url", value);
+        set => SetProperty("url", value);
     }
 
 }
@@ -50,7 +47,12 @@ public class AwsSagemakerHumanTaskUi : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("human_task_ui_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -59,56 +61,56 @@ public class AwsSagemakerHumanTaskUi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiName is required")]
     public required TerraformProperty<string> HumanTaskUiName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("human_task_ui_name");
-        set => this.WithProperty("human_task_ui_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("human_task_ui_name");
+        set => SetProperty("human_task_ui_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for ui_template.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UiTemplate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 UiTemplate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UiTemplate block(s) allowed")]
     public List<AwsSagemakerHumanTaskUiUiTemplateBlock>? UiTemplate
     {
-        get => GetProperty<List<AwsSagemakerHumanTaskUiUiTemplateBlock>>("ui_template");
-        set => this.WithProperty("ui_template", value);
+        set => SetProperty("ui_template", value);
     }
 
     /// <summary>

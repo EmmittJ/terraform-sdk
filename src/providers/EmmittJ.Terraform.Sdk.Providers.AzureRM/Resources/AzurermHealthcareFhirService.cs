@@ -14,8 +14,7 @@ public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audience is required")]
     public required TerraformProperty<string> Audience
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("audience");
-        set => WithProperty("audience", value);
+        set => SetProperty("audience", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     public required TerraformProperty<string> Authority
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authority");
-        set => WithProperty("authority", value);
+        set => SetProperty("authority", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SmartProxyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("smart_proxy_enabled");
-        set => WithProperty("smart_proxy_enabled", value);
+        set => SetProperty("smart_proxy_enabled", value);
     }
 
 }
@@ -51,8 +48,7 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
     public HashSet<TerraformProperty<string>>? AllowedHeaders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_headers");
-        set => WithProperty("allowed_headers", value);
+        set => SetProperty("allowed_headers", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public HashSet<TerraformProperty<string>>? AllowedMethods
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_methods");
-        set => WithProperty("allowed_methods", value);
+        set => SetProperty("allowed_methods", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public HashSet<TerraformProperty<string>>? AllowedOrigins
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_origins");
-        set => WithProperty("allowed_origins", value);
+        set => SetProperty("allowed_origins", value);
     }
 
     /// <summary>
@@ -80,8 +74,7 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CredentialsAllowed
     {
-        get => GetProperty<TerraformProperty<bool>>("credentials_allowed");
-        set => WithProperty("credentials_allowed", value);
+        set => SetProperty("credentials_allowed", value);
     }
 
     /// <summary>
@@ -89,8 +82,7 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAgeInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_age_in_seconds");
-        set => WithProperty("max_age_in_seconds", value);
+        set => SetProperty("max_age_in_seconds", value);
     }
 
 }
@@ -106,8 +98,7 @@ public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -115,8 +106,7 @@ public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -124,8 +114,7 @@ public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -134,8 +123,7 @@ public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -151,8 +139,7 @@ public class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Digest
     {
-        get => GetProperty<TerraformProperty<string>>("digest");
-        set => WithProperty("digest", value);
+        set => SetProperty("digest", value);
     }
 
     /// <summary>
@@ -160,8 +147,7 @@ public class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ImageName
     {
-        get => GetProperty<TerraformProperty<string>>("image_name");
-        set => WithProperty("image_name", value);
+        set => SetProperty("image_name", value);
     }
 
     /// <summary>
@@ -170,8 +156,7 @@ public class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
     public required TerraformProperty<string> LoginServer
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("login_server");
-        set => WithProperty("login_server", value);
+        set => SetProperty("login_server", value);
     }
 
 }
@@ -187,8 +172,7 @@ public class AzurermHealthcareFhirServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -196,8 +180,7 @@ public class AzurermHealthcareFhirServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -205,8 +188,7 @@ public class AzurermHealthcareFhirServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -214,8 +196,7 @@ public class AzurermHealthcareFhirServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -233,52 +214,62 @@ public class AzurermHealthcareFhirService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("public_network_access_enabled");
+        SetOutput("public_network_access_enabled");
+        SetOutput("access_policy_object_ids");
+        SetOutput("configuration_export_storage_account_name");
+        SetOutput("container_registry_login_server_url");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The access_policy_object_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AccessPolicyObjectIds
+    public HashSet<TerraformProperty<string>> AccessPolicyObjectIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("access_policy_object_ids");
-        set => this.WithProperty("access_policy_object_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("access_policy_object_ids");
+        set => SetProperty("access_policy_object_ids", value);
     }
 
     /// <summary>
     /// The configuration_export_storage_account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationExportStorageAccountName
+    public TerraformProperty<string> ConfigurationExportStorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_export_storage_account_name");
-        set => this.WithProperty("configuration_export_storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_export_storage_account_name");
+        set => SetProperty("configuration_export_storage_account_name", value);
     }
 
     /// <summary>
     /// The container_registry_login_server_url attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ContainerRegistryLoginServerUrl
+    public HashSet<TerraformProperty<string>> ContainerRegistryLoginServerUrl
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("container_registry_login_server_url");
-        set => this.WithProperty("container_registry_login_server_url", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("container_registry_login_server_url");
+        set => SetProperty("container_registry_login_server_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformProperty<string>? Kind
+    public TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
-        set => this.WithProperty("kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kind");
+        set => SetProperty("kind", value);
     }
 
     /// <summary>
@@ -287,8 +278,8 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -297,8 +288,8 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -307,17 +298,17 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -326,20 +317,20 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
     /// Block for authentication.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     public List<AzurermHealthcareFhirServiceAuthenticationBlock>? Authentication
     {
-        get => GetProperty<List<AzurermHealthcareFhirServiceAuthenticationBlock>>("authentication");
-        set => this.WithProperty("authentication", value);
+        set => SetProperty("authentication", value);
     }
 
     /// <summary>
@@ -349,8 +340,7 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     public List<AzurermHealthcareFhirServiceCorsBlock>? Cors
     {
-        get => GetProperty<List<AzurermHealthcareFhirServiceCorsBlock>>("cors");
-        set => this.WithProperty("cors", value);
+        set => SetProperty("cors", value);
     }
 
     /// <summary>
@@ -360,8 +350,7 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermHealthcareFhirServiceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermHealthcareFhirServiceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -370,8 +359,7 @@ public class AzurermHealthcareFhirService : TerraformResource
     /// </summary>
     public List<AzurermHealthcareFhirServiceOciArtifactBlock>? OciArtifact
     {
-        get => GetProperty<List<AzurermHealthcareFhirServiceOciArtifactBlock>>("oci_artifact");
-        set => this.WithProperty("oci_artifact", value);
+        set => SetProperty("oci_artifact", value);
     }
 
     /// <summary>
@@ -380,8 +368,7 @@ public class AzurermHealthcareFhirService : TerraformResource
     /// </summary>
     public AzurermHealthcareFhirServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHealthcareFhirServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

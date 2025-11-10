@@ -14,8 +14,7 @@ public class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformProperty<double> MaxNodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_node_count");
-        set => WithProperty("max_node_count", value);
+        set => SetProperty("max_node_count", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformProperty<double> MinNodeCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_node_count");
-        set => WithProperty("min_node_count", value);
+        set => SetProperty("min_node_count", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleContainerAzureNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleContainerAzureNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => WithProperty("tags", value);
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleContainerAzureNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VmSize
     {
-        get => GetProperty<TerraformProperty<string>>("vm_size");
-        set => WithProperty("vm_size", value);
+        set => SetProperty("vm_size", value);
     }
 
 }
@@ -76,8 +71,7 @@ public class GoogleContainerAzureNodePoolManagementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AutoRepair
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_repair");
-        set => WithProperty("auto_repair", value);
+        set => SetProperty("auto_repair", value);
     }
 
 }
@@ -94,8 +88,7 @@ public class GoogleContainerAzureNodePoolMaxPodsConstraintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsPerNode is required")]
     public required TerraformProperty<double> MaxPodsPerNode
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_pods_per_node");
-        set => WithProperty("max_pods_per_node", value);
+        set => SetProperty("max_pods_per_node", value);
     }
 
 }
@@ -111,8 +104,7 @@ public class GoogleContainerAzureNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -120,8 +112,7 @@ public class GoogleContainerAzureNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -129,8 +120,7 @@ public class GoogleContainerAzureNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -148,13 +138,22 @@ public class GoogleContainerAzureNodePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("etag");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_annotations");
+        SetOutput("etag");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("azure_availability_zone");
+        SetOutput("cluster");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("subnet_id");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -163,19 +162,19 @@ public class GoogleContainerAzureNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// Optional. The Azure availability zone of the nodes in this nodepool. When unspecified, it defaults to `1`.
     /// </summary>
-    public TerraformProperty<string>? AzureAvailabilityZone
+    public TerraformProperty<string> AzureAvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("azure_availability_zone");
-        set => this.WithProperty("azure_availability_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("azure_availability_zone");
+        set => SetProperty("azure_availability_zone", value);
     }
 
     /// <summary>
@@ -184,17 +183,17 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -203,8 +202,8 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -213,17 +212,17 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -232,8 +231,8 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
@@ -242,32 +241,32 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
     /// Block for autoscaling.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Autoscaling is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Autoscaling block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscaling block(s) allowed")]
     public List<GoogleContainerAzureNodePoolAutoscalingBlock>? Autoscaling
     {
-        get => GetProperty<List<GoogleContainerAzureNodePoolAutoscalingBlock>>("autoscaling");
-        set => this.WithProperty("autoscaling", value);
+        set => SetProperty("autoscaling", value);
     }
 
     /// <summary>
     /// Block for config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     public List<GoogleContainerAzureNodePoolConfigBlock>? Config
     {
-        get => GetProperty<List<GoogleContainerAzureNodePoolConfigBlock>>("config");
-        set => this.WithProperty("config", value);
+        set => SetProperty("config", value);
     }
 
     /// <summary>
@@ -277,20 +276,19 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Management block(s) allowed")]
     public List<GoogleContainerAzureNodePoolManagementBlock>? Management
     {
-        get => GetProperty<List<GoogleContainerAzureNodePoolManagementBlock>>("management");
-        set => this.WithProperty("management", value);
+        set => SetProperty("management", value);
     }
 
     /// <summary>
     /// Block for max_pods_constraint.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsConstraint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaxPodsConstraint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxPodsConstraint block(s) allowed")]
     public List<GoogleContainerAzureNodePoolMaxPodsConstraintBlock>? MaxPodsConstraint
     {
-        get => GetProperty<List<GoogleContainerAzureNodePoolMaxPodsConstraintBlock>>("max_pods_constraint");
-        set => this.WithProperty("max_pods_constraint", value);
+        set => SetProperty("max_pods_constraint", value);
     }
 
     /// <summary>
@@ -299,8 +297,7 @@ public class GoogleContainerAzureNodePool : TerraformResource
     /// </summary>
     public GoogleContainerAzureNodePoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleContainerAzureNodePoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

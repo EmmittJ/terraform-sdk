@@ -14,8 +14,7 @@ public class AwsOsisPipelineBufferOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PersistentBufferEnabled is required")]
     public required TerraformProperty<bool> PersistentBufferEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("persistent_buffer_enabled");
-        set => WithProperty("persistent_buffer_enabled", value);
+        set => SetProperty("persistent_buffer_enabled", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsOsisPipelineEncryptionAtRestOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformProperty<string> KmsKeyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_arn");
-        set => WithProperty("kms_key_arn", value);
+        set => SetProperty("kms_key_arn", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsOsisPipelineLogPublishingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IsLoggingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_logging_enabled");
-        set => WithProperty("is_logging_enabled", value);
+        set => SetProperty("is_logging_enabled", value);
     }
 
 }
@@ -66,8 +63,7 @@ public class AwsOsisPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -75,8 +71,7 @@ public class AwsOsisPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -84,8 +79,7 @@ public class AwsOsisPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -101,8 +95,7 @@ public class AwsOsisPipelineVpcOptionsBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -111,8 +104,7 @@ public class AwsOsisPipelineVpcOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
@@ -120,8 +112,7 @@ public class AwsOsisPipelineVpcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VpcEndpointManagement
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_management");
-        set => WithProperty("vpc_endpoint_management", value);
+        set => SetProperty("vpc_endpoint_management", value);
     }
 
 }
@@ -138,10 +129,16 @@ public class AwsOsisPipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("ingest_endpoint_urls");
-        this.WithOutput("pipeline_arn");
-        this.WithOutput("tags_all");
+        SetOutput("id");
+        SetOutput("ingest_endpoint_urls");
+        SetOutput("pipeline_arn");
+        SetOutput("tags_all");
+        SetOutput("max_units");
+        SetOutput("min_units");
+        SetOutput("pipeline_configuration_body");
+        SetOutput("pipeline_name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -150,8 +147,8 @@ public class AwsOsisPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnits is required")]
     public required TerraformProperty<double> MaxUnits
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_units");
-        set => this.WithProperty("max_units", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_units");
+        set => SetProperty("max_units", value);
     }
 
     /// <summary>
@@ -160,8 +157,8 @@ public class AwsOsisPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinUnits is required")]
     public required TerraformProperty<double> MinUnits
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_units");
-        set => this.WithProperty("min_units", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_units");
+        set => SetProperty("min_units", value);
     }
 
     /// <summary>
@@ -170,8 +167,8 @@ public class AwsOsisPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineConfigurationBody is required")]
     public required TerraformProperty<string> PipelineConfigurationBody
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_configuration_body");
-        set => this.WithProperty("pipeline_configuration_body", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_configuration_body");
+        set => SetProperty("pipeline_configuration_body", value);
     }
 
     /// <summary>
@@ -180,26 +177,26 @@ public class AwsOsisPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
     public required TerraformProperty<string> PipelineName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_name");
-        set => this.WithProperty("pipeline_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_name");
+        set => SetProperty("pipeline_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -208,8 +205,7 @@ public class AwsOsisPipeline : TerraformResource
     /// </summary>
     public List<AwsOsisPipelineBufferOptionsBlock>? BufferOptions
     {
-        get => GetProperty<List<AwsOsisPipelineBufferOptionsBlock>>("buffer_options");
-        set => this.WithProperty("buffer_options", value);
+        set => SetProperty("buffer_options", value);
     }
 
     /// <summary>
@@ -218,8 +214,7 @@ public class AwsOsisPipeline : TerraformResource
     /// </summary>
     public List<AwsOsisPipelineEncryptionAtRestOptionsBlock>? EncryptionAtRestOptions
     {
-        get => GetProperty<List<AwsOsisPipelineEncryptionAtRestOptionsBlock>>("encryption_at_rest_options");
-        set => this.WithProperty("encryption_at_rest_options", value);
+        set => SetProperty("encryption_at_rest_options", value);
     }
 
     /// <summary>
@@ -228,8 +223,7 @@ public class AwsOsisPipeline : TerraformResource
     /// </summary>
     public List<AwsOsisPipelineLogPublishingOptionsBlock>? LogPublishingOptions
     {
-        get => GetProperty<List<AwsOsisPipelineLogPublishingOptionsBlock>>("log_publishing_options");
-        set => this.WithProperty("log_publishing_options", value);
+        set => SetProperty("log_publishing_options", value);
     }
 
     /// <summary>
@@ -238,8 +232,7 @@ public class AwsOsisPipeline : TerraformResource
     /// </summary>
     public AwsOsisPipelineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsOsisPipelineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -248,8 +241,7 @@ public class AwsOsisPipeline : TerraformResource
     /// </summary>
     public List<AwsOsisPipelineVpcOptionsBlock>? VpcOptions
     {
-        get => GetProperty<List<AwsOsisPipelineVpcOptionsBlock>>("vpc_options");
-        set => this.WithProperty("vpc_options", value);
+        set => SetProperty("vpc_options", value);
     }
 
     /// <summary>

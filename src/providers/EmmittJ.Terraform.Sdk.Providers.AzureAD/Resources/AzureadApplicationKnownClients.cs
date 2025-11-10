@@ -13,8 +13,7 @@ public class AzureadApplicationKnownClientsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadApplicationKnownClientsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadApplicationKnownClientsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadApplicationKnownClientsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,9 @@ public class AzureadApplicationKnownClients : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("application_id");
+        SetOutput("id");
+        SetOutput("known_client_ids");
     }
 
     /// <summary>
@@ -66,27 +65,27 @@ public class AzureadApplicationKnownClients : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// A list of known client IDs, used for bundling consent if you have a solution that includes an API and a client application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnownClientIds is required")]
-    public HashSet<TerraformProperty<string>>? KnownClientIds
+    public HashSet<TerraformProperty<string>> KnownClientIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("known_client_ids");
-        set => this.WithProperty("known_client_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("known_client_ids");
+        set => SetProperty("known_client_ids", value);
     }
 
     /// <summary>
@@ -95,8 +94,7 @@ public class AzureadApplicationKnownClients : TerraformResource
     /// </summary>
     public AzureadApplicationKnownClientsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationKnownClientsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

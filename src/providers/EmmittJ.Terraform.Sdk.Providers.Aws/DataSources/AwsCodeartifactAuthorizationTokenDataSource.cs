@@ -14,8 +14,13 @@ public class AwsCodeartifactAuthorizationTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authorization_token");
-        this.WithOutput("expiration");
+        SetOutput("authorization_token");
+        SetOutput("expiration");
+        SetOutput("domain");
+        SetOutput("domain_owner");
+        SetOutput("duration_seconds");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,44 +29,44 @@ public class AwsCodeartifactAuthorizationTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain");
-        set => this.WithProperty("domain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain");
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainOwner
+    public TerraformProperty<string> DomainOwner
     {
-        get => GetProperty<TerraformProperty<string>>("domain_owner");
-        set => this.WithProperty("domain_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_owner");
+        set => SetProperty("domain_owner", value);
     }
 
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? DurationSeconds
+    public TerraformProperty<double> DurationSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("duration_seconds");
-        set => this.WithProperty("duration_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("duration_seconds");
+        set => SetProperty("duration_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformProperty<string> DataStore
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_store");
-        set => WithProperty("data_store", value);
+        set => SetProperty("data_store", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? FixedBoost
     {
-        get => GetProperty<TerraformProperty<double>>("fixed_boost");
-        set => WithProperty("fixed_boost", value);
+        set => SetProperty("fixed_boost", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class GoogleDiscoveryEngineControlConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? QueryRegex
     {
-        get => GetProperty<TerraformProperty<string>>("query_regex");
-        set => WithProperty("query_regex", value);
+        set => SetProperty("query_regex", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformProperty<string> DataStore
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_store");
-        set => WithProperty("data_store", value);
+        set => SetProperty("data_store", value);
     }
 
     /// <summary>
@@ -78,8 +73,7 @@ public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
 }
@@ -96,8 +90,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformProperty<string> DataStore
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_store");
-        set => WithProperty("data_store", value);
+        set => SetProperty("data_store", value);
     }
 
 }
@@ -114,8 +107,7 @@ public class GoogleDiscoveryEngineControlRedirectActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
     public required TerraformProperty<string> RedirectUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("redirect_uri");
-        set => WithProperty("redirect_uri", value);
+        set => SetProperty("redirect_uri", value);
     }
 
 }
@@ -131,8 +123,7 @@ public class GoogleDiscoveryEngineControlSynonymsActionBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Synonyms
     {
-        get => GetProperty<List<TerraformProperty<string>>>("synonyms");
-        set => WithProperty("synonyms", value);
+        set => SetProperty("synonyms", value);
     }
 
 }
@@ -148,8 +139,7 @@ public class GoogleDiscoveryEngineControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -157,8 +147,7 @@ public class GoogleDiscoveryEngineControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -166,8 +155,7 @@ public class GoogleDiscoveryEngineControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -185,16 +173,25 @@ public class GoogleDiscoveryEngineControl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
+        SetOutput("name");
+        SetOutput("collection_id");
+        SetOutput("control_id");
+        SetOutput("display_name");
+        SetOutput("engine_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("solution_type");
+        SetOutput("use_cases");
     }
 
     /// <summary>
     /// The collection ID. Currently only accepts &amp;quot;default_collection&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? CollectionId
+    public TerraformProperty<string> CollectionId
     {
-        get => GetProperty<TerraformProperty<string>>("collection_id");
-        set => this.WithProperty("collection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collection_id");
+        set => SetProperty("collection_id", value);
     }
 
     /// <summary>
@@ -203,8 +200,8 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlId is required")]
     public required TerraformProperty<string> ControlId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("control_id");
-        set => this.WithProperty("control_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("control_id");
+        set => SetProperty("control_id", value);
     }
 
     /// <summary>
@@ -214,8 +211,8 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -224,17 +221,17 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformProperty<string> EngineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_id");
-        set => this.WithProperty("engine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_id");
+        set => SetProperty("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -244,17 +241,17 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -263,17 +260,17 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionType is required")]
     public required TerraformProperty<string> SolutionType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("solution_type");
-        set => this.WithProperty("solution_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("solution_type");
+        set => SetProperty("solution_type", value);
     }
 
     /// <summary>
     /// The use cases that the control is used for. Possible values: [&amp;quot;SEARCH_USE_CASE_SEARCH&amp;quot;, &amp;quot;SEARCH_USE_CASE_BROWSE&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? UseCases
+    public List<TerraformProperty<string>> UseCases
     {
-        get => GetProperty<List<TerraformProperty<string>>>("use_cases");
-        set => this.WithProperty("use_cases", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("use_cases");
+        set => SetProperty("use_cases", value);
     }
 
     /// <summary>
@@ -283,8 +280,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BoostAction block(s) allowed")]
     public List<GoogleDiscoveryEngineControlBoostActionBlock>? BoostAction
     {
-        get => GetProperty<List<GoogleDiscoveryEngineControlBoostActionBlock>>("boost_action");
-        set => this.WithProperty("boost_action", value);
+        set => SetProperty("boost_action", value);
     }
 
     /// <summary>
@@ -293,8 +289,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     public List<GoogleDiscoveryEngineControlConditionsBlock>? Conditions
     {
-        get => GetProperty<List<GoogleDiscoveryEngineControlConditionsBlock>>("conditions");
-        set => this.WithProperty("conditions", value);
+        set => SetProperty("conditions", value);
     }
 
     /// <summary>
@@ -304,8 +299,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAction block(s) allowed")]
     public List<GoogleDiscoveryEngineControlFilterActionBlock>? FilterAction
     {
-        get => GetProperty<List<GoogleDiscoveryEngineControlFilterActionBlock>>("filter_action");
-        set => this.WithProperty("filter_action", value);
+        set => SetProperty("filter_action", value);
     }
 
     /// <summary>
@@ -315,8 +309,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PromoteAction block(s) allowed")]
     public List<GoogleDiscoveryEngineControlPromoteActionBlock>? PromoteAction
     {
-        get => GetProperty<List<GoogleDiscoveryEngineControlPromoteActionBlock>>("promote_action");
-        set => this.WithProperty("promote_action", value);
+        set => SetProperty("promote_action", value);
     }
 
     /// <summary>
@@ -326,8 +319,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectAction block(s) allowed")]
     public List<GoogleDiscoveryEngineControlRedirectActionBlock>? RedirectAction
     {
-        get => GetProperty<List<GoogleDiscoveryEngineControlRedirectActionBlock>>("redirect_action");
-        set => this.WithProperty("redirect_action", value);
+        set => SetProperty("redirect_action", value);
     }
 
     /// <summary>
@@ -337,8 +329,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SynonymsAction block(s) allowed")]
     public List<GoogleDiscoveryEngineControlSynonymsActionBlock>? SynonymsAction
     {
-        get => GetProperty<List<GoogleDiscoveryEngineControlSynonymsActionBlock>>("synonyms_action");
-        set => this.WithProperty("synonyms_action", value);
+        set => SetProperty("synonyms_action", value);
     }
 
     /// <summary>
@@ -347,8 +338,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineControlTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineControlTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

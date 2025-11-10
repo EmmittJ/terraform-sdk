@@ -14,8 +14,7 @@ public class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -52,8 +49,7 @@ public class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => WithProperty("action", value);
+        set => SetProperty("action", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +67,7 @@ public class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -89,8 +83,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -98,8 +91,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -107,8 +99,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -116,8 +107,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -134,42 +124,48 @@ public class AzurermNewRelicTagRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("activity_log_enabled");
+        SetOutput("azure_active_directory_log_enabled");
+        SetOutput("id");
+        SetOutput("metric_enabled");
+        SetOutput("monitor_id");
+        SetOutput("subscription_log_enabled");
     }
 
     /// <summary>
     /// The activity_log_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ActivityLogEnabled
+    public TerraformProperty<bool> ActivityLogEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("activity_log_enabled");
-        set => this.WithProperty("activity_log_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("activity_log_enabled");
+        set => SetProperty("activity_log_enabled", value);
     }
 
     /// <summary>
     /// The azure_active_directory_log_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AzureActiveDirectoryLogEnabled
+    public TerraformProperty<bool> AzureActiveDirectoryLogEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("azure_active_directory_log_enabled");
-        set => this.WithProperty("azure_active_directory_log_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("azure_active_directory_log_enabled");
+        set => SetProperty("azure_active_directory_log_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The metric_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MetricEnabled
+    public TerraformProperty<bool> MetricEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("metric_enabled");
-        set => this.WithProperty("metric_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("metric_enabled");
+        set => SetProperty("metric_enabled", value);
     }
 
     /// <summary>
@@ -178,17 +174,17 @@ public class AzurermNewRelicTagRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorId is required")]
     public required TerraformProperty<string> MonitorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("monitor_id");
-        set => this.WithProperty("monitor_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("monitor_id");
+        set => SetProperty("monitor_id", value);
     }
 
     /// <summary>
     /// The subscription_log_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SubscriptionLogEnabled
+    public TerraformProperty<bool> SubscriptionLogEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("subscription_log_enabled");
-        set => this.WithProperty("subscription_log_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("subscription_log_enabled");
+        set => SetProperty("subscription_log_enabled", value);
     }
 
     /// <summary>
@@ -197,8 +193,7 @@ public class AzurermNewRelicTagRule : TerraformResource
     /// </summary>
     public List<AzurermNewRelicTagRuleLogTagFilterBlock>? LogTagFilter
     {
-        get => GetProperty<List<AzurermNewRelicTagRuleLogTagFilterBlock>>("log_tag_filter");
-        set => this.WithProperty("log_tag_filter", value);
+        set => SetProperty("log_tag_filter", value);
     }
 
     /// <summary>
@@ -207,8 +202,7 @@ public class AzurermNewRelicTagRule : TerraformResource
     /// </summary>
     public List<AzurermNewRelicTagRuleMetricTagFilterBlock>? MetricTagFilter
     {
-        get => GetProperty<List<AzurermNewRelicTagRuleMetricTagFilterBlock>>("metric_tag_filter");
-        set => this.WithProperty("metric_tag_filter", value);
+        set => SetProperty("metric_tag_filter", value);
     }
 
     /// <summary>
@@ -217,8 +211,7 @@ public class AzurermNewRelicTagRule : TerraformResource
     /// </summary>
     public AzurermNewRelicTagRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNewRelicTagRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

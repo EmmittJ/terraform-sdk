@@ -14,33 +14,36 @@ public class AwsLbHostedZoneIdDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("load_balancer_type");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The load_balancer_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancerType
+    public TerraformProperty<string> LoadBalancerType
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer_type");
-        set => this.WithProperty("load_balancer_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("load_balancer_type");
+        set => SetProperty("load_balancer_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

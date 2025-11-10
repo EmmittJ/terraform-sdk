@@ -13,8 +13,7 @@ public class AzurermCosmosdbCassandraTableAutoscaleSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? MaxThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("max_throughput");
-        set => WithProperty("max_throughput", value);
+        set => SetProperty("max_throughput", value);
     }
 
 }
@@ -38,8 +37,7 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -47,8 +45,7 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -56,8 +53,7 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -84,15 +79,21 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("analytical_storage_ttl");
+        SetOutput("cassandra_keyspace_id");
+        SetOutput("default_ttl");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("throughput");
     }
 
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? AnalyticalStorageTtl
+    public TerraformProperty<double> AnalyticalStorageTtl
     {
-        get => GetProperty<TerraformProperty<double>>("analytical_storage_ttl");
-        set => this.WithProperty("analytical_storage_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("analytical_storage_ttl");
+        set => SetProperty("analytical_storage_ttl", value);
     }
 
     /// <summary>
@@ -101,26 +102,26 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraKeyspaceId is required")]
     public required TerraformProperty<string> CassandraKeyspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cassandra_keyspace_id");
-        set => this.WithProperty("cassandra_keyspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cassandra_keyspace_id");
+        set => SetProperty("cassandra_keyspace_id", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultTtl
+    public TerraformProperty<double> DefaultTtl
     {
-        get => GetProperty<TerraformProperty<double>>("default_ttl");
-        set => this.WithProperty("default_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_ttl");
+        set => SetProperty("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -129,17 +130,17 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformProperty<double>? Throughput
+    public TerraformProperty<double> Throughput
     {
-        get => GetProperty<TerraformProperty<double>>("throughput");
-        set => this.WithProperty("throughput", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput");
+        set => SetProperty("throughput", value);
     }
 
     /// <summary>
@@ -149,20 +150,19 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     public List<AzurermCosmosdbCassandraTableAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetProperty<List<AzurermCosmosdbCassandraTableAutoscaleSettingsBlock>>("autoscale_settings");
-        set => this.WithProperty("autoscale_settings", value);
+        set => SetProperty("autoscale_settings", value);
     }
 
     /// <summary>
     /// Block for schema.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schema block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schema block(s) allowed")]
     public List<AzurermCosmosdbCassandraTableSchemaBlock>? Schema
     {
-        get => GetProperty<List<AzurermCosmosdbCassandraTableSchemaBlock>>("schema");
-        set => this.WithProperty("schema", value);
+        set => SetProperty("schema", value);
     }
 
     /// <summary>
@@ -171,8 +171,7 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     /// </summary>
     public AzurermCosmosdbCassandraTableTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCosmosdbCassandraTableTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

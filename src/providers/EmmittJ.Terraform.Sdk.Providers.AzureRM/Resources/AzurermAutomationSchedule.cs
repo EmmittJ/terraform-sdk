@@ -14,8 +14,7 @@ public class AzurermAutomationScheduleMonthlyOccurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformProperty<string> Day
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("day");
-        set => WithProperty("day", value);
+        set => SetProperty("day", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermAutomationScheduleMonthlyOccurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Occurrence is required")]
     public required TerraformProperty<double> Occurrence
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("occurrence");
-        set => WithProperty("occurrence", value);
+        set => SetProperty("occurrence", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermAutomationScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermAutomationScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermAutomationScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermAutomationScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,6 +81,18 @@ public class AzurermAutomationSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("automation_account_name");
+        SetOutput("description");
+        SetOutput("expiry_time");
+        SetOutput("frequency");
+        SetOutput("id");
+        SetOutput("interval");
+        SetOutput("month_days");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("start_time");
+        SetOutput("timezone");
+        SetOutput("week_days");
     }
 
     /// <summary>
@@ -95,26 +101,26 @@ public class AzurermAutomationSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
-        set => this.WithProperty("automation_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_name");
+        set => SetProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The expiry_time attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpiryTime
+    public TerraformProperty<string> ExpiryTime
     {
-        get => GetProperty<TerraformProperty<string>>("expiry_time");
-        set => this.WithProperty("expiry_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiry_time");
+        set => SetProperty("expiry_time", value);
     }
 
     /// <summary>
@@ -123,35 +129,35 @@ public class AzurermAutomationSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
-        set => this.WithProperty("frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
+        set => SetProperty("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public TerraformProperty<double>? Interval
+    public TerraformProperty<double> Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
-        set => this.WithProperty("interval", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("interval");
+        set => SetProperty("interval", value);
     }
 
     /// <summary>
     /// The month_days attribute.
     /// </summary>
-    public HashSet<TerraformProperty<double>>? MonthDays
+    public HashSet<TerraformProperty<double>> MonthDays
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("month_days");
-        set => this.WithProperty("month_days", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<double>>>("month_days");
+        set => SetProperty("month_days", value);
     }
 
     /// <summary>
@@ -160,8 +166,8 @@ public class AzurermAutomationSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -170,35 +176,35 @@ public class AzurermAutomationSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformProperty<string>? Timezone
+    public TerraformProperty<string> Timezone
     {
-        get => GetProperty<TerraformProperty<string>>("timezone");
-        set => this.WithProperty("timezone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("timezone");
+        set => SetProperty("timezone", value);
     }
 
     /// <summary>
     /// The week_days attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? WeekDays
+    public HashSet<TerraformProperty<string>> WeekDays
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("week_days");
-        set => this.WithProperty("week_days", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("week_days");
+        set => SetProperty("week_days", value);
     }
 
     /// <summary>
@@ -208,8 +214,7 @@ public class AzurermAutomationSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonthlyOccurrence block(s) allowed")]
     public List<AzurermAutomationScheduleMonthlyOccurrenceBlock>? MonthlyOccurrence
     {
-        get => GetProperty<List<AzurermAutomationScheduleMonthlyOccurrenceBlock>>("monthly_occurrence");
-        set => this.WithProperty("monthly_occurrence", value);
+        set => SetProperty("monthly_occurrence", value);
     }
 
     /// <summary>
@@ -218,8 +223,7 @@ public class AzurermAutomationSchedule : TerraformResource
     /// </summary>
     public AzurermAutomationScheduleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAutomationScheduleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

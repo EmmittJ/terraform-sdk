@@ -13,8 +13,7 @@ public class AzurermContainerAppCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermContainerAppCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermContainerAppCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,25 +46,30 @@ public class AzurermContainerAppCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("container_app_environment_managed_certificate_id");
+        SetOutput("container_app_environment_managed_certificate_id");
+        SetOutput("certificate_binding_type");
+        SetOutput("container_app_environment_certificate_id");
+        SetOutput("container_app_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
     /// </summary>
-    public TerraformProperty<string>? CertificateBindingType
+    public TerraformProperty<string> CertificateBindingType
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_binding_type");
-        set => this.WithProperty("certificate_binding_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_binding_type");
+        set => SetProperty("certificate_binding_type", value);
     }
 
     /// <summary>
     /// The container_app_environment_certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerAppEnvironmentCertificateId
+    public TerraformProperty<string> ContainerAppEnvironmentCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("container_app_environment_certificate_id");
-        set => this.WithProperty("container_app_environment_certificate_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_app_environment_certificate_id");
+        set => SetProperty("container_app_environment_certificate_id", value);
     }
 
     /// <summary>
@@ -76,17 +78,17 @@ public class AzurermContainerAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppId is required")]
     public required TerraformProperty<string> ContainerAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_app_id");
-        set => this.WithProperty("container_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_app_id");
+        set => SetProperty("container_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -95,8 +97,8 @@ public class AzurermContainerAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -105,8 +107,7 @@ public class AzurermContainerAppCustomDomain : TerraformResource
     /// </summary>
     public AzurermContainerAppCustomDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermContainerAppCustomDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

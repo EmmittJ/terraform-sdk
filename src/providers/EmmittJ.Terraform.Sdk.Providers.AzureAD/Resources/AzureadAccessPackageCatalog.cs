@@ -13,8 +13,7 @@ public class AzureadAccessPackageCatalogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadAccessPackageCatalogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadAccessPackageCatalogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadAccessPackageCatalogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,11 @@ public class AzureadAccessPackageCatalog : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("externally_visible");
+        SetOutput("id");
+        SetOutput("published");
     }
 
     /// <summary>
@@ -66,8 +67,8 @@ public class AzureadAccessPackageCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -76,35 +77,35 @@ public class AzureadAccessPackageCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether the access packages in this catalog can be requested by users outside the tenant
     /// </summary>
-    public TerraformProperty<bool>? ExternallyVisible
+    public TerraformProperty<bool> ExternallyVisible
     {
-        get => GetProperty<TerraformProperty<bool>>("externally_visible");
-        set => this.WithProperty("externally_visible", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("externally_visible");
+        set => SetProperty("externally_visible", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Whether the access packages in this catalog are available for management
     /// </summary>
-    public TerraformProperty<bool>? Published
+    public TerraformProperty<bool> Published
     {
-        get => GetProperty<TerraformProperty<bool>>("published");
-        set => this.WithProperty("published", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("published");
+        set => SetProperty("published", value);
     }
 
     /// <summary>
@@ -113,8 +114,7 @@ public class AzureadAccessPackageCatalog : TerraformResource
     /// </summary>
     public AzureadAccessPackageCatalogTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAccessPackageCatalogTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -14,21 +14,23 @@ public class GoogleBackupDrManagementServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("management_uri");
-        this.WithOutput("name");
-        this.WithOutput("networks");
-        this.WithOutput("oauth2_client_id");
-        this.WithOutput("project");
-        this.WithOutput("type");
+        SetOutput("management_uri");
+        SetOutput("name");
+        SetOutput("networks");
+        SetOutput("oauth2_client_id");
+        SetOutput("project");
+        SetOutput("type");
+        SetOutput("id");
+        SetOutput("location");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -37,8 +39,8 @@ public class GoogleBackupDrManagementServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>

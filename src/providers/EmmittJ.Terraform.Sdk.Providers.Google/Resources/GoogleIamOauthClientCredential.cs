@@ -13,8 +13,7 @@ public class GoogleIamOauthClientCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIamOauthClientCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleIamOauthClientCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,18 +46,25 @@ public class GoogleIamOauthClientCredential : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("client_secret");
-        this.WithOutput("name");
+        SetOutput("client_secret");
+        SetOutput("name");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("oauth_client_credential_id");
+        SetOutput("oauthclient");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Whether the OauthClientCredential is disabled. You cannot use a
     /// disabled OauthClientCredential.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
@@ -68,19 +72,19 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// 
     /// Cannot exceed 32 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -89,8 +93,8 @@ public class GoogleIamOauthClientCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -102,8 +106,8 @@ public class GoogleIamOauthClientCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientCredentialId is required")]
     public required TerraformProperty<string> OauthClientCredentialId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("oauth_client_credential_id");
-        set => this.WithProperty("oauth_client_credential_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("oauth_client_credential_id");
+        set => SetProperty("oauth_client_credential_id", value);
     }
 
     /// <summary>
@@ -112,17 +116,17 @@ public class GoogleIamOauthClientCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauthclient is required")]
     public required TerraformProperty<string> Oauthclient
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("oauthclient");
-        set => this.WithProperty("oauthclient", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("oauthclient");
+        set => SetProperty("oauthclient", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -131,8 +135,7 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// </summary>
     public GoogleIamOauthClientCredentialTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamOauthClientCredentialTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

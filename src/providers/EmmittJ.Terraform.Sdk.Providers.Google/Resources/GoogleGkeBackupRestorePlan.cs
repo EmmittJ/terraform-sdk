@@ -14,8 +14,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllNamespaces
     {
-        get => GetProperty<TerraformProperty<bool>>("all_namespaces");
-        set => WithProperty("all_namespaces", value);
+        set => SetProperty("all_namespaces", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterResourceConflictPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_resource_conflict_policy");
-        set => WithProperty("cluster_resource_conflict_policy", value);
+        set => SetProperty("cluster_resource_conflict_policy", value);
     }
 
     /// <summary>
@@ -42,8 +40,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NamespacedResourceRestoreMode
     {
-        get => GetProperty<TerraformProperty<string>>("namespaced_resource_restore_mode");
-        set => WithProperty("namespaced_resource_restore_mode", value);
+        set => SetProperty("namespaced_resource_restore_mode", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? NoNamespaces
     {
-        get => GetProperty<TerraformProperty<bool>>("no_namespaces");
-        set => WithProperty("no_namespaces", value);
+        set => SetProperty("no_namespaces", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VolumeDataRestorePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("volume_data_restore_policy");
-        set => WithProperty("volume_data_restore_policy", value);
+        set => SetProperty("volume_data_restore_policy", value);
     }
 
 }
@@ -83,8 +78,7 @@ public class GoogleGkeBackupRestorePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -92,8 +86,7 @@ public class GoogleGkeBackupRestorePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -101,8 +94,7 @@ public class GoogleGkeBackupRestorePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -120,11 +112,19 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("state");
-        this.WithOutput("state_reason");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
+        SetOutput("effective_labels");
+        SetOutput("state");
+        SetOutput("state_reason");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("backup_plan");
+        SetOutput("cluster");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -134,8 +134,8 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
     public required TerraformProperty<string> BackupPlan
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_plan");
-        set => this.WithProperty("backup_plan", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_plan");
+        set => SetProperty("backup_plan", value);
     }
 
     /// <summary>
@@ -144,26 +144,26 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
-        set => this.WithProperty("cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
+        set => SetProperty("cluster", value);
     }
 
     /// <summary>
     /// User specified descriptive string for this RestorePlan.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -175,10 +175,10 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -187,8 +187,8 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -197,29 +197,29 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for restore_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RestoreConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreConfig block(s) allowed")]
     public List<GoogleGkeBackupRestorePlanRestoreConfigBlock>? RestoreConfig
     {
-        get => GetProperty<List<GoogleGkeBackupRestorePlanRestoreConfigBlock>>("restore_config");
-        set => this.WithProperty("restore_config", value);
+        set => SetProperty("restore_config", value);
     }
 
     /// <summary>
@@ -228,8 +228,7 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     /// </summary>
     public GoogleGkeBackupRestorePlanTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGkeBackupRestorePlanTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

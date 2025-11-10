@@ -13,8 +13,7 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     /// </summary>
     public TerraformProperty<string>? ShareName
     {
-        get => GetProperty<TerraformProperty<string>>("share_name");
-        set => WithProperty("share_name", value);
+        set => SetProperty("share_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
     public required TerraformProperty<string> StoragePool
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_pool");
-        set => WithProperty("storage_pool", value);
+        set => SetProperty("storage_pool", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     /// </summary>
     public TerraformProperty<string>? VolumeId
     {
-        get => GetProperty<TerraformProperty<string>>("volume_id");
-        set => WithProperty("volume_id", value);
+        set => SetProperty("volume_id", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,20 +88,32 @@ public class GoogleNetappVolumeReplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("destination_volume");
-        this.WithOutput("effective_labels");
-        this.WithOutput("healthy");
-        this.WithOutput("hybrid_peering_details");
-        this.WithOutput("hybrid_replication_type");
-        this.WithOutput("hybrid_replication_user_commands");
-        this.WithOutput("mirror_state");
-        this.WithOutput("role");
-        this.WithOutput("source_volume");
-        this.WithOutput("state");
-        this.WithOutput("state_details");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("transfer_stats");
+        SetOutput("create_time");
+        SetOutput("destination_volume");
+        SetOutput("effective_labels");
+        SetOutput("healthy");
+        SetOutput("hybrid_peering_details");
+        SetOutput("hybrid_replication_type");
+        SetOutput("hybrid_replication_user_commands");
+        SetOutput("mirror_state");
+        SetOutput("role");
+        SetOutput("source_volume");
+        SetOutput("state");
+        SetOutput("state_details");
+        SetOutput("terraform_labels");
+        SetOutput("transfer_stats");
+        SetOutput("delete_destination_volume");
+        SetOutput("description");
+        SetOutput("force_stopping");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("replication_enabled");
+        SetOutput("replication_schedule");
+        SetOutput("volume_name");
+        SetOutput("wait_for_mirror");
     }
 
     /// <summary>
@@ -120,19 +125,19 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// For production use, it is recommended to keep this parameter false to avoid accidental volume
     /// deletion. Handle with care. Default is false.
     /// </summary>
-    public TerraformProperty<bool>? DeleteDestinationVolume
+    public TerraformProperty<bool> DeleteDestinationVolume
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_destination_volume");
-        set => this.WithProperty("delete_destination_volume", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_destination_volume");
+        set => SetProperty("delete_destination_volume", value);
     }
 
     /// <summary>
     /// An description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -141,19 +146,19 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// to stop anyway. All data transferred to the destination will be discarded and content of destination
     /// volume will remain at the state of the last successful update. Default is false.
     /// </summary>
-    public TerraformProperty<bool>? ForceStopping
+    public TerraformProperty<bool> ForceStopping
     {
-        get => GetProperty<TerraformProperty<bool>>("force_stopping");
-        set => this.WithProperty("force_stopping", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_stopping");
+        set => SetProperty("force_stopping", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -163,10 +168,10 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -175,8 +180,8 @@ public class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -185,17 +190,17 @@ public class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -204,10 +209,10 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// Set to true to enable/resume the mirror. WARNING: Resuming a mirror overwrites any changes
     /// done to the destination volume with the content of the source volume.
     /// </summary>
-    public TerraformProperty<bool>? ReplicationEnabled
+    public TerraformProperty<bool> ReplicationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("replication_enabled");
-        set => this.WithProperty("replication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("replication_enabled");
+        set => SetProperty("replication_enabled", value);
     }
 
     /// <summary>
@@ -216,8 +221,8 @@ public class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSchedule is required")]
     public required TerraformProperty<string> ReplicationSchedule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("replication_schedule");
-        set => this.WithProperty("replication_schedule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("replication_schedule");
+        set => SetProperty("replication_schedule", value);
     }
 
     /// <summary>
@@ -226,8 +231,8 @@ public class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformProperty<string> VolumeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_name");
-        set => this.WithProperty("volume_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_name");
+        set => SetProperty("volume_name", value);
     }
 
     /// <summary>
@@ -235,10 +240,10 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// for mirror_state to reach MIRRORED. If you want Terraform to wait for the mirror to finish on
     /// create/stop/resume operations, set this parameter to true. Default is false.
     /// </summary>
-    public TerraformProperty<bool>? WaitForMirror
+    public TerraformProperty<bool> WaitForMirror
     {
-        get => GetProperty<TerraformProperty<bool>>("wait_for_mirror");
-        set => this.WithProperty("wait_for_mirror", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_mirror");
+        set => SetProperty("wait_for_mirror", value);
     }
 
     /// <summary>
@@ -248,8 +253,7 @@ public class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationVolumeParameters block(s) allowed")]
     public List<GoogleNetappVolumeReplicationDestinationVolumeParametersBlock>? DestinationVolumeParameters
     {
-        get => GetProperty<List<GoogleNetappVolumeReplicationDestinationVolumeParametersBlock>>("destination_volume_parameters");
-        set => this.WithProperty("destination_volume_parameters", value);
+        set => SetProperty("destination_volume_parameters", value);
     }
 
     /// <summary>
@@ -258,8 +262,7 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     public GoogleNetappVolumeReplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetappVolumeReplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

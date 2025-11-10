@@ -13,8 +13,7 @@ public class GoogleActiveDirectoryDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleActiveDirectoryDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleActiveDirectoryDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,30 +46,39 @@ public class GoogleActiveDirectoryDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("fqdn");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("fqdn");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("admin");
+        SetOutput("authorized_networks");
+        SetOutput("deletion_protection");
+        SetOutput("domain_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("locations");
+        SetOutput("project");
+        SetOutput("reserved_ip_range");
     }
 
     /// <summary>
     /// The name of delegated administrator account used to perform Active Directory operations.
     /// If not specified, setupadmin will be used.
     /// </summary>
-    public TerraformProperty<string>? Admin
+    public TerraformProperty<string> Admin
     {
-        get => GetProperty<TerraformProperty<string>>("admin");
-        set => this.WithProperty("admin", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admin");
+        set => SetProperty("admin", value);
     }
 
     /// <summary>
     /// The full names of the Google Compute Engine networks the domain instance is connected to. The domain is only available on networks listed in authorizedNetworks.
     /// If CIDR subnets overlap between networks, domain creation will fail.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AuthorizedNetworks
+    public HashSet<TerraformProperty<string>> AuthorizedNetworks
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("authorized_networks");
-        set => this.WithProperty("authorized_networks", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("authorized_networks");
+        set => SetProperty("authorized_networks", value);
     }
 
     /// <summary>
@@ -83,10 +89,10 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the domain will fail.
     /// When the field is set to false, deleting the domain is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
@@ -96,17 +102,17 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
-        set => this.WithProperty("domain_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
+        set => SetProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -115,10 +121,10 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -126,19 +132,19 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location will use a /26 block.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
-    public List<TerraformProperty<string>>? Locations
+    public List<TerraformProperty<string>> Locations
     {
-        get => GetProperty<List<TerraformProperty<string>>>("locations");
-        set => this.WithProperty("locations", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("locations");
+        set => SetProperty("locations", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -148,8 +154,8 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedIpRange is required")]
     public required TerraformProperty<string> ReservedIpRange
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("reserved_ip_range");
-        set => this.WithProperty("reserved_ip_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reserved_ip_range");
+        set => SetProperty("reserved_ip_range", value);
     }
 
     /// <summary>
@@ -158,8 +164,7 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// </summary>
     public GoogleActiveDirectoryDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleActiveDirectoryDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

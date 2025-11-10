@@ -13,8 +13,7 @@ public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,33 +54,44 @@ public class AzurermGalleryApplication : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("end_of_life_date");
+        SetOutput("eula");
+        SetOutput("gallery_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("privacy_statement_uri");
+        SetOutput("release_note_uri");
+        SetOutput("supported_os_type");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
-    public TerraformProperty<string>? EndOfLifeDate
+    public TerraformProperty<string> EndOfLifeDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_of_life_date");
-        set => this.WithProperty("end_of_life_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_of_life_date");
+        set => SetProperty("end_of_life_date", value);
     }
 
     /// <summary>
     /// The eula attribute.
     /// </summary>
-    public TerraformProperty<string>? Eula
+    public TerraformProperty<string> Eula
     {
-        get => GetProperty<TerraformProperty<string>>("eula");
-        set => this.WithProperty("eula", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eula");
+        set => SetProperty("eula", value);
     }
 
     /// <summary>
@@ -93,17 +100,17 @@ public class AzurermGalleryApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryId is required")]
     public required TerraformProperty<string> GalleryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gallery_id");
-        set => this.WithProperty("gallery_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gallery_id");
+        set => SetProperty("gallery_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,8 +119,8 @@ public class AzurermGalleryApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -122,26 +129,26 @@ public class AzurermGalleryApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The privacy_statement_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivacyStatementUri
+    public TerraformProperty<string> PrivacyStatementUri
     {
-        get => GetProperty<TerraformProperty<string>>("privacy_statement_uri");
-        set => this.WithProperty("privacy_statement_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("privacy_statement_uri");
+        set => SetProperty("privacy_statement_uri", value);
     }
 
     /// <summary>
     /// The release_note_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? ReleaseNoteUri
+    public TerraformProperty<string> ReleaseNoteUri
     {
-        get => GetProperty<TerraformProperty<string>>("release_note_uri");
-        set => this.WithProperty("release_note_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("release_note_uri");
+        set => SetProperty("release_note_uri", value);
     }
 
     /// <summary>
@@ -150,17 +157,17 @@ public class AzurermGalleryApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportedOsType is required")]
     public required TerraformProperty<string> SupportedOsType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("supported_os_type");
-        set => this.WithProperty("supported_os_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("supported_os_type");
+        set => SetProperty("supported_os_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -169,8 +176,7 @@ public class AzurermGalleryApplication : TerraformResource
     /// </summary>
     public AzurermGalleryApplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermGalleryApplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

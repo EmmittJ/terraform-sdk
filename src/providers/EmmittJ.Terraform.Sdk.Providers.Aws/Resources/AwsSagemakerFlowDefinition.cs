@@ -22,8 +22,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiArn is required")]
     public required TerraformProperty<string> HumanTaskUiArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("human_task_ui_arn");
-        set => WithProperty("human_task_ui_arn", value);
+        set => SetProperty("human_task_ui_arn", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TaskAvailabilityLifetimeInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("task_availability_lifetime_in_seconds");
-        set => WithProperty("task_availability_lifetime_in_seconds", value);
+        set => SetProperty("task_availability_lifetime_in_seconds", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskCount is required")]
     public required TerraformProperty<double> TaskCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("task_count");
-        set => WithProperty("task_count", value);
+        set => SetProperty("task_count", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDescription is required")]
     public required TerraformProperty<string> TaskDescription
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_description");
-        set => WithProperty("task_description", value);
+        set => SetProperty("task_description", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? TaskKeywords
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("task_keywords");
-        set => WithProperty("task_keywords", value);
+        set => SetProperty("task_keywords", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TaskTimeLimitInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("task_time_limit_in_seconds");
-        set => WithProperty("task_time_limit_in_seconds", value);
+        set => SetProperty("task_time_limit_in_seconds", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskTitle is required")]
     public required TerraformProperty<string> TaskTitle
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("task_title");
-        set => WithProperty("task_title", value);
+        set => SetProperty("task_title", value);
     }
 
     /// <summary>
@@ -89,8 +82,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkteamArn is required")]
     public required TerraformProperty<string> WorkteamArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workteam_arn");
-        set => WithProperty("workteam_arn", value);
+        set => SetProperty("workteam_arn", value);
     }
 
 }
@@ -107,8 +99,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsManagedHumanLoopRequestSource is required")]
     public required TerraformProperty<string> AwsManagedHumanLoopRequestSource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("aws_managed_human_loop_request_source");
-        set => WithProperty("aws_managed_human_loop_request_source", value);
+        set => SetProperty("aws_managed_human_loop_request_source", value);
     }
 
 }
@@ -124,8 +115,7 @@ public class AwsSagemakerFlowDefinitionOutputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -134,8 +124,7 @@ public class AwsSagemakerFlowDefinitionOutputConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputPath is required")]
     public required TerraformProperty<string> S3OutputPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("s3_output_path");
-        set => WithProperty("s3_output_path", value);
+        set => SetProperty("s3_output_path", value);
     }
 
 }
@@ -153,7 +142,13 @@ public class AwsSagemakerFlowDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("flow_definition_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -162,26 +157,26 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowDefinitionName is required")]
     public required TerraformProperty<string> FlowDefinitionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("flow_definition_name");
-        set => this.WithProperty("flow_definition_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("flow_definition_name");
+        set => SetProperty("flow_definition_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -190,26 +185,26 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -219,20 +214,19 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanLoopActivationConfig block(s) allowed")]
     public List<AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock>? HumanLoopActivationConfig
     {
-        get => GetProperty<List<AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlock>>("human_loop_activation_config");
-        set => this.WithProperty("human_loop_activation_config", value);
+        set => SetProperty("human_loop_activation_config", value);
     }
 
     /// <summary>
     /// Block for human_loop_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanLoopConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HumanLoopConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanLoopConfig block(s) allowed")]
     public List<AwsSagemakerFlowDefinitionHumanLoopConfigBlock>? HumanLoopConfig
     {
-        get => GetProperty<List<AwsSagemakerFlowDefinitionHumanLoopConfigBlock>>("human_loop_config");
-        set => this.WithProperty("human_loop_config", value);
+        set => SetProperty("human_loop_config", value);
     }
 
     /// <summary>
@@ -242,20 +236,19 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanLoopRequestSource block(s) allowed")]
     public List<AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock>? HumanLoopRequestSource
     {
-        get => GetProperty<List<AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock>>("human_loop_request_source");
-        set => this.WithProperty("human_loop_request_source", value);
+        set => SetProperty("human_loop_request_source", value);
     }
 
     /// <summary>
     /// Block for output_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputConfig block(s) allowed")]
     public List<AwsSagemakerFlowDefinitionOutputConfigBlock>? OutputConfig
     {
-        get => GetProperty<List<AwsSagemakerFlowDefinitionOutputConfigBlock>>("output_config");
-        set => this.WithProperty("output_config", value);
+        set => SetProperty("output_config", value);
     }
 
     /// <summary>

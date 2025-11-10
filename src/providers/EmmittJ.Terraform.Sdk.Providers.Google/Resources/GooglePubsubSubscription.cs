@@ -15,8 +15,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DropUnknownFields
     {
-        get => GetProperty<TerraformProperty<bool>>("drop_unknown_fields");
-        set => WithProperty("drop_unknown_fields", value);
+        set => SetProperty("drop_unknown_fields", value);
     }
 
     /// <summary>
@@ -26,8 +25,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountEmail
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_email");
-        set => WithProperty("service_account_email", value);
+        set => SetProperty("service_account_email", value);
     }
 
     /// <summary>
@@ -36,8 +34,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table");
-        set => WithProperty("table", value);
+        set => SetProperty("table", value);
     }
 
     /// <summary>
@@ -46,8 +43,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseTableSchema
     {
-        get => GetProperty<TerraformProperty<bool>>("use_table_schema");
-        set => WithProperty("use_table_schema", value);
+        set => SetProperty("use_table_schema", value);
     }
 
     /// <summary>
@@ -56,8 +52,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseTopicSchema
     {
-        get => GetProperty<TerraformProperty<bool>>("use_topic_schema");
-        set => WithProperty("use_topic_schema", value);
+        set => SetProperty("use_topic_schema", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WriteMetadata
     {
-        get => GetProperty<TerraformProperty<bool>>("write_metadata");
-        set => WithProperty("write_metadata", value);
+        set => SetProperty("write_metadata", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => WithProperty("bucket", value);
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilenameDatetimeFormat
     {
-        get => GetProperty<TerraformProperty<string>>("filename_datetime_format");
-        set => WithProperty("filename_datetime_format", value);
+        set => SetProperty("filename_datetime_format", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilenamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("filename_prefix");
-        set => WithProperty("filename_prefix", value);
+        set => SetProperty("filename_prefix", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FilenameSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("filename_suffix");
-        set => WithProperty("filename_suffix", value);
+        set => SetProperty("filename_suffix", value);
     }
 
     /// <summary>
@@ -121,8 +111,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxBytes
     {
-        get => GetProperty<TerraformProperty<double>>("max_bytes");
-        set => WithProperty("max_bytes", value);
+        set => SetProperty("max_bytes", value);
     }
 
     /// <summary>
@@ -132,8 +121,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxDuration
     {
-        get => GetProperty<TerraformProperty<string>>("max_duration");
-        set => WithProperty("max_duration", value);
+        set => SetProperty("max_duration", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxMessages
     {
-        get => GetProperty<TerraformProperty<double>>("max_messages");
-        set => WithProperty("max_messages", value);
+        set => SetProperty("max_messages", value);
     }
 
     /// <summary>
@@ -152,8 +139,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountEmail
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_email");
-        set => WithProperty("service_account_email", value);
+        set => SetProperty("service_account_email", value);
     }
 
     /// <summary>
@@ -161,8 +147,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -188,8 +173,7 @@ public class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeadLetterTopic
     {
-        get => GetProperty<TerraformProperty<string>>("dead_letter_topic");
-        set => WithProperty("dead_letter_topic", value);
+        set => SetProperty("dead_letter_topic", value);
     }
 
     /// <summary>
@@ -208,8 +192,7 @@ public class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxDeliveryAttempts
     {
-        get => GetProperty<TerraformProperty<double>>("max_delivery_attempts");
-        set => WithProperty("max_delivery_attempts", value);
+        set => SetProperty("max_delivery_attempts", value);
     }
 
 }
@@ -230,8 +213,7 @@ public class GooglePubsubSubscriptionExpirationPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<string> Ttl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ttl");
-        set => WithProperty("ttl", value);
+        set => SetProperty("ttl", value);
     }
 
 }
@@ -248,8 +230,7 @@ public class GooglePubsubSubscriptionMessageTransformsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => WithProperty("disabled", value);
+        set => SetProperty("disabled", value);
     }
 
 }
@@ -287,8 +268,7 @@ public class GooglePubsubSubscriptionPushConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Attributes
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attributes");
-        set => WithProperty("attributes", value);
+        set => SetProperty("attributes", value);
     }
 
     /// <summary>
@@ -299,8 +279,7 @@ public class GooglePubsubSubscriptionPushConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PushEndpoint is required")]
     public required TerraformProperty<string> PushEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("push_endpoint");
-        set => WithProperty("push_endpoint", value);
+        set => SetProperty("push_endpoint", value);
     }
 
 }
@@ -317,8 +296,7 @@ public class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaximumBackoff
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_backoff");
-        set => WithProperty("maximum_backoff", value);
+        set => SetProperty("maximum_backoff", value);
     }
 
     /// <summary>
@@ -327,8 +305,7 @@ public class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinimumBackoff
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_backoff");
-        set => WithProperty("minimum_backoff", value);
+        set => SetProperty("minimum_backoff", value);
     }
 
 }
@@ -344,8 +321,7 @@ public class GooglePubsubSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -353,8 +329,7 @@ public class GooglePubsubSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -362,8 +337,7 @@ public class GooglePubsubSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -381,8 +355,20 @@ public class GooglePubsubSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("ack_deadline_seconds");
+        SetOutput("enable_exactly_once_delivery");
+        SetOutput("enable_message_ordering");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("message_retention_duration");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("retain_acked_messages");
+        SetOutput("tags");
+        SetOutput("topic");
     }
 
     /// <summary>
@@ -405,10 +391,10 @@ public class GooglePubsubSubscription : TerraformResource
     /// If the subscriber never acknowledges the message, the Pub/Sub system
     /// will eventually redeliver the message.
     /// </summary>
-    public TerraformProperty<double>? AckDeadlineSeconds
+    public TerraformProperty<double> AckDeadlineSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("ack_deadline_seconds");
-        set => this.WithProperty("ack_deadline_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ack_deadline_seconds");
+        set => SetProperty("ack_deadline_seconds", value);
     }
 
     /// <summary>
@@ -422,10 +408,10 @@ public class GooglePubsubSubscription : TerraformResource
     /// Note that subscribers may still receive multiple copies of a message when &#39;enable_exactly_once_delivery&#39;
     /// is true if the message was published multiple times by a publisher client. These copies are considered distinct by Pub/Sub and have distinct messageId values
     /// </summary>
-    public TerraformProperty<bool>? EnableExactlyOnceDelivery
+    public TerraformProperty<bool> EnableExactlyOnceDelivery
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_exactly_once_delivery");
-        set => this.WithProperty("enable_exactly_once_delivery", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_exactly_once_delivery");
+        set => SetProperty("enable_exactly_once_delivery", value);
     }
 
     /// <summary>
@@ -433,10 +419,10 @@ public class GooglePubsubSubscription : TerraformResource
     /// the subscribers in the order in which they are received by the Pub/Sub system. Otherwise, they
     /// may be delivered in any order.
     /// </summary>
-    public TerraformProperty<bool>? EnableMessageOrdering
+    public TerraformProperty<bool> EnableMessageOrdering
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_message_ordering");
-        set => this.WithProperty("enable_message_ordering", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_message_ordering");
+        set => SetProperty("enable_message_ordering", value);
     }
 
     /// <summary>
@@ -445,19 +431,19 @@ public class GooglePubsubSubscription : TerraformResource
     /// by their attributes. The maximum length of a filter is 256 bytes. After creating the subscription,
     /// you can&#39;t modify the filter.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -467,10 +453,10 @@ public class GooglePubsubSubscription : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -484,10 +470,10 @@ public class GooglePubsubSubscription : TerraformResource
     /// A duration in seconds with up to nine fractional digits, terminated
     /// by &#39;s&#39;. Example: &#39;&amp;quot;600.5s&amp;quot;&#39;.
     /// </summary>
-    public TerraformProperty<string>? MessageRetentionDuration
+    public TerraformProperty<string> MessageRetentionDuration
     {
-        get => GetProperty<TerraformProperty<string>>("message_retention_duration");
-        set => this.WithProperty("message_retention_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("message_retention_duration");
+        set => SetProperty("message_retention_duration", value);
     }
 
     /// <summary>
@@ -496,17 +482,17 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -515,10 +501,10 @@ public class GooglePubsubSubscription : TerraformResource
     /// they are acknowledged, until they fall out of the
     /// messageRetentionDuration window.
     /// </summary>
-    public TerraformProperty<bool>? RetainAckedMessages
+    public TerraformProperty<bool> RetainAckedMessages
     {
-        get => GetProperty<TerraformProperty<bool>>("retain_acked_messages");
-        set => this.WithProperty("retain_acked_messages", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("retain_acked_messages");
+        set => SetProperty("retain_acked_messages", value);
     }
 
     /// <summary>
@@ -531,10 +517,10 @@ public class GooglePubsubSubscription : TerraformResource
     /// apply tags to an existing resource, see the &#39;google_tags_tag_value&#39;
     /// resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -545,8 +531,8 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("topic");
-        set => this.WithProperty("topic", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("topic");
+        set => SetProperty("topic", value);
     }
 
     /// <summary>
@@ -556,8 +542,7 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryConfig block(s) allowed")]
     public List<GooglePubsubSubscriptionBigqueryConfigBlock>? BigqueryConfig
     {
-        get => GetProperty<List<GooglePubsubSubscriptionBigqueryConfigBlock>>("bigquery_config");
-        set => this.WithProperty("bigquery_config", value);
+        set => SetProperty("bigquery_config", value);
     }
 
     /// <summary>
@@ -567,8 +552,7 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudStorageConfig block(s) allowed")]
     public List<GooglePubsubSubscriptionCloudStorageConfigBlock>? CloudStorageConfig
     {
-        get => GetProperty<List<GooglePubsubSubscriptionCloudStorageConfigBlock>>("cloud_storage_config");
-        set => this.WithProperty("cloud_storage_config", value);
+        set => SetProperty("cloud_storage_config", value);
     }
 
     /// <summary>
@@ -578,8 +562,7 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterPolicy block(s) allowed")]
     public List<GooglePubsubSubscriptionDeadLetterPolicyBlock>? DeadLetterPolicy
     {
-        get => GetProperty<List<GooglePubsubSubscriptionDeadLetterPolicyBlock>>("dead_letter_policy");
-        set => this.WithProperty("dead_letter_policy", value);
+        set => SetProperty("dead_letter_policy", value);
     }
 
     /// <summary>
@@ -589,8 +572,7 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpirationPolicy block(s) allowed")]
     public List<GooglePubsubSubscriptionExpirationPolicyBlock>? ExpirationPolicy
     {
-        get => GetProperty<List<GooglePubsubSubscriptionExpirationPolicyBlock>>("expiration_policy");
-        set => this.WithProperty("expiration_policy", value);
+        set => SetProperty("expiration_policy", value);
     }
 
     /// <summary>
@@ -599,8 +581,7 @@ public class GooglePubsubSubscription : TerraformResource
     /// </summary>
     public List<GooglePubsubSubscriptionMessageTransformsBlock>? MessageTransforms
     {
-        get => GetProperty<List<GooglePubsubSubscriptionMessageTransformsBlock>>("message_transforms");
-        set => this.WithProperty("message_transforms", value);
+        set => SetProperty("message_transforms", value);
     }
 
     /// <summary>
@@ -610,8 +591,7 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PushConfig block(s) allowed")]
     public List<GooglePubsubSubscriptionPushConfigBlock>? PushConfig
     {
-        get => GetProperty<List<GooglePubsubSubscriptionPushConfigBlock>>("push_config");
-        set => this.WithProperty("push_config", value);
+        set => SetProperty("push_config", value);
     }
 
     /// <summary>
@@ -621,8 +601,7 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     public List<GooglePubsubSubscriptionRetryPolicyBlock>? RetryPolicy
     {
-        get => GetProperty<List<GooglePubsubSubscriptionRetryPolicyBlock>>("retry_policy");
-        set => this.WithProperty("retry_policy", value);
+        set => SetProperty("retry_policy", value);
     }
 
     /// <summary>
@@ -631,8 +610,7 @@ public class GooglePubsubSubscription : TerraformResource
     /// </summary>
     public GooglePubsubSubscriptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GooglePubsubSubscriptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

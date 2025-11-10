@@ -13,8 +13,7 @@ public class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? EkmConnectionKeyPath
     {
-        get => GetProperty<TerraformProperty<string>>("ekm_connection_key_path");
-        set => WithProperty("ekm_connection_key_path", value);
+        set => SetProperty("ekm_connection_key_path", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? ExternalKeyUri
     {
-        get => GetProperty<TerraformProperty<string>>("external_key_uri");
-        set => WithProperty("external_key_uri", value);
+        set => SetProperty("external_key_uri", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleKmsCryptoKeyVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleKmsCryptoKeyVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleKmsCryptoKeyVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,11 +71,14 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("algorithm");
-        this.WithOutput("attestation");
-        this.WithOutput("generate_time");
-        this.WithOutput("name");
-        this.WithOutput("protection_level");
+        SetOutput("algorithm");
+        SetOutput("attestation");
+        SetOutput("generate_time");
+        SetOutput("name");
+        SetOutput("protection_level");
+        SetOutput("crypto_key");
+        SetOutput("id");
+        SetOutput("state");
     }
 
     /// <summary>
@@ -90,27 +88,27 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformProperty<string> CryptoKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("crypto_key");
-        set => this.WithProperty("crypto_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key");
+        set => SetProperty("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The current state of the CryptoKeyVersion. Note: you can only specify this field to manually &#39;ENABLE&#39; or &#39;DISABLE&#39; the CryptoKeyVersion,
     /// otherwise the value of this field is always retrieved automatically. Possible values: [&amp;quot;PENDING_GENERATION&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;DESTROYED&amp;quot;, &amp;quot;DESTROY_SCHEDULED&amp;quot;, &amp;quot;PENDING_IMPORT&amp;quot;, &amp;quot;IMPORT_FAILED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? State
+    public TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => this.WithProperty("state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("state");
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -120,8 +118,7 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalProtectionLevelOptions block(s) allowed")]
     public List<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock>? ExternalProtectionLevelOptions
     {
-        get => GetProperty<List<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock>>("external_protection_level_options");
-        set => this.WithProperty("external_protection_level_options", value);
+        set => SetProperty("external_protection_level_options", value);
     }
 
     /// <summary>
@@ -130,8 +127,7 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
     /// </summary>
     public GoogleKmsCryptoKeyVersionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleKmsCryptoKeyVersionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

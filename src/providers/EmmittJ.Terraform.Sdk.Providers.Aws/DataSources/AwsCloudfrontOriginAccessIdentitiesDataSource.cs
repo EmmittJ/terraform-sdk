@@ -14,27 +14,29 @@ public class AwsCloudfrontOriginAccessIdentitiesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("iam_arns");
-        this.WithOutput("ids");
-        this.WithOutput("s3_canonical_user_ids");
+        SetOutput("iam_arns");
+        SetOutput("ids");
+        SetOutput("s3_canonical_user_ids");
+        SetOutput("comments");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The comments attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Comments
+    public HashSet<TerraformProperty<string>> Comments
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("comments");
-        set => this.WithProperty("comments", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("comments");
+        set => SetProperty("comments", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

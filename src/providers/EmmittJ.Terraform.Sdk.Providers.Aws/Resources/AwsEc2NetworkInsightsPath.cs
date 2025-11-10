@@ -13,8 +13,7 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DestinationAddress
     {
-        get => GetProperty<TerraformProperty<string>>("destination_address");
-        set => WithProperty("destination_address", value);
+        set => SetProperty("destination_address", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceAddress
     {
-        get => GetProperty<TerraformProperty<string>>("source_address");
-        set => WithProperty("source_address", value);
+        set => SetProperty("source_address", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DestinationAddress
     {
-        get => GetProperty<TerraformProperty<string>>("destination_address");
-        set => WithProperty("destination_address", value);
+        set => SetProperty("destination_address", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceAddress
     {
-        get => GetProperty<TerraformProperty<string>>("source_address");
-        set => WithProperty("source_address", value);
+        set => SetProperty("source_address", value);
     }
 
 }
@@ -67,45 +63,55 @@ public class AwsEc2NetworkInsightsPath : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("destination_arn");
-        this.WithOutput("source_arn");
+        SetOutput("arn");
+        SetOutput("destination_arn");
+        SetOutput("source_arn");
+        SetOutput("destination");
+        SetOutput("destination_ip");
+        SetOutput("destination_port");
+        SetOutput("id");
+        SetOutput("protocol");
+        SetOutput("region");
+        SetOutput("source");
+        SetOutput("source_ip");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public TerraformProperty<string>? Destination
+    public TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
-        set => this.WithProperty("destination", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination");
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// The destination_ip attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationIp
+    public TerraformProperty<string> DestinationIp
     {
-        get => GetProperty<TerraformProperty<string>>("destination_ip");
-        set => this.WithProperty("destination_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_ip");
+        set => SetProperty("destination_ip", value);
     }
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
-    public TerraformProperty<double>? DestinationPort
+    public TerraformProperty<double> DestinationPort
     {
-        get => GetProperty<TerraformProperty<double>>("destination_port");
-        set => this.WithProperty("destination_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("destination_port");
+        set => SetProperty("destination_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -114,17 +120,17 @@ public class AwsEc2NetworkInsightsPath : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -133,35 +139,35 @@ public class AwsEc2NetworkInsightsPath : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => this.WithProperty("source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source");
+        set => SetProperty("source", value);
     }
 
     /// <summary>
     /// The source_ip attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceIp
+    public TerraformProperty<string> SourceIp
     {
-        get => GetProperty<TerraformProperty<string>>("source_ip");
-        set => this.WithProperty("source_ip", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_ip");
+        set => SetProperty("source_ip", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -171,8 +177,7 @@ public class AwsEc2NetworkInsightsPath : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtDestination block(s) allowed")]
     public List<AwsEc2NetworkInsightsPathFilterAtDestinationBlock>? FilterAtDestination
     {
-        get => GetProperty<List<AwsEc2NetworkInsightsPathFilterAtDestinationBlock>>("filter_at_destination");
-        set => this.WithProperty("filter_at_destination", value);
+        set => SetProperty("filter_at_destination", value);
     }
 
     /// <summary>
@@ -182,8 +187,7 @@ public class AwsEc2NetworkInsightsPath : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtSource block(s) allowed")]
     public List<AwsEc2NetworkInsightsPathFilterAtSourceBlock>? FilterAtSource
     {
-        get => GetProperty<List<AwsEc2NetworkInsightsPathFilterAtSourceBlock>>("filter_at_source");
-        set => this.WithProperty("filter_at_source", value);
+        set => SetProperty("filter_at_source", value);
     }
 
     /// <summary>

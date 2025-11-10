@@ -13,8 +13,7 @@ public class GoogleLoggingOrganizationSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleLoggingOrganizationSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleLoggingOrganizationSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,36 +46,41 @@ public class GoogleLoggingOrganizationSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("kms_service_account_id");
-        this.WithOutput("logging_service_account_id");
-        this.WithOutput("name");
+        SetOutput("kms_service_account_id");
+        SetOutput("logging_service_account_id");
+        SetOutput("name");
+        SetOutput("disable_default_sink");
+        SetOutput("id");
+        SetOutput("kms_key_name");
+        SetOutput("organization");
+        SetOutput("storage_location");
     }
 
     /// <summary>
     /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
     /// </summary>
-    public TerraformProperty<bool>? DisableDefaultSink
+    public TerraformProperty<bool> DisableDefaultSink
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_default_sink");
-        set => this.WithProperty("disable_default_sink", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disable_default_sink");
+        set => SetProperty("disable_default_sink", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -87,17 +89,17 @@ public class GoogleLoggingOrganizationSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization");
-        set => this.WithProperty("organization", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization");
+        set => SetProperty("organization", value);
     }
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
-    public TerraformProperty<string>? StorageLocation
+    public TerraformProperty<string> StorageLocation
     {
-        get => GetProperty<TerraformProperty<string>>("storage_location");
-        set => this.WithProperty("storage_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_location");
+        set => SetProperty("storage_location", value);
     }
 
     /// <summary>
@@ -106,8 +108,7 @@ public class GoogleLoggingOrganizationSettings : TerraformResource
     /// </summary>
     public GoogleLoggingOrganizationSettingsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleLoggingOrganizationSettingsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

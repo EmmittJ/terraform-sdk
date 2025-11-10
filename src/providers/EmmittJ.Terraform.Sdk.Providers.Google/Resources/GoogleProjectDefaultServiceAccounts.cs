@@ -13,8 +13,7 @@ public class GoogleProjectDefaultServiceAccountsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleProjectDefaultServiceAccountsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleProjectDefaultServiceAccountsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,7 +46,11 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("service_accounts");
+        SetOutput("service_accounts");
+        SetOutput("action");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("restore_policy");
     }
 
     /// <summary>
@@ -59,17 +60,17 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("action");
-        set => this.WithProperty("action", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("action");
+        set => SetProperty("action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,18 +79,18 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The action to be performed in the default service accounts on the resource destroy.
     /// 				Valid values are NONE, REVERT and REVERT_AND_IGNORE_FAILURE. It is applied for any action but in the DEPRIVILEGE.
     /// </summary>
-    public TerraformProperty<string>? RestorePolicy
+    public TerraformProperty<string> RestorePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("restore_policy");
-        set => this.WithProperty("restore_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("restore_policy");
+        set => SetProperty("restore_policy", value);
     }
 
     /// <summary>
@@ -98,8 +99,7 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
     /// </summary>
     public GoogleProjectDefaultServiceAccountsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleProjectDefaultServiceAccountsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

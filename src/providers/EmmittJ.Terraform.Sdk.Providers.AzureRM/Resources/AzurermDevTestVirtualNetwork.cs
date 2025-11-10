@@ -13,8 +13,7 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UseInVirtualMachineCreation
     {
-        get => GetProperty<TerraformProperty<string>>("use_in_virtual_machine_creation");
-        set => WithProperty("use_in_virtual_machine_creation", value);
+        set => SetProperty("use_in_virtual_machine_creation", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UsePublicIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("use_public_ip_address");
-        set => WithProperty("use_public_ip_address", value);
+        set => SetProperty("use_public_ip_address", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,25 +87,31 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputnique_identifier");
+        SetOutput("unique_identifier");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("lab_name");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,8 +120,8 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformProperty<string> LabName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("lab_name");
-        set => this.WithProperty("lab_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lab_name");
+        set => SetProperty("lab_name", value);
     }
 
     /// <summary>
@@ -131,8 +130,8 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -141,17 +140,17 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -161,8 +160,7 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
     public List<AzurermDevTestVirtualNetworkSubnetBlock>? Subnet
     {
-        get => GetProperty<List<AzurermDevTestVirtualNetworkSubnetBlock>>("subnet");
-        set => this.WithProperty("subnet", value);
+        set => SetProperty("subnet", value);
     }
 
     /// <summary>
@@ -171,8 +169,7 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
     /// </summary>
     public AzurermDevTestVirtualNetworkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDevTestVirtualNetworkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

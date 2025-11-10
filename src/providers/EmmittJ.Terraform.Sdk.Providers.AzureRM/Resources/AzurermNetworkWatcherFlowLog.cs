@@ -14,8 +14,7 @@ public class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     public required TerraformProperty<double> Days
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("days");
-        set => WithProperty("days", value);
+        set => SetProperty("days", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermNetworkWatcherFlowLogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermNetworkWatcherFlowLogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermNetworkWatcherFlowLogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermNetworkWatcherFlowLogTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? IntervalInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("interval_in_minutes");
-        set => WithProperty("interval_in_minutes", value);
+        set => SetProperty("interval_in_minutes", value);
     }
 
     /// <summary>
@@ -105,8 +97,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => WithProperty("workspace_id", value);
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -115,8 +106,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceRegion is required")]
     public required TerraformProperty<string> WorkspaceRegion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_region");
-        set => WithProperty("workspace_region", value);
+        set => SetProperty("workspace_region", value);
     }
 
     /// <summary>
@@ -125,8 +115,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
     public required TerraformProperty<string> WorkspaceResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_resource_id");
-        set => WithProperty("workspace_resource_id", value);
+        set => SetProperty("workspace_resource_id", value);
     }
 
 }
@@ -144,6 +133,17 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network_security_group_id");
+        SetOutput("network_watcher_name");
+        SetOutput("resource_group_name");
+        SetOutput("storage_account_id");
+        SetOutput("tags");
+        SetOutput("target_resource_id");
+        SetOutput("version");
     }
 
     /// <summary>
@@ -152,26 +152,26 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -180,18 +180,18 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? NetworkSecurityGroupId
+    public TerraformProperty<string> NetworkSecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("network_security_group_id");
-        set => this.WithProperty("network_security_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_security_group_id");
+        set => SetProperty("network_security_group_id", value);
     }
 
     /// <summary>
@@ -200,8 +200,8 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherName is required")]
     public required TerraformProperty<string> NetworkWatcherName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_watcher_name");
-        set => this.WithProperty("network_watcher_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_watcher_name");
+        set => SetProperty("network_watcher_name", value);
     }
 
     /// <summary>
@@ -210,8 +210,8 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -220,47 +220,47 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetResourceId
+    public TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
-        set => this.WithProperty("target_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
+        set => SetProperty("target_resource_id", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<double>? Version
+    public TerraformProperty<double> Version
     {
-        get => GetProperty<TerraformProperty<double>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
     /// Block for retention_policy.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RetentionPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
     public List<AzurermNetworkWatcherFlowLogRetentionPolicyBlock>? RetentionPolicy
     {
-        get => GetProperty<List<AzurermNetworkWatcherFlowLogRetentionPolicyBlock>>("retention_policy");
-        set => this.WithProperty("retention_policy", value);
+        set => SetProperty("retention_policy", value);
     }
 
     /// <summary>
@@ -269,8 +269,7 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     /// </summary>
     public AzurermNetworkWatcherFlowLogTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkWatcherFlowLogTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -280,8 +279,7 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficAnalytics block(s) allowed")]
     public List<AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock>? TrafficAnalytics
     {
-        get => GetProperty<List<AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock>>("traffic_analytics");
-        set => this.WithProperty("traffic_analytics", value);
+        set => SetProperty("traffic_analytics", value);
     }
 
 }

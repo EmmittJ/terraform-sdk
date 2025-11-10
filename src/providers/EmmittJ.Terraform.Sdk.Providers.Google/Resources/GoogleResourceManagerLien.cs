@@ -13,8 +13,7 @@ public class GoogleResourceManagerLienTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleResourceManagerLienTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,17 +38,22 @@ public class GoogleResourceManagerLien : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("id");
+        SetOutput("origin");
+        SetOutput("parent");
+        SetOutput("reason");
+        SetOutput("restrictions");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +64,8 @@ public class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     public required TerraformProperty<string> Origin
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("origin");
-        set => this.WithProperty("origin", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("origin");
+        set => SetProperty("origin", value);
     }
 
     /// <summary>
@@ -74,8 +77,8 @@ public class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -85,8 +88,8 @@ public class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
     public required TerraformProperty<string> Reason
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("reason");
-        set => this.WithProperty("reason", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reason");
+        set => SetProperty("reason", value);
     }
 
     /// <summary>
@@ -97,10 +100,10 @@ public class GoogleResourceManagerLien : TerraformResource
     /// e.g. [&#39;resourcemanager.projects.delete&#39;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Restrictions is required")]
-    public List<TerraformProperty<string>>? Restrictions
+    public List<TerraformProperty<string>> Restrictions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("restrictions");
-        set => this.WithProperty("restrictions", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("restrictions");
+        set => SetProperty("restrictions", value);
     }
 
     /// <summary>
@@ -109,8 +112,7 @@ public class GoogleResourceManagerLien : TerraformResource
     /// </summary>
     public GoogleResourceManagerLienTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleResourceManagerLienTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

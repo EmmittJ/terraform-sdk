@@ -14,8 +14,7 @@ public class GoogleDnsManagedZoneCloudLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableLogging is required")]
     public required TerraformProperty<bool> EnableLogging
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enable_logging");
-        set => WithProperty("enable_logging", value);
+        set => SetProperty("enable_logging", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
-        set => WithProperty("kind", value);
+        set => SetProperty("kind", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NonExistence
     {
-        get => GetProperty<TerraformProperty<string>>("non_existence");
-        set => WithProperty("non_existence", value);
+        set => SetProperty("non_existence", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
 }
@@ -91,8 +87,7 @@ public class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -100,8 +95,7 @@ public class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -109,8 +103,7 @@ public class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -128,20 +121,28 @@ public class GoogleDnsManagedZone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("managed_zone_id");
-        this.WithOutput("name_servers");
-        this.WithOutput("terraform_labels");
+        SetOutput("creation_time");
+        SetOutput("effective_labels");
+        SetOutput("managed_zone_id");
+        SetOutput("name_servers");
+        SetOutput("terraform_labels");
+        SetOutput("description");
+        SetOutput("dns_name");
+        SetOutput("force_destroy");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("visibility");
     }
 
     /// <summary>
     /// A textual description field. Defaults to &#39;Managed by Terraform&#39;.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -150,26 +151,26 @@ public class GoogleDnsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
     public required TerraformProperty<string> DnsName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns_name");
-        set => this.WithProperty("dns_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_name");
+        set => SetProperty("dns_name", value);
     }
 
     /// <summary>
     /// Set this true to delete all records in the zone.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -179,10 +180,10 @@ public class GoogleDnsManagedZone : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -192,27 +193,27 @@ public class GoogleDnsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The zone&#39;s visibility: public zones are exposed to the Internet,
     /// while private zones are visible only to Virtual Private Cloud resources. Default value: &amp;quot;public&amp;quot; Possible values: [&amp;quot;private&amp;quot;, &amp;quot;public&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Visibility
+    public TerraformProperty<string> Visibility
     {
-        get => GetProperty<TerraformProperty<string>>("visibility");
-        set => this.WithProperty("visibility", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("visibility");
+        set => SetProperty("visibility", value);
     }
 
     /// <summary>
@@ -222,8 +223,7 @@ public class GoogleDnsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudLoggingConfig block(s) allowed")]
     public List<GoogleDnsManagedZoneCloudLoggingConfigBlock>? CloudLoggingConfig
     {
-        get => GetProperty<List<GoogleDnsManagedZoneCloudLoggingConfigBlock>>("cloud_logging_config");
-        set => this.WithProperty("cloud_logging_config", value);
+        set => SetProperty("cloud_logging_config", value);
     }
 
     /// <summary>
@@ -233,8 +233,7 @@ public class GoogleDnsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnssecConfig block(s) allowed")]
     public List<GoogleDnsManagedZoneDnssecConfigBlock>? DnssecConfig
     {
-        get => GetProperty<List<GoogleDnsManagedZoneDnssecConfigBlock>>("dnssec_config");
-        set => this.WithProperty("dnssec_config", value);
+        set => SetProperty("dnssec_config", value);
     }
 
     /// <summary>
@@ -244,8 +243,7 @@ public class GoogleDnsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ForwardingConfig block(s) allowed")]
     public List<GoogleDnsManagedZoneForwardingConfigBlock>? ForwardingConfig
     {
-        get => GetProperty<List<GoogleDnsManagedZoneForwardingConfigBlock>>("forwarding_config");
-        set => this.WithProperty("forwarding_config", value);
+        set => SetProperty("forwarding_config", value);
     }
 
     /// <summary>
@@ -255,8 +253,7 @@ public class GoogleDnsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PeeringConfig block(s) allowed")]
     public List<GoogleDnsManagedZonePeeringConfigBlock>? PeeringConfig
     {
-        get => GetProperty<List<GoogleDnsManagedZonePeeringConfigBlock>>("peering_config");
-        set => this.WithProperty("peering_config", value);
+        set => SetProperty("peering_config", value);
     }
 
     /// <summary>
@@ -266,8 +263,7 @@ public class GoogleDnsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateVisibilityConfig block(s) allowed")]
     public List<GoogleDnsManagedZonePrivateVisibilityConfigBlock>? PrivateVisibilityConfig
     {
-        get => GetProperty<List<GoogleDnsManagedZonePrivateVisibilityConfigBlock>>("private_visibility_config");
-        set => this.WithProperty("private_visibility_config", value);
+        set => SetProperty("private_visibility_config", value);
     }
 
     /// <summary>
@@ -276,8 +272,7 @@ public class GoogleDnsManagedZone : TerraformResource
     /// </summary>
     public GoogleDnsManagedZoneTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDnsManagedZoneTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

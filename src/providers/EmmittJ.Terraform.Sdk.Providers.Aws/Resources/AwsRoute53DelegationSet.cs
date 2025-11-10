@@ -14,26 +14,28 @@ public class AwsRoute53DelegationSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("name_servers");
+        SetOutput("arn");
+        SetOutput("name_servers");
+        SetOutput("id");
+        SetOutput("reference_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The reference_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ReferenceName
+    public TerraformProperty<string> ReferenceName
     {
-        get => GetProperty<TerraformProperty<string>>("reference_name");
-        set => this.WithProperty("reference_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reference_name");
+        set => SetProperty("reference_name", value);
     }
 
     /// <summary>

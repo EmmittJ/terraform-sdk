@@ -15,20 +15,24 @@ public class AwsSecretsmanagerSecretVersionEphemeralResource : TerraformEphemera
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_date");
-        this.WithOutput("secret_binary");
-        this.WithOutput("secret_string");
-        this.WithOutput("version_stages");
+        SetOutput("arn");
+        SetOutput("created_date");
+        SetOutput("secret_binary");
+        SetOutput("secret_string");
+        SetOutput("version_stages");
+        SetOutput("region");
+        SetOutput("secret_id");
+        SetOutput("version_id");
+        SetOutput("version_stage");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -37,26 +41,26 @@ public class AwsSecretsmanagerSecretVersionEphemeralResource : TerraformEphemera
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
-        set => this.WithProperty("secret_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secret_id");
+        set => SetProperty("secret_id", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionId
+    public TerraformProperty<string> VersionId
     {
-        get => GetProperty<TerraformProperty<string>>("version_id");
-        set => this.WithProperty("version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
+        set => SetProperty("version_id", value);
     }
 
     /// <summary>
     /// The version_stage attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionStage
+    public TerraformProperty<string> VersionStage
     {
-        get => GetProperty<TerraformProperty<string>>("version_stage");
-        set => this.WithProperty("version_stage", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_stage");
+        set => SetProperty("version_stage", value);
     }
 
     /// <summary>

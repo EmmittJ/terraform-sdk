@@ -13,8 +13,7 @@ public class GoogleSccFolderSccBigQueryExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleSccFolderSccBigQueryExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleSccFolderSccBigQueryExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,11 +46,17 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("most_recent_editor");
-        this.WithOutput("name");
-        this.WithOutput("principal");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("most_recent_editor");
+        SetOutput("name");
+        SetOutput("principal");
+        SetOutput("update_time");
+        SetOutput("big_query_export_id");
+        SetOutput("dataset");
+        SetOutput("description");
+        SetOutput("filter");
+        SetOutput("folder");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -62,8 +65,8 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     public required TerraformProperty<string> BigQueryExportId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("big_query_export_id");
-        set => this.WithProperty("big_query_export_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("big_query_export_id");
+        set => SetProperty("big_query_export_id", value);
     }
 
     /// <summary>
@@ -74,8 +77,8 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
-        set => this.WithProperty("dataset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
@@ -84,8 +87,8 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -118,8 +121,8 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -129,17 +132,17 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -148,8 +151,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// </summary>
     public GoogleSccFolderSccBigQueryExportTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSccFolderSccBigQueryExportTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? ActualUsedDataStorageSizeTb
     {
-        get => GetProperty<TerraformProperty<double>>("actual_used_data_storage_size_tb");
-        set => WithProperty("actual_used_data_storage_size_tb", value);
+        set => SetProperty("actual_used_data_storage_size_tb", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? AllocatedStorageSizeTb
     {
-        get => GetProperty<TerraformProperty<double>>("allocated_storage_size_tb");
-        set => WithProperty("allocated_storage_size_tb", value);
+        set => SetProperty("allocated_storage_size_tb", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<object>>? ApexDetails
     {
-        get => GetProperty<List<TerraformProperty<object>>>("apex_details");
-        set => WithProperty("apex_details", value);
+        set => SetProperty("apex_details", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? ArePrimaryAllowlistedIpsUsed
     {
-        get => GetProperty<TerraformProperty<bool>>("are_primary_allowlisted_ips_used");
-        set => WithProperty("are_primary_allowlisted_ips_used", value);
+        set => SetProperty("are_primary_allowlisted_ips_used", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? AutonomousContainerDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("autonomous_container_database_id");
-        set => WithProperty("autonomous_container_database_id", value);
+        set => SetProperty("autonomous_container_database_id", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<string>>? AvailableUpgradeVersions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("available_upgrade_versions");
-        set => WithProperty("available_upgrade_versions", value);
+        set => SetProperty("available_upgrade_versions", value);
     }
 
     /// <summary>
@@ -80,8 +74,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? BackupRetentionPeriodDays
     {
-        get => GetProperty<TerraformProperty<double>>("backup_retention_period_days");
-        set => WithProperty("backup_retention_period_days", value);
+        set => SetProperty("backup_retention_period_days", value);
     }
 
     /// <summary>
@@ -89,8 +82,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? CharacterSet
     {
-        get => GetProperty<TerraformProperty<string>>("character_set");
-        set => WithProperty("character_set", value);
+        set => SetProperty("character_set", value);
     }
 
     /// <summary>
@@ -98,8 +90,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? ComputeCount
     {
-        get => GetProperty<TerraformProperty<double>>("compute_count");
-        set => WithProperty("compute_count", value);
+        set => SetProperty("compute_count", value);
     }
 
     /// <summary>
@@ -108,8 +99,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<object>>? ConnectionStrings
     {
-        get => GetProperty<List<TerraformProperty<object>>>("connection_strings");
-        set => WithProperty("connection_strings", value);
+        set => SetProperty("connection_strings", value);
     }
 
     /// <summary>
@@ -119,8 +109,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<object>>? ConnectionUrls
     {
-        get => GetProperty<List<TerraformProperty<object>>>("connection_urls");
-        set => WithProperty("connection_urls", value);
+        set => SetProperty("connection_urls", value);
     }
 
     /// <summary>
@@ -136,8 +125,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? DataSafeState
     {
-        get => GetProperty<TerraformProperty<string>>("data_safe_state");
-        set => WithProperty("data_safe_state", value);
+        set => SetProperty("data_safe_state", value);
     }
 
     /// <summary>
@@ -145,8 +133,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? DataStorageSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("data_storage_size_gb");
-        set => WithProperty("data_storage_size_gb", value);
+        set => SetProperty("data_storage_size_gb", value);
     }
 
     /// <summary>
@@ -154,8 +141,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? DataStorageSizeTb
     {
-        get => GetProperty<TerraformProperty<double>>("data_storage_size_tb");
-        set => WithProperty("data_storage_size_tb", value);
+        set => SetProperty("data_storage_size_tb", value);
     }
 
     /// <summary>
@@ -171,8 +157,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? DatabaseManagementState
     {
-        get => GetProperty<TerraformProperty<string>>("database_management_state");
-        set => WithProperty("database_management_state", value);
+        set => SetProperty("database_management_state", value);
     }
 
     /// <summary>
@@ -184,8 +169,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? DbEdition
     {
-        get => GetProperty<TerraformProperty<string>>("db_edition");
-        set => WithProperty("db_edition", value);
+        set => SetProperty("db_edition", value);
     }
 
     /// <summary>
@@ -193,8 +177,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? DbVersion
     {
-        get => GetProperty<TerraformProperty<string>>("db_version");
-        set => WithProperty("db_version", value);
+        set => SetProperty("db_version", value);
     }
 
     /// <summary>
@@ -208,8 +191,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbWorkload is required")]
     public required TerraformProperty<string> DbWorkload
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_workload");
-        set => WithProperty("db_workload", value);
+        set => SetProperty("db_workload", value);
     }
 
     /// <summary>
@@ -218,8 +200,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? FailedDataRecoveryDuration
     {
-        get => GetProperty<TerraformProperty<string>>("failed_data_recovery_duration");
-        set => WithProperty("failed_data_recovery_duration", value);
+        set => SetProperty("failed_data_recovery_duration", value);
     }
 
     /// <summary>
@@ -228,8 +209,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? IsAutoScalingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_auto_scaling_enabled");
-        set => WithProperty("is_auto_scaling_enabled", value);
+        set => SetProperty("is_auto_scaling_enabled", value);
     }
 
     /// <summary>
@@ -238,8 +218,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? IsLocalDataGuardEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_local_data_guard_enabled");
-        set => WithProperty("is_local_data_guard_enabled", value);
+        set => SetProperty("is_local_data_guard_enabled", value);
     }
 
     /// <summary>
@@ -248,8 +227,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? IsStorageAutoScalingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_storage_auto_scaling_enabled");
-        set => WithProperty("is_storage_auto_scaling_enabled", value);
+        set => SetProperty("is_storage_auto_scaling_enabled", value);
     }
 
     /// <summary>
@@ -262,8 +240,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformProperty<string> LicenseType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license_type");
-        set => WithProperty("license_type", value);
+        set => SetProperty("license_type", value);
     }
 
     /// <summary>
@@ -271,8 +248,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? LifecycleDetails
     {
-        get => GetProperty<TerraformProperty<string>>("lifecycle_details");
-        set => WithProperty("lifecycle_details", value);
+        set => SetProperty("lifecycle_details", value);
     }
 
     /// <summary>
@@ -281,8 +257,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? LocalAdgAutoFailoverMaxDataLossLimit
     {
-        get => GetProperty<TerraformProperty<double>>("local_adg_auto_failover_max_data_loss_limit");
-        set => WithProperty("local_adg_auto_failover_max_data_loss_limit", value);
+        set => SetProperty("local_adg_auto_failover_max_data_loss_limit", value);
     }
 
     /// <summary>
@@ -295,8 +270,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? LocalDisasterRecoveryType
     {
-        get => GetProperty<TerraformProperty<string>>("local_disaster_recovery_type");
-        set => WithProperty("local_disaster_recovery_type", value);
+        set => SetProperty("local_disaster_recovery_type", value);
     }
 
     /// <summary>
@@ -305,8 +279,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<object>>? LocalStandbyDb
     {
-        get => GetProperty<List<TerraformProperty<object>>>("local_standby_db");
-        set => WithProperty("local_standby_db", value);
+        set => SetProperty("local_standby_db", value);
     }
 
     /// <summary>
@@ -314,8 +287,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? MaintenanceBeginTime
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_begin_time");
-        set => WithProperty("maintenance_begin_time", value);
+        set => SetProperty("maintenance_begin_time", value);
     }
 
     /// <summary>
@@ -323,8 +295,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? MaintenanceEndTime
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_end_time");
-        set => WithProperty("maintenance_end_time", value);
+        set => SetProperty("maintenance_end_time", value);
     }
 
     /// <summary>
@@ -336,8 +307,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? MaintenanceScheduleType
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_schedule_type");
-        set => WithProperty("maintenance_schedule_type", value);
+        set => SetProperty("maintenance_schedule_type", value);
     }
 
     /// <summary>
@@ -345,8 +315,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? MemoryPerOracleComputeUnitGbs
     {
-        get => GetProperty<TerraformProperty<double>>("memory_per_oracle_compute_unit_gbs");
-        set => WithProperty("memory_per_oracle_compute_unit_gbs", value);
+        set => SetProperty("memory_per_oracle_compute_unit_gbs", value);
     }
 
     /// <summary>
@@ -354,8 +323,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? MemoryTableGbs
     {
-        get => GetProperty<TerraformProperty<double>>("memory_table_gbs");
-        set => WithProperty("memory_table_gbs", value);
+        set => SetProperty("memory_table_gbs", value);
     }
 
     /// <summary>
@@ -363,8 +331,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? MtlsConnectionRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("mtls_connection_required");
-        set => WithProperty("mtls_connection_required", value);
+        set => SetProperty("mtls_connection_required", value);
     }
 
     /// <summary>
@@ -373,8 +340,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? NCharacterSet
     {
-        get => GetProperty<TerraformProperty<string>>("n_character_set");
-        set => WithProperty("n_character_set", value);
+        set => SetProperty("n_character_set", value);
     }
 
     /// <summary>
@@ -382,8 +348,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? NextLongTermBackupTime
     {
-        get => GetProperty<TerraformProperty<string>>("next_long_term_backup_time");
-        set => WithProperty("next_long_term_backup_time", value);
+        set => SetProperty("next_long_term_backup_time", value);
     }
 
     /// <summary>
@@ -391,8 +356,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? OciUrl
     {
-        get => GetProperty<TerraformProperty<string>>("oci_url");
-        set => WithProperty("oci_url", value);
+        set => SetProperty("oci_url", value);
     }
 
     /// <summary>
@@ -401,8 +365,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Ocid
     {
-        get => GetProperty<TerraformProperty<string>>("ocid");
-        set => WithProperty("ocid", value);
+        set => SetProperty("ocid", value);
     }
 
     /// <summary>
@@ -414,8 +377,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? OpenMode
     {
-        get => GetProperty<TerraformProperty<string>>("open_mode");
-        set => WithProperty("open_mode", value);
+        set => SetProperty("open_mode", value);
     }
 
     /// <summary>
@@ -430,8 +392,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? OperationsInsightsState
     {
-        get => GetProperty<TerraformProperty<string>>("operations_insights_state");
-        set => WithProperty("operations_insights_state", value);
+        set => SetProperty("operations_insights_state", value);
     }
 
     /// <summary>
@@ -440,8 +401,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<string>>? PeerDbIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("peer_db_ids");
-        set => WithProperty("peer_db_ids", value);
+        set => SetProperty("peer_db_ids", value);
     }
 
     /// <summary>
@@ -453,8 +413,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PermissionLevel
     {
-        get => GetProperty<TerraformProperty<string>>("permission_level");
-        set => WithProperty("permission_level", value);
+        set => SetProperty("permission_level", value);
     }
 
     /// <summary>
@@ -462,8 +421,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PrivateEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("private_endpoint");
-        set => WithProperty("private_endpoint", value);
+        set => SetProperty("private_endpoint", value);
     }
 
     /// <summary>
@@ -471,8 +429,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PrivateEndpointIp
     {
-        get => GetProperty<TerraformProperty<string>>("private_endpoint_ip");
-        set => WithProperty("private_endpoint_ip", value);
+        set => SetProperty("private_endpoint_ip", value);
     }
 
     /// <summary>
@@ -480,8 +437,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PrivateEndpointLabel
     {
-        get => GetProperty<TerraformProperty<string>>("private_endpoint_label");
-        set => WithProperty("private_endpoint_label", value);
+        set => SetProperty("private_endpoint_label", value);
     }
 
     /// <summary>
@@ -493,8 +449,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? RefreshableMode
     {
-        get => GetProperty<TerraformProperty<string>>("refreshable_mode");
-        set => WithProperty("refreshable_mode", value);
+        set => SetProperty("refreshable_mode", value);
     }
 
     /// <summary>
@@ -506,8 +461,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? RefreshableState
     {
-        get => GetProperty<TerraformProperty<string>>("refreshable_state");
-        set => WithProperty("refreshable_state", value);
+        set => SetProperty("refreshable_state", value);
     }
 
     /// <summary>
@@ -522,8 +476,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
-        set => WithProperty("role", value);
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -532,8 +485,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<object>>? ScheduledOperationDetails
     {
-        get => GetProperty<List<TerraformProperty<object>>>("scheduled_operation_details");
-        set => WithProperty("scheduled_operation_details", value);
+        set => SetProperty("scheduled_operation_details", value);
     }
 
     /// <summary>
@@ -541,8 +493,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? SqlWebDeveloperUrl
     {
-        get => GetProperty<TerraformProperty<string>>("sql_web_developer_url");
-        set => WithProperty("sql_web_developer_url", value);
+        set => SetProperty("sql_web_developer_url", value);
     }
 
     /// <summary>
@@ -572,8 +523,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -582,8 +532,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public List<TerraformProperty<string>>? SupportedCloneRegions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("supported_clone_regions");
-        set => WithProperty("supported_clone_regions", value);
+        set => SetProperty("supported_clone_regions", value);
     }
 
     /// <summary>
@@ -592,8 +541,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? TotalAutoBackupStorageSizeGbs
     {
-        get => GetProperty<TerraformProperty<double>>("total_auto_backup_storage_size_gbs");
-        set => WithProperty("total_auto_backup_storage_size_gbs", value);
+        set => SetProperty("total_auto_backup_storage_size_gbs", value);
     }
 
     /// <summary>
@@ -601,8 +549,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? UsedDataStorageSizeTbs
     {
-        get => GetProperty<TerraformProperty<double>>("used_data_storage_size_tbs");
-        set => WithProperty("used_data_storage_size_tbs", value);
+        set => SetProperty("used_data_storage_size_tbs", value);
     }
 
 }
@@ -618,8 +565,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -627,8 +573,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -636,8 +581,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -655,20 +599,33 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("entitlement_id");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("entitlement_id");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("admin_password");
+        SetOutput("autonomous_database_id");
+        SetOutput("cidr");
+        SetOutput("database");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("network");
+        SetOutput("odb_network");
+        SetOutput("odb_subnet");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The password for the default ADMIN user.
     /// </summary>
-    public TerraformProperty<string>? AdminPassword
+    public TerraformProperty<string> AdminPassword
     {
-        get => GetProperty<TerraformProperty<string>>("admin_password");
-        set => this.WithProperty("admin_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admin_password");
+        set => SetProperty("admin_password", value);
     }
 
     /// <summary>
@@ -680,17 +637,17 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformProperty<string> AutonomousDatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("autonomous_database_id");
-        set => this.WithProperty("autonomous_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("autonomous_database_id");
+        set => SetProperty("autonomous_database_id", value);
     }
 
     /// <summary>
     /// The subnet CIDR range for the Autonmous Database.
     /// </summary>
-    public TerraformProperty<string>? Cidr
+    public TerraformProperty<string> Cidr
     {
-        get => GetProperty<TerraformProperty<string>>("cidr");
-        set => this.WithProperty("cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr");
+        set => SetProperty("cidr", value);
     }
 
     /// <summary>
@@ -701,36 +658,36 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database");
-        set => this.WithProperty("database", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database");
+        set => SetProperty("database", value);
     }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The display name for the Autonomous Database. The name does not have to
     /// be unique within your project.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -739,10 +696,10 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -751,18 +708,18 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The name of the VPC network used by the Autonomous Database.
     /// Format: projects/{project}/global/networks/{network}
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -772,10 +729,10 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    public TerraformProperty<string>? OdbNetwork
+    public TerraformProperty<string> OdbNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("odb_network");
-        set => this.WithProperty("odb_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("odb_network");
+        set => SetProperty("odb_network", value);
     }
 
     /// <summary>
@@ -783,31 +740,31 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformProperty<string>? OdbSubnet
+    public TerraformProperty<string> OdbSubnet
     {
-        get => GetProperty<TerraformProperty<string>>("odb_subnet");
-        set => this.WithProperty("odb_subnet", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("odb_subnet");
+        set => SetProperty("odb_subnet", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for properties.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Properties block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     public List<GoogleOracleDatabaseAutonomousDatabasePropertiesBlock>? Properties
     {
-        get => GetProperty<List<GoogleOracleDatabaseAutonomousDatabasePropertiesBlock>>("properties");
-        set => this.WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -816,8 +773,7 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// </summary>
     public GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

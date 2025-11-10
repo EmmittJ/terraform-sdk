@@ -13,8 +13,7 @@ public class AzureadNamedLocationDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,9 +30,11 @@ public class AzureadNamedLocationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("country");
-        this.WithOutput("ip");
-        this.WithOutput("object_id");
+        SetOutput("country");
+        SetOutput("ip");
+        SetOutput("object_id");
+        SetOutput("display_name");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -42,17 +43,17 @@ public class AzureadNamedLocationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +62,7 @@ public class AzureadNamedLocationDataSource : TerraformDataSource
     /// </summary>
     public AzureadNamedLocationDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadNamedLocationDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

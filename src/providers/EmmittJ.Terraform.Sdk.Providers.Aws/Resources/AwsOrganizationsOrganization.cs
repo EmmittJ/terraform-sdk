@@ -14,50 +14,54 @@ public class AwsOrganizationsOrganization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("accounts");
-        this.WithOutput("arn");
-        this.WithOutput("master_account_arn");
-        this.WithOutput("master_account_email");
-        this.WithOutput("master_account_id");
-        this.WithOutput("master_account_name");
-        this.WithOutput("non_master_accounts");
-        this.WithOutput("roots");
+        SetOutput("accounts");
+        SetOutput("arn");
+        SetOutput("master_account_arn");
+        SetOutput("master_account_email");
+        SetOutput("master_account_id");
+        SetOutput("master_account_name");
+        SetOutput("non_master_accounts");
+        SetOutput("roots");
+        SetOutput("aws_service_access_principals");
+        SetOutput("enabled_policy_types");
+        SetOutput("feature_set");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The aws_service_access_principals attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AwsServiceAccessPrincipals
+    public HashSet<TerraformProperty<string>> AwsServiceAccessPrincipals
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("aws_service_access_principals");
-        set => this.WithProperty("aws_service_access_principals", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("aws_service_access_principals");
+        set => SetProperty("aws_service_access_principals", value);
     }
 
     /// <summary>
     /// The enabled_policy_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EnabledPolicyTypes
+    public HashSet<TerraformProperty<string>> EnabledPolicyTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_policy_types");
-        set => this.WithProperty("enabled_policy_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("enabled_policy_types");
+        set => SetProperty("enabled_policy_types", value);
     }
 
     /// <summary>
     /// The feature_set attribute.
     /// </summary>
-    public TerraformProperty<string>? FeatureSet
+    public TerraformProperty<string> FeatureSet
     {
-        get => GetProperty<TerraformProperty<string>>("feature_set");
-        set => this.WithProperty("feature_set", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("feature_set");
+        set => SetProperty("feature_set", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

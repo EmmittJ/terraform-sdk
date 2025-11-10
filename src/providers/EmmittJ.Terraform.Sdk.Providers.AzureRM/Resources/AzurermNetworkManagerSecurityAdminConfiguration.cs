@@ -13,8 +13,7 @@ public class AzurermNetworkManagerSecurityAdminConfigurationTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermNetworkManagerSecurityAdminConfigurationTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermNetworkManagerSecurityAdminConfigurationTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermNetworkManagerSecurityAdminConfigurationTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,33 +54,38 @@ public class AzurermNetworkManagerSecurityAdminConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("apply_on_network_intent_policy_based_services");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network_manager_id");
     }
 
     /// <summary>
     /// The apply_on_network_intent_policy_based_services attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ApplyOnNetworkIntentPolicyBasedServices
+    public List<TerraformProperty<string>> ApplyOnNetworkIntentPolicyBasedServices
     {
-        get => GetProperty<List<TerraformProperty<string>>>("apply_on_network_intent_policy_based_services");
-        set => this.WithProperty("apply_on_network_intent_policy_based_services", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("apply_on_network_intent_policy_based_services");
+        set => SetProperty("apply_on_network_intent_policy_based_services", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -93,8 +94,8 @@ public class AzurermNetworkManagerSecurityAdminConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -103,8 +104,8 @@ public class AzurermNetworkManagerSecurityAdminConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformProperty<string> NetworkManagerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_manager_id");
-        set => this.WithProperty("network_manager_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_manager_id");
+        set => SetProperty("network_manager_id", value);
     }
 
     /// <summary>
@@ -113,8 +114,7 @@ public class AzurermNetworkManagerSecurityAdminConfiguration : TerraformResource
     /// </summary>
     public AzurermNetworkManagerSecurityAdminConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkManagerSecurityAdminConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

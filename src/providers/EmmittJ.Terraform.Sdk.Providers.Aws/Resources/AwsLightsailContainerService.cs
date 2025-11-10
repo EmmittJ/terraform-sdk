@@ -29,8 +29,7 @@ public class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -38,8 +37,7 @@ public class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -47,8 +45,7 @@ public class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -66,33 +63,41 @@ public class AwsLightsailContainerService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone");
-        this.WithOutput("created_at");
-        this.WithOutput("power_id");
-        this.WithOutput("principal_arn");
-        this.WithOutput("private_domain_name");
-        this.WithOutput("resource_type");
-        this.WithOutput("state");
-        this.WithOutput("url");
+        SetOutput("arn");
+        SetOutput("availability_zone");
+        SetOutput("created_at");
+        SetOutput("power_id");
+        SetOutput("principal_arn");
+        SetOutput("private_domain_name");
+        SetOutput("resource_type");
+        SetOutput("state");
+        SetOutput("url");
+        SetOutput("id");
+        SetOutput("is_disabled");
+        SetOutput("name");
+        SetOutput("power");
+        SetOutput("region");
+        SetOutput("scale");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The is_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsDisabled
+    public TerraformProperty<bool> IsDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_disabled");
-        set => this.WithProperty("is_disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("is_disabled");
+        set => SetProperty("is_disabled", value);
     }
 
     /// <summary>
@@ -101,8 +106,8 @@ public class AwsLightsailContainerService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -111,17 +116,17 @@ public class AwsLightsailContainerService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Power is required")]
     public required TerraformProperty<string> Power
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("power");
-        set => this.WithProperty("power", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("power");
+        set => SetProperty("power", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -130,26 +135,26 @@ public class AwsLightsailContainerService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scale is required")]
     public required TerraformProperty<double> Scale
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("scale");
-        set => this.WithProperty("scale", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("scale");
+        set => SetProperty("scale", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -159,8 +164,7 @@ public class AwsLightsailContainerService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateRegistryAccess block(s) allowed")]
     public List<AwsLightsailContainerServicePrivateRegistryAccessBlock>? PrivateRegistryAccess
     {
-        get => GetProperty<List<AwsLightsailContainerServicePrivateRegistryAccessBlock>>("private_registry_access");
-        set => this.WithProperty("private_registry_access", value);
+        set => SetProperty("private_registry_access", value);
     }
 
     /// <summary>
@@ -170,8 +174,7 @@ public class AwsLightsailContainerService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicDomainNames block(s) allowed")]
     public List<AwsLightsailContainerServicePublicDomainNamesBlock>? PublicDomainNames
     {
-        get => GetProperty<List<AwsLightsailContainerServicePublicDomainNamesBlock>>("public_domain_names");
-        set => this.WithProperty("public_domain_names", value);
+        set => SetProperty("public_domain_names", value);
     }
 
     /// <summary>
@@ -180,8 +183,7 @@ public class AwsLightsailContainerService : TerraformResource
     /// </summary>
     public AwsLightsailContainerServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLightsailContainerServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

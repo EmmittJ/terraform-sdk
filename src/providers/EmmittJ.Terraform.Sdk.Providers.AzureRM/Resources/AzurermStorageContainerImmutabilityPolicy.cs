@@ -13,8 +13,7 @@ public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,21 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("immutability_period_in_days");
+        SetOutput("locked");
+        SetOutput("protected_append_writes_all_enabled");
+        SetOutput("protected_append_writes_enabled");
+        SetOutput("storage_container_resource_manager_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,35 +77,35 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImmutabilityPeriodInDays is required")]
     public required TerraformProperty<double> ImmutabilityPeriodInDays
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("immutability_period_in_days");
-        set => this.WithProperty("immutability_period_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("immutability_period_in_days");
+        set => SetProperty("immutability_period_in_days", value);
     }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    public TerraformProperty<bool>? Locked
+    public TerraformProperty<bool> Locked
     {
-        get => GetProperty<TerraformProperty<bool>>("locked");
-        set => this.WithProperty("locked", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("locked");
+        set => SetProperty("locked", value);
     }
 
     /// <summary>
     /// The protected_append_writes_all_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ProtectedAppendWritesAllEnabled
+    public TerraformProperty<bool> ProtectedAppendWritesAllEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("protected_append_writes_all_enabled");
-        set => this.WithProperty("protected_append_writes_all_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("protected_append_writes_all_enabled");
+        set => SetProperty("protected_append_writes_all_enabled", value);
     }
 
     /// <summary>
     /// The protected_append_writes_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ProtectedAppendWritesEnabled
+    public TerraformProperty<bool> ProtectedAppendWritesEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("protected_append_writes_enabled");
-        set => this.WithProperty("protected_append_writes_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("protected_append_writes_enabled");
+        set => SetProperty("protected_append_writes_enabled", value);
     }
 
     /// <summary>
@@ -112,8 +114,8 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerResourceManagerId is required")]
     public required TerraformProperty<string> StorageContainerResourceManagerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_resource_manager_id");
-        set => this.WithProperty("storage_container_resource_manager_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_resource_manager_id");
+        set => SetProperty("storage_container_resource_manager_id", value);
     }
 
     /// <summary>
@@ -122,8 +124,7 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
     /// </summary>
     public AzurermStorageContainerImmutabilityPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageContainerImmutabilityPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

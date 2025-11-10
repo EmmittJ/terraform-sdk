@@ -14,31 +14,35 @@ public class AwsKmsPublicKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("customer_master_key_spec");
-        this.WithOutput("encryption_algorithms");
-        this.WithOutput("key_usage");
-        this.WithOutput("public_key");
-        this.WithOutput("public_key_pem");
-        this.WithOutput("signing_algorithms");
+        SetOutput("arn");
+        SetOutput("customer_master_key_spec");
+        SetOutput("encryption_algorithms");
+        SetOutput("key_usage");
+        SetOutput("public_key");
+        SetOutput("public_key_pem");
+        SetOutput("signing_algorithms");
+        SetOutput("grant_tokens");
+        SetOutput("id");
+        SetOutput("key_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The grant_tokens attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? GrantTokens
+    public List<TerraformProperty<string>> GrantTokens
     {
-        get => GetProperty<List<TerraformProperty<string>>>("grant_tokens");
-        set => this.WithProperty("grant_tokens", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("grant_tokens");
+        set => SetProperty("grant_tokens", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -47,17 +51,17 @@ public class AwsKmsPublicKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
-        set => this.WithProperty("key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

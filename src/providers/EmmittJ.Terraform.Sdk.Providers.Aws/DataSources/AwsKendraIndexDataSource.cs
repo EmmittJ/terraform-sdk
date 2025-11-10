@@ -14,22 +14,25 @@ public class AwsKendraIndexDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("capacity_units");
-        this.WithOutput("created_at");
-        this.WithOutput("description");
-        this.WithOutput("document_metadata_configuration_updates");
-        this.WithOutput("edition");
-        this.WithOutput("error_message");
-        this.WithOutput("index_statistics");
-        this.WithOutput("name");
-        this.WithOutput("role_arn");
-        this.WithOutput("server_side_encryption_configuration");
-        this.WithOutput("status");
-        this.WithOutput("updated_at");
-        this.WithOutput("user_context_policy");
-        this.WithOutput("user_group_resolution_configuration");
-        this.WithOutput("user_token_configurations");
+        SetOutput("arn");
+        SetOutput("capacity_units");
+        SetOutput("created_at");
+        SetOutput("description");
+        SetOutput("document_metadata_configuration_updates");
+        SetOutput("edition");
+        SetOutput("error_message");
+        SetOutput("index_statistics");
+        SetOutput("name");
+        SetOutput("role_arn");
+        SetOutput("server_side_encryption_configuration");
+        SetOutput("status");
+        SetOutput("updated_at");
+        SetOutput("user_context_policy");
+        SetOutput("user_group_resolution_configuration");
+        SetOutput("user_token_configurations");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -38,26 +41,26 @@ public class AwsKendraIndexDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

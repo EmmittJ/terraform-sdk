@@ -13,8 +13,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformProperty<string> Permissions
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("permissions");
-        set => WithProperty("permissions", value);
+        set => SetProperty("permissions", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,33 +96,40 @@ public class AzurermStorageDataLakeGen2Filesystem : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("default_encryption_scope");
+        SetOutput("group");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("owner");
+        SetOutput("properties");
+        SetOutput("storage_account_id");
     }
 
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultEncryptionScope
+    public TerraformProperty<string> DefaultEncryptionScope
     {
-        get => GetProperty<TerraformProperty<string>>("default_encryption_scope");
-        set => this.WithProperty("default_encryption_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_encryption_scope");
+        set => SetProperty("default_encryption_scope", value);
     }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformProperty<string>? Group
+    public TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
-        set => this.WithProperty("group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group");
+        set => SetProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -139,26 +138,26 @@ public class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformProperty<string>? Owner
+    public TerraformProperty<string> Owner
     {
-        get => GetProperty<TerraformProperty<string>>("owner");
-        set => this.WithProperty("owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("owner");
+        set => SetProperty("owner", value);
     }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Properties
+    public Dictionary<string, TerraformProperty<string>> Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => this.WithProperty("properties", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("properties");
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -167,8 +166,8 @@ public class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => this.WithProperty("storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
+        set => SetProperty("storage_account_id", value);
     }
 
     /// <summary>
@@ -177,8 +176,7 @@ public class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     /// </summary>
     public HashSet<AzurermStorageDataLakeGen2FilesystemAceBlock>? Ace
     {
-        get => GetProperty<HashSet<AzurermStorageDataLakeGen2FilesystemAceBlock>>("ace");
-        set => this.WithProperty("ace", value);
+        set => SetProperty("ace", value);
     }
 
     /// <summary>
@@ -187,8 +185,7 @@ public class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     /// </summary>
     public AzurermStorageDataLakeGen2FilesystemTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageDataLakeGen2FilesystemTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,9 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
 
     private void InitializeOutputs()
     {
+        SetOutput("communication_service_id");
+        SetOutput("email_service_domain_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -57,8 +57,8 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommunicationServiceId is required")]
     public required TerraformProperty<string> CommunicationServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("communication_service_id");
-        set => this.WithProperty("communication_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("communication_service_id");
+        set => SetProperty("communication_service_id", value);
     }
 
     /// <summary>
@@ -67,17 +67,17 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceDomainId is required")]
     public required TerraformProperty<string> EmailServiceDomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_service_domain_id");
-        set => this.WithProperty("email_service_domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_service_domain_id");
+        set => SetProperty("email_service_domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -86,8 +86,7 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     /// </summary>
     public AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,17 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
 
     private void InitializeOutputs()
     {
+        SetOutput("api_root_url");
+        SetOutput("collection_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("log_analytics_workspace_id");
+        SetOutput("lookback_date");
+        SetOutput("name");
+        SetOutput("password");
+        SetOutput("polling_frequency");
+        SetOutput("tenant_id");
+        SetOutput("user_name");
     }
 
     /// <summary>
@@ -66,8 +73,8 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiRootUrl is required")]
     public required TerraformProperty<string> ApiRootUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_root_url");
-        set => this.WithProperty("api_root_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_root_url");
+        set => SetProperty("api_root_url", value);
     }
 
     /// <summary>
@@ -76,8 +83,8 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
-        set => this.WithProperty("collection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collection_id");
+        set => SetProperty("collection_id", value);
     }
 
     /// <summary>
@@ -86,17 +93,17 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,17 +112,17 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => this.WithProperty("log_analytics_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
+        set => SetProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The lookback_date attribute.
     /// </summary>
-    public TerraformProperty<string>? LookbackDate
+    public TerraformProperty<string> LookbackDate
     {
-        get => GetProperty<TerraformProperty<string>>("lookback_date");
-        set => this.WithProperty("lookback_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lookback_date");
+        set => SetProperty("lookback_date", value);
     }
 
     /// <summary>
@@ -124,44 +131,44 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// The polling_frequency attribute.
     /// </summary>
-    public TerraformProperty<string>? PollingFrequency
+    public TerraformProperty<string> PollingFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("polling_frequency");
-        set => this.WithProperty("polling_frequency", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("polling_frequency");
+        set => SetProperty("polling_frequency", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
+    public TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => this.WithProperty("tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    public TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
@@ -170,8 +177,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     /// </summary>
     public AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

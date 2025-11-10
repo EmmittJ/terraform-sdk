@@ -14,8 +14,7 @@ public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
-        set => WithProperty("bucket_name", value);
+        set => SetProperty("bucket_name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : Terr
     /// </summary>
     public TerraformProperty<string>? KeyPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("key_prefix");
-        set => WithProperty("key_prefix", value);
+        set => SetProperty("key_prefix", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformProperty<string> KmsKeyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_arn");
-        set => WithProperty("kms_key_arn", value);
+        set => SetProperty("kms_key_arn", value);
     }
 
 }
@@ -52,36 +49,38 @@ public class AwsMacie2ClassificationExportConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for s3_destination.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Destination block(s) allowed")]
     public List<AwsMacie2ClassificationExportConfigurationS3DestinationBlock>? S3Destination
     {
-        get => GetProperty<List<AwsMacie2ClassificationExportConfigurationS3DestinationBlock>>("s3_destination");
-        set => this.WithProperty("s3_destination", value);
+        set => SetProperty("s3_destination", value);
     }
 
 }

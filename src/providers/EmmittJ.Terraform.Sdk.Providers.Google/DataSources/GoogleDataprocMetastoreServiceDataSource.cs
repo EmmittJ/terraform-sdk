@@ -14,41 +14,45 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("artifact_gcs_uri");
-        this.WithOutput("create_time");
-        this.WithOutput("database_type");
-        this.WithOutput("deletion_protection");
-        this.WithOutput("effective_labels");
-        this.WithOutput("encryption_config");
-        this.WithOutput("endpoint_uri");
-        this.WithOutput("hive_metastore_config");
-        this.WithOutput("labels");
-        this.WithOutput("maintenance_window");
-        this.WithOutput("metadata_integration");
-        this.WithOutput("name");
-        this.WithOutput("network");
-        this.WithOutput("network_config");
-        this.WithOutput("port");
-        this.WithOutput("release_channel");
-        this.WithOutput("scaling_config");
-        this.WithOutput("scheduled_backup");
-        this.WithOutput("state");
-        this.WithOutput("state_message");
-        this.WithOutput("tags");
-        this.WithOutput("telemetry_config");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("tier");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("artifact_gcs_uri");
+        SetOutput("create_time");
+        SetOutput("database_type");
+        SetOutput("deletion_protection");
+        SetOutput("effective_labels");
+        SetOutput("encryption_config");
+        SetOutput("endpoint_uri");
+        SetOutput("hive_metastore_config");
+        SetOutput("labels");
+        SetOutput("maintenance_window");
+        SetOutput("metadata_integration");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("network_config");
+        SetOutput("port");
+        SetOutput("release_channel");
+        SetOutput("scaling_config");
+        SetOutput("scheduled_backup");
+        SetOutput("state");
+        SetOutput("state_message");
+        SetOutput("tags");
+        SetOutput("telemetry_config");
+        SetOutput("terraform_labels");
+        SetOutput("tier");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("service_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -58,17 +62,17 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -79,8 +83,8 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
-        set => this.WithProperty("service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
+        set => SetProperty("service_id", value);
     }
 
     /// <summary>
@@ -126,7 +130,7 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
 
     /// <summary>
     /// User-defined labels for the metastore service.
-    ///
+    /// 
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
@@ -151,7 +155,7 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
 
     /// <summary>
     /// The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:
-    ///
+    /// 
     /// &amp;quot;projects/{projectNumber}/global/networks/{network_id}&amp;quot;.
     /// </summary>
     public TerraformExpression Network => this["network"];

@@ -15,8 +15,7 @@ public class GoogleContainerAnalysisOccurrenceAttestationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SerializedPayload is required")]
     public required TerraformProperty<string> SerializedPayload
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("serialized_payload");
-        set => WithProperty("serialized_payload", value);
+        set => SetProperty("serialized_payload", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleContainerAnalysisOccurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleContainerAnalysisOccurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleContainerAnalysisOccurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -69,19 +65,24 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("kind");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("kind");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("note_name");
+        SetOutput("project");
+        SetOutput("remediation");
+        SetOutput("resource_uri");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -92,26 +93,26 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteName is required")]
     public required TerraformProperty<string> NoteName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("note_name");
-        set => this.WithProperty("note_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("note_name");
+        set => SetProperty("note_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// A description of actions that can be taken to remedy the note.
     /// </summary>
-    public TerraformProperty<string>? Remediation
+    public TerraformProperty<string> Remediation
     {
-        get => GetProperty<TerraformProperty<string>>("remediation");
-        set => this.WithProperty("remediation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("remediation");
+        set => SetProperty("remediation", value);
     }
 
     /// <summary>
@@ -122,20 +123,20 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceUri is required")]
     public required TerraformProperty<string> ResourceUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_uri");
-        set => this.WithProperty("resource_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_uri");
+        set => SetProperty("resource_uri", value);
     }
 
     /// <summary>
     /// Block for attestation.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attestation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Attestation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attestation block(s) allowed")]
     public List<GoogleContainerAnalysisOccurrenceAttestationBlock>? Attestation
     {
-        get => GetProperty<List<GoogleContainerAnalysisOccurrenceAttestationBlock>>("attestation");
-        set => this.WithProperty("attestation", value);
+        set => SetProperty("attestation", value);
     }
 
     /// <summary>
@@ -144,8 +145,7 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     /// </summary>
     public GoogleContainerAnalysisOccurrenceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleContainerAnalysisOccurrenceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

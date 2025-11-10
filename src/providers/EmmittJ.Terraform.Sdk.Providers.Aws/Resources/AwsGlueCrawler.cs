@@ -13,8 +13,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("connection_name");
-        set => WithProperty("connection_name", value);
+        set => SetProperty("connection_name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DlqEventQueueArn
     {
-        get => GetProperty<TerraformProperty<string>>("dlq_event_queue_arn");
-        set => WithProperty("dlq_event_queue_arn", value);
+        set => SetProperty("dlq_event_queue_arn", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EventQueueArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_queue_arn");
-        set => WithProperty("event_queue_arn", value);
+        set => SetProperty("event_queue_arn", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tables is required")]
     public List<TerraformProperty<string>>? Tables
     {
-        get => GetProperty<List<TerraformProperty<string>>>("tables");
-        set => WithProperty("tables", value);
+        set => SetProperty("tables", value);
     }
 
 }
@@ -68,8 +63,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("connection_name");
-        set => WithProperty("connection_name", value);
+        set => SetProperty("connection_name", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CreateNativeDeltaTable
     {
-        get => GetProperty<TerraformProperty<bool>>("create_native_delta_table");
-        set => WithProperty("create_native_delta_table", value);
+        set => SetProperty("create_native_delta_table", value);
     }
 
     /// <summary>
@@ -87,8 +80,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeltaTables is required")]
     public HashSet<TerraformProperty<string>>? DeltaTables
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("delta_tables");
-        set => WithProperty("delta_tables", value);
+        set => SetProperty("delta_tables", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WriteManifest is required")]
     public required TerraformProperty<bool> WriteManifest
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("write_manifest");
-        set => WithProperty("write_manifest", value);
+        set => SetProperty("write_manifest", value);
     }
 
 }
@@ -115,8 +106,7 @@ public class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -124,8 +114,7 @@ public class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ScanAll
     {
-        get => GetProperty<TerraformProperty<bool>>("scan_all");
-        set => WithProperty("scan_all", value);
+        set => SetProperty("scan_all", value);
     }
 
     /// <summary>
@@ -133,8 +122,7 @@ public class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ScanRate
     {
-        get => GetProperty<TerraformProperty<double>>("scan_rate");
-        set => WithProperty("scan_rate", value);
+        set => SetProperty("scan_rate", value);
     }
 
 }
@@ -150,8 +138,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("connection_name");
-        set => WithProperty("connection_name", value);
+        set => SetProperty("connection_name", value);
     }
 
     /// <summary>
@@ -159,8 +146,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Exclusions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("exclusions");
-        set => WithProperty("exclusions", value);
+        set => SetProperty("exclusions", value);
     }
 
     /// <summary>
@@ -169,8 +155,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     public required TerraformProperty<double> MaximumTraversalDepth
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("maximum_traversal_depth");
-        set => WithProperty("maximum_traversal_depth", value);
+        set => SetProperty("maximum_traversal_depth", value);
     }
 
     /// <summary>
@@ -179,8 +164,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public HashSet<TerraformProperty<string>>? Paths
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("paths");
-        set => WithProperty("paths", value);
+        set => SetProperty("paths", value);
     }
 
 }
@@ -196,8 +180,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("connection_name");
-        set => WithProperty("connection_name", value);
+        set => SetProperty("connection_name", value);
     }
 
     /// <summary>
@@ -205,8 +188,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Exclusions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("exclusions");
-        set => WithProperty("exclusions", value);
+        set => SetProperty("exclusions", value);
     }
 
     /// <summary>
@@ -215,8 +197,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     public required TerraformProperty<double> MaximumTraversalDepth
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("maximum_traversal_depth");
-        set => WithProperty("maximum_traversal_depth", value);
+        set => SetProperty("maximum_traversal_depth", value);
     }
 
     /// <summary>
@@ -225,8 +206,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public HashSet<TerraformProperty<string>>? Paths
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("paths");
-        set => WithProperty("paths", value);
+        set => SetProperty("paths", value);
     }
 
 }
@@ -243,8 +223,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformProperty<string> ConnectionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_name");
-        set => WithProperty("connection_name", value);
+        set => SetProperty("connection_name", value);
     }
 
     /// <summary>
@@ -252,8 +231,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? EnableAdditionalMetadata
     {
-        get => GetProperty<List<TerraformProperty<string>>>("enable_additional_metadata");
-        set => WithProperty("enable_additional_metadata", value);
+        set => SetProperty("enable_additional_metadata", value);
     }
 
     /// <summary>
@@ -261,8 +239,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Exclusions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("exclusions");
-        set => WithProperty("exclusions", value);
+        set => SetProperty("exclusions", value);
     }
 
     /// <summary>
@@ -271,8 +248,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
 }
@@ -288,8 +264,7 @@ public class AwsGlueCrawlerLakeFormationConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => WithProperty("account_id", value);
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -297,8 +272,7 @@ public class AwsGlueCrawlerLakeFormationConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseLakeFormationCredentials
     {
-        get => GetProperty<TerraformProperty<bool>>("use_lake_formation_credentials");
-        set => WithProperty("use_lake_formation_credentials", value);
+        set => SetProperty("use_lake_formation_credentials", value);
     }
 
 }
@@ -314,8 +288,7 @@ public class AwsGlueCrawlerLineageConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CrawlerLineageSettings
     {
-        get => GetProperty<TerraformProperty<string>>("crawler_lineage_settings");
-        set => WithProperty("crawler_lineage_settings", value);
+        set => SetProperty("crawler_lineage_settings", value);
     }
 
 }
@@ -332,8 +305,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformProperty<string> ConnectionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_name");
-        set => WithProperty("connection_name", value);
+        set => SetProperty("connection_name", value);
     }
 
     /// <summary>
@@ -342,8 +314,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -351,8 +322,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ScanAll
     {
-        get => GetProperty<TerraformProperty<bool>>("scan_all");
-        set => WithProperty("scan_all", value);
+        set => SetProperty("scan_all", value);
     }
 
 }
@@ -368,8 +338,7 @@ public class AwsGlueCrawlerRecrawlPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RecrawlBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("recrawl_behavior");
-        set => WithProperty("recrawl_behavior", value);
+        set => SetProperty("recrawl_behavior", value);
     }
 
 }
@@ -385,8 +354,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("connection_name");
-        set => WithProperty("connection_name", value);
+        set => SetProperty("connection_name", value);
     }
 
     /// <summary>
@@ -394,8 +362,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DlqEventQueueArn
     {
-        get => GetProperty<TerraformProperty<string>>("dlq_event_queue_arn");
-        set => WithProperty("dlq_event_queue_arn", value);
+        set => SetProperty("dlq_event_queue_arn", value);
     }
 
     /// <summary>
@@ -403,8 +370,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EventQueueArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_queue_arn");
-        set => WithProperty("event_queue_arn", value);
+        set => SetProperty("event_queue_arn", value);
     }
 
     /// <summary>
@@ -412,8 +378,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Exclusions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("exclusions");
-        set => WithProperty("exclusions", value);
+        set => SetProperty("exclusions", value);
     }
 
     /// <summary>
@@ -422,8 +387,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("path");
-        set => WithProperty("path", value);
+        set => SetProperty("path", value);
     }
 
     /// <summary>
@@ -431,8 +395,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SampleSize
     {
-        get => GetProperty<TerraformProperty<double>>("sample_size");
-        set => WithProperty("sample_size", value);
+        set => SetProperty("sample_size", value);
     }
 
 }
@@ -448,8 +411,7 @@ public class AwsGlueCrawlerSchemaChangePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DeleteBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("delete_behavior");
-        set => WithProperty("delete_behavior", value);
+        set => SetProperty("delete_behavior", value);
     }
 
     /// <summary>
@@ -457,8 +419,7 @@ public class AwsGlueCrawlerSchemaChangePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdateBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("update_behavior");
-        set => WithProperty("update_behavior", value);
+        set => SetProperty("update_behavior", value);
     }
 
 }
@@ -476,25 +437,38 @@ public class AwsGlueCrawler : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("classifiers");
+        SetOutput("configuration");
+        SetOutput("database_name");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role");
+        SetOutput("schedule");
+        SetOutput("security_configuration");
+        SetOutput("table_prefix");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The classifiers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Classifiers
+    public List<TerraformProperty<string>> Classifiers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("classifiers");
-        set => this.WithProperty("classifiers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("classifiers");
+        set => SetProperty("classifiers", value);
     }
 
     /// <summary>
     /// The configuration attribute.
     /// </summary>
-    public TerraformProperty<string>? Configuration
+    public TerraformProperty<string> Configuration
     {
-        get => GetProperty<TerraformProperty<string>>("configuration");
-        set => this.WithProperty("configuration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration");
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>
@@ -503,26 +477,26 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -531,17 +505,17 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -550,53 +524,53 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => this.WithProperty("role", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role");
+        set => SetProperty("role", value);
     }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    public TerraformProperty<string>? Schedule
+    public TerraformProperty<string> Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
-        set => this.WithProperty("schedule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schedule");
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityConfiguration
+    public TerraformProperty<string> SecurityConfiguration
     {
-        get => GetProperty<TerraformProperty<string>>("security_configuration");
-        set => this.WithProperty("security_configuration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_configuration");
+        set => SetProperty("security_configuration", value);
     }
 
     /// <summary>
     /// The table_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? TablePrefix
+    public TerraformProperty<string> TablePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("table_prefix");
-        set => this.WithProperty("table_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_prefix");
+        set => SetProperty("table_prefix", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -605,8 +579,7 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     public List<AwsGlueCrawlerCatalogTargetBlock>? CatalogTarget
     {
-        get => GetProperty<List<AwsGlueCrawlerCatalogTargetBlock>>("catalog_target");
-        set => this.WithProperty("catalog_target", value);
+        set => SetProperty("catalog_target", value);
     }
 
     /// <summary>
@@ -615,8 +588,7 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     public List<AwsGlueCrawlerDeltaTargetBlock>? DeltaTarget
     {
-        get => GetProperty<List<AwsGlueCrawlerDeltaTargetBlock>>("delta_target");
-        set => this.WithProperty("delta_target", value);
+        set => SetProperty("delta_target", value);
     }
 
     /// <summary>
@@ -625,8 +597,7 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     public List<AwsGlueCrawlerDynamodbTargetBlock>? DynamodbTarget
     {
-        get => GetProperty<List<AwsGlueCrawlerDynamodbTargetBlock>>("dynamodb_target");
-        set => this.WithProperty("dynamodb_target", value);
+        set => SetProperty("dynamodb_target", value);
     }
 
     /// <summary>
@@ -635,8 +606,7 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     public List<AwsGlueCrawlerHudiTargetBlock>? HudiTarget
     {
-        get => GetProperty<List<AwsGlueCrawlerHudiTargetBlock>>("hudi_target");
-        set => this.WithProperty("hudi_target", value);
+        set => SetProperty("hudi_target", value);
     }
 
     /// <summary>
@@ -645,8 +615,7 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     public List<AwsGlueCrawlerIcebergTargetBlock>? IcebergTarget
     {
-        get => GetProperty<List<AwsGlueCrawlerIcebergTargetBlock>>("iceberg_target");
-        set => this.WithProperty("iceberg_target", value);
+        set => SetProperty("iceberg_target", value);
     }
 
     /// <summary>
@@ -655,8 +624,7 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     public List<AwsGlueCrawlerJdbcTargetBlock>? JdbcTarget
     {
-        get => GetProperty<List<AwsGlueCrawlerJdbcTargetBlock>>("jdbc_target");
-        set => this.WithProperty("jdbc_target", value);
+        set => SetProperty("jdbc_target", value);
     }
 
     /// <summary>
@@ -666,8 +634,7 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LakeFormationConfiguration block(s) allowed")]
     public List<AwsGlueCrawlerLakeFormationConfigurationBlock>? LakeFormationConfiguration
     {
-        get => GetProperty<List<AwsGlueCrawlerLakeFormationConfigurationBlock>>("lake_formation_configuration");
-        set => this.WithProperty("lake_formation_configuration", value);
+        set => SetProperty("lake_formation_configuration", value);
     }
 
     /// <summary>
@@ -677,8 +644,7 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LineageConfiguration block(s) allowed")]
     public List<AwsGlueCrawlerLineageConfigurationBlock>? LineageConfiguration
     {
-        get => GetProperty<List<AwsGlueCrawlerLineageConfigurationBlock>>("lineage_configuration");
-        set => this.WithProperty("lineage_configuration", value);
+        set => SetProperty("lineage_configuration", value);
     }
 
     /// <summary>
@@ -687,8 +653,7 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     public List<AwsGlueCrawlerMongodbTargetBlock>? MongodbTarget
     {
-        get => GetProperty<List<AwsGlueCrawlerMongodbTargetBlock>>("mongodb_target");
-        set => this.WithProperty("mongodb_target", value);
+        set => SetProperty("mongodb_target", value);
     }
 
     /// <summary>
@@ -698,8 +663,7 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecrawlPolicy block(s) allowed")]
     public List<AwsGlueCrawlerRecrawlPolicyBlock>? RecrawlPolicy
     {
-        get => GetProperty<List<AwsGlueCrawlerRecrawlPolicyBlock>>("recrawl_policy");
-        set => this.WithProperty("recrawl_policy", value);
+        set => SetProperty("recrawl_policy", value);
     }
 
     /// <summary>
@@ -708,8 +672,7 @@ public class AwsGlueCrawler : TerraformResource
     /// </summary>
     public List<AwsGlueCrawlerS3TargetBlock>? S3Target
     {
-        get => GetProperty<List<AwsGlueCrawlerS3TargetBlock>>("s3_target");
-        set => this.WithProperty("s3_target", value);
+        set => SetProperty("s3_target", value);
     }
 
     /// <summary>
@@ -719,8 +682,7 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaChangePolicy block(s) allowed")]
     public List<AwsGlueCrawlerSchemaChangePolicyBlock>? SchemaChangePolicy
     {
-        get => GetProperty<List<AwsGlueCrawlerSchemaChangePolicyBlock>>("schema_change_policy");
-        set => this.WithProperty("schema_change_policy", value);
+        set => SetProperty("schema_change_policy", value);
     }
 
     /// <summary>

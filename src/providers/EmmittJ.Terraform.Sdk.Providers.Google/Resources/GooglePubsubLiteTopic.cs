@@ -14,8 +14,7 @@ public class GooglePubsubLiteTopicPartitionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("count");
-        set => WithProperty("count", value);
+        set => SetProperty("count", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GooglePubsubLiteTopicReservationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ThroughputReservation
     {
-        get => GetProperty<TerraformProperty<string>>("throughput_reservation");
-        set => WithProperty("throughput_reservation", value);
+        set => SetProperty("throughput_reservation", value);
     }
 
 }
@@ -51,8 +49,7 @@ public class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerPartitionBytes is required")]
     public required TerraformProperty<string> PerPartitionBytes
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("per_partition_bytes");
-        set => WithProperty("per_partition_bytes", value);
+        set => SetProperty("per_partition_bytes", value);
     }
 
     /// <summary>
@@ -63,8 +60,7 @@ public class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Period
     {
-        get => GetProperty<TerraformProperty<string>>("period");
-        set => WithProperty("period", value);
+        set => SetProperty("period", value);
     }
 
 }
@@ -80,8 +76,7 @@ public class GooglePubsubLiteTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -89,8 +84,7 @@ public class GooglePubsubLiteTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -98,8 +92,7 @@ public class GooglePubsubLiteTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -117,15 +110,20 @@ public class GooglePubsubLiteTopic : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -134,35 +132,35 @@ public class GooglePubsubLiteTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The region of the pubsub lite topic.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The zone of the pubsub lite topic.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -172,8 +170,7 @@ public class GooglePubsubLiteTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartitionConfig block(s) allowed")]
     public List<GooglePubsubLiteTopicPartitionConfigBlock>? PartitionConfig
     {
-        get => GetProperty<List<GooglePubsubLiteTopicPartitionConfigBlock>>("partition_config");
-        set => this.WithProperty("partition_config", value);
+        set => SetProperty("partition_config", value);
     }
 
     /// <summary>
@@ -183,8 +180,7 @@ public class GooglePubsubLiteTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationConfig block(s) allowed")]
     public List<GooglePubsubLiteTopicReservationConfigBlock>? ReservationConfig
     {
-        get => GetProperty<List<GooglePubsubLiteTopicReservationConfigBlock>>("reservation_config");
-        set => this.WithProperty("reservation_config", value);
+        set => SetProperty("reservation_config", value);
     }
 
     /// <summary>
@@ -194,8 +190,7 @@ public class GooglePubsubLiteTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionConfig block(s) allowed")]
     public List<GooglePubsubLiteTopicRetentionConfigBlock>? RetentionConfig
     {
-        get => GetProperty<List<GooglePubsubLiteTopicRetentionConfigBlock>>("retention_config");
-        set => this.WithProperty("retention_config", value);
+        set => SetProperty("retention_config", value);
     }
 
     /// <summary>
@@ -204,8 +199,7 @@ public class GooglePubsubLiteTopic : TerraformResource
     /// </summary>
     public GooglePubsubLiteTopicTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GooglePubsubLiteTopicTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

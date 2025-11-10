@@ -15,8 +15,7 @@ public class GoogleComputeNetworkParamsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
-        set => WithProperty("resource_manager_tags", value);
+        set => SetProperty("resource_manager_tags", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class GoogleComputeNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleComputeNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleComputeNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -69,10 +65,25 @@ public class GoogleComputeNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("gateway_ipv4");
-        this.WithOutput("network_id");
-        this.WithOutput("numeric_id");
-        this.WithOutput("self_link");
+        SetOutput("gateway_ipv4");
+        SetOutput("network_id");
+        SetOutput("numeric_id");
+        SetOutput("self_link");
+        SetOutput("auto_create_subnetworks");
+        SetOutput("bgp_always_compare_med");
+        SetOutput("bgp_best_path_selection_mode");
+        SetOutput("bgp_inter_region_cost");
+        SetOutput("delete_default_routes_on_create");
+        SetOutput("description");
+        SetOutput("enable_ula_internal_ipv6");
+        SetOutput("id");
+        SetOutput("internal_ipv6_range");
+        SetOutput("mtu");
+        SetOutput("name");
+        SetOutput("network_firewall_policy_enforcement_order");
+        SetOutput("network_profile");
+        SetOutput("project");
+        SetOutput("routing_mode");
     }
 
     /// <summary>
@@ -83,77 +94,77 @@ public class GoogleComputeNetwork : TerraformResource
     /// When set to &#39;false&#39;, the network is created in &amp;quot;custom subnet mode&amp;quot; so
     /// the user can explicitly connect subnetwork resources.
     /// </summary>
-    public TerraformProperty<bool>? AutoCreateSubnetworks
+    public TerraformProperty<bool> AutoCreateSubnetworks
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_create_subnetworks");
-        set => this.WithProperty("auto_create_subnetworks", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_create_subnetworks");
+        set => SetProperty("auto_create_subnetworks", value);
     }
 
     /// <summary>
     /// Enables/disables the comparison of MED across routes with different Neighbor ASNs.
     /// This value can only be set if the --bgp-best-path-selection-mode is STANDARD
     /// </summary>
-    public TerraformProperty<bool>? BgpAlwaysCompareMed
+    public TerraformProperty<bool> BgpAlwaysCompareMed
     {
-        get => GetProperty<TerraformProperty<bool>>("bgp_always_compare_med");
-        set => this.WithProperty("bgp_always_compare_med", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bgp_always_compare_med");
+        set => SetProperty("bgp_always_compare_med", value);
     }
 
     /// <summary>
     /// The BGP best selection algorithm to be employed. MODE can be LEGACY or STANDARD. Possible values: [&amp;quot;LEGACY&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? BgpBestPathSelectionMode
+    public TerraformProperty<string> BgpBestPathSelectionMode
     {
-        get => GetProperty<TerraformProperty<string>>("bgp_best_path_selection_mode");
-        set => this.WithProperty("bgp_best_path_selection_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bgp_best_path_selection_mode");
+        set => SetProperty("bgp_best_path_selection_mode", value);
     }
 
     /// <summary>
     /// Choice of the behavior of inter-regional cost and MED in the BPS algorithm. Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;ADD_COST_TO_MED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? BgpInterRegionCost
+    public TerraformProperty<string> BgpInterRegionCost
     {
-        get => GetProperty<TerraformProperty<string>>("bgp_inter_region_cost");
-        set => this.WithProperty("bgp_inter_region_cost", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bgp_inter_region_cost");
+        set => SetProperty("bgp_inter_region_cost", value);
     }
 
     /// <summary>
     /// If set to &#39;true&#39;, default routes (&#39;0.0.0.0/0&#39;) will be deleted
     /// immediately after network creation. Defaults to &#39;false&#39;.
     /// </summary>
-    public TerraformProperty<bool>? DeleteDefaultRoutesOnCreate
+    public TerraformProperty<bool> DeleteDefaultRoutesOnCreate
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_default_routes_on_create");
-        set => this.WithProperty("delete_default_routes_on_create", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_default_routes_on_create");
+        set => SetProperty("delete_default_routes_on_create", value);
     }
 
     /// <summary>
     /// An optional description of this resource. The resource must be
     /// recreated to modify this field.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Enable ULA internal ipv6 on this network. Enabling this feature will assign
     /// a /48 from google defined ULA prefix fd20::/20.
     /// </summary>
-    public TerraformProperty<bool>? EnableUlaInternalIpv6
+    public TerraformProperty<bool> EnableUlaInternalIpv6
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_ula_internal_ipv6");
-        set => this.WithProperty("enable_ula_internal_ipv6", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_ula_internal_ipv6");
+        set => SetProperty("enable_ula_internal_ipv6", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -163,10 +174,10 @@ public class GoogleComputeNetwork : TerraformResource
     /// fail if the speficied /48 is already in used by another resource.
     /// If the field is not speficied, then a /48 range will be randomly allocated from fd20::/20 and returned via this field.
     /// </summary>
-    public TerraformProperty<string>? InternalIpv6Range
+    public TerraformProperty<string> InternalIpv6Range
     {
-        get => GetProperty<TerraformProperty<string>>("internal_ipv6_range");
-        set => this.WithProperty("internal_ipv6_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("internal_ipv6_range");
+        set => SetProperty("internal_ipv6_range", value);
     }
 
     /// <summary>
@@ -176,10 +187,10 @@ public class GoogleComputeNetwork : TerraformResource
     /// with an ICMP &#39;Fragmentation-Needed&#39; message if the packets are routed to the Internet or other VPCs
     /// with varying MTUs.
     /// </summary>
-    public TerraformProperty<double>? Mtu
+    public TerraformProperty<double> Mtu
     {
-        get => GetProperty<TerraformProperty<double>>("mtu");
-        set => this.WithProperty("mtu", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("mtu");
+        set => SetProperty("mtu", value);
     }
 
     /// <summary>
@@ -194,17 +205,17 @@ public class GoogleComputeNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Set the order that Firewall Rules and Firewall Policies are evaluated. Default value: &amp;quot;AFTER_CLASSIC_FIREWALL&amp;quot; Possible values: [&amp;quot;BEFORE_CLASSIC_FIREWALL&amp;quot;, &amp;quot;AFTER_CLASSIC_FIREWALL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NetworkFirewallPolicyEnforcementOrder
+    public TerraformProperty<string> NetworkFirewallPolicyEnforcementOrder
     {
-        get => GetProperty<TerraformProperty<string>>("network_firewall_policy_enforcement_order");
-        set => this.WithProperty("network_firewall_policy_enforcement_order", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_firewall_policy_enforcement_order");
+        set => SetProperty("network_firewall_policy_enforcement_order", value);
     }
 
     /// <summary>
@@ -214,19 +225,19 @@ public class GoogleComputeNetwork : TerraformResource
     /// * https://www.googleapis.com/compute/v1/projects/{projectId}/global/networkProfiles/{network_profile_name}
     /// * projects/{projectId}/global/networkProfiles/{network_profile_name}
     /// </summary>
-    public TerraformProperty<string>? NetworkProfile
+    public TerraformProperty<string> NetworkProfile
     {
-        get => GetProperty<TerraformProperty<string>>("network_profile");
-        set => this.WithProperty("network_profile", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_profile");
+        set => SetProperty("network_profile", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -236,10 +247,10 @@ public class GoogleComputeNetwork : TerraformResource
     /// this network&#39;s cloud routers will advertise routes with all
     /// subnetworks of this network, across regions. Possible values: [&amp;quot;REGIONAL&amp;quot;, &amp;quot;GLOBAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? RoutingMode
+    public TerraformProperty<string> RoutingMode
     {
-        get => GetProperty<TerraformProperty<string>>("routing_mode");
-        set => this.WithProperty("routing_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("routing_mode");
+        set => SetProperty("routing_mode", value);
     }
 
     /// <summary>
@@ -249,8 +260,7 @@ public class GoogleComputeNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     public List<GoogleComputeNetworkParamsBlock>? Params
     {
-        get => GetProperty<List<GoogleComputeNetworkParamsBlock>>("params");
-        set => this.WithProperty("params", value);
+        set => SetProperty("params", value);
     }
 
     /// <summary>
@@ -259,8 +269,7 @@ public class GoogleComputeNetwork : TerraformResource
     /// </summary>
     public GoogleComputeNetworkTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeNetworkTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,7 +14,18 @@ public class AwsAutoscalingSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("autoscaling_group_name");
+        SetOutput("desired_capacity");
+        SetOutput("end_time");
+        SetOutput("id");
+        SetOutput("max_size");
+        SetOutput("min_size");
+        SetOutput("recurrence");
+        SetOutput("region");
+        SetOutput("scheduled_action_name");
+        SetOutput("start_time");
+        SetOutput("time_zone");
     }
 
     /// <summary>
@@ -23,71 +34,71 @@ public class AwsAutoscalingSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformProperty<string> AutoscalingGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("autoscaling_group_name");
-        set => this.WithProperty("autoscaling_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_group_name");
+        set => SetProperty("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The desired_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? DesiredCapacity
+    public TerraformProperty<double> DesiredCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("desired_capacity");
-        set => this.WithProperty("desired_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("desired_capacity");
+        set => SetProperty("desired_capacity", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformProperty<string>? EndTime
+    public TerraformProperty<string> EndTime
     {
-        get => GetProperty<TerraformProperty<string>>("end_time");
-        set => this.WithProperty("end_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_time");
+        set => SetProperty("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxSize
+    public TerraformProperty<double> MaxSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_size");
-        set => this.WithProperty("max_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_size");
+        set => SetProperty("max_size", value);
     }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
-    public TerraformProperty<double>? MinSize
+    public TerraformProperty<double> MinSize
     {
-        get => GetProperty<TerraformProperty<double>>("min_size");
-        set => this.WithProperty("min_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_size");
+        set => SetProperty("min_size", value);
     }
 
     /// <summary>
     /// The recurrence attribute.
     /// </summary>
-    public TerraformProperty<string>? Recurrence
+    public TerraformProperty<string> Recurrence
     {
-        get => GetProperty<TerraformProperty<string>>("recurrence");
-        set => this.WithProperty("recurrence", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recurrence");
+        set => SetProperty("recurrence", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -96,26 +107,26 @@ public class AwsAutoscalingSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduledActionName is required")]
     public required TerraformProperty<string> ScheduledActionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scheduled_action_name");
-        set => this.WithProperty("scheduled_action_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scheduled_action_name");
+        set => SetProperty("scheduled_action_name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    public TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>

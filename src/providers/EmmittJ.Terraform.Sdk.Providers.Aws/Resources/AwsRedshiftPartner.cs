@@ -14,8 +14,14 @@ public class AwsRedshiftPartner : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("status");
-        this.WithOutput("status_message");
+        SetOutput("status");
+        SetOutput("status_message");
+        SetOutput("account_id");
+        SetOutput("cluster_identifier");
+        SetOutput("database_name");
+        SetOutput("id");
+        SetOutput("partner_name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,8 +30,8 @@ public class AwsRedshiftPartner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -34,8 +40,8 @@ public class AwsRedshiftPartner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
-        set => this.WithProperty("cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
+        set => SetProperty("cluster_identifier", value);
     }
 
     /// <summary>
@@ -44,17 +50,17 @@ public class AwsRedshiftPartner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,17 +69,17 @@ public class AwsRedshiftPartner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerName is required")]
     public required TerraformProperty<string> PartnerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partner_name");
-        set => this.WithProperty("partner_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partner_name");
+        set => SetProperty("partner_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

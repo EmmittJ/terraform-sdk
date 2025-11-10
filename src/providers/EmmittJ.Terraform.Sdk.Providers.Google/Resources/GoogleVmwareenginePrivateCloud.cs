@@ -19,8 +19,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => WithProperty("cluster_id", value);
+        set => SetProperty("cluster_id", value);
     }
 
 }
@@ -36,8 +35,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DnsServerIp
     {
-        get => GetProperty<TerraformProperty<string>>("dns_server_ip");
-        set => WithProperty("dns_server_ip", value);
+        set => SetProperty("dns_server_ip", value);
     }
 
     /// <summary>
@@ -46,8 +44,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementCidr is required")]
     public required TerraformProperty<string> ManagementCidr
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("management_cidr");
-        set => WithProperty("management_cidr", value);
+        set => SetProperty("management_cidr", value);
     }
 
     /// <summary>
@@ -60,8 +57,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ManagementIpAddressLayoutVersion
     {
-        get => GetProperty<TerraformProperty<double>>("management_ip_address_layout_version");
-        set => WithProperty("management_ip_address_layout_version", value);
+        set => SetProperty("management_ip_address_layout_version", value);
     }
 
     /// <summary>
@@ -71,8 +67,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VmwareEngineNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("vmware_engine_network");
-        set => WithProperty("vmware_engine_network", value);
+        set => SetProperty("vmware_engine_network", value);
     }
 
     /// <summary>
@@ -81,8 +76,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VmwareEngineNetworkCanonical
     {
-        get => GetProperty<TerraformProperty<string>>("vmware_engine_network_canonical");
-        set => WithProperty("vmware_engine_network_canonical", value);
+        set => SetProperty("vmware_engine_network_canonical", value);
     }
 
 }
@@ -98,8 +92,7 @@ public class GoogleVmwareenginePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -107,8 +100,7 @@ public class GoogleVmwareenginePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -116,8 +108,7 @@ public class GoogleVmwareenginePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -135,42 +126,50 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("expire_time");
-        this.WithOutput("hcx");
-        this.WithOutput("nsx");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
-        this.WithOutput("vcenter");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("expire_time");
+        SetOutput("hcx");
+        SetOutput("nsx");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("vcenter");
+        SetOutput("deletion_delay_hours");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("send_deletion_delay_hours_if_zero");
+        SetOutput("type");
     }
 
     /// <summary>
     /// The number of hours to delay this request. You can set this value to an hour between 0 to 8, where setting it to 0 starts the deletion request immediately. If no value is set, a default value is set at the API Level.
     /// </summary>
-    public TerraformProperty<double>? DeletionDelayHours
+    public TerraformProperty<double> DeletionDelayHours
     {
-        get => GetProperty<TerraformProperty<double>>("deletion_delay_hours");
-        set => this.WithProperty("deletion_delay_hours", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("deletion_delay_hours");
+        set => SetProperty("deletion_delay_hours", value);
     }
 
     /// <summary>
     /// User-provided description for this private cloud.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -179,8 +178,8 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -189,59 +188,59 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// While set true, deletion_delay_hours value will be sent in the request even for zero value of the field. This field is only useful for setting 0 value to the deletion_delay_hours field. It can be used both alone and together with deletion_delay_hours.
     /// </summary>
-    public TerraformProperty<bool>? SendDeletionDelayHoursIfZero
+    public TerraformProperty<bool> SendDeletionDelayHoursIfZero
     {
-        get => GetProperty<TerraformProperty<bool>>("send_deletion_delay_hours_if_zero");
-        set => this.WithProperty("send_deletion_delay_hours_if_zero", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("send_deletion_delay_hours_if_zero");
+        set => SetProperty("send_deletion_delay_hours_if_zero", value);
     }
 
     /// <summary>
     /// Initial type of the private cloud. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;TIME_LIMITED&amp;quot;, &amp;quot;STRETCHED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Block for management_cluster.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementCluster is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagementCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementCluster block(s) allowed")]
     public List<GoogleVmwareenginePrivateCloudManagementClusterBlock>? ManagementCluster
     {
-        get => GetProperty<List<GoogleVmwareenginePrivateCloudManagementClusterBlock>>("management_cluster");
-        set => this.WithProperty("management_cluster", value);
+        set => SetProperty("management_cluster", value);
     }
 
     /// <summary>
     /// Block for network_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     public List<GoogleVmwareenginePrivateCloudNetworkConfigBlock>? NetworkConfig
     {
-        get => GetProperty<List<GoogleVmwareenginePrivateCloudNetworkConfigBlock>>("network_config");
-        set => this.WithProperty("network_config", value);
+        set => SetProperty("network_config", value);
     }
 
     /// <summary>
@@ -250,8 +249,7 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     public GoogleVmwareenginePrivateCloudTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleVmwareenginePrivateCloudTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

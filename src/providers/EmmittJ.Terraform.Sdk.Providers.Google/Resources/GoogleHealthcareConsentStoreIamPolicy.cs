@@ -14,7 +14,11 @@ public class GoogleHealthcareConsentStoreIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("consent_store_id");
+        SetOutput("dataset");
+        SetOutput("id");
+        SetOutput("policy_data");
     }
 
     /// <summary>
@@ -23,8 +27,8 @@ public class GoogleHealthcareConsentStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsentStoreId is required")]
     public required TerraformProperty<string> ConsentStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("consent_store_id");
-        set => this.WithProperty("consent_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("consent_store_id");
+        set => SetProperty("consent_store_id", value);
     }
 
     /// <summary>
@@ -33,17 +37,17 @@ public class GoogleHealthcareConsentStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
-        set => this.WithProperty("dataset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,8 +56,8 @@ public class GoogleHealthcareConsentStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
-        set => this.WithProperty("policy_data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
+        set => SetProperty("policy_data", value);
     }
 
     /// <summary>

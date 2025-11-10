@@ -14,6 +14,13 @@ public class AwsAthenaNamedQuery : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("database");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("query");
+        SetOutput("region");
+        SetOutput("workgroup");
     }
 
     /// <summary>
@@ -22,26 +29,26 @@ public class AwsAthenaNamedQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database");
-        set => this.WithProperty("database", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database");
+        set => SetProperty("database", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,8 +57,8 @@ public class AwsAthenaNamedQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -60,26 +67,26 @@ public class AwsAthenaNamedQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query");
-        set => this.WithProperty("query", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query");
+        set => SetProperty("query", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The workgroup attribute.
     /// </summary>
-    public TerraformProperty<string>? Workgroup
+    public TerraformProperty<string> Workgroup
     {
-        get => GetProperty<TerraformProperty<string>>("workgroup");
-        set => this.WithProperty("workgroup", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workgroup");
+        set => SetProperty("workgroup", value);
     }
 
 }

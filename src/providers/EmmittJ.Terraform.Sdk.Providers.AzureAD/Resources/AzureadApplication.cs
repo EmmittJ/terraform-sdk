@@ -13,8 +13,7 @@ public class AzureadApplicationApiBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? KnownClientApplications
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("known_client_applications");
-        set => WithProperty("known_client_applications", value);
+        set => SetProperty("known_client_applications", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadApplicationApiBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MappedClaimsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("mapped_claims_enabled");
-        set => WithProperty("mapped_claims_enabled", value);
+        set => SetProperty("mapped_claims_enabled", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadApplicationApiBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RequestedAccessTokenVersion
     {
-        get => GetProperty<TerraformProperty<double>>("requested_access_token_version");
-        set => WithProperty("requested_access_token_version", value);
+        set => SetProperty("requested_access_token_version", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMemberTypes is required")]
     public HashSet<TerraformProperty<string>>? AllowedMemberTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_member_types");
-        set => WithProperty("allowed_member_types", value);
+        set => SetProperty("allowed_member_types", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -78,8 +72,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -114,8 +105,7 @@ public class AzureadApplicationFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CustomSingleSignOn
     {
-        get => GetProperty<TerraformProperty<bool>>("custom_single_sign_on");
-        set => WithProperty("custom_single_sign_on", value);
+        set => SetProperty("custom_single_sign_on", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AzureadApplicationFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enterprise
     {
-        get => GetProperty<TerraformProperty<bool>>("enterprise");
-        set => WithProperty("enterprise", value);
+        set => SetProperty("enterprise", value);
     }
 
     /// <summary>
@@ -132,8 +121,7 @@ public class AzureadApplicationFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Gallery
     {
-        get => GetProperty<TerraformProperty<bool>>("gallery");
-        set => WithProperty("gallery", value);
+        set => SetProperty("gallery", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class AzureadApplicationFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Hide
     {
-        get => GetProperty<TerraformProperty<bool>>("hide");
-        set => WithProperty("hide", value);
+        set => SetProperty("hide", value);
     }
 
 }
@@ -167,8 +154,7 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -176,8 +162,7 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EndDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_date");
-        set => WithProperty("end_date", value);
+        set => SetProperty("end_date", value);
     }
 
     /// <summary>
@@ -185,8 +170,7 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
-        set => WithProperty("key_id", value);
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
@@ -194,8 +178,7 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StartDate
     {
-        get => GetProperty<TerraformProperty<string>>("start_date");
-        set => WithProperty("start_date", value);
+        set => SetProperty("start_date", value);
     }
 
     /// <summary>
@@ -203,8 +186,7 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -220,8 +202,7 @@ public class AzureadApplicationPublicClientBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? RedirectUris
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("redirect_uris");
-        set => WithProperty("redirect_uris", value);
+        set => SetProperty("redirect_uris", value);
     }
 
 }
@@ -238,8 +219,7 @@ public class AzureadApplicationRequiredResourceAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceAppId is required")]
     public required TerraformProperty<string> ResourceAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_app_id");
-        set => WithProperty("resource_app_id", value);
+        set => SetProperty("resource_app_id", value);
     }
 
 }
@@ -255,8 +235,7 @@ public class AzureadApplicationSinglePageApplicationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? RedirectUris
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("redirect_uris");
-        set => WithProperty("redirect_uris", value);
+        set => SetProperty("redirect_uris", value);
     }
 
 }
@@ -272,8 +251,7 @@ public class AzureadApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -281,8 +259,7 @@ public class AzureadApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -290,8 +267,7 @@ public class AzureadApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -299,8 +275,7 @@ public class AzureadApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -316,8 +291,7 @@ public class AzureadApplicationWebBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HomepageUrl
     {
-        get => GetProperty<TerraformProperty<string>>("homepage_url");
-        set => WithProperty("homepage_url", value);
+        set => SetProperty("homepage_url", value);
     }
 
     /// <summary>
@@ -325,8 +299,7 @@ public class AzureadApplicationWebBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LogoutUrl
     {
-        get => GetProperty<TerraformProperty<string>>("logout_url");
-        set => WithProperty("logout_url", value);
+        set => SetProperty("logout_url", value);
     }
 
     /// <summary>
@@ -334,8 +307,7 @@ public class AzureadApplicationWebBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? RedirectUris
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("redirect_uris");
-        set => WithProperty("redirect_uris", value);
+        set => SetProperty("redirect_uris", value);
     }
 
 }
@@ -353,31 +325,51 @@ public class AzureadApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_role_ids");
-        this.WithOutput("client_id");
-        this.WithOutput("disabled_by_microsoft");
-        this.WithOutput("logo_url");
-        this.WithOutput("oauth2_permission_scope_ids");
-        this.WithOutput("object_id");
-        this.WithOutput("publisher_domain");
+        SetOutput("app_role_ids");
+        SetOutput("client_id");
+        SetOutput("disabled_by_microsoft");
+        SetOutput("logo_url");
+        SetOutput("oauth2_permission_scope_ids");
+        SetOutput("object_id");
+        SetOutput("publisher_domain");
+        SetOutput("description");
+        SetOutput("device_only_auth_enabled");
+        SetOutput("display_name");
+        SetOutput("fallback_public_client_enabled");
+        SetOutput("group_membership_claims");
+        SetOutput("id");
+        SetOutput("identifier_uris");
+        SetOutput("logo_image");
+        SetOutput("marketing_url");
+        SetOutput("notes");
+        SetOutput("oauth2_post_response_required");
+        SetOutput("owners");
+        SetOutput("prevent_duplicate_names");
+        SetOutput("privacy_statement_url");
+        SetOutput("service_management_reference");
+        SetOutput("sign_in_audience");
+        SetOutput("support_url");
+        SetOutput("tags");
+        SetOutput("template_id");
+        SetOutput("terms_of_service_url");
     }
 
     /// <summary>
     /// Description of the application as shown to end users
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Specifies whether this application supports device authentication without a user.
     /// </summary>
-    public TerraformProperty<bool>? DeviceOnlyAuthEnabled
+    public TerraformProperty<bool> DeviceOnlyAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("device_only_auth_enabled");
-        set => this.WithProperty("device_only_auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("device_only_auth_enabled");
+        set => SetProperty("device_only_auth_enabled", value);
     }
 
     /// <summary>
@@ -386,161 +378,161 @@ public class AzureadApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Specifies whether the application is a public client. Appropriate for apps using token grant flows that don&#39;t use a redirect URI
     /// </summary>
-    public TerraformProperty<bool>? FallbackPublicClientEnabled
+    public TerraformProperty<bool> FallbackPublicClientEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("fallback_public_client_enabled");
-        set => this.WithProperty("fallback_public_client_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("fallback_public_client_enabled");
+        set => SetProperty("fallback_public_client_enabled", value);
     }
 
     /// <summary>
     /// Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects
     /// </summary>
-    public HashSet<TerraformProperty<string>>? GroupMembershipClaims
+    public HashSet<TerraformProperty<string>> GroupMembershipClaims
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("group_membership_claims");
-        set => this.WithProperty("group_membership_claims", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("group_membership_claims");
+        set => SetProperty("group_membership_claims", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The user-defined URI(s) that uniquely identify an application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentifierUris
+    public HashSet<TerraformProperty<string>> IdentifierUris
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identifier_uris");
-        set => this.WithProperty("identifier_uris", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("identifier_uris");
+        set => SetProperty("identifier_uris", value);
     }
 
     /// <summary>
     /// Base64 encoded logo image in gif, png or jpeg format
     /// </summary>
-    public TerraformProperty<string>? LogoImage
+    public TerraformProperty<string> LogoImage
     {
-        get => GetProperty<TerraformProperty<string>>("logo_image");
-        set => this.WithProperty("logo_image", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logo_image");
+        set => SetProperty("logo_image", value);
     }
 
     /// <summary>
     /// URL of the application&#39;s marketing page
     /// </summary>
-    public TerraformProperty<string>? MarketingUrl
+    public TerraformProperty<string> MarketingUrl
     {
-        get => GetProperty<TerraformProperty<string>>("marketing_url");
-        set => this.WithProperty("marketing_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("marketing_url");
+        set => SetProperty("marketing_url", value);
     }
 
     /// <summary>
     /// User-specified notes relevant for the management of the application
     /// </summary>
-    public TerraformProperty<string>? Notes
+    public TerraformProperty<string> Notes
     {
-        get => GetProperty<TerraformProperty<string>>("notes");
-        set => this.WithProperty("notes", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notes");
+        set => SetProperty("notes", value);
     }
 
     /// <summary>
     /// Specifies whether, as part of OAuth 2.0 token requests, Azure AD allows POST requests, as opposed to GET requests.
     /// </summary>
-    public TerraformProperty<bool>? Oauth2PostResponseRequired
+    public TerraformProperty<bool> Oauth2PostResponseRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("oauth2_post_response_required");
-        set => this.WithProperty("oauth2_post_response_required", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("oauth2_post_response_required");
+        set => SetProperty("oauth2_post_response_required", value);
     }
 
     /// <summary>
     /// A list of object IDs of principals that will be granted ownership of the application
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Owners
+    public HashSet<TerraformProperty<string>> Owners
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("owners");
-        set => this.WithProperty("owners", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("owners");
+        set => SetProperty("owners", value);
     }
 
     /// <summary>
     /// If `true`, will return an error if an existing application is found with the same name
     /// </summary>
-    public TerraformProperty<bool>? PreventDuplicateNames
+    public TerraformProperty<bool> PreventDuplicateNames
     {
-        get => GetProperty<TerraformProperty<bool>>("prevent_duplicate_names");
-        set => this.WithProperty("prevent_duplicate_names", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("prevent_duplicate_names");
+        set => SetProperty("prevent_duplicate_names", value);
     }
 
     /// <summary>
     /// URL of the application&#39;s privacy statement
     /// </summary>
-    public TerraformProperty<string>? PrivacyStatementUrl
+    public TerraformProperty<string> PrivacyStatementUrl
     {
-        get => GetProperty<TerraformProperty<string>>("privacy_statement_url");
-        set => this.WithProperty("privacy_statement_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("privacy_statement_url");
+        set => SetProperty("privacy_statement_url", value);
     }
 
     /// <summary>
     /// References application or service contact information from a Service or Asset Management database
     /// </summary>
-    public TerraformProperty<string>? ServiceManagementReference
+    public TerraformProperty<string> ServiceManagementReference
     {
-        get => GetProperty<TerraformProperty<string>>("service_management_reference");
-        set => this.WithProperty("service_management_reference", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_management_reference");
+        set => SetProperty("service_management_reference", value);
     }
 
     /// <summary>
     /// The Microsoft account types that are supported for the current application
     /// </summary>
-    public TerraformProperty<string>? SignInAudience
+    public TerraformProperty<string> SignInAudience
     {
-        get => GetProperty<TerraformProperty<string>>("sign_in_audience");
-        set => this.WithProperty("sign_in_audience", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sign_in_audience");
+        set => SetProperty("sign_in_audience", value);
     }
 
     /// <summary>
     /// URL of the application&#39;s support page
     /// </summary>
-    public TerraformProperty<string>? SupportUrl
+    public TerraformProperty<string> SupportUrl
     {
-        get => GetProperty<TerraformProperty<string>>("support_url");
-        set => this.WithProperty("support_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("support_url");
+        set => SetProperty("support_url", value);
     }
 
     /// <summary>
     /// A set of tags to apply to the application
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Tags
+    public HashSet<TerraformProperty<string>> Tags
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// Unique ID of the application template from which this application is created
     /// </summary>
-    public TerraformProperty<string>? TemplateId
+    public TerraformProperty<string> TemplateId
     {
-        get => GetProperty<TerraformProperty<string>>("template_id");
-        set => this.WithProperty("template_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
+        set => SetProperty("template_id", value);
     }
 
     /// <summary>
     /// URL of the application&#39;s terms of service statement
     /// </summary>
-    public TerraformProperty<string>? TermsOfServiceUrl
+    public TerraformProperty<string> TermsOfServiceUrl
     {
-        get => GetProperty<TerraformProperty<string>>("terms_of_service_url");
-        set => this.WithProperty("terms_of_service_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("terms_of_service_url");
+        set => SetProperty("terms_of_service_url", value);
     }
 
     /// <summary>
@@ -550,8 +542,7 @@ public class AzureadApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Api block(s) allowed")]
     public List<AzureadApplicationApiBlock>? Api
     {
-        get => GetProperty<List<AzureadApplicationApiBlock>>("api");
-        set => this.WithProperty("api", value);
+        set => SetProperty("api", value);
     }
 
     /// <summary>
@@ -560,8 +551,7 @@ public class AzureadApplication : TerraformResource
     /// </summary>
     public HashSet<AzureadApplicationAppRoleBlock>? AppRole
     {
-        get => GetProperty<HashSet<AzureadApplicationAppRoleBlock>>("app_role");
-        set => this.WithProperty("app_role", value);
+        set => SetProperty("app_role", value);
     }
 
     /// <summary>
@@ -570,8 +560,7 @@ public class AzureadApplication : TerraformResource
     /// </summary>
     public List<AzureadApplicationFeatureTagsBlock>? FeatureTags
     {
-        get => GetProperty<List<AzureadApplicationFeatureTagsBlock>>("feature_tags");
-        set => this.WithProperty("feature_tags", value);
+        set => SetProperty("feature_tags", value);
     }
 
     /// <summary>
@@ -581,8 +570,7 @@ public class AzureadApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OptionalClaims block(s) allowed")]
     public List<AzureadApplicationOptionalClaimsBlock>? OptionalClaims
     {
-        get => GetProperty<List<AzureadApplicationOptionalClaimsBlock>>("optional_claims");
-        set => this.WithProperty("optional_claims", value);
+        set => SetProperty("optional_claims", value);
     }
 
     /// <summary>
@@ -592,8 +580,7 @@ public class AzureadApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password block(s) allowed")]
     public HashSet<AzureadApplicationPasswordBlock>? Password
     {
-        get => GetProperty<HashSet<AzureadApplicationPasswordBlock>>("password");
-        set => this.WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -603,8 +590,7 @@ public class AzureadApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicClient block(s) allowed")]
     public List<AzureadApplicationPublicClientBlock>? PublicClient
     {
-        get => GetProperty<List<AzureadApplicationPublicClientBlock>>("public_client");
-        set => this.WithProperty("public_client", value);
+        set => SetProperty("public_client", value);
     }
 
     /// <summary>
@@ -613,8 +599,7 @@ public class AzureadApplication : TerraformResource
     /// </summary>
     public HashSet<AzureadApplicationRequiredResourceAccessBlock>? RequiredResourceAccess
     {
-        get => GetProperty<HashSet<AzureadApplicationRequiredResourceAccessBlock>>("required_resource_access");
-        set => this.WithProperty("required_resource_access", value);
+        set => SetProperty("required_resource_access", value);
     }
 
     /// <summary>
@@ -624,8 +609,7 @@ public class AzureadApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SinglePageApplication block(s) allowed")]
     public List<AzureadApplicationSinglePageApplicationBlock>? SinglePageApplication
     {
-        get => GetProperty<List<AzureadApplicationSinglePageApplicationBlock>>("single_page_application");
-        set => this.WithProperty("single_page_application", value);
+        set => SetProperty("single_page_application", value);
     }
 
     /// <summary>
@@ -634,8 +618,7 @@ public class AzureadApplication : TerraformResource
     /// </summary>
     public AzureadApplicationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -645,8 +628,7 @@ public class AzureadApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Web block(s) allowed")]
     public List<AzureadApplicationWebBlock>? Web
     {
-        get => GetProperty<List<AzureadApplicationWebBlock>>("web");
-        set => this.WithProperty("web", value);
+        set => SetProperty("web", value);
     }
 
     /// <summary>

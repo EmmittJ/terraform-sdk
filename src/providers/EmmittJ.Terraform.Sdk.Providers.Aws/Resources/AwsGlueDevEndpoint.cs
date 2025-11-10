@@ -14,60 +14,78 @@ public class AwsGlueDevEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone");
-        this.WithOutput("failure_reason");
-        this.WithOutput("private_address");
-        this.WithOutput("public_address");
-        this.WithOutput("status");
-        this.WithOutput("vpc_id");
-        this.WithOutput("yarn_endpoint_address");
-        this.WithOutput("zeppelin_remote_spark_interpreter_port");
+        SetOutput("arn");
+        SetOutput("availability_zone");
+        SetOutput("failure_reason");
+        SetOutput("private_address");
+        SetOutput("public_address");
+        SetOutput("status");
+        SetOutput("vpc_id");
+        SetOutput("yarn_endpoint_address");
+        SetOutput("zeppelin_remote_spark_interpreter_port");
+        SetOutput("arguments");
+        SetOutput("extra_jars_s3_path");
+        SetOutput("extra_python_libs_s3_path");
+        SetOutput("glue_version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("number_of_nodes");
+        SetOutput("number_of_workers");
+        SetOutput("public_key");
+        SetOutput("public_keys");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("security_configuration");
+        SetOutput("security_group_ids");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("worker_type");
     }
 
     /// <summary>
     /// The arguments attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Arguments
+    public Dictionary<string, TerraformProperty<string>> Arguments
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("arguments");
-        set => this.WithProperty("arguments", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("arguments");
+        set => SetProperty("arguments", value);
     }
 
     /// <summary>
     /// The extra_jars_s3_path attribute.
     /// </summary>
-    public TerraformProperty<string>? ExtraJarsS3Path
+    public TerraformProperty<string> ExtraJarsS3Path
     {
-        get => GetProperty<TerraformProperty<string>>("extra_jars_s3_path");
-        set => this.WithProperty("extra_jars_s3_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("extra_jars_s3_path");
+        set => SetProperty("extra_jars_s3_path", value);
     }
 
     /// <summary>
     /// The extra_python_libs_s3_path attribute.
     /// </summary>
-    public TerraformProperty<string>? ExtraPythonLibsS3Path
+    public TerraformProperty<string> ExtraPythonLibsS3Path
     {
-        get => GetProperty<TerraformProperty<string>>("extra_python_libs_s3_path");
-        set => this.WithProperty("extra_python_libs_s3_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("extra_python_libs_s3_path");
+        set => SetProperty("extra_python_libs_s3_path", value);
     }
 
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
-    public TerraformProperty<string>? GlueVersion
+    public TerraformProperty<string> GlueVersion
     {
-        get => GetProperty<TerraformProperty<string>>("glue_version");
-        set => this.WithProperty("glue_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("glue_version");
+        set => SetProperty("glue_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,53 +94,53 @@ public class AwsGlueDevEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The number_of_nodes attribute.
     /// </summary>
-    public TerraformProperty<double>? NumberOfNodes
+    public TerraformProperty<double> NumberOfNodes
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_nodes");
-        set => this.WithProperty("number_of_nodes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("number_of_nodes");
+        set => SetProperty("number_of_nodes", value);
     }
 
     /// <summary>
     /// The number_of_workers attribute.
     /// </summary>
-    public TerraformProperty<double>? NumberOfWorkers
+    public TerraformProperty<double> NumberOfWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_workers");
-        set => this.WithProperty("number_of_workers", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("number_of_workers");
+        set => SetProperty("number_of_workers", value);
     }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicKey
+    public TerraformProperty<string> PublicKey
     {
-        get => GetProperty<TerraformProperty<string>>("public_key");
-        set => this.WithProperty("public_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_key");
+        set => SetProperty("public_key", value);
     }
 
     /// <summary>
     /// The public_keys attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? PublicKeys
+    public HashSet<TerraformProperty<string>> PublicKeys
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("public_keys");
-        set => this.WithProperty("public_keys", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("public_keys");
+        set => SetProperty("public_keys", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -131,62 +149,62 @@ public class AwsGlueDevEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityConfiguration
+    public TerraformProperty<string> SecurityConfiguration
     {
-        get => GetProperty<TerraformProperty<string>>("security_configuration");
-        set => this.WithProperty("security_configuration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_configuration");
+        set => SetProperty("security_configuration", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    public TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkerType
+    public TerraformProperty<string> WorkerType
     {
-        get => GetProperty<TerraformProperty<string>>("worker_type");
-        set => this.WithProperty("worker_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("worker_type");
+        set => SetProperty("worker_type", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsBedrockagentcoreMemoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBedrockagentcoreMemoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,27 +38,34 @@ public class AwsBedrockagentcoreMemory : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("description");
+        SetOutput("encryption_key_arn");
+        SetOutput("event_expiry_duration");
+        SetOutput("memory_execution_role_arn");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The encryption_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionKeyArn
+    public TerraformProperty<string> EncryptionKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key_arn");
-        set => this.WithProperty("encryption_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key_arn");
+        set => SetProperty("encryption_key_arn", value);
     }
 
     /// <summary>
@@ -69,17 +74,17 @@ public class AwsBedrockagentcoreMemory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventExpiryDuration is required")]
     public required TerraformProperty<double> EventExpiryDuration
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("event_expiry_duration");
-        set => this.WithProperty("event_expiry_duration", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("event_expiry_duration");
+        set => SetProperty("event_expiry_duration", value);
     }
 
     /// <summary>
     /// The memory_execution_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? MemoryExecutionRoleArn
+    public TerraformProperty<string> MemoryExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("memory_execution_role_arn");
-        set => this.WithProperty("memory_execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("memory_execution_role_arn");
+        set => SetProperty("memory_execution_role_arn", value);
     }
 
     /// <summary>
@@ -88,26 +93,26 @@ public class AwsBedrockagentcoreMemory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -116,8 +121,7 @@ public class AwsBedrockagentcoreMemory : TerraformResource
     /// </summary>
     public AwsBedrockagentcoreMemoryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentcoreMemoryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

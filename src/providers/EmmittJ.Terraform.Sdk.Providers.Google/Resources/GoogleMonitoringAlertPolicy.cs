@@ -13,8 +13,7 @@ public class GoogleMonitoringAlertPolicyAlertStrategyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AutoClose
     {
-        get => GetProperty<TerraformProperty<string>>("auto_close");
-        set => WithProperty("auto_close", value);
+        set => SetProperty("auto_close", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleMonitoringAlertPolicyAlertStrategyBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? NotificationPrompts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("notification_prompts");
-        set => WithProperty("notification_prompts", value);
+        set => SetProperty("notification_prompts", value);
     }
 
 }
@@ -44,8 +42,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -78,8 +74,7 @@ public class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -88,8 +83,7 @@ public class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MimeType
     {
-        get => GetProperty<TerraformProperty<string>>("mime_type");
-        set => WithProperty("mime_type", value);
+        set => SetProperty("mime_type", value);
     }
 
     /// <summary>
@@ -100,8 +94,7 @@ public class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
 }
@@ -117,8 +110,7 @@ public class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -126,8 +118,7 @@ public class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -135,8 +126,7 @@ public class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -154,8 +144,16 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_record");
-        this.WithOutput("name");
+        SetOutput("creation_record");
+        SetOutput("name");
+        SetOutput("combiner");
+        SetOutput("display_name");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("notification_channels");
+        SetOutput("project");
+        SetOutput("severity");
+        SetOutput("user_labels");
     }
 
     /// <summary>
@@ -165,8 +163,8 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Combiner is required")]
     public required TerraformProperty<string> Combiner
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("combiner");
-        set => this.WithProperty("combiner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("combiner");
+        set => SetProperty("combiner", value);
     }
 
     /// <summary>
@@ -178,26 +176,26 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether or not the policy is enabled. The default is true.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -209,19 +207,19 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// entries in this field is
     /// &#39;projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]&#39;
     /// </summary>
-    public List<TerraformProperty<string>>? NotificationChannels
+    public List<TerraformProperty<string>> NotificationChannels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("notification_channels");
-        set => this.WithProperty("notification_channels", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("notification_channels");
+        set => SetProperty("notification_channels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -229,10 +227,10 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// by that policy are. The severity level will be displayed on the Incident
     /// detail page and in notifications. Possible values: [&amp;quot;CRITICAL&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;WARNING&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Severity
+    public TerraformProperty<string> Severity
     {
-        get => GetProperty<TerraformProperty<string>>("severity");
-        set => this.WithProperty("severity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("severity");
+        set => SetProperty("severity", value);
     }
 
     /// <summary>
@@ -242,10 +240,10 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
     /// must begin with a letter.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? UserLabels
+    public Dictionary<string, TerraformProperty<string>> UserLabels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_labels");
-        set => this.WithProperty("user_labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("user_labels");
+        set => SetProperty("user_labels", value);
     }
 
     /// <summary>
@@ -255,19 +253,18 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlertStrategy block(s) allowed")]
     public List<GoogleMonitoringAlertPolicyAlertStrategyBlock>? AlertStrategy
     {
-        get => GetProperty<List<GoogleMonitoringAlertPolicyAlertStrategyBlock>>("alert_strategy");
-        set => this.WithProperty("alert_strategy", value);
+        set => SetProperty("alert_strategy", value);
     }
 
     /// <summary>
     /// Block for conditions.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Conditions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Conditions block(s) required")]
     public List<GoogleMonitoringAlertPolicyConditionsBlock>? Conditions
     {
-        get => GetProperty<List<GoogleMonitoringAlertPolicyConditionsBlock>>("conditions");
-        set => this.WithProperty("conditions", value);
+        set => SetProperty("conditions", value);
     }
 
     /// <summary>
@@ -277,8 +274,7 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Documentation block(s) allowed")]
     public List<GoogleMonitoringAlertPolicyDocumentationBlock>? Documentation
     {
-        get => GetProperty<List<GoogleMonitoringAlertPolicyDocumentationBlock>>("documentation");
-        set => this.WithProperty("documentation", value);
+        set => SetProperty("documentation", value);
     }
 
     /// <summary>
@@ -287,8 +283,7 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     public GoogleMonitoringAlertPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleMonitoringAlertPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

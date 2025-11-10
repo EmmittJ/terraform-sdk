@@ -14,8 +14,10 @@ public class GoogleHealthcareDicomStoreIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
-        this.WithOutput("policy_data");
+        SetOutput("etag");
+        SetOutput("policy_data");
+        SetOutput("dicom_store_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -24,17 +26,17 @@ public class GoogleHealthcareDicomStoreIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DicomStoreId is required")]
     public required TerraformProperty<string> DicomStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dicom_store_id");
-        set => this.WithProperty("dicom_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dicom_store_id");
+        set => SetProperty("dicom_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

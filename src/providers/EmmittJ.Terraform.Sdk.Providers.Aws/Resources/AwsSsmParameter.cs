@@ -14,71 +14,88 @@ public class AwsSsmParameter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("has_value_wo");
-        this.WithOutput("version");
+        SetOutput("has_value_wo");
+        SetOutput("version");
+        SetOutput("allowed_pattern");
+        SetOutput("arn");
+        SetOutput("data_type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("insecure_value");
+        SetOutput("key_id");
+        SetOutput("name");
+        SetOutput("overwrite");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("tier");
+        SetOutput("type");
+        SetOutput("value");
+        SetOutput("value_wo");
+        SetOutput("value_wo_version");
     }
 
     /// <summary>
     /// The allowed_pattern attribute.
     /// </summary>
-    public TerraformProperty<string>? AllowedPattern
+    public TerraformProperty<string> AllowedPattern
     {
-        get => GetProperty<TerraformProperty<string>>("allowed_pattern");
-        set => this.WithProperty("allowed_pattern", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("allowed_pattern");
+        set => SetProperty("allowed_pattern", value);
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The data_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DataType
+    public TerraformProperty<string> DataType
     {
-        get => GetProperty<TerraformProperty<string>>("data_type");
-        set => this.WithProperty("data_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_type");
+        set => SetProperty("data_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The insecure_value attribute.
     /// </summary>
-    public TerraformProperty<string>? InsecureValue
+    public TerraformProperty<string> InsecureValue
     {
-        get => GetProperty<TerraformProperty<string>>("insecure_value");
-        set => this.WithProperty("insecure_value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("insecure_value");
+        set => SetProperty("insecure_value", value);
     }
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyId
+    public TerraformProperty<string> KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
-        set => this.WithProperty("key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
@@ -87,53 +104,53 @@ public class AwsSsmParameter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The overwrite attribute.
     /// </summary>
-    public TerraformProperty<bool>? Overwrite
+    public TerraformProperty<bool> Overwrite
     {
-        get => GetProperty<TerraformProperty<bool>>("overwrite");
-        set => this.WithProperty("overwrite", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("overwrite");
+        set => SetProperty("overwrite", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformProperty<string>? Tier
+    public TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
@@ -142,35 +159,35 @@ public class AwsSsmParameter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
+    public TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>
     /// The value_wo attribute.
     /// </summary>
-    public TerraformProperty<string>? ValueWo
+    public TerraformProperty<string> ValueWo
     {
-        get => GetProperty<TerraformProperty<string>>("value_wo");
-        set => this.WithProperty("value_wo", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value_wo");
+        set => SetProperty("value_wo", value);
     }
 
     /// <summary>
     /// The value_wo_version attribute.
     /// </summary>
-    public TerraformProperty<double>? ValueWoVersion
+    public TerraformProperty<double> ValueWoVersion
     {
-        get => GetProperty<TerraformProperty<double>>("value_wo_version");
-        set => this.WithProperty("value_wo_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("value_wo_version");
+        set => SetProperty("value_wo_version", value);
     }
 
     /// <summary>

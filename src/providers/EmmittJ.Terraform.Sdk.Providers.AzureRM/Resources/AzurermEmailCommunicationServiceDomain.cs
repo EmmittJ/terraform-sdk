@@ -13,8 +13,7 @@ public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,9 +54,15 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("from_sender_domain");
-        this.WithOutput("mail_from_sender_domain");
-        this.WithOutput("verification_records");
+        SetOutput("from_sender_domain");
+        SetOutput("mail_from_sender_domain");
+        SetOutput("verification_records");
+        SetOutput("domain_management");
+        SetOutput("email_service_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("user_engagement_tracking_enabled");
     }
 
     /// <summary>
@@ -69,8 +71,8 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainManagement is required")]
     public required TerraformProperty<string> DomainManagement
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_management");
-        set => this.WithProperty("domain_management", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_management");
+        set => SetProperty("domain_management", value);
     }
 
     /// <summary>
@@ -79,17 +81,17 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceId is required")]
     public required TerraformProperty<string> EmailServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_service_id");
-        set => this.WithProperty("email_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_service_id");
+        set => SetProperty("email_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -98,26 +100,26 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The user_engagement_tracking_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? UserEngagementTrackingEnabled
+    public TerraformProperty<bool> UserEngagementTrackingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("user_engagement_tracking_enabled");
-        set => this.WithProperty("user_engagement_tracking_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("user_engagement_tracking_enabled");
+        set => SetProperty("user_engagement_tracking_enabled", value);
     }
 
     /// <summary>
@@ -126,8 +128,7 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
     /// </summary>
     public AzurermEmailCommunicationServiceDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEmailCommunicationServiceDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

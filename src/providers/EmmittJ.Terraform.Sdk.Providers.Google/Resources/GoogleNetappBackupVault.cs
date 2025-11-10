@@ -14,8 +14,7 @@ public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupMinimumEnforcedRetentionDays is required")]
     public required TerraformProperty<double> BackupMinimumEnforcedRetentionDays
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("backup_minimum_enforced_retention_days");
-        set => WithProperty("backup_minimum_enforced_retention_days", value);
+        set => SetProperty("backup_minimum_enforced_retention_days", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DailyBackupImmutable
     {
-        get => GetProperty<TerraformProperty<bool>>("daily_backup_immutable");
-        set => WithProperty("daily_backup_immutable", value);
+        set => SetProperty("daily_backup_immutable", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ManualBackupImmutable
     {
-        get => GetProperty<TerraformProperty<bool>>("manual_backup_immutable");
-        set => WithProperty("manual_backup_immutable", value);
+        set => SetProperty("manual_backup_immutable", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? MonthlyBackupImmutable
     {
-        get => GetProperty<TerraformProperty<bool>>("monthly_backup_immutable");
-        set => WithProperty("monthly_backup_immutable", value);
+        set => SetProperty("monthly_backup_immutable", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WeeklyBackupImmutable
     {
-        get => GetProperty<TerraformProperty<bool>>("weekly_backup_immutable");
-        set => WithProperty("weekly_backup_immutable", value);
+        set => SetProperty("weekly_backup_immutable", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class GoogleNetappBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class GoogleNetappBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class GoogleNetappBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,49 +96,57 @@ public class GoogleNetappBackupVault : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("destination_backup_vault");
-        this.WithOutput("effective_labels");
-        this.WithOutput("source_backup_vault");
-        this.WithOutput("source_region");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("destination_backup_vault");
+        SetOutput("effective_labels");
+        SetOutput("source_backup_vault");
+        SetOutput("source_region");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("backup_region");
+        SetOutput("backup_vault_type");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// Region in which backup is stored.
     /// </summary>
-    public TerraformProperty<string>? BackupRegion
+    public TerraformProperty<string> BackupRegion
     {
-        get => GetProperty<TerraformProperty<string>>("backup_region");
-        set => this.WithProperty("backup_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_region");
+        set => SetProperty("backup_region", value);
     }
 
     /// <summary>
     /// Type of the backup vault to be created. Default is IN_REGION. Possible values: [&amp;quot;BACKUP_VAULT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;IN_REGION&amp;quot;, &amp;quot;CROSS_REGION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? BackupVaultType
+    public TerraformProperty<string> BackupVaultType
     {
-        get => GetProperty<TerraformProperty<string>>("backup_vault_type");
-        set => this.WithProperty("backup_vault_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_vault_type");
+        set => SetProperty("backup_vault_type", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -156,10 +156,10 @@ public class GoogleNetappBackupVault : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -168,8 +168,8 @@ public class GoogleNetappBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -178,17 +178,17 @@ public class GoogleNetappBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -198,8 +198,7 @@ public class GoogleNetappBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupRetentionPolicy block(s) allowed")]
     public List<GoogleNetappBackupVaultBackupRetentionPolicyBlock>? BackupRetentionPolicy
     {
-        get => GetProperty<List<GoogleNetappBackupVaultBackupRetentionPolicyBlock>>("backup_retention_policy");
-        set => this.WithProperty("backup_retention_policy", value);
+        set => SetProperty("backup_retention_policy", value);
     }
 
     /// <summary>
@@ -208,8 +207,7 @@ public class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     public GoogleNetappBackupVaultTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetappBackupVaultTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

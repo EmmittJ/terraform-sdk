@@ -25,8 +25,7 @@ public class GoogleDataCatalogEntryGcsFilesetSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilePatterns is required")]
     public List<TerraformProperty<string>>? FilePatterns
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_patterns");
-        set => WithProperty("file_patterns", value);
+        set => SetProperty("file_patterns", value);
     }
 
     /// <summary>
@@ -34,8 +33,7 @@ public class GoogleDataCatalogEntryGcsFilesetSpecBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<object>>? SampleGcsFileSpecs
     {
-        get => GetProperty<List<TerraformProperty<object>>>("sample_gcs_file_specs");
-        set => WithProperty("sample_gcs_file_specs", value);
+        set => SetProperty("sample_gcs_file_specs", value);
     }
 
 }
@@ -51,8 +49,7 @@ public class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -60,8 +57,7 @@ public class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -89,29 +84,39 @@ public class GoogleDataCatalogEntry : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("bigquery_date_sharded_spec");
-        this.WithOutput("bigquery_table_spec");
-        this.WithOutput("integrated_system");
-        this.WithOutput("name");
+        SetOutput("bigquery_date_sharded_spec");
+        SetOutput("bigquery_table_spec");
+        SetOutput("integrated_system");
+        SetOutput("name");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("entry_group");
+        SetOutput("entry_id");
+        SetOutput("id");
+        SetOutput("linked_resource");
+        SetOutput("schema");
+        SetOutput("type");
+        SetOutput("user_specified_system");
+        SetOutput("user_specified_type");
     }
 
     /// <summary>
     /// Entry description, which can consist of several sentences or paragraphs that describe entry contents.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Display information such as title and description. A short name to identify the entry,
     /// for example, &amp;quot;Analytics Data - Jan 2011&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -120,8 +125,8 @@ public class GoogleDataCatalogEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
     public required TerraformProperty<string> EntryGroup
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entry_group");
-        set => this.WithProperty("entry_group", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entry_group");
+        set => SetProperty("entry_group", value);
     }
 
     /// <summary>
@@ -130,17 +135,17 @@ public class GoogleDataCatalogEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryId is required")]
     public required TerraformProperty<string> EntryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("entry_id");
-        set => this.WithProperty("entry_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("entry_id");
+        set => SetProperty("entry_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -151,10 +156,10 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// Output only when Entry is of type in the EntryType enum. For entries with userSpecifiedType,
     /// this field is optional and defaults to an empty string.
     /// </summary>
-    public TerraformProperty<string>? LinkedResource
+    public TerraformProperty<string> LinkedResource
     {
-        get => GetProperty<TerraformProperty<string>>("linked_resource");
-        set => this.WithProperty("linked_resource", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("linked_resource");
+        set => SetProperty("linked_resource", value);
     }
 
     /// <summary>
@@ -163,20 +168,20 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries#schema
     /// for what fields this schema can contain.
     /// </summary>
-    public TerraformProperty<string>? Schema
+    public TerraformProperty<string> Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
-        set => this.WithProperty("schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema");
+        set => SetProperty("schema", value);
     }
 
     /// <summary>
     /// The type of the entry. Only used for Entries with types in the EntryType enum.
     /// Currently, only FILESET enum value is allowed. All other entries created through Data Catalog must use userSpecifiedType. Possible values: [&amp;quot;FILESET&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -184,10 +189,10 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// userSpecifiedSystem strings must begin with a letter or underscore and can only contain letters, numbers,
     /// and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
     /// </summary>
-    public TerraformProperty<string>? UserSpecifiedSystem
+    public TerraformProperty<string> UserSpecifiedSystem
     {
-        get => GetProperty<TerraformProperty<string>>("user_specified_system");
-        set => this.WithProperty("user_specified_system", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_specified_system");
+        set => SetProperty("user_specified_system", value);
     }
 
     /// <summary>
@@ -197,10 +202,10 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// userSpecifiedType strings must begin with a letter or underscore and can only contain letters,
     /// numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
     /// </summary>
-    public TerraformProperty<string>? UserSpecifiedType
+    public TerraformProperty<string> UserSpecifiedType
     {
-        get => GetProperty<TerraformProperty<string>>("user_specified_type");
-        set => this.WithProperty("user_specified_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_specified_type");
+        set => SetProperty("user_specified_type", value);
     }
 
     /// <summary>
@@ -210,8 +215,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsFilesetSpec block(s) allowed")]
     public List<GoogleDataCatalogEntryGcsFilesetSpecBlock>? GcsFilesetSpec
     {
-        get => GetProperty<List<GoogleDataCatalogEntryGcsFilesetSpecBlock>>("gcs_fileset_spec");
-        set => this.WithProperty("gcs_fileset_spec", value);
+        set => SetProperty("gcs_fileset_spec", value);
     }
 
     /// <summary>
@@ -220,8 +224,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// </summary>
     public GoogleDataCatalogEntryTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataCatalogEntryTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

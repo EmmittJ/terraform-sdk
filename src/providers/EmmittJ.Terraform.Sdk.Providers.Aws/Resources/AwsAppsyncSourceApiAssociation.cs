@@ -13,8 +13,7 @@ public class AwsAppsyncSourceApiAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAppsyncSourceApiAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsAppsyncSourceApiAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,72 +46,79 @@ public class AwsAppsyncSourceApiAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("association_id");
-        this.WithOutput("id");
+        SetOutput("arn");
+        SetOutput("association_id");
+        SetOutput("id");
+        SetOutput("description");
+        SetOutput("merged_api_arn");
+        SetOutput("merged_api_id");
+        SetOutput("region");
+        SetOutput("source_api_arn");
+        SetOutput("source_api_association_config");
+        SetOutput("source_api_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The merged_api_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? MergedApiArn
+    public TerraformProperty<string> MergedApiArn
     {
-        get => GetProperty<TerraformProperty<string>>("merged_api_arn");
-        set => this.WithProperty("merged_api_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("merged_api_arn");
+        set => SetProperty("merged_api_arn", value);
     }
 
     /// <summary>
     /// The merged_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MergedApiId
+    public TerraformProperty<string> MergedApiId
     {
-        get => GetProperty<TerraformProperty<string>>("merged_api_id");
-        set => this.WithProperty("merged_api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("merged_api_id");
+        set => SetProperty("merged_api_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The source_api_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceApiArn
+    public TerraformProperty<string> SourceApiArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_api_arn");
-        set => this.WithProperty("source_api_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_api_arn");
+        set => SetProperty("source_api_arn", value);
     }
 
     /// <summary>
     /// The source_api_association_config attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? SourceApiAssociationConfig
+    public List<TerraformProperty<object>> SourceApiAssociationConfig
     {
-        get => GetProperty<List<TerraformProperty<object>>>("source_api_association_config");
-        set => this.WithProperty("source_api_association_config", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("source_api_association_config");
+        set => SetProperty("source_api_association_config", value);
     }
 
     /// <summary>
     /// The source_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceApiId
+    public TerraformProperty<string> SourceApiId
     {
-        get => GetProperty<TerraformProperty<string>>("source_api_id");
-        set => this.WithProperty("source_api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_api_id");
+        set => SetProperty("source_api_id", value);
     }
 
     /// <summary>
@@ -123,8 +127,7 @@ public class AwsAppsyncSourceApiAssociation : TerraformResource
     /// </summary>
     public AwsAppsyncSourceApiAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAppsyncSourceApiAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

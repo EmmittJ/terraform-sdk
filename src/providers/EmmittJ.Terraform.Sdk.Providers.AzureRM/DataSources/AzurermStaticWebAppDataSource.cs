@@ -13,8 +13,7 @@ public class AzurermStaticWebAppDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,29 +30,32 @@ public class AzurermStaticWebAppDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api_key");
-        this.WithOutput("app_settings");
-        this.WithOutput("basic_auth");
-        this.WithOutput("configuration_file_changes_enabled");
-        this.WithOutput("default_host_name");
-        this.WithOutput("identity");
-        this.WithOutput("location");
-        this.WithOutput("preview_environments_enabled");
-        this.WithOutput("public_network_access_enabled");
-        this.WithOutput("repository_branch");
-        this.WithOutput("repository_url");
-        this.WithOutput("sku_size");
-        this.WithOutput("sku_tier");
-        this.WithOutput("tags");
+        SetOutput("api_key");
+        SetOutput("app_settings");
+        SetOutput("basic_auth");
+        SetOutput("configuration_file_changes_enabled");
+        SetOutput("default_host_name");
+        SetOutput("identity");
+        SetOutput("location");
+        SetOutput("preview_environments_enabled");
+        SetOutput("public_network_access_enabled");
+        SetOutput("repository_branch");
+        SetOutput("repository_url");
+        SetOutput("sku_size");
+        SetOutput("sku_tier");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +64,8 @@ public class AzurermStaticWebAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +74,8 @@ public class AzurermStaticWebAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -82,8 +84,7 @@ public class AzurermStaticWebAppDataSource : TerraformDataSource
     /// </summary>
     public AzurermStaticWebAppDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStaticWebAppDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

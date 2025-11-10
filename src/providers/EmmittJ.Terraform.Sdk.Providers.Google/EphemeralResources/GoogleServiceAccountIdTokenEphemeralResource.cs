@@ -15,25 +15,29 @@ public class GoogleServiceAccountIdTokenEphemeralResource : TerraformEphemeralRe
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id_token");
+        SetOutput("id_token");
+        SetOutput("delegates");
+        SetOutput("include_email");
+        SetOutput("target_audience");
+        SetOutput("target_service_account");
     }
 
     /// <summary>
     /// Delegate chain of approvals needed to perform full impersonation. Specify the fully qualified service account name.  Used only when using impersonation mode.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Delegates
+    public HashSet<TerraformProperty<string>> Delegates
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("delegates");
-        set => this.WithProperty("delegates", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("delegates");
+        set => SetProperty("delegates", value);
     }
 
     /// <summary>
     /// Include the verified email in the claim. Used only when using impersonation mode.
     /// </summary>
-    public TerraformProperty<bool>? IncludeEmail
+    public TerraformProperty<bool> IncludeEmail
     {
-        get => GetProperty<TerraformProperty<bool>>("include_email");
-        set => this.WithProperty("include_email", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_email");
+        set => SetProperty("include_email", value);
     }
 
     /// <summary>
@@ -42,17 +46,17 @@ public class GoogleServiceAccountIdTokenEphemeralResource : TerraformEphemeralRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAudience is required")]
     public required TerraformProperty<string> TargetAudience
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_audience");
-        set => this.WithProperty("target_audience", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_audience");
+        set => SetProperty("target_audience", value);
     }
 
     /// <summary>
     /// The email of the service account being impersonated.  Used only when using impersonation mode.
     /// </summary>
-    public TerraformProperty<string>? TargetServiceAccount
+    public TerraformProperty<string> TargetServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("target_service_account");
-        set => this.WithProperty("target_service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_service_account");
+        set => SetProperty("target_service_account", value);
     }
 
     /// <summary>

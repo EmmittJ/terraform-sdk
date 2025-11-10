@@ -13,8 +13,7 @@ public class AwsLexSlotTypeEnumerationValueBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Synonyms
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("synonyms");
-        set => WithProperty("synonyms", value);
+        set => SetProperty("synonyms", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsLexSlotTypeEnumerationValueBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AwsLexSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AwsLexSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AwsLexSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -77,37 +72,43 @@ public class AwsLexSlotType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("checksum");
-        this.WithOutput("created_date");
-        this.WithOutput("last_updated_date");
-        this.WithOutput("version");
+        SetOutput("checksum");
+        SetOutput("created_date");
+        SetOutput("last_updated_date");
+        SetOutput("version");
+        SetOutput("create_version");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("value_selection_strategy");
     }
 
     /// <summary>
     /// The create_version attribute.
     /// </summary>
-    public TerraformProperty<bool>? CreateVersion
+    public TerraformProperty<bool> CreateVersion
     {
-        get => GetProperty<TerraformProperty<bool>>("create_version");
-        set => this.WithProperty("create_version", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_version");
+        set => SetProperty("create_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -116,38 +117,38 @@ public class AwsLexSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The value_selection_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? ValueSelectionStrategy
+    public TerraformProperty<string> ValueSelectionStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("value_selection_strategy");
-        set => this.WithProperty("value_selection_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value_selection_strategy");
+        set => SetProperty("value_selection_strategy", value);
     }
 
     /// <summary>
     /// Block for enumeration_value.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnumerationValue is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnumerationValue block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10000, ErrorMessage = "Maximum 10000 EnumerationValue block(s) allowed")]
     public HashSet<AwsLexSlotTypeEnumerationValueBlock>? EnumerationValue
     {
-        get => GetProperty<HashSet<AwsLexSlotTypeEnumerationValueBlock>>("enumeration_value");
-        set => this.WithProperty("enumeration_value", value);
+        set => SetProperty("enumeration_value", value);
     }
 
     /// <summary>
@@ -156,8 +157,7 @@ public class AwsLexSlotType : TerraformResource
     /// </summary>
     public AwsLexSlotTypeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLexSlotTypeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

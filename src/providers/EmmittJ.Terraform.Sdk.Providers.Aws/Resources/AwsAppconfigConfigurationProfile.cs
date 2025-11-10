@@ -13,8 +13,7 @@ public class AwsAppconfigConfigurationProfileValidatorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
-        set => WithProperty("content", value);
+        set => SetProperty("content", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsAppconfigConfigurationProfileValidatorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -42,8 +40,19 @@ public class AwsAppconfigConfigurationProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("configuration_profile_id");
+        SetOutput("arn");
+        SetOutput("configuration_profile_id");
+        SetOutput("application_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("kms_key_identifier");
+        SetOutput("location_uri");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("retrieval_role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -52,35 +61,35 @@ public class AwsAppconfigConfigurationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyIdentifier
+    public TerraformProperty<string> KmsKeyIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_identifier");
-        set => this.WithProperty("kms_key_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
+        set => SetProperty("kms_key_identifier", value);
     }
 
     /// <summary>
@@ -89,8 +98,8 @@ public class AwsAppconfigConfigurationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationUri is required")]
     public required TerraformProperty<string> LocationUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location_uri");
-        set => this.WithProperty("location_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location_uri");
+        set => SetProperty("location_uri", value);
     }
 
     /// <summary>
@@ -99,53 +108,53 @@ public class AwsAppconfigConfigurationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The retrieval_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RetrievalRoleArn
+    public TerraformProperty<string> RetrievalRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("retrieval_role_arn");
-        set => this.WithProperty("retrieval_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("retrieval_role_arn");
+        set => SetProperty("retrieval_role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -155,8 +164,7 @@ public class AwsAppconfigConfigurationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Validator block(s) allowed")]
     public HashSet<AwsAppconfigConfigurationProfileValidatorBlock>? Validator
     {
-        get => GetProperty<HashSet<AwsAppconfigConfigurationProfileValidatorBlock>>("validator");
-        set => this.WithProperty("validator", value);
+        set => SetProperty("validator", value);
     }
 
     /// <summary>

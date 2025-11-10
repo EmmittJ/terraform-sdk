@@ -13,8 +13,7 @@ public class GoogleDiscoveryEngineTargetSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleDiscoveryEngineTargetSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,14 +38,21 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("failure_reason");
-        this.WithOutput("generated_uri_pattern");
-        this.WithOutput("indexing_status");
-        this.WithOutput("name");
-        this.WithOutput("root_domain_uri");
-        this.WithOutput("site_verification_info");
-        this.WithOutput("target_site_id");
-        this.WithOutput("update_time");
+        SetOutput("failure_reason");
+        SetOutput("generated_uri_pattern");
+        SetOutput("indexing_status");
+        SetOutput("name");
+        SetOutput("root_domain_uri");
+        SetOutput("site_verification_info");
+        SetOutput("target_site_id");
+        SetOutput("update_time");
+        SetOutput("data_store_id");
+        SetOutput("exact_match");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("provided_uri_pattern");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -56,8 +61,8 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformProperty<string> DataStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_store_id");
-        set => this.WithProperty("data_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_store_id");
+        set => SetProperty("data_store_id", value);
     }
 
     /// <summary>
@@ -68,19 +73,19 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// provided_uri_pattern is always normalized to generate the URI pattern to
     /// be used by the search engine.
     /// </summary>
-    public TerraformProperty<bool>? ExactMatch
+    public TerraformProperty<bool> ExactMatch
     {
-        get => GetProperty<TerraformProperty<bool>>("exact_match");
-        set => this.WithProperty("exact_match", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("exact_match");
+        set => SetProperty("exact_match", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -90,17 +95,17 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -110,17 +115,17 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvidedUriPattern is required")]
     public required TerraformProperty<string> ProvidedUriPattern
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("provided_uri_pattern");
-        set => this.WithProperty("provided_uri_pattern", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("provided_uri_pattern");
+        set => SetProperty("provided_uri_pattern", value);
     }
 
     /// <summary>
     /// The possible target site types. Possible values: [&amp;quot;INCLUDE&amp;quot;, &amp;quot;EXCLUDE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -129,8 +134,7 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineTargetSiteTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineTargetSiteTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

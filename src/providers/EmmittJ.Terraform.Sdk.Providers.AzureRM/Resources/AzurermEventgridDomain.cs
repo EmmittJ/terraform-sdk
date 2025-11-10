@@ -13,8 +13,7 @@ public class AzurermEventgridDomainIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermEventgridDomainIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermEventgridDomainIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermEventgridDomainIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermEventgridDomainInputMappingDefaultValuesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? DataVersion
     {
-        get => GetProperty<TerraformProperty<string>>("data_version");
-        set => WithProperty("data_version", value);
+        set => SetProperty("data_version", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermEventgridDomainInputMappingDefaultValuesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? EventType
     {
-        get => GetProperty<TerraformProperty<string>>("event_type");
-        set => WithProperty("event_type", value);
+        set => SetProperty("event_type", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermEventgridDomainInputMappingDefaultValuesBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DataVersion
     {
-        get => GetProperty<TerraformProperty<string>>("data_version");
-        set => WithProperty("data_version", value);
+        set => SetProperty("data_version", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EventTime
     {
-        get => GetProperty<TerraformProperty<string>>("event_time");
-        set => WithProperty("event_time", value);
+        set => SetProperty("event_time", value);
     }
 
     /// <summary>
@@ -111,8 +102,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EventType
     {
-        get => GetProperty<TerraformProperty<string>>("event_type");
-        set => WithProperty("event_type", value);
+        set => SetProperty("event_type", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -129,8 +118,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => WithProperty("subject", value);
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
@@ -138,8 +126,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
-        set => WithProperty("topic", value);
+        set => SetProperty("topic", value);
     }
 
 }
@@ -155,8 +142,7 @@ public class AzurermEventgridDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -164,8 +150,7 @@ public class AzurermEventgridDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -173,8 +158,7 @@ public class AzurermEventgridDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -182,8 +166,7 @@ public class AzurermEventgridDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -201,63 +184,74 @@ public class AzurermEventgridDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("endpoint");
-        this.WithOutput("primary_access_key");
-        this.WithOutput("secondary_access_key");
+        SetOutput("endpoint");
+        SetOutput("primary_access_key");
+        SetOutput("secondary_access_key");
+        SetOutput("auto_create_topic_with_first_subscription");
+        SetOutput("auto_delete_topic_with_last_subscription");
+        SetOutput("id");
+        SetOutput("inbound_ip_rule");
+        SetOutput("input_schema");
+        SetOutput("local_auth_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The auto_create_topic_with_first_subscription attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoCreateTopicWithFirstSubscription
+    public TerraformProperty<bool> AutoCreateTopicWithFirstSubscription
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_create_topic_with_first_subscription");
-        set => this.WithProperty("auto_create_topic_with_first_subscription", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_create_topic_with_first_subscription");
+        set => SetProperty("auto_create_topic_with_first_subscription", value);
     }
 
     /// <summary>
     /// The auto_delete_topic_with_last_subscription attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoDeleteTopicWithLastSubscription
+    public TerraformProperty<bool> AutoDeleteTopicWithLastSubscription
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_delete_topic_with_last_subscription");
-        set => this.WithProperty("auto_delete_topic_with_last_subscription", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_delete_topic_with_last_subscription");
+        set => SetProperty("auto_delete_topic_with_last_subscription", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The inbound_ip_rule attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? InboundIpRule
+    public List<TerraformProperty<object>> InboundIpRule
     {
-        get => GetProperty<List<TerraformProperty<object>>>("inbound_ip_rule");
-        set => this.WithProperty("inbound_ip_rule", value);
+        get => GetRequiredOutput<List<TerraformProperty<object>>>("inbound_ip_rule");
+        set => SetProperty("inbound_ip_rule", value);
     }
 
     /// <summary>
     /// The input_schema attribute.
     /// </summary>
-    public TerraformProperty<string>? InputSchema
+    public TerraformProperty<string> InputSchema
     {
-        get => GetProperty<TerraformProperty<string>>("input_schema");
-        set => this.WithProperty("input_schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("input_schema");
+        set => SetProperty("input_schema", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAuthEnabled
+    public TerraformProperty<bool> LocalAuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_auth_enabled");
-        set => this.WithProperty("local_auth_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("local_auth_enabled");
+        set => SetProperty("local_auth_enabled", value);
     }
 
     /// <summary>
@@ -266,8 +260,8 @@ public class AzurermEventgridDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -276,17 +270,17 @@ public class AzurermEventgridDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -295,17 +289,17 @@ public class AzurermEventgridDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -315,8 +309,7 @@ public class AzurermEventgridDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermEventgridDomainIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermEventgridDomainIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -326,8 +319,7 @@ public class AzurermEventgridDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputMappingDefaultValues block(s) allowed")]
     public List<AzurermEventgridDomainInputMappingDefaultValuesBlock>? InputMappingDefaultValues
     {
-        get => GetProperty<List<AzurermEventgridDomainInputMappingDefaultValuesBlock>>("input_mapping_default_values");
-        set => this.WithProperty("input_mapping_default_values", value);
+        set => SetProperty("input_mapping_default_values", value);
     }
 
     /// <summary>
@@ -337,8 +329,7 @@ public class AzurermEventgridDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputMappingFields block(s) allowed")]
     public List<AzurermEventgridDomainInputMappingFieldsBlock>? InputMappingFields
     {
-        get => GetProperty<List<AzurermEventgridDomainInputMappingFieldsBlock>>("input_mapping_fields");
-        set => this.WithProperty("input_mapping_fields", value);
+        set => SetProperty("input_mapping_fields", value);
     }
 
     /// <summary>
@@ -347,8 +338,7 @@ public class AzurermEventgridDomain : TerraformResource
     /// </summary>
     public AzurermEventgridDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventgridDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

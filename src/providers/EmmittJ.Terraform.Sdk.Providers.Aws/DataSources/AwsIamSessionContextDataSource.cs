@@ -14,10 +14,12 @@ public class AwsIamSessionContextDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("issuer_arn");
-        this.WithOutput("issuer_id");
-        this.WithOutput("issuer_name");
-        this.WithOutput("session_name");
+        SetOutput("issuer_arn");
+        SetOutput("issuer_id");
+        SetOutput("issuer_name");
+        SetOutput("session_name");
+        SetOutput("arn");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -26,17 +28,17 @@ public class AwsIamSessionContextDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

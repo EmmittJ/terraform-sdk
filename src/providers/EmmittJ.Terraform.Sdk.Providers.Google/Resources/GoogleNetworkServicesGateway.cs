@@ -13,8 +13,7 @@ public class GoogleNetworkServicesGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleNetworkServicesGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleNetworkServicesGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,11 +46,30 @@ public class GoogleNetworkServicesGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("update_time");
+        SetOutput("addresses");
+        SetOutput("certificate_urls");
+        SetOutput("delete_swg_autogen_router_on_destroy");
+        SetOutput("description");
+        SetOutput("envoy_headers");
+        SetOutput("gateway_security_policy");
+        SetOutput("id");
+        SetOutput("ip_version");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("ports");
+        SetOutput("project");
+        SetOutput("routing_mode");
+        SetOutput("scope");
+        SetOutput("server_tls_policy");
+        SetOutput("subnetwork");
+        SetOutput("type");
     }
 
     /// <summary>
@@ -63,39 +79,39 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// This field only applies to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// Gateways of type &#39;OPEN_MESH&#39; listen on 0.0.0.0 for IPv4 and :: for IPv6.
     /// </summary>
-    public List<TerraformProperty<string>>? Addresses
+    public List<TerraformProperty<string>> Addresses
     {
-        get => GetProperty<List<TerraformProperty<string>>>("addresses");
-        set => this.WithProperty("addresses", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("addresses");
+        set => SetProperty("addresses", value);
     }
 
     /// <summary>
     /// A fully-qualified Certificates URL reference. The proxy presents a Certificate (selected based on SNI) when establishing a TLS connection.
     /// This feature only applies to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// </summary>
-    public List<TerraformProperty<string>>? CertificateUrls
+    public List<TerraformProperty<string>> CertificateUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("certificate_urls");
-        set => this.WithProperty("certificate_urls", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("certificate_urls");
+        set => SetProperty("certificate_urls", value);
     }
 
     /// <summary>
     /// When deleting a gateway of type &#39;SECURE_WEB_GATEWAY&#39;, this boolean option will also delete auto generated router by the gateway creation.
     /// If there is no other gateway of type &#39;SECURE_WEB_GATEWAY&#39; remaining for that region and network it will be deleted.
     /// </summary>
-    public TerraformProperty<bool>? DeleteSwgAutogenRouterOnDestroy
+    public TerraformProperty<bool> DeleteSwgAutogenRouterOnDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_swg_autogen_router_on_destroy");
-        set => this.WithProperty("delete_swg_autogen_router_on_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_swg_autogen_router_on_destroy");
+        set => SetProperty("delete_swg_autogen_router_on_destroy", value);
     }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -103,10 +119,10 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// Other Envoy headers may still be injected.
     /// By default, envoy will not insert any debug headers. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG_HEADERS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EnvoyHeaders
+    public TerraformProperty<string> EnvoyHeaders
     {
-        get => GetProperty<TerraformProperty<string>>("envoy_headers");
-        set => this.WithProperty("envoy_headers", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("envoy_headers");
+        set => SetProperty("envoy_headers", value);
     }
 
     /// <summary>
@@ -114,28 +130,28 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// For example: &#39;projects/*/locations/*/gatewaySecurityPolicies/swg-policy&#39;.
     /// This policy is specific to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// </summary>
-    public TerraformProperty<string>? GatewaySecurityPolicy
+    public TerraformProperty<string> GatewaySecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_security_policy");
-        set => this.WithProperty("gateway_security_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_security_policy");
+        set => SetProperty("gateway_security_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The IP Version that will be used by this gateway. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? IpVersion
+    public TerraformProperty<string> IpVersion
     {
-        get => GetProperty<TerraformProperty<string>>("ip_version");
-        set => this.WithProperty("ip_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_version");
+        set => SetProperty("ip_version", value);
     }
 
     /// <summary>
@@ -145,20 +161,20 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the gateway.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -167,8 +183,8 @@ public class GoogleNetworkServicesGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -177,10 +193,10 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// 
     /// Currently, this field is specific to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -189,28 +205,28 @@ public class GoogleNetworkServicesGateway : TerraformResource
     ///  Gateways of type &#39;OPEN_MESH&#39; listen on 0.0.0.0 for IPv4 and :: for IPv6 and support multiple ports.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
-    public List<TerraformProperty<double>>? Ports
+    public List<TerraformProperty<double>> Ports
     {
-        get => GetProperty<List<TerraformProperty<double>>>("ports");
-        set => this.WithProperty("ports", value);
+        get => GetRequiredOutput<List<TerraformProperty<double>>>("ports");
+        set => SetProperty("ports", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The routing mode of the Gateway. This field is configurable only for gateways of type SECURE_WEB_GATEWAY. This field is required for gateways of type SECURE_WEB_GATEWAY. Possible values: [&amp;quot;NEXT_HOP_ROUTING_MODE&amp;quot;, &amp;quot;EXPLICIT_ROUTING_MODE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? RoutingMode
+    public TerraformProperty<string> RoutingMode
     {
-        get => GetProperty<TerraformProperty<string>>("routing_mode");
-        set => this.WithProperty("routing_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("routing_mode");
+        set => SetProperty("routing_mode", value);
     }
 
     /// <summary>
@@ -219,19 +235,19 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// 
     /// Max length 64 characters. Scope should start with a letter and can only have letters, numbers, hyphens.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    public TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// A fully-qualified ServerTLSPolicy URL reference. Specifies how TLS traffic is terminated. If empty, TLS termination is disabled.
     /// </summary>
-    public TerraformProperty<string>? ServerTlsPolicy
+    public TerraformProperty<string> ServerTlsPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("server_tls_policy");
-        set => this.WithProperty("server_tls_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_tls_policy");
+        set => SetProperty("server_tls_policy", value);
     }
 
     /// <summary>
@@ -240,10 +256,10 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// 
     /// Currently, this field is specific to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// </summary>
-    public TerraformProperty<string>? Subnetwork
+    public TerraformProperty<string> Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
-        set => this.WithProperty("subnetwork", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnetwork");
+        set => SetProperty("subnetwork", value);
     }
 
     /// <summary>
@@ -252,8 +268,8 @@ public class GoogleNetworkServicesGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -262,8 +278,7 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// </summary>
     public GoogleNetworkServicesGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleNetworkServicesGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

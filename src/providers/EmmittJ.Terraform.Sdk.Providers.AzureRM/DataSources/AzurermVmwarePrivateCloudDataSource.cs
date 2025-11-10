@@ -13,8 +13,7 @@ public class AzurermVmwarePrivateCloudDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,30 +30,33 @@ public class AzurermVmwarePrivateCloudDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("circuit");
-        this.WithOutput("hcx_cloud_manager_endpoint");
-        this.WithOutput("internet_connection_enabled");
-        this.WithOutput("location");
-        this.WithOutput("management_cluster");
-        this.WithOutput("management_subnet_cidr");
-        this.WithOutput("network_subnet_cidr");
-        this.WithOutput("nsxt_certificate_thumbprint");
-        this.WithOutput("nsxt_manager_endpoint");
-        this.WithOutput("provisioning_subnet_cidr");
-        this.WithOutput("sku_name");
-        this.WithOutput("tags");
-        this.WithOutput("vcenter_certificate_thumbprint");
-        this.WithOutput("vcsa_endpoint");
-        this.WithOutput("vmotion_subnet_cidr");
+        SetOutput("circuit");
+        SetOutput("hcx_cloud_manager_endpoint");
+        SetOutput("internet_connection_enabled");
+        SetOutput("location");
+        SetOutput("management_cluster");
+        SetOutput("management_subnet_cidr");
+        SetOutput("network_subnet_cidr");
+        SetOutput("nsxt_certificate_thumbprint");
+        SetOutput("nsxt_manager_endpoint");
+        SetOutput("provisioning_subnet_cidr");
+        SetOutput("sku_name");
+        SetOutput("tags");
+        SetOutput("vcenter_certificate_thumbprint");
+        SetOutput("vcsa_endpoint");
+        SetOutput("vmotion_subnet_cidr");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermVmwarePrivateCloudDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -73,8 +75,8 @@ public class AzurermVmwarePrivateCloudDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -83,8 +85,7 @@ public class AzurermVmwarePrivateCloudDataSource : TerraformDataSource
     /// </summary>
     public AzurermVmwarePrivateCloudDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVmwarePrivateCloudDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

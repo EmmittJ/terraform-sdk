@@ -14,8 +14,7 @@ public class GoogleChronicleRetrohuntProcessIntervalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
     public required TerraformProperty<string> EndTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("end_time");
-        set => WithProperty("end_time", value);
+        set => SetProperty("end_time", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleChronicleRetrohuntProcessIntervalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformProperty<string> StartTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_time");
-        set => WithProperty("start_time", value);
+        set => SetProperty("start_time", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class GoogleChronicleRetrohuntTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleChronicleRetrohuntTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -69,19 +65,25 @@ public class GoogleChronicleRetrohunt : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("execution_interval");
-        this.WithOutput("name");
-        this.WithOutput("progress_percentage");
-        this.WithOutput("state");
+        SetOutput("execution_interval");
+        SetOutput("name");
+        SetOutput("progress_percentage");
+        SetOutput("state");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("retrohunt");
+        SetOutput("rule");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -90,8 +92,8 @@ public class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -100,26 +102,26 @@ public class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The retrohunt ID of the Retrohunt. A retrohunt is an execution of a Rule over a time range in the past.
     /// </summary>
-    public TerraformProperty<string>? Retrohunt
+    public TerraformProperty<string> Retrohunt
     {
-        get => GetProperty<TerraformProperty<string>>("retrohunt");
-        set => this.WithProperty("retrohunt", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("retrohunt");
+        set => SetProperty("retrohunt", value);
     }
 
     /// <summary>
@@ -128,20 +130,20 @@ public class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformProperty<string> Rule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule");
-        set => this.WithProperty("rule", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule");
+        set => SetProperty("rule", value);
     }
 
     /// <summary>
     /// Block for process_interval.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProcessInterval is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProcessInterval block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProcessInterval block(s) allowed")]
     public List<GoogleChronicleRetrohuntProcessIntervalBlock>? ProcessInterval
     {
-        get => GetProperty<List<GoogleChronicleRetrohuntProcessIntervalBlock>>("process_interval");
-        set => this.WithProperty("process_interval", value);
+        set => SetProperty("process_interval", value);
     }
 
     /// <summary>
@@ -150,8 +152,7 @@ public class GoogleChronicleRetrohunt : TerraformResource
     /// </summary>
     public GoogleChronicleRetrohuntTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleChronicleRetrohuntTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

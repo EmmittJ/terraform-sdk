@@ -14,8 +14,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerId is required")]
     public required TerraformProperty<string> LoadBalancerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("load_balancer_id");
-        set => WithProperty("load_balancer_id", value);
+        set => SetProperty("load_balancer_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     public required TerraformProperty<string> PrivateIpAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_ip_address");
-        set => WithProperty("private_ip_address", value);
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProbePort is required")]
     public required TerraformProperty<double> ProbePort
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("probe_port");
-        set => WithProperty("probe_port", value);
+        set => SetProperty("probe_port", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineIds is required")]
     public HashSet<TerraformProperty<string>>? SqlVirtualMachineIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("sql_virtual_machine_ids");
-        set => WithProperty("sql_virtual_machine_ids", value);
+        set => SetProperty("sql_virtual_machine_ids", value);
     }
 
     /// <summary>
@@ -54,8 +50,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -72,8 +67,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     public required TerraformProperty<string> PrivateIpAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_ip_address");
-        set => WithProperty("private_ip_address", value);
+        set => SetProperty("private_ip_address", value);
     }
 
     /// <summary>
@@ -82,8 +76,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineId is required")]
     public required TerraformProperty<string> SqlVirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sql_virtual_machine_id");
-        set => WithProperty("sql_virtual_machine_id", value);
+        set => SetProperty("sql_virtual_machine_id", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -110,8 +102,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Commit is required")]
     public required TerraformProperty<string> Commit
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("commit");
-        set => WithProperty("commit", value);
+        set => SetProperty("commit", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailoverMode is required")]
     public required TerraformProperty<string> FailoverMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("failover_mode");
-        set => WithProperty("failover_mode", value);
+        set => SetProperty("failover_mode", value);
     }
 
     /// <summary>
@@ -130,8 +120,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadableSecondary is required")]
     public required TerraformProperty<string> ReadableSecondary
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("readable_secondary");
-        set => WithProperty("readable_secondary", value);
+        set => SetProperty("readable_secondary", value);
     }
 
     /// <summary>
@@ -140,8 +129,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role");
-        set => WithProperty("role", value);
+        set => SetProperty("role", value);
     }
 
     /// <summary>
@@ -150,8 +138,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineId is required")]
     public required TerraformProperty<string> SqlVirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sql_virtual_machine_id");
-        set => WithProperty("sql_virtual_machine_id", value);
+        set => SetProperty("sql_virtual_machine_id", value);
     }
 
 }
@@ -167,8 +154,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -176,8 +162,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -185,8 +170,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : 
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -204,24 +188,29 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListener : TerraformReso
 
     private void InitializeOutputs()
     {
+        SetOutput("availability_group_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("port");
+        SetOutput("sql_virtual_machine_group_id");
     }
 
     /// <summary>
     /// The availability_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityGroupName
+    public TerraformProperty<string> AvailabilityGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("availability_group_name");
-        set => this.WithProperty("availability_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_group_name");
+        set => SetProperty("availability_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -230,17 +219,17 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListener : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
@@ -249,8 +238,8 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListener : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineGroupId is required")]
     public required TerraformProperty<string> SqlVirtualMachineGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sql_virtual_machine_group_id");
-        set => this.WithProperty("sql_virtual_machine_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sql_virtual_machine_group_id");
+        set => SetProperty("sql_virtual_machine_group_id", value);
     }
 
     /// <summary>
@@ -260,8 +249,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListener : TerraformReso
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerConfiguration block(s) allowed")]
     public List<AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock>? LoadBalancerConfiguration
     {
-        get => GetProperty<List<AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock>>("load_balancer_configuration");
-        set => this.WithProperty("load_balancer_configuration", value);
+        set => SetProperty("load_balancer_configuration", value);
     }
 
     /// <summary>
@@ -270,19 +258,18 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListener : TerraformReso
     /// </summary>
     public HashSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock>? MultiSubnetIpConfiguration
     {
-        get => GetProperty<HashSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock>>("multi_subnet_ip_configuration");
-        set => this.WithProperty("multi_subnet_ip_configuration", value);
+        set => SetProperty("multi_subnet_ip_configuration", value);
     }
 
     /// <summary>
     /// Block for replica.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replica is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replica block(s) required")]
     public HashSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock>? Replica
     {
-        get => GetProperty<HashSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock>>("replica");
-        set => this.WithProperty("replica", value);
+        set => SetProperty("replica", value);
     }
 
     /// <summary>
@@ -291,8 +278,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListener : TerraformReso
     /// </summary>
     public AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

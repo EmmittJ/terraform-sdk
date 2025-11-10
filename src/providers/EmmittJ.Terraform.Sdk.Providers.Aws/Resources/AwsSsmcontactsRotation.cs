@@ -14,8 +14,7 @@ public class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfOnCalls is required")]
     public required TerraformProperty<double> NumberOfOnCalls
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("number_of_on_calls");
-        set => WithProperty("number_of_on_calls", value);
+        set => SetProperty("number_of_on_calls", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceMultiplier is required")]
     public required TerraformProperty<double> RecurrenceMultiplier
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("recurrence_multiplier");
-        set => WithProperty("recurrence_multiplier", value);
+        set => SetProperty("recurrence_multiplier", value);
     }
 
 }
@@ -42,19 +40,25 @@ public class AwsSsmcontactsRotation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("contact_ids");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("start_time");
+        SetOutput("tags");
+        SetOutput("time_zone_id");
     }
 
     /// <summary>
     /// The contact_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactIds is required")]
-    public List<TerraformProperty<string>>? ContactIds
+    public List<TerraformProperty<string>> ContactIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("contact_ids");
-        set => this.WithProperty("contact_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("contact_ids");
+        set => SetProperty("contact_ids", value);
     }
 
     /// <summary>
@@ -63,35 +67,35 @@ public class AwsSsmcontactsRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
+    public TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
-        set => this.WithProperty("start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
+        set => SetProperty("start_time", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -100,8 +104,8 @@ public class AwsSsmcontactsRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
     public required TerraformProperty<string> TimeZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_zone_id");
-        set => this.WithProperty("time_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone_id");
+        set => SetProperty("time_zone_id", value);
     }
 
     /// <summary>
@@ -110,8 +114,7 @@ public class AwsSsmcontactsRotation : TerraformResource
     /// </summary>
     public List<AwsSsmcontactsRotationRecurrenceBlock>? Recurrence
     {
-        get => GetProperty<List<AwsSsmcontactsRotationRecurrenceBlock>>("recurrence");
-        set => this.WithProperty("recurrence", value);
+        set => SetProperty("recurrence", value);
     }
 
     /// <summary>

@@ -17,8 +17,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public List<TerraformProperty<string>>? IssueModels
     {
-        get => GetProperty<List<TerraformProperty<string>>>("issue_models");
-        set => WithProperty("issue_models", value);
+        set => SetProperty("issue_models", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public List<TerraformProperty<string>>? PhraseMatchers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("phrase_matchers");
-        set => WithProperty("phrase_matchers", value);
+        set => SetProperty("phrase_matchers", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? RunEntityAnnotator
     {
-        get => GetProperty<TerraformProperty<bool>>("run_entity_annotator");
-        set => WithProperty("run_entity_annotator", value);
+        set => SetProperty("run_entity_annotator", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? RunIntentAnnotator
     {
-        get => GetProperty<TerraformProperty<bool>>("run_intent_annotator");
-        set => WithProperty("run_intent_annotator", value);
+        set => SetProperty("run_intent_annotator", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? RunInterruptionAnnotator
     {
-        get => GetProperty<TerraformProperty<bool>>("run_interruption_annotator");
-        set => WithProperty("run_interruption_annotator", value);
+        set => SetProperty("run_interruption_annotator", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? RunIssueModelAnnotator
     {
-        get => GetProperty<TerraformProperty<bool>>("run_issue_model_annotator");
-        set => WithProperty("run_issue_model_annotator", value);
+        set => SetProperty("run_issue_model_annotator", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? RunPhraseMatcherAnnotator
     {
-        get => GetProperty<TerraformProperty<bool>>("run_phrase_matcher_annotator");
-        set => WithProperty("run_phrase_matcher_annotator", value);
+        set => SetProperty("run_phrase_matcher_annotator", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? RunQaAnnotator
     {
-        get => GetProperty<TerraformProperty<bool>>("run_qa_annotator");
-        set => WithProperty("run_qa_annotator", value);
+        set => SetProperty("run_qa_annotator", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? RunSentimentAnnotator
     {
-        get => GetProperty<TerraformProperty<bool>>("run_sentiment_annotator");
-        set => WithProperty("run_sentiment_annotator", value);
+        set => SetProperty("run_sentiment_annotator", value);
     }
 
     /// <summary>
@@ -103,8 +94,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? RunSilenceAnnotator
     {
-        get => GetProperty<TerraformProperty<bool>>("run_silence_annotator");
-        set => WithProperty("run_silence_annotator", value);
+        set => SetProperty("run_silence_annotator", value);
     }
 
     /// <summary>
@@ -112,8 +102,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformProperty<bool>? RunSummarizationAnnotator
     {
-        get => GetProperty<TerraformProperty<bool>>("run_summarization_annotator");
-        set => WithProperty("run_summarization_annotator", value);
+        set => SetProperty("run_summarization_annotator", value);
     }
 
 }
@@ -129,8 +118,7 @@ public class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -138,8 +126,7 @@ public class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -147,8 +134,7 @@ public class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -166,19 +152,26 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("update_time");
+        SetOutput("active");
+        SetOutput("analysis_percentage");
+        SetOutput("conversation_filter");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// If true, apply this rule to conversations. Otherwise, this rule is
     /// inactive and saved as a draft.
     /// </summary>
-    public TerraformProperty<bool>? Active
+    public TerraformProperty<bool> Active
     {
-        get => GetProperty<TerraformProperty<bool>>("active");
-        set => this.WithProperty("active", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("active");
+        set => SetProperty("active", value);
     }
 
     /// <summary>
@@ -187,10 +180,10 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// are sampled in a determenestic way. The original runtime_percentage &amp;amp;
     /// upload percentage will be replaced by defining filters on the conversation.
     /// </summary>
-    public TerraformProperty<double>? AnalysisPercentage
+    public TerraformProperty<double> AnalysisPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("analysis_percentage");
-        set => this.WithProperty("analysis_percentage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("analysis_percentage");
+        set => SetProperty("analysis_percentage", value);
     }
 
     /// <summary>
@@ -200,28 +193,28 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// Refer to https://cloud.google.com/contact-center/insights/docs/filtering
     /// for details.
     /// </summary>
-    public TerraformProperty<string>? ConversationFilter
+    public TerraformProperty<string> ConversationFilter
     {
-        get => GetProperty<TerraformProperty<string>>("conversation_filter");
-        set => this.WithProperty("conversation_filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("conversation_filter");
+        set => SetProperty("conversation_filter", value);
     }
 
     /// <summary>
     /// Display Name of the analysis rule.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -230,17 +223,17 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -250,8 +243,7 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnnotatorSelector block(s) allowed")]
     public List<GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock>? AnnotatorSelector
     {
-        get => GetProperty<List<GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock>>("annotator_selector");
-        set => this.WithProperty("annotator_selector", value);
+        set => SetProperty("annotator_selector", value);
     }
 
     /// <summary>
@@ -260,8 +252,7 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// </summary>
     public GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

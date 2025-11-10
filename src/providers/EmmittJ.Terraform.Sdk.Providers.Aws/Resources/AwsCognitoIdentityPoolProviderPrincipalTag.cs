@@ -14,15 +14,21 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("identity_pool_id");
+        SetOutput("identity_provider_name");
+        SetOutput("principal_tags");
+        SetOutput("region");
+        SetOutput("use_defaults");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -31,8 +37,8 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformProperty<string> IdentityPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_id");
-        set => this.WithProperty("identity_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_pool_id");
+        set => SetProperty("identity_pool_id", value);
     }
 
     /// <summary>
@@ -41,35 +47,35 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderName is required")]
     public required TerraformProperty<string> IdentityProviderName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_provider_name");
-        set => this.WithProperty("identity_provider_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_provider_name");
+        set => SetProperty("identity_provider_name", value);
     }
 
     /// <summary>
     /// The principal_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? PrincipalTags
+    public Dictionary<string, TerraformProperty<string>> PrincipalTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("principal_tags");
-        set => this.WithProperty("principal_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("principal_tags");
+        set => SetProperty("principal_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The use_defaults attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseDefaults
+    public TerraformProperty<bool> UseDefaults
     {
-        get => GetProperty<TerraformProperty<bool>>("use_defaults");
-        set => this.WithProperty("use_defaults", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("use_defaults");
+        set => SetProperty("use_defaults", value);
     }
 
 }

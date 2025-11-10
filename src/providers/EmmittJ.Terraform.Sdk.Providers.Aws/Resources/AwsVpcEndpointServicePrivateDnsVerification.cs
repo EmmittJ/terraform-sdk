@@ -13,8 +13,7 @@ public class AwsVpcEndpointServicePrivateDnsVerificationTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,15 +30,18 @@ public class AwsVpcEndpointServicePrivateDnsVerification : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("region");
+        SetOutput("service_id");
+        SetOutput("wait_for_verification");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -48,17 +50,17 @@ public class AwsVpcEndpointServicePrivateDnsVerification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
-        set => this.WithProperty("service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
+        set => SetProperty("service_id", value);
     }
 
     /// <summary>
     /// The wait_for_verification attribute.
     /// </summary>
-    public TerraformProperty<bool>? WaitForVerification
+    public TerraformProperty<bool> WaitForVerification
     {
-        get => GetProperty<TerraformProperty<bool>>("wait_for_verification");
-        set => this.WithProperty("wait_for_verification", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_verification");
+        set => SetProperty("wait_for_verification", value);
     }
 
     /// <summary>
@@ -67,8 +69,7 @@ public class AwsVpcEndpointServicePrivateDnsVerification : TerraformResource
     /// </summary>
     public AwsVpcEndpointServicePrivateDnsVerificationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcEndpointServicePrivateDnsVerificationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

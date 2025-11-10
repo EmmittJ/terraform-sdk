@@ -21,8 +21,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : Te
     /// </summary>
     public TerraformProperty<string>? DelegationServiceAccountEmail
     {
-        get => GetProperty<TerraformProperty<string>>("delegation_service_account_email");
-        set => WithProperty("delegation_service_account_email", value);
+        set => SetProperty("delegation_service_account_email", value);
     }
 
     /// <summary>
@@ -37,8 +36,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteReference is required")]
     public required TerraformProperty<string> NoteReference
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("note_reference");
-        set => WithProperty("note_reference", value);
+        set => SetProperty("note_reference", value);
     }
 
 }
@@ -54,8 +52,7 @@ public class GoogleBinaryAuthorizationAttestorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -63,8 +60,7 @@ public class GoogleBinaryAuthorizationAttestorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -72,8 +68,7 @@ public class GoogleBinaryAuthorizationAttestorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -91,25 +86,29 @@ public class GoogleBinaryAuthorizationAttestor : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
     /// A descriptive comment. This field may be updated. The field may be
     /// displayed in chooser dialogs.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -118,29 +117,29 @@ public class GoogleBinaryAuthorizationAttestor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for attestation_authority_note.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttestationAuthorityNote is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AttestationAuthorityNote block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AttestationAuthorityNote block(s) allowed")]
     public List<GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock>? AttestationAuthorityNote
     {
-        get => GetProperty<List<GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock>>("attestation_authority_note");
-        set => this.WithProperty("attestation_authority_note", value);
+        set => SetProperty("attestation_authority_note", value);
     }
 
     /// <summary>
@@ -149,8 +148,7 @@ public class GoogleBinaryAuthorizationAttestor : TerraformResource
     /// </summary>
     public GoogleBinaryAuthorizationAttestorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBinaryAuthorizationAttestorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

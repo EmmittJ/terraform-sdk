@@ -14,8 +14,12 @@ public class AwsSyntheticsGroupAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("group_arn");
-        this.WithOutput("group_id");
+        SetOutput("group_arn");
+        SetOutput("group_id");
+        SetOutput("canary_arn");
+        SetOutput("group_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -24,8 +28,8 @@ public class AwsSyntheticsGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanaryArn is required")]
     public required TerraformProperty<string> CanaryArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("canary_arn");
-        set => this.WithProperty("canary_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("canary_arn");
+        set => SetProperty("canary_arn", value);
     }
 
     /// <summary>
@@ -34,26 +38,26 @@ public class AwsSyntheticsGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformProperty<string> GroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("group_name");
-        set => this.WithProperty("group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("group_name");
+        set => SetProperty("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

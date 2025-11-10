@@ -14,18 +14,22 @@ public class GoogleBillingSubaccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("billing_account_id");
-        this.WithOutput("name");
-        this.WithOutput("open");
+        SetOutput("billing_account_id");
+        SetOutput("name");
+        SetOutput("open");
+        SetOutput("deletion_policy");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("master_billing_account");
     }
 
     /// <summary>
     /// The deletion_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
@@ -34,17 +38,17 @@ public class GoogleBillingSubaccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +57,8 @@ public class GoogleBillingSubaccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterBillingAccount is required")]
     public required TerraformProperty<string> MasterBillingAccount
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("master_billing_account");
-        set => this.WithProperty("master_billing_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("master_billing_account");
+        set => SetProperty("master_billing_account", value);
     }
 
     /// <summary>

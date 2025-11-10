@@ -14,8 +14,7 @@ public class AzurermMobileNetworkSimGroupIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermMobileNetworkSimGroupIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,24 +81,30 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("encryption_key_url");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("mobile_network_id");
+        SetOutput("name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The encryption_key_url attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionKeyUrl
+    public TerraformProperty<string> EncryptionKeyUrl
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key_url");
-        set => this.WithProperty("encryption_key_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key_url");
+        set => SetProperty("encryption_key_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,8 +113,8 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -123,8 +123,8 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformProperty<string> MobileNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_id");
-        set => this.WithProperty("mobile_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_id");
+        set => SetProperty("mobile_network_id", value);
     }
 
     /// <summary>
@@ -133,17 +133,17 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -153,8 +153,7 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermMobileNetworkSimGroupIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermMobileNetworkSimGroupIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -163,8 +162,7 @@ public class AzurermMobileNetworkSimGroup : TerraformResource
     /// </summary>
     public AzurermMobileNetworkSimGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMobileNetworkSimGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

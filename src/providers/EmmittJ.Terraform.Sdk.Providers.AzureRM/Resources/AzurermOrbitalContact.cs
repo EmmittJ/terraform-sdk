@@ -13,8 +13,7 @@ public class AzurermOrbitalContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermOrbitalContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermOrbitalContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -50,6 +47,13 @@ public class AzurermOrbitalContact : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("contact_profile_id");
+        SetOutput("ground_station_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("reservation_end_time");
+        SetOutput("reservation_start_time");
+        SetOutput("spacecraft_id");
     }
 
     /// <summary>
@@ -58,8 +62,8 @@ public class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactProfileId is required")]
     public required TerraformProperty<string> ContactProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("contact_profile_id");
-        set => this.WithProperty("contact_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("contact_profile_id");
+        set => SetProperty("contact_profile_id", value);
     }
 
     /// <summary>
@@ -68,17 +72,17 @@ public class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroundStationName is required")]
     public required TerraformProperty<string> GroundStationName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ground_station_name");
-        set => this.WithProperty("ground_station_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ground_station_name");
+        set => SetProperty("ground_station_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,8 +91,8 @@ public class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -97,8 +101,8 @@ public class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationEndTime is required")]
     public required TerraformProperty<string> ReservationEndTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("reservation_end_time");
-        set => this.WithProperty("reservation_end_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reservation_end_time");
+        set => SetProperty("reservation_end_time", value);
     }
 
     /// <summary>
@@ -107,8 +111,8 @@ public class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationStartTime is required")]
     public required TerraformProperty<string> ReservationStartTime
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("reservation_start_time");
-        set => this.WithProperty("reservation_start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reservation_start_time");
+        set => SetProperty("reservation_start_time", value);
     }
 
     /// <summary>
@@ -117,8 +121,8 @@ public class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpacecraftId is required")]
     public required TerraformProperty<string> SpacecraftId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spacecraft_id");
-        set => this.WithProperty("spacecraft_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spacecraft_id");
+        set => SetProperty("spacecraft_id", value);
     }
 
     /// <summary>
@@ -127,8 +131,7 @@ public class AzurermOrbitalContact : TerraformResource
     /// </summary>
     public AzurermOrbitalContactTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOrbitalContactTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => WithProperty("arn", value);
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreatedAt
     {
-        get => GetProperty<TerraformProperty<string>>("created_at");
-        set => WithProperty("created_at", value);
+        set => SetProperty("created_at", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UpdatedAt
     {
-        get => GetProperty<TerraformProperty<string>>("updated_at");
-        set => WithProperty("updated_at", value);
+        set => SetProperty("updated_at", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AwsDataexchangeRevisionAssetsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -84,20 +78,26 @@ public class AwsDataexchangeRevisionAssets : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
-        this.WithOutput("updated_at");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("updated_at");
+        SetOutput("comment");
+        SetOutput("data_set_id");
+        SetOutput("finalized");
+        SetOutput("force_destroy");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
+    public TerraformProperty<string> Comment
     {
-        get => GetProperty<TerraformProperty<string>>("comment");
-        set => this.WithProperty("comment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("comment");
+        set => SetProperty("comment", value);
     }
 
     /// <summary>
@@ -106,44 +106,44 @@ public class AwsDataexchangeRevisionAssets : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformProperty<string> DataSetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_set_id");
-        set => this.WithProperty("data_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_set_id");
+        set => SetProperty("data_set_id", value);
     }
 
     /// <summary>
     /// The finalized attribute.
     /// </summary>
-    public TerraformProperty<bool>? Finalized
+    public TerraformProperty<bool> Finalized
     {
-        get => GetProperty<TerraformProperty<bool>>("finalized");
-        set => this.WithProperty("finalized", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("finalized");
+        set => SetProperty("finalized", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDestroy
+    public TerraformProperty<bool> ForceDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("force_destroy");
-        set => this.WithProperty("force_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
+        set => SetProperty("force_destroy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -152,8 +152,7 @@ public class AwsDataexchangeRevisionAssets : TerraformResource
     /// </summary>
     public HashSet<AwsDataexchangeRevisionAssetsAssetBlock>? Asset
     {
-        get => GetProperty<HashSet<AwsDataexchangeRevisionAssetsAssetBlock>>("asset");
-        set => this.WithProperty("asset", value);
+        set => SetProperty("asset", value);
     }
 
     /// <summary>
@@ -162,8 +161,7 @@ public class AwsDataexchangeRevisionAssets : TerraformResource
     /// </summary>
     public AwsDataexchangeRevisionAssetsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDataexchangeRevisionAssetsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

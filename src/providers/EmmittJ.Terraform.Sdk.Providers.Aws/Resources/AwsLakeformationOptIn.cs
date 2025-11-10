@@ -13,8 +13,7 @@ public class AwsLakeformationOptInConditionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
-        set => WithProperty("expression", value);
+        set => SetProperty("expression", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsLakeformationOptInPrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataLakePrincipalIdentifier is required")]
     public required TerraformProperty<string> DataLakePrincipalIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_lake_principal_identifier");
-        set => WithProperty("data_lake_principal_identifier", value);
+        set => SetProperty("data_lake_principal_identifier", value);
     }
 
 }
@@ -57,17 +55,18 @@ public class AwsLakeformationOptIn : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("last_modified");
-        this.WithOutput("last_updated_by");
+        SetOutput("last_modified");
+        SetOutput("last_updated_by");
+        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -76,8 +75,7 @@ public class AwsLakeformationOptIn : TerraformResource
     /// </summary>
     public List<AwsLakeformationOptInConditionBlock>? Condition
     {
-        get => GetProperty<List<AwsLakeformationOptInConditionBlock>>("condition");
-        set => this.WithProperty("condition", value);
+        set => SetProperty("condition", value);
     }
 
     /// <summary>
@@ -86,8 +84,7 @@ public class AwsLakeformationOptIn : TerraformResource
     /// </summary>
     public List<AwsLakeformationOptInPrincipalBlock>? Principal
     {
-        get => GetProperty<List<AwsLakeformationOptInPrincipalBlock>>("principal");
-        set => this.WithProperty("principal", value);
+        set => SetProperty("principal", value);
     }
 
     /// <summary>
@@ -96,8 +93,7 @@ public class AwsLakeformationOptIn : TerraformResource
     /// </summary>
     public List<AwsLakeformationOptInResourceDataBlock>? ResourceData
     {
-        get => GetProperty<List<AwsLakeformationOptInResourceDataBlock>>("resource_data");
-        set => this.WithProperty("resource_data", value);
+        set => SetProperty("resource_data", value);
     }
 
     /// <summary>

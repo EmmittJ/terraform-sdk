@@ -14,15 +14,19 @@ public class AwsSesv2EmailIdentityFeedbackAttributes : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("email_forwarding_enabled");
+        SetOutput("email_identity");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The email_forwarding_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EmailForwardingEnabled
+    public TerraformProperty<bool> EmailForwardingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("email_forwarding_enabled");
-        set => this.WithProperty("email_forwarding_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("email_forwarding_enabled");
+        set => SetProperty("email_forwarding_enabled", value);
     }
 
     /// <summary>
@@ -31,26 +35,26 @@ public class AwsSesv2EmailIdentityFeedbackAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
     public required TerraformProperty<string> EmailIdentity
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_identity");
-        set => this.WithProperty("email_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_identity");
+        set => SetProperty("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

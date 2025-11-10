@@ -14,6 +14,12 @@ public class AwsGuarddutyPublishingDestination : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("destination_arn");
+        SetOutput("destination_type");
+        SetOutput("detector_id");
+        SetOutput("id");
+        SetOutput("kms_key_arn");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -22,17 +28,17 @@ public class AwsGuarddutyPublishingDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
-        set => this.WithProperty("destination_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_arn");
+        set => SetProperty("destination_arn", value);
     }
 
     /// <summary>
     /// The destination_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationType
+    public TerraformProperty<string> DestinationType
     {
-        get => GetProperty<TerraformProperty<string>>("destination_type");
-        set => this.WithProperty("destination_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination_type");
+        set => SetProperty("destination_type", value);
     }
 
     /// <summary>
@@ -41,17 +47,17 @@ public class AwsGuarddutyPublishingDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformProperty<string> DetectorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("detector_id");
-        set => this.WithProperty("detector_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("detector_id");
+        set => SetProperty("detector_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -60,17 +66,17 @@ public class AwsGuarddutyPublishingDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformProperty<string> KmsKeyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_arn");
-        set => this.WithProperty("kms_key_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
 }

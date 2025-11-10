@@ -13,8 +13,7 @@ public class AzurermHealthcareServiceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,22 +30,26 @@ public class AzurermHealthcareServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_policy_object_ids");
-        this.WithOutput("authentication_configuration");
-        this.WithOutput("cors_configuration");
-        this.WithOutput("cosmosdb_key_vault_key_versionless_id");
-        this.WithOutput("cosmosdb_throughput");
-        this.WithOutput("kind");
-        this.WithOutput("tags");
+        SetOutput("access_policy_object_ids");
+        SetOutput("authentication_configuration");
+        SetOutput("cors_configuration");
+        SetOutput("cosmosdb_key_vault_key_versionless_id");
+        SetOutput("cosmosdb_throughput");
+        SetOutput("kind");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -55,8 +58,8 @@ public class AzurermHealthcareServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -65,8 +68,8 @@ public class AzurermHealthcareServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -75,8 +78,8 @@ public class AzurermHealthcareServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -85,8 +88,7 @@ public class AzurermHealthcareServiceDataSource : TerraformDataSource
     /// </summary>
     public AzurermHealthcareServiceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHealthcareServiceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

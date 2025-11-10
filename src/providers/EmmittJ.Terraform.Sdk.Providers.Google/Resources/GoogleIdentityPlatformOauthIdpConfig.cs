@@ -13,8 +13,7 @@ public class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? Code
     {
-        get => GetProperty<TerraformProperty<bool>>("code");
-        set => WithProperty("code", value);
+        set => SetProperty("code", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock : TerraformBl
     /// </summary>
     public TerraformProperty<bool>? IdToken
     {
-        get => GetProperty<TerraformProperty<bool>>("id_token");
-        set => WithProperty("id_token", value);
+        set => SetProperty("id_token", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,6 +71,14 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("client_id");
+        SetOutput("client_secret");
+        SetOutput("display_name");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("issuer");
+        SetOutput("name");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -84,44 +87,44 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// The client secret of the OAuth client, to enable OIDC code flow.
     /// </summary>
-    public TerraformProperty<string>? ClientSecret
+    public TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
-        set => this.WithProperty("client_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_secret");
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
     /// Human friendly display name.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// If this config allows users to sign in with the provider.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -130,8 +133,8 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
-        set => this.WithProperty("issuer", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("issuer");
+        set => SetProperty("issuer", value);
     }
 
     /// <summary>
@@ -140,17 +143,17 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -160,8 +163,7 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResponseType block(s) allowed")]
     public List<GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock>? ResponseType
     {
-        get => GetProperty<List<GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock>>("response_type");
-        set => this.WithProperty("response_type", value);
+        set => SetProperty("response_type", value);
     }
 
     /// <summary>
@@ -170,8 +172,7 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     /// </summary>
     public GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

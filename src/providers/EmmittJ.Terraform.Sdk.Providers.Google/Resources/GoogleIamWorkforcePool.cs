@@ -14,8 +14,7 @@ public class GoogleIamWorkforcePoolAccessRestrictionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DisableProgrammaticSignin
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_programmatic_signin");
-        set => WithProperty("disable_programmatic_signin", value);
+        set => SetProperty("disable_programmatic_signin", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class GoogleIamWorkforcePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class GoogleIamWorkforcePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleIamWorkforcePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -68,45 +64,53 @@ public class GoogleIamWorkforcePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("state");
+        SetOutput("name");
+        SetOutput("state");
+        SetOutput("description");
+        SetOutput("disabled");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("parent");
+        SetOutput("session_duration");
+        SetOutput("workforce_pool_id");
     }
 
     /// <summary>
     /// A user-specified description of the pool. Cannot exceed 256 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// Whether the pool is disabled. You cannot use a disabled pool to exchange tokens,
     /// or use existing tokens to access resources. If the pool is re-enabled, existing tokens grant access again.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
+    public TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => this.WithProperty("disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
+        set => SetProperty("disabled", value);
     }
 
     /// <summary>
     /// A user-specified display name of the pool in Google Cloud Console. Cannot exceed 32 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -115,8 +119,8 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -125,8 +129,8 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -136,10 +140,10 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// If &#39;sessionDuration&#39; is not configured, minted credentials have a default duration of one hour (3600s).
     /// A duration in seconds with up to nine fractional digits, ending with &#39;&#39;s&#39;&#39;. Example: &amp;quot;&#39;3.5s&#39;&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? SessionDuration
+    public TerraformProperty<string> SessionDuration
     {
-        get => GetProperty<TerraformProperty<string>>("session_duration");
-        set => this.WithProperty("session_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("session_duration");
+        set => SetProperty("session_duration", value);
     }
 
     /// <summary>
@@ -150,8 +154,8 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
-        set => this.WithProperty("workforce_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workforce_pool_id");
+        set => SetProperty("workforce_pool_id", value);
     }
 
     /// <summary>
@@ -161,8 +165,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessRestrictions block(s) allowed")]
     public List<GoogleIamWorkforcePoolAccessRestrictionsBlock>? AccessRestrictions
     {
-        get => GetProperty<List<GoogleIamWorkforcePoolAccessRestrictionsBlock>>("access_restrictions");
-        set => this.WithProperty("access_restrictions", value);
+        set => SetProperty("access_restrictions", value);
     }
 
     /// <summary>
@@ -171,8 +174,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// </summary>
     public GoogleIamWorkforcePoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIamWorkforcePoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

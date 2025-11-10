@@ -13,8 +13,7 @@ public class AzurermApiManagementCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermApiManagementCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermApiManagementCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,9 +54,17 @@ public class AzurermApiManagementCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("expiration");
-        this.WithOutput("subject");
-        this.WithOutput("thumbprint");
+        SetOutput("expiration");
+        SetOutput("subject");
+        SetOutput("thumbprint");
+        SetOutput("api_management_name");
+        SetOutput("data");
+        SetOutput("id");
+        SetOutput("key_vault_identity_client_id");
+        SetOutput("key_vault_secret_id");
+        SetOutput("name");
+        SetOutput("password");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -69,44 +73,44 @@ public class AzurermApiManagementCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The data attribute.
     /// </summary>
-    public TerraformProperty<string>? Data
+    public TerraformProperty<string> Data
     {
-        get => GetProperty<TerraformProperty<string>>("data");
-        set => this.WithProperty("data", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data");
+        set => SetProperty("data", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_identity_client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultIdentityClientId
+    public TerraformProperty<string> KeyVaultIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_identity_client_id");
-        set => this.WithProperty("key_vault_identity_client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_identity_client_id");
+        set => SetProperty("key_vault_identity_client_id", value);
     }
 
     /// <summary>
     /// The key_vault_secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultSecretId
+    public TerraformProperty<string> KeyVaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_secret_id");
-        set => this.WithProperty("key_vault_secret_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_secret_id");
+        set => SetProperty("key_vault_secret_id", value);
     }
 
     /// <summary>
@@ -115,17 +119,17 @@ public class AzurermApiManagementCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    public TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -134,8 +138,8 @@ public class AzurermApiManagementCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -144,8 +148,7 @@ public class AzurermApiManagementCertificate : TerraformResource
     /// </summary>
     public AzurermApiManagementCertificateTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementCertificateTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

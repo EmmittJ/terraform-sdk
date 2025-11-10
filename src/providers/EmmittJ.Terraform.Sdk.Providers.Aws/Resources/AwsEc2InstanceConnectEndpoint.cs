@@ -13,8 +13,7 @@ public class AwsEc2InstanceConnectEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2InstanceConnectEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,42 +38,47 @@ public class AwsEc2InstanceConnectEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone");
-        this.WithOutput("dns_name");
-        this.WithOutput("fips_dns_name");
-        this.WithOutput("id");
-        this.WithOutput("network_interface_ids");
-        this.WithOutput("owner_id");
-        this.WithOutput("tags_all");
-        this.WithOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("availability_zone");
+        SetOutput("dns_name");
+        SetOutput("fips_dns_name");
+        SetOutput("id");
+        SetOutput("network_interface_ids");
+        SetOutput("owner_id");
+        SetOutput("tags_all");
+        SetOutput("vpc_id");
+        SetOutput("preserve_client_ip");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("subnet_id");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The preserve_client_ip attribute.
     /// </summary>
-    public TerraformProperty<bool>? PreserveClientIp
+    public TerraformProperty<bool> PreserveClientIp
     {
-        get => GetProperty<TerraformProperty<bool>>("preserve_client_ip");
-        set => this.WithProperty("preserve_client_ip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("preserve_client_ip");
+        set => SetProperty("preserve_client_ip", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -84,17 +87,17 @@ public class AwsEc2InstanceConnectEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -103,8 +106,7 @@ public class AwsEc2InstanceConnectEndpoint : TerraformResource
     /// </summary>
     public AwsEc2InstanceConnectEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2InstanceConnectEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,33 +14,38 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("activation_policy");
-        this.WithOutput("annotations");
-        this.WithOutput("availability_type");
-        this.WithOutput("client_connection_config");
-        this.WithOutput("cluster");
-        this.WithOutput("create_time");
-        this.WithOutput("database_flags");
-        this.WithOutput("display_name");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("effective_labels");
-        this.WithOutput("gce_zone");
-        this.WithOutput("instance_type");
-        this.WithOutput("ip_address");
-        this.WithOutput("labels");
-        this.WithOutput("machine_config");
-        this.WithOutput("name");
-        this.WithOutput("network_config");
-        this.WithOutput("outbound_public_ip_addresses");
-        this.WithOutput("psc_instance_config");
-        this.WithOutput("public_ip_address");
-        this.WithOutput("query_insights_config");
-        this.WithOutput("read_pool_config");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("activation_policy");
+        SetOutput("annotations");
+        SetOutput("availability_type");
+        SetOutput("client_connection_config");
+        SetOutput("cluster");
+        SetOutput("create_time");
+        SetOutput("database_flags");
+        SetOutput("display_name");
+        SetOutput("effective_annotations");
+        SetOutput("effective_labels");
+        SetOutput("gce_zone");
+        SetOutput("instance_type");
+        SetOutput("ip_address");
+        SetOutput("labels");
+        SetOutput("machine_config");
+        SetOutput("name");
+        SetOutput("network_config");
+        SetOutput("outbound_public_ip_addresses");
+        SetOutput("psc_instance_config");
+        SetOutput("public_ip_address");
+        SetOutput("query_insights_config");
+        SetOutput("read_pool_config");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("terraform_labels");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("cluster_id");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -49,17 +54,17 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,26 +73,26 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// The canonical ID for the location. For example: &amp;quot;us-east1&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

@@ -14,26 +14,29 @@ public class AwsS3AccessPointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("alias");
-        this.WithOutput("arn");
-        this.WithOutput("bucket");
-        this.WithOutput("bucket_account_id");
-        this.WithOutput("data_source_id");
-        this.WithOutput("data_source_type");
-        this.WithOutput("endpoints");
-        this.WithOutput("network_origin");
-        this.WithOutput("public_access_block_configuration");
-        this.WithOutput("tags");
-        this.WithOutput("vpc_configuration");
+        SetOutput("alias");
+        SetOutput("arn");
+        SetOutput("bucket");
+        SetOutput("bucket_account_id");
+        SetOutput("data_source_id");
+        SetOutput("data_source_type");
+        SetOutput("endpoints");
+        SetOutput("network_origin");
+        SetOutput("public_access_block_configuration");
+        SetOutput("tags");
+        SetOutput("vpc_configuration");
+        SetOutput("account_id");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -42,17 +45,17 @@ public class AwsS3AccessPointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

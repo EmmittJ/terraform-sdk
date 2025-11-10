@@ -14,8 +14,7 @@ public class AzurermVirtualHubRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixes is required")]
     public List<TerraformProperty<string>>? AddressPrefixes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("address_prefixes");
-        set => WithProperty("address_prefixes", value);
+        set => SetProperty("address_prefixes", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzurermVirtualHubRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopIpAddress is required")]
     public required TerraformProperty<string> NextHopIpAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("next_hop_ip_address");
-        set => WithProperty("next_hop_ip_address", value);
+        set => SetProperty("next_hop_ip_address", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermVirtualHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermVirtualHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermVirtualHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermVirtualHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,45 +80,56 @@ public class AzurermVirtualHub : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputefault_route_table_id");
-        this.WithOutputirtual_router_asn");
-        this.WithOutputirtual_router_ips");
+        SetOutput("default_route_table_id");
+        SetOutput("virtual_router_asn");
+        SetOutput("virtual_router_ips");
+        SetOutput("address_prefix");
+        SetOutput("branch_to_branch_traffic_enabled");
+        SetOutput("hub_routing_preference");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("virtual_router_auto_scale_min_capacity");
+        SetOutput("virtual_wan_id");
     }
 
     /// <summary>
     /// The address_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? AddressPrefix
+    public TerraformProperty<string> AddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("address_prefix");
-        set => this.WithProperty("address_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("address_prefix");
+        set => SetProperty("address_prefix", value);
     }
 
     /// <summary>
     /// The branch_to_branch_traffic_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BranchToBranchTrafficEnabled
+    public TerraformProperty<bool> BranchToBranchTrafficEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("branch_to_branch_traffic_enabled");
-        set => this.WithProperty("branch_to_branch_traffic_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("branch_to_branch_traffic_enabled");
+        set => SetProperty("branch_to_branch_traffic_enabled", value);
     }
 
     /// <summary>
     /// The hub_routing_preference attribute.
     /// </summary>
-    public TerraformProperty<string>? HubRoutingPreference
+    public TerraformProperty<string> HubRoutingPreference
     {
-        get => GetProperty<TerraformProperty<string>>("hub_routing_preference");
-        set => this.WithProperty("hub_routing_preference", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hub_routing_preference");
+        set => SetProperty("hub_routing_preference", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -133,8 +138,8 @@ public class AzurermVirtualHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -143,8 +148,8 @@ public class AzurermVirtualHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -153,44 +158,44 @@ public class AzurermVirtualHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    public TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_router_auto_scale_min_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? VirtualRouterAutoScaleMinCapacity
+    public TerraformProperty<double> VirtualRouterAutoScaleMinCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("virtual_router_auto_scale_min_capacity");
-        set => this.WithProperty("virtual_router_auto_scale_min_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("virtual_router_auto_scale_min_capacity");
+        set => SetProperty("virtual_router_auto_scale_min_capacity", value);
     }
 
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualWanId
+    public TerraformProperty<string> VirtualWanId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_wan_id");
-        set => this.WithProperty("virtual_wan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_wan_id");
+        set => SetProperty("virtual_wan_id", value);
     }
 
     /// <summary>
@@ -199,8 +204,7 @@ public class AzurermVirtualHub : TerraformResource
     /// </summary>
     public HashSet<AzurermVirtualHubRouteBlock>? Route
     {
-        get => GetProperty<HashSet<AzurermVirtualHubRouteBlock>>("route");
-        set => this.WithProperty("route", value);
+        set => SetProperty("route", value);
     }
 
     /// <summary>
@@ -209,8 +213,7 @@ public class AzurermVirtualHub : TerraformResource
     /// </summary>
     public AzurermVirtualHubTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualHubTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

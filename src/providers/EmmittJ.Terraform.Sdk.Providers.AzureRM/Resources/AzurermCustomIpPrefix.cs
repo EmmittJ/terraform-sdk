@@ -13,8 +13,7 @@ public class AzurermCustomIpPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCustomIpPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCustomIpPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCustomIpPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,18 @@ public class AzurermCustomIpPrefix : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cidr");
+        SetOutput("commissioning_enabled");
+        SetOutput("id");
+        SetOutput("internet_advertising_disabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("parent_custom_ip_prefix_id");
+        SetOutput("resource_group_name");
+        SetOutput("roa_validity_end_date");
+        SetOutput("tags");
+        SetOutput("wan_validation_signed_message");
+        SetOutput("zones");
     }
 
     /// <summary>
@@ -66,35 +74,35 @@ public class AzurermCustomIpPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformProperty<string> Cidr
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cidr");
-        set => this.WithProperty("cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr");
+        set => SetProperty("cidr", value);
     }
 
     /// <summary>
     /// The commissioning_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CommissioningEnabled
+    public TerraformProperty<bool> CommissioningEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("commissioning_enabled");
-        set => this.WithProperty("commissioning_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("commissioning_enabled");
+        set => SetProperty("commissioning_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The internet_advertising_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? InternetAdvertisingDisabled
+    public TerraformProperty<bool> InternetAdvertisingDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("internet_advertising_disabled");
-        set => this.WithProperty("internet_advertising_disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("internet_advertising_disabled");
+        set => SetProperty("internet_advertising_disabled", value);
     }
 
     /// <summary>
@@ -103,8 +111,8 @@ public class AzurermCustomIpPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -113,17 +121,17 @@ public class AzurermCustomIpPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parent_custom_ip_prefix_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentCustomIpPrefixId
+    public TerraformProperty<string> ParentCustomIpPrefixId
     {
-        get => GetProperty<TerraformProperty<string>>("parent_custom_ip_prefix_id");
-        set => this.WithProperty("parent_custom_ip_prefix_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_custom_ip_prefix_id");
+        set => SetProperty("parent_custom_ip_prefix_id", value);
     }
 
     /// <summary>
@@ -132,44 +140,44 @@ public class AzurermCustomIpPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The roa_validity_end_date attribute.
     /// </summary>
-    public TerraformProperty<string>? RoaValidityEndDate
+    public TerraformProperty<string> RoaValidityEndDate
     {
-        get => GetProperty<TerraformProperty<string>>("roa_validity_end_date");
-        set => this.WithProperty("roa_validity_end_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("roa_validity_end_date");
+        set => SetProperty("roa_validity_end_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The wan_validation_signed_message attribute.
     /// </summary>
-    public TerraformProperty<string>? WanValidationSignedMessage
+    public TerraformProperty<string> WanValidationSignedMessage
     {
-        get => GetProperty<TerraformProperty<string>>("wan_validation_signed_message");
-        set => this.WithProperty("wan_validation_signed_message", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("wan_validation_signed_message");
+        set => SetProperty("wan_validation_signed_message", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
@@ -178,8 +186,7 @@ public class AzurermCustomIpPrefix : TerraformResource
     /// </summary>
     public AzurermCustomIpPrefixTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCustomIpPrefixTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

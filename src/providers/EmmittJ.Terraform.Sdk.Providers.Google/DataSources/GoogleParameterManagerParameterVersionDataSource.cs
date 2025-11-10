@@ -14,21 +14,25 @@ public class GoogleParameterManagerParameterVersionDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("disabled");
-        this.WithOutput("kms_key_version");
-        this.WithOutput("name");
-        this.WithOutput("parameter_data");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("disabled");
+        SetOutput("kms_key_version");
+        SetOutput("name");
+        SetOutput("parameter_data");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("parameter");
+        SetOutput("parameter_version_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -37,8 +41,8 @@ public class GoogleParameterManagerParameterVersionDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     public required TerraformProperty<string> Parameter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter");
-        set => this.WithProperty("parameter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter");
+        set => SetProperty("parameter", value);
     }
 
     /// <summary>
@@ -47,17 +51,17 @@ public class GoogleParameterManagerParameterVersionDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
     public required TerraformProperty<string> ParameterVersionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter_version_id");
-        set => this.WithProperty("parameter_version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parameter_version_id");
+        set => SetProperty("parameter_version_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     /// </summary>
     public TerraformProperty<string>? AuthorizationExpirationTimeInUtc
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_expiration_time_in_utc");
-        set => WithProperty("authorization_expiration_time_in_utc", value);
+        set => SetProperty("authorization_expiration_time_in_utc", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerName is required")]
     public required TerraformProperty<string> PartnerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partner_name");
-        set => WithProperty("partner_name", value);
+        set => SetProperty("partner_name", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerRegistrationId is required")]
     public required TerraformProperty<string> PartnerRegistrationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("partner_registration_id");
-        set => WithProperty("partner_registration_id", value);
+        set => SetProperty("partner_registration_id", value);
     }
 
 }
@@ -50,8 +47,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,24 +88,28 @@ public class AzurermEventgridPartnerConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("default_maximum_expiration_time_in_days");
+        SetOutput("id");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The default_maximum_expiration_time_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultMaximumExpirationTimeInDays
+    public TerraformProperty<double> DefaultMaximumExpirationTimeInDays
     {
-        get => GetProperty<TerraformProperty<double>>("default_maximum_expiration_time_in_days");
-        set => this.WithProperty("default_maximum_expiration_time_in_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("default_maximum_expiration_time_in_days");
+        set => SetProperty("default_maximum_expiration_time_in_days", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,17 +118,17 @@ public class AzurermEventgridPartnerConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -140,8 +137,7 @@ public class AzurermEventgridPartnerConfiguration : TerraformResource
     /// </summary>
     public List<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock>? PartnerAuthorization
     {
-        get => GetProperty<List<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock>>("partner_authorization");
-        set => this.WithProperty("partner_authorization", value);
+        set => SetProperty("partner_authorization", value);
     }
 
     /// <summary>
@@ -150,8 +146,7 @@ public class AzurermEventgridPartnerConfiguration : TerraformResource
     /// </summary>
     public AzurermEventgridPartnerConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEventgridPartnerConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -16,8 +16,7 @@ public class GoogleBigqueryJobCopyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("create_disposition");
-        set => WithProperty("create_disposition", value);
+        set => SetProperty("create_disposition", value);
     }
 
     /// <summary>
@@ -30,8 +29,7 @@ public class GoogleBigqueryJobCopyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WriteDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("write_disposition");
-        set => WithProperty("write_disposition", value);
+        set => SetProperty("write_disposition", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Compression
     {
-        get => GetProperty<TerraformProperty<string>>("compression");
-        set => WithProperty("compression", value);
+        set => SetProperty("compression", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DestinationFormat
     {
-        get => GetProperty<TerraformProperty<string>>("destination_format");
-        set => WithProperty("destination_format", value);
+        set => SetProperty("destination_format", value);
     }
 
     /// <summary>
@@ -69,8 +65,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationUris is required")]
     public List<TerraformProperty<string>>? DestinationUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destination_uris");
-        set => WithProperty("destination_uris", value);
+        set => SetProperty("destination_uris", value);
     }
 
     /// <summary>
@@ -79,8 +74,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FieldDelimiter
     {
-        get => GetProperty<TerraformProperty<string>>("field_delimiter");
-        set => WithProperty("field_delimiter", value);
+        set => SetProperty("field_delimiter", value);
     }
 
     /// <summary>
@@ -88,8 +82,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PrintHeader
     {
-        get => GetProperty<TerraformProperty<bool>>("print_header");
-        set => WithProperty("print_header", value);
+        set => SetProperty("print_header", value);
     }
 
     /// <summary>
@@ -97,8 +90,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseAvroLogicalTypes
     {
-        get => GetProperty<TerraformProperty<bool>>("use_avro_logical_types");
-        set => WithProperty("use_avro_logical_types", value);
+        set => SetProperty("use_avro_logical_types", value);
     }
 
 }
@@ -116,8 +108,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowJaggedRows
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_jagged_rows");
-        set => WithProperty("allow_jagged_rows", value);
+        set => SetProperty("allow_jagged_rows", value);
     }
 
     /// <summary>
@@ -126,8 +117,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowQuotedNewlines
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_quoted_newlines");
-        set => WithProperty("allow_quoted_newlines", value);
+        set => SetProperty("allow_quoted_newlines", value);
     }
 
     /// <summary>
@@ -135,8 +125,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Autodetect
     {
-        get => GetProperty<TerraformProperty<bool>>("autodetect");
-        set => WithProperty("autodetect", value);
+        set => SetProperty("autodetect", value);
     }
 
     /// <summary>
@@ -147,8 +136,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("create_disposition");
-        set => WithProperty("create_disposition", value);
+        set => SetProperty("create_disposition", value);
     }
 
     /// <summary>
@@ -158,8 +146,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Encoding
     {
-        get => GetProperty<TerraformProperty<string>>("encoding");
-        set => WithProperty("encoding", value);
+        set => SetProperty("encoding", value);
     }
 
     /// <summary>
@@ -171,8 +158,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FieldDelimiter
     {
-        get => GetProperty<TerraformProperty<string>>("field_delimiter");
-        set => WithProperty("field_delimiter", value);
+        set => SetProperty("field_delimiter", value);
     }
 
     /// <summary>
@@ -185,8 +171,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IgnoreUnknownValues
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_unknown_values");
-        set => WithProperty("ignore_unknown_values", value);
+        set => SetProperty("ignore_unknown_values", value);
     }
 
     /// <summary>
@@ -196,8 +181,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JsonExtension
     {
-        get => GetProperty<TerraformProperty<string>>("json_extension");
-        set => WithProperty("json_extension", value);
+        set => SetProperty("json_extension", value);
     }
 
     /// <summary>
@@ -206,8 +190,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxBadRecords
     {
-        get => GetProperty<TerraformProperty<double>>("max_bad_records");
-        set => WithProperty("max_bad_records", value);
+        set => SetProperty("max_bad_records", value);
     }
 
     /// <summary>
@@ -218,8 +201,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NullMarker
     {
-        get => GetProperty<TerraformProperty<string>>("null_marker");
-        set => WithProperty("null_marker", value);
+        set => SetProperty("null_marker", value);
     }
 
     /// <summary>
@@ -229,8 +211,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ProjectionFields
     {
-        get => GetProperty<List<TerraformProperty<string>>>("projection_fields");
-        set => WithProperty("projection_fields", value);
+        set => SetProperty("projection_fields", value);
     }
 
     /// <summary>
@@ -241,8 +222,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Quote
     {
-        get => GetProperty<TerraformProperty<string>>("quote");
-        set => WithProperty("quote", value);
+        set => SetProperty("quote", value);
     }
 
     /// <summary>
@@ -255,8 +235,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SchemaUpdateOptions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("schema_update_options");
-        set => WithProperty("schema_update_options", value);
+        set => SetProperty("schema_update_options", value);
     }
 
     /// <summary>
@@ -271,8 +250,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SkipLeadingRows
     {
-        get => GetProperty<TerraformProperty<double>>("skip_leading_rows");
-        set => WithProperty("skip_leading_rows", value);
+        set => SetProperty("skip_leading_rows", value);
     }
 
     /// <summary>
@@ -283,8 +261,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceFormat
     {
-        get => GetProperty<TerraformProperty<string>>("source_format");
-        set => WithProperty("source_format", value);
+        set => SetProperty("source_format", value);
     }
 
     /// <summary>
@@ -298,8 +275,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUris is required")]
     public List<TerraformProperty<string>>? SourceUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("source_uris");
-        set => WithProperty("source_uris", value);
+        set => SetProperty("source_uris", value);
     }
 
     /// <summary>
@@ -312,8 +288,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WriteDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("write_disposition");
-        set => WithProperty("write_disposition", value);
+        set => SetProperty("write_disposition", value);
     }
 
 }
@@ -331,8 +306,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowLargeResults
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_large_results");
-        set => WithProperty("allow_large_results", value);
+        set => SetProperty("allow_large_results", value);
     }
 
     /// <summary>
@@ -343,8 +317,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CreateDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("create_disposition");
-        set => WithProperty("create_disposition", value);
+        set => SetProperty("create_disposition", value);
     }
 
     /// <summary>
@@ -353,8 +326,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? FlattenResults
     {
-        get => GetProperty<TerraformProperty<bool>>("flatten_results");
-        set => WithProperty("flatten_results", value);
+        set => SetProperty("flatten_results", value);
     }
 
     /// <summary>
@@ -363,8 +335,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumBillingTier
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_billing_tier");
-        set => WithProperty("maximum_billing_tier", value);
+        set => SetProperty("maximum_billing_tier", value);
     }
 
     /// <summary>
@@ -373,8 +344,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaximumBytesBilled
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_bytes_billed");
-        set => WithProperty("maximum_bytes_billed", value);
+        set => SetProperty("maximum_bytes_billed", value);
     }
 
     /// <summary>
@@ -382,8 +352,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ParameterMode
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_mode");
-        set => WithProperty("parameter_mode", value);
+        set => SetProperty("parameter_mode", value);
     }
 
     /// <summary>
@@ -391,8 +360,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Priority
     {
-        get => GetProperty<TerraformProperty<string>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
     /// <summary>
@@ -403,8 +371,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query");
-        set => WithProperty("query", value);
+        set => SetProperty("query", value);
     }
 
     /// <summary>
@@ -418,8 +385,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SchemaUpdateOptions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("schema_update_options");
-        set => WithProperty("schema_update_options", value);
+        set => SetProperty("schema_update_options", value);
     }
 
     /// <summary>
@@ -428,8 +394,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseLegacySql
     {
-        get => GetProperty<TerraformProperty<bool>>("use_legacy_sql");
-        set => WithProperty("use_legacy_sql", value);
+        set => SetProperty("use_legacy_sql", value);
     }
 
     /// <summary>
@@ -439,8 +404,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseQueryCache
     {
-        get => GetProperty<TerraformProperty<bool>>("use_query_cache");
-        set => WithProperty("use_query_cache", value);
+        set => SetProperty("use_query_cache", value);
     }
 
     /// <summary>
@@ -453,8 +417,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? WriteDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("write_disposition");
-        set => WithProperty("write_disposition", value);
+        set => SetProperty("write_disposition", value);
     }
 
 }
@@ -470,8 +433,7 @@ public class GoogleBigqueryJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -479,8 +441,7 @@ public class GoogleBigqueryJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -488,8 +449,7 @@ public class GoogleBigqueryJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -507,20 +467,26 @@ public class GoogleBigqueryJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("job_type");
-        this.WithOutput("status");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("user_email");
+        SetOutput("effective_labels");
+        SetOutput("job_type");
+        SetOutput("status");
+        SetOutput("terraform_labels");
+        SetOutput("user_email");
+        SetOutput("id");
+        SetOutput("job_id");
+        SetOutput("job_timeout_ms");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -529,17 +495,17 @@ public class GoogleBigqueryJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformProperty<string> JobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("job_id");
-        set => this.WithProperty("job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_id");
+        set => SetProperty("job_id", value);
     }
 
     /// <summary>
     /// Job timeout in milliseconds. If this time limit is exceeded, BigQuery may attempt to terminate the job.
     /// </summary>
-    public TerraformProperty<string>? JobTimeoutMs
+    public TerraformProperty<string> JobTimeoutMs
     {
-        get => GetProperty<TerraformProperty<string>>("job_timeout_ms");
-        set => this.WithProperty("job_timeout_ms", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_timeout_ms");
+        set => SetProperty("job_timeout_ms", value);
     }
 
     /// <summary>
@@ -549,28 +515,28 @@ public class GoogleBigqueryJob : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The geographic location of the job. The default value is US.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -580,8 +546,7 @@ public class GoogleBigqueryJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Copy block(s) allowed")]
     public List<GoogleBigqueryJobCopyBlock>? Copy
     {
-        get => GetProperty<List<GoogleBigqueryJobCopyBlock>>("copy");
-        set => this.WithProperty("copy", value);
+        set => SetProperty("copy", value);
     }
 
     /// <summary>
@@ -591,8 +556,7 @@ public class GoogleBigqueryJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extract block(s) allowed")]
     public List<GoogleBigqueryJobExtractBlock>? Extract
     {
-        get => GetProperty<List<GoogleBigqueryJobExtractBlock>>("extract");
-        set => this.WithProperty("extract", value);
+        set => SetProperty("extract", value);
     }
 
     /// <summary>
@@ -602,8 +566,7 @@ public class GoogleBigqueryJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Load block(s) allowed")]
     public List<GoogleBigqueryJobLoadBlock>? Load
     {
-        get => GetProperty<List<GoogleBigqueryJobLoadBlock>>("load");
-        set => this.WithProperty("load", value);
+        set => SetProperty("load", value);
     }
 
     /// <summary>
@@ -613,8 +576,7 @@ public class GoogleBigqueryJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Query block(s) allowed")]
     public List<GoogleBigqueryJobQueryBlock>? Query
     {
-        get => GetProperty<List<GoogleBigqueryJobQueryBlock>>("query");
-        set => this.WithProperty("query", value);
+        set => SetProperty("query", value);
     }
 
     /// <summary>
@@ -623,8 +585,7 @@ public class GoogleBigqueryJob : TerraformResource
     /// </summary>
     public GoogleBigqueryJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

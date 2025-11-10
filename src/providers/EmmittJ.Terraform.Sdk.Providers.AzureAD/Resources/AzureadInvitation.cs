@@ -13,8 +13,7 @@ public class AzureadInvitationMessageBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AdditionalRecipients
     {
-        get => GetProperty<List<TerraformProperty<string>>>("additional_recipients");
-        set => WithProperty("additional_recipients", value);
+        set => SetProperty("additional_recipients", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadInvitationMessageBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
-        set => WithProperty("body", value);
+        set => SetProperty("body", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadInvitationMessageBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Language
     {
-        get => GetProperty<TerraformProperty<string>>("language");
-        set => WithProperty("language", value);
+        set => SetProperty("language", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzureadInvitationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzureadInvitationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzureadInvitationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -85,17 +79,22 @@ public class AzureadInvitation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("redeem_url");
-        this.WithOutput("user_id");
+        SetOutput("redeem_url");
+        SetOutput("user_id");
+        SetOutput("id");
+        SetOutput("redirect_url");
+        SetOutput("user_display_name");
+        SetOutput("user_email_address");
+        SetOutput("user_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,17 +103,17 @@ public class AzureadInvitation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUrl is required")]
     public required TerraformProperty<string> RedirectUrl
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("redirect_url");
-        set => this.WithProperty("redirect_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redirect_url");
+        set => SetProperty("redirect_url", value);
     }
 
     /// <summary>
     /// The display name of the user being invited
     /// </summary>
-    public TerraformProperty<string>? UserDisplayName
+    public TerraformProperty<string> UserDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("user_display_name");
-        set => this.WithProperty("user_display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_display_name");
+        set => SetProperty("user_display_name", value);
     }
 
     /// <summary>
@@ -123,17 +122,17 @@ public class AzureadInvitation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserEmailAddress is required")]
     public required TerraformProperty<string> UserEmailAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_email_address");
-        set => this.WithProperty("user_email_address", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_email_address");
+        set => SetProperty("user_email_address", value);
     }
 
     /// <summary>
     /// The user type of the user being invited
     /// </summary>
-    public TerraformProperty<string>? UserType
+    public TerraformProperty<string> UserType
     {
-        get => GetProperty<TerraformProperty<string>>("user_type");
-        set => this.WithProperty("user_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_type");
+        set => SetProperty("user_type", value);
     }
 
     /// <summary>
@@ -143,8 +142,7 @@ public class AzureadInvitation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Message block(s) allowed")]
     public List<AzureadInvitationMessageBlock>? Message
     {
-        get => GetProperty<List<AzureadInvitationMessageBlock>>("message");
-        set => this.WithProperty("message", value);
+        set => SetProperty("message", value);
     }
 
     /// <summary>
@@ -153,8 +151,7 @@ public class AzureadInvitation : TerraformResource
     /// </summary>
     public AzureadInvitationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadInvitationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

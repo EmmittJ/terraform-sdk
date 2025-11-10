@@ -13,8 +13,7 @@ public class AwsEc2TransitGatewayPeeringAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DynamicRouting
     {
-        get => GetProperty<TerraformProperty<string>>("dynamic_routing");
-        set => WithProperty("dynamic_routing", value);
+        set => SetProperty("dynamic_routing", value);
     }
 
 }
@@ -32,26 +31,34 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("state");
+        SetOutput("id");
+        SetOutput("peer_account_id");
+        SetOutput("peer_region");
+        SetOutput("peer_transit_gateway_id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("transit_gateway_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The peer_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerAccountId
+    public TerraformProperty<string> PeerAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("peer_account_id");
-        set => this.WithProperty("peer_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_account_id");
+        set => SetProperty("peer_account_id", value);
     }
 
     /// <summary>
@@ -60,8 +67,8 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerRegion is required")]
     public required TerraformProperty<string> PeerRegion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_region");
-        set => this.WithProperty("peer_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_region");
+        set => SetProperty("peer_region", value);
     }
 
     /// <summary>
@@ -70,35 +77,35 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerTransitGatewayId is required")]
     public required TerraformProperty<string> PeerTransitGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_transit_gateway_id");
-        set => this.WithProperty("peer_transit_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_transit_gateway_id");
+        set => SetProperty("peer_transit_gateway_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -107,8 +114,8 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformProperty<string> TransitGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_id");
-        set => this.WithProperty("transit_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_id");
+        set => SetProperty("transit_gateway_id", value);
     }
 
     /// <summary>
@@ -118,8 +125,7 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     public List<AwsEc2TransitGatewayPeeringAttachmentOptionsBlock>? Options
     {
-        get => GetProperty<List<AwsEc2TransitGatewayPeeringAttachmentOptionsBlock>>("options");
-        set => this.WithProperty("options", value);
+        set => SetProperty("options", value);
     }
 
     /// <summary>

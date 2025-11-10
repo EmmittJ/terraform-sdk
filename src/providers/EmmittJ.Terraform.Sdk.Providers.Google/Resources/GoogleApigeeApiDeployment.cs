@@ -13,8 +13,7 @@ public class GoogleApigeeApiDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeApiDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,7 +38,11 @@ public class GoogleApigeeApiDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("environment");
+        SetOutput("org_id");
+        SetOutput("proxy_id");
+        SetOutput("revision");
     }
 
     /// <summary>
@@ -49,8 +51,8 @@ public class GoogleApigeeApiDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment");
-        set => this.WithProperty("environment", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment");
+        set => SetProperty("environment", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class GoogleApigeeApiDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
-        set => this.WithProperty("org_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
+        set => SetProperty("org_id", value);
     }
 
     /// <summary>
@@ -69,8 +71,8 @@ public class GoogleApigeeApiDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProxyId is required")]
     public required TerraformProperty<string> ProxyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("proxy_id");
-        set => this.WithProperty("proxy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("proxy_id");
+        set => SetProperty("proxy_id", value);
     }
 
     /// <summary>
@@ -79,8 +81,8 @@ public class GoogleApigeeApiDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformProperty<string> Revision
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("revision");
-        set => this.WithProperty("revision", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("revision");
+        set => SetProperty("revision", value);
     }
 
     /// <summary>
@@ -89,8 +91,7 @@ public class GoogleApigeeApiDeployment : TerraformResource
     /// </summary>
     public GoogleApigeeApiDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeApiDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

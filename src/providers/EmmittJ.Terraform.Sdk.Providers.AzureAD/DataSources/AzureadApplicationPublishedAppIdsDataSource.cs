@@ -13,8 +13,7 @@ public class AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,17 @@ public class AzureadApplicationPublishedAppIdsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("result");
+        SetOutput("result");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +49,7 @@ public class AzureadApplicationPublishedAppIdsDataSource : TerraformDataSource
     /// </summary>
     public AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

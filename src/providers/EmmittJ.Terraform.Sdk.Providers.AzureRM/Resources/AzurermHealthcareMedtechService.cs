@@ -13,8 +13,7 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -85,8 +78,7 @@ public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -104,6 +96,15 @@ public class AzurermHealthcareMedtechService : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("device_mapping_json");
+        SetOutput("eventhub_consumer_group_name");
+        SetOutput("eventhub_name");
+        SetOutput("eventhub_namespace_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
@@ -112,8 +113,8 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceMappingJson is required")]
     public required TerraformProperty<string> DeviceMappingJson
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("device_mapping_json");
-        set => this.WithProperty("device_mapping_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_mapping_json");
+        set => SetProperty("device_mapping_json", value);
     }
 
     /// <summary>
@@ -122,8 +123,8 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformProperty<string> EventhubConsumerGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
-        set => this.WithProperty("eventhub_consumer_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_consumer_group_name");
+        set => SetProperty("eventhub_consumer_group_name", value);
     }
 
     /// <summary>
@@ -132,8 +133,8 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformProperty<string> EventhubName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_name");
-        set => this.WithProperty("eventhub_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_name");
+        set => SetProperty("eventhub_name", value);
     }
 
     /// <summary>
@@ -142,17 +143,17 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
     public required TerraformProperty<string> EventhubNamespaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_namespace_name");
-        set => this.WithProperty("eventhub_namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_namespace_name");
+        set => SetProperty("eventhub_namespace_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -161,8 +162,8 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -171,17 +172,17 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -190,8 +191,8 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -201,8 +202,7 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermHealthcareMedtechServiceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermHealthcareMedtechServiceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -211,8 +211,7 @@ public class AzurermHealthcareMedtechService : TerraformResource
     /// </summary>
     public AzurermHealthcareMedtechServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHealthcareMedtechServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

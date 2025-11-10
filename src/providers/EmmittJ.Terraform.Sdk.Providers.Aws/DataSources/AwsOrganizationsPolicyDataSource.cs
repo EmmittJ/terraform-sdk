@@ -14,21 +14,23 @@ public class AwsOrganizationsPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("aws_managed");
-        this.WithOutput("content");
-        this.WithOutput("description");
-        this.WithOutput("name");
-        this.WithOutput("type");
+        SetOutput("arn");
+        SetOutput("aws_managed");
+        SetOutput("content");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("type");
+        SetOutput("id");
+        SetOutput("policy_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -37,8 +39,8 @@ public class AwsOrganizationsPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
-        set => this.WithProperty("policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
+        set => SetProperty("policy_id", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorag
     /// </summary>
     public TerraformProperty<double>? AvailableSizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("available_size_in_gb");
-        set => WithProperty("available_size_in_gb", value);
+        set => SetProperty("available_size_in_gb", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalSizeInGb is required")]
     public required TerraformProperty<double> TotalSizeInGb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("total_size_in_gb");
-        set => WithProperty("total_size_in_gb", value);
+        set => SetProperty("total_size_in_gb", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,6 +80,16 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("additional_flash_cache_percentage");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
+        SetOutput("time_zone");
+        SetOutput("zones");
     }
 
     /// <summary>
@@ -94,17 +98,17 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdditionalFlashCachePercentage is required")]
     public required TerraformProperty<double> AdditionalFlashCachePercentage
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("additional_flash_cache_percentage");
-        set => this.WithProperty("additional_flash_cache_percentage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("additional_flash_cache_percentage");
+        set => SetProperty("additional_flash_cache_percentage", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -113,17 +117,17 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -132,8 +136,8 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -142,8 +146,8 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -152,48 +156,48 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    public TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
     /// Block for high_capacity_database_storage.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HighCapacityDatabaseStorage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HighCapacityDatabaseStorage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HighCapacityDatabaseStorage block(s) allowed")]
     public List<AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock>? HighCapacityDatabaseStorage
     {
-        get => GetProperty<List<AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock>>("high_capacity_database_storage");
-        set => this.WithProperty("high_capacity_database_storage", value);
+        set => SetProperty("high_capacity_database_storage", value);
     }
 
     /// <summary>
@@ -202,8 +206,7 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     /// </summary>
     public AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

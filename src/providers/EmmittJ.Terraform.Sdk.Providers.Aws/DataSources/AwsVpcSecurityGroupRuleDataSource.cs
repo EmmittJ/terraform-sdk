@@ -14,8 +14,7 @@ public class AwsVpcSecurityGroupRuleDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsVpcSecurityGroupRuleDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -42,37 +40,39 @@ public class AwsVpcSecurityGroupRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("cidr_ipv4");
-        this.WithOutput("cidr_ipv6");
-        this.WithOutput("description");
-        this.WithOutput("from_port");
-        this.WithOutput("id");
-        this.WithOutput("ip_protocol");
-        this.WithOutput("is_egress");
-        this.WithOutput("prefix_list_id");
-        this.WithOutput("referenced_security_group_id");
-        this.WithOutput("security_group_id");
-        this.WithOutput("tags");
-        this.WithOutput("to_port");
+        SetOutput("arn");
+        SetOutput("cidr_ipv4");
+        SetOutput("cidr_ipv6");
+        SetOutput("description");
+        SetOutput("from_port");
+        SetOutput("id");
+        SetOutput("ip_protocol");
+        SetOutput("is_egress");
+        SetOutput("prefix_list_id");
+        SetOutput("referenced_security_group_id");
+        SetOutput("security_group_id");
+        SetOutput("tags");
+        SetOutput("to_port");
+        SetOutput("region");
+        SetOutput("security_group_rule_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_rule_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityGroupRuleId
+    public TerraformProperty<string> SecurityGroupRuleId
     {
-        get => GetProperty<TerraformProperty<string>>("security_group_rule_id");
-        set => this.WithProperty("security_group_rule_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_group_rule_id");
+        set => SetProperty("security_group_rule_id", value);
     }
 
     /// <summary>
@@ -81,8 +81,7 @@ public class AwsVpcSecurityGroupRuleDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsVpcSecurityGroupRuleDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsVpcSecurityGroupRuleDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>

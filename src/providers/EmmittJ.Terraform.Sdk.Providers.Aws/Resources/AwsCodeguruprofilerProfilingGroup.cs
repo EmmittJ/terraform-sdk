@@ -14,8 +14,7 @@ public class AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfilingEnabled is required")]
     public required TerraformProperty<bool> ProfilingEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("profiling_enabled");
-        set => WithProperty("profiling_enabled", value);
+        set => SetProperty("profiling_enabled", value);
     }
 
 }
@@ -32,18 +31,22 @@ public class AwsCodeguruprofilerProfilingGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("compute_platform");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The compute_platform attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputePlatform
+    public TerraformProperty<string> ComputePlatform
     {
-        get => GetProperty<TerraformProperty<string>>("compute_platform");
-        set => this.WithProperty("compute_platform", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compute_platform");
+        set => SetProperty("compute_platform", value);
     }
 
     /// <summary>
@@ -52,26 +55,26 @@ public class AwsCodeguruprofilerProfilingGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -80,8 +83,7 @@ public class AwsCodeguruprofilerProfilingGroup : TerraformResource
     /// </summary>
     public List<AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock>? AgentOrchestrationConfig
     {
-        get => GetProperty<List<AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock>>("agent_orchestration_config");
-        set => this.WithProperty("agent_orchestration_config", value);
+        set => SetProperty("agent_orchestration_config", value);
     }
 
     /// <summary>

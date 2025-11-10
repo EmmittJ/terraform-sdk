@@ -13,8 +13,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ColumnNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("column_names");
-        set => WithProperty("column_names", value);
+        set => SetProperty("column_names", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => WithProperty("database_name", value);
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableCatalogId is required")]
     public required TerraformProperty<string> TableCatalogId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_catalog_id");
-        set => WithProperty("table_catalog_id", value);
+        set => SetProperty("table_catalog_id", value);
     }
 
     /// <summary>
@@ -53,8 +49,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => WithProperty("table_name", value);
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
@@ -62,8 +57,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VersionId
     {
-        get => GetProperty<TerraformProperty<string>>("version_id");
-        set => WithProperty("version_id", value);
+        set => SetProperty("version_id", value);
     }
 
 }
@@ -79,8 +73,7 @@ public class AwsLakeformationDataCellsFilterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -97,16 +90,17 @@ public class AwsLakeformationDataCellsFilter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -115,8 +109,7 @@ public class AwsLakeformationDataCellsFilter : TerraformResource
     /// </summary>
     public List<AwsLakeformationDataCellsFilterTableDataBlock>? TableData
     {
-        get => GetProperty<List<AwsLakeformationDataCellsFilterTableDataBlock>>("table_data");
-        set => this.WithProperty("table_data", value);
+        set => SetProperty("table_data", value);
     }
 
     /// <summary>
@@ -125,8 +118,7 @@ public class AwsLakeformationDataCellsFilter : TerraformResource
     /// </summary>
     public AwsLakeformationDataCellsFilterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLakeformationDataCellsFilterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

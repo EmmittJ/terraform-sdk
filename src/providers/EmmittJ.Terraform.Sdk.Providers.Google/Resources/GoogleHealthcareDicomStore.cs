@@ -19,8 +19,7 @@ public class GoogleHealthcareDicomStoreNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
-        set => WithProperty("pubsub_topic", value);
+        set => SetProperty("pubsub_topic", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleHealthcareDicomStoreNotificationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SendForBulkImport
     {
-        get => GetProperty<TerraformProperty<bool>>("send_for_bulk_import");
-        set => WithProperty("send_for_bulk_import", value);
+        set => SetProperty("send_for_bulk_import", value);
     }
 
 }
@@ -45,8 +43,7 @@ public class GoogleHealthcareDicomStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -54,8 +51,7 @@ public class GoogleHealthcareDicomStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -63,8 +59,7 @@ public class GoogleHealthcareDicomStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -82,9 +77,13 @@ public class GoogleHealthcareDicomStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("dataset");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -94,17 +93,17 @@ public class GoogleHealthcareDicomStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
-        set => this.WithProperty("dataset", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
+        set => SetProperty("dataset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -125,10 +124,10 @@ public class GoogleHealthcareDicomStore : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -139,8 +138,8 @@ public class GoogleHealthcareDicomStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -150,8 +149,7 @@ public class GoogleHealthcareDicomStore : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     public List<GoogleHealthcareDicomStoreNotificationConfigBlock>? NotificationConfig
     {
-        get => GetProperty<List<GoogleHealthcareDicomStoreNotificationConfigBlock>>("notification_config");
-        set => this.WithProperty("notification_config", value);
+        set => SetProperty("notification_config", value);
     }
 
     /// <summary>
@@ -160,8 +158,7 @@ public class GoogleHealthcareDicomStore : TerraformResource
     /// </summary>
     public GoogleHealthcareDicomStoreTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleHealthcareDicomStoreTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,10 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
 
     private void InitializeOutputs()
     {
+        SetOutput("hyperv_site_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("policy_id");
     }
 
     /// <summary>
@@ -57,17 +58,17 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervSiteId is required")]
     public required TerraformProperty<string> HypervSiteId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hyperv_site_id");
-        set => this.WithProperty("hyperv_site_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hyperv_site_id");
+        set => SetProperty("hyperv_site_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
-        set => this.WithProperty("policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
+        set => SetProperty("policy_id", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     /// </summary>
     public AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

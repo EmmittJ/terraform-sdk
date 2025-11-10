@@ -14,26 +14,30 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connected_projects");
-        this.WithOutput("ip_cidr_range");
-        this.WithOutput("machine_type");
-        this.WithOutput("max_instances");
-        this.WithOutput("max_throughput");
-        this.WithOutput("min_instances");
-        this.WithOutput("min_throughput");
-        this.WithOutput("network");
-        this.WithOutput("self_link");
-        this.WithOutput("state");
-        this.WithOutput("subnet");
+        SetOutput("connected_projects");
+        SetOutput("ip_cidr_range");
+        SetOutput("machine_type");
+        SetOutput("max_instances");
+        SetOutput("max_throughput");
+        SetOutput("min_instances");
+        SetOutput("min_throughput");
+        SetOutput("network");
+        SetOutput("self_link");
+        SetOutput("state");
+        SetOutput("subnet");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -42,26 +46,26 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where the VPC Access connector resides. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

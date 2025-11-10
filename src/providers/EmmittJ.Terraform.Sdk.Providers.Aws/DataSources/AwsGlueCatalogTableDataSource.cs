@@ -14,27 +14,34 @@ public class AwsGlueCatalogTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("description");
-        this.WithOutput("owner");
-        this.WithOutput("parameters");
-        this.WithOutput("partition_index");
-        this.WithOutput("partition_keys");
-        this.WithOutput("retention");
-        this.WithOutput("storage_descriptor");
-        this.WithOutput("table_type");
-        this.WithOutput("target_table");
-        this.WithOutput("view_expanded_text");
-        this.WithOutput("view_original_text");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("owner");
+        SetOutput("parameters");
+        SetOutput("partition_index");
+        SetOutput("partition_keys");
+        SetOutput("retention");
+        SetOutput("storage_descriptor");
+        SetOutput("table_type");
+        SetOutput("target_table");
+        SetOutput("view_expanded_text");
+        SetOutput("view_original_text");
+        SetOutput("catalog_id");
+        SetOutput("database_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("query_as_of_time");
+        SetOutput("region");
+        SetOutput("transaction_id");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -43,17 +50,17 @@ public class AwsGlueCatalogTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,35 +69,35 @@ public class AwsGlueCatalogTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The query_as_of_time attribute.
     /// </summary>
-    public TerraformProperty<string>? QueryAsOfTime
+    public TerraformProperty<string> QueryAsOfTime
     {
-        get => GetProperty<TerraformProperty<string>>("query_as_of_time");
-        set => this.WithProperty("query_as_of_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("query_as_of_time");
+        set => SetProperty("query_as_of_time", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The transaction_id attribute.
     /// </summary>
-    public TerraformProperty<double>? TransactionId
+    public TerraformProperty<double> TransactionId
     {
-        get => GetProperty<TerraformProperty<double>>("transaction_id");
-        set => this.WithProperty("transaction_id", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("transaction_id");
+        set => SetProperty("transaction_id", value);
     }
 
     /// <summary>

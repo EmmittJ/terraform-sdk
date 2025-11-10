@@ -22,8 +22,7 @@ public class AwsMwaaEnvironmentNetworkConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class AwsMwaaEnvironmentNetworkConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsMwaaEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsMwaaEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AwsMwaaEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -86,32 +81,59 @@ public class AwsMwaaEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("database_vpc_endpoint_service");
-        this.WithOutput("last_updated");
-        this.WithOutput("service_role_arn");
-        this.WithOutput("status");
-        this.WithOutput("webserver_url");
-        this.WithOutput("webserver_vpc_endpoint_service");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("database_vpc_endpoint_service");
+        SetOutput("last_updated");
+        SetOutput("service_role_arn");
+        SetOutput("status");
+        SetOutput("webserver_url");
+        SetOutput("webserver_vpc_endpoint_service");
+        SetOutput("airflow_configuration_options");
+        SetOutput("airflow_version");
+        SetOutput("dag_s3_path");
+        SetOutput("endpoint_management");
+        SetOutput("environment_class");
+        SetOutput("execution_role_arn");
+        SetOutput("id");
+        SetOutput("kms_key");
+        SetOutput("max_webservers");
+        SetOutput("max_workers");
+        SetOutput("min_webservers");
+        SetOutput("min_workers");
+        SetOutput("name");
+        SetOutput("plugins_s3_object_version");
+        SetOutput("plugins_s3_path");
+        SetOutput("region");
+        SetOutput("requirements_s3_object_version");
+        SetOutput("requirements_s3_path");
+        SetOutput("schedulers");
+        SetOutput("source_bucket_arn");
+        SetOutput("startup_script_s3_object_version");
+        SetOutput("startup_script_s3_path");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("webserver_access_mode");
+        SetOutput("weekly_maintenance_window_start");
+        SetOutput("worker_replacement_strategy");
     }
 
     /// <summary>
     /// The airflow_configuration_options attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AirflowConfigurationOptions
+    public Dictionary<string, TerraformProperty<string>> AirflowConfigurationOptions
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("airflow_configuration_options");
-        set => this.WithProperty("airflow_configuration_options", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("airflow_configuration_options");
+        set => SetProperty("airflow_configuration_options", value);
     }
 
     /// <summary>
     /// The airflow_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AirflowVersion
+    public TerraformProperty<string> AirflowVersion
     {
-        get => GetProperty<TerraformProperty<string>>("airflow_version");
-        set => this.WithProperty("airflow_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("airflow_version");
+        set => SetProperty("airflow_version", value);
     }
 
     /// <summary>
@@ -120,26 +142,26 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DagS3Path is required")]
     public required TerraformProperty<string> DagS3Path
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dag_s3_path");
-        set => this.WithProperty("dag_s3_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dag_s3_path");
+        set => SetProperty("dag_s3_path", value);
     }
 
     /// <summary>
     /// The endpoint_management attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointManagement
+    public TerraformProperty<string> EndpointManagement
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_management");
-        set => this.WithProperty("endpoint_management", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_management");
+        set => SetProperty("endpoint_management", value);
     }
 
     /// <summary>
     /// The environment_class attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvironmentClass
+    public TerraformProperty<string> EnvironmentClass
     {
-        get => GetProperty<TerraformProperty<string>>("environment_class");
-        set => this.WithProperty("environment_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_class");
+        set => SetProperty("environment_class", value);
     }
 
     /// <summary>
@@ -148,62 +170,62 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
-        set => this.WithProperty("execution_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
+        set => SetProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKey
+    public TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => this.WithProperty("kms_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
     /// The max_webservers attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxWebservers
+    public TerraformProperty<double> MaxWebservers
     {
-        get => GetProperty<TerraformProperty<double>>("max_webservers");
-        set => this.WithProperty("max_webservers", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_webservers");
+        set => SetProperty("max_webservers", value);
     }
 
     /// <summary>
     /// The max_workers attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxWorkers
+    public TerraformProperty<double> MaxWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("max_workers");
-        set => this.WithProperty("max_workers", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_workers");
+        set => SetProperty("max_workers", value);
     }
 
     /// <summary>
     /// The min_webservers attribute.
     /// </summary>
-    public TerraformProperty<double>? MinWebservers
+    public TerraformProperty<double> MinWebservers
     {
-        get => GetProperty<TerraformProperty<double>>("min_webservers");
-        set => this.WithProperty("min_webservers", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_webservers");
+        set => SetProperty("min_webservers", value);
     }
 
     /// <summary>
     /// The min_workers attribute.
     /// </summary>
-    public TerraformProperty<double>? MinWorkers
+    public TerraformProperty<double> MinWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("min_workers");
-        set => this.WithProperty("min_workers", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_workers");
+        set => SetProperty("min_workers", value);
     }
 
     /// <summary>
@@ -212,62 +234,62 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The plugins_s3_object_version attribute.
     /// </summary>
-    public TerraformProperty<string>? PluginsS3ObjectVersion
+    public TerraformProperty<string> PluginsS3ObjectVersion
     {
-        get => GetProperty<TerraformProperty<string>>("plugins_s3_object_version");
-        set => this.WithProperty("plugins_s3_object_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plugins_s3_object_version");
+        set => SetProperty("plugins_s3_object_version", value);
     }
 
     /// <summary>
     /// The plugins_s3_path attribute.
     /// </summary>
-    public TerraformProperty<string>? PluginsS3Path
+    public TerraformProperty<string> PluginsS3Path
     {
-        get => GetProperty<TerraformProperty<string>>("plugins_s3_path");
-        set => this.WithProperty("plugins_s3_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plugins_s3_path");
+        set => SetProperty("plugins_s3_path", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The requirements_s3_object_version attribute.
     /// </summary>
-    public TerraformProperty<string>? RequirementsS3ObjectVersion
+    public TerraformProperty<string> RequirementsS3ObjectVersion
     {
-        get => GetProperty<TerraformProperty<string>>("requirements_s3_object_version");
-        set => this.WithProperty("requirements_s3_object_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("requirements_s3_object_version");
+        set => SetProperty("requirements_s3_object_version", value);
     }
 
     /// <summary>
     /// The requirements_s3_path attribute.
     /// </summary>
-    public TerraformProperty<string>? RequirementsS3Path
+    public TerraformProperty<string> RequirementsS3Path
     {
-        get => GetProperty<TerraformProperty<string>>("requirements_s3_path");
-        set => this.WithProperty("requirements_s3_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("requirements_s3_path");
+        set => SetProperty("requirements_s3_path", value);
     }
 
     /// <summary>
     /// The schedulers attribute.
     /// </summary>
-    public TerraformProperty<double>? Schedulers
+    public TerraformProperty<double> Schedulers
     {
-        get => GetProperty<TerraformProperty<double>>("schedulers");
-        set => this.WithProperty("schedulers", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("schedulers");
+        set => SetProperty("schedulers", value);
     }
 
     /// <summary>
@@ -276,71 +298,71 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceBucketArn is required")]
     public required TerraformProperty<string> SourceBucketArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_bucket_arn");
-        set => this.WithProperty("source_bucket_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_bucket_arn");
+        set => SetProperty("source_bucket_arn", value);
     }
 
     /// <summary>
     /// The startup_script_s3_object_version attribute.
     /// </summary>
-    public TerraformProperty<string>? StartupScriptS3ObjectVersion
+    public TerraformProperty<string> StartupScriptS3ObjectVersion
     {
-        get => GetProperty<TerraformProperty<string>>("startup_script_s3_object_version");
-        set => this.WithProperty("startup_script_s3_object_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("startup_script_s3_object_version");
+        set => SetProperty("startup_script_s3_object_version", value);
     }
 
     /// <summary>
     /// The startup_script_s3_path attribute.
     /// </summary>
-    public TerraformProperty<string>? StartupScriptS3Path
+    public TerraformProperty<string> StartupScriptS3Path
     {
-        get => GetProperty<TerraformProperty<string>>("startup_script_s3_path");
-        set => this.WithProperty("startup_script_s3_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("startup_script_s3_path");
+        set => SetProperty("startup_script_s3_path", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The webserver_access_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? WebserverAccessMode
+    public TerraformProperty<string> WebserverAccessMode
     {
-        get => GetProperty<TerraformProperty<string>>("webserver_access_mode");
-        set => this.WithProperty("webserver_access_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("webserver_access_mode");
+        set => SetProperty("webserver_access_mode", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_window_start attribute.
     /// </summary>
-    public TerraformProperty<string>? WeeklyMaintenanceWindowStart
+    public TerraformProperty<string> WeeklyMaintenanceWindowStart
     {
-        get => GetProperty<TerraformProperty<string>>("weekly_maintenance_window_start");
-        set => this.WithProperty("weekly_maintenance_window_start", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("weekly_maintenance_window_start");
+        set => SetProperty("weekly_maintenance_window_start", value);
     }
 
     /// <summary>
     /// The worker_replacement_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkerReplacementStrategy
+    public TerraformProperty<string> WorkerReplacementStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("worker_replacement_strategy");
-        set => this.WithProperty("worker_replacement_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("worker_replacement_strategy");
+        set => SetProperty("worker_replacement_strategy", value);
     }
 
     /// <summary>
@@ -350,20 +372,19 @@ public class AwsMwaaEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     public List<AwsMwaaEnvironmentLoggingConfigurationBlock>? LoggingConfiguration
     {
-        get => GetProperty<List<AwsMwaaEnvironmentLoggingConfigurationBlock>>("logging_configuration");
-        set => this.WithProperty("logging_configuration", value);
+        set => SetProperty("logging_configuration", value);
     }
 
     /// <summary>
     /// Block for network_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     public List<AwsMwaaEnvironmentNetworkConfigurationBlock>? NetworkConfiguration
     {
-        get => GetProperty<List<AwsMwaaEnvironmentNetworkConfigurationBlock>>("network_configuration");
-        set => this.WithProperty("network_configuration", value);
+        set => SetProperty("network_configuration", value);
     }
 
     /// <summary>
@@ -372,8 +393,7 @@ public class AwsMwaaEnvironment : TerraformResource
     /// </summary>
     public AwsMwaaEnvironmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMwaaEnvironmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

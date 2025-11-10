@@ -14,8 +14,7 @@ public class AwsRedshiftserverlessWorkgroupConfigParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterKey is required")]
     public required TerraformProperty<string> ParameterKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter_key");
-        set => WithProperty("parameter_key", value);
+        set => SetProperty("parameter_key", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsRedshiftserverlessWorkgroupConfigParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformProperty<string> ParameterValue
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parameter_value");
-        set => WithProperty("parameter_value", value);
+        set => SetProperty("parameter_value", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock : Terrafo
     /// </summary>
     public TerraformProperty<double>? Level
     {
-        get => GetProperty<TerraformProperty<double>>("level");
-        set => WithProperty("level", value);
+        set => SetProperty("level", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class AwsRedshiftserverlessWorkgroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -77,8 +72,7 @@ public class AwsRedshiftserverlessWorkgroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -86,8 +80,7 @@ public class AwsRedshiftserverlessWorkgroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -105,45 +98,59 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("endpoint");
-        this.WithOutput("workgroup_id");
+        SetOutput("arn");
+        SetOutput("endpoint");
+        SetOutput("workgroup_id");
+        SetOutput("base_capacity");
+        SetOutput("enhanced_vpc_routing");
+        SetOutput("id");
+        SetOutput("max_capacity");
+        SetOutput("namespace_name");
+        SetOutput("port");
+        SetOutput("publicly_accessible");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("track_name");
+        SetOutput("workgroup_name");
     }
 
     /// <summary>
     /// The base_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? BaseCapacity
+    public TerraformProperty<double> BaseCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("base_capacity");
-        set => this.WithProperty("base_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("base_capacity");
+        set => SetProperty("base_capacity", value);
     }
 
     /// <summary>
     /// The enhanced_vpc_routing attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnhancedVpcRouting
+    public TerraformProperty<bool> EnhancedVpcRouting
     {
-        get => GetProperty<TerraformProperty<bool>>("enhanced_vpc_routing");
-        set => this.WithProperty("enhanced_vpc_routing", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enhanced_vpc_routing");
+        set => SetProperty("enhanced_vpc_routing", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxCapacity
+    public TerraformProperty<double> MaxCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity");
-        set => this.WithProperty("max_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_capacity");
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
@@ -152,80 +159,80 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
-        set => this.WithProperty("namespace_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
+        set => SetProperty("namespace_name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool> PubliclyAccessible
     {
-        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
-        set => this.WithProperty("publicly_accessible", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
+        set => SetProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The track_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TrackName
+    public TerraformProperty<string> TrackName
     {
-        get => GetProperty<TerraformProperty<string>>("track_name");
-        set => this.WithProperty("track_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("track_name");
+        set => SetProperty("track_name", value);
     }
 
     /// <summary>
@@ -234,8 +241,8 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformProperty<string> WorkgroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workgroup_name");
-        set => this.WithProperty("workgroup_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workgroup_name");
+        set => SetProperty("workgroup_name", value);
     }
 
     /// <summary>
@@ -244,8 +251,7 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     /// </summary>
     public HashSet<AwsRedshiftserverlessWorkgroupConfigParameterBlock>? ConfigParameter
     {
-        get => GetProperty<HashSet<AwsRedshiftserverlessWorkgroupConfigParameterBlock>>("config_parameter");
-        set => this.WithProperty("config_parameter", value);
+        set => SetProperty("config_parameter", value);
     }
 
     /// <summary>
@@ -255,8 +261,7 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PricePerformanceTarget block(s) allowed")]
     public List<AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock>? PricePerformanceTarget
     {
-        get => GetProperty<List<AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock>>("price_performance_target");
-        set => this.WithProperty("price_performance_target", value);
+        set => SetProperty("price_performance_target", value);
     }
 
     /// <summary>
@@ -265,8 +270,7 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     /// </summary>
     public AwsRedshiftserverlessWorkgroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsRedshiftserverlessWorkgroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

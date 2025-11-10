@@ -13,8 +13,7 @@ public class AzureadApplicationTemplateDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,39 +30,42 @@ public class AzureadApplicationTemplateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("categories");
-        this.WithOutput("homepage_url");
-        this.WithOutput("logo_url");
-        this.WithOutput("publisher");
-        this.WithOutput("supported_provisioning_types");
-        this.WithOutput("supported_single_sign_on_modes");
+        SetOutput("categories");
+        SetOutput("homepage_url");
+        SetOutput("logo_url");
+        SetOutput("publisher");
+        SetOutput("supported_provisioning_types");
+        SetOutput("supported_single_sign_on_modes");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("template_id");
     }
 
     /// <summary>
     /// The display name for the application template
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The application template&#39;s ID
     /// </summary>
-    public TerraformProperty<string>? TemplateId
+    public TerraformProperty<string> TemplateId
     {
-        get => GetProperty<TerraformProperty<string>>("template_id");
-        set => this.WithProperty("template_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
+        set => SetProperty("template_id", value);
     }
 
     /// <summary>
@@ -72,8 +74,7 @@ public class AzureadApplicationTemplateDataSource : TerraformDataSource
     /// </summary>
     public AzureadApplicationTemplateDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationTemplateDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

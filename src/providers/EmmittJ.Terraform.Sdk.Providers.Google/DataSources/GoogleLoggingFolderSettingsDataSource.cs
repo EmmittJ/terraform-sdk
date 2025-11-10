@@ -14,12 +14,14 @@ public class GoogleLoggingFolderSettingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("disable_default_sink");
-        this.WithOutput("kms_key_name");
-        this.WithOutput("kms_service_account_id");
-        this.WithOutput("logging_service_account_id");
-        this.WithOutput("name");
-        this.WithOutput("storage_location");
+        SetOutput("disable_default_sink");
+        SetOutput("kms_key_name");
+        SetOutput("kms_service_account_id");
+        SetOutput("logging_service_account_id");
+        SetOutput("name");
+        SetOutput("storage_location");
+        SetOutput("folder");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -28,17 +30,17 @@ public class GoogleLoggingFolderSettingsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

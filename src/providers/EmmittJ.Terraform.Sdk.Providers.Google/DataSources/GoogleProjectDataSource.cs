@@ -14,35 +14,37 @@ public class GoogleProjectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("auto_create_network");
-        this.WithOutput("billing_account");
-        this.WithOutput("deletion_policy");
-        this.WithOutput("effective_labels");
-        this.WithOutput("folder_id");
-        this.WithOutput("labels");
-        this.WithOutput("name");
-        this.WithOutput("number");
-        this.WithOutput("org_id");
-        this.WithOutput("tags");
-        this.WithOutput("terraform_labels");
+        SetOutput("auto_create_network");
+        SetOutput("billing_account");
+        SetOutput("deletion_policy");
+        SetOutput("effective_labels");
+        SetOutput("folder_id");
+        SetOutput("labels");
+        SetOutput("name");
+        SetOutput("number");
+        SetOutput("org_id");
+        SetOutput("tags");
+        SetOutput("terraform_labels");
+        SetOutput("id");
+        SetOutput("project_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project ID. Changing this forces a new project to be created.
     /// </summary>
-    public TerraformProperty<string>? ProjectId
+    public TerraformProperty<string> ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
-        set => this.WithProperty("project_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_id");
+        set => SetProperty("project_id", value);
     }
 
     /// <summary>

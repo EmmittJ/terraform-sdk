@@ -13,8 +13,7 @@ public class AzurermApiManagementApiDiagnosticBackendRequestBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<double>? BodyBytes
     {
-        get => GetProperty<TerraformProperty<double>>("body_bytes");
-        set => WithProperty("body_bytes", value);
+        set => SetProperty("body_bytes", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermApiManagementApiDiagnosticBackendRequestBlock : TerraformBlo
     /// </summary>
     public HashSet<TerraformProperty<string>>? HeadersToLog
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("headers_to_log");
-        set => WithProperty("headers_to_log", value);
+        set => SetProperty("headers_to_log", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermApiManagementApiDiagnosticBackendResponseBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? BodyBytes
     {
-        get => GetProperty<TerraformProperty<double>>("body_bytes");
-        set => WithProperty("body_bytes", value);
+        set => SetProperty("body_bytes", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermApiManagementApiDiagnosticBackendResponseBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? HeadersToLog
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("headers_to_log");
-        set => WithProperty("headers_to_log", value);
+        set => SetProperty("headers_to_log", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class AzurermApiManagementApiDiagnosticFrontendRequestBlock : TerraformBl
     /// </summary>
     public TerraformProperty<double>? BodyBytes
     {
-        get => GetProperty<TerraformProperty<double>>("body_bytes");
-        set => WithProperty("body_bytes", value);
+        set => SetProperty("body_bytes", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AzurermApiManagementApiDiagnosticFrontendRequestBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? HeadersToLog
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("headers_to_log");
-        set => WithProperty("headers_to_log", value);
+        set => SetProperty("headers_to_log", value);
     }
 
 }
@@ -91,8 +85,7 @@ public class AzurermApiManagementApiDiagnosticFrontendResponseBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? BodyBytes
     {
-        get => GetProperty<TerraformProperty<double>>("body_bytes");
-        set => WithProperty("body_bytes", value);
+        set => SetProperty("body_bytes", value);
     }
 
     /// <summary>
@@ -100,8 +93,7 @@ public class AzurermApiManagementApiDiagnosticFrontendResponseBlock : TerraformB
     /// </summary>
     public HashSet<TerraformProperty<string>>? HeadersToLog
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("headers_to_log");
-        set => WithProperty("headers_to_log", value);
+        set => SetProperty("headers_to_log", value);
     }
 
 }
@@ -117,8 +109,7 @@ public class AzurermApiManagementApiDiagnosticTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -126,8 +117,7 @@ public class AzurermApiManagementApiDiagnosticTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -135,8 +125,7 @@ public class AzurermApiManagementApiDiagnosticTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -144,8 +133,7 @@ public class AzurermApiManagementApiDiagnosticTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -163,15 +151,27 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("always_log_errors");
+        SetOutput("api_management_logger_id");
+        SetOutput("api_management_name");
+        SetOutput("api_name");
+        SetOutput("http_correlation_protocol");
+        SetOutput("id");
+        SetOutput("identifier");
+        SetOutput("log_client_ip");
+        SetOutput("operation_name_format");
+        SetOutput("resource_group_name");
+        SetOutput("sampling_percentage");
+        SetOutput("verbosity");
     }
 
     /// <summary>
     /// The always_log_errors attribute.
     /// </summary>
-    public TerraformProperty<bool>? AlwaysLogErrors
+    public TerraformProperty<bool> AlwaysLogErrors
     {
-        get => GetProperty<TerraformProperty<bool>>("always_log_errors");
-        set => this.WithProperty("always_log_errors", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("always_log_errors");
+        set => SetProperty("always_log_errors", value);
     }
 
     /// <summary>
@@ -180,8 +180,8 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementLoggerId is required")]
     public required TerraformProperty<string> ApiManagementLoggerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_logger_id");
-        set => this.WithProperty("api_management_logger_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_logger_id");
+        set => SetProperty("api_management_logger_id", value);
     }
 
     /// <summary>
@@ -190,8 +190,8 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
-        set => this.WithProperty("api_management_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
+        set => SetProperty("api_management_name", value);
     }
 
     /// <summary>
@@ -200,26 +200,26 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
     public required TerraformProperty<string> ApiName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_name");
-        set => this.WithProperty("api_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_name");
+        set => SetProperty("api_name", value);
     }
 
     /// <summary>
     /// The http_correlation_protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? HttpCorrelationProtocol
+    public TerraformProperty<string> HttpCorrelationProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("http_correlation_protocol");
-        set => this.WithProperty("http_correlation_protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("http_correlation_protocol");
+        set => SetProperty("http_correlation_protocol", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -228,26 +228,26 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
-        set => this.WithProperty("identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identifier");
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
     /// The log_client_ip attribute.
     /// </summary>
-    public TerraformProperty<bool>? LogClientIp
+    public TerraformProperty<bool> LogClientIp
     {
-        get => GetProperty<TerraformProperty<bool>>("log_client_ip");
-        set => this.WithProperty("log_client_ip", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("log_client_ip");
+        set => SetProperty("log_client_ip", value);
     }
 
     /// <summary>
     /// The operation_name_format attribute.
     /// </summary>
-    public TerraformProperty<string>? OperationNameFormat
+    public TerraformProperty<string> OperationNameFormat
     {
-        get => GetProperty<TerraformProperty<string>>("operation_name_format");
-        set => this.WithProperty("operation_name_format", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("operation_name_format");
+        set => SetProperty("operation_name_format", value);
     }
 
     /// <summary>
@@ -256,26 +256,26 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformProperty<double>? SamplingPercentage
+    public TerraformProperty<double> SamplingPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("sampling_percentage");
-        set => this.WithProperty("sampling_percentage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("sampling_percentage");
+        set => SetProperty("sampling_percentage", value);
     }
 
     /// <summary>
     /// The verbosity attribute.
     /// </summary>
-    public TerraformProperty<string>? Verbosity
+    public TerraformProperty<string> Verbosity
     {
-        get => GetProperty<TerraformProperty<string>>("verbosity");
-        set => this.WithProperty("verbosity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("verbosity");
+        set => SetProperty("verbosity", value);
     }
 
     /// <summary>
@@ -285,8 +285,7 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendRequest block(s) allowed")]
     public List<AzurermApiManagementApiDiagnosticBackendRequestBlock>? BackendRequest
     {
-        get => GetProperty<List<AzurermApiManagementApiDiagnosticBackendRequestBlock>>("backend_request");
-        set => this.WithProperty("backend_request", value);
+        set => SetProperty("backend_request", value);
     }
 
     /// <summary>
@@ -296,8 +295,7 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendResponse block(s) allowed")]
     public List<AzurermApiManagementApiDiagnosticBackendResponseBlock>? BackendResponse
     {
-        get => GetProperty<List<AzurermApiManagementApiDiagnosticBackendResponseBlock>>("backend_response");
-        set => this.WithProperty("backend_response", value);
+        set => SetProperty("backend_response", value);
     }
 
     /// <summary>
@@ -307,8 +305,7 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendRequest block(s) allowed")]
     public List<AzurermApiManagementApiDiagnosticFrontendRequestBlock>? FrontendRequest
     {
-        get => GetProperty<List<AzurermApiManagementApiDiagnosticFrontendRequestBlock>>("frontend_request");
-        set => this.WithProperty("frontend_request", value);
+        set => SetProperty("frontend_request", value);
     }
 
     /// <summary>
@@ -318,8 +315,7 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendResponse block(s) allowed")]
     public List<AzurermApiManagementApiDiagnosticFrontendResponseBlock>? FrontendResponse
     {
-        get => GetProperty<List<AzurermApiManagementApiDiagnosticFrontendResponseBlock>>("frontend_response");
-        set => this.WithProperty("frontend_response", value);
+        set => SetProperty("frontend_response", value);
     }
 
     /// <summary>
@@ -328,8 +324,7 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     /// </summary>
     public AzurermApiManagementApiDiagnosticTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermApiManagementApiDiagnosticTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -16,8 +16,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -28,8 +27,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KeyVersion
     {
-        get => GetProperty<TerraformProperty<string>>("key_version");
-        set => WithProperty("key_version", value);
+        set => SetProperty("key_version", value);
     }
 
     /// <summary>
@@ -38,8 +36,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsLocation is required")]
     public required TerraformProperty<string> KmsLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_location");
-        set => WithProperty("kms_location", value);
+        set => SetProperty("kms_location", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_project_id");
-        set => WithProperty("kms_project_id", value);
+        set => SetProperty("kms_project_id", value);
     }
 
     /// <summary>
@@ -62,8 +58,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsRing is required")]
     public required TerraformProperty<string> KmsRing
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_ring");
-        set => WithProperty("kms_ring", value);
+        set => SetProperty("kms_ring", value);
     }
 
 }
@@ -79,8 +74,7 @@ public class GoogleIntegrationsClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -88,8 +82,7 @@ public class GoogleIntegrationsClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -107,24 +100,29 @@ public class GoogleIntegrationsClient : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("create_sample_integrations");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("run_as_service_account");
     }
 
     /// <summary>
     /// Indicates if sample integrations should be created along with provisioning.
     /// </summary>
-    public TerraformProperty<bool>? CreateSampleIntegrations
+    public TerraformProperty<bool> CreateSampleIntegrations
     {
-        get => GetProperty<TerraformProperty<bool>>("create_sample_integrations");
-        set => this.WithProperty("create_sample_integrations", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_sample_integrations");
+        set => SetProperty("create_sample_integrations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -133,27 +131,27 @@ public class GoogleIntegrationsClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// User input run-as service account, if empty, will bring up a new default service account.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? RunAsServiceAccount
+    public TerraformProperty<string> RunAsServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("run_as_service_account");
-        set => this.WithProperty("run_as_service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("run_as_service_account");
+        set => SetProperty("run_as_service_account", value);
     }
 
     /// <summary>
@@ -163,8 +161,7 @@ public class GoogleIntegrationsClient : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudKmsConfig block(s) allowed")]
     public List<GoogleIntegrationsClientCloudKmsConfigBlock>? CloudKmsConfig
     {
-        get => GetProperty<List<GoogleIntegrationsClientCloudKmsConfigBlock>>("cloud_kms_config");
-        set => this.WithProperty("cloud_kms_config", value);
+        set => SetProperty("cloud_kms_config", value);
     }
 
     /// <summary>
@@ -173,8 +170,7 @@ public class GoogleIntegrationsClient : TerraformResource
     /// </summary>
     public GoogleIntegrationsClientTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIntegrationsClientTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

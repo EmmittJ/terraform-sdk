@@ -13,8 +13,7 @@ public class AzurermMssqlFailoverGroupDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermMssqlFailoverGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("databases");
-        this.WithOutput("partner_server");
-        this.WithOutput("read_write_endpoint_failover_policy");
-        this.WithOutput("readonly_endpoint_failover_policy_enabled");
-        this.WithOutput("tags");
+        SetOutput("databases");
+        SetOutput("partner_server");
+        SetOutput("read_write_endpoint_failover_policy");
+        SetOutput("readonly_endpoint_failover_policy_enabled");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("server_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermMssqlFailoverGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermMssqlFailoverGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
-        set => this.WithProperty("server_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
+        set => SetProperty("server_id", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermMssqlFailoverGroupDataSource : TerraformDataSource
     /// </summary>
     public AzurermMssqlFailoverGroupDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlFailoverGroupDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

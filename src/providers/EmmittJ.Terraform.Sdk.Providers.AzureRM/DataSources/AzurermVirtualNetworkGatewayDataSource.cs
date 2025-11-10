@@ -13,8 +13,7 @@ public class AzurermVirtualNetworkGatewayDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,29 +30,32 @@ public class AzurermVirtualNetworkGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("active_active");
-        this.WithOutput("bgp_settings");
-        this.WithOutput("custom_route");
-        this.WithOutput("default_local_network_gateway_id");
-        this.WithOutput("enable_bgp");
-        this.WithOutput("generation");
-        this.WithOutput("ip_configuration");
-        this.WithOutput("location");
-        this.WithOutput("private_ip_address_enabled");
-        this.WithOutput("sku");
-        this.WithOutput("tags");
-        this.WithOutput("type");
-        this.WithOutput("vpn_client_configuration");
-        this.WithOutput("vpn_type");
+        SetOutput("active_active");
+        SetOutput("bgp_settings");
+        SetOutput("custom_route");
+        SetOutput("default_local_network_gateway_id");
+        SetOutput("enable_bgp");
+        SetOutput("generation");
+        SetOutput("ip_configuration");
+        SetOutput("location");
+        SetOutput("private_ip_address_enabled");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("type");
+        SetOutput("vpn_client_configuration");
+        SetOutput("vpn_type");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +64,8 @@ public class AzurermVirtualNetworkGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +74,8 @@ public class AzurermVirtualNetworkGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -82,8 +84,7 @@ public class AzurermVirtualNetworkGatewayDataSource : TerraformDataSource
     /// </summary>
     public AzurermVirtualNetworkGatewayDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualNetworkGatewayDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -22,15 +22,16 @@ public class AwsOdbNetworkPeeringConnectionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
+        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -39,8 +40,7 @@ public class AwsOdbNetworkPeeringConnectionsDataSource : TerraformDataSource
     /// </summary>
     public List<AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock>? OdbPeeringConnections
     {
-        get => GetProperty<List<AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock>>("odb_peering_connections");
-        set => this.WithProperty("odb_peering_connections", value);
+        set => SetProperty("odb_peering_connections", value);
     }
 
 }

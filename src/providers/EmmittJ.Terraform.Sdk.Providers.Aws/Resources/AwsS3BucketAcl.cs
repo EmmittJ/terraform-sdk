@@ -23,15 +23,20 @@ public class AwsS3BucketAcl : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("acl");
+        SetOutput("bucket");
+        SetOutput("expected_bucket_owner");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The acl attribute.
     /// </summary>
-    public TerraformProperty<string>? Acl
+    public TerraformProperty<string> Acl
     {
-        get => GetProperty<TerraformProperty<string>>("acl");
-        set => this.WithProperty("acl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("acl");
+        set => SetProperty("acl", value);
     }
 
     /// <summary>
@@ -40,35 +45,35 @@ public class AwsS3BucketAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpectedBucketOwner
+    public TerraformProperty<string> ExpectedBucketOwner
     {
-        get => GetProperty<TerraformProperty<string>>("expected_bucket_owner");
-        set => this.WithProperty("expected_bucket_owner", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
+        set => SetProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +83,7 @@ public class AwsS3BucketAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessControlPolicy block(s) allowed")]
     public List<AwsS3BucketAclAccessControlPolicyBlock>? AccessControlPolicy
     {
-        get => GetProperty<List<AwsS3BucketAclAccessControlPolicyBlock>>("access_control_policy");
-        set => this.WithProperty("access_control_policy", value);
+        set => SetProperty("access_control_policy", value);
     }
 
 }

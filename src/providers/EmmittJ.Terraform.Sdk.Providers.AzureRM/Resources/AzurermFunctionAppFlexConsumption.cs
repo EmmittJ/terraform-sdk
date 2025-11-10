@@ -13,8 +13,7 @@ public class AzurermFunctionAppFlexConsumptionAlwaysReadyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
-        set => WithProperty("instance_count", value);
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermFunctionAppFlexConsumptionAlwaysReadyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? AdditionalLoginParameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_login_parameters");
-        set => WithProperty("additional_login_parameters", value);
+        set => SetProperty("additional_login_parameters", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedExternalRedirectUrls
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_external_redirect_urls");
-        set => WithProperty("allowed_external_redirect_urls", value);
+        set => SetProperty("allowed_external_redirect_urls", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DefaultProvider
     {
-        get => GetProperty<TerraformProperty<string>>("default_provider");
-        set => WithProperty("default_provider", value);
+        set => SetProperty("default_provider", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
-        set => WithProperty("issuer", value);
+        set => SetProperty("issuer", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
-        set => WithProperty("runtime_version", value);
+        set => SetProperty("runtime_version", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TokenRefreshExtensionHours
     {
-        get => GetProperty<TerraformProperty<double>>("token_refresh_extension_hours");
-        set => WithProperty("token_refresh_extension_hours", value);
+        set => SetProperty("token_refresh_extension_hours", value);
     }
 
     /// <summary>
@@ -104,8 +95,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? TokenStoreEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("token_store_enabled");
-        set => WithProperty("token_store_enabled", value);
+        set => SetProperty("token_store_enabled", value);
     }
 
     /// <summary>
@@ -113,8 +103,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UnauthenticatedClientAction
     {
-        get => GetProperty<TerraformProperty<string>>("unauthenticated_client_action");
-        set => WithProperty("unauthenticated_client_action", value);
+        set => SetProperty("unauthenticated_client_action", value);
     }
 
 }
@@ -130,8 +119,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? AuthEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auth_enabled");
-        set => WithProperty("auth_enabled", value);
+        set => SetProperty("auth_enabled", value);
     }
 
     /// <summary>
@@ -139,8 +127,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? ConfigFilePath
     {
-        get => GetProperty<TerraformProperty<string>>("config_file_path");
-        set => WithProperty("config_file_path", value);
+        set => SetProperty("config_file_path", value);
     }
 
     /// <summary>
@@ -148,8 +135,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? DefaultProvider
     {
-        get => GetProperty<TerraformProperty<string>>("default_provider");
-        set => WithProperty("default_provider", value);
+        set => SetProperty("default_provider", value);
     }
 
     /// <summary>
@@ -157,8 +143,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public List<TerraformProperty<string>>? ExcludedPaths
     {
-        get => GetProperty<List<TerraformProperty<string>>>("excluded_paths");
-        set => WithProperty("excluded_paths", value);
+        set => SetProperty("excluded_paths", value);
     }
 
     /// <summary>
@@ -166,8 +151,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? ForwardProxyConvention
     {
-        get => GetProperty<TerraformProperty<string>>("forward_proxy_convention");
-        set => WithProperty("forward_proxy_convention", value);
+        set => SetProperty("forward_proxy_convention", value);
     }
 
     /// <summary>
@@ -175,8 +159,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? ForwardProxyCustomHostHeaderName
     {
-        get => GetProperty<TerraformProperty<string>>("forward_proxy_custom_host_header_name");
-        set => WithProperty("forward_proxy_custom_host_header_name", value);
+        set => SetProperty("forward_proxy_custom_host_header_name", value);
     }
 
     /// <summary>
@@ -184,8 +167,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? ForwardProxyCustomSchemeHeaderName
     {
-        get => GetProperty<TerraformProperty<string>>("forward_proxy_custom_scheme_header_name");
-        set => WithProperty("forward_proxy_custom_scheme_header_name", value);
+        set => SetProperty("forward_proxy_custom_scheme_header_name", value);
     }
 
     /// <summary>
@@ -193,8 +175,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? HttpRouteApiPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("http_route_api_prefix");
-        set => WithProperty("http_route_api_prefix", value);
+        set => SetProperty("http_route_api_prefix", value);
     }
 
     /// <summary>
@@ -202,8 +183,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? RequireAuthentication
     {
-        get => GetProperty<TerraformProperty<bool>>("require_authentication");
-        set => WithProperty("require_authentication", value);
+        set => SetProperty("require_authentication", value);
     }
 
     /// <summary>
@@ -211,8 +191,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? RequireHttps
     {
-        get => GetProperty<TerraformProperty<bool>>("require_https");
-        set => WithProperty("require_https", value);
+        set => SetProperty("require_https", value);
     }
 
     /// <summary>
@@ -220,8 +199,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
-        set => WithProperty("runtime_version", value);
+        set => SetProperty("runtime_version", value);
     }
 
     /// <summary>
@@ -229,8 +207,7 @@ public class AzurermFunctionAppFlexConsumptionAuthSettingsV2Block : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? UnauthenticatedAction
     {
-        get => GetProperty<TerraformProperty<string>>("unauthenticated_action");
-        set => WithProperty("unauthenticated_action", value);
+        set => SetProperty("unauthenticated_action", value);
     }
 
 }
@@ -247,8 +224,7 @@ public class AzurermFunctionAppFlexConsumptionConnectionStringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -257,8 +233,7 @@ public class AzurermFunctionAppFlexConsumptionConnectionStringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -267,8 +242,7 @@ public class AzurermFunctionAppFlexConsumptionConnectionStringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -284,8 +258,7 @@ public class AzurermFunctionAppFlexConsumptionIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -293,8 +266,7 @@ public class AzurermFunctionAppFlexConsumptionIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -302,8 +274,7 @@ public class AzurermFunctionAppFlexConsumptionIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -312,8 +283,7 @@ public class AzurermFunctionAppFlexConsumptionIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -329,8 +299,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApiDefinitionUrl
     {
-        get => GetProperty<TerraformProperty<string>>("api_definition_url");
-        set => WithProperty("api_definition_url", value);
+        set => SetProperty("api_definition_url", value);
     }
 
     /// <summary>
@@ -338,8 +307,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApiManagementApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_api_id");
-        set => WithProperty("api_management_api_id", value);
+        set => SetProperty("api_management_api_id", value);
     }
 
     /// <summary>
@@ -347,8 +315,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AppCommandLine
     {
-        get => GetProperty<TerraformProperty<string>>("app_command_line");
-        set => WithProperty("app_command_line", value);
+        set => SetProperty("app_command_line", value);
     }
 
     /// <summary>
@@ -356,8 +323,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApplicationInsightsConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("application_insights_connection_string");
-        set => WithProperty("application_insights_connection_string", value);
+        set => SetProperty("application_insights_connection_string", value);
     }
 
     /// <summary>
@@ -365,8 +331,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ApplicationInsightsKey
     {
-        get => GetProperty<TerraformProperty<string>>("application_insights_key");
-        set => WithProperty("application_insights_key", value);
+        set => SetProperty("application_insights_key", value);
     }
 
     /// <summary>
@@ -374,8 +339,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerRegistryManagedIdentityClientId
     {
-        get => GetProperty<TerraformProperty<string>>("container_registry_managed_identity_client_id");
-        set => WithProperty("container_registry_managed_identity_client_id", value);
+        set => SetProperty("container_registry_managed_identity_client_id", value);
     }
 
     /// <summary>
@@ -383,8 +347,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ContainerRegistryUseManagedIdentity
     {
-        get => GetProperty<TerraformProperty<bool>>("container_registry_use_managed_identity");
-        set => WithProperty("container_registry_use_managed_identity", value);
+        set => SetProperty("container_registry_use_managed_identity", value);
     }
 
     /// <summary>
@@ -392,8 +355,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DefaultDocuments
     {
-        get => GetProperty<List<TerraformProperty<string>>>("default_documents");
-        set => WithProperty("default_documents", value);
+        set => SetProperty("default_documents", value);
     }
 
     /// <summary>
@@ -401,8 +363,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DetailedErrorLoggingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("detailed_error_logging_enabled");
-        set => WithProperty("detailed_error_logging_enabled", value);
+        set => SetProperty("detailed_error_logging_enabled", value);
     }
 
     /// <summary>
@@ -410,8 +371,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ElasticInstanceMinimum
     {
-        get => GetProperty<TerraformProperty<double>>("elastic_instance_minimum");
-        set => WithProperty("elastic_instance_minimum", value);
+        set => SetProperty("elastic_instance_minimum", value);
     }
 
     /// <summary>
@@ -419,8 +379,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? HealthCheckEvictionTimeInMin
     {
-        get => GetProperty<TerraformProperty<double>>("health_check_eviction_time_in_min");
-        set => WithProperty("health_check_eviction_time_in_min", value);
+        set => SetProperty("health_check_eviction_time_in_min", value);
     }
 
     /// <summary>
@@ -428,8 +387,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HealthCheckPath
     {
-        get => GetProperty<TerraformProperty<string>>("health_check_path");
-        set => WithProperty("health_check_path", value);
+        set => SetProperty("health_check_path", value);
     }
 
     /// <summary>
@@ -437,8 +395,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Http2Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("http2_enabled");
-        set => WithProperty("http2_enabled", value);
+        set => SetProperty("http2_enabled", value);
     }
 
     /// <summary>
@@ -446,8 +403,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpRestrictionDefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("ip_restriction_default_action");
-        set => WithProperty("ip_restriction_default_action", value);
+        set => SetProperty("ip_restriction_default_action", value);
     }
 
     /// <summary>
@@ -455,8 +411,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LoadBalancingMode
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancing_mode");
-        set => WithProperty("load_balancing_mode", value);
+        set => SetProperty("load_balancing_mode", value);
     }
 
     /// <summary>
@@ -464,8 +419,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ManagedPipelineMode
     {
-        get => GetProperty<TerraformProperty<string>>("managed_pipeline_mode");
-        set => WithProperty("managed_pipeline_mode", value);
+        set => SetProperty("managed_pipeline_mode", value);
     }
 
     /// <summary>
@@ -473,8 +427,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MinimumTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_tls_version");
-        set => WithProperty("minimum_tls_version", value);
+        set => SetProperty("minimum_tls_version", value);
     }
 
     /// <summary>
@@ -482,8 +435,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RemoteDebuggingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("remote_debugging_enabled");
-        set => WithProperty("remote_debugging_enabled", value);
+        set => SetProperty("remote_debugging_enabled", value);
     }
 
     /// <summary>
@@ -491,8 +443,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RemoteDebuggingVersion
     {
-        get => GetProperty<TerraformProperty<string>>("remote_debugging_version");
-        set => WithProperty("remote_debugging_version", value);
+        set => SetProperty("remote_debugging_version", value);
     }
 
     /// <summary>
@@ -500,8 +451,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RuntimeScaleMonitoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("runtime_scale_monitoring_enabled");
-        set => WithProperty("runtime_scale_monitoring_enabled", value);
+        set => SetProperty("runtime_scale_monitoring_enabled", value);
     }
 
     /// <summary>
@@ -509,8 +459,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScmIpRestrictionDefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("scm_ip_restriction_default_action");
-        set => WithProperty("scm_ip_restriction_default_action", value);
+        set => SetProperty("scm_ip_restriction_default_action", value);
     }
 
     /// <summary>
@@ -518,8 +467,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScmMinimumTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("scm_minimum_tls_version");
-        set => WithProperty("scm_minimum_tls_version", value);
+        set => SetProperty("scm_minimum_tls_version", value);
     }
 
     /// <summary>
@@ -527,8 +475,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScmType
     {
-        get => GetProperty<TerraformProperty<string>>("scm_type");
-        set => WithProperty("scm_type", value);
+        set => SetProperty("scm_type", value);
     }
 
     /// <summary>
@@ -536,8 +483,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ScmUseMainIpRestriction
     {
-        get => GetProperty<TerraformProperty<bool>>("scm_use_main_ip_restriction");
-        set => WithProperty("scm_use_main_ip_restriction", value);
+        set => SetProperty("scm_use_main_ip_restriction", value);
     }
 
     /// <summary>
@@ -545,8 +491,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Use32BitWorker
     {
-        get => GetProperty<TerraformProperty<bool>>("use_32_bit_worker");
-        set => WithProperty("use_32_bit_worker", value);
+        set => SetProperty("use_32_bit_worker", value);
     }
 
     /// <summary>
@@ -554,8 +499,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? VnetRouteAllEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("vnet_route_all_enabled");
-        set => WithProperty("vnet_route_all_enabled", value);
+        set => SetProperty("vnet_route_all_enabled", value);
     }
 
     /// <summary>
@@ -563,8 +507,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WebsocketsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("websockets_enabled");
-        set => WithProperty("websockets_enabled", value);
+        set => SetProperty("websockets_enabled", value);
     }
 
     /// <summary>
@@ -572,8 +515,7 @@ public class AzurermFunctionAppFlexConsumptionSiteConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? WorkerCount
     {
-        get => GetProperty<TerraformProperty<double>>("worker_count");
-        set => WithProperty("worker_count", value);
+        set => SetProperty("worker_count", value);
     }
 
 }
@@ -589,8 +531,7 @@ public class AzurermFunctionAppFlexConsumptionStickySettingsBlock : TerraformBlo
     /// </summary>
     public List<TerraformProperty<string>>? AppSettingNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("app_setting_names");
-        set => WithProperty("app_setting_names", value);
+        set => SetProperty("app_setting_names", value);
     }
 
     /// <summary>
@@ -598,8 +539,7 @@ public class AzurermFunctionAppFlexConsumptionStickySettingsBlock : TerraformBlo
     /// </summary>
     public List<TerraformProperty<string>>? ConnectionStringNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("connection_string_names");
-        set => WithProperty("connection_string_names", value);
+        set => SetProperty("connection_string_names", value);
     }
 
 }
@@ -615,8 +555,7 @@ public class AzurermFunctionAppFlexConsumptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -624,8 +563,7 @@ public class AzurermFunctionAppFlexConsumptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -633,8 +571,7 @@ public class AzurermFunctionAppFlexConsumptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -642,8 +579,7 @@ public class AzurermFunctionAppFlexConsumptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -661,96 +597,122 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("custom_domain_verification_id");
-        this.WithOutput("default_hostname");
-        this.WithOutput("hosting_environment_id");
-        this.WithOutput("kind");
-        this.WithOutput("outbound_ip_address_list");
-        this.WithOutput("outbound_ip_addresses");
-        this.WithOutput("possible_outbound_ip_address_list");
-        this.WithOutput("possible_outbound_ip_addresses");
-        this.WithOutput("site_credential");
+        SetOutput("custom_domain_verification_id");
+        SetOutput("default_hostname");
+        SetOutput("hosting_environment_id");
+        SetOutput("kind");
+        SetOutput("outbound_ip_address_list");
+        SetOutput("outbound_ip_addresses");
+        SetOutput("possible_outbound_ip_address_list");
+        SetOutput("possible_outbound_ip_addresses");
+        SetOutput("site_credential");
+        SetOutput("app_settings");
+        SetOutput("client_certificate_enabled");
+        SetOutput("client_certificate_exclusion_paths");
+        SetOutput("client_certificate_mode");
+        SetOutput("enabled");
+        SetOutput("http_concurrency");
+        SetOutput("https_only");
+        SetOutput("id");
+        SetOutput("instance_memory_in_mb");
+        SetOutput("location");
+        SetOutput("maximum_instance_count");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("runtime_name");
+        SetOutput("runtime_version");
+        SetOutput("service_plan_id");
+        SetOutput("storage_access_key");
+        SetOutput("storage_authentication_type");
+        SetOutput("storage_container_endpoint");
+        SetOutput("storage_container_type");
+        SetOutput("storage_user_assigned_identity_id");
+        SetOutput("tags");
+        SetOutput("virtual_network_subnet_id");
+        SetOutput("webdeploy_publish_basic_authentication_enabled");
+        SetOutput("zip_deploy_file");
     }
 
     /// <summary>
     /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AppSettings
+    public Dictionary<string, TerraformProperty<string>> AppSettings
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("app_settings");
-        set => this.WithProperty("app_settings", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("app_settings");
+        set => SetProperty("app_settings", value);
     }
 
     /// <summary>
     /// Should the function app use Client Certificates
     /// </summary>
-    public TerraformProperty<bool>? ClientCertificateEnabled
+    public TerraformProperty<bool> ClientCertificateEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("client_certificate_enabled");
-        set => this.WithProperty("client_certificate_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("client_certificate_enabled");
+        set => SetProperty("client_certificate_enabled", value);
     }
 
     /// <summary>
     /// Paths to exclude when using client certificates, separated by ;
     /// </summary>
-    public TerraformProperty<string>? ClientCertificateExclusionPaths
+    public TerraformProperty<string> ClientCertificateExclusionPaths
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate_exclusion_paths");
-        set => this.WithProperty("client_certificate_exclusion_paths", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_certificate_exclusion_paths");
+        set => SetProperty("client_certificate_exclusion_paths", value);
     }
 
     /// <summary>
     /// The mode of the Function App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser` 
     /// </summary>
-    public TerraformProperty<string>? ClientCertificateMode
+    public TerraformProperty<string> ClientCertificateMode
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate_mode");
-        set => this.WithProperty("client_certificate_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_certificate_mode");
+        set => SetProperty("client_certificate_mode", value);
     }
 
     /// <summary>
     /// Is the Function App enabled.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The http_concurrency attribute.
     /// </summary>
-    public TerraformProperty<double>? HttpConcurrency
+    public TerraformProperty<double> HttpConcurrency
     {
-        get => GetProperty<TerraformProperty<double>>("http_concurrency");
-        set => this.WithProperty("http_concurrency", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("http_concurrency");
+        set => SetProperty("http_concurrency", value);
     }
 
     /// <summary>
     /// Can the Function App only be accessed via HTTPS?
     /// </summary>
-    public TerraformProperty<bool>? HttpsOnly
+    public TerraformProperty<bool> HttpsOnly
     {
-        get => GetProperty<TerraformProperty<bool>>("https_only");
-        set => this.WithProperty("https_only", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("https_only");
+        set => SetProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_memory_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? InstanceMemoryInMb
+    public TerraformProperty<double> InstanceMemoryInMb
     {
-        get => GetProperty<TerraformProperty<double>>("instance_memory_in_mb");
-        set => this.WithProperty("instance_memory_in_mb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_memory_in_mb");
+        set => SetProperty("instance_memory_in_mb", value);
     }
 
     /// <summary>
@@ -759,17 +721,17 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The maximum_instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumInstanceCount
+    public TerraformProperty<double> MaximumInstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_instance_count");
-        set => this.WithProperty("maximum_instance_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("maximum_instance_count");
+        set => SetProperty("maximum_instance_count", value);
     }
 
     /// <summary>
@@ -778,17 +740,17 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -797,8 +759,8 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -807,8 +769,8 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeName is required")]
     public required TerraformProperty<string> RuntimeName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runtime_name");
-        set => this.WithProperty("runtime_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime_name");
+        set => SetProperty("runtime_name", value);
     }
 
     /// <summary>
@@ -817,8 +779,8 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformProperty<string> RuntimeVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("runtime_version");
-        set => this.WithProperty("runtime_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("runtime_version");
+        set => SetProperty("runtime_version", value);
     }
 
     /// <summary>
@@ -827,17 +789,17 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePlanId is required")]
     public required TerraformProperty<string> ServicePlanId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_plan_id");
-        set => this.WithProperty("service_plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_plan_id");
+        set => SetProperty("service_plan_id", value);
     }
 
     /// <summary>
     /// The storage_access_key attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccessKey
+    public TerraformProperty<string> StorageAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_access_key");
-        set => this.WithProperty("storage_access_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_access_key");
+        set => SetProperty("storage_access_key", value);
     }
 
     /// <summary>
@@ -846,8 +808,8 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAuthenticationType is required")]
     public required TerraformProperty<string> StorageAuthenticationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_authentication_type");
-        set => this.WithProperty("storage_authentication_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_authentication_type");
+        set => SetProperty("storage_authentication_type", value);
     }
 
     /// <summary>
@@ -856,8 +818,8 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerEndpoint is required")]
     public required TerraformProperty<string> StorageContainerEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_endpoint");
-        set => this.WithProperty("storage_container_endpoint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_endpoint");
+        set => SetProperty("storage_container_endpoint", value);
     }
 
     /// <summary>
@@ -866,53 +828,53 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerType is required")]
     public required TerraformProperty<string> StorageContainerType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_type");
-        set => this.WithProperty("storage_container_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_type");
+        set => SetProperty("storage_container_type", value);
     }
 
     /// <summary>
     /// The storage_user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageUserAssignedIdentityId
+    public TerraformProperty<string> StorageUserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_user_assigned_identity_id");
-        set => this.WithProperty("storage_user_assigned_identity_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_user_assigned_identity_id");
+        set => SetProperty("storage_user_assigned_identity_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_network_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualNetworkSubnetId
+    public TerraformProperty<string> VirtualNetworkSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_subnet_id");
-        set => this.WithProperty("virtual_network_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_subnet_id");
+        set => SetProperty("virtual_network_subnet_id", value);
     }
 
     /// <summary>
     /// The webdeploy_publish_basic_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? WebdeployPublishBasicAuthenticationEnabled
+    public TerraformProperty<bool> WebdeployPublishBasicAuthenticationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("webdeploy_publish_basic_authentication_enabled");
-        set => this.WithProperty("webdeploy_publish_basic_authentication_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("webdeploy_publish_basic_authentication_enabled");
+        set => SetProperty("webdeploy_publish_basic_authentication_enabled", value);
     }
 
     /// <summary>
     /// The local path and filename of the Zip packaged application to deploy to this Function App. **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`.
     /// </summary>
-    public TerraformProperty<string>? ZipDeployFile
+    public TerraformProperty<string> ZipDeployFile
     {
-        get => GetProperty<TerraformProperty<string>>("zip_deploy_file");
-        set => this.WithProperty("zip_deploy_file", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zip_deploy_file");
+        set => SetProperty("zip_deploy_file", value);
     }
 
     /// <summary>
@@ -921,8 +883,7 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     /// </summary>
     public List<AzurermFunctionAppFlexConsumptionAlwaysReadyBlock>? AlwaysReady
     {
-        get => GetProperty<List<AzurermFunctionAppFlexConsumptionAlwaysReadyBlock>>("always_ready");
-        set => this.WithProperty("always_ready", value);
+        set => SetProperty("always_ready", value);
     }
 
     /// <summary>
@@ -932,8 +893,7 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
     public List<AzurermFunctionAppFlexConsumptionAuthSettingsBlock>? AuthSettings
     {
-        get => GetProperty<List<AzurermFunctionAppFlexConsumptionAuthSettingsBlock>>("auth_settings");
-        set => this.WithProperty("auth_settings", value);
+        set => SetProperty("auth_settings", value);
     }
 
     /// <summary>
@@ -943,8 +903,7 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
     public List<AzurermFunctionAppFlexConsumptionAuthSettingsV2Block>? AuthSettingsV2
     {
-        get => GetProperty<List<AzurermFunctionAppFlexConsumptionAuthSettingsV2Block>>("auth_settings_v2");
-        set => this.WithProperty("auth_settings_v2", value);
+        set => SetProperty("auth_settings_v2", value);
     }
 
     /// <summary>
@@ -953,8 +912,7 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     /// </summary>
     public HashSet<AzurermFunctionAppFlexConsumptionConnectionStringBlock>? ConnectionString
     {
-        get => GetProperty<HashSet<AzurermFunctionAppFlexConsumptionConnectionStringBlock>>("connection_string");
-        set => this.WithProperty("connection_string", value);
+        set => SetProperty("connection_string", value);
     }
 
     /// <summary>
@@ -964,20 +922,19 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermFunctionAppFlexConsumptionIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermFunctionAppFlexConsumptionIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
     /// Block for site_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
     public List<AzurermFunctionAppFlexConsumptionSiteConfigBlock>? SiteConfig
     {
-        get => GetProperty<List<AzurermFunctionAppFlexConsumptionSiteConfigBlock>>("site_config");
-        set => this.WithProperty("site_config", value);
+        set => SetProperty("site_config", value);
     }
 
     /// <summary>
@@ -987,8 +944,7 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StickySettings block(s) allowed")]
     public List<AzurermFunctionAppFlexConsumptionStickySettingsBlock>? StickySettings
     {
-        get => GetProperty<List<AzurermFunctionAppFlexConsumptionStickySettingsBlock>>("sticky_settings");
-        set => this.WithProperty("sticky_settings", value);
+        set => SetProperty("sticky_settings", value);
     }
 
     /// <summary>
@@ -997,8 +953,7 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     /// </summary>
     public AzurermFunctionAppFlexConsumptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFunctionAppFlexConsumptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

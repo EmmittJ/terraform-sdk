@@ -13,8 +13,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,33 +54,43 @@ public class AzurermDataFactoryIntegrationRuntimeAzure : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cleanup_enabled");
+        SetOutput("compute_type");
+        SetOutput("core_count");
+        SetOutput("data_factory_id");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("time_to_live_min");
+        SetOutput("virtual_network_enabled");
     }
 
     /// <summary>
     /// The cleanup_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CleanupEnabled
+    public TerraformProperty<bool> CleanupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cleanup_enabled");
-        set => this.WithProperty("cleanup_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cleanup_enabled");
+        set => SetProperty("cleanup_enabled", value);
     }
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputeType
+    public TerraformProperty<string> ComputeType
     {
-        get => GetProperty<TerraformProperty<string>>("compute_type");
-        set => this.WithProperty("compute_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compute_type");
+        set => SetProperty("compute_type", value);
     }
 
     /// <summary>
     /// The core_count attribute.
     /// </summary>
-    public TerraformProperty<double>? CoreCount
+    public TerraformProperty<double> CoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("core_count");
-        set => this.WithProperty("core_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("core_count");
+        set => SetProperty("core_count", value);
     }
 
     /// <summary>
@@ -93,26 +99,26 @@ public class AzurermDataFactoryIntegrationRuntimeAzure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
-        set => this.WithProperty("data_factory_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
+        set => SetProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -121,8 +127,8 @@ public class AzurermDataFactoryIntegrationRuntimeAzure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -131,26 +137,26 @@ public class AzurermDataFactoryIntegrationRuntimeAzure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The time_to_live_min attribute.
     /// </summary>
-    public TerraformProperty<double>? TimeToLiveMin
+    public TerraformProperty<double> TimeToLiveMin
     {
-        get => GetProperty<TerraformProperty<double>>("time_to_live_min");
-        set => this.WithProperty("time_to_live_min", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("time_to_live_min");
+        set => SetProperty("time_to_live_min", value);
     }
 
     /// <summary>
     /// The virtual_network_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? VirtualNetworkEnabled
+    public TerraformProperty<bool> VirtualNetworkEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("virtual_network_enabled");
-        set => this.WithProperty("virtual_network_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("virtual_network_enabled");
+        set => SetProperty("virtual_network_enabled", value);
     }
 
     /// <summary>
@@ -159,8 +165,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzure : TerraformResource
     /// </summary>
     public AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

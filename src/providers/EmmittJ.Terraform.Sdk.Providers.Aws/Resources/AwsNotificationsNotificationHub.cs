@@ -13,8 +13,7 @@ public class AwsNotificationsNotificationHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNotificationsNotificationHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,7 @@ public class AwsNotificationsNotificationHub : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("notification_hub_region");
     }
 
     /// <summary>
@@ -48,8 +47,8 @@ public class AwsNotificationsNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationHubRegion is required")]
     public required TerraformProperty<string> NotificationHubRegion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("notification_hub_region");
-        set => this.WithProperty("notification_hub_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("notification_hub_region");
+        set => SetProperty("notification_hub_region", value);
     }
 
     /// <summary>
@@ -58,8 +57,7 @@ public class AwsNotificationsNotificationHub : TerraformResource
     /// </summary>
     public AwsNotificationsNotificationHubTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNotificationsNotificationHubTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

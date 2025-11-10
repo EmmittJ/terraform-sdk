@@ -13,8 +13,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
     /// </summary>
     public TerraformProperty<bool>? DeleteSourceFromS3
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_source_from_s3");
-        set => WithProperty("delete_source_from_s3", value);
+        set => SetProperty("delete_source_from_s3", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? MaxAgeInDays
     {
-        get => GetProperty<TerraformProperty<double>>("max_age_in_days");
-        set => WithProperty("max_age_in_days", value);
+        set => SetProperty("max_age_in_days", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? MaxCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_count");
-        set => WithProperty("max_count", value);
+        set => SetProperty("max_count", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformProperty<string> ServiceRole
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_role");
-        set => WithProperty("service_role", value);
+        set => SetProperty("service_role", value);
     }
 
 }
@@ -60,25 +56,31 @@ public class AwsElasticBeanstalkApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,35 +89,35 @@ public class AwsElasticBeanstalkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AwsElasticBeanstalkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppversionLifecycle block(s) allowed")]
     public List<AwsElasticBeanstalkApplicationAppversionLifecycleBlock>? AppversionLifecycle
     {
-        get => GetProperty<List<AwsElasticBeanstalkApplicationAppversionLifecycleBlock>>("appversion_lifecycle");
-        set => this.WithProperty("appversion_lifecycle", value);
+        set => SetProperty("appversion_lifecycle", value);
     }
 
     /// <summary>

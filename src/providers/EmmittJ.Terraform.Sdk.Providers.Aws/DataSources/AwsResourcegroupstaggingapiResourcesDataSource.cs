@@ -14,8 +14,7 @@ public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key");
-        set => WithProperty("key", value);
+        set => SetProperty("key", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : Terr
     /// </summary>
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -42,61 +40,67 @@ public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.WithOutput("resource_tag_mapping_list");
+        SetOutput("resource_tag_mapping_list");
+        SetOutput("exclude_compliant_resources");
+        SetOutput("id");
+        SetOutput("include_compliance_details");
+        SetOutput("region");
+        SetOutput("resource_arn_list");
+        SetOutput("resource_type_filters");
     }
 
     /// <summary>
     /// The exclude_compliant_resources attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExcludeCompliantResources
+    public TerraformProperty<bool> ExcludeCompliantResources
     {
-        get => GetProperty<TerraformProperty<bool>>("exclude_compliant_resources");
-        set => this.WithProperty("exclude_compliant_resources", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_compliant_resources");
+        set => SetProperty("exclude_compliant_resources", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_compliance_details attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeComplianceDetails
+    public TerraformProperty<bool> IncludeComplianceDetails
     {
-        get => GetProperty<TerraformProperty<bool>>("include_compliance_details");
-        set => this.WithProperty("include_compliance_details", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_compliance_details");
+        set => SetProperty("include_compliance_details", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resource_arn_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ResourceArnList
+    public HashSet<TerraformProperty<string>> ResourceArnList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_arn_list");
-        set => this.WithProperty("resource_arn_list", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resource_arn_list");
+        set => SetProperty("resource_arn_list", value);
     }
 
     /// <summary>
     /// The resource_type_filters attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ResourceTypeFilters
+    public HashSet<TerraformProperty<string>> ResourceTypeFilters
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_type_filters");
-        set => this.WithProperty("resource_type_filters", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resource_type_filters");
+        set => SetProperty("resource_type_filters", value);
     }
 
     /// <summary>
@@ -106,8 +110,7 @@ public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 TagFilter block(s) allowed")]
     public List<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>? TagFilter
     {
-        get => GetProperty<List<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>>("tag_filter");
-        set => this.WithProperty("tag_filter", value);
+        set => SetProperty("tag_filter", value);
     }
 
     /// <summary>

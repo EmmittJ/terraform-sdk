@@ -14,7 +14,15 @@ public class AwsApigatewayv2ExportDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("body");
+        SetOutput("body");
+        SetOutput("api_id");
+        SetOutput("export_version");
+        SetOutput("id");
+        SetOutput("include_extensions");
+        SetOutput("output_type");
+        SetOutput("region");
+        SetOutput("specification");
+        SetOutput("stage_name");
     }
 
     /// <summary>
@@ -23,35 +31,35 @@ public class AwsApigatewayv2ExportDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
-        set => this.WithProperty("api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
+        set => SetProperty("api_id", value);
     }
 
     /// <summary>
     /// The export_version attribute.
     /// </summary>
-    public TerraformProperty<string>? ExportVersion
+    public TerraformProperty<string> ExportVersion
     {
-        get => GetProperty<TerraformProperty<string>>("export_version");
-        set => this.WithProperty("export_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("export_version");
+        set => SetProperty("export_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_extensions attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeExtensions
+    public TerraformProperty<bool> IncludeExtensions
     {
-        get => GetProperty<TerraformProperty<bool>>("include_extensions");
-        set => this.WithProperty("include_extensions", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_extensions");
+        set => SetProperty("include_extensions", value);
     }
 
     /// <summary>
@@ -60,17 +68,17 @@ public class AwsApigatewayv2ExportDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputType is required")]
     public required TerraformProperty<string> OutputType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("output_type");
-        set => this.WithProperty("output_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("output_type");
+        set => SetProperty("output_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -79,17 +87,17 @@ public class AwsApigatewayv2ExportDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Specification is required")]
     public required TerraformProperty<string> Specification
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("specification");
-        set => this.WithProperty("specification", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("specification");
+        set => SetProperty("specification", value);
     }
 
     /// <summary>
     /// The stage_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StageName
+    public TerraformProperty<string> StageName
     {
-        get => GetProperty<TerraformProperty<string>>("stage_name");
-        set => this.WithProperty("stage_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stage_name");
+        set => SetProperty("stage_name", value);
     }
 
     /// <summary>

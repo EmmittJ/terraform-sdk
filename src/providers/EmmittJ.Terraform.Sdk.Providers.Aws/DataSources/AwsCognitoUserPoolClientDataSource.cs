@@ -14,28 +14,32 @@ public class AwsCognitoUserPoolClientDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("access_token_validity");
-        this.WithOutput("allowed_oauth_flows");
-        this.WithOutput("allowed_oauth_flows_user_pool_client");
-        this.WithOutput("allowed_oauth_scopes");
-        this.WithOutput("analytics_configuration");
-        this.WithOutput("callback_urls");
-        this.WithOutput("client_secret");
-        this.WithOutput("default_redirect_uri");
-        this.WithOutput("enable_propagate_additional_user_context_data");
-        this.WithOutput("enable_token_revocation");
-        this.WithOutput("explicit_auth_flows");
-        this.WithOutput("generate_secret");
-        this.WithOutput("id_token_validity");
-        this.WithOutput("logout_urls");
-        this.WithOutput("name");
-        this.WithOutput("prevent_user_existence_errors");
-        this.WithOutput("read_attributes");
-        this.WithOutput("refresh_token_rotation");
-        this.WithOutput("refresh_token_validity");
-        this.WithOutput("supported_identity_providers");
-        this.WithOutput("token_validity_units");
-        this.WithOutput("write_attributes");
+        SetOutput("access_token_validity");
+        SetOutput("allowed_oauth_flows");
+        SetOutput("allowed_oauth_flows_user_pool_client");
+        SetOutput("allowed_oauth_scopes");
+        SetOutput("analytics_configuration");
+        SetOutput("callback_urls");
+        SetOutput("client_secret");
+        SetOutput("default_redirect_uri");
+        SetOutput("enable_propagate_additional_user_context_data");
+        SetOutput("enable_token_revocation");
+        SetOutput("explicit_auth_flows");
+        SetOutput("generate_secret");
+        SetOutput("id_token_validity");
+        SetOutput("logout_urls");
+        SetOutput("name");
+        SetOutput("prevent_user_existence_errors");
+        SetOutput("read_attributes");
+        SetOutput("refresh_token_rotation");
+        SetOutput("refresh_token_validity");
+        SetOutput("supported_identity_providers");
+        SetOutput("token_validity_units");
+        SetOutput("write_attributes");
+        SetOutput("client_id");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("user_pool_id");
     }
 
     /// <summary>
@@ -44,26 +48,26 @@ public class AwsCognitoUserPoolClientDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -72,8 +76,8 @@ public class AwsCognitoUserPoolClientDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKeyTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKeyTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKeyTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKeyTimeoutsBlock : T
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,9 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKey : TerraformResou
 
     private void InitializeOutputs()
     {
+        SetOutput("data_protection_backup_vault_id");
+        SetOutput("id");
+        SetOutput("key_vault_key_id");
     }
 
     /// <summary>
@@ -66,17 +65,17 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKey : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataProtectionBackupVaultId is required")]
     public required TerraformProperty<string> DataProtectionBackupVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_protection_backup_vault_id");
-        set => this.WithProperty("data_protection_backup_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_protection_backup_vault_id");
+        set => SetProperty("data_protection_backup_vault_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +84,8 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKey : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
-        set => this.WithProperty("key_vault_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
+        set => SetProperty("key_vault_key_id", value);
     }
 
     /// <summary>
@@ -95,8 +94,7 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKey : TerraformResou
     /// </summary>
     public AzurermDataProtectionBackupVaultCustomerManagedKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataProtectionBackupVaultCustomerManagedKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

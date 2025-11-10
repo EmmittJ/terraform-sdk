@@ -13,8 +13,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,7 +46,13 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("parent");
+        SetOutput("parent");
+        SetOutput("dns_suffix");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("network");
+        SetOutput("project");
+        SetOutput("service");
     }
 
     /// <summary>
@@ -58,17 +61,17 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsSuffix is required")]
     public required TerraformProperty<string> DnsSuffix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dns_suffix");
-        set => this.WithProperty("dns_suffix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_suffix");
+        set => SetProperty("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,8 +80,8 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -87,26 +90,26 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
     /// The ID of the project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The name of the service to create a peered DNS domain for, e.g. servicenetworking.googleapis.com
     /// </summary>
-    public TerraformProperty<string>? Service
+    public TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
@@ -115,8 +118,7 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     /// </summary>
     public GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

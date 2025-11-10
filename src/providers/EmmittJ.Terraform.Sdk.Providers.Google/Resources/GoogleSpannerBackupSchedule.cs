@@ -17,8 +17,7 @@ public class GoogleSpannerBackupScheduleEncryptionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionType is required")]
     public required TerraformProperty<string> EncryptionType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("encryption_type");
-        set => WithProperty("encryption_type", value);
+        set => SetProperty("encryption_type", value);
     }
 
     /// <summary>
@@ -27,8 +26,7 @@ public class GoogleSpannerBackupScheduleEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -37,8 +35,7 @@ public class GoogleSpannerBackupScheduleEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? KmsKeyNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("kms_key_names");
-        set => WithProperty("kms_key_names", value);
+        set => SetProperty("kms_key_names", value);
     }
 
 }
@@ -78,8 +75,7 @@ public class GoogleSpannerBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -87,8 +83,7 @@ public class GoogleSpannerBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -96,8 +91,7 @@ public class GoogleSpannerBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -115,6 +109,12 @@ public class GoogleSpannerBackupSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("database");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("retention_duration");
     }
 
     /// <summary>
@@ -123,17 +123,17 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database");
-        set => this.WithProperty("database", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database");
+        set => SetProperty("database", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -142,27 +142,27 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
     /// A unique identifier for the backup schedule, which cannot be changed after
     /// the backup schedule is created. Values are of the form [a-z][-a-z0-9]*[a-z0-9].
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -173,8 +173,8 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDuration is required")]
     public required TerraformProperty<string> RetentionDuration
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("retention_duration");
-        set => this.WithProperty("retention_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("retention_duration");
+        set => SetProperty("retention_duration", value);
     }
 
     /// <summary>
@@ -184,8 +184,7 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     public List<GoogleSpannerBackupScheduleEncryptionConfigBlock>? EncryptionConfig
     {
-        get => GetProperty<List<GoogleSpannerBackupScheduleEncryptionConfigBlock>>("encryption_config");
-        set => this.WithProperty("encryption_config", value);
+        set => SetProperty("encryption_config", value);
     }
 
     /// <summary>
@@ -195,8 +194,7 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FullBackupSpec block(s) allowed")]
     public List<GoogleSpannerBackupScheduleFullBackupSpecBlock>? FullBackupSpec
     {
-        get => GetProperty<List<GoogleSpannerBackupScheduleFullBackupSpecBlock>>("full_backup_spec");
-        set => this.WithProperty("full_backup_spec", value);
+        set => SetProperty("full_backup_spec", value);
     }
 
     /// <summary>
@@ -206,8 +204,7 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncrementalBackupSpec block(s) allowed")]
     public List<GoogleSpannerBackupScheduleIncrementalBackupSpecBlock>? IncrementalBackupSpec
     {
-        get => GetProperty<List<GoogleSpannerBackupScheduleIncrementalBackupSpecBlock>>("incremental_backup_spec");
-        set => this.WithProperty("incremental_backup_spec", value);
+        set => SetProperty("incremental_backup_spec", value);
     }
 
     /// <summary>
@@ -217,8 +214,7 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     public List<GoogleSpannerBackupScheduleSpecBlock>? Spec
     {
-        get => GetProperty<List<GoogleSpannerBackupScheduleSpecBlock>>("spec");
-        set => this.WithProperty("spec", value);
+        set => SetProperty("spec", value);
     }
 
     /// <summary>
@@ -227,8 +223,7 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     public GoogleSpannerBackupScheduleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleSpannerBackupScheduleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

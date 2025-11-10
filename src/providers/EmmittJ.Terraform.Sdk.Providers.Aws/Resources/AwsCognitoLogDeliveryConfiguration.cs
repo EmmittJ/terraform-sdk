@@ -14,8 +14,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSource is required")]
     public required TerraformProperty<string> EventSource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("event_source");
-        set => WithProperty("event_source", value);
+        set => SetProperty("event_source", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogLevel is required")]
     public required TerraformProperty<string> LogLevel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_level");
-        set => WithProperty("log_level", value);
+        set => SetProperty("log_level", value);
     }
 
 }
@@ -42,15 +40,17 @@ public class AwsCognitoLogDeliveryConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("region");
+        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -59,8 +59,8 @@ public class AwsCognitoLogDeliveryConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
-        set => this.WithProperty("user_pool_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
+        set => SetProperty("user_pool_id", value);
     }
 
     /// <summary>
@@ -69,8 +69,7 @@ public class AwsCognitoLogDeliveryConfiguration : TerraformResource
     /// </summary>
     public List<AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock>? LogConfigurations
     {
-        get => GetProperty<List<AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock>>("log_configurations");
-        set => this.WithProperty("log_configurations", value);
+        set => SetProperty("log_configurations", value);
     }
 
 }

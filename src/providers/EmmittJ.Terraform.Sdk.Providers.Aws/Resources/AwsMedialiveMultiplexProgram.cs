@@ -14,8 +14,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredChannelPipeline is required")]
     public required TerraformProperty<string> PreferredChannelPipeline
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("preferred_channel_pipeline");
-        set => WithProperty("preferred_channel_pipeline", value);
+        set => SetProperty("preferred_channel_pipeline", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramNumber is required")]
     public required TerraformProperty<double> ProgramNumber
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("program_number");
-        set => WithProperty("program_number", value);
+        set => SetProperty("program_number", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsMedialiveMultiplexProgramTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -59,7 +56,10 @@ public class AwsMedialiveMultiplexProgram : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
+        SetOutput("id");
+        SetOutput("multiplex_id");
+        SetOutput("program_name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -68,8 +68,8 @@ public class AwsMedialiveMultiplexProgram : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiplexId is required")]
     public required TerraformProperty<string> MultiplexId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("multiplex_id");
-        set => this.WithProperty("multiplex_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("multiplex_id");
+        set => SetProperty("multiplex_id", value);
     }
 
     /// <summary>
@@ -78,17 +78,17 @@ public class AwsMedialiveMultiplexProgram : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramName is required")]
     public required TerraformProperty<string> ProgramName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("program_name");
-        set => this.WithProperty("program_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("program_name");
+        set => SetProperty("program_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -97,8 +97,7 @@ public class AwsMedialiveMultiplexProgram : TerraformResource
     /// </summary>
     public List<AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock>? MultiplexProgramSettings
     {
-        get => GetProperty<List<AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock>>("multiplex_program_settings");
-        set => this.WithProperty("multiplex_program_settings", value);
+        set => SetProperty("multiplex_program_settings", value);
     }
 
     /// <summary>
@@ -107,8 +106,7 @@ public class AwsMedialiveMultiplexProgram : TerraformResource
     /// </summary>
     public AwsMedialiveMultiplexProgramTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMedialiveMultiplexProgramTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

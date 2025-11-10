@@ -14,8 +14,7 @@ public class GooglePrivatecaCaPoolEncryptionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CloudKmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_kms_key");
-        set => WithProperty("cloud_kms_key", value);
+        set => SetProperty("cloud_kms_key", value);
     }
 
 }
@@ -35,8 +34,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? BackdateDuration
     {
-        get => GetProperty<TerraformProperty<string>>("backdate_duration");
-        set => WithProperty("backdate_duration", value);
+        set => SetProperty("backdate_duration", value);
     }
 
     /// <summary>
@@ -45,8 +43,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaximumLifetime
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_lifetime");
-        set => WithProperty("maximum_lifetime", value);
+        set => SetProperty("maximum_lifetime", value);
     }
 
 }
@@ -64,8 +61,7 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EncodingFormat
     {
-        get => GetProperty<TerraformProperty<string>>("encoding_format");
-        set => WithProperty("encoding_format", value);
+        set => SetProperty("encoding_format", value);
     }
 
     /// <summary>
@@ -76,8 +72,7 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCaCert is required")]
     public required TerraformProperty<bool> PublishCaCert
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("publish_ca_cert");
-        set => WithProperty("publish_ca_cert", value);
+        set => SetProperty("publish_ca_cert", value);
     }
 
     /// <summary>
@@ -89,8 +84,7 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCrl is required")]
     public required TerraformProperty<bool> PublishCrl
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("publish_crl");
-        set => WithProperty("publish_crl", value);
+        set => SetProperty("publish_crl", value);
     }
 
 }
@@ -106,8 +100,7 @@ public class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -115,8 +108,7 @@ public class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -124,8 +116,7 @@ public class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -143,17 +134,23 @@ public class GooglePrivatecaCaPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("effective_labels");
-        this.WithOutput("terraform_labels");
+        SetOutput("effective_labels");
+        SetOutput("terraform_labels");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("tier");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -166,10 +163,10 @@ public class GooglePrivatecaCaPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -179,8 +176,8 @@ public class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -189,17 +186,17 @@ public class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -208,8 +205,8 @@ public class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("tier");
-        set => this.WithProperty("tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tier");
+        set => SetProperty("tier", value);
     }
 
     /// <summary>
@@ -219,8 +216,7 @@ public class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     public List<GooglePrivatecaCaPoolEncryptionSpecBlock>? EncryptionSpec
     {
-        get => GetProperty<List<GooglePrivatecaCaPoolEncryptionSpecBlock>>("encryption_spec");
-        set => this.WithProperty("encryption_spec", value);
+        set => SetProperty("encryption_spec", value);
     }
 
     /// <summary>
@@ -230,8 +226,7 @@ public class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IssuancePolicy block(s) allowed")]
     public List<GooglePrivatecaCaPoolIssuancePolicyBlock>? IssuancePolicy
     {
-        get => GetProperty<List<GooglePrivatecaCaPoolIssuancePolicyBlock>>("issuance_policy");
-        set => this.WithProperty("issuance_policy", value);
+        set => SetProperty("issuance_policy", value);
     }
 
     /// <summary>
@@ -241,8 +236,7 @@ public class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublishingOptions block(s) allowed")]
     public List<GooglePrivatecaCaPoolPublishingOptionsBlock>? PublishingOptions
     {
-        get => GetProperty<List<GooglePrivatecaCaPoolPublishingOptionsBlock>>("publishing_options");
-        set => this.WithProperty("publishing_options", value);
+        set => SetProperty("publishing_options", value);
     }
 
     /// <summary>
@@ -251,8 +245,7 @@ public class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     public GooglePrivatecaCaPoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GooglePrivatecaCaPoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

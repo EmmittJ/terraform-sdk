@@ -13,8 +13,7 @@ public class AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CdrBucket
     {
-        get => GetProperty<TerraformProperty<string>>("cdr_bucket");
-        set => WithProperty("cdr_bucket", value);
+        set => SetProperty("cdr_bucket", value);
     }
 
 }
@@ -32,27 +31,28 @@ public class AwsChimesdkvoiceGlobalSettings : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Block for voice_connector.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnector is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VoiceConnector block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VoiceConnector block(s) allowed")]
     public List<AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock>? VoiceConnector
     {
-        get => GetProperty<List<AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock>>("voice_connector");
-        set => this.WithProperty("voice_connector", value);
+        set => SetProperty("voice_connector", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermVirtualWanDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,26 @@ public class AzurermVirtualWanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allow_branch_to_branch_traffic");
-        this.WithOutput("disable_vpn_encryption");
-        this.WithOutput("location");
-        this.WithOutput("office365_local_breakout_category");
-        this.WithOutput("sku");
-        this.WithOutput("tags");
-        this.WithOutput("virtual_hub_ids");
-        this.WithOutput("vpn_site_ids");
+        SetOutput("allow_branch_to_branch_traffic");
+        SetOutput("disable_vpn_encryption");
+        SetOutput("location");
+        SetOutput("office365_local_breakout_category");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("virtual_hub_ids");
+        SetOutput("vpn_site_ids");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -56,8 +58,8 @@ public class AzurermVirtualWanDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermVirtualWanDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -76,8 +78,7 @@ public class AzurermVirtualWanDataSource : TerraformDataSource
     /// </summary>
     public AzurermVirtualWanDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualWanDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

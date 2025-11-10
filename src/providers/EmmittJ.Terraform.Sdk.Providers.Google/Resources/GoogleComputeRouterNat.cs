@@ -14,8 +14,7 @@ public class GoogleComputeRouterNatLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformProperty<bool> Enable
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enable");
-        set => WithProperty("enable", value);
+        set => SetProperty("enable", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleComputeRouterNatLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("filter");
-        set => WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class GoogleComputeRouterNatNat64SubnetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -59,8 +56,7 @@ public class GoogleComputeRouterNatRulesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -80,8 +76,7 @@ public class GoogleComputeRouterNatRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Match is required")]
     public required TerraformProperty<string> Match
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("match");
-        set => WithProperty("match", value);
+        set => SetProperty("match", value);
     }
 
     /// <summary>
@@ -91,8 +86,7 @@ public class GoogleComputeRouterNatRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformProperty<double> RuleNumber
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("rule_number");
-        set => WithProperty("rule_number", value);
+        set => SetProperty("rule_number", value);
     }
 
 }
@@ -109,8 +103,7 @@ public class GoogleComputeRouterNatSubnetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -121,8 +114,7 @@ public class GoogleComputeRouterNatSubnetworkBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecondaryIpRangeNames
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("secondary_ip_range_names");
-        set => WithProperty("secondary_ip_range_names", value);
+        set => SetProperty("secondary_ip_range_names", value);
     }
 
     /// <summary>
@@ -134,8 +126,7 @@ public class GoogleComputeRouterNatSubnetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIpRangesToNat is required")]
     public HashSet<TerraformProperty<string>>? SourceIpRangesToNat
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("source_ip_ranges_to_nat");
-        set => WithProperty("source_ip_ranges_to_nat", value);
+        set => SetProperty("source_ip_ranges_to_nat", value);
     }
 
 }
@@ -151,8 +142,7 @@ public class GoogleComputeRouterNatTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -160,8 +150,7 @@ public class GoogleComputeRouterNatTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -169,8 +158,7 @@ public class GoogleComputeRouterNatTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -188,6 +176,29 @@ public class GoogleComputeRouterNat : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("auto_network_tier");
+        SetOutput("drain_nat_ips");
+        SetOutput("enable_dynamic_port_allocation");
+        SetOutput("enable_endpoint_independent_mapping");
+        SetOutput("endpoint_types");
+        SetOutput("icmp_idle_timeout_sec");
+        SetOutput("id");
+        SetOutput("initial_nat_ips");
+        SetOutput("max_ports_per_vm");
+        SetOutput("min_ports_per_vm");
+        SetOutput("name");
+        SetOutput("nat_ip_allocate_option");
+        SetOutput("nat_ips");
+        SetOutput("project");
+        SetOutput("region");
+        SetOutput("router");
+        SetOutput("source_subnetwork_ip_ranges_to_nat");
+        SetOutput("source_subnetwork_ip_ranges_to_nat64");
+        SetOutput("tcp_established_idle_timeout_sec");
+        SetOutput("tcp_time_wait_timeout_sec");
+        SetOutput("tcp_transitory_idle_timeout_sec");
+        SetOutput("type");
+        SetOutput("udp_idle_timeout_sec");
     }
 
     /// <summary>
@@ -195,20 +206,20 @@ public class GoogleComputeRouterNat : TerraformResource
     /// Must be one of: PREMIUM, STANDARD. If not specified, then the current
     /// project-level default tier is used. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AutoNetworkTier
+    public TerraformProperty<string> AutoNetworkTier
     {
-        get => GetProperty<TerraformProperty<string>>("auto_network_tier");
-        set => this.WithProperty("auto_network_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_network_tier");
+        set => SetProperty("auto_network_tier", value);
     }
 
     /// <summary>
     /// A list of URLs of the IP resources to be drained. These IPs must be
     /// valid static external IPs that have been assigned to the NAT.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DrainNatIps
+    public HashSet<TerraformProperty<string>> DrainNatIps
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("drain_nat_ips");
-        set => this.WithProperty("drain_nat_ips", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("drain_nat_ips");
+        set => SetProperty("drain_nat_ips", value);
     }
 
     /// <summary>
@@ -220,20 +231,20 @@ public class GoogleComputeRouterNat : TerraformResource
     /// 
     /// Mutually exclusive with enableEndpointIndependentMapping.
     /// </summary>
-    public TerraformProperty<bool>? EnableDynamicPortAllocation
+    public TerraformProperty<bool> EnableDynamicPortAllocation
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_dynamic_port_allocation");
-        set => this.WithProperty("enable_dynamic_port_allocation", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_dynamic_port_allocation");
+        set => SetProperty("enable_dynamic_port_allocation", value);
     }
 
     /// <summary>
     /// Enable endpoint independent mapping.
     /// For more information see the [official documentation](https://cloud.google.com/nat/docs/overview#specs-rfcs).
     /// </summary>
-    public TerraformProperty<bool>? EnableEndpointIndependentMapping
+    public TerraformProperty<bool> EnableEndpointIndependentMapping
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_endpoint_independent_mapping");
-        set => this.WithProperty("enable_endpoint_independent_mapping", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_endpoint_independent_mapping");
+        set => SetProperty("enable_endpoint_independent_mapping", value);
     }
 
     /// <summary>
@@ -242,57 +253,57 @@ public class GoogleComputeRouterNat : TerraformResource
     ///       &#39;ENDPOINT_TYPE_VM&#39;, &#39;ENDPOINT_TYPE_SWG&#39;,
     ///       &#39;ENDPOINT_TYPE_MANAGED_PROXY_LB&#39;.
     /// </summary>
-    public List<TerraformProperty<string>>? EndpointTypes
+    public List<TerraformProperty<string>> EndpointTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("endpoint_types");
-        set => this.WithProperty("endpoint_types", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("endpoint_types");
+        set => SetProperty("endpoint_types", value);
     }
 
     /// <summary>
     /// Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
     /// </summary>
-    public TerraformProperty<double>? IcmpIdleTimeoutSec
+    public TerraformProperty<double> IcmpIdleTimeoutSec
     {
-        get => GetProperty<TerraformProperty<double>>("icmp_idle_timeout_sec");
-        set => this.WithProperty("icmp_idle_timeout_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("icmp_idle_timeout_sec");
+        set => SetProperty("icmp_idle_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.
     /// Conflicts with natIps and drainNatIps. Only valid if natIpAllocateOption is set to MANUAL_ONLY.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? InitialNatIps
+    public HashSet<TerraformProperty<string>> InitialNatIps
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("initial_nat_ips");
-        set => this.WithProperty("initial_nat_ips", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("initial_nat_ips");
+        set => SetProperty("initial_nat_ips", value);
     }
 
     /// <summary>
     /// Maximum number of ports allocated to a VM from this NAT.
     /// This field can only be set when enableDynamicPortAllocation is enabled.
     /// </summary>
-    public TerraformProperty<double>? MaxPortsPerVm
+    public TerraformProperty<double> MaxPortsPerVm
     {
-        get => GetProperty<TerraformProperty<double>>("max_ports_per_vm");
-        set => this.WithProperty("max_ports_per_vm", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_ports_per_vm");
+        set => SetProperty("max_ports_per_vm", value);
     }
 
     /// <summary>
     /// Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.
     /// </summary>
-    public TerraformProperty<double>? MinPortsPerVm
+    public TerraformProperty<double> MinPortsPerVm
     {
-        get => GetProperty<TerraformProperty<double>>("min_ports_per_vm");
-        set => this.WithProperty("min_ports_per_vm", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("min_ports_per_vm");
+        set => SetProperty("min_ports_per_vm", value);
     }
 
     /// <summary>
@@ -302,8 +313,8 @@ public class GoogleComputeRouterNat : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -311,10 +322,10 @@ public class GoogleComputeRouterNat : TerraformResource
     /// &#39;AUTO_ONLY&#39; for only allowing NAT IPs allocated by Google Cloud
     /// Platform, or &#39;MANUAL_ONLY&#39; for only user-allocated NAT IP addresses. Possible values: [&amp;quot;MANUAL_ONLY&amp;quot;, &amp;quot;AUTO_ONLY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NatIpAllocateOption
+    public TerraformProperty<string> NatIpAllocateOption
     {
-        get => GetProperty<TerraformProperty<string>>("nat_ip_allocate_option");
-        set => this.WithProperty("nat_ip_allocate_option", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("nat_ip_allocate_option");
+        set => SetProperty("nat_ip_allocate_option", value);
     }
 
     /// <summary>
@@ -324,28 +335,28 @@ public class GoogleComputeRouterNat : TerraformResource
     /// the access level resource for the address resource must have a &#39;lifecycle&#39; block with &#39;create_before_destroy = true&#39; so
     /// the number of resources can be increased/decreased without triggering the &#39;resourceInUseByAnotherResource&#39; error.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NatIps
+    public HashSet<TerraformProperty<string>> NatIps
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("nat_ips");
-        set => this.WithProperty("nat_ips", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("nat_ips");
+        set => SetProperty("nat_ips", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region where the router and NAT reside.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -354,8 +365,8 @@ public class GoogleComputeRouterNat : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformProperty<string> Router
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("router");
-        set => this.WithProperty("router", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("router");
+        set => SetProperty("router", value);
     }
 
     /// <summary>
@@ -373,8 +384,8 @@ public class GoogleComputeRouterNat : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSubnetworkIpRangesToNat is required")]
     public required TerraformProperty<string> SourceSubnetworkIpRangesToNat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_subnetwork_ip_ranges_to_nat");
-        set => this.WithProperty("source_subnetwork_ip_ranges_to_nat", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_subnetwork_ip_ranges_to_nat");
+        set => SetProperty("source_subnetwork_ip_ranges_to_nat", value);
     }
 
     /// <summary>
@@ -384,40 +395,40 @@ public class GoogleComputeRouterNat : TerraformResource
     /// Note that if this field contains NAT64_ALL_V6_SUBNETWORKS no other Router.Nat section in this region can also enable NAT64 for any Subnetworks in this network.
     /// Other Router.Nat sections can still be present to enable NAT44 only. Possible values: [&amp;quot;ALL_IPV6_SUBNETWORKS&amp;quot;, &amp;quot;LIST_OF_IPV6_SUBNETWORKS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? SourceSubnetworkIpRangesToNat64
+    public TerraformProperty<string> SourceSubnetworkIpRangesToNat64
     {
-        get => GetProperty<TerraformProperty<string>>("source_subnetwork_ip_ranges_to_nat64");
-        set => this.WithProperty("source_subnetwork_ip_ranges_to_nat64", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_subnetwork_ip_ranges_to_nat64");
+        set => SetProperty("source_subnetwork_ip_ranges_to_nat64", value);
     }
 
     /// <summary>
     /// Timeout (in seconds) for TCP established connections.
     /// Defaults to 1200s if not set.
     /// </summary>
-    public TerraformProperty<double>? TcpEstablishedIdleTimeoutSec
+    public TerraformProperty<double> TcpEstablishedIdleTimeoutSec
     {
-        get => GetProperty<TerraformProperty<double>>("tcp_established_idle_timeout_sec");
-        set => this.WithProperty("tcp_established_idle_timeout_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("tcp_established_idle_timeout_sec");
+        set => SetProperty("tcp_established_idle_timeout_sec", value);
     }
 
     /// <summary>
     /// Timeout (in seconds) for TCP connections that are in TIME_WAIT state.
     /// Defaults to 120s if not set.
     /// </summary>
-    public TerraformProperty<double>? TcpTimeWaitTimeoutSec
+    public TerraformProperty<double> TcpTimeWaitTimeoutSec
     {
-        get => GetProperty<TerraformProperty<double>>("tcp_time_wait_timeout_sec");
-        set => this.WithProperty("tcp_time_wait_timeout_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("tcp_time_wait_timeout_sec");
+        set => SetProperty("tcp_time_wait_timeout_sec", value);
     }
 
     /// <summary>
     /// Timeout (in seconds) for TCP transitory connections.
     /// Defaults to 30s if not set.
     /// </summary>
-    public TerraformProperty<double>? TcpTransitoryIdleTimeoutSec
+    public TerraformProperty<double> TcpTransitoryIdleTimeoutSec
     {
-        get => GetProperty<TerraformProperty<double>>("tcp_transitory_idle_timeout_sec");
-        set => this.WithProperty("tcp_transitory_idle_timeout_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("tcp_transitory_idle_timeout_sec");
+        set => SetProperty("tcp_transitory_idle_timeout_sec", value);
     }
 
     /// <summary>
@@ -426,19 +437,19 @@ public class GoogleComputeRouterNat : TerraformResource
     /// If &#39;PUBLIC&#39; NAT used for public IP translation.
     /// If &#39;PRIVATE&#39; NAT used for private IP translation. Default value: &amp;quot;PUBLIC&amp;quot; Possible values: [&amp;quot;PUBLIC&amp;quot;, &amp;quot;PRIVATE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
     /// </summary>
-    public TerraformProperty<double>? UdpIdleTimeoutSec
+    public TerraformProperty<double> UdpIdleTimeoutSec
     {
-        get => GetProperty<TerraformProperty<double>>("udp_idle_timeout_sec");
-        set => this.WithProperty("udp_idle_timeout_sec", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("udp_idle_timeout_sec");
+        set => SetProperty("udp_idle_timeout_sec", value);
     }
 
     /// <summary>
@@ -448,8 +459,7 @@ public class GoogleComputeRouterNat : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     public List<GoogleComputeRouterNatLogConfigBlock>? LogConfig
     {
-        get => GetProperty<List<GoogleComputeRouterNatLogConfigBlock>>("log_config");
-        set => this.WithProperty("log_config", value);
+        set => SetProperty("log_config", value);
     }
 
     /// <summary>
@@ -458,8 +468,7 @@ public class GoogleComputeRouterNat : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeRouterNatNat64SubnetworkBlock>? Nat64Subnetwork
     {
-        get => GetProperty<HashSet<GoogleComputeRouterNatNat64SubnetworkBlock>>("nat64_subnetwork");
-        set => this.WithProperty("nat64_subnetwork", value);
+        set => SetProperty("nat64_subnetwork", value);
     }
 
     /// <summary>
@@ -468,8 +477,7 @@ public class GoogleComputeRouterNat : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeRouterNatRulesBlock>? Rules
     {
-        get => GetProperty<HashSet<GoogleComputeRouterNatRulesBlock>>("rules");
-        set => this.WithProperty("rules", value);
+        set => SetProperty("rules", value);
     }
 
     /// <summary>
@@ -478,8 +486,7 @@ public class GoogleComputeRouterNat : TerraformResource
     /// </summary>
     public HashSet<GoogleComputeRouterNatSubnetworkBlock>? Subnetwork
     {
-        get => GetProperty<HashSet<GoogleComputeRouterNatSubnetworkBlock>>("subnetwork");
-        set => this.WithProperty("subnetwork", value);
+        set => SetProperty("subnetwork", value);
     }
 
     /// <summary>
@@ -488,8 +495,7 @@ public class GoogleComputeRouterNat : TerraformResource
     /// </summary>
     public GoogleComputeRouterNatTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeRouterNatTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

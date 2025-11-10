@@ -13,8 +13,7 @@ public class AzurermBastionHostDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,28 +30,31 @@ public class AzurermBastionHostDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("copy_paste_enabled");
-        this.WithOutput("dns_name");
-        this.WithOutput("file_copy_enabled");
-        this.WithOutput("ip_configuration");
-        this.WithOutput("ip_connect_enabled");
-        this.WithOutput("location");
-        this.WithOutput("scale_units");
-        this.WithOutput("session_recording_enabled");
-        this.WithOutput("shareable_link_enabled");
-        this.WithOutput("sku");
-        this.WithOutput("tags");
-        this.WithOutput("tunneling_enabled");
-        this.WithOutput("zones");
+        SetOutput("copy_paste_enabled");
+        SetOutput("dns_name");
+        SetOutput("file_copy_enabled");
+        SetOutput("ip_configuration");
+        SetOutput("ip_connect_enabled");
+        SetOutput("location");
+        SetOutput("scale_units");
+        SetOutput("session_recording_enabled");
+        SetOutput("shareable_link_enabled");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("tunneling_enabled");
+        SetOutput("zones");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -61,8 +63,8 @@ public class AzurermBastionHostDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -71,8 +73,8 @@ public class AzurermBastionHostDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -81,8 +83,7 @@ public class AzurermBastionHostDataSource : TerraformDataSource
     /// </summary>
     public AzurermBastionHostDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBastionHostDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeou
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,16 +30,19 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
 
     private void InitializeOutputs()
     {
-        this.WithOutput("connections");
+        SetOutput("connections");
+        SetOutput("id");
+        SetOutput("private_endpoint_id");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +51,8 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
     public required TerraformProperty<string> PrivateEndpointId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_endpoint_id");
-        set => this.WithProperty("private_endpoint_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_endpoint_id");
+        set => SetProperty("private_endpoint_id", value);
     }
 
     /// <summary>
@@ -59,8 +61,8 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -69,8 +71,7 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     /// </summary>
     public AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

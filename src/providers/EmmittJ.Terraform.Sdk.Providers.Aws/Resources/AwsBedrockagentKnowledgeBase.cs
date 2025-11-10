@@ -14,8 +14,7 @@ public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsBedrockagentKnowledgeBaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsBedrockagentKnowledgeBaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AwsBedrockagentKnowledgeBaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,21 +80,26 @@ public class AwsBedrockagentKnowledgeBase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_at");
-        this.WithOutput("failure_reasons");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
-        this.WithOutput("updated_at");
+        SetOutput("arn");
+        SetOutput("created_at");
+        SetOutput("failure_reasons");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("updated_at");
+        SetOutput("description");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -108,17 +108,17 @@ public class AwsBedrockagentKnowledgeBase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -127,17 +127,17 @@ public class AwsBedrockagentKnowledgeBase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -146,8 +146,7 @@ public class AwsBedrockagentKnowledgeBase : TerraformResource
     /// </summary>
     public List<AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock>? KnowledgeBaseConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock>>("knowledge_base_configuration");
-        set => this.WithProperty("knowledge_base_configuration", value);
+        set => SetProperty("knowledge_base_configuration", value);
     }
 
     /// <summary>
@@ -156,8 +155,7 @@ public class AwsBedrockagentKnowledgeBase : TerraformResource
     /// </summary>
     public List<AwsBedrockagentKnowledgeBaseStorageConfigurationBlock>? StorageConfiguration
     {
-        get => GetProperty<List<AwsBedrockagentKnowledgeBaseStorageConfigurationBlock>>("storage_configuration");
-        set => this.WithProperty("storage_configuration", value);
+        set => SetProperty("storage_configuration", value);
     }
 
     /// <summary>
@@ -166,8 +164,7 @@ public class AwsBedrockagentKnowledgeBase : TerraformResource
     /// </summary>
     public AwsBedrockagentKnowledgeBaseTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockagentKnowledgeBaseTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

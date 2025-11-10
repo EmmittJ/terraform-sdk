@@ -13,8 +13,7 @@ public class AwsDocdbClusterSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,17 +30,21 @@ public class AwsDocdbClusterSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("availability_zones");
-        this.WithOutput("db_cluster_snapshot_arn");
-        this.WithOutput("engine");
-        this.WithOutput("engine_version");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("port");
-        this.WithOutput("snapshot_type");
-        this.WithOutput("source_db_cluster_snapshot_arn");
-        this.WithOutput("status");
-        this.WithOutput("storage_encrypted");
-        this.WithOutput("vpc_id");
+        SetOutput("availability_zones");
+        SetOutput("db_cluster_snapshot_arn");
+        SetOutput("engine");
+        SetOutput("engine_version");
+        SetOutput("kms_key_id");
+        SetOutput("port");
+        SetOutput("snapshot_type");
+        SetOutput("source_db_cluster_snapshot_arn");
+        SetOutput("status");
+        SetOutput("storage_encrypted");
+        SetOutput("vpc_id");
+        SetOutput("db_cluster_identifier");
+        SetOutput("db_cluster_snapshot_identifier");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -50,8 +53,8 @@ public class AwsDocdbClusterSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
     public required TerraformProperty<string> DbClusterIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_cluster_identifier");
-        set => this.WithProperty("db_cluster_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_cluster_identifier");
+        set => SetProperty("db_cluster_identifier", value);
     }
 
     /// <summary>
@@ -60,26 +63,26 @@ public class AwsDocdbClusterSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterSnapshotIdentifier is required")]
     public required TerraformProperty<string> DbClusterSnapshotIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("db_cluster_snapshot_identifier");
-        set => this.WithProperty("db_cluster_snapshot_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("db_cluster_snapshot_identifier");
+        set => SetProperty("db_cluster_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -88,8 +91,7 @@ public class AwsDocdbClusterSnapshot : TerraformResource
     /// </summary>
     public AwsDocdbClusterSnapshotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDocdbClusterSnapshotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExpireAfter
     {
-        get => GetProperty<TerraformProperty<string>>("expire_after");
-        set => WithProperty("expire_after", value);
+        set => SetProperty("expire_after", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NotifyBeforeExpiry
     {
-        get => GetProperty<TerraformProperty<string>>("notify_before_expiry");
-        set => WithProperty("notify_before_expiry", value);
+        set => SetProperty("notify_before_expiry", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,62 +79,72 @@ public class AzurermKeyVaultKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("e");
-        this.WithOutput("n");
-        this.WithOutput("public_key_openssh");
-        this.WithOutput("public_key_pem");
-        this.WithOutput("resource_id");
-        this.WithOutput("resource_versionless_id");
-        this.WithOutput("version");
-        this.WithOutput("versionless_id");
-        this.WithOutput("x");
-        this.WithOutput("y");
+        SetOutput("e");
+        SetOutput("n");
+        SetOutput("public_key_openssh");
+        SetOutput("public_key_pem");
+        SetOutput("resource_id");
+        SetOutput("resource_versionless_id");
+        SetOutput("version");
+        SetOutput("versionless_id");
+        SetOutput("x");
+        SetOutput("y");
+        SetOutput("curve");
+        SetOutput("expiration_date");
+        SetOutput("id");
+        SetOutput("key_opts");
+        SetOutput("key_size");
+        SetOutput("key_type");
+        SetOutput("key_vault_id");
+        SetOutput("name");
+        SetOutput("not_before_date");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The curve attribute.
     /// </summary>
-    public TerraformProperty<string>? Curve
+    public TerraformProperty<string> Curve
     {
-        get => GetProperty<TerraformProperty<string>>("curve");
-        set => this.WithProperty("curve", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("curve");
+        set => SetProperty("curve", value);
     }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpirationDate
+    public TerraformProperty<string> ExpirationDate
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_date");
-        set => this.WithProperty("expiration_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("expiration_date");
+        set => SetProperty("expiration_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyOpts is required")]
-    public List<TerraformProperty<string>>? KeyOpts
+    public List<TerraformProperty<string>> KeyOpts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("key_opts");
-        set => this.WithProperty("key_opts", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("key_opts");
+        set => SetProperty("key_opts", value);
     }
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    public TerraformProperty<double>? KeySize
+    public TerraformProperty<double> KeySize
     {
-        get => GetProperty<TerraformProperty<double>>("key_size");
-        set => this.WithProperty("key_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("key_size");
+        set => SetProperty("key_size", value);
     }
 
     /// <summary>
@@ -149,8 +153,8 @@ public class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformProperty<string> KeyType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_type");
-        set => this.WithProperty("key_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_type");
+        set => SetProperty("key_type", value);
     }
 
     /// <summary>
@@ -159,8 +163,8 @@ public class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -169,26 +173,26 @@ public class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
-    public TerraformProperty<string>? NotBeforeDate
+    public TerraformProperty<string> NotBeforeDate
     {
-        get => GetProperty<TerraformProperty<string>>("not_before_date");
-        set => this.WithProperty("not_before_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("not_before_date");
+        set => SetProperty("not_before_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -198,8 +202,7 @@ public class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationPolicy block(s) allowed")]
     public List<AzurermKeyVaultKeyRotationPolicyBlock>? RotationPolicy
     {
-        get => GetProperty<List<AzurermKeyVaultKeyRotationPolicyBlock>>("rotation_policy");
-        set => this.WithProperty("rotation_policy", value);
+        set => SetProperty("rotation_policy", value);
     }
 
     /// <summary>
@@ -208,8 +211,7 @@ public class AzurermKeyVaultKey : TerraformResource
     /// </summary>
     public AzurermKeyVaultKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

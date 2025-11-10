@@ -14,49 +14,53 @@ public class GoogleCloudfunctionsFunctionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("automatic_update_policy");
-        this.WithOutput("available_memory_mb");
-        this.WithOutput("build_environment_variables");
-        this.WithOutput("build_service_account");
-        this.WithOutput("build_worker_pool");
-        this.WithOutput("description");
-        this.WithOutput("docker_registry");
-        this.WithOutput("docker_repository");
-        this.WithOutput("effective_labels");
-        this.WithOutput("entry_point");
-        this.WithOutput("environment_variables");
-        this.WithOutput("event_trigger");
-        this.WithOutput("https_trigger_security_level");
-        this.WithOutput("https_trigger_url");
-        this.WithOutput("ingress_settings");
-        this.WithOutput("kms_key_name");
-        this.WithOutput("labels");
-        this.WithOutput("max_instances");
-        this.WithOutput("min_instances");
-        this.WithOutput("on_deploy_update_policy");
-        this.WithOutput("runtime");
-        this.WithOutput("secret_environment_variables");
-        this.WithOutput("secret_volumes");
-        this.WithOutput("service_account_email");
-        this.WithOutput("source_archive_bucket");
-        this.WithOutput("source_archive_object");
-        this.WithOutput("source_repository");
-        this.WithOutput("status");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("timeout");
-        this.WithOutput("trigger_http");
-        this.WithOutput("version_id");
-        this.WithOutput("vpc_connector");
-        this.WithOutput("vpc_connector_egress_settings");
+        SetOutput("automatic_update_policy");
+        SetOutput("available_memory_mb");
+        SetOutput("build_environment_variables");
+        SetOutput("build_service_account");
+        SetOutput("build_worker_pool");
+        SetOutput("description");
+        SetOutput("docker_registry");
+        SetOutput("docker_repository");
+        SetOutput("effective_labels");
+        SetOutput("entry_point");
+        SetOutput("environment_variables");
+        SetOutput("event_trigger");
+        SetOutput("https_trigger_security_level");
+        SetOutput("https_trigger_url");
+        SetOutput("ingress_settings");
+        SetOutput("kms_key_name");
+        SetOutput("labels");
+        SetOutput("max_instances");
+        SetOutput("min_instances");
+        SetOutput("on_deploy_update_policy");
+        SetOutput("runtime");
+        SetOutput("secret_environment_variables");
+        SetOutput("secret_volumes");
+        SetOutput("service_account_email");
+        SetOutput("source_archive_bucket");
+        SetOutput("source_archive_object");
+        SetOutput("source_repository");
+        SetOutput("status");
+        SetOutput("terraform_labels");
+        SetOutput("timeout");
+        SetOutput("trigger_http");
+        SetOutput("version_id");
+        SetOutput("vpc_connector");
+        SetOutput("vpc_connector_egress_settings");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -65,26 +69,26 @@ public class GoogleCloudfunctionsFunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Project of the function. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Region of function. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermSpringCloudBuildDeploymentQuotaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cpu
     {
-        get => GetProperty<TerraformProperty<string>>("cpu");
-        set => WithProperty("cpu", value);
+        set => SetProperty("cpu", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSpringCloudBuildDeploymentQuotaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Memory
     {
-        get => GetProperty<TerraformProperty<string>>("memory");
-        set => WithProperty("memory", value);
+        set => SetProperty("memory", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermSpringCloudBuildDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AzurermSpringCloudBuildDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermSpringCloudBuildDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermSpringCloudBuildDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,24 +79,32 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("addon_json");
+        SetOutput("application_performance_monitoring_ids");
+        SetOutput("build_result_id");
+        SetOutput("environment_variables");
+        SetOutput("id");
+        SetOutput("instance_count");
+        SetOutput("name");
+        SetOutput("spring_cloud_app_id");
     }
 
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    public TerraformProperty<string>? AddonJson
+    public TerraformProperty<string> AddonJson
     {
-        get => GetProperty<TerraformProperty<string>>("addon_json");
-        set => this.WithProperty("addon_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("addon_json");
+        set => SetProperty("addon_json", value);
     }
 
     /// <summary>
     /// The application_performance_monitoring_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ApplicationPerformanceMonitoringIds
+    public List<TerraformProperty<string>> ApplicationPerformanceMonitoringIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("application_performance_monitoring_ids");
-        set => this.WithProperty("application_performance_monitoring_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("application_performance_monitoring_ids");
+        set => SetProperty("application_performance_monitoring_ids", value);
     }
 
     /// <summary>
@@ -111,35 +113,35 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildResultId is required")]
     public required TerraformProperty<string> BuildResultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("build_result_id");
-        set => this.WithProperty("build_result_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("build_result_id");
+        set => SetProperty("build_result_id", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>> EnvironmentVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => this.WithProperty("environment_variables", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("environment_variables");
+        set => SetProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InstanceCount
+    public TerraformProperty<double> InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
-        set => this.WithProperty("instance_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
+        set => SetProperty("instance_count", value);
     }
 
     /// <summary>
@@ -148,8 +150,8 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -158,8 +160,8 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
-        set => this.WithProperty("spring_cloud_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
+        set => SetProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
@@ -169,8 +171,7 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
     public List<AzurermSpringCloudBuildDeploymentQuotaBlock>? Quota
     {
-        get => GetProperty<List<AzurermSpringCloudBuildDeploymentQuotaBlock>>("quota");
-        set => this.WithProperty("quota", value);
+        set => SetProperty("quota", value);
     }
 
     /// <summary>
@@ -179,8 +180,7 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
     /// </summary>
     public AzurermSpringCloudBuildDeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSpringCloudBuildDeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

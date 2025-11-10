@@ -22,8 +22,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? PredefinedExpression
     {
-        get => GetProperty<TerraformProperty<string>>("predefined_expression");
-        set => WithProperty("predefined_expression", value);
+        set => SetProperty("predefined_expression", value);
     }
 
     /// <summary>
@@ -33,8 +32,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Routine
     {
-        get => GetProperty<TerraformProperty<string>>("routine");
-        set => WithProperty("routine", value);
+        set => SetProperty("routine", value);
     }
 
 }
@@ -50,8 +48,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -59,8 +56,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,9 +82,16 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("name");
-        this.WithOutput("policy_tag");
-        this.WithOutput("version");
+        SetOutput("name");
+        SetOutput("policy_tag");
+        SetOutput("version");
+        SetOutput("data_policy_id");
+        SetOutput("data_policy_type");
+        SetOutput("etag");
+        SetOutput("grantees");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -100,8 +102,8 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
     public required TerraformProperty<string> DataPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_policy_id");
-        set => this.WithProperty("data_policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_policy_id");
+        set => SetProperty("data_policy_id", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyType is required")]
     public required TerraformProperty<string> DataPolicyType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_policy_type");
-        set => this.WithProperty("data_policy_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_policy_type");
+        set => SetProperty("data_policy_type", value);
     }
 
     /// <summary>
@@ -125,10 +127,10 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// populated in the response of GetDataPolicy, CreateDataPolicy, and
     /// UpdateDataPolicy calls.
     /// </summary>
-    public TerraformProperty<string>? Etag
+    public TerraformProperty<string> Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => this.WithProperty("etag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("etag");
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
@@ -141,19 +143,19 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// This field is supported in V2 Data Policy only. In case of V1 data policies
     /// (i.e. verion = 1 and policy_tag is set), this field is not populated.
     /// </summary>
-    public List<TerraformProperty<string>>? Grantees
+    public List<TerraformProperty<string>> Grantees
     {
-        get => GetProperty<List<TerraformProperty<string>>>("grantees");
-        set => this.WithProperty("grantees", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("grantees");
+        set => SetProperty("grantees", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -162,17 +164,17 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -182,8 +184,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataMaskingPolicy block(s) allowed")]
     public List<GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock>? DataMaskingPolicy
     {
-        get => GetProperty<List<GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock>>("data_masking_policy");
-        set => this.WithProperty("data_masking_policy", value);
+        set => SetProperty("data_masking_policy", value);
     }
 
     /// <summary>
@@ -192,8 +193,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// </summary>
     public GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

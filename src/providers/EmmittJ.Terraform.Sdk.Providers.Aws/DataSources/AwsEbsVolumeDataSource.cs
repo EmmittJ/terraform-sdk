@@ -14,8 +14,7 @@ public class AwsEbsVolumeDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsEbsVolumeDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsEbsVolumeDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -59,56 +56,60 @@ public class AwsEbsVolumeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("availability_zone");
-        this.WithOutput("create_time");
-        this.WithOutput("encrypted");
-        this.WithOutput("iops");
-        this.WithOutput("kms_key_id");
-        this.WithOutput("multi_attach_enabled");
-        this.WithOutput("outpost_arn");
-        this.WithOutput("size");
-        this.WithOutput("snapshot_id");
-        this.WithOutput("throughput");
-        this.WithOutput("volume_id");
-        this.WithOutput("volume_initialization_rate");
-        this.WithOutput("volume_type");
+        SetOutput("arn");
+        SetOutput("availability_zone");
+        SetOutput("create_time");
+        SetOutput("encrypted");
+        SetOutput("iops");
+        SetOutput("kms_key_id");
+        SetOutput("multi_attach_enabled");
+        SetOutput("outpost_arn");
+        SetOutput("size");
+        SetOutput("snapshot_id");
+        SetOutput("throughput");
+        SetOutput("volume_id");
+        SetOutput("volume_initialization_rate");
+        SetOutput("volume_type");
+        SetOutput("id");
+        SetOutput("most_recent");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool>? MostRecent
+    public TerraformProperty<bool> MostRecent
     {
-        get => GetProperty<TerraformProperty<bool>>("most_recent");
-        set => this.WithProperty("most_recent", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
+        set => SetProperty("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -117,8 +118,7 @@ public class AwsEbsVolumeDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsEbsVolumeDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsEbsVolumeDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
@@ -127,8 +127,7 @@ public class AwsEbsVolumeDataSource : TerraformDataSource
     /// </summary>
     public AwsEbsVolumeDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEbsVolumeDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock : 
     /// </summary>
     public TerraformProperty<string>? ManagedPolicyArn
     {
-        get => GetProperty<TerraformProperty<string>>("managed_policy_arn");
-        set => WithProperty("managed_policy_arn", value);
+        set => SetProperty("managed_policy_arn", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -58,15 +55,19 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("instance_arn");
+        SetOutput("permission_set_arn");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +76,8 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
-        set => this.WithProperty("instance_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
+        set => SetProperty("instance_arn", value);
     }
 
     /// <summary>
@@ -85,29 +86,29 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
     public required TerraformProperty<string> PermissionSetArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("permission_set_arn");
-        set => this.WithProperty("permission_set_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("permission_set_arn");
+        set => SetProperty("permission_set_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for permissions_boundary.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionsBoundary is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PermissionsBoundary block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PermissionsBoundary block(s) allowed")]
     public List<AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock>? PermissionsBoundary
     {
-        get => GetProperty<List<AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock>>("permissions_boundary");
-        set => this.WithProperty("permissions_boundary", value);
+        set => SetProperty("permissions_boundary", value);
     }
 
     /// <summary>
@@ -116,8 +117,7 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     /// </summary>
     public AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,11 @@ public class AzurermIotcentralOrganization : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("iotcentral_application_id");
+        SetOutput("organization_id");
+        SetOutput("parent_organization_id");
     }
 
     /// <summary>
@@ -66,17 +67,17 @@ public class AzurermIotcentralOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +86,8 @@ public class AzurermIotcentralOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
     public required TerraformProperty<string> IotcentralApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iotcentral_application_id");
-        set => this.WithProperty("iotcentral_application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iotcentral_application_id");
+        set => SetProperty("iotcentral_application_id", value);
     }
 
     /// <summary>
@@ -95,17 +96,17 @@ public class AzurermIotcentralOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformProperty<string> OrganizationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("organization_id");
-        set => this.WithProperty("organization_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("organization_id");
+        set => SetProperty("organization_id", value);
     }
 
     /// <summary>
     /// The parent_organization_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentOrganizationId
+    public TerraformProperty<string> ParentOrganizationId
     {
-        get => GetProperty<TerraformProperty<string>>("parent_organization_id");
-        set => this.WithProperty("parent_organization_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent_organization_id");
+        set => SetProperty("parent_organization_id", value);
     }
 
     /// <summary>
@@ -114,8 +115,7 @@ public class AzurermIotcentralOrganization : TerraformResource
     /// </summary>
     public AzurermIotcentralOrganizationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermIotcentralOrganizationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IndexName
     {
-        get => GetProperty<TerraformProperty<string>>("index_name");
-        set => WithProperty("index_name", value);
+        set => SetProperty("index_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IndexStatus
     {
-        get => GetProperty<TerraformProperty<string>>("index_status");
-        set => WithProperty("index_status", value);
+        set => SetProperty("index_status", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Keys
     {
-        get => GetProperty<List<TerraformProperty<string>>>("keys");
-        set => WithProperty("keys", value);
+        set => SetProperty("keys", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsGluePartitionIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsGluePartitionIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -76,15 +71,20 @@ public class AwsGluePartitionIndex : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("catalog_id");
+        SetOutput("database_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("table_name");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    public TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
-        set => this.WithProperty("catalog_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
+        set => SetProperty("catalog_id", value);
     }
 
     /// <summary>
@@ -93,26 +93,26 @@ public class AwsGluePartitionIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -121,20 +121,20 @@ public class AwsGluePartitionIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
-        set => this.WithProperty("table_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
+        set => SetProperty("table_name", value);
     }
 
     /// <summary>
     /// Block for partition_index.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionIndex is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartitionIndex block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartitionIndex block(s) allowed")]
     public List<AwsGluePartitionIndexPartitionIndexBlock>? PartitionIndex
     {
-        get => GetProperty<List<AwsGluePartitionIndexPartitionIndexBlock>>("partition_index");
-        set => this.WithProperty("partition_index", value);
+        set => SetProperty("partition_index", value);
     }
 
     /// <summary>
@@ -143,8 +143,7 @@ public class AwsGluePartitionIndex : TerraformResource
     /// </summary>
     public AwsGluePartitionIndexTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsGluePartitionIndexTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

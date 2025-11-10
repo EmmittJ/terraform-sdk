@@ -13,8 +13,7 @@ public class AzurermKeyVaultKeyDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,30 +30,33 @@ public class AzurermKeyVaultKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("curve");
-        this.WithOutput("e");
-        this.WithOutput("key_opts");
-        this.WithOutput("key_size");
-        this.WithOutput("key_type");
-        this.WithOutput("n");
-        this.WithOutput("public_key_openssh");
-        this.WithOutput("public_key_pem");
-        this.WithOutput("resource_id");
-        this.WithOutput("resource_versionless_id");
-        this.WithOutput("tags");
-        this.WithOutput("version");
-        this.WithOutput("versionless_id");
-        this.WithOutput("x");
-        this.WithOutput("y");
+        SetOutput("curve");
+        SetOutput("e");
+        SetOutput("key_opts");
+        SetOutput("key_size");
+        SetOutput("key_type");
+        SetOutput("n");
+        SetOutput("public_key_openssh");
+        SetOutput("public_key_pem");
+        SetOutput("resource_id");
+        SetOutput("resource_versionless_id");
+        SetOutput("tags");
+        SetOutput("version");
+        SetOutput("versionless_id");
+        SetOutput("x");
+        SetOutput("y");
+        SetOutput("id");
+        SetOutput("key_vault_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermKeyVaultKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
-        set => this.WithProperty("key_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
+        set => SetProperty("key_vault_id", value);
     }
 
     /// <summary>
@@ -73,8 +75,8 @@ public class AzurermKeyVaultKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -83,8 +85,7 @@ public class AzurermKeyVaultKeyDataSource : TerraformDataSource
     /// </summary>
     public AzurermKeyVaultKeyDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultKeyDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

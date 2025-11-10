@@ -13,8 +13,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,26 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleDataSource : TerraformD
 
     private void InitializeOutputs()
     {
-        this.WithOutput("admin_object_ids");
-        this.WithOutput("hsm_uri");
-        this.WithOutput("location");
-        this.WithOutput("purge_protection_enabled");
-        this.WithOutput("sku_name");
-        this.WithOutput("soft_delete_retention_days");
-        this.WithOutput("tags");
-        this.WithOutput("tenant_id");
+        SetOutput("admin_object_ids");
+        SetOutput("hsm_uri");
+        SetOutput("location");
+        SetOutput("purge_protection_enabled");
+        SetOutput("sku_name");
+        SetOutput("soft_delete_retention_days");
+        SetOutput("tags");
+        SetOutput("tenant_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -56,8 +58,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -76,8 +78,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleDataSource : TerraformD
     /// </summary>
     public AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

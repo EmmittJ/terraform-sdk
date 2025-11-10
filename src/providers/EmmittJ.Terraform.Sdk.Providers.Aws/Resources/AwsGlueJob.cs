@@ -13,8 +13,7 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PythonVersion
     {
-        get => GetProperty<TerraformProperty<string>>("python_version");
-        set => WithProperty("python_version", value);
+        set => SetProperty("python_version", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Runtime
     {
-        get => GetProperty<TerraformProperty<string>>("runtime");
-        set => WithProperty("runtime", value);
+        set => SetProperty("runtime", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptLocation is required")]
     public required TerraformProperty<string> ScriptLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("script_location");
-        set => WithProperty("script_location", value);
+        set => SetProperty("script_location", value);
     }
 
 }
@@ -58,8 +54,7 @@ public class AwsGlueJobExecutionPropertyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxConcurrentRuns
     {
-        get => GetProperty<TerraformProperty<double>>("max_concurrent_runs");
-        set => WithProperty("max_concurrent_runs", value);
+        set => SetProperty("max_concurrent_runs", value);
     }
 
 }
@@ -75,8 +70,7 @@ public class AwsGlueJobNotificationPropertyBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NotifyDelayAfter
     {
-        get => GetProperty<TerraformProperty<double>>("notify_delay_after");
-        set => WithProperty("notify_delay_after", value);
+        set => SetProperty("notify_delay_after", value);
     }
 
 }
@@ -92,8 +86,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("auth_strategy");
-        set => WithProperty("auth_strategy", value);
+        set => SetProperty("auth_strategy", value);
     }
 
     /// <summary>
@@ -101,8 +94,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AuthToken
     {
-        get => GetProperty<TerraformProperty<string>>("auth_token");
-        set => WithProperty("auth_token", value);
+        set => SetProperty("auth_token", value);
     }
 
     /// <summary>
@@ -110,8 +102,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Branch
     {
-        get => GetProperty<TerraformProperty<string>>("branch");
-        set => WithProperty("branch", value);
+        set => SetProperty("branch", value);
     }
 
     /// <summary>
@@ -119,8 +110,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
-        set => WithProperty("folder", value);
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
@@ -128,8 +118,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LastCommitId
     {
-        get => GetProperty<TerraformProperty<string>>("last_commit_id");
-        set => WithProperty("last_commit_id", value);
+        set => SetProperty("last_commit_id", value);
     }
 
     /// <summary>
@@ -137,8 +126,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Owner
     {
-        get => GetProperty<TerraformProperty<string>>("owner");
-        set => WithProperty("owner", value);
+        set => SetProperty("owner", value);
     }
 
     /// <summary>
@@ -146,8 +134,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Provider
     {
-        get => GetProperty<TerraformProperty<string>>("provider");
-        set => WithProperty("provider", value);
+        set => SetProperty("provider", value);
     }
 
     /// <summary>
@@ -155,8 +142,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
-        set => WithProperty("repository", value);
+        set => SetProperty("repository", value);
     }
 
 }
@@ -174,106 +160,127 @@ public class AwsGlueJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("connections");
+        SetOutput("default_arguments");
+        SetOutput("description");
+        SetOutput("execution_class");
+        SetOutput("glue_version");
+        SetOutput("id");
+        SetOutput("job_mode");
+        SetOutput("job_run_queuing_enabled");
+        SetOutput("maintenance_window");
+        SetOutput("max_capacity");
+        SetOutput("max_retries");
+        SetOutput("name");
+        SetOutput("non_overridable_arguments");
+        SetOutput("number_of_workers");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("security_configuration");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("timeout");
+        SetOutput("worker_type");
     }
 
     /// <summary>
     /// The connections attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Connections
+    public List<TerraformProperty<string>> Connections
     {
-        get => GetProperty<List<TerraformProperty<string>>>("connections");
-        set => this.WithProperty("connections", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("connections");
+        set => SetProperty("connections", value);
     }
 
     /// <summary>
     /// The default_arguments attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? DefaultArguments
+    public Dictionary<string, TerraformProperty<string>> DefaultArguments
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("default_arguments");
-        set => this.WithProperty("default_arguments", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("default_arguments");
+        set => SetProperty("default_arguments", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The execution_class attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionClass
+    public TerraformProperty<string> ExecutionClass
     {
-        get => GetProperty<TerraformProperty<string>>("execution_class");
-        set => this.WithProperty("execution_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("execution_class");
+        set => SetProperty("execution_class", value);
     }
 
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
-    public TerraformProperty<string>? GlueVersion
+    public TerraformProperty<string> GlueVersion
     {
-        get => GetProperty<TerraformProperty<string>>("glue_version");
-        set => this.WithProperty("glue_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("glue_version");
+        set => SetProperty("glue_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The job_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? JobMode
+    public TerraformProperty<string> JobMode
     {
-        get => GetProperty<TerraformProperty<string>>("job_mode");
-        set => this.WithProperty("job_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_mode");
+        set => SetProperty("job_mode", value);
     }
 
     /// <summary>
     /// The job_run_queuing_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? JobRunQueuingEnabled
+    public TerraformProperty<bool> JobRunQueuingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("job_run_queuing_enabled");
-        set => this.WithProperty("job_run_queuing_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("job_run_queuing_enabled");
+        set => SetProperty("job_run_queuing_enabled", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string>? MaintenanceWindow
+    public TerraformProperty<string> MaintenanceWindow
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_window");
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxCapacity
+    public TerraformProperty<double> MaxCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity");
-        set => this.WithProperty("max_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_capacity");
+        set => SetProperty("max_capacity", value);
     }
 
     /// <summary>
     /// The max_retries attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxRetries
+    public TerraformProperty<double> MaxRetries
     {
-        get => GetProperty<TerraformProperty<double>>("max_retries");
-        set => this.WithProperty("max_retries", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_retries");
+        set => SetProperty("max_retries", value);
     }
 
     /// <summary>
@@ -282,35 +289,35 @@ public class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The non_overridable_arguments attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? NonOverridableArguments
+    public Dictionary<string, TerraformProperty<string>> NonOverridableArguments
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("non_overridable_arguments");
-        set => this.WithProperty("non_overridable_arguments", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("non_overridable_arguments");
+        set => SetProperty("non_overridable_arguments", value);
     }
 
     /// <summary>
     /// The number_of_workers attribute.
     /// </summary>
-    public TerraformProperty<double>? NumberOfWorkers
+    public TerraformProperty<double> NumberOfWorkers
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_workers");
-        set => this.WithProperty("number_of_workers", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("number_of_workers");
+        set => SetProperty("number_of_workers", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -319,65 +326,65 @@ public class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityConfiguration
+    public TerraformProperty<string> SecurityConfiguration
     {
-        get => GetProperty<TerraformProperty<string>>("security_configuration");
-        set => this.WithProperty("security_configuration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_configuration");
+        set => SetProperty("security_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? Timeout
+    public TerraformProperty<double> Timeout
     {
-        get => GetProperty<TerraformProperty<double>>("timeout");
-        set => this.WithProperty("timeout", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("timeout");
+        set => SetProperty("timeout", value);
     }
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkerType
+    public TerraformProperty<string> WorkerType
     {
-        get => GetProperty<TerraformProperty<string>>("worker_type");
-        set => this.WithProperty("worker_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("worker_type");
+        set => SetProperty("worker_type", value);
     }
 
     /// <summary>
     /// Block for command.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Command is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Command block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Command block(s) allowed")]
     public List<AwsGlueJobCommandBlock>? Command
     {
-        get => GetProperty<List<AwsGlueJobCommandBlock>>("command");
-        set => this.WithProperty("command", value);
+        set => SetProperty("command", value);
     }
 
     /// <summary>
@@ -387,8 +394,7 @@ public class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionProperty block(s) allowed")]
     public List<AwsGlueJobExecutionPropertyBlock>? ExecutionProperty
     {
-        get => GetProperty<List<AwsGlueJobExecutionPropertyBlock>>("execution_property");
-        set => this.WithProperty("execution_property", value);
+        set => SetProperty("execution_property", value);
     }
 
     /// <summary>
@@ -398,8 +404,7 @@ public class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationProperty block(s) allowed")]
     public List<AwsGlueJobNotificationPropertyBlock>? NotificationProperty
     {
-        get => GetProperty<List<AwsGlueJobNotificationPropertyBlock>>("notification_property");
-        set => this.WithProperty("notification_property", value);
+        set => SetProperty("notification_property", value);
     }
 
     /// <summary>
@@ -409,8 +414,7 @@ public class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControlDetails block(s) allowed")]
     public List<AwsGlueJobSourceControlDetailsBlock>? SourceControlDetails
     {
-        get => GetProperty<List<AwsGlueJobSourceControlDetailsBlock>>("source_control_details");
-        set => this.WithProperty("source_control_details", value);
+        set => SetProperty("source_control_details", value);
     }
 
     /// <summary>

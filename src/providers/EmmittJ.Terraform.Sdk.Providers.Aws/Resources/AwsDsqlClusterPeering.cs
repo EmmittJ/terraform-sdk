@@ -13,8 +13,7 @@ public class AwsDsqlClusterPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
 }
@@ -31,16 +30,20 @@ public class AwsDsqlClusterPeering : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("clusters");
+        SetOutput("identifier");
+        SetOutput("region");
+        SetOutput("witness_region");
     }
 
     /// <summary>
     /// The clusters attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Clusters is required")]
-    public HashSet<TerraformProperty<string>>? Clusters
+    public HashSet<TerraformProperty<string>> Clusters
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("clusters");
-        set => this.WithProperty("clusters", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("clusters");
+        set => SetProperty("clusters", value);
     }
 
     /// <summary>
@@ -49,17 +52,17 @@ public class AwsDsqlClusterPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
-        set => this.WithProperty("identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identifier");
+        set => SetProperty("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -68,8 +71,8 @@ public class AwsDsqlClusterPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WitnessRegion is required")]
     public required TerraformProperty<string> WitnessRegion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("witness_region");
-        set => this.WithProperty("witness_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("witness_region");
+        set => SetProperty("witness_region", value);
     }
 
     /// <summary>
@@ -78,8 +81,7 @@ public class AwsDsqlClusterPeering : TerraformResource
     /// </summary>
     public AwsDsqlClusterPeeringTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDsqlClusterPeeringTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

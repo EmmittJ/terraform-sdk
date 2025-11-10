@@ -14,24 +14,28 @@ public class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("applied_for");
-        this.WithOutput("custom_role_arn");
-        this.WithOutput("description");
-        this.WithOutput("encryption_configuration");
-        this.WithOutput("image_tag_mutability");
-        this.WithOutput("image_tag_mutability_exclusion_filter");
-        this.WithOutput("lifecycle_policy");
-        this.WithOutput("registry_id");
-        this.WithOutput("repository_policy");
+        SetOutput("applied_for");
+        SetOutput("custom_role_arn");
+        SetOutput("description");
+        SetOutput("encryption_configuration");
+        SetOutput("image_tag_mutability");
+        SetOutput("image_tag_mutability_exclusion_filter");
+        SetOutput("lifecycle_policy");
+        SetOutput("registry_id");
+        SetOutput("repository_policy");
+        SetOutput("id");
+        SetOutput("prefix");
+        SetOutput("region");
+        SetOutput("resource_tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -40,26 +44,26 @@ public class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformProperty<string> Prefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("prefix");
-        set => this.WithProperty("prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
+        set => SetProperty("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>> ResourceTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
-        set => this.WithProperty("resource_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("resource_tags");
+        set => SetProperty("resource_tags", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleBigqueryReservationAutoscaleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? CurrentSlots
     {
-        get => GetProperty<TerraformProperty<double>>("current_slots");
-        set => WithProperty("current_slots", value);
+        set => SetProperty("current_slots", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleBigqueryReservationAutoscaleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxSlots
     {
-        get => GetProperty<TerraformProperty<double>>("max_slots");
-        set => WithProperty("max_slots", value);
+        set => SetProperty("max_slots", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleBigqueryReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleBigqueryReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class GoogleBigqueryReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,36 +71,45 @@ public class GoogleBigqueryReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("original_primary_location");
-        this.WithOutput("primary_location");
-        this.WithOutput("replication_status");
+        SetOutput("original_primary_location");
+        SetOutput("primary_location");
+        SetOutput("replication_status");
+        SetOutput("concurrency");
+        SetOutput("edition");
+        SetOutput("id");
+        SetOutput("ignore_idle_slots");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("secondary_location");
+        SetOutput("slot_capacity");
     }
 
     /// <summary>
     /// Maximum number of queries that are allowed to run concurrently in this reservation. This is a soft limit due to asynchronous nature of the system and various optimizations for small queries. Default value is 0 which means that concurrency will be automatically set based on the reservation size.
     /// </summary>
-    public TerraformProperty<double>? Concurrency
+    public TerraformProperty<double> Concurrency
     {
-        get => GetProperty<TerraformProperty<double>>("concurrency");
-        set => this.WithProperty("concurrency", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("concurrency");
+        set => SetProperty("concurrency", value);
     }
 
     /// <summary>
     /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
     /// </summary>
-    public TerraformProperty<string>? Edition
+    public TerraformProperty<string> Edition
     {
-        get => GetProperty<TerraformProperty<string>>("edition");
-        set => this.WithProperty("edition", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edition");
+        set => SetProperty("edition", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,20 +117,20 @@ public class GoogleBigqueryReservation : TerraformResource
     /// the same admin project. If true, a query using this reservation will execute with the slot
     /// capacity specified above at most.
     /// </summary>
-    public TerraformProperty<bool>? IgnoreIdleSlots
+    public TerraformProperty<bool> IgnoreIdleSlots
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_idle_slots");
-        set => this.WithProperty("ignore_idle_slots", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_idle_slots");
+        set => SetProperty("ignore_idle_slots", value);
     }
 
     /// <summary>
     /// The geographic location where the transfer config should reside.
     /// Examples: US, EU, asia-northeast1. The default value is US.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -135,17 +139,17 @@ public class GoogleBigqueryReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -154,10 +158,10 @@ public class GoogleBigqueryReservation : TerraformResource
     /// reservation calls to create a failover reservation or in update reservation calls to convert
     /// a non-failover reservation to a failover reservation(or vice versa).
     /// </summary>
-    public TerraformProperty<string>? SecondaryLocation
+    public TerraformProperty<string> SecondaryLocation
     {
-        get => GetProperty<TerraformProperty<string>>("secondary_location");
-        set => this.WithProperty("secondary_location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("secondary_location");
+        set => SetProperty("secondary_location", value);
     }
 
     /// <summary>
@@ -167,8 +171,8 @@ public class GoogleBigqueryReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCapacity is required")]
     public required TerraformProperty<double> SlotCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("slot_capacity");
-        set => this.WithProperty("slot_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("slot_capacity");
+        set => SetProperty("slot_capacity", value);
     }
 
     /// <summary>
@@ -178,8 +182,7 @@ public class GoogleBigqueryReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscale block(s) allowed")]
     public List<GoogleBigqueryReservationAutoscaleBlock>? Autoscale
     {
-        get => GetProperty<List<GoogleBigqueryReservationAutoscaleBlock>>("autoscale");
-        set => this.WithProperty("autoscale", value);
+        set => SetProperty("autoscale", value);
     }
 
     /// <summary>
@@ -188,8 +191,7 @@ public class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     public GoogleBigqueryReservationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryReservationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

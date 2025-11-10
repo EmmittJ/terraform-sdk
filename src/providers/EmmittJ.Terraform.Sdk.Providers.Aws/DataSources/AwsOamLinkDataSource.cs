@@ -14,22 +14,26 @@ public class AwsOamLinkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("label");
-        this.WithOutput("label_template");
-        this.WithOutput("link_configuration");
-        this.WithOutput("link_id");
-        this.WithOutput("resource_types");
-        this.WithOutput("sink_arn");
+        SetOutput("arn");
+        SetOutput("label");
+        SetOutput("label_template");
+        SetOutput("link_configuration");
+        SetOutput("link_id");
+        SetOutput("resource_types");
+        SetOutput("sink_arn");
+        SetOutput("id");
+        SetOutput("link_identifier");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -38,26 +42,26 @@ public class AwsOamLinkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkIdentifier is required")]
     public required TerraformProperty<string> LinkIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("link_identifier");
-        set => this.WithProperty("link_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("link_identifier");
+        set => SetProperty("link_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

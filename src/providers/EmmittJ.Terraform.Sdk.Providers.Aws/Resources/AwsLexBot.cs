@@ -13,8 +13,7 @@ public class AwsLexBotAbortStatementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResponseCard
     {
-        get => GetProperty<TerraformProperty<string>>("response_card");
-        set => WithProperty("response_card", value);
+        set => SetProperty("response_card", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsLexBotClarificationPromptBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     public required TerraformProperty<double> MaxAttempts
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_attempts");
-        set => WithProperty("max_attempts", value);
+        set => SetProperty("max_attempts", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsLexBotClarificationPromptBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ResponseCard
     {
-        get => GetProperty<TerraformProperty<string>>("response_card");
-        set => WithProperty("response_card", value);
+        set => SetProperty("response_card", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AwsLexBotIntentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentName is required")]
     public required TerraformProperty<string> IntentName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("intent_name");
-        set => WithProperty("intent_name", value);
+        set => SetProperty("intent_name", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class AwsLexBotIntentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentVersion is required")]
     public required TerraformProperty<string> IntentVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("intent_version");
-        set => WithProperty("intent_version", value);
+        set => SetProperty("intent_version", value);
     }
 
 }
@@ -85,8 +80,7 @@ public class AwsLexBotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class AwsLexBotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class AwsLexBotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -122,13 +114,26 @@ public class AwsLexBot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("checksum");
-        this.WithOutput("created_date");
-        this.WithOutput("failure_reason");
-        this.WithOutput("last_updated_date");
-        this.WithOutput("status");
-        this.WithOutput("version");
+        SetOutput("arn");
+        SetOutput("checksum");
+        SetOutput("created_date");
+        SetOutput("failure_reason");
+        SetOutput("last_updated_date");
+        SetOutput("status");
+        SetOutput("version");
+        SetOutput("child_directed");
+        SetOutput("create_version");
+        SetOutput("description");
+        SetOutput("detect_sentiment");
+        SetOutput("enable_model_improvements");
+        SetOutput("id");
+        SetOutput("idle_session_ttl_in_seconds");
+        SetOutput("locale");
+        SetOutput("name");
+        SetOutput("nlu_intent_confidence_threshold");
+        SetOutput("process_behavior");
+        SetOutput("region");
+        SetOutput("voice_id");
     }
 
     /// <summary>
@@ -137,71 +142,71 @@ public class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChildDirected is required")]
     public required TerraformProperty<bool> ChildDirected
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("child_directed");
-        set => this.WithProperty("child_directed", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("child_directed");
+        set => SetProperty("child_directed", value);
     }
 
     /// <summary>
     /// The create_version attribute.
     /// </summary>
-    public TerraformProperty<bool>? CreateVersion
+    public TerraformProperty<bool> CreateVersion
     {
-        get => GetProperty<TerraformProperty<bool>>("create_version");
-        set => this.WithProperty("create_version", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("create_version");
+        set => SetProperty("create_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The detect_sentiment attribute.
     /// </summary>
-    public TerraformProperty<bool>? DetectSentiment
+    public TerraformProperty<bool> DetectSentiment
     {
-        get => GetProperty<TerraformProperty<bool>>("detect_sentiment");
-        set => this.WithProperty("detect_sentiment", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("detect_sentiment");
+        set => SetProperty("detect_sentiment", value);
     }
 
     /// <summary>
     /// The enable_model_improvements attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableModelImprovements
+    public TerraformProperty<bool> EnableModelImprovements
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_model_improvements");
-        set => this.WithProperty("enable_model_improvements", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_model_improvements");
+        set => SetProperty("enable_model_improvements", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The idle_session_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? IdleSessionTtlInSeconds
+    public TerraformProperty<double> IdleSessionTtlInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("idle_session_ttl_in_seconds");
-        set => this.WithProperty("idle_session_ttl_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("idle_session_ttl_in_seconds");
+        set => SetProperty("idle_session_ttl_in_seconds", value);
     }
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
-    public TerraformProperty<string>? Locale
+    public TerraformProperty<string> Locale
     {
-        get => GetProperty<TerraformProperty<string>>("locale");
-        set => this.WithProperty("locale", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("locale");
+        set => SetProperty("locale", value);
     }
 
     /// <summary>
@@ -210,56 +215,56 @@ public class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The nlu_intent_confidence_threshold attribute.
     /// </summary>
-    public TerraformProperty<double>? NluIntentConfidenceThreshold
+    public TerraformProperty<double> NluIntentConfidenceThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("nlu_intent_confidence_threshold");
-        set => this.WithProperty("nlu_intent_confidence_threshold", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("nlu_intent_confidence_threshold");
+        set => SetProperty("nlu_intent_confidence_threshold", value);
     }
 
     /// <summary>
     /// The process_behavior attribute.
     /// </summary>
-    public TerraformProperty<string>? ProcessBehavior
+    public TerraformProperty<string> ProcessBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("process_behavior");
-        set => this.WithProperty("process_behavior", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("process_behavior");
+        set => SetProperty("process_behavior", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The voice_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VoiceId
+    public TerraformProperty<string> VoiceId
     {
-        get => GetProperty<TerraformProperty<string>>("voice_id");
-        set => this.WithProperty("voice_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("voice_id");
+        set => SetProperty("voice_id", value);
     }
 
     /// <summary>
     /// Block for abort_statement.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AbortStatement is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AbortStatement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AbortStatement block(s) allowed")]
     public List<AwsLexBotAbortStatementBlock>? AbortStatement
     {
-        get => GetProperty<List<AwsLexBotAbortStatementBlock>>("abort_statement");
-        set => this.WithProperty("abort_statement", value);
+        set => SetProperty("abort_statement", value);
     }
 
     /// <summary>
@@ -269,20 +274,19 @@ public class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClarificationPrompt block(s) allowed")]
     public List<AwsLexBotClarificationPromptBlock>? ClarificationPrompt
     {
-        get => GetProperty<List<AwsLexBotClarificationPromptBlock>>("clarification_prompt");
-        set => this.WithProperty("clarification_prompt", value);
+        set => SetProperty("clarification_prompt", value);
     }
 
     /// <summary>
     /// Block for intent.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Intent is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(250, ErrorMessage = "Maximum 250 Intent block(s) allowed")]
     public HashSet<AwsLexBotIntentBlock>? Intent
     {
-        get => GetProperty<HashSet<AwsLexBotIntentBlock>>("intent");
-        set => this.WithProperty("intent", value);
+        set => SetProperty("intent", value);
     }
 
     /// <summary>
@@ -291,8 +295,7 @@ public class AwsLexBot : TerraformResource
     /// </summary>
     public AwsLexBotTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLexBotTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

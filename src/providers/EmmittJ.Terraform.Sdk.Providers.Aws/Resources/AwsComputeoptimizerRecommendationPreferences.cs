@@ -14,8 +14,7 @@ public class AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferen
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source");
-        set => WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock 
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExcludeList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("exclude_list");
-        set => WithProperty("exclude_list", value);
+        set => SetProperty("exclude_list", value);
     }
 
     /// <summary>
@@ -40,8 +38,7 @@ public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock 
     /// </summary>
     public HashSet<TerraformProperty<string>>? IncludeList
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("include_list");
-        set => WithProperty("include_list", value);
+        set => SetProperty("include_list", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -68,8 +64,7 @@ public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -78,8 +73,7 @@ public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => WithProperty("value", value);
+        set => SetProperty("value", value);
     }
 
 }
@@ -96,8 +90,7 @@ public class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
-        set => WithProperty("metric_name", value);
+        set => SetProperty("metric_name", value);
     }
 
 }
@@ -114,43 +107,49 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputd");
+        SetOutput("id");
+        SetOutput("enhanced_infrastructure_metrics");
+        SetOutput("inferred_workload_types");
+        SetOutput("look_back_period");
+        SetOutput("region");
+        SetOutput("resource_type");
+        SetOutput("savings_estimation_mode");
     }
 
     /// <summary>
     /// The enhanced_infrastructure_metrics attribute.
     /// </summary>
-    public TerraformProperty<string>? EnhancedInfrastructureMetrics
+    public TerraformProperty<string> EnhancedInfrastructureMetrics
     {
-        get => GetProperty<TerraformProperty<string>>("enhanced_infrastructure_metrics");
-        set => this.WithProperty("enhanced_infrastructure_metrics", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enhanced_infrastructure_metrics");
+        set => SetProperty("enhanced_infrastructure_metrics", value);
     }
 
     /// <summary>
     /// The inferred_workload_types attribute.
     /// </summary>
-    public TerraformProperty<string>? InferredWorkloadTypes
+    public TerraformProperty<string> InferredWorkloadTypes
     {
-        get => GetProperty<TerraformProperty<string>>("inferred_workload_types");
-        set => this.WithProperty("inferred_workload_types", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("inferred_workload_types");
+        set => SetProperty("inferred_workload_types", value);
     }
 
     /// <summary>
     /// The look_back_period attribute.
     /// </summary>
-    public TerraformProperty<string>? LookBackPeriod
+    public TerraformProperty<string> LookBackPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("look_back_period");
-        set => this.WithProperty("look_back_period", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("look_back_period");
+        set => SetProperty("look_back_period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -159,17 +158,17 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
-        set => this.WithProperty("resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
+        set => SetProperty("resource_type", value);
     }
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? SavingsEstimationMode
+    public TerraformProperty<string> SavingsEstimationMode
     {
-        get => GetProperty<TerraformProperty<string>>("savings_estimation_mode");
-        set => this.WithProperty("savings_estimation_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("savings_estimation_mode");
+        set => SetProperty("savings_estimation_mode", value);
     }
 
     /// <summary>
@@ -178,8 +177,7 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
     /// </summary>
     public List<AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock>? ExternalMetricsPreference
     {
-        get => GetProperty<List<AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock>>("external_metrics_preference");
-        set => this.WithProperty("external_metrics_preference", value);
+        set => SetProperty("external_metrics_preference", value);
     }
 
     /// <summary>
@@ -188,8 +186,7 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
     /// </summary>
     public List<AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock>? PreferredResource
     {
-        get => GetProperty<List<AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock>>("preferred_resource");
-        set => this.WithProperty("preferred_resource", value);
+        set => SetProperty("preferred_resource", value);
     }
 
     /// <summary>
@@ -198,8 +195,7 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
     /// </summary>
     public List<AwsComputeoptimizerRecommendationPreferencesScopeBlock>? Scope
     {
-        get => GetProperty<List<AwsComputeoptimizerRecommendationPreferencesScopeBlock>>("scope");
-        set => this.WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -208,8 +204,7 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
     /// </summary>
     public List<AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock>? UtilizationPreference
     {
-        get => GetProperty<List<AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock>>("utilization_preference");
-        set => this.WithProperty("utilization_preference", value);
+        set => SetProperty("utilization_preference", value);
     }
 
     /// <summary>

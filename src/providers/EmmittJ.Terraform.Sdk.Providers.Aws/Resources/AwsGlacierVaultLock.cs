@@ -14,6 +14,12 @@ public class AwsGlacierVaultLock : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("complete_lock");
+        SetOutput("id");
+        SetOutput("ignore_deletion_error");
+        SetOutput("policy");
+        SetOutput("region");
+        SetOutput("vault_name");
     }
 
     /// <summary>
@@ -22,26 +28,26 @@ public class AwsGlacierVaultLock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CompleteLock is required")]
     public required TerraformProperty<bool> CompleteLock
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("complete_lock");
-        set => this.WithProperty("complete_lock", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("complete_lock");
+        set => SetProperty("complete_lock", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ignore_deletion_error attribute.
     /// </summary>
-    public TerraformProperty<bool>? IgnoreDeletionError
+    public TerraformProperty<bool> IgnoreDeletionError
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_deletion_error");
-        set => this.WithProperty("ignore_deletion_error", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_deletion_error");
+        set => SetProperty("ignore_deletion_error", value);
     }
 
     /// <summary>
@@ -50,17 +56,17 @@ public class AwsGlacierVaultLock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -69,8 +75,8 @@ public class AwsGlacierVaultLock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultName is required")]
     public required TerraformProperty<string> VaultName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vault_name");
-        set => this.WithProperty("vault_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vault_name");
+        set => SetProperty("vault_name", value);
     }
 
 }

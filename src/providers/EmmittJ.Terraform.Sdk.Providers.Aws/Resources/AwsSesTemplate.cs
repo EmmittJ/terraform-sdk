@@ -14,25 +14,31 @@ public class AwsSesTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("html");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("subject");
+        SetOutput("text");
     }
 
     /// <summary>
     /// The html attribute.
     /// </summary>
-    public TerraformProperty<string>? Html
+    public TerraformProperty<string> Html
     {
-        get => GetProperty<TerraformProperty<string>>("html");
-        set => this.WithProperty("html", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("html");
+        set => SetProperty("html", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,35 +47,35 @@ public class AwsSesTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
-    public TerraformProperty<string>? Subject
+    public TerraformProperty<string> Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
-        set => this.WithProperty("subject", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subject");
+        set => SetProperty("subject", value);
     }
 
     /// <summary>
     /// The text attribute.
     /// </summary>
-    public TerraformProperty<string>? Text
+    public TerraformProperty<string> Text
     {
-        get => GetProperty<TerraformProperty<string>>("text");
-        set => this.WithProperty("text", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("text");
+        set => SetProperty("text", value);
     }
 
     /// <summary>

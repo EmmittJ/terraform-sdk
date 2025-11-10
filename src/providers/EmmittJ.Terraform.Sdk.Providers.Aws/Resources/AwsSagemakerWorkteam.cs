@@ -21,8 +21,7 @@ public class AwsSagemakerWorkteamNotificationConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? NotificationTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("notification_topic_arn");
-        set => WithProperty("notification_topic_arn", value);
+        set => SetProperty("notification_topic_arn", value);
     }
 
 }
@@ -48,8 +47,15 @@ public class AwsSagemakerWorkteam : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("subdomain");
+        SetOutput("arn");
+        SetOutput("subdomain");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("workforce_name");
+        SetOutput("workteam_name");
     }
 
     /// <summary>
@@ -58,53 +64,53 @@ public class AwsSagemakerWorkteam : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The workforce_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkforceName
+    public TerraformProperty<string> WorkforceName
     {
-        get => GetProperty<TerraformProperty<string>>("workforce_name");
-        set => this.WithProperty("workforce_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workforce_name");
+        set => SetProperty("workforce_name", value);
     }
 
     /// <summary>
@@ -113,20 +119,20 @@ public class AwsSagemakerWorkteam : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkteamName is required")]
     public required TerraformProperty<string> WorkteamName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workteam_name");
-        set => this.WithProperty("workteam_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workteam_name");
+        set => SetProperty("workteam_name", value);
     }
 
     /// <summary>
     /// Block for member_definition.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberDefinition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MemberDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 MemberDefinition block(s) allowed")]
     public List<AwsSagemakerWorkteamMemberDefinitionBlock>? MemberDefinition
     {
-        get => GetProperty<List<AwsSagemakerWorkteamMemberDefinitionBlock>>("member_definition");
-        set => this.WithProperty("member_definition", value);
+        set => SetProperty("member_definition", value);
     }
 
     /// <summary>
@@ -136,8 +142,7 @@ public class AwsSagemakerWorkteam : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfiguration block(s) allowed")]
     public List<AwsSagemakerWorkteamNotificationConfigurationBlock>? NotificationConfiguration
     {
-        get => GetProperty<List<AwsSagemakerWorkteamNotificationConfigurationBlock>>("notification_configuration");
-        set => this.WithProperty("notification_configuration", value);
+        set => SetProperty("notification_configuration", value);
     }
 
     /// <summary>
@@ -147,8 +152,7 @@ public class AwsSagemakerWorkteam : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerAccessConfiguration block(s) allowed")]
     public List<AwsSagemakerWorkteamWorkerAccessConfigurationBlock>? WorkerAccessConfiguration
     {
-        get => GetProperty<List<AwsSagemakerWorkteamWorkerAccessConfigurationBlock>>("worker_access_configuration");
-        set => this.WithProperty("worker_access_configuration", value);
+        set => SetProperty("worker_access_configuration", value);
     }
 
     /// <summary>

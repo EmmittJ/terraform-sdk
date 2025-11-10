@@ -14,12 +14,20 @@ public class AwsNetworkmonitorProbe : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("address_family");
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("probe_id");
-        this.WithOutput("tags_all");
-        this.WithOutput("vpc_id");
+        SetOutput("address_family");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("probe_id");
+        SetOutput("tags_all");
+        SetOutput("vpc_id");
+        SetOutput("destination");
+        SetOutput("destination_port");
+        SetOutput("monitor_name");
+        SetOutput("packet_size");
+        SetOutput("protocol");
+        SetOutput("region");
+        SetOutput("source_arn");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -28,17 +36,17 @@ public class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination");
-        set => this.WithProperty("destination", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("destination");
+        set => SetProperty("destination", value);
     }
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
-    public TerraformProperty<double>? DestinationPort
+    public TerraformProperty<double> DestinationPort
     {
-        get => GetProperty<TerraformProperty<double>>("destination_port");
-        set => this.WithProperty("destination_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("destination_port");
+        set => SetProperty("destination_port", value);
     }
 
     /// <summary>
@@ -47,17 +55,17 @@ public class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     public required TerraformProperty<string> MonitorName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("monitor_name");
-        set => this.WithProperty("monitor_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("monitor_name");
+        set => SetProperty("monitor_name", value);
     }
 
     /// <summary>
     /// The packet_size attribute.
     /// </summary>
-    public TerraformProperty<double>? PacketSize
+    public TerraformProperty<double> PacketSize
     {
-        get => GetProperty<TerraformProperty<double>>("packet_size");
-        set => this.WithProperty("packet_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("packet_size");
+        set => SetProperty("packet_size", value);
     }
 
     /// <summary>
@@ -66,17 +74,17 @@ public class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
-        set => this.WithProperty("protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
+        set => SetProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -85,17 +93,17 @@ public class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformProperty<string> SourceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_arn");
-        set => this.WithProperty("source_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_arn");
+        set => SetProperty("source_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

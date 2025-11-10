@@ -13,8 +13,7 @@ public class AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("display_name");
-        this.WithOutput("file_path");
-        this.WithOutput("file_system_name");
-        this.WithOutput("folder_path");
-        this.WithOutput("storage_account_id");
+        SetOutput("display_name");
+        SetOutput("file_path");
+        SetOutput("file_system_name");
+        SetOutput("folder_path");
+        SetOutput("storage_account_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("share_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     public required TerraformProperty<string> ShareId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("share_id");
-        set => this.WithProperty("share_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("share_id");
+        set => SetProperty("share_id", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
     /// </summary>
     public AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

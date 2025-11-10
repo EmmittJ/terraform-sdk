@@ -14,8 +14,7 @@ public class AzureadGroupDynamicMembershipBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AzureadGroupDynamicMembershipBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformProperty<string> Rule
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rule");
-        set => WithProperty("rule", value);
+        set => SetProperty("rule", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzureadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzureadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class AzureadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzureadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -87,60 +81,82 @@ public class AzureadGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("mail");
-        this.WithOutput("object_id");
-        this.WithOutput("onpremises_domain_name");
-        this.WithOutput("onpremises_netbios_name");
-        this.WithOutput("onpremises_sam_account_name");
-        this.WithOutput("onpremises_security_identifier");
-        this.WithOutput("onpremises_sync_enabled");
-        this.WithOutput("preferred_language");
-        this.WithOutput("proxy_addresses");
+        SetOutput("mail");
+        SetOutput("object_id");
+        SetOutput("onpremises_domain_name");
+        SetOutput("onpremises_netbios_name");
+        SetOutput("onpremises_sam_account_name");
+        SetOutput("onpremises_security_identifier");
+        SetOutput("onpremises_sync_enabled");
+        SetOutput("preferred_language");
+        SetOutput("proxy_addresses");
+        SetOutput("administrative_unit_ids");
+        SetOutput("assignable_to_role");
+        SetOutput("auto_subscribe_new_members");
+        SetOutput("behaviors");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("external_senders_allowed");
+        SetOutput("hide_from_address_lists");
+        SetOutput("hide_from_outlook_clients");
+        SetOutput("id");
+        SetOutput("mail_enabled");
+        SetOutput("mail_nickname");
+        SetOutput("members");
+        SetOutput("onpremises_group_type");
+        SetOutput("owners");
+        SetOutput("prevent_duplicate_names");
+        SetOutput("provisioning_options");
+        SetOutput("security_enabled");
+        SetOutput("theme");
+        SetOutput("types");
+        SetOutput("visibility");
+        SetOutput("writeback_enabled");
     }
 
     /// <summary>
     /// The administrative unit IDs in which the group should be. If empty, the group will be created at the tenant level.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AdministrativeUnitIds
+    public HashSet<TerraformProperty<string>> AdministrativeUnitIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("administrative_unit_ids");
-        set => this.WithProperty("administrative_unit_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("administrative_unit_ids");
+        set => SetProperty("administrative_unit_ids", value);
     }
 
     /// <summary>
     /// Indicates whether this group can be assigned to an Azure Active Directory role. This property can only be `true` for security-enabled groups.
     /// </summary>
-    public TerraformProperty<bool>? AssignableToRole
+    public TerraformProperty<bool> AssignableToRole
     {
-        get => GetProperty<TerraformProperty<bool>>("assignable_to_role");
-        set => this.WithProperty("assignable_to_role", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("assignable_to_role");
+        set => SetProperty("assignable_to_role", value);
     }
 
     /// <summary>
     /// Indicates whether new members added to the group will be auto-subscribed to receive email notifications.
     /// </summary>
-    public TerraformProperty<bool>? AutoSubscribeNewMembers
+    public TerraformProperty<bool> AutoSubscribeNewMembers
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_subscribe_new_members");
-        set => this.WithProperty("auto_subscribe_new_members", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_subscribe_new_members");
+        set => SetProperty("auto_subscribe_new_members", value);
     }
 
     /// <summary>
     /// The group behaviours for a Microsoft 365 group
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Behaviors
+    public HashSet<TerraformProperty<string>> Behaviors
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("behaviors");
-        set => this.WithProperty("behaviors", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("behaviors");
+        set => SetProperty("behaviors", value);
     }
 
     /// <summary>
     /// The description for the group
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -149,152 +165,152 @@ public class AzureadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Indicates whether people external to the organization can send messages to the group.
     /// </summary>
-    public TerraformProperty<bool>? ExternalSendersAllowed
+    public TerraformProperty<bool> ExternalSendersAllowed
     {
-        get => GetProperty<TerraformProperty<bool>>("external_senders_allowed");
-        set => this.WithProperty("external_senders_allowed", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("external_senders_allowed");
+        set => SetProperty("external_senders_allowed", value);
     }
 
     /// <summary>
     /// Indicates whether the group is displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups.
     /// </summary>
-    public TerraformProperty<bool>? HideFromAddressLists
+    public TerraformProperty<bool> HideFromAddressLists
     {
-        get => GetProperty<TerraformProperty<bool>>("hide_from_address_lists");
-        set => this.WithProperty("hide_from_address_lists", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("hide_from_address_lists");
+        set => SetProperty("hide_from_address_lists", value);
     }
 
     /// <summary>
     /// Indicates whether the group is displayed in Outlook clients, such as Outlook for Windows and Outlook on the web.
     /// </summary>
-    public TerraformProperty<bool>? HideFromOutlookClients
+    public TerraformProperty<bool> HideFromOutlookClients
     {
-        get => GetProperty<TerraformProperty<bool>>("hide_from_outlook_clients");
-        set => this.WithProperty("hide_from_outlook_clients", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("hide_from_outlook_clients");
+        set => SetProperty("hide_from_outlook_clients", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Whether the group is a mail enabled, with a shared group mailbox. At least one of `mail_enabled` or `security_enabled` must be specified. A group can be mail enabled _and_ security enabled
     /// </summary>
-    public TerraformProperty<bool>? MailEnabled
+    public TerraformProperty<bool> MailEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("mail_enabled");
-        set => this.WithProperty("mail_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("mail_enabled");
+        set => SetProperty("mail_enabled", value);
     }
 
     /// <summary>
     /// The mail alias for the group, unique in the organisation
     /// </summary>
-    public TerraformProperty<string>? MailNickname
+    public TerraformProperty<string> MailNickname
     {
-        get => GetProperty<TerraformProperty<string>>("mail_nickname");
-        set => this.WithProperty("mail_nickname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mail_nickname");
+        set => SetProperty("mail_nickname", value);
     }
 
     /// <summary>
     /// A set of members who should be present in this group. Supported object types are Users, Groups or Service Principals
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Members
+    public HashSet<TerraformProperty<string>> Members
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
-        set => this.WithProperty("members", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("members");
+        set => SetProperty("members", value);
     }
 
     /// <summary>
     /// Indicates the target on-premise group type the group will be written back as
     /// </summary>
-    public TerraformProperty<string>? OnpremisesGroupType
+    public TerraformProperty<string> OnpremisesGroupType
     {
-        get => GetProperty<TerraformProperty<string>>("onpremises_group_type");
-        set => this.WithProperty("onpremises_group_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("onpremises_group_type");
+        set => SetProperty("onpremises_group_type", value);
     }
 
     /// <summary>
     /// A set of owners who own this group. Supported object types are Users or Service Principals
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Owners
+    public HashSet<TerraformProperty<string>> Owners
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("owners");
-        set => this.WithProperty("owners", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("owners");
+        set => SetProperty("owners", value);
     }
 
     /// <summary>
     /// If `true`, will return an error if an existing group is found with the same name
     /// </summary>
-    public TerraformProperty<bool>? PreventDuplicateNames
+    public TerraformProperty<bool> PreventDuplicateNames
     {
-        get => GetProperty<TerraformProperty<bool>>("prevent_duplicate_names");
-        set => this.WithProperty("prevent_duplicate_names", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("prevent_duplicate_names");
+        set => SetProperty("prevent_duplicate_names", value);
     }
 
     /// <summary>
     /// The group provisioning options for a Microsoft 365 group
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ProvisioningOptions
+    public HashSet<TerraformProperty<string>> ProvisioningOptions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("provisioning_options");
-        set => this.WithProperty("provisioning_options", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("provisioning_options");
+        set => SetProperty("provisioning_options", value);
     }
 
     /// <summary>
     /// Whether the group is a security group for controlling access to in-app resources. At least one of `security_enabled` or `mail_enabled` must be specified. A group can be security enabled _and_ mail enabled
     /// </summary>
-    public TerraformProperty<bool>? SecurityEnabled
+    public TerraformProperty<bool> SecurityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("security_enabled");
-        set => this.WithProperty("security_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("security_enabled");
+        set => SetProperty("security_enabled", value);
     }
 
     /// <summary>
     /// The colour theme for a Microsoft 365 group
     /// </summary>
-    public TerraformProperty<string>? Theme
+    public TerraformProperty<string> Theme
     {
-        get => GetProperty<TerraformProperty<string>>("theme");
-        set => this.WithProperty("theme", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("theme");
+        set => SetProperty("theme", value);
     }
 
     /// <summary>
     /// A set of group types to configure for the group. `Unified` specifies a Microsoft 365 group. Required when `mail_enabled` is true
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Types
+    public HashSet<TerraformProperty<string>> Types
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("types");
-        set => this.WithProperty("types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("types");
+        set => SetProperty("types", value);
     }
 
     /// <summary>
     /// Specifies the group join policy and group content visibility
     /// </summary>
-    public TerraformProperty<string>? Visibility
+    public TerraformProperty<string> Visibility
     {
-        get => GetProperty<TerraformProperty<string>>("visibility");
-        set => this.WithProperty("visibility", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("visibility");
+        set => SetProperty("visibility", value);
     }
 
     /// <summary>
     /// Whether this group should be synced from Azure AD to the on-premises directory when Azure AD Connect is used
     /// </summary>
-    public TerraformProperty<bool>? WritebackEnabled
+    public TerraformProperty<bool> WritebackEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("writeback_enabled");
-        set => this.WithProperty("writeback_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("writeback_enabled");
+        set => SetProperty("writeback_enabled", value);
     }
 
     /// <summary>
@@ -304,8 +320,7 @@ public class AzureadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamicMembership block(s) allowed")]
     public List<AzureadGroupDynamicMembershipBlock>? DynamicMembership
     {
-        get => GetProperty<List<AzureadGroupDynamicMembershipBlock>>("dynamic_membership");
-        set => this.WithProperty("dynamic_membership", value);
+        set => SetProperty("dynamic_membership", value);
     }
 
     /// <summary>
@@ -314,8 +329,7 @@ public class AzureadGroup : TerraformResource
     /// </summary>
     public AzureadGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

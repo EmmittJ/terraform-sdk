@@ -13,8 +13,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? BootDiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("boot_disk_size_gb");
-        set => WithProperty("boot_disk_size_gb", value);
+        set => SetProperty("boot_disk_size_gb", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Cpus
     {
-        get => GetProperty<TerraformProperty<double>>("cpus");
-        set => WithProperty("cpus", value);
+        set => SetProperty("cpus", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableLoadBalancer
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_load_balancer");
-        set => WithProperty("enable_load_balancer", value);
+        set => SetProperty("enable_load_balancer", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
-        set => WithProperty("image", value);
+        set => SetProperty("image", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageType is required")]
     public required TerraformProperty<string> ImageType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("image_type");
-        set => WithProperty("image_type", value);
+        set => SetProperty("image_type", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MemoryMb
     {
-        get => GetProperty<TerraformProperty<double>>("memory_mb");
-        set => WithProperty("memory_mb", value);
+        set => SetProperty("memory_mb", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Replicas
     {
-        get => GetProperty<TerraformProperty<double>>("replicas");
-        set => WithProperty("replicas", value);
+        set => SetProperty("replicas", value);
     }
 
 }
@@ -102,8 +94,7 @@ public class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReplicas is required")]
     public required TerraformProperty<double> MaxReplicas
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("max_replicas");
-        set => WithProperty("max_replicas", value);
+        set => SetProperty("max_replicas", value);
     }
 
     /// <summary>
@@ -112,8 +103,7 @@ public class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicas is required")]
     public required TerraformProperty<double> MinReplicas
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("min_replicas");
-        set => WithProperty("min_replicas", value);
+        set => SetProperty("min_replicas", value);
     }
 
 }
@@ -129,8 +119,7 @@ public class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -138,8 +127,7 @@ public class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -147,8 +135,7 @@ public class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -166,15 +153,23 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("delete_time");
-        this.WithOutput("effective_annotations");
-        this.WithOutput("etag");
-        this.WithOutput("reconciling");
-        this.WithOutput("state");
-        this.WithOutput("status");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("delete_time");
+        SetOutput("effective_annotations");
+        SetOutput("etag");
+        SetOutput("reconciling");
+        SetOutput("state");
+        SetOutput("status");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("annotations");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("on_prem_version");
+        SetOutput("project");
+        SetOutput("vmware_cluster");
     }
 
     /// <summary>
@@ -191,28 +186,28 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
+    public Dictionary<string, TerraformProperty<string>> Annotations
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => this.WithProperty("annotations", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => SetProperty("annotations", value);
     }
 
     /// <summary>
     /// The display name for the node pool.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -221,8 +216,8 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -231,26 +226,26 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Anthos version for the node pool. Defaults to the user cluster version.
     /// </summary>
-    public TerraformProperty<string>? OnPremVersion
+    public TerraformProperty<string> OnPremVersion
     {
-        get => GetProperty<TerraformProperty<string>>("on_prem_version");
-        set => this.WithProperty("on_prem_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("on_prem_version");
+        set => SetProperty("on_prem_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -259,20 +254,20 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCluster is required")]
     public required TerraformProperty<string> VmwareCluster
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vmware_cluster");
-        set => this.WithProperty("vmware_cluster", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vmware_cluster");
+        set => SetProperty("vmware_cluster", value);
     }
 
     /// <summary>
     /// Block for config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     public List<GoogleGkeonpremVmwareNodePoolConfigBlock>? Config
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareNodePoolConfigBlock>>("config");
-        set => this.WithProperty("config", value);
+        set => SetProperty("config", value);
     }
 
     /// <summary>
@@ -282,8 +277,7 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolAutoscaling block(s) allowed")]
     public List<GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock>? NodePoolAutoscaling
     {
-        get => GetProperty<List<GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock>>("node_pool_autoscaling");
-        set => this.WithProperty("node_pool_autoscaling", value);
+        set => SetProperty("node_pool_autoscaling", value);
     }
 
     /// <summary>
@@ -292,8 +286,7 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
     /// </summary>
     public GoogleGkeonpremVmwareNodePoolTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleGkeonpremVmwareNodePoolTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

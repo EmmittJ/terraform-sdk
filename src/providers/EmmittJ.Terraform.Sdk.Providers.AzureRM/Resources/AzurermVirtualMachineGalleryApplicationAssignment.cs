@@ -13,8 +13,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : Te
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,21 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
 
     private void InitializeOutputs()
     {
+        SetOutput("configuration_blob_uri");
+        SetOutput("gallery_application_version_id");
+        SetOutput("id");
+        SetOutput("order");
+        SetOutput("tag");
+        SetOutput("virtual_machine_id");
     }
 
     /// <summary>
     /// The configuration_blob_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationBlobUri
+    public TerraformProperty<string> ConfigurationBlobUri
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_blob_uri");
-        set => this.WithProperty("configuration_blob_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_blob_uri");
+        set => SetProperty("configuration_blob_uri", value);
     }
 
     /// <summary>
@@ -75,35 +77,35 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationVersionId is required")]
     public required TerraformProperty<string> GalleryApplicationVersionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gallery_application_version_id");
-        set => this.WithProperty("gallery_application_version_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gallery_application_version_id");
+        set => SetProperty("gallery_application_version_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
-    public TerraformProperty<double>? Order
+    public TerraformProperty<double> Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
-        set => this.WithProperty("order", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("order");
+        set => SetProperty("order", value);
     }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
-    public TerraformProperty<string>? Tag
+    public TerraformProperty<string> Tag
     {
-        get => GetProperty<TerraformProperty<string>>("tag");
-        set => this.WithProperty("tag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tag");
+        set => SetProperty("tag", value);
     }
 
     /// <summary>
@@ -112,8 +114,8 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
-        set => this.WithProperty("virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
+        set => SetProperty("virtual_machine_id", value);
     }
 
     /// <summary>
@@ -122,8 +124,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
     /// </summary>
     public AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock : Terra
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,6 +30,9 @@ public class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
+        SetOutput("billing_account_name");
+        SetOutput("enrollment_account_name");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -39,8 +41,8 @@ public class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
     public required TerraformProperty<string> BillingAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("billing_account_name");
-        set => this.WithProperty("billing_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_account_name");
+        set => SetProperty("billing_account_name", value);
     }
 
     /// <summary>
@@ -49,17 +51,17 @@ public class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrollmentAccountName is required")]
     public required TerraformProperty<string> EnrollmentAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("enrollment_account_name");
-        set => this.WithProperty("enrollment_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("enrollment_account_name");
+        set => SetProperty("enrollment_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -68,8 +70,7 @@ public class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSourc
     /// </summary>
     public AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

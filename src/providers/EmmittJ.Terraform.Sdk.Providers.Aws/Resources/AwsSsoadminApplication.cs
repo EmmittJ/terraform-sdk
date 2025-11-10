@@ -13,8 +13,7 @@ public class AwsSsoadminApplicationPortalOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Visibility
     {
-        get => GetProperty<TerraformProperty<string>>("visibility");
-        set => WithProperty("visibility", value);
+        set => SetProperty("visibility", value);
     }
 
 }
@@ -31,11 +30,19 @@ public class AwsSsoadminApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("application_account");
-        this.WithOutput("application_arn");
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("application_account");
+        SetOutput("application_arn");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("application_provider_arn");
+        SetOutput("client_token");
+        SetOutput("description");
+        SetOutput("instance_arn");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("status");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -44,26 +51,26 @@ public class AwsSsoadminApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationProviderArn is required")]
     public required TerraformProperty<string> ApplicationProviderArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_provider_arn");
-        set => this.WithProperty("application_provider_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_provider_arn");
+        set => SetProperty("application_provider_arn", value);
     }
 
     /// <summary>
     /// The client_token attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientToken
+    public TerraformProperty<string> ClientToken
     {
-        get => GetProperty<TerraformProperty<string>>("client_token");
-        set => this.WithProperty("client_token", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_token");
+        set => SetProperty("client_token", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -72,8 +79,8 @@ public class AwsSsoadminApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
-        set => this.WithProperty("instance_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
+        set => SetProperty("instance_arn", value);
     }
 
     /// <summary>
@@ -82,35 +89,35 @@ public class AwsSsoadminApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -119,8 +126,7 @@ public class AwsSsoadminApplication : TerraformResource
     /// </summary>
     public List<AwsSsoadminApplicationPortalOptionsBlock>? PortalOptions
     {
-        get => GetProperty<List<AwsSsoadminApplicationPortalOptionsBlock>>("portal_options");
-        set => this.WithProperty("portal_options", value);
+        set => SetProperty("portal_options", value);
     }
 
     /// <summary>

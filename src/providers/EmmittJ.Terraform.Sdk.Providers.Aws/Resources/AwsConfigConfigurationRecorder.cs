@@ -13,8 +13,7 @@ public class AwsConfigConfigurationRecorderRecordingGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllSupported
     {
-        get => GetProperty<TerraformProperty<bool>>("all_supported");
-        set => WithProperty("all_supported", value);
+        set => SetProperty("all_supported", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsConfigConfigurationRecorderRecordingGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IncludeGlobalResourceTypes
     {
-        get => GetProperty<TerraformProperty<bool>>("include_global_resource_types");
-        set => WithProperty("include_global_resource_types", value);
+        set => SetProperty("include_global_resource_types", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsConfigConfigurationRecorderRecordingGroupBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ResourceTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_types");
-        set => WithProperty("resource_types", value);
+        set => SetProperty("resource_types", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsConfigConfigurationRecorderRecordingModeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RecordingFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("recording_frequency");
-        set => WithProperty("recording_frequency", value);
+        set => SetProperty("recording_frequency", value);
     }
 
 }
@@ -67,33 +63,37 @@ public class AwsConfigConfigurationRecorder : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("role_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -102,8 +102,8 @@ public class AwsConfigConfigurationRecorder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -113,8 +113,7 @@ public class AwsConfigConfigurationRecorder : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecordingGroup block(s) allowed")]
     public List<AwsConfigConfigurationRecorderRecordingGroupBlock>? RecordingGroup
     {
-        get => GetProperty<List<AwsConfigConfigurationRecorderRecordingGroupBlock>>("recording_group");
-        set => this.WithProperty("recording_group", value);
+        set => SetProperty("recording_group", value);
     }
 
     /// <summary>
@@ -124,8 +123,7 @@ public class AwsConfigConfigurationRecorder : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecordingMode block(s) allowed")]
     public List<AwsConfigConfigurationRecorderRecordingModeBlock>? RecordingMode
     {
-        get => GetProperty<List<AwsConfigConfigurationRecorderRecordingModeBlock>>("recording_mode");
-        set => this.WithProperty("recording_mode", value);
+        set => SetProperty("recording_mode", value);
     }
 
 }

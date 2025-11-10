@@ -14,8 +14,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRolloutPercentage is required")]
     public required TerraformProperty<double> DefaultRolloutPercentage
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("default_rollout_percentage");
-        set => WithProperty("default_rollout_percentage", value);
+        set => SetProperty("default_rollout_percentage", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Users
     {
-        get => GetProperty<List<TerraformProperty<string>>>("users");
-        set => WithProperty("users", value);
+        set => SetProperty("users", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? End
     {
-        get => GetProperty<TerraformProperty<string>>("end");
-        set => WithProperty("end", value);
+        set => SetProperty("end", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Start
     {
-        get => GetProperty<TerraformProperty<string>>("start");
-        set => WithProperty("start", value);
+        set => SetProperty("start", value);
     }
 
 }
@@ -111,6 +103,17 @@ public class AzurermAppConfigurationFeature : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("configuration_store_id");
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("key");
+        SetOutput("label");
+        SetOutput("locked");
+        SetOutput("name");
+        SetOutput("percentage_filter_value");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -119,71 +122,71 @@ public class AzurermAppConfigurationFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformProperty<string> ConfigurationStoreId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("configuration_store_id");
-        set => this.WithProperty("configuration_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_store_id");
+        set => SetProperty("configuration_store_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformProperty<string>? Etag
+    public TerraformProperty<string> Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => this.WithProperty("etag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("etag");
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string>? Key
+    public TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
-        set => this.WithProperty("key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key");
+        set => SetProperty("key", value);
     }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string>? Label
+    public TerraformProperty<string> Label
     {
-        get => GetProperty<TerraformProperty<string>>("label");
-        set => this.WithProperty("label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("label");
+        set => SetProperty("label", value);
     }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    public TerraformProperty<bool>? Locked
+    public TerraformProperty<bool> Locked
     {
-        get => GetProperty<TerraformProperty<bool>>("locked");
-        set => this.WithProperty("locked", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("locked");
+        set => SetProperty("locked", value);
     }
 
     /// <summary>
@@ -192,26 +195,26 @@ public class AzurermAppConfigurationFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The percentage_filter_value attribute.
     /// </summary>
-    public TerraformProperty<double>? PercentageFilterValue
+    public TerraformProperty<double> PercentageFilterValue
     {
-        get => GetProperty<TerraformProperty<double>>("percentage_filter_value");
-        set => this.WithProperty("percentage_filter_value", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("percentage_filter_value");
+        set => SetProperty("percentage_filter_value", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -220,8 +223,7 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// </summary>
     public List<AzurermAppConfigurationFeatureTargetingFilterBlock>? TargetingFilter
     {
-        get => GetProperty<List<AzurermAppConfigurationFeatureTargetingFilterBlock>>("targeting_filter");
-        set => this.WithProperty("targeting_filter", value);
+        set => SetProperty("targeting_filter", value);
     }
 
     /// <summary>
@@ -230,8 +232,7 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// </summary>
     public AzurermAppConfigurationFeatureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppConfigurationFeatureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -240,8 +241,7 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// </summary>
     public List<AzurermAppConfigurationFeatureTimewindowFilterBlock>? TimewindowFilter
     {
-        get => GetProperty<List<AzurermAppConfigurationFeatureTimewindowFilterBlock>>("timewindow_filter");
-        set => this.WithProperty("timewindow_filter", value);
+        set => SetProperty("timewindow_filter", value);
     }
 
 }

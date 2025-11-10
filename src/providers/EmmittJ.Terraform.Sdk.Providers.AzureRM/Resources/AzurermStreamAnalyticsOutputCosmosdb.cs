@@ -13,8 +13,7 @@ public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,24 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("authentication_mode");
+        SetOutput("container_name");
+        SetOutput("cosmosdb_account_key");
+        SetOutput("cosmosdb_sql_database_id");
+        SetOutput("document_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("partition_key");
+        SetOutput("stream_analytics_job_id");
     }
 
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationMode
+    public TerraformProperty<string> AuthenticationMode
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_mode");
-        set => this.WithProperty("authentication_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_mode");
+        set => SetProperty("authentication_mode", value);
     }
 
     /// <summary>
@@ -75,8 +80,8 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
-        set => this.WithProperty("container_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
+        set => SetProperty("container_name", value);
     }
 
     /// <summary>
@@ -85,8 +90,8 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountKey is required")]
     public required TerraformProperty<string> CosmosdbAccountKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_account_key");
-        set => this.WithProperty("cosmosdb_account_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_account_key");
+        set => SetProperty("cosmosdb_account_key", value);
     }
 
     /// <summary>
@@ -95,26 +100,26 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbSqlDatabaseId is required")]
     public required TerraformProperty<string> CosmosdbSqlDatabaseId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_sql_database_id");
-        set => this.WithProperty("cosmosdb_sql_database_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_sql_database_id");
+        set => SetProperty("cosmosdb_sql_database_id", value);
     }
 
     /// <summary>
     /// The document_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DocumentId
+    public TerraformProperty<string> DocumentId
     {
-        get => GetProperty<TerraformProperty<string>>("document_id");
-        set => this.WithProperty("document_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("document_id");
+        set => SetProperty("document_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -123,17 +128,17 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PartitionKey
+    public TerraformProperty<string> PartitionKey
     {
-        get => GetProperty<TerraformProperty<string>>("partition_key");
-        set => this.WithProperty("partition_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("partition_key");
+        set => SetProperty("partition_key", value);
     }
 
     /// <summary>
@@ -142,8 +147,8 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformProperty<string> StreamAnalyticsJobId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_id");
-        set => this.WithProperty("stream_analytics_job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_id");
+        set => SetProperty("stream_analytics_job_id", value);
     }
 
     /// <summary>
@@ -152,8 +157,7 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     /// </summary>
     public AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

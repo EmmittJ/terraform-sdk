@@ -13,8 +13,7 @@ public class AwsVpcBlockPublicAccessExclusionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpcBlockPublicAccessExclusionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsVpcBlockPublicAccessExclusionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,9 +46,14 @@ public class AwsVpcBlockPublicAccessExclusion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("id");
-        this.WithOutput("resource_arn");
-        this.WithOutput("tags_all");
+        SetOutput("id");
+        SetOutput("resource_arn");
+        SetOutput("tags_all");
+        SetOutput("internet_gateway_exclusion_mode");
+        SetOutput("region");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
@@ -60,44 +62,44 @@ public class AwsVpcBlockPublicAccessExclusion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternetGatewayExclusionMode is required")]
     public required TerraformProperty<string> InternetGatewayExclusionMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("internet_gateway_exclusion_mode");
-        set => this.WithProperty("internet_gateway_exclusion_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("internet_gateway_exclusion_mode");
+        set => SetProperty("internet_gateway_exclusion_mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    public TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
-        set => this.WithProperty("subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
+        set => SetProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    public TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -106,8 +108,7 @@ public class AwsVpcBlockPublicAccessExclusion : TerraformResource
     /// </summary>
     public AwsVpcBlockPublicAccessExclusionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcBlockPublicAccessExclusionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

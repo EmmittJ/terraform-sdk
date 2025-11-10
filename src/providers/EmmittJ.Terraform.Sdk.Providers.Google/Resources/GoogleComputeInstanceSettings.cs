@@ -13,8 +13,7 @@ public class GoogleComputeInstanceSettingsMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Items
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("items");
-        set => WithProperty("items", value);
+        set => SetProperty("items", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class GoogleComputeInstanceSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class GoogleComputeInstanceSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleComputeInstanceSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,25 +63,28 @@ public class GoogleComputeInstanceSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fingerprint");
+        SetOutput("fingerprint");
+        SetOutput("id");
+        SetOutput("project");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -94,8 +93,8 @@ public class GoogleComputeInstanceSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -105,8 +104,7 @@ public class GoogleComputeInstanceSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     public List<GoogleComputeInstanceSettingsMetadataBlock>? Metadata
     {
-        get => GetProperty<List<GoogleComputeInstanceSettingsMetadataBlock>>("metadata");
-        set => this.WithProperty("metadata", value);
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -115,8 +113,7 @@ public class GoogleComputeInstanceSettings : TerraformResource
     /// </summary>
     public GoogleComputeInstanceSettingsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeInstanceSettingsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

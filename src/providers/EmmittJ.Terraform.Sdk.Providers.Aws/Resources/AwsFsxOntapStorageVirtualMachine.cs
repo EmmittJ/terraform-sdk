@@ -13,8 +13,7 @@ public class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlock :
     /// </summary>
     public TerraformProperty<string>? NetbiosName
     {
-        get => GetProperty<TerraformProperty<string>>("netbios_name");
-        set => WithProperty("netbios_name", value);
+        set => SetProperty("netbios_name", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsFsxOntapStorageVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -39,8 +37,7 @@ public class AwsFsxOntapStorageVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsFsxOntapStorageVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -67,10 +63,18 @@ public class AwsFsxOntapStorageVirtualMachine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("endpoints");
-        this.WithOutput("subtype");
-        this.WithOutput("uuid");
+        SetOutput("arn");
+        SetOutput("endpoints");
+        SetOutput("subtype");
+        SetOutput("uuid");
+        SetOutput("file_system_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("root_volume_security_style");
+        SetOutput("svm_admin_password");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -79,17 +83,17 @@ public class AwsFsxOntapStorageVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
-        set => this.WithProperty("file_system_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("file_system_id");
+        set => SetProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -98,53 +102,53 @@ public class AwsFsxOntapStorageVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The root_volume_security_style attribute.
     /// </summary>
-    public TerraformProperty<string>? RootVolumeSecurityStyle
+    public TerraformProperty<string> RootVolumeSecurityStyle
     {
-        get => GetProperty<TerraformProperty<string>>("root_volume_security_style");
-        set => this.WithProperty("root_volume_security_style", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("root_volume_security_style");
+        set => SetProperty("root_volume_security_style", value);
     }
 
     /// <summary>
     /// The svm_admin_password attribute.
     /// </summary>
-    public TerraformProperty<string>? SvmAdminPassword
+    public TerraformProperty<string> SvmAdminPassword
     {
-        get => GetProperty<TerraformProperty<string>>("svm_admin_password");
-        set => this.WithProperty("svm_admin_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("svm_admin_password");
+        set => SetProperty("svm_admin_password", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -154,8 +158,7 @@ public class AwsFsxOntapStorageVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectoryConfiguration block(s) allowed")]
     public List<AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlock>? ActiveDirectoryConfiguration
     {
-        get => GetProperty<List<AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlock>>("active_directory_configuration");
-        set => this.WithProperty("active_directory_configuration", value);
+        set => SetProperty("active_directory_configuration", value);
     }
 
     /// <summary>
@@ -164,8 +167,7 @@ public class AwsFsxOntapStorageVirtualMachine : TerraformResource
     /// </summary>
     public AwsFsxOntapStorageVirtualMachineTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFsxOntapStorageVirtualMachineTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

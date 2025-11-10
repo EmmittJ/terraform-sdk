@@ -13,8 +13,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,24 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("caching");
+        SetOutput("create_option");
+        SetOutput("disk_size_gb");
+        SetOutput("id");
+        SetOutput("lun");
+        SetOutput("name");
+        SetOutput("source_resource_id");
+        SetOutput("virtual_machine_id");
+        SetOutput("write_accelerator_enabled");
     }
 
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    public TerraformProperty<string>? Caching
+    public TerraformProperty<string> Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
-        set => this.WithProperty("caching", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("caching");
+        set => SetProperty("caching", value);
     }
 
     /// <summary>
@@ -75,8 +80,8 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformProperty<string> CreateOption
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("create_option");
-        set => this.WithProperty("create_option", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("create_option");
+        set => SetProperty("create_option", value);
     }
 
     /// <summary>
@@ -85,17 +90,17 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     public required TerraformProperty<double> DiskSizeGb
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("disk_size_gb");
-        set => this.WithProperty("disk_size_gb", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("disk_size_gb");
+        set => SetProperty("disk_size_gb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -104,8 +109,8 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformProperty<double> Lun
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("lun");
-        set => this.WithProperty("lun", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("lun");
+        set => SetProperty("lun", value);
     }
 
     /// <summary>
@@ -114,8 +119,8 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -124,8 +129,8 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformProperty<string> SourceResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_resource_id");
-        set => this.WithProperty("source_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_resource_id");
+        set => SetProperty("source_resource_id", value);
     }
 
     /// <summary>
@@ -134,17 +139,17 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
-        set => this.WithProperty("virtual_machine_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
+        set => SetProperty("virtual_machine_id", value);
     }
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? WriteAcceleratorEnabled
+    public TerraformProperty<bool> WriteAcceleratorEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("write_accelerator_enabled");
-        set => this.WithProperty("write_accelerator_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("write_accelerator_enabled");
+        set => SetProperty("write_accelerator_enabled", value);
     }
 
     /// <summary>
@@ -153,8 +158,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     /// </summary>
     public AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

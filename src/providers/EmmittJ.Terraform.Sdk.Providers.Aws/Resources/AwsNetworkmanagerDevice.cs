@@ -13,8 +13,7 @@ public class AwsNetworkmanagerDeviceAwsLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SubnetArn
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_arn");
-        set => WithProperty("subnet_arn", value);
+        set => SetProperty("subnet_arn", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerDeviceAwsLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => WithProperty("zone", value);
+        set => SetProperty("zone", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsNetworkmanagerDeviceLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
-        set => WithProperty("address", value);
+        set => SetProperty("address", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsNetworkmanagerDeviceLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Latitude
     {
-        get => GetProperty<TerraformProperty<string>>("latitude");
-        set => WithProperty("latitude", value);
+        set => SetProperty("latitude", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsNetworkmanagerDeviceLocationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Longitude
     {
-        get => GetProperty<TerraformProperty<string>>("longitude");
-        set => WithProperty("longitude", value);
+        set => SetProperty("longitude", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class AwsNetworkmanagerDeviceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AwsNetworkmanagerDeviceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AwsNetworkmanagerDeviceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -111,16 +103,26 @@ public class AwsNetworkmanagerDevice : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("global_network_id");
+        SetOutput("id");
+        SetOutput("model");
+        SetOutput("serial_number");
+        SetOutput("site_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("type");
+        SetOutput("vendor");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -129,80 +131,80 @@ public class AwsNetworkmanagerDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
-        set => this.WithProperty("global_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
+        set => SetProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The model attribute.
     /// </summary>
-    public TerraformProperty<string>? Model
+    public TerraformProperty<string> Model
     {
-        get => GetProperty<TerraformProperty<string>>("model");
-        set => this.WithProperty("model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("model");
+        set => SetProperty("model", value);
     }
 
     /// <summary>
     /// The serial_number attribute.
     /// </summary>
-    public TerraformProperty<string>? SerialNumber
+    public TerraformProperty<string> SerialNumber
     {
-        get => GetProperty<TerraformProperty<string>>("serial_number");
-        set => this.WithProperty("serial_number", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("serial_number");
+        set => SetProperty("serial_number", value);
     }
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SiteId
+    public TerraformProperty<string> SiteId
     {
-        get => GetProperty<TerraformProperty<string>>("site_id");
-        set => this.WithProperty("site_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("site_id");
+        set => SetProperty("site_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The vendor attribute.
     /// </summary>
-    public TerraformProperty<string>? Vendor
+    public TerraformProperty<string> Vendor
     {
-        get => GetProperty<TerraformProperty<string>>("vendor");
-        set => this.WithProperty("vendor", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vendor");
+        set => SetProperty("vendor", value);
     }
 
     /// <summary>
@@ -212,8 +214,7 @@ public class AwsNetworkmanagerDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AwsLocation block(s) allowed")]
     public List<AwsNetworkmanagerDeviceAwsLocationBlock>? AwsLocation
     {
-        get => GetProperty<List<AwsNetworkmanagerDeviceAwsLocationBlock>>("aws_location");
-        set => this.WithProperty("aws_location", value);
+        set => SetProperty("aws_location", value);
     }
 
     /// <summary>
@@ -223,8 +224,7 @@ public class AwsNetworkmanagerDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
     public List<AwsNetworkmanagerDeviceLocationBlock>? Location
     {
-        get => GetProperty<List<AwsNetworkmanagerDeviceLocationBlock>>("location");
-        set => this.WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -233,8 +233,7 @@ public class AwsNetworkmanagerDevice : TerraformResource
     /// </summary>
     public AwsNetworkmanagerDeviceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerDeviceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

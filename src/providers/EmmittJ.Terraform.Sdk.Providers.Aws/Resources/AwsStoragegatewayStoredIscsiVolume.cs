@@ -14,16 +14,28 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("chap_enabled");
-        this.WithOutput("lun_number");
-        this.WithOutput("network_interface_port");
-        this.WithOutput("target_arn");
-        this.WithOutput("volume_attachment_status");
-        this.WithOutput("volume_id");
-        this.WithOutput("volume_size_in_bytes");
-        this.WithOutput("volume_status");
-        this.WithOutput("volume_type");
+        SetOutput("arn");
+        SetOutput("chap_enabled");
+        SetOutput("lun_number");
+        SetOutput("network_interface_port");
+        SetOutput("target_arn");
+        SetOutput("volume_attachment_status");
+        SetOutput("volume_id");
+        SetOutput("volume_size_in_bytes");
+        SetOutput("volume_status");
+        SetOutput("volume_type");
+        SetOutput("disk_id");
+        SetOutput("gateway_arn");
+        SetOutput("id");
+        SetOutput("kms_encrypted");
+        SetOutput("kms_key");
+        SetOutput("network_interface_id");
+        SetOutput("preserve_existing_data");
+        SetOutput("region");
+        SetOutput("snapshot_id");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("target_name");
     }
 
     /// <summary>
@@ -32,8 +44,8 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
     public required TerraformProperty<string> DiskId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("disk_id");
-        set => this.WithProperty("disk_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("disk_id");
+        set => SetProperty("disk_id", value);
     }
 
     /// <summary>
@@ -42,35 +54,35 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformProperty<string> GatewayArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("gateway_arn");
-        set => this.WithProperty("gateway_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("gateway_arn");
+        set => SetProperty("gateway_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool>? KmsEncrypted
+    public TerraformProperty<bool> KmsEncrypted
     {
-        get => GetProperty<TerraformProperty<bool>>("kms_encrypted");
-        set => this.WithProperty("kms_encrypted", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("kms_encrypted");
+        set => SetProperty("kms_encrypted", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKey
+    public TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
-        set => this.WithProperty("kms_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
+        set => SetProperty("kms_key", value);
     }
 
     /// <summary>
@@ -79,8 +91,8 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
-        set => this.WithProperty("network_interface_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
+        set => SetProperty("network_interface_id", value);
     }
 
     /// <summary>
@@ -89,44 +101,44 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveExistingData is required")]
     public required TerraformProperty<bool> PreserveExistingData
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("preserve_existing_data");
-        set => this.WithProperty("preserve_existing_data", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("preserve_existing_data");
+        set => SetProperty("preserve_existing_data", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotId
+    public TerraformProperty<string> SnapshotId
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_id");
-        set => this.WithProperty("snapshot_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_id");
+        set => SetProperty("snapshot_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -135,8 +147,8 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     public required TerraformProperty<string> TargetName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_name");
-        set => this.WithProperty("target_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_name");
+        set => SetProperty("target_name", value);
     }
 
     /// <summary>

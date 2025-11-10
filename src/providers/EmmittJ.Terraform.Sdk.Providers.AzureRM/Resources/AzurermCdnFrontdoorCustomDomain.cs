@@ -13,8 +13,7 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CdnFrontdoorSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_secret_id");
-        set => WithProperty("cdn_frontdoor_secret_id", value);
+        set => SetProperty("cdn_frontdoor_secret_id", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CertificateType
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_type");
-        set => WithProperty("certificate_type", value);
+        set => SetProperty("certificate_type", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<string>? MinimumTlsVersion
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_tls_version");
-        set => WithProperty("minimum_tls_version", value);
+        set => SetProperty("minimum_tls_version", value);
     }
 
 }
@@ -95,8 +88,13 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("expiration_date");
-        this.WithOutput("validation_token");
+        SetOutput("expiration_date");
+        SetOutput("validation_token");
+        SetOutput("cdn_frontdoor_profile_id");
+        SetOutput("dns_zone_id");
+        SetOutput("host_name");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
@@ -105,17 +103,17 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformProperty<string> CdnFrontdoorProfileId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_profile_id");
-        set => this.WithProperty("cdn_frontdoor_profile_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cdn_frontdoor_profile_id");
+        set => SetProperty("cdn_frontdoor_profile_id", value);
     }
 
     /// <summary>
     /// The dns_zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsZoneId
+    public TerraformProperty<string> DnsZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("dns_zone_id");
-        set => this.WithProperty("dns_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dns_zone_id");
+        set => SetProperty("dns_zone_id", value);
     }
 
     /// <summary>
@@ -124,17 +122,17 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
-        set => this.WithProperty("host_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_name");
+        set => SetProperty("host_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -143,8 +141,8 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -153,20 +151,19 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
     /// </summary>
     public AzurermCdnFrontdoorCustomDomainTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermCdnFrontdoorCustomDomainTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for tls.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tls is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tls block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
     public List<AzurermCdnFrontdoorCustomDomainTlsBlock>? Tls
     {
-        get => GetProperty<List<AzurermCdnFrontdoorCustomDomainTlsBlock>>("tls");
-        set => this.WithProperty("tls", value);
+        set => SetProperty("tls", value);
     }
 
     /// <summary>

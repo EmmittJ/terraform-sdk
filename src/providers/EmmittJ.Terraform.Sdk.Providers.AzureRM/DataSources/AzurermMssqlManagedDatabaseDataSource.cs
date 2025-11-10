@@ -13,8 +13,7 @@ public class AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,20 +30,23 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("long_term_retention_policy");
-        this.WithOutput("managed_instance_name");
-        this.WithOutput("point_in_time_restore");
-        this.WithOutput("resource_group_name");
-        this.WithOutput("short_term_retention_days");
+        SetOutput("long_term_retention_policy");
+        SetOutput("managed_instance_name");
+        SetOutput("point_in_time_restore");
+        SetOutput("resource_group_name");
+        SetOutput("short_term_retention_days");
+        SetOutput("id");
+        SetOutput("managed_instance_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -53,8 +55,8 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
-        set => this.WithProperty("managed_instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managed_instance_id");
+        set => SetProperty("managed_instance_id", value);
     }
 
     /// <summary>
@@ -63,8 +65,8 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -73,8 +75,7 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     /// </summary>
     public AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

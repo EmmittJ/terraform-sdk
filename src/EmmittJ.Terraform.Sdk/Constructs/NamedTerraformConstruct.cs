@@ -33,9 +33,8 @@ public abstract class NamedTerraformConstruct(string constructName) : TerraformC
     /// <param name="key">The output attribute name</param>
     /// <returns>The converted output value, or null if not found</returns>
     protected T? GetOutput<T>(string key)
-        where T : class
     {
-        return GetOutput(key) as T;
+        return GetOutput(key) is T value ? value : default;
     }
 
     /// <summary>
@@ -48,7 +47,6 @@ public abstract class NamedTerraformConstruct(string constructName) : TerraformC
     /// <returns>The converted output value</returns>
     /// <exception cref="InvalidOperationException">Thrown when the output value is null.</exception>
     protected T GetRequiredOutput<T>(string key)
-        where T : class
     {
         return GetOutput<T>(key) ?? throw new InvalidOperationException($"Required output '{key}' is null.");
     }

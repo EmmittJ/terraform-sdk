@@ -14,25 +14,28 @@ public class AwsCurReportDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("additional_artifacts");
-        this.WithOutput("additional_schema_elements");
-        this.WithOutput("compression");
-        this.WithOutput("format");
-        this.WithOutput("refresh_closed_reports");
-        this.WithOutput("report_versioning");
-        this.WithOutput("s3_bucket");
-        this.WithOutput("s3_prefix");
-        this.WithOutput("s3_region");
-        this.WithOutput("time_unit");
+        SetOutput("additional_artifacts");
+        SetOutput("additional_schema_elements");
+        SetOutput("compression");
+        SetOutput("format");
+        SetOutput("refresh_closed_reports");
+        SetOutput("report_versioning");
+        SetOutput("s3_bucket");
+        SetOutput("s3_prefix");
+        SetOutput("s3_region");
+        SetOutput("time_unit");
+        SetOutput("id");
+        SetOutput("report_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -41,17 +44,17 @@ public class AwsCurReportDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
     public required TerraformProperty<string> ReportName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("report_name");
-        set => this.WithProperty("report_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("report_name");
+        set => SetProperty("report_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

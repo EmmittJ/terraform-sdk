@@ -13,8 +13,7 @@ public class AzureadAdministrativeUnitRoleMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadAdministrativeUnitRoleMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadAdministrativeUnitRoleMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,6 +46,10 @@ public class AzureadAdministrativeUnitRoleMember : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("administrative_unit_object_id");
+        SetOutput("id");
+        SetOutput("member_object_id");
+        SetOutput("role_object_id");
     }
 
     /// <summary>
@@ -57,17 +58,17 @@ public class AzureadAdministrativeUnitRoleMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministrativeUnitObjectId is required")]
     public required TerraformProperty<string> AdministrativeUnitObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("administrative_unit_object_id");
-        set => this.WithProperty("administrative_unit_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("administrative_unit_object_id");
+        set => SetProperty("administrative_unit_object_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class AzureadAdministrativeUnitRoleMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberObjectId is required")]
     public required TerraformProperty<string> MemberObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("member_object_id");
-        set => this.WithProperty("member_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("member_object_id");
+        set => SetProperty("member_object_id", value);
     }
 
     /// <summary>
@@ -86,8 +87,8 @@ public class AzureadAdministrativeUnitRoleMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleObjectId is required")]
     public required TerraformProperty<string> RoleObjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_object_id");
-        set => this.WithProperty("role_object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_object_id");
+        set => SetProperty("role_object_id", value);
     }
 
     /// <summary>
@@ -96,8 +97,7 @@ public class AzureadAdministrativeUnitRoleMember : TerraformResource
     /// </summary>
     public AzureadAdministrativeUnitRoleMemberTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadAdministrativeUnitRoleMemberTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

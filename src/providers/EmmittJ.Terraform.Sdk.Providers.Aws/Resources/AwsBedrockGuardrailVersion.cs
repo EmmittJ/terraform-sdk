@@ -13,8 +13,7 @@ public class AwsBedrockGuardrailVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsBedrockGuardrailVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,16 +38,20 @@ public class AwsBedrockGuardrailVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("version");
+        SetOutput("version");
+        SetOutput("description");
+        SetOutput("guardrail_arn");
+        SetOutput("region");
+        SetOutput("skip_destroy");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -58,26 +60,26 @@ public class AwsBedrockGuardrailVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailArn is required")]
     public required TerraformProperty<string> GuardrailArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("guardrail_arn");
-        set => this.WithProperty("guardrail_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("guardrail_arn");
+        set => SetProperty("guardrail_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
@@ -86,8 +88,7 @@ public class AwsBedrockGuardrailVersion : TerraformResource
     /// </summary>
     public AwsBedrockGuardrailVersionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsBedrockGuardrailVersionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

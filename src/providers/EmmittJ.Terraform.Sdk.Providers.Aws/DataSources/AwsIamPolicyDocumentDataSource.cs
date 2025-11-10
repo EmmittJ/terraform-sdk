@@ -13,8 +13,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Actions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
-        set => WithProperty("actions", value);
+        set => SetProperty("actions", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Effect
     {
-        get => GetProperty<TerraformProperty<string>>("effect");
-        set => WithProperty("effect", value);
+        set => SetProperty("effect", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? NotActions
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("not_actions");
-        set => WithProperty("not_actions", value);
+        set => SetProperty("not_actions", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? NotResources
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("not_resources");
-        set => WithProperty("not_resources", value);
+        set => SetProperty("not_resources", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Resources
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resources");
-        set => WithProperty("resources", value);
+        set => SetProperty("resources", value);
     }
 
     /// <summary>
@@ -58,8 +53,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Sid
     {
-        get => GetProperty<TerraformProperty<string>>("sid");
-        set => WithProperty("sid", value);
+        set => SetProperty("sid", value);
     }
 
 }
@@ -76,73 +70,80 @@ public class AwsIamPolicyDocumentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("json");
-        this.WithOutput("minified_json");
+        SetOutput("json");
+        SetOutput("minified_json");
+        SetOutput("id");
+        SetOutput("override_json");
+        SetOutput("override_policy_documents");
+        SetOutput("policy_id");
+        SetOutput("source_json");
+        SetOutput("source_policy_documents");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The override_json attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? OverrideJson
+    public TerraformProperty<string> OverrideJson
     {
-        get => GetProperty<TerraformProperty<string>>("override_json");
-        set => this.WithProperty("override_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("override_json");
+        set => SetProperty("override_json", value);
     }
 
     /// <summary>
     /// The override_policy_documents attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? OverridePolicyDocuments
+    public List<TerraformProperty<string>> OverridePolicyDocuments
     {
-        get => GetProperty<List<TerraformProperty<string>>>("override_policy_documents");
-        set => this.WithProperty("override_policy_documents", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("override_policy_documents");
+        set => SetProperty("override_policy_documents", value);
     }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyId
+    public TerraformProperty<string> PolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_id");
-        set => this.WithProperty("policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
+        set => SetProperty("policy_id", value);
     }
 
     /// <summary>
     /// The source_json attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? SourceJson
+    public TerraformProperty<string> SourceJson
     {
-        get => GetProperty<TerraformProperty<string>>("source_json");
-        set => this.WithProperty("source_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_json");
+        set => SetProperty("source_json", value);
     }
 
     /// <summary>
     /// The source_policy_documents attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SourcePolicyDocuments
+    public List<TerraformProperty<string>> SourcePolicyDocuments
     {
-        get => GetProperty<List<TerraformProperty<string>>>("source_policy_documents");
-        set => this.WithProperty("source_policy_documents", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("source_policy_documents");
+        set => SetProperty("source_policy_documents", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    public TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
@@ -151,8 +152,7 @@ public class AwsIamPolicyDocumentDataSource : TerraformDataSource
     /// </summary>
     public List<AwsIamPolicyDocumentDataSourceStatementBlock>? Statement
     {
-        get => GetProperty<List<AwsIamPolicyDocumentDataSourceStatementBlock>>("statement");
-        set => this.WithProperty("statement", value);
+        set => SetProperty("statement", value);
     }
 
     /// <summary>

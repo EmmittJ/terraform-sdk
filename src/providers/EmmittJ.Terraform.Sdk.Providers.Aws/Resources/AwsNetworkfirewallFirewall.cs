@@ -14,8 +14,7 @@ public class AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone_id");
-        set => WithProperty("availability_zone_id", value);
+        set => SetProperty("availability_zone_id", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
-        set => WithProperty("key_id", value);
+        set => SetProperty("key_id", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -58,8 +55,7 @@ public class AwsNetworkfirewallFirewallSubnetMappingBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
-        set => WithProperty("ip_address_type", value);
+        set => SetProperty("ip_address_type", value);
     }
 
     /// <summary>
@@ -68,8 +64,7 @@ public class AwsNetworkfirewallFirewallSubnetMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -85,8 +80,7 @@ public class AwsNetworkfirewallFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -94,8 +88,7 @@ public class AwsNetworkfirewallFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -103,8 +96,7 @@ public class AwsNetworkfirewallFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -122,46 +114,60 @@ public class AwsNetworkfirewallFirewall : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("firewall_status");
-        this.WithOutput("transit_gateway_owner_account_id");
-        this.WithOutput("update_token");
+        SetOutput("arn");
+        SetOutput("firewall_status");
+        SetOutput("transit_gateway_owner_account_id");
+        SetOutput("update_token");
+        SetOutput("availability_zone_change_protection");
+        SetOutput("delete_protection");
+        SetOutput("description");
+        SetOutput("enabled_analysis_types");
+        SetOutput("firewall_policy_arn");
+        SetOutput("firewall_policy_change_protection");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("subnet_change_protection");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("transit_gateway_id");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The availability_zone_change_protection attribute.
     /// </summary>
-    public TerraformProperty<bool>? AvailabilityZoneChangeProtection
+    public TerraformProperty<bool> AvailabilityZoneChangeProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("availability_zone_change_protection");
-        set => this.WithProperty("availability_zone_change_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("availability_zone_change_protection");
+        set => SetProperty("availability_zone_change_protection", value);
     }
 
     /// <summary>
     /// The delete_protection attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeleteProtection
+    public TerraformProperty<bool> DeleteProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_protection");
-        set => this.WithProperty("delete_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_protection");
+        set => SetProperty("delete_protection", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The enabled_analysis_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EnabledAnalysisTypes
+    public HashSet<TerraformProperty<string>> EnabledAnalysisTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_analysis_types");
-        set => this.WithProperty("enabled_analysis_types", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("enabled_analysis_types");
+        set => SetProperty("enabled_analysis_types", value);
     }
 
     /// <summary>
@@ -170,26 +176,26 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicyArn is required")]
     public required TerraformProperty<string> FirewallPolicyArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("firewall_policy_arn");
-        set => this.WithProperty("firewall_policy_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("firewall_policy_arn");
+        set => SetProperty("firewall_policy_arn", value);
     }
 
     /// <summary>
     /// The firewall_policy_change_protection attribute.
     /// </summary>
-    public TerraformProperty<bool>? FirewallPolicyChangeProtection
+    public TerraformProperty<bool> FirewallPolicyChangeProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("firewall_policy_change_protection");
-        set => this.WithProperty("firewall_policy_change_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("firewall_policy_change_protection");
+        set => SetProperty("firewall_policy_change_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -198,62 +204,62 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_change_protection attribute.
     /// </summary>
-    public TerraformProperty<bool>? SubnetChangeProtection
+    public TerraformProperty<bool> SubnetChangeProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("subnet_change_protection");
-        set => this.WithProperty("subnet_change_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("subnet_change_protection");
+        set => SetProperty("subnet_change_protection", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TransitGatewayId
+    public TerraformProperty<string> TransitGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
-        set => this.WithProperty("transit_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_id");
+        set => SetProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    public TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -262,8 +268,7 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     /// </summary>
     public HashSet<AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock>? AvailabilityZoneMapping
     {
-        get => GetProperty<HashSet<AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock>>("availability_zone_mapping");
-        set => this.WithProperty("availability_zone_mapping", value);
+        set => SetProperty("availability_zone_mapping", value);
     }
 
     /// <summary>
@@ -273,8 +278,7 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     public List<AwsNetworkfirewallFirewallEncryptionConfigurationBlock>? EncryptionConfiguration
     {
-        get => GetProperty<List<AwsNetworkfirewallFirewallEncryptionConfigurationBlock>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -283,8 +287,7 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     /// </summary>
     public HashSet<AwsNetworkfirewallFirewallSubnetMappingBlock>? SubnetMapping
     {
-        get => GetProperty<HashSet<AwsNetworkfirewallFirewallSubnetMappingBlock>>("subnet_mapping");
-        set => this.WithProperty("subnet_mapping", value);
+        set => SetProperty("subnet_mapping", value);
     }
 
     /// <summary>
@@ -293,8 +296,7 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     /// </summary>
     public AwsNetworkfirewallFirewallTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkfirewallFirewallTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

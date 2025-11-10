@@ -13,8 +13,7 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowCredentials
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_credentials");
-        set => WithProperty("allow_credentials", value);
+        set => SetProperty("allow_credentials", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedHeaders
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_headers");
-        set => WithProperty("allowed_headers", value);
+        set => SetProperty("allowed_headers", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedMethods
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_methods");
-        set => WithProperty("allowed_methods", value);
+        set => SetProperty("allowed_methods", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedOrigins
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_origins");
-        set => WithProperty("allowed_origins", value);
+        set => SetProperty("allowed_origins", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAgeInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_age_in_seconds");
-        set => WithProperty("max_age_in_seconds", value);
+        set => SetProperty("max_age_in_seconds", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? IdentityIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
-        set => WithProperty("identity_ids", value);
+        set => SetProperty("identity_ids", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -94,8 +86,7 @@ public class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -112,8 +103,7 @@ public class AzurermHealthcareDicomServiceStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemName is required")]
     public required TerraformProperty<string> FileSystemName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_system_name");
-        set => WithProperty("file_system_name", value);
+        set => SetProperty("file_system_name", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class AzurermHealthcareDicomServiceStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
-        set => WithProperty("storage_account_id", value);
+        set => SetProperty("storage_account_id", value);
     }
 
 }
@@ -139,8 +128,7 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -148,8 +136,7 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -157,8 +144,7 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -166,8 +152,7 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -185,36 +170,44 @@ public class AzurermHealthcareDicomService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authentication");
-        this.WithOutput("private_endpoint");
-        this.WithOutput("service_url");
+        SetOutput("authentication");
+        SetOutput("private_endpoint");
+        SetOutput("service_url");
+        SetOutput("data_partitions_enabled");
+        SetOutput("encryption_key_url");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("tags");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The data_partitions_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DataPartitionsEnabled
+    public TerraformProperty<bool> DataPartitionsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("data_partitions_enabled");
-        set => this.WithProperty("data_partitions_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("data_partitions_enabled");
+        set => SetProperty("data_partitions_enabled", value);
     }
 
     /// <summary>
     /// The encryption_key_url attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionKeyUrl
+    public TerraformProperty<string> EncryptionKeyUrl
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key_url");
-        set => this.WithProperty("encryption_key_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key_url");
+        set => SetProperty("encryption_key_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -223,8 +216,8 @@ public class AzurermHealthcareDicomService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -233,26 +226,26 @@ public class AzurermHealthcareDicomService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -261,8 +254,8 @@ public class AzurermHealthcareDicomService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -272,8 +265,7 @@ public class AzurermHealthcareDicomService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     public List<AzurermHealthcareDicomServiceCorsBlock>? Cors
     {
-        get => GetProperty<List<AzurermHealthcareDicomServiceCorsBlock>>("cors");
-        set => this.WithProperty("cors", value);
+        set => SetProperty("cors", value);
     }
 
     /// <summary>
@@ -283,8 +275,7 @@ public class AzurermHealthcareDicomService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermHealthcareDicomServiceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermHealthcareDicomServiceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -294,8 +285,7 @@ public class AzurermHealthcareDicomService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
     public List<AzurermHealthcareDicomServiceStorageBlock>? Storage
     {
-        get => GetProperty<List<AzurermHealthcareDicomServiceStorageBlock>>("storage");
-        set => this.WithProperty("storage", value);
+        set => SetProperty("storage", value);
     }
 
     /// <summary>
@@ -304,8 +294,7 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// </summary>
     public AzurermHealthcareDicomServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHealthcareDicomServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

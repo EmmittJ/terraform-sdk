@@ -13,8 +13,7 @@ public class AwsSqsQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSqsQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSqsQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,197 +46,218 @@ public class AwsSqsQueue : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("url");
+        SetOutput("arn");
+        SetOutput("url");
+        SetOutput("content_based_deduplication");
+        SetOutput("deduplication_scope");
+        SetOutput("delay_seconds");
+        SetOutput("fifo_queue");
+        SetOutput("fifo_throughput_limit");
+        SetOutput("id");
+        SetOutput("kms_data_key_reuse_period_seconds");
+        SetOutput("kms_master_key_id");
+        SetOutput("max_message_size");
+        SetOutput("message_retention_seconds");
+        SetOutput("name");
+        SetOutput("name_prefix");
+        SetOutput("policy");
+        SetOutput("receive_wait_time_seconds");
+        SetOutput("redrive_allow_policy");
+        SetOutput("redrive_policy");
+        SetOutput("region");
+        SetOutput("sqs_managed_sse_enabled");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("visibility_timeout_seconds");
     }
 
     /// <summary>
     /// The content_based_deduplication attribute.
     /// </summary>
-    public TerraformProperty<bool>? ContentBasedDeduplication
+    public TerraformProperty<bool> ContentBasedDeduplication
     {
-        get => GetProperty<TerraformProperty<bool>>("content_based_deduplication");
-        set => this.WithProperty("content_based_deduplication", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("content_based_deduplication");
+        set => SetProperty("content_based_deduplication", value);
     }
 
     /// <summary>
     /// The deduplication_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? DeduplicationScope
+    public TerraformProperty<string> DeduplicationScope
     {
-        get => GetProperty<TerraformProperty<string>>("deduplication_scope");
-        set => this.WithProperty("deduplication_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deduplication_scope");
+        set => SetProperty("deduplication_scope", value);
     }
 
     /// <summary>
     /// The delay_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? DelaySeconds
+    public TerraformProperty<double> DelaySeconds
     {
-        get => GetProperty<TerraformProperty<double>>("delay_seconds");
-        set => this.WithProperty("delay_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("delay_seconds");
+        set => SetProperty("delay_seconds", value);
     }
 
     /// <summary>
     /// The fifo_queue attribute.
     /// </summary>
-    public TerraformProperty<bool>? FifoQueue
+    public TerraformProperty<bool> FifoQueue
     {
-        get => GetProperty<TerraformProperty<bool>>("fifo_queue");
-        set => this.WithProperty("fifo_queue", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("fifo_queue");
+        set => SetProperty("fifo_queue", value);
     }
 
     /// <summary>
     /// The fifo_throughput_limit attribute.
     /// </summary>
-    public TerraformProperty<string>? FifoThroughputLimit
+    public TerraformProperty<string> FifoThroughputLimit
     {
-        get => GetProperty<TerraformProperty<string>>("fifo_throughput_limit");
-        set => this.WithProperty("fifo_throughput_limit", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fifo_throughput_limit");
+        set => SetProperty("fifo_throughput_limit", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_data_key_reuse_period_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? KmsDataKeyReusePeriodSeconds
+    public TerraformProperty<double> KmsDataKeyReusePeriodSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("kms_data_key_reuse_period_seconds");
-        set => this.WithProperty("kms_data_key_reuse_period_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("kms_data_key_reuse_period_seconds");
+        set => SetProperty("kms_data_key_reuse_period_seconds", value);
     }
 
     /// <summary>
     /// The kms_master_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsMasterKeyId
+    public TerraformProperty<string> KmsMasterKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_master_key_id");
-        set => this.WithProperty("kms_master_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_master_key_id");
+        set => SetProperty("kms_master_key_id", value);
     }
 
     /// <summary>
     /// The max_message_size attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxMessageSize
+    public TerraformProperty<double> MaxMessageSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_message_size");
-        set => this.WithProperty("max_message_size", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_message_size");
+        set => SetProperty("max_message_size", value);
     }
 
     /// <summary>
     /// The message_retention_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? MessageRetentionSeconds
+    public TerraformProperty<double> MessageRetentionSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("message_retention_seconds");
-        set => this.WithProperty("message_retention_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("message_retention_seconds");
+        set => SetProperty("message_retention_seconds", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? NamePrefix
+    public TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
-        set => this.WithProperty("name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    public TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
-        set => this.WithProperty("policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy");
+        set => SetProperty("policy", value);
     }
 
     /// <summary>
     /// The receive_wait_time_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? ReceiveWaitTimeSeconds
+    public TerraformProperty<double> ReceiveWaitTimeSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("receive_wait_time_seconds");
-        set => this.WithProperty("receive_wait_time_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("receive_wait_time_seconds");
+        set => SetProperty("receive_wait_time_seconds", value);
     }
 
     /// <summary>
     /// The redrive_allow_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? RedriveAllowPolicy
+    public TerraformProperty<string> RedriveAllowPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("redrive_allow_policy");
-        set => this.WithProperty("redrive_allow_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redrive_allow_policy");
+        set => SetProperty("redrive_allow_policy", value);
     }
 
     /// <summary>
     /// The redrive_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? RedrivePolicy
+    public TerraformProperty<string> RedrivePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("redrive_policy");
-        set => this.WithProperty("redrive_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("redrive_policy");
+        set => SetProperty("redrive_policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The sqs_managed_sse_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SqsManagedSseEnabled
+    public TerraformProperty<bool> SqsManagedSseEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sqs_managed_sse_enabled");
-        set => this.WithProperty("sqs_managed_sse_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("sqs_managed_sse_enabled");
+        set => SetProperty("sqs_managed_sse_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The visibility_timeout_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? VisibilityTimeoutSeconds
+    public TerraformProperty<double> VisibilityTimeoutSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("visibility_timeout_seconds");
-        set => this.WithProperty("visibility_timeout_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("visibility_timeout_seconds");
+        set => SetProperty("visibility_timeout_seconds", value);
     }
 
     /// <summary>
@@ -248,8 +266,7 @@ public class AwsSqsQueue : TerraformResource
     /// </summary>
     public AwsSqsQueueTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSqsQueueTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

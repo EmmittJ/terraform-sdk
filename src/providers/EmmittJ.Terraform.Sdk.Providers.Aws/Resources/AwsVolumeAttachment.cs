@@ -13,8 +13,7 @@ public class AwsVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,14 @@ public class AwsVolumeAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("device_name");
+        SetOutput("force_detach");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("region");
+        SetOutput("skip_destroy");
+        SetOutput("stop_instance_before_detaching");
+        SetOutput("volume_id");
     }
 
     /// <summary>
@@ -48,26 +54,26 @@ public class AwsVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
-        set => this.WithProperty("device_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("device_name");
+        set => SetProperty("device_name", value);
     }
 
     /// <summary>
     /// The force_detach attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceDetach
+    public TerraformProperty<bool> ForceDetach
     {
-        get => GetProperty<TerraformProperty<bool>>("force_detach");
-        set => this.WithProperty("force_detach", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_detach");
+        set => SetProperty("force_detach", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,35 +82,35 @@ public class AwsVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The stop_instance_before_detaching attribute.
     /// </summary>
-    public TerraformProperty<bool>? StopInstanceBeforeDetaching
+    public TerraformProperty<bool> StopInstanceBeforeDetaching
     {
-        get => GetProperty<TerraformProperty<bool>>("stop_instance_before_detaching");
-        set => this.WithProperty("stop_instance_before_detaching", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("stop_instance_before_detaching");
+        set => SetProperty("stop_instance_before_detaching", value);
     }
 
     /// <summary>
@@ -113,8 +119,8 @@ public class AwsVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
-        set => this.WithProperty("volume_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("volume_id");
+        set => SetProperty("volume_id", value);
     }
 
     /// <summary>
@@ -123,8 +129,7 @@ public class AwsVolumeAttachment : TerraformResource
     /// </summary>
     public AwsVolumeAttachmentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVolumeAttachmentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

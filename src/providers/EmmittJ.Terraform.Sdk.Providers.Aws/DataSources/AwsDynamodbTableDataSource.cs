@@ -13,8 +13,7 @@ public class AwsDynamodbTableDataSourceServerSideEncryptionBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDynamodbTableDataSourceServerSideEncryptionBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => WithProperty("kms_key_arn", value);
+        set => SetProperty("kms_key_arn", value);
     }
 
 }
@@ -41,35 +39,39 @@ public class AwsDynamodbTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("attribute");
-        this.WithOutput("billing_mode");
-        this.WithOutput("deletion_protection_enabled");
-        this.WithOutput("global_secondary_index");
-        this.WithOutput("hash_key");
-        this.WithOutput("local_secondary_index");
-        this.WithOutput("on_demand_throughput");
-        this.WithOutput("point_in_time_recovery");
-        this.WithOutput("range_key");
-        this.WithOutput("read_capacity");
-        this.WithOutput("replica");
-        this.WithOutput("stream_arn");
-        this.WithOutput("stream_enabled");
-        this.WithOutput("stream_label");
-        this.WithOutput("stream_view_type");
-        this.WithOutput("table_class");
-        this.WithOutput("ttl");
-        this.WithOutput("warm_throughput");
-        this.WithOutput("write_capacity");
+        SetOutput("arn");
+        SetOutput("attribute");
+        SetOutput("billing_mode");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("global_secondary_index");
+        SetOutput("hash_key");
+        SetOutput("local_secondary_index");
+        SetOutput("on_demand_throughput");
+        SetOutput("point_in_time_recovery");
+        SetOutput("range_key");
+        SetOutput("read_capacity");
+        SetOutput("replica");
+        SetOutput("stream_arn");
+        SetOutput("stream_enabled");
+        SetOutput("stream_label");
+        SetOutput("stream_view_type");
+        SetOutput("table_class");
+        SetOutput("ttl");
+        SetOutput("warm_throughput");
+        SetOutput("write_capacity");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,26 +80,26 @@ public class AwsDynamodbTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -107,8 +109,7 @@ public class AwsDynamodbTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
     public List<AwsDynamodbTableDataSourceServerSideEncryptionBlock>? ServerSideEncryption
     {
-        get => GetProperty<List<AwsDynamodbTableDataSourceServerSideEncryptionBlock>>("server_side_encryption");
-        set => this.WithProperty("server_side_encryption", value);
+        set => SetProperty("server_side_encryption", value);
     }
 
     /// <summary>

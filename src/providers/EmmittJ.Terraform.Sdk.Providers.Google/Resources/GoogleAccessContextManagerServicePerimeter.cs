@@ -22,8 +22,7 @@ public class GoogleAccessContextManagerServicePerimeterSpecBlock : TerraformBloc
     /// </summary>
     public HashSet<TerraformProperty<string>>? AccessLevels
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("access_levels");
-        set => WithProperty("access_levels", value);
+        set => SetProperty("access_levels", value);
     }
 
     /// <summary>
@@ -33,8 +32,7 @@ public class GoogleAccessContextManagerServicePerimeterSpecBlock : TerraformBloc
     /// </summary>
     public HashSet<TerraformProperty<string>>? Resources
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resources");
-        set => WithProperty("resources", value);
+        set => SetProperty("resources", value);
     }
 
     /// <summary>
@@ -46,8 +44,7 @@ public class GoogleAccessContextManagerServicePerimeterSpecBlock : TerraformBloc
     /// </summary>
     public HashSet<TerraformProperty<string>>? RestrictedServices
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("restricted_services");
-        set => WithProperty("restricted_services", value);
+        set => SetProperty("restricted_services", value);
     }
 
 }
@@ -72,8 +69,7 @@ public class GoogleAccessContextManagerServicePerimeterStatusBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? AccessLevels
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("access_levels");
-        set => WithProperty("access_levels", value);
+        set => SetProperty("access_levels", value);
     }
 
     /// <summary>
@@ -83,8 +79,7 @@ public class GoogleAccessContextManagerServicePerimeterStatusBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? Resources
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("resources");
-        set => WithProperty("resources", value);
+        set => SetProperty("resources", value);
     }
 
     /// <summary>
@@ -96,8 +91,7 @@ public class GoogleAccessContextManagerServicePerimeterStatusBlock : TerraformBl
     /// </summary>
     public HashSet<TerraformProperty<string>>? RestrictedServices
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("restricted_services");
-        set => WithProperty("restricted_services", value);
+        set => SetProperty("restricted_services", value);
     }
 
 }
@@ -113,8 +107,7 @@ public class GoogleAccessContextManagerServicePerimeterTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -122,8 +115,7 @@ public class GoogleAccessContextManagerServicePerimeterTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -131,8 +123,7 @@ public class GoogleAccessContextManagerServicePerimeterTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -150,27 +141,34 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent");
+        SetOutput("perimeter_type");
+        SetOutput("title");
+        SetOutput("use_explicit_dry_run_spec");
     }
 
     /// <summary>
     /// Description of the ServicePerimeter and its use. Does not affect
     /// behavior.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -181,8 +179,8 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -192,8 +190,8 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>
@@ -214,10 +212,10 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// with a common perimeter, but should not be able to share data among
     /// themselves. Default value: &amp;quot;PERIMETER_TYPE_REGULAR&amp;quot; Possible values: [&amp;quot;PERIMETER_TYPE_REGULAR&amp;quot;, &amp;quot;PERIMETER_TYPE_BRIDGE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PerimeterType
+    public TerraformProperty<string> PerimeterType
     {
-        get => GetProperty<TerraformProperty<string>>("perimeter_type");
-        set => this.WithProperty("perimeter_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("perimeter_type");
+        set => SetProperty("perimeter_type", value);
     }
 
     /// <summary>
@@ -226,8 +224,8 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("title");
-        set => this.WithProperty("title", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("title");
+        set => SetProperty("title", value);
     }
 
     /// <summary>
@@ -241,10 +239,10 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// between currently enforced and suggested restrictions. useExplicitDryRunSpec must
     /// bet set to True if any of the fields in the spec are set to non-default values.
     /// </summary>
-    public TerraformProperty<bool>? UseExplicitDryRunSpec
+    public TerraformProperty<bool> UseExplicitDryRunSpec
     {
-        get => GetProperty<TerraformProperty<bool>>("use_explicit_dry_run_spec");
-        set => this.WithProperty("use_explicit_dry_run_spec", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("use_explicit_dry_run_spec");
+        set => SetProperty("use_explicit_dry_run_spec", value);
     }
 
     /// <summary>
@@ -254,8 +252,7 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     public List<GoogleAccessContextManagerServicePerimeterSpecBlock>? Spec
     {
-        get => GetProperty<List<GoogleAccessContextManagerServicePerimeterSpecBlock>>("spec");
-        set => this.WithProperty("spec", value);
+        set => SetProperty("spec", value);
     }
 
     /// <summary>
@@ -265,8 +262,7 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Status block(s) allowed")]
     public List<GoogleAccessContextManagerServicePerimeterStatusBlock>? Status
     {
-        get => GetProperty<List<GoogleAccessContextManagerServicePerimeterStatusBlock>>("status");
-        set => this.WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -275,8 +271,7 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// </summary>
     public GoogleAccessContextManagerServicePerimeterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleAccessContextManagerServicePerimeterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

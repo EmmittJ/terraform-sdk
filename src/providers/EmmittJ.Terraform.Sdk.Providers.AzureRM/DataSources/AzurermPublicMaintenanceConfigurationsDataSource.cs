@@ -13,8 +13,7 @@ public class AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,43 +30,47 @@ public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("configs");
+        SetOutput("configs");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("recur_every");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The recur_every attribute.
     /// </summary>
-    public TerraformProperty<string>? RecurEvery
+    public TerraformProperty<string> RecurEvery
     {
-        get => GetProperty<TerraformProperty<string>>("recur_every");
-        set => this.WithProperty("recur_every", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recur_every");
+        set => SetProperty("recur_every", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    public TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -76,8 +79,7 @@ public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSou
     /// </summary>
     public AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

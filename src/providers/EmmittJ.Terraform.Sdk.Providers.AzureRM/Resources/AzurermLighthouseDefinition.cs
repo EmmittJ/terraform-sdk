@@ -13,8 +13,7 @@ public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? DelegatedRoleDefinitionIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("delegated_role_definition_ids");
-        set => WithProperty("delegated_role_definition_ids", value);
+        set => SetProperty("delegated_role_definition_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("principal_display_name");
-        set => WithProperty("principal_display_name", value);
+        set => SetProperty("principal_display_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
-        set => WithProperty("role_definition_id", value);
+        set => SetProperty("role_definition_id", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? PrincipalDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("principal_display_name");
-        set => WithProperty("principal_display_name", value);
+        set => SetProperty("principal_display_name", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
-        set => WithProperty("role_definition_id", value);
+        set => SetProperty("role_definition_id", value);
     }
 
 }
@@ -97,8 +90,7 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -107,8 +99,7 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("product");
-        set => WithProperty("product", value);
+        set => SetProperty("product", value);
     }
 
     /// <summary>
@@ -117,8 +108,7 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
-        set => WithProperty("publisher", value);
+        set => SetProperty("publisher", value);
     }
 
     /// <summary>
@@ -127,8 +117,7 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -144,8 +133,7 @@ public class AzurermLighthouseDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -153,8 +141,7 @@ public class AzurermLighthouseDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -162,8 +149,7 @@ public class AzurermLighthouseDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -171,8 +157,7 @@ public class AzurermLighthouseDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -190,33 +175,39 @@ public class AzurermLighthouseDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("lighthouse_definition_id");
+        SetOutput("managing_tenant_id");
+        SetOutput("name");
+        SetOutput("scope");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The lighthouse_definition_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LighthouseDefinitionId
+    public TerraformProperty<string> LighthouseDefinitionId
     {
-        get => GetProperty<TerraformProperty<string>>("lighthouse_definition_id");
-        set => this.WithProperty("lighthouse_definition_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lighthouse_definition_id");
+        set => SetProperty("lighthouse_definition_id", value);
     }
 
     /// <summary>
@@ -225,8 +216,8 @@ public class AzurermLighthouseDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagingTenantId is required")]
     public required TerraformProperty<string> ManagingTenantId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("managing_tenant_id");
-        set => this.WithProperty("managing_tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("managing_tenant_id");
+        set => SetProperty("managing_tenant_id", value);
     }
 
     /// <summary>
@@ -235,8 +226,8 @@ public class AzurermLighthouseDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -245,19 +236,19 @@ public class AzurermLighthouseDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// Block for authorization.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authorization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     public HashSet<AzurermLighthouseDefinitionAuthorizationBlock>? Authorization
     {
-        get => GetProperty<HashSet<AzurermLighthouseDefinitionAuthorizationBlock>>("authorization");
-        set => this.WithProperty("authorization", value);
+        set => SetProperty("authorization", value);
     }
 
     /// <summary>
@@ -266,8 +257,7 @@ public class AzurermLighthouseDefinition : TerraformResource
     /// </summary>
     public HashSet<AzurermLighthouseDefinitionEligibleAuthorizationBlock>? EligibleAuthorization
     {
-        get => GetProperty<HashSet<AzurermLighthouseDefinitionEligibleAuthorizationBlock>>("eligible_authorization");
-        set => this.WithProperty("eligible_authorization", value);
+        set => SetProperty("eligible_authorization", value);
     }
 
     /// <summary>
@@ -277,8 +267,7 @@ public class AzurermLighthouseDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     public List<AzurermLighthouseDefinitionPlanBlock>? Plan
     {
-        get => GetProperty<List<AzurermLighthouseDefinitionPlanBlock>>("plan");
-        set => this.WithProperty("plan", value);
+        set => SetProperty("plan", value);
     }
 
     /// <summary>
@@ -287,8 +276,7 @@ public class AzurermLighthouseDefinition : TerraformResource
     /// </summary>
     public AzurermLighthouseDefinitionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLighthouseDefinitionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

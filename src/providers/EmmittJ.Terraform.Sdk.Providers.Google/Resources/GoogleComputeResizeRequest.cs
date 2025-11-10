@@ -13,8 +13,7 @@ public class GoogleComputeResizeRequestRequestedRunDurationBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<double>? Nanos
     {
-        get => GetProperty<TerraformProperty<double>>("nanos");
-        set => WithProperty("nanos", value);
+        set => SetProperty("nanos", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleComputeResizeRequestRequestedRunDurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformProperty<string> Seconds
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("seconds");
-        set => WithProperty("seconds", value);
+        set => SetProperty("seconds", value);
     }
 
 }
@@ -40,8 +38,7 @@ public class GoogleComputeResizeRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleComputeResizeRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -68,27 +64,34 @@ public class GoogleComputeResizeRequest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_timestamp");
-        this.WithOutput("state");
-        this.WithOutput("status");
+        SetOutput("creation_timestamp");
+        SetOutput("state");
+        SetOutput("status");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("instance_group_manager");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("resize_by");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// An optional description of this resize-request.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -97,8 +100,8 @@ public class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroupManager is required")]
     public required TerraformProperty<string> InstanceGroupManager
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_group_manager");
-        set => this.WithProperty("instance_group_manager", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_group_manager");
+        set => SetProperty("instance_group_manager", value);
     }
 
     /// <summary>
@@ -107,17 +110,17 @@ public class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -126,17 +129,17 @@ public class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResizeBy is required")]
     public required TerraformProperty<double> ResizeBy
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("resize_by");
-        set => this.WithProperty("resize_by", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("resize_by");
+        set => SetProperty("resize_by", value);
     }
 
     /// <summary>
     /// The reference of the compute zone scoping this request. If it is not provided, the provider zone is used.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    public TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -146,8 +149,7 @@ public class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestedRunDuration block(s) allowed")]
     public List<GoogleComputeResizeRequestRequestedRunDurationBlock>? RequestedRunDuration
     {
-        get => GetProperty<List<GoogleComputeResizeRequestRequestedRunDurationBlock>>("requested_run_duration");
-        set => this.WithProperty("requested_run_duration", value);
+        set => SetProperty("requested_run_duration", value);
     }
 
     /// <summary>
@@ -156,8 +158,7 @@ public class GoogleComputeResizeRequest : TerraformResource
     /// </summary>
     public GoogleComputeResizeRequestTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleComputeResizeRequestTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

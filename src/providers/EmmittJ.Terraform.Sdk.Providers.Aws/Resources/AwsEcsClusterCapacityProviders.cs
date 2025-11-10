@@ -13,8 +13,7 @@ public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock 
     /// </summary>
     public TerraformProperty<double>? Base
     {
-        get => GetProperty<TerraformProperty<double>>("base");
-        set => WithProperty("base", value);
+        set => SetProperty("base", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformProperty<string> CapacityProvider
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("capacity_provider");
-        set => WithProperty("capacity_provider", value);
+        set => SetProperty("capacity_provider", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock 
     /// </summary>
     public TerraformProperty<double>? Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
-        set => WithProperty("weight", value);
+        set => SetProperty("weight", value);
     }
 
 }
@@ -50,15 +47,19 @@ public class AwsEcsClusterCapacityProviders : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("capacity_providers");
+        SetOutput("cluster_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The capacity_providers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? CapacityProviders
+    public HashSet<TerraformProperty<string>> CapacityProviders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("capacity_providers");
-        set => this.WithProperty("capacity_providers", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("capacity_providers");
+        set => SetProperty("capacity_providers", value);
     }
 
     /// <summary>
@@ -67,26 +68,26 @@ public class AwsEcsClusterCapacityProviders : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
-        set => this.WithProperty("cluster_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -95,8 +96,7 @@ public class AwsEcsClusterCapacityProviders : TerraformResource
     /// </summary>
     public HashSet<AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock>? DefaultCapacityProviderStrategy
     {
-        get => GetProperty<HashSet<AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock>>("default_capacity_provider_strategy");
-        set => this.WithProperty("default_capacity_provider_strategy", value);
+        set => SetProperty("default_capacity_provider_strategy", value);
     }
 
 }

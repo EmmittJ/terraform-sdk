@@ -13,8 +13,7 @@ public class AwsAlbListenerDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,66 +30,72 @@ public class AwsAlbListenerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("alpn_policy");
-        this.WithOutput("certificate_arn");
-        this.WithOutput("default_action");
-        this.WithOutput("mutual_authentication");
-        this.WithOutput("protocol");
-        this.WithOutput("ssl_policy");
+        SetOutput("alpn_policy");
+        SetOutput("certificate_arn");
+        SetOutput("default_action");
+        SetOutput("mutual_authentication");
+        SetOutput("protocol");
+        SetOutput("ssl_policy");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("load_balancer_arn");
+        SetOutput("port");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    public TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => this.WithProperty("arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("arn");
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The load_balancer_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancerArn
+    public TerraformProperty<string> LoadBalancerArn
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer_arn");
-        set => this.WithProperty("load_balancer_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("load_balancer_arn");
+        set => SetProperty("load_balancer_arn", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
+    public TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
-        set => this.WithProperty("port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("port");
+        set => SetProperty("port", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -99,8 +104,7 @@ public class AwsAlbListenerDataSource : TerraformDataSource
     /// </summary>
     public AwsAlbListenerDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAlbListenerDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

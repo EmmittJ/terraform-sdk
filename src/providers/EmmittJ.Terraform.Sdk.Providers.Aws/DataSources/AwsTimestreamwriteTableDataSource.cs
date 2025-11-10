@@ -14,13 +14,16 @@ public class AwsTimestreamwriteTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("creation_time");
-        this.WithOutput("last_updated_time");
-        this.WithOutput("magnetic_store_write_properties");
-        this.WithOutput("retention_properties");
-        this.WithOutput("schema");
-        this.WithOutput("table_status");
+        SetOutput("arn");
+        SetOutput("creation_time");
+        SetOutput("last_updated_time");
+        SetOutput("magnetic_store_write_properties");
+        SetOutput("retention_properties");
+        SetOutput("schema");
+        SetOutput("table_status");
+        SetOutput("database_name");
+        SetOutput("name");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -29,8 +32,8 @@ public class AwsTimestreamwriteTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
-        set => this.WithProperty("database_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
+        set => SetProperty("database_name", value);
     }
 
     /// <summary>
@@ -39,17 +42,17 @@ public class AwsTimestreamwriteTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermVirtualNetworkGatewayBgpSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Asn
     {
-        get => GetProperty<TerraformProperty<double>>("asn");
-        set => WithProperty("asn", value);
+        set => SetProperty("asn", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermVirtualNetworkGatewayBgpSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? PeerWeight
     {
-        get => GetProperty<TerraformProperty<double>>("peer_weight");
-        set => WithProperty("peer_weight", value);
+        set => SetProperty("peer_weight", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AzurermVirtualNetworkGatewayCustomRouteBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AddressPrefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("address_prefixes");
-        set => WithProperty("address_prefixes", value);
+        set => SetProperty("address_prefixes", value);
     }
 
 }
@@ -56,8 +53,7 @@ public class AzurermVirtualNetworkGatewayIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AzurermVirtualNetworkGatewayIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrivateIpAddressAllocation
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address_allocation");
-        set => WithProperty("private_ip_address_allocation", value);
+        set => SetProperty("private_ip_address_allocation", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AzurermVirtualNetworkGatewayIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PublicIpAddressId
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_address_id");
-        set => WithProperty("public_ip_address_id", value);
+        set => SetProperty("public_ip_address_id", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class AzurermVirtualNetworkGatewayIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
-        set => WithProperty("subnet_id", value);
+        set => SetProperty("subnet_id", value);
     }
 
 }
@@ -101,8 +94,7 @@ public class AzurermVirtualNetworkGatewayPolicyGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IsDefault
     {
-        get => GetProperty<TerraformProperty<bool>>("is_default");
-        set => WithProperty("is_default", value);
+        set => SetProperty("is_default", value);
     }
 
     /// <summary>
@@ -111,8 +103,7 @@ public class AzurermVirtualNetworkGatewayPolicyGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -120,8 +111,7 @@ public class AzurermVirtualNetworkGatewayPolicyGroupBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
 }
@@ -137,8 +127,7 @@ public class AzurermVirtualNetworkGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -146,8 +135,7 @@ public class AzurermVirtualNetworkGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -155,8 +143,7 @@ public class AzurermVirtualNetworkGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -164,8 +151,7 @@ public class AzurermVirtualNetworkGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -181,8 +167,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? AadAudience
     {
-        get => GetProperty<TerraformProperty<string>>("aad_audience");
-        set => WithProperty("aad_audience", value);
+        set => SetProperty("aad_audience", value);
     }
 
     /// <summary>
@@ -190,8 +175,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? AadIssuer
     {
-        get => GetProperty<TerraformProperty<string>>("aad_issuer");
-        set => WithProperty("aad_issuer", value);
+        set => SetProperty("aad_issuer", value);
     }
 
     /// <summary>
@@ -199,8 +183,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? AadTenant
     {
-        get => GetProperty<TerraformProperty<string>>("aad_tenant");
-        set => WithProperty("aad_tenant", value);
+        set => SetProperty("aad_tenant", value);
     }
 
     /// <summary>
@@ -209,8 +192,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public List<TerraformProperty<string>>? AddressSpace
     {
-        get => GetProperty<List<TerraformProperty<string>>>("address_space");
-        set => WithProperty("address_space", value);
+        set => SetProperty("address_space", value);
     }
 
     /// <summary>
@@ -218,8 +200,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? RadiusServerAddress
     {
-        get => GetProperty<TerraformProperty<string>>("radius_server_address");
-        set => WithProperty("radius_server_address", value);
+        set => SetProperty("radius_server_address", value);
     }
 
     /// <summary>
@@ -227,8 +208,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? RadiusServerSecret
     {
-        get => GetProperty<TerraformProperty<string>>("radius_server_secret");
-        set => WithProperty("radius_server_secret", value);
+        set => SetProperty("radius_server_secret", value);
     }
 
     /// <summary>
@@ -236,8 +216,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     /// </summary>
     public HashSet<TerraformProperty<string>>? VpnAuthTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpn_auth_types");
-        set => WithProperty("vpn_auth_types", value);
+        set => SetProperty("vpn_auth_types", value);
     }
 
     /// <summary>
@@ -245,8 +224,7 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
     /// </summary>
     public HashSet<TerraformProperty<string>>? VpnClientProtocols
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("vpn_client_protocols");
-        set => WithProperty("vpn_client_protocols", value);
+        set => SetProperty("vpn_client_protocols", value);
     }
 
 }
@@ -264,87 +242,106 @@ public class AzurermVirtualNetworkGateway : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("active_active");
+        SetOutput("bgp_route_translation_for_nat_enabled");
+        SetOutput("default_local_network_gateway_id");
+        SetOutput("dns_forwarding_enabled");
+        SetOutput("edge_zone");
+        SetOutput("enable_bgp");
+        SetOutput("generation");
+        SetOutput("id");
+        SetOutput("ip_sec_replay_protection_enabled");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("private_ip_address_enabled");
+        SetOutput("remote_vnet_traffic_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("sku");
+        SetOutput("tags");
+        SetOutput("type");
+        SetOutput("virtual_wan_traffic_enabled");
+        SetOutput("vpn_type");
     }
 
     /// <summary>
     /// The active_active attribute.
     /// </summary>
-    public TerraformProperty<bool>? ActiveActive
+    public TerraformProperty<bool> ActiveActive
     {
-        get => GetProperty<TerraformProperty<bool>>("active_active");
-        set => this.WithProperty("active_active", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("active_active");
+        set => SetProperty("active_active", value);
     }
 
     /// <summary>
     /// The bgp_route_translation_for_nat_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BgpRouteTranslationForNatEnabled
+    public TerraformProperty<bool> BgpRouteTranslationForNatEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("bgp_route_translation_for_nat_enabled");
-        set => this.WithProperty("bgp_route_translation_for_nat_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("bgp_route_translation_for_nat_enabled");
+        set => SetProperty("bgp_route_translation_for_nat_enabled", value);
     }
 
     /// <summary>
     /// The default_local_network_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultLocalNetworkGatewayId
+    public TerraformProperty<string> DefaultLocalNetworkGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("default_local_network_gateway_id");
-        set => this.WithProperty("default_local_network_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_local_network_gateway_id");
+        set => SetProperty("default_local_network_gateway_id", value);
     }
 
     /// <summary>
     /// The dns_forwarding_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DnsForwardingEnabled
+    public TerraformProperty<bool> DnsForwardingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("dns_forwarding_enabled");
-        set => this.WithProperty("dns_forwarding_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("dns_forwarding_enabled");
+        set => SetProperty("dns_forwarding_enabled", value);
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? EdgeZone
+    public TerraformProperty<string> EdgeZone
     {
-        get => GetProperty<TerraformProperty<string>>("edge_zone");
-        set => this.WithProperty("edge_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
+        set => SetProperty("edge_zone", value);
     }
 
     /// <summary>
     /// The enable_bgp attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableBgp
+    public TerraformProperty<bool> EnableBgp
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_bgp");
-        set => this.WithProperty("enable_bgp", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_bgp");
+        set => SetProperty("enable_bgp", value);
     }
 
     /// <summary>
     /// The generation attribute.
     /// </summary>
-    public TerraformProperty<string>? Generation
+    public TerraformProperty<string> Generation
     {
-        get => GetProperty<TerraformProperty<string>>("generation");
-        set => this.WithProperty("generation", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("generation");
+        set => SetProperty("generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_sec_replay_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IpSecReplayProtectionEnabled
+    public TerraformProperty<bool> IpSecReplayProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ip_sec_replay_protection_enabled");
-        set => this.WithProperty("ip_sec_replay_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ip_sec_replay_protection_enabled");
+        set => SetProperty("ip_sec_replay_protection_enabled", value);
     }
 
     /// <summary>
@@ -353,8 +350,8 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -363,26 +360,26 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The private_ip_address_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivateIpAddressEnabled
+    public TerraformProperty<bool> PrivateIpAddressEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_ip_address_enabled");
-        set => this.WithProperty("private_ip_address_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("private_ip_address_enabled");
+        set => SetProperty("private_ip_address_enabled", value);
     }
 
     /// <summary>
     /// The remote_vnet_traffic_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RemoteVnetTrafficEnabled
+    public TerraformProperty<bool> RemoteVnetTrafficEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("remote_vnet_traffic_enabled");
-        set => this.WithProperty("remote_vnet_traffic_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("remote_vnet_traffic_enabled");
+        set => SetProperty("remote_vnet_traffic_enabled", value);
     }
 
     /// <summary>
@@ -391,8 +388,8 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -401,17 +398,17 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -420,26 +417,26 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The virtual_wan_traffic_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? VirtualWanTrafficEnabled
+    public TerraformProperty<bool> VirtualWanTrafficEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("virtual_wan_traffic_enabled");
-        set => this.WithProperty("virtual_wan_traffic_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("virtual_wan_traffic_enabled");
+        set => SetProperty("virtual_wan_traffic_enabled", value);
     }
 
     /// <summary>
     /// The vpn_type attribute.
     /// </summary>
-    public TerraformProperty<string>? VpnType
+    public TerraformProperty<string> VpnType
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_type");
-        set => this.WithProperty("vpn_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpn_type");
+        set => SetProperty("vpn_type", value);
     }
 
     /// <summary>
@@ -449,8 +446,7 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
     public List<AzurermVirtualNetworkGatewayBgpSettingsBlock>? BgpSettings
     {
-        get => GetProperty<List<AzurermVirtualNetworkGatewayBgpSettingsBlock>>("bgp_settings");
-        set => this.WithProperty("bgp_settings", value);
+        set => SetProperty("bgp_settings", value);
     }
 
     /// <summary>
@@ -460,20 +456,19 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomRoute block(s) allowed")]
     public List<AzurermVirtualNetworkGatewayCustomRouteBlock>? CustomRoute
     {
-        get => GetProperty<List<AzurermVirtualNetworkGatewayCustomRouteBlock>>("custom_route");
-        set => this.WithProperty("custom_route", value);
+        set => SetProperty("custom_route", value);
     }
 
     /// <summary>
     /// Block for ip_configuration.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 IpConfiguration block(s) allowed")]
     public List<AzurermVirtualNetworkGatewayIpConfigurationBlock>? IpConfiguration
     {
-        get => GetProperty<List<AzurermVirtualNetworkGatewayIpConfigurationBlock>>("ip_configuration");
-        set => this.WithProperty("ip_configuration", value);
+        set => SetProperty("ip_configuration", value);
     }
 
     /// <summary>
@@ -482,8 +477,7 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     /// </summary>
     public List<AzurermVirtualNetworkGatewayPolicyGroupBlock>? PolicyGroup
     {
-        get => GetProperty<List<AzurermVirtualNetworkGatewayPolicyGroupBlock>>("policy_group");
-        set => this.WithProperty("policy_group", value);
+        set => SetProperty("policy_group", value);
     }
 
     /// <summary>
@@ -492,8 +486,7 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     /// </summary>
     public AzurermVirtualNetworkGatewayTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualNetworkGatewayTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -503,8 +496,7 @@ public class AzurermVirtualNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpnClientConfiguration block(s) allowed")]
     public List<AzurermVirtualNetworkGatewayVpnClientConfigurationBlock>? VpnClientConfiguration
     {
-        get => GetProperty<List<AzurermVirtualNetworkGatewayVpnClientConfigurationBlock>>("vpn_client_configuration");
-        set => this.WithProperty("vpn_client_configuration", value);
+        set => SetProperty("vpn_client_configuration", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermFunctionAppDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -32,30 +31,34 @@ public class AzurermFunctionAppDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_service_plan_id");
-        this.WithOutput("app_settings");
-        this.WithOutput("client_cert_mode");
-        this.WithOutput("connection_string");
-        this.WithOutput("custom_domain_verification_id");
-        this.WithOutput("default_hostname");
-        this.WithOutput("enabled");
-        this.WithOutput("identity");
-        this.WithOutput("location");
-        this.WithOutput("os_type");
-        this.WithOutput("outbound_ip_addresses");
-        this.WithOutput("possible_outbound_ip_addresses");
-        this.WithOutput("site_config");
-        this.WithOutput("site_credential");
-        this.WithOutput("source_control");
+        SetOutput("app_service_plan_id");
+        SetOutput("app_settings");
+        SetOutput("client_cert_mode");
+        SetOutput("connection_string");
+        SetOutput("custom_domain_verification_id");
+        SetOutput("default_hostname");
+        SetOutput("enabled");
+        SetOutput("identity");
+        SetOutput("location");
+        SetOutput("os_type");
+        SetOutput("outbound_ip_addresses");
+        SetOutput("possible_outbound_ip_addresses");
+        SetOutput("site_config");
+        SetOutput("site_credential");
+        SetOutput("source_control");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -64,8 +67,8 @@ public class AzurermFunctionAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -74,17 +77,17 @@ public class AzurermFunctionAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -93,8 +96,7 @@ public class AzurermFunctionAppDataSource : TerraformDataSource
     /// </summary>
     public AzurermFunctionAppDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermFunctionAppDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

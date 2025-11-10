@@ -13,8 +13,7 @@ public class AwsMqBrokerConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsMqBrokerConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Revision
     {
-        get => GetProperty<TerraformProperty<double>>("revision");
-        set => WithProperty("revision", value);
+        set => SetProperty("revision", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsMqBrokerEncryptionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => WithProperty("kms_key_id", value);
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsMqBrokerEncryptionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseAwsOwnedKey
     {
-        get => GetProperty<TerraformProperty<bool>>("use_aws_owned_key");
-        set => WithProperty("use_aws_owned_key", value);
+        set => SetProperty("use_aws_owned_key", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Hosts
     {
-        get => GetProperty<List<TerraformProperty<string>>>("hosts");
-        set => WithProperty("hosts", value);
+        set => SetProperty("hosts", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RoleBase
     {
-        get => GetProperty<TerraformProperty<string>>("role_base");
-        set => WithProperty("role_base", value);
+        set => SetProperty("role_base", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RoleName
     {
-        get => GetProperty<TerraformProperty<string>>("role_name");
-        set => WithProperty("role_name", value);
+        set => SetProperty("role_name", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RoleSearchMatching
     {
-        get => GetProperty<TerraformProperty<string>>("role_search_matching");
-        set => WithProperty("role_search_matching", value);
+        set => SetProperty("role_search_matching", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? RoleSearchSubtree
     {
-        get => GetProperty<TerraformProperty<bool>>("role_search_subtree");
-        set => WithProperty("role_search_subtree", value);
+        set => SetProperty("role_search_subtree", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountPassword
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_password");
-        set => WithProperty("service_account_password", value);
+        set => SetProperty("service_account_password", value);
     }
 
     /// <summary>
@@ -119,8 +109,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceAccountUsername
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_username");
-        set => WithProperty("service_account_username", value);
+        set => SetProperty("service_account_username", value);
     }
 
     /// <summary>
@@ -128,8 +117,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserBase
     {
-        get => GetProperty<TerraformProperty<string>>("user_base");
-        set => WithProperty("user_base", value);
+        set => SetProperty("user_base", value);
     }
 
     /// <summary>
@@ -137,8 +125,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserRoleName
     {
-        get => GetProperty<TerraformProperty<string>>("user_role_name");
-        set => WithProperty("user_role_name", value);
+        set => SetProperty("user_role_name", value);
     }
 
     /// <summary>
@@ -146,8 +133,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? UserSearchMatching
     {
-        get => GetProperty<TerraformProperty<string>>("user_search_matching");
-        set => WithProperty("user_search_matching", value);
+        set => SetProperty("user_search_matching", value);
     }
 
     /// <summary>
@@ -155,8 +141,7 @@ public class AwsMqBrokerLdapServerMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UserSearchSubtree
     {
-        get => GetProperty<TerraformProperty<bool>>("user_search_subtree");
-        set => WithProperty("user_search_subtree", value);
+        set => SetProperty("user_search_subtree", value);
     }
 
 }
@@ -172,8 +157,7 @@ public class AwsMqBrokerLogsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Audit
     {
-        get => GetProperty<TerraformProperty<string>>("audit");
-        set => WithProperty("audit", value);
+        set => SetProperty("audit", value);
     }
 
     /// <summary>
@@ -181,8 +165,7 @@ public class AwsMqBrokerLogsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? General
     {
-        get => GetProperty<TerraformProperty<bool>>("general");
-        set => WithProperty("general", value);
+        set => SetProperty("general", value);
     }
 
 }
@@ -199,8 +182,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformProperty<string> DayOfWeek
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("day_of_week");
-        set => WithProperty("day_of_week", value);
+        set => SetProperty("day_of_week", value);
     }
 
     /// <summary>
@@ -209,8 +191,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfDay is required")]
     public required TerraformProperty<string> TimeOfDay
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_of_day");
-        set => WithProperty("time_of_day", value);
+        set => SetProperty("time_of_day", value);
     }
 
     /// <summary>
@@ -219,8 +200,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
-        set => WithProperty("time_zone", value);
+        set => SetProperty("time_zone", value);
     }
 
 }
@@ -236,8 +216,7 @@ public class AwsMqBrokerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -245,8 +224,7 @@ public class AwsMqBrokerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -254,8 +232,7 @@ public class AwsMqBrokerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -271,8 +248,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ConsoleAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("console_access");
-        set => WithProperty("console_access", value);
+        set => SetProperty("console_access", value);
     }
 
     /// <summary>
@@ -280,8 +256,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Groups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("groups");
-        set => WithProperty("groups", value);
+        set => SetProperty("groups", value);
     }
 
     /// <summary>
@@ -290,8 +265,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => WithProperty("password", value);
+        set => SetProperty("password", value);
     }
 
     /// <summary>
@@ -299,8 +273,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? ReplicationUser
     {
-        get => GetProperty<TerraformProperty<bool>>("replication_user");
-        set => WithProperty("replication_user", value);
+        set => SetProperty("replication_user", value);
     }
 
     /// <summary>
@@ -309,8 +282,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("username");
-        set => WithProperty("username", value);
+        set => SetProperty("username", value);
     }
 
 }
@@ -328,36 +300,54 @@ public class AwsMqBroker : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("instances");
-        this.WithOutput("pending_data_replication_mode");
+        SetOutput("arn");
+        SetOutput("instances");
+        SetOutput("pending_data_replication_mode");
+        SetOutput("apply_immediately");
+        SetOutput("authentication_strategy");
+        SetOutput("auto_minor_version_upgrade");
+        SetOutput("broker_name");
+        SetOutput("data_replication_mode");
+        SetOutput("data_replication_primary_broker_arn");
+        SetOutput("deployment_mode");
+        SetOutput("engine_type");
+        SetOutput("engine_version");
+        SetOutput("host_instance_type");
+        SetOutput("id");
+        SetOutput("publicly_accessible");
+        SetOutput("region");
+        SetOutput("security_groups");
+        SetOutput("storage_type");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplyImmediately
+    public TerraformProperty<bool> ApplyImmediately
     {
-        get => GetProperty<TerraformProperty<bool>>("apply_immediately");
-        set => this.WithProperty("apply_immediately", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("apply_immediately");
+        set => SetProperty("apply_immediately", value);
     }
 
     /// <summary>
     /// The authentication_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationStrategy
+    public TerraformProperty<string> AuthenticationStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_strategy");
-        set => this.WithProperty("authentication_strategy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authentication_strategy");
+        set => SetProperty("authentication_strategy", value);
     }
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoMinorVersionUpgrade
+    public TerraformProperty<bool> AutoMinorVersionUpgrade
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_minor_version_upgrade");
-        set => this.WithProperty("auto_minor_version_upgrade", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_minor_version_upgrade");
+        set => SetProperty("auto_minor_version_upgrade", value);
     }
 
     /// <summary>
@@ -366,35 +356,35 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrokerName is required")]
     public required TerraformProperty<string> BrokerName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("broker_name");
-        set => this.WithProperty("broker_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("broker_name");
+        set => SetProperty("broker_name", value);
     }
 
     /// <summary>
     /// The data_replication_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? DataReplicationMode
+    public TerraformProperty<string> DataReplicationMode
     {
-        get => GetProperty<TerraformProperty<string>>("data_replication_mode");
-        set => this.WithProperty("data_replication_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_replication_mode");
+        set => SetProperty("data_replication_mode", value);
     }
 
     /// <summary>
     /// The data_replication_primary_broker_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DataReplicationPrimaryBrokerArn
+    public TerraformProperty<string> DataReplicationPrimaryBrokerArn
     {
-        get => GetProperty<TerraformProperty<string>>("data_replication_primary_broker_arn");
-        set => this.WithProperty("data_replication_primary_broker_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_replication_primary_broker_arn");
+        set => SetProperty("data_replication_primary_broker_arn", value);
     }
 
     /// <summary>
     /// The deployment_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentMode
+    public TerraformProperty<string> DeploymentMode
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_mode");
-        set => this.WithProperty("deployment_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_mode");
+        set => SetProperty("deployment_mode", value);
     }
 
     /// <summary>
@@ -403,8 +393,8 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformProperty<string> EngineType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_type");
-        set => this.WithProperty("engine_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_type");
+        set => SetProperty("engine_type", value);
     }
 
     /// <summary>
@@ -413,8 +403,8 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
     public required TerraformProperty<string> EngineVersion
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("engine_version");
-        set => this.WithProperty("engine_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
+        set => SetProperty("engine_version", value);
     }
 
     /// <summary>
@@ -423,80 +413,80 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostInstanceType is required")]
     public required TerraformProperty<string> HostInstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("host_instance_type");
-        set => this.WithProperty("host_instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("host_instance_type");
+        set => SetProperty("host_instance_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool> PubliclyAccessible
     {
-        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
-        set => this.WithProperty("publicly_accessible", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
+        set => SetProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>> SecurityGroups
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
-        set => this.WithProperty("security_groups", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_groups");
+        set => SetProperty("security_groups", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageType
+    public TerraformProperty<string> StorageType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_type");
-        set => this.WithProperty("storage_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
+        set => SetProperty("storage_type", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -506,8 +496,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     public List<AwsMqBrokerConfigurationBlock>? Configuration
     {
-        get => GetProperty<List<AwsMqBrokerConfigurationBlock>>("configuration");
-        set => this.WithProperty("configuration", value);
+        set => SetProperty("configuration", value);
     }
 
     /// <summary>
@@ -517,8 +506,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionOptions block(s) allowed")]
     public List<AwsMqBrokerEncryptionOptionsBlock>? EncryptionOptions
     {
-        get => GetProperty<List<AwsMqBrokerEncryptionOptionsBlock>>("encryption_options");
-        set => this.WithProperty("encryption_options", value);
+        set => SetProperty("encryption_options", value);
     }
 
     /// <summary>
@@ -528,8 +516,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LdapServerMetadata block(s) allowed")]
     public List<AwsMqBrokerLdapServerMetadataBlock>? LdapServerMetadata
     {
-        get => GetProperty<List<AwsMqBrokerLdapServerMetadataBlock>>("ldap_server_metadata");
-        set => this.WithProperty("ldap_server_metadata", value);
+        set => SetProperty("ldap_server_metadata", value);
     }
 
     /// <summary>
@@ -539,8 +526,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     public List<AwsMqBrokerLogsBlock>? Logs
     {
-        get => GetProperty<List<AwsMqBrokerLogsBlock>>("logs");
-        set => this.WithProperty("logs", value);
+        set => SetProperty("logs", value);
     }
 
     /// <summary>
@@ -550,8 +536,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindowStartTime block(s) allowed")]
     public List<AwsMqBrokerMaintenanceWindowStartTimeBlock>? MaintenanceWindowStartTime
     {
-        get => GetProperty<List<AwsMqBrokerMaintenanceWindowStartTimeBlock>>("maintenance_window_start_time");
-        set => this.WithProperty("maintenance_window_start_time", value);
+        set => SetProperty("maintenance_window_start_time", value);
     }
 
     /// <summary>
@@ -560,19 +545,18 @@ public class AwsMqBroker : TerraformResource
     /// </summary>
     public AwsMqBrokerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsMqBrokerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for user.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     public HashSet<AwsMqBrokerUserBlock>? User
     {
-        get => GetProperty<HashSet<AwsMqBrokerUserBlock>>("user");
-        set => this.WithProperty("user", value);
+        set => SetProperty("user", value);
     }
 
     /// <summary>

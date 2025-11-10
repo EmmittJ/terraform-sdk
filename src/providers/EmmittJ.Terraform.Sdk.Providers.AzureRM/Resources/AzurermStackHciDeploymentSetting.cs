@@ -14,8 +14,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActiveDirectoryOrganizationalUnitPath is required")]
     public required TerraformProperty<string> ActiveDirectoryOrganizationalUnitPath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("active_directory_organizational_unit_path");
-        set => WithProperty("active_directory_organizational_unit_path", value);
+        set => SetProperty("active_directory_organizational_unit_path", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? BitlockerBootVolumeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("bitlocker_boot_volume_enabled");
-        set => WithProperty("bitlocker_boot_volume_enabled", value);
+        set => SetProperty("bitlocker_boot_volume_enabled", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? BitlockerDataVolumeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("bitlocker_data_volume_enabled");
-        set => WithProperty("bitlocker_data_volume_enabled", value);
+        set => SetProperty("bitlocker_data_volume_enabled", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? CredentialGuardEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("credential_guard_enabled");
-        set => WithProperty("credential_guard_enabled", value);
+        set => SetProperty("credential_guard_enabled", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainFqdn is required")]
     public required TerraformProperty<string> DomainFqdn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_fqdn");
-        set => WithProperty("domain_fqdn", value);
+        set => SetProperty("domain_fqdn", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DriftControlEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("drift_control_enabled");
-        set => WithProperty("drift_control_enabled", value);
+        set => SetProperty("drift_control_enabled", value);
     }
 
     /// <summary>
@@ -69,8 +63,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DrtmProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("drtm_protection_enabled");
-        set => WithProperty("drtm_protection_enabled", value);
+        set => SetProperty("drtm_protection_enabled", value);
     }
 
     /// <summary>
@@ -78,8 +71,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EpisodicDataUploadEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("episodic_data_upload_enabled");
-        set => WithProperty("episodic_data_upload_enabled", value);
+        set => SetProperty("episodic_data_upload_enabled", value);
     }
 
     /// <summary>
@@ -87,8 +79,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EuLocationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("eu_location_enabled");
-        set => WithProperty("eu_location_enabled", value);
+        set => SetProperty("eu_location_enabled", value);
     }
 
     /// <summary>
@@ -96,8 +87,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? HvciProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("hvci_protection_enabled");
-        set => WithProperty("hvci_protection_enabled", value);
+        set => SetProperty("hvci_protection_enabled", value);
     }
 
     /// <summary>
@@ -106,8 +96,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePrefix is required")]
     public required TerraformProperty<string> NamePrefix
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name_prefix");
-        set => WithProperty("name_prefix", value);
+        set => SetProperty("name_prefix", value);
     }
 
     /// <summary>
@@ -116,8 +105,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretsLocation is required")]
     public required TerraformProperty<string> SecretsLocation
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("secrets_location");
-        set => WithProperty("secrets_location", value);
+        set => SetProperty("secrets_location", value);
     }
 
     /// <summary>
@@ -125,8 +113,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SideChannelMitigationEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("side_channel_mitigation_enabled");
-        set => WithProperty("side_channel_mitigation_enabled", value);
+        set => SetProperty("side_channel_mitigation_enabled", value);
     }
 
     /// <summary>
@@ -134,8 +121,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SmbClusterEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("smb_cluster_encryption_enabled");
-        set => WithProperty("smb_cluster_encryption_enabled", value);
+        set => SetProperty("smb_cluster_encryption_enabled", value);
     }
 
     /// <summary>
@@ -143,8 +129,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SmbSigningEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("smb_signing_enabled");
-        set => WithProperty("smb_signing_enabled", value);
+        set => SetProperty("smb_signing_enabled", value);
     }
 
     /// <summary>
@@ -152,8 +137,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? StreamingDataClientEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("streaming_data_client_enabled");
-        set => WithProperty("streaming_data_client_enabled", value);
+        set => SetProperty("streaming_data_client_enabled", value);
     }
 
     /// <summary>
@@ -161,8 +145,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? WdacEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("wdac_enabled");
-        set => WithProperty("wdac_enabled", value);
+        set => SetProperty("wdac_enabled", value);
     }
 
 }
@@ -178,8 +161,7 @@ public class AzurermStackHciDeploymentSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -187,8 +169,7 @@ public class AzurermStackHciDeploymentSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -196,8 +177,7 @@ public class AzurermStackHciDeploymentSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -215,25 +195,29 @@ public class AzurermStackHciDeploymentSetting : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("arc_resource_ids");
+        SetOutput("id");
+        SetOutput("stack_hci_cluster_id");
+        SetOutput("version");
     }
 
     /// <summary>
     /// The arc_resource_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcResourceIds is required")]
-    public List<TerraformProperty<string>>? ArcResourceIds
+    public List<TerraformProperty<string>> ArcResourceIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("arc_resource_ids");
-        set => this.WithProperty("arc_resource_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("arc_resource_ids");
+        set => SetProperty("arc_resource_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -242,8 +226,8 @@ public class AzurermStackHciDeploymentSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackHciClusterId is required")]
     public required TerraformProperty<string> StackHciClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stack_hci_cluster_id");
-        set => this.WithProperty("stack_hci_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stack_hci_cluster_id");
+        set => SetProperty("stack_hci_cluster_id", value);
     }
 
     /// <summary>
@@ -252,19 +236,19 @@ public class AzurermStackHciDeploymentSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version");
+        set => SetProperty("version", value);
     }
 
     /// <summary>
     /// Block for scale_unit.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUnit is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScaleUnit block(s) required")]
     public List<AzurermStackHciDeploymentSettingScaleUnitBlock>? ScaleUnit
     {
-        get => GetProperty<List<AzurermStackHciDeploymentSettingScaleUnitBlock>>("scale_unit");
-        set => this.WithProperty("scale_unit", value);
+        set => SetProperty("scale_unit", value);
     }
 
     /// <summary>
@@ -273,8 +257,7 @@ public class AzurermStackHciDeploymentSetting : TerraformResource
     /// </summary>
     public AzurermStackHciDeploymentSettingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStackHciDeploymentSettingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

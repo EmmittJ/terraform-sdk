@@ -14,8 +14,7 @@ public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPool is required")]
     public required TerraformProperty<string> UserPool
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_pool");
-        set => WithProperty("user_pool", value);
+        set => SetProperty("user_pool", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? AuthenticationRequestExtraParams
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("authentication_request_extra_params");
-        set => WithProperty("authentication_request_extra_params", value);
+        set => SetProperty("authentication_request_extra_params", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformProperty<string> AuthorizationEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("authorization_endpoint");
-        set => WithProperty("authorization_endpoint", value);
+        set => SetProperty("authorization_endpoint", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
-        set => WithProperty("client_id", value);
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
-        set => WithProperty("client_secret", value);
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
@@ -81,8 +75,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
-        set => WithProperty("issuer", value);
+        set => SetProperty("issuer", value);
     }
 
     /// <summary>
@@ -91,8 +84,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JwksUri is required")]
     public required TerraformProperty<string> JwksUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("jwks_uri");
-        set => WithProperty("jwks_uri", value);
+        set => SetProperty("jwks_uri", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogoutEndpoint is required")]
     public required TerraformProperty<string> LogoutEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("logout_endpoint");
-        set => WithProperty("logout_endpoint", value);
+        set => SetProperty("logout_endpoint", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => WithProperty("scope", value);
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformProperty<string> TokenEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("token_endpoint");
-        set => WithProperty("token_endpoint", value);
+        set => SetProperty("token_endpoint", value);
     }
 
     /// <summary>
@@ -130,8 +119,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserInfoEndpoint is required")]
     public required TerraformProperty<string> UserInfoEndpoint
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_info_endpoint");
-        set => WithProperty("user_info_endpoint", value);
+        set => SetProperty("user_info_endpoint", value);
     }
 
 }
@@ -148,8 +136,7 @@ public class AwsSagemakerWorkforceSourceIpConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidrs is required")]
     public HashSet<TerraformProperty<string>>? Cidrs
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("cidrs");
-        set => WithProperty("cidrs", value);
+        set => SetProperty("cidrs", value);
     }
 
 }
@@ -165,8 +152,7 @@ public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -174,8 +160,7 @@ public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
-        set => WithProperty("subnets", value);
+        set => SetProperty("subnets", value);
     }
 
     /// <summary>
@@ -183,8 +168,7 @@ public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VpcEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
-        set => WithProperty("vpc_endpoint_id", value);
+        set => SetProperty("vpc_endpoint_id", value);
     }
 
     /// <summary>
@@ -192,8 +176,7 @@ public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => WithProperty("vpc_id", value);
+        set => SetProperty("vpc_id", value);
     }
 
 }
@@ -211,26 +194,29 @@ public class AwsSagemakerWorkforce : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("subdomain");
+        SetOutput("arn");
+        SetOutput("subdomain");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("workforce_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -239,8 +225,8 @@ public class AwsSagemakerWorkforce : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforceName is required")]
     public required TerraformProperty<string> WorkforceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workforce_name");
-        set => this.WithProperty("workforce_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workforce_name");
+        set => SetProperty("workforce_name", value);
     }
 
     /// <summary>
@@ -250,8 +236,7 @@ public class AwsSagemakerWorkforce : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CognitoConfig block(s) allowed")]
     public List<AwsSagemakerWorkforceCognitoConfigBlock>? CognitoConfig
     {
-        get => GetProperty<List<AwsSagemakerWorkforceCognitoConfigBlock>>("cognito_config");
-        set => this.WithProperty("cognito_config", value);
+        set => SetProperty("cognito_config", value);
     }
 
     /// <summary>
@@ -261,8 +246,7 @@ public class AwsSagemakerWorkforce : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcConfig block(s) allowed")]
     public List<AwsSagemakerWorkforceOidcConfigBlock>? OidcConfig
     {
-        get => GetProperty<List<AwsSagemakerWorkforceOidcConfigBlock>>("oidc_config");
-        set => this.WithProperty("oidc_config", value);
+        set => SetProperty("oidc_config", value);
     }
 
     /// <summary>
@@ -272,8 +256,7 @@ public class AwsSagemakerWorkforce : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceIpConfig block(s) allowed")]
     public List<AwsSagemakerWorkforceSourceIpConfigBlock>? SourceIpConfig
     {
-        get => GetProperty<List<AwsSagemakerWorkforceSourceIpConfigBlock>>("source_ip_config");
-        set => this.WithProperty("source_ip_config", value);
+        set => SetProperty("source_ip_config", value);
     }
 
     /// <summary>
@@ -283,8 +266,7 @@ public class AwsSagemakerWorkforce : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkforceVpcConfig block(s) allowed")]
     public List<AwsSagemakerWorkforceWorkforceVpcConfigBlock>? WorkforceVpcConfig
     {
-        get => GetProperty<List<AwsSagemakerWorkforceWorkforceVpcConfigBlock>>("workforce_vpc_config");
-        set => this.WithProperty("workforce_vpc_config", value);
+        set => SetProperty("workforce_vpc_config", value);
     }
 
     /// <summary>

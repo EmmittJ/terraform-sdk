@@ -13,8 +13,7 @@ public class AwsAppstreamFleetComputeCapacityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Available
     {
-        get => GetProperty<TerraformProperty<double>>("available");
-        set => WithProperty("available", value);
+        set => SetProperty("available", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAppstreamFleetComputeCapacityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DesiredInstances
     {
-        get => GetProperty<TerraformProperty<double>>("desired_instances");
-        set => WithProperty("desired_instances", value);
+        set => SetProperty("desired_instances", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsAppstreamFleetComputeCapacityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DesiredSessions
     {
-        get => GetProperty<TerraformProperty<double>>("desired_sessions");
-        set => WithProperty("desired_sessions", value);
+        set => SetProperty("desired_sessions", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsAppstreamFleetComputeCapacityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? InUse
     {
-        get => GetProperty<TerraformProperty<double>>("in_use");
-        set => WithProperty("in_use", value);
+        set => SetProperty("in_use", value);
     }
 
     /// <summary>
@@ -49,8 +45,7 @@ public class AwsAppstreamFleetComputeCapacityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Running
     {
-        get => GetProperty<TerraformProperty<double>>("running");
-        set => WithProperty("running", value);
+        set => SetProperty("running", value);
     }
 
 }
@@ -66,8 +61,7 @@ public class AwsAppstreamFleetDomainJoinInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DirectoryName
     {
-        get => GetProperty<TerraformProperty<string>>("directory_name");
-        set => WithProperty("directory_name", value);
+        set => SetProperty("directory_name", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AwsAppstreamFleetDomainJoinInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OrganizationalUnitDistinguishedName
     {
-        get => GetProperty<TerraformProperty<string>>("organizational_unit_distinguished_name");
-        set => WithProperty("organizational_unit_distinguished_name", value);
+        set => SetProperty("organizational_unit_distinguished_name", value);
     }
 
 }
@@ -92,8 +85,7 @@ public class AwsAppstreamFleetVpcConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("security_group_ids");
-        set => WithProperty("security_group_ids", value);
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AwsAppstreamFleetVpcConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
-        set => WithProperty("subnet_ids", value);
+        set => SetProperty("subnet_ids", value);
     }
 
 }
@@ -120,99 +111,117 @@ public class AwsAppstreamFleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("created_time");
-        this.WithOutput("state");
+        SetOutput("arn");
+        SetOutput("created_time");
+        SetOutput("state");
+        SetOutput("description");
+        SetOutput("disconnect_timeout_in_seconds");
+        SetOutput("display_name");
+        SetOutput("enable_default_internet_access");
+        SetOutput("fleet_type");
+        SetOutput("iam_role_arn");
+        SetOutput("id");
+        SetOutput("idle_disconnect_timeout_in_seconds");
+        SetOutput("image_arn");
+        SetOutput("image_name");
+        SetOutput("instance_type");
+        SetOutput("max_sessions_per_instance");
+        SetOutput("max_user_duration_in_seconds");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("stream_view");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The disconnect_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? DisconnectTimeoutInSeconds
+    public TerraformProperty<double> DisconnectTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("disconnect_timeout_in_seconds");
-        set => this.WithProperty("disconnect_timeout_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("disconnect_timeout_in_seconds");
+        set => SetProperty("disconnect_timeout_in_seconds", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The enable_default_internet_access attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableDefaultInternetAccess
+    public TerraformProperty<bool> EnableDefaultInternetAccess
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_default_internet_access");
-        set => this.WithProperty("enable_default_internet_access", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enable_default_internet_access");
+        set => SetProperty("enable_default_internet_access", value);
     }
 
     /// <summary>
     /// The fleet_type attribute.
     /// </summary>
-    public TerraformProperty<string>? FleetType
+    public TerraformProperty<string> FleetType
     {
-        get => GetProperty<TerraformProperty<string>>("fleet_type");
-        set => this.WithProperty("fleet_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fleet_type");
+        set => SetProperty("fleet_type", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRoleArn
+    public TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The idle_disconnect_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? IdleDisconnectTimeoutInSeconds
+    public TerraformProperty<double> IdleDisconnectTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("idle_disconnect_timeout_in_seconds");
-        set => this.WithProperty("idle_disconnect_timeout_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("idle_disconnect_timeout_in_seconds");
+        set => SetProperty("idle_disconnect_timeout_in_seconds", value);
     }
 
     /// <summary>
     /// The image_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageArn
+    public TerraformProperty<string> ImageArn
     {
-        get => GetProperty<TerraformProperty<string>>("image_arn");
-        set => this.WithProperty("image_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_arn");
+        set => SetProperty("image_arn", value);
     }
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageName
+    public TerraformProperty<string> ImageName
     {
-        get => GetProperty<TerraformProperty<string>>("image_name");
-        set => this.WithProperty("image_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
+        set => SetProperty("image_name", value);
     }
 
     /// <summary>
@@ -221,26 +230,26 @@ public class AwsAppstreamFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
-        set => this.WithProperty("instance_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
     /// The max_sessions_per_instance attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxSessionsPerInstance
+    public TerraformProperty<double> MaxSessionsPerInstance
     {
-        get => GetProperty<TerraformProperty<double>>("max_sessions_per_instance");
-        set => this.WithProperty("max_sessions_per_instance", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_sessions_per_instance");
+        set => SetProperty("max_sessions_per_instance", value);
     }
 
     /// <summary>
     /// The max_user_duration_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxUserDurationInSeconds
+    public TerraformProperty<double> MaxUserDurationInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_user_duration_in_seconds");
-        set => this.WithProperty("max_user_duration_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_user_duration_in_seconds");
+        set => SetProperty("max_user_duration_in_seconds", value);
     }
 
     /// <summary>
@@ -249,56 +258,56 @@ public class AwsAppstreamFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The stream_view attribute.
     /// </summary>
-    public TerraformProperty<string>? StreamView
+    public TerraformProperty<string> StreamView
     {
-        get => GetProperty<TerraformProperty<string>>("stream_view");
-        set => this.WithProperty("stream_view", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_view");
+        set => SetProperty("stream_view", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for compute_capacity.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCapacity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComputeCapacity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeCapacity block(s) allowed")]
     public List<AwsAppstreamFleetComputeCapacityBlock>? ComputeCapacity
     {
-        get => GetProperty<List<AwsAppstreamFleetComputeCapacityBlock>>("compute_capacity");
-        set => this.WithProperty("compute_capacity", value);
+        set => SetProperty("compute_capacity", value);
     }
 
     /// <summary>
@@ -308,8 +317,7 @@ public class AwsAppstreamFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainJoinInfo block(s) allowed")]
     public List<AwsAppstreamFleetDomainJoinInfoBlock>? DomainJoinInfo
     {
-        get => GetProperty<List<AwsAppstreamFleetDomainJoinInfoBlock>>("domain_join_info");
-        set => this.WithProperty("domain_join_info", value);
+        set => SetProperty("domain_join_info", value);
     }
 
     /// <summary>
@@ -319,8 +327,7 @@ public class AwsAppstreamFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     public List<AwsAppstreamFleetVpcConfigBlock>? VpcConfig
     {
-        get => GetProperty<List<AwsAppstreamFleetVpcConfigBlock>>("vpc_config");
-        set => this.WithProperty("vpc_config", value);
+        set => SetProperty("vpc_config", value);
     }
 
     /// <summary>

@@ -14,15 +14,19 @@ public class GoogleBackupDrBackupPlanAssociationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backup_plan");
-        this.WithOutput("create_time");
-        this.WithOutput("data_source");
-        this.WithOutput("last_successful_backup_consistency_time");
-        this.WithOutput("name");
-        this.WithOutput("resource");
-        this.WithOutput("resource_type");
-        this.WithOutput("rules_config_info");
-        this.WithOutput("update_time");
+        SetOutput("backup_plan");
+        SetOutput("create_time");
+        SetOutput("data_source");
+        SetOutput("last_successful_backup_consistency_time");
+        SetOutput("name");
+        SetOutput("resource");
+        SetOutput("resource_type");
+        SetOutput("rules_config_info");
+        SetOutput("update_time");
+        SetOutput("backup_plan_association_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -31,17 +35,17 @@ public class GoogleBackupDrBackupPlanAssociationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
     public required TerraformProperty<string> BackupPlanAssociationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("backup_plan_association_id");
-        set => this.WithProperty("backup_plan_association_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_plan_association_id");
+        set => SetProperty("backup_plan_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -50,17 +54,17 @@ public class GoogleBackupDrBackupPlanAssociationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,52 +54,63 @@ public class AzurermMachineLearningDatastoreDatalakeGen2 : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("is_default");
+        SetOutput("is_default");
+        SetOutput("authority_url");
+        SetOutput("client_id");
+        SetOutput("client_secret");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("service_data_identity");
+        SetOutput("storage_container_id");
+        SetOutput("tags");
+        SetOutput("tenant_id");
+        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The authority_url attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorityUrl
+    public TerraformProperty<string> AuthorityUrl
     {
-        get => GetProperty<TerraformProperty<string>>("authority_url");
-        set => this.WithProperty("authority_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("authority_url");
+        set => SetProperty("authority_url", value);
     }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    public TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientSecret
+    public TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
-        set => this.WithProperty("client_secret", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_secret");
+        set => SetProperty("client_secret", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,17 +119,17 @@ public class AzurermMachineLearningDatastoreDatalakeGen2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The service_data_identity attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceDataIdentity
+    public TerraformProperty<string> ServiceDataIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("service_data_identity");
-        set => this.WithProperty("service_data_identity", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_data_identity");
+        set => SetProperty("service_data_identity", value);
     }
 
     /// <summary>
@@ -131,26 +138,26 @@ public class AzurermMachineLearningDatastoreDatalakeGen2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     public required TerraformProperty<string> StorageContainerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_id");
-        set => this.WithProperty("storage_container_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_id");
+        set => SetProperty("storage_container_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
+    public TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => this.WithProperty("tenant_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -159,8 +166,8 @@ public class AzurermMachineLearningDatastoreDatalakeGen2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
-        set => this.WithProperty("workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
+        set => SetProperty("workspace_id", value);
     }
 
     /// <summary>
@@ -169,8 +176,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2 : TerraformResource
     /// </summary>
     public AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

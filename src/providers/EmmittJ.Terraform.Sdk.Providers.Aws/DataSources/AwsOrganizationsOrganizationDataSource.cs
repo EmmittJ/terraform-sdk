@@ -14,26 +14,27 @@ public class AwsOrganizationsOrganizationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("accounts");
-        this.WithOutput("arn");
-        this.WithOutput("aws_service_access_principals");
-        this.WithOutput("enabled_policy_types");
-        this.WithOutput("feature_set");
-        this.WithOutput("master_account_arn");
-        this.WithOutput("master_account_email");
-        this.WithOutput("master_account_id");
-        this.WithOutput("master_account_name");
-        this.WithOutput("non_master_accounts");
-        this.WithOutput("roots");
+        SetOutput("accounts");
+        SetOutput("arn");
+        SetOutput("aws_service_access_principals");
+        SetOutput("enabled_policy_types");
+        SetOutput("feature_set");
+        SetOutput("master_account_arn");
+        SetOutput("master_account_email");
+        SetOutput("master_account_id");
+        SetOutput("master_account_name");
+        SetOutput("non_master_accounts");
+        SetOutput("roots");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

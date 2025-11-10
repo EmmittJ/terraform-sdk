@@ -13,8 +13,7 @@ public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,15 @@ public class AzureadApplicationPermissionScope : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("admin_consent_description");
+        SetOutput("admin_consent_display_name");
+        SetOutput("application_id");
+        SetOutput("id");
+        SetOutput("scope_id");
+        SetOutput("type");
+        SetOutput("user_consent_description");
+        SetOutput("user_consent_display_name");
+        SetOutput("value");
     }
 
     /// <summary>
@@ -66,8 +71,8 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDescription is required")]
     public required TerraformProperty<string> AdminConsentDescription
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_consent_description");
-        set => this.WithProperty("admin_consent_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admin_consent_description");
+        set => SetProperty("admin_consent_description", value);
     }
 
     /// <summary>
@@ -76,8 +81,8 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDisplayName is required")]
     public required TerraformProperty<string> AdminConsentDisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("admin_consent_display_name");
-        set => this.WithProperty("admin_consent_display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admin_consent_display_name");
+        set => SetProperty("admin_consent_display_name", value);
     }
 
     /// <summary>
@@ -86,17 +91,17 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -105,35 +110,35 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformProperty<string> ScopeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("scope_id");
-        set => this.WithProperty("scope_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope_id");
+        set => SetProperty("scope_id", value);
     }
 
     /// <summary>
     /// Whether this delegated permission should be considered safe for non-admin users to consent to on behalf of themselves, or whether an administrator should be required for consent to the permissions
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// Delegated permission description that appears in the end user consent experience, intended to be read by a user consenting on their own behalf
     /// </summary>
-    public TerraformProperty<string>? UserConsentDescription
+    public TerraformProperty<string> UserConsentDescription
     {
-        get => GetProperty<TerraformProperty<string>>("user_consent_description");
-        set => this.WithProperty("user_consent_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_consent_description");
+        set => SetProperty("user_consent_description", value);
     }
 
     /// <summary>
     /// Display name for the delegated permission that appears in the end user consent experience
     /// </summary>
-    public TerraformProperty<string>? UserConsentDisplayName
+    public TerraformProperty<string> UserConsentDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("user_consent_display_name");
-        set => this.WithProperty("user_consent_display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_consent_display_name");
+        set => SetProperty("user_consent_display_name", value);
     }
 
     /// <summary>
@@ -142,8 +147,8 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>
@@ -152,8 +157,7 @@ public class AzureadApplicationPermissionScope : TerraformResource
     /// </summary>
     public AzureadApplicationPermissionScopeTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationPermissionScopeTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

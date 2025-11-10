@@ -22,8 +22,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -59,8 +55,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainPythonFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_python_file_uri");
-        set => WithProperty("main_python_file_uri", value);
+        set => SetProperty("main_python_file_uri", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? PythonFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("python_file_uris");
-        set => WithProperty("python_file_uris", value);
+        set => SetProperty("python_file_uris", value);
     }
 
 }
@@ -86,8 +80,7 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Cohort
     {
-        get => GetProperty<TerraformProperty<string>>("cohort");
-        set => WithProperty("cohort", value);
+        set => SetProperty("cohort", value);
     }
 
     /// <summary>
@@ -95,8 +88,7 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContainerImage
     {
-        get => GetProperty<TerraformProperty<string>>("container_image");
-        set => WithProperty("container_image", value);
+        set => SetProperty("container_image", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? EffectiveProperties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("effective_properties");
-        set => WithProperty("effective_properties", value);
+        set => SetProperty("effective_properties", value);
     }
 
     /// <summary>
@@ -113,8 +104,7 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -122,8 +112,7 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => WithProperty("version", value);
+        set => SetProperty("version", value);
     }
 
 }
@@ -140,8 +129,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -150,8 +138,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -159,8 +146,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -168,8 +154,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -178,8 +163,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainClass
     {
-        get => GetProperty<TerraformProperty<string>>("main_class");
-        set => WithProperty("main_class", value);
+        set => SetProperty("main_class", value);
     }
 
     /// <summary>
@@ -187,8 +171,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainJarFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_jar_file_uri");
-        set => WithProperty("main_jar_file_uri", value);
+        set => SetProperty("main_jar_file_uri", value);
     }
 
 }
@@ -205,8 +188,7 @@ public class GoogleDataprocBatchSparkRBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ArchiveUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
-        set => WithProperty("archive_uris", value);
+        set => SetProperty("archive_uris", value);
     }
 
     /// <summary>
@@ -215,8 +197,7 @@ public class GoogleDataprocBatchSparkRBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? Args
     {
-        get => GetProperty<List<TerraformProperty<string>>>("args");
-        set => WithProperty("args", value);
+        set => SetProperty("args", value);
     }
 
     /// <summary>
@@ -224,8 +205,7 @@ public class GoogleDataprocBatchSparkRBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? FileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
-        set => WithProperty("file_uris", value);
+        set => SetProperty("file_uris", value);
     }
 
     /// <summary>
@@ -233,8 +213,7 @@ public class GoogleDataprocBatchSparkRBatchBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MainRFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_r_file_uri");
-        set => WithProperty("main_r_file_uri", value);
+        set => SetProperty("main_r_file_uri", value);
     }
 
 }
@@ -250,8 +229,7 @@ public class GoogleDataprocBatchSparkSqlBatchBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? JarFileUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
-        set => WithProperty("jar_file_uris", value);
+        set => SetProperty("jar_file_uris", value);
     }
 
     /// <summary>
@@ -259,8 +237,7 @@ public class GoogleDataprocBatchSparkSqlBatchBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? QueryFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("query_file_uri");
-        set => WithProperty("query_file_uri", value);
+        set => SetProperty("query_file_uri", value);
     }
 
     /// <summary>
@@ -268,8 +245,7 @@ public class GoogleDataprocBatchSparkSqlBatchBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? QueryVariables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("query_variables");
-        set => WithProperty("query_variables", value);
+        set => SetProperty("query_variables", value);
     }
 
 }
@@ -285,8 +261,7 @@ public class GoogleDataprocBatchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -294,8 +269,7 @@ public class GoogleDataprocBatchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -303,8 +277,7 @@ public class GoogleDataprocBatchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -322,37 +295,42 @@ public class GoogleDataprocBatch : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("creator");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("operation");
-        this.WithOutput("runtime_info");
-        this.WithOutput("state");
-        this.WithOutput("state_history");
-        this.WithOutput("state_message");
-        this.WithOutput("state_time");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("uuid");
+        SetOutput("create_time");
+        SetOutput("creator");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("operation");
+        SetOutput("runtime_info");
+        SetOutput("state");
+        SetOutput("state_history");
+        SetOutput("state_message");
+        SetOutput("state_time");
+        SetOutput("terraform_labels");
+        SetOutput("uuid");
+        SetOutput("batch_id");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The ID to use for the batch, which will become the final component of the batch&#39;s resource name.
     /// This value must be 4-63 characters. Valid characters are /[a-z][0-9]-/.
     /// </summary>
-    public TerraformProperty<string>? BatchId
+    public TerraformProperty<string> BatchId
     {
-        get => GetProperty<TerraformProperty<string>>("batch_id");
-        set => this.WithProperty("batch_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("batch_id");
+        set => SetProperty("batch_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -362,28 +340,28 @@ public class GoogleDataprocBatch : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The location in which the batch will be created in.
     /// </summary>
-    public TerraformProperty<string>? Location
+    public TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -393,8 +371,7 @@ public class GoogleDataprocBatch : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnvironmentConfig block(s) allowed")]
     public List<GoogleDataprocBatchEnvironmentConfigBlock>? EnvironmentConfig
     {
-        get => GetProperty<List<GoogleDataprocBatchEnvironmentConfigBlock>>("environment_config");
-        set => this.WithProperty("environment_config", value);
+        set => SetProperty("environment_config", value);
     }
 
     /// <summary>
@@ -404,8 +381,7 @@ public class GoogleDataprocBatch : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PysparkBatch block(s) allowed")]
     public List<GoogleDataprocBatchPysparkBatchBlock>? PysparkBatch
     {
-        get => GetProperty<List<GoogleDataprocBatchPysparkBatchBlock>>("pyspark_batch");
-        set => this.WithProperty("pyspark_batch", value);
+        set => SetProperty("pyspark_batch", value);
     }
 
     /// <summary>
@@ -415,8 +391,7 @@ public class GoogleDataprocBatch : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimeConfig block(s) allowed")]
     public List<GoogleDataprocBatchRuntimeConfigBlock>? RuntimeConfig
     {
-        get => GetProperty<List<GoogleDataprocBatchRuntimeConfigBlock>>("runtime_config");
-        set => this.WithProperty("runtime_config", value);
+        set => SetProperty("runtime_config", value);
     }
 
     /// <summary>
@@ -426,8 +401,7 @@ public class GoogleDataprocBatch : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkBatch block(s) allowed")]
     public List<GoogleDataprocBatchSparkBatchBlock>? SparkBatch
     {
-        get => GetProperty<List<GoogleDataprocBatchSparkBatchBlock>>("spark_batch");
-        set => this.WithProperty("spark_batch", value);
+        set => SetProperty("spark_batch", value);
     }
 
     /// <summary>
@@ -437,8 +411,7 @@ public class GoogleDataprocBatch : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkRBatch block(s) allowed")]
     public List<GoogleDataprocBatchSparkRBatchBlock>? SparkRBatch
     {
-        get => GetProperty<List<GoogleDataprocBatchSparkRBatchBlock>>("spark_r_batch");
-        set => this.WithProperty("spark_r_batch", value);
+        set => SetProperty("spark_r_batch", value);
     }
 
     /// <summary>
@@ -448,8 +421,7 @@ public class GoogleDataprocBatch : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkSqlBatch block(s) allowed")]
     public List<GoogleDataprocBatchSparkSqlBatchBlock>? SparkSqlBatch
     {
-        get => GetProperty<List<GoogleDataprocBatchSparkSqlBatchBlock>>("spark_sql_batch");
-        set => this.WithProperty("spark_sql_batch", value);
+        set => SetProperty("spark_sql_batch", value);
     }
 
     /// <summary>
@@ -458,8 +430,7 @@ public class GoogleDataprocBatch : TerraformResource
     /// </summary>
     public GoogleDataprocBatchTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDataprocBatchTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

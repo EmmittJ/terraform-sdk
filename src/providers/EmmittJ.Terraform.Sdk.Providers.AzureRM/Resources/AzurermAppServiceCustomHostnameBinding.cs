@@ -13,8 +13,7 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,7 +46,13 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("virtual_ip");
+        SetOutput("virtual_ip");
+        SetOutput("app_service_name");
+        SetOutput("hostname");
+        SetOutput("id");
+        SetOutput("resource_group_name");
+        SetOutput("ssl_state");
+        SetOutput("thumbprint");
     }
 
     /// <summary>
@@ -58,8 +61,8 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformProperty<string> AppServiceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("app_service_name");
-        set => this.WithProperty("app_service_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("app_service_name");
+        set => SetProperty("app_service_name", value);
     }
 
     /// <summary>
@@ -68,17 +71,17 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
-        set => this.WithProperty("hostname", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hostname");
+        set => SetProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -87,26 +90,26 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    public TerraformProperty<string>? SslState
+    public TerraformProperty<string> SslState
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_state");
-        set => this.WithProperty("ssl_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ssl_state");
+        set => SetProperty("ssl_state", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformProperty<string>? Thumbprint
+    public TerraformProperty<string> Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
-        set => this.WithProperty("thumbprint", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("thumbprint");
+        set => SetProperty("thumbprint", value);
     }
 
     /// <summary>
@@ -115,8 +118,7 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// </summary>
     public AzurermAppServiceCustomHostnameBindingTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceCustomHostnameBindingTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class GoogleChronicleRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleChronicleRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleChronicleRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,21 +46,30 @@ public class GoogleChronicleRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allowed_run_frequencies");
-        this.WithOutput("author");
-        this.WithOutput("compilation_diagnostics");
-        this.WithOutput("compilation_state");
-        this.WithOutput("create_time");
-        this.WithOutput("data_tables");
-        this.WithOutput("display_name");
-        this.WithOutput("metadata");
-        this.WithOutput("name");
-        this.WithOutput("near_real_time_live_rule_eligible");
-        this.WithOutput("reference_lists");
-        this.WithOutput("revision_create_time");
-        this.WithOutput("revision_id");
-        this.WithOutput("severity");
-        this.WithOutput("type");
+        SetOutput("allowed_run_frequencies");
+        SetOutput("author");
+        SetOutput("compilation_diagnostics");
+        SetOutput("compilation_state");
+        SetOutput("create_time");
+        SetOutput("data_tables");
+        SetOutput("display_name");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("near_real_time_live_rule_eligible");
+        SetOutput("reference_lists");
+        SetOutput("revision_create_time");
+        SetOutput("revision_id");
+        SetOutput("severity");
+        SetOutput("type");
+        SetOutput("deletion_policy");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("instance");
+        SetOutput("location");
+        SetOutput("project");
+        SetOutput("rule_id");
+        SetOutput("scope");
+        SetOutput("text");
     }
 
     /// <summary>
@@ -75,10 +81,10 @@ public class GoogleChronicleRule : TerraformResource
     /// deployment associated with this rule will also be deleted.
     /// Possible values: DEFAULT, FORCE
     /// </summary>
-    public TerraformProperty<string>? DeletionPolicy
+    public TerraformProperty<string> DeletionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("deletion_policy");
-        set => this.WithProperty("deletion_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
+        set => SetProperty("deletion_policy", value);
     }
 
     /// <summary>
@@ -88,19 +94,19 @@ public class GoogleChronicleRule : TerraformResource
     /// otherwise.
     /// Populated in BASIC view and FULL view.
     /// </summary>
-    public TerraformProperty<string>? Etag
+    public TerraformProperty<string> Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => this.WithProperty("etag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("etag");
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -109,8 +115,8 @@ public class GoogleChronicleRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance");
-        set => this.WithProperty("instance", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance");
+        set => SetProperty("instance", value);
     }
 
     /// <summary>
@@ -119,26 +125,26 @@ public class GoogleChronicleRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Rule Id is the ID of the Rule.
     /// </summary>
-    public TerraformProperty<string>? RuleId
+    public TerraformProperty<string> RuleId
     {
-        get => GetProperty<TerraformProperty<string>>("rule_id");
-        set => this.WithProperty("rule_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rule_id");
+        set => SetProperty("rule_id", value);
     }
 
     /// <summary>
@@ -150,20 +156,20 @@ public class GoogleChronicleRule : TerraformResource
     /// The scope should be in the format:
     /// &amp;quot;projects/{project}/locations/{location}/instances/{instance}/dataAccessScopes/{scope}&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    public TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
-        set => this.WithProperty("scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("scope");
+        set => SetProperty("scope", value);
     }
 
     /// <summary>
     /// The YARA-L content of the rule.
     /// Populated in FULL view.
     /// </summary>
-    public TerraformProperty<string>? Text
+    public TerraformProperty<string> Text
     {
-        get => GetProperty<TerraformProperty<string>>("text");
-        set => this.WithProperty("text", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("text");
+        set => SetProperty("text", value);
     }
 
     /// <summary>
@@ -172,8 +178,7 @@ public class GoogleChronicleRule : TerraformResource
     /// </summary>
     public GoogleChronicleRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleChronicleRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

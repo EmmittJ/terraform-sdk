@@ -14,8 +14,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
-        set => WithProperty("connection_id", value);
+        set => SetProperty("connection_id", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileFormat is required")]
     public required TerraformProperty<string> FileFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("file_format");
-        set => WithProperty("file_format", value);
+        set => SetProperty("file_format", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     public required TerraformProperty<string> StorageUri
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_uri");
-        set => WithProperty("storage_uri", value);
+        set => SetProperty("storage_uri", value);
     }
 
     /// <summary>
@@ -44,8 +41,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableFormat is required")]
     public required TerraformProperty<string> TableFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_format");
-        set => WithProperty("table_format", value);
+        set => SetProperty("table_format", value);
     }
 
 }
@@ -62,8 +58,7 @@ public class GoogleBigqueryTableEncryptionConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
-        set => WithProperty("kms_key_name", value);
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class GoogleBigqueryTableEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyVersion
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_version");
-        set => WithProperty("kms_key_version", value);
+        set => SetProperty("kms_key_version", value);
     }
 
 }
@@ -88,8 +82,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? ConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_id");
-        set => WithProperty("connection_id", value);
+        set => SetProperty("connection_id", value);
     }
 
     /// <summary>
@@ -97,8 +90,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlock : TerraformBloc
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => WithProperty("parameters", value);
+        set => SetProperty("parameters", value);
     }
 
 }
@@ -115,8 +107,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Autodetect is required")]
     public required TerraformProperty<bool> Autodetect
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("autodetect");
-        set => WithProperty("autodetect", value);
+        set => SetProperty("autodetect", value);
     }
 
     /// <summary>
@@ -124,8 +115,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Compression
     {
-        get => GetProperty<TerraformProperty<string>>("compression");
-        set => WithProperty("compression", value);
+        set => SetProperty("compression", value);
     }
 
     /// <summary>
@@ -133,8 +123,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_id");
-        set => WithProperty("connection_id", value);
+        set => SetProperty("connection_id", value);
     }
 
     /// <summary>
@@ -142,8 +131,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FileSetSpecType
     {
-        get => GetProperty<TerraformProperty<string>>("file_set_spec_type");
-        set => WithProperty("file_set_spec_type", value);
+        set => SetProperty("file_set_spec_type", value);
     }
 
     /// <summary>
@@ -151,8 +139,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? IgnoreUnknownValues
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_unknown_values");
-        set => WithProperty("ignore_unknown_values", value);
+        set => SetProperty("ignore_unknown_values", value);
     }
 
     /// <summary>
@@ -160,8 +147,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? JsonExtension
     {
-        get => GetProperty<TerraformProperty<string>>("json_extension");
-        set => WithProperty("json_extension", value);
+        set => SetProperty("json_extension", value);
     }
 
     /// <summary>
@@ -169,8 +155,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxBadRecords
     {
-        get => GetProperty<TerraformProperty<double>>("max_bad_records");
-        set => WithProperty("max_bad_records", value);
+        set => SetProperty("max_bad_records", value);
     }
 
     /// <summary>
@@ -178,8 +163,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MetadataCacheMode
     {
-        get => GetProperty<TerraformProperty<string>>("metadata_cache_mode");
-        set => WithProperty("metadata_cache_mode", value);
+        set => SetProperty("metadata_cache_mode", value);
     }
 
     /// <summary>
@@ -187,8 +171,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ObjectMetadata
     {
-        get => GetProperty<TerraformProperty<string>>("object_metadata");
-        set => WithProperty("object_metadata", value);
+        set => SetProperty("object_metadata", value);
     }
 
     /// <summary>
@@ -196,8 +179,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ReferenceFileSchemaUri
     {
-        get => GetProperty<TerraformProperty<string>>("reference_file_schema_uri");
-        set => WithProperty("reference_file_schema_uri", value);
+        set => SetProperty("reference_file_schema_uri", value);
     }
 
     /// <summary>
@@ -205,8 +187,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
-        set => WithProperty("schema", value);
+        set => SetProperty("schema", value);
     }
 
     /// <summary>
@@ -214,8 +195,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceFormat
     {
-        get => GetProperty<TerraformProperty<string>>("source_format");
-        set => WithProperty("source_format", value);
+        set => SetProperty("source_format", value);
     }
 
     /// <summary>
@@ -224,8 +204,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUris is required")]
     public List<TerraformProperty<string>>? SourceUris
     {
-        get => GetProperty<List<TerraformProperty<string>>>("source_uris");
-        set => WithProperty("source_uris", value);
+        set => SetProperty("source_uris", value);
     }
 
 }
@@ -241,8 +220,7 @@ public class GoogleBigqueryTableMaterializedViewBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowNonIncrementalDefinition
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_non_incremental_definition");
-        set => WithProperty("allow_non_incremental_definition", value);
+        set => SetProperty("allow_non_incremental_definition", value);
     }
 
     /// <summary>
@@ -250,8 +228,7 @@ public class GoogleBigqueryTableMaterializedViewBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableRefresh
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_refresh");
-        set => WithProperty("enable_refresh", value);
+        set => SetProperty("enable_refresh", value);
     }
 
     /// <summary>
@@ -260,8 +237,7 @@ public class GoogleBigqueryTableMaterializedViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query");
-        set => WithProperty("query", value);
+        set => SetProperty("query", value);
     }
 
     /// <summary>
@@ -269,8 +245,7 @@ public class GoogleBigqueryTableMaterializedViewBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RefreshIntervalMs
     {
-        get => GetProperty<TerraformProperty<double>>("refresh_interval_ms");
-        set => WithProperty("refresh_interval_ms", value);
+        set => SetProperty("refresh_interval_ms", value);
     }
 
 }
@@ -287,8 +262,7 @@ public class GoogleBigqueryTableRangePartitioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformProperty<string> Field
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("field");
-        set => WithProperty("field", value);
+        set => SetProperty("field", value);
     }
 
 }
@@ -305,8 +279,7 @@ public class GoogleBigqueryTableSchemaForeignTypeInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeSystem is required")]
     public required TerraformProperty<string> TypeSystem
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type_system");
-        set => WithProperty("type_system", value);
+        set => SetProperty("type_system", value);
     }
 
 }
@@ -330,8 +303,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ReplicationIntervalMs
     {
-        get => GetProperty<TerraformProperty<double>>("replication_interval_ms");
-        set => WithProperty("replication_interval_ms", value);
+        set => SetProperty("replication_interval_ms", value);
     }
 
     /// <summary>
@@ -340,8 +312,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatasetId is required")]
     public required TerraformProperty<string> SourceDatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_dataset_id");
-        set => WithProperty("source_dataset_id", value);
+        set => SetProperty("source_dataset_id", value);
     }
 
     /// <summary>
@@ -350,8 +321,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceProjectId is required")]
     public required TerraformProperty<string> SourceProjectId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_project_id");
-        set => WithProperty("source_project_id", value);
+        set => SetProperty("source_project_id", value);
     }
 
     /// <summary>
@@ -360,8 +330,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceTableId is required")]
     public required TerraformProperty<string> SourceTableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_table_id");
-        set => WithProperty("source_table_id", value);
+        set => SetProperty("source_table_id", value);
     }
 
 }
@@ -377,8 +346,7 @@ public class GoogleBigqueryTableTimePartitioningBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ExpirationMs
     {
-        get => GetProperty<TerraformProperty<double>>("expiration_ms");
-        set => WithProperty("expiration_ms", value);
+        set => SetProperty("expiration_ms", value);
     }
 
     /// <summary>
@@ -386,8 +354,7 @@ public class GoogleBigqueryTableTimePartitioningBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Field
     {
-        get => GetProperty<TerraformProperty<string>>("field");
-        set => WithProperty("field", value);
+        set => SetProperty("field", value);
     }
 
     /// <summary>
@@ -396,8 +363,7 @@ public class GoogleBigqueryTableTimePartitioningBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformProperty<bool>? RequirePartitionFilter
     {
-        get => GetProperty<TerraformProperty<bool>>("require_partition_filter");
-        set => WithProperty("require_partition_filter", value);
+        set => SetProperty("require_partition_filter", value);
     }
 
     /// <summary>
@@ -406,8 +372,7 @@ public class GoogleBigqueryTableTimePartitioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -424,8 +389,7 @@ public class GoogleBigqueryTableViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("query");
-        set => WithProperty("query", value);
+        set => SetProperty("query", value);
     }
 
     /// <summary>
@@ -433,8 +397,7 @@ public class GoogleBigqueryTableViewBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseLegacySql
     {
-        get => GetProperty<TerraformProperty<bool>>("use_legacy_sql");
-        set => WithProperty("use_legacy_sql", value);
+        set => SetProperty("use_legacy_sql", value);
     }
 
 }
@@ -452,27 +415,44 @@ public class GoogleBigqueryTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("etag");
-        this.WithOutput("generated_schema_columns");
-        this.WithOutput("last_modified_time");
-        this.WithOutput("location");
-        this.WithOutput("num_bytes");
-        this.WithOutput("num_long_term_bytes");
-        this.WithOutput("num_rows");
-        this.WithOutput("self_link");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("type");
+        SetOutput("creation_time");
+        SetOutput("effective_labels");
+        SetOutput("etag");
+        SetOutput("generated_schema_columns");
+        SetOutput("last_modified_time");
+        SetOutput("location");
+        SetOutput("num_bytes");
+        SetOutput("num_long_term_bytes");
+        SetOutput("num_rows");
+        SetOutput("self_link");
+        SetOutput("terraform_labels");
+        SetOutput("type");
+        SetOutput("clustering");
+        SetOutput("dataset_id");
+        SetOutput("deletion_protection");
+        SetOutput("description");
+        SetOutput("expiration_time");
+        SetOutput("friendly_name");
+        SetOutput("id");
+        SetOutput("ignore_auto_generated_schema");
+        SetOutput("ignore_schema_changes");
+        SetOutput("labels");
+        SetOutput("max_staleness");
+        SetOutput("project");
+        SetOutput("require_partition_filter");
+        SetOutput("resource_tags");
+        SetOutput("schema");
+        SetOutput("table_id");
+        SetOutput("table_metadata_view");
     }
 
     /// <summary>
     /// Specifies column names to use for data clustering. Up to four top-level columns are allowed, and should be specified in descending priority order.
     /// </summary>
-    public List<TerraformProperty<string>>? Clustering
+    public List<TerraformProperty<string>> Clustering
     {
-        get => GetProperty<List<TerraformProperty<string>>>("clustering");
-        set => this.WithProperty("clustering", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("clustering");
+        set => SetProperty("clustering", value);
     }
 
     /// <summary>
@@ -481,71 +461,71 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
-        set => this.WithProperty("dataset_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
+        set => SetProperty("dataset_id", value);
     }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance. When the field is set to true or unset in Terraform state, a terraform apply or terraform destroy that would delete the table will fail. When the field is set to false, deleting the table is allowed.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The field description.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed.
     /// </summary>
-    public TerraformProperty<double>? ExpirationTime
+    public TerraformProperty<double> ExpirationTime
     {
-        get => GetProperty<TerraformProperty<double>>("expiration_time");
-        set => this.WithProperty("expiration_time", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("expiration_time");
+        set => SetProperty("expiration_time", value);
     }
 
     /// <summary>
     /// A descriptive name for the table.
     /// </summary>
-    public TerraformProperty<string>? FriendlyName
+    public TerraformProperty<string> FriendlyName
     {
-        get => GetProperty<TerraformProperty<string>>("friendly_name");
-        set => this.WithProperty("friendly_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
+        set => SetProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Whether Terraform will prevent implicitly added columns in schema from showing diff.
     /// </summary>
-    public TerraformProperty<bool>? IgnoreAutoGeneratedSchema
+    public TerraformProperty<bool> IgnoreAutoGeneratedSchema
     {
-        get => GetProperty<TerraformProperty<bool>>("ignore_auto_generated_schema");
-        set => this.WithProperty("ignore_auto_generated_schema", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_auto_generated_schema");
+        set => SetProperty("ignore_auto_generated_schema", value);
     }
 
     /// <summary>
     /// Mention which fields in schema are to be ignored
     /// </summary>
-    public List<TerraformProperty<string>>? IgnoreSchemaChanges
+    public List<TerraformProperty<string>> IgnoreSchemaChanges
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ignore_schema_changes");
-        set => this.WithProperty("ignore_schema_changes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("ignore_schema_changes");
+        set => SetProperty("ignore_schema_changes", value);
     }
 
     /// <summary>
@@ -554,55 +534,55 @@ public class GoogleBigqueryTable : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The maximum staleness of data that could be returned when the table (or stale MV) is queried. Staleness encoded as a string encoding of [SQL IntervalValue type](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#interval_type).
     /// </summary>
-    public TerraformProperty<string>? MaxStaleness
+    public TerraformProperty<string> MaxStaleness
     {
-        get => GetProperty<TerraformProperty<string>>("max_staleness");
-        set => this.WithProperty("max_staleness", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("max_staleness");
+        set => SetProperty("max_staleness", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// If set to true, queries over this table require a partition filter that can be used for partition elimination to be specified.
     /// </summary>
-    public TerraformProperty<bool>? RequirePartitionFilter
+    public TerraformProperty<bool> RequirePartitionFilter
     {
-        get => GetProperty<TerraformProperty<bool>>("require_partition_filter");
-        set => this.WithProperty("require_partition_filter", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("require_partition_filter");
+        set => SetProperty("require_partition_filter", value);
     }
 
     /// <summary>
     /// The tags attached to this table. Tag keys are globally unique. Tag key is expected to be in the namespaced format, for example &amp;quot;123456789012/environment&amp;quot; where 123456789012 is the ID of the parent organization or project resource for this tag key. Tag value is expected to be the short name, for example &amp;quot;Production&amp;quot;.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>> ResourceTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
-        set => this.WithProperty("resource_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("resource_tags");
+        set => SetProperty("resource_tags", value);
     }
 
     /// <summary>
     /// A JSON schema for the table.
     /// </summary>
-    public TerraformProperty<string>? Schema
+    public TerraformProperty<string> Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
-        set => this.WithProperty("schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema");
+        set => SetProperty("schema", value);
     }
 
     /// <summary>
@@ -611,17 +591,17 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformProperty<string> TableId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("table_id");
-        set => this.WithProperty("table_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_id");
+        set => SetProperty("table_id", value);
     }
 
     /// <summary>
     /// View sets the optional parameter &amp;quot;view&amp;quot;: Specifies the view that determines which table information is returned. By default, basic table information and storage statistics (STORAGE_STATS) are returned. Possible values: TABLE_METADATA_VIEW_UNSPECIFIED, BASIC, STORAGE_STATS, FULL
     /// </summary>
-    public TerraformProperty<string>? TableMetadataView
+    public TerraformProperty<string> TableMetadataView
     {
-        get => GetProperty<TerraformProperty<string>>("table_metadata_view");
-        set => this.WithProperty("table_metadata_view", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_metadata_view");
+        set => SetProperty("table_metadata_view", value);
     }
 
     /// <summary>
@@ -631,8 +611,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BiglakeConfiguration block(s) allowed")]
     public List<GoogleBigqueryTableBiglakeConfigurationBlock>? BiglakeConfiguration
     {
-        get => GetProperty<List<GoogleBigqueryTableBiglakeConfigurationBlock>>("biglake_configuration");
-        set => this.WithProperty("biglake_configuration", value);
+        set => SetProperty("biglake_configuration", value);
     }
 
     /// <summary>
@@ -642,8 +621,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     public List<GoogleBigqueryTableEncryptionConfigurationBlock>? EncryptionConfiguration
     {
-        get => GetProperty<List<GoogleBigqueryTableEncryptionConfigurationBlock>>("encryption_configuration");
-        set => this.WithProperty("encryption_configuration", value);
+        set => SetProperty("encryption_configuration", value);
     }
 
     /// <summary>
@@ -653,8 +631,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalCatalogTableOptions block(s) allowed")]
     public List<GoogleBigqueryTableExternalCatalogTableOptionsBlock>? ExternalCatalogTableOptions
     {
-        get => GetProperty<List<GoogleBigqueryTableExternalCatalogTableOptionsBlock>>("external_catalog_table_options");
-        set => this.WithProperty("external_catalog_table_options", value);
+        set => SetProperty("external_catalog_table_options", value);
     }
 
     /// <summary>
@@ -664,8 +641,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalDataConfiguration block(s) allowed")]
     public List<GoogleBigqueryTableExternalDataConfigurationBlock>? ExternalDataConfiguration
     {
-        get => GetProperty<List<GoogleBigqueryTableExternalDataConfigurationBlock>>("external_data_configuration");
-        set => this.WithProperty("external_data_configuration", value);
+        set => SetProperty("external_data_configuration", value);
     }
 
     /// <summary>
@@ -675,8 +651,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaterializedView block(s) allowed")]
     public List<GoogleBigqueryTableMaterializedViewBlock>? MaterializedView
     {
-        get => GetProperty<List<GoogleBigqueryTableMaterializedViewBlock>>("materialized_view");
-        set => this.WithProperty("materialized_view", value);
+        set => SetProperty("materialized_view", value);
     }
 
     /// <summary>
@@ -686,8 +661,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RangePartitioning block(s) allowed")]
     public List<GoogleBigqueryTableRangePartitioningBlock>? RangePartitioning
     {
-        get => GetProperty<List<GoogleBigqueryTableRangePartitioningBlock>>("range_partitioning");
-        set => this.WithProperty("range_partitioning", value);
+        set => SetProperty("range_partitioning", value);
     }
 
     /// <summary>
@@ -697,8 +671,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaForeignTypeInfo block(s) allowed")]
     public List<GoogleBigqueryTableSchemaForeignTypeInfoBlock>? SchemaForeignTypeInfo
     {
-        get => GetProperty<List<GoogleBigqueryTableSchemaForeignTypeInfoBlock>>("schema_foreign_type_info");
-        set => this.WithProperty("schema_foreign_type_info", value);
+        set => SetProperty("schema_foreign_type_info", value);
     }
 
     /// <summary>
@@ -708,8 +681,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableConstraints block(s) allowed")]
     public List<GoogleBigqueryTableTableConstraintsBlock>? TableConstraints
     {
-        get => GetProperty<List<GoogleBigqueryTableTableConstraintsBlock>>("table_constraints");
-        set => this.WithProperty("table_constraints", value);
+        set => SetProperty("table_constraints", value);
     }
 
     /// <summary>
@@ -719,8 +691,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableReplicationInfo block(s) allowed")]
     public List<GoogleBigqueryTableTableReplicationInfoBlock>? TableReplicationInfo
     {
-        get => GetProperty<List<GoogleBigqueryTableTableReplicationInfoBlock>>("table_replication_info");
-        set => this.WithProperty("table_replication_info", value);
+        set => SetProperty("table_replication_info", value);
     }
 
     /// <summary>
@@ -730,8 +701,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePartitioning block(s) allowed")]
     public List<GoogleBigqueryTableTimePartitioningBlock>? TimePartitioning
     {
-        get => GetProperty<List<GoogleBigqueryTableTimePartitioningBlock>>("time_partitioning");
-        set => this.WithProperty("time_partitioning", value);
+        set => SetProperty("time_partitioning", value);
     }
 
     /// <summary>
@@ -741,8 +711,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 View block(s) allowed")]
     public List<GoogleBigqueryTableViewBlock>? View
     {
-        get => GetProperty<List<GoogleBigqueryTableViewBlock>>("view");
-        set => this.WithProperty("view", value);
+        set => SetProperty("view", value);
     }
 
     /// <summary>

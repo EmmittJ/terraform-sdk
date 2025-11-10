@@ -13,8 +13,7 @@ public class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowAllPackageNames
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_all_package_names");
-        set => WithProperty("allow_all_package_names", value);
+        set => SetProperty("allow_all_package_names", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedPackageNames
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_package_names");
-        set => WithProperty("allowed_package_names", value);
+        set => SetProperty("allowed_package_names", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class GoogleRecaptchaEnterpriseKeyIosSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowAllBundleIds
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_all_bundle_ids");
-        set => WithProperty("allow_all_bundle_ids", value);
+        set => SetProperty("allow_all_bundle_ids", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class GoogleRecaptchaEnterpriseKeyIosSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedBundleIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_bundle_ids");
-        set => WithProperty("allowed_bundle_ids", value);
+        set => SetProperty("allowed_bundle_ids", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TestingChallenge
     {
-        get => GetProperty<TerraformProperty<string>>("testing_challenge");
-        set => WithProperty("testing_challenge", value);
+        set => SetProperty("testing_challenge", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? TestingScore
     {
-        get => GetProperty<TerraformProperty<double>>("testing_score");
-        set => WithProperty("testing_score", value);
+        set => SetProperty("testing_score", value);
     }
 
 }
@@ -91,8 +85,7 @@ public class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -100,8 +93,7 @@ public class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -109,8 +101,7 @@ public class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -127,8 +118,7 @@ public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafFeature is required")]
     public required TerraformProperty<string> WafFeature
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("waf_feature");
-        set => WithProperty("waf_feature", value);
+        set => SetProperty("waf_feature", value);
     }
 
     /// <summary>
@@ -137,8 +127,7 @@ public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafService is required")]
     public required TerraformProperty<string> WafService
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("waf_service");
-        set => WithProperty("waf_service", value);
+        set => SetProperty("waf_service", value);
     }
 
 }
@@ -154,8 +143,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowAllDomains
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_all_domains");
-        set => WithProperty("allow_all_domains", value);
+        set => SetProperty("allow_all_domains", value);
     }
 
     /// <summary>
@@ -163,8 +151,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowAmpTraffic
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_amp_traffic");
-        set => WithProperty("allow_amp_traffic", value);
+        set => SetProperty("allow_amp_traffic", value);
     }
 
     /// <summary>
@@ -172,8 +159,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedDomains
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_domains");
-        set => WithProperty("allowed_domains", value);
+        set => SetProperty("allowed_domains", value);
     }
 
     /// <summary>
@@ -181,8 +167,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ChallengeSecurityPreference
     {
-        get => GetProperty<TerraformProperty<string>>("challenge_security_preference");
-        set => WithProperty("challenge_security_preference", value);
+        set => SetProperty("challenge_security_preference", value);
     }
 
     /// <summary>
@@ -191,8 +176,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
     public required TerraformProperty<string> IntegrationType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("integration_type");
-        set => WithProperty("integration_type", value);
+        set => SetProperty("integration_type", value);
     }
 
 }
@@ -210,10 +194,14 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -222,17 +210,17 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -241,19 +229,19 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -263,8 +251,7 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AndroidSettings block(s) allowed")]
     public List<GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock>? AndroidSettings
     {
-        get => GetProperty<List<GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock>>("android_settings");
-        set => this.WithProperty("android_settings", value);
+        set => SetProperty("android_settings", value);
     }
 
     /// <summary>
@@ -274,8 +261,7 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IosSettings block(s) allowed")]
     public List<GoogleRecaptchaEnterpriseKeyIosSettingsBlock>? IosSettings
     {
-        get => GetProperty<List<GoogleRecaptchaEnterpriseKeyIosSettingsBlock>>("ios_settings");
-        set => this.WithProperty("ios_settings", value);
+        set => SetProperty("ios_settings", value);
     }
 
     /// <summary>
@@ -285,8 +271,7 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TestingOptions block(s) allowed")]
     public List<GoogleRecaptchaEnterpriseKeyTestingOptionsBlock>? TestingOptions
     {
-        get => GetProperty<List<GoogleRecaptchaEnterpriseKeyTestingOptionsBlock>>("testing_options");
-        set => this.WithProperty("testing_options", value);
+        set => SetProperty("testing_options", value);
     }
 
     /// <summary>
@@ -295,8 +280,7 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     /// </summary>
     public GoogleRecaptchaEnterpriseKeyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleRecaptchaEnterpriseKeyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -306,8 +290,7 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WafSettings block(s) allowed")]
     public List<GoogleRecaptchaEnterpriseKeyWafSettingsBlock>? WafSettings
     {
-        get => GetProperty<List<GoogleRecaptchaEnterpriseKeyWafSettingsBlock>>("waf_settings");
-        set => this.WithProperty("waf_settings", value);
+        set => SetProperty("waf_settings", value);
     }
 
     /// <summary>
@@ -317,8 +300,7 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebSettings block(s) allowed")]
     public List<GoogleRecaptchaEnterpriseKeyWebSettingsBlock>? WebSettings
     {
-        get => GetProperty<List<GoogleRecaptchaEnterpriseKeyWebSettingsBlock>>("web_settings");
-        set => this.WithProperty("web_settings", value);
+        set => SetProperty("web_settings", value);
     }
 
     /// <summary>

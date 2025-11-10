@@ -14,8 +14,7 @@ public class AwsCodestarnotificationsNotificationRuleTargetBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformProperty<string> Address
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("address");
-        set => WithProperty("address", value);
+        set => SetProperty("address", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsCodestarnotificationsNotificationRuleTargetBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => WithProperty("status", value);
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsCodestarnotificationsNotificationRuleTargetBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -51,7 +48,16 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("detail_type");
+        SetOutput("event_type_ids");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("resource");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -60,27 +66,27 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetailType is required")]
     public required TerraformProperty<string> DetailType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("detail_type");
-        set => this.WithProperty("detail_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("detail_type");
+        set => SetProperty("detail_type", value);
     }
 
     /// <summary>
     /// The event_type_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTypeIds is required")]
-    public HashSet<TerraformProperty<string>>? EventTypeIds
+    public HashSet<TerraformProperty<string>> EventTypeIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("event_type_ids");
-        set => this.WithProperty("event_type_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("event_type_ids");
+        set => SetProperty("event_type_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -89,17 +95,17 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -108,35 +114,35 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource");
-        set => this.WithProperty("resource", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource");
+        set => SetProperty("resource", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -146,8 +152,7 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Target block(s) allowed")]
     public HashSet<AwsCodestarnotificationsNotificationRuleTargetBlock>? Target
     {
-        get => GetProperty<HashSet<AwsCodestarnotificationsNotificationRuleTargetBlock>>("target");
-        set => this.WithProperty("target", value);
+        set => SetProperty("target", value);
     }
 
     /// <summary>

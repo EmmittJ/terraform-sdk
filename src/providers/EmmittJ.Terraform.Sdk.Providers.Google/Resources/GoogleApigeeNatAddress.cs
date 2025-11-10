@@ -13,8 +13,7 @@ public class GoogleApigeeNatAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleApigeeNatAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleApigeeNatAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,26 +46,30 @@ public class GoogleApigeeNatAddress : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("ip_address");
-        this.WithOutput("state");
+        SetOutput("ip_address");
+        SetOutput("state");
+        SetOutput("activate");
+        SetOutput("id");
+        SetOutput("instance_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// Flag that specifies whether the reserved NAT address should be activate.
     /// </summary>
-    public TerraformProperty<bool>? Activate
+    public TerraformProperty<bool> Activate
     {
-        get => GetProperty<TerraformProperty<bool>>("activate");
-        set => this.WithProperty("activate", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("activate");
+        set => SetProperty("activate", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,8 +79,8 @@ public class GoogleApigeeNatAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
-        set => this.WithProperty("instance_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
+        set => SetProperty("instance_id", value);
     }
 
     /// <summary>
@@ -88,8 +89,8 @@ public class GoogleApigeeNatAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -98,8 +99,7 @@ public class GoogleApigeeNatAddress : TerraformResource
     /// </summary>
     public GoogleApigeeNatAddressTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApigeeNatAddressTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

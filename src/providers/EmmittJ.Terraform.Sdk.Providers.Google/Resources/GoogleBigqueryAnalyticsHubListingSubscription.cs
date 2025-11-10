@@ -13,8 +13,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     /// </summary>
     public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     /// </summary>
     public TerraformProperty<string>? FriendlyName
     {
-        get => GetProperty<TerraformProperty<string>>("friendly_name");
-        set => WithProperty("friendly_name", value);
+        set => SetProperty("friendly_name", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => WithProperty("labels", value);
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -43,8 +40,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => WithProperty("location", value);
+        set => SetProperty("location", value);
     }
 
 }
@@ -60,8 +56,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -88,19 +82,24 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("commercial_info");
-        this.WithOutput("creation_time");
-        this.WithOutput("last_modify_time");
-        this.WithOutput("linked_dataset_map");
-        this.WithOutput("linked_resources");
-        this.WithOutput("log_linked_dataset_query_user_email");
-        this.WithOutput("name");
-        this.WithOutput("organization_display_name");
-        this.WithOutput("organization_id");
-        this.WithOutput("resource_type");
-        this.WithOutput("state");
-        this.WithOutput("subscriber_contact");
-        this.WithOutput("subscription_id");
+        SetOutput("commercial_info");
+        SetOutput("creation_time");
+        SetOutput("last_modify_time");
+        SetOutput("linked_dataset_map");
+        SetOutput("linked_resources");
+        SetOutput("log_linked_dataset_query_user_email");
+        SetOutput("name");
+        SetOutput("organization_display_name");
+        SetOutput("organization_id");
+        SetOutput("resource_type");
+        SetOutput("state");
+        SetOutput("subscriber_contact");
+        SetOutput("subscription_id");
+        SetOutput("data_exchange_id");
+        SetOutput("id");
+        SetOutput("listing_id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -109,17 +108,17 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformProperty<string> DataExchangeId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_exchange_id");
-        set => this.WithProperty("data_exchange_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_exchange_id");
+        set => SetProperty("data_exchange_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -128,8 +127,8 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     public required TerraformProperty<string> ListingId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("listing_id");
-        set => this.WithProperty("listing_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("listing_id");
+        set => SetProperty("listing_id", value);
     }
 
     /// <summary>
@@ -138,29 +137,29 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// Block for destination_dataset.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationDataset is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationDataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationDataset block(s) allowed")]
     public List<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>? DestinationDataset
     {
-        get => GetProperty<List<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>>("destination_dataset");
-        set => this.WithProperty("destination_dataset", value);
+        set => SetProperty("destination_dataset", value);
     }
 
     /// <summary>
@@ -169,8 +168,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     /// </summary>
     public GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

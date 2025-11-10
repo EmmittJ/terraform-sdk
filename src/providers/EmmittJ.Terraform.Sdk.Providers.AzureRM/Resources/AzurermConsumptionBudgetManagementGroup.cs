@@ -22,8 +22,7 @@ public class AzurermConsumptionBudgetManagementGroupNotificationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactEmails is required")]
     public List<TerraformProperty<string>>? ContactEmails
     {
-        get => GetProperty<List<TerraformProperty<string>>>("contact_emails");
-        set => WithProperty("contact_emails", value);
+        set => SetProperty("contact_emails", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AzurermConsumptionBudgetManagementGroupNotificationBlock : Terrafor
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -41,8 +39,7 @@ public class AzurermConsumptionBudgetManagementGroupNotificationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
     public required TerraformProperty<string> Operator
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("operator");
-        set => WithProperty("operator", value);
+        set => SetProperty("operator", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AzurermConsumptionBudgetManagementGroupNotificationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformProperty<double> Threshold
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("threshold");
-        set => WithProperty("threshold", value);
+        set => SetProperty("threshold", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AzurermConsumptionBudgetManagementGroupNotificationBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? ThresholdType
     {
-        get => GetProperty<TerraformProperty<string>>("threshold_type");
-        set => WithProperty("threshold_type", value);
+        set => SetProperty("threshold_type", value);
     }
 
 }
@@ -77,8 +72,7 @@ public class AzurermConsumptionBudgetManagementGroupTimePeriodBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? EndDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_date");
-        set => WithProperty("end_date", value);
+        set => SetProperty("end_date", value);
     }
 
     /// <summary>
@@ -87,8 +81,7 @@ public class AzurermConsumptionBudgetManagementGroupTimePeriodBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     public required TerraformProperty<string> StartDate
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("start_date");
-        set => WithProperty("start_date", value);
+        set => SetProperty("start_date", value);
     }
 
 }
@@ -104,8 +97,7 @@ public class AzurermConsumptionBudgetManagementGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -113,8 +105,7 @@ public class AzurermConsumptionBudgetManagementGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -122,8 +113,7 @@ public class AzurermConsumptionBudgetManagementGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -131,8 +121,7 @@ public class AzurermConsumptionBudgetManagementGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -150,6 +139,12 @@ public class AzurermConsumptionBudgetManagementGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("amount");
+        SetOutput("etag");
+        SetOutput("id");
+        SetOutput("management_group_id");
+        SetOutput("name");
+        SetOutput("time_grain");
     }
 
     /// <summary>
@@ -158,26 +153,26 @@ public class AzurermConsumptionBudgetManagementGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformProperty<double> Amount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("amount");
-        set => this.WithProperty("amount", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("amount");
+        set => SetProperty("amount", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformProperty<string>? Etag
+    public TerraformProperty<string> Etag
     {
-        get => GetProperty<TerraformProperty<string>>("etag");
-        set => this.WithProperty("etag", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("etag");
+        set => SetProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -186,8 +181,8 @@ public class AzurermConsumptionBudgetManagementGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
-        set => this.WithProperty("management_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("management_group_id");
+        set => SetProperty("management_group_id", value);
     }
 
     /// <summary>
@@ -196,17 +191,17 @@ public class AzurermConsumptionBudgetManagementGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeGrain
+    public TerraformProperty<string> TimeGrain
     {
-        get => GetProperty<TerraformProperty<string>>("time_grain");
-        set => this.WithProperty("time_grain", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_grain");
+        set => SetProperty("time_grain", value);
     }
 
     /// <summary>
@@ -216,31 +211,30 @@ public class AzurermConsumptionBudgetManagementGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     public List<AzurermConsumptionBudgetManagementGroupFilterBlock>? Filter
     {
-        get => GetProperty<List<AzurermConsumptionBudgetManagementGroupFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// Block for notification.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Notification block(s) required")]
     public HashSet<AzurermConsumptionBudgetManagementGroupNotificationBlock>? Notification
     {
-        get => GetProperty<HashSet<AzurermConsumptionBudgetManagementGroupNotificationBlock>>("notification");
-        set => this.WithProperty("notification", value);
+        set => SetProperty("notification", value);
     }
 
     /// <summary>
     /// Block for time_period.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimePeriod is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
     public List<AzurermConsumptionBudgetManagementGroupTimePeriodBlock>? TimePeriod
     {
-        get => GetProperty<List<AzurermConsumptionBudgetManagementGroupTimePeriodBlock>>("time_period");
-        set => this.WithProperty("time_period", value);
+        set => SetProperty("time_period", value);
     }
 
     /// <summary>
@@ -249,8 +243,7 @@ public class AzurermConsumptionBudgetManagementGroup : TerraformResource
     /// </summary>
     public AzurermConsumptionBudgetManagementGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermConsumptionBudgetManagementGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

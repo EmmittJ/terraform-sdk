@@ -14,8 +14,7 @@ public class AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationTypes is required")]
     public List<TerraformProperty<string>>? DestinationTypes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("destination_types");
-        set => WithProperty("destination_types", value);
+        set => SetProperty("destination_types", value);
     }
 
 }
@@ -32,8 +31,7 @@ public class AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceIds is required")]
     public HashSet<TerraformProperty<string>>? SourceResourceIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("source_resource_ids");
-        set => WithProperty("source_resource_ids", value);
+        set => SetProperty("source_resource_ids", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -95,15 +89,20 @@ public class AzurermNetworkFunctionCollectorPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("tags");
+        SetOutput("traffic_collector_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,8 +111,8 @@ public class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -122,17 +121,17 @@ public class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -141,32 +140,32 @@ public class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficCollectorId is required")]
     public required TerraformProperty<string> TrafficCollectorId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("traffic_collector_id");
-        set => this.WithProperty("traffic_collector_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("traffic_collector_id");
+        set => SetProperty("traffic_collector_id", value);
     }
 
     /// <summary>
     /// Block for ipfx_emission.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpfxEmission is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpfxEmission block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpfxEmission block(s) allowed")]
     public List<AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock>? IpfxEmission
     {
-        get => GetProperty<List<AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock>>("ipfx_emission");
-        set => this.WithProperty("ipfx_emission", value);
+        set => SetProperty("ipfx_emission", value);
     }
 
     /// <summary>
     /// Block for ipfx_ingestion.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpfxIngestion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpfxIngestion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpfxIngestion block(s) allowed")]
     public List<AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock>? IpfxIngestion
     {
-        get => GetProperty<List<AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock>>("ipfx_ingestion");
-        set => this.WithProperty("ipfx_ingestion", value);
+        set => SetProperty("ipfx_ingestion", value);
     }
 
     /// <summary>
@@ -175,8 +174,7 @@ public class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     /// </summary>
     public AzurermNetworkFunctionCollectorPolicyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetworkFunctionCollectorPolicyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

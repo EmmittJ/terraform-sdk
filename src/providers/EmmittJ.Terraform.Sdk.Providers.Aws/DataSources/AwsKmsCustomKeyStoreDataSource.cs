@@ -14,46 +14,50 @@ public class AwsKmsCustomKeyStoreDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("cloud_hsm_cluster_id");
-        this.WithOutput("connection_state");
-        this.WithOutput("creation_date");
-        this.WithOutput("trust_anchor_certificate");
+        SetOutput("cloud_hsm_cluster_id");
+        SetOutput("connection_state");
+        SetOutput("creation_date");
+        SetOutput("trust_anchor_certificate");
+        SetOutput("custom_key_store_id");
+        SetOutput("custom_key_store_name");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The custom_key_store_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomKeyStoreId
+    public TerraformProperty<string> CustomKeyStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_key_store_id");
-        set => this.WithProperty("custom_key_store_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_key_store_id");
+        set => SetProperty("custom_key_store_id", value);
     }
 
     /// <summary>
     /// The custom_key_store_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomKeyStoreName
+    public TerraformProperty<string> CustomKeyStoreName
     {
-        get => GetProperty<TerraformProperty<string>>("custom_key_store_name");
-        set => this.WithProperty("custom_key_store_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("custom_key_store_name");
+        set => SetProperty("custom_key_store_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

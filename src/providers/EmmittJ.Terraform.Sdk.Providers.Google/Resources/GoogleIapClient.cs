@@ -13,8 +13,7 @@ public class GoogleIapClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleIapClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -41,8 +39,11 @@ public class GoogleIapClient : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("client_id");
-        this.WithOutput("secret");
+        SetOutput("client_id");
+        SetOutput("secret");
+        SetOutput("brand");
+        SetOutput("display_name");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -53,8 +54,8 @@ public class GoogleIapClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
     public required TerraformProperty<string> Brand
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("brand");
-        set => this.WithProperty("brand", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("brand");
+        set => SetProperty("brand", value);
     }
 
     /// <summary>
@@ -63,17 +64,17 @@ public class GoogleIapClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -82,8 +83,7 @@ public class GoogleIapClient : TerraformResource
     /// </summary>
     public GoogleIapClientTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIapClientTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

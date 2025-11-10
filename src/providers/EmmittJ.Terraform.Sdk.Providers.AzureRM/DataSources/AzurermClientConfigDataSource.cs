@@ -13,8 +13,7 @@ public class AzurermClientConfigDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,19 +30,20 @@ public class AzurermClientConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("client_id");
-        this.WithOutput("object_id");
-        this.WithOutput("subscription_id");
-        this.WithOutput("tenant_id");
+        SetOutput("client_id");
+        SetOutput("object_id");
+        SetOutput("subscription_id");
+        SetOutput("tenant_id");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -52,8 +52,7 @@ public class AzurermClientConfigDataSource : TerraformDataSource
     /// </summary>
     public AzurermClientConfigDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermClientConfigDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

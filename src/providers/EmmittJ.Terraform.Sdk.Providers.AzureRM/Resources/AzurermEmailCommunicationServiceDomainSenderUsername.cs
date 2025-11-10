@@ -13,8 +13,7 @@ public class AzurermEmailCommunicationServiceDomainSenderUsernameTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermEmailCommunicationServiceDomainSenderUsernameTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermEmailCommunicationServiceDomainSenderUsernameTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermEmailCommunicationServiceDomainSenderUsernameTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,15 +54,19 @@ public class AzurermEmailCommunicationServiceDomainSenderUsername : TerraformRes
 
     private void InitializeOutputs()
     {
+        SetOutput("display_name");
+        SetOutput("email_service_domain_id");
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -75,17 +75,17 @@ public class AzurermEmailCommunicationServiceDomainSenderUsername : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceDomainId is required")]
     public required TerraformProperty<string> EmailServiceDomainId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("email_service_domain_id");
-        set => this.WithProperty("email_service_domain_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("email_service_domain_id");
+        set => SetProperty("email_service_domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class AzurermEmailCommunicationServiceDomainSenderUsername : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -104,8 +104,7 @@ public class AzurermEmailCommunicationServiceDomainSenderUsername : TerraformRes
     /// </summary>
     public AzurermEmailCommunicationServiceDomainSenderUsernameTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermEmailCommunicationServiceDomainSenderUsernameTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

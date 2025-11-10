@@ -14,8 +14,7 @@ public class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
-        set => WithProperty("destination_arn", value);
+        set => SetProperty("destination_arn", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("format");
-        set => WithProperty("format", value);
+        set => SetProperty("format", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
     public required TerraformProperty<string> DeploymentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deployment_id");
-        set => WithProperty("deployment_id", value);
+        set => SetProperty("deployment_id", value);
     }
 
     /// <summary>
@@ -51,8 +48,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? PercentTraffic
     {
-        get => GetProperty<TerraformProperty<double>>("percent_traffic");
-        set => WithProperty("percent_traffic", value);
+        set => SetProperty("percent_traffic", value);
     }
 
     /// <summary>
@@ -60,8 +56,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? StageVariableOverrides
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("stage_variable_overrides");
-        set => WithProperty("stage_variable_overrides", value);
+        set => SetProperty("stage_variable_overrides", value);
     }
 
     /// <summary>
@@ -69,8 +64,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? UseStageCache
     {
-        get => GetProperty<TerraformProperty<bool>>("use_stage_cache");
-        set => WithProperty("use_stage_cache", value);
+        set => SetProperty("use_stage_cache", value);
     }
 
 }
@@ -88,37 +82,51 @@ public class AwsApiGatewayStage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("execution_arn");
-        this.WithOutput("invoke_url");
-        this.WithOutput("web_acl_arn");
+        SetOutput("arn");
+        SetOutput("execution_arn");
+        SetOutput("invoke_url");
+        SetOutput("web_acl_arn");
+        SetOutput("cache_cluster_enabled");
+        SetOutput("cache_cluster_size");
+        SetOutput("client_certificate_id");
+        SetOutput("deployment_id");
+        SetOutput("description");
+        SetOutput("documentation_version");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("rest_api_id");
+        SetOutput("stage_name");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("variables");
+        SetOutput("xray_tracing_enabled");
     }
 
     /// <summary>
     /// The cache_cluster_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CacheClusterEnabled
+    public TerraformProperty<bool> CacheClusterEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cache_cluster_enabled");
-        set => this.WithProperty("cache_cluster_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("cache_cluster_enabled");
+        set => SetProperty("cache_cluster_enabled", value);
     }
 
     /// <summary>
     /// The cache_cluster_size attribute.
     /// </summary>
-    public TerraformProperty<string>? CacheClusterSize
+    public TerraformProperty<string> CacheClusterSize
     {
-        get => GetProperty<TerraformProperty<string>>("cache_cluster_size");
-        set => this.WithProperty("cache_cluster_size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cache_cluster_size");
+        set => SetProperty("cache_cluster_size", value);
     }
 
     /// <summary>
     /// The client_certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientCertificateId
+    public TerraformProperty<string> ClientCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("client_certificate_id");
-        set => this.WithProperty("client_certificate_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_certificate_id");
+        set => SetProperty("client_certificate_id", value);
     }
 
     /// <summary>
@@ -127,44 +135,44 @@ public class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
     public required TerraformProperty<string> DeploymentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deployment_id");
-        set => this.WithProperty("deployment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_id");
+        set => SetProperty("deployment_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The documentation_version attribute.
     /// </summary>
-    public TerraformProperty<string>? DocumentationVersion
+    public TerraformProperty<string> DocumentationVersion
     {
-        get => GetProperty<TerraformProperty<string>>("documentation_version");
-        set => this.WithProperty("documentation_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("documentation_version");
+        set => SetProperty("documentation_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -173,8 +181,8 @@ public class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
-        set => this.WithProperty("rest_api_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
+        set => SetProperty("rest_api_id", value);
     }
 
     /// <summary>
@@ -183,44 +191,44 @@ public class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     public required TerraformProperty<string> StageName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stage_name");
-        set => this.WithProperty("stage_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stage_name");
+        set => SetProperty("stage_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Variables
+    public Dictionary<string, TerraformProperty<string>> Variables
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("variables");
-        set => this.WithProperty("variables", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("variables");
+        set => SetProperty("variables", value);
     }
 
     /// <summary>
     /// The xray_tracing_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? XrayTracingEnabled
+    public TerraformProperty<bool> XrayTracingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("xray_tracing_enabled");
-        set => this.WithProperty("xray_tracing_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("xray_tracing_enabled");
+        set => SetProperty("xray_tracing_enabled", value);
     }
 
     /// <summary>
@@ -230,8 +238,7 @@ public class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogSettings block(s) allowed")]
     public List<AwsApiGatewayStageAccessLogSettingsBlock>? AccessLogSettings
     {
-        get => GetProperty<List<AwsApiGatewayStageAccessLogSettingsBlock>>("access_log_settings");
-        set => this.WithProperty("access_log_settings", value);
+        set => SetProperty("access_log_settings", value);
     }
 
     /// <summary>
@@ -241,8 +248,7 @@ public class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CanarySettings block(s) allowed")]
     public List<AwsApiGatewayStageCanarySettingsBlock>? CanarySettings
     {
-        get => GetProperty<List<AwsApiGatewayStageCanarySettingsBlock>>("canary_settings");
-        set => this.WithProperty("canary_settings", value);
+        set => SetProperty("canary_settings", value);
     }
 
     /// <summary>

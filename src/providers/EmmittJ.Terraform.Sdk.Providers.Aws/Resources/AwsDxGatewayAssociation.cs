@@ -13,8 +13,7 @@ public class AwsDxGatewayAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDxGatewayAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsDxGatewayAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,37 +46,44 @@ public class AwsDxGatewayAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("associated_gateway_type");
-        this.WithOutput("dx_gateway_association_id");
-        this.WithOutput("dx_gateway_owner_account_id");
-        this.WithOutput("transit_gateway_attachment_id");
+        SetOutput("associated_gateway_type");
+        SetOutput("dx_gateway_association_id");
+        SetOutput("dx_gateway_owner_account_id");
+        SetOutput("transit_gateway_attachment_id");
+        SetOutput("allowed_prefixes");
+        SetOutput("associated_gateway_id");
+        SetOutput("associated_gateway_owner_account_id");
+        SetOutput("dx_gateway_id");
+        SetOutput("id");
+        SetOutput("proposal_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The allowed_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedPrefixes
+    public HashSet<TerraformProperty<string>> AllowedPrefixes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_prefixes");
-        set => this.WithProperty("allowed_prefixes", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_prefixes");
+        set => SetProperty("allowed_prefixes", value);
     }
 
     /// <summary>
     /// The associated_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AssociatedGatewayId
+    public TerraformProperty<string> AssociatedGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("associated_gateway_id");
-        set => this.WithProperty("associated_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("associated_gateway_id");
+        set => SetProperty("associated_gateway_id", value);
     }
 
     /// <summary>
     /// The associated_gateway_owner_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AssociatedGatewayOwnerAccountId
+    public TerraformProperty<string> AssociatedGatewayOwnerAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("associated_gateway_owner_account_id");
-        set => this.WithProperty("associated_gateway_owner_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("associated_gateway_owner_account_id");
+        set => SetProperty("associated_gateway_owner_account_id", value);
     }
 
     /// <summary>
@@ -88,35 +92,35 @@ public class AwsDxGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayId is required")]
     public required TerraformProperty<string> DxGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("dx_gateway_id");
-        set => this.WithProperty("dx_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("dx_gateway_id");
+        set => SetProperty("dx_gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The proposal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProposalId
+    public TerraformProperty<string> ProposalId
     {
-        get => GetProperty<TerraformProperty<string>>("proposal_id");
-        set => this.WithProperty("proposal_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("proposal_id");
+        set => SetProperty("proposal_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -125,8 +129,7 @@ public class AwsDxGatewayAssociation : TerraformResource
     /// </summary>
     public AwsDxGatewayAssociationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDxGatewayAssociationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

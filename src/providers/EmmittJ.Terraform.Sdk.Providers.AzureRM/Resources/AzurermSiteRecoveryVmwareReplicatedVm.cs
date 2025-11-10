@@ -14,8 +14,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
     public required TerraformProperty<string> DiskId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("disk_id");
-        set => WithProperty("disk_id", value);
+        set => SetProperty("disk_id", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? LogStorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("log_storage_account_id");
-        set => WithProperty("log_storage_account_id", value);
+        set => SetProperty("log_storage_account_id", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? TargetDiskEncryptionSetId
     {
-        get => GetProperty<TerraformProperty<string>>("target_disk_encryption_set_id");
-        set => WithProperty("target_disk_encryption_set_id", value);
+        set => SetProperty("target_disk_encryption_set_id", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDiskType is required")]
     public required TerraformProperty<string> TargetDiskType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_disk_type");
-        set => WithProperty("target_disk_type", value);
+        set => SetProperty("target_disk_type", value);
     }
 
 }
@@ -60,8 +56,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrimary is required")]
     public required TerraformProperty<bool> IsPrimary
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("is_primary");
-        set => WithProperty("is_primary", value);
+        set => SetProperty("is_primary", value);
     }
 
     /// <summary>
@@ -70,8 +65,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceMacAddress is required")]
     public required TerraformProperty<string> SourceMacAddress
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_mac_address");
-        set => WithProperty("source_mac_address", value);
+        set => SetProperty("source_mac_address", value);
     }
 
     /// <summary>
@@ -79,8 +73,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? TargetStaticIp
     {
-        get => GetProperty<TerraformProperty<string>>("target_static_ip");
-        set => WithProperty("target_static_ip", value);
+        set => SetProperty("target_static_ip", value);
     }
 
     /// <summary>
@@ -88,8 +81,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? TargetSubnetName
     {
-        get => GetProperty<TerraformProperty<string>>("target_subnet_name");
-        set => WithProperty("target_subnet_name", value);
+        set => SetProperty("target_subnet_name", value);
     }
 
     /// <summary>
@@ -97,8 +89,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? TestSubnetName
     {
-        get => GetProperty<TerraformProperty<string>>("test_subnet_name");
-        set => WithProperty("test_subnet_name", value);
+        set => SetProperty("test_subnet_name", value);
     }
 
 }
@@ -114,8 +105,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -123,8 +113,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -132,8 +121,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -141,8 +129,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -159,6 +146,27 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("appliance_name");
+        SetOutput("default_log_storage_account_id");
+        SetOutput("default_recovery_disk_type");
+        SetOutput("default_target_disk_encryption_set_id");
+        SetOutput("id");
+        SetOutput("license_type");
+        SetOutput("multi_vm_group_name");
+        SetOutput("name");
+        SetOutput("physical_server_credential_name");
+        SetOutput("recovery_replication_policy_id");
+        SetOutput("recovery_vault_id");
+        SetOutput("source_vm_name");
+        SetOutput("target_availability_set_id");
+        SetOutput("target_boot_diagnostics_storage_account_id");
+        SetOutput("target_network_id");
+        SetOutput("target_proximity_placement_group_id");
+        SetOutput("target_resource_group_id");
+        SetOutput("target_vm_name");
+        SetOutput("target_vm_size");
+        SetOutput("target_zone");
+        SetOutput("test_network_id");
     }
 
     /// <summary>
@@ -167,62 +175,62 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplianceName is required")]
     public required TerraformProperty<string> ApplianceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("appliance_name");
-        set => this.WithProperty("appliance_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("appliance_name");
+        set => SetProperty("appliance_name", value);
     }
 
     /// <summary>
     /// The default_log_storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultLogStorageAccountId
+    public TerraformProperty<string> DefaultLogStorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("default_log_storage_account_id");
-        set => this.WithProperty("default_log_storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_log_storage_account_id");
+        set => SetProperty("default_log_storage_account_id", value);
     }
 
     /// <summary>
     /// The default_recovery_disk_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultRecoveryDiskType
+    public TerraformProperty<string> DefaultRecoveryDiskType
     {
-        get => GetProperty<TerraformProperty<string>>("default_recovery_disk_type");
-        set => this.WithProperty("default_recovery_disk_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_recovery_disk_type");
+        set => SetProperty("default_recovery_disk_type", value);
     }
 
     /// <summary>
     /// The default_target_disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultTargetDiskEncryptionSetId
+    public TerraformProperty<string> DefaultTargetDiskEncryptionSetId
     {
-        get => GetProperty<TerraformProperty<string>>("default_target_disk_encryption_set_id");
-        set => this.WithProperty("default_target_disk_encryption_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_target_disk_encryption_set_id");
+        set => SetProperty("default_target_disk_encryption_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseType
+    public TerraformProperty<string> LicenseType
     {
-        get => GetProperty<TerraformProperty<string>>("license_type");
-        set => this.WithProperty("license_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
+        set => SetProperty("license_type", value);
     }
 
     /// <summary>
     /// The multi_vm_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MultiVmGroupName
+    public TerraformProperty<string> MultiVmGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("multi_vm_group_name");
-        set => this.WithProperty("multi_vm_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("multi_vm_group_name");
+        set => SetProperty("multi_vm_group_name", value);
     }
 
     /// <summary>
@@ -231,8 +239,8 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -241,8 +249,8 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhysicalServerCredentialName is required")]
     public required TerraformProperty<string> PhysicalServerCredentialName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("physical_server_credential_name");
-        set => this.WithProperty("physical_server_credential_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("physical_server_credential_name");
+        set => SetProperty("physical_server_credential_name", value);
     }
 
     /// <summary>
@@ -251,8 +259,8 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
     public required TerraformProperty<string> RecoveryReplicationPolicyId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_replication_policy_id");
-        set => this.WithProperty("recovery_replication_policy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_replication_policy_id");
+        set => SetProperty("recovery_replication_policy_id", value);
     }
 
     /// <summary>
@@ -261,8 +269,8 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
-        set => this.WithProperty("recovery_vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_id");
+        set => SetProperty("recovery_vault_id", value);
     }
 
     /// <summary>
@@ -271,44 +279,44 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVmName is required")]
     public required TerraformProperty<string> SourceVmName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("source_vm_name");
-        set => this.WithProperty("source_vm_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("source_vm_name");
+        set => SetProperty("source_vm_name", value);
     }
 
     /// <summary>
     /// The target_availability_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetAvailabilitySetId
+    public TerraformProperty<string> TargetAvailabilitySetId
     {
-        get => GetProperty<TerraformProperty<string>>("target_availability_set_id");
-        set => this.WithProperty("target_availability_set_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_availability_set_id");
+        set => SetProperty("target_availability_set_id", value);
     }
 
     /// <summary>
     /// The target_boot_diagnostics_storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetBootDiagnosticsStorageAccountId
+    public TerraformProperty<string> TargetBootDiagnosticsStorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("target_boot_diagnostics_storage_account_id");
-        set => this.WithProperty("target_boot_diagnostics_storage_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_boot_diagnostics_storage_account_id");
+        set => SetProperty("target_boot_diagnostics_storage_account_id", value);
     }
 
     /// <summary>
     /// The target_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetNetworkId
+    public TerraformProperty<string> TargetNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("target_network_id");
-        set => this.WithProperty("target_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_network_id");
+        set => SetProperty("target_network_id", value);
     }
 
     /// <summary>
     /// The target_proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetProximityPlacementGroupId
+    public TerraformProperty<string> TargetProximityPlacementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("target_proximity_placement_group_id");
-        set => this.WithProperty("target_proximity_placement_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_proximity_placement_group_id");
+        set => SetProperty("target_proximity_placement_group_id", value);
     }
 
     /// <summary>
@@ -317,8 +325,8 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceGroupId is required")]
     public required TerraformProperty<string> TargetResourceGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_group_id");
-        set => this.WithProperty("target_resource_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_group_id");
+        set => SetProperty("target_resource_group_id", value);
     }
 
     /// <summary>
@@ -327,35 +335,35 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVmName is required")]
     public required TerraformProperty<string> TargetVmName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_vm_name");
-        set => this.WithProperty("target_vm_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_vm_name");
+        set => SetProperty("target_vm_name", value);
     }
 
     /// <summary>
     /// The target_vm_size attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetVmSize
+    public TerraformProperty<string> TargetVmSize
     {
-        get => GetProperty<TerraformProperty<string>>("target_vm_size");
-        set => this.WithProperty("target_vm_size", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_vm_size");
+        set => SetProperty("target_vm_size", value);
     }
 
     /// <summary>
     /// The target_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetZone
+    public TerraformProperty<string> TargetZone
     {
-        get => GetProperty<TerraformProperty<string>>("target_zone");
-        set => this.WithProperty("target_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_zone");
+        set => SetProperty("target_zone", value);
     }
 
     /// <summary>
     /// The test_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TestNetworkId
+    public TerraformProperty<string> TestNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("test_network_id");
-        set => this.WithProperty("test_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("test_network_id");
+        set => SetProperty("test_network_id", value);
     }
 
     /// <summary>
@@ -364,8 +372,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     /// </summary>
     public List<AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock>? ManagedDisk
     {
-        get => GetProperty<List<AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock>>("managed_disk");
-        set => this.WithProperty("managed_disk", value);
+        set => SetProperty("managed_disk", value);
     }
 
     /// <summary>
@@ -374,8 +381,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     /// </summary>
     public List<AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock>? NetworkInterface
     {
-        get => GetProperty<List<AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock>>("network_interface");
-        set => this.WithProperty("network_interface", value);
+        set => SetProperty("network_interface", value);
     }
 
     /// <summary>
@@ -384,8 +390,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     /// </summary>
     public AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

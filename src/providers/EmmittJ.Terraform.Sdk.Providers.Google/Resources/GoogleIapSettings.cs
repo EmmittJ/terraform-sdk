@@ -17,8 +17,7 @@ public class GoogleIapSettingsAccessSettingsBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? IdentitySources
     {
-        get => GetProperty<List<TerraformProperty<string>>>("identity_sources");
-        set => WithProperty("identity_sources", value);
+        set => SetProperty("identity_sources", value);
     }
 
 }
@@ -35,8 +34,7 @@ public class GoogleIapSettingsApplicationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CookieDomain
     {
-        get => GetProperty<TerraformProperty<string>>("cookie_domain");
-        set => WithProperty("cookie_domain", value);
+        set => SetProperty("cookie_domain", value);
     }
 
 }
@@ -52,8 +50,7 @@ public class GoogleIapSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -61,8 +58,7 @@ public class GoogleIapSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -70,8 +66,7 @@ public class GoogleIapSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -89,15 +84,17 @@ public class GoogleIapSettings : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -117,8 +114,8 @@ public class GoogleIapSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -128,8 +125,7 @@ public class GoogleIapSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessSettings block(s) allowed")]
     public List<GoogleIapSettingsAccessSettingsBlock>? AccessSettings
     {
-        get => GetProperty<List<GoogleIapSettingsAccessSettingsBlock>>("access_settings");
-        set => this.WithProperty("access_settings", value);
+        set => SetProperty("access_settings", value);
     }
 
     /// <summary>
@@ -139,8 +135,7 @@ public class GoogleIapSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationSettings block(s) allowed")]
     public List<GoogleIapSettingsApplicationSettingsBlock>? ApplicationSettings
     {
-        get => GetProperty<List<GoogleIapSettingsApplicationSettingsBlock>>("application_settings");
-        set => this.WithProperty("application_settings", value);
+        set => SetProperty("application_settings", value);
     }
 
     /// <summary>
@@ -149,8 +144,7 @@ public class GoogleIapSettings : TerraformResource
     /// </summary>
     public GoogleIapSettingsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleIapSettingsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

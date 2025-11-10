@@ -13,8 +13,7 @@ public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ActiveDirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("active_directory_id");
-        set => WithProperty("active_directory_id", value);
+        set => SetProperty("active_directory_id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RootCertificateChainArn
     {
-        get => GetProperty<TerraformProperty<string>>("root_certificate_chain_arn");
-        set => WithProperty("root_certificate_chain_arn", value);
+        set => SetProperty("root_certificate_chain_arn", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SamlProviderArn
     {
-        get => GetProperty<TerraformProperty<string>>("saml_provider_arn");
-        set => WithProperty("saml_provider_arn", value);
+        set => SetProperty("saml_provider_arn", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SelfServiceSamlProviderArn
     {
-        get => GetProperty<TerraformProperty<string>>("self_service_saml_provider_arn");
-        set => WithProperty("self_service_saml_provider_arn", value);
+        set => SetProperty("self_service_saml_provider_arn", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -67,8 +62,7 @@ public class AwsEc2ClientVpnEndpointClientConnectOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AwsEc2ClientVpnEndpointClientConnectOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? LambdaFunctionArn
     {
-        get => GetProperty<TerraformProperty<string>>("lambda_function_arn");
-        set => WithProperty("lambda_function_arn", value);
+        set => SetProperty("lambda_function_arn", value);
     }
 
 }
@@ -93,8 +86,7 @@ public class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? BannerText
     {
-        get => GetProperty<TerraformProperty<string>>("banner_text");
-        set => WithProperty("banner_text", value);
+        set => SetProperty("banner_text", value);
     }
 
     /// <summary>
@@ -102,8 +94,7 @@ public class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -119,8 +110,7 @@ public class AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock : Terrafo
     /// </summary>
     public TerraformProperty<bool>? Enforced
     {
-        get => GetProperty<TerraformProperty<bool>>("enforced");
-        set => WithProperty("enforced", value);
+        set => SetProperty("enforced", value);
     }
 
 }
@@ -136,8 +126,7 @@ public class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CloudwatchLogGroup
     {
-        get => GetProperty<TerraformProperty<string>>("cloudwatch_log_group");
-        set => WithProperty("cloudwatch_log_group", value);
+        set => SetProperty("cloudwatch_log_group", value);
     }
 
     /// <summary>
@@ -145,8 +134,7 @@ public class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CloudwatchLogStream
     {
-        get => GetProperty<TerraformProperty<string>>("cloudwatch_log_stream");
-        set => WithProperty("cloudwatch_log_stream", value);
+        set => SetProperty("cloudwatch_log_stream", value);
     }
 
     /// <summary>
@@ -155,8 +143,7 @@ public class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -174,90 +161,108 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("dns_name");
-        this.WithOutput("self_service_portal_url");
+        SetOutput("arn");
+        SetOutput("dns_name");
+        SetOutput("self_service_portal_url");
+        SetOutput("client_cidr_block");
+        SetOutput("description");
+        SetOutput("disconnect_on_session_timeout");
+        SetOutput("dns_servers");
+        SetOutput("endpoint_ip_address_type");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("security_group_ids");
+        SetOutput("self_service_portal");
+        SetOutput("server_certificate_arn");
+        SetOutput("session_timeout_hours");
+        SetOutput("split_tunnel");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("traffic_ip_address_type");
+        SetOutput("transport_protocol");
+        SetOutput("vpc_id");
+        SetOutput("vpn_port");
     }
 
     /// <summary>
     /// The client_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientCidrBlock
+    public TerraformProperty<string> ClientCidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("client_cidr_block");
-        set => this.WithProperty("client_cidr_block", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_cidr_block");
+        set => SetProperty("client_cidr_block", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The disconnect_on_session_timeout attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisconnectOnSessionTimeout
+    public TerraformProperty<bool> DisconnectOnSessionTimeout
     {
-        get => GetProperty<TerraformProperty<bool>>("disconnect_on_session_timeout");
-        set => this.WithProperty("disconnect_on_session_timeout", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("disconnect_on_session_timeout");
+        set => SetProperty("disconnect_on_session_timeout", value);
     }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DnsServers
+    public List<TerraformProperty<string>> DnsServers
     {
-        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
-        set => this.WithProperty("dns_servers", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("dns_servers");
+        set => SetProperty("dns_servers", value);
     }
 
     /// <summary>
     /// The endpoint_ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointIpAddressType
+    public TerraformProperty<string> EndpointIpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_ip_address_type");
-        set => this.WithProperty("endpoint_ip_address_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_ip_address_type");
+        set => SetProperty("endpoint_ip_address_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The self_service_portal attribute.
     /// </summary>
-    public TerraformProperty<string>? SelfServicePortal
+    public TerraformProperty<string> SelfServicePortal
     {
-        get => GetProperty<TerraformProperty<string>>("self_service_portal");
-        set => this.WithProperty("self_service_portal", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("self_service_portal");
+        set => SetProperty("self_service_portal", value);
     }
 
     /// <summary>
@@ -266,92 +271,92 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerCertificateArn is required")]
     public required TerraformProperty<string> ServerCertificateArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("server_certificate_arn");
-        set => this.WithProperty("server_certificate_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("server_certificate_arn");
+        set => SetProperty("server_certificate_arn", value);
     }
 
     /// <summary>
     /// The session_timeout_hours attribute.
     /// </summary>
-    public TerraformProperty<double>? SessionTimeoutHours
+    public TerraformProperty<double> SessionTimeoutHours
     {
-        get => GetProperty<TerraformProperty<double>>("session_timeout_hours");
-        set => this.WithProperty("session_timeout_hours", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("session_timeout_hours");
+        set => SetProperty("session_timeout_hours", value);
     }
 
     /// <summary>
     /// The split_tunnel attribute.
     /// </summary>
-    public TerraformProperty<bool>? SplitTunnel
+    public TerraformProperty<bool> SplitTunnel
     {
-        get => GetProperty<TerraformProperty<bool>>("split_tunnel");
-        set => this.WithProperty("split_tunnel", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("split_tunnel");
+        set => SetProperty("split_tunnel", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The traffic_ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TrafficIpAddressType
+    public TerraformProperty<string> TrafficIpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("traffic_ip_address_type");
-        set => this.WithProperty("traffic_ip_address_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("traffic_ip_address_type");
+        set => SetProperty("traffic_ip_address_type", value);
     }
 
     /// <summary>
     /// The transport_protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? TransportProtocol
+    public TerraformProperty<string> TransportProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("transport_protocol");
-        set => this.WithProperty("transport_protocol", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transport_protocol");
+        set => SetProperty("transport_protocol", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    public TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
     /// The vpn_port attribute.
     /// </summary>
-    public TerraformProperty<double>? VpnPort
+    public TerraformProperty<double> VpnPort
     {
-        get => GetProperty<TerraformProperty<double>>("vpn_port");
-        set => this.WithProperty("vpn_port", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("vpn_port");
+        set => SetProperty("vpn_port", value);
     }
 
     /// <summary>
     /// Block for authentication_options.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 AuthenticationOptions block(s) allowed")]
     public HashSet<AwsEc2ClientVpnEndpointAuthenticationOptionsBlock>? AuthenticationOptions
     {
-        get => GetProperty<HashSet<AwsEc2ClientVpnEndpointAuthenticationOptionsBlock>>("authentication_options");
-        set => this.WithProperty("authentication_options", value);
+        set => SetProperty("authentication_options", value);
     }
 
     /// <summary>
@@ -361,8 +366,7 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientConnectOptions block(s) allowed")]
     public List<AwsEc2ClientVpnEndpointClientConnectOptionsBlock>? ClientConnectOptions
     {
-        get => GetProperty<List<AwsEc2ClientVpnEndpointClientConnectOptionsBlock>>("client_connect_options");
-        set => this.WithProperty("client_connect_options", value);
+        set => SetProperty("client_connect_options", value);
     }
 
     /// <summary>
@@ -372,8 +376,7 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientLoginBannerOptions block(s) allowed")]
     public List<AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock>? ClientLoginBannerOptions
     {
-        get => GetProperty<List<AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock>>("client_login_banner_options");
-        set => this.WithProperty("client_login_banner_options", value);
+        set => SetProperty("client_login_banner_options", value);
     }
 
     /// <summary>
@@ -383,20 +386,19 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientRouteEnforcementOptions block(s) allowed")]
     public List<AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock>? ClientRouteEnforcementOptions
     {
-        get => GetProperty<List<AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock>>("client_route_enforcement_options");
-        set => this.WithProperty("client_route_enforcement_options", value);
+        set => SetProperty("client_route_enforcement_options", value);
     }
 
     /// <summary>
     /// Block for connection_log_options.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionLogOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionLogOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionLogOptions block(s) allowed")]
     public List<AwsEc2ClientVpnEndpointConnectionLogOptionsBlock>? ConnectionLogOptions
     {
-        get => GetProperty<List<AwsEc2ClientVpnEndpointConnectionLogOptionsBlock>>("connection_log_options");
-        set => this.WithProperty("connection_log_options", value);
+        set => SetProperty("connection_log_options", value);
     }
 
     /// <summary>

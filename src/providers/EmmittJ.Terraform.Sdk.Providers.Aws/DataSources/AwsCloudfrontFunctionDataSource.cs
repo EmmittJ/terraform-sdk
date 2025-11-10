@@ -14,23 +14,26 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("code");
-        this.WithOutput("comment");
-        this.WithOutput("etag");
-        this.WithOutput("key_value_store_associations");
-        this.WithOutput("last_modified_time");
-        this.WithOutput("runtime");
-        this.WithOutput("status");
+        SetOutput("arn");
+        SetOutput("code");
+        SetOutput("comment");
+        SetOutput("etag");
+        SetOutput("key_value_store_associations");
+        SetOutput("last_modified_time");
+        SetOutput("runtime");
+        SetOutput("status");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("stage");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -39,8 +42,8 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -49,8 +52,8 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     public required TerraformProperty<string> Stage
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("stage");
-        set => this.WithProperty("stage", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stage");
+        set => SetProperty("stage", value);
     }
 
     /// <summary>

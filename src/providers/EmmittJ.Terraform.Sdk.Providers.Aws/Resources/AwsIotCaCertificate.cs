@@ -13,8 +13,7 @@ public class AwsIotCaCertificateRegistrationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
-        set => WithProperty("role_arn", value);
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsIotCaCertificateRegistrationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TemplateBody
     {
-        get => GetProperty<TerraformProperty<string>>("template_body");
-        set => WithProperty("template_body", value);
+        set => SetProperty("template_body", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsIotCaCertificateRegistrationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TemplateName
     {
-        get => GetProperty<TerraformProperty<string>>("template_name");
-        set => WithProperty("template_name", value);
+        set => SetProperty("template_name", value);
     }
 
 }
@@ -50,10 +47,19 @@ public class AwsIotCaCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("customer_version");
-        this.WithOutput("generation_id");
-        this.WithOutput("validity");
+        SetOutput("arn");
+        SetOutput("customer_version");
+        SetOutput("generation_id");
+        SetOutput("validity");
+        SetOutput("active");
+        SetOutput("allow_auto_registration");
+        SetOutput("ca_certificate_pem");
+        SetOutput("certificate_mode");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("verification_certificate_pem");
     }
 
     /// <summary>
@@ -62,8 +68,8 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformProperty<bool> Active
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("active");
-        set => this.WithProperty("active", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("active");
+        set => SetProperty("active", value);
     }
 
     /// <summary>
@@ -72,8 +78,8 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowAutoRegistration is required")]
     public required TerraformProperty<bool> AllowAutoRegistration
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("allow_auto_registration");
-        set => this.WithProperty("allow_auto_registration", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_auto_registration");
+        set => SetProperty("allow_auto_registration", value);
     }
 
     /// <summary>
@@ -82,62 +88,62 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatePem is required")]
     public required TerraformProperty<string> CaCertificatePem
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("ca_certificate_pem");
-        set => this.WithProperty("ca_certificate_pem", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ca_certificate_pem");
+        set => SetProperty("ca_certificate_pem", value);
     }
 
     /// <summary>
     /// The certificate_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateMode
+    public TerraformProperty<string> CertificateMode
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_mode");
-        set => this.WithProperty("certificate_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("certificate_mode");
+        set => SetProperty("certificate_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The verification_certificate_pem attribute.
     /// </summary>
-    public TerraformProperty<string>? VerificationCertificatePem
+    public TerraformProperty<string> VerificationCertificatePem
     {
-        get => GetProperty<TerraformProperty<string>>("verification_certificate_pem");
-        set => this.WithProperty("verification_certificate_pem", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("verification_certificate_pem");
+        set => SetProperty("verification_certificate_pem", value);
     }
 
     /// <summary>
@@ -147,8 +153,7 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistrationConfig block(s) allowed")]
     public List<AwsIotCaCertificateRegistrationConfigBlock>? RegistrationConfig
     {
-        get => GetProperty<List<AwsIotCaCertificateRegistrationConfigBlock>>("registration_config");
-        set => this.WithProperty("registration_config", value);
+        set => SetProperty("registration_config", value);
     }
 
     /// <summary>

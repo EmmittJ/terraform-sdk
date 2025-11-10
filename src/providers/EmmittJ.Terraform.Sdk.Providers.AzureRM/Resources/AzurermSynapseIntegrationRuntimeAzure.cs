@@ -13,8 +13,7 @@ public class AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,42 +54,50 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("compute_type");
+        SetOutput("core_count");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("synapse_workspace_id");
+        SetOutput("time_to_live_min");
     }
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputeType
+    public TerraformProperty<string> ComputeType
     {
-        get => GetProperty<TerraformProperty<string>>("compute_type");
-        set => this.WithProperty("compute_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("compute_type");
+        set => SetProperty("compute_type", value);
     }
 
     /// <summary>
     /// The core_count attribute.
     /// </summary>
-    public TerraformProperty<double>? CoreCount
+    public TerraformProperty<double> CoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("core_count");
-        set => this.WithProperty("core_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("core_count");
+        set => SetProperty("core_count", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -102,8 +106,8 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -112,8 +116,8 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -122,17 +126,17 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
-        set => this.WithProperty("synapse_workspace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("synapse_workspace_id");
+        set => SetProperty("synapse_workspace_id", value);
     }
 
     /// <summary>
     /// The time_to_live_min attribute.
     /// </summary>
-    public TerraformProperty<double>? TimeToLiveMin
+    public TerraformProperty<double> TimeToLiveMin
     {
-        get => GetProperty<TerraformProperty<double>>("time_to_live_min");
-        set => this.WithProperty("time_to_live_min", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("time_to_live_min");
+        set => SetProperty("time_to_live_min", value);
     }
 
     /// <summary>
@@ -141,8 +145,7 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
     /// </summary>
     public AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

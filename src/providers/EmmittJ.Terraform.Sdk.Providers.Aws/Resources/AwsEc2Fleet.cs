@@ -13,8 +13,7 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? InstanceIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("instance_ids");
-        set => WithProperty("instance_ids", value);
+        set => SetProperty("instance_ids", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
-        set => WithProperty("instance_type", value);
+        set => SetProperty("instance_type", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Lifecycle
     {
-        get => GetProperty<TerraformProperty<string>>("lifecycle");
-        set => WithProperty("lifecycle", value);
+        set => SetProperty("lifecycle", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Platform
     {
-        get => GetProperty<TerraformProperty<string>>("platform");
-        set => WithProperty("platform", value);
+        set => SetProperty("platform", value);
     }
 
 }
@@ -65,8 +61,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AllocationStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("allocation_strategy");
-        set => WithProperty("allocation_strategy", value);
+        set => SetProperty("allocation_strategy", value);
     }
 
     /// <summary>
@@ -74,8 +69,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxTotalPrice
     {
-        get => GetProperty<TerraformProperty<string>>("max_total_price");
-        set => WithProperty("max_total_price", value);
+        set => SetProperty("max_total_price", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinTargetCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_target_capacity");
-        set => WithProperty("min_target_capacity", value);
+        set => SetProperty("min_target_capacity", value);
     }
 
     /// <summary>
@@ -92,8 +85,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SingleAvailabilityZone
     {
-        get => GetProperty<TerraformProperty<bool>>("single_availability_zone");
-        set => WithProperty("single_availability_zone", value);
+        set => SetProperty("single_availability_zone", value);
     }
 
     /// <summary>
@@ -101,8 +93,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SingleInstanceType
     {
-        get => GetProperty<TerraformProperty<bool>>("single_instance_type");
-        set => WithProperty("single_instance_type", value);
+        set => SetProperty("single_instance_type", value);
     }
 
 }
@@ -118,8 +109,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AllocationStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("allocation_strategy");
-        set => WithProperty("allocation_strategy", value);
+        set => SetProperty("allocation_strategy", value);
     }
 
     /// <summary>
@@ -127,8 +117,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InstanceInterruptionBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("instance_interruption_behavior");
-        set => WithProperty("instance_interruption_behavior", value);
+        set => SetProperty("instance_interruption_behavior", value);
     }
 
     /// <summary>
@@ -136,8 +125,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? InstancePoolsToUseCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_pools_to_use_count");
-        set => WithProperty("instance_pools_to_use_count", value);
+        set => SetProperty("instance_pools_to_use_count", value);
     }
 
     /// <summary>
@@ -145,8 +133,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? MaxTotalPrice
     {
-        get => GetProperty<TerraformProperty<string>>("max_total_price");
-        set => WithProperty("max_total_price", value);
+        set => SetProperty("max_total_price", value);
     }
 
     /// <summary>
@@ -154,8 +141,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MinTargetCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_target_capacity");
-        set => WithProperty("min_target_capacity", value);
+        set => SetProperty("min_target_capacity", value);
     }
 
     /// <summary>
@@ -163,8 +149,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SingleAvailabilityZone
     {
-        get => GetProperty<TerraformProperty<bool>>("single_availability_zone");
-        set => WithProperty("single_availability_zone", value);
+        set => SetProperty("single_availability_zone", value);
     }
 
     /// <summary>
@@ -172,8 +157,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SingleInstanceType
     {
-        get => GetProperty<TerraformProperty<bool>>("single_instance_type");
-        set => WithProperty("single_instance_type", value);
+        set => SetProperty("single_instance_type", value);
     }
 
 }
@@ -190,8 +174,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultTargetCapacityType is required")]
     public required TerraformProperty<string> DefaultTargetCapacityType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("default_target_capacity_type");
-        set => WithProperty("default_target_capacity_type", value);
+        set => SetProperty("default_target_capacity_type", value);
     }
 
     /// <summary>
@@ -199,8 +182,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? OnDemandTargetCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("on_demand_target_capacity");
-        set => WithProperty("on_demand_target_capacity", value);
+        set => SetProperty("on_demand_target_capacity", value);
     }
 
     /// <summary>
@@ -208,8 +190,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? SpotTargetCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("spot_target_capacity");
-        set => WithProperty("spot_target_capacity", value);
+        set => SetProperty("spot_target_capacity", value);
     }
 
     /// <summary>
@@ -217,8 +198,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetCapacityUnitType
     {
-        get => GetProperty<TerraformProperty<string>>("target_capacity_unit_type");
-        set => WithProperty("target_capacity_unit_type", value);
+        set => SetProperty("target_capacity_unit_type", value);
     }
 
     /// <summary>
@@ -227,8 +207,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalTargetCapacity is required")]
     public required TerraformProperty<double> TotalTargetCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("total_target_capacity");
-        set => WithProperty("total_target_capacity", value);
+        set => SetProperty("total_target_capacity", value);
     }
 
 }
@@ -244,8 +223,7 @@ public class AwsEc2FleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -253,8 +231,7 @@ public class AwsEc2FleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -262,8 +239,7 @@ public class AwsEc2FleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -281,142 +257,157 @@ public class AwsEc2Fleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("context");
+        SetOutput("excess_capacity_termination_policy");
+        SetOutput("fleet_state");
+        SetOutput("fulfilled_capacity");
+        SetOutput("fulfilled_on_demand_capacity");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("replace_unhealthy_instances");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("terminate_instances");
+        SetOutput("terminate_instances_with_expiration");
+        SetOutput("type");
+        SetOutput("valid_from");
+        SetOutput("valid_until");
     }
 
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformProperty<string>? Context
+    public TerraformProperty<string> Context
     {
-        get => GetProperty<TerraformProperty<string>>("context");
-        set => this.WithProperty("context", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("context");
+        set => SetProperty("context", value);
     }
 
     /// <summary>
     /// The excess_capacity_termination_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? ExcessCapacityTerminationPolicy
+    public TerraformProperty<string> ExcessCapacityTerminationPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("excess_capacity_termination_policy");
-        set => this.WithProperty("excess_capacity_termination_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("excess_capacity_termination_policy");
+        set => SetProperty("excess_capacity_termination_policy", value);
     }
 
     /// <summary>
     /// The fleet_state attribute.
     /// </summary>
-    public TerraformProperty<string>? FleetState
+    public TerraformProperty<string> FleetState
     {
-        get => GetProperty<TerraformProperty<string>>("fleet_state");
-        set => this.WithProperty("fleet_state", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fleet_state");
+        set => SetProperty("fleet_state", value);
     }
 
     /// <summary>
     /// The fulfilled_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? FulfilledCapacity
+    public TerraformProperty<double> FulfilledCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("fulfilled_capacity");
-        set => this.WithProperty("fulfilled_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("fulfilled_capacity");
+        set => SetProperty("fulfilled_capacity", value);
     }
 
     /// <summary>
     /// The fulfilled_on_demand_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? FulfilledOnDemandCapacity
+    public TerraformProperty<double> FulfilledOnDemandCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("fulfilled_on_demand_capacity");
-        set => this.WithProperty("fulfilled_on_demand_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("fulfilled_on_demand_capacity");
+        set => SetProperty("fulfilled_on_demand_capacity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The replace_unhealthy_instances attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReplaceUnhealthyInstances
+    public TerraformProperty<bool> ReplaceUnhealthyInstances
     {
-        get => GetProperty<TerraformProperty<bool>>("replace_unhealthy_instances");
-        set => this.WithProperty("replace_unhealthy_instances", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("replace_unhealthy_instances");
+        set => SetProperty("replace_unhealthy_instances", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The terminate_instances attribute.
     /// </summary>
-    public TerraformProperty<bool>? TerminateInstances
+    public TerraformProperty<bool> TerminateInstances
     {
-        get => GetProperty<TerraformProperty<bool>>("terminate_instances");
-        set => this.WithProperty("terminate_instances", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("terminate_instances");
+        set => SetProperty("terminate_instances", value);
     }
 
     /// <summary>
     /// The terminate_instances_with_expiration attribute.
     /// </summary>
-    public TerraformProperty<bool>? TerminateInstancesWithExpiration
+    public TerraformProperty<bool> TerminateInstancesWithExpiration
     {
-        get => GetProperty<TerraformProperty<bool>>("terminate_instances_with_expiration");
-        set => this.WithProperty("terminate_instances_with_expiration", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("terminate_instances_with_expiration");
+        set => SetProperty("terminate_instances_with_expiration", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
     /// The valid_from attribute.
     /// </summary>
-    public TerraformProperty<string>? ValidFrom
+    public TerraformProperty<string> ValidFrom
     {
-        get => GetProperty<TerraformProperty<string>>("valid_from");
-        set => this.WithProperty("valid_from", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("valid_from");
+        set => SetProperty("valid_from", value);
     }
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
-    public TerraformProperty<string>? ValidUntil
+    public TerraformProperty<string> ValidUntil
     {
-        get => GetProperty<TerraformProperty<string>>("valid_until");
-        set => this.WithProperty("valid_until", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("valid_until");
+        set => SetProperty("valid_until", value);
     }
 
     /// <summary>
@@ -425,20 +416,19 @@ public class AwsEc2Fleet : TerraformResource
     /// </summary>
     public List<AwsEc2FleetFleetInstanceSetBlock>? FleetInstanceSet
     {
-        get => GetProperty<List<AwsEc2FleetFleetInstanceSetBlock>>("fleet_instance_set");
-        set => this.WithProperty("fleet_instance_set", value);
+        set => SetProperty("fleet_instance_set", value);
     }
 
     /// <summary>
     /// Block for launch_template_config.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LaunchTemplateConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LaunchTemplateConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 LaunchTemplateConfig block(s) allowed")]
     public List<AwsEc2FleetLaunchTemplateConfigBlock>? LaunchTemplateConfig
     {
-        get => GetProperty<List<AwsEc2FleetLaunchTemplateConfigBlock>>("launch_template_config");
-        set => this.WithProperty("launch_template_config", value);
+        set => SetProperty("launch_template_config", value);
     }
 
     /// <summary>
@@ -448,8 +438,7 @@ public class AwsEc2Fleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnDemandOptions block(s) allowed")]
     public List<AwsEc2FleetOnDemandOptionsBlock>? OnDemandOptions
     {
-        get => GetProperty<List<AwsEc2FleetOnDemandOptionsBlock>>("on_demand_options");
-        set => this.WithProperty("on_demand_options", value);
+        set => SetProperty("on_demand_options", value);
     }
 
     /// <summary>
@@ -459,20 +448,19 @@ public class AwsEc2Fleet : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpotOptions block(s) allowed")]
     public List<AwsEc2FleetSpotOptionsBlock>? SpotOptions
     {
-        get => GetProperty<List<AwsEc2FleetSpotOptionsBlock>>("spot_options");
-        set => this.WithProperty("spot_options", value);
+        set => SetProperty("spot_options", value);
     }
 
     /// <summary>
     /// Block for target_capacity_specification.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCapacitySpecification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetCapacitySpecification block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetCapacitySpecification block(s) allowed")]
     public List<AwsEc2FleetTargetCapacitySpecificationBlock>? TargetCapacitySpecification
     {
-        get => GetProperty<List<AwsEc2FleetTargetCapacitySpecificationBlock>>("target_capacity_specification");
-        set => this.WithProperty("target_capacity_specification", value);
+        set => SetProperty("target_capacity_specification", value);
     }
 
     /// <summary>
@@ -481,8 +469,7 @@ public class AwsEc2Fleet : TerraformResource
     /// </summary>
     public AwsEc2FleetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsEc2FleetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

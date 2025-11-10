@@ -13,8 +13,7 @@ public class GoogleStorageAnywhereCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleStorageAnywhereCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class GoogleStorageAnywhereCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,20 +46,25 @@ public class GoogleStorageAnywhereCache : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("anywhere_cache_id");
-        this.WithOutput("create_time");
-        this.WithOutput("pending_update");
-        this.WithOutput("state");
-        this.WithOutput("update_time");
+        SetOutput("anywhere_cache_id");
+        SetOutput("create_time");
+        SetOutput("pending_update");
+        SetOutput("state");
+        SetOutput("update_time");
+        SetOutput("admission_policy");
+        SetOutput("bucket");
+        SetOutput("id");
+        SetOutput("ttl");
+        SetOutput("zone");
     }
 
     /// <summary>
     /// The cache admission policy dictates whether a block should be inserted upon a cache miss. Default value: &amp;quot;admit-on-first-miss&amp;quot; Possible values: [&amp;quot;admit-on-first-miss&amp;quot;, &amp;quot;admit-on-second-miss&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AdmissionPolicy
+    public TerraformProperty<string> AdmissionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("admission_policy");
-        set => this.WithProperty("admission_policy", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("admission_policy");
+        set => SetProperty("admission_policy", value);
     }
 
     /// <summary>
@@ -71,26 +73,26 @@ public class GoogleStorageAnywhereCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
-        set => this.WithProperty("bucket", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
+        set => SetProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The TTL of all cache entries in whole seconds. e.g., &amp;quot;7200s&amp;quot;. It defaults to &#39;86400s&#39;
     /// </summary>
-    public TerraformProperty<string>? Ttl
+    public TerraformProperty<string> Ttl
     {
-        get => GetProperty<TerraformProperty<string>>("ttl");
-        set => this.WithProperty("ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ttl");
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>
@@ -99,8 +101,8 @@ public class GoogleStorageAnywhereCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("zone");
-        set => this.WithProperty("zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        set => SetProperty("zone", value);
     }
 
     /// <summary>
@@ -109,8 +111,7 @@ public class GoogleStorageAnywhereCache : TerraformResource
     /// </summary>
     public GoogleStorageAnywhereCacheTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageAnywhereCacheTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

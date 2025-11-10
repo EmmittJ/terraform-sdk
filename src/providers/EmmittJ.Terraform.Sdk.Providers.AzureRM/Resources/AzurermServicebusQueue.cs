@@ -13,8 +13,7 @@ public class AzurermServicebusQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermServicebusQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermServicebusQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermServicebusQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,123 +54,142 @@ public class AzurermServicebusQueue : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("auto_delete_on_idle");
+        SetOutput("batched_operations_enabled");
+        SetOutput("dead_lettering_on_message_expiration");
+        SetOutput("default_message_ttl");
+        SetOutput("duplicate_detection_history_time_window");
+        SetOutput("express_enabled");
+        SetOutput("forward_dead_lettered_messages_to");
+        SetOutput("forward_to");
+        SetOutput("id");
+        SetOutput("lock_duration");
+        SetOutput("max_delivery_count");
+        SetOutput("max_message_size_in_kilobytes");
+        SetOutput("max_size_in_megabytes");
+        SetOutput("name");
+        SetOutput("namespace_id");
+        SetOutput("partitioning_enabled");
+        SetOutput("requires_duplicate_detection");
+        SetOutput("requires_session");
+        SetOutput("status");
     }
 
     /// <summary>
     /// The auto_delete_on_idle attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoDeleteOnIdle
+    public TerraformProperty<string> AutoDeleteOnIdle
     {
-        get => GetProperty<TerraformProperty<string>>("auto_delete_on_idle");
-        set => this.WithProperty("auto_delete_on_idle", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("auto_delete_on_idle");
+        set => SetProperty("auto_delete_on_idle", value);
     }
 
     /// <summary>
     /// The batched_operations_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BatchedOperationsEnabled
+    public TerraformProperty<bool> BatchedOperationsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("batched_operations_enabled");
-        set => this.WithProperty("batched_operations_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("batched_operations_enabled");
+        set => SetProperty("batched_operations_enabled", value);
     }
 
     /// <summary>
     /// The dead_lettering_on_message_expiration attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeadLetteringOnMessageExpiration
+    public TerraformProperty<bool> DeadLetteringOnMessageExpiration
     {
-        get => GetProperty<TerraformProperty<bool>>("dead_lettering_on_message_expiration");
-        set => this.WithProperty("dead_lettering_on_message_expiration", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("dead_lettering_on_message_expiration");
+        set => SetProperty("dead_lettering_on_message_expiration", value);
     }
 
     /// <summary>
     /// The default_message_ttl attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultMessageTtl
+    public TerraformProperty<string> DefaultMessageTtl
     {
-        get => GetProperty<TerraformProperty<string>>("default_message_ttl");
-        set => this.WithProperty("default_message_ttl", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_message_ttl");
+        set => SetProperty("default_message_ttl", value);
     }
 
     /// <summary>
     /// The duplicate_detection_history_time_window attribute.
     /// </summary>
-    public TerraformProperty<string>? DuplicateDetectionHistoryTimeWindow
+    public TerraformProperty<string> DuplicateDetectionHistoryTimeWindow
     {
-        get => GetProperty<TerraformProperty<string>>("duplicate_detection_history_time_window");
-        set => this.WithProperty("duplicate_detection_history_time_window", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("duplicate_detection_history_time_window");
+        set => SetProperty("duplicate_detection_history_time_window", value);
     }
 
     /// <summary>
     /// The express_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExpressEnabled
+    public TerraformProperty<bool> ExpressEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("express_enabled");
-        set => this.WithProperty("express_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("express_enabled");
+        set => SetProperty("express_enabled", value);
     }
 
     /// <summary>
     /// The forward_dead_lettered_messages_to attribute.
     /// </summary>
-    public TerraformProperty<string>? ForwardDeadLetteredMessagesTo
+    public TerraformProperty<string> ForwardDeadLetteredMessagesTo
     {
-        get => GetProperty<TerraformProperty<string>>("forward_dead_lettered_messages_to");
-        set => this.WithProperty("forward_dead_lettered_messages_to", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("forward_dead_lettered_messages_to");
+        set => SetProperty("forward_dead_lettered_messages_to", value);
     }
 
     /// <summary>
     /// The forward_to attribute.
     /// </summary>
-    public TerraformProperty<string>? ForwardTo
+    public TerraformProperty<string> ForwardTo
     {
-        get => GetProperty<TerraformProperty<string>>("forward_to");
-        set => this.WithProperty("forward_to", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("forward_to");
+        set => SetProperty("forward_to", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? LockDuration
+    public TerraformProperty<string> LockDuration
     {
-        get => GetProperty<TerraformProperty<string>>("lock_duration");
-        set => this.WithProperty("lock_duration", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("lock_duration");
+        set => SetProperty("lock_duration", value);
     }
 
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxDeliveryCount
+    public TerraformProperty<double> MaxDeliveryCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_delivery_count");
-        set => this.WithProperty("max_delivery_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_delivery_count");
+        set => SetProperty("max_delivery_count", value);
     }
 
     /// <summary>
     /// The max_message_size_in_kilobytes attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxMessageSizeInKilobytes
+    public TerraformProperty<double> MaxMessageSizeInKilobytes
     {
-        get => GetProperty<TerraformProperty<double>>("max_message_size_in_kilobytes");
-        set => this.WithProperty("max_message_size_in_kilobytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_message_size_in_kilobytes");
+        set => SetProperty("max_message_size_in_kilobytes", value);
     }
 
     /// <summary>
     /// The max_size_in_megabytes attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxSizeInMegabytes
+    public TerraformProperty<double> MaxSizeInMegabytes
     {
-        get => GetProperty<TerraformProperty<double>>("max_size_in_megabytes");
-        set => this.WithProperty("max_size_in_megabytes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("max_size_in_megabytes");
+        set => SetProperty("max_size_in_megabytes", value);
     }
 
     /// <summary>
@@ -183,8 +198,8 @@ public class AzurermServicebusQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -193,44 +208,44 @@ public class AzurermServicebusQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     public required TerraformProperty<string> NamespaceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace_id");
-        set => this.WithProperty("namespace_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("namespace_id");
+        set => SetProperty("namespace_id", value);
     }
 
     /// <summary>
     /// The partitioning_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PartitioningEnabled
+    public TerraformProperty<bool> PartitioningEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("partitioning_enabled");
-        set => this.WithProperty("partitioning_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("partitioning_enabled");
+        set => SetProperty("partitioning_enabled", value);
     }
 
     /// <summary>
     /// The requires_duplicate_detection attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequiresDuplicateDetection
+    public TerraformProperty<bool> RequiresDuplicateDetection
     {
-        get => GetProperty<TerraformProperty<bool>>("requires_duplicate_detection");
-        set => this.WithProperty("requires_duplicate_detection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("requires_duplicate_detection");
+        set => SetProperty("requires_duplicate_detection", value);
     }
 
     /// <summary>
     /// The requires_session attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequiresSession
+    public TerraformProperty<bool> RequiresSession
     {
-        get => GetProperty<TerraformProperty<bool>>("requires_session");
-        set => this.WithProperty("requires_session", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("requires_session");
+        set => SetProperty("requires_session", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -239,8 +254,7 @@ public class AzurermServicebusQueue : TerraformResource
     /// </summary>
     public AzurermServicebusQueueTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermServicebusQueueTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

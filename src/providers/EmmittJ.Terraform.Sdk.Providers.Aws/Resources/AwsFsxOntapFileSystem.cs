@@ -13,8 +13,7 @@ public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? Iops
     {
-        get => GetProperty<TerraformProperty<double>>("iops");
-        set => WithProperty("iops", value);
+        set => SetProperty("iops", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => WithProperty("mode", value);
+        set => SetProperty("mode", value);
     }
 
 }
@@ -39,8 +37,7 @@ public class AwsFsxOntapFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -48,8 +45,7 @@ public class AwsFsxOntapFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsFsxOntapFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -76,30 +71,50 @@ public class AwsFsxOntapFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("dns_name");
-        this.WithOutput("endpoints");
-        this.WithOutput("network_interface_ids");
-        this.WithOutput("owner_id");
-        this.WithOutput("vpc_id");
+        SetOutput("arn");
+        SetOutput("dns_name");
+        SetOutput("endpoints");
+        SetOutput("network_interface_ids");
+        SetOutput("owner_id");
+        SetOutput("vpc_id");
+        SetOutput("automatic_backup_retention_days");
+        SetOutput("daily_automatic_backup_start_time");
+        SetOutput("deployment_type");
+        SetOutput("endpoint_ip_address_range");
+        SetOutput("fsx_admin_password");
+        SetOutput("ha_pairs");
+        SetOutput("id");
+        SetOutput("kms_key_id");
+        SetOutput("preferred_subnet_id");
+        SetOutput("region");
+        SetOutput("route_table_ids");
+        SetOutput("security_group_ids");
+        SetOutput("storage_capacity");
+        SetOutput("storage_type");
+        SetOutput("subnet_ids");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("throughput_capacity");
+        SetOutput("throughput_capacity_per_ha_pair");
+        SetOutput("weekly_maintenance_start_time");
     }
 
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    public TerraformProperty<double>? AutomaticBackupRetentionDays
+    public TerraformProperty<double> AutomaticBackupRetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("automatic_backup_retention_days");
-        set => this.WithProperty("automatic_backup_retention_days", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("automatic_backup_retention_days");
+        set => SetProperty("automatic_backup_retention_days", value);
     }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? DailyAutomaticBackupStartTime
+    public TerraformProperty<string> DailyAutomaticBackupStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("daily_automatic_backup_start_time");
-        set => this.WithProperty("daily_automatic_backup_start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("daily_automatic_backup_start_time");
+        set => SetProperty("daily_automatic_backup_start_time", value);
     }
 
     /// <summary>
@@ -108,53 +123,53 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     public required TerraformProperty<string> DeploymentType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("deployment_type");
-        set => this.WithProperty("deployment_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("deployment_type");
+        set => SetProperty("deployment_type", value);
     }
 
     /// <summary>
     /// The endpoint_ip_address_range attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointIpAddressRange
+    public TerraformProperty<string> EndpointIpAddressRange
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_ip_address_range");
-        set => this.WithProperty("endpoint_ip_address_range", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_ip_address_range");
+        set => SetProperty("endpoint_ip_address_range", value);
     }
 
     /// <summary>
     /// The fsx_admin_password attribute.
     /// </summary>
-    public TerraformProperty<string>? FsxAdminPassword
+    public TerraformProperty<string> FsxAdminPassword
     {
-        get => GetProperty<TerraformProperty<string>>("fsx_admin_password");
-        set => this.WithProperty("fsx_admin_password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fsx_admin_password");
+        set => SetProperty("fsx_admin_password", value);
     }
 
     /// <summary>
     /// The ha_pairs attribute.
     /// </summary>
-    public TerraformProperty<double>? HaPairs
+    public TerraformProperty<double> HaPairs
     {
-        get => GetProperty<TerraformProperty<double>>("ha_pairs");
-        set => this.WithProperty("ha_pairs", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("ha_pairs");
+        set => SetProperty("ha_pairs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
+    public TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
-        set => this.WithProperty("kms_key_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
+        set => SetProperty("kms_key_id", value);
     }
 
     /// <summary>
@@ -163,35 +178,35 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredSubnetId is required")]
     public required TerraformProperty<string> PreferredSubnetId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("preferred_subnet_id");
-        set => this.WithProperty("preferred_subnet_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("preferred_subnet_id");
+        set => SetProperty("preferred_subnet_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? RouteTableIds
+    public HashSet<TerraformProperty<string>> RouteTableIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("route_table_ids");
-        set => this.WithProperty("route_table_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("route_table_ids");
+        set => SetProperty("route_table_ids", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>> SecurityGroupIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => this.WithProperty("security_group_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => SetProperty("security_group_ids", value);
     }
 
     /// <summary>
@@ -200,72 +215,72 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     public required TerraformProperty<double> StorageCapacity
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("storage_capacity");
-        set => this.WithProperty("storage_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity");
+        set => SetProperty("storage_capacity", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageType
+    public TerraformProperty<string> StorageType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_type");
-        set => this.WithProperty("storage_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
+        set => SetProperty("storage_type", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public List<TerraformProperty<string>>? SubnetIds
+    public List<TerraformProperty<string>> SubnetIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
-        set => this.WithProperty("subnet_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("subnet_ids");
+        set => SetProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? ThroughputCapacity
+    public TerraformProperty<double> ThroughputCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("throughput_capacity");
-        set => this.WithProperty("throughput_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput_capacity");
+        set => SetProperty("throughput_capacity", value);
     }
 
     /// <summary>
     /// The throughput_capacity_per_ha_pair attribute.
     /// </summary>
-    public TerraformProperty<double>? ThroughputCapacityPerHaPair
+    public TerraformProperty<double> ThroughputCapacityPerHaPair
     {
-        get => GetProperty<TerraformProperty<double>>("throughput_capacity_per_ha_pair");
-        set => this.WithProperty("throughput_capacity_per_ha_pair", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("throughput_capacity_per_ha_pair");
+        set => SetProperty("throughput_capacity_per_ha_pair", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? WeeklyMaintenanceStartTime
+    public TerraformProperty<string> WeeklyMaintenanceStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("weekly_maintenance_start_time");
-        set => this.WithProperty("weekly_maintenance_start_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("weekly_maintenance_start_time");
+        set => SetProperty("weekly_maintenance_start_time", value);
     }
 
     /// <summary>
@@ -275,8 +290,7 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
     public List<AwsFsxOntapFileSystemDiskIopsConfigurationBlock>? DiskIopsConfiguration
     {
-        get => GetProperty<List<AwsFsxOntapFileSystemDiskIopsConfigurationBlock>>("disk_iops_configuration");
-        set => this.WithProperty("disk_iops_configuration", value);
+        set => SetProperty("disk_iops_configuration", value);
     }
 
     /// <summary>
@@ -285,8 +299,7 @@ public class AwsFsxOntapFileSystem : TerraformResource
     /// </summary>
     public AwsFsxOntapFileSystemTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsFsxOntapFileSystemTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

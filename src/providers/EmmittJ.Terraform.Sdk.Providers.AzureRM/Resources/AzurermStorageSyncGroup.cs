@@ -13,8 +13,7 @@ public class AzurermStorageSyncGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermStorageSyncGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermStorageSyncGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,15 +46,18 @@ public class AzurermStorageSyncGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("storage_sync_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -66,8 +66,8 @@ public class AzurermStorageSyncGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -76,8 +76,8 @@ public class AzurermStorageSyncGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncId is required")]
     public required TerraformProperty<string> StorageSyncId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("storage_sync_id");
-        set => this.WithProperty("storage_sync_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_sync_id");
+        set => SetProperty("storage_sync_id", value);
     }
 
     /// <summary>
@@ -86,8 +86,7 @@ public class AzurermStorageSyncGroup : TerraformResource
     /// </summary>
     public AzurermStorageSyncGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermStorageSyncGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

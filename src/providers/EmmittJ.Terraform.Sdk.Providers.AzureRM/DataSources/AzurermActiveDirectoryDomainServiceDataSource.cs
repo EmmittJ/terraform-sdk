@@ -13,8 +13,7 @@ public class AzurermActiveDirectoryDomainServiceDataSourceTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,29 +30,33 @@ public class AzurermActiveDirectoryDomainServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("deployment_id");
-        this.WithOutput("domain_configuration_type");
-        this.WithOutput("domain_name");
-        this.WithOutput("filtered_sync_enabled");
-        this.WithOutput("location");
-        this.WithOutput("notifications");
-        this.WithOutput("replica_sets");
-        this.WithOutput("resource_id");
-        this.WithOutput("secure_ldap");
-        this.WithOutput("security");
-        this.WithOutput("sku");
-        this.WithOutput("sync_owner");
-        this.WithOutput("tenant_id");
-        this.WithOutput("version");
+        SetOutput("deployment_id");
+        SetOutput("domain_configuration_type");
+        SetOutput("domain_name");
+        SetOutput("filtered_sync_enabled");
+        SetOutput("location");
+        SetOutput("notifications");
+        SetOutput("replica_sets");
+        SetOutput("resource_id");
+        SetOutput("secure_ldap");
+        SetOutput("security");
+        SetOutput("sku");
+        SetOutput("sync_owner");
+        SetOutput("tenant_id");
+        SetOutput("version");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +65,8 @@ public class AzurermActiveDirectoryDomainServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,17 +75,17 @@ public class AzurermActiveDirectoryDomainServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -91,8 +94,7 @@ public class AzurermActiveDirectoryDomainServiceDataSource : TerraformDataSource
     /// </summary>
     public AzurermActiveDirectoryDomainServiceDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermActiveDirectoryDomainServiceDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

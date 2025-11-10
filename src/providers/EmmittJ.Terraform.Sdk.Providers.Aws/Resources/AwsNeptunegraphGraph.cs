@@ -13,8 +13,7 @@ public class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsNeptunegraphGraphVectorSearchConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? VectorSearchDimension
     {
-        get => GetProperty<TerraformProperty<double>>("vector_search_dimension");
-        set => WithProperty("vector_search_dimension", value);
+        set => SetProperty("vector_search_dimension", value);
     }
 
 }
@@ -66,19 +62,28 @@ public class AwsNeptunegraphGraph : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("endpoint");
-        this.WithOutput("id");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("endpoint");
+        SetOutput("id");
+        SetOutput("tags_all");
+        SetOutput("deletion_protection");
+        SetOutput("graph_name");
+        SetOutput("graph_name_prefix");
+        SetOutput("kms_key_identifier");
+        SetOutput("provisioned_memory");
+        SetOutput("public_connectivity");
+        SetOutput("region");
+        SetOutput("replica_count");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
@@ -88,28 +93,28 @@ public class AwsNeptunegraphGraph : TerraformResource
     /// 								If you don&#39;t specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
     /// 								followed by a combination of Stack Name and a UUID.
     /// </summary>
-    public TerraformProperty<string>? GraphName
+    public TerraformProperty<string> GraphName
     {
-        get => GetProperty<TerraformProperty<string>>("graph_name");
-        set => this.WithProperty("graph_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("graph_name");
+        set => SetProperty("graph_name", value);
     }
 
     /// <summary>
     /// Allows user to specify name prefix and have remainder of name automatically generated.
     /// </summary>
-    public TerraformProperty<string>? GraphNamePrefix
+    public TerraformProperty<string> GraphNamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("graph_name_prefix");
-        set => this.WithProperty("graph_name_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("graph_name_prefix");
+        set => SetProperty("graph_name_prefix", value);
     }
 
     /// <summary>
     /// Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyIdentifier
+    public TerraformProperty<string> KmsKeyIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_identifier");
-        set => this.WithProperty("kms_key_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
+        set => SetProperty("kms_key_identifier", value);
     }
 
     /// <summary>
@@ -118,8 +123,8 @@ public class AwsNeptunegraphGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedMemory is required")]
     public required TerraformProperty<double> ProvisionedMemory
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("provisioned_memory");
-        set => this.WithProperty("provisioned_memory", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("provisioned_memory");
+        set => SetProperty("provisioned_memory", value);
     }
 
     /// <summary>
@@ -130,37 +135,37 @@ public class AwsNeptunegraphGraph : TerraformResource
     /// 								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
     /// 								IP address that is reachable from the VPC.
     /// </summary>
-    public TerraformProperty<bool>? PublicConnectivity
+    public TerraformProperty<bool> PublicConnectivity
     {
-        get => GetProperty<TerraformProperty<bool>>("public_connectivity");
-        set => this.WithProperty("public_connectivity", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_connectivity");
+        set => SetProperty("public_connectivity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The number of replicas in other AZs.  Value must be between 0 and 2.
     /// </summary>
-    public TerraformProperty<double>? ReplicaCount
+    public TerraformProperty<double> ReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("replica_count");
-        set => this.WithProperty("replica_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("replica_count");
+        set => SetProperty("replica_count", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -169,8 +174,7 @@ public class AwsNeptunegraphGraph : TerraformResource
     /// </summary>
     public AwsNeptunegraphGraphTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNeptunegraphGraphTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -179,8 +183,7 @@ public class AwsNeptunegraphGraph : TerraformResource
     /// </summary>
     public List<AwsNeptunegraphGraphVectorSearchConfigurationBlock>? VectorSearchConfiguration
     {
-        get => GetProperty<List<AwsNeptunegraphGraphVectorSearchConfigurationBlock>>("vector_search_configuration");
-        set => this.WithProperty("vector_search_configuration", value);
+        set => SetProperty("vector_search_configuration", value);
     }
 
     /// <summary>

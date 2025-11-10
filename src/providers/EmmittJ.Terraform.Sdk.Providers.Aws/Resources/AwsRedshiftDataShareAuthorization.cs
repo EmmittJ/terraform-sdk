@@ -14,18 +14,22 @@ public class AwsRedshiftDataShareAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutputd");
-        this.WithOutputanaged_by");
-        this.WithOutputroducer_arn");
+        SetOutput("id");
+        SetOutput("managed_by");
+        SetOutput("producer_arn");
+        SetOutput("allow_writes");
+        SetOutput("consumer_identifier");
+        SetOutput("data_share_arn");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The allow_writes attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowWrites
+    public TerraformProperty<bool> AllowWrites
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_writes");
-        set => this.WithProperty("allow_writes", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("allow_writes");
+        set => SetProperty("allow_writes", value);
     }
 
     /// <summary>
@@ -34,8 +38,8 @@ public class AwsRedshiftDataShareAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerIdentifier is required")]
     public required TerraformProperty<string> ConsumerIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("consumer_identifier");
-        set => this.WithProperty("consumer_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("consumer_identifier");
+        set => SetProperty("consumer_identifier", value);
     }
 
     /// <summary>
@@ -44,17 +48,17 @@ public class AwsRedshiftDataShareAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareArn is required")]
     public required TerraformProperty<string> DataShareArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_share_arn");
-        set => this.WithProperty("data_share_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_share_arn");
+        set => SetProperty("data_share_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>

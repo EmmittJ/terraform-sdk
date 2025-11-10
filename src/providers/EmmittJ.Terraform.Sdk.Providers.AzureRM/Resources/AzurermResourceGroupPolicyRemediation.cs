@@ -13,8 +13,7 @@ public class AzurermResourceGroupPolicyRemediationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermResourceGroupPolicyRemediationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermResourceGroupPolicyRemediationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermResourceGroupPolicyRemediationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,33 +54,43 @@ public class AzurermResourceGroupPolicyRemediation : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("failure_percentage");
+        SetOutput("id");
+        SetOutput("location_filters");
+        SetOutput("name");
+        SetOutput("parallel_deployments");
+        SetOutput("policy_assignment_id");
+        SetOutput("policy_definition_reference_id");
+        SetOutput("resource_count");
+        SetOutput("resource_discovery_mode");
+        SetOutput("resource_group_id");
     }
 
     /// <summary>
     /// The failure_percentage attribute.
     /// </summary>
-    public TerraformProperty<double>? FailurePercentage
+    public TerraformProperty<double> FailurePercentage
     {
-        get => GetProperty<TerraformProperty<double>>("failure_percentage");
-        set => this.WithProperty("failure_percentage", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("failure_percentage");
+        set => SetProperty("failure_percentage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The location_filters attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? LocationFilters
+    public List<TerraformProperty<string>> LocationFilters
     {
-        get => GetProperty<List<TerraformProperty<string>>>("location_filters");
-        set => this.WithProperty("location_filters", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("location_filters");
+        set => SetProperty("location_filters", value);
     }
 
     /// <summary>
@@ -93,17 +99,17 @@ public class AzurermResourceGroupPolicyRemediation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The parallel_deployments attribute.
     /// </summary>
-    public TerraformProperty<double>? ParallelDeployments
+    public TerraformProperty<double> ParallelDeployments
     {
-        get => GetProperty<TerraformProperty<double>>("parallel_deployments");
-        set => this.WithProperty("parallel_deployments", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("parallel_deployments");
+        set => SetProperty("parallel_deployments", value);
     }
 
     /// <summary>
@@ -112,35 +118,35 @@ public class AzurermResourceGroupPolicyRemediation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
     public required TerraformProperty<string> PolicyAssignmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("policy_assignment_id");
-        set => this.WithProperty("policy_assignment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_assignment_id");
+        set => SetProperty("policy_assignment_id", value);
     }
 
     /// <summary>
     /// The policy_definition_reference_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyDefinitionReferenceId
+    public TerraformProperty<string> PolicyDefinitionReferenceId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_definition_reference_id");
-        set => this.WithProperty("policy_definition_reference_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("policy_definition_reference_id");
+        set => SetProperty("policy_definition_reference_id", value);
     }
 
     /// <summary>
     /// The resource_count attribute.
     /// </summary>
-    public TerraformProperty<double>? ResourceCount
+    public TerraformProperty<double> ResourceCount
     {
-        get => GetProperty<TerraformProperty<double>>("resource_count");
-        set => this.WithProperty("resource_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("resource_count");
+        set => SetProperty("resource_count", value);
     }
 
     /// <summary>
     /// The resource_discovery_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceDiscoveryMode
+    public TerraformProperty<string> ResourceDiscoveryMode
     {
-        get => GetProperty<TerraformProperty<string>>("resource_discovery_mode");
-        set => this.WithProperty("resource_discovery_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_discovery_mode");
+        set => SetProperty("resource_discovery_mode", value);
     }
 
     /// <summary>
@@ -149,8 +155,8 @@ public class AzurermResourceGroupPolicyRemediation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformProperty<string> ResourceGroupId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_id");
-        set => this.WithProperty("resource_group_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_id");
+        set => SetProperty("resource_group_id", value);
     }
 
     /// <summary>
@@ -159,8 +165,7 @@ public class AzurermResourceGroupPolicyRemediation : TerraformResource
     /// </summary>
     public AzurermResourceGroupPolicyRemediationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermResourceGroupPolicyRemediationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -22,8 +22,7 @@ public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformProperty<string> ExternalId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("external_id");
-        set => WithProperty("external_id", value);
+        set => SetProperty("external_id", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("principal");
-        set => WithProperty("principal", value);
+        set => SetProperty("principal", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AwsSecuritylakeSubscriberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AwsSecuritylakeSubscriberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AwsSecuritylakeSubscriberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,60 +80,65 @@ public class AwsSecuritylakeSubscriber : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
-        this.WithOutput("resource_share_arn");
-        this.WithOutput("resource_share_name");
-        this.WithOutput("role_arn");
-        this.WithOutput("s3_bucket_arn");
-        this.WithOutput("subscriber_endpoint");
-        this.WithOutput("subscriber_status");
-        this.WithOutput("tags_all");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("resource_share_arn");
+        SetOutput("resource_share_name");
+        SetOutput("role_arn");
+        SetOutput("s3_bucket_arn");
+        SetOutput("subscriber_endpoint");
+        SetOutput("subscriber_status");
+        SetOutput("tags_all");
+        SetOutput("access_type");
+        SetOutput("region");
+        SetOutput("subscriber_description");
+        SetOutput("subscriber_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The access_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessType
+    public TerraformProperty<string> AccessType
     {
-        get => GetProperty<TerraformProperty<string>>("access_type");
-        set => this.WithProperty("access_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_type");
+        set => SetProperty("access_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The subscriber_description attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriberDescription
+    public TerraformProperty<string> SubscriberDescription
     {
-        get => GetProperty<TerraformProperty<string>>("subscriber_description");
-        set => this.WithProperty("subscriber_description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscriber_description");
+        set => SetProperty("subscriber_description", value);
     }
 
     /// <summary>
     /// The subscriber_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriberName
+    public TerraformProperty<string> SubscriberName
     {
-        get => GetProperty<TerraformProperty<string>>("subscriber_name");
-        set => this.WithProperty("subscriber_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("subscriber_name");
+        set => SetProperty("subscriber_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -147,8 +147,7 @@ public class AwsSecuritylakeSubscriber : TerraformResource
     /// </summary>
     public HashSet<AwsSecuritylakeSubscriberSourceBlock>? Source
     {
-        get => GetProperty<HashSet<AwsSecuritylakeSubscriberSourceBlock>>("source");
-        set => this.WithProperty("source", value);
+        set => SetProperty("source", value);
     }
 
     /// <summary>
@@ -157,8 +156,7 @@ public class AwsSecuritylakeSubscriber : TerraformResource
     /// </summary>
     public List<AwsSecuritylakeSubscriberSubscriberIdentityBlock>? SubscriberIdentity
     {
-        get => GetProperty<List<AwsSecuritylakeSubscriberSubscriberIdentityBlock>>("subscriber_identity");
-        set => this.WithProperty("subscriber_identity", value);
+        set => SetProperty("subscriber_identity", value);
     }
 
     /// <summary>
@@ -167,8 +165,7 @@ public class AwsSecuritylakeSubscriber : TerraformResource
     /// </summary>
     public AwsSecuritylakeSubscriberTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsSecuritylakeSubscriberTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,7 +14,10 @@ public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("keys");
+        SetOutput("keys");
+        SetOutput("filter");
+        SetOutput("id");
+        SetOutput("key_ring");
     }
 
     /// <summary>
@@ -28,19 +31,19 @@ public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    public TerraformProperty<string>? Filter
+    public TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
-        set => this.WithProperty("filter", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("filter");
+        set => SetProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +52,8 @@ public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformProperty<string> KeyRing
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_ring");
-        set => this.WithProperty("key_ring", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_ring");
+        set => SetProperty("key_ring", value);
     }
 
     /// <summary>

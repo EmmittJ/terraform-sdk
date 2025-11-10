@@ -14,8 +14,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -31,8 +30,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     /// </summary>
     public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
-        set => WithProperty("disabled", value);
+        set => SetProperty("disabled", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeouts
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeouts
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeouts
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -85,8 +80,13 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration : Terra
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("id");
+        SetOutput("arn");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("region");
+        SetOutput("resource_access_role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
@@ -95,17 +95,17 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -114,37 +114,37 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceAccessRoleArn is required")]
     public required TerraformProperty<string> ResourceAccessRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_access_role_arn");
-        set => this.WithProperty("resource_access_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_access_role_arn");
+        set => SetProperty("resource_access_role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for elements.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Elements is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Elements block(s) required")]
     public List<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElementsBlock>? Elements
     {
-        get => GetProperty<List<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElementsBlock>>("elements");
-        set => this.WithProperty("elements", value);
+        set => SetProperty("elements", value);
     }
 
     /// <summary>
@@ -154,8 +154,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration : Terra
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RealTimeAlertConfiguration block(s) allowed")]
     public List<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTimeAlertConfigurationBlock>? RealTimeAlertConfiguration
     {
-        get => GetProperty<List<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTimeAlertConfigurationBlock>>("real_time_alert_configuration");
-        set => this.WithProperty("real_time_alert_configuration", value);
+        set => SetProperty("real_time_alert_configuration", value);
     }
 
     /// <summary>
@@ -164,8 +163,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration : Terra
     /// </summary>
     public AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

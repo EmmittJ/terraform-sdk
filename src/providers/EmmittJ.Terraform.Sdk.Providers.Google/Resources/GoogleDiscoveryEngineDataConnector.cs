@@ -17,8 +17,7 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DataStore
     {
-        get => GetProperty<TerraformProperty<string>>("data_store");
-        set => WithProperty("data_store", value);
+        set => SetProperty("data_store", value);
     }
 
     /// <summary>
@@ -29,8 +28,7 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EntityName
     {
-        get => GetProperty<TerraformProperty<string>>("entity_name");
-        set => WithProperty("entity_name", value);
+        set => SetProperty("entity_name", value);
     }
 
     /// <summary>
@@ -45,8 +43,7 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? KeyPropertyMappings
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("key_property_mappings");
-        set => WithProperty("key_property_mappings", value);
+        set => SetProperty("key_property_mappings", value);
     }
 
     /// <summary>
@@ -54,8 +51,7 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Params
     {
-        get => GetProperty<TerraformProperty<string>>("params");
-        set => WithProperty("params", value);
+        set => SetProperty("params", value);
     }
 
 }
@@ -71,8 +67,7 @@ public class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -80,8 +75,7 @@ public class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -89,8 +83,7 @@ public class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -107,28 +100,44 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("action_state");
-        this.WithOutput("blocking_reasons");
-        this.WithOutput("connector_type");
-        this.WithOutput("create_time");
-        this.WithOutput("errors");
-        this.WithOutput("last_sync_time");
-        this.WithOutput("latest_pause_time");
-        this.WithOutput("name");
-        this.WithOutput("private_connectivity_project_id");
-        this.WithOutput("realtime_state");
-        this.WithOutput("state");
-        this.WithOutput("static_ip_addresses");
-        this.WithOutput("update_time");
+        SetOutput("action_state");
+        SetOutput("blocking_reasons");
+        SetOutput("connector_type");
+        SetOutput("create_time");
+        SetOutput("errors");
+        SetOutput("last_sync_time");
+        SetOutput("latest_pause_time");
+        SetOutput("name");
+        SetOutput("private_connectivity_project_id");
+        SetOutput("realtime_state");
+        SetOutput("state");
+        SetOutput("static_ip_addresses");
+        SetOutput("update_time");
+        SetOutput("auto_run_disabled");
+        SetOutput("collection_display_name");
+        SetOutput("collection_id");
+        SetOutput("connector_modes");
+        SetOutput("data_source");
+        SetOutput("id");
+        SetOutput("incremental_refresh_interval");
+        SetOutput("incremental_sync_disabled");
+        SetOutput("json_params");
+        SetOutput("kms_key_name");
+        SetOutput("location");
+        SetOutput("params");
+        SetOutput("project");
+        SetOutput("refresh_interval");
+        SetOutput("static_ip_enabled");
+        SetOutput("sync_mode");
     }
 
     /// <summary>
     /// Indicates whether full syncs are paused for this connector
     /// </summary>
-    public TerraformProperty<bool>? AutoRunDisabled
+    public TerraformProperty<bool> AutoRunDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_run_disabled");
-        set => this.WithProperty("auto_run_disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_run_disabled");
+        set => SetProperty("auto_run_disabled", value);
     }
 
     /// <summary>
@@ -139,8 +148,8 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionDisplayName is required")]
     public required TerraformProperty<string> CollectionDisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection_display_name");
-        set => this.WithProperty("collection_display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collection_display_name");
+        set => SetProperty("collection_display_name", value);
     }
 
     /// <summary>
@@ -155,8 +164,8 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
-        set => this.WithProperty("collection_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("collection_id");
+        set => SetProperty("collection_id", value);
     }
 
     /// <summary>
@@ -164,10 +173,10 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// &#39;DATA_INGESTION&#39;, &#39;ACTIONS&#39;, &#39;FEDERATED&#39;
     /// &#39;EUA&#39;, &#39;FEDERATED_AND_EUA&#39;.
     /// </summary>
-    public List<TerraformProperty<string>>? ConnectorModes
+    public List<TerraformProperty<string>> ConnectorModes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("connector_modes");
-        set => this.WithProperty("connector_modes", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("connector_modes");
+        set => SetProperty("connector_modes", value);
     }
 
     /// <summary>
@@ -177,17 +186,17 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformProperty<string> DataSource
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_source");
-        set => this.WithProperty("data_source", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_source");
+        set => SetProperty("data_source", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -198,28 +207,28 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// set to the same value as the incremental refresh interval, incremental
     /// sync will be disabled.
     /// </summary>
-    public TerraformProperty<string>? IncrementalRefreshInterval
+    public TerraformProperty<string> IncrementalRefreshInterval
     {
-        get => GetProperty<TerraformProperty<string>>("incremental_refresh_interval");
-        set => this.WithProperty("incremental_refresh_interval", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("incremental_refresh_interval");
+        set => SetProperty("incremental_refresh_interval", value);
     }
 
     /// <summary>
     /// Indicates whether incremental syncs are paused for this connector.
     /// </summary>
-    public TerraformProperty<bool>? IncrementalSyncDisabled
+    public TerraformProperty<bool> IncrementalSyncDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("incremental_sync_disabled");
-        set => this.WithProperty("incremental_sync_disabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("incremental_sync_disabled");
+        set => SetProperty("incremental_sync_disabled", value);
     }
 
     /// <summary>
     /// Params needed to access the source in the format of json string.
     /// </summary>
-    public TerraformProperty<string>? JsonParams
+    public TerraformProperty<string> JsonParams
     {
-        get => GetProperty<TerraformProperty<string>>("json_params");
-        set => this.WithProperty("json_params", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("json_params");
+        set => SetProperty("json_params", value);
     }
 
     /// <summary>
@@ -229,10 +238,10 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// If this field is set and processed successfully, the DataStores created by
     /// this connector will be protected by the KMS key.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyName
+    public TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
-        set => this.WithProperty("kms_key_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
+        set => SetProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -242,26 +251,26 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// Params needed to access the source in the format of String-to-String (Key, Value) pairs.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Params
+    public Dictionary<string, TerraformProperty<string>> Params
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("params");
-        set => this.WithProperty("params", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("params");
+        set => SetProperty("params", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -274,27 +283,27 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshInterval is required")]
     public required TerraformProperty<string> RefreshInterval
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("refresh_interval");
-        set => this.WithProperty("refresh_interval", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("refresh_interval");
+        set => SetProperty("refresh_interval", value);
     }
 
     /// <summary>
     /// Whether customer has enabled static IP addresses for this connector.
     /// </summary>
-    public TerraformProperty<bool>? StaticIpEnabled
+    public TerraformProperty<bool> StaticIpEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("static_ip_enabled");
-        set => this.WithProperty("static_ip_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("static_ip_enabled");
+        set => SetProperty("static_ip_enabled", value);
     }
 
     /// <summary>
     /// The data synchronization mode supported by the data connector. The possible value can be:
     /// &#39;PERIODIC&#39;, &#39;STREAMING&#39;.
     /// </summary>
-    public TerraformProperty<string>? SyncMode
+    public TerraformProperty<string> SyncMode
     {
-        get => GetProperty<TerraformProperty<string>>("sync_mode");
-        set => this.WithProperty("sync_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sync_mode");
+        set => SetProperty("sync_mode", value);
     }
 
     /// <summary>
@@ -303,8 +312,7 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// </summary>
     public List<GoogleDiscoveryEngineDataConnectorEntitiesBlock>? Entities
     {
-        get => GetProperty<List<GoogleDiscoveryEngineDataConnectorEntitiesBlock>>("entities");
-        set => this.WithProperty("entities", value);
+        set => SetProperty("entities", value);
     }
 
     /// <summary>
@@ -313,8 +321,7 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// </summary>
     public GoogleDiscoveryEngineDataConnectorTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleDiscoveryEngineDataConnectorTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

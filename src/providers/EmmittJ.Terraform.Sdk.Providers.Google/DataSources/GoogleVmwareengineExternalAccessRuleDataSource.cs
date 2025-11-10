@@ -14,27 +14,30 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.WithOutput("action");
-        this.WithOutput("create_time");
-        this.WithOutput("description");
-        this.WithOutput("destination_ip_ranges");
-        this.WithOutput("destination_ports");
-        this.WithOutput("ip_protocol");
-        this.WithOutput("priority");
-        this.WithOutput("source_ip_ranges");
-        this.WithOutput("source_ports");
-        this.WithOutput("state");
-        this.WithOutput("uid");
-        this.WithOutput("update_time");
+        SetOutput("action");
+        SetOutput("create_time");
+        SetOutput("description");
+        SetOutput("destination_ip_ranges");
+        SetOutput("destination_ports");
+        SetOutput("ip_protocol");
+        SetOutput("priority");
+        SetOutput("source_ip_ranges");
+        SetOutput("source_ports");
+        SetOutput("state");
+        SetOutput("uid");
+        SetOutput("update_time");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,8 +46,8 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -55,8 +58,8 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("parent");
-        set => this.WithProperty("parent", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("parent");
+        set => SetProperty("parent", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,12 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("domain_service_id");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("password");
+        SetOutput("trusted_domain_dns_ips");
+        SetOutput("trusted_domain_fqdn");
     }
 
     /// <summary>
@@ -66,17 +68,17 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
     public required TerraformProperty<string> DomainServiceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_service_id");
-        set => this.WithProperty("domain_service_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_service_id");
+        set => SetProperty("domain_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -85,8 +87,8 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -95,18 +97,18 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("password");
-        set => this.WithProperty("password", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("password");
+        set => SetProperty("password", value);
     }
 
     /// <summary>
     /// The trusted_domain_dns_ips attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainDnsIps is required")]
-    public List<TerraformProperty<string>>? TrustedDomainDnsIps
+    public List<TerraformProperty<string>> TrustedDomainDnsIps
     {
-        get => GetProperty<List<TerraformProperty<string>>>("trusted_domain_dns_ips");
-        set => this.WithProperty("trusted_domain_dns_ips", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("trusted_domain_dns_ips");
+        set => SetProperty("trusted_domain_dns_ips", value);
     }
 
     /// <summary>
@@ -115,8 +117,8 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainFqdn is required")]
     public required TerraformProperty<string> TrustedDomainFqdn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trusted_domain_fqdn");
-        set => this.WithProperty("trusted_domain_fqdn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("trusted_domain_fqdn");
+        set => SetProperty("trusted_domain_fqdn", value);
     }
 
     /// <summary>
@@ -125,8 +127,7 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     /// </summary>
     public AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

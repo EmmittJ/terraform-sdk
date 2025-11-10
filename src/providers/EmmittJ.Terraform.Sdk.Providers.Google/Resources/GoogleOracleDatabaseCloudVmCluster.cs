@@ -13,8 +13,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
-        set => WithProperty("cluster_name", value);
+        set => SetProperty("cluster_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CompartmentId
     {
-        get => GetProperty<TerraformProperty<string>>("compartment_id");
-        set => WithProperty("compartment_id", value);
+        set => SetProperty("compartment_id", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformProperty<double> CpuCoreCount
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("cpu_core_count");
-        set => WithProperty("cpu_core_count", value);
+        set => SetProperty("cpu_core_count", value);
     }
 
     /// <summary>
@@ -41,8 +38,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DataStorageSizeTb
     {
-        get => GetProperty<TerraformProperty<double>>("data_storage_size_tb");
-        set => WithProperty("data_storage_size_tb", value);
+        set => SetProperty("data_storage_size_tb", value);
     }
 
     /// <summary>
@@ -50,8 +46,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? DbNodeStorageSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("db_node_storage_size_gb");
-        set => WithProperty("db_node_storage_size_gb", value);
+        set => SetProperty("db_node_storage_size_gb", value);
     }
 
     /// <summary>
@@ -59,8 +54,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? DbServerOcids
     {
-        get => GetProperty<List<TerraformProperty<string>>>("db_server_ocids");
-        set => WithProperty("db_server_ocids", value);
+        set => SetProperty("db_server_ocids", value);
     }
 
     /// <summary>
@@ -72,8 +66,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DiskRedundancy
     {
-        get => GetProperty<TerraformProperty<string>>("disk_redundancy");
-        set => WithProperty("disk_redundancy", value);
+        set => SetProperty("disk_redundancy", value);
     }
 
     /// <summary>
@@ -81,8 +74,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? DnsListenerIp
     {
-        get => GetProperty<TerraformProperty<string>>("dns_listener_ip");
-        set => WithProperty("dns_listener_ip", value);
+        set => SetProperty("dns_listener_ip", value);
     }
 
     /// <summary>
@@ -91,8 +83,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
-        set => WithProperty("domain", value);
+        set => SetProperty("domain", value);
     }
 
     /// <summary>
@@ -100,8 +91,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? GiVersion
     {
-        get => GetProperty<TerraformProperty<string>>("gi_version");
-        set => WithProperty("gi_version", value);
+        set => SetProperty("gi_version", value);
     }
 
     /// <summary>
@@ -111,8 +101,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
-        set => WithProperty("hostname", value);
+        set => SetProperty("hostname", value);
     }
 
     /// <summary>
@@ -120,8 +109,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? HostnamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("hostname_prefix");
-        set => WithProperty("hostname_prefix", value);
+        set => SetProperty("hostname_prefix", value);
     }
 
     /// <summary>
@@ -134,8 +122,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformProperty<string> LicenseType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("license_type");
-        set => WithProperty("license_type", value);
+        set => SetProperty("license_type", value);
     }
 
     /// <summary>
@@ -143,8 +130,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? LocalBackupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_backup_enabled");
-        set => WithProperty("local_backup_enabled", value);
+        set => SetProperty("local_backup_enabled", value);
     }
 
     /// <summary>
@@ -152,8 +138,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MemorySizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("memory_size_gb");
-        set => WithProperty("memory_size_gb", value);
+        set => SetProperty("memory_size_gb", value);
     }
 
     /// <summary>
@@ -161,8 +146,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
-        set => WithProperty("node_count", value);
+        set => SetProperty("node_count", value);
     }
 
     /// <summary>
@@ -170,8 +154,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? OciUrl
     {
-        get => GetProperty<TerraformProperty<string>>("oci_url");
-        set => WithProperty("oci_url", value);
+        set => SetProperty("oci_url", value);
     }
 
     /// <summary>
@@ -179,8 +162,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Ocid
     {
-        get => GetProperty<TerraformProperty<string>>("ocid");
-        set => WithProperty("ocid", value);
+        set => SetProperty("ocid", value);
     }
 
     /// <summary>
@@ -188,8 +170,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? OcpuCount
     {
-        get => GetProperty<TerraformProperty<double>>("ocpu_count");
-        set => WithProperty("ocpu_count", value);
+        set => SetProperty("ocpu_count", value);
     }
 
     /// <summary>
@@ -198,8 +179,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScanDns
     {
-        get => GetProperty<TerraformProperty<string>>("scan_dns");
-        set => WithProperty("scan_dns", value);
+        set => SetProperty("scan_dns", value);
     }
 
     /// <summary>
@@ -207,8 +187,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ScanDnsRecordId
     {
-        get => GetProperty<TerraformProperty<string>>("scan_dns_record_id");
-        set => WithProperty("scan_dns_record_id", value);
+        set => SetProperty("scan_dns_record_id", value);
     }
 
     /// <summary>
@@ -216,8 +195,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? ScanIpIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("scan_ip_ids");
-        set => WithProperty("scan_ip_ids", value);
+        set => SetProperty("scan_ip_ids", value);
     }
 
     /// <summary>
@@ -225,8 +203,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ScanListenerPortTcp
     {
-        get => GetProperty<TerraformProperty<double>>("scan_listener_port_tcp");
-        set => WithProperty("scan_listener_port_tcp", value);
+        set => SetProperty("scan_listener_port_tcp", value);
     }
 
     /// <summary>
@@ -234,8 +211,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ScanListenerPortTcpSsl
     {
-        get => GetProperty<TerraformProperty<double>>("scan_listener_port_tcp_ssl");
-        set => WithProperty("scan_listener_port_tcp_ssl", value);
+        set => SetProperty("scan_listener_port_tcp_ssl", value);
     }
 
     /// <summary>
@@ -243,8 +219,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Shape
     {
-        get => GetProperty<TerraformProperty<string>>("shape");
-        set => WithProperty("shape", value);
+        set => SetProperty("shape", value);
     }
 
     /// <summary>
@@ -252,8 +227,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? SparseDiskgroupEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sparse_diskgroup_enabled");
-        set => WithProperty("sparse_diskgroup_enabled", value);
+        set => SetProperty("sparse_diskgroup_enabled", value);
     }
 
     /// <summary>
@@ -261,8 +235,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? SshPublicKeys
     {
-        get => GetProperty<List<TerraformProperty<string>>>("ssh_public_keys");
-        set => WithProperty("ssh_public_keys", value);
+        set => SetProperty("ssh_public_keys", value);
     }
 
     /// <summary>
@@ -279,8 +252,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
-        set => WithProperty("state", value);
+        set => SetProperty("state", value);
     }
 
     /// <summary>
@@ -288,8 +260,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? StorageSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("storage_size_gb");
-        set => WithProperty("storage_size_gb", value);
+        set => SetProperty("storage_size_gb", value);
     }
 
     /// <summary>
@@ -297,8 +268,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SystemVersion
     {
-        get => GetProperty<TerraformProperty<string>>("system_version");
-        set => WithProperty("system_version", value);
+        set => SetProperty("system_version", value);
     }
 
 }
@@ -314,8 +284,7 @@ public class GoogleOracleDatabaseCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -323,8 +292,7 @@ public class GoogleOracleDatabaseCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -332,8 +300,7 @@ public class GoogleOracleDatabaseCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -351,11 +318,25 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("effective_labels");
-        this.WithOutput("gcp_oracle_zone");
-        this.WithOutput("name");
-        this.WithOutput("terraform_labels");
+        SetOutput("create_time");
+        SetOutput("effective_labels");
+        SetOutput("gcp_oracle_zone");
+        SetOutput("name");
+        SetOutput("terraform_labels");
+        SetOutput("backup_odb_subnet");
+        SetOutput("backup_subnet_cidr");
+        SetOutput("cidr");
+        SetOutput("cloud_vm_cluster_id");
+        SetOutput("deletion_protection");
+        SetOutput("display_name");
+        SetOutput("exadata_infrastructure");
+        SetOutput("id");
+        SetOutput("labels");
+        SetOutput("location");
+        SetOutput("network");
+        SetOutput("odb_network");
+        SetOutput("odb_subnet");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -363,28 +344,28 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformProperty<string>? BackupOdbSubnet
+    public TerraformProperty<string> BackupOdbSubnet
     {
-        get => GetProperty<TerraformProperty<string>>("backup_odb_subnet");
-        set => this.WithProperty("backup_odb_subnet", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_odb_subnet");
+        set => SetProperty("backup_odb_subnet", value);
     }
 
     /// <summary>
     /// CIDR range of the backup subnet.
     /// </summary>
-    public TerraformProperty<string>? BackupSubnetCidr
+    public TerraformProperty<string> BackupSubnetCidr
     {
-        get => GetProperty<TerraformProperty<string>>("backup_subnet_cidr");
-        set => this.WithProperty("backup_subnet_cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("backup_subnet_cidr");
+        set => SetProperty("backup_subnet_cidr", value);
     }
 
     /// <summary>
     /// Network settings. CIDR to use for cluster IP allocation.
     /// </summary>
-    public TerraformProperty<string>? Cidr
+    public TerraformProperty<string> Cidr
     {
-        get => GetProperty<TerraformProperty<string>>("cidr");
-        set => this.WithProperty("cidr", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cidr");
+        set => SetProperty("cidr", value);
     }
 
     /// <summary>
@@ -396,26 +377,26 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformProperty<string> CloudVmClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
-        set => this.WithProperty("cloud_vm_cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cloud_vm_cluster_id");
+        set => SetProperty("cloud_vm_cluster_id", value);
     }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster. Deleting this cluster via terraform destroy or terraform apply will only succeed if this field is false in the Terraform state.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtection
+    public TerraformProperty<bool> DeletionProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
-        set => this.WithProperty("deletion_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
+        set => SetProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -426,17 +407,17 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExadataInfrastructure is required")]
     public required TerraformProperty<string> ExadataInfrastructure
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("exadata_infrastructure");
-        set => this.WithProperty("exadata_infrastructure", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("exadata_infrastructure");
+        set => SetProperty("exadata_infrastructure", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -445,10 +426,10 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
+    public Dictionary<string, TerraformProperty<string>> Labels
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => this.WithProperty("labels", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => SetProperty("labels", value);
     }
 
     /// <summary>
@@ -457,18 +438,18 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The name of the VPC network.
     /// Format: projects/{project}/global/networks/{network}
     /// </summary>
-    public TerraformProperty<string>? Network
+    public TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
-        set => this.WithProperty("network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("network");
+        set => SetProperty("network", value);
     }
 
     /// <summary>
@@ -478,10 +459,10 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    public TerraformProperty<string>? OdbNetwork
+    public TerraformProperty<string> OdbNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("odb_network");
-        set => this.WithProperty("odb_network", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("odb_network");
+        set => SetProperty("odb_network", value);
     }
 
     /// <summary>
@@ -489,19 +470,19 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformProperty<string>? OdbSubnet
+    public TerraformProperty<string> OdbSubnet
     {
-        get => GetProperty<TerraformProperty<string>>("odb_subnet");
-        set => this.WithProperty("odb_subnet", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("odb_subnet");
+        set => SetProperty("odb_subnet", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -511,8 +492,7 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     public List<GoogleOracleDatabaseCloudVmClusterPropertiesBlock>? Properties
     {
-        get => GetProperty<List<GoogleOracleDatabaseCloudVmClusterPropertiesBlock>>("properties");
-        set => this.WithProperty("properties", value);
+        set => SetProperty("properties", value);
     }
 
     /// <summary>
@@ -521,8 +501,7 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// </summary>
     public GoogleOracleDatabaseCloudVmClusterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleOracleDatabaseCloudVmClusterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermLogicAppIntegrationAccountAssemblyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogicAppIntegrationAccountAssemblyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogicAppIntegrationAccountAssemblyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogicAppIntegrationAccountAssemblyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,15 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("assembly_name");
+        SetOutput("assembly_version");
+        SetOutput("content");
+        SetOutput("content_link_uri");
+        SetOutput("id");
+        SetOutput("integration_account_name");
+        SetOutput("metadata");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -66,44 +71,44 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssemblyName is required")]
     public required TerraformProperty<string> AssemblyName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("assembly_name");
-        set => this.WithProperty("assembly_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("assembly_name");
+        set => SetProperty("assembly_name", value);
     }
 
     /// <summary>
     /// The assembly_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AssemblyVersion
+    public TerraformProperty<string> AssemblyVersion
     {
-        get => GetProperty<TerraformProperty<string>>("assembly_version");
-        set => this.WithProperty("assembly_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("assembly_version");
+        set => SetProperty("assembly_version", value);
     }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformProperty<string>? Content
+    public TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
-        set => this.WithProperty("content", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content");
+        set => SetProperty("content", value);
     }
 
     /// <summary>
     /// The content_link_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentLinkUri
+    public TerraformProperty<string> ContentLinkUri
     {
-        get => GetProperty<TerraformProperty<string>>("content_link_uri");
-        set => this.WithProperty("content_link_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("content_link_uri");
+        set => SetProperty("content_link_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -112,17 +117,17 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     public required TerraformProperty<string> IntegrationAccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("integration_account_name");
-        set => this.WithProperty("integration_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("integration_account_name");
+        set => SetProperty("integration_account_name", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Metadata
+    public Dictionary<string, TerraformProperty<string>> Metadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => this.WithProperty("metadata", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => SetProperty("metadata", value);
     }
 
     /// <summary>
@@ -131,8 +136,8 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -141,8 +146,8 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -151,8 +156,7 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     /// </summary>
     public AzurermLogicAppIntegrationAccountAssemblyTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogicAppIntegrationAccountAssemblyTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

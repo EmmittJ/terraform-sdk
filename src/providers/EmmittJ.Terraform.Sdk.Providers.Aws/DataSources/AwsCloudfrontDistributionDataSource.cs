@@ -14,17 +14,19 @@ public class AwsCloudfrontDistributionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("aliases");
-        this.WithOutput("anycast_ip_list_id");
-        this.WithOutput("arn");
-        this.WithOutput("domain_name");
-        this.WithOutput("enabled");
-        this.WithOutput("etag");
-        this.WithOutput("hosted_zone_id");
-        this.WithOutput("in_progress_validation_batches");
-        this.WithOutput("last_modified_time");
-        this.WithOutput("status");
-        this.WithOutput("web_acl_id");
+        SetOutput("aliases");
+        SetOutput("anycast_ip_list_id");
+        SetOutput("arn");
+        SetOutput("domain_name");
+        SetOutput("enabled");
+        SetOutput("etag");
+        SetOutput("hosted_zone_id");
+        SetOutput("in_progress_validation_batches");
+        SetOutput("last_modified_time");
+        SetOutput("status");
+        SetOutput("web_acl_id");
+        SetOutput("id");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -33,17 +35,17 @@ public class AwsCloudfrontDistributionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

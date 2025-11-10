@@ -13,8 +13,7 @@ public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : Te
     /// </summary>
     public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : Te
     /// </summary>
     public TerraformProperty<string>? StringValue
     {
-        get => GetProperty<TerraformProperty<string>>("string_value");
-        set => WithProperty("string_value", value);
+        set => SetProperty("string_value", value);
     }
 
 }
@@ -40,17 +38,20 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("parameter_object");
-        this.WithOutput("pipeline_object");
+        SetOutput("parameter_object");
+        SetOutput("pipeline_object");
+        SetOutput("id");
+        SetOutput("pipeline_id");
+        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -59,17 +60,17 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     public required TerraformProperty<string> PipelineId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_id");
-        set => this.WithProperty("pipeline_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_id");
+        set => SetProperty("pipeline_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -78,8 +79,7 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>? ParameterValue
     {
-        get => GetProperty<HashSet<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>>("parameter_value");
-        set => this.WithProperty("parameter_value", value);
+        set => SetProperty("parameter_value", value);
     }
 
     /// <summary>

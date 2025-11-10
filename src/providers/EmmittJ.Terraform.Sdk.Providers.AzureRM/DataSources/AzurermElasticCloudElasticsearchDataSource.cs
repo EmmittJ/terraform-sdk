@@ -13,8 +13,7 @@ public class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBloc
     /// </summary>
     public List<TerraformProperty<object>>? FilteringTag
     {
-        get => GetProperty<List<TerraformProperty<object>>>("filtering_tag");
-        set => WithProperty("filtering_tag", value);
+        set => SetProperty("filtering_tag", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? SendActivityLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("send_activity_logs");
-        set => WithProperty("send_activity_logs", value);
+        set => SetProperty("send_activity_logs", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? SendAzureadLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("send_azuread_logs");
-        set => WithProperty("send_azuread_logs", value);
+        set => SetProperty("send_azuread_logs", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBloc
     /// </summary>
     public TerraformProperty<bool>? SendSubscriptionLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("send_subscription_logs");
-        set => WithProperty("send_subscription_logs", value);
+        set => SetProperty("send_subscription_logs", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -75,26 +70,29 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("elastic_cloud_deployment_id");
-        this.WithOutput("elastic_cloud_email_address");
-        this.WithOutput("elastic_cloud_sso_default_url");
-        this.WithOutput("elastic_cloud_user_id");
-        this.WithOutput("elasticsearch_service_url");
-        this.WithOutput("kibana_service_url");
-        this.WithOutput("kibana_sso_uri");
-        this.WithOutput("location");
-        this.WithOutput("monitoring_enabled");
-        this.WithOutput("sku_name");
-        this.WithOutput("tags");
+        SetOutput("elastic_cloud_deployment_id");
+        SetOutput("elastic_cloud_email_address");
+        SetOutput("elastic_cloud_sso_default_url");
+        SetOutput("elastic_cloud_user_id");
+        SetOutput("elasticsearch_service_url");
+        SetOutput("kibana_service_url");
+        SetOutput("kibana_sso_uri");
+        SetOutput("location");
+        SetOutput("monitoring_enabled");
+        SetOutput("sku_name");
+        SetOutput("tags");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -103,8 +101,8 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -113,8 +111,8 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -123,8 +121,7 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     /// </summary>
     public List<AzurermElasticCloudElasticsearchDataSourceLogsBlock>? Logs
     {
-        get => GetProperty<List<AzurermElasticCloudElasticsearchDataSourceLogsBlock>>("logs");
-        set => this.WithProperty("logs", value);
+        set => SetProperty("logs", value);
     }
 
     /// <summary>
@@ -133,8 +130,7 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     /// </summary>
     public AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

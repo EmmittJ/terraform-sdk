@@ -13,8 +13,7 @@ public class AwsNetworkmanagerTransitGatewayRegistrationTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkmanagerTransitGatewayRegistrationTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,6 +38,9 @@ public class AwsNetworkmanagerTransitGatewayRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("global_network_id");
+        SetOutput("id");
+        SetOutput("transit_gateway_arn");
     }
 
     /// <summary>
@@ -48,17 +49,17 @@ public class AwsNetworkmanagerTransitGatewayRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
-        set => this.WithProperty("global_network_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
+        set => SetProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,8 +68,8 @@ public class AwsNetworkmanagerTransitGatewayRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayArn is required")]
     public required TerraformProperty<string> TransitGatewayArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_arn");
-        set => this.WithProperty("transit_gateway_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_arn");
+        set => SetProperty("transit_gateway_arn", value);
     }
 
     /// <summary>
@@ -77,8 +78,7 @@ public class AwsNetworkmanagerTransitGatewayRegistration : TerraformResource
     /// </summary>
     public AwsNetworkmanagerTransitGatewayRegistrationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkmanagerTransitGatewayRegistrationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

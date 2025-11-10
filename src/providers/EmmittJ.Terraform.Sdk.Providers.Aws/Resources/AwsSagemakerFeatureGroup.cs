@@ -13,8 +13,7 @@ public class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CollectionType
     {
-        get => GetProperty<TerraformProperty<string>>("collection_type");
-        set => WithProperty("collection_type", value);
+        set => SetProperty("collection_type", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FeatureName
     {
-        get => GetProperty<TerraformProperty<string>>("feature_name");
-        set => WithProperty("feature_name", value);
+        set => SetProperty("feature_name", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? FeatureType
     {
-        get => GetProperty<TerraformProperty<string>>("feature_type");
-        set => WithProperty("feature_type", value);
+        set => SetProperty("feature_type", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DisableGlueTableCreation
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_glue_table_creation");
-        set => WithProperty("disable_glue_table_creation", value);
+        set => SetProperty("disable_glue_table_creation", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TableFormat
     {
-        get => GetProperty<TerraformProperty<string>>("table_format");
-        set => WithProperty("table_format", value);
+        set => SetProperty("table_format", value);
     }
 
 }
@@ -74,8 +69,7 @@ public class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableOnlineStore
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_online_store");
-        set => WithProperty("enable_online_store", value);
+        set => SetProperty("enable_online_store", value);
     }
 
     /// <summary>
@@ -83,8 +77,7 @@ public class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StorageType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_type");
-        set => WithProperty("storage_type", value);
+        set => SetProperty("storage_type", value);
     }
 
 }
@@ -100,8 +93,7 @@ public class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ProvisionedReadCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_read_capacity_units");
-        set => WithProperty("provisioned_read_capacity_units", value);
+        set => SetProperty("provisioned_read_capacity_units", value);
     }
 
     /// <summary>
@@ -109,8 +101,7 @@ public class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ProvisionedWriteCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_write_capacity_units");
-        set => WithProperty("provisioned_write_capacity_units", value);
+        set => SetProperty("provisioned_write_capacity_units", value);
     }
 
     /// <summary>
@@ -118,8 +109,7 @@ public class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ThroughputMode
     {
-        get => GetProperty<TerraformProperty<string>>("throughput_mode");
-        set => WithProperty("throughput_mode", value);
+        set => SetProperty("throughput_mode", value);
     }
 
 }
@@ -137,16 +127,25 @@ public class AwsSagemakerFeatureGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
+        SetOutput("arn");
+        SetOutput("description");
+        SetOutput("event_time_feature_name");
+        SetOutput("feature_group_name");
+        SetOutput("id");
+        SetOutput("record_identifier_feature_name");
+        SetOutput("region");
+        SetOutput("role_arn");
+        SetOutput("tags");
+        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -155,8 +154,8 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTimeFeatureName is required")]
     public required TerraformProperty<string> EventTimeFeatureName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("event_time_feature_name");
-        set => this.WithProperty("event_time_feature_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("event_time_feature_name");
+        set => SetProperty("event_time_feature_name", value);
     }
 
     /// <summary>
@@ -165,17 +164,17 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureGroupName is required")]
     public required TerraformProperty<string> FeatureGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("feature_group_name");
-        set => this.WithProperty("feature_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("feature_group_name");
+        set => SetProperty("feature_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -184,17 +183,17 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordIdentifierFeatureName is required")]
     public required TerraformProperty<string> RecordIdentifierFeatureName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("record_identifier_feature_name");
-        set => this.WithProperty("record_identifier_feature_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("record_identifier_feature_name");
+        set => SetProperty("record_identifier_feature_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -203,38 +202,38 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
-        set => this.WithProperty("role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
+        set => SetProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// Block for feature_definition.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureDefinition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FeatureDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2500, ErrorMessage = "Maximum 2500 FeatureDefinition block(s) allowed")]
     public List<AwsSagemakerFeatureGroupFeatureDefinitionBlock>? FeatureDefinition
     {
-        get => GetProperty<List<AwsSagemakerFeatureGroupFeatureDefinitionBlock>>("feature_definition");
-        set => this.WithProperty("feature_definition", value);
+        set => SetProperty("feature_definition", value);
     }
 
     /// <summary>
@@ -244,8 +243,7 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OfflineStoreConfig block(s) allowed")]
     public List<AwsSagemakerFeatureGroupOfflineStoreConfigBlock>? OfflineStoreConfig
     {
-        get => GetProperty<List<AwsSagemakerFeatureGroupOfflineStoreConfigBlock>>("offline_store_config");
-        set => this.WithProperty("offline_store_config", value);
+        set => SetProperty("offline_store_config", value);
     }
 
     /// <summary>
@@ -255,8 +253,7 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnlineStoreConfig block(s) allowed")]
     public List<AwsSagemakerFeatureGroupOnlineStoreConfigBlock>? OnlineStoreConfig
     {
-        get => GetProperty<List<AwsSagemakerFeatureGroupOnlineStoreConfigBlock>>("online_store_config");
-        set => this.WithProperty("online_store_config", value);
+        set => SetProperty("online_store_config", value);
     }
 
     /// <summary>
@@ -266,8 +263,7 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThroughputConfig block(s) allowed")]
     public List<AwsSagemakerFeatureGroupThroughputConfigBlock>? ThroughputConfig
     {
-        get => GetProperty<List<AwsSagemakerFeatureGroupThroughputConfigBlock>>("throughput_config");
-        set => this.WithProperty("throughput_config", value);
+        set => SetProperty("throughput_config", value);
     }
 
     /// <summary>

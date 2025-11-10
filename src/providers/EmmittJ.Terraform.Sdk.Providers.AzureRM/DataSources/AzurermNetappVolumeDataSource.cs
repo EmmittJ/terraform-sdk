@@ -13,8 +13,7 @@ public class AzurermNetappVolumeDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,23 +30,29 @@ public class AzurermNetappVolumeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("accept_grow_capacity_pool_for_short_term_clone_split");
-        this.WithOutput("data_protection_backup_policy");
-        this.WithOutput("data_protection_replication");
-        this.WithOutput("encryption_key_source");
-        this.WithOutput("key_vault_private_endpoint_id");
-        this.WithOutput("large_volume_enabled");
-        this.WithOutput("location");
-        this.WithOutput("mount_ip_addresses");
-        this.WithOutput("network_features");
-        this.WithOutput("protocols");
-        this.WithOutput("service_level");
-        this.WithOutput("smb_access_based_enumeration_enabled");
-        this.WithOutput("smb_non_browsable_enabled");
-        this.WithOutput("storage_quota_in_gb");
-        this.WithOutput("subnet_id");
-        this.WithOutput("volume_path");
-        this.WithOutput("zone");
+        SetOutput("accept_grow_capacity_pool_for_short_term_clone_split");
+        SetOutput("data_protection_backup_policy");
+        SetOutput("data_protection_replication");
+        SetOutput("encryption_key_source");
+        SetOutput("key_vault_private_endpoint_id");
+        SetOutput("large_volume_enabled");
+        SetOutput("location");
+        SetOutput("mount_ip_addresses");
+        SetOutput("network_features");
+        SetOutput("protocols");
+        SetOutput("service_level");
+        SetOutput("smb_access_based_enumeration_enabled");
+        SetOutput("smb_non_browsable_enabled");
+        SetOutput("storage_quota_in_gb");
+        SetOutput("subnet_id");
+        SetOutput("volume_path");
+        SetOutput("zone");
+        SetOutput("account_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("pool_name");
+        SetOutput("resource_group_name");
+        SetOutput("security_style");
     }
 
     /// <summary>
@@ -56,17 +61,17 @@ public class AzurermNetappVolumeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
-        set => this.WithProperty("account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
+        set => SetProperty("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -75,8 +80,8 @@ public class AzurermNetappVolumeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -85,8 +90,8 @@ public class AzurermNetappVolumeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
     public required TerraformProperty<string> PoolName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pool_name");
-        set => this.WithProperty("pool_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("pool_name");
+        set => SetProperty("pool_name", value);
     }
 
     /// <summary>
@@ -95,17 +100,17 @@ public class AzurermNetappVolumeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityStyle
+    public TerraformProperty<string> SecurityStyle
     {
-        get => GetProperty<TerraformProperty<string>>("security_style");
-        set => this.WithProperty("security_style", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("security_style");
+        set => SetProperty("security_style", value);
     }
 
     /// <summary>
@@ -114,8 +119,7 @@ public class AzurermNetappVolumeDataSource : TerraformDataSource
     /// </summary>
     public AzurermNetappVolumeDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermNetappVolumeDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

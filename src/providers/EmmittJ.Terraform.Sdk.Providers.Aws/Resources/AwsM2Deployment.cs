@@ -13,8 +13,7 @@ public class AwsM2DeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsM2DeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsM2DeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,8 +46,14 @@ public class AwsM2Deployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("deployment_id");
-        this.WithOutput("id");
+        SetOutput("deployment_id");
+        SetOutput("id");
+        SetOutput("application_id");
+        SetOutput("application_version");
+        SetOutput("environment_id");
+        SetOutput("force_stop");
+        SetOutput("region");
+        SetOutput("start");
     }
 
     /// <summary>
@@ -59,8 +62,8 @@ public class AwsM2Deployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
@@ -69,8 +72,8 @@ public class AwsM2Deployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationVersion is required")]
     public required TerraformProperty<double> ApplicationVersion
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("application_version");
-        set => this.WithProperty("application_version", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("application_version");
+        set => SetProperty("application_version", value);
     }
 
     /// <summary>
@@ -79,26 +82,26 @@ public class AwsM2Deployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
-        set => this.WithProperty("environment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("environment_id");
+        set => SetProperty("environment_id", value);
     }
 
     /// <summary>
     /// The force_stop attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceStop
+    public TerraformProperty<bool> ForceStop
     {
-        get => GetProperty<TerraformProperty<bool>>("force_stop");
-        set => this.WithProperty("force_stop", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("force_stop");
+        set => SetProperty("force_stop", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -107,8 +110,8 @@ public class AwsM2Deployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformProperty<bool> Start
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("start");
-        set => this.WithProperty("start", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("start");
+        set => SetProperty("start", value);
     }
 
     /// <summary>
@@ -117,8 +120,7 @@ public class AwsM2Deployment : TerraformResource
     /// </summary>
     public AwsM2DeploymentTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsM2DeploymentTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

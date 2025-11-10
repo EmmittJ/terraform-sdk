@@ -13,8 +13,7 @@ public class AzurermHealthcareServiceAuthenticationConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Audience
     {
-        get => GetProperty<TerraformProperty<string>>("audience");
-        set => WithProperty("audience", value);
+        set => SetProperty("audience", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermHealthcareServiceAuthenticationConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Authority
     {
-        get => GetProperty<TerraformProperty<string>>("authority");
-        set => WithProperty("authority", value);
+        set => SetProperty("authority", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermHealthcareServiceAuthenticationConfigurationBlock : Terrafor
     /// </summary>
     public TerraformProperty<bool>? SmartProxyEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("smart_proxy_enabled");
-        set => WithProperty("smart_proxy_enabled", value);
+        set => SetProperty("smart_proxy_enabled", value);
     }
 
 }
@@ -48,8 +45,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowCredentials
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_credentials");
-        set => WithProperty("allow_credentials", value);
+        set => SetProperty("allow_credentials", value);
     }
 
     /// <summary>
@@ -57,8 +53,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedHeaders
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_headers");
-        set => WithProperty("allowed_headers", value);
+        set => SetProperty("allowed_headers", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? AllowedMethods
     {
-        get => GetProperty<List<TerraformProperty<string>>>("allowed_methods");
-        set => WithProperty("allowed_methods", value);
+        set => SetProperty("allowed_methods", value);
     }
 
     /// <summary>
@@ -75,8 +69,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? AllowedOrigins
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_origins");
-        set => WithProperty("allowed_origins", value);
+        set => SetProperty("allowed_origins", value);
     }
 
     /// <summary>
@@ -84,8 +77,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxAgeInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_age_in_seconds");
-        set => WithProperty("max_age_in_seconds", value);
+        set => SetProperty("max_age_in_seconds", value);
     }
 
 }
@@ -101,8 +93,7 @@ public class AzurermHealthcareServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
-        set => WithProperty("principal_id", value);
+        set => SetProperty("principal_id", value);
     }
 
     /// <summary>
@@ -110,8 +101,7 @@ public class AzurermHealthcareServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
-        set => WithProperty("tenant_id", value);
+        set => SetProperty("tenant_id", value);
     }
 
     /// <summary>
@@ -120,8 +110,7 @@ public class AzurermHealthcareServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -137,8 +126,7 @@ public class AzurermHealthcareServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -146,8 +134,7 @@ public class AzurermHealthcareServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -155,8 +142,7 @@ public class AzurermHealthcareServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -164,8 +150,7 @@ public class AzurermHealthcareServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -183,60 +168,71 @@ public class AzurermHealthcareService : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("access_policy_object_ids");
+        SetOutput("configuration_export_storage_account_name");
+        SetOutput("cosmosdb_key_vault_key_versionless_id");
+        SetOutput("cosmosdb_throughput");
+        SetOutput("id");
+        SetOutput("kind");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("public_network_access_enabled");
+        SetOutput("resource_group_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The access_policy_object_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AccessPolicyObjectIds
+    public HashSet<TerraformProperty<string>> AccessPolicyObjectIds
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("access_policy_object_ids");
-        set => this.WithProperty("access_policy_object_ids", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("access_policy_object_ids");
+        set => SetProperty("access_policy_object_ids", value);
     }
 
     /// <summary>
     /// The configuration_export_storage_account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationExportStorageAccountName
+    public TerraformProperty<string> ConfigurationExportStorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_export_storage_account_name");
-        set => this.WithProperty("configuration_export_storage_account_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("configuration_export_storage_account_name");
+        set => SetProperty("configuration_export_storage_account_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_key_vault_key_versionless_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CosmosdbKeyVaultKeyVersionlessId
+    public TerraformProperty<string> CosmosdbKeyVaultKeyVersionlessId
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_key_vault_key_versionless_id");
-        set => this.WithProperty("cosmosdb_key_vault_key_versionless_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_key_vault_key_versionless_id");
+        set => SetProperty("cosmosdb_key_vault_key_versionless_id", value);
     }
 
     /// <summary>
     /// The cosmosdb_throughput attribute.
     /// </summary>
-    public TerraformProperty<double>? CosmosdbThroughput
+    public TerraformProperty<double> CosmosdbThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("cosmosdb_throughput");
-        set => this.WithProperty("cosmosdb_throughput", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("cosmosdb_throughput");
+        set => SetProperty("cosmosdb_throughput", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformProperty<string>? Kind
+    public TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
-        set => this.WithProperty("kind", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kind");
+        set => SetProperty("kind", value);
     }
 
     /// <summary>
@@ -245,8 +241,8 @@ public class AzurermHealthcareService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -255,17 +251,17 @@ public class AzurermHealthcareService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
-        set => this.WithProperty("public_network_access_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
+        set => SetProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
@@ -274,17 +270,17 @@ public class AzurermHealthcareService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -294,8 +290,7 @@ public class AzurermHealthcareService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationConfiguration block(s) allowed")]
     public List<AzurermHealthcareServiceAuthenticationConfigurationBlock>? AuthenticationConfiguration
     {
-        get => GetProperty<List<AzurermHealthcareServiceAuthenticationConfigurationBlock>>("authentication_configuration");
-        set => this.WithProperty("authentication_configuration", value);
+        set => SetProperty("authentication_configuration", value);
     }
 
     /// <summary>
@@ -305,8 +300,7 @@ public class AzurermHealthcareService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfiguration block(s) allowed")]
     public List<AzurermHealthcareServiceCorsConfigurationBlock>? CorsConfiguration
     {
-        get => GetProperty<List<AzurermHealthcareServiceCorsConfigurationBlock>>("cors_configuration");
-        set => this.WithProperty("cors_configuration", value);
+        set => SetProperty("cors_configuration", value);
     }
 
     /// <summary>
@@ -316,8 +310,7 @@ public class AzurermHealthcareService : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     public List<AzurermHealthcareServiceIdentityBlock>? Identity
     {
-        get => GetProperty<List<AzurermHealthcareServiceIdentityBlock>>("identity");
-        set => this.WithProperty("identity", value);
+        set => SetProperty("identity", value);
     }
 
     /// <summary>
@@ -326,8 +319,7 @@ public class AzurermHealthcareService : TerraformResource
     /// </summary>
     public AzurermHealthcareServiceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHealthcareServiceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

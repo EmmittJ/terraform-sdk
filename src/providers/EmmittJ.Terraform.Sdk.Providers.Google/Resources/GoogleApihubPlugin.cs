@@ -14,8 +14,7 @@ public class GoogleApihubPluginActionsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => WithProperty("description", value);
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class GoogleApihubPluginActionsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => WithProperty("display_name", value);
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
@@ -34,8 +32,7 @@ public class GoogleApihubPluginActionsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("id");
-        set => WithProperty("id", value);
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,8 +46,7 @@ public class GoogleApihubPluginActionsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerMode is required")]
     public required TerraformProperty<string> TriggerMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("trigger_mode");
-        set => WithProperty("trigger_mode", value);
+        set => SetProperty("trigger_mode", value);
     }
 
 }
@@ -74,8 +70,7 @@ public class GoogleApihubPluginDocumentationBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ExternalUri
     {
-        get => GetProperty<TerraformProperty<string>>("external_uri");
-        set => WithProperty("external_uri", value);
+        set => SetProperty("external_uri", value);
     }
 
 }
@@ -93,8 +88,7 @@ public class GoogleApihubPluginHostingServiceBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ServiceUri
     {
-        get => GetProperty<TerraformProperty<string>>("service_uri");
-        set => WithProperty("service_uri", value);
+        set => SetProperty("service_uri", value);
     }
 
 }
@@ -110,8 +104,7 @@ public class GoogleApihubPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -119,8 +112,7 @@ public class GoogleApihubPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -138,21 +130,28 @@ public class GoogleApihubPlugin : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("create_time");
-        this.WithOutput("name");
-        this.WithOutput("ownership_type");
-        this.WithOutput("state");
-        this.WithOutput("update_time");
+        SetOutput("create_time");
+        SetOutput("name");
+        SetOutput("ownership_type");
+        SetOutput("state");
+        SetOutput("update_time");
+        SetOutput("description");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("plugin_category");
+        SetOutput("plugin_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// The plugin description. Max length is 2000 characters (Unicode code
     /// points).
     /// </summary>
-    public TerraformProperty<string>? Description
+    public TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
@@ -162,17 +161,17 @@ public class GoogleApihubPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -181,8 +180,8 @@ public class GoogleApihubPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -191,10 +190,10 @@ public class GoogleApihubPlugin : TerraformResource
     /// API_GATEWAY
     /// API_PRODUCER
     /// </summary>
-    public TerraformProperty<string>? PluginCategory
+    public TerraformProperty<string> PluginCategory
     {
-        get => GetProperty<TerraformProperty<string>>("plugin_category");
-        set => this.WithProperty("plugin_category", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plugin_category");
+        set => SetProperty("plugin_category", value);
     }
 
     /// <summary>
@@ -215,17 +214,17 @@ public class GoogleApihubPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PluginId is required")]
     public required TerraformProperty<string> PluginId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("plugin_id");
-        set => this.WithProperty("plugin_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("plugin_id");
+        set => SetProperty("plugin_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -234,8 +233,7 @@ public class GoogleApihubPlugin : TerraformResource
     /// </summary>
     public List<GoogleApihubPluginActionsConfigBlock>? ActionsConfig
     {
-        get => GetProperty<List<GoogleApihubPluginActionsConfigBlock>>("actions_config");
-        set => this.WithProperty("actions_config", value);
+        set => SetProperty("actions_config", value);
     }
 
     /// <summary>
@@ -245,8 +243,7 @@ public class GoogleApihubPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigTemplate block(s) allowed")]
     public List<GoogleApihubPluginConfigTemplateBlock>? ConfigTemplate
     {
-        get => GetProperty<List<GoogleApihubPluginConfigTemplateBlock>>("config_template");
-        set => this.WithProperty("config_template", value);
+        set => SetProperty("config_template", value);
     }
 
     /// <summary>
@@ -256,8 +253,7 @@ public class GoogleApihubPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Documentation block(s) allowed")]
     public List<GoogleApihubPluginDocumentationBlock>? Documentation
     {
-        get => GetProperty<List<GoogleApihubPluginDocumentationBlock>>("documentation");
-        set => this.WithProperty("documentation", value);
+        set => SetProperty("documentation", value);
     }
 
     /// <summary>
@@ -267,8 +263,7 @@ public class GoogleApihubPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HostingService block(s) allowed")]
     public List<GoogleApihubPluginHostingServiceBlock>? HostingService
     {
-        get => GetProperty<List<GoogleApihubPluginHostingServiceBlock>>("hosting_service");
-        set => this.WithProperty("hosting_service", value);
+        set => SetProperty("hosting_service", value);
     }
 
     /// <summary>
@@ -277,8 +272,7 @@ public class GoogleApihubPlugin : TerraformResource
     /// </summary>
     public GoogleApihubPluginTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleApihubPluginTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

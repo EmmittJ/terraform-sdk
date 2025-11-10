@@ -14,17 +14,20 @@ public class GoogleServiceAccountKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("key_algorithm");
-        this.WithOutput("public_key");
+        SetOutput("key_algorithm");
+        SetOutput("public_key");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("public_key_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -33,17 +36,17 @@ public class GoogleServiceAccountKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_key_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicKeyType
+    public TerraformProperty<string> PublicKeyType
     {
-        get => GetProperty<TerraformProperty<string>>("public_key_type");
-        set => this.WithProperty("public_key_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_key_type");
+        set => SetProperty("public_key_type", value);
     }
 
     /// <summary>

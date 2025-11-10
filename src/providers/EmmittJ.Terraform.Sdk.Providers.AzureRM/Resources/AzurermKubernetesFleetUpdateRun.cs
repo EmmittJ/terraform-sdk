@@ -21,8 +21,7 @@ public class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? AfterStageWaitInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("after_stage_wait_in_seconds");
-        set => WithProperty("after_stage_wait_in_seconds", value);
+        set => SetProperty("after_stage_wait_in_seconds", value);
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -48,8 +46,7 @@ public class AzurermKubernetesFleetUpdateRunTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class AzurermKubernetesFleetUpdateRunTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class AzurermKubernetesFleetUpdateRunTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class AzurermKubernetesFleetUpdateRunTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -94,24 +88,28 @@ public class AzurermKubernetesFleetUpdateRun : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("fleet_update_strategy_id");
+        SetOutput("id");
+        SetOutput("kubernetes_fleet_manager_id");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The fleet_update_strategy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FleetUpdateStrategyId
+    public TerraformProperty<string> FleetUpdateStrategyId
     {
-        get => GetProperty<TerraformProperty<string>>("fleet_update_strategy_id");
-        set => this.WithProperty("fleet_update_strategy_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("fleet_update_strategy_id");
+        set => SetProperty("fleet_update_strategy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -120,8 +118,8 @@ public class AzurermKubernetesFleetUpdateRun : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetManagerId is required")]
     public required TerraformProperty<string> KubernetesFleetManagerId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_fleet_manager_id");
-        set => this.WithProperty("kubernetes_fleet_manager_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("kubernetes_fleet_manager_id");
+        set => SetProperty("kubernetes_fleet_manager_id", value);
     }
 
     /// <summary>
@@ -130,20 +128,20 @@ public class AzurermKubernetesFleetUpdateRun : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// Block for managed_cluster_update.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedClusterUpdate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagedClusterUpdate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedClusterUpdate block(s) allowed")]
     public List<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock>? ManagedClusterUpdate
     {
-        get => GetProperty<List<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock>>("managed_cluster_update");
-        set => this.WithProperty("managed_cluster_update", value);
+        set => SetProperty("managed_cluster_update", value);
     }
 
     /// <summary>
@@ -152,8 +150,7 @@ public class AzurermKubernetesFleetUpdateRun : TerraformResource
     /// </summary>
     public List<AzurermKubernetesFleetUpdateRunStageBlock>? Stage
     {
-        get => GetProperty<List<AzurermKubernetesFleetUpdateRunStageBlock>>("stage");
-        set => this.WithProperty("stage", value);
+        set => SetProperty("stage", value);
     }
 
     /// <summary>
@@ -162,8 +159,7 @@ public class AzurermKubernetesFleetUpdateRun : TerraformResource
     /// </summary>
     public AzurermKubernetesFleetUpdateRunTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKubernetesFleetUpdateRunTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

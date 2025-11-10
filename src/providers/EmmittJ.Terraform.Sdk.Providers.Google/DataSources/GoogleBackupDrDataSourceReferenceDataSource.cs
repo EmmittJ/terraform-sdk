@@ -14,14 +14,18 @@ public class GoogleBackupDrDataSourceReferenceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("backup_config_state");
-        this.WithOutput("backup_count");
-        this.WithOutput("data_source");
-        this.WithOutput("gcp_resource_name");
-        this.WithOutput("last_backup_state");
-        this.WithOutput("last_successful_backup_time");
-        this.WithOutput("name");
-        this.WithOutput("resource_type");
+        SetOutput("backup_config_state");
+        SetOutput("backup_count");
+        SetOutput("data_source");
+        SetOutput("gcp_resource_name");
+        SetOutput("last_backup_state");
+        SetOutput("last_successful_backup_time");
+        SetOutput("name");
+        SetOutput("resource_type");
+        SetOutput("data_source_reference_id");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("project");
     }
 
     /// <summary>
@@ -30,17 +34,17 @@ public class GoogleBackupDrDataSourceReferenceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceReferenceId is required")]
     public required TerraformProperty<string> DataSourceReferenceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("data_source_reference_id");
-        set => this.WithProperty("data_source_reference_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("data_source_reference_id");
+        set => SetProperty("data_source_reference_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -49,17 +53,17 @@ public class GoogleBackupDrDataSourceReferenceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>

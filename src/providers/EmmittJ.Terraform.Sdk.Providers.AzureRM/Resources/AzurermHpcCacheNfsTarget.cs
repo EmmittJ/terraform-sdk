@@ -13,8 +13,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AccessPolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("access_policy_name");
-        set => WithProperty("access_policy_name", value);
+        set => SetProperty("access_policy_name", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespacePath is required")]
     public required TerraformProperty<string> NamespacePath
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("namespace_path");
-        set => WithProperty("namespace_path", value);
+        set => SetProperty("namespace_path", value);
     }
 
     /// <summary>
@@ -33,8 +31,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NfsExport is required")]
     public required TerraformProperty<string> NfsExport
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("nfs_export");
-        set => WithProperty("nfs_export", value);
+        set => SetProperty("nfs_export", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TargetPath
     {
-        get => GetProperty<TerraformProperty<string>>("target_path");
-        set => WithProperty("target_path", value);
+        set => SetProperty("target_path", value);
     }
 
 }
@@ -59,8 +55,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -68,8 +63,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -77,8 +71,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -106,6 +98,14 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cache_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("target_host_name");
+        SetOutput("usage_model");
+        SetOutput("verification_timer_in_seconds");
+        SetOutput("write_back_timer_in_seconds");
     }
 
     /// <summary>
@@ -114,17 +114,17 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheName is required")]
     public required TerraformProperty<string> CacheName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cache_name");
-        set => this.WithProperty("cache_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cache_name");
+        set => SetProperty("cache_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -133,8 +133,8 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -143,8 +143,8 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -153,8 +153,8 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetHostName is required")]
     public required TerraformProperty<string> TargetHostName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("target_host_name");
-        set => this.WithProperty("target_host_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("target_host_name");
+        set => SetProperty("target_host_name", value);
     }
 
     /// <summary>
@@ -163,38 +163,38 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageModel is required")]
     public required TerraformProperty<string> UsageModel
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("usage_model");
-        set => this.WithProperty("usage_model", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("usage_model");
+        set => SetProperty("usage_model", value);
     }
 
     /// <summary>
     /// The verification_timer_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? VerificationTimerInSeconds
+    public TerraformProperty<double> VerificationTimerInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("verification_timer_in_seconds");
-        set => this.WithProperty("verification_timer_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("verification_timer_in_seconds");
+        set => SetProperty("verification_timer_in_seconds", value);
     }
 
     /// <summary>
     /// The write_back_timer_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? WriteBackTimerInSeconds
+    public TerraformProperty<double> WriteBackTimerInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("write_back_timer_in_seconds");
-        set => this.WithProperty("write_back_timer_in_seconds", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("write_back_timer_in_seconds");
+        set => SetProperty("write_back_timer_in_seconds", value);
     }
 
     /// <summary>
     /// Block for namespace_junction.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceJunction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NamespaceJunction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 NamespaceJunction block(s) allowed")]
     public HashSet<AzurermHpcCacheNfsTargetNamespaceJunctionBlock>? NamespaceJunction
     {
-        get => GetProperty<HashSet<AzurermHpcCacheNfsTargetNamespaceJunctionBlock>>("namespace_junction");
-        set => this.WithProperty("namespace_junction", value);
+        set => SetProperty("namespace_junction", value);
     }
 
     /// <summary>
@@ -203,8 +203,7 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     /// </summary>
     public AzurermHpcCacheNfsTargetTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermHpcCacheNfsTargetTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

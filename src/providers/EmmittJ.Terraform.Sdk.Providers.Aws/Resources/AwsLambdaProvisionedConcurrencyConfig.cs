@@ -13,8 +13,7 @@ public class AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,6 +38,12 @@ public class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("function_name");
+        SetOutput("id");
+        SetOutput("provisioned_concurrent_executions");
+        SetOutput("qualifier");
+        SetOutput("region");
+        SetOutput("skip_destroy");
     }
 
     /// <summary>
@@ -48,17 +52,17 @@ public class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
-        set => this.WithProperty("function_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
+        set => SetProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -67,8 +71,8 @@ public class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedConcurrentExecutions is required")]
     public required TerraformProperty<double> ProvisionedConcurrentExecutions
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("provisioned_concurrent_executions");
-        set => this.WithProperty("provisioned_concurrent_executions", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("provisioned_concurrent_executions");
+        set => SetProperty("provisioned_concurrent_executions", value);
     }
 
     /// <summary>
@@ -77,26 +81,26 @@ public class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
     public required TerraformProperty<string> Qualifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("qualifier");
-        set => this.WithProperty("qualifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
+        set => SetProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipDestroy
+    public TerraformProperty<bool> SkipDestroy
     {
-        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
-        set => this.WithProperty("skip_destroy", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
+        set => SetProperty("skip_destroy", value);
     }
 
     /// <summary>
@@ -105,8 +109,7 @@ public class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
     /// </summary>
     public AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

@@ -13,8 +13,7 @@ public class AzurermMssqlVirtualMachineGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermMssqlVirtualMachineGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermMssqlVirtualMachineGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermMssqlVirtualMachineGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -57,8 +53,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? ClusterBootstrapAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_bootstrap_account_name");
-        set => WithProperty("cluster_bootstrap_account_name", value);
+        set => SetProperty("cluster_bootstrap_account_name", value);
     }
 
     /// <summary>
@@ -66,8 +61,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? ClusterOperatorAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_operator_account_name");
-        set => WithProperty("cluster_operator_account_name", value);
+        set => SetProperty("cluster_operator_account_name", value);
     }
 
     /// <summary>
@@ -76,8 +70,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterSubnetType is required")]
     public required TerraformProperty<string> ClusterSubnetType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_subnet_type");
-        set => WithProperty("cluster_subnet_type", value);
+        set => SetProperty("cluster_subnet_type", value);
     }
 
     /// <summary>
@@ -86,8 +79,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fqdn is required")]
     public required TerraformProperty<string> Fqdn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("fqdn");
-        set => WithProperty("fqdn", value);
+        set => SetProperty("fqdn", value);
     }
 
     /// <summary>
@@ -95,8 +87,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? OrganizationalUnitPath
     {
-        get => GetProperty<TerraformProperty<string>>("organizational_unit_path");
-        set => WithProperty("organizational_unit_path", value);
+        set => SetProperty("organizational_unit_path", value);
     }
 
     /// <summary>
@@ -104,8 +95,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? SqlServiceAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("sql_service_account_name");
-        set => WithProperty("sql_service_account_name", value);
+        set => SetProperty("sql_service_account_name", value);
     }
 
     /// <summary>
@@ -113,8 +103,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? StorageAccountPrimaryKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_primary_key");
-        set => WithProperty("storage_account_primary_key", value);
+        set => SetProperty("storage_account_primary_key", value);
     }
 
     /// <summary>
@@ -122,8 +111,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? StorageAccountUrl
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_url");
-        set => WithProperty("storage_account_url", value);
+        set => SetProperty("storage_account_url", value);
     }
 
 }
@@ -141,15 +129,22 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("sql_image_offer");
+        SetOutput("sql_image_sku");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -158,8 +153,8 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -168,8 +163,8 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -178,8 +173,8 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -188,8 +183,8 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlImageOffer is required")]
     public required TerraformProperty<string> SqlImageOffer
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sql_image_offer");
-        set => this.WithProperty("sql_image_offer", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sql_image_offer");
+        set => SetProperty("sql_image_offer", value);
     }
 
     /// <summary>
@@ -198,17 +193,17 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlImageSku is required")]
     public required TerraformProperty<string> SqlImageSku
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("sql_image_sku");
-        set => this.WithProperty("sql_image_sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sql_image_sku");
+        set => SetProperty("sql_image_sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -217,20 +212,19 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     /// </summary>
     public AzurermMssqlVirtualMachineGroupTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMssqlVirtualMachineGroupTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
     /// Block for wsfc_domain_profile.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WsfcDomainProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WsfcDomainProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WsfcDomainProfile block(s) allowed")]
     public List<AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock>? WsfcDomainProfile
     {
-        get => GetProperty<List<AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock>>("wsfc_domain_profile");
-        set => this.WithProperty("wsfc_domain_profile", value);
+        set => SetProperty("wsfc_domain_profile", value);
     }
 
 }

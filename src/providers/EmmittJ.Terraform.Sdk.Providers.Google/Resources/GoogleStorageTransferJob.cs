@@ -13,8 +13,7 @@ public class GoogleStorageTransferJobEventStreamBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EventStreamExpirationTime
     {
-        get => GetProperty<TerraformProperty<string>>("event_stream_expiration_time");
-        set => WithProperty("event_stream_expiration_time", value);
+        set => SetProperty("event_stream_expiration_time", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class GoogleStorageTransferJobEventStreamBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EventStreamStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("event_stream_start_time");
-        set => WithProperty("event_stream_start_time", value);
+        set => SetProperty("event_stream_start_time", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class GoogleStorageTransferJobEventStreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
 }
@@ -49,8 +46,7 @@ public class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? EnableOnPremGcsTransferLogs
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_on_prem_gcs_transfer_logs");
-        set => WithProperty("enable_on_prem_gcs_transfer_logs", value);
+        set => SetProperty("enable_on_prem_gcs_transfer_logs", value);
     }
 
     /// <summary>
@@ -58,8 +54,7 @@ public class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? LogActionStates
     {
-        get => GetProperty<List<TerraformProperty<string>>>("log_action_states");
-        set => WithProperty("log_action_states", value);
+        set => SetProperty("log_action_states", value);
     }
 
     /// <summary>
@@ -67,8 +62,7 @@ public class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? LogActions
     {
-        get => GetProperty<List<TerraformProperty<string>>>("log_actions");
-        set => WithProperty("log_actions", value);
+        set => SetProperty("log_actions", value);
     }
 
 }
@@ -84,8 +78,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? EventTypes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("event_types");
-        set => WithProperty("event_types", value);
+        set => SetProperty("event_types", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
     public required TerraformProperty<string> PayloadFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("payload_format");
-        set => WithProperty("payload_format", value);
+        set => SetProperty("payload_format", value);
     }
 
     /// <summary>
@@ -104,8 +96,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
-        set => WithProperty("pubsub_topic", value);
+        set => SetProperty("pubsub_topic", value);
     }
 
 }
@@ -129,8 +120,7 @@ public class GoogleStorageTransferJobScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RepeatInterval
     {
-        get => GetProperty<TerraformProperty<string>>("repeat_interval");
-        set => WithProperty("repeat_interval", value);
+        set => SetProperty("repeat_interval", value);
     }
 
 }
@@ -146,8 +136,7 @@ public class GoogleStorageTransferJobTransferSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SinkAgentPoolName
     {
-        get => GetProperty<TerraformProperty<string>>("sink_agent_pool_name");
-        set => WithProperty("sink_agent_pool_name", value);
+        set => SetProperty("sink_agent_pool_name", value);
     }
 
     /// <summary>
@@ -155,8 +144,7 @@ public class GoogleStorageTransferJobTransferSpecBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? SourceAgentPoolName
     {
-        get => GetProperty<TerraformProperty<string>>("source_agent_pool_name");
-        set => WithProperty("source_agent_pool_name", value);
+        set => SetProperty("source_agent_pool_name", value);
     }
 
 }
@@ -174,9 +162,15 @@ public class GoogleStorageTransferJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("creation_time");
-        this.WithOutput("deletion_time");
-        this.WithOutput("last_modification_time");
+        SetOutput("creation_time");
+        SetOutput("deletion_time");
+        SetOutput("last_modification_time");
+        SetOutput("description");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("project");
+        SetOutput("service_account");
+        SetOutput("status");
     }
 
     /// <summary>
@@ -185,53 +179,53 @@ public class GoogleStorageTransferJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("description");
+        set => SetProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Transfer Job.
     /// </summary>
-    public TerraformProperty<string>? Name
+    public TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
     /// The user-managed service account to run the job. If this field is specified, the given service account is granted the necessary permissions to all applicable resources (e.g. GCS buckets) required by the job.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
+    public TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
-        set => this.WithProperty("service_account", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
+        set => SetProperty("service_account", value);
     }
 
     /// <summary>
     /// Status of the job. Default: ENABLED. NOTE: The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -241,8 +235,7 @@ public class GoogleStorageTransferJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventStream block(s) allowed")]
     public List<GoogleStorageTransferJobEventStreamBlock>? EventStream
     {
-        get => GetProperty<List<GoogleStorageTransferJobEventStreamBlock>>("event_stream");
-        set => this.WithProperty("event_stream", value);
+        set => SetProperty("event_stream", value);
     }
 
     /// <summary>
@@ -252,8 +245,7 @@ public class GoogleStorageTransferJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     public List<GoogleStorageTransferJobLoggingConfigBlock>? LoggingConfig
     {
-        get => GetProperty<List<GoogleStorageTransferJobLoggingConfigBlock>>("logging_config");
-        set => this.WithProperty("logging_config", value);
+        set => SetProperty("logging_config", value);
     }
 
     /// <summary>
@@ -263,8 +255,7 @@ public class GoogleStorageTransferJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     public List<GoogleStorageTransferJobNotificationConfigBlock>? NotificationConfig
     {
-        get => GetProperty<List<GoogleStorageTransferJobNotificationConfigBlock>>("notification_config");
-        set => this.WithProperty("notification_config", value);
+        set => SetProperty("notification_config", value);
     }
 
     /// <summary>
@@ -274,8 +265,7 @@ public class GoogleStorageTransferJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationSpec block(s) allowed")]
     public List<GoogleStorageTransferJobReplicationSpecBlock>? ReplicationSpec
     {
-        get => GetProperty<List<GoogleStorageTransferJobReplicationSpecBlock>>("replication_spec");
-        set => this.WithProperty("replication_spec", value);
+        set => SetProperty("replication_spec", value);
     }
 
     /// <summary>
@@ -285,8 +275,7 @@ public class GoogleStorageTransferJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     public List<GoogleStorageTransferJobScheduleBlock>? Schedule
     {
-        get => GetProperty<List<GoogleStorageTransferJobScheduleBlock>>("schedule");
-        set => this.WithProperty("schedule", value);
+        set => SetProperty("schedule", value);
     }
 
     /// <summary>
@@ -296,8 +285,7 @@ public class GoogleStorageTransferJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TransferSpec block(s) allowed")]
     public List<GoogleStorageTransferJobTransferSpecBlock>? TransferSpec
     {
-        get => GetProperty<List<GoogleStorageTransferJobTransferSpecBlock>>("transfer_spec");
-        set => this.WithProperty("transfer_spec", value);
+        set => SetProperty("transfer_spec", value);
     }
 
     /// <summary>

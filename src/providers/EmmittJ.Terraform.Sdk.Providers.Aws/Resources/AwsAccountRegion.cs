@@ -13,8 +13,7 @@ public class AwsAccountRegionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsAccountRegionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,16 +38,20 @@ public class AwsAccountRegion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("opt_status");
+        SetOutput("opt_status");
+        SetOutput("account_id");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("region_name");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    public TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
-        set => this.WithProperty("account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
+        set => SetProperty("account_id", value);
     }
 
     /// <summary>
@@ -58,17 +60,17 @@ public class AwsAccountRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -77,8 +79,8 @@ public class AwsAccountRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformProperty<string> RegionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region_name");
-        set => this.WithProperty("region_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region_name");
+        set => SetProperty("region_name", value);
     }
 
     /// <summary>
@@ -87,8 +89,7 @@ public class AwsAccountRegion : TerraformResource
     /// </summary>
     public AwsAccountRegionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsAccountRegionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermAutomationVariablesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,13 +30,15 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("bool");
-        this.WithOutput("datetime");
-        this.WithOutput("encrypted");
-        this.WithOutput("int");
-        this.WithOutput("null");
-        this.WithOutput("object");
-        this.WithOutput("string");
+        SetOutput("bool");
+        SetOutput("datetime");
+        SetOutput("encrypted");
+        SetOutput("int");
+        SetOutput("null");
+        SetOutput("object");
+        SetOutput("string");
+        SetOutput("automation_account_id");
+        SetOutput("id");
     }
 
     /// <summary>
@@ -46,17 +47,17 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformProperty<string> AutomationAccountId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_id");
-        set => this.WithProperty("automation_account_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_id");
+        set => SetProperty("automation_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -65,8 +66,7 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
     /// </summary>
     public AzurermAutomationVariablesDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAutomationVariablesDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,16 +54,22 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("callback_url");
+        SetOutput("callback_url");
+        SetOutput("id");
+        SetOutput("logic_app_id");
+        SetOutput("method");
+        SetOutput("name");
+        SetOutput("relative_path");
+        SetOutput("schema");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -76,17 +78,17 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformProperty<string> LogicAppId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("logic_app_id");
-        set => this.WithProperty("logic_app_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("logic_app_id");
+        set => SetProperty("logic_app_id", value);
     }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
-    public TerraformProperty<string>? Method
+    public TerraformProperty<string> Method
     {
-        get => GetProperty<TerraformProperty<string>>("method");
-        set => this.WithProperty("method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("method");
+        set => SetProperty("method", value);
     }
 
     /// <summary>
@@ -95,17 +97,17 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The relative_path attribute.
     /// </summary>
-    public TerraformProperty<string>? RelativePath
+    public TerraformProperty<string> RelativePath
     {
-        get => GetProperty<TerraformProperty<string>>("relative_path");
-        set => this.WithProperty("relative_path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("relative_path");
+        set => SetProperty("relative_path", value);
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformProperty<string> Schema
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("schema");
-        set => this.WithProperty("schema", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("schema");
+        set => SetProperty("schema", value);
     }
 
     /// <summary>
@@ -124,8 +126,7 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     /// </summary>
     public AzurermLogicAppTriggerHttpRequestTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermLogicAppTriggerHttpRequestTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermExpressRouteCircuitAuthorizationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermExpressRouteCircuitAuthorizationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermExpressRouteCircuitAuthorizationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -49,8 +46,12 @@ public class AzurermExpressRouteCircuitAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("authorization_key");
-        this.WithOutput("authorization_use_status");
+        SetOutput("authorization_key");
+        SetOutput("authorization_use_status");
+        SetOutput("express_route_circuit_name");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
@@ -59,17 +60,17 @@ public class AzurermExpressRouteCircuitAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
     public required TerraformProperty<string> ExpressRouteCircuitName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("express_route_circuit_name");
-        set => this.WithProperty("express_route_circuit_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("express_route_circuit_name");
+        set => SetProperty("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -78,8 +79,8 @@ public class AzurermExpressRouteCircuitAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -88,8 +89,8 @@ public class AzurermExpressRouteCircuitAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -98,8 +99,7 @@ public class AzurermExpressRouteCircuitAuthorization : TerraformResource
     /// </summary>
     public AzurermExpressRouteCircuitAuthorizationTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermExpressRouteCircuitAuthorizationTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzureadApplicationDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,79 +30,84 @@ public class AzureadApplicationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("api");
-        this.WithOutput("app_role_ids");
-        this.WithOutput("app_roles");
-        this.WithOutput("description");
-        this.WithOutput("device_only_auth_enabled");
-        this.WithOutput("disabled_by_microsoft");
-        this.WithOutput("fallback_public_client_enabled");
-        this.WithOutput("feature_tags");
-        this.WithOutput("group_membership_claims");
-        this.WithOutput("identifier_uris");
-        this.WithOutput("logo_url");
-        this.WithOutput("marketing_url");
-        this.WithOutput("notes");
-        this.WithOutput("oauth2_permission_scope_ids");
-        this.WithOutput("oauth2_post_response_required");
-        this.WithOutput("optional_claims");
-        this.WithOutput("owners");
-        this.WithOutput("privacy_statement_url");
-        this.WithOutput("public_client");
-        this.WithOutput("publisher_domain");
-        this.WithOutput("required_resource_access");
-        this.WithOutput("service_management_reference");
-        this.WithOutput("sign_in_audience");
-        this.WithOutput("single_page_application");
-        this.WithOutput("support_url");
-        this.WithOutput("tags");
-        this.WithOutput("terms_of_service_url");
-        this.WithOutput("web");
+        SetOutput("api");
+        SetOutput("app_role_ids");
+        SetOutput("app_roles");
+        SetOutput("description");
+        SetOutput("device_only_auth_enabled");
+        SetOutput("disabled_by_microsoft");
+        SetOutput("fallback_public_client_enabled");
+        SetOutput("feature_tags");
+        SetOutput("group_membership_claims");
+        SetOutput("identifier_uris");
+        SetOutput("logo_url");
+        SetOutput("marketing_url");
+        SetOutput("notes");
+        SetOutput("oauth2_permission_scope_ids");
+        SetOutput("oauth2_post_response_required");
+        SetOutput("optional_claims");
+        SetOutput("owners");
+        SetOutput("privacy_statement_url");
+        SetOutput("public_client");
+        SetOutput("publisher_domain");
+        SetOutput("required_resource_access");
+        SetOutput("service_management_reference");
+        SetOutput("sign_in_audience");
+        SetOutput("single_page_application");
+        SetOutput("support_url");
+        SetOutput("tags");
+        SetOutput("terms_of_service_url");
+        SetOutput("web");
+        SetOutput("client_id");
+        SetOutput("display_name");
+        SetOutput("id");
+        SetOutput("identifier_uri");
+        SetOutput("object_id");
     }
 
     /// <summary>
     /// The Client ID (also called Application ID)
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    public TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
-        set => this.WithProperty("client_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
+        set => SetProperty("client_id", value);
     }
 
     /// <summary>
     /// The display name for the application
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// One of the application&#39;s identifier URIs
     /// </summary>
-    public TerraformProperty<string>? IdentifierUri
+    public TerraformProperty<string> IdentifierUri
     {
-        get => GetProperty<TerraformProperty<string>>("identifier_uri");
-        set => this.WithProperty("identifier_uri", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identifier_uri");
+        set => SetProperty("identifier_uri", value);
     }
 
     /// <summary>
     /// The application&#39;s object ID
     /// </summary>
-    public TerraformProperty<string>? ObjectId
+    public TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
-        set => this.WithProperty("object_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
+        set => SetProperty("object_id", value);
     }
 
     /// <summary>
@@ -112,8 +116,7 @@ public class AzureadApplicationDataSource : TerraformDataSource
     /// </summary>
     public AzureadApplicationDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

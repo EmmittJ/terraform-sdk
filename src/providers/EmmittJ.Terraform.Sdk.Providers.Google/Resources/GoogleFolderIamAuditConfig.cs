@@ -13,8 +13,7 @@ public class GoogleFolderIamAuditConfigAuditLogConfigBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? ExemptedMembers
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("exempted_members");
-        set => WithProperty("exempted_members", value);
+        set => SetProperty("exempted_members", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class GoogleFolderIamAuditConfigAuditLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformProperty<string> LogType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("log_type");
-        set => WithProperty("log_type", value);
+        set => SetProperty("log_type", value);
     }
 
 }
@@ -42,7 +40,10 @@ public class GoogleFolderIamAuditConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("etag");
+        SetOutput("etag");
+        SetOutput("folder");
+        SetOutput("id");
+        SetOutput("service");
     }
 
     /// <summary>
@@ -51,17 +52,17 @@ public class GoogleFolderIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("folder");
-        set => this.WithProperty("folder", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("folder");
+        set => SetProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -70,19 +71,19 @@ public class GoogleFolderIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service");
-        set => this.WithProperty("service", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service");
+        set => SetProperty("service", value);
     }
 
     /// <summary>
     /// Block for audit_log_config.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuditLogConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuditLogConfig block(s) required")]
     public HashSet<GoogleFolderIamAuditConfigAuditLogConfigBlock>? AuditLogConfig
     {
-        get => GetProperty<HashSet<GoogleFolderIamAuditConfigAuditLogConfigBlock>>("audit_log_config");
-        set => this.WithProperty("audit_log_config", value);
+        set => SetProperty("audit_log_config", value);
     }
 
     /// <summary>

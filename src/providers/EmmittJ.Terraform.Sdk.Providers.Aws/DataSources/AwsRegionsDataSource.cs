@@ -14,8 +14,7 @@ public class AwsRegionsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsRegionsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
-        set => WithProperty("values", value);
+        set => SetProperty("values", value);
     }
 
 }
@@ -42,25 +40,27 @@ public class AwsRegionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("names");
+        SetOutput("names");
+        SetOutput("all_regions");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The all_regions attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllRegions
+    public TerraformProperty<bool> AllRegions
     {
-        get => GetProperty<TerraformProperty<bool>>("all_regions");
-        set => this.WithProperty("all_regions", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("all_regions");
+        set => SetProperty("all_regions", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -69,8 +69,7 @@ public class AwsRegionsDataSource : TerraformDataSource
     /// </summary>
     public HashSet<AwsRegionsDataSourceFilterBlock>? Filter
     {
-        get => GetProperty<HashSet<AwsRegionsDataSourceFilterBlock>>("filter");
-        set => this.WithProperty("filter", value);
+        set => SetProperty("filter", value);
     }
 
     /// <summary>

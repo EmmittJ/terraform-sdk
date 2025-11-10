@@ -13,8 +13,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,6 +54,16 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("grafana_id");
+        SetOutput("group_ids");
+        SetOutput("id");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("private_link_resource_id");
+        SetOutput("private_link_resource_region");
+        SetOutput("private_link_service_url");
+        SetOutput("request_message");
+        SetOutput("tags");
     }
 
     /// <summary>
@@ -66,26 +72,26 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaId is required")]
     public required TerraformProperty<string> GrafanaId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("grafana_id");
-        set => this.WithProperty("grafana_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("grafana_id");
+        set => SetProperty("grafana_id", value);
     }
 
     /// <summary>
     /// The group_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? GroupIds
+    public List<TerraformProperty<string>> GroupIds
     {
-        get => GetProperty<List<TerraformProperty<string>>>("group_ids");
-        set => this.WithProperty("group_ids", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("group_ids");
+        set => SetProperty("group_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -94,8 +100,8 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -104,8 +110,8 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -114,44 +120,44 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkResourceId is required")]
     public required TerraformProperty<string> PrivateLinkResourceId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("private_link_resource_id");
-        set => this.WithProperty("private_link_resource_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_link_resource_id");
+        set => SetProperty("private_link_resource_id", value);
     }
 
     /// <summary>
     /// The private_link_resource_region attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateLinkResourceRegion
+    public TerraformProperty<string> PrivateLinkResourceRegion
     {
-        get => GetProperty<TerraformProperty<string>>("private_link_resource_region");
-        set => this.WithProperty("private_link_resource_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_link_resource_region");
+        set => SetProperty("private_link_resource_region", value);
     }
 
     /// <summary>
     /// The private_link_service_url attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateLinkServiceUrl
+    public TerraformProperty<string> PrivateLinkServiceUrl
     {
-        get => GetProperty<TerraformProperty<string>>("private_link_service_url");
-        set => this.WithProperty("private_link_service_url", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("private_link_service_url");
+        set => SetProperty("private_link_service_url", value);
     }
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
-    public TerraformProperty<string>? RequestMessage
+    public TerraformProperty<string> RequestMessage
     {
-        get => GetProperty<TerraformProperty<string>>("request_message");
-        set => this.WithProperty("request_message", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("request_message");
+        set => SetProperty("request_message", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -160,8 +166,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     /// </summary>
     public AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

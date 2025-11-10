@@ -13,8 +13,7 @@ public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? BranchName
     {
-        get => GetProperty<TerraformProperty<string>>("branch_name");
-        set => WithProperty("branch_name", value);
+        set => SetProperty("branch_name", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? RepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("repository_name");
-        set => WithProperty("repository_name", value);
+        set => SetProperty("repository_name", value);
     }
 
 }
@@ -41,31 +39,39 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutputdes");
-        this.WithOutputnactivity_timeout_minutes");
-        this.WithOutputnstance_type");
-        this.WithOutputast_updated_time");
-        this.WithOutputersistent_storage");
-        this.WithOutputtatus");
-        this.WithOutputtatus_reason");
+        SetOutput("ides");
+        SetOutput("inactivity_timeout_minutes");
+        SetOutput("instance_type");
+        SetOutput("last_updated_time");
+        SetOutput("persistent_storage");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("alias");
+        SetOutput("creator_id");
+        SetOutput("env_id");
+        SetOutput("id");
+        SetOutput("project_name");
+        SetOutput("region");
+        SetOutput("space_name");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformProperty<string>? Alias
+    public TerraformProperty<string> Alias
     {
-        get => GetProperty<TerraformProperty<string>>("alias");
-        set => this.WithProperty("alias", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("alias");
+        set => SetProperty("alias", value);
     }
 
     /// <summary>
     /// The creator_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CreatorId
+    public TerraformProperty<string> CreatorId
     {
-        get => GetProperty<TerraformProperty<string>>("creator_id");
-        set => this.WithProperty("creator_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("creator_id");
+        set => SetProperty("creator_id", value);
     }
 
     /// <summary>
@@ -74,17 +80,17 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
-        set => this.WithProperty("env_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
+        set => SetProperty("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -93,17 +99,17 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
-        set => this.WithProperty("project_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project_name");
+        set => SetProperty("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -112,17 +118,17 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     public required TerraformProperty<string> SpaceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("space_name");
-        set => this.WithProperty("space_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("space_name");
+        set => SetProperty("space_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -132,8 +138,7 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Repositories block(s) allowed")]
     public List<AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock>? Repositories
     {
-        get => GetProperty<List<AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock>>("repositories");
-        set => this.WithProperty("repositories", value);
+        set => SetProperty("repositories", value);
     }
 
     /// <summary>

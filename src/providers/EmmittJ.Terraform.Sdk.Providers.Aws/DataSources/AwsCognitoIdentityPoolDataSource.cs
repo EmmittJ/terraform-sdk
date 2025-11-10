@@ -14,23 +14,27 @@ public class AwsCognitoIdentityPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allow_classic_flow");
-        this.WithOutput("allow_unauthenticated_identities");
-        this.WithOutput("arn");
-        this.WithOutput("cognito_identity_providers");
-        this.WithOutput("developer_provider_name");
-        this.WithOutput("openid_connect_provider_arns");
-        this.WithOutput("saml_provider_arns");
-        this.WithOutput("supported_login_providers");
+        SetOutput("allow_classic_flow");
+        SetOutput("allow_unauthenticated_identities");
+        SetOutput("arn");
+        SetOutput("cognito_identity_providers");
+        SetOutput("developer_provider_name");
+        SetOutput("openid_connect_provider_arns");
+        SetOutput("saml_provider_arns");
+        SetOutput("supported_login_providers");
+        SetOutput("id");
+        SetOutput("identity_pool_name");
+        SetOutput("region");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -39,26 +43,26 @@ public class AwsCognitoIdentityPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolName is required")]
     public required TerraformProperty<string> IdentityPoolName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_name");
-        set => this.WithProperty("identity_pool_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("identity_pool_name");
+        set => SetProperty("identity_pool_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>

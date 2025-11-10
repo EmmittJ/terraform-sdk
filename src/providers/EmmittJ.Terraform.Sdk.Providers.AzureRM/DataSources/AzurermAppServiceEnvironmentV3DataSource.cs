@@ -13,8 +13,7 @@ public class AzurermAppServiceEnvironmentV3DataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,32 +30,35 @@ public class AzurermAppServiceEnvironmentV3DataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("allow_new_private_endpoint_connections");
-        this.WithOutput("cluster_setting");
-        this.WithOutput("dedicated_host_count");
-        this.WithOutput("dns_suffix");
-        this.WithOutput("external_inbound_ip_addresses");
-        this.WithOutput("inbound_network_dependencies");
-        this.WithOutput("internal_inbound_ip_addresses");
-        this.WithOutput("internal_load_balancing_mode");
-        this.WithOutput("ip_ssl_address_count");
-        this.WithOutput("linux_outbound_ip_addresses");
-        this.WithOutput("location");
-        this.WithOutput("pricing_tier");
-        this.WithOutput("remote_debugging_enabled");
-        this.WithOutput("subnet_id");
-        this.WithOutput("tags");
-        this.WithOutput("windows_outbound_ip_addresses");
-        this.WithOutput("zone_redundant");
+        SetOutput("allow_new_private_endpoint_connections");
+        SetOutput("cluster_setting");
+        SetOutput("dedicated_host_count");
+        SetOutput("dns_suffix");
+        SetOutput("external_inbound_ip_addresses");
+        SetOutput("inbound_network_dependencies");
+        SetOutput("internal_inbound_ip_addresses");
+        SetOutput("internal_load_balancing_mode");
+        SetOutput("ip_ssl_address_count");
+        SetOutput("linux_outbound_ip_addresses");
+        SetOutput("location");
+        SetOutput("pricing_tier");
+        SetOutput("remote_debugging_enabled");
+        SetOutput("subnet_id");
+        SetOutput("tags");
+        SetOutput("windows_outbound_ip_addresses");
+        SetOutput("zone_redundant");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermAppServiceEnvironmentV3DataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -75,8 +77,8 @@ public class AzurermAppServiceEnvironmentV3DataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -85,8 +87,7 @@ public class AzurermAppServiceEnvironmentV3DataSource : TerraformDataSource
     /// </summary>
     public AzurermAppServiceEnvironmentV3DataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceEnvironmentV3DataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

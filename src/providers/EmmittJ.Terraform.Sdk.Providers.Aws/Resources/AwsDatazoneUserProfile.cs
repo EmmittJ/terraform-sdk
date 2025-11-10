@@ -13,8 +13,7 @@ public class AwsDatazoneUserProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsDatazoneUserProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -40,9 +38,14 @@ public class AwsDatazoneUserProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("details");
-        this.WithOutput("id");
-        this.WithOutput("type");
+        SetOutput("details");
+        SetOutput("id");
+        SetOutput("type");
+        SetOutput("domain_identifier");
+        SetOutput("region");
+        SetOutput("status");
+        SetOutput("user_identifier");
+        SetOutput("user_type");
     }
 
     /// <summary>
@@ -51,26 +54,26 @@ public class AwsDatazoneUserProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
-        set => this.WithProperty("domain_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_identifier");
+        set => SetProperty("domain_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    public TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
-        set => this.WithProperty("status", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("status");
+        set => SetProperty("status", value);
     }
 
     /// <summary>
@@ -79,17 +82,17 @@ public class AwsDatazoneUserProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserIdentifier is required")]
     public required TerraformProperty<string> UserIdentifier
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_identifier");
-        set => this.WithProperty("user_identifier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_identifier");
+        set => SetProperty("user_identifier", value);
     }
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
-    public TerraformProperty<string>? UserType
+    public TerraformProperty<string> UserType
     {
-        get => GetProperty<TerraformProperty<string>>("user_type");
-        set => this.WithProperty("user_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_type");
+        set => SetProperty("user_type", value);
     }
 
     /// <summary>
@@ -98,8 +101,7 @@ public class AwsDatazoneUserProfile : TerraformResource
     /// </summary>
     public AwsDatazoneUserProfileTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDatazoneUserProfileTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

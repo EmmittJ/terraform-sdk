@@ -13,8 +13,7 @@ public class AzurermPublicIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzurermPublicIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzurermPublicIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzurermPublicIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,8 +54,27 @@ public class AzurermPublicIp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("fqdn");
-        this.WithOutput("ip_address");
+        SetOutput("fqdn");
+        SetOutput("ip_address");
+        SetOutput("allocation_method");
+        SetOutput("ddos_protection_mode");
+        SetOutput("ddos_protection_plan_id");
+        SetOutput("domain_name_label");
+        SetOutput("domain_name_label_scope");
+        SetOutput("edge_zone");
+        SetOutput("id");
+        SetOutput("idle_timeout_in_minutes");
+        SetOutput("ip_tags");
+        SetOutput("ip_version");
+        SetOutput("location");
+        SetOutput("name");
+        SetOutput("public_ip_prefix_id");
+        SetOutput("resource_group_name");
+        SetOutput("reverse_fqdn");
+        SetOutput("sku");
+        SetOutput("sku_tier");
+        SetOutput("tags");
+        SetOutput("zones");
     }
 
     /// <summary>
@@ -68,89 +83,89 @@ public class AzurermPublicIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationMethod is required")]
     public required TerraformProperty<string> AllocationMethod
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("allocation_method");
-        set => this.WithProperty("allocation_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("allocation_method");
+        set => SetProperty("allocation_method", value);
     }
 
     /// <summary>
     /// The ddos_protection_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? DdosProtectionMode
+    public TerraformProperty<string> DdosProtectionMode
     {
-        get => GetProperty<TerraformProperty<string>>("ddos_protection_mode");
-        set => this.WithProperty("ddos_protection_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ddos_protection_mode");
+        set => SetProperty("ddos_protection_mode", value);
     }
 
     /// <summary>
     /// The ddos_protection_plan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DdosProtectionPlanId
+    public TerraformProperty<string> DdosProtectionPlanId
     {
-        get => GetProperty<TerraformProperty<string>>("ddos_protection_plan_id");
-        set => this.WithProperty("ddos_protection_plan_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ddos_protection_plan_id");
+        set => SetProperty("ddos_protection_plan_id", value);
     }
 
     /// <summary>
     /// The domain_name_label attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainNameLabel
+    public TerraformProperty<string> DomainNameLabel
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name_label");
-        set => this.WithProperty("domain_name_label", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name_label");
+        set => SetProperty("domain_name_label", value);
     }
 
     /// <summary>
     /// The domain_name_label_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainNameLabelScope
+    public TerraformProperty<string> DomainNameLabelScope
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name_label_scope");
-        set => this.WithProperty("domain_name_label_scope", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("domain_name_label_scope");
+        set => SetProperty("domain_name_label_scope", value);
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? EdgeZone
+    public TerraformProperty<string> EdgeZone
     {
-        get => GetProperty<TerraformProperty<string>>("edge_zone");
-        set => this.WithProperty("edge_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
+        set => SetProperty("edge_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? IdleTimeoutInMinutes
+    public TerraformProperty<double> IdleTimeoutInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("idle_timeout_in_minutes");
-        set => this.WithProperty("idle_timeout_in_minutes", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("idle_timeout_in_minutes");
+        set => SetProperty("idle_timeout_in_minutes", value);
     }
 
     /// <summary>
     /// The ip_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? IpTags
+    public Dictionary<string, TerraformProperty<string>> IpTags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("ip_tags");
-        set => this.WithProperty("ip_tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("ip_tags");
+        set => SetProperty("ip_tags", value);
     }
 
     /// <summary>
     /// The ip_version attribute.
     /// </summary>
-    public TerraformProperty<string>? IpVersion
+    public TerraformProperty<string> IpVersion
     {
-        get => GetProperty<TerraformProperty<string>>("ip_version");
-        set => this.WithProperty("ip_version", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_version");
+        set => SetProperty("ip_version", value);
     }
 
     /// <summary>
@@ -159,8 +174,8 @@ public class AzurermPublicIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
@@ -169,17 +184,17 @@ public class AzurermPublicIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The public_ip_prefix_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicIpPrefixId
+    public TerraformProperty<string> PublicIpPrefixId
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_prefix_id");
-        set => this.WithProperty("public_ip_prefix_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("public_ip_prefix_id");
+        set => SetProperty("public_ip_prefix_id", value);
     }
 
     /// <summary>
@@ -188,53 +203,53 @@ public class AzurermPublicIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The reverse_fqdn attribute.
     /// </summary>
-    public TerraformProperty<string>? ReverseFqdn
+    public TerraformProperty<string> ReverseFqdn
     {
-        get => GetProperty<TerraformProperty<string>>("reverse_fqdn");
-        set => this.WithProperty("reverse_fqdn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("reverse_fqdn");
+        set => SetProperty("reverse_fqdn", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    public TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
-        set => this.WithProperty("sku", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku");
+        set => SetProperty("sku", value);
     }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuTier
+    public TerraformProperty<string> SkuTier
     {
-        get => GetProperty<TerraformProperty<string>>("sku_tier");
-        set => this.WithProperty("sku_tier", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("sku_tier");
+        set => SetProperty("sku_tier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
+    public HashSet<TerraformProperty<string>> Zones
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
-        set => this.WithProperty("zones", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
+        set => SetProperty("zones", value);
     }
 
     /// <summary>
@@ -243,8 +258,7 @@ public class AzurermPublicIp : TerraformResource
     /// </summary>
     public AzurermPublicIpTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermPublicIpTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

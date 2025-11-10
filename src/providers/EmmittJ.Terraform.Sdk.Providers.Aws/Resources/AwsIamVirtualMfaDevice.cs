@@ -14,47 +14,52 @@ public class AwsIamVirtualMfaDevice : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("base_32_string_seed");
-        this.WithOutput("enable_date");
-        this.WithOutput("qr_code_png");
-        this.WithOutput("user_name");
+        SetOutput("arn");
+        SetOutput("base_32_string_seed");
+        SetOutput("enable_date");
+        SetOutput("qr_code_png");
+        SetOutput("user_name");
+        SetOutput("id");
+        SetOutput("path");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("virtual_mfa_device_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
+    public TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
-        set => this.WithProperty("path", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("path");
+        set => SetProperty("path", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -63,8 +68,8 @@ public class AwsIamVirtualMfaDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMfaDeviceName is required")]
     public required TerraformProperty<string> VirtualMfaDeviceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_mfa_device_name");
-        set => this.WithProperty("virtual_mfa_device_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_mfa_device_name");
+        set => SetProperty("virtual_mfa_device_name", value);
     }
 
     /// <summary>

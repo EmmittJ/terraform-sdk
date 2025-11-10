@@ -13,8 +13,7 @@ public class AzureadApplicationPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AzureadApplicationPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AzureadApplicationPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -40,8 +37,7 @@ public class AzureadApplicationPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -58,8 +54,15 @@ public class AzureadApplicationPassword : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("key_id");
-        this.WithOutput("value");
+        SetOutput("key_id");
+        SetOutput("value");
+        SetOutput("application_id");
+        SetOutput("display_name");
+        SetOutput("end_date");
+        SetOutput("end_date_relative");
+        SetOutput("id");
+        SetOutput("rotate_when_changed");
+        SetOutput("start_date");
     }
 
     /// <summary>
@@ -68,63 +71,63 @@ public class AzureadApplicationPassword : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// A display name for the password
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    public TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// The end date until which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`)
     /// </summary>
-    public TerraformProperty<string>? EndDate
+    public TerraformProperty<string> EndDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_date");
-        set => this.WithProperty("end_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date");
+        set => SetProperty("end_date", value);
     }
 
     /// <summary>
     /// A relative duration for which the password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? EndDateRelative
+    public TerraformProperty<string> EndDateRelative
     {
-        get => GetProperty<TerraformProperty<string>>("end_date_relative");
-        set => this.WithProperty("end_date_relative", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("end_date_relative");
+        set => SetProperty("end_date_relative", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger rotation of the password
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? RotateWhenChanged
+    public Dictionary<string, TerraformProperty<string>> RotateWhenChanged
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("rotate_when_changed");
-        set => this.WithProperty("rotate_when_changed", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("rotate_when_changed");
+        set => SetProperty("rotate_when_changed", value);
     }
 
     /// <summary>
     /// The start date from which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date is used
     /// </summary>
-    public TerraformProperty<string>? StartDate
+    public TerraformProperty<string> StartDate
     {
-        get => GetProperty<TerraformProperty<string>>("start_date");
-        set => this.WithProperty("start_date", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("start_date");
+        set => SetProperty("start_date", value);
     }
 
     /// <summary>
@@ -133,8 +136,7 @@ public class AzureadApplicationPassword : TerraformResource
     /// </summary>
     public AzureadApplicationPasswordTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzureadApplicationPasswordTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AwsVpcBlockPublicAccessOptionsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsVpcBlockPublicAccessOptionsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -31,8 +29,7 @@ public class AwsVpcBlockPublicAccessOptionsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -49,9 +46,11 @@ public class AwsVpcBlockPublicAccessOptions : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("aws_account_id");
-        this.WithOutput("aws_region");
-        this.WithOutput("id");
+        SetOutput("aws_account_id");
+        SetOutput("aws_region");
+        SetOutput("id");
+        SetOutput("internet_gateway_block_mode");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -60,17 +59,17 @@ public class AwsVpcBlockPublicAccessOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternetGatewayBlockMode is required")]
     public required TerraformProperty<string> InternetGatewayBlockMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("internet_gateway_block_mode");
-        set => this.WithProperty("internet_gateway_block_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("internet_gateway_block_mode");
+        set => SetProperty("internet_gateway_block_mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -79,8 +78,7 @@ public class AwsVpcBlockPublicAccessOptions : TerraformResource
     /// </summary>
     public AwsVpcBlockPublicAccessOptionsTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcBlockPublicAccessOptionsTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -22,8 +22,7 @@ public class GoogleStorageBatchOperationsJobDeleteObjectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermanentObjectDeletionEnabled is required")]
     public required TerraformProperty<bool> PermanentObjectDeletionEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("permanent_object_deletion_enabled");
-        set => WithProperty("permanent_object_deletion_enabled", value);
+        set => SetProperty("permanent_object_deletion_enabled", value);
     }
 
 }
@@ -39,8 +38,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CacheControl
     {
-        get => GetProperty<TerraformProperty<string>>("cache_control");
-        set => WithProperty("cache_control", value);
+        set => SetProperty("cache_control", value);
     }
 
     /// <summary>
@@ -48,8 +46,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContentDisposition
     {
-        get => GetProperty<TerraformProperty<string>>("content_disposition");
-        set => WithProperty("content_disposition", value);
+        set => SetProperty("content_disposition", value);
     }
 
     /// <summary>
@@ -57,8 +54,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContentEncoding
     {
-        get => GetProperty<TerraformProperty<string>>("content_encoding");
-        set => WithProperty("content_encoding", value);
+        set => SetProperty("content_encoding", value);
     }
 
     /// <summary>
@@ -66,8 +62,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContentLanguage
     {
-        get => GetProperty<TerraformProperty<string>>("content_language");
-        set => WithProperty("content_language", value);
+        set => SetProperty("content_language", value);
     }
 
     /// <summary>
@@ -75,8 +70,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
-        set => WithProperty("content_type", value);
+        set => SetProperty("content_type", value);
     }
 
     /// <summary>
@@ -84,8 +78,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public Dictionary<string, TerraformProperty<string>>? CustomMetadata
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("custom_metadata");
-        set => WithProperty("custom_metadata", value);
+        set => SetProperty("custom_metadata", value);
     }
 
     /// <summary>
@@ -93,8 +86,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? CustomTime
     {
-        get => GetProperty<TerraformProperty<string>>("custom_time");
-        set => WithProperty("custom_time", value);
+        set => SetProperty("custom_time", value);
     }
 
 }
@@ -110,8 +102,7 @@ public class GoogleStorageBatchOperationsJobPutObjectHoldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? EventBasedHold
     {
-        get => GetProperty<TerraformProperty<string>>("event_based_hold");
-        set => WithProperty("event_based_hold", value);
+        set => SetProperty("event_based_hold", value);
     }
 
     /// <summary>
@@ -119,8 +110,7 @@ public class GoogleStorageBatchOperationsJobPutObjectHoldBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? TemporaryHold
     {
-        get => GetProperty<TerraformProperty<string>>("temporary_hold");
-        set => WithProperty("temporary_hold", value);
+        set => SetProperty("temporary_hold", value);
     }
 
 }
@@ -137,8 +127,7 @@ public class GoogleStorageBatchOperationsJobRewriteObjectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
-        set => WithProperty("kms_key", value);
+        set => SetProperty("kms_key", value);
     }
 
 }
@@ -154,8 +143,7 @@ public class GoogleStorageBatchOperationsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -163,8 +151,7 @@ public class GoogleStorageBatchOperationsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -172,8 +159,7 @@ public class GoogleStorageBatchOperationsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -191,47 +177,51 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("complete_time");
-        this.WithOutput("create_time");
-        this.WithOutput("schedule_time");
-        this.WithOutput("state");
-        this.WithOutput("update_time");
+        SetOutput("complete_time");
+        SetOutput("create_time");
+        SetOutput("schedule_time");
+        SetOutput("state");
+        SetOutput("update_time");
+        SetOutput("delete_protection");
+        SetOutput("id");
+        SetOutput("job_id");
+        SetOutput("project");
     }
 
     /// <summary>
     /// If set to &#39;true&#39;, the storage batch operation job will not be deleted and new job will be created.
     /// </summary>
-    public TerraformProperty<bool>? DeleteProtection
+    public TerraformProperty<bool> DeleteProtection
     {
-        get => GetProperty<TerraformProperty<bool>>("delete_protection");
-        set => this.WithProperty("delete_protection", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("delete_protection");
+        set => SetProperty("delete_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the job.
     /// </summary>
-    public TerraformProperty<string>? JobId
+    public TerraformProperty<string> JobId
     {
-        get => GetProperty<TerraformProperty<string>>("job_id");
-        set => this.WithProperty("job_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("job_id");
+        set => SetProperty("job_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    public TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
-        set => this.WithProperty("project", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        set => SetProperty("project", value);
     }
 
     /// <summary>
@@ -241,8 +231,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BucketList block(s) allowed")]
     public List<GoogleStorageBatchOperationsJobBucketListBlock>? BucketList
     {
-        get => GetProperty<List<GoogleStorageBatchOperationsJobBucketListBlock>>("bucket_list");
-        set => this.WithProperty("bucket_list", value);
+        set => SetProperty("bucket_list", value);
     }
 
     /// <summary>
@@ -252,8 +241,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeleteObject block(s) allowed")]
     public List<GoogleStorageBatchOperationsJobDeleteObjectBlock>? DeleteObject
     {
-        get => GetProperty<List<GoogleStorageBatchOperationsJobDeleteObjectBlock>>("delete_object");
-        set => this.WithProperty("delete_object", value);
+        set => SetProperty("delete_object", value);
     }
 
     /// <summary>
@@ -263,8 +251,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PutMetadata block(s) allowed")]
     public List<GoogleStorageBatchOperationsJobPutMetadataBlock>? PutMetadata
     {
-        get => GetProperty<List<GoogleStorageBatchOperationsJobPutMetadataBlock>>("put_metadata");
-        set => this.WithProperty("put_metadata", value);
+        set => SetProperty("put_metadata", value);
     }
 
     /// <summary>
@@ -274,8 +261,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PutObjectHold block(s) allowed")]
     public List<GoogleStorageBatchOperationsJobPutObjectHoldBlock>? PutObjectHold
     {
-        get => GetProperty<List<GoogleStorageBatchOperationsJobPutObjectHoldBlock>>("put_object_hold");
-        set => this.WithProperty("put_object_hold", value);
+        set => SetProperty("put_object_hold", value);
     }
 
     /// <summary>
@@ -285,8 +271,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RewriteObject block(s) allowed")]
     public List<GoogleStorageBatchOperationsJobRewriteObjectBlock>? RewriteObject
     {
-        get => GetProperty<List<GoogleStorageBatchOperationsJobRewriteObjectBlock>>("rewrite_object");
-        set => this.WithProperty("rewrite_object", value);
+        set => SetProperty("rewrite_object", value);
     }
 
     /// <summary>
@@ -295,8 +280,7 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     public GoogleStorageBatchOperationsJobTimeoutsBlock? Timeouts
     {
-        get => GetProperty<GoogleStorageBatchOperationsJobTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

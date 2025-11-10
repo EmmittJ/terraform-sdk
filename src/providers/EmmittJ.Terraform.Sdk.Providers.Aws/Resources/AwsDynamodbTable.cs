@@ -14,8 +14,7 @@ public class AwsDynamodbTableAttributeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -24,8 +23,7 @@ public class AwsDynamodbTableAttributeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -42,8 +40,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKey is required")]
     public required TerraformProperty<string> HashKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("hash_key");
-        set => WithProperty("hash_key", value);
+        set => SetProperty("hash_key", value);
     }
 
     /// <summary>
@@ -52,8 +49,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -61,8 +57,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? NonKeyAttributes
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("non_key_attributes");
-        set => WithProperty("non_key_attributes", value);
+        set => SetProperty("non_key_attributes", value);
     }
 
     /// <summary>
@@ -71,8 +66,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectionType is required")]
     public required TerraformProperty<string> ProjectionType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("projection_type");
-        set => WithProperty("projection_type", value);
+        set => SetProperty("projection_type", value);
     }
 
     /// <summary>
@@ -80,8 +74,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? RangeKey
     {
-        get => GetProperty<TerraformProperty<string>>("range_key");
-        set => WithProperty("range_key", value);
+        set => SetProperty("range_key", value);
     }
 
     /// <summary>
@@ -89,8 +82,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ReadCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("read_capacity");
-        set => WithProperty("read_capacity", value);
+        set => SetProperty("read_capacity", value);
     }
 
     /// <summary>
@@ -98,8 +90,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? WriteCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("write_capacity");
-        set => WithProperty("write_capacity", value);
+        set => SetProperty("write_capacity", value);
     }
 
 }
@@ -115,8 +106,7 @@ public class AwsDynamodbTableImportTableBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? InputCompressionType
     {
-        get => GetProperty<TerraformProperty<string>>("input_compression_type");
-        set => WithProperty("input_compression_type", value);
+        set => SetProperty("input_compression_type", value);
     }
 
     /// <summary>
@@ -125,8 +115,7 @@ public class AwsDynamodbTableImportTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputFormat is required")]
     public required TerraformProperty<string> InputFormat
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("input_format");
-        set => WithProperty("input_format", value);
+        set => SetProperty("input_format", value);
     }
 
 }
@@ -143,8 +132,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -152,8 +140,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public List<TerraformProperty<string>>? NonKeyAttributes
     {
-        get => GetProperty<List<TerraformProperty<string>>>("non_key_attributes");
-        set => WithProperty("non_key_attributes", value);
+        set => SetProperty("non_key_attributes", value);
     }
 
     /// <summary>
@@ -162,8 +149,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectionType is required")]
     public required TerraformProperty<string> ProjectionType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("projection_type");
-        set => WithProperty("projection_type", value);
+        set => SetProperty("projection_type", value);
     }
 
     /// <summary>
@@ -172,8 +158,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeKey is required")]
     public required TerraformProperty<string> RangeKey
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("range_key");
-        set => WithProperty("range_key", value);
+        set => SetProperty("range_key", value);
     }
 
 }
@@ -189,8 +174,7 @@ public class AwsDynamodbTableOnDemandThroughputBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxReadRequestUnits
     {
-        get => GetProperty<TerraformProperty<double>>("max_read_request_units");
-        set => WithProperty("max_read_request_units", value);
+        set => SetProperty("max_read_request_units", value);
     }
 
     /// <summary>
@@ -198,8 +182,7 @@ public class AwsDynamodbTableOnDemandThroughputBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaxWriteRequestUnits
     {
-        get => GetProperty<TerraformProperty<double>>("max_write_request_units");
-        set => WithProperty("max_write_request_units", value);
+        set => SetProperty("max_write_request_units", value);
     }
 
 }
@@ -216,8 +199,7 @@ public class AwsDynamodbTablePointInTimeRecoveryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -225,8 +207,7 @@ public class AwsDynamodbTablePointInTimeRecoveryBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? RecoveryPeriodInDays
     {
-        get => GetProperty<TerraformProperty<double>>("recovery_period_in_days");
-        set => WithProperty("recovery_period_in_days", value);
+        set => SetProperty("recovery_period_in_days", value);
     }
 
 }
@@ -242,8 +223,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
-        set => WithProperty("arn", value);
+        set => SetProperty("arn", value);
     }
 
     /// <summary>
@@ -251,8 +231,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? ConsistencyMode
     {
-        get => GetProperty<TerraformProperty<string>>("consistency_mode");
-        set => WithProperty("consistency_mode", value);
+        set => SetProperty("consistency_mode", value);
     }
 
     /// <summary>
@@ -260,8 +239,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => WithProperty("deletion_protection_enabled", value);
+        set => SetProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
@@ -269,8 +247,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => WithProperty("kms_key_arn", value);
+        set => SetProperty("kms_key_arn", value);
     }
 
     /// <summary>
@@ -278,8 +255,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PointInTimeRecovery
     {
-        get => GetProperty<TerraformProperty<bool>>("point_in_time_recovery");
-        set => WithProperty("point_in_time_recovery", value);
+        set => SetProperty("point_in_time_recovery", value);
     }
 
     /// <summary>
@@ -287,8 +263,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? PropagateTags
     {
-        get => GetProperty<TerraformProperty<bool>>("propagate_tags");
-        set => WithProperty("propagate_tags", value);
+        set => SetProperty("propagate_tags", value);
     }
 
     /// <summary>
@@ -297,8 +272,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformProperty<string> RegionName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("region_name");
-        set => WithProperty("region_name", value);
+        set => SetProperty("region_name", value);
     }
 
     /// <summary>
@@ -306,8 +280,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("stream_arn");
-        set => WithProperty("stream_arn", value);
+        set => SetProperty("stream_arn", value);
     }
 
     /// <summary>
@@ -315,8 +288,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? StreamLabel
     {
-        get => GetProperty<TerraformProperty<string>>("stream_label");
-        set => WithProperty("stream_label", value);
+        set => SetProperty("stream_label", value);
     }
 
 }
@@ -333,8 +305,7 @@ public class AwsDynamodbTableServerSideEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
@@ -342,8 +313,7 @@ public class AwsDynamodbTableServerSideEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
-        set => WithProperty("kms_key_arn", value);
+        set => SetProperty("kms_key_arn", value);
     }
 
 }
@@ -359,8 +329,7 @@ public class AwsDynamodbTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -368,8 +337,7 @@ public class AwsDynamodbTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -377,8 +345,7 @@ public class AwsDynamodbTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -394,8 +361,7 @@ public class AwsDynamodbTableTtlBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? AttributeName
     {
-        get => GetProperty<TerraformProperty<string>>("attribute_name");
-        set => WithProperty("attribute_name", value);
+        set => SetProperty("attribute_name", value);
     }
 
     /// <summary>
@@ -403,8 +369,7 @@ public class AwsDynamodbTableTtlBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => WithProperty("enabled", value);
+        set => SetProperty("enabled", value);
     }
 
 }
@@ -420,8 +385,7 @@ public class AwsDynamodbTableWarmThroughputBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? ReadUnitsPerSecond
     {
-        get => GetProperty<TerraformProperty<double>>("read_units_per_second");
-        set => WithProperty("read_units_per_second", value);
+        set => SetProperty("read_units_per_second", value);
     }
 
     /// <summary>
@@ -429,8 +393,7 @@ public class AwsDynamodbTableWarmThroughputBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? WriteUnitsPerSecond
     {
-        get => GetProperty<TerraformProperty<double>>("write_units_per_second");
-        set => WithProperty("write_units_per_second", value);
+        set => SetProperty("write_units_per_second", value);
     }
 
 }
@@ -448,45 +411,63 @@ public class AwsDynamodbTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("stream_arn");
-        this.WithOutput("stream_label");
+        SetOutput("arn");
+        SetOutput("stream_arn");
+        SetOutput("stream_label");
+        SetOutput("billing_mode");
+        SetOutput("deletion_protection_enabled");
+        SetOutput("hash_key");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("range_key");
+        SetOutput("read_capacity");
+        SetOutput("region");
+        SetOutput("restore_date_time");
+        SetOutput("restore_source_name");
+        SetOutput("restore_source_table_arn");
+        SetOutput("restore_to_latest_time");
+        SetOutput("stream_enabled");
+        SetOutput("stream_view_type");
+        SetOutput("table_class");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("write_capacity");
     }
 
     /// <summary>
     /// The billing_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? BillingMode
+    public TerraformProperty<string> BillingMode
     {
-        get => GetProperty<TerraformProperty<string>>("billing_mode");
-        set => this.WithProperty("billing_mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("billing_mode");
+        set => SetProperty("billing_mode", value);
     }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool> DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => this.WithProperty("deletion_protection_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
+        set => SetProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
-    public TerraformProperty<string>? HashKey
+    public TerraformProperty<string> HashKey
     {
-        get => GetProperty<TerraformProperty<string>>("hash_key");
-        set => this.WithProperty("hash_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("hash_key");
+        set => SetProperty("hash_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -495,125 +476,125 @@ public class AwsDynamodbTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
-    public TerraformProperty<string>? RangeKey
+    public TerraformProperty<string> RangeKey
     {
-        get => GetProperty<TerraformProperty<string>>("range_key");
-        set => this.WithProperty("range_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("range_key");
+        set => SetProperty("range_key", value);
     }
 
     /// <summary>
     /// The read_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? ReadCapacity
+    public TerraformProperty<double> ReadCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("read_capacity");
-        set => this.WithProperty("read_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("read_capacity");
+        set => SetProperty("read_capacity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The restore_date_time attribute.
     /// </summary>
-    public TerraformProperty<string>? RestoreDateTime
+    public TerraformProperty<string> RestoreDateTime
     {
-        get => GetProperty<TerraformProperty<string>>("restore_date_time");
-        set => this.WithProperty("restore_date_time", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("restore_date_time");
+        set => SetProperty("restore_date_time", value);
     }
 
     /// <summary>
     /// The restore_source_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RestoreSourceName
+    public TerraformProperty<string> RestoreSourceName
     {
-        get => GetProperty<TerraformProperty<string>>("restore_source_name");
-        set => this.WithProperty("restore_source_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("restore_source_name");
+        set => SetProperty("restore_source_name", value);
     }
 
     /// <summary>
     /// The restore_source_table_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RestoreSourceTableArn
+    public TerraformProperty<string> RestoreSourceTableArn
     {
-        get => GetProperty<TerraformProperty<string>>("restore_source_table_arn");
-        set => this.WithProperty("restore_source_table_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("restore_source_table_arn");
+        set => SetProperty("restore_source_table_arn", value);
     }
 
     /// <summary>
     /// The restore_to_latest_time attribute.
     /// </summary>
-    public TerraformProperty<bool>? RestoreToLatestTime
+    public TerraformProperty<bool> RestoreToLatestTime
     {
-        get => GetProperty<TerraformProperty<bool>>("restore_to_latest_time");
-        set => this.WithProperty("restore_to_latest_time", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("restore_to_latest_time");
+        set => SetProperty("restore_to_latest_time", value);
     }
 
     /// <summary>
     /// The stream_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? StreamEnabled
+    public TerraformProperty<bool> StreamEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("stream_enabled");
-        set => this.WithProperty("stream_enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("stream_enabled");
+        set => SetProperty("stream_enabled", value);
     }
 
     /// <summary>
     /// The stream_view_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StreamViewType
+    public TerraformProperty<string> StreamViewType
     {
-        get => GetProperty<TerraformProperty<string>>("stream_view_type");
-        set => this.WithProperty("stream_view_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("stream_view_type");
+        set => SetProperty("stream_view_type", value);
     }
 
     /// <summary>
     /// The table_class attribute.
     /// </summary>
-    public TerraformProperty<string>? TableClass
+    public TerraformProperty<string> TableClass
     {
-        get => GetProperty<TerraformProperty<string>>("table_class");
-        set => this.WithProperty("table_class", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("table_class");
+        set => SetProperty("table_class", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
     /// The write_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? WriteCapacity
+    public TerraformProperty<double> WriteCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("write_capacity");
-        set => this.WithProperty("write_capacity", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("write_capacity");
+        set => SetProperty("write_capacity", value);
     }
 
     /// <summary>
@@ -622,8 +603,7 @@ public class AwsDynamodbTable : TerraformResource
     /// </summary>
     public HashSet<AwsDynamodbTableAttributeBlock>? Attribute
     {
-        get => GetProperty<HashSet<AwsDynamodbTableAttributeBlock>>("attribute");
-        set => this.WithProperty("attribute", value);
+        set => SetProperty("attribute", value);
     }
 
     /// <summary>
@@ -632,8 +612,7 @@ public class AwsDynamodbTable : TerraformResource
     /// </summary>
     public HashSet<AwsDynamodbTableGlobalSecondaryIndexBlock>? GlobalSecondaryIndex
     {
-        get => GetProperty<HashSet<AwsDynamodbTableGlobalSecondaryIndexBlock>>("global_secondary_index");
-        set => this.WithProperty("global_secondary_index", value);
+        set => SetProperty("global_secondary_index", value);
     }
 
     /// <summary>
@@ -643,8 +622,7 @@ public class AwsDynamodbTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImportTable block(s) allowed")]
     public List<AwsDynamodbTableImportTableBlock>? ImportTable
     {
-        get => GetProperty<List<AwsDynamodbTableImportTableBlock>>("import_table");
-        set => this.WithProperty("import_table", value);
+        set => SetProperty("import_table", value);
     }
 
     /// <summary>
@@ -653,8 +631,7 @@ public class AwsDynamodbTable : TerraformResource
     /// </summary>
     public HashSet<AwsDynamodbTableLocalSecondaryIndexBlock>? LocalSecondaryIndex
     {
-        get => GetProperty<HashSet<AwsDynamodbTableLocalSecondaryIndexBlock>>("local_secondary_index");
-        set => this.WithProperty("local_secondary_index", value);
+        set => SetProperty("local_secondary_index", value);
     }
 
     /// <summary>
@@ -664,8 +641,7 @@ public class AwsDynamodbTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnDemandThroughput block(s) allowed")]
     public List<AwsDynamodbTableOnDemandThroughputBlock>? OnDemandThroughput
     {
-        get => GetProperty<List<AwsDynamodbTableOnDemandThroughputBlock>>("on_demand_throughput");
-        set => this.WithProperty("on_demand_throughput", value);
+        set => SetProperty("on_demand_throughput", value);
     }
 
     /// <summary>
@@ -675,8 +651,7 @@ public class AwsDynamodbTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRecovery block(s) allowed")]
     public List<AwsDynamodbTablePointInTimeRecoveryBlock>? PointInTimeRecovery
     {
-        get => GetProperty<List<AwsDynamodbTablePointInTimeRecoveryBlock>>("point_in_time_recovery");
-        set => this.WithProperty("point_in_time_recovery", value);
+        set => SetProperty("point_in_time_recovery", value);
     }
 
     /// <summary>
@@ -685,8 +660,7 @@ public class AwsDynamodbTable : TerraformResource
     /// </summary>
     public HashSet<AwsDynamodbTableReplicaBlock>? Replica
     {
-        get => GetProperty<HashSet<AwsDynamodbTableReplicaBlock>>("replica");
-        set => this.WithProperty("replica", value);
+        set => SetProperty("replica", value);
     }
 
     /// <summary>
@@ -696,8 +670,7 @@ public class AwsDynamodbTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
     public List<AwsDynamodbTableServerSideEncryptionBlock>? ServerSideEncryption
     {
-        get => GetProperty<List<AwsDynamodbTableServerSideEncryptionBlock>>("server_side_encryption");
-        set => this.WithProperty("server_side_encryption", value);
+        set => SetProperty("server_side_encryption", value);
     }
 
     /// <summary>
@@ -706,8 +679,7 @@ public class AwsDynamodbTable : TerraformResource
     /// </summary>
     public AwsDynamodbTableTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsDynamodbTableTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
@@ -717,8 +689,7 @@ public class AwsDynamodbTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ttl block(s) allowed")]
     public List<AwsDynamodbTableTtlBlock>? Ttl
     {
-        get => GetProperty<List<AwsDynamodbTableTtlBlock>>("ttl");
-        set => this.WithProperty("ttl", value);
+        set => SetProperty("ttl", value);
     }
 
     /// <summary>
@@ -728,8 +699,7 @@ public class AwsDynamodbTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WarmThroughput block(s) allowed")]
     public List<AwsDynamodbTableWarmThroughputBlock>? WarmThroughput
     {
-        get => GetProperty<List<AwsDynamodbTableWarmThroughputBlock>>("warm_throughput");
-        set => this.WithProperty("warm_throughput", value);
+        set => SetProperty("warm_throughput", value);
     }
 
     /// <summary>

@@ -13,8 +13,7 @@ public class AzurermVpnServerConfigurationDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,24 +30,27 @@ public class AzurermVpnServerConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("azure_active_directory_authentication");
-        this.WithOutput("client_revoked_certificate");
-        this.WithOutput("client_root_certificate");
-        this.WithOutput("ipsec_policy");
-        this.WithOutput("location");
-        this.WithOutput("radius");
-        this.WithOutput("tags");
-        this.WithOutput("vpn_authentication_types");
-        this.WithOutput("vpn_protocols");
+        SetOutput("azure_active_directory_authentication");
+        SetOutput("client_revoked_certificate");
+        SetOutput("client_root_certificate");
+        SetOutput("ipsec_policy");
+        SetOutput("location");
+        SetOutput("radius");
+        SetOutput("tags");
+        SetOutput("vpn_authentication_types");
+        SetOutput("vpn_protocols");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -57,8 +59,8 @@ public class AzurermVpnServerConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class AzurermVpnServerConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -77,8 +79,7 @@ public class AzurermVpnServerConfigurationDataSource : TerraformDataSource
     /// </summary>
     public AzurermVpnServerConfigurationDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVpnServerConfigurationDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

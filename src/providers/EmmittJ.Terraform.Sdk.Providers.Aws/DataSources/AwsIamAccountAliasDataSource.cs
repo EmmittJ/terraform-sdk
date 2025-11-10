@@ -14,16 +14,17 @@ public class AwsIamAccountAliasDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("account_alias");
+        SetOutput("account_alias");
+        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>

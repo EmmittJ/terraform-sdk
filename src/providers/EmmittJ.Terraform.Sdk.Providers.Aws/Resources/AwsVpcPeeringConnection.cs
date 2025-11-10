@@ -13,8 +13,7 @@ public class AwsVpcPeeringConnectionAccepterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_remote_vpc_dns_resolution");
-        set => WithProperty("allow_remote_vpc_dns_resolution", value);
+        set => SetProperty("allow_remote_vpc_dns_resolution", value);
     }
 
 }
@@ -30,8 +29,7 @@ public class AwsVpcPeeringConnectionRequesterBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_remote_vpc_dns_resolution");
-        set => WithProperty("allow_remote_vpc_dns_resolution", value);
+        set => SetProperty("allow_remote_vpc_dns_resolution", value);
     }
 
 }
@@ -47,8 +45,7 @@ public class AwsVpcPeeringConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -56,8 +53,7 @@ public class AwsVpcPeeringConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -65,8 +61,7 @@ public class AwsVpcPeeringConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -84,43 +79,52 @@ public class AwsVpcPeeringConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("accept_status");
+        SetOutput("accept_status");
+        SetOutput("auto_accept");
+        SetOutput("id");
+        SetOutput("peer_owner_id");
+        SetOutput("peer_region");
+        SetOutput("peer_vpc_id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The auto_accept attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoAccept
+    public TerraformProperty<bool> AutoAccept
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_accept");
-        set => this.WithProperty("auto_accept", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("auto_accept");
+        set => SetProperty("auto_accept", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerOwnerId
+    public TerraformProperty<string> PeerOwnerId
     {
-        get => GetProperty<TerraformProperty<string>>("peer_owner_id");
-        set => this.WithProperty("peer_owner_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_owner_id");
+        set => SetProperty("peer_owner_id", value);
     }
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerRegion
+    public TerraformProperty<string> PeerRegion
     {
-        get => GetProperty<TerraformProperty<string>>("peer_region");
-        set => this.WithProperty("peer_region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_region");
+        set => SetProperty("peer_region", value);
     }
 
     /// <summary>
@@ -129,35 +133,35 @@ public class AwsVpcPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerVpcId is required")]
     public required TerraformProperty<string> PeerVpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("peer_vpc_id");
-        set => this.WithProperty("peer_vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("peer_vpc_id");
+        set => SetProperty("peer_vpc_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -166,8 +170,8 @@ public class AwsVpcPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
-        set => this.WithProperty("vpc_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
+        set => SetProperty("vpc_id", value);
     }
 
     /// <summary>
@@ -177,8 +181,7 @@ public class AwsVpcPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Accepter block(s) allowed")]
     public List<AwsVpcPeeringConnectionAccepterBlock>? Accepter
     {
-        get => GetProperty<List<AwsVpcPeeringConnectionAccepterBlock>>("accepter");
-        set => this.WithProperty("accepter", value);
+        set => SetProperty("accepter", value);
     }
 
     /// <summary>
@@ -188,8 +191,7 @@ public class AwsVpcPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requester block(s) allowed")]
     public List<AwsVpcPeeringConnectionRequesterBlock>? Requester
     {
-        get => GetProperty<List<AwsVpcPeeringConnectionRequesterBlock>>("requester");
-        set => this.WithProperty("requester", value);
+        set => SetProperty("requester", value);
     }
 
     /// <summary>
@@ -198,8 +200,7 @@ public class AwsVpcPeeringConnection : TerraformResource
     /// </summary>
     public AwsVpcPeeringConnectionTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsVpcPeeringConnectionTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

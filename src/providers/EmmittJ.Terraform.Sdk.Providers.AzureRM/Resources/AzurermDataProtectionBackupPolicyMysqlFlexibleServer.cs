@@ -22,8 +22,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => WithProperty("name", value);
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -32,8 +31,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("priority");
-        set => WithProperty("priority", value);
+        set => SetProperty("priority", value);
     }
 
 }
@@ -49,8 +47,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -58,8 +55,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -67,8 +63,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock :
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -86,25 +81,30 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
 
     private void InitializeOutputs()
     {
+        SetOutput("backup_repeating_time_intervals");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("time_zone");
+        SetOutput("vault_id");
     }
 
     /// <summary>
     /// The backup_repeating_time_intervals attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRepeatingTimeIntervals is required")]
-    public List<TerraformProperty<string>>? BackupRepeatingTimeIntervals
+    public List<TerraformProperty<string>> BackupRepeatingTimeIntervals
     {
-        get => GetProperty<List<TerraformProperty<string>>>("backup_repeating_time_intervals");
-        set => this.WithProperty("backup_repeating_time_intervals", value);
+        get => GetRequiredOutput<List<TerraformProperty<string>>>("backup_repeating_time_intervals");
+        set => SetProperty("backup_repeating_time_intervals", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -113,17 +113,17 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    public TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
-        set => this.WithProperty("time_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
+        set => SetProperty("time_zone", value);
     }
 
     /// <summary>
@@ -132,20 +132,20 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformProperty<string> VaultId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("vault_id");
-        set => this.WithProperty("vault_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("vault_id");
+        set => SetProperty("vault_id", value);
     }
 
     /// <summary>
     /// Block for default_retention_rule.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultRetentionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRetentionRule block(s) allowed")]
     public List<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock>? DefaultRetentionRule
     {
-        get => GetProperty<List<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock>>("default_retention_rule");
-        set => this.WithProperty("default_retention_rule", value);
+        set => SetProperty("default_retention_rule", value);
     }
 
     /// <summary>
@@ -154,8 +154,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     /// </summary>
     public List<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock>? RetentionRule
     {
-        get => GetProperty<List<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock>>("retention_rule");
-        set => this.WithProperty("retention_rule", value);
+        set => SetProperty("retention_rule", value);
     }
 
     /// <summary>
@@ -164,8 +163,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     /// </summary>
     public AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

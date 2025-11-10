@@ -14,15 +14,22 @@ public class AwsPinpointGcmChannel : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("api_key");
+        SetOutput("application_id");
+        SetOutput("default_authentication_method");
+        SetOutput("enabled");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("service_json");
     }
 
     /// <summary>
     /// The api_key attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiKey
+    public TerraformProperty<string> ApiKey
     {
-        get => GetProperty<TerraformProperty<string>>("api_key");
-        set => this.WithProperty("api_key", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("api_key");
+        set => SetProperty("api_key", value);
     }
 
     /// <summary>
@@ -31,53 +38,53 @@ public class AwsPinpointGcmChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
-        set => this.WithProperty("application_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
+        set => SetProperty("application_id", value);
     }
 
     /// <summary>
     /// The default_authentication_method attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultAuthenticationMethod
+    public TerraformProperty<string> DefaultAuthenticationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("default_authentication_method");
-        set => this.WithProperty("default_authentication_method", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("default_authentication_method");
+        set => SetProperty("default_authentication_method", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    public TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
-        set => this.WithProperty("enabled", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
+        set => SetProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The service_json attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceJson
+    public TerraformProperty<string> ServiceJson
     {
-        get => GetProperty<TerraformProperty<string>>("service_json");
-        set => this.WithProperty("service_json", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_json");
+        set => SetProperty("service_json", value);
     }
 
 }

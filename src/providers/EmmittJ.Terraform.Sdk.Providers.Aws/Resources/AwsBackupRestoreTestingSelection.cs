@@ -22,6 +22,14 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("iam_role_arn");
+        SetOutput("name");
+        SetOutput("protected_resource_arns");
+        SetOutput("protected_resource_type");
+        SetOutput("region");
+        SetOutput("restore_metadata_overrides");
+        SetOutput("restore_testing_plan_name");
+        SetOutput("validation_window_hours");
     }
 
     /// <summary>
@@ -30,8 +38,8 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
-        set => this.WithProperty("iam_role_arn", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
+        set => SetProperty("iam_role_arn", value);
     }
 
     /// <summary>
@@ -40,17 +48,17 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
     /// The protected_resource_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ProtectedResourceArns
+    public HashSet<TerraformProperty<string>> ProtectedResourceArns
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("protected_resource_arns");
-        set => this.WithProperty("protected_resource_arns", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("protected_resource_arns");
+        set => SetProperty("protected_resource_arns", value);
     }
 
     /// <summary>
@@ -59,26 +67,26 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectedResourceType is required")]
     public required TerraformProperty<string> ProtectedResourceType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("protected_resource_type");
-        set => this.WithProperty("protected_resource_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("protected_resource_type");
+        set => SetProperty("protected_resource_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The restore_metadata_overrides attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? RestoreMetadataOverrides
+    public Dictionary<string, TerraformProperty<string>> RestoreMetadataOverrides
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("restore_metadata_overrides");
-        set => this.WithProperty("restore_metadata_overrides", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("restore_metadata_overrides");
+        set => SetProperty("restore_metadata_overrides", value);
     }
 
     /// <summary>
@@ -87,17 +95,17 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreTestingPlanName is required")]
     public required TerraformProperty<string> RestoreTestingPlanName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("restore_testing_plan_name");
-        set => this.WithProperty("restore_testing_plan_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("restore_testing_plan_name");
+        set => SetProperty("restore_testing_plan_name", value);
     }
 
     /// <summary>
     /// The validation_window_hours attribute.
     /// </summary>
-    public TerraformProperty<double>? ValidationWindowHours
+    public TerraformProperty<double> ValidationWindowHours
     {
-        get => GetProperty<TerraformProperty<double>>("validation_window_hours");
-        set => this.WithProperty("validation_window_hours", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("validation_window_hours");
+        set => SetProperty("validation_window_hours", value);
     }
 
     /// <summary>
@@ -106,8 +114,7 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     /// </summary>
     public List<AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlock>? ProtectedResourceConditions
     {
-        get => GetProperty<List<AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlock>>("protected_resource_conditions");
-        set => this.WithProperty("protected_resource_conditions", value);
+        set => SetProperty("protected_resource_conditions", value);
     }
 
 }

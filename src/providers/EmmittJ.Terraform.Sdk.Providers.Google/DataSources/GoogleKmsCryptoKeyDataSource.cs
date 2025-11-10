@@ -14,26 +14,29 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("crypto_key_backend");
-        this.WithOutput("destroy_scheduled_duration");
-        this.WithOutput("effective_labels");
-        this.WithOutput("import_only");
-        this.WithOutput("labels");
-        this.WithOutput("primary");
-        this.WithOutput("purpose");
-        this.WithOutput("rotation_period");
-        this.WithOutput("skip_initial_version_creation");
-        this.WithOutput("terraform_labels");
-        this.WithOutput("version_template");
+        SetOutput("crypto_key_backend");
+        SetOutput("destroy_scheduled_duration");
+        SetOutput("effective_labels");
+        SetOutput("import_only");
+        SetOutput("labels");
+        SetOutput("primary");
+        SetOutput("purpose");
+        SetOutput("rotation_period");
+        SetOutput("skip_initial_version_creation");
+        SetOutput("terraform_labels");
+        SetOutput("version_template");
+        SetOutput("id");
+        SetOutput("key_ring");
+        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -43,8 +46,8 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformProperty<string> KeyRing
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("key_ring");
-        set => this.WithProperty("key_ring", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("key_ring");
+        set => SetProperty("key_ring", value);
     }
 
     /// <summary>
@@ -53,8 +56,8 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>

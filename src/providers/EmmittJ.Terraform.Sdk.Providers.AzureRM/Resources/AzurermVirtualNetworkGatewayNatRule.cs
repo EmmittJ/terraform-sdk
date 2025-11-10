@@ -14,8 +14,7 @@ public class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformProperty<string> AddressSpace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("address_space");
-        set => WithProperty("address_space", value);
+        set => SetProperty("address_space", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? PortRange
     {
-        get => GetProperty<TerraformProperty<string>>("port_range");
-        set => WithProperty("port_range", value);
+        set => SetProperty("port_range", value);
     }
 
 }
@@ -41,8 +39,7 @@ public class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformProperty<string> AddressSpace
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("address_space");
-        set => WithProperty("address_space", value);
+        set => SetProperty("address_space", value);
     }
 
     /// <summary>
@@ -50,8 +47,7 @@ public class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? PortRange
     {
-        get => GetProperty<TerraformProperty<string>>("port_range");
-        set => WithProperty("port_range", value);
+        set => SetProperty("port_range", value);
     }
 
 }
@@ -67,8 +63,7 @@ public class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -76,8 +71,7 @@ public class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -85,8 +79,7 @@ public class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
     /// <summary>
@@ -94,8 +87,7 @@ public class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -113,33 +105,40 @@ public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("id");
+        SetOutput("ip_configuration_id");
+        SetOutput("mode");
+        SetOutput("name");
+        SetOutput("resource_group_name");
+        SetOutput("type");
+        SetOutput("virtual_network_gateway_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IpConfigurationId
+    public TerraformProperty<string> IpConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("ip_configuration_id");
-        set => this.WithProperty("ip_configuration_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("ip_configuration_id");
+        set => SetProperty("ip_configuration_id", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
+    public TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
-        set => this.WithProperty("mode", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("mode");
+        set => SetProperty("mode", value);
     }
 
     /// <summary>
@@ -148,8 +147,8 @@ public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -158,17 +157,17 @@ public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    public TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
-        set => this.WithProperty("type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("type");
+        set => SetProperty("type", value);
     }
 
     /// <summary>
@@ -177,30 +176,30 @@ public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkGatewayId is required")]
     public required TerraformProperty<string> VirtualNetworkGatewayId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_gateway_id");
-        set => this.WithProperty("virtual_network_gateway_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_gateway_id");
+        set => SetProperty("virtual_network_gateway_id", value);
     }
 
     /// <summary>
     /// Block for external_mapping.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalMapping is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExternalMapping block(s) required")]
     public List<AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock>? ExternalMapping
     {
-        get => GetProperty<List<AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock>>("external_mapping");
-        set => this.WithProperty("external_mapping", value);
+        set => SetProperty("external_mapping", value);
     }
 
     /// <summary>
     /// Block for internal_mapping.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternalMapping is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InternalMapping block(s) required")]
     public List<AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock>? InternalMapping
     {
-        get => GetProperty<List<AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock>>("internal_mapping");
-        set => this.WithProperty("internal_mapping", value);
+        set => SetProperty("internal_mapping", value);
     }
 
     /// <summary>
@@ -209,8 +208,7 @@ public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     /// </summary>
     public AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

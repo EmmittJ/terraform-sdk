@@ -13,8 +13,7 @@ public class AwsMemorydbUserAuthenticationModeBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? PasswordCount
     {
-        get => GetProperty<TerraformProperty<double>>("password_count");
-        set => WithProperty("password_count", value);
+        set => SetProperty("password_count", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsMemorydbUserAuthenticationModeBlock : TerraformBlock
     /// </summary>
     public HashSet<TerraformProperty<string>>? Passwords
     {
-        get => GetProperty<HashSet<TerraformProperty<string>>>("passwords");
-        set => WithProperty("passwords", value);
+        set => SetProperty("passwords", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsMemorydbUserAuthenticationModeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("type");
-        set => WithProperty("type", value);
+        set => SetProperty("type", value);
     }
 
 }
@@ -51,8 +48,14 @@ public class AwsMemorydbUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("arn");
-        this.WithOutput("minimum_engine_version");
+        SetOutput("arn");
+        SetOutput("minimum_engine_version");
+        SetOutput("access_string");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("tags");
+        SetOutput("tags_all");
+        SetOutput("user_name");
     }
 
     /// <summary>
@@ -61,44 +64,44 @@ public class AwsMemorydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessString is required")]
     public required TerraformProperty<string> AccessString
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("access_string");
-        set => this.WithProperty("access_string", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("access_string");
+        set => SetProperty("access_string", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TagsAll
+    public Dictionary<string, TerraformProperty<string>> TagsAll
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => this.WithProperty("tags_all", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
+        set => SetProperty("tags_all", value);
     }
 
     /// <summary>
@@ -107,20 +110,20 @@ public class AwsMemorydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
-        set => this.WithProperty("user_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
+        set => SetProperty("user_name", value);
     }
 
     /// <summary>
     /// Block for authentication_mode.
     /// Nesting mode: list
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMode is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationMode block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationMode block(s) allowed")]
     public List<AwsMemorydbUserAuthenticationModeBlock>? AuthenticationMode
     {
-        get => GetProperty<List<AwsMemorydbUserAuthenticationModeBlock>>("authentication_mode");
-        set => this.WithProperty("authentication_mode", value);
+        set => SetProperty("authentication_mode", value);
     }
 
     /// <summary>

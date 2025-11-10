@@ -13,8 +13,7 @@ public class AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,29 +30,32 @@ public class AzurermMonitorScheduledQueryRulesAlertDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.WithOutput("action");
-        this.WithOutput("authorized_resource_ids");
-        this.WithOutput("data_source_id");
-        this.WithOutput("description");
-        this.WithOutput("enabled");
-        this.WithOutput("frequency");
-        this.WithOutput("location");
-        this.WithOutput("query");
-        this.WithOutput("query_type");
-        this.WithOutput("severity");
-        this.WithOutput("tags");
-        this.WithOutput("throttling");
-        this.WithOutput("time_window");
-        this.WithOutput("trigger");
+        SetOutput("action");
+        SetOutput("authorized_resource_ids");
+        SetOutput("data_source_id");
+        SetOutput("description");
+        SetOutput("enabled");
+        SetOutput("frequency");
+        SetOutput("location");
+        SetOutput("query");
+        SetOutput("query_type");
+        SetOutput("severity");
+        SetOutput("tags");
+        SetOutput("throttling");
+        SetOutput("time_window");
+        SetOutput("trigger");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -62,8 +64,8 @@ public class AzurermMonitorScheduledQueryRulesAlertDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -72,8 +74,8 @@ public class AzurermMonitorScheduledQueryRulesAlertDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -82,8 +84,7 @@ public class AzurermMonitorScheduledQueryRulesAlertDataSource : TerraformDataSou
     /// </summary>
     public AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

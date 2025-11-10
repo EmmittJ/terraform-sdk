@@ -14,23 +14,28 @@ public class AwsServicequotasServiceQuota : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("adjustable");
-        this.WithOutput("arn");
-        this.WithOutput("default_value");
-        this.WithOutput("quota_name");
-        this.WithOutput("request_id");
-        this.WithOutput("request_status");
-        this.WithOutput("service_name");
-        this.WithOutput("usage_metric");
+        SetOutput("adjustable");
+        SetOutput("arn");
+        SetOutput("default_value");
+        SetOutput("quota_name");
+        SetOutput("request_id");
+        SetOutput("request_status");
+        SetOutput("service_name");
+        SetOutput("usage_metric");
+        SetOutput("id");
+        SetOutput("quota_code");
+        SetOutput("region");
+        SetOutput("service_code");
+        SetOutput("value");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -39,17 +44,17 @@ public class AwsServicequotasServiceQuota : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaCode is required")]
     public required TerraformProperty<string> QuotaCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("quota_code");
-        set => this.WithProperty("quota_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("quota_code");
+        set => SetProperty("quota_code", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -58,8 +63,8 @@ public class AwsServicequotasServiceQuota : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformProperty<string> ServiceCode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("service_code");
-        set => this.WithProperty("service_code", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("service_code");
+        set => SetProperty("service_code", value);
     }
 
     /// <summary>
@@ -68,8 +73,8 @@ public class AwsServicequotasServiceQuota : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<double> Value
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("value");
-        set => this.WithProperty("value", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("value");
+        set => SetProperty("value", value);
     }
 
     /// <summary>

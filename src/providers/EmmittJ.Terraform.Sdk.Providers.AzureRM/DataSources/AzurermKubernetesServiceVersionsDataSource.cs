@@ -13,8 +13,7 @@ public class AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,27 +30,31 @@ public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("default_version");
-        this.WithOutput("latest_version");
-        this.WithOutput("versions");
+        SetOutput("default_version");
+        SetOutput("latest_version");
+        SetOutput("versions");
+        SetOutput("id");
+        SetOutput("include_preview");
+        SetOutput("location");
+        SetOutput("version_prefix");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// The include_preview attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludePreview
+    public TerraformProperty<bool> IncludePreview
     {
-        get => GetProperty<TerraformProperty<bool>>("include_preview");
-        set => this.WithProperty("include_preview", value);
+        get => GetRequiredOutput<TerraformProperty<bool>>("include_preview");
+        set => SetProperty("include_preview", value);
     }
 
     /// <summary>
@@ -60,17 +63,17 @@ public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("location");
-        set => this.WithProperty("location", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("location");
+        set => SetProperty("location", value);
     }
 
     /// <summary>
     /// The version_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionPrefix
+    public TerraformProperty<string> VersionPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("version_prefix");
-        set => this.WithProperty("version_prefix", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("version_prefix");
+        set => SetProperty("version_prefix", value);
     }
 
     /// <summary>
@@ -79,8 +82,7 @@ public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
     /// </summary>
     public AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

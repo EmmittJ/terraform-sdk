@@ -14,6 +14,10 @@ public class AwsLightsailBucketResourceAccess : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("bucket_name");
+        SetOutput("id");
+        SetOutput("region");
+        SetOutput("resource_name");
     }
 
     /// <summary>
@@ -22,26 +26,26 @@ public class AwsLightsailBucketResourceAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
-        set => this.WithProperty("bucket_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("bucket_name");
+        set => SetProperty("bucket_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -50,8 +54,8 @@ public class AwsLightsailBucketResourceAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
     public required TerraformProperty<string> ResourceName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_name");
-        set => this.WithProperty("resource_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_name");
+        set => SetProperty("resource_name", value);
     }
 
 }

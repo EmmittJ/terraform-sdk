@@ -14,8 +14,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomActionTimeoutInMins is required")]
     public required TerraformProperty<double> CustomActionTimeoutInMins
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("custom_action_timeout_in_mins");
-        set => WithProperty("custom_action_timeout_in_mins", value);
+        set => SetProperty("custom_action_timeout_in_mins", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public HashSet<TerraformProperty<object>>? DaysOfWeek
     {
-        get => GetProperty<HashSet<TerraformProperty<object>>>("days_of_week");
-        set => WithProperty("days_of_week", value);
+        set => SetProperty("days_of_week", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public HashSet<TerraformProperty<double>>? HoursOfDay
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("hours_of_day");
-        set => WithProperty("hours_of_day", value);
+        set => SetProperty("hours_of_day", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsCustomActionTimeoutEnabled is required")]
     public required TerraformProperty<bool> IsCustomActionTimeoutEnabled
     {
-        get => GetRequiredProperty<TerraformProperty<bool>>("is_custom_action_timeout_enabled");
-        set => WithProperty("is_custom_action_timeout_enabled", value);
+        set => SetProperty("is_custom_action_timeout_enabled", value);
     }
 
     /// <summary>
@@ -51,8 +47,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformProperty<double>? LeadTimeInWeeks
     {
-        get => GetProperty<TerraformProperty<double>>("lead_time_in_weeks");
-        set => WithProperty("lead_time_in_weeks", value);
+        set => SetProperty("lead_time_in_weeks", value);
     }
 
     /// <summary>
@@ -60,8 +55,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public HashSet<TerraformProperty<object>>? Months
     {
-        get => GetProperty<HashSet<TerraformProperty<object>>>("months");
-        set => WithProperty("months", value);
+        set => SetProperty("months", value);
     }
 
     /// <summary>
@@ -70,8 +64,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchingMode is required")]
     public required TerraformProperty<string> PatchingMode
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("patching_mode");
-        set => WithProperty("patching_mode", value);
+        set => SetProperty("patching_mode", value);
     }
 
     /// <summary>
@@ -80,8 +73,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformProperty<string> Preference
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("preference");
-        set => WithProperty("preference", value);
+        set => SetProperty("preference", value);
     }
 
     /// <summary>
@@ -89,8 +81,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     /// </summary>
     public HashSet<TerraformProperty<double>>? WeeksOfMonth
     {
-        get => GetProperty<HashSet<TerraformProperty<double>>>("weeks_of_month");
-        set => WithProperty("weeks_of_month", value);
+        set => SetProperty("weeks_of_month", value);
     }
 
 }
@@ -106,8 +97,7 @@ public class AwsOdbCloudExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -115,8 +105,7 @@ public class AwsOdbCloudExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
     /// <summary>
@@ -124,8 +113,7 @@ public class AwsOdbCloudExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<string>? Update
     {
-        get => GetProperty<TerraformProperty<string>>("update");
-        set => WithProperty("update", value);
+        set => SetProperty("update", value);
     }
 
 }
@@ -142,44 +130,55 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("activated_storage_count");
-        this.WithOutput("additional_storage_count");
-        this.WithOutput("arn");
-        this.WithOutput("available_storage_size_in_gbs");
-        this.WithOutput("compute_model");
-        this.WithOutput("cpu_count");
-        this.WithOutput("created_at");
-        this.WithOutput("data_storage_size_in_tbs");
-        this.WithOutput("db_node_storage_size_in_gbs");
-        this.WithOutput("db_server_version");
-        this.WithOutput("id");
-        this.WithOutput("last_maintenance_run_id");
-        this.WithOutput("max_cpu_count");
-        this.WithOutput("max_data_storage_in_tbs");
-        this.WithOutput("max_db_node_storage_size_in_gbs");
-        this.WithOutput("max_memory_in_gbs");
-        this.WithOutput("memory_size_in_gbs");
-        this.WithOutput("monthly_db_server_version");
-        this.WithOutput("monthly_storage_server_version");
-        this.WithOutput("next_maintenance_run_id");
-        this.WithOutput("oci_resource_anchor_name");
-        this.WithOutput("oci_url");
-        this.WithOutput("ocid");
-        this.WithOutput("percent_progress");
-        this.WithOutput("status");
-        this.WithOutput("status_reason");
-        this.WithOutput("storage_server_version");
-        this.WithOutput("tags_all");
-        this.WithOutput("total_storage_size_in_gbs");
+        SetOutput("activated_storage_count");
+        SetOutput("additional_storage_count");
+        SetOutput("arn");
+        SetOutput("available_storage_size_in_gbs");
+        SetOutput("compute_model");
+        SetOutput("cpu_count");
+        SetOutput("created_at");
+        SetOutput("data_storage_size_in_tbs");
+        SetOutput("db_node_storage_size_in_gbs");
+        SetOutput("db_server_version");
+        SetOutput("id");
+        SetOutput("last_maintenance_run_id");
+        SetOutput("max_cpu_count");
+        SetOutput("max_data_storage_in_tbs");
+        SetOutput("max_db_node_storage_size_in_gbs");
+        SetOutput("max_memory_in_gbs");
+        SetOutput("memory_size_in_gbs");
+        SetOutput("monthly_db_server_version");
+        SetOutput("monthly_storage_server_version");
+        SetOutput("next_maintenance_run_id");
+        SetOutput("oci_resource_anchor_name");
+        SetOutput("oci_url");
+        SetOutput("ocid");
+        SetOutput("percent_progress");
+        SetOutput("status");
+        SetOutput("status_reason");
+        SetOutput("storage_server_version");
+        SetOutput("tags_all");
+        SetOutput("total_storage_size_in_gbs");
+        SetOutput("availability_zone");
+        SetOutput("availability_zone_id");
+        SetOutput("compute_count");
+        SetOutput("customer_contacts_to_send_to_oci");
+        SetOutput("database_server_type");
+        SetOutput("display_name");
+        SetOutput("region");
+        SetOutput("shape");
+        SetOutput("storage_count");
+        SetOutput("storage_server_type");
+        SetOutput("tags");
     }
 
     /// <summary>
     /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZone
+    public TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
-        set => this.WithProperty("availability_zone", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
+        set => SetProperty("availability_zone", value);
     }
 
     /// <summary>
@@ -188,35 +187,35 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone_id");
-        set => this.WithProperty("availability_zone_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone_id");
+        set => SetProperty("availability_zone_id", value);
     }
 
     /// <summary>
     ///  The number of compute instances that the Exadata infrastructure is located
     /// </summary>
-    public TerraformProperty<double>? ComputeCount
+    public TerraformProperty<double> ComputeCount
     {
-        get => GetProperty<TerraformProperty<double>>("compute_count");
-        set => this.WithProperty("compute_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("compute_count");
+        set => SetProperty("compute_count", value);
     }
 
     /// <summary>
     /// The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource
     /// </summary>
-    public HashSet<TerraformProperty<object>>? CustomerContactsToSendToOci
+    public HashSet<TerraformProperty<object>> CustomerContactsToSendToOci
     {
-        get => GetProperty<HashSet<TerraformProperty<object>>>("customer_contacts_to_send_to_oci");
-        set => this.WithProperty("customer_contacts_to_send_to_oci", value);
+        get => GetRequiredOutput<HashSet<TerraformProperty<object>>>("customer_contacts_to_send_to_oci");
+        set => SetProperty("customer_contacts_to_send_to_oci", value);
     }
 
     /// <summary>
     /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
     /// </summary>
-    public TerraformProperty<string>? DatabaseServerType
+    public TerraformProperty<string> DatabaseServerType
     {
-        get => GetProperty<TerraformProperty<string>>("database_server_type");
-        set => this.WithProperty("database_server_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("database_server_type");
+        set => SetProperty("database_server_type", value);
     }
 
     /// <summary>
@@ -225,17 +224,17 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
-        set => this.WithProperty("display_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
+        set => SetProperty("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -244,35 +243,35 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformProperty<string> Shape
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("shape");
-        set => this.WithProperty("shape", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("shape");
+        set => SetProperty("shape", value);
     }
 
     /// <summary>
     /// TThe number of storage servers that are activated for the Exadata infrastructure
     /// </summary>
-    public TerraformProperty<double>? StorageCount
+    public TerraformProperty<double> StorageCount
     {
-        get => GetProperty<TerraformProperty<double>>("storage_count");
-        set => this.WithProperty("storage_count", value);
+        get => GetRequiredOutput<TerraformProperty<double>>("storage_count");
+        set => SetProperty("storage_count", value);
     }
 
     /// <summary>
     /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
     /// </summary>
-    public TerraformProperty<string>? StorageServerType
+    public TerraformProperty<string> StorageServerType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_server_type");
-        set => this.WithProperty("storage_server_type", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("storage_server_type");
+        set => SetProperty("storage_server_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
+    public Dictionary<string, TerraformProperty<string>> Tags
     {
-        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => this.WithProperty("tags", value);
+        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => SetProperty("tags", value);
     }
 
     /// <summary>
@@ -281,8 +280,7 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     /// </summary>
     public List<AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetProperty<List<AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock>>("maintenance_window");
-        set => this.WithProperty("maintenance_window", value);
+        set => SetProperty("maintenance_window", value);
     }
 
     /// <summary>
@@ -291,8 +289,7 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     /// </summary>
     public AwsOdbCloudExadataInfrastructureTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsOdbCloudExadataInfrastructureTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>

@@ -14,8 +14,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCapacityUnits is required")]
     public required TerraformProperty<double> MaximumCapacityUnits
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("maximum_capacity_units");
-        set => WithProperty("maximum_capacity_units", value);
+        set => SetProperty("maximum_capacity_units", value);
     }
 
     /// <summary>
@@ -23,8 +22,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumCoreCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_core_capacity_units");
-        set => WithProperty("maximum_core_capacity_units", value);
+        set => SetProperty("maximum_core_capacity_units", value);
     }
 
     /// <summary>
@@ -32,8 +30,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformProperty<double>? MaximumOndemandCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_ondemand_capacity_units");
-        set => WithProperty("maximum_ondemand_capacity_units", value);
+        set => SetProperty("maximum_ondemand_capacity_units", value);
     }
 
     /// <summary>
@@ -42,8 +39,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCapacityUnits is required")]
     public required TerraformProperty<double> MinimumCapacityUnits
     {
-        get => GetRequiredProperty<TerraformProperty<double>>("minimum_capacity_units");
-        set => WithProperty("minimum_capacity_units", value);
+        set => SetProperty("minimum_capacity_units", value);
     }
 
     /// <summary>
@@ -52,8 +48,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnitType is required")]
     public required TerraformProperty<string> UnitType
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("unit_type");
-        set => WithProperty("unit_type", value);
+        set => SetProperty("unit_type", value);
     }
 
 }
@@ -71,6 +66,9 @@ public class AwsEmrManagedScalingPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
+        SetOutput("cluster_id");
+        SetOutput("id");
+        SetOutput("region");
     }
 
     /// <summary>
@@ -79,37 +77,37 @@ public class AwsEmrManagedScalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
-        set => this.WithProperty("cluster_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
+        set => SetProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
     /// Block for compute_limits.
     /// Nesting mode: set
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeLimits is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComputeLimits block(s) required")]
     public HashSet<AwsEmrManagedScalingPolicyComputeLimitsBlock>? ComputeLimits
     {
-        get => GetProperty<HashSet<AwsEmrManagedScalingPolicyComputeLimitsBlock>>("compute_limits");
-        set => this.WithProperty("compute_limits", value);
+        set => SetProperty("compute_limits", value);
     }
 
 }

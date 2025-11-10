@@ -13,8 +13,7 @@ public class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Create
     {
-        get => GetProperty<TerraformProperty<string>>("create");
-        set => WithProperty("create", value);
+        set => SetProperty("create", value);
     }
 
     /// <summary>
@@ -22,8 +21,7 @@ public class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterTimeoutsB
     /// </summary>
     public TerraformProperty<string>? Delete
     {
-        get => GetProperty<TerraformProperty<string>>("delete");
-        set => WithProperty("delete", value);
+        set => SetProperty("delete", value);
     }
 
 }
@@ -40,15 +38,17 @@ public class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter : Terraf
 
     private void InitializeOutputs()
     {
+        SetOutput("region");
+        SetOutput("transit_gateway_attachment_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string>? Region
+    public TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
-        set => this.WithProperty("region", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        set => SetProperty("region", value);
     }
 
     /// <summary>
@@ -57,8 +57,8 @@ public class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
     public required TerraformProperty<string> TransitGatewayAttachmentId
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
-        set => this.WithProperty("transit_gateway_attachment_id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_attachment_id");
+        set => SetProperty("transit_gateway_attachment_id", value);
     }
 
     /// <summary>
@@ -67,8 +67,7 @@ public class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter : Terraf
     /// </summary>
     public AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
 }

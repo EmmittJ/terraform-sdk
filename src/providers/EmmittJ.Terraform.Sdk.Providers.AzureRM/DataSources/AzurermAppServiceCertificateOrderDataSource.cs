@@ -13,8 +13,7 @@ public class AzurermAppServiceCertificateOrderDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformProperty<string>? Read
     {
-        get => GetProperty<TerraformProperty<string>>("read");
-        set => WithProperty("read", value);
+        set => SetProperty("read", value);
     }
 
 }
@@ -31,32 +30,35 @@ public class AzurermAppServiceCertificateOrderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.WithOutput("app_service_certificate_not_renewable_reasons");
-        this.WithOutput("auto_renew");
-        this.WithOutput("certificates");
-        this.WithOutput("csr");
-        this.WithOutput("distinguished_name");
-        this.WithOutput("domain_verification_token");
-        this.WithOutput("expiration_time");
-        this.WithOutput("intermediate_thumbprint");
-        this.WithOutput("is_private_key_external");
-        this.WithOutput("key_size");
-        this.WithOutput("location");
-        this.WithOutput("product_type");
-        this.WithOutput("root_thumbprint");
-        this.WithOutput("signed_certificate_thumbprint");
-        this.WithOutput("status");
-        this.WithOutput("tags");
-        this.WithOutput("validity_in_years");
+        SetOutput("app_service_certificate_not_renewable_reasons");
+        SetOutput("auto_renew");
+        SetOutput("certificates");
+        SetOutput("csr");
+        SetOutput("distinguished_name");
+        SetOutput("domain_verification_token");
+        SetOutput("expiration_time");
+        SetOutput("intermediate_thumbprint");
+        SetOutput("is_private_key_external");
+        SetOutput("key_size");
+        SetOutput("location");
+        SetOutput("product_type");
+        SetOutput("root_thumbprint");
+        SetOutput("signed_certificate_thumbprint");
+        SetOutput("status");
+        SetOutput("tags");
+        SetOutput("validity_in_years");
+        SetOutput("id");
+        SetOutput("name");
+        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
-        set => this.WithProperty("id", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
+        set => SetProperty("id", value);
     }
 
     /// <summary>
@@ -65,8 +67,8 @@ public class AzurermAppServiceCertificateOrderDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("name");
-        set => this.WithProperty("name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("name");
+        set => SetProperty("name", value);
     }
 
     /// <summary>
@@ -75,8 +77,8 @@ public class AzurermAppServiceCertificateOrderDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
-        set => this.WithProperty("resource_group_name", value);
+        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
+        set => SetProperty("resource_group_name", value);
     }
 
     /// <summary>
@@ -85,8 +87,7 @@ public class AzurermAppServiceCertificateOrderDataSource : TerraformDataSource
     /// </summary>
     public AzurermAppServiceCertificateOrderDataSourceTimeoutsBlock? Timeouts
     {
-        get => GetProperty<AzurermAppServiceCertificateOrderDataSourceTimeoutsBlock>("timeouts");
-        set => this.WithProperty("timeouts", value);
+        set => SetProperty("timeouts", value);
     }
 
     /// <summary>
